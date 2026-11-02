@@ -1,0 +1,197 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:01:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the conditional two-voter gain/loss probabilities: the sole flips occur at original r and r+1 successes, giving exactly binom(2r+1,r)(2p-1)[p(1-p)]^(r+1). Grouping equal lambda=p(1-p) and discarding zero combined coefficients gives an exponential polynomial with d distinct positive bases. Rolle induction after dividing by the smallest exponential yields at most d-1 real zeros, and each strict sampled reversal forces a different real zero; d=0 gives identically zero increments, d=1 gives no reversals. For every d>=2, Q_d(z)=z*prod_{j=0}^{d-2}(z-t^(2j+3)) with 0<t<1/2 has d nonzero alternating coefficients, and its roots separate z_r=t^(2r+2) for the first d values. Choosing p_i=(1+sgn(c_i)*sqrt(1-4t^(2i)))/2 and w_i proportional to |c_i|/sqrt(1-4t^(2i)) gives valid 0<p_i<1 and w_i>0 and realizes increments binom*Q_d(z_r)/W; the t->0 limit sends favorable state weight, favorable competence, and E[P] to 1. Conditional iid common-P covariance Var(P)>0 since the constructed states differ. The infinite claim follows from these symbolic proofs, not finite numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dietrich–Spiekermann sufficient conditions for monotone gains assume mirrored latent mass dominance, not mere high unconditional voter correctness.",
+          "Berend–Sapir (2007) abstract claims necessary and sufficient enlargement conditions for dependent committees, but the full theorem is inaccessible, so its stronger-coverage question remains a named residual risk.",
+          "Published Resultary tail-envelope record optimizes each fixed threshold across latent laws; its quantifiers do not dominate a sign-complexity count for one fixed latent law."
+        ],
+        "reasoning": "Fixed-mean tail envelopes and mirror-dominance monotonicity do not force an upper bound on alternating signs along a fixed arbitrary finite mixing law; the obtained proof needs d distinct variability rates and a simultaneous attaining construction. Because the Berend–Sapir complete paper cannot be read, absence of stronger implicit coverage is not certified.",
+        "searches": [
+          "finite support correlated Condorcet majority jury accuracy as number of voters increases alternating sign reversals latent reliability mixing de Finetti",
+          "Berend Sapir 2007 dependent voters monotonicity random subcommittee augmentation",
+          "Dietrich Spiekermann 2012 de Finetti strong monotonicity Pr(P=1/2+e)",
+          "https://mpra.ub.uni-muenchen.de/40135/1/MPRA_paper_40135.pdf",
+          "https://doi.org/10.1007/s00355-006-0179-y",
+          "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://mpra.ub.uni-muenchen.de/40135/1/MPRA_paper_40135.pdf",
+        "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/condorcet.pdf",
+        "https://doi.org/10.1007/s00355-006-0179-y",
+        "https://cris.bgu.ac.il/en/publications/monotonicity-in-condorcets-jury-theorem-with-dependent-voters/",
+        "https://www.lse.ac.uk/cpnss/assets/documents/voting-power-and-procedures/workshops/2011/Kaniovski-Paper.pdf",
+        "https://econ.biu.ac.il/sites/econ/files/shared/staff/u37/the_survey_13.11.13.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/a-sharp-support-size-law-for-majority-accuracy-reversals-under-s--5099ff0be1f8/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper of Dietrich–Spiekermann and its Appendix C supply the binomial increment identity, but its sufficient monotonicity hypotheses exclude the constructed alternating mixtures.",
+          "Classical Rolle induction bounds zero crossings once finite exponentials have been identified; that alone does not supply a valid high-competence probability mixture for every number of switches.",
+          "The exact-count and tail-envelope Resultary theorems optimize different functionals under separate per-n mixing-law choices.",
+          "Berend–Sapir (2007) is a direct related source with abstract-only evidence and unresolved full-theorem implication."
+        ],
+        "reasoning": "The main claim is a sharp structural range of attainable number-of-reversal patterns at all odd jury sizes as a function of effective finite support. It is not a corollary of a prior theorem specifying only monotonicity under stronger hypotheses or an extremal fixed-size probability. A potentially dominating earlier dependent-voter result remains an explicit priority risk, not a fabricated negative inspection.",
+        "searches": [
+          "finite support correlated Condorcet majority jury accuracy as number of voters increases alternating sign reversals latent reliability mixing de Finetti",
+          "Berend Sapir 2007 dependent voters monotonicity random subcommittee augmentation",
+          "Dietrich Spiekermann 2012 de Finetti strong monotonicity Pr(P=1/2+e)",
+          "Kaniovski correlation Condorcet jury theorem majority accuracy limits",
+          "https://mpra.ub.uni-muenchen.de/40135/1/MPRA_paper_40135.pdf",
+          "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/condorcet.pdf",
+          "https://doi.org/10.1007/s00355-006-0179-y",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent sign object is a generalized power sum f(r)=sum_{i=1}^d a_i lambda_i^r, with a_i=lambda_i sum_{p:p(1-p)=lambda_i}w_p(2p-1); a classical Chebyshev family has at most d-1 zeros.",
+          "Dietrich–Spiekermann analyzes conditional binomial-majority tails and their size increments but only under additional stronger mirror dominance for uniform monotonicity.",
+          "Kaniovski studies more specialized correlated-vote parameter models, not the sharp all-r effective-support sign bound."
+        ],
+        "reasoning": "Identifying the equivalent exponential-polynomial representation is necessary but not by itself a prior voting-theoretic theorem: attainable alternating coefficients require legitimate competence probabilities and positive weights. No inspected full-text source contained both the d-1 optimal switch law and high-mean attainment under positive correlation.",
+        "searches": [
+          "finite support correlated Condorcet majority jury accuracy as number of voters increases alternating sign reversals latent reliability mixing de Finetti",
+          "majority voting under exchangeable Bernoulli correlated votes finite mixtures exact sign changes odd jury size sharp number oscillations",
+          "variation diminishing exponential sums polynomial Chebyshev sharp switches in Bayesian majority voting",
+          "Condorcet de Finetti correlated juries probabilities growth and decline sign reversals of majority accuracy",
+          "finite mixture Bernoulli correctness P strict majority odd jury exponential sum sign variations",
+          "https://mpra.ub.uni-muenchen.de/40135/1/MPRA_paper_40135.pdf",
+          "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/condorcet.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked voting records compute finite-profile aggregation-rule divergences rather than latent de Finetti odd-jury increments.",
+          "The nearest Resultary fixed-mean exact-count and tail-envelope records use different objectives and quantifier orders."
+        ],
+        "reasoning": "The present all-d structural theorem is not naturally a finite count database entry; searches of published exact-voting and Bernoulli tables found no all-d sign-reversal census. Failed retrieval is not proof of historical novelty.",
+        "searches": [
+          "finite support correlated Condorcet majority jury accuracy as number of voters increases alternating sign reversals latent reliability mixing de Finetti",
+          "majority voting under exchangeable Bernoulli correlated votes finite mixtures exact sign changes odd jury size sharp number oscillations",
+          "Condorcet de Finetti correlated juries probabilities growth and decline sign reversals of majority accuracy",
+          "finite mixture Bernoulli correctness P strict majority odd jury exponential sum sign variations",
+          "Resultary semantic voting-rule and Bernoulli-exchangeability result records"
+        ]
+      },
+      "rationale": "Best-of-knowledge sharp attainable d-1 reversal theorem for finite de Finetti mixtures is not implied by materially inspected primary sources. The exact binomial step identity and exponential Chebyshev bound are acknowledged classical; the new supported implication is the sharp effective-support classification plus lawful positive-correlation, high-average-competence attaining construction. The full closest 2007 dependent-jury paper remains inaccessible and creates explicit qualified-priority risk.",
+      "residual_risks": [
+        "Berend and Sapir (2007), DOI 10.1007/s00355-006-0179-y, is directly relevant to dependent-jury augmentation; its complete article was not available. Only abstract and bibliographic metadata were inspected. It could conceal equivalent support-sensitive theorems; this is genuine residual priority uncertainty, not a claimed complete NOT_COVERING.",
+        "The exponential-polynomial d-1 real-zero bound and the odd-binomial increment identity are classical; originality does not extend to either isolated ingredient. An earlier interpretation in terms of signed finite mixtures or jury-size reversals may be unindexed.",
+        "Full worldwide novelty or absence from older voting-theory monographs cannot be certified from finite targeted searches. An accessible unrelated manuscript displayed as full text on a Berend/Sapir bibliographic page must not be mistaken for the inaccessible 2007 dependent-voters paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical odd-jury increment formula and mirror dominance sufficient for monotonic improvement; the present construction satisfies weaker average/mass competence but not mirror dominance. No support-count reversal theorem identified in inspected material.",
+          "evidence": [
+            "Section 6 conditions exchangeable correctness on latent competence P.",
+            "Appendix A uses mirror-point competence dominance at each symmetric pair, stronger than E[P]>1/2 or Pr(P>1/2)>1/2.",
+            "Appendix C supplies a classical mixed-binomial odd-jury step identity."
+          ],
+          "identifier_or_url": "https://mpra.ub.uni-muenchen.de/40135/1/MPRA_paper_40135.pdf",
+          "material_read": "Primary open PDF, section 6 jury theorem and de Finetti representation, Appendix A mirror-probability condition and Appendix C odd-jury gain calculation; PDF text and relevant page images.",
+          "method": "Opened complete lawful OA PDF; compared explicit premises, formulas, theorem statements and arguments.",
+          "title": "Epistemic Democracy with Defensible Premises",
+          "trigger": "Same exchangeable latent-competence model and odd-jury monotonicity."
+        },
+        {
+          "assessment": "Results impose a correlation-parametrized joint-vote structure; do not state a sharp bound in terms of arbitrary distinct mixture variability levels nor an arbitrary-d attaining family.",
+          "evidence": [
+            "Theorems 1 and 2 formulate correlated-vote majority effects in a specialized homogeneous parameterization.",
+            "No d-regime all-r sign-complexity assertion appears in the inspected theorem statements."
+          ],
+          "identifier_or_url": "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/condorcet.pdf",
+          "material_read": "Author manuscript including introduction, model, Theorem 1, Corollary 1.4 and Theorem 2 in main sections; relevant primary PDF page images.",
+          "method": "Read accessible author-hosted primary PDF and checked central hypotheses against an arbitrary finite de Finetti mixture.",
+          "title": "Aggregation of Correlated Votes and Condorcet's Jury Theorem",
+          "trigger": "Primary correlated binary majority-jury model and size-change theorems."
+        },
+        {
+          "assessment": "No sharp sign-reversal law for finitely supported common latent competence follows from the correlation-design theorem statements.",
+          "evidence": [
+            "Homogeneous marginal and parametrized correlation design differ from arbitrary finite mixing distributions."
+          ],
+          "identifier_or_url": "https://www.lse.ac.uk/cpnss/assets/documents/voting-power-and-procedures/workshops/2011/Kaniovski-Paper.pdf",
+          "material_read": "Open workshop paper on homogeneous common marginal and pairwise correlation, including its specified parameter model and jury design results.",
+          "method": "Read accessible PDF theorem/model sections; compared quantifiers and model restrictions.",
+          "title": "Optimal Jury Design for Homogeneous Juries with Correlated Votes",
+          "trigger": "Potential general correlated-jury improvement bounds."
+        },
+        {
+          "assessment": "General necessary and sufficient marginal augmentation criteria potentially cover or anticipate part of the mechanism, but abstract does not settle sharp finite-support number of reversals and high-competence attainment. Explicit priority risk.",
+          "evidence": [
+            "Social Choice and Welfare 28 (2007) 507–528, DOI 10.1007/s00355-006-0179-y.",
+            "Abstract discusses dependent-voter random-subcommittee augmentation; no complete proof read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00355-006-0179-y",
+          "material_read": "Journal/author-institution abstract, DOI and bibliographic description ONLY. The exact 2007 dependent-voters full text was not obtained.",
+          "method": "Searched arXiv/preprint and lawful OA, then requested authorized institutional access; access blocked by disconnected VPN. No access bypass and no full-text coverage claim.",
+          "title": "Monotonicity in Condorcet's Jury Theorem with Dependent Voters",
+          "trigger": "Extremely plausible same-domain prior art: marginal benefits of enlarging a dependent jury."
+        },
+        {
+          "assessment": "Optimizes a single fixed-n count point probability under a fixed mean, not all-n odd-majority increments for one fixed latent law; not covering.",
+          "evidence": [
+            "Optimization variable is the directing measure with fixed mean; the present theorem holds one mixture fixed and analyzes the sign-change sequence as n varies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, fixed-mean exact-count extremizers and proof.",
+          "method": "Read full public primary record via repository connector and compared mathematical functionals.",
+          "title": "Sharp exact-count envelope under infinite Bernoulli exchangeability",
+          "trigger": "Published closely related finite Bernoulli mixture theorem."
+        },
+        {
+          "assessment": "Bounds the magnitude of each fixed-n tail over varying mixing laws, not the number of up/down steps along one fixed mixing law; not covering.",
+          "evidence": [
+            "Theorems optimize E[g_nk(P)] over laws with E[P]=mu separately at each n; there is no fixed-law cross-n switching complexity result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96/RESULT.md",
+          "material_read": "Complete RESULT.md covering theorem, proof, finite/infinite extendibility distinction, and asymptotics.",
+          "method": "Read full public primary theorem and inspected quantifier distinction.",
+          "title": "Exact Bernoulli tail envelopes under infinite exchangeability",
+          "trigger": "General extremal de Finetti mixture tail bounds might dominate jury accuracy claims."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp natural quantitative law for correlated Condorcet-style juries: the number of changes in the benefit of enlarging an odd jury by two is controlled by effective distinct latent variability scales, not marginal competence or pairwise correlation alone. The explicit construction proves arbitrarily many reversals remain possible even with a highly favorable average voter and positive association, resolving a motivated failure mode of naive independent-voter monotonicity. The exact d−1 boundary is useful for assessing heterogeneous-information election or aggregation models. This is not claimed for strategic voters, latent continuous distributions, or nonexchangeable dependence; classical exponential-zero theory is a proof component, not the value claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://mpra.ub.uni-muenchen.de/40135/1/MPRA_paper_40135.pdf",
+    "https://serguei.kaniovski.wifo.ac.at/fileadmin/pdf/condorcet.pdf",
+    "https://doi.org/10.1007/s00355-006-0179-y",
+    "https://cris.bgu.ac.il/en/publications/monotonicity-in-condorcets-jury-theorem-with-dependent-voters/",
+    "https://www.lse.ac.uk/cpnss/assets/documents/voting-power-and-procedures/workshops/2011/Kaniovski-Paper.pdf",
+    "https://econ.biu.ac.il/sites/econ/files/shared/staff/u37/the_survey_13.11.13.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/a-sharp-support-size-law-for-majority-accuracy-reversals-under-s--5099ff0be1f8/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Berend and Sapir (2007), DOI 10.1007/s00355-006-0179-y, is directly relevant to dependent-jury augmentation; its complete article was not available. Only abstract and bibliographic metadata were inspected. It could conceal equivalent support-sensitive theorems; this is genuine residual priority uncertainty, not a claimed complete NOT_COVERING.",
+    "The exponential-polynomial d-1 real-zero bound and the odd-binomial increment identity are classical; originality does not extend to either isolated ingredient. An earlier interpretation in terms of signed finite mixtures or jury-size reversals may be unindexed.",
+    "Full worldwide novelty or absence from older voting-theory monographs cannot be certified from finite targeted searches. An accessible unrelated manuscript displayed as full text on a Berend/Sapir bibliographic page must not be mistaken for the inaccessible 2007 dependent-voters paper.",
+    "Complete trusted-public-file replacements were not validated and publication remains not_ready."
+  ],
+  "residual_risks": [
+    "Berend and Sapir (2007), DOI 10.1007/s00355-006-0179-y, is directly relevant to dependent-jury augmentation; its complete article was not available. Only abstract and bibliographic metadata were inspected. It could conceal equivalent support-sensitive theorems; this is genuine residual priority uncertainty, not a claimed complete NOT_COVERING.",
+    "The exponential-polynomial d-1 real-zero bound and the odd-binomial increment identity are classical; originality does not extend to either isolated ingredient. An earlier interpretation in terms of signed finite mixtures or jury-size reversals may be unindexed.",
+    "Full worldwide novelty or absence from older voting-theory monographs cannot be certified from finite targeted searches. An accessible unrelated manuscript displayed as full text on a Berend/Sapir bibliographic page must not be mistaken for the inaccessible 2007 dependent-voters paper."
+  ],
+  "schema_version": 1
+}
