@@ -1,0 +1,25 @@
+# Scientific assessment — antithetic harmonic-midpoint dispersion
+
+## Correctness — PASS
+
+The single claim concerns the two-dimensional unit-frequency harmonic oscillator, exactly \(2m\) implicit-midpoint steps with \(h=T/(2m)\) and uniform positive perturbations of width \(\kappa h^\alpha\), with \(\alpha>1\). The two-step antithetic construction is specified and has the same one-step marginal distribution as the independent-step construction; only the antithetic construction fixes total elapsed step length exactly. The Cayley transform is a rotation by \(2\arctan(H/2)\), so energy conservation, the phase decomposition, and the finite-step circular-dispersion identities are exact. The Fréchet–Hoeffding lower bound and strict positivity of the transformed derivative prove unique optimality of antithetic pairs **only for unwrapped phase variance among independent-block couplings**. The differentiable-angle expansion and \(\operatorname{Var}(U^2)=4/45\) yield the sharp constants \(T\kappa^2/3\) and \(T\kappa^4/90\); the characteristic-function calculation carries these to actual centered endpoint variance. No finite test is substituted for uniform asymptotic reasoning. The standalone `VERIFY.py` succeeded, including symbolic identities and high-precision finite-grid asymptotics.
+
+## Originality — PASS (qualified)
+
+The motivating open-access paper [1] specifies independent positive random step lengths, explicitly gives uniform marginals (section 2.1, Example 2.3), and analyzes conservation of quadratic invariants and implicit midpoint (sections 6 and 8.5). The result here retains those one-step marginals but uses independently antithetic **pairs** and obtains two exact, sharply separated phase/output dispersion exponents on a harmonic mode; its proof does not invoke the independent-step convergence theorem outside its hypotheses. The open-access study [2] proves error bounds under independent centered additive randomization, rather than a marginal-preserving negative-dependence construction of positive time steps. Classical countermonotone rearrangement proves pairwise variance optimality for monotone angle responses and is openly attributed, not claimed as a novel mathematical principle. Distinct nearby published numerical topics include covariance under random Verlet steps, antithetic randomized Runge–Kutta **stage fractions**, and independent random order in resolvent splitting; they do not imply the sharp phase-dispersion rates for the implicit-midpoint random time-step setting.
+
+Full source-model/method sections of [1] were inspected, and the relevant setup and independent-randomization sections of full-text [2] were inspected. Searches for the same output exponent, source, method, phase observable, and antithetic-time-step aliases found no covering theorem. This is a qualified originality decision, **not a proof of global novelty**. Particular residual risks: a specialized derivation could appear in less-indexed probabilistic ODE research; the motivating work's 2017 technical-report cover states a month but not a verified public posting day. No unsupported exhaustive-search inference is made.
+
+## Value — PASS
+
+The setting is a canonical geometric probabilistic ODE solver, not an arbitrary matrix example. The two schemes use equal update budgets, identical positive one-step time laws and pathwise exact energy conservation, yet have different **physical endpoint ensemble variance**: at \(\alpha=5/2\), orders \(h^4\) and \(h^{11}\), with exact positive coefficients and unique finite-block phase-variance minimization. Thus marginal step-size calibration alone cannot determine the claimed numerical uncertainty; coupling is a substantive structural design choice. The fixed-total-time condition removes random-clock diffusion, while the residual phase fluctuation arises only from the nonlinear midpoint rotation map. This precise counterexample is useful when interpreting or designing uncertainty-aware time integrators.
+
+## Closest literature and limitations
+
+[1] A. Abdulle and G. Garegnani, *Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration*, arXiv:1801.01340; full open EPFL MATHICSE Report 28.2017.
+
+[2] H. C. Lie, M. Stahn, T. J. Sullivan, *Randomised one-step time integration methods for deterministic operator differential equations*, Calcolo 59:13 (2022), DOI:10.1007/s10092-022-00457-6.
+
+The claim is not a general result for nonlinear Hamiltonian equations, time adaptivity, global couplings across pairs, or calibrated posterior uncertainty. Phase-variance optimality does not imply minimum circular endpoint variance for arbitrary finite-time couplings. A one-dimensional quadratic integrator cannot by itself justify higher-dimensional extensions. The initial 2017 technical report has a year and month but no independently verified public day; the selected evidence-backed first public **date** is the January 4, 2018 arXiv posting.
+
+Self-review: passed. Independent audit: not yet performed.
