@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Complete exact finite-field enumeration gives \(0,44,192\) rational curve points over degrees \(1,2,3\). The functional equation uniquely determines the genus-three zeta numerator and the Jacobian order. All 28 bitangents are accounted for by sixteen exact square-restriction lines and twelve hyperflexes; the classical theta-parity quadratic refinement forces a five-dimensional fixed \(2\)-torsion space. Degree-two effective classes are the 22 conjugate pairs, each distinct by nonhyperellipticity. Standard determinantal/line-bundle duality gives the final count, and the even-theta correspondence gives the symmetric count. The package checker tests its exact finite algebra.
+## correctness
 
-**Originality — PASS with priority risks.** Existing exact sixteen-rational-bitangent and geometric-arrangement results are explicitly credited. Meagher–Top supplies Frobenius factor information but no finite-field linear-determinantal equivalence-class census. Ishitsuka–Ito–Ohshita 2018/2021 analyze the rational curve and its twist, including global torsion data and qualitative determinantal representation phenomena, but the inspected sections do not give this 42/16/26 finite-field arithmetic classification. Their stronger torsion representation can plausibly imply a part of the needed finite-field arithmetic after twisting and reduction; this is a substantive residual implication risk. No matching claim was found in the consulted published-result record, though this cannot certify priority.
+PASS
 
-**Mathematical value — PASS.** Counting projective equivalence classes of four-by-four determinantal models and identifying exactly which admit symmetric forms is a natural intrinsic arithmetic question for an exceptional genus-three quartic. The answer is not just a geometric bitangent count; it combines explicit arithmetic Picard-group size, the degree-two effective locus, theta parity and a fixed-space obstruction to classify two distinct kinds of linear algebraic presentations. The value is a precise, finite, nontrivial answer, not a claim of a general new theory.
+On smooth genus-three C: X^4+Y^4+Z^4=0 over F5, independently counted N1=0,N2=44,N3=192 with exact finite field arithmetic (including points at infinity), yielding Weil L(T)=(1−2T+5T²)^3 and |J(F5)|=64. The 16 ordinary rational bitangents X+aY+bZ=0 (a,b nonzero F5) together with 12 hyperflex lines over F25 exhaust 28 odd theta; Frobenius on odd theta has 16 fixed and 6 two-cycles. Theta quadratic-refinement polarization forces rational 2-torsion fixed dimension five: dimension four would be an impossible totally isotropic 4-space in symplectic F2^6; dimension six would fix all 28. Consequently J(F5) ≅ Z/4⊕(Z/2)^4, with 16 rational even theta. Since C(F5)=0, there are 44/2=22 rational effective degree-two Frobenius-pair divisors and distinct linear classes (nonhyperelliptic). Pic^2(F5) has 64 via rational theta, leaving 42 non-effective classes, equivalent to ordinary 4×4 LDR classes. Exactly 16 non-effective rational even theta yield symmetric classes, remaining 26 nonsymmetric; classifications are up to left/right and projective congruence, respectively. The cited classical line-bundle/determinantal correspondence is required, not proven merely by the code.
 
-**Limits:** The forty-two classes are counted, not individually furnished as matrices; rational/twist global Galois representation literature may entail arithmetic substatements; the result applies only over \(\mathbb F_5\). Independent validation and exhaustive priority verification are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical quartic theta and determinantal correspondences, prior arithmetic on the Fermat quartic over Q, and the rational bitangent count are credited. Existing work on its mod-four Galois representation may encode stronger arithmetic after reduction; the inspected accessible rational/global sections do not expressly give the finite F5 count 42=16+26. Best-of-knowledge priority qualified by possible stronger reduction implications.
+
+## value
+
+PASS
+
+Counting exact left/right and symmetric determinantal representations of a canonical genus-three quartic over its small finite field is a natural arithmetical classification beyond merely tabulating field points or bitangents; the split 16+26 answers an intrinsic theta-divisor question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
