@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each invertible 2x2 selected block, A_S^T(A_S A_S^T)^{-1}A_S=I exactly. The source square-root relaxation therefore multiplies any error by -sqrt(1-v_S/vmax), giving the exact conditional mean square q. The doubled-angle unit-circle embedding satisfies |w_i-w_j|^2=4v_ij. The parallelogram identity with a diametral pair gives sum v_ij>=M vmax/2, strictly for M>=3, and an explicit two-endpoint plus central-cluster angular family approaches equality. Unique/maximizing pairs kill the nonzero error; independent draws yield the geometric exact-hitting law. Online first sampled volume equals its running maximum. The extracted standalone checker passed 1540 rational geometries and 500 exact inverse identities. Finite tests are supplemental and not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.12346v1 Section 3.3/Theorem 2 is general across dimensions and row sizes but contains no sharp M-only normalized-volume lower bound.",
+        "arxiv:2111.06931v3 derives spectral bounds for unrelaxed volume-sampled blocks."
+      ],
+      "reasoning": "The broader source rate is matrix-dependent and does not provide the universal tight (M-2)/(M-1) row-count envelope. The new proof depends on a doubled-angle embedding and a sharp lower bound for total normalized squared chord length, including a degenerating extremizer family. The exact first-hit distribution and first-step online behavior are not asserted as source results.",
+      "searches": [
+        "relaxed uniform block Kaczmarz determinant volume normalization overrelaxation squared error 3/8 three rows",
+        "randomized orthogonal projection onto full plane over-relaxed block sampling sharp sine triangle inequality three line configurations",
+        "Entezari Banerjee Kalantari arxiv 2610.12346 randomized volume-normalized relaxed uniform blocks full column rank block deterministic one step geometric exact relaxation q=1-average volume/max",
+        "arxiv:2610.12346v1 Section 6 Related Work",
+        "arxiv:2111.06931v3 volume sampled projections"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.12346v1",
+      "arxiv:2111.06931v3",
+      "arxiv:2503.09469v3",
+      "arxiv:2001.02745 abstract",
+      "Published study: Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+      "Published study: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arxiv:2610.12346v1 Theorem 2, the bound is 1-(vbar/vmax)mu_n, but it includes no bound on vbar/vmax in terms of M nor its sharpness.",
+        "Its note after Theorem 2 suggests updating the running maximum before each step, without stating the global-versus-first-online finite-termination contrast.",
+        "The earlier 2025 source examines omega independent of the selected block."
+      ],
+      "reasoning": "Source implies q for a fixed matrix and an elementary projector identity implies ordinary one-step convergence; neither is claimed original. The m-dependent worst-case optimization requires proving sum pairwise determinant squares >=(M/2) maximum and showing asymptotic sharpness on unit directions; those comparison statements are not given. Online first-step conclusion follows by specializing the separate suggestion in the source, so it is a consequence used to explain the new sharp comparison, not offered as an independent algorithmic invention.",
+      "searches": [
+        "randomized orthogonal projection onto full plane over-relaxed block sampling sharp sine triangle inequality three line configurations",
+        "volume normalized over-relaxation full rank block sharp worst case (M-2)/(M-1) squared-error factor and quadratic exact hitting time",
+        "arxiv:2610.12346v1 Theorem 2 equation 5 and online-normalization remark",
+        "arxiv:2503.09469v3 Lemma 2 over-relaxation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.12346v1, Theorem 2: the source states the volume-dependent relaxation omega=1+sqrt(1-v/vmax), conditional rate 1-(vbar/vmax)*mu_n; for square full-rank blocks mu_n=1.",
+        "arxiv:2503.09469v3 studies randomized projections with constant relaxation and matrix Lyapunov asymptotics.",
+        "Accessible prior two-row single-row adaptive-relaxation analysis (using arxiv:2610.12346v1) studies two-step sign-dependent comparisons with n=1, while a separate volume-sampling spectral bound studies unrelaxed block projectors; neither gives this sharp n=N=2 uniform population-normalized rate."
+      ],
+      "reasoning": "The exact instance-specific q=1-vbar/vmax is already an immediate specialization of the primary theorem and is explicitly acknowledged as prior. The new object is its sharp supremum over every collection of M nonparallel unit rows, plus strictness, extremizers and the global-versus-online normalization comparison. The related constant-relaxation operator theorem does not determine this geometry-specific extremal envelope.",
+      "searches": [
+        "three unit row lines in plane uniform volume-relaxed Kaczmarz two-row blocks exact sharp contraction three eighths",
+        "Entezari Banerjee Kalantari arxiv 2610.12346 randomized volume-normalized relaxed uniform blocks full column rank block deterministic one step geometric exact relaxation q=1-average volume/max",
+        "volume normalized over-relaxation full rank block sharp worst case (M-2)/(M-1) squared-error factor and quadratic exact hitting time",
+        "arxiv:2610.12346v1 Section 3.3 Theorem 2",
+        "arxiv:2503.09469v3 Section 1.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full HTML of arxiv:2610.12346v1 inspected in Sections 2, 3.3, 5, 6; no stated M-only sharp planar worst-case rate or 2-endpoint central-cluster limit.",
+        "A published study, “Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation,” concerns cyclic two-row overrelaxation, not volume-dependent full-rank blocks."
+      ],
+      "reasoning": "Explicit mathematical comparisons and nearest record summaries showed no exact prior table/classification for the proposed M-dependent rate. This is not a claim that every publication or database has been exhausted.",
+      "searches": [
+        "three unit row lines in plane uniform volume-relaxed Kaczmarz two-row blocks exact sharp contraction three eighths",
+        "relaxed uniform block Kaczmarz determinant volume normalization overrelaxation squared error 3/8 three rows",
+        "Entezari Banerjee Kalantari arxiv 2610.12346 randomized volume-normalized relaxed uniform blocks full column rank block deterministic one step geometric exact relaxation q=1-average volume/max",
+        "sharp diameter bound M points circle sum pairwise squared chord lengths at least M/2 diameter squared randomized Kaczmarz",
+        "volume normalized over-relaxation full rank block sharp worst case (M-2)/(M-1) squared-error factor and quadratic exact hitting time",
+        "site:arxiv.org 2610.12346 relaxed uniform volume normalized running maximum first step exact full rank blocks"
+      ]
+    },
+    "rationale": "The motivating 2026 paper already implies the instance-specific contraction q=1-vbar/vmax, and these earlier components are explicitly credited. Its general theorem does not state or settle the sharp M-dependent worst-case bound, unique-limit geometry or explicit contrast of precomputed and first-sampled running normalization. Full relevant primary sections, older same-author papers, published-finding corpus records and local dedup claims were compared. Historical-priority uncertainty remains, particularly the possibility of equivalent distance-energy bounds applied to the same algorithm. Accessible prior mathematical results on single-row adaptive relaxation of the same 2026 source and on unrelaxed volume-sampling spectral bounds were examined; neither contains this full-rank two-row-block sharp envelope.",
+    "residual_risks": [
+      "The pairwise-distance inequality is classical; a prior numerical linear algebra paper could have carried through this same sharp configuration optimization without the searched terminology.",
+      "A separate analysis of online normalization might already mention first-sample exactness for full-rank blocks.",
+      "The result is a boundary case of blocks saturating column dimension; it does not contradict reported experiments in the motivating paper with smaller block size."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precise square-root volume relaxation, general progress rate and optional running maximum; does not state sharp unit-planar M-row envelope. Instance-specific rate is source-implied.",
+        "evidence": [
+          "Section 3.3, Theorem 2 eq. (5): omega=1+sqrt(1-v/vmax), rate factor 1-(vbar/vmax)mu_n.",
+          "Section 3.3: maximum may be maintained online and updated before each step.",
+          "Section 5: sampled blocks below ambient dimension in reported tests."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.12346v1",
+        "material_read": "Introduction, preliminaries, Section 3.1-3.3 including equation (5) and Theorem 2, Section 4 projector identities, Section 5 experiments, Section 6 related work",
+        "method": "Inspected full arXiv HTML by sections and targeted text search",
+        "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+        "trigger": "Exact motivating relaxation and strongest possible direct coverage"
+      },
+      {
+        "assessment": "Concerns ordinary volume-sampled projections and spectral bounds, not the 2026 subset-volume-dependent overrelaxation or its row-count envelope.",
+        "evidence": [
+          "arxiv:2111.06931v3, volume sampling section and block projection update."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.06931v3",
+        "material_read": "Introduction, randomized projection definitions, volume-sampled block convergence and related discussion",
+        "method": "Inspected primary arXiv HTML with targeted search for relaxation",
+        "title": "Kaczmarz and Gauss-Seidel Algorithms with Volume Sampling",
+        "trigger": "Same authors and predecessor on two-row block volume selection"
+      },
+      {
+        "assessment": "Studies constant omega projection schemes and global rates, not volume-normalized random full-rank block threshold.",
+        "evidence": [
+          "arxiv:2503.09469v3, equations (3)-(7), Theorem 1, Lemma 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.09469v3",
+        "material_read": "Introduction, Sections 1.3, 2, and theoretical discussion of overrelaxation and Lyapunov rates",
+        "method": "Inspected primary arXiv HTML and targeted find relaxation/volume sampling",
+        "title": "Global Asymptotic Rates Under Randomization: Gauss-Seidel and Kaczmarz",
+        "trigger": "Closest earlier work by overlapping authors on relaxation benefits"
+      },
+      {
+        "assessment": "Standard sum-of-squares geometry is relevant background; no claim that a standalone Euclidean inequality is original. Its full text was not inspected.",
+        "evidence": [
+          "arxiv:2001.02745 abstract states centroid formula for the sum of squared pairwise distances."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.02745",
+        "material_read": "Abstract and summary of standard centroid identity",
+        "method": "Read arXiv abstract result",
+        "title": "Sums of Squared Distances between Points on a Unit n-Sphere",
+        "trigger": "Potentially broader prior squared-distance geometric identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9eb2fad4-3fc8-492d-8dfc-50cc4eda7f26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A tight nontrivial performance envelope, exact first-hit distribution and explicit degenerating row configurations quantify how normalized overrelaxation can erase one-step exactness on fully informative blocks. For each finite M the sharp supremum is (M-2)/(M-1), approaching one as redundant rows grow, and unique-max configurations have exact expected termination binomial(M,2). The normalizer choice distinguishes the source paper’s population bound from its suggested running-max implementation, which solves on the first draw here. This supplies a diagnostic boundary for algorithm selection, not just a routine algebraic restatement of the general bound. The scope and possible restricted practical relevance are explicit.",
+    "status": "PASS"
+  }
+}
