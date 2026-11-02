@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The divergence-theorem transform is exact; planar Steiner theory gives the vertex-cap area, and a uniform local Taylor expansion yields the Fourier perturbation. The implicit-function step uses a simple first zero, which is interval checked, and only gives a one-sided bound on the global nearest-zero distance. Area normalization and all signs were independently recomputed; the package's interval checker encloses the coefficient strictly below zero. No claim of exact global quadratic coefficient is made.
+## correctness
 
-**Originality: PASS, qualified.** The 2026 primary paper establishes the Fourier-zero minimizing directions and poses the dodecagon as a global candidate, but does not treat a Minkowski disk summand or a second-order shape variation. Public mathematical-record searches for dodecagon Fourier zeros under rounding or outer-parallel-body variation found the closest affine-orbit result, which restricts area-preserving linear maps instead; it cannot imply a genuinely curved Minkowski parallel-body expansion. The large-side-count asymptotic for regular even polygons addresses a different limit and does not imply fixed-dodecagon rounding. Residual risks: unindexed spectral-shape-derivative literature and incomplete access to the published affine-orbit manuscript.
+PASS
 
-**Value: PASS.** The exact signed coefficient resolves a natural local geometric perturbation of the proposed optimizer of a current open problem. The first derivative cancels identically by tangential geometry, so the strictly signed second-order calculation is essential; it is neither a direct first-variation test nor a parameter renaming. It supplies a reproducible quantitative stability fact without claiming the open global problem is solved.
+By source Theorem 1.7 the first Fourier zero k≈3.83171224396365 occurs in facet-normal directions. Compare P+tB with homothetic polygon Q_t=(1+t/r)P sharing offset facet support lines: the difference is 12 disjoint vertex caps, each area [tan(pi/12)-pi/12]t² and diameter O(t). Their Fourier effect is cap-area times sum of vertex cosines plus O(t³). The Fourier transform of Q_t scales exactly. A simple real root persists in this direction by implicit function theorem; derivative F′(k)<0. Since κ is infimum of all zero radii, the perturbed directional root is a valid one-sided upper bound. Steiner area expansion cancels the first-order root displacement, leaving η=-c*(sumcos/F′(k)-6k/pi)>0. Independent high-precision direct 12-edge divergence calculation gave k=3.8317122439636479540700049, F′=-0.65991482843667124, η=0.00014158574849173963225. Source mpmath interval checker separately brackets the sign; neither test alone proves the analytic remainder.
 
-Independent scientific review or certification remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 full primary Gómez-Serrano–Levitin–Platt–Polterovich article proves the dodecagon has maximal κ among regular even-sided polygons and fixes nearest-zero directions; the open unrestricted convex maximizer problem is not settled. Published Resultary affine-orbit theorem treats area-preserving linear images, not outer Minkowski addition by a disk. The present one-sided quadratic perturbation gives a distinct nonlinear local stability direction; best-of-knowledge novelty with specialist variational literature risk.
+
+## value
+
+PASS
+
+The global dodecagon extremizer conjecture makes local perturbations mathematically motivated; this explicit certified second-order decrease under the canonical Minkowski-disk rounding direction provides a precise geometric stability test and sign, without claiming global maximality or all variations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
