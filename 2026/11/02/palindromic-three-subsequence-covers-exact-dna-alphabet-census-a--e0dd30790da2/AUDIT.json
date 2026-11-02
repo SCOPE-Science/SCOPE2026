@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Three copies of each letter are forced by each aaa target and realized by three alphabet permutations. Every aba has a witness precisely when b occurs inside the first-to-third a span. The six forbidden two-letter projections are exhaustively characterized among 20 arrangements. An inductive state recurrence exactly enumerates all shortest hosts; its independent q=4 literal census checks all 369600 candidates and returns 80016. The proved recurrence evaluates q=5 to 17825160. No unproved infinite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.04583 introduction and counting-arches sections count full universal words.",
+        "arXiv:2311.10658 Section 4 builds automaton algorithms for full k-universality."
+      ],
+      "reasoning": "General-language counting algorithms can be adapted to other regular properties, but neither document asserts a computed q=4 palindromic-only result or a six-projection characterization; algorithmic applicability alone is not equivalent to published enumeration.",
+      "searches": [
+        "Ranking and Unranking k-subsequence universal words Adamson 2023 arxiv",
+        "k-Universality of Regular Languages arxiv:2311.10658",
+        "palindrome universal subsequence word shortest all palindromes"
+      ]
+    },
+    "checked_sources": [
+      "D. Adamson, Ranking and Unranking k-subsequence universal words (2023), arXiv:2304.04583",
+      "D. Adamson et al., k-Universality of Regular Languages (2023), arXiv:2311.10658",
+      "OEIS A330022 (contiguous-palindrome superstrings)",
+      "Earlier exact binary minimum-palindrome-cover census (q=2 only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At q=4 the full-universal minimum hosts have cardinality (4!)^3=13824; direct count of palindromic-only minimal hosts is 80016.",
+        "The general q=4 length-12 class is characterized by checking every unordered pair projection; full universality needs all q^3 patterns, not merely q^2."
+      ],
+      "reasoning": "Every shortest full-universal word is a palindromic-only host, but the converse fails (a proper inclusion). Consequently any published full-universal count is a strict lower bound, not an exact covering statement. An earlier binary count cannot imply higher alphabet values without a separate reduction, which was not found.",
+      "searches": [
+        "arxiv:2304.04583",
+        "arxiv:2311.10658",
+        "q-ary palindromic subsequences all length three universal shortest supersequences enumeration 3q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For distinct a,b, the projection on {a,b} must avoid six of the 20 3+3 arrangements; this differs from requiring all 27 three-letter patterns on a 3-symbol alphabet.",
+        "Adamson et al. (arXiv:2311.10658), Sections 1 and 4, define k-universality by all alphabet words."
+      ],
+      "reasoning": "The local two-letter projection criterion is equivalent to the proposed covering condition, but the compared source counts full k-universality and therefore does not cover the larger palindromic-only class.",
+      "searches": [
+        "palindromic subsequences shortest supersequence q-ary aba bab",
+        "3-uniform multiset permutations every pair interleaved palindrome aba bab interlacement counting",
+        "palindrome 3 subsequence universal words all aba minimal length 3q forbidden projections",
+        "arxiv:2311.10658"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A330022 counts shortest contiguous-palindrome superstrings, explicitly a different notion.",
+        "Previously available binary minimal palindrome-host census has N_2=14 (not newly claimed).",
+        "No exact four-letter 80016 table was found in the checked targeted searches."
+      ],
+      "reasoning": "The four-letter q=4 value is not implied by the binary q=2 census. A substring-superstring table cannot determine a scattered-subsequence count because its containment relation is stronger and its minima differ.",
+      "searches": [
+        "\"80016\" \"palindromic subsequences\" DNA",
+        "\"14, 690, 80016\"",
+        "exact counting 3-uniform labeled alphabet words with each aba as scattered subsequence 80016 17825160",
+        "OEIS A330022 shortest palindromes as substrings"
+      ]
+    },
+    "rationale": "The checked 2023 subsequence-universality literature counts hosts covering all q^3 three-letter patterns, not only the q^2 palindromes; the q=4 sets have provably different sizes 13824 versus 80016. Earlier binary minimal-host enumeration covers q=2 only; contiguous palindrome superstrings study a different observation. The q-ary forbidden-projection characterization and exact four-/five-letter counts were not located among inspected sources. Residual risk: equivalent enumeration of 3-uniform interleaving words under unrelated terminology.",
+    "residual_risks": [
+      "An equivalent labeled 3-occurrence word enumeration may be published under interleaving, chord diagram or forbidden projection terminology outside the accessed literature.",
+      "Absence from web and semantic records is not proof of novelty.",
+      "The five-letter integer is established by the inductive recurrence implementation, not independently enumerated with a separate brute method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the palindromic-only enumerations: its accepted property requires every q-ary length-three pattern",
+        "evidence": [
+          "Introduction defines all q^k patterns; Section 4 counts k-universal accepted paths",
+          "The present q=4 target class is larger (80016 vs 13824)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "HTML article: introduction, definitions and Section 4 Counting and Ranking including main recurrence and theorem discussion",
+        "method": "Read accessible arXiv text and compare target set, parameters and counting implication",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Closest counting result for subsequence-universal words accepted by finite automata"
+      },
+      {
+        "assessment": "NOT_COVERING the palindromic-only class; it counts all-pattern universal words",
+        "evidence": [
+          "Its class U(n,k,sigma) contains every sigma^k pattern; the new class requires only symmetric aba patterns."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "HTML article: introduction, Sections 2-3 relevant counting material and formal full-alphabet universality definition",
+        "method": "Read arXiv text and compare membership conditions",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Direct prior fixed-length full-pattern universality counting"
+      },
+      {
+        "assessment": "INAPPLICABLE for the q-ary scattered-subsequence count",
+        "evidence": [
+          "OEIS describes shortest binary words containing all palindromes of fixed length as substrings."
+        ],
+        "identifier_or_url": "https://oeis.org/A330022",
+        "material_read": "Sequence definition, comments, examples and stated method",
+        "method": "Compare contiguous versus scattered observation",
+        "title": "OEIS A330022",
+        "trigger": "Closest named palindrome supersequence enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0dd3079-0da2-4502-bc1b-513b608ddd71",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural shortest-sequence design space over the canonical four-letter motif alphabet is enumerated exactly, with a proof of minimality, six-forbidden-two-letter-projection structural characterization for arbitrary alphabet size, a reusable exact DP, and a nontrivial five-letter extension. The four-letter 80016 result and contrast to all-pattern covering (13824) quantify design freedom that full-universality algorithms do not report. This is a motivated finite invariant, not an arbitrary truncation or a recomputation of an identified existing table.",
+    "status": "PASS"
+  }
+}
