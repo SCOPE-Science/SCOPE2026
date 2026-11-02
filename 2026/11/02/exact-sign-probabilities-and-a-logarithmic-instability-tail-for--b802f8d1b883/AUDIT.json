@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Three unique Lagrange weights follow by integrating degree-two cardinal polynomials; exact sign inequalities in centered coordinates imply at most one negative weight. Direct two-variable integration gives each event probability. In spacing coordinates, the double-small-gap region gives the sharp coefficient 12 times integral_0^1(x²−x+1/3)dx=2 through an exact hyperbolic area identity. The complement where one gap is at least fixed delta has O_delta(1/t) tail. Squeezing then letting delta→0 establishes the limit, while layer cake establishes precisely q<1 for finite positive moments. The included standalone exact-fraction and quadrature checks reproduce finite identities only; the analytic proof carries the infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.32699 Theorem 1.1 requires oversampling and adjusts weights to obtain positive exact rules; it is not an assertion about unique three-node weights.",
+        "arxiv:2202.04722 Theorem 7 bounds the total absolute weight for periodic nodes perturbed by a fixed fraction smaller than 1/4; such points have deterministic separation.",
+        "arxiv:1809.09842 uses arbitrary sample pools and positive-weight node-selection procedures."
+      ],
+      "reasoning": "Existence of positive rules after adapting weights or oversampling does not imply a positive-weight event probability for the unadapted exactly determined three-node rule. Deterministic separated-node norm upper bounds do not imply a colliding-node tail. Related polynomial interpolation moment thresholds may bound moments but do not determine the quadrature-specific logarithmic coefficient.",
+      "searches": [
+        "\"random nodes\" \"quadrature weights\" \"heavy tail\"",
+        "arxiv:2610.32699 Theorem 1.1 and 4.2",
+        "arxiv:2202.04722 section 4.1 and Theorem 7",
+        "\"random quadrature\" \"logarithm\" \"tail\" \"weights\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1809.09842v2 — positive sampled-node selection and stability norm",
+      "https://arxiv.org/abs/1902.07477 — deterministic positivity regions",
+      "https://arxiv.org/html/2202.04722v1 — separated-grid quadrature weight bounds",
+      "https://arxiv.org/abs/2610.32699 — random oversampling plus adapted positive weights",
+      "Published fixed-node Newton–Cotes and positive Romberg results — different deterministic node models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 study explicitly identifies the sum of absolute weights as an operator condition measure but constructs a different quadrature from a sample pool by changing weights and choosing nodes.",
+        "The 2019 article handles deterministic addition/retention of positivity rather than a uniform three-point probability law.",
+        "The 2022 paper bounds separated trigonometric-grid weights and establishes examples of negative weights; it does not analyze polynomial weights at freely colliding iid samples.",
+        "The 2026 random Richter–Tchakaloff theorem needs substantial sample oversupply and adapted nonnegative weights, outside the square moment-interpolation setting.",
+        "A related known random-polynomial-interpolation result gives the critical moment exponent 1 for iid uniform nodes. Through the Lagrange Lebesgue function it controls a norm upper bound but does not assert exact sign probabilities or a leading logarithm coefficient for quadrature."
+      ],
+      "reasoning": "The full new claim is the combination of exact four sign-event probabilities, a sharp probability-equivalent asymptotic with leading constant 2 and the resulting moment boundary. The critical exponent alone has related coverage, and is not asserted as an independently novel contribution. None of the inspected sources proves or logically dominates the joint probability/tail claim under the same unmodified three-node model.",
+      "searches": [
+        "arxiv:1809.09842 sections 2.2 and 3.2",
+        "arxiv:1902.07477 section 3 Theorem 2",
+        "arxiv:2202.04722 sections 4.1-4.2",
+        "arxiv:2610.32699 main Theorem 1.1",
+        "\"Probability that three independent uniform points support positive weights in the unique degree-two interpolatory quadrature formula on an interval; exact three-node quadrature positivity probability.\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For exactly three independently sampled uniform nodes, quadrature exact through quadratic degree has unique signed weights given by a square Vandermonde solve.",
+        "arxiv:1902.07477 Theorem 2 characterizes permissible deterministic node additions, not the exact probability under three independent continuous draws."
+      ],
+      "reasoning": "Equivalent expressions include integrating Lagrange cardinal polynomials, random interpolatory Newton–Cotes rules on nonuniform three nodes, signed moment fitting and a square Vandermonde system. Their deterministic sign inequalities are compatible with, but do not themselves provide, the integrated probabilities or 2 log(t)/t quadrature-norm tail. The exact coefficient is a two-small-gap phenomenon.",
+      "searches": [
+        "\"random quadrature weights\" \"three nodes\" probability negative exact",
+        "\"interpolatory quadrature\" \"random\" \"negative weights\" probability",
+        "\"quadrature weights\" \"log 3\" \"probability\" three nodes",
+        "\"three random nodes\" \"positive weights\" quadrature",
+        "arxiv:1902.07477 section 3, Theorem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published records on the first monotone-range failure of closed Newton–Cotes describe fixed equally spaced quadrature nodes, not a probability distribution from random locations.",
+        "Published work on generalized positive Romberg rules uses nested deterministic nodes rather than unmodified three independent samples.",
+        "No checked record or searched reference reported the specific probabilities or the asymptotic constant 2."
+      ],
+      "reasoning": "A table of fixed-node Newton–Cotes weights, a deterministic positivity theorem, or a generic heavy-tail moment exponent would not imply the exact integrated signs and two-spacing logarithmic coefficient. Negative search outcomes are only bounded evidence and not a proof of novelty.",
+      "searches": [
+        "\"three point random node quadrature sign pattern exact probabilities formula\"",
+        "\"quadrature\" \"0.21597\" random nodes",
+        "\"random Lagrange three-node interpolatory quadrature absolute sum weights heavy tail 2 log t over t near triple collision\"",
+        "\"quadrature weights\" \"three nodes\" probability negative exact"
+      ]
+    },
+    "rationale": "Existing sources treat subsampled/adapted positive rules, deterministic node addition, separated periodic jitter, or moment thresholds for polynomial interpolation rather than both the exact three-node sign distribution and the leading logarithmic constant for the unique unadjusted polynomial quadrature. Extensive bounded primary-literature and published mathematical-record comparisons identified no dominating statement. Priority beyond examined sources remains qualified.",
+    "residual_risks": [
+      "An older specialized paper on probabilistic weights for exactly three independent random quadrature nodes may contain the same sign or tail computation despite bounded search coverage.",
+      "The sign probabilities can be derived by integrating known deterministic conditions; their availability in an unlocated source would narrow originality.",
+      "The moment exponent is related to known random interpolation Lebesgue-constant results; novelty depends chiefly on the quadrature-specific probability and logarithmic coefficient.",
+      "No independent publication-priority review has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces an algorithm choosing a positive subsample from larger candidate sets. It does not analyze the sign distribution or two-gap tail of the unique degree-two rule on precisely three unmodified iid uniform nodes.",
+        "evidence": [
+          "Section 2.2 identifies total absolute weight as the stability norm; Section 3.2 develops removal of nodes/negative weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1809.09842v2",
+        "material_read": "Introduction; Sections 2.1 and 2.2, including equations (2.5)-(2.10); selected Sections 3.1-3.2 on negative-weight removal; searched the HTML for random, probability, negative weights.",
+        "method": "Public full-text HTML inspected with section navigation and text searches.",
+        "title": "Generating nested quadrature rules with positive weights based on arbitrary sample sets",
+        "trigger": "Arbitrary sample sets and direct norm-one positivity theory are the nearest constructive background."
+      },
+      {
+        "assessment": "The deterministic node-addition characterization could inform the sign conditions but does not integrate over three iid uniform nodes or prove the sharp logarithmic norm tail.",
+        "evidence": [
+          "Theorem 2 provides inequalities describing positivity when one node is added to an existing quadrature rule."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.07477",
+        "material_read": "Full-text rendered article introduction and Section 3, including Theorem 2 and related node-addition inequalities.",
+        "method": "Public arXiv HTML article and explicit theorem text.",
+        "title": "A geometrical interpretation of the addition of nodes to an interpolatory quadrature rule while preserving positive weights",
+        "trigger": "Directly relevant deterministic positivity conditions on interpolatory quadrature nodes."
+      },
+      {
+        "assessment": "It treats trigonometric exactness on deterministic bounded perturbations of equispaced periodic grids; the separation condition excludes arbitrarily close random triplets. Thus its bound cannot cover the proposed iid collision tail.",
+        "evidence": [
+          "Theorem 7 gives a bound depending on the jitter fraction alpha for alpha<1/4, not on iid random colliding sample locations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.04722v1",
+        "material_read": "Abstract and full-text Section 4, especially Theorem 6 (negative weights) and Theorem 7 (uniform bound), as well as stated perturbation assumptions.",
+        "method": "Public arXiv full-text HTML, direct theorem and formula inspection.",
+        "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+        "trigger": "Closest explicit negative weights and absolute-sum estimates for nonuniform quadrature."
+      },
+      {
+        "assessment": "The result permits many random candidates and solves for adapted positive weights; it does not imply positivity of unique unadapted three-node weights or their sign-event probabilities/tail coefficient.",
+        "evidence": [
+          "Theorem 1.1 requires m≥134 gamma n log(4n/delta) random nodes and adapts importance weights through a linear feasibility problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+        "material_read": "Introduction, Theorem 1.1 and its requirements, and the stated compression/oversampling results in Section 1.",
+        "method": "Public arXiv rendered full-text article; checked main theorem hypotheses and conclusions.",
+        "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+        "trigger": "Recent possible dominating positive-weight existence result on independent random nodes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b802f8d1-b883-48c1-adc7-cfa4942d2a8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The total absolute quadrature weight is exactly the amplification norm for bounded sampled-value errors. With only three random candidates, fixed-degree interpolatory quadrature is a natural minimal test of positive-weight design. Exact positive-weight success probability and a log-enhanced L1 heavy tail distinguish random unmodified points from positive-weight selection and separated-node schemes. The leading constant and four sign events are useful benchmarks; the claim does not purport to prove uniform accuracy for arbitrary integrands or offer a higher-dimensional theorem.",
+    "status": "PASS"
+  }
+}
