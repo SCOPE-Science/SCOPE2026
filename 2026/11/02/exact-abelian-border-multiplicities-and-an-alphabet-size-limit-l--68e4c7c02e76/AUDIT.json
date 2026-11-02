@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The paired-letter Parikh difference random walk gives an iff condition for every short Abelian border, including the correct even central and odd middle cases. The multinomial-squared generating function counts all q-ary return walks; first-return decomposition proves both exact bivariate series. Their specialization \\(v=1\\) matches all \\(q^n\\) words. A multinomial local CLT with covariance determinant \\(q^{-q}\\) gives \\(p_{q,j}\\sim q^{q/2}/(4\\pi j)^{(q-1)/2}\\); exact factorial-moment convolution bounds prove the exponential ternary law, Dirichlet moments recover the binary benchmark, and finite escape probability yields the geometric law in \\(q\\ge4\\). Actual verifier script returns VERIFY_OK for exhaustive direct words and two independently constructed coefficient computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1708.06461, Introduction, lines 57–60 notes larger-alphabet generalization as a natural question; Theorem 3 covers binary words.",
+        "Goč et al., Proposition 15, covers the correspondence between higher-alphabet Abelian-unbordered words and paths without returns, but not general positive return counts or asymptotic distribution.",
+        "Fici–Puzynina arXiv:2207.09937, Section 6, summarizes shortest-border and earlier binary counts."
+      ],
+      "reasoning": "The closest more general construction maps every alphabet to a lattice, which is a starting lemma but not a broader computed all-r distribution. The proposed bivariate GF explicitly resolves the missing return-multiplicity marking and the ternary local-time exponential law. There is no known stronger result in the inspected primary texts that specializes to these formulas.",
+      "searches": [
+        "\"exact ternary abelian-border multiplicities via random walks renewal generating function all alphabet q and geometric limit\"",
+        "\"Dyck Words, Lattice Paths, and Abelian Borders\" arxiv 2017",
+        "\"number of abelian borders\" distribution every binary word exactly k borders",
+        "arXiv:1708.06461 PDF pages 1, 7–8 and numberAbelianBorder.pdf pages 3–8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1708.06461 (binary all-multiplicity, 2017)",
+      "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf (all-alphabet no-return, original 2014)",
+      "https://arxiv.org/pdf/2207.09937 (2022 survey)",
+      "4 exact/high-similarity searches on q-ary Abelian borders and Parikh return-count limit laws",
+      "Blanchet-Sadri–Chen–Hawes, 2017, exact binary border-count classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The distinct problem of minimum-alphabet realization of Abelian border arrays concerns whole arrays over all prefixes, not the count of Abelian prefix/suffix border lengths of a single random word.",
+        "Blanchet-Sadri–Chen–Hawes q=2 multiplicities do not imply q>=3 numerical coefficients or any q>=3 limiting distribution.",
+        "The 2014 multi-alphabet path lemma alone does not give the exact multiplicity GF or the sharp local-return asymptotics; standard renewal and multinomial estimates are additionally proved and combined."
+      ],
+      "reasoning": "The new statement is not the known binary case with a parameter renamed. Going from a one-dimensional zero-return enumeration to a rank-two walk requires a different local asymptotic c/j and yields a mean-one exponential limit rather than the binary half-normal. Higher ranks have a nonzero escape probability and a geometric limit. These additional conclusions are absent from the compared results, although standard random-walk tools underlie them.",
+      "searches": [
+        "arXiv:1708.06461, Theorem 3 and Section 5.1; arXiv:2207.09937, Section 6; Goč et al., Propositions 11–16",
+        "\"Abelian-bordER counting higher alphabets multinomial composition lattice random walk rank q-1 exponential limiting short border distribution\"",
+        "Available historical ledger claim search for \"abelian border\", \"return-count\", \"ternary border\", \"border length\", \"border count\" and \"random walk\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blanchet-Sadri–Chen–Hawes, arXiv:1708.06461, Theorem 3, enumerates binary words by all distinct Abelian-border lengths, not three-or-more-letter words.",
+        "Goč–Rampersad–Rigo–Salimov, https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf, Propositions 11–16 identify walk returns with Abelian borders; the enumerated event is no positive returns.",
+        "A range of targeted phrase searches for higher-alphabet return-multiplicity claims did not identify an evaluated equivalent."
+      ],
+      "reasoning": "A short border is precisely a return of the paired-letter Parikh difference walk. The general walk encoding is prior, while the bivariate return-number enumerators and dimension-dependent limiting laws are not stated or implied as evaluated distributions in the inspected enumerative papers. The binary exact-count theorem does cover the \\(q=2\\) specialization, which is explicitly prior.",
+      "searches": [
+        "\"Abelian borders distribution of random ternary words number of distinct Abelian border lengths, logarithmic exponential limiting law\"",
+        "\"return visits to origin of the difference of two independent multinomial Parikh walks, ternary abelian prefix suffix border statistics\"",
+        "\"number of distinct abelian borders\" \"ternary\"",
+        "\"abelian borders\" \"distribution\" ternary letters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2014 general-alphabet paper lists ternary unbordered counts 6,48,402,3438 and their continuations, corresponding only to zero-return cells.",
+        "The new ternary all-r first five rows are independently recomputed by direct exhaustive enumeration: (6,3); (48,24,9); (402,210,90,27); (3438,1854,864,324,81); (29754,16434,8082,3402,1134,243).",
+        "Searches of sequence-like number tuples and specialized border query did not surface a complete r-refined ternary table."
+      ],
+      "reasoning": "A published table of zero-return counts does not determine the counts for each positive return multiplicity. No matching all-multiplicity table or \\(q\\ge3\\) border bivariate enumerator was located; the search is not a proof of uniqueness.",
+      "searches": [
+        "\"402\" \"210\" \"90\" \"27\" \"abelian\" ternary",
+        "\"3438\" \"1854\" \"864\" \"abelian\"",
+        "OEIS \"ternary\" \"abelian\" \"borders\" number",
+        "\"Abelian borders random words exact two sided prefix suffix Parikh count arithmetic phase transition q-ary\""
+      ]
+    },
+    "rationale": "The closest Theorem 3 (arXiv:1708.06461) handles binary all-border counts; the 2014 q-ary primary work records path encoding and zero-border enumeration, not arbitrary positive counts; the 2022 survey does not add the \\(q\\ge3\\) distribution. Actual indexed-record and web searches for equivalent, broader, tabulated and implied results found no stronger \\(q\\ge3\\) all-multiplicity/limit theorem. Generic renewal tools and the known \\(q=2\\) theorem are explicitly credited, and possible unindexed equivalents remain a real priority risk.",
+    "residual_risks": [
+      "A result not indexed in the consulted searches could give the same q>=3 all-multiplicity distribution.",
+      "Classic random-walk renewal identities underlie the extension; the originality claim is the evaluated Abelian-border spectrum and sharp q-dependent limit law, not the renewal principle.",
+      "Other scholarly literature may establish an equivalent dimension-dependent local-time limit without framing it as Abelian borders."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS binary complete multiplicity law; does NOT COVER \\(q\\ge3\\) complete spectrum or alphabet-dependent limit laws.",
+        "evidence": [
+          "arXiv:1708.06461 lines 399–535, Theorem 3 and proof; lines 52–77 motivation and source scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06461",
+        "material_read": "Introduction, Sections 4, 5.1, Theorems 1–3, their proof on PDF pages 7–8, and title/abstract; page 8 visually inspected.",
+        "method": "Open-access preprint full text and visual PDF page screenshot.",
+        "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+        "trigger": "Direct predecessor enumerating number of distinct Abelian borders and motivating larger alphabets."
+      },
+      {
+        "assessment": "COVERS walk equivalence for all alphabets and zero-border counts, not arbitrary return-multiplicity distributions or nonbinary limit laws.",
+        "evidence": [
+          "Original OA PDF lines 92–211, 253–270, 398–479; table listing first ternary no-return values."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+        "material_read": "Section 2 Motzkin coding and Lemmas 4–8, Section 3 Propositions 11–12, and Section 4 Propositions 15–16, recurrences for nonreturning higher-alphabet paths and tabulated ternary counts; PDF page 3 visually inspected.",
+        "method": "Lawful author-hosted OA full text with PDF page visual inspection.",
+        "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+        "trigger": "Earlier general-alphabet Parikh-walk encoding and ternary no-border counts."
+      },
+      {
+        "assessment": "SUMMARIZES existing work, does not state \\(q\\ge3\\) full border-count distributions or the alphabet transition.",
+        "evidence": [
+          "arXiv:2207.09937 lines 970–1007 and 2014/2017 reference coverage."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.09937",
+        "material_read": "Introduction, Section 6 Abelian periods and borders, Theorems 38–39 and surrounding discussion, cited references 11, 30 and 2014 general-alphabet enumeration; selected PDF page visually inspected.",
+        "method": "Open-access arXiv full text, targeted section reading and PDF screenshot.",
+        "title": "Abelian Combinatorics on Words: a Survey",
+        "trigger": "2022 coverage of relevant abelian border theory and published exact enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68e4c7c0-2e76-41ee-92c0-56d144f50bc2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The next natural case beyond the published binary complete-multiplicity theorem is not a small numerical increment: the rank of the difference walk changes and produces a trichotomy. All word lengths and all proper-border multiplicities over every alphabet have a computable exact bivariate enumerator. For \\(q=3\\), the short-border multiplicity diverges logarithmically with a proved exponential law and explicit sharp constant 3 sqrt(3)/(4 pi); for \\(q\\ge4\\) it stays geometrically bounded. These structurally different distributions are not obtained from mere binary counts or the presence/absence of a border and are of direct use for random-word Abelian-border statistics.",
+    "status": "PASS"
+  }
+}
