@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T12:12:14.227971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The direct/tensor adjacency is exactly r≠r′ AND c≠c′. For D=2-labeled support, B(D) consists of cells having no defender neighbor, and Roman feasibility is exactly B(D)\\D⊆O where O is the 1-support. Weight below six is impossible: |D|=0 forces mn≥16 ones, |D|=1 forces m+n−2 ones plus weight 2≥8, |D|=2 forces at least two labels 1, and |D|≥3 costs≥6. At weight six, |D|=2 and exactly two forced ones yields either diagonal/cross-corner pairs or a same-row/same-column configuration only at corresponding dimension four. For |D|=3, no ones are allowed; all distinct rows/columns give three matched defenders, or three corners of a 2×2 rectangle are valid, while a repeated row with a third column different from its two defender columns leaves an uncovered zero; analogous repeated-column and all-same configurations are excluded. The resulting five disjoint counts sum to 6C(m,3)C(n,3)+6C(m,2)C(n,2)+[n=4]mC(n,2)+[m=4]nC(m,2). An independently written adjacency-only enumerator exhaustively checked all size-2/size-3 defender placements on ten boards through 9×9, including 4×4=360, 5×5=1200, 8×9=34272 and 9×9=50112 and verified each geometric class. The finite tests corroborate the all-parameter case proof rather than establish it. Fixed m≥4 and n→∞ (or vice versa) yields cubic growth of the matching count vs quadratic growth of the rest.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabrera Martínez–Peterin–Yero, Roman domination in direct product graphs and rooted product graphs, arXiv:2105.10006v1, Proposition 2.1, DOI 10.3934/math.2021643",
+          "Cabrera Martínez–Kuziak–Peterin–Yero, Dominating the direct product of two graphs through total Roman strategies, arXiv:2005.13608v1, DOI 10.3390/math8091438",
+          "Resultary 2026-10-04: Roman domination polynomial of complete multipartite graphs (fa4c41b40973)",
+          "Resultary 2026-10-04: Roman {3}-domination of complete prisms (879e297963d2)"
+        ],
+        "reasoning": "The closest stronger-looking 2021 result specifies the min 6 but not multiplicities. A complete-multipartite graph has adjacency by belonging to different parts, unlike the tensor clique product. The complete prism uses Cartesian product and Roman-{3} labels; total Roman requires extra positive-support adjacency and excludes the elbow. Their broader labels or polynomial names do not imply the present count.",
+        "searches": [
+          "Roman domination optimal functions in tensor product of two complete graphs K_m K_n enumeration all minimum Roman dominating functions",
+          "Roman domination polynomial of direct product complete graphs complement rook graph unitary Cayley graphs squarefree",
+          "Roman domination polynomial of direct product complete graphs complement rook graph",
+          "arXiv:2105.10006v1 Proposition 2.1",
+          "arXiv:2005.13608v1 total Roman strategy"
+        ]
+      },
+      "checked_sources": [
+        "Cabrera Martínez–Peterin–Yero, Roman domination in direct product graphs and rooted product graphs, arXiv:2105.10006v1, Proposition 2.1, DOI 10.3934/math.2021643",
+        "Cabrera Martínez–Kuziak–Peterin–Yero, Dominating the direct product of two graphs through total Roman strategies, arXiv:2005.13608v1, DOI 10.3390/math8091438",
+        "H. Vemuri, Domination in direct products of complete graphs, arXiv:1908.02445v1",
+        "Chin–Maimani–Pournaki–Sivagami–Tamizh Chelvam, Unitary Cayley graphs whose Roman domination numbers are at most four, DOI 10.1080/09728600.2022.2041365",
+        "Resultary 2026-10-04: Roman domination polynomial of complete multipartite graphs (fa4c41b40973)",
+        "Resultary 2026-10-04: Roman {3}-domination of complete prisms (879e297963d2)",
+        "Resultary semantic index: four actual query strings recorded in the structured checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.1 gives gamma_R=6 and an elbow construction but does not list all minimizers.",
+          "The all-five-family count distinguishes 2-defender diagonals and special width-four families not determined by a bound on weight.",
+          "A total Roman elbow with isolated positive defender is excluded; ordinary set domination does not distinguish labels 1 and 2."
+        ],
+        "reasoning": "Knowledge that an optimum has weight 6 implies only that every minimizer has two or three defenders under the lower bounds, not their geometry or multiplicity. The explicit B(D) case analysis is additional. No inspected prior theorem was strong enough to derive the five disjoint families and binomial count without new proof.",
+        "searches": [
+          "arXiv:2105.10006v1 Section 2 Proposition 2.1 and proof",
+          "arXiv:2005.13608v1 Sections 1–2",
+          "arXiv:1908.02445v1 theorems and CRT identification",
+          "Roman domination in direct product graphs Cabrera Peterin Yero"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H. Vemuri, Domination in direct products of complete graphs, arXiv:1908.02445v1",
+          "The product K_m×K_n is complement of a Cartesian rook graph on an m×n board; for distinct prime factors, CRT identifies its special case with a squarefree unitary Cayley graph.",
+          "Chin–Maimani–Pournaki–Sivagami–Tamizh Chelvam, Unitary Cayley graphs whose Roman domination numbers are at most four, DOI 10.1080/09728600.2022.2041365"
+        ],
+        "reasoning": "All representations have edges exactly between cells differing in both coordinates, but ordinary set domination, total Roman domination, and low-Roman-number unitary Cayley results are not equivalent to enumerating ordinary Roman optimum label assignments. No covering enumerator was identified; unindexed work remains a risk.",
+        "searches": [
+          "Roman domination polynomial of direct product complete graphs complement rook graph unitary Cayley graphs squarefree",
+          "count minimum Roman dominating functions direct product complete graphs K_m x K_n",
+          "Roman domination polynomial unitary Cayley graph Zpq p q two prime factors",
+          "Roman domination minimum functions complement of Cartesian rook graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent adjacency-based enumerations of ten boards give 4×4=360, 4×5=630, 5×5=1200, 6×6=3750, 8×9=34272, 9×9=50112.",
+          "Resultary targeted semantic search returned fa4c41b40973, 879e297963d2 and related variants but no same-graph optimum counting table."
+        ],
+        "reasoning": "A matching indexed database/sequence/table was not found. These numbers were recomputed from the graph rule and all size-two/three defender placements, not reverse engineered from a preexisting table. Non-identification is not novelty proof.",
+        "searches": [
+          "Roman domination optimal functions in tensor product of two complete graphs K_m K_n enumeration all minimum Roman dominating functions",
+          "count minimum Roman dominating functions direct product complete graphs K_m x K_n",
+          "Roman domination polynomial of complete multipartite graphs Resultary",
+          "number of gamma_R functions complete graph tensor product adjacent iff both coordinates differ exact optimal count"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the all-optimum named-function classification and 5-family enumerator. The closest 2021 same-graph result proves only the minimum weight six. Primary direct-product total Roman and set-domination literature and the unitary-Cayley alias do not imply this exact count. Closest indexed Resultary findings have different graph products or Roman variants. Search absence is not proof of novelty; an unindexed matching classification remains possible.",
+      "residual_risks": [
+        "Unindexed work on the complement-of-rook or squarefree unitary Cayley graph may contain an equivalent enumerator.",
+        "The unitary Cayley paper was compared at the available theorem/scope level, not claimed fully read.",
+        "Exhaustive bibliographic novelty cannot be certified from finite indexes or failed searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 2.1 proves the scalar minimum gamma_R=6 and gives a three-2 elbow witness for m,n>=4; its lower bound and construction do not classify and count every minimum labeling.",
+          "evidence": [
+            "Proposition 2.1: gamma_R(K_m×K_n)=6 when both clique orders are at least four.",
+            "Proof exhibits an L/elbow 3-defender construction; it gives no named-optimum enumerator or all-geometries classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2021643 (arXiv:2105.10006v1)",
+          "material_read": "Open-access author-hosted full article text, introduction, complete Section 2 including Proposition 2.1, proof and surrounding propositions, plus ensuing product discussion.",
+          "method": "Read full author-upload text rendered as HTML; inspected exact proposition and mathematical proof rather than abstract.",
+          "title": "Roman domination in direct product graphs and rooted product graphs",
+          "trigger": "Exact same K_m tensor K_n graph family and ordinary Roman-domination minimum six."
+        },
+        {
+          "assessment": "Total Roman dominating functions must have no isolated vertex within positive-labeled induced support; an ordinary three-defender elbow includes a positive corner adjacent to neither other defender in the tensor product, so total Roman optimum enumeration cannot cover it.",
+          "evidence": [
+            "Definition requires positive-support graph with no isolated vertices.",
+            "Three-corner 2×2 elbow in K_m×K_n has an isolated defender, hence violates total Roman condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math8091438 (arXiv:2005.13608v1)",
+          "material_read": "Open full author-hosted article rendered in HTML, definitions of total Roman domination, initial product results and comparisons with ordinary Roman domination.",
+          "method": "Read primary article text and compare imposed positive-support adjacency condition to elbow labeling.",
+          "title": "Dominating the Direct Product of Two Graphs through Total Roman Strategies",
+          "trigger": "Same graph product and superficially stronger Roman-type condition."
+        },
+        {
+          "assessment": "The results concern ordinary set domination and total set domination without distinct 1/2 labels, not the number of minimum-weight Roman labeling functions.",
+          "evidence": [
+            "Under Chinese remainder identification, K_p×K_q is the unitary Cayley graph of Z/(pq) for distinct primes.",
+            "Stated theorems address domination numbers/sets rather than Roman minimum-function counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.02445",
+          "material_read": "Open-access arXiv article rendered as full HTML text; abstract, introduction, direct-product and squarefree-unitary-Cayley identification, and principal set-domination results.",
+          "method": "Read primary preprint text and compare definitions/theorems to numbered Roman assignments.",
+          "title": "Domination in direct products of complete graphs",
+          "trigger": "Exact graph product and squarefree unitary Cayley alias; possible broader domination classification."
+        },
+        {
+          "assessment": "Classifies graphs with Roman domination numbers at most four; its announced scope excludes the present minimum-six graphs, so it cannot directly cover their exact optimizer counts.",
+          "evidence": [
+            "Stated theorem concerns Roman domination numbers 2, 3 and 4; family here has gamma_R=6."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2022.2041365",
+          "material_read": "Accessible indexed article theorem and abstract identifying its <=4 case classification; no claim of entire full text being read.",
+          "method": "Compare exact published theorem scope (Roman minimum <=4) against audited family whose minimum is six.",
+          "title": "Unitary Cayley graphs whose Roman domination numbers are at most four",
+          "trigger": "Roman domination under graph-family alias (unitary Cayley)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete natural classification and exact multiplicity formula for all minimum Roman allocations on an infinite two-parameter family of canonical graph products, rather than a renamed known minimum. It exhibits three distinct bulk geometries, two sharp dimension-four boundary mechanisms, the distribution between two and three defenders and the asymptotic dominance of matching triples. A graph domination researcher may need exact named-optimum counts to study robustness, sampling, or refinement of Roman domination polynomials; these follow neither routinely from the scalar gamma_R=6 nor from the different total Roman/set-domination theories. It does not assert a full polynomial, orbit enumeration, or higher-factor generalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cabrera Martínez–Peterin–Yero, Roman domination in direct product graphs and rooted product graphs, arXiv:2105.10006v1, Proposition 2.1, DOI 10.3934/math.2021643",
+    "Cabrera Martínez–Kuziak–Peterin–Yero, Dominating the direct product of two graphs through total Roman strategies, arXiv:2005.13608v1, DOI 10.3390/math8091438",
+    "H. Vemuri, Domination in direct products of complete graphs, arXiv:1908.02445v1",
+    "Chin–Maimani–Pournaki–Sivagami–Tamizh Chelvam, Unitary Cayley graphs whose Roman domination numbers are at most four, DOI 10.1080/09728600.2022.2041365",
+    "Resultary 2026-10-04: Roman domination polynomial of complete multipartite graphs (fa4c41b40973)",
+    "Resultary 2026-10-04: Roman {3}-domination of complete prisms (879e297963d2)",
+    "Frozen Git proof, slogan, self-review, metadata, original verification code and outputs at tree 51fb8caf064148c815f96a58a313f5807580c435",
+    "Independent new Python graph-adjacency support enumeration on (4,4),(4,5),(4,6),(5,4),(5,5),(5,6),(6,6),(7,7),(8,9),(9,9)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All m,n≥4; graph product is direct/tensor, not Cartesian; fixed named vertices and exact 0/1/2 Roman labels.",
+    "No classification for m or n less than four, arbitrary factors or more than two factors.",
+    "No automorphism-orbit counts, complete Roman polynomial, or general external-formal verification claimed."
+  ],
+  "residual_risks": [
+    "An unindexed equivalent optimum-function enumerator under the tensor/clique/rook-complement/unitary-Cayley aliases remains possible.",
+    "Four-factor and smaller-clique cases are not covered; for large m/n proof depends on correct case argument, not finite verifier.",
+    "Publisher source identified by DOI 10.1080/09728600.2022.2041365 was not fully read; its announced minimum≤4 classification does not cover our minimum-six family."
+  ],
+  "schema_version": 1
+}

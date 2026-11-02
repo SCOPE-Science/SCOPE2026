@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument defines the precise neighborhood condition, rules out every defender count for weights below six, classifies all possible two- and three-defender geometries at equality, and counts each disjoint family. The axis-aligned rectangle boundary cases are checked explicitly. The independent adjacency-based verifier matches the exact formula on eight boards, including both four-wide thresholds. This finite check corroborates but does not replace the proof.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. Proposition 2.1 of Cabrera Martínez–Peterin–Yero (arXiv:2105.10006v1) establishes the same numerical optimum, but not its complete optimizer classification or enumerator. Cabrera Martínez et al. (arXiv:2005.13608v1) study the stricter total Roman condition, which excludes elbow labelings with an isolated positive vertex. Vemuri (arXiv:1908.02445v1) studies ordinary vertex-set domination of clique products; its theorem cannot count separately the required label-one and label-two optimal assignments. Semantic mathematical-record searches and a search under the unitary-Cayley alias did not identify a dominating result. A matching formula in unindexed literature remains possible.
+PASS
 
-## Value
-PASS. Minimum weight was previously known, but its number of witnesses and exhaustive geometry were not deduced there. The enumeration distinguishes three qualitatively different bulk optimizer geometries, reveals two sharp one-sided order-four boundary families, and shows asymptotic prevalence of three-row/three-column defenders. This answers a natural multiplicity question about Roman allocations on an infinite graph-product family, not an arbitrary numerical slice.
+The direct/tensor adjacency is exactly r≠r′ AND c≠c′. For D=2-labeled support, B(D) consists of cells having no defender neighbor, and Roman feasibility is exactly B(D)\D⊆O where O is the 1-support. Weight below six is impossible: |D|=0 forces mn≥16 ones, |D|=1 forces m+n−2 ones plus weight 2≥8, |D|=2 forces at least two labels 1, and |D|≥3 costs≥6. At weight six, |D|=2 and exactly two forced ones yields either diagonal/cross-corner pairs or a same-row/same-column configuration only at corresponding dimension four. For |D|=3, no ones are allowed; all distinct rows/columns give three matched defenders, or three corners of a 2×2 rectangle are valid, while a repeated row with a third column different from its two defender columns leaves an uncovered zero; analogous repeated-column and all-same configurations are excluded. The resulting five disjoint counts sum to 6C(m,3)C(n,3)+6C(m,2)C(n,2)+[n=4]mC(n,2)+[m=4]nC(m,2). An independently written adjacency-only enumerator exhaustively checked all size-2/size-3 defender placements on ten boards through 9×9, including 4×4=360, 5×5=1200, 8×9=34272 and 9×9=50112 and verified each geometric class. The finite tests corroborate the all-parameter case proof rather than establish it. Fixed m≥4 and n→∞ (or vice versa) yields cubic growth of the matching count vs quadratic growth of the rest.
 
-## Scope and risks
-Only fixed coordinate-labeled direct products of two cliques, each of order at least four. No orbit count, higher-factor classification, or complete Roman polynomial is asserted. See `RESULT.md` and `VERIFICATION.md` for hypotheses and evidence. Unindexed equivalent enumerations and independent validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the all-optimum named-function classification and 5-family enumerator. The closest 2021 same-graph result proves only the minimum weight six. Primary direct-product total Roman and set-domination literature and the unitary-Cayley alias do not imply this exact count. Closest indexed Resultary findings have different graph products or Roman variants. Search absence is not proof of novelty; an unindexed matching classification remains possible.
+
+## value
+
+PASS
+
+This is a complete natural classification and exact multiplicity formula for all minimum Roman allocations on an infinite two-parameter family of canonical graph products, rather than a renamed known minimum. It exhibits three distinct bulk geometries, two sharp dimension-four boundary mechanisms, the distribution between two and three defenders and the asymptotic dominance of matching triples. A graph domination researcher may need exact named-optimum counts to study robustness, sampling, or refinement of Roman domination polynomials; these follow neither routinely from the scalar gamma_R=6 nor from the different total Roman/set-domination theories. It does not assert a full polynomial, orbit enumeration, or higher-factor generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
