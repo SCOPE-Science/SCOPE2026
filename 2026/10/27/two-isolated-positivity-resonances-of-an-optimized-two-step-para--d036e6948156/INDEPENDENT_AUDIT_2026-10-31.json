@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:06:30.281905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/27/two-isolated-positivity-resonances-of-an-optimized-two-step-para--d036e6948156/RESULT.md",
+        "/mnt/data/scope_worker04_audit_20261031T1046Z/independent_checks_batch4959.py"
+      ],
+      "rationale": "For the five printed decimal rational coefficients treated exactly, Schur inequalities hold for every s>0. When s<=s0=c/d both A,B>=0; when s>=s1=a/b the second iterate is negative. On s0<s<s1, roots p>0 and -q<0 have q>p, and exact starting solution has coefficients (u+q)/(p+q), (p-u)/(p+q), u=e^-s. Every iterate is positive iff u=p, otherwise the dominant alternating mode eventually gives negative parity. Exact matching is F(s)=0. The derivative analysis of H=e^sF’’ with H’’>0 and explicit endpoint/interior signs bounds F to two simple zeros. Independent high-precision root calculations locate 3.70146585514664567398 and 46.340425531914893290594485997229844; the second is ~3.26e-16 below s1 and direct finite iteration there is ill-conditioned, so it was NOT used as a proof. Log ratio of amplitudes proves inverse-linear first-negative index near s0 and logarithmic delay near simple resonance. Bounded numerical checks support but do not replace the derivative sign proof.",
+      "residual_risks": [
+        "The second resonance cannot be robustly resolved with ordinary binary64; no conclusion extends to hidden unrounded coefficients or the corrected parareal solution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Optimized two-step coarse propagators in parareal algorithms: Section 3.5 Eq. (3.20), Section 3.6 stability and parareal convergence"
+        ],
+        "reasoning": "A-stability bounds poles/roots in the unit disk and does not imply positivity; general multistep monotonicity theorems lack the exact matching exceptional set for these parameters.",
+        "searches": [
+          "optimized two step parareal positivity preservation exceptional resonances parameter roots",
+          "Optimized Two-Step Coarse Propagators in Parareal Algorithms positivity resonance"
+        ]
+      },
+      "checked_sources": [
+        "Li–Lin–Zhang–Zhou, arXiv:2605.11979v2, Section 3.5 Eq. (3.20)",
+        "Hundsdorfer–Ruuth–Spiteri, Monotonicity-Preserving Linear Multistep Methods, SIAM JNA 41 (2003), bibliographic/abstract comparison",
+        "Resultary record: exact delayed sign loss beyond BDF2 positivity boundary (different characteristic-root regime)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Optimized two-step coarse propagators in parareal algorithms: Section 3.5 Eq. (3.20), Section 3.6 stability and parareal convergence"
+        ],
+        "reasoning": "The optimized coarse propagator source determines coefficients, not positivity classification; even known real-root recurrences need the nontrivial special F(s) sign/zero analysis for precisely two resonances.",
+        "searches": [
+          "optimized two step parareal positivity preservation exceptional resonances parameter roots",
+          "Optimized Two-Step Coarse Propagators in Parareal Algorithms positivity resonance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Optimized two-step coarse propagators in parareal algorithms: Section 3.5 Eq. (3.20), Section 3.6 stability and parareal convergence"
+        ],
+        "reasoning": "Characteristic-root cancellation is a classical equivalent characterization; for these printed coefficients it becomes F(s)=0 with exactly two positive roots in a sign-indefinite interval, unlike generic monotonicity regions.",
+        "searches": [
+          "optimized two step parareal positivity preservation exceptional resonances parameter roots",
+          "Optimized Two-Step Coarse Propagators in Parareal Algorithms positivity resonance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Optimized two-step coarse propagators in parareal algorithms: Section 3.5 Eq. (3.20), Section 3.6 stability and parareal convergence"
+        ],
+        "reasoning": "The printed rational functions are a known table (Li et al. Eq.3.20), and are explicitly credited. The two exceptional roots and delay constants were independently recomputed rather than read from a published table.",
+        "searches": [
+          "optimized two step parareal positivity preservation exceptional resonances parameter roots",
+          "Optimized Two-Step Coarse Propagators in Parareal Algorithms positivity resonance"
+        ]
+      },
+      "rationale": "Li–Lin–Zhang–Zhou Section 3.5 equation (3.20) supplies the exact printed O2CP rational functions and optimizes parareal convergence. Its stated analysis concerns convergence/stability, not all-time scalar positivity with exponential starter or the two matching roots. Hundsdorfer–Ruuth–Spiteri provides general linear multistep monotonicity theory, and the public BDF2 sign-loss record is a different oscillatory-root regime. The particular coefficient-driven two-resonance classification appears distinct, with substantial methodological overlap credited.",
+      "residual_risks": [
+        "Classical oscillatory-recursion and monotonicity results may contain equivalent root-matching criteria; the nontrivial claim lies in the two-root count for this specific printed coefficient choice.",
+        "The second resonance cannot be robustly resolved with ordinary binary64; no conclusion extends to hidden unrounded coefficients or the corrected parareal solution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source provides rational coefficient functions but not the exact-start scalar sign classification",
+          "evidence": [
+            "Section 3.5 Eq. (3.20), Section 3.6 stability and parareal convergence"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.11979v2",
+          "material_read": "arXiv full HTML sections 3.1, 3.5, 3.6 and equation (3.20); inspected relevant original equations and method hypotheses",
+          "method": "Primary full HTML sections",
+          "title": "Optimized two-step coarse propagators in parareal algorithms",
+          "trigger": "Identical method and printed coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity of uncorrected coarse trajectories is a natural qualitative stability question even for an A-stable optimized propagator. The exact two isolated eigenmode-cancellation parameters and inverse-linear/logarithmic delay laws are sharply motivated information about that published numerical method, with explicit limitation to a scalar exact-start test.",
+      "residual_risks": [
+        "Classical oscillatory-recursion and monotonicity results may contain equivalent root-matching criteria; the nontrivial claim lies in the two-root count for this specific printed coefficient choice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Li–Lin–Zhang–Zhou, arXiv:2605.11979v2, Section 3.5 Eq. (3.20)",
+    "Hundsdorfer–Ruuth–Spiteri, Monotonicity-Preserving Linear Multistep Methods, SIAM JNA 41 (2003), bibliographic/abstract comparison",
+    "Resultary record: exact delayed sign loss beyond BDF2 positivity boundary (different characteristic-root regime)"
+  ],
+  "disposition": "passed",
+  "limitations": "The second resonance cannot be robustly resolved with ordinary binary64; no conclusion extends to hidden unrounded coefficients or the corrected parareal solution. Publication not_ready reflects the private provenance metadata transport requirement, not a scientific failure.",
+  "residual_risks": [
+    "Classical oscillatory-recursion and monotonicity results may contain equivalent root-matching criteria; the nontrivial claim lies in the two-root count for this specific printed coefficient choice.",
+    "The second resonance cannot be robustly resolved with ordinary binary64; no conclusion extends to hidden unrounded coefficients or the corrected parareal solution."
+  ],
+  "schema_version": 1
+}

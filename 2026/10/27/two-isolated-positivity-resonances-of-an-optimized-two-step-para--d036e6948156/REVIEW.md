@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The printed rational coefficients and exact starter are explicit; the proof verifies Schur stability independently, decomposes the recurrence into its real characteristic modes, and gives necessary and sufficient all-time positivity conditions. An elementary convexity/derivative argument proves exactly two isolated exponential-matching roots; exact rational Taylor enclosures independently certify every numerical sign used to count them. The onset coefficient and parity-specific first-negative formulas follow directly from the exact recurrence. A stand-alone checker reproduces the computations. Limits: no conclusion about the fully corrected parareal iteration or unspecified unrounded parameters.
+## correctness
 
-**Originality — PASS with priority risk.** The source's equation (3.20) gives the optimized coarse propagator and studies stable error factors, but its inspected analysis does not assert the exact-positive-start modal positivity set, count the two isolated resonances or derive the inverse-linear/logarithmic sign delays. Hundsdorfer--Ruuth--Spiteri provides general multistep monotonicity theory and starting-procedure analysis, not this method-specific complete classification. Previous BDF2 examples and classical recurrence theory establish analogous oscillatory/spectral-dominance mechanisms; none of those general mechanisms is claimed as new. The new, sharply delimited claim is the two-resonance O2CP positivity phase diagram; generic recurrence arguments could make this result more immediate than a standalone theorem, and undetected equivalent calculations are a residual risk.
+PASS
 
-**Value — PASS.** The source optimizes parareal convergence and establishes A-stability, while positivity of an exact-start coarse scalar decay is an independent requirement for nonnegative evolutions. The classification supplies a sharp admissible spectral range and proves that outside it a stable coarse predictor generically loses positivity, with precisely two isolated, nonrobust matching exceptions. The two different divergence laws for first sign failure explain why finite tests can miss eventual loss. The second resonance is only a mathematical boundary phenomenon, not a practical tuning recommendation.
+For the five printed decimal rational coefficients treated exactly, Schur inequalities hold for every s>0. When s<=s0=c/d both A,B>=0; when s>=s1=a/b the second iterate is negative. On s0<s<s1, roots p>0 and -q<0 have q>p, and exact starting solution has coefficients (u+q)/(p+q), (p-u)/(p+q), u=e^-s. Every iterate is positive iff u=p, otherwise the dominant alternating mode eventually gives negative parity. Exact matching is F(s)=0. The derivative analysis of H=e^sF’’ with H’’>0 and explicit endpoint/interior signs bounds F to two simple zeros. Independent high-precision root calculations locate 3.70146585514664567398 and 46.340425531914893290594485997229844; the second is ~3.26e-16 below s1 and direct finite iteration there is ill-conditioned, so it was NOT used as a proof. Log ratio of amplitudes proves inverse-linear first-negative index near s0 and logarithmic delay near simple resonance. Bounded numerical checks support but do not replace the derivative sign proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Li–Lin–Zhang–Zhou Section 3.5 equation (3.20) supplies the exact printed O2CP rational functions and optimizes parareal convergence. Its stated analysis concerns convergence/stability, not all-time scalar positivity with exponential starter or the two matching roots. Hundsdorfer–Ruuth–Spiteri provides general linear multistep monotonicity theory, and the public BDF2 sign-loss record is a different oscillatory-root regime. The particular coefficient-driven two-resonance classification appears distinct, with substantial methodological overlap credited.
+
+## value
+
+PASS
+
+Positivity of uncorrected coarse trajectories is a natural qualitative stability question even for an A-stable optimized propagator. The exact two isolated eigenmode-cancellation parameters and inverse-linear/logarithmic delay laws are sharply motivated information about that published numerical method, with explicit limitation to a scalar exact-start test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
