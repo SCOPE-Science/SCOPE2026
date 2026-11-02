@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The source coefficients are reconstructed as the scalar recurrence. The exact discriminant, sign boundaries, two-root positive-start characterization and endpoint calculation prove the complete nonnegative-start classification without an unproved numerical extrapolation. The symbolic and high-precision standalone checker reproduces the algebra and representative cases.
+
+**Originality — PASS (self-review, not independently certified).** A direct full-text comparison with the 2026 source identifies the coefficient formula, but not the all-start positivity cone. Older 2002 and 2010 primary monotonicity studies treat broader bounds and specific numerical starting methods, not the complete positive-history classification for these 2026 optimized coefficients. Accessible older numerical findings cover single backward-Euler or exact starters and a different two-state Markov-history question; none implies the full half-line/singleton/empty phase diagram. Standard characteristic-root formulas are credited. Residual risk: an older implicit two-step positivity theorem might subsume the diagram after a nontrivial specialization, or an unpublished equivalent may exist.
+
+**Mathematical value — PASS.** Positivity preservation of decay approximations is a natural numerical stability requirement. Rather than testing one arbitrary startup, the finding settles all positive startup histories, identifies a unique largest step size robust to every positive startup, and reveals a structurally different measure-zero island of indefinitely positive behavior that is destroyed by any positive startup perturbation. These boundaries inform the choice and error sensitivity of startup schemes. It is not a general nonlinear SSP or roundoff result.
+
+Self-review: passed. Independent audit: not yet performed.
