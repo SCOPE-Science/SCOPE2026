@@ -1,15 +1,21 @@
-# Scientific review of sharp logistic proximal bifurcation
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the inverse-designed scalar penalty through its derivative and handles all hardness values and all nonnegative inputs. The logistic shrinker's derivative has one nondegenerate interior maximum; the rescaled stationarity curve consequently has zero or exactly two folds. At the critical scale it is strictly increasing despite a single horizontal tangent, which proves uniqueness and supplies the cubic-root constant by Taylor expansion. Above the threshold, the difference between the outer local-minimum energies is strictly decreasing in the datum and has opposite signs at the two folds, proving a unique *global* equal-depth input. The rescaled quartic energy, not just stationary-root enumeration, proves the onset constants. The standalone numerical checker independently recomputes the fold, equal-area condition, cusp identities and scaling constants for three hardness values; it is diagnostic, not a substitute for proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary source is Yang–Wang–Yang (arXiv:2610.21664v1), which constructs this particular penalty and proves \(\rho_a=1-1/L\), and, under the strict condition \(\beta\rho_a<1\), a unique scaled proximal map. Its Sections 3–5 contain neither a classification at/above the threshold nor the global equal-depth datum and critical asymptotic constants. Lu–Zhu–Xu–Yan–Lin (arXiv:1412.2231) establishes generic singular-value reduction and monotonicity of set-valued nonconvex proximal operators. Those conclusions do not imply the present explicit, family-specific cusp coefficient, unique coexistence location, or jump/fold constants without additional analysis. Searches for logistic/Maxwell/weak-convexity equivalents did not reveal direct coverage. Generic cusp and nonconvex-proximal theories include qualitative mechanisms, so an unindexed specialized equivalent remains a bibliographic risk. Lack of a search hit alone is not used as novelty evidence.
+PASS
 
-## Mathematical value — PASS
-The motivating proximal-gradient implementation uses the scaled subproblem with \(\beta=\eta\alpha\), whose safe monotone-root recipe is established only below the weak-convexity ceiling. The new theorem identifies the precise equality case, proves an unavoidable global jump at every supercritical scale, and quantifies both the degenerate conditioning of the equality case and the opening width of the unsafe two-well region. This differentiates global minimizer ambiguity from mere nonconvexity and supplies a parameter-level diagnostic for spectral regularization; it is not an arbitrary numerical slice or a restatement of a generic sufficient bound.
+PASS: The logistic derivative h_a' =p+at p(1-p) is strictly positive. Its second derivative is a p(1-p)[2-at tanh(a(t-1)/2)], so the unique t0>1 is the nondegenerate global slope maximum L>1 (and H=-h_a'''(t0)>0). The stationary-input curve S_beta(t)=beta t+(1-beta)h_a(t) is strictly increasing at and below beta_c=L/(L-1), even though its derivative touches zero at beta_c. Above beta_c it has precisely two turning points. The outer global-minimum energy difference differentiates as u_l-u_r<0 and has opposite strict signs at the folds, proving exactly one Maxwell equal-depth datum for every beta>beta_c. A cubic Taylor expansion at the critical point gives the signed |s-sc|^(1/3) modulus; rescaling t-t0=√epsilon x gives the fold-width coefficient (4/3)(L-1)q, the two-minimizer jump 2√3 Lq and Maxwell-location little-o epsilon^(3/2). Independently reimplemented differentiation and numerical Maxwell root checks support the constants, but not the universal assertion. The finite input s=0 is treated by the positive objective and derivative boundary; beta=beta_c is included.
 
-## Literature comparison and boundaries
-Primary text inspected: Yang et al., *Data-Driven Smooth-to-Hard Spectral Regularization for General Linear Inverse Problems*, arXiv:2610.21664v1, Sections 3–5 (especially Theorems 4.2, 5.2, 5.3); Lu et al., *Generalized Singular Value Thresholding*, arXiv:1412.2231, introductory formulation, Theorems 1–2 and discussion of nonunique scalar minimizers. Related weak-convexity literature establishes framework-level conditions, not the constants calculated here. The proof is for exact scalar global minimizers; its matrix implication is only failure of *universal* single-valuedness (already witnessed in dimension one). It does not assert full matrix-branch classification, finite-precision sharpness, or dynamic convergence/failure of proximal-gradient iterations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Yang–Wang–Yang prove an exact weak-convexity bound and sufficient strict inequality beta(1-1/L)<1. The asserted endpoint, unique supercritical global coexistence and exact cusp/fold coefficients require analysis beyond that sufficient condition. Lu and collaborators provide generic scalar singular-value reduction, and generic cusp theory supplies qualitative exponents, not the family-specific Maxwell location and constants. Resultary semantic search found related proximal works but no statement covering the full theorem. Original primary arXiv full text was unavailable in this execution; priority is best-of-knowledge only.
+
+## value
+
+PASS
+
+PASS: A sharp global uniqueness threshold including its equality endpoint, unique supercritical datum with two global minimizers, and quantitative onset constants are directly relevant to the nonconvex logistic spectral penalty. This is not merely a restated weak-convexity sufficient condition or a stationary-root count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
