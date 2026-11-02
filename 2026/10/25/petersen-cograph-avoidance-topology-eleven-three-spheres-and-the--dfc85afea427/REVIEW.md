@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full ten-vertex face space has \(1024\) candidate masks. Independent path predicates agree on all of them, yielding \(390\) nonempty faces. The \(187\)-pair face matching is checked on the complete \(1380\)-edge Hasse digraph; all \(390\) nodes are removed by directed acyclicity testing. The resulting integral Morse boundary is the explicit rank-two \(13\times2\) matrix in the result, with a \(-1\) determinant witness. Integral attaching-map cancellation in a two-connected wedge yields \(\bigvee^{11}S^3\). Separate direct modular boundary ranks and \(120\) signed simplex Lefschetz traces support the computation and the full \(S_5\)-module.
+## correctness
 
-## Originality — PASS
-The 2015 primary paper on devoid complexes computes paths/cycles and three-vertex-path avoidance for forests, not the four-vertex-path devoid Petersen graph. Direct comparison with the published Petersen two-independence result finds a proper strict subcomplex with a different third Betti rank. A publicly posted ordinary four-cut complex of the complementary triangular graph has the same eleven-sphere rank but is pure of dimension five and has different \(S_5\) character, so its theorem does not cover this result. Indexed and own-claim searches for cograph, star forest, induced \(P_4\), Petersen, Kneser and representation aliases found no covering implication. An unindexed equivalent computation remains possible; the older structural cograph paper was inspected only at webpage/section level.
+PASS
 
-## Value — PASS
-A \(P_4\)-free graph is a cograph, and on the canonical Petersen graph the induced permitted subgraphs are precisely disjoint unions of stars. This natural forbidden-pattern complex goes beyond the already classified path/cycle cases and smaller matching-based restrictions. Its full integral homotopy and symmetry decomposition detect additional degree-three topology invisible in the Petersen two-independence complex. The \(S_5\)-character contains a sign line but no invariant line, adding meaningful equivariant information to the homotopy classification.
+Reconstructed Petersen as KG(5,2) on ten two-subsets with 15 edges. Exhaustive forbidden-induced-P4 enumeration finds 60 bad quadruples; all 1024 masks tested, giving 390 nonempty faces, f=(10,45,120,150,60,5). Separately reconstructed the specified 187 greedy face pairs; full directed Hasse graph acyclic (390 nodes, 1380 incidences). Exact chain cancellation yields claimed 13-by-2 Morse boundary with a unimodular 2-minor: two three/four cell pairs cancel homotopically leaving wedge of eleven S3, not just rational homology. Independently recomputed all 120 orientation-sensitive fixed-simplex traces and S5 character (11,-3,-1,2,0,-1,1); Specht decomposition dims 6+4+1. The computation is finite and exhaustive for the ten-vertex graph, not a claim about all Kneser graphs.
 
-## Limitations and closest literature
-The statement is specific to the ten-vertex Petersen graph and \(P_4\) avoidance, with only rational representation classification. No claim is made for larger Kneser graphs or for an integral equivariant lattice. Comparisons were made with Taylan (arXiv:1501.06754), structural cograph work, and full published results on the Petersen two-independence and complementary triangular four-cut complexes. Some unindexed equivalent work could remain undiscovered; this does not affect the exact mathematical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant mathematical objects are P4-devoid complexes and cograph-induced vertex subsets, not Petersen independence or cut complexes. Prior path/cycle devoid results have nonapplicable graph-family hypotheses. Two same-graph indexed findings have different face predicates; the complementary triangular four-cut complex even has the same rank 11 but different S5 character. Full-text access for Taylan was not secured in this run: a publisher preview/abstract, exact theorem descriptions and source citations were considered, and full comparison remains a real residual priority risk. None of the inspected propositions implies the Petersen-specific Morse or S5 theorem.
+
+## value
+
+PASS
+
+P4-free induced subgraphs are precisely star forests on the girth-five Petersen graph. The integral homotopy and full natural S5 symmetry representation of this canonical forbidden-pattern complex expose eleven sphere generators rather than the single S3 of the 2-independence subcomplex, with a sign line but no invariant vector. This is a motivated exact invariant for a natural finite graph and forbidden motif, beyond routine recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
