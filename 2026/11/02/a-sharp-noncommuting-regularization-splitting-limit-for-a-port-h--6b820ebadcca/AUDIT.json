@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The 2x2 exponential matrices multiply to the exact stated formula. A slow/fast eigenmode decomposition proves convergence of unsplit regularization. The scaled Strang endpoint approaches (cos² theta, cos theta sin theta) uniformly in phase, giving the full circle because theta tends continuously to infinity. Weighted error squared reduces to t²+(1−2t)cos² theta, with attained min/max. Exact energy contractivity follows from skew-adjointness in E_epsilon and positive damping. Exact/symbolic algebra plus 80 numerical checks corroborate all steps; experiments are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 port-Hamiltonian paper treats dynamic iterations rather than time-step Strang compositions.",
+        "The parabolic order-reduction abstract treats inhomogeneous PDE boundary conditions, not singular descriptor regularization."
+      ],
+      "reasoning": "A general order-reduction phenomenon is prior art and not asserted as new. No checked stronger numerical theorem has hypotheses and conclusions that furnish both this epsilon-degenerate circle and the positive sharp regularized-energy error constants. Full-text coverage of some broad literature is a residual risk.",
+      "searches": [
+        "energy stable Strang splitting fails asymptotic preserving singular mass DAE weighted energy error positive limit lower bound",
+        "operator splitting port Hamiltonian DAE singular mass matrix artificial inertia fast oscillation noncommuting epsilon time step",
+        "arxiv:2208.03574 abstract and introduction",
+        "doi:10.1093/imanum/dru002 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.16736 (full eight-page paper)",
+      "arxiv:2304.01766 (relevant ODE algorithm sections)",
+      "arxiv:2208.03574 (introductory descriptor/dynamic-iteration sections)",
+      "doi:10.1093/imanum/dru002 (publisher abstract only)",
+      "Published mathematical records, compared by actual semantic queries and statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bartel et al. derive regularized dissipativity and fixed-epsilon Strang integration, whereas the new statement quantifies the mismatch from the epsilon-to-zero DAE limit at a fixed h.",
+        "The 2023 ODE splitting result assumes a nonsingular ODE structure; applying a fixed-parameter order bound does not yield an epsilon-uniform order constant."
+      ],
+      "reasoning": "Convergence as h tends to zero for each fixed epsilon does not commute with the epsilon-to-zero limit at fixed h. Likewise stability in E_epsilon does not imply convergence because E_epsilon degenerates. The exact nonzero liminf and cluster circle therefore are not corollaries of the checked existing statements.",
+      "searches": [
+        "Strang splitting epsilon regularization port Hamiltonian differential algebraic equation nonuniform asymptotic limit oscillatory 2x2 example",
+        "energy stable Strang splitting fails asymptotic preserving singular mass DAE weighted energy error positive limit lower bound",
+        "sharp circle cluster set regularized Strang splitting descriptor port Hamiltonian zero mass epsilon generator rotation damped index one DAE",
+        "epsilon regularized port Hamiltonian scalar differential algebraic equation conservative dissipative operator splitting nonuniform convergence",
+        "\"Bartel\" \"Diab\" \"Frommer\" \"Günther\" \"Strang\" \"epsilon\" limit 2023",
+        "arxiv:2308.16736 equations (9),(12) and conclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 source gives E_epsilon=E+epsilon I and conservative/dissipative splitting, without fixed-h epsilon-to-zero endpoint classifications.",
+        "Published mathematical records inspected through actual semantic searches addressed unrelated dynamical flows rather than the numerical singular-mass port-Hamiltonian DAE."
+      ],
+      "reasoning": "Checked potential aliases as descriptor-mass singular limit, stiff splitting, lack of asymptotic preservation and endpoint geometry. An energy bound for each epsilon cannot imply convergence to the singular DAE: the metric degenerates and the split conservative fast angular frequency grows as epsilon^{-1/2}.",
+      "searches": [
+        "Strang splitting epsilon regularization port Hamiltonian differential algebraic equation nonuniform asymptotic limit oscillatory 2x2 example",
+        "sharp circle cluster set regularized Strang splitting descriptor port Hamiltonian zero mass epsilon generator rotation damped index one DAE",
+        "arxiv:2308.16736 Section 3, equation (12)",
+        "arxiv:2304.01766 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database searches returned named findings on unrelated dynamical flows and numerical methods, not a matching epsilon-regularized port-Hamiltonian DAE table.",
+        "prior research records were inspected for claim/alias matches, without identifying this exact DAE circle and energy-error formula."
+      ],
+      "reasoning": "The continuous epsilon limit is a theorem about an uncountable family of small parameters and cannot be established by a finite tabulation. No exact previously tabulated formula was found; unsuccessful search is not treated as proof of novelty.",
+      "searches": [
+        "Strang splitting epsilon regularization port Hamiltonian differential algebraic equation nonuniform asymptotic limit oscillatory 2x2 example",
+        "energy stable Strang splitting fails asymptotic preserving singular mass DAE weighted energy error positive limit lower bound",
+        "sharp circle cluster set regularized Strang splitting descriptor port Hamiltonian zero mass epsilon generator rotation damped index one DAE",
+        "epsilon regularized port Hamiltonian scalar differential algebraic equation conservative dissipative operator splitting nonuniform convergence"
+      ]
+    },
+    "rationale": "The complete direct motivating 2023 source and relevant algorithmic sections of related port-Hamiltonian splitting papers were inspected; checked sources cover regularization, energy dissipation and fixed-parameter accuracy, but not the sharp fixed-h epsilon-to-zero circle and positive energy-norm error. Published-record semantic comparisons and accessible historical claim comparisons identified no equivalent or dominating theorem. Priority remains qualified by incomplete broad historical literature coverage.",
+    "residual_risks": [
+      "An equivalent older singular-perturbation/DAE stiff splitting analysis may exist under different descriptors.",
+      "Full text of the broad 2015 parabolic order-reduction paper was not reviewed, although its stated objects differ.",
+      "No independent priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the numerical construction and fixed-regularization context, but no fixed-h sharp epsilon-to-zero energy-norm lower limit or circular cluster set.",
+        "evidence": "Equations (9), (12), p. 5 split energy identity and pp. 7-8 conclusion; the displayed results address energy and order, not the exact singular limit.",
+        "identifier_or_url": "arxiv:2308.16736",
+        "material_read": "Complete eight-page version 1, including Sections 2-4, equation (12), Strang subflows and conclusions.",
+        "method": "Read full arXiv PDF extracted text and visually checked page 5 of the PDF.",
+        "title": "Operator splitting for semi-explicit differential-algebraic equations and port-Hamiltonian DAEs",
+        "trigger": "Same regularization E+epsilon I and exact conservative/dissipative Strang splitting; direct priority candidate."
+      },
+      {
+        "assessment": "Nonsingular ODE theory does not prove a uniform singular descriptor-matrix limit; no E+epsilon I circle classification identified.",
+        "evidence": "Sections 2-3 specify ordinary differential equation form and standard Strang second order.",
+        "identifier_or_url": "arxiv:2304.01766",
+        "material_read": "Abstract and pages 1-4, including Section 2 ordinary differential equation framework and Section 3 splitting construction; targeted regularization-text search.",
+        "method": "Inspected arXiv PDF text for ODE construction, energy conditions, singular regularization mentions.",
+        "title": "Operator splitting for port-Hamiltonian systems",
+        "trigger": "Same authors and conservative/dissipative Strang concept; possible broader theorem."
+      },
+      {
+        "assessment": "Lions–Mercier-type dynamic iteration and contraction of iterative error are not the same as exact conservative/dissipative Strang substeps at fixed regularization.",
+        "evidence": "Abstract and introductory pp.1-3 explicitly define dynamic iteration instead of time-step subflow composition.",
+        "identifier_or_url": "arxiv:2208.03574",
+        "material_read": "Abstract, introduction, beginning of Section 2, Definition 1, initial results and targeted regularization-text search.",
+        "method": "Inspected arXiv PDF text; compared algorithmic statements.",
+        "title": "Operator Splitting Based Dynamic Iteration for Linear Port-Hamiltonian Systems",
+        "trigger": "Port-Hamiltonian descriptor systems and operator splitting; plausible conceptual predecessor."
+      },
+      {
+        "assessment": "Abstract discusses parabolic boundary-value problem order reduction; it does not state the specific singular-mass port-Hamiltonian DAE cluster theorem. Full-text implication not certified.",
+        "evidence": "Abstract identifies inhomogeneous parabolic equations with Dirichlet boundary conditions and sharp fractional orders.",
+        "identifier_or_url": "doi:10.1093/imanum/dru002",
+        "material_read": "Publisher abstract only, not full text.",
+        "method": "Read publisher abstract and compared stated objects and convergence problem.",
+        "title": "Analysis of exponential splitting methods for inhomogeneous parabolic equations",
+        "trigger": "General, potentially broader stiff-splitting and order-reduction analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b820eba-dcca-45e6-93f7-902e8e64a062",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regularization and energy-conserving/dissipative split are standard meaningful modeling and integration choices for descriptor systems. The theorem pinpoints a sharp, uniform-in-phase positive lower error in the natural energy norm at every fixed step despite unconditional contractivity, with a complete circle of endpoint limits and an exact phase-independent half-unit case. This directly diagnoses why fixed-epsilon convergence and geometric stability alone cannot certify an asymptotic-preserving discretization. It does not inflate its claim to other DAEs, subsolvers or coupled limits.",
+    "status": "PASS"
+  }
+}
