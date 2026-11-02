@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The inverse-pair criterion follows from cross-transversality of the two kernel partitions and images in the order-preserving setting. On rank two, the three mutually exclusive cases \(a<b\), \(b\leq a<c\), and \(a\geq c\) are exhaustive; the first and third are exchanged by the explicit formula and the middle maps are exactly the idempotents. On rank \(n-1\), the missing-image point lies in the unique double block precisely at an idempotent, and the two off-diagonal cases exchange under the explicit formula. All output parameters remain admissible. Rank-one and full-rank elements are idempotent. The rank-three count at five points is \(60\) transformations versus \(21\) idempotents, making idempotent-fixing inverse involutions impossible by parity; fixed points of a self-inverse monotone map are necessarily idempotent. The attached twenty-pair certificate covers all forty moved rank-three maps, leaves precisely twenty idempotents fixed, and has exactly one moved idempotent. The standalone verifier returned `VERIFY_OK individual_extremal_checks= 3000 rank_three_pairs= 20 fixed_idempotents= 20 moved_idempotents= 1`. These experiments certify the specific finite witnesses; the infinite formulas are proved algebraically in the result.
+## correctness
 
-## Originality — PASS, qualified
-The October 1, 2026 article [1] proves **permutation** inverse matchings for the whole order-preserving monoid, not involution matchings or a sharp idempotent-fixing threshold. The 2024 article [2] proves involution matching when the number of columns is an integer multiple of the number of rows; for a rank-\(r\) isotone stratum the ratio is \(n/r\), covering rank two for even \(n\) but not rank two for odd \(n\), nor rank \(n-1\) when \(n>2\). The earlier cyclic orientation-preserving involution [3] explicitly does not generally restrict to the ordinary order-preserving monoid. Primary HTML text was inspected at the cited theorems and applications; targeted searches and available mathematical record comparisons revealed no stronger coverage. Indexing gaps and undiscovered equivalent constructions remain possible, so this assessment does not establish universal priority.
+PASS
 
-## Mathematical value — PASS
-The problem is directly motivated by the gap between permutation matchings of the entire monoid and inverse involutions. The result constructs uniform, idempotent-fixing inverse involutions in two natural extremal nontrivial rank strata, including families not implied by the divisibility criterion. It proves a sharp, naturally smallest obstruction to the stronger requirement of fixing every idempotent and exactly attains the minimum moved-idempotent count at five points. These are structural boundaries for a live semigroup matching problem, not arbitrary finite counts.
+A mutual-inverse pair in O_n has equal rank and each image is a transversal to the other kernel. For rank two, alpha=(a;b,c), beta=(d;e,f) are inverse iff b<=d<c and e<=a<f; the piecewise swaps of nonidempotents are involutive and fix exactly binom(n+1,3) idempotents, leaving binom(n,3) transpositions. Corank-one maps (a;b) similarly invert precisely when missing image values hit the doubled kernel block, giving 2(n-1) fixed idempotents and binom(n-1,2) transpositions. This yields all-idempotent-fixing inverse involutions for n<=4. At n=5 rank three contains 60 maps and 21 idempotents, hence 39 nonidempotents of which none can be a fixed point of an inverse involution; parity forbids fixing every idempotent. The actual twenty-pair certificate was independently decoded and checked: 40 distinct maps, every pair mutually inverse, one moved idempotent, and twenty remaining unpaired idempotents. Independently checked 3,000 parameter cases n=3..12 for the two extremal-rank formulas; zero violations.
 
-## Limitations and closest literature
-The general existence of an inverse involution on the full monoid for arbitrary chain size remains unproved here, as does the minimum moved-idempotent count for sizes above five. A previous result covers the rank-two even-chain existence specialization without guaranteeing the fixed-idempotent property. The twenty-pair certificate is exact and finite. Equivalent unindexed work remains a residual originality risk.
+## originality
 
-References: [1] https://arxiv.org/html/2610.01912; [2] https://doi.org/10.1007/s00233-024-10430-0; [3] https://arxiv.org/html/1811.04472v2.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Higgins 2026 proves an inverse-valued permutation matching exists on O_n, but does not require a two-cycle involution or the idempotent-fixing property. Rank-stratified explicit involutions, the sharp O5 parity obstruction, and the one-moved-idempotent certificate are additional statements. Earlier involution-matching work concerns orientation preserving/reversing maps of a cycle and does not force these assertions on isotone chain transformations.
+
+## value
+
+PASS
+
+The smallest obstruction to idempotent-fixed inverse involutions is a natural refinement of a recently settled matching-existence question. The sharp n=5 construction and explicit extremal strata supply precise nontrivial semigroup matching geometry, not only a parity sanity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

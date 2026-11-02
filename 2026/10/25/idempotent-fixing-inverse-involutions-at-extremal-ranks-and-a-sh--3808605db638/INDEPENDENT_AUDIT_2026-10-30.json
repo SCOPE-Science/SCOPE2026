@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:04:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6bbb4a0f675439d5e8aed612d24443f0509b6b2d/2026/10/25/idempotent-fixing-inverse-involutions-at-extremal-ranks-and-a-sh--3808605db638/RESULT.md",
+        "RESULT.md blob 47f2b8d418521058f9154024c96955ca3e7347b1",
+        "certificate_rank3_n5.txt blob 99c64e60a3586db01ced3ef415c4e79863f4ff79",
+        "verify.py blob 688f5d76c00d016bed7c2f47f26527803fb99a11"
+      ],
+      "rationale": "A mutual-inverse pair in O_n has equal rank and each image is a transversal to the other kernel. For rank two, alpha=(a;b,c), beta=(d;e,f) are inverse iff b<=d<c and e<=a<f; the piecewise swaps of nonidempotents are involutive and fix exactly binom(n+1,3) idempotents, leaving binom(n,3) transpositions. Corank-one maps (a;b) similarly invert precisely when missing image values hit the doubled kernel block, giving 2(n-1) fixed idempotents and binom(n-1,2) transpositions. This yields all-idempotent-fixing inverse involutions for n<=4. At n=5 rank three contains 60 maps and 21 idempotents, hence 39 nonidempotents of which none can be a fixed point of an inverse involution; parity forbids fixing every idempotent. The actual twenty-pair certificate was independently decoded and checked: 40 distinct maps, every pair mutually inverse, one moved idempotent, and twenty remaining unpaired idempotents. Independently checked 3,000 parameter cases n=3..12 for the two extremal-rank formulas; zero violations.",
+      "residual_risks": [
+        "Finite certificate is exact for n=5; it does not prove existence or impossibility statements for n>=6, which are not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higgins 2026 Theorem A: balanced weighting iff permutation matching in combinatorial D-classes; Theorem B for all isotone chain monoids.",
+          "Higgins 2019: involution matchings for orientation-preserving/reversing mapping semigroups."
+        ],
+        "reasoning": "Broader semigroup existence/duality theorems yield different matching types and cannot directly conclude the exact fixed-point counts or the sharp five-element idempotent constraint.",
+        "searches": [
+          "Resultary semantic search: order preserving transformation monoid inverse involution fixes idempotents rank 2 rank n-1 five element obstruction"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.01912v1",
+        "https://repository.essex.ac.uk/24377/",
+        "https://repository.essex.ac.uk/13220/",
+        "Resultary semantic semigroup search above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem B in arXiv:2610.01912 yields a permutation matching for O5; if it implied an idempotent-fixing involution it would contradict the proven 39-unpaired parity count.",
+          "The 2019 orientation-preserving semigroup contains maps not all weakly order-preserving on a chain."
+        ],
+        "reasoning": "The sharp positive and negative assertions are not corollaries of general permutation matching existence; they require the rank formulas and an explicit matching.",
+        "searches": [
+          "Resultary semantic search: order preserving transformation monoid inverse involution fixes idempotents rank 2 rank n-1 five element obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higgins, Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings, arXiv:2610.01912v1, Theorem B: O_n has a permutation matching.",
+          "Its §1 explicitly distinguishes involution matching in OP_n and notes O_n is not closed under that canonical involution."
+        ],
+        "reasoning": "An arbitrary inverse-valued permutation matching can have cycles longer than two; it neither proves idempotent-fixed inverse involutions nor evades the O5 rank-three parity obstruction.",
+        "searches": [
+          "Resultary semantic search: order preserving transformation monoid inverse involution fixes idempotents rank 2 rank n-1 five element obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In O5 rank three, binom(4,2)*binom(5,3)=60 maps and binom(7,5)=21 idempotents.",
+          "Certificate_rank3_n5.txt: twenty reciprocal disjoint pairs and exactly one idempotent among the forty paired maps; independent complete O5 rank-three check."
+        ],
+        "reasoning": "Finite certificate is an explicit sharp witness. No prior exact matching table with this n=5 idempotent-optimal condition was located; counts alone do not imply the existence of the certificate.",
+        "searches": [
+          "Resultary semantic search: order preserving transformation monoid inverse involution fixes idempotents rank 2 rank n-1 five element obstruction"
+        ]
+      },
+      "rationale": "Higgins 2026 proves an inverse-valued permutation matching exists on O_n, but does not require a two-cycle involution or the idempotent-fixing property. Rank-stratified explicit involutions, the sharp O5 parity obstruction, and the one-moved-idempotent certificate are additional statements. Earlier involution-matching work concerns orientation preserving/reversing maps of a cycle and does not force these assertions on isotone chain transformations.",
+      "residual_risks": [
+        "A pre-2026 involution-matching construction specialized to some rank strata might cover one of the formulas.",
+        "Finite certificate is exact for n=5; it does not prove existence or impossibility statements for n>=6, which are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same monoid is covered for permutation matchings, not stronger involution/idempotent-fixing requirement",
+          "evidence": [
+            "Theorem B O_n has a permutation matching; introduction distinguishes OP_n involution case and O_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01912v1",
+          "material_read": "Full accessible HTML, Introduction, Theorems A and B, and §3 permutation matching construction",
+          "method": "Direct read arXiv HTML",
+          "title": "Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings",
+          "trigger": "same exact monoid and inverse matching"
+        },
+        {
+          "assessment": "Prior involution matching for different semigroups, no established O5 implication",
+          "evidence": [
+            "Higgins (2019), Semigroup Forum 98, 669–689."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/24377/",
+          "material_read": "Published abstract and paper scope, not all pages",
+          "method": "Institutional repository abstract",
+          "title": "Involution matchings, the semigroup of orientation-preserving and orientation-reversing mappings, and inverse covers of the full transformation semigroup",
+          "trigger": "closest older involution-matching theory"
+        },
+        {
+          "assessment": "Studies inverse subsemigroup covers, not a set-theoretic inverse involution matching",
+          "evidence": [
+            "Catarino–Higgins–Levi (2015): any inverse subsemigroup of order preserving transformations is a semilattice."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/13220/",
+          "material_read": "Published abstract only",
+          "method": "Repository abstract",
+          "title": "On inverse subsemigroups of the semigroup of orientation-preserving or orientation-reversing transformations",
+          "trigger": "related exact order-preserving transformations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.01912v1",
+        "https://repository.essex.ac.uk/24377/",
+        "https://repository.essex.ac.uk/13220/",
+        "Resultary semantic semigroup search above"
+      ],
+      "rationale": "The smallest obstruction to idempotent-fixed inverse involutions is a natural refinement of a recently settled matching-existence question. The sharp n=5 construction and explicit extremal strata supply precise nontrivial semigroup matching geometry, not only a parity sanity check.",
+      "residual_risks": [
+        "A pre-2026 involution-matching construction specialized to some rank strata might cover one of the formulas.",
+        "Finite certificate is exact for n=5; it does not prove existence or impossibility statements for n>=6, which are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.01912v1",
+    "https://repository.essex.ac.uk/24377/",
+    "https://repository.essex.ac.uk/13220/",
+    "Resultary semantic semigroup search above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A pre-2026 involution-matching construction specialized to some rank strata might cover one of the formulas.",
+    "Finite certificate is exact for n=5; it does not prove existence or impossibility statements for n>=6, which are not claimed."
+  ],
+  "schema_version": 1
+}

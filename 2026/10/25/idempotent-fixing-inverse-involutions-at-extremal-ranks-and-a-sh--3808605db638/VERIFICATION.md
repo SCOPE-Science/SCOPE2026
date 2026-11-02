@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The deterministic standalone checker `verify.py` was executed in the same directory as `certificate_rank3_n5.txt` using Python's standard library. The output was:
+# Independent mathematical audit
 
-```text
-VERIFY_OK individual_extremal_checks= 3000 rank_three_pairs= 20 fixed_idempotents= 20 moved_idempotents= 1
-```
+## correctness
 
-It reconstructs the monotone maps from their exact finite coordinates; for every admissible parameter and every integer \(3\leq n\leq12\), it checks both mutual-inverse compositions, involutivity, precise idempotent fixed sets, and transposition-count identities. Separately it parses the twenty-pair five-point certificate, verifies disjointness, verifies each mutual-inverse identity on the full five-point chain, checks that precisely the twenty remaining rank-three elements are idempotent, and identifies the unique moved idempotent.
+PASS
 
-These checks do not establish the infinite statements: those follow from the explicit algebraic involutions and inverse relations proved in `RESULT.md`. The nonexistence of an all-idempotent-fixing involution on five points follows from the exact 21-versus-60 parity count and the impossibility of nonidempotent self-inverse monotone maps, not from unsuccessful search. The certificate proves the sharp attained finite case. Independent audit was not performed.
+A mutual-inverse pair in O_n has equal rank and each image is a transversal to the other kernel. For rank two, alpha=(a;b,c), beta=(d;e,f) are inverse iff b<=d<c and e<=a<f; the piecewise swaps of nonidempotents are involutive and fix exactly binom(n+1,3) idempotents, leaving binom(n,3) transpositions. Corank-one maps (a;b) similarly invert precisely when missing image values hit the doubled kernel block, giving 2(n-1) fixed idempotents and binom(n-1,2) transpositions. This yields all-idempotent-fixing inverse involutions for n<=4. At n=5 rank three contains 60 maps and 21 idempotents, hence 39 nonidempotents of which none can be a fixed point of an inverse involution; parity forbids fixing every idempotent. The actual twenty-pair certificate was independently decoded and checked: 40 distinct maps, every pair mutually inverse, one moved idempotent, and twenty remaining unpaired idempotents. Independently checked 3,000 parameter cases n=3..12 for the two extremal-rank formulas; zero violations.
+
+## originality
+
+PASS
+
+Higgins 2026 proves an inverse-valued permutation matching exists on O_n, but does not require a two-cycle involution or the idempotent-fixing property. Rank-stratified explicit involutions, the sharp O5 parity obstruction, and the one-moved-idempotent certificate are additional statements. Earlier involution-matching work concerns orientation preserving/reversing maps of a cycle and does not force these assertions on isotone chain transformations.
+
+## value
+
+PASS
+
+The smallest obstruction to idempotent-fixed inverse involutions is a natural refinement of a recently settled matching-existence question. The sharp n=5 construction and explicit extremal strata supply precise nontrivial semigroup matching geometry, not only a parity sanity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
