@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T08:10:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "source RESULT.md and SLOGAN.txt at frozen assigned tree",
+        "source VERIFICATION.md and verify_crown_cones.py at identical Git blob SHA",
+        "independently implemented BFS-geodesic direct exhaustiveness for n=2..7"
+      ],
+      "rationale": "For G_n=K_1 vee (K_{n,n}-M_n), every deleted-matching pair a_i,b_i has a unique length-two geodesic with hub h internal. A dual set X containing h therefore must split each such pair exactly once; otherwise a_i,b_i on either same side of X cannot be X-visible. With p selected A endpoints and q=n-p selected B endpoints, selected A-A pairs can avoid X internally only through some unselected b_k, k distinct from both endpoints; this is automatic at p<=1 and possible for all pairs iff p>=3, hence p!=2. Similarly q!=2. Outside A-A pairs require p>=1 and outside B-B pairs q>=1, while adjacent cross-shore pairs need no intermediary. Conversely these four conditions suffice, proving exact binomial count. Every admissible X yields dual complement Y because h is outside Y and every nonadjacent Y-pair has an unblocked length-two geodesic via h, so chi_dual<=2. Entire V(G_n) is not dual since a matching nonedge needs blocked hub. Existence n=2 or n>=4 (p=1), impossibility n=3, completes all n>=2. The source verifier was fetched from its actual Git blob, SHA-verified and executed for n=2..8 (87,376 hub-containing subsets); a separately coded generic BFS-geodesic visibility checker independently exhausted all hub-containing subsets for n=2..7, agreeing exactly. Finite checks corroborate rather than prove arbitrary n.",
+      "residual_risks": [
+        "The result does not classify cones of arbitrary graphs or dual-set colorings not in this family; counts refer exactly to hub-containing sets.",
+        "Boundary case n=2 is a disconnected crown before coning but resulting G_n is connected and proof remains valid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babu et al. Theorem 4 gives a sufficient condition for infinite dual coloring via the central vertex of a convex P5 or K1,3, not a universal converse; its C6-joined-hub example covers G3.",
+          "Resultary complete multipartite theorem yields all such graphs dual chi=2 except stars, but G_n for n>=3 is not complete multipartite (nonadjacency is not an equivalence relation).",
+          "Cicerone et al. study the dual mutual-visibility number of diameter-two graphs/cographs, not the minimum partition into dual classes."
+        ],
+        "reasoning": "Superficially broader graph classes or visibility bounds were checked by exact hypotheses and conclusions. Neither a general sufficient noncolorability obstruction nor a maximum-set formula implies the positive two-color construction/count for crown cones.",
+        "searches": [
+          "arXiv:2609.31427v1 full text Theorem 4, block-graph, Hamming-graph and strong-grid sections",
+          "Resultary/2026 2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00/RESULT.md",
+          "arXiv:2401.02373 full lawful postprint Mutual-visibility problems on graphs of diameter two",
+          "DOI:10.1007/s00010-025-01197-y complete OA article"
+        ]
+      },
+      "checked_sources": [
+        "Babu, Jakovac, Kuziak, Lakshmanan S., Yero, A variety of the mutual-visibility coloring problem for graphs, arXiv:2609.31427v1, 25 Sep 2026, complete arXiv HTML, particularly definitions, Theorem 4 and wheel note",
+        "Bujtas, Klavzar, Tian, Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets, Aequationes Math. 99 (2025), DOI:10.1007/s00010-025-01197-y, complete OA article including Proposition 3.2",
+        "Cicerone, Di Stefano, Klavzar, Yero, Mutual-visibility problems on graphs of diameter two, European J. Combin. 120 (2024) 103995, arXiv:2401.02373, lawful open postprint complete PDF with relevant paper sections inspected",
+        "Resultary/2026, 2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00/RESULT.md, complete source statement and proof",
+        "Resultary search: dual mutual visibility chromatic number of cone over crown graph K1 join Knn minus perfect matching, hub-containing dual sets exactly split each matched pair",
+        "Resultary search: dual visibility coloring universal vertex cone graph crown bipartite deleted matching C6 join K1 exception",
+        "Resultary search: dual mutual visibility sets crown graph bipartite Kneser H(n,1) exact counting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel G3 prior noncolorability is an immediate special case of the submitted family and should never be described as independent novelty.",
+          "Theorem 4 gives sufficient conditions for infinity and expressly calls complete infinite-dual characterization open, but lacks a criterion implying colorability for all n>=4.",
+          "Complete multipartite dual-coloring classification does not apply to cone of a crown graph for n>=3, due to a1~nonedge a2, a1~nonedge b1, but a2 adjacent b1."
+        ],
+        "reasoning": "After explicitly removing known n=3 prior coverage, the surviving all-parameter necessity/sufficiency, colorability for n>=4 and binomial enumeration are not established as corollaries of the inspected earlier statements.",
+        "searches": [
+          "arXiv:2609.31427v1, Theorem 4 and following wheel example; full primary text",
+          "Resultary/2026 2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00/RESULT.md full theorem",
+          "DOI:10.1007/s00010-025-01197-y Proposition 3.2; arXiv:2401.02373 complete open postprint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The studied graph equals a cone over the crown graph K_{n,n}-M_n, also an apex of a deleted-perfect-matching biclique and bipartite Kneser H(n,1).",
+          "arXiv:2609.31427v1 explicitly names the exceptional wheel C6 vee K1, which equals G_3; no all-n criterion in the inspected full text.",
+          "Resultary returned complete-multipartite dual coloring and unrelated crown graph coloring records, not an exact crown-cone classification."
+        ],
+        "reasoning": "Alias matching was accompanied by structural theorem comparison; neither published origin nor high-ranked semantic findings included an equivalent split-matching criterion or all-n count.",
+        "searches": [
+          "Resultary: dual mutual visibility chromatic number of cone over crown graph K1 join Knn minus perfect matching, hub-containing dual sets exactly split each matched pair",
+          "Resultary: dual visibility coloring universal vertex cone graph crown bipartite deleted matching C6 join K1 exception",
+          "Resultary: dual mutual visibility sets crown graph bipartite Kneser H(n,1) exact counting",
+          "Web: dual mutual-visibility crown graph cone; dual mutual-visibility coloring universal vertex graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bujtas et al. Proposition 3.2 gives V_d(K_{n,n})=((1+x)^n-x^n)^2 for the unmodified K_{n,n}; it is not the hub-set count for K1 vee (K_nn-M_n).",
+          "A prior explicit numerical boundary G3=C6 vee K1 has infinite dual chromatic number; the source reports no tabulated all-n closed count.",
+          "Exact count for source G_n follows from identified valid split choices p with p,q nonzero and unequal to 2, not from known complete-bipartite tables."
+        ],
+        "reasoning": "No known exact table or published formula was shown to imply both the hub-containing dual-set enumeration and all crown-cone coloring transition. The already known n=3 case is excluded from claimed novelty.",
+        "searches": [
+          "Resultary: dual mutual visibility sets crown graph bipartite Kneser H(n,1) exact counting",
+          "Resultary: dual visibility coloring universal vertex cone graph crown bipartite deleted matching C6 join K1 exception",
+          "Bujtas et al. DOI:10.1007/s00010-025-01197-y Proposition 3.2 dual visibility polynomials of K_nn"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality attaches only to the uniform structural characterization of hub-containing dual sets, exact binomial count, and characterization of the unique non-2-colorable crown-cone parameter n=3. The initiating 2026 paper explicitly supplies the n=3 wheel C_6 vee K_1 as known prior coverage, which is not new. Its Theorem 4 only gives sufficient obstructions to infinite dual coloring, not the all-n crown-cone finite side. The 2025 dual visibility polynomials paper computes dual sets of K_{n,n} without matching deletion/coning. A published complete-multipartite dual-coloring classification does not cover G_n: for n>=3 its nonadjacency relation is not transitive (a1 nonadjacent to a2 and b1, but a2 adjacent to b1), so it is not complete multipartite. A 2024 diameter-two visibility paper studies extremal set cardinalities rather than coloring partitions. Search hits on crowns concern unrelated coloring and domination invariants. Residual risk remains of an unindexed equivalent cone result in this very recent literature.",
+      "residual_risks": [
+        "Very recent 2026 origins can have newly posted or unindexed crown-cone results under uncommon aliases; absence from search is not priority proof.",
+        "The n=3 wheel obstruction is explicitly published and not novel; classification/count for all n and particularly n>=4 are the only accepted originality contribution.",
+        "Combinatorial restriction p,q !=2 is elementary after the geodesic split, so extent of standalone novelty is limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers n=3 wheel and sufficient obstructions for infinite chi_dual; does not claim all-parameter crown-cone characterization or exact count.",
+          "evidence": "Theorem 4 convex P5/K1,3 gives sufficient infinite-coloring obstruction; paragraph following names wheel C6 vee K1 and says center cannot belong to any dual set; introduction/open question says full characterization open.",
+          "identifier_or_url": "https://arxiv.org/html/2609.31427v1",
+          "material_read": "Complete available arXiv HTML (intro, definitions, Theorems 3 and 4 with proofs, wheel note following Theorem 4, block-graph, Hamming-graph, strong-grid classifications and conclusions).",
+          "method": "Primary arXiv full-text HTML reading; cross-check of definitions, theorem conditions and wheel paragraph.",
+          "title": "A variety of the mutual-visibility coloring problem for graphs",
+          "trigger": "Same invariant, first dual coloring paper, exact n=3 wheel member and possible dominating general theorem."
+        },
+        {
+          "assessment": "Exact dual polynomial concerns unmodified K_nn only and cannot be applied unchanged after matching deletion and addition of universal hub.",
+          "evidence": "Proposition 3.2: V_d(K_nn)=((1+x)^n-x^n)^2; its proof relies on every cross-shore pair being adjacent, which fails for crown matched pairs.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+          "material_read": "Full openly available 2025 article HTML, especially visibility definitions, Section 3 Proposition 3.2 proof, and Sections 4-5.",
+          "method": "Primary open-access full HTML reading; term checking for crown, cone, join, matching.",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Closest earlier result counting dual sets on complete bipartite graphs, plausible algebraic covering formula."
+        },
+        {
+          "assessment": "Results bound/classify maximum individual dual/outer/total visibility-set cardinalities on other graph classes; do not address the dual chromatic partition or the exact hub-set count here.",
+          "evidence": "Paper abstract states extremal visibility-number scope; theorem sections discuss cographs and diameter-two structures, not dual mutual-visibility coloring classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.02373",
+          "material_read": "Lawful complete published open postprint PDF, including title, abstract, preliminaries, diameter-two and cograph results, main theorem statements and conclusion; PDF pages visually inspected.",
+          "method": "Complete PDF text inspected with rendered screenshots of relevant pages.",
+          "title": "Mutual-visibility problems on graphs of diameter two",
+          "trigger": "Broad diameter-two/cograph results might dominate cone graph visibility claim."
+        },
+        {
+          "assessment": "Not covering: crown cones for n>=3 are not complete multipartite, and known G3 is already outside its family.",
+          "evidence": "Its result assumes complete multipartite K_n1,...,nr and derives dual coloring from the universal common-neighbor set outside each independent part; in G_n, nonadjacency violates transitivity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dual-outer-and-total-mutual-visibility-colorings-of-complete-mul--7f9c854a9a00",
+          "material_read": "Full published RESULT.md finding, assumptions, proof, verification scope and limitations fetched from repository.",
+          "method": "Primary full scientific record inspected via GitHub file read.",
+          "title": "Dual, outer, and total mutual-visibility colorings of complete multipartite graphs",
+          "trigger": "High-ranked relevant existing published dual chromatic classification on large graph family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source RESULT.md structural count and every-n necessity/sufficiency",
+        "Babu et al. Theorem 4 and C6 vee K1 explicit wheel case",
+        "Full Resultary complete-multipartite dual-coloring theorem shows meaningful non-covered neighboring family"
+      ],
+      "rationale": "This is a natural infinite family directly generalizing the initiating paper's conspicuous previously known noncolorable wheel C6 vee K1. It completely determines a graph-invariant transition which is not monotone in n (no coloring at n=3, two classes for all n>=4), rather than merely checking a handful of instances. The exact classification of all hub-containing dual sets and closed binomial count explain the structural mechanism and can support future work on visibility partitions of graph cones. The fact concerns a canonical matched-edge-deleted complete bipartite family and is not an arbitrary finite slice; the known n=3 exception is credited and the claim is not inflated into a characterization of arbitrary cones or diameter-two graphs.",
+      "residual_risks": [
+        "Specialized family and easy binomial enumeration after the structural lemma limit breadth; no general cone characterization follows.",
+        "No claim of improvement in general dual-coloring algorithms or complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=2 crown-cone graphs with one universal hub; cannot infer results for arbitrary joins, cones or diameter-two graphs.",
+    "The n=3 wheel obstruction was previously published in arXiv:2609.31427v1.",
+    "Finite verified n=2..8 does not prove infinite claim; correctness rests on exact geodesic proof.",
+    "Originality best-of-knowledge, not a historical-priority certificate; no independent formal Lean proof or human expert attestation is claimed."
+  ],
+  "schema_version": 1
+}
