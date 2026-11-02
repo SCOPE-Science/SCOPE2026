@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cellular model is justified by the equivariant deleted-product retraction of Barnett–Farber, Lemma 1.1. Every cell and signed boundary is explicitly reconstructed. A modular rank lower bound \(340\) for the two-cell boundary and a unimodular \(35\)-torus minor give matching upper and lower bounds. Primitivity in the ambient chain lattice proves integral generation, not merely rational spanning. The ten-torus orbit has a separate unit determinant. The first-homology torsion comes from exact Smith form. The full symmetry character is recomputed using signed two-cell actions and rational irreducible characters. `verify.py` passes on the complete embedded inputs.
+PASS
 
-## Originality — PASS
+PASS. Independently reconstructed the 20-vertex 30-edge two-/three-subset incidence graph, all 20 hexagons and 70 disjoint pairs, cubical cells 190/540/375 and d2 rank 340 over F101 but 339 over F2. Independently verified each torus is a d2 cycle, the published 35x35 signed torus minor is -1 and the ten-orbit 10x10 minor +1, and found symmetry orbits 60/10 under 240 explicit transformations. Independently calculated full 540x375 d2 integer Smith form with 339 unit factors and one factor2 (so H1 torsion Z/2); connected 1-skeleton gives rank d1=189 and hence H1 free rank11. Recomputed all central/S5 class traces via signed action on 375 two-cells, transported through 35x35 inverse and checked full reconstruction, obtaining (35,-5), (-1,-5), (-1,-1), (-1,1), (-1,1), (1,1), (0,0). Character orthogonality gives claimed 15-plus/20-minus Specht constituents; no hidden torsion is inferred from mod-prime ranks alone.
 
-Specific statement-level comparisons find no published determination of the Desargues shortest-hexagon orbit lattices or the \(S_5\times C_2\) second-homology character. Barnett–Farber and Farber–Hanbury provide the general model and intersection-form theory, not the asserted orbit-selected unimodular basis. An–Knudsen's degree-two generation theorem is restricted to planar graphs. Related Petersen, dodecahedral, and other graph-configuration representations refer to different graphs or do not yield a two-particle configuration map to this double cover. Targeted published-record and primary-literature searches did not identify a stronger implication. Residual uncertainty remains for specialized work absent from the accessible literature; failed searches alone are not used as a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Desargues graph is a canonical cubic, vertex- and edge-transitive nonplanar incidence graph with a natural large group action. Shortest-cycle product tori are geometrically canonical prospective generators of two-particle second homology, while general nonplanar graph-braid generation is not automatic. The contrast between its sixty and ten symmetry orbits, the existence of a unimodular shortest-torus basis, the primitive smaller-orbit lattice, and the full symmetry character supply an exact structural classification beyond generic Betti ranks.
+PASS, best of knowledge. The Desargues 60-member hexagon orbit unimodularity and full S5 x C2 H2 character are strictly stronger graph-specific data than general graph braid Betti formulas, and the distinct Petersen cover cannot be used as a configuration-space equivalence because distinct points upstairs may project to one point. Published rational modules for the Petersen and dodecahedral graphs are not the same incidence graph. No matching Desargues character was found in targeted sources.
 
-## Scope and residual risks
+## value
 
-The classification concerns only two unordered particles on this graph. Full integral equivariant isomorphism classes, higher-particle spaces, and multiplicative topology are not determined. An unindexed or inaccessible specialized calculation could overlap the result. Independently established publication priority and expert scientific validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A canonical shortest-cycle orbit integrally spanning the full H2 of a nonplanar highly symmetric graph, while another orbit is only primitive rank10, reveals meaningful lattice and symmetry structure. The full 14 conjugacy-class trace character refines ordinary homology ranks and can be used as a benchmark for equivariant graph braid calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
