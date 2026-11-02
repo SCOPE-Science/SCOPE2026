@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Intrinsic products of right translations recover the regular translation group by twice the underlying abelian group. Equivariance under that translation group forces a single subgroup automorphism and a finite collection of coset shifts. The doubled-shift conditions are both necessary and sufficient, and fiber-counting under the surjective doubling map proves the exact formula. The affine iff is proved by exhausting the two-primary possibilities: cyclic, Klein four, noncyclic with exponent at least four (explicit nonlinear coset shift), and elementary two-groups of rank at least three (nonlinear permutation). Exhaustive small cases and a complete independent normal-form census for \(C_4^2\) agree.
+
+**Originality — PASS, qualified.** The 2026 Bardakov–Sangare question about even-factor products motivates the precise non-Latin specialization, while their Latin theorem assumes invertible doubling. Sangare's earlier theorem treats odd-order abelian cores and does not state the complete two-primary affine iff. Hou's 2011 article claims a general Alexander-quandle automorphism-group description; its inaccessible full text might logically imply the cardinality formula, and that priority risk is expressly unresolved. The main structural new assertion is the sharp affine-rigidity classification with explicit nonaffine constructions, not an assertion that Alexander-quandle automorphisms were previously unknown. Mathematical-record comparisons and accessible textual sources did not exhibit this exact iff.
+
+**Value — PASS.** The recent literature asks for even-even dihedral product automorphisms; this resolves a whole parameter family quantitatively, and explains a qualitative two-adic boundary separating affine-rigid and nonaffine cores. The explicit coset-shear witness describes the mechanism rather than only a sporadic example. The smallest both-even nontrivial case has a fourfold automorphism excess over affine symmetries.
+
+The proof is restricted to finite abelian cores. Published broader Alexander-quandle results remain an originality caveat, not a correctness caveat. See `VERIFICATION.md` for the exact computational scope. No independent proof audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
