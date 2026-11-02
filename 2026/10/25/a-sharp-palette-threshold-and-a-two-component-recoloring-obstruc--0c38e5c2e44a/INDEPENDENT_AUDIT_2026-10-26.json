@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T01:06:02.253745Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parsed exact frozen check_partitions.py, check_recolor.cpp and check_grundy.cpp. First checker exhausts the independent 13-vertex masks, canonical five-independent-block partitions (377) and 5! labels; every legal one-vertex recoloring is generated, yielding 45,240 states/98,280 edges, two components 22,620 each, degree4=37,440 and degree6=7,800. Independently wrote/compiled a separate C++ proper-coloring enumerator and union-find checker and reproduced both k=5 counts and full k=6 census: 4,502,160 states/27,626,040 edges/one component. Grundy checker fixes a color-7 vertex via translation, exhausts six permutations on its neighbors and remaining legal assignments and checks every Grundy witness: no seven-Grundy coloring. Published Bonamy–Bousquet theorem gives mixing for all k>=Grundy+1>=7. This establishes graph-state connectivity, not rapid Markov-chain mixing or an infinite Paley family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Recoloring graphs via tree decompositions: Theorem 1 bounds mixing by the Grundy number plus one.",
+          "Connectedness of the Graph of Vertex-Colourings: Single-vertex recoloring framework differs from exact graph-specific state counts.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "Bonamy–Bousquet general k>=Grundy(G)+1 theorem covers k>=7 after the graph-specific bound Gamma<=6, but not k=6 connectivity or R5 component split. Cereceda–van den Heuvel–Johnson explain nonmonotonic coloring-graph connectivity but do not enumerate P13; no broader bound forces its 22,620/22,620 split.",
+        "searches": [
+          "Resultary: Paley 13 graph coloring reconfiguration recoloring 5-colorings components six-color connectivity Grundy",
+          "arXiv:1403.6386 Theorem 1",
+          "Exoo small Paley graph chromatic table"
+        ]
+      },
+      "checked_sources": [
+        "frozen Git source tree 316ef67e9c5103c019b1a5c1389d28f0e0439be0 (untruncated); RESULT.md Git blob f0e7413475d0501d13f2d1df618bf880fce4f6d0",
+        "Resultary: Paley 13 graph coloring reconfiguration recoloring 5-colorings components six-color connectivity Grundy",
+        "arXiv:1403.6386 Theorem 1",
+        "Exoo small Paley graph chromatic table",
+        "arXiv:1403.6386",
+        "LSE-CDAM-2005-11; Discrete Mathematics 308 (2008)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Recoloring graphs via tree decompositions: Theorem 1 bounds mixing by the Grundy number plus one.",
+          "Connectedness of the Graph of Vertex-Colourings: Single-vertex recoloring framework differs from exact graph-specific state counts.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "The graph coloring and Grundy theory provide the general inference k>=7 only; exhaustive checked graph-specific state enumeration is necessary for exact two components at k=5 and connectivity at k=6. Standard chromatic data do not imply this.",
+        "searches": [
+          "Resultary: Paley 13 graph coloring reconfiguration recoloring 5-colorings components six-color connectivity Grundy",
+          "arXiv:1403.6386 Theorem 1",
+          "Exoo small Paley graph chromatic table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Recoloring graphs via tree decompositions: Theorem 1 bounds mixing by the Grundy number plus one.",
+          "Connectedness of the Graph of Vertex-Colourings: Single-vertex recoloring framework differs from exact graph-specific state counts.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "Equivalent notions include single-vertex recoloring graph, coloring reconfiguration graph R_k(P13), k-mixing, and Hom(P13,K_k) one-skeleton connectivity. Crucially a Kempe-chain interchange is NOT a single-vertex step and unlabeled-color quotients are distinct.",
+        "searches": [
+          "Resultary: Paley 13 graph coloring reconfiguration recoloring 5-colorings components six-color connectivity Grundy",
+          "arXiv:1403.6386 Theorem 1",
+          "Exoo small Paley graph chromatic table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Recoloring graphs via tree decompositions: Theorem 1 bounds mixing by the Grundy number plus one.",
+          "Connectedness of the Graph of Vertex-Colourings: Single-vertex recoloring framework differs from exact graph-specific state counts.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "Exoo classical Paley graph chromatic-number table includes chi(P13)=5 but not R5 and R6 recoloring-state statistics. Resultary Paley-coloring semantic query returned unrelated Heawood Hom and special coloring invariants, not this state census.",
+        "searches": [
+          "Resultary: Paley 13 graph coloring reconfiguration recoloring 5-colorings components six-color connectivity Grundy",
+          "arXiv:1403.6386 Theorem 1",
+          "Exoo small Paley graph chromatic table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.",
+      "residual_risks": [
+        "Finite four-million-state enumeration relies on thoroughly inspected executable state-generation/union-find logic rather than formal proof assistant.",
+        "An unindexed graph-reconfiguration census for P13 may exist; general recoloring sources do not themselves assert priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS k>=Gamma+1 implication only, not P13 finite enumerations",
+          "evidence": [
+            "Theorem 1 bounds mixing by the Grundy number plus one."
+          ],
+          "identifier_or_url": "arXiv:1403.6386",
+          "material_read": "Original full PDF inspected especially Theorem 1 and k-mixing/Grundy discussion",
+          "method": "Primary PDF text and screenshot",
+          "title": "Recoloring graphs via tree decompositions",
+          "trigger": "Potential general theorem forcing palette threshold"
+        },
+        {
+          "assessment": "No verified Paley-13 table from material read; retain priority risk",
+          "evidence": [
+            "Single-vertex recoloring framework differs from exact graph-specific state counts."
+          ],
+          "identifier_or_url": "LSE-CDAM-2005-11; Discrete Mathematics 308 (2008)",
+          "material_read": "Title, main cited definitions/results and linked report context; full report was not independently read in entirety",
+          "method": "Citation and source comparison",
+          "title": "Connectedness of the Graph of Vertex-Colourings",
+          "trigger": "Identical coloring reconfiguration definition and possible graph-covering result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order-13 Paley graph is a canonical six-regular self-complementary object with nontrivial symmetry. Its exact named-color reconfiguration component obstruction, color-permutation sign action, and sharp mixing palette threshold form a useful finite benchmark; chi=5 alone and general Grundy mixing bounds do not determine its exact k=5 and k=6 state graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git source tree 316ef67e9c5103c019b1a5c1389d28f0e0439be0 (untruncated); RESULT.md Git blob f0e7413475d0501d13f2d1df618bf880fce4f6d0",
+    "Resultary: Paley 13 graph coloring reconfiguration recoloring 5-colorings components six-color connectivity Grundy",
+    "arXiv:1403.6386 Theorem 1",
+    "Exoo small Paley graph chromatic table",
+    "arXiv:1403.6386",
+    "LSE-CDAM-2005-11; Discrete Mathematics 308 (2008)"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite four-million-state enumeration relies on thoroughly inspected executable state-generation/union-find logic rather than formal proof assistant. Publication not_ready is a transport/privacy blocker and not scientific rejection.",
+  "residual_risks": [
+    "Finite four-million-state enumeration relies on thoroughly inspected executable state-generation/union-find logic rather than formal proof assistant.",
+    "An unindexed graph-reconfiguration census for P13 may exist; general recoloring sources do not themselves assert priority."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS k>=Gamma+1 implication only, not P13 finite enumerations",
+      "evidence": [
+        "Theorem 1 bounds mixing by the Grundy number plus one."
+      ],
+      "identifier_or_url": "arXiv:1403.6386",
+      "material_read": "Original full PDF inspected especially Theorem 1 and k-mixing/Grundy discussion",
+      "method": "Primary PDF text and screenshot",
+      "title": "Recoloring graphs via tree decompositions",
+      "trigger": "Potential general theorem forcing palette threshold"
+    },
+    {
+      "assessment": "No verified Paley-13 table from material read; retain priority risk",
+      "evidence": [
+        "Single-vertex recoloring framework differs from exact graph-specific state counts."
+      ],
+      "identifier_or_url": "LSE-CDAM-2005-11; Discrete Mathematics 308 (2008)",
+      "material_read": "Title, main cited definitions/results and linked report context; full report was not independently read in entirety",
+      "method": "Citation and source comparison",
+      "title": "Connectedness of the Graph of Vertex-Colourings",
+      "trigger": "Identical coloring reconfiguration definition and possible graph-covering result"
+    }
+  ]
+}

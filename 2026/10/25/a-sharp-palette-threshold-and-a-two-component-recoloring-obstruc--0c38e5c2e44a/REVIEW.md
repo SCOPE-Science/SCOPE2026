@@ -1,9 +1,21 @@
-# Scientific review: Paley-13 coloring reconfiguration
+# Independent mathematical audit
 
-**Correctness (PASS).** All vertices and color names are fixed. An exhaustive independent-block partition search gives independence number three, 377 unlabelled partitions into five classes, and 45,240 labeled proper five-colorings. Independently enumerated recoloring adjacency gives two components of 22,620 vertices, 98,280 total edges, and the stated degree-class correspondence. A second C++ implementation reaches the same five-color results and gives one component over all 4,502,160 proper six-colorings. A third complete search rules out any Grundy seven-coloring; vertex transitivity and maximum degree six make the restriction exhaustive. The published Grundy mixing theorem then applies to all larger palettes. Risks: reliance on independently inspectable finite enumeration logic and the stated general theorem; no unproved infinite computational extrapolation.
+## correctness
 
-**Originality (PASS, with residual risk).** The closest examined theory is Cereceda–van den Heuvel–Johnson's general coloring-graph framework (CDAM 2005), Bonamy–Bousquet's theorem (arXiv:1403.6386), and Brewster–Noel's homomorphism mixing framework (arXiv:1412.3493). They establish definitions and general bounds but not the same object/parameter census. The classical Paley-13 chromatic value is credited. Published Paley-13 neighborhood-complex results concern a different invariant and do not entail the palette-specific recoloring graph. Actual scientific-record and literature searches found no covering statement; absence from an index does not prove priority. Risks include possible unindexed specialized finite tables, and no independent publication-priority review.
+PASS
 
-**Mathematical value (PASS).** The Paley graph of order thirteen is a canonical self-complementary strongly regular graph and the smallest nontrivial prime-order member beyond the five-cycle. It is naturally five-chromatic, making the question whether optimal colorings form a connected reconfiguration space intrinsic rather than an arbitrary size restriction. The answer is unexpectedly negative without frozen states; the exact parity swap identifies a structured obstruction, and the sharp threshold six resolves the next palette size plus all larger ones. The four- and six-degree strata refine the component census. This is a complete, finite, graph-specific result, not a claim about all Paley graphs.
+Parsed exact frozen check_partitions.py, check_recolor.cpp and check_grundy.cpp. First checker exhausts the independent 13-vertex masks, canonical five-independent-block partitions (377) and 5! labels; every legal one-vertex recoloring is generated, yielding 45,240 states/98,280 edges, two components 22,620 each, degree4=37,440 and degree6=7,800. Independently wrote/compiled a separate C++ proper-coloring enumerator and union-find checker and reproduced both k=5 counts and full k=6 census: 4,502,160 states/27,626,040 edges/one component. Grundy checker fixes a color-7 vertex via translation, exhausts six permutations on its neighbors and remaining legal assignments and checks every Grundy witness: no seven-Grundy coloring. Published Bonamy–Bousquet theorem gives mixing for all k>=Grundy+1>=7. This establishes graph-state connectivity, not rapid Markov-chain mixing or an infinite Paley family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
+
+## value
+
+PASS
+
+The order-13 Paley graph is a canonical six-regular self-complementary object with nontrivial symmetry. Its exact named-color reconfiguration component obstruction, color-permutation sign action, and sharp mixing palette threshold form a useful finite benchmark; chi=5 alone and general Grundy mixing bounds do not determine its exact k=5 and k=6 state graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
