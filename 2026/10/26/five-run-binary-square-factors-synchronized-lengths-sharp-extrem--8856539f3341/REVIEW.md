@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exhaustive transition-count classification shows that a mixed square root has either one or two transitions. The one-transition cases impose two exact embedding inequalities, and the two-transition case imposes equality of the two one-run lengths plus a bounded integer interval. These cases and the unary factors exhaust all squares and prove their common mixed length. Separate case inequalities prove both all-length sharp maxima. Counting actual parameter extensions yields two rational generating functions; elementary pole coefficients and simplex convergence give the stated limits. The standalone finite verifier independently compared complete factor sets for 3,125 parameter tuples, exact finite-length counts through length 26, and sharp witnesses through length 159. Computation is corroborative, not a substitute for the proofs.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Relevant full texts by Brlek–Li (2022) and Shuo Li (2022) give unrestricted or letter-frequency bounds rather than the complete five-run list, synchronized mixed lengths, two sharp fixed-run maxima, or the rare-event generating functions. The 2014 SOFSEM talk by Jonoska–Manea–Seki discusses related binary run coefficients and broad upper bounds; however, its full proceedings paper was not accessible, so an overlapping specialization cannot be ruled out from the presentation alone. Search results and the reviewed nearby published records were compared for implication, not title alone; absence from search results does not prove worldwide uniqueness. The general Brlek–Li bound is weaker on the fixed-run family. The binary frequency bound of Li can coincide with the sharp half-length bound when the rarer symbol occurs twice, but still cannot recover the exact all-parameter list or synchronization law.
+PASS
 
-**Value — PASS.** This is a complete and natural five-run classification for the distinct-square invariant. Five runs are the first run threshold at which the number of mixed-symbol square factors can grow linearly; all mixed squares nevertheless share one length. The sharp extremal laws and rare but order-linear resonance mechanism explain distinct structural behavior not supplied by generic string-length bounds. The rational first-moment and incidence generating functions quantify that mechanism precisely.
+For positive (a,b,c,d,e) and word 0^a1^b0^c1^d0^e, reconstructed exhaustive classification by number of transitions in a square root. A nonunary root has either one transition, giving only (0^c1^b)^2 if c<=a,b<=d or (1^d0^c)^2 if c<=e,d<=b, or two transitions, giving (0^i1^b0^(c-i))^2 when b=d and max(1,c-e)<=i<=min(a,c-1). Unary squares add floor(P/2)+floor(Q/2), P=max(a,c,e), Q=max(b,d); these root categories are distinct. Thus S=floor(P/2)+floor(Q/2)+alpha+beta+H and all mixed squares have the one length 2(c+min(b,d)). The case inequalities bound S<=floor(n/2), mixed T<=floor((n+1)/3), with witnesses for every n>=5. Counting b,i,k and nonnegative outer extensions gives H expectation GF z^6/((1-z)^2(1-z^2)^3); counting H>0 gives z^6(1+z+z^2)/((1-z)^4(1+z)^3). Dominant poles yield E[H]->1/8 and P(H>0)~3/(2n); normalized uniform five-compositions converge to Dirichlet(1,1,1,1,1), with limiting square density half of max of zero-run proportions plus max of one-run proportions, mean 1/3. Independent direct substring-set enumeration for all 5^5=3125 positive tuples in [1,5]^5 matched the complete list, counts and upper bounds. Finite testing corroborates the all-length transition/counted-composition arguments.
 
-**Scope and risks.** The full 2014 proceedings paper and any unindexed equivalent run-length classifications remain a literature risk. All quantitative statements count distinct **contiguous exact** squares, not occurrences or generalized squares. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete run-parameter square-factor classification, common mixed-square length, sharp fixed-five-run bounds and rare synchronization generating functions, not for general linear bounds on distinct squares. Inspected Brlek–Li and Shuo Li original texts: their unrestricted and binary-frequency inequalities do not determine the exact five-run set or event law. The closely related Jonoska–Manea–Seki 2014 SOFSEM paper could only be checked by abstract and related presentation references, not the full proceedings article; exact-coverage risk remains material. Resultary search found unrelated binary-word extremal records, no exact same classification.
+
+## value
+
+PASS
+
+PASS: five alternating runs mark the first possibility of linearly many distinct mixed-symbol square factors; with fewer runs there is at most one. Synchronization of the two one-runs forces equal mixed-square lengths yet creates rare O(n)-sized families, quantified by exact generating functions and asymptotics. This explains meaningful new combinatorics and probability of a natural contiguous-factor invariant, not a new unrestricted word-length bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
