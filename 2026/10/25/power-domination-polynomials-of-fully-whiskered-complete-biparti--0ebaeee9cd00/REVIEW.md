@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof divides selected sets according to which of the two bipartition parts contains a selected original vertex, then controls the exact number of untouched pendant pairs. Necessary stalling conditions and sufficient forcing sequences are established in every case, giving a disjoint and exhaustive six-case enumeration. A separate direct-adjacency implementation exhaustively checked 173,312 subsets in eight graphs and compared every coefficient, while 361 integer parameter pairs were checked for the minimal coefficient. These finite tests support the proof but are not substitutes for it.
+## correctness
 
-**Originality — PASS, with residual risks.** The 2018 power-domination-polynomial paper treats larger attached cliques and explicitly singles out \(G\circ K_1\) as a further computation question. The new result is a complete closed polynomial for the fully whiskered complete bipartite family, not the older definitions, generic sum rules, or a scalar domination number. Available full text for the primary 2018 paper and relevant 2019/2023 papers, together with nearest related published graph-family enumerations, did not provide a result implying the exact formula. Targeted searches for aliases such as 'fully whiskered biclique', 'leaf corona', and PMU placement found no dominating result. Unindexed or inaccessible equivalent formulas remain a genuine bibliographic risk.
+PASS
 
-**Value — PASS.** The natural one-leaf corona is specifically distinguished from larger attachments in the foundational enumerative literature. The theorem solves every cardinality simultaneously for an infinite two-parameter class, with a structural forcing classification and a nonuniform exact count of minimum PMU placements. The all-set polynomial is substantially more informative than evaluating a known or easy scalar minimum.
+The six disjoint support classes exhaust choices by whether each bipartition contains a selected original core. If both cores supported, all cores are observed. If only A is supported, all A pairs touched works; one untouched A pair can be forced only if a B pendant was selected; two untouched pairs stall. Symmetry supplies the B-only cases. If neither core is selected, selected leaves must leave at most one untouched pair per side to permit cross-forcing. Touched-pair choices contribute 2z+z², and subtracting the unique all-leaf choice produces A_n and B_n. These exhaustive mutually exclusive categories sum to the displayed polynomial. Direct independent power-domination propagation over every subset of five graph sizes confirmed all coefficients, including z² counts 22,15,19,9,12; formula and proof cover all p,q>=2, not the finite checks.
 
-**Scope and limitations.** The theorem applies only to \(K_{p,q}\circ K_1\) for \(p,q\ge2\) under standard closed-neighborhood initialization. The argument does not yield a general one-leaf-corona transformation for an arbitrary base graph. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general power-domination polynomial and related corona questions are prior (Brimkov et al.). The submitted six-category full polynomial is restricted to K_{p,q}◦K_1 with p,q>=2, not the known book/double-star/spider graph cases in Resultary. The 2018 highly relevant full paper could not be retrieved; its abstract gives no explicit K_{p,q} one-leaf formula, but abstract silence is not proof of noncoverage. Best-of-knowledge PASS with explicit high-priority residual risk.
+
+## value
+
+PASS
+
+A natural complete two-parameter graph-family enumeration, not merely a minimum parameter, resolves all cardinalities of sensor placements under iterative forcing and exposes an exceptional min(p,q)=2 change in minimal sets. The pendant structure motivates the exact support classes; results for other graph types cannot simply be relabelled.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
