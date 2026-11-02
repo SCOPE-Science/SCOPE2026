@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The joint conditional construction follows from the ordered-selected-prefix and sorted-tail representation in Clay [1]. Its *joint* use is explicit, avoiding an invalid inference from separately coupled marginals. The Hoeffding projection has coefficients \(n-2t+1\) for \(t\le k\) and \(-k\) otherwise; the canonical remainder has variance \(k(2n-k-1)/24=O(n^2)\), negligible on the inversion scale. Cross-covariance between conditional descent noise and projected inversion noise is exactly \((k-1)/6\), hence vanishes upon joint scaling. The 1-dependent triangular-array central limit theorem, independent coupon-count CLT, and quadratic centering complete the proof. All 202 packaged exact checks passed; they are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The primary 2026 source [1] provides two univariate limits, not their joint limit. Uniform permutation joint asymptotics in Dörr–Heiny [3] have zero limiting covariance in the fully mixed case, and riffle-shuffle results [4] involve a different kernel. Comparisons with accessible published records about inversion indicator covariance, fixed-point/descent correlations and occupancy richness found none with the new intermediate-time covariance. The possibility of an older, differently named multivariate shuffle theorem remains a residual risk.
+PASS
 
-**Value — PASS.** Two univariate Gaussian limits cannot determine their joint law. At every finite positive shuffle density the limiting covariance is positive and is **entirely** attributable to coupon-occupancy fluctuations; this distinguishes correlated mixing diagnostics from conditionally independent permutation-order noise. It provides a mathematically natural occupancy-canceling linear contrast and a nontrivial interpolation to asymptotic independence in the fully mixed regime.
+Clay’s exact ordered-selected-prefix/sorted-unselected-tail representation was read in primary Proposition 4.5. Coupling it with one iid uniform sample gives both statistics jointly. For deterministic k≈a n, descents as a 1-dependent sum have variance ≈a n/12; the inversion Hoeffding first-order projection has weights n-2t+1 for t≤k and -k otherwise, with canonical remainder variance O(n²), negligible on n^(3/2) scale. Direct algebra yields inversion variance coefficient (a-a²+a³/3)/12 and conditional cross covariance (k-1)/6=o(n²) on normalized scales. Lindeberg blocking proves the joint Gaussian noise. Independent occupancy CLT gives variance tau²=e^-c-(1+c)e^-2c, and random-index replacement contributes Z/2 and (1-a)Z/2, hence the claimed Sigma cross covariance. Independent finite exact conditional enumeration checked identities; no proof rests on finitely many sample n.
 
-The priority comparison does not assert that search nonhits prove uniqueness. No independent verification or audit was commissioned.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Clay 2026 provides separate marginal critical-regime CLTs and the common prefix coupling but does not state or calculate the mixed joint weak limit; marginal Gaussianity alone cannot determine correlation. Dörr–Heiny 2024 prove joint uniform-permutation normal/extreme asymptotics (zero asymptotic cross noise after these scales) and do not treat intermediate random-to-top with fluctuating distinct coupon occupancy. Related Resultary uniform permutation covariance results are different statistics/distributions. The new positive occupancy-mediated covariance is therefore a best-of-knowledge genuine addition.
+
+## value
+
+PASS
+
+A positive time-density cross-covariance, despite asymptotically independent permutation-order noise conditional on occupancy, is a structural joint-mixing insight. It separates exactly two canonical shuffle statistics’ common noise, and gives a natural occupancy-canceling contrast. The result is a fixed-density intermediate-time joint limit not determined by either published one-dimensional marginal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

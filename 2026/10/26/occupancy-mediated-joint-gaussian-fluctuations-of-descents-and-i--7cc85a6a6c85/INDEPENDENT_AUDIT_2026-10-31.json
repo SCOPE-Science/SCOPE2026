@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:40:17.521143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Clay’s exact ordered-selected-prefix/sorted-unselected-tail representation was read in primary Proposition 4.5. Coupling it with one iid uniform sample gives both statistics jointly. For deterministic k≈a n, descents as a 1-dependent sum have variance ≈a n/12; the inversion Hoeffding first-order projection has weights n-2t+1 for t≤k and -k otherwise, with canonical remainder variance O(n²), negligible on n^(3/2) scale. Direct algebra yields inversion variance coefficient (a-a²+a³/3)/12 and conditional cross covariance (k-1)/6=o(n²) on normalized scales. Lindeberg blocking proves the joint Gaussian noise. Independent occupancy CLT gives variance tau²=e^-c-(1+c)e^-2c, and random-index replacement contributes Z/2 and (1-a)Z/2, hence the claimed Sigma cross covariance. Independent finite exact conditional enumeration checked identities; no proof rests on finitely many sample n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dörr–Heiny arXiv:2309.17314 develops a uniform-permutation joint CLT/EVLT using Hájek projection, not an occupancy-mixture chain. Clay arXiv:2603.09008v1 yields marginal Gaussian results for random-to-top via random-index prefix statistics."
+        ],
+        "reasoning": "Uniform full permutation corresponds to complete mixing and no occupancy fluctuations, so it cannot dominate the intermediate c>0 law. General Gaussian approximation machinery can prove a needed conditional joint limit, but does not supply the occupancy-mixed cross term.",
+        "searches": [
+          "Resultary: random to top card shuffling descents inversions joint central limit covariance occupancy number distinct cards",
+          "web search: random to top shuffles joint descent inversion covariance occupancy central limit",
+          "arxiv:2603.09008v1",
+          "arxiv:2309.17314v2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.09008v1",
+        "https://arxiv.org/pdf/2309.17314",
+        "Resultary search: random to top card shuffling descents inversions joint central limit covariance occupancy number distinct cards"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-k conditional cross term is (k-1)/6; scaling by n^2 kills it, whereas random K produces joint center shifts Z/2 and (1-a)Z/2, causing positive covariance (1-a)tau²/4. Neither published marginal limit fixes those shifts’ joint dependence."
+        ],
+        "reasoning": "Even if one invokes Dörr–Heiny asymptotic independence for a uniform permutation, the occupancy variance at fixed c remains positive. The published inputs enable but do not explicitly entail the new joint law without nontrivial random-index and multivariate derivation.",
+        "searches": [
+          "Resultary: random to top card shuffling descents inversions joint central limit covariance occupancy number distinct cards",
+          "web search: random to top shuffles joint descent inversion covariance occupancy central limit",
+          "arxiv:2603.09008v1",
+          "arxiv:2309.17314v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clay Proposition 4.5 gives exact conditional ordered-prefix sampling, Theorems 1.2 and 1.3 separate marginals. The current joint limit is the random-index coupling of the two statistics on the same iid uniforms."
+        ],
+        "reasoning": "Alternate descriptions via random-to-top/move-to-front (chosen labels) and occupancy-conditioned uniform prefixes all lead to this joint CLT. Marginal CLTs are not equivalent to a bivariate CLT with specified off-diagonal covariance.",
+        "searches": [
+          "Resultary: random to top card shuffling descents inversions joint central limit covariance occupancy number distinct cards",
+          "web search: random to top shuffles joint descent inversion covariance occupancy central limit",
+          "arxiv:2603.09008v1",
+          "arxiv:2309.17314v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included uniform-permutation inversion indicator precision and fixed-point–descent boundary covariance, but no claimed random-to-top occupancy cross-covariance. Primary Clay text gives the same univariate variance coefficients recovered on the diagonal."
+        ],
+        "reasoning": "No matching exact covariance table was located; lack of a database hit is weaker than direct theorem comparison. The extra cross covariance must be derived from the joint conditional coupling.",
+        "searches": [
+          "Resultary: random to top card shuffling descents inversions joint central limit covariance occupancy number distinct cards",
+          "web search: random to top shuffles joint descent inversion covariance occupancy central limit",
+          "arxiv:2603.09008v1",
+          "arxiv:2309.17314v2"
+        ]
+      },
+      "rationale": "Clay 2026 provides separate marginal critical-regime CLTs and the common prefix coupling but does not state or calculate the mixed joint weak limit; marginal Gaussianity alone cannot determine correlation. Dörr–Heiny 2024 prove joint uniform-permutation normal/extreme asymptotics (zero asymptotic cross noise after these scales) and do not treat intermediate random-to-top with fluctuating distinct coupon occupancy. Related Resultary uniform permutation covariance results are different statistics/distributions. The new positive occupancy-mediated covariance is therefore a best-of-knowledge genuine addition.",
+      "residual_risks": [
+        "An older generic multivariate conditional-occupancy theorem might specialize to the same bivariate CLT without naming the two statistics.",
+        "The proof assumes fixed c∈(0,∞); not uniform as c→0 or ∞ and no finite-n independence.",
+        "Source RESULT.md calls Clay’s representation Proposition 4.1; in actual arXiv primary it is Proposition 4.5, a bibliographic locator error not a mathematical premise defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same marginal results and conditional law, no joint Gaussian covariance claimed",
+          "evidence": [
+            "Proposition 4.5 lines 231–236, marginal decomposition proofs lines 260–275, intro Theorems 1.2–1.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.09008v1",
+          "material_read": "Primary HTML introductory Theorems 1.2–1.3; Section 4 Proposition 4.5, Theorems 4.2–4.3 and related finite-shuffle decompositions; read lines 108,229–278 and critical-regime statements.",
+          "method": "arXiv full-text HTML targeted theorem/proof inspection",
+          "title": "On the statistics of random-to-top shuffles",
+          "trigger": "Identical chain, fixed-density limits and ordered-prefix coupling"
+        },
+        {
+          "assessment": "Uniform-permutation normal/EVL theorem; not random-to-top intermediate regime",
+          "evidence": [
+            "Abstract and Section 1 pp.1–2 identify uniform S_n and fixed group classes"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.17314",
+          "material_read": "Primary 31-page PDF abstract and Introduction pp.1–2, uniform permutation model and joint Hájek projection, visual inspection p.2.",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Joint extremes of inversions and descents of random permutations",
+          "trigger": "Potential dominating joint CLT of these exact statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positive time-density cross-covariance, despite asymptotically independent permutation-order noise conditional on occupancy, is a structural joint-mixing insight. It separates exactly two canonical shuffle statistics’ common noise, and gives a natural occupancy-canceling contrast. The result is a fixed-density intermediate-time joint limit not determined by either published one-dimensional marginal theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "After floor(c n) uniformly chosen-label random-to-top moves from identity, the normalized descent and inversion statistics jointly approach a bivariate normal with covariance (1-a)tau_c²/4>0, entirely from distinct-card occupancy, whereas the conditional-order limiting Gaussian noises are independent.",
+  "limitations": [
+    "Fixed c>0, uniform label choices, initially identity permutation, weak limit only.",
+    "The quadratic centering is asymptotic; no local limit, TV bound or biased shuffling theorem.",
+    "An older generic multivariate conditional-occupancy theorem might specialize to the same bivariate CLT without naming the two statistics.",
+    "The proof assumes fixed c∈(0,∞); not uniform as c→0 or ∞ and no finite-n independence.",
+    "Source RESULT.md calls Clay’s representation Proposition 4.1; in actual arXiv primary it is Proposition 4.5, a bibliographic locator error not a mathematical premise defect."
+  ],
+  "schema_version": 1
+}
