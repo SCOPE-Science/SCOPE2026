@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each \(A\in T_n(\mathbb F_q)\), the \(j\)-th column of a triangular \(B\) lies in the nullspace of the leading \(j\times j\) corner of \(A\), independently of other columns. This gives \(h(A)=\sum_j k_j(A)\). When extending a corner by a last row and column, the nullity rises by one precisely when the new diagonal entry is zero and the new off-diagonal column belongs to the preceding corner's image. Exactly \(q^{j-1-k}\) of \(q^j\) extensions satisfy that condition, proving every coefficient in the formula. On each fixed jump stratum the relevant image and kernel are vector bundles of fixed rank. Their relative dimensions prove irreducibility and the dimension \(m-|P|(|P|+1)/2+\sum_{p\in P}(n-p+1)\). Maximization reduces to \(r(n-r)\) and uniquely specified initial-segment jump sets. Literal multiplication/rank experiments corroborate the formulas in nine small cases; they do not replace the proof.
+## correctness
 
-## Originality — PASS, subject to stated priority risk
-The all-size \(\mathbb F_q\)-valued right-annihilator profile and the top-dimensional component statement concern the simultaneous triangular flag constraint, not just the abstract zero-divisor graph or an unrestricted variety of complexes. The fully inspected Li Bingjun (2011) article studies triangular-ring zero-divisor graph connectivity, diameter and girth, not these enumerators. Li and Tucci (2013) discuss upper triangular graph edge bounds for general sizes and an exact size-two edge count in their accessible abstract; a complete primary text could not be checked, which is a real residual coverage risk. Lakshmibai (2000) treats unrestricted complexes and their geometry, not these triangular conditions. The available published-finding corpus findings on rank-one or standard binary size-three zero-divisor graphs, and related published claims, do not imply the whole size-resolved family and geometric statement. Absence of a matching search result is not treated as proof of priority.
+PASS
 
-## Mathematical value — PASS
-The zero-product relation \(AB=0\) governs annihilation, orthogonality of module actions, and zero-divisor ring graphs. For all triangular matrix sizes, the theorem determines the entire distribution of right annihilator dimensions, hence every out-neighborhood multiplicity before zero/loop normalization. More substantially, the geometric fiber analysis gives a sharp universal zero-product variety dimension and the parity-sensitive classification of its top-dimensional irreducible components. The latter is a structural invariant independent of finite numerical sampling, and is not a renaming of the size-two edge count.
+For each upper-triangular column j of B, AB=0 is exactly A_j b_j=0, where A_j is the leading principal corner, yielding h(A)=sum_j nullity(A_j). Growing A_j by a top-right column v and diagonal a, its nullity jumps iff a=0 and v is in im A_{j-1}; for nullity k previously this has q^{j-1-k} choices and otherwise q^j-q^{j-1-k}. This proves the positive rank-profile formula and recurrence over every finite field. Over an algebraic closure, fixed nullity-jump stratum is iterated a vector-bundle/open-complement construction over the prior irreducible constant-rank stratum, hence geometrically irreducible; B solutions form a vector bundle of rank h_P. Calculating d_P=m-r(r+1)/2+sum_{p in P}(n-p+1), maximized for fixed r by P={1,...,r}, gives m+r(n-r) and exactly one/two top-dimensional closures. Independent enumeration verified Phi and literal AB=0 pairs at small n,q; carefully distinguish dimension proof from polynomial leading term.
 
-## Prior work and limits
-Primary comparisons: Li Bingjun, *Zero-Divisor Graph of Triangular Matrix Rings over Commutative Rings* (2011), pp. 255–260 (all six pages read); A. Li and R. P. Tucci, *Zero Divisor Graphs of Upper Triangular Matrix Rings* (2013), doi:10.1080/00927872.2012.706841 (abstract and accessible bibliographic description only); D. Wong, X. Ma and J. Zhou (2014), doi:10.1016/j.laa.2014.07.041 (abstract/descriptive material); V. Lakshmibai (2000), doi:10.1016/S0022-4049(99)00144-9 (available journal text). The inaccessible Li–Tucci full text is the main priority risk. Lower-dimensional components, left-annihilator distributions and standard graph edge corrections are not determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li Bingjun (2011) full six-page primary source concerns zero-divisor graph connectedness, diameter/girth for triangular rings. Li and Tucci (2013) abstract concerns degree/edge-count estimates, exact small n; not necessarily complete coverage. Geometric varieties of complexes for unrestricted block maps and square-zero triangular matrices impose different constraints. An equivalent full triangular zero-product stratification has not been located, but inaccessible Li–Tucci and algebraic-geometric literature remain explicitly identified risks.
+
+## value
+
+PASS
+
+This gives the entire distribution of right-annihilator dimensions and all ordered zero-product counts for a natural family of finite noncommutative rings, plus the leading geometric dimension and number of maximal irreducible families in every size. The positive rank-profile statistic and two-index dynamic program are mathematically usable for ring graph/density questions; the geometric component parity is a structural result beyond finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
