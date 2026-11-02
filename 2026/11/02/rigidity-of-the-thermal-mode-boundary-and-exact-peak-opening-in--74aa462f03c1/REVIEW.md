@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The stationary density is checked from the two-state transport balance plus independent Gaussian noise; a vanishing-boundary integration-by-parts identity proves that every critical zero crosses with derivative \((1-b)/z>0\), proving uniqueness. Strict parameter ordering follows from a negative covariance. A Gaussian variation-diminishing argument controls the number of global modes. Exact second and fourth Gaussian derivative identities imply both the quartic flattening and the peak-opening and height laws. The embedded dependency-free program completed 41 finite corroborative checks. Risks are use of the classical Gaussian variation-diminishing lemma and only asymptotic, not quantitative-error, control of peak locations.
+
+**Originality — PASS, qualified.** Frydel's 2022 convolution, Sabhapandit–Majumdar's 2024 central-curvature Eq. (96) and phase diagram, and Guéneau–Majumdar–Schehr's 2026 phase boundary are acknowledged as established. The present claim adds a global single-crossing proof, strict dependence of the unique threshold on the flip-rate parameter, the fully justified global mode count, and exact quartic/peak-height coefficients. The universal square-root exponent is standard and is not claimed independently as a new phenomenon. A sufficiently strong general Gaussian scale-space theorem could subsume parts of the result, and independent publication-priority confirmation remains necessary.
+
+**Mathematical value — PASS.** A published numerical thermal phase diagram is upgraded to a complete no-reentrance classification, with an exact monotone design map and quantitative normal form for the physical emergence of twin density peaks. The strict parameter comparison and critical fourth-derivative identity require more than changing notation or reading a figure, though the ingredients involve standard moment and total-positivity techniques.
+
+**Scope and limitations.** Equal flip rates, harmonic confinement, independent Gaussian forcing, exact population stationary law; no claims for switching asymmetry, noise-color effects, finite observations, or broader universality classes. The independent audit and definitive publication-priority assessment have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
