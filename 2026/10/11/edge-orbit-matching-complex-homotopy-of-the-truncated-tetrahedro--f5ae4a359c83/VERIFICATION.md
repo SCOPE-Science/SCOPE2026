@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable verification
+# Independent mathematical audit
 
-Use Python 3 with no third-party dependencies. Execute `python3 verify_truncated_tetra.py` and `python3 verify_alternate.py` from this directory. The first program ends with `VERIFY_OK`, the second with `INDEPENDENT_VERIFY_OK`.
+## correctness
 
-The first implementation explicitly enumerates every valid graph-edge matching and every nonempty covering relation in the five simplicial face posets; the directed-Hasse acyclicity certificate checks a complete topological ordering. It outputs \(1009\), \(819\), \(189\), \(793\), \(215\) nonempty faces and, respectively, one critical vertex with \(22\) critical three-cells, \(14\) critical three-cells, \(8\) critical two-cells, \(20\) critical three-cells, and \(2\) critical two-cells. The full-complex matching-pair digest is `a1c982ad81734158933cbf65063f905df39fe7a6704632e89f33a6ad2d0ed9dc`; further digests print during replay. The Hasse check examines respectively \(3558\), \(2844\), \(512\), \(2722\), and \(608\) directed incidences.
+PASS
 
-The second implementation constructs the same graph independently as the line graph of once-subdivided \(K_4\), enumerates matchings recursively, and computes simplicial boundary ranks over \(\mathbb F_2\). The reduced Betti ranks are \(22\), \(14\), \(8\), \(20\), \(2\), with dimensions \(3\), \(3\), \(2\), \(3\), \(2\) respectively. This field computation alone cannot exclude integral torsion; the stronger homotopy statement uses the first program's exact discrete-Morse certificate and the formal cofibration proof.
+The final claim applies to the explicitly labeled graph on twelve ordered distinct pairs (a,b) from {0,1,2,3}, with triangles at fixed first coordinate and six reversal edges. Independently reconstructed all 18 graph edges, full 1010 face masks including empty and f=(18,117,332,390,144,8). For each of the five exact complexes, rebuilt all simplicial faces from pairwise-disjoint graph-edge masks, greedily paired by first available bit (with empty pair converted to a critical vertex), and oriented EVERY nonempty Hasse incidence upward if paired and downward otherwise. Full topological sorts visited all 1009,819,189,793,215 vertices; critical cells respectively (0:1,3:22), (0:1,3:14), (0:1,2:8), (0:1,3:20), (0:1,2:2). No other critical dimensions survive. Forman discrete Morse theory then gives CW models comprising one point plus only 2- or 3-dimensional cells, so all attaching maps are trivial and the spaces are integral wedges, not merely field-homology equivalents. Checked S4 permutes graph vertices and acts transitively on exactly two edge classes of sizes 12 and 6. For every edge the simplicial link inclusion from a wedge of 2-spheres to the deletion wedge of 3-spheres is null-homotopic by pi2=0. The deletion-star cone cofiber splits into (14+8) or (20+2) S3. The independent calculation supports the entire exact finite claim; no extension to all planar graphs or an infinite family is claimed.
 
-The graph automorphism/orbit argument and the topology of attaching maps are given in `RESULT.md`. No infinite claim or independent external audit is certified by these finite checks.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact integral homotopy types of the truncated-tetrahedral ordinary matching complex, its two edge-orbit deletions and links, and their nullhomotopic cofibration splittings; not for the general deletion-link identity or general Morse methods. The published outerplanar theorem excludes the candidate with its K4 minor and supplies no exact multiplicities; the polygonal-line, manifold and claw-free treatments also do not imply the five values. An indexed exact truncated-tetrahedral Rips result is for a different simplicial complex. The separately published cuboctahedral and rhombic-dodecahedral matching-complex results are different graphs. Equivalent graph aliases and full matching-complex formulations were tested. No independent prior theorem/table giving all five integral homotopy groups and the orbit distinction was found; this is limited priority evidence, not proof of absolute novelty.
+
+## value
+
+PASS
+
+The truncated tetrahedron is a canonical Archimedean 3-connected cubic planar but nonouterplanar graph, and the ordinary matching complex is its natural topology-valued invariant. Establishing an integral wedge of 22 S3 and both complete edge-orbit deletion/link homotopy profiles (14,8) vs (20,2) is a motivated exact classification, not a textbook sign/normalization check. This provides a concrete nonouterplanar case of the published planar sphere-wedge conjecture, and the two distinct local decompositions give nontrivial edge-sensitive information beyond the global Betti count. Its value is a finite structural benchmark; no paper-sized or general-family theorem is asserted. The result could be independently useful when testing or building planar graph matching-complex decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
