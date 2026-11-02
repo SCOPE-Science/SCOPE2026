@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "PASS: The explicit normalized Padé denominator is checked against the general factorial formula. After the exact translation z=t+w (t=k+1), its cubic has one real root r in (1/2,2/3) and the conjugate pair -r/2±ib. Its positive pole R=t+r is strictly smallest in modulus. Partial fraction residues A>0 and B obey A>2|B| because an exact squared-residue difference equals 9r^4(1-r)(r^3-4r^2+10r-4)/(4(2-3r)^2)>0. Consequently c_n≥(A-2|B|)R^(-n)>0 for every independent k,n≥0. Matrix convergence and positivity follow from the matrix power series and Perron-Frobenius. Symbolic algebra and 15,914 executable tests checked, not substituted for, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Al-Mohy–Liu arXiv:2506.01193v1 Sec. 2 Corollary 2, Sec. 3 Theorem 3, uses the same [m+p/m] Padé denominators without reciprocal-coefficient positivity.",
+        "Scardino arXiv:2610.39051v1 Theorem 3.1 covers k=0 for all odd m; Theorem 8.2 asserts only eventual n under D1, Theorem 7.1 only eventual k for D1.",
+        "Fasi–Higham 2019 Conjecture 3.2 is broader as a question, not established as a theorem; Scardino Corollary 9.2 disproves its m=5 instance."
+      ],
+      "reasoning": "Neither a strict specialization of an existing all-k all-n theorem nor a consequence of the verified eventual-positive tail theorem: the latter leaves finitely many initial indices unproved, with no uniform residue dominance. The present explicit inequality A>2|B| closes that gap for m=3.",
+      "searches": [
+        "The Fasi Higham matrix exponential Pade reciprocal positivity conjecture is valid for m=3 for every numerator degree k and every Taylor index n, via cubic pole residue majorization",
+        "Numerical matrix exponential Padé [k/3] inverse denominator q_{k,3} Taylor coefficient positivity and positive matrix function for nonnegative matrices",
+        "Al-Mohy Liu 2025 matrix phi functions [m+p/m] Padé denominator positivity inverse coefficients cubic m=3",
+        "\"Fasi\" \"Higham\" \"m=3\" \"positive\" coefficient"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2506.01193v1",
+      "https://arxiv.org/abs/2506.01193",
+      "https://eprints.maths.manchester.ac.uk/2721/1/fahi19.pdf",
+      "https://arxiv.org/html/2610.39051v1",
+      "https://ir.cwi.nl/pub/108",
+      "https://en.wikipedia.org/wiki/Pad%C3%A9_table",
+      "https://oeis.org/A133314"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fasi–Higham original manuscript pdf page 8 visibly labels the proposed all-odd positivity as Conjecture 3.2.",
+        "Scardino (2026) shows positivity for k=0 and under eventual index thresholds; m=5 counterexamples do not contradict the m=3 case.",
+        "Driver–Temme 1998 repository metadata describes large-degree Padé polynomial zero asymptotics; full PDF link returned HTTP 403."
+      ],
+      "reasoning": "Even combining known k=0 positivity and eventual n positivity does not logically establish finite n positivity at every k>=1. The original positive real pole/spectral minimality property alone does not guarantee residue dominance. The distinct uniform inequality proved here is essential. Driver–Temme inaccessible full text remains a named priority risk, not falsely certified noncovering.",
+      "searches": [
+        "For all nonnegative integers k, reciprocal Taylor coefficients of the denominator q_{k,3}(z) of the [k/3] Padé approximation of exp(z) are strictly positive; cubic denominator and root residue dominance",
+        "Fasi Higham positivity conjecture Padé exponential m=3 odd denominator q_{k,3} reciprocal coefficients positivity all k, roots, simple cubic",
+        "inverse denominator [k/3] Padé exponential generating function coefficients positive all n and k, reverse Bessel polynomials, cubic root",
+        "The Fasi Higham matrix exponential Pade reciprocal positivity conjecture is valid for m=3 for every numerator degree k and every Taylor index n, via cubic pole residue majorization",
+        "Numerical matrix exponential Padé [k/3] inverse denominator q_{k,3} Taylor coefficient positivity and positive matrix function for nonnegative matrices",
+        "Al-Mohy Liu 2025 matrix phi functions [m+p/m] Padé denominator positivity inverse coefficients cubic m=3",
+        "Driver Temme 1998 zeros Pade exponential full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fasi–Higham 2019 Conjecture 3.2: equivalent positivity of coefficients of reciprocal q_{k,m} for all odd m; cubic m=3 is its all-k restriction.",
+        "Scardino 2026 Eq. (1.3) defines the identical coefficients c_n(k,m) and Lemma 8.1 uses the same partial-fraction representation.",
+        "Published mathematical-finding index searches returned Chebyshev, Lanczos and [2/2] Padé Markov results, not the cubic inverse series."
+      ],
+      "reasoning": "Equivalent formulations include inverse Padé denominator absolute monotonicity at zero, positivity of a cubic linear recurrence, and positive resolvent power series. Comparisons used these meanings; no compared published theorem establishes all k and all n for m=3.",
+      "searches": [
+        "For all nonnegative integers k, reciprocal Taylor coefficients of the denominator q_{k,3}(z) of the [k/3] Padé approximation of exp(z) are strictly positive; cubic denominator and root residue dominance",
+        "Fasi Higham positivity conjecture Padé exponential m=3 odd denominator q_{k,3} reciprocal coefficients positivity all k, roots, simple cubic",
+        "inverse denominator [k/3] Padé exponential generating function coefficients positive all n and k, reverse Bessel polynomials, cubic root",
+        "\"q_{k,3}\" \"positive\" \"coefficients\" Pade reciprocal",
+        "\"Fasi\" \"Higham\" \"m=3\" \"positive\" coefficient",
+        "\"Padé\" \"cubic denominator\" \"inverse\" \"coefficients\" positive exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The standard finite exponential Padé table lists selected rational functions, not their inverse coefficients across arbitrary numerator degree and Taylor order.",
+        "OEIS A133314 concerns general reciprocal exponential-generating-function coefficient transforms, rather than this parameterized cubic rational series.",
+        "Exact-rational finite computations in verify.py checked finite indices only."
+      ],
+      "reasoning": "No inspected public table directly contained or certified the all-k and all-n identity. The novelty assessment does not infer uniqueness from failed search or finite database coverage.",
+      "searches": [
+        "site:oeis.org Pade exponential reciprocal denominator coefficients degree three",
+        "Fasi Higham conjecture m 3 proven reciprocal q k 3 positive",
+        "Pade cubic denominator exponential all positive Taylor inverse k arbitrary",
+        "site:oeis.org Pade exponential reciprocal denominator coefficients degree three"
+      ]
+    },
+    "rationale": "PASS under available historical evidence: The 2019 Fasi–Higham Conjecture 3.2 states the odd-denominator positivity question but does not prove the all-k cubic specialization. The 2025 Al-Mohy–Liu primary preprint studies the same [3+p/3] matrix denominator in numerical matrix-function algorithms but not its reciprocal-coefficient signs. Scardino (October 28, 2026) proves all-n only at k=0, and eventual positivity under a spectral condition for other k, so his claims do not imply all n for k≥1; his degree-five counterexamples concern a different denominator order. Comparisons with primary literature, indexed mathematical findings and accessible historical claims identified no equivalent or broader proven all-k,m=3 result. Older Padé root-asymptotic work was only bibliographically accessible, so historical priority is not certified.",
+    "residual_risks": [
+      "Earlier specialized Padé zero/reciprocal-coefficient theorems may be unindexed or use transformed polynomial notation.",
+      "Driver–Temme 1998 full text could not be fetched from its CWI archival link (HTTP 403). No conclusion of noncoverage is drawn from this inaccessible document.",
+      "A mathematical self-review is not independent priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves matrix-function approximation/error statements, not positivity of every coefficient of inverse cubic denominator.",
+        "evidence": [
+          "arXiv v1 lines 31–52: first public June 1, 2025 and MSC 65F60 first.",
+          "Section 2 Eq. (11) explicit common Padé denominator.",
+          "Section 3 Theorem 3 pole-radius conditions and backward error.",
+          "Sections 5–6 implementations and evaluation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.01193v1",
+        "material_read": "Full accessible HTML, abstract and introduction; Section 2, Corollary 2 and explicit denominator Eq. (11); Section 3, Theorem 3 and backward error bounds; Sections 5–6 algorithms and numerical comparisons.",
+        "method": "Read version-1 public full-text HTML and matched normalized [m+p/m] denominator for m=3, p=k-3.",
+        "title": "Computing Matrix φ-Functions Arising in Exponential Integrators",
+        "trigger": "Eligible June 1, 2025 matrix numerical methods source with first-version primary MSC 65F60 and shared cubic Padé denominators."
+      },
+      {
+        "assessment": "States all odd-denominator positivity as a conjecture; it is not a proof of the cubic all-k specialization.",
+        "evidence": [
+          "Page 8: explicit Conjecture 3.2 and statement that authors lack a proof.",
+          "Corollary 3.3 gives a truncation bound without assuming the conjecture."
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2721/1/fahi19.pdf",
+        "material_read": "Accessible original 25-page full PDF, with page 8 rendered and text of Section 3 around Lemma 3.1, Conjecture 3.2, and Corollary 3.3 examined.",
+        "method": "Read PDF text and visually inspected the page bearing Conjecture 3.2.",
+        "title": "An Arbitrary Precision Scaling and Squaring Algorithm for the Matrix Exponential",
+        "trigger": "Original exact conjecture concerning q_{k,m}^{-1}, matching parameters and formula."
+      },
+      {
+        "assessment": "All-index positivity established for k=0 only; generic conditions establish eventual n, not the complete m=3 all-k result. m=5 negative examples do not overlap m=3.",
+        "evidence": [
+          "Theorem 3.1: all k=0, odd m.",
+          "Theorem 8.2: eventual n conditional on D1.",
+          "Theorem 7.1: D1 at sufficiently large k.",
+          "Theorem 8.5: m=5,7,9 counterexamples.",
+          "Section 9: m=5 Hermite oscillatory counterexamples."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39051v1",
+        "material_read": "Accessible full HTML sections 1–5, especially Theorem 3.1, and sections 7–9, especially Theorems 7.1, 8.2, 8.5 and Corollary 9.2.",
+        "method": "Compared identical coefficients, root conditions, partial-fraction proof, finite-vs-eventual positivity and counterexample parameters.",
+        "title": "On a positivity conjecture of Fasi and Higham for Padé approximants to the matrix exponential",
+        "trigger": "Same reciprocal coefficients and primary mathematical novelty risk; publicly posted October 28, 2026 and checked for overlap, not used as the eligible primary source."
+      },
+      {
+        "assessment": "Entire paper NOT certified noncovering. Its abstract emphasizes root asymptotics, which is different from an all-order coefficient-sign proof, but priority uncertainty remains.",
+        "evidence": [
+          "CWI repository 1998 entry, Journal of Computational and Applied Mathematics 89, pp. 97–114.",
+          "Full-text URL failed with HTTP 403."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/108",
+        "material_read": "Repository bibliographic entry and abstract; the linked free-full-text PDF returned HTTP 403.",
+        "method": "Inspected public metadata; attempted publisher-hosted/open archive PDF link, which was inaccessible.",
+        "title": "Asymptotics and zero distribution of Padé polynomials associated with the exponential function",
+        "trigger": "Historical potentially stronger pole/root geometry in Padé polynomials."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd258971-9411-43e9-b62e-09e6cef86a17",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The exact all-degree cubic case of a named unresolved Padé reciprocal-positivity problem is substantive: it proves simultaneous positivity for infinitely many numerator degrees and all Taylor orders, including the finite initial coefficients not supplied by available eventual-positivity theorems. In numerical linear algebra it gives an exact positive-cone and sharp spectral-radius guarantee for denominators of [3+p/3] Padé matrix φ-function recovery, rather than a limited collection of low-order numerical examples. No general odd-degree theorem, matrix rational numerator guarantee, or complexity improvement is claimed.",
+    "status": "PASS"
+  }
+}
