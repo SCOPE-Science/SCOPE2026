@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cycle parity characterization yields the exact square-permutation EGF. The square-root singularity of the odd-cycle factor and the summable fractional moment of the even tail prove joint short-cycle limits, without extrapolating finite enumeration. Effective bounded-degree Hanf locality reduces all first-order sentences to finite truncated cycle-count events; explicit quantification defines every such event. The arithmetic-field and density conclusions follow from independent finite-dimensional distributions. The complete chain of lemmas and exact scope appears in RESULT.md.
+PASS
 
-## Originality
+For a permutation to be a square, each even cycle length must occur an even number of times; odd lengths are unrestricted. The labelled EGF is A(z)H(z) with A(z)=sqrt((1+z)/(1-z)) and H(z)=product_even cosh(z^j/j). The coefficient asymptotic A_n~sqrt(2/pi)n^-1/2 and the even-factor fractional moment for alpha>1/2 justify the coefficient ratio and independent short-cycle limits; no finite test extrapolation. Bounded-degree effective Hanf locality reduces every first-order sentence to finitely many thresholded short-cycle counts, since the long-path local type occurs arbitrarily often with high probability. Disjoint directed cycles are definable, yielding the reverse inclusion. For finitely many j the event algebra lies in Q(e^(1/D)); odd Poisson presence indicators have atom sizes tending to 0, proving density. The proof restricts to the successor binary-relation language, fixed sentences, and uniform conditional law, not the distribution of the square of a uniformly random permutation.
 
-PASS, qualified. Pouyanne (2002) establishes the root-admissible cycle criterion and generating functions; these are credited, not presented as new. Compton and Burris et al. cover broad logical limit phenomena; generic convergence alone is not claimed new. The exact set of all attainable first-order limiting probabilities for the *uniform law on square-root-admitting permutations*, including its parity-conditioned variables and density/field classification, was not identified in the inspected primary works, previously documented mathematical claims, or published-finding searches. A stronger unlocated theorem coupling conditioned permutation component laws with complete first-order spectra could imply the claim; this is a genuine historical-priority risk and absence of a search hit is not a proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem identifies precisely which logical probabilities are attainable in a natural arithmetic subfamily of finite permutations, not merely the existence of limits. The parity-conditioned cycle process is a structural boundary relative to unconstrained permutations; the explicit spectrum permits effective evaluation and displays both density and restricted arithmetic values.
+The contribution is the explicit complete set of attainable first-order limiting probabilities for uniformly random root-admitting permutations, not the classical cycle criterion, EGF, marginal enumeration asymptotics, or generic FO convergence. The closest full primary enumeration paper (Pouyanne) has those inputs but no inspected theorem classifying the FO probability spectrum; the full inspected Mallows paper likewise concerns different laws. No direct stronger equivalent theorem was found in actual Resultary and literature queries. This is best-of-knowledge with a live risk from older abstract admissible-class logic.
 
-## Limits
+## value
 
-The result concerns first-order sentences over one successor relation, with the uniform conditional measure. The finite checker does not verify the infinite asymptotic or locality theorem. General logical convergence could follow from pre-existing abstract theorems. Independently verified priority and independent proof audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distribution on permutations admitting square roots is a natural conditional combinatorial model, and the exact set of limiting probabilities of its entire one-relation first-order theory is a natural logical invariant. The classification gives explicit effective constructions, parity-sensitive examples, arithmetic constraints and density, none a routine specialization of unconditional independent Poissons. A future finite-model-theory calculation can use the exact spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
