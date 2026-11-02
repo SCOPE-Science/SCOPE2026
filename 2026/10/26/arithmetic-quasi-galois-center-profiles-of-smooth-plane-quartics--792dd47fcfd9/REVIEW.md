@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The canonical-embedding argument reduces every rational fiber-preserving automorphism to one of the four elations at its rational center. The invariant-quartic local analysis proves that a smooth invariant quartic avoids the center. Full coefficient-space orbit enumeration and geometric Jacobian-ideal Gröbner tests give 78 smooth orbits / 10,920 equations, and a disjoint invariant-subspace-first route gives 17 orbits / 1,184 equations with a nontrivial center; detailed subgroup profiles agree. Both concrete programs and their recorded outputs were executed and inspected. Over an algebraically closed field the unit-ideal criterion is exact, not merely a check on small extensions.
+## correctness
 
-**Originality — PASS, with residual priority qualification.** Nart–Ritzenthaler's classification already covers the underlying 78 binary quartic classes and their automorphism groups. Fukasawa's work covers the seven-point outer-Galois Klein phenomenon, and those components are explicitly excluded from novelty. The 2022 quasi-Galois arrangement paper assumes characteristic zero; the published comparisons inspected do not state this full binary arithmetic quasi-Galois group-profile distribution. Stronger historic normal forms could permit reconstructing the result; this derived-invariant overlap is acknowledged as a concrete priority risk. The new claim is not merely the already-known census or the known Klein case.
+PASS
 
-**Value — PASS.** Fiber-preserving subgroups of projection maps are natural geometric/field-theoretic invariants, and wild involutions in characteristic two behave differently from the cyclic prime-to-characteristic groups. The complete distribution identifies rarity (17/78 classes), the only full arithmetic Galois projections, and the way rational point counts differ even among identical center-group profiles. This gives a genuinely informative finite-field boundary case to quasi-Galois arrangement theory, not an arbitrary mask-counting exercise.
+Smooth plane quartics are canonical genus-three models, so their F2-rational automorphisms extend to PGL3(F2). At a rational projection center P, every projective fiber-fixing transformation is a shear I+P\otimes ell with ell(P)=0; precisely three nonidentity elations exist, giving possible group orders 1,2,4. The invariant-quartic expression shows a nontrivial fiberwise automorphism forces an inner center to be singular, hence all such centers are outer. Independent exhaustive binary homogeneous-quartic orbit enumeration covered all 32,767 nonzero masks, found 279 PGL3(F2) orbits, and exact geometric smoothness (three affine-chart Groebner unit-ideal tests) selected 78 smooth orbits comprising 10,920 forms. Checking all seven rational centers and their three elations independently reproduced class profiles (0,0):61, (1,0):14, (3,0):1, (2,1):1, (0,7):1 and weighted equation counts 9736/1134/28/21/1 respectively, hence 17 positive classes. A nontrivial full order-four deck group gives exactly the asserted Galois-point characterization.
 
-**Publication and scientific limits.** No extension-field classification, independent external scientific audit, or priority guarantee is claimed; in particular, classic group classifications may imply the derived arithmetic counts after further calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nart–Ritzenthaler already give the full characteristic-two genus-three nonhyperelliptic curve classification and automorphism normal forms, so the 78 curve classes and the characteristic-two Klein Galois example are NOT new. Fukasawa–Miura–Takahashi define quasi-Galois points and prove general quartic bounds, with the Klein exceptional curve known. The candidate novelty is specifically the simultaneous distribution of fiber-fixing groups of orders two and four at every F2-rational center across all 78 arithmetic classes and weighted equations, which requires an elation-incidence refinement not explicitly stated in materially read main tables. Best-of-knowledge PASS qualified by possible implicit extraction from older stabilizer tables.
+
+## value
+
+PASS
+
+The seven rational points of PG(2,2) and partial deck groups are intrinsic arithmetic invariants of plane quartic projections. The completed joint distribution across every genus-three nonhyperelliptic F2 class distinguishes full Galois projections from merely quasi-Galois involutions, giving a natural complete arithmetic classification rather than a gratuitous table of coefficients. It is useful independently of the already known 78-class census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
