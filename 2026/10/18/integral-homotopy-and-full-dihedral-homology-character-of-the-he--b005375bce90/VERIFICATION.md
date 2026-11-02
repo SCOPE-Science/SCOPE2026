@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite mathematical checks
+# Independent mathematical audit
 
-Execute `python3 verify.py`. This single standard-library Python program constructs the eleven-vertex eighteen-edge Herschel graph, enumerates every subset of its edge set and retains precisely the disjoint-edge faces. It checks the complete nonempty face vector `(18, 111, 280, 270, 72)` and verifies all `752` faces including the empty face.
+## correctness
 
-It constructs the explicit discrete-Morse matching using the ordered toggles in `RESULT.md`, verifies `369` matched pairs and thirteen critical simplices (one 0-simplex, twelve 3-simplices), orients all `2502` Hasse incidences, and verifies that the resulting directed graph on all `751` nonempty simplices is acyclic via a complete topological traversal. This is a finite, exhaustive acyclic discrete-Morse certificate for the given graph. The standard discrete-Morse theorem gives the asserted integral homotopy wedge.
+PASS
 
-The same program constructs every one of the twelve elements of \(S_3\times C_2\), checks their edge actions, evaluates the signed reduced Lefschetz trace for each one and tests class constancy. The traces, arranged by \(S_3\) identity/transposition/three-cycle with flip off then on, are `(12, 0, -3, -2, 2, 1)`. Exact character inner products yield multiplicities `(1, 0)`, `(0, 1)` and `(2, 3)` for trivial, sign and standard \(S_3\) types, respectively.
+For the explicit 11-vertex 18-edge graph, independently enumerated all matching faces by edge-combination generation: 752 including empty, f=(18,111,280,270,72). Independently reproduced the specified 18 edge-toggle matching with 369 incident pairs and exactly one critical vertex plus twelve critical 3-simplices. Constructed all 2,502 nonempty Hasse cover incidences and verified directed acyclicity by visiting all 751 nodes, so Forman discrete Morse gives an integral CW complex with one 0-cell and 12 3-cells and hence wedge of twelve 3-spheres. Independently enumerated the full 12 graph automorphisms via GraphMatcher (not assumed from code), obtained six signed reduced-Lefschetz class traces (12,0,−3;−2,2,1), decomposed by exact S3×C2 character inner products into multiplicities (1,0),(0,1),(2,3), and verified fixed-line dimension 1. Independent simplicial boundary ranks over primes 2,3,5,101 were 17,94,186,72, yielding ordinary b3=12. The full integral homotopy conclusion rests on the exhaustively checked acyclic discrete-Morse matching, not finite-field ranks alone. No integral isotypic group-lattice splitting asserted.
 
-The successful terminal output begins with `VERIFY_OK_HERSCHEL_MATCHING_COMPLEX_DIHEDRAL_HOMOLOGY`. These calculations verify one finite complex exhaustively and use exact integer counts and character sums. They do not certify novelty, represent an independent audit, or imply analogous results for other graphs.
+## originality
+
+PASS
+
+Best-of-knowledge novel integral homotopy type and full rational S3×C2 homology character for M(H)=Ind(L(H)). Actual highly relevant prior theorem statements were compared by mathematical implication, including noncoverage of outerplanar/manifold/complete graph hypotheses and the distinct published Ind(H). Relevant full primary texts were materially read where accessible; one broad monograph chapter remains an explicitly named access risk. No negative search was treated as a proof of priority.
+
+## value
+
+PASS
+
+The Herschel graph is the canonical smallest-edge 11-vertex non-Hamiltonian polyhedral graph, and the ordinary matching complex Ind(L(H)) is a natural graph-topological invariant. Its exact integral wedge type distinguishes homotopy, rather than only rational Betti numbers; the full twelve-element symmetry character and nonzero invariant line distinguish equivariant topology beyond a matching polynomial or sphere multiplicity. A precise finite natural object and complete nontrivial structural invariant can be worth citing without requiring a universal graph-family theorem. The calculation is not a renaming, arbitrary slice, or known-table recomputation in the inspected literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

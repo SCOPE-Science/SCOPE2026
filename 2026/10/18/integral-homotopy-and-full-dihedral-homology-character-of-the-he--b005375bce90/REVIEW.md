@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit Herschel graph has eleven vertices and eighteen edges. Exhausting all \(2^{18}\) edge subsets yields the stated matching-complex face counts. A specified sequence of 18 matching toggles leaves precisely one critical vertex and twelve critical three-cells after 369 pairings, with all 2502 incidences tested in an acyclic directed Hasse diagram. By discrete Morse theory this is an integral wedge of twelve 3-spheres, not merely a finite-field Betti number calculation. The twelve graph automorphisms are explicitly constructed and exhausted by degree-preserving symmetry. Their signed Lefschetz fixed-face sums give six class-character values; character inner products recover the claimed irreducible rational summands. The verification code reconstructs all mathematical objects from the displayed edges.
+PASS
 
-## Originality — PASS, within the inspected corpus
+For the explicit 11-vertex 18-edge graph, independently enumerated all matching faces by edge-combination generation: 752 including empty, f=(18,111,280,270,72). Independently reproduced the specified 18 edge-toggle matching with 369 incident pairs and exactly one critical vertex plus twelve critical 3-simplices. Constructed all 2,502 nonempty Hasse cover incidences and verified directed acyclicity by visiting all 751 nodes, so Forman discrete Morse gives an integral CW complex with one 0-cell and 12 3-cells and hence wedge of twelve 3-spheres. Independently enumerated the full 12 graph automorphisms via GraphMatcher (not assumed from code), obtained six signed reduced-Lefschetz class traces (12,0,−3;−2,2,1), decomposed by exact S3×C2 character inner products into multiplicities (1,0),(0,1),(2,3), and verified fixed-line dimension 1. Independent simplicial boundary ranks over primes 2,3,5,101 were 17,94,186,72, yielding ordinary b3=12. The full integral homotopy conclusion rests on the exhaustively checked acyclic discrete-Morse matching, not finite-field ranks alone. No integral isotypic group-lattice splitting asserted.
 
-A published Herschel **independence** complex calculation concerns \(\operatorname{Ind}(H)\) instead of \(\operatorname{Ind}(L(H))\). Published matching-complex computations for the Goldner–Harary graph concern a different eleven-vertex graph. Jonsson's 2012 preprint treats complete graph matching complexes and thus does not imply a Herschel-specific character. The outerplanar theorem of Bayer–Jelić Milutinović–Vega is inapplicable because Herschel is not outerplanar; Bayer–Goeckner–Jelić Milutinović instead study the homology-manifold classification. Actual published-finding searches found no direct or stronger covering statement. The Jonsson monograph chapter was only accessible as an abstract; its possible detailed coverage is an explicit bibliographic risk. Negative searches are not proofs of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The Herschel graph is the smallest-edge non-Hamiltonian polyhedral graph, making its matching complex a natural testing object for the topology of matching complexes of highly constrained planar graphs. A complete integral homotopy type and full dihedral homology character are structural invariants not supplied by its graph spectrum, matching number or ordinary independence-complex result. The full symmetry-fixed direction distinguishes its representation from a mere Betti-number computation; the result has a finite, motivated, natural domain. No claim of a broad classification or unknown downstream theorem is needed.
+Best-of-knowledge novel integral homotopy type and full rational S3×C2 homology character for M(H)=Ind(L(H)). Actual highly relevant prior theorem statements were compared by mathematical implication, including noncoverage of outerplanar/manifold/complete graph hypotheses and the distinct published Ind(H). Relevant full primary texts were materially read where accessible; one broad monograph chapter remains an explicitly named access risk. No negative search was treated as a proof of priority.
 
-## Limits and nearby literature
+## value
 
-The result concerns the specified Herschel graph only and provides a **rational** isotypic decomposition, not an integral group-module splitting. The exact homotopy conclusion does follow integrally. Matching-complex papers in the references delimit the preceding results and hypotheses. An inaccessible monograph section leaves residual coverage uncertainty. The presented evidence supports a self-review, not an independent expert audit or certified publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Herschel graph is the canonical smallest-edge 11-vertex non-Hamiltonian polyhedral graph, and the ordinary matching complex Ind(L(H)) is a natural graph-topological invariant. Its exact integral wedge type distinguishes homotopy, rather than only rational Betti numbers; the full twelve-element symmetry character and nonzero invariant line distinguish equivariant topology beyond a matching polynomial or sphere multiplicity. A precise finite natural object and complete nontrivial structural invariant can be worth citing without requiring a universal graph-family theorem. The calculation is not a renaming, arbitrary slice, or known-table recomputation in the inspected literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
