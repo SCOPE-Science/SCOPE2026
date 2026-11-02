@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:10:21.732655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uniform-area covariance of a circumradius-one regular n-gon is ((2+cos(2*pi/n))/12) I. Thus the kernel is K_n(x,y)=1+(12/(2+cos(2*pi/n))) x dot y. Absolute kernel-row integrals are convex in x, so a vertex realizes the global norm, while rotation gives the same norm at each vertex. The unique negative cap y_1<-1/c contributes 2(-area(cap)-c first_x_moment(cap))/area(P). The polygon shoelace/cap intersection prescription covers n=3, even and odd n and boundary clipping. A radial expansion r_n(phi)=cos(pi/n)/cos(s) gives mean delta r=-pi^2/(3n^2); the derivative of the disk integral yields 5*pi*sqrt(15)/12, with a Lipschitz error term controlling the angular microstructure. Reconstructed cap formula independently from clipping: triangle=19/8, square=233/108, hexagon=361/180 to machine precision, and rescaled corrections 5.07083 (n=80), 5.06974 (n=320), 5.069727 (n=500) approach 5.0697233. Finite checks support but do not prove the n->infinity limit. The proof supplies all quantifiers and the needed radial remainder.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hangelbroek et al. prove bounds for kernel spaces on Riemannian manifolds with quasiuniform centers; 2024 Chebyshev-mesh paper addresses cube/simplex/ball projectors; uniform-simplex exact norm includes triangular special case."
+        ],
+        "reasoning": "Neither Riemannian kernel-space stability nor numerical meshing bounds yield the complete filled regular n-gon degree-one formula or its n^-2 coefficient. The triangle is previously covered, so novelty is explicitly n>=5/all-family correction.",
+        "searches": [
+          "arXiv:1005.2424 Hangelbroek--Narcowich--Sun--Ward",
+          "doi:10.1553/etna_vol60s428 Bialas-Ciez et al.",
+          "Resultary 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob ed69e55ccd6f136cac04adab56877bfefc968cc7",
+        "Standalone verification script blob 0f135f73ae537e17a8c49cc1d208b0c5b6ace89d",
+        "Independent polygon clipping and asymptotic numerical recomputations",
+        "arXiv:1005.2424 primary PDF",
+        "doi:10.1553/etna_vol60s428 abstract",
+        "Resultary uniform-simplex exact projector norm finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hangelbroek supplies an Lp boundedness framework; the simplex sharp constant covers n=3 only; the ball gives the limiting constant but no rate."
+        ],
+        "reasoning": "The predecessor statements imply neither the polygon-specific clipped moments nor the positive asymptotic coefficient. The new result specializes consistently to already known geometric cases.",
+        "searches": [
+          "Griffiths not relevant here; Hangelbroek et al. 2010 sections 1,5,6",
+          "2024 ETNA Lebesgue-mesh paper; original published simplex exact norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projector norm equals the sharp row integral of the affine reproducing kernel, or the negative cap area and first moment; polygon geometry determines both."
+        ],
+        "reasoning": "Searched least-squares/orthogonal projection/Lebesgue-constant/positivity-defect synonyms. A general projector Lebesgue constant inequality is not the exact cap or asymptotic coefficient.",
+        "searches": [
+          "Resultary: sharp L infinity norm orthogonal projection onto affine linear polynomials regular polygon uniform area Lebesgue constant disk second order",
+          "Web: least squares polynomial projector regular polygon filled Lebesgue constants",
+          "arXiv:1005.2424 Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known n=3,4 and disk endpoint norms are acknowledged and independently reproduced; no inspected table has all polygon n or a second-order continuum defect."
+        ],
+        "reasoning": "Exact tables at finitely many polygons cannot imply the n-wide formula or its continuum correction; absence from indexed tables is not conclusive priority evidence.",
+        "searches": [
+          "Resultary exact positivity defect max norm simplex Oct 2026",
+          "web: \"5 pi sqrt(15)\" polygon projector norm",
+          "arXiv:1005.2424"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the all-regular-n exact area-weighted norm and its nonzero n^-2 correction. General projection stability and fixed simplex/ball cases are substantial prior background, but neither their hypotheses nor their conclusions give the polygon-dependent cap formula or evaluated second-order defect.",
+      "residual_risks": [
+        "A full archival survey of weighted polynomial projection constants on polygonal domains was not possible; a differently phrased exact formula could exist.",
+        "The radial asymptotic is proved analytically; finite n checks alone would not establish the coefficient.",
+        "No monotonicity in n or optimum over all polygons is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different approximation space (kernel spans on manifolds), boundedness rather than sharp area-polynomial regular-polygon constants.",
+          "evidence": "arXiv:1005.2424, introduction and theorem/corollary 5.2-5.3",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2424",
+          "material_read": "Read the accessible primary PDF introduction, Section 5 theorem/corollary passages and spherical example, and inspected page images; not all 25 pages were read.",
+          "method": "Primary PDF and theorem-hypothesis comparison",
+          "title": "Lp stability of kernel bases and least squares on manifolds",
+          "trigger": "Most plausible higher-level Lp projection bound"
+        },
+        {
+          "assessment": "The scheme evaluates numerical constants with rigorous mesh error; no inspected closed regular n-gon correction.",
+          "evidence": "Publisher abstract 2024, cube/simplex/ball polynomial projectors",
+          "identifier_or_url": "https://doi.org/10.1553/etna_vol60s428",
+          "material_read": "Read published abstract, scope and bibliographic metadata; complete paper not read.",
+          "method": "Abstract and scope comparison",
+          "title": "Evaluating Lebesgue Constants by Chebyshev Polynomial Meshes on Cube, Simplex and Ball",
+          "trigger": "Potential broader sharp projector norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Filled regular polygons are a canonical geometric approximation of the disk, and the degree-one L2 projector is the natural least-squares stability baseline. The all-n sharp endpoint constants and signed n^-2 correction answer a motivated domain-approximation question beyond arbitrary numerical cases; triangle/square/disk special cases alone would not qualify.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A full archival survey of weighted polynomial projection constants on polygonal domains was not possible; a differently phrased exact formula could exist.",
+    "The radial asymptotic is proved analytically; finite n checks alone would not establish the coefficient.",
+    "No monotonicity in n or optimum over all polygons is claimed."
+  ],
+  "schema_version": 1
+}

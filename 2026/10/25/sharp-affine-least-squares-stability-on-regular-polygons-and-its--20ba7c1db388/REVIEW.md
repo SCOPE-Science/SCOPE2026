@@ -1,15 +1,21 @@
-# Scientific review: regular-polygon affine least-squares stability
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite formula follows from a normalized affine reproducing kernel with covariance \((2+\cos(2\pi/n))/12\) per coordinate. Convexity places a maximal absolute kernel row at a vertex; the kernel changes sign on one vertical clipping line. Standard shoelace formulas evaluate the exact negative cap area and first moment. The asymptotic expansion uses the exact radial function \(\cos(\pi/n)/\cos s\), a Lipschitz angular averaging estimate, and the differentiable disk absolute-value integral. These yield the coefficient \(5\pi\sqrt{15}/12\). A standalone standard-library checker independently verifies three exact-rational benchmarks, four comparisons with triangle quadrature, and five rescaled asymptotic samples (15 groups of assertions). Numerical checks do not replace the analytic proof.
+## correctness
 
-## Originality — PASS within the inspected evidence
-The primary full text of Hangelbroek–Narcowich–Sun–Ward (arXiv:1005.2424, Sections 1, 3, 5, 6) develops stable \(L^2\) projections in kernel spaces on manifolds rather than exact affine least-squares constants on filled regular polygons. The published sphere-polynomial projection literature treats sphere measure rather than polygon area. Earlier published simplex results and separate affine projector calculations on parallelepipeds and Euclidean balls supply, respectively, the triangle, square, and disk cases; those are background here. The mathematical novelty claimed is the all-regular-polygon clipping prescription for \(n\ge5\) and especially the **evaluated, nonzero \(n^{-2}\) polygon-to-disk stability defect**. Title and mathematical-implication searches found no direct covering result. Some online publication records were summary-only; completeness of historical priority cannot be certified.
+PASS
 
-## Value — PASS
-Local affine least-squares approximation is a natural baseline for projection stability and pointwise approximation error. Inscribed regular polygons give a canonical controlled approximation of a disk. The result provides reproducible exact sharp constants for all polygon orders, an explicit finite computation with no numerical optimization, and the leading continuum discrepancy \(5\pi\sqrt{15}/(12n^2)\). The positive correction quantifies a concrete geometric cost of replacing a round domain by its polygonal approximation, rather than offering an arbitrary isolated special case.
+The uniform-area covariance of a circumradius-one regular n-gon is ((2+cos(2*pi/n))/12) I. Thus the kernel is K_n(x,y)=1+(12/(2+cos(2*pi/n))) x dot y. Absolute kernel-row integrals are convex in x, so a vertex realizes the global norm, while rotation gives the same norm at each vertex. The unique negative cap y_1<-1/c contributes 2(-area(cap)-c first_x_moment(cap))/area(P). The polygon shoelace/cap intersection prescription covers n=3, even and odd n and boundary clipping. A radial expansion r_n(phi)=cos(pi/n)/cos(s) gives mean delta r=-pi^2/(3n^2); the derivative of the disk integral yields 5*pi*sqrt(15)/12, with a Lipschitz error term controlling the angular microstructure. Reconstructed cap formula independently from clipping: triangle=19/8, square=233/108, hexagon=361/180 to machine precision, and rescaled corrections 5.07083 (n=80), 5.06974 (n=320), 5.069727 (n=500) approach 5.0697233. Finite checks support but do not prove the n->infinity limit. The proof supplies all quantifiers and the needed radial remainder.
 
-## Closest literature and limits
-Hangelbroek et al., arXiv:1005.2424, provides the broader \(L^p\) least-squares stability context, but a different approximation space. Defant et al., DOI 10.1112/jlms.70429 (2026), examines projections onto polynomial spaces on spheres; only the accessible abstract and bibliographic details were used. A separately indexed simplex exact-norm note confirms the triangle is an old special case, but the full note was not accessed. General covariance/reproducing-kernel identities are prior mathematics. The present result does not classify extrema away from vertices, imply monotonicity in polygon order, or provide an optimum over all polygons. Historical originality remains provisional; independent mathematical and literature audits remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for the all-regular-n exact area-weighted norm and its nonzero n^-2 correction. General projection stability and fixed simplex/ball cases are substantial prior background, but neither their hypotheses nor their conclusions give the polygon-dependent cap formula or evaluated second-order defect.
+
+## value
+
+PASS
+
+Filled regular polygons are a canonical geometric approximation of the disk, and the degree-one L2 projector is the natural least-squares stability baseline. The all-n sharp endpoint constants and signed n^-2 correction answer a motivated domain-approximation question beyond arbitrary numerical cases; triangle/square/disk special cases alone would not qualify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
