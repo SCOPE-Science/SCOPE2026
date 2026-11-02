@@ -1,19 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The claim follows from the occupation-density normalization, the conditional variance of a Gaussian bridge given its value at an interior time, and two beta integrals. The mixed moment is explicitly evaluated; the beta–gamma identity reduces it to the stated central-binomial expression. The strict sign follows from \(inom{2q+2}{q+1}<2^{2q+1}\) for \(q\ge1\). The statement is limited to integer powers on the standard unit bridge.
+## correctness
 
-## Originality
+PASS
 
-**PASS, with residual literature risk.** published-finding corpus was queried with exact and alias-oriented searches for bridge local time, integrated squared energy, integrated even powers, occupation density, and mixed moments. The closest returned records concern different diffusion or Gaussian-numerical models. The full Pitman report was inspected: it treats bridge local-time distributions and occupation-density identities but does not state the target mixed moment. The accessible Knight preview concerns the area under the absolute bridge, a different functional. The full Knight text was not obtained, so an indirect implication cannot be ruled out; this access limitation is recorded rather than treated as proof of novelty.
+Reconstructed Gaussian conditioning: B_t | B_s=0 has variance t(s-t)/s for t<=s, (t-s)(1-t)/(1-s) for t>=s. Occupation density and Tonelli yield E[L I_q] by integrating p_s(0)*(2q-1)!! v(s,t)^q, whose time integral is beta(q+1,q+1)[s^(q+1)+(1-s)^(q+1)]. The s integral is beta(q+3/2,1/2); E[L]=sqrt(pi/2), E[I_q]=q!/[2^q(2q+1)]. Beta/gamma duplication gives the central-binomial bracket; strict negativity for q>=1 follows binom(2n,n)<2^(2n-1) for n>=2. q=0 is constant. Independent high precision beta/coefficient evaluations q=0..12 agreed.
 
-## Value
+## originality
 
-**PASS.** The result is a closed all-orders covariance hierarchy linking two distinct path summaries: local time quantifies contact with zero, while \(I_q\) measures integrated even-power amplitude. It gives an exact sign and a reusable formula for every integer order, rather than a simulation-based trend or a single unmotivated numerical case. This is a compact benchmark for joint bridge-functional calculations and validation.
+PASS
 
-## Closest literature and limits
+Pitman derives bridge local-time distributions and related occupation-density identities but no all-q power-energy mixed covariance in inspected relevant report text. Knight studies conditional moments of the ABSOLUTE bridge area int|B|dt given local time; even-power energies are different. Knight full text unobtainable despite attempted open access followed by authorized institutional retrieval returning disconnected VPN; this alone does not force scientific rejection but creates concrete priority risk.
 
-- Jim Pitman, *The distribution of local times of a Brownian bridge* (1998 technical report): local-time distribution and occupation-density framework; not the displayed mixed covariance.
-- Frank B. Knight, *The moments of the area under reflected Brownian bridge conditional on its local time at zero* (2000): related conditional bridge-functional analysis, but the accessible material concerns \(\int_0^1|B_t|\,dt\), not \(\int_0^1B_t^{2q}\,dt\).
-- The full joint law, correlation coefficient, noninteger powers, and nonzero endpoint bridges are outside the claim. Literature retrieval was not exhaustive, and full-text access to Knight (2000) remained unavailable.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-integer-order covariance hierarchy links zero-contact local time to amplitude-based path energies, and supplies strict negative sign and reusable closed coefficients. It is a natural joint path-functional invariant not determined by marginal local-time or energy moments alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

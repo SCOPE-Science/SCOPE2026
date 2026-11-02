@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:45:13.174728Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Git blob 774722f7d10d236ef1df0e28acad64f5b970d9ff; fully reconstructed conditional covariance and beta calculation",
+        "Independent high-precision beta identity checked for q=0..12, q=1 coefficient -1/24, q=2 -3/80",
+        "Inspected VERIFICATION.md: no formal or external attestation; proof analytic."
+      ],
+      "limitations": [
+        "Only standard bridge on [0,1], integer q, occupation-density normalized zero local time. No joint law or general negative-association theorem."
+      ],
+      "rationale": "Reconstructed Gaussian conditioning: B_t | B_s=0 has variance t(s-t)/s for t<=s, (t-s)(1-t)/(1-s) for t>=s. Occupation density and Tonelli yield E[L I_q] by integrating p_s(0)*(2q-1)!! v(s,t)^q, whose time integral is beta(q+1,q+1)[s^(q+1)+(1-s)^(q+1)]. The s integral is beta(q+3/2,1/2); E[L]=sqrt(pi/2), E[I_q]=q!/[2^q(2q+1)]. Beta/gamma duplication gives the central-binomial bracket; strict negativity for q>=1 follows binom(2n,n)<2^(2n-1) for n>=2. q=0 is constant. Independent high precision beta/coefficient evaluations q=0..12 agreed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conditional distribution given L of int|B| is not in itself a statement of E[L int B^(2q)] at q>=1; the full Knight source is unavailable, so uninspected indirect implications remain a risk."
+        ],
+        "reasoning": "No inspected broader family theorem has both the even-power energies and the required local-time normalization.",
+        "searches": [
+          "Pitman 1998 The distribution of local times of a Brownian bridge",
+          "Knight 2000 moments of area under reflected Brownian bridge conditional on local time"
+        ]
+      },
+      "checked_sources": [
+        "https://statistics.berkeley.edu/tech-reports/539",
+        "https://statistics.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+        "https://doi.org/10.1155/S1048953300000137",
+        "Resultary: exact Brownian bridge zero-local-time mixed energy query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the marginal local-time law or conditional |B|-area functional does not alone imply Cov(L,int B^(2q)), even when q=1. The present computation directly conditions on B_s=0 and integrates Gaussian power moments."
+        ],
+        "reasoning": "The target adds a mixed moment hierarchy, while the accessible prior statements do not determine cross-functional covariances; indirect unpublished equivalences remain possible.",
+        "searches": [
+          "Pitman Berkeley Technical Report 539, occupation density and local-time distribution",
+          "Knight 2000 DOI:10.1155/S1048953300000137 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target equals a mixed occupation-density moment E[L I_q] minus E[L]E[I_q]; Pitman gives L marginal distribution and Knight concerns integral of |B| rather than all B^(2q)."
+        ],
+        "reasoning": "Compared conditional local-time moments and Laplace transforms at the same process and normalization; no actual complete equivalent all-integer-q mixed moment found.",
+        "searches": [
+          "Pitman technical report 539 Brownian bridge zero local time",
+          "Knight DOI:10.1155/S1048953300000137",
+          "Resultary Brownian bridge integrated square local time mixed covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary hit addresses stochastic SIRS correlated Brownian noise, or unrelated boundary-regulator local-time issues, not bridge energy moments."
+        ],
+        "reasoning": "No matching table or exact coefficient sequence found in the published-finding search; this is weak, not a novelty proof.",
+        "searches": [
+          "Resultary: Brownian bridge integrated square local time at zero exact mixed covariance occupation moments",
+          "Resultary: Brownian bridge zero local time covariance power energies"
+        ]
+      },
+      "rationale": "Pitman derives bridge local-time distributions and related occupation-density identities but no all-q power-energy mixed covariance in inspected relevant report text. Knight studies conditional moments of the ABSOLUTE bridge area int|B|dt given local time; even-power energies are different. Knight full text unobtainable despite attempted open access followed by authorized institutional retrieval returning disconnected VPN; this alone does not force scientific rejection but creates concrete priority risk.",
+      "residual_risks": [
+        "Knight (2000) full text inaccessible because institutional VPN disconnected; indirect stronger moment identities may exist there.",
+        "Equivalence under alternative local-time scaling must multiply the displayed covariance by the scaling factor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_FOUNDATIONS_NOT_SAME_COVARIANCE",
+          "evidence": "Local-time marginal law does not give covariance with integrated even-power energy.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+          "material_read": "Nine-page full PDF, relevant local-time laws and occupation-density framework, theorem statements and local-time distribution results",
+          "method": "Read PDF text; visually inspected a representative PDF page",
+          "title": "The distribution of local times of a Brownian bridge",
+          "trigger": "Same zero local time and bridge process"
+        },
+        {
+          "assessment": "PLAUSIBLE_SOURCE_INACCESSIBLE",
+          "evidence": "Target of abstract is reflected area integral |B|, not exactly even-power energies; full-document coverage unknown.",
+          "identifier_or_url": "https://doi.org/10.1155/S1048953300000137",
+          "material_read": "Abstract and available landing preview only; no full pages",
+          "method": "arXiv/open-access attempts first, then authorized institutional retrieval: VPN disconnected, no bypass",
+          "title": "The moments of the area under reflected Brownian bridge conditional on its local time at zero",
+          "trigger": "Plausible source on bridge local time mixed moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "For standard unit Brownian bridge B, zero local time L with occupation-density normalization and I_q=int_0^1 B_t^(2q) dt (I_0=1), Cov(L,I_q)=sqrt(pi/2)*q!/[2^q(2q+1)]*(binom(2q+2,q+1)/2^(2q+1)-1), zero at q=0, negative for every q>=1.",
+        "Mathematical motivation and prior-scoped comparison in RESULT.md and this independent review."
+      ],
+      "limitations": [
+        "Only standard bridge on [0,1], integer q, occupation-density normalized zero local time. No joint law or general negative-association theorem."
+      ],
+      "rationale": "The exact all-integer-order covariance hierarchy links zero-contact local time to amplitude-based path energies, and supplies strict negative sign and reusable closed coefficients. It is a natural joint path-functional invariant not determined by marginal local-time or energy moments alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://statistics.berkeley.edu/tech-reports/539",
+    "https://statistics.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+    "https://doi.org/10.1155/S1048953300000137",
+    "Resultary: exact Brownian bridge zero-local-time mixed energy query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For standard unit Brownian bridge B, zero local time L with occupation-density normalization and I_q=int_0^1 B_t^(2q) dt (I_0=1), Cov(L,I_q)=sqrt(pi/2)*q!/[2^q(2q+1)]*(binom(2q+2,q+1)/2^(2q+1)-1), zero at q=0, negative for every q>=1.",
+  "limitations": [
+    "Only standard bridge on [0,1], integer q, occupation-density normalized zero local time. No joint law or general negative-association theorem."
+  ],
+  "residual_risks": [
+    "Knight (2000) full text inaccessible because institutional VPN disconnected; indirect stronger moment identities may exist there.",
+    "Equivalence under alternative local-time scaling must multiply the displayed covariance by the scaling factor."
+  ],
+  "schema_version": 1
+}
