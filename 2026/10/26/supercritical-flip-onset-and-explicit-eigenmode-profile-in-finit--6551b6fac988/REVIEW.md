@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nonlinear period-two equation is equivalent to \(2x=hK_N\sin x\) near phase opposition. The oddness and invertible mean equation exclude non-antipodal nearby pairs. Lyapunov–Schmidt reduction at the simple top eigenvalue yields a positive cubic coefficient \(S_N/3\), a unique supercritical branch, and a critical multiplier \(-1+2\lambda_N\delta+O(\delta^2)\). Other multipliers remain inside the unit disk. Strict descent below the threshold is explicitly imported from the cited motivating paper, not rediscovered. Finite numerical checks agree with the proof but do not substitute for it.
+## correctness
 
-**Originality — PASS under examined evidence.** The closest primary source, Buescu–D’Aniello–Oliveira (arXiv:2610.10993v1), gives the same matrix and critical parameter, yet stops at strict descent below \(2/\lambda_N\) and sink instability above. Its result does not imply the attracting period-two branch or the explicit nonlinear amplitude. The older three-clock source restricts coupling to its diffeomorphism regime; a 2026 Huygens ring paper addresses a different graph. Similar recorded flips concern different dynamical maps. The search cannot eliminate all priority risk from older synonymous work.
+PASS
 
-**Value — PASS.** The onset, critical spatial eigenmode and leading Floquet multiplier quantify the first recurrent oscillatory attractor across an infinite natural chain family. They distinguish the disappearance of a Lyapunov argument from actual existence and stability of a new orbit, a question motivated explicitly by finite-step physical Huygens models.
+Use local odd map F_h(x)=x−hK_N sin x near the phase-opposition fixed point. K_N has simple top eigenvalue λ_N=2+2cos(π/(N+1)); the other linear eigenvalues stay strictly inside the unit circle when h crosses 2/λ_N. The mean equation of a nearby 2-cycle has invertible derivative DF−I=−hK_N; oddness forces its centre to zero. Thus 2x=hK_N sin x. Lyapunov–Schmidt reduction onto the top eigenvector gives reduced equation s[−λ_Nδ+(S_N/3)s²+O(δs²+s⁴)]=0, with S_N>0, yielding exactly the two opposite points for δ>0 and none for δ≤0. The Jacobian at either point is I−hK_N diag(cos x_i) similar to a real symmetric matrix near the branch; its critical multiplier −1+2λ_Nδ+O(δ²) squares to 1−4λ_Nδ+O(δ²), others remain strictly stable. Explicit S_N=3/(2(N+1)) for N≥2 and S_1=1 handle the boundary. The imported strict Lyapunov descent below threshold is stated separately. Independent roots and Jacobian eigenvalues checked 10 parameter cases without substituting for the all-N proof.
 
-**Limits.** The branch is local above threshold, with length-dependent parameter width. Global dynamics for stronger coupling, non-path networks, and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The path-network motivating work establishes the discrete map, simple spectrum and Lyapunov nonperiodicity bound, not the local supercritical 2-cycle branch, its unique existence, amplitude or Floquet stability after the threshold. Standard generic flip-bifurcation theory alone does not specify the all-path nonlinear coefficient and spatial eigenmode; the combination is a motivated explicit refinement, priority qualified.
+
+## value
+
+PASS
+
+The critical bifurcation is a natural question explicitly left by the strict-descent stability threshold in a discrete physical oscillator network. Exact all-path amplitude, spatial sine-eigenmode and local Floquet stability distinguish a merely lost Lyapunov inequality from an actually created attracting recurrent oscillation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

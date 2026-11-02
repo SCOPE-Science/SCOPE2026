@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:52:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use local odd map F_h(x)=x−hK_N sin x near the phase-opposition fixed point. K_N has simple top eigenvalue λ_N=2+2cos(π/(N+1)); the other linear eigenvalues stay strictly inside the unit circle when h crosses 2/λ_N. The mean equation of a nearby 2-cycle has invertible derivative DF−I=−hK_N; oddness forces its centre to zero. Thus 2x=hK_N sin x. Lyapunov–Schmidt reduction onto the top eigenvector gives reduced equation s[−λ_Nδ+(S_N/3)s²+O(δs²+s⁴)]=0, with S_N>0, yielding exactly the two opposite points for δ>0 and none for δ≤0. The Jacobian at either point is I−hK_N diag(cos x_i) similar to a real symmetric matrix near the branch; its critical multiplier −1+2λ_Nδ+O(δ²) squares to 1−4λ_Nδ+O(δ²), others remain strictly stable. Explicit S_N=3/(2(N+1)) for N≥2 and S_1=1 handle the boundary. The imported strict Lyapunov descent below threshold is stated separately. Independent roots and Jacobian eigenvalues checked 10 parameter cases without substituting for the all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buescu–D’Aniello–Oliveira 2026, arXiv:2610.10993v1, strict descent for h<2/λ_N and network map K_N; results do not state the supercritical branch on the other side in inspected Sections 3/5.2.",
+          "Earlier 2025 three-clock dynamics and 2026 ring/twisted-state papers concern distinct coupling regimes/graphs."
+        ],
+        "reasoning": "Generic center-manifold/flip theorems grant local existence under verified nondegeneracy, but do not already contain the exact all-N amplitude, shape and multiplier; the critical cubic coefficient was checked separately.",
+        "searches": [
+          "Buescu D’Aniello Oliveira Morse-Smale dynamics discrete Huygens networks arXiv:2610.10993v1",
+          "Huygens rings twisted states arXiv:2610.19953"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10993v1 primary full-text relevant sections",
+        "arXiv:2610.19953v1 title/abstract comparison",
+        "Resultary 2026/10/11/...sharp-transverse-profile-in-a-cubic-two-cycle-bifurcation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published strict Lyapunov descent implies no nonfixed periodic orbit for h<2/λ_N but is silent on existence just above.",
+          "The largest eigenmode crosses −1 at h_N; crossing itself does not guarantee a stable flip without the cubic calculation."
+        ],
+        "reasoning": "The submitted Lyapunov–Schmidt reduction provides the new nonlinear nondegeneracy and stability information; it is not a formal corollary of the stated lower-side Lyapunov theorem.",
+        "searches": [
+          "Buescu D’Aniello Oliveira Morse-Smale dynamics discrete Huygens networks arXiv:2610.10993v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A flip (period-doubling) bifurcation is equivalently an attracting fixed-point pair of the second iterate; odd local symmetry reduces the pair to solutions of 2x=hK_N sin x.",
+          "Resultary 2026/10/11/SCOPE-sharp-transverse-profile-in-a-cubic-two-cycle-bifurcation--96ab94d1610d is a different cubic dynamical system."
+        ],
+        "reasoning": "Comparison was by the nonlinear map, boundary parameter, eigenmode and stability coefficient, not matching the word flip; no same-map equivalent found in published records searched.",
+        "searches": [
+          "discrete Huygens phase oscillator path supercritical period doubling flip bifurcation eigenmode 2/lambda [Resultary_Search]",
+          "Buescu D’Aniello Oliveira Morse-Smale dynamics discrete Huygens networks arXiv:2610.10993v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Continuous real coupling h and every positive integer N give a local bifurcation classification rather than a finite database/table.",
+          "The nearest Resultary flip entries concern distinct maps."
+        ],
+        "reasoning": "A database exact-value comparison is not applicable beyond symbolic formula searches, which found no same-Huygens-path result.",
+        "searches": [
+          "discrete Huygens phase oscillator path supercritical period doubling flip bifurcation eigenmode 2/lambda [Resultary_Search]"
+        ]
+      },
+      "rationale": "The path-network motivating work establishes the discrete map, simple spectrum and Lyapunov nonperiodicity bound, not the local supercritical 2-cycle branch, its unique existence, amplitude or Floquet stability after the threshold. Standard generic flip-bifurcation theory alone does not specify the all-path nonlinear coefficient and spatial eigenmode; the combination is a motivated explicit refinement, priority qualified.",
+      "residual_risks": [
+        "Earlier synonymously described flip or cycle branches in discrete coupling models could duplicate the formula.",
+        "Result applies in a length-dependent neighborhood immediately above the threshold only; no global attractor claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INPUT_NOT_BRANCH",
+          "evidence": "Established F_h/K_N and critical h_N, without the observed source text furnishing the attracting two-cycle formula.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "HTML primary text: model, spectrum, strict Lyapunov-descent statement and path section (Sections 3, 5.2)",
+          "method": "Directly read arXiv full-text HTML relevant sections",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Same map and exact step-size instability threshold"
+        },
+        {
+          "assessment": "DISTINCT_GRAPH",
+          "evidence": "Ring geometry and convergent twisted-state dynamics; indirect reduction risk remains.",
+          "identifier_or_url": "https://arxiv.org/html/2610.19953v1",
+          "material_read": "Title, abstract and bibliographic/source comparison, not a full-body reading",
+          "method": "Targeted summary-level crosscheck",
+          "title": "Almost-global convergence to twisted states in discrete Huygens rings",
+          "trigger": "Related discrete Huygens network bifurcation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical bifurcation is a natural question explicitly left by the strict-descent stability threshold in a discrete physical oscillator network. Exact all-path amplitude, spatial sine-eigenmode and local Floquet stability distinguish a merely lost Lyapunov inequality from an actually created attracting recurrent oscillation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every fixed N≥1 and h immediately above 2/λ_N, the torus path map z↦z+hK_N sin z acquires exactly one locally unique attracting prime 2-cycle near phase opposition, asymptotically ±sqrt(3λ_N(h−2/λ_N)/S_N)v with critical Floquet multiplier 1−4λ_N(h−2/λ_N)+O((h−2/λ_N)^2).",
+  "limitations": [
+    "Small positive h−h_N only; neighborhood and parameter width may depend on N.",
+    "Global orbits at larger coupling and unreduced neutral global phase are outside scope."
+  ],
+  "schema_version": 1
+}
