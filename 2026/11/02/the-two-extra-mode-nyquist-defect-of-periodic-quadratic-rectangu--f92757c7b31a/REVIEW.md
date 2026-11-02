@@ -1,0 +1,11 @@
+# Assessment of the periodic quadratic Nyquist dimension theorem
+
+**Correctness — PASS.** The claim explicitly specifies the uniform periodic torus and six local total-degree-two coefficients. Every interface equation is derived directly from vertex and averaged normal-derivative matching; Fourier diagonalization exhausts all global modes. A complete case analysis gives one degree of freedom per Fourier character except a three-dimensional fiber at \((-1,-1)\). The exact-rational standalone global row-reduction checks match on six mesh sizes, including every parity case; these are supplements, not the proof.
+
+**Originality — PASS subject to priority uncertainty.** Ma--Xing--Zhang (arXiv:2610.32048v1, Sections 2--3) establish the analogous bounded homogeneous space and do not impose periodic identifications. Zeng--Zhang--Zhang (arXiv:1903.00938v2, inspected opening, Section 4.1 and its exact Theorem 4.1, and relevant appended definition) work on bounded simply connected domains; their \(mn+1\) formula includes different boundary restrictions, and full-PDF search found no periodic treatment. Yim--Sheen (DOI:10.1002/num.23023) treat \(P_1\), not \(P_2\), but already establish that parity-dependent dimensions can arise for a different nonconforming periodic element. A specialized older quadratic periodic spline theorem remains a genuine unexcluded risk, and an inaccessible full-text \(P_1\) comparison was not used to certify a negative.
+
+**Value — PASS.** This is a natural complete dimension classification for the periodic counterpart of the recent minimal-degree rectangular biharmonic element; the even-even anomaly changes the exact number and structure of degrees of freedom. The two additional Nyquist freedoms matter when constructing periodic trial-space bases and solvers. They are not claimed to cause a stiffness nullspace or to invalidate published bounded-domain results.
+
+**Scope and limitations.** The result does not extend to nonuniform meshes, arbitrary-dimensional tori, or physical PDE error rates. A parity effect in other element families predates this theorem. Independent external audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
