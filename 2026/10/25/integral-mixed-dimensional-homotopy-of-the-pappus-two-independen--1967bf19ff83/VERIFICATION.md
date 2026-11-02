@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Executable verification
+# Independent mathematical audit
 
-Run `python3 verify_pappus_ind2.py` with Python \(3.10\) or newer. No third-party Python packages, data files, or network access are required. The deterministic script builds the graph explicitly from the edge list, enumerates all \(262{,}144\) possible subsets, and checks the face predicate independently via induced connected components. It then constructs the complete sequential-toggle matching, forms the oriented Hasse digraph, and topologically sorts every face. Finally it evaluates the signed integral Morse boundary recursion, including every necessary matched gradient elimination.
+## correctness
 
-Actual observed summary:
+PASS
 
-```
-EDGES 27 PATH_TRIPLES 54 SUBSETS 262144
-F_VECTOR [(0, 18), (1, 153), (2, 762), (3, 2394), (4, 4806), (5, 6027), (6, 4428), (7, 1728), (8, 308), (9, 27)]
-FACES 20651 MATCHING_PAIRS 10320 RELATIONS 120222
-CRITICAL [('0x1', 0), ('0x3330', 5), ('0x6622', 5), ('0x9912', 5), ('0xcc06', 5), ('0x12264', 5), ('0x18886', 5), ('0x21198', 5), ('0x2448a', 5), ('0x2cd02', 6), ('0x300cc', 5)]
-SIGNED_MORSE_BOUNDARY [0, 0, 0, 0, 0, 0, 0, 0, 0] REDUCTION_CACHE 933
-VERIFY_OK
-```
+The fixed Hamiltonian LCF presentation has 18 vertices, 27 edges, 54 distinct forbidden induced length-two path triples. Independent exhaustive tests of all 2^18 masks using a separate induced-component predicate recover 20651 nonempty faces. Reconstructed vertex-toggle matching has 10320 pairs and exactly one critical vertex, nine critical five-faces and one critical six-face. Complete 120222-incidence topological sort proves acyclicity. Independently computed exact signed integral Morse boundary of the remaining 6-cell against all nine 5-cells is the zero vector. The 4-connected wedge of nine five-spheres has pi_5 isomorphic to Z^9 by Hurewicz, so its null attaching map yields wedge^9 S^5 wedge S^6 integrally. No extrapolation beyond the Pappus graph.
 
-The full face-poset acyclicity check and signed integer arithmetic are finite, exhaustive certificates, not approximations or random numerical experiments. Their conclusions apply to the specifically defined graph, not to an infinite graph class. The homotopy step from the Morse CW complex to the sphere wedge uses the standard Hurewicz theorem. No outside review or independent validation is claimed.
+## originality
+
+PASS
+
+Two-independence is the same as the 3-path-free vertex-complex, but tree-only theorems of Sawant and complete-multipartite-only theorems of Deshpande-Goyal-Sawant do not apply to the cubic girth-six Pappus graph. Published Pappus ordinary matching and ordinary independence complexes are different functors. Indexed searches of Levi graph/Pappus and higher independence did not disclose an equivalent calculation, with genuine uninspected-literature risk.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical cubic symmetric incidence graph, and the first higher-independence/3-path-free simplicial complex is a natural test for mixed-dimensional homotopy. Exact integral zero attaching map, rather than only Betti-number count, supplies a reusable benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

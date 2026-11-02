@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defined graph is exactly the standard eighteen-vertex cubic Pappus graph, with an explicit Hamiltonian presentation. The deterministic finite checker enumerates all \(2^{18}\) subsets using two separately formulated face predicates, generates an exact matching of \(10{,}320\) incidences, and proves acyclicity by processing all \(120{,}222\) Hasse incidences. It computes the integral signed Morse boundary from the unique critical six-cell to the nine critical five-cells as nine zeros, and the proof uses the Hurewicz isomorphism to pass from zero degrees to a null attaching map. No untested finite-to-infinite extrapolation occurs: the domain is this finite graph and every possible subset is tested.
+PASS
 
-## Originality — PASS (priority not certified)
+The fixed Hamiltonian LCF presentation has 18 vertices, 27 edges, 54 distinct forbidden induced length-two path triples. Independent exhaustive tests of all 2^18 masks using a separate induced-component predicate recover 20651 nonempty faces. Reconstructed vertex-toggle matching has 10320 pairs and exactly one critical vertex, nine critical five-faces and one critical six-face. Complete 120222-incidence topological sort proves acyclicity. Independently computed exact signed integral Morse boundary of the remaining 6-cell against all nine 5-cells is the zero vector. The 4-connected wedge of nine five-spheres has pi_5 isomorphic to Z^9 by Hurewicz, so its null attaching map yields wedge^9 S^5 wedge S^6 integrally. No extrapolation beyond the Pappus graph.
 
-The closest recent primary article, Sawant (arXiv:2605.25150v1), treats higher independence complexes of **trees**, while the Pappus graph contains cycles. Deshpande–Goyal–Sawant (arXiv:2607.05358) studies **complete multipartite** graphs, not the Pappus graph. Published mathematical records for the Pappus graph treat the ordinary independence complex, whose faces forbid edges rather than connected triples, or the matching complex, whose vertices are graph edges. Neither asserted homotopy type implies the stated one. Queries for the Pappus, F018A, Levi-graph, two-independence and three-path-free aliases yielded no covering claim. The complete text of the latter two published records was not accessible in this review; priority remains subject to further examination and unindexed work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Pappus graph is a canonical cubic symmetric incidence graph. Two-independence, equivalent to forbidding paths of three vertices, is a natural next step after ordinary independence, and its topology on cyclic, nonchordal graphs is outside the cited tree theorem. This computes the **entire integral homotopy type** of a natural graph complex—not just Betti numbers or a random slice—and exhibits distinct five- and six-dimensional sphere summands in a complex of dimension nine. The exact certificate is a useful benchmark for future structural methods and comparisons with ordinary independence. The claim is finite and makes no unsupported implication for all cubic graphs.
+Two-independence is the same as the 3-path-free vertex-complex, but tree-only theorems of Sawant and complete-multipartite-only theorems of Deshpande-Goyal-Sawant do not apply to the cubic girth-six Pappus graph. Published Pappus ordinary matching and ordinary independence complexes are different functors. Indexed searches of Levi graph/Pappus and higher independence did not disclose an equivalent calculation, with genuine uninspected-literature risk.
 
-## Limits and related literature
+## value
 
-The calculation is specific to the Pappus graph. Related higher-independence work is arXiv:2605.25150v1 (source manuscript materially examined) and arXiv:2607.05358 (only abstract accessible). Indexed records `ff7e4637c061`, `81f85f0cc9c6`, and `db6c6c11f317` concern different complexes on the same graph. The proof includes code-backed exhaustive finite steps whose correctness is independently reviewable; an external audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Pappus graph is a canonical cubic symmetric incidence graph, and the first higher-independence/3-path-free simplicial complex is a natural test for mixed-dimensional homotopy. Exact integral zero attaching map, rather than only Betti-number count, supplies a reusable benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
