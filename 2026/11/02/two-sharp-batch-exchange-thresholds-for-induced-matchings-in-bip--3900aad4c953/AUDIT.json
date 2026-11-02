@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The matched original vertices split into A-type/B-type edges. Any mixed induced matching cannot use every original vertex on either side, bounding it by m+n-2; pure types use only m or n edges, strictly smaller for m,n>=3. Equality uniquely fixes a missing row r and column c and all m+n-2 edges M_{r,c}, yielding mn optima. Their pairwise overlap is n-2 for fixed missing row, m-2 for fixed missing column, and zero if both differ; thus replacement costs are m, n and k. The complete threshold graph sequence follows exactly, including connectedness iff t>=max(m,n). Standard-library exhaustive direct-edge and independent compatibility-clique verifiers corroborate parameter examples, without standing in for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Křišťan--Svoboda, Reconfiguration Using Generalized Token Jumping, https://arxiv.org/abs/2411.12582, Theorem 3.3: reachability for arbitrary independent sets under an all-token local and one-token distance-three mixed rule.",
+        "Their definition requires a movement bijection with graph-distance constraints, whereas the present exchange permits arbitrary replacement of at most t chosen edges, measured by set intersection."
+      ],
+      "reasoning": "General sufficient movement rules do not imply the exact sharp disconnectedness and rook-graph shape under the distinct batch replacement rule. No broader theorem located subsumes the family-specific statement.",
+      "searches": [
+        "published-finding corpus: reconfiguration maximum strong matchings of subdivision K_mn threshold t exchanges",
+        "Web: \"induced matching reconfiguration\" edges",
+        "arxiv:2411.12582 (full accessible HTML), Theorem 3.3 and Section 2 rules"
+      ]
+    },
+    "checked_sources": [
+      "https://www.konraddabrowski.co.uk/nrim-v7.pdf",
+      "https://wrap.warwick.ac.uk/id/eprint/54365/",
+      "https://arxiv.org/abs/2411.12582",
+      "published-finding corpus semantic results for induced matching and one-subdivision exchanges; closest IDs recorded in named check evidence",
+      "Accessible prior claims in October weeks 1--4, compared only for mathematical overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dabrowski--Demange--Lozin 2013: FPT, APX-completeness and hypercube optimum induced matching size; no exact optimum-matching family for one-subdivided bicliques.",
+        "Křišťan--Svoboda 2024: general reachability under graph-distance-constrained multiple-token rules, not the precise unrestricted at-most-t simultaneous edge-set exchange classification.",
+        "Historical closest induced-matching claim for K_m square K_n enumerates rook-graph matchings; it is not about subdividing K_{m,n}, whose optimum matchings are indexed by a rook board."
+      ],
+      "reasoning": "Neither scalar maximum induced-matching values, enumeration for a distinct graph, nor general token reachability bounds determines the exact m/n/k pairwise replacement distances; the claimed threshold series requires the new optima classification and intersection calculation.",
+      "searches": [
+        "doi:10.1016/j.tcs.2013.01.027 full author manuscript, theorems 1--4 and references",
+        "arxiv:2411.12582 theorem 3.3, search for induced matching and subdivision",
+        "Accessible owner ledgers October week1/week2/week3/week4, claims involving induced matchings, subdivisions, and batch exchanges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For any G, induced matchings correspond to independent sets of L(G)^2; the new claim is equivalently the at-most-t-token-jump graph of its maximum independent sets for G equal to the one-subdivision of K_{m,n}.",
+        "The author manuscript at https://www.konraddabrowski.co.uk/nrim-v7.pdf contains the classical induced matching definition and a result for hypercubes, without the claimed K_{m,n} subdivision exchange description."
+      ],
+      "reasoning": "The transformation to independent sets does not change the parameter-specific question; no retrieved equivalent formulation computes the three replacement costs or the exact graph sequence.",
+      "searches": [
+        "published-finding corpus: one-subdivision complete bipartite induced matchings all maximum matchings token swapping threshold",
+        "published-finding corpus: induced matching exchange graph complete subdivision bipartite extremal solutions rook graph",
+        "Web: \"subdivision of complete bipartite\" \"induced matching\"",
+        "Web: \"induced matching\" \"K_mn\" subdivided"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A returned finding entitled “Exact non-CIS-pair count for matching-deleted complete bipartite graphs” studies CIS pairs after deleting a matching, not subdivisions or induced-matching optimum exchanges.",
+        "A returned finding entitled “Neighborhood complexes of two-row rook graphs split into two spheres and a crown suspension” studies rook-graph topology, not the optimum-matchings exchange graph.",
+        "The accessible October week-one rook graph induced-matching enumerator and week-three maximum induced-matching results use different underlying graphs/solution spaces; none implies the coordinate-wise replacement costs."
+      ],
+      "reasoning": "The top-ranking records and accessible historical claims concern different invariants or base graphs. No exact database or table of these optimum-state exchange graphs was encountered. Absence from search results does not prove novelty.",
+      "searches": [
+        "published-finding corpus: subdivision of complete bipartite graphs induced matching structure strong edge coloring",
+        "published-finding corpus: subdivided complete bipartite graph maximum induced matching reconfiguration",
+        "Web: \"subdivision\" \"complete bipartite\" \"strong matching\""
+      ]
+    },
+    "rationale": "Searched the exact graph family, once-subdivision aliases, maximum strong/induced matchings, and exchange-equivalence formulations against research records, accessible historical claims and primary literature. A complete author manuscript for the closest 2013 optimization paper and relevant full HTML content for the 2024 generalized-token-jumping paper were inspected. The first does not treat reconfiguration of subdivided biclique optima, while the second treats universal graph-distance-bounded moves, not the sharp distance-unrestricted batch budget on this optimum family. The threshold theorem is not a corollary of their optimization or universal reachability statements. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "Possibility of a matching-specific earlier result in inaccessible, unindexed or differently named literature.",
+      "The originality assessment is based on searches and inspected published material, not exhaustive priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed exact subclass reconfiguration; studies complexity and hypercube maximum size.",
+        "evidence": [
+          "https://www.konraddabrowski.co.uk/nrim-v7.pdf, pp.1--3, 5--13 (page numbers as document), Theorems 1--4",
+          "https://wrap.warwick.ac.uk/id/eprint/54365/ (journal-public date)"
+        ],
+        "identifier_or_url": "https://www.konraddabrowski.co.uk/nrim-v7.pdf",
+        "material_read": "Rendered cover, definition and introduction, statements and relevant passages of Theorems 1--4, Sections 3--4, and Future Work; full 16-page extracted text searched for subdivision and reconfiguration.",
+        "method": "Full open-access PDF text, section and term search, visual PDF page check.",
+        "title": "New Results on Maximum Induced Matchings in Bipartite Graphs and Beyond",
+        "trigger": "Closest archival primary optimization paper on induced matchings in structured bipartite graphs; author preprint dated December 28 2012, journal-public date verified March 25 2013."
+      },
+      {
+        "assessment": "Not covering because the general guarantees use graph-distance-constrained movement rules rather than the present at-most-t arbitrary replacement rule; no family-specific exact exchange graph given.",
+        "evidence": [
+          "https://arxiv.org/abs/2411.12582, Section 2 and Theorem 3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.12582",
+        "material_read": "Full-text HTML introduction, Section 2 definitions of k,d token jumping, independent-set theorem 3.3 and proof, and searches for induced matching and subdivision in the full accessible text.",
+        "method": "Open-access arXiv HTML, theorem/definition comparison and exact-term search.",
+        "title": "Reconfiguration Using Generalized Token Jumping",
+        "trigger": "Potential broader reconfiguration theorem involving simultaneous movement of many tokens."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3900aad4-c953-4668-8b63-d03e03ea4b0d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem yields a sharp obstruction to optimum-solution navigation, not merely an induced-matching optimum. It identifies an unbounded necessary simultaneous replacement budget in an explicit infinite family of bipartite girth-eight graphs with uniformly bounded average degree (<4), plus distinct intermediate partial-mobility and final rook-graph regimes. The exact graph sequence is a natural answer for batch token-jump local search; the coordinate classification explains why small budgets fail and supplies both sharp witnesses and matching constructive routes.",
+    "status": "PASS"
+  }
+}
