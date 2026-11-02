@@ -1,21 +1,21 @@
-# Review of the mixed prime-power criterion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS: The proof reconstructs CRT reduction; exact q-adic digit-sum valuation via Legendre; the verified Davis--Webb scaling congruence at p>=5; Lucas mod-p reduction; Hensel uniqueness of the (p-1)-st root and Frobenius stabilization of q^{q^t p^e}; CRT. All quantifiers and boundaries e=1,2,3,4 checked. Exact independent integer arithmetic matches 106 small tuples and three higher-power explicit solutions. No finite test is used as a proof.
+PASS
 
-## Originality
+Write n=q^t p^e. Legendre digit-sum formula gives v_q(binomial(qn,n))=s_q((q−1)p^e)/(q−1), and q^n is zero mod q^t, proving the third criterion exactly. Davis–Webb/Meštrović prime-power congruence for p≥5 reduces binomial(q^{t+1}p^e,q^t p^e) modulo p^e to B_{t,r} at r=floor((e−1)/3). Lucas congruence gives B mod p=C_t mod p. As q is a p-adic unit, q^{q^t p^e} is congruent mod p^e to Teichmuller(q)^{q^t}; unique (p−1)-st roots of unity are characterized by their mod-p residue and B^(p−1)=1 mod p^e. Conditions (1) and (2) thus give the p-part. CRT combines coprime prime-power moduli. Correct boundary e=1,2,3 has r=0; at e=4 n=3*5^4 comparison binom(45,15) mod625=584 vs binom(9,3) mod625=84 shows lift necessary for reduction. Fresh independent exact arithmetic compared direct and predicted criteria for 44 prime tuples and the fourth-layer witness.
 
-PASS with residual risk: full motivating Guedes--Machado text addresses n=q^t p and the separate pure p^2 family, while the nearby research record treats n=p^e; neither contains the mixed t>=1,e>=2 cases. Davis--Webb compression is earlier work and explicitly credited. Targeted claim/alias/parameter published-finding corpus and literature comparisons did not identify the full combined criterion. Because it is a deduction of classical lemmas, implicit earlier coverage remains a material risk.
+## originality
 
-The closest published literature is Guedes--Machado arXiv:2606.30232v1 (mixed two-prime forms with one exponent fixed at one), the prior Davis--Webb congruence as proved by Meštrović arXiv:1301.0252, and the related published finding on pure prime-power moduli. The latter two source results are explicitly used or distinguished, not represented as newly proved.
+PASS
 
-## Value
+Guedes–Machado (2026), Theorem 3.1, already gives exact two-part criterion for n=q^t p with a single p factor; the e=1 special case is unequivocally prior. Meštrović (2012) proves the Davis–Webb compression for arbitrary binomial coefficients, not a complete mixed q^t p^e prime-base congruence classification; a published Resultary result on prime-power towers concerns n=p^e without the distinct q^t factor. The assessed statement combines these ingredients with the higher p-adic Teichmuller lift and digit sum for all e and provides new e=2,3 examples. It is a potentially straightforward consequence of classical p-adic tools, a material priority/value risk retained explicitly; no inspected stronger single theorem was found that states or directly specializes to the full mixed classification.
 
-PASS: The naturally motivated family with two prime divisors is a missing mixed-prime-power case in an active prime-base congruence problem. The exact all-e iff test separates independent q-adic digit obstructions from p-adic Teichmüller obstructions; the first three layers collapse to one fixed binomial, and the fourth layer has a genuine correction. The result produces and directly checks a nontrivial prime-cube example n=3875 and two squared examples. A finite complete criterion for natural parameters is mathematically useful without an infinitude theorem.
+## value
 
-## Boundaries and risks
+PASS
 
-The full all-exponent test requires p>=5 and q distinct; there is no claim of infinitely many solutions. The fourth-power binomial shift cannot be dropped in general. Finite arithmetic tests are not proofs. A possible unstated older consequence of established p-adic binomial congruences is an originality risk. Mathematical verification by an external auditor has not been carried out.
+The congruence is an explicitly studied natural composite-modulus arithmetic problem, and this gives a complete finite decision criterion for every mixed exponent e≥1, including the sharp first-three-layer fixed-binomial reduction and genuine nontrivial squared/cubed examples n=1127,775,3875. Although it assembles classical lemmas, the exact all-exponent mixed-prime obstruction is a useful self-contained invariant/criterion rather than an arbitrary finite table or mere parameter renaming.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

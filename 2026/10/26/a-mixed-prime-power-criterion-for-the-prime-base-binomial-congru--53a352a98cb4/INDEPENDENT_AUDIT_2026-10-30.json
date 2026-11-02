@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:47:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write n=q^t p^e. Legendre digit-sum formula gives v_q(binomial(qn,n))=s_q((q−1)p^e)/(q−1), and q^n is zero mod q^t, proving the third criterion exactly. Davis–Webb/Meštrović prime-power congruence for p≥5 reduces binomial(q^{t+1}p^e,q^t p^e) modulo p^e to B_{t,r} at r=floor((e−1)/3). Lucas congruence gives B mod p=C_t mod p. As q is a p-adic unit, q^{q^t p^e} is congruent mod p^e to Teichmuller(q)^{q^t}; unique (p−1)-st roots of unity are characterized by their mod-p residue and B^(p−1)=1 mod p^e. Conditions (1) and (2) thus give the p-part. CRT combines coprime prime-power moduli. Correct boundary e=1,2,3 has r=0; at e=4 n=3*5^4 comparison binom(45,15) mod625=584 vs binom(9,3) mod625=84 shows lift necessary for reduction. Fresh independent exact arithmetic compared direct and predicted criteria for 44 prime tuples and the fourth-layer witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meštrović arXiv:1301.0252 establishes compression mod p^e for generic binomials",
+          "Published Resultary prime-power towers treat n=p^e, no q^t factor"
+        ],
+        "reasoning": "These broader ingredients cover the binomial compression, but the full mixed-prime CRT and q-adic digit-sum tests are not stated in the inspected results. Combination remains an originality-risk shortcut.",
+        "searches": [
+          "Resultary semantic: prime-base binomial congruence binom(qn,n) q^n modulo n mixed prime powers Davis Webb",
+          "arXiv:1301.0252",
+          "Resultary:2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+        ]
+      },
+      "checked_sources": [
+        "https://pdfs.assets.alphaxiv.org/2606.30232v1.pdf",
+        "https://arxiv.org/pdf/1301.0252",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Davis–Webb congruence compresses the binomial, Lucas identifies residue mod p, Legendre handles q-part",
+          "Hensel’s uniqueness of Teichmuller roots adds necessary-and-sufficient p^e unit test"
+        ],
+        "reasoning": "These ingredients permit reconstructing the new criterion, but no single cited stronger statement has an exact mixed q^t p^e consequence without this explicit construction. If such a published all-integer theorem exists, this PASS must be reconsidered.",
+        "searches": [
+          "Resultary semantic: prime-base binomial congruence binom(qn,n) q^n modulo n mixed prime powers Davis Webb",
+          "arXiv:1301.0252",
+          "arXiv:2606.30232"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guedes–Machado arXiv:2606.30232 Theorem 3.1 handles n=q^t p, e=1",
+          "Current theorem adds n=q^t p^e, e arbitrarily high, and Teichmuller unit condition"
+        ],
+        "reasoning": "Exact earlier e=1 branch is covered. Earlier theorem alone does not imply the higher e≥2 congruence because congruence modulo p is weaker than modulo p^e.",
+        "searches": [
+          "Resultary semantic: prime-base binomial congruence binom(qn,n) q^n modulo n mixed prime powers Davis Webb",
+          "arXiv:2606.30232 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Guedes–Machado 2026 analyzes OEIS A080469, A084699, A109760, A109769, A392484 for n=q^t p",
+          "The new computed n=1127,775,3875 satisfy e=2,2,3 and full congruence directly"
+        ],
+        "reasoning": "The full criterion is more than reproducing a known prime-factor table. No complete mixed-exponent table found; examples alone do not establish originality.",
+        "searches": [
+          "Resultary semantic: prime-base binomial congruence binom(qn,n) q^n modulo n mixed prime powers Davis Webb",
+          "arXiv:2606.30232 Section 5"
+        ]
+      },
+      "rationale": "Guedes–Machado (2026), Theorem 3.1, already gives exact two-part criterion for n=q^t p with a single p factor; the e=1 special case is unequivocally prior. Meštrović (2012) proves the Davis–Webb compression for arbitrary binomial coefficients, not a complete mixed q^t p^e prime-base congruence classification; a published Resultary result on prime-power towers concerns n=p^e without the distinct q^t factor. The assessed statement combines these ingredients with the higher p-adic Teichmuller lift and digit sum for all e and provides new e=2,3 examples. It is a potentially straightforward consequence of classical p-adic tools, a material priority/value risk retained explicitly; no inspected stronger single theorem was found that states or directly specializes to the full mixed classification.",
+      "residual_risks": [
+        "High-level combination of Guedes–Machado e=1 proof with Davis–Webb may be considered an implicit corollary in the wider literature.",
+        "Meštrović full mathematical lemma inspected; no independent historical survey of all prime-base congruence publications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS e=1 only, NOT_COVERING all higher e by explicit stated scope",
+          "evidence": "Theorem 3.1 assumes n=q^t p; proof uses Lucas mod p plus digit sum for e=1. No mod p^e classification therein.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2606.30232v1.pdf",
+          "material_read": "Full seven-page OA paper, notably Theorem 3.1 proof pp2–3, Section 2 and Sections 5–7",
+          "method": "read primary PDF text and inspected theorem screenshot",
+          "title": "Structured Solutions of Prime-Base Binomial Congruences",
+          "trigger": "Same original binomial congruence and mixed q^t times one prime"
+        },
+        {
+          "assessment": "COVERS compression lemma, NOT full composite prime-base criterion",
+          "evidence": "Generic binomial congruence modulo p^e, without q^t p^e-specific Teichmuller/digit obstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.0252",
+          "material_read": "Full 11-page OA PDF with original congruence theorem, proof material and stated exponent floor((e−1)/3)",
+          "method": "read primary PDF text and examined theorem page screenshot",
+          "title": "Variations of Lucas’ Theorem Modulo Prime Powers",
+          "trigger": "Critical Davis–Webb p-adic binomial congruence for p≥5"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY: one prime support; material not checked for hidden mixed generalization",
+          "evidence": "Treats n=p^e where p≠q, omits additional q^t factor of target modulus.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28",
+          "material_read": "Published Resultary abstract and formula for n=p^r, not the full scientific manuscript",
+          "method": "semantic result index synopsis",
+          "title": "Prime-power towers for the prime-base binomial congruence",
+          "trigger": "Closest published SCOPE same modular congruence at higher powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The congruence is an explicitly studied natural composite-modulus arithmetic problem, and this gives a complete finite decision criterion for every mixed exponent e≥1, including the sharp first-three-layer fixed-binomial reduction and genuine nontrivial squared/cubed examples n=1127,775,3875. Although it assembles classical lemmas, the exact all-exponent mixed-prime obstruction is a useful self-contained invariant/criterion rather than an arbitrary finite table or mere parameter renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For q and p≥5 distinct primes and n=q^t p^e (t,e≥1), the prime-base binomial congruence holds iff a mod-p condition on C_t, a p^e Teichmuller lift condition on B_{t,r} (r=floor((e−1)/3)), and an exact base-q digit-sum valuation bound all hold; e≤3 needs no lifted binomial.",
+  "limitations": [
+    "No claim of infinitely many solutions; binomial lift can be large for e≥4.",
+    "Requires p≥5 and p distinct from q; finite enumerations cannot certify the iff for unbounded exponents.",
+    "High-level combination of Guedes–Machado e=1 proof with Davis–Webb may be considered an implicit corollary in the wider literature.",
+    "Meštrović full mathematical lemma inspected; no independent historical survey of all prime-base congruence publications."
+  ],
+  "schema_version": 1
+}
