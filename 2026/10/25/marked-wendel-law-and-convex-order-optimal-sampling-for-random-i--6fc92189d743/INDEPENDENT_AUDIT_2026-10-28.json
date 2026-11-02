@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:46:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md a10751fadf17e3ead9ffbbd810bb9666436c5f06 and original check_marked_wendel.py blob 6fc0e21648f7e76f4ad97acd1138a22bde8d37e9, exact Git tree 3abc1c003dd1ea8e889f0ba2c259be7c86554a63.",
+        "Independent 12 circle finite-n exact probability checks and ellipse radial quadratures produce Z=8.62606, second moments 9.869604 (uniform angular density) vs 9.301119 (optimal f=r/Z), consistent with strict convex order.",
+        "Anchor density counting, signed chord determinant expansion, uniform tail domination and strict Jensen equality were independently traced from the proof."
+      ],
+      "rationale": "For a strictly convex centrally symmetric C² plane curve with positive C² π-periodic polar radius r and positive C¹ π-periodic normalized angular density f, all n>=3 sampled angles are i.i.d. The unique occupied open semicircle on the origin-miss event has initial sampled anchor T_n; choose its index in n ways, with all other n-1 angles independently falling in a half-mass interval, giving P(M_n)=n/2^(n-1) and exact conditional density f(T_n). Given anchor θ, the endpoint deficit δ_n has survivor (1-2∫_{θ-s}^{θ} f(u)du)^(n-1), so nδ_n→Exp(rate 2f(θ)) uniformly for fixed threshold. The separating hull edge’s Euclidean origin distance is r(θ)δ_n/2+O(δ_n²), uniformly by the smooth polar determinant, yielding joint (T_n,nD_n)→(T,r(T)E/(4f(T))) with independent unit exponential E. Positive inf f gives exponential envelope on nδ_n, uniform integrability and all fixed positive moment limits. Thus limiting mean Z/4 independent of f and second moment ∫r²/f /8. Jensen conditioning on E proves convex order lower bound at constant m=Z/4, equality uniquely f=r/Z; circle exact finite law from Dirichlet circular gaps n[arccos(t)/π]^(n-1) validates normalization. This is a genuine rare-event conditional law, not typical random-hull approximation.",
+      "risks": [
+        "The result assumes boundary sampling, central symmetry and C² smooth strict convexity; not for arbitrary nonsymmetric curves, polygons or higher dimensions.",
+        "Some relevant random-hull literature concerns other sampling models; historical priority of an aliased rare-clearance theorem is qualified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published typical approximation and Hausdorff/area minimax densities weight curvature; the audited optimal f∝radial radius is for exponentially rare origin misses.",
+          "Tikhomirov extends containment probability to discrete/random coordinate laws, not a marked Euclidean miss-depth mixture."
+        ],
+        "reasoning": "Broader containment probability or approximation frameworks do not imply this conditional rare-clearance limit and convex-order optimizer under an arbitrary π-periodic angular f.",
+        "searches": [
+          "Barany Hug Reitzner Schneider Random points in halfspheres arXiv:1505.04672",
+          "Tikhomirov 2023 convex hull contains origin arXiv:2304.13133",
+          "Resultary clipped curvature minimax sampling Hausdorff area",
+          "Resultary unique minimax area-perimeter sampling ellipse"
+        ]
+      },
+      "checked_sources": [
+        "Wendel, Mathematica Scandinavica 11 (1962), primary PDF",
+        "Liu–Yang, C. R. Math. 352 (2014), theorem 3.1, primary PDF",
+        "Tikhomirov arXiv:2304.13133",
+        "Barany–Hug–Reitzner–Schneider arXiv:1505.04672 abstract",
+        "Resultary random polygon sampling records 2026-10-28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wendel fixes only the rare-event probability, which can be used in the conditional anchor calculation; it supplies no conditional depth distribution.",
+          "The anchored endpoint overshoot is Exp(rate 2f(θ)), and geometric depth multiplies by r(θ)/2, generating an explicit sampling-density optimization not present in those premises."
+        ],
+        "reasoning": "The prior results provide a necessary probability baseline, not a logical implication of the marked scale mixture/convex order; no stronger same mathematical model theorem identified.",
+        "searches": [
+          "Wendel 1962 original halfspace probability",
+          "Liu Yang 2014 Thm 3.1 uniform interior disk sampling",
+          "Resultary typical random hull approximation laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wendel 1962 gives n/2^(n-1) probability of origin exclusion for centrally symmetric samples, but not conditional clearance or marked anchor.",
+          "Liu–Yang 2014 Theorem 3.1 treats a point inside a uniformly sampled disk rather than a C² curve with arbitrary symmetric angular density."
+        ],
+        "reasoning": "The same center-exclusion event is classical, yet the conditional distance distribution and unique convex-order minimizing density require the new extreme-gap/chord argument.",
+        "searches": [
+          "Resultary: Wendel theorem marked semicircle random inscribed polygon conditional hull distance exponential limit convex order optimal sampling",
+          "Wendel 1962 A Problem in Geometric Probability primary theorem",
+          "Liu Yang 2014 Probabilities of hitting a convex hull Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related records: Gumbel transition Hausdorff error for random regular polygons; clipped-curvature minimax sampling; area-perimeter elliptic sampling. None is the marked center-exclusion distance distribution.",
+          "The exact uniform-circle finite-n tail is a basic Dirichlet-gap calculation and is excluded from the novelty claim."
+        ],
+        "reasoning": "No exact database or tabulation supplied the general smooth-curve f-dependent mixture or all-density convex-order ordering; this negative result is not an absolute novelty proof.",
+        "searches": [
+          "Resultary: random inscribed polygon Wendel conditional distance center clearance exponential law",
+          "Unit circle circular gaps exact finite-n Wendel distance law"
+        ]
+      },
+      "rationale": "Best-of-knowledge new marked conditional miss-distance law and convex-order optimal radial density beyond classical Wendel center-exclusion probability. Published area/Hausdorff sampling optima concern typical approximation errors; Liu–Yang deals interior disk points; exact circle gap law is explicitly presented only as calibration.",
+      "residual_risks": [
+        "Unknown alternative terminology for center-clearance conditional distances could hide a prior equivalent result.",
+        "Some more general random halfsphere/full-text material was not read; method comparison is model-specific."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: exact Wendel probability is prior; conditional anchor/depth law and optimization not stated.",
+          "evidence": [
+            "Classical n/2^(n-1) planar miss event count; no distribution of Euclidean distance after conditioning."
+          ],
+          "identifier_or_url": "https://journals.msp.org/mscand/article/download/2688/2687/2719",
+          "material_read": "Original 1962 short primary PDF theorem statement and derivation",
+          "method": "Primary full-text PDF and rendered page",
+          "title": "A Problem in Geometric Probability",
+          "trigger": "Classical theorem gives exact miss probability with symmetric samples"
+        },
+        {
+          "assessment": "DISTINCT_SAMPLING_MODEL: uniform interior-disk points, not smooth boundary sampling and arbitrary f.",
+          "evidence": [
+            "Theorem 3.1 assumes planar disk interior distribution; no marked semicircle anchor for general boundary density."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/CRMATH_2014__352_11_935_0.pdf",
+          "material_read": "Full primary PDF, especially Theorem 3.1 and model definitions",
+          "method": "Primary full PDF and rendered theorem page",
+          "title": "Probabilities of hitting a convex hull",
+          "trigger": "Nonzero distance from target point could overlap conditional law"
+        },
+        {
+          "assessment": "RELATED_BUT_DISTINCT: spherical halfspace sampling, not planar polar center-clearance optimization.",
+          "evidence": [
+            "The paper studies a halfsphere random-point model; possible local lemmas remain a limited overlap risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.04672",
+          "material_read": "Accessible primary abstract and model overview",
+          "method": "ArXiv abstract/model comparison; whole paper not independently read",
+          "title": "Random points in halfspheres",
+          "trigger": "A plausible more general random-cap/semicircle model"
+        },
+        {
+          "assessment": "DISTINCT_INVARIANT: typical area/perimeter approximation rather than conditional center miss.",
+          "evidence": [
+            "Resultary formula optimizes normalized area and perimeter errors, not convex-order marked miss depth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+          "material_read": "Resultary published mathematical title, description and stated minimax law",
+          "method": "Resultary semantic result summary, not a full-text audit",
+          "title": "Unique minimax area–perimeter sampling law for random polygons in ellipses",
+          "trigger": "Same input ellipse sampling optimizer but different loss"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Explicit exponential-scale mixture and uniform integrability for arbitrary smooth symmetric curves/densities.",
+        "Convex-order minimal f=r/Z and exact second-moment lower bound Z²/8 under a natural sample-design objective."
+      ],
+      "rationale": "Sharp conditional asymptotics for a geometrically meaningful rare failure event, including an exact marked law, all fixed moments, a surprising density-invariant mean and the unique convex-order optimal boundary sampling density. The different optimal density from typical Hausdorff/area loss illustrates why this exact invariant matters.",
+      "risks": [
+        "Fixed shape and density as n→∞; no multidimensional or polygonal-corner result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md a10751fadf17e3ead9ffbbd810bb9666436c5f06",
+    "check_marked_wendel.py 6fc0e21648f7e76f4ad97acd1138a22bde8d37e9",
+    "Wendel 1962 full original",
+    "Liu–Yang 2014 full primary theorem",
+    "Resultary random polygon sampling search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Planar boundary i.i.d. samples under centrally symmetric C² strictly convex curve and strictly positive π-periodic f."
+  ],
+  "residual_risks": [
+    "Exclusion probability and exact circle special case are already known.",
+    "Unindexed rare-event center-clearance terminology may conceal an equivalent distribution."
+  ],
+  "schema_version": 1
+}

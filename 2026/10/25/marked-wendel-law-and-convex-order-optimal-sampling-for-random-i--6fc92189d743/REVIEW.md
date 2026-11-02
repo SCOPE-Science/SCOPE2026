@@ -1,19 +1,21 @@
-# Self-review: marked Wendel law and optimal radial sampling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event that the sampled convex hull misses the center is equivalent, in the planar strictly convex symmetric model, to a unique circular spacing exceeding half a full turn. Conditional on its unique first endpoint, the remaining samples have the exact truncated angular law; its maximum produces the displayed exponential angular shortfall. The chord between the extremal endpoints is a support edge and, in the small-shortfall regime, is the nearest part of the hull. Its signed distance has first-order coefficient \(r(\theta)/2\). A uniform exponential bound on the angular shortfall proves uniform integrability and all fixed moment limits. Conditional Jensen's inequality, plus the normalization of \(f\), proves the unique convex-order optimizer. The proof handles the normalization, scale and boundary cases; finite checker results are corroboration only.
+PASS
 
-## Originality — PASS relative to checked material
+For a strictly convex centrally symmetric C² plane curve with positive C² π-periodic polar radius r and positive C¹ π-periodic normalized angular density f, all n>=3 sampled angles are i.i.d. The unique occupied open semicircle on the origin-miss event has initial sampled anchor T_n; choose its index in n ways, with all other n-1 angles independently falling in a half-mass interval, giving P(M_n)=n/2^(n-1) and exact conditional density f(T_n). Given anchor θ, the endpoint deficit δ_n has survivor (1-2∫_{θ-s}^{θ} f(u)du)^(n-1), so nδ_n→Exp(rate 2f(θ)) uniformly for fixed threshold. The separating hull edge’s Euclidean origin distance is r(θ)δ_n/2+O(δ_n²), uniformly by the smooth polar determinant, yielding joint (T_n,nD_n)→(T,r(T)E/(4f(T))) with independent unit exponential E. Positive inf f gives exponential envelope on nδ_n, uniform integrability and all fixed positive moment limits. Thus limiting mean Z/4 independent of f and second moment ∫r²/f /8. Jensen conditioning on E proves convex order lower bound at constant m=Z/4, equality uniquely f=r/Z; circle exact finite law from Dirichlet circular gaps n[arccos(t)/π]^(n-1) validates normalization. This is a genuine rare-event conditional law, not typical random-hull approximation.
 
-Wendel's full 1962 article gives the binary probability of being in a halfspace/hemisphere, not the conditional clearance distance. Liu and Yang's full 2014 note gives an exact nonzero clearance probability when sites are sampled in the **interior of a Euclidean disk**; its Theorem 3.1 does not imply the general symmetric-oval boundary model, sampling-density-invariant conditional mean, or its sharp convex-order sampling optimizer. Tikhomirov's 2023 theorem strengthens Wendel-style containment under discrete-coordinate distributions, not the distance-conditioned geometry. A public research-index search on center clearance, noncontainment margins, angular overshoots, the exact circle tail and optimal radial sampling disclosed no stronger or equivalent statement. The accessible historical claims of related random cyclic-polygons, near-boundary hull containment, optimal perimeter/area sampling and regular-polyhedron sections do not imply this theorem. Remaining risk: another paper could develop a marked planar Wendel law under different terminology; historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact Wendel probability measures only the frequency of center exclusion. The new conditional law quantifies *how far* the hull misses the center at its natural inverse-sample scale. It identifies a nontrivial geometry-dependent exponential mixture, proves an unexpected density-invariant mean, and finds a unique sampling law minimizing every convex risk functional of the limit. The result is a full theorem across smooth centrally symmetric convex ovals, rather than a numerical special case or routine threshold computation.
+Best-of-knowledge new marked conditional miss-distance law and convex-order optimal radial density beyond classical Wendel center-exclusion probability. Published area/Hausdorff sampling optima concern typical approximation errors; Liu–Yang deals interior disk points; exact circle gap law is explicitly presented only as calibration.
 
-## Scientific limitations
+## value
 
-The theorem assumes \(C^2\) strict convexity, central symmetry, and a positive \(C^1\) angular density satisfying antipodal symmetry. It is not an interior-point or higher-dimensional theorem. The included exact circle tail and Wendel miss probability are calibration facts, not claims of priority. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp conditional asymptotics for a geometrically meaningful rare failure event, including an exact marked law, all fixed moments, a surprising density-invariant mean and the unique convex-order optimal boundary sampling density. The different optimal density from typical Hausdorff/area loss illustrates why this exact invariant matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
