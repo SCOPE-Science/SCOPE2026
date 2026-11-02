@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent-pool Bernoulli calculation reduces the assay-count variance to four times a matching objective with edge weight \(f(q_iq_j)=q_iq_j(1-q_iq_j)\). Both four-point factorization identities are exact. Their ordered relation proves that a crossing pair is never strictly better than both uncrossings. A two-level index-span tie-break proves existence of a noncrossing global optimum without assuming a fixed sign for the mixed derivative. The interval recurrence enumerates all noncrossing perfect matchings exactly. The certified exhaustive six-person example is uniquely optimized by the stated noncanonical pairing. The standalone exact-rational checks reproduce the finite assertions; they do not purport to prove the universal result.
+PASS
 
-## Originality — PASS with residual uncertainty
+For an independent disjoint two-person pool {i,j}, its count is 1+2B_ij with B_ij Bernoulli(1-q_i q_j); disjoint pools are independent, so Var(total)=4 sum f(q_i q_j), f(t)=t(1-t). For a>=b>=c>=d, direct symbolic expansion independently confirmed sep-cross=(a-d)(b-c)[1-(a+d)(b+c)] and cross-nest=(a-b)(c-d)[1-(a+b)(c+d)]. The bracket thresholds are ordered by (a-c)(b-d)>=0, guaranteeing at least one non-increasing uncrossing; minimizing total index spans, then maximizing squared spans rules out crossings even in equality cases. The Catalan interval DP follows by splitting across the partner of the first index; O(m^3) time and O(m^2) memory. A separate exact Fraction enumeration of all 15 six-person matchings confirmed the unique optimum f sum 144/343, neither adjacent nor extreme. This is an all-m, all-interior-q proof; finite tests are not its logical basis.
 
-The source comparison separates risk-ordered methods targeting expected assay count (McMahan, Tebbs and Bilder, 2011; Bilder and Tebbs, 2012) and estimator-variance or information criteria (Warasi and Das, 2024) from minimum variance of the *total number of retests* for a fixed two-person pairing. General matching methods are broader algorithmically, but do not by themselves assert the special noncrossing form for this non-Monge cost. Earlier one-sided prevalence optimal-pairing laws do not imply the mixed-risk theorem, as the six-person exact optimum lies outside either canonical pairing. Full-text access to one plausible older article was incomplete; an unnoticed equivalent formulation is possible. No independent literature audit has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-Variability in second-stage assay demand is an operationally meaningful property of fixed pooled-screening designs, distinct from their expected consumption. The finding gives a complete structural reduction for all heterogeneous infection-risk profiles, including the mixed regime where neither sorting-and-pairing-adjacently nor opposite-extreme pairing is always optimal. The resulting interval optimization is elementary to implement without a general matching solver. The example demonstrates that the mixed regime produces genuinely new optimal structures. Value is conditional on mandatory size-two pooling; unrestricted single tests remove the variance optimization problem, and no clinical testing recommendation or advantage in all prevalence regimes follows.
+The noncrossing variance theorem is not established by the inspected informative-Dorfman or optimal heterogeneous-group screening results, which optimize expected tests and possibly group size, rather than the fixed-size-two assay-count variance. The weight q_i q_j(1-q_i q_j) changes Monge sign, so ordinary homogeneous-side assortative rules cannot substitute for the two-alternative four-point argument. Best-of-knowledge PASS, with limited earlier full-text access explicitly qualified.
 
-## Closest literature and limitations
+## value
 
-The closest primary article is McMahan, Tebbs and Bilder, *Informative Dorfman Screening*, first published 15 July 2011, DOI `10.1111/j.1541-0420.2011.01644.x`, whose inspected indexed method sections optimize expectations, pool sizes and error-aware accuracy. The related 2012 article by Bilder and Tebbs, DOI `10.1002/sim.5334`, addresses heterogeneous pooling but was incompletely accessible for full-document comparison. Warasi and Das, DOI `10.1007/s13253-024-00646-6`, explicitly optimize expected testing and the variance of a prevalence estimator, not the variance of total test count. Generic ordered-matching theorems may still subsume part of the structure. The mathematics assumes independent statuses, perfect tests, forced equal-size two-person pools, and no dilution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The size-two perfect-pool constraint is essential: unrestricted individual tests have zero assay-count variance. Within that motivated screening-risk model, the noncrossing theorem reduces exponentially many pairings to an exact cubic-time optimizer despite mixed low/high risks. The six-person optimum disproves the simple adjacent-versus-opposite choice. This is structural information, not merely a routine calculation of moments or a recommendation for clinical testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

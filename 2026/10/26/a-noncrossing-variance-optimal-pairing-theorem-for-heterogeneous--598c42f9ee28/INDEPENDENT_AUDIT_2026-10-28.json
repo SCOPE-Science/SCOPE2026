@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:57:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an independent disjoint two-person pool {i,j}, its count is 1+2B_ij with B_ij Bernoulli(1-q_i q_j); disjoint pools are independent, so Var(total)=4 sum f(q_i q_j), f(t)=t(1-t). For a>=b>=c>=d, direct symbolic expansion independently confirmed sep-cross=(a-d)(b-c)[1-(a+d)(b+c)] and cross-nest=(a-b)(c-d)[1-(a+b)(c+d)]. The bracket thresholds are ordered by (a-c)(b-d)>=0, guaranteeing at least one non-increasing uncrossing; minimizing total index spans, then maximizing squared spans rules out crossings even in equality cases. The Catalan interval DP follows by splitting across the partner of the first index; O(m^3) time and O(m^2) memory. A separate exact Fraction enumeration of all 15 six-person matchings confirmed the unique optimum f sum 144/343, neither adjacent nor extreme. This is an all-m, all-interior-q proof; finite tests are not its logical basis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minimum-weight matching algorithms solve the numerical optimum but do not entail that one minimizing matching is planar/noncrossing in risk order; the four-point inequality checks two alternative uncrossings."
+        ],
+        "reasoning": "A preexisting general uncrossing criterion might imply this structural theorem after verification; no inspected general sufficient hypothesis was shown to imply the particular mixed-risk weight identity. This possibility is a residual historical risk.",
+        "searches": [
+          "Resultary semantic search: heterogeneous Dorfman paired group testing variance minimizing perfect matching noncrossing uncrossing q_i q_j (1-q_i q_j)",
+          "Search: ordered minimum weight perfect matching anti-Monge quadrangle inequalities noncrossing",
+          "Bobkova–Chen–Eraslan, Optimal group testing with heterogeneous risks, Economic Theory 77 (2024), DOI:10.1007/s00199-023-01502-3"
+        ]
+      },
+      "checked_sources": [
+        "McMahan–Tebbs–Bilder, Informative Dorfman Screening, Biometrics 2012, DOI:10.1111/j.1541-0420.2011.01644.x",
+        "Bobkova–Chen–Eraslan, Optimal group testing with heterogeneous risks, Economic Theory 77 (2024), DOI:10.1007/s00199-023-01502-3",
+        "Bilder–Tebbs, Pooled-Testing Procedures for Screening High Volume Clinical Specimens in Heterogeneous Populations, 2012, DOI:10.1002/sim.5334",
+        "Dorfman, Detection of Defective Members of Large Populations, Ann. Math. Stat. 14 (1943)",
+        "Resultary semantic search: heterogeneous Dorfman paired group testing variance minimizing perfect matching noncrossing uncrossing q_i q_j (1-q_i q_j)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "McMahan–Tebbs–Bilder explicitly identify expected-number-of-tests minimization. Bobkova–Chen–Eraslan analyze heterogeneous group composition and average test savings, including groups larger than two."
+        ],
+        "reasoning": "Neither their objective nor generic minimum-weight matching implies a common crossing-to-noncrossing replacement with cost nonincrease for the nonmonotone variance edge weight. The inspected primary objectives are mathematically weaker/different.",
+        "searches": [
+          "McMahan–Tebbs–Bilder, Informative Dorfman Screening, Biometrics 2012, DOI:10.1111/j.1541-0420.2011.01644.x",
+          "Bobkova–Chen–Eraslan, Optimal group testing with heterogeneous risks, Economic Theory 77 (2024), DOI:10.1007/s00199-023-01502-3",
+          "Resultary semantic search: heterogeneous Dorfman paired group testing variance minimizing perfect matching noncrossing uncrossing q_i q_j (1-q_i q_j)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier heterogeneous pairing literature discusses positive/negative assortative pooling and expected-test efficiency; the assessed edge objective is f(q_i q_j), not 1-q_i q_j."
+        ],
+        "reasoning": "The same individuals and pool partitions do not make an expected-assay optimum equivalent to a variance optimum, because f(t) is nonmonotone on (0,1). Noncrossing for mixed-risk variance requires the two-branch four-point inequality.",
+        "searches": [
+          "Resultary semantic search: heterogeneous Dorfman paired group testing variance minimizing perfect matching noncrossing uncrossing q_i q_j (1-q_i q_j)",
+          "McMahan–Tebbs–Bilder, Informative Dorfman Screening, Biometrics 2012, DOI:10.1111/j.1541-0420.2011.01644.x",
+          "Bobkova–Chen–Eraslan, Optimal group testing with heterogeneous risks, Economic Theory 77 (2024), DOI:10.1007/s00199-023-01502-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 15 costs for six individuals are a new finite witness, whereas the principal statement quantifies over every even population size and every q in (0,1)^{2m}."
+        ],
+        "reasoning": "No fixed exact database or finite table could establish the infinite-dimensional order/risk assertion. Earlier numerical group-testing comparison tables optimize expected tests, not the claimed variance.",
+        "searches": [
+          "Resultary semantic search: heterogeneous Dorfman paired group testing variance minimizing perfect matching noncrossing uncrossing q_i q_j (1-q_i q_j)",
+          "McMahan–Tebbs–Bilder, Informative Dorfman Screening, Biometrics 2012, DOI:10.1111/j.1541-0420.2011.01644.x"
+        ]
+      },
+      "rationale": "The noncrossing variance theorem is not established by the inspected informative-Dorfman or optimal heterogeneous-group screening results, which optimize expected tests and possibly group size, rather than the fixed-size-two assay-count variance. The weight q_i q_j(1-q_i q_j) changes Monge sign, so ordinary homogeneous-side assortative rules cannot substitute for the two-alternative four-point argument. Best-of-knowledge PASS, with limited earlier full-text access explicitly qualified.",
+      "residual_risks": [
+        "A general uncrossing theorem in ordered matching literature could subsume the four-point criterion.",
+        "Full primary articles on heterogeneous group testing were not all accessible; no whole-document noncoverage conclusion.",
+        "Independence, perfect assays, forced disjoint pairs, and variance rather than expectation are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ABSTRACT_ONLY_DIFFERENT_OBJECTIVE",
+          "evidence": "Focus is thresholded heterogeneous screening and choice of pool sizes to minimize expected tests, not the precise variance objective; full uninspected theorem contents remain a risk.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2011.01644.x",
+          "material_read": "Publisher full abstract, scope description, bibliographic and method excerpts inspected. Full article inaccessible.",
+          "method": "Publisher/indexed abstract and DOI page",
+          "title": "Informative Dorfman Screening",
+          "trigger": "Identical heterogeneous two-stage Dorfman setup, potential stronger matching theorem"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_DIFFERENT_OBJECTIVE",
+          "evidence": "Optimal grouping seeks fewer expected tests and includes group size four; no full-text exclusion claim is made.",
+          "identifier_or_url": "https://doi.org/10.1007/s00199-023-01502-3",
+          "material_read": "Full bibliographic abstract and accessible indexed excerpts; PubMed Central full-text access blocked by automated browser checkpoint, not bypassed.",
+          "method": "PubMed/Economic Theory metadata and OA portal access attempt",
+          "title": "Optimal group testing with heterogeneous risks",
+          "trigger": "Very plausible prior heterogeneous positive/negative assortative optimal matching result"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY",
+          "evidence": "Procedure and diagnostic screening efficiency are context; entire article not accessible for exhaustive comparison.",
+          "identifier_or_url": "https://doi.org/10.1002/sim.5334",
+          "material_read": "Bibliographic abstract and objective description, not full article.",
+          "method": "Published DOI abstract/metadata",
+          "title": "Pooled-Testing Procedures for Screening High Volume Clinical Specimens in Heterogeneous Populations",
+          "trigger": "Prior heterogeneous Dorfman procedure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The size-two perfect-pool constraint is essential: unrestricted individual tests have zero assay-count variance. Within that motivated screening-risk model, the noncrossing theorem reduces exponentially many pairings to an exact cubic-time optimizer despite mixed low/high risks. The six-person optimum disproves the simple adjacent-versus-opposite choice. This is structural information, not merely a routine calculation of moments or a recommendation for clinical testing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual assigned RESULT.md and verify.py read at frozen Git blob identities; independent symbolic four-point identities and exact 15 matching enumeration.",
+    "McMahan et al. 2012 DOI:10.1111/j.1541-0420.2011.01644.x; Bobkova et al. 2024 DOI:10.1007/s00199-023-01502-3.",
+    "McMahan–Tebbs–Bilder, Informative Dorfman Screening, Biometrics 2012, DOI:10.1111/j.1541-0420.2011.01644.x",
+    "Bobkova–Chen–Eraslan, Optimal group testing with heterogeneous risks, Economic Theory 77 (2024), DOI:10.1007/s00199-023-01502-3",
+    "Bilder–Tebbs, Pooled-Testing Procedures for Screening High Volume Clinical Specimens in Heterogeneous Populations, 2012, DOI:10.1002/sim.5334",
+    "Dorfman, Detection of Defective Members of Large Populations, Ann. Math. Stat. 14 (1943)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to forced pairs and assay-count variance, not clinical safety, sensitivity, or mean assay count.",
+    "Six-person exhaustive certificate supports only the finite boundary; global proof is the algebraic uncrossing."
+  ],
+  "residual_risks": [
+    "A general uncrossing theorem in ordered matching literature could subsume the four-point criterion.",
+    "Full primary articles on heterogeneous group testing were not all accessible; no whole-document noncoverage conclusion.",
+    "Independence, perfect assays, forced disjoint pairs, and variance rather than expectation are essential."
+  ],
+  "schema_version": 1
+}
