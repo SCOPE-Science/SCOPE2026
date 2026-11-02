@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object has a canonical coordinate definition over \(\mathbb F_3\), and the exhaustive verifier independently generates the 13 projective points, all \(\binom{13}{k}\) candidates up to size five, and the complete signed boundary maps. The resulting Smith factors are exactly \(1^{12}\) for \(\partial_1\), \(1^{66}\) for \(\partial_2\), and \(1^{165},3^3\) for \(\partial_3\). The chain identities are explicitly checked. The quotient argument in the proof deduces integral, not merely rational, homology. The graph of the one-skeleton is complete, the projective group sends every ordered quadrangle uniquely to a fixed frame, and only the 234 quadrangles have all four constituent triangles. The claimed finite certificate is reproduced from the distributed checker and its inputs without relying on a previous execution log.
+PASS
 
-## Originality — PASS (best-knowledge, with risk)
+PASS. I rebuilt the canonical thirteen 1-subspaces of F3^3 and determinant test for independent triples. Enumerating every subset through size five produced face numbers (13,78,234,234) and no five-arcs; the signed integer boundaries are 13×78,78×234,234×234. Independent exact Smith computation (SymPy over Z) gave nonzero factors for ∂1:1^12; ∂2:1^66; ∂3:1^165,3^3, with chain compositions zero. Hence H1=0, ker∂2 rank168, H2=(Z/3)^3, H3=Z^66 and the span of all 234 oriented tetrahedral boundaries has index 3³=27 in the primitive 168-rank H2 of the two-skeleton. Four vertices support a nonzero 2-cycle iff all four possible triangles occur, so quadrangle supports are minimal. Ordered quadrangles are frames with 234×24=5616=PGL3(F3), giving transitivity. Finite exhaustive exact computation certifies this one plane only, not arbitrary projective order.
 
-Three independently identified lines of prior work were compared by their mathematical statements. Classical matroid-shellability results cover the two-skeleton's wedge-of-two-spheres homotopy type; that does not determine whether attaching 234 three-simplices leaves an integral index-27 sublattice. Ranade–Sadanand–Sullivan's integral top-homology cycle framework is general and does not report this finite plane or its index. Ardila–Castillo–Samper's matroid shelling theorems likewise stop short of the cap complex's attaching-map Smith factors. Superdock's projective-plane-derived complexes are different: they consist of 26 facets for order three, not the 234 quadrangles used here. The closest identified separate published result concerns a neighborhood complex of the same plane's point–line nonincidence graph, a distinct simplicial object. Search failure alone is not novelty evidence; the substantive comparisons show why the inspected implications do not cover the claim. Residual risk: equivalent work outside the inspected corpus, and incomplete access to some older general matroid sources.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The index-27 obstruction quantifies an unexpected integral failure of geometric minimum-support sphere cycles to span their natural matroid homology lattice. The resulting \((\mathbb Z/3)^3\) torsion supplies new finite topological information about a canonical projective configuration, whereas shellability and rational Betti ranks alone cannot detect it. The claim treats a natural complete collection of geometric faces, not an arbitrarily selected subfamily, and the exact torsion decomposition is potentially useful for studying integral face attachments and symmetry of small finite geometries.
+PASS best-of-knowledge: No broader primary theorem inspected computes the Smith form for the 3-dimensional arc complex; the matching appearance of 13 projective vertices is insufficient. Compared projective arc, cap, matroid independence, quadrangle cycle lattice and neighborhood complex aliases. The rank-3 matroid complex alone has free top homology of rank168, not the claimed torsion.
 
-## Closest literature and limits
+## value
 
-See Ranade–Sadanand–Sullivan (arXiv:1203.5288), Ardila–Castillo–Samper (DOI 10.37236/5042), and Superdock (arXiv:2110.12314). This finite computation does not classify higher-order projective planes, the cap complex's homotopy type, or its integral automorphism representation. Bibliographic originality remains subject to independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A cap complex is a natural combinatorial topology of projective arcs and the smallest nonbinary odd-order projective plane is canonical. The three independent integral 3-torsion classes are invisible to rational homology, and their exact index27 description for the orbit of primitive quadrangle-boundary cycles provides a motivated precise obstruction and a complete finite classification. Earlier matroid shellability identifies the two-skeleton's free homology but not the attaching sublattice. Scope is only PG(2,3); no claimed homotopy splitting or general q-result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
