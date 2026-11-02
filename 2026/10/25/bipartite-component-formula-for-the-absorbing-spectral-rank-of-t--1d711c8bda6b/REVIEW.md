@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact adjacency decomposition of the triangular graph into its constant, centered-incidence and incidence-kernel eigenspaces is established by two explicit incidence identities. The absorbent/nondecaying spectral decomposition is valid for arbitrary positive sink strengths. The centered-incidence rank is \(n-b(F)-\varepsilon(F)\), while the orthogonal-incidence rank is \(|F|-b(\overline F)\); here the bipartite-component count includes isolated labels. This yields the universal rank formula, with a separate proof of the four-trap contrast. The executable, actually run numerical checker passed 2531 independent finite rank comparisons. Numerical checks are not substitutes for the algebraic proof.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The inspected full texts of Novo et al. (2014 preprint), Wong (2016 preprint), and Kassal–Aspuru-Guzik (2012 preprint), together with available extended portions of Razzoli–Paris–Bordone (2020 preprint/article) develop quantum transport, Johnson-graph search, or single-site absorption methods but do not state the full arbitrary-multi-trap formula indexed by the bipartite components of two complementary graphs. The Novo invariant-subspace principle is acknowledged explicitly: the evaluated contribution is its complete combinatorial evaluation for every trap pattern in this family, not the abstract spectral principle. Related publicly indexed studies on Johnson-scheme face restriction and incidence sampling do not assert the same absorption statement in their available summaries. Their full texts were inaccessible and form a residual risk; unseen broader control-theory results could also cover the formula.
+PASS
 
-**Mathematical value — PASS.** The exact dimension of the quantum subspace accessible to losses is a natural finite-network transport invariant. The formula classifies all trap patterns, including dense and disconnected ones, and reveals two distinct topological obstructions: one in the trap graph and one in its complement. The explicit four-trap contrast demonstrates that adding geometry to a trap placement can alter long-time absorption despite equal trap count and equal numbers of underlying labels. This is a complete natural classification, rather than an isolated numerical example or a routine parameter change.
+For J(n,2), A=R^TR−2I and RR^T=(n−2)I+11^T. The three orthogonal A-eigenspaces have trapped-coordinate projected ranks 1, n−b(F)−ε(F), and |F|−b(complement), respectively. The second uses the unsigned-incidence alternating component kernel, including isolates and a balanced-component all-ones criterion; the third uses R^T injectivity and complement constraints. Positive sink rates yield strict decay on the bright subspace, so absorption from maximally mixed initial state equals R(F)/binom(n,2). For n≥7 quadrilateral and triangle-plus-pendant each use four sites but give ranks 8 and 9.
 
-**Scientific limitations.** The model is single-particle coherent adjacency transport on \(J(n,2)\), with arbitrary fixed strictly positive loss rates. No source-specific efficiency or hitting-time formula is claimed. The positive verdict on originality is evidence-relative; exhaustive historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Krylov and spectral-overlap reductions for quantum walks with a trap are known, and classical unsigned-incidence rank is known; the mathematical contribution is the evaluated all-pattern n≥5 triangular graph three-projector dimension formula using both F and complement bipartite components. Inspected primary full text does not state the same arbitrary multi-trap result.
+
+## value
+
+PASS
+
+The closed combinatorial classification for all trap patterns on triangular graphs is a nontrivial structural bridge between quantum coherent transport and bipartiteness of F and its complement. The even-cycle versus triangle contrast is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
