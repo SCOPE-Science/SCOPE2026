@@ -1,0 +1,11 @@
+# Review: sharp adaptive-shattering thresholds in degree-two graphs
+
+**Correctness — PASS.** Exact exhaustive generation of all maximal independent sets of each \(P_n\), \(1\le n\le13\), and each \(C_n\), \(3\le n\le13\), follows from the independent-and-dominating equivalence. Enumerating every support computes the VC dimension; the finite first-query minimax recurrence exactly computes Littlestone dimension. Two independently implemented finite checkers agree on all twenty-four cases, and explicit full adaptive trees with distinct maximal-independent-set leaf witnesses certify the two principal strict gaps. Counting hypotheses bounds their possible depths above. The product additivity argument proves the unrestricted disjoint-union corollary.
+
+**Originality — PASS, with priority limitations.** The closest publications treat general Littlestone classes [Malliaris–Moran 2021], maximal-independent-set counts [Palmer–Patkós 2022], and VC upper bounds for the dual maximal-independent-set incidence family [Liu–Shangguan–Skokan–Xu 2024, Lemma 2.20]. None of the inspected full HTML contents implies the first \(P_{10}\) adaptive gap, the \(C_{13}\) cyclic threshold, or their degree-two uniqueness. Accessible prior graph-specific findings include a lower-order branching forest counterexample and a forest VC criterion, but neither entails this sharp maximum-degree-two classification. published-finding corpus semantic searches returned related but noncovering graph parameter claims; incomplete historical coverage remains possible.
+
+**Value — PASS.** The ten-vertex cutoff answers whether branching is needed for a strict static-versus-online shattering separation, and the thirteen-vertex cutoff isolates the first such phenomenon in regular degree-two graphs. The same path witness yields arbitrarily large separation even under the absolute degree bound two. These sharp structural boundaries are natural finite classification results, not arbitrary selected parameters.
+
+**Limitations.** No general formula is claimed for connected paths or cycles above the checked range. The exact computational argument is finite and independently reproducible, but independent external scientific assessment and exhaustive historical-priority verification have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Every finite concept is enumerated by exact independence and domination constraints over every subset of n vertices. The VC test enumerates every support, and the complete first-query minimax recurrence computes exact Littlestone depth. Two independently implemented algorithms produce identical results in all 24 connected path/cycle cases through 13 vertices. Explicit 16- and 32-leaf adaptive certificates replay completely for P10 and C13; their family sizes 16 and 39 strictly forbid one further complete level. Degree-two decomposition and product additivity prove the 10-vertex uniqueness and infinite disjoint-union formula. No connected claim is extrapolated beyond the checked cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2403.17910v3 Lemma 2.20: dimension of dual maximal-independent-set hypergraph is at most bipartite induced matching number. This does not bound its Littlestone dimension sharply or decide ten-vertex existence.",
+        "arxiv:2108.05569v3 §5 gives general dynamic Sauer-Shelah-Perles statements dependent on an already known online rank; it does not compute this rank for maximal-independent-set incidence.",
+        "The accessible older eight-vertex forest example supports an unrestricted first-forest gap but leaves minimum order within degree-two graphs open."
+      ],
+      "reasoning": "Even when a theorem covers all graphs for one static invariant, its conclusion does not imply the adaptive rank or sharp path/cycle thresholds. General online inequalities and finite family-size upper bounds likewise cannot imply existence of the asserted depth-four or depth-five trees.",
+      "searches": [
+        "site:arxiv.org \"maximal independent sets\" \"VC-dimension\" \"bipartite induced matching\"",
+        "Liu Shangguan Skokan Xu VC dimension maximal independent sets graph bipartite induced matching 2024",
+        "\"Littlestone dimension\" \"independent dominating\" paths",
+        "maximal independent set membership Littlestone dimension VC forest spider S(1,2,4)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.05569 (full accessible v3 HTML; earliest v1 date separately verified)",
+      "arxiv:2205.04082 (full v1 HTML)",
+      "arxiv:2403.17910 (full v3 HTML)",
+      "published published-finding corpus semantic search records, including 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+      "accessible prior research records claims f833dff4-65fc-49e8-9e40-8717fffe9c2f and 44e49212-a5da-4089-91eb-eefd898fe2ad (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previous accessible finding 44e49212-a5da-4089-91eb-eefd898fe2ad establishes an eight-vertex branching forest with gap; its construction of many copies of that branching spider violates the maximum-degree-two constraint.",
+        "Previous accessible finding f833dff4-65fc-49e8-9e40-8717fffe9c2f establishes forest VC via induced matching but not adaptive rank and not cycles.",
+        "Liu et al. §2.4 addresses VC dimension rather than full special-tree depth. Palmer and Patkos bound graph counts rather than optimize adaptive membership questions."
+      ],
+      "reasoning": "The new theorem implies that branching is unnecessary to obtain arbitrary additive adaptive gap, but that sharp threshold occurs at a larger order when branching is forbidden; it also supplies an independently sharp regular-graph threshold at C13. Neither implication follows from an earlier branching example, a static forest VC theorem, or existing counting inequalities.",
+      "searches": [
+        "Littlestone dimension maximal independent sets path graphs cycle exact value adaptive shattering P10 C13",
+        "VC dimension versus Littlestone maximal independent sets on max degree two graphs path and cycles",
+        "maximal independent set membership Littlestone dimension VC forest spider S(1,2,4)",
+        "published-finding corpus semantic query: maximal independent set membership Littlestone dimension VC forest spider S(1,2,4)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2108.05569v3 §1.3 identifies complete special trees with Littlestone dimension; no maximal-independent-set paths or cycles treated.",
+        "arxiv:2403.17910v3 §2.4 Lemma 2.20 gives VC bound for precisely the dual maximal-independent-set hypergraph, but not adaptive depth.",
+        "Accessible prior research records claim 44e49212-a5da-4089-91eb-eefd898fe2ad treats first forest gap at a branching spider, and accessible prior research records f833dff4-65fc-49e8-9e40-8717fffe9c2f treats forest VC, not the degree-two threshold."
+      ],
+      "reasoning": "The online rank is a complete *adaptive* membership-query tree parameter, not the VC dimension, number of maximal independent sets, independent domination number, matching number, or graph cover-free number. These distinctions prevent substitution of previously computed static or cardinality invariants.",
+      "searches": [
+        "Littlestone dimension maximal independent sets path graphs cycle exact value adaptive shattering P10 C13",
+        "VC dimension versus Littlestone maximal independent sets on max degree two graphs path and cycles",
+        "first stable rank gap maximal independent sets path ten vertices cycle thirteen vertices",
+        "maximal independent set membership Littlestone dimension VC forest spider S(1,2,4)",
+        "path cycle maximal independent set incidence online shattering VC P10 C13 tree certificates",
+        "\"Littlestone\" \"maximal independent sets\" \"path\"",
+        "\"Littlestone\" \"maximal independent sets\" \"cycle\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published published-finding corpus hit 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 computes graph cover-free-family numbers, a different system.",
+        "published-finding corpus 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc compares matching parameters but does not compute online rank of maximal-independent-set incidence.",
+        "arxiv:2205.04082v1 §2 gives maximal independent set counts for cycles and extremal graphs, not the tabulated VC/Littlestone ranks."
+      ],
+      "reasoning": "No located searchable table contains the pairs (VC,Littlestone) for both P10 and C13 or the degree-two first-gap uniqueness. This is incomplete-search evidence, not a uniqueness certificate.",
+      "searches": [
+        "shattering of order ideals poset maximum chains antichains VC Littlestone",
+        "maximal matchings of trees VC dimension vertex membership shattering",
+        "Littlestone dimension maximal independent sets path graphs cycle exact value adaptive shattering P10 C13",
+        "VC dimension versus Littlestone maximal independent sets on max degree two graphs path and cycles",
+        "first stable rank gap maximal independent sets path ten vertices cycle thirteen vertices",
+        "maximal independent set membership Littlestone dimension VC forest spider S(1,2,4)",
+        "path cycle maximal independent set incidence online shattering VC P10 C13 tree certificates",
+        "VC dimension maximal independent sets concept class paths cycles graph",
+        "Littlestone dimension maximal independent sets paths cycles graph concept class"
+      ]
+    },
+    "rationale": "The identifiable closest sources do not assert or logically entail the first degree-two adaptive threshold, its unique ten-vertex example, or the first cyclic threshold. Malliaris-Moran treat general Littlestone classes; Palmer-Patkos count maximal independent sets; Liu et al. Lemma 2.20 gives a nonadaptive VC upper bound. Relevant prior graph-specific claims give a first branching example and an exact forest VC criterion, neither of which determines adaptive ranks for paths or cycles. Searches of published published-finding corpus claims did not locate equivalent coverage. Residual historical-priority risk is acknowledged, not treated as proof of absolute novelty.",
+    "residual_risks": [
+      "Broader unindexed literature may contain the same finite thresholds or stronger general results.",
+      "The accessible earliest Malliaris-Moran public version is dated 2021, but the full HTML compared was a later revision; historical version differences could affect priority.",
+      "No proof of absolute historical uniqueness follows from semantic search or a finite checked ledger."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No graph-specific maximal-independent-set path/cycle dimension computations or exact finite threshold.",
+        "evidence": "§1.3 defines full special trees and §5 gives generic rank-dependent statements; no maximal-independent-set example was found.",
+        "identifier_or_url": "https://arxiv.org/html/2108.05569v3",
+        "material_read": "Full accessible HTML, introduction §§1.2-1.3, special-tree definition and §5 dynamic Sauer-Shelah-Perles discussion, plus searches for maximal independent sets.",
+        "method": "Read rendered primary full text HTML and inspect its theorems and formulations.",
+        "title": "Model theory and agnostic online learning via excellent sets (first circulated as Agnostic Online Learning and Excellent Sets)",
+        "trigger": "Primary link between Shelah special-tree rank and online Littlestone dimension; possible general coverage."
+      },
+      {
+        "assessment": "Counts and extremal cardinality theorems do not calculate Littlestone rank or characterize sharp first adaptive gaps.",
+        "evidence": "§2 case IV gives m(C_n)=m(C_{n-2})+m(C_{n-3}), without VC/Littlestone comparisons.",
+        "identifier_or_url": "https://arxiv.org/html/2205.04082v1",
+        "material_read": "Full accessible HTML: introduction, named theorems, proof sections, and cycle maximal-independent-set counting recurrence.",
+        "method": "Read primary article HTML, including §2 case IV.",
+        "title": "On the number of maximal independent sets: From Moon-Moser to Hujter-Tuza",
+        "trigger": "Primary graph-specific source about the same concept family; potential stronger enumeration coverage."
+      },
+      {
+        "assessment": "Directly bounds the same static VC invariant by a bipartite induced-matching parameter; does not determine online rank, and the term Littlestone is absent.",
+        "evidence": "§2.4 Lemma 2.20 explicitly names dual maximal-independent-set hypergraph M(G) and proves VCdim(M(G)) <= nu_bi(G).",
+        "identifier_or_url": "https://arxiv.org/html/2403.17910v3",
+        "material_read": "Full accessible HTML, focusing on §2.3-2.4, especially Lemma 2.20 and proof, and search for Littlestone.",
+        "method": "Read primary full-text HTML, compared dual set-system definitions and quantified implications.",
+        "title": "Beyond chromatic threshold via the (p,q)-theorem, and a sharp blow-up phenomenon",
+        "trigger": "Direct maximal-independent-set incidence hypergraph and VC-dimension bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99f67ae7-76cc-4081-8289-184f72217a18",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first degree-two adaptive gap distinguishes branch-dependent constructions from genuine low-degree phenomena, and the first cycle gap isolates the same behavior in regular degree-two structures. Both are exact natural minimal-order boundaries, supported by complete classification of all smaller paths/cycles. The path construction yields an unlimited adaptive-vs-static dimension gap while forbidding any degree-three branching, a structural strengthening unavailable from the earlier general-forest witness.",
+    "status": "PASS"
+  }
+}
