@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact derivation of the block transition matrix, stationary masses and complete eigenbasis gives the Kemeny expression and eigenvalue radius. Strict positivity of the derivatives away from balance proves the Kemeny optimum; monotonicity of the opposing radius branches proves the three-case spectral optimizer. Direct class-mass and within-class mode decomposition proves the exponential balanced mixing lower bound and 3-step star upper bound. Standalone `verify.py` uses rational elimination for hitting times, independent transition-power comparisons, and exact optimizer tests (12,354 comparison units). The claim is restricted to independent fresh snapshots with 0<p<1; finite checks are not treated as all-size proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lamprou–Martin–Spirakis, arXiv:1702.05412, accessible author manuscript Sections 3, 4.2, 5.3 and conclusion Sections 4.2 and 5.3 address general cover-time bounds and special complete graph case; no exact biclique spectral design law",
+        "Breen et al., arXiv:2203.12049, nonbacktracking walk on static graphs evaluates nonbacktracking dynamics, a different edge-memory state space",
+        "Faught–Kempton–Knudson, arXiv:2108.01061, static Kemeny graph formula studies static-graph Kemeny/Braess structure"
+      ],
+      "reasoning": "A general graph-mixing theorem, a Kemeny spectral identity, or the RWA edge-averaging identity covers ingredients but does not establish the cross-metric bipartition comparisons. The closest Kemeny papers address different walk processes and graph perturbations; neither directly implies the claimed family-wide optimization.",
+      "searches": [
+        "temporal bipartite graph mixing slow balanced fast star stationary target Kemeny random walk available",
+        "finite edge percolation resampled each time complete bipartite random walk exponential slow mixing at p half and constant time star",
+        "random walk temporal complete bipartite edge percolation mixing time spectrally balanced star Kemeny",
+        "Kemeny constant for non-backtracking random walks 2203.12049"
+      ]
+    },
+    "checked_sources": [
+      "Lamprou–Martin–Spirakis, arXiv:1702.05412, accessible author manuscript Sections 3, 4.2, 5.3 and conclusion",
+      "Breen et al., arXiv:2203.12049, nonbacktracking walk on static graphs",
+      "Faught–Kempton–Knudson, arXiv:2108.01061, static Kemeny graph formula",
+      "Indexed mathematical result Exact discounted hitting domination of complete bipartite graphs (public indexed mathematical finding)",
+      "Indexed mathematical result Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders (public indexed mathematical finding)",
+      "Previously available mathematical claim: prior result on optimal added-edge conductance for the static biclique Kemeny constant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lamprou–Martin–Spirakis, arXiv:1702.05412, accessible author manuscript Sections 3, 4.2, 5.3 and conclusion states the transition kernel and cover-time bounds; generic spectral-sum formula is classical",
+        "Breen et al., arXiv:2203.12049, nonbacktracking walk on static graphs addresses static nonbacktracking transitions, not fresh-step edge failure",
+        "prior result on optimal added-edge conductance for the static biclique Kemeny constant addresses a separate within-part conductance addition, not edge failures"
+      ],
+      "reasoning": "The 2017 transition formula plus general Markov-chain facts allow one to reconstruct the present calculations, but the cited theorems do not already assert the exact cross-part Kemeny minimization, the spectral-radius crossover, or the exponential-versus-constant same-parameter mixing distinction. Ordinary consequences explicitly credited were excluded from the novel contribution.",
+      "searches": [
+        "Lamprou Martin Spirakis edge-uniform random walk on what is available exact Kemeny constant complete bipartite K_{a,b}, balancing minimizes mean stationary hitting time but stars optimize mixing",
+        "temporal bipartite graph mixing slow balanced fast star stationary target Kemeny random walk available",
+        "Cover Time in Edge-Uniform Stochastically-Evolving Graphs Theorem 5 Kemeny eigenvalue mixing complete bipartite",
+        "Kemeny constant complete bipartite graph with vertex dependent holding probabilities and degree-dependent laziness, balance optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lamprou–Martin–Spirakis, arXiv:1702.05412, accessible author manuscript Sections 3, 4.2, 5.3 and conclusion derives the transition probability to a specified neighbor as the probability of at least one available edge divided by the degree; this is an essential shared premise, not the optimizer theorem",
+        "No indexed exact statement matching the joint Kemeny and absolute-radius minimizers appeared in the named searches",
+        "Mathematical record Exact discounted hitting domination of complete bipartite graphs (public indexed mathematical finding) concerns discounted hitting domination, not edge-resampled RWA"
+      ],
+      "reasoning": "The independent-snapshot dynamic model is precisely an ordinary reversible lazy Markov chain with degree-dependent holding. Accordingly searches covered both the temporal process and its static transition-kernel equivalent. The known edge-resampled transition probability alone does not supply the paired optimization, crossover or opposing mixing estimates.",
+      "searches": [
+        "Lamprou Martin Spirakis edge-uniform random walk on what is available exact Kemeny constant complete bipartite K_{a,b}, balancing minimizes mean stationary hitting time but stars optimize mixing",
+        "dynamic edge resampling complete bipartite random walks p eigenvalues 1, (1-p)^a, (1-p)^b, (1-p)^a+(1-p)^b-1 spectral relaxation radius",
+        "Kemeny constant complete bipartite graph with vertex dependent holding probabilities and degree-dependent laziness, balance optimization",
+        "Kemeny's constant random walk on available complete bipartite stochastic evolving edges independent p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result Exact discounted hitting domination of complete bipartite graphs (public indexed mathematical finding): discounted hitting domination on complete bipartite graphs",
+        "Closest indexed result Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders (public indexed mathematical finding): lazy walk mixing on balanced spiders",
+        "Existing mathematical result prior result on optimal added-edge conductance for the static biclique Kemeny constant: adding a conductance-weighted edge to a static biclique"
+      ],
+      "reasoning": "The source claims were compared by object, edge-state law, metric and parameter dependence, not title alone. The closest hits do not tabulate Kemeny constants or absolute spectra of fresh-edge-resampled bipartite RWA chains.",
+      "searches": [
+        "Lamprou Martin Spirakis edge-uniform random walk on what is available exact Kemeny constant complete bipartite K_{a,b}, balancing minimizes mean stationary hitting time but stars optimize mixing",
+        "dynamic edge resampling complete bipartite random walks p eigenvalues 1, (1-p)^a, (1-p)^b, (1-p)^a+(1-p)^b-1 spectral relaxation radius",
+        "temporal complete bipartite edge uniform stochastic evolution random walk mixing time stationary eigenvalues",
+        "temporal complete bipartite edge uniform stochastic evolution random walk mixing time stationary eigenvalues"
+      ]
+    },
+    "rationale": "The primary 2017 paper derives the single-neighbor transition reduction and cover-time bounds; its publicly accessible author manuscript was inspected in the relevant sections and end. It does not state the competing Kemeny/spectral-radius bipartition optima, crossover classification or the same-p exponential mixing contrast. Static nonbacktracking and static Braess analyses do not imply this temporal result without separate model-specific analysis. Queries across exact terms, aliases and parameter statements in published indices and mathematical finding records yielded no implication-equivalent finding; priority remains qualified, not certified.",
+    "residual_risks": [
+      "General Markov-chain spectral identities and the RWA transition reduction are classical ingredients and are not asserted as new.",
+      "Indexed and accessible sources cannot prove historical uniqueness; an unindexed paper could have the joint optimization.",
+      "The 2017 PDF text was readable but graphical screenshot retrieval failed (HTTP 406); the relevant source comparison used extracted manuscript text.",
+      "The nonbacktracking and static-Kemeny sources had only accessible abstracts and bibliographic statements during this comparison, rather than fully inspected preprints."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the transition probability and generic cover-time bounds but does not present the joint bipartite Kemeny/absolute-spectrum optimizer classification",
+        "evidence": [
+          "Section 4.2 Theorem 5 and proof explicitly give the unconditional single-neighbor transition rule for random available edges",
+          "Section 5.3 analyzes a complete underlying graph for cover time, not spectral bipartite optimization",
+          "Conclusion describes bounds and possible community-partitioned future models"
+        ],
+        "identifier_or_url": "https://livrepository.liverpool.ac.uk/3020375/1/arxiv-may.pdf",
+        "material_read": "Relevant portions of the full author manuscript: introduction, Section 3 model, Section 4.2 Theorem 5 and its proof, Section 5.3 complete-graph analysis, and conclusions",
+        "method": "Read parsed PDF text of the relevant original-paper sections; compared transition formula, scope and theorem implications",
+        "title": "Cover Time in Edge-Uniform Stochastically-Evolving Graphs",
+        "trigger": "Same walk rule and exact edge-resampled random graph model"
+      },
+      {
+        "assessment": "Different chain: static nonbacktracking walk with previous-edge memory; not evidence of the fresh-snapshot RWA theorem",
+        "evidence": [
+          "Abstract specifies non-backtracking random walks and biregular graph formula",
+          "No claim of independent edge resampling in accessible descriptive text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.12049",
+        "material_read": "Public abstract and publisher bibliographic description; full preprint not material-inspected",
+        "method": "Compared declared model, state-space dynamics and claimed invariants",
+        "title": "Kemeny’s constant for non-backtracking random walks",
+        "trigger": "Kemeny computations for regular and biregular static graphs may dominate the Kemeny formula"
+      },
+      {
+        "assessment": "Static conductance-graph perturbation and 1-separation setting does not imply the fresh-edge-sampling and mixed-metric statement",
+        "evidence": [
+          "Abstract concerns graph Kemeny constants, 1-separation and adding static Braess edges"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.01061",
+        "material_read": "Public abstract and main claims; full preprint not material-inspected",
+        "method": "Compared 1-separation/Braess-edge hypotheses against an unchanged temporal biclique graph",
+        "title": "A 1-Separation Formula for the Graph Kemeny Constant and Braess Edges",
+        "trigger": "General graph Kemeny formula and Braess optimization can appear stronger than a biclique special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2bd82105-06a1-4373-90c8-cd3215510306",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem exhibits a structural conflict between average stationary-target hitting and worst-case relaxation on the same temporal network family, with graph-size-uniform optimum classifications and an exponential-versus-three-step mixing separation at the same fixed availability. The precise spectral crossover tells when network degree balancing ceases to be relaxation-optimal; this information is not just a known-table value, an arbitrary numerical slice, or a small improvement.",
+    "status": "PASS"
+  }
+}
