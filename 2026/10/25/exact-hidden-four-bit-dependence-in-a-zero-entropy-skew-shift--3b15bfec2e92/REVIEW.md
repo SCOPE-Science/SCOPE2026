@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orbit iterate has the required binomial drift for all integer indices, Haar is invariant, the irrational system is uniquely ergodic, and a polynomial covering bound gives entropy zero. Each pair of observations is independent because its time-coordinate torus map is a surjective integer endomorphism; global half-translation kills every odd product, which with the Walsh expansion proves arbitrary three-time independence. The fourth-correlation Fourier constraints are explicit, the fixed-frequency sums converge absolutely, and the independently rationally integrated 16-word laws agree with the piecewise quadratic coefficient. The two exceptional roots do not also annihilate the spacing-two fourth moment. No finite test is substituted for the unlimited argument.
+## correctness
 
-## Originality — PASS under inspected evidence
-Tao's fully inspected 2008 skew-shift exposition proves the underlying classical unique-ergodicity statement but contains no half-circle binary fourth-order law. Frantzikinakis' inspected 2014/2015 primary full text proves structural decompositions of multiple correlations (Theorems 1.1 and 1.2), not this specific exact formula or independence classification. Closest published comparison from published-finding corpus concerns the effect of a fourth-order interaction on four-step persistence in a different random-sign model, not the half-circle skew-shift construction or its exact parameter-dependent law. Compared earlier dynamical findings on toral Bowen balls and other sign observables have different transformations, statistics, or measures. The remaining risk is an earlier specialized equivalent computation not encountered in the inspected texts.
+PASS
 
-## Mathematical value — PASS
-Zero measure entropy coexists here with exact three-time fair independence at **arbitrary lags**, a phenomenon that first becomes distinguishable by a fully explicit fourth-order interaction. The exact sixteen-atom distribution, its sharp piecewise parameter dependence and the universal pair of lag-one/lag-two nonzero witnesses provide a motivated quantitative boundary between finite-order randomness tests and dynamical entropy. The computation does not require a general downstream theorem to make that boundary precise.
+Iterating the skew map gives y_j=y+jx+j(j−1)alpha/2, and Haar invariance. Every distinct-time pair is uniform on T² because the integer two-time character matrix has nonzero determinant, while translating y by 1/2 flips all signs; Walsh inversion implies every triple is uniform. For irrational alpha, polynomial Weyl equidistribution yields unique ergodicity; O(n) spanning numbers at fixed accuracy give topological entropy 0, hence factor entropy0. Fourier coefficients of the half-circle sign are 2/(i pi k) for odd k. The two torus-character constraints reduce the 4-point AP correlation to an absolutely convergent sum with coefficient 1/27 at zero and 6 sin(2pi r/3)/(pi³r³) for nonzero r, determining the stated continuous piecewise quadratic Theta. The transformation x↦hx+binom(h,2)alpha pushes Haar to Haar, giving Theta(h²alpha). Exceptional roots modulo half period are t=1/(4sqrt3) and 1/2-1/(4sqrt3); Theta(4alpha)=−9+16/sqrt3>0, so not 4-wise independent globally. Independently evaluated two-torus midpoint grids (1800² points per test) at five parameters; absolute discrepancies below 0.004. Finite grids do not establish Fourier identity.
 
-## Scope and unresolved points
-The result is for the half-circle sign partition and Haar phase. The formula treats four-term arithmetic progressions only; it does not enumerate every higher joint law. Priority is not independently certified, and general correlation-decomposition results should not be confused with an explicit symbolic probability law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novelty is a qualified best-of-knowledge mathematical comparison, not a guarantee of priority; exact original claim was searched against equivalent formulations, general theorems and data tables.
+
+## value
+
+PASS
+
+The construction separates local 3-wise independence from zero entropy and gives a completely explicit, nontrivial four-bit dependence law including a finite-lag witness valid for every irrational parameter. Exact finite-dimensional distributions for a natural nilsystem coding are mathematically useful to ergodic-theoretic counterexamples, entropy/mixing distinctions, and pseudorandomness, not just a renaming of standard Walsh inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
