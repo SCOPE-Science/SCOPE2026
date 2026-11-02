@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:08:00.568752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The Alexander dual face test is that each induced four-set is connected; full 2-skeleton, tree tetrahedra, pentagon 4-simplices and no larger simplices follow from forbidding C3 and C4. Private triangle rows for star/path tetrahedra, plus incidence C5 blocks for the five tetrahedra of each pentagon, yield a full-rank unimodular minor in d3 of rank c4-c5. Distinct pentagons have disjoint 4-path supports, d4 has primitive image of rank c5, and ker d3/im d4=0 integrally. H2 is free of rank choose(n-1,3)-c4+c5, D simply connected and Hurewicz-Whitehead gives wedge of S2; Alexander duality shifts the degree to n-5. Independently generated qualifying 4- and 5-faces, verified no qualifying 6-faces and checked mod-2 boundary rank for C8, C10, C5+three isolates and two disjoint C5 (rank examples (8,8,0,27), (10,10,0,74), (8,5,1,31), (10,10,2,76)); inspected repository script also supplies Petersen/dodecahedron cases. No claim on original complex homotopy type or girth<5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Resultary high-girth theorem assumes girth >= k+2, therefore >=6 at k=4, and gives c5=0 special case.",
+          "Bayer cut-complex I/II contain different graph families and foundational Alexander duality."
+        ],
+        "reasoning": "A stronger-looking high-girth result does not dominate this theorem because it excludes every graph containing a pentagon. The exact c5 correction is not a direct corollary of the no-C5 assumption.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b",
+          "Resultary: ordinary 4-cut complex Alexander dual graph girth 5 pentagon cycle correction connected induced 4 sets homotopy two-spheres",
+          "arXiv:2304.13675",
+          "arXiv:2407.08158"
+        ]
+      },
+      "checked_sources": [
+        "Commit-pinned RESULT.md and girth_five_four_cut_check.py (actual Git blob SHA, independently matched tree)",
+        "Independent local C8/C10/C5+isolates/two-C5 face and mod-2 rank program",
+        "arXiv:2304.13675 full primary",
+        "arXiv:2407.08158 full primary",
+        "Resultary high-girth statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous high-girth formula b=choose(n-1,3)-c4 is the c5=0 specialization; induced pentagon adds a 4-simplex and a new d3 boundary relation."
+        ],
+        "reasoning": "The prior theorem is subsumed as a special case, not vice versa. Its proof uses private faces unavailable at pentagons; the new integral block calculation resolves the missing case.",
+        "searches": [
+          "Resultary high-girth theorem statement",
+          "Full primary arXiv:2304.13675",
+          "Full primary arXiv:2407.08158"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary four-cut Alexander dual consists of subsets whose 4-subsets are connected; its d3/d4 combinatorics identifies pentagon blocks."
+        ],
+        "reasoning": "Tested standard Alexander dual language and graph high-girth/induced-4-set aliases; no previously inspected equivalent all-C5 statement. Distinguishes the dual homotopy from original homology.",
+        "searches": [
+          "Resultary: ordinary 4-cut complex Alexander dual graph girth 5 pentagon cycle correction connected induced 4 sets homotopy two-spheres",
+          "arXiv:2304.13675 Sections 2-4",
+          "arXiv:2407.08158"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Petersen 4-cut rank 26 was previously computed and is only an example; no retrieved table supplies c5-corrected arbitrary-graph b."
+        ],
+        "reasoning": "Explicit known-instance values are excluded from novelty; a table at a single graph does not imply an unrestricted homotopy theorem, and unsuccessful search alone does not prove originality.",
+        "searches": [
+          "Resultary: ordinary 4-cut complex Alexander dual graph girth 5 pentagon cycle correction connected induced 4 sets homotopy two-spheres",
+          "Published Resultary high-girth finding 2026-10-11",
+          "Bayer et al 2023/2024"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. A previously published high-girth theorem applies to girth >=6 for k=4, precisely excluding pentagons, whereas these graphs allow induced C5 and produce a new +c5 integral correction. Foundational Bayer et al cut-complex papers give definitions, general methods and other families; neither inspected full article states arbitrary girth-5 four-cut dual wedge classification. Petersen rank 26 is previously tabulated and explicitly not novelty. Search incompleteness remains a risk.",
+      "residual_risks": [
+        "Unindexed older graph cut-complex or matroid duality literature may contain an equivalent girth-five correction.",
+        "Resultary high-girth published result itself was compared at theorem-statement level, not full proof.",
+        "Original 4-cut complex wedge/shellability and automorphism representations are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the cut-complex framework and special computations, not the exact all-girth-five four-cut dual formula.",
+          "evidence": "arXiv:2304.13675 definitions and cut-complex theorems; no general C5 correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Read accessible full 37-page primary PDF, including definitions and principal cut-complex results; inspected PDF page images.",
+          "method": "Primary full text and in-document theorem comparison",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Definition and possible dominating general cut result"
+        },
+        {
+          "assessment": "Covers disjoint unions, grids, squared paths and related modules; does not subsume arbitrary C3/C4-free graphs with C5.",
+          "evidence": "arXiv:2407.08158 listed graph families.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Read accessible primary 29-page PDF and surveyed main theorem/graph-family sections, with visual page inspection.",
+          "method": "Primary full text and theorem hypotheses",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Closest sequel about cut-complex families"
+        },
+        {
+          "assessment": "Coverage explicitly requires girth >=6 for four-cut, leaving girth-five as open boundary.",
+          "evidence": "Published abstract: girth >=k+2; k=4 excludes pentagons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-high-girth-cut-complexes-are-wedges-of-top-dimensional-spheres--ec8bbe3d352b",
+          "material_read": "Read indexed published finding/statement and matching girth hypotheses; did not inspect a complete proof text.",
+          "method": "Resultary semantic hit/statement",
+          "title": "High-girth cut complexes are wedges of top-dimensional spheres",
+          "trigger": "Closest published comparable theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The first excluded girth boundary of the known high-girth theorem is a natural structural gap. The contribution is an all-graph correction formula with unit-integral chain ranks and full dual homotopy classification, not merely a tiny finite-table calculation; c5 detects exactly the new potential d4 faces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem assumes n>=8 and forbids triangles and four-cycles, permits disconnected graphs, proves wedge homotopy only for the Alexander dual, and integral homology only for original complex. Finite experiments do not imply the all-n claim.",
+    "Unindexed older graph cut-complex or matroid duality literature may contain an equivalent girth-five correction.",
+    "Resultary high-girth published result itself was compared at theorem-statement level, not full proof.",
+    "Original 4-cut complex wedge/shellability and automorphism representations are not established."
+  ],
+  "schema_version": 1
+}
