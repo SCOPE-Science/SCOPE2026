@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For equal-sum vectors, a common 3-multiset exists iff I(x,y)>=3. Heavy vectors (some component>=3) have pairwise-disjoint nonempty heavy-coordinate sets, hence at most q. Any two light vectors satisfy I>=2n-2q>=4 for n>=q+2, hence at most one light; no light exists for n>=2q+1. q pure constant vectors, plus one 1/2-valued vector when n<=2q, attain both bounds. Equality forces all q heavy-coordinate sets to be singleton and distinct. Two explicit 1/2-valued boundary vectors at n=q+1 give q+2 total. Exact independent clique checks passed for 18 q,n pairs and construction checks for 897 pairs; neither finite test substitutes for the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.05636v2 Section 4.4 Proposition 12: q+binom(q,2) at n>=q+2; Theorem 13 concerns n<=q+1.",
+        "arXiv:1612.08837 Theorem 17 gives general threshold-type bounds, not the exact three-survivor two-regime formula."
+      ],
+      "reasoning": "Proposition 12 has the identical q,n regime but its upper bound is strictly weaker than q+1 for q>=4 and does not distinguish n<=2q from n>=2q+1. General multiset bounds and constructions are non-implying without additional sharp case analysis.",
+      "searches": [
+        "for every alphabet q multiset deletion code with three survivors optimal cardinality q+1 for q+2<=n<=2q, q for n>=2q+1",
+        "Multiset codes fixed output k=3 all q n >= q+2 code size q+1 n<=2q and q n>=2q+1",
+        "large n three-output multiset deletion exact S_q(n,n-3)=q+1 using heavy light components"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05636v2",
+      "arxiv:1612.08837",
+      "arxiv:2603.18322",
+      "2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+      "prior exact q=4 three-survivor profile"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.05636v2 Proposition 12, Section 4.4, exact wording and proof inspected.",
+        "Prior q=3 result 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505 has the exact ternary cases only.",
+        "Prior exact q=4 result is for one fixed alphabet and an independent finite labeled-extremizer census."
+      ],
+      "reasoning": "Our theorem specializes to both prior alphabet-specific size laws and hence subsumes their size statements; they are expressly excluded from novelty. Conversely neither prior instance plus the published q+binom(q,2) bound implies q+1 for unbounded q or the sharp 2q+1 transition and equality pattern. The present proof is independently established using light-word intersection and heavy-coordinate disjointness.",
+      "searches": [
+        "all alphabet generalization three-survivor multiset codes sharp threshold 2q+1",
+        "Multiset codes fixed output k=3 all q n >= q+2 code size q+1 n<=2q and q n>=2q+1",
+        "three-survivor multiset deletion codes generalized arbitrary alphabet exact phase transition at n=2q+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kovačević–Tan arXiv:1612.08837 Sections II and IV: the constant-weight l1/simplex metric gives d_1(x,y)=n-I(x,y).",
+        "arXiv:2601.05636v2 Section 4.4 defines the same fixed-three-survivor intersection condition."
+      ],
+      "reasoning": "Equivalent statement: packing integer simplex vectors of mass n with half-l1 distance at least n-2. No inspected source supplies exact sizes for all q at both threshold regimes; the closest published ternary/quaternary profiles are only slices.",
+      "searches": [
+        "constant weight lattice A_(q-1) distance n-2 all q q+1 codewords n >= q+2",
+        "A(4,n,2n-4) constant weight l1 codes",
+        "Multiset codes fixed output k=3 all q n >= q+2 code size q+1 n<=2q and q n>=2q+1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The previously published exact q=3 three-survivor profile is https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505.",
+        "Prior exact q=4 profile covers the values 5,5,5 at n=6,7,8 and 4 for n>=9.",
+        "Exact brute-force checks q=2,3,4,5 at 18 parameter pairs are supplied with this theorem."
+      ],
+      "reasoning": "The q=3 and q=4 entries, including their infinite tails, are *already known* and are not independently claimed; these fixed-q tables do not entail an exact theorem over every q. New numerical checks complement rather than replace the symbolic proof.",
+      "searches": [
+        "quinary five-symbol multiset deletion codes with 3 symbols surviving q=5 n-3 exact",
+        "S5(n,n-3) maximum code size quinary",
+        "quaternary multiset deletion correcting code n-3 three survivors exact maximum size S_4(n,n-3)"
+      ]
+    },
+    "rationale": "The closest full primary text, arXiv:2601.05636v2, Section 4.4 Proposition 12, proves only S_q(n,n-3)<=q+binom(q,2) in the same regime. The new exact all-q two-regime theorem and forced unique-heavy-coordinate feature are not implied by that upper bound or by the already known q=2,3,4 special cases. Both primary and published-result searches were checked for the equivalent l1/simplex statements. This is best-knowledge priority, not a claim of independent certification.",
+    "residual_risks": [
+      "An unindexed or unpublished earlier proof could already provide the q-uniform theorem.",
+      "The q=2,3,4 special cases are prior coverage; novelty applies only to the uniform structural theorem.",
+      "No independent mathematical or priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact all-q two-regime formula; states weaker general upper bound and related results.",
+        "evidence": "Section 4.4 lines 808-827; Proposition 12 bound q+binom(q,2), while Theorem 13 treats n<=q+1.",
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+        "material_read": "Introduction, definitions, whole Section 4 including Proposition 12 and Theorem 13, adjacent benchmark sections and relevant comparison material",
+        "method": "Direct publicly accessible HTML full-text inspection",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Identical multiset channel, three surviving symbols, all alphabet sizes"
+      },
+      {
+        "assessment": "Foundational equivalence and broad bounds; not the asserted exact all-q three-output law.",
+        "evidence": "Definition of discrete simplex and d_1=(1/2)l1; general Theorem 17.",
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Model, Section II, metric equivalence, general construction and bound sections including Theorem 17",
+        "method": "Accessible arXiv full parsed text",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Foundational general lattice/simplex equivalence and possible stronger coverage"
+      },
+      {
+        "assessment": "Deals with constructions/ball geometry and does not establish an exact all-alphabet three-survivor maximum.",
+        "evidence": "Theorems and abstract concern ball intersections and polynomial constructions.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+        "material_read": "Full accessible arXiv parsed text, including abstract, introduction, principal theorems and deletion-ball geometry sections",
+        "method": "Full-text accessible arXiv parsed article",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Same researchers and channel, plausible overlapping later paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da6ffbe2-1ef7-4127-a781-ec2d6e1fde4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A current paper leaves the natural three-surviving-symbol, high-deletion regime with a general bound quadratic in q. The theorem determines the exact optimum for every alphabet and all n>=q+2, identifies the sharp n=2q+1 transition and the sharp starting boundary, and gives necessary structural restrictions for every optimizer. E.g. q=5,n=7 improves published upper bound 15 to exact value 6, and all n>=11 have exact value 5. It is an infinite, naturally parameterized extremal coding problem rather than an arbitrary instance or restated special case.",
+    "status": "PASS"
+  }
+}
