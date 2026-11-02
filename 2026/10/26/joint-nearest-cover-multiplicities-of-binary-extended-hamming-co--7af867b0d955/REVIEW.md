@@ -1,15 +1,21 @@
-# Review of joint nearest-cover multiplicities
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a syndrome matrix, the column space must lie inside the span of its accessed affine parity-check columns. The first-coordinate functional divides the problem into two exact cases. In the nonzero-first-row case, affine bases of the syndrome image give all and only minimal supports; in the zero-first-row case, affine bases in translates of that image do so. The proof verifies that the uniquely determined coefficient matrices use every chosen column, rather than silently counting nonminimal supports. Gaussian rank enumeration gives the populations. Exact independent enumeration covered eight parameter pairs, including every one of 4096 syndromes in the \((m,t)=(3,3)\) case.
+## correctness
 
-## Originality
-**PASS with residual risk.** Elimelech–Wei–Schwartz (ISIT 2022, Proposition 11) already proved the *maximum* joint distance for this code family. The result here does not rename that fact: it distinguishes every syndrome's minimum access count and counts *all optimal access sets* with formulas depending on rank, parity, and a factorial quotient. Elimelech–Firer–Schwartz (2021) defines the model, while Li–Shangguan–Wei (2026) proves optimal *asymptotic rates*; neither yields this per-syndrome exact tie spectrum as a stated theorem. The geometric 2026 paper of Alfarano et al. is relevant; only its abstract was accessible, so implicit equivalent coverage there remains possible. Database searches were negative but are not proof of absolute priority.
+PASS
 
-## Value
-**PASS.** The exact number of equally optimal access choices controls redundancy and selection flexibility in joint linear queries. This is not merely another radius bound: two syndromes with the same optimal access count can have one or exponentially many optimum solutions. For fixed \(t\), the deepest \(2^{-t}\) fraction of syndromes in the limit carries \(\Theta(2^m)\) optimal corrections each. This all-parameter profile provides a natural finite-length benchmark for analyzing access ambiguity and tie handling.
+For extended Hamming parity-check columns h_a=(1,a), any optimal correction support spans W=im S of dimension r. If first syndrome row u!=0, an affine basis of W gives lambda=r and M=|GL_r(2)|/[(2^r-1)r!]. If u=0 and S!=0, W lies in linear hyperplane and needs r+1 affine support points; counting affine bases in cosets v+W gives M=2^m|GL_r(2)|/(r+1)!, lambda=r+1. S=0 has (0,1). Rank-matrix formula counts syndrome types; fixed t, as m grows, full rank in zero-top-row matrices occurs with probability tending to 2^-t and dominates expected leader number 2^(m-t)|GL_t(2)|/(t+1)!. Independently enumerated all 64 syndrome matrices for m=2,t=2 (joint (lambda,M) histogram 1,12,36,9,6 at respective pair types), matching proof. The source code enumerates several larger cases but code logs are not proof of the all-m,t statement.
 
-## Limitations
-The result covers a highly symmetric binary code family, not arbitrary linear codes. It does not bound physical decoder runtime or establish a priority claim beyond the sources examined. The recent geometric framework paper requires further full-text checking in an independent literature assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The maximum generalized covering radius of extended Hamming codes was previously proved (Elimelech–Wei–Schwartz, 2022, Prop 11); it is not new. The exact per-syndrome minimum column-support distance, number of distinct minimizers, rank distribution and resulting large list-size asymptotic are finer than the known maximum. Alfarano et al. 2026 investigate a finite-geometric broader framework, but its full text was inaccessible; their methods could already imply the affine-basis counts. Thus novelty is best-knowledge, not asserted from lack of search matches.
+
+## value
+
+PASS
+
+Joint column-support minimization is a natural multirequest decoding/query-access invariant; the complete nearest-cover leader profile and exponentially many optimal corrections in the maximal-radius minority are exact useful facts beyond the radius maximum. It is a meaningful infinite parameter classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

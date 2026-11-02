@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:57:46.476133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For extended Hamming parity-check columns h_a=(1,a), any optimal correction support spans W=im S of dimension r. If first syndrome row u!=0, an affine basis of W gives lambda=r and M=|GL_r(2)|/[(2^r-1)r!]. If u=0 and S!=0, W lies in linear hyperplane and needs r+1 affine support points; counting affine bases in cosets v+W gives M=2^m|GL_r(2)|/(r+1)!, lambda=r+1. S=0 has (0,1). Rank-matrix formula counts syndrome types; fixed t, as m grows, full rank in zero-top-row matrices occurs with probability tending to 2^-t and dominates expected leader number 2^(m-t)|GL_t(2)|/(t+1)!. Independently enumerated all 64 syndrome matrices for m=2,t=2 (joint (lambda,M) histogram 1,12,36,9,6 at respective pair types), matching proof. The source code enumerates several larger cases but code logs are not proof of the all-m,t statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elimelech–Wei–Schwartz, arXiv:2107.09902, Proposition 11, covers extended Hamming radius maximum.",
+          "Alfarano–Marino–Neri–Trombetti arXiv:2606.16669 develops geometric generalized-covering-radius analysis and could dominate this special case, but full text inaccessible."
+        ],
+        "reasoning": "A broader finite-geometric theorem could imply these counts, and cannot be excluded without full inspection. The inspected known radius statement itself is strictly weaker.",
+        "searches": [
+          "extended Hamming generalized covering radius joint syndrome minimal column support number closest error matrices multiplicity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2107.09902",
+        "https://arxiv.org/abs/2606.16669",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known covering-radius identity asserts existence of some syndromes attaining r+1, not their count nor number of corresponding minimal-support corrections."
+        ],
+        "reasoning": "The maximum generalized covering radius of extended Hamming codes was previously proved (Elimelech–Wei–Schwartz, 2022, Prop 11); it is not new. The exact per-syndrome minimum column-support distance, number of distinct minimizers, rank distribution and resulting large list-size asymptotic are finer than the known maximum. Alfarano et al. 2026 investigate a finite-geometric broader framework, but its full text was inaccessible; their methods could already imply the affine-basis counts. Thus novelty is best-knowledge, not asserted from lack of search matches.",
+        "searches": [
+          "extended Hamming generalized covering radius joint syndrome minimal column support number closest error matrices multiplicity",
+          "https://arxiv.org/abs/2107.09902",
+          "https://arxiv.org/abs/2606.16669"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is equivalently expressing a syndrome matrix using the smallest set of affine parity-check columns, not ordinary one-word Hamming coset leaders.",
+          "Generalized covering radius R_t=min(m,t)+1 only constrains a maximum over syndromes and does not determine optimal correction multiplicities."
+        ],
+        "reasoning": "Affine-basis counting gives a complete distribution across rank/top-syndrome classes; it is not a restatement of maximum-covering-radius results.",
+        "searches": [
+          "extended Hamming generalized covering radius joint syndrome minimal column support number closest error matrices multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No full (lambda,M) rank-stratified table for all (m,t) found in returned Resultary coding-theory hit summaries; individual known coset-leader distributions are not joint support-minimizer multiplicities."
+        ],
+        "reasoning": "The checked source statements and accessible indexes do not disclose the complete further exact classification as stated; lack of search results is not proof of historical absence.",
+        "searches": [
+          "extended Hamming generalized covering radius joint syndrome minimal column support number closest error matrices multiplicity"
+        ]
+      },
+      "rationale": "The maximum generalized covering radius of extended Hamming codes was previously proved (Elimelech–Wei–Schwartz, 2022, Prop 11); it is not new. The exact per-syndrome minimum column-support distance, number of distinct minimizers, rank distribution and resulting large list-size asymptotic are finer than the known maximum. Alfarano et al. 2026 investigate a finite-geometric broader framework, but its full text was inaccessible; their methods could already imply the affine-basis counts. Thus novelty is best-knowledge, not asserted from lack of search matches.",
+      "residual_risks": [
+        "Alfarano et al. 2026 full text inaccessible; could contain stronger exact affine-configuration enumerations.",
+        "Older finite-geometry or generalized coset-leader tables may imply counts under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers maximum radius, not directly the complete joint multiplicity distribution.",
+          "evidence": [
+            "Elimelech, Wei, Schwartz, ISIT 2022, Proposition 11: R_t=min(m,t)+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.09902",
+          "material_read": "Proposition 11 statement as cited/reconstructed in assigned source and accessible research index; full primary article not separately reopened.",
+          "method": "Comparison of exact radius statement and assigned fine rank formula.",
+          "title": "On the Generalized Covering Radii of Reed–Muller Codes",
+          "trigger": "Extended Hamming code is a Reed–Muller family with known R_t"
+        },
+        {
+          "assessment": "No whole-paper noncoverage conclusion; potential direct finite-geometric implication remains an explicit originality risk.",
+          "evidence": [
+            "Alfarano et al., arXiv:2606.16669 abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.16669",
+          "material_read": "Indexed abstract and bibliographic description only; full paper could not be obtained.",
+          "method": "Arxiv/open-access attempts then authorized institutional retrieval, blocked by disconnected VPN.",
+          "title": "A geometric approach to generalized covering radii of linear codes",
+          "trigger": "Potential stronger geometric theorem on same syndrome/affine geometries"
+        },
+        {
+          "assessment": "No explicit full-family leader formula found in returned summaries, not proof of absence.",
+          "evidence": [
+            "Query: extended Hamming generalized covering radius joint syndrome minimal column support number closest error matrices multiplicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Top 12 semantic search hits including related radius and support spectra, none directly matching the fine joint count.",
+          "method": "Resultary semantic search using quoted query.",
+          "title": "Published Resultary code-covering records",
+          "trigger": "Could contain identical per-syndrome leader profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint column-support minimization is a natural multirequest decoding/query-access invariant; the complete nearest-cover leader profile and exponentially many optimal corrections in the maximal-radius minority are exact useful facts beyond the radius maximum. It is a meaningful infinite parameter classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2107.09902",
+    "https://arxiv.org/abs/2606.16669",
+    "https://github.com/Resultary/2026",
+    "GitHub assigned source RESULT.md and verifier at exact inventory commit"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary extended Hamming codes, fixed m>=2,t>=1 and minimizing shared column support, not individual Hamming decoding.",
+    "Probability asymptotics assume uniform syndromes, not a communication noise channel.",
+    "All primary sources that could not be inspected in full have been identified; best-knowledge originality is not a certification.",
+    "Publication withheld due to confidential provenance and unsupported first-disclosure chronology in public metadata."
+  ],
+  "residual_risks": [
+    "Alfarano et al. 2026 full text inaccessible; could contain stronger exact affine-configuration enumerations.",
+    "Older finite-geometry or generalized coset-leader tables may imply counts under different terminology."
+  ],
+  "schema_version": 1
+}
