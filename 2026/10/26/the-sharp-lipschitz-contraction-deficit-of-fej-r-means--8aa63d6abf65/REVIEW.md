@@ -1,15 +1,21 @@
-# Scientific review: sharp Lipschitz contraction deficit of Fejér means
+# Independent mathematical audit
 
-## Correctness — PASS
-Mean-zero weak-derivative duality gives the exact median absolute-deviation representation, with explicit sign derivatives attaining the optimal constant. The sine-product factorization proves the odd-degree median. Fourier-character equidistribution and the bounded capped-kernel identity prove the sharp limit \(4/\pi^2\). The independent kernel-identity and quadrature checker passed; a finite checker is not an infinite proof.
+## correctness
 
-## Originality — PASS with residual risks
-The full-text comparison with Gaubert–Qu (arxiv:1302.5226) separates their oscillation/total-variation contraction from this Lipschitz seminorm. Mishra–Sonavane (DOI 10.7153/jca-06-11) address approximation errors of conjugate-series summability, and Kravitz–Steinerberger (arxiv:2007.13700) optimize discrete squared-derivative energies. Comparisons against published mathematics records and related Fejér oscillation results contained no logically dominating statement. In particular, the Fejér oscillation and Lipschitz sharp factors at order four differ. Older unindexed texts or tables may contain the formula; the searches do not certify uniqueness.
+PASS
 
-## Mathematical value — PASS
-The induced Lipschitz norm of the classical Fejér approximation operator is a standard, motivated stability quantity. Here it is evaluated sharply for every degree, extremizers are identified and the finite-size loss has the explicit leading coefficient \(4/\pi^2\). The result supplies a usable sharp roughness-control benchmark distinct from ordinary approximation-error estimates.
+Every periodic W^{1,infinity} derivative has mean zero and any bounded mean-zero function has a periodic Lipschitz primitive; commuting derivative with convolution reduces induced Lip seminorm to L∞–L¹ duality modulo constants. A median c of the nonconstant Fejér kernel minimizes absolute deviation; its zero-measure level sets yield an attained derivative sign(F_n-c). For odd n=2m+1, sign(F_n-1/n)=sign(sin((m+1)t)sin(mt)), which flips under t→t+pi, so c=1/n is median. Kernel F2/F3 give the exact cases. For asymptotics n F_n(t) converges weakly in distribution by joint torus Fourier-character equidistribution to H=sin²U/sin²V with independent U,V uniform, whose unique median is 1. Median convergence plus bounded truncation n(1-L_n)=2 E min(nF_n,c_n)-c_n avoids invalid unbounded dominated convergence. Integrating the two-angle triangle gives E min(H,1)=1/2+2/pi², yielding 4/pi². Fresh independent high-resolution midpoint quadrature verifies L2,L3, odd n median and n=200 limit approximation 0.405300 versus 0.405285, but unbounded n uses the rigorous proof.
 
-## Limitations
-Real periodic first-order Lipschitz functions only; no higher-dimensional or higher-order Cesàro analogue is claimed. No elementary median expression is asserted for general even degrees. No second asymptotic term or degree monotonicity is claimed. The theorem is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fejér kernel, L∞ duality to L¹ distance from constants and general Markov contraction theory are established classical tools. The assessed quantitative contribution is the exact sharp periodic Lipschitz seminorm, odd n explicit extremal signs and precise leading 4/pi² deficit coefficient. Inspected Gaubert–Qu treats a different Hopf oscillation seminorm, Mishra–Sonavane discusses approximation errors for conjugate means and Kravitz–Steinerberger derivative smoothing in l2, not this exact operator norm. A classical textbook or unindexed Fejér median calculation may nevertheless exist.
+
+## value
+
+PASS
+
+This sharp first-order contraction coefficient answers a natural stability question for classical Fejér summability on periodic Lipschitz functions, including exact extremizers and asymptotic rate. It is not merely another approximate-identity convergence estimate or unmotivated numeric constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

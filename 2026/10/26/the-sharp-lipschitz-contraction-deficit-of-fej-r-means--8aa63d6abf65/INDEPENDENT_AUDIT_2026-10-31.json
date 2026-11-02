@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every periodic W^{1,infinity} derivative has mean zero and any bounded mean-zero function has a periodic Lipschitz primitive; commuting derivative with convolution reduces induced Lip seminorm to L∞–L¹ duality modulo constants. A median c of the nonconstant Fejér kernel minimizes absolute deviation; its zero-measure level sets yield an attained derivative sign(F_n-c). For odd n=2m+1, sign(F_n-1/n)=sign(sin((m+1)t)sin(mt)), which flips under t→t+pi, so c=1/n is median. Kernel F2/F3 give the exact cases. For asymptotics n F_n(t) converges weakly in distribution by joint torus Fourier-character equidistribution to H=sin²U/sin²V with independent U,V uniform, whose unique median is 1. Median convergence plus bounded truncation n(1-L_n)=2 E min(nF_n,c_n)-c_n avoids invalid unbounded dominated convergence. Integrating the two-angle triangle gives E min(H,1)=1/2+2/pi², yielding 4/pi². Fresh independent high-resolution midpoint quadrature verifies L2,L3, odd n median and n=200 limit approximation 0.405300 versus 0.405285, but unbounded n uses the rigorous proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaubert–Qu operator norms concern Hopf oscillation/projective seminorm, not the derivative-based periodic Lipschitz seminorm",
+          "Kravitz–Steinerberger sharp derivative averaging objective is discrete l2 under kernel choice; Mishra–Sonavane bounds approximation error of a different summability method"
+        ],
+        "reasoning": "Those broader contexts do not dominate the specific induced seminorm or its 4/pi² coefficient merely because both use positive averaging kernels. Any general L¹ median-kernel theory would still require evaluating Fejér distribution at large n.",
+        "searches": [
+          "Gaubert and Qu Dobrushin ergodicity coefficient for Markov operators on cones and beyond arXiv1302.5226 Theorem1.1",
+          "Kravitz and Steinerberger The smoothest average: Dirichlet Fejer and Chebyshev arXiv2007.13700",
+          "Mishra and Sonavane 2015 JCA doi 10.7153/jca-06-11"
+        ]
+      },
+      "checked_sources": [
+        "Gaubert–Qu arXiv1302.5226 full primary PDF",
+        "Mishra–Sonavane doi10.7153/jca-06-11 referenced theorem scope",
+        "Kravitz–Steinerberger arXiv2007.13700 abstract/theorem scope",
+        "Resultary general and Fejér-specific searches",
+        "Git frozen RESULT.md, verify_fejer.py and metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Dobrushin coefficient applies to oscillation seminorm and cannot be substituted for Lipschitz derivative action",
+          "Prior Fejér or Fourier error estimates do not give the exact median normalization and first-order coefficient"
+        ],
+        "reasoning": "The new exact norm is not a direct logical consequence of the prior theorems as stated, although it uses basic norm duality. Its limiting coefficient needs two-scale Fejér distribution and capped-median evaluation.",
+        "searches": [
+          "Gaubert–Qu primary arXiv1302.5226 Sections1–2 Theorem1.1",
+          "Kravitz–Steinerberger arXiv2007.13700 title/theorem synopsis",
+          "Mishra–Sonavane JCA2015 Theorems3.1–3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duality identifies the problem with mean-zero L∞ kernel action and with distance in L¹(T) from constants, not the usual function oscillation norm",
+          "No exact matching Fejér median limit in Resultary near neighbors"
+        ],
+        "reasoning": "Equivalent formulations as a zero-mean derivative convolution norm and total absolute deviation from kernel medians were searched. Classical norm duality itself is not new; the odd-degree and asymptotic evaluations are the asserted distinctions.",
+        "searches": [
+          "Resultary: Fejer kernel Lipschitz seminorm sharp contraction median kernel absolute deviation 4 pi squared",
+          "Web: Fejér kernel median Lipschitz operator contraction 4 pi squared mean absolute deviation",
+          "GitHub research index: Fejer Lipschitz contraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary neighbors such as 2026/10/4/SCOPE-exact-second-discrete-fej-r-constant-on-the-q-8n-1-grid-at-degre--33419a5d1437 study a different finite discrete Fejér extremum",
+          "Fresh n=200 check n(1-L_n)=0.405300 compared with 4/pi²=0.4052847, not a priority source"
+        ],
+        "reasoning": "No prior exact constant/table match was found in the searches. Older books or handwritten formulas not in the index are an explicit risk.",
+        "searches": [
+          "Resultary Fejér Lipschitz median contraction exact constant search",
+          "Web Fejér median mean absolute deviation 4/pi squared",
+          "Web classical Fejér Cesàro kernel operator norm periodic Lip"
+        ]
+      },
+      "rationale": "The Fejér kernel, L∞ duality to L¹ distance from constants and general Markov contraction theory are established classical tools. The assessed quantitative contribution is the exact sharp periodic Lipschitz seminorm, odd n explicit extremal signs and precise leading 4/pi² deficit coefficient. Inspected Gaubert–Qu treats a different Hopf oscillation seminorm, Mishra–Sonavane discusses approximation errors for conjugate means and Kravitz–Steinerberger derivative smoothing in l2, not this exact operator norm. A classical textbook or unindexed Fejér median calculation may nevertheless exist.",
+      "residual_risks": [
+        "A classical Fourier-analysis source may already give the exact Fejér kernel median representation and the 4/pi² coefficient without modern terminology.",
+        "Proof covers real periodic Lipschitz seminorm only; no uniform approximation error or other Cesàro order statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general oscillation contraction, not the different derivative-Lipschitz norm or Fejér 4/pi² deficit",
+          "evidence": "web , ",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5226",
+          "material_read": "Full primary PDF introduction, definition of Hopf oscillation seminorm, Theorem 1.1 and its operator duality discussion in Sections 1–2",
+          "method": "arXiv lawful full-text PDF text and page screenshot",
+          "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+          "trigger": "Possible dominating Markov-contraction norm theorem"
+        },
+        {
+          "assessment": "Different l2 optimization variable; no whole-paper noncoverage assertion",
+          "evidence": "arXiv:2007.13700 author synopsis recorded in frozen primary references",
+          "identifier_or_url": "https://arxiv.org/abs/2007.13700",
+          "material_read": "Abstract and indexed statement of optimization for discrete derivative norms and competing averaging kernels, not complete paper",
+          "method": "lawful arXiv title/abstract and reference synopsis",
+          "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+          "trigger": "Similar sharp derivative-kernel smoothing optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharp first-order contraction coefficient answers a natural stability question for classical Fejér summability on periodic Lipschitz functions, including exact extremizers and asymptotic rate. It is not merely another approximate-identity convergence estimate or unmotivated numeric constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real periodic Lipschitz functions on T with normalized Haar measure, Fejér convolution T_n has exact seminorm contraction factor L_n=min_c∫|F_n-c|dμ with median extremizers, odd n>=3 median exactly 1/n, L2=2/pi, L3=8/(3pi), and lim_{n→∞} n(1-L_n)=4/pi².",
+  "limitations": [
+    "Real-valued periodic Lipschitz functions and ordinary first-order Fejér kernels; for even n the exact median is implicit, and only the leading deficit term is proved.",
+    "A classical Fourier-analysis source may already give the exact Fejér kernel median representation and the 4/pi² coefficient without modern terminology.",
+    "Proof covers real periodic Lipschitz seminorm only; no uniform approximation error or other Cesàro order statement."
+  ],
+  "schema_version": 1
+}
