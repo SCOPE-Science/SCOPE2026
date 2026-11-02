@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:52:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The negative-binomial pgf after independent Bernoulli thinning is [1+(p R/k)(1-z)]^{-k}. Standard Galton-Watson fixed-point theory gives zero survival for pR<=1. For positive survival s, the inverse p=Phi_k(s)/R with Phi_k(s)=k[(1-s)^(-1/k)-1]/s is continuous strictly increasing by its initial-interval-average integral formula. Set s=1-exp(-t), t>0; for 0<k1<k2 the ratio H(t)=k1/k2 (exp(t/k1)-1)/(exp(t/k2)-1) rises strictly from 1 to infinity since a/(1-exp(-at)) increases in a>0. Thus with R1>R2 exactly one H=R1/R2 crossing exists beyond p=1/R2 and the strict pre/post rankings follow. Matching p for both inverse maps handles all positive parameters; the physically meaningful thinning domain restricts p to [0,1]. Independent exact-algebraic extinction-root evaluation checks the 4,1/2 vs 3,1 crossing at 5/9 and the reversal at p=1/2 and p=1; finite checks do not replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lloyd-Smith et al, Nature 438 (2005), original 5-page article; model and control comparisons.",
+          "Sawaya and Klaere (2014), DOI 10.1186/2195-5832-1-10, addresses extinction comparisons across offspring laws.",
+          "Bürger (2026), DOI 10.1007/s00285-026-02349-7, addresses finite-generation survival bounds."
+        ],
+        "reasoning": "The broader existing pgf and extinction formulas do not by themselves imply the monotone ratio or exactly one crossing; the cited comparison/bounds do not state a stronger pairwise ranking classification. The 2005 supplement was not fully inspected.",
+        "searches": [
+          "negative binomial Galton Watson offspring overdispersed extinction survival probability crossings uniform thinning distinct reproduction means dispersion unique rank reversal",
+          "Sawaya Klaere 2014 extinction branching offspring moment distributions",
+          "Bürger 2026 survival probabilities finite generation Galton Watson"
+        ]
+      },
+      "checked_sources": [
+        "Lloyd-Smith et al (2005) doi:10.1038/nature04153, full original article",
+        "Sawaya–Klaere (2014) doi:10.1186/2195-5832-1-10, partial",
+        "Bürger (2026) doi:10.1007/s00285-026-02349-7, paper identification and relevant comparison",
+        "Resultary semantic search: negative binomial Galton Watson offspring overdispersed extinction survival probability crossings uniform thinning distinct reproduction means dispersion unique rank reversal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: individual survival follows fixed-point pgf; source also discusses whole-population contact reduction.",
+          "Claim: globally unique crossing when the higher mean has smaller dispersion; p* closed implicit formula, full strict ordering and p*<1 physical phase criterion."
+        ],
+        "reasoning": "The cited fixed-point premise can compute isolated crossings, but an all-parameter uniqueness theorem needs the additional strict derivative inequality. The source model is prior work, whereas this implication is additional.",
+        "searches": [
+          "negative binomial Galton Watson offspring overdispersed extinction survival probability crossings uniform thinning distinct reproduction means dispersion unique rank reversal",
+          "doi:10.1038/nature04153",
+          "doi:10.1186/2195-5832-1-10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lloyd-Smith et al 2005 gives the negative-binomial offspring generating function and compares varying k, R, and control effects.",
+          "The present level-set inverse mapping Phi_k(s)/R yields unique pairwise crossing across two varying parameters."
+        ],
+        "reasoning": "Equivalence would require a theorem about intersections of two negative-binomial extinction curves under common scaling, not merely equations for each independent curve. No such theorem was present in the materially inspected source.",
+        "searches": [
+          "negative binomial Galton Watson offspring overdispersed extinction survival probability crossings uniform thinning distinct reproduction means dispersion unique rank reversal",
+          "Galton Watson negative binomial survival probability level curve dispersion crossing",
+          "Lloyd-Smith et al 2005 full original PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact pairwise (R1,R2,k1,k2) crossing table/formula identified in Resultary top-ranked findings or searched published sources; earlier numeric extinction curves are different objects."
+        ],
+        "reasoning": "This is a continuous-parameter theorem, not a claimed missing value in an exhaustive sequence or finite database. A plotted numerical crossing would not establish uniqueness for every admissible parameter.",
+        "searches": [
+          "negative binomial Galton Watson offspring overdispersed extinction survival probability crossings uniform thinning distinct reproduction means dispersion unique rank reversal",
+          "negative binomial survival cross-over dispersion mean tabulation unique crossing"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the published negative-binomial branching and population-wide mean scaling are acknowledged premises, but the inspected primary research does not assert the complete pairwise single-crossing classification for distinct R and k. The new step is a global monotone ratio of inverse survival curves and a physical p<=1 criterion, not a new epidemic offspring model.",
+      "residual_risks": [
+        "The published 2005 supplementary content was not fully read; an earlier negative-binomial crossing theorem elsewhere may imply this.",
+        "The p>1 parameter extension is not actual independent thinning; claims of real-world intervention effectiveness are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published NB model and consequences; no global unique pairwise reversal theorem observed in inspected article",
+          "evidence": "Original paper pp.355-359 (Nature 438); original PDF https://jdyeakel.github.io/teaching/advtopicsecoevo/papers/LloydSmith_2005.pdf",
+          "identifier_or_url": "doi:10.1038/nature04153",
+          "material_read": "Full openly accessible 2005 primary article, model formulas and qualitative control discussion, text and PDF page image",
+          "method": "Read web PDF text and page screenshot",
+          "title": "Superspreading and the effect of individual variation on disease emergence",
+          "trigger": "Exactly same offspring law, dispersion and epidemic interventions"
+        },
+        {
+          "assessment": "Distinguish moment-based comparison from exact negative-binomial pairwise crossing; whole-document noncoverage not asserted",
+          "evidence": "Sawaya–Klaere (2014), Journal of Statistical Distributions and Applications 1:10",
+          "identifier_or_url": "doi:10.1186/2195-5832-1-10",
+          "material_read": "Source abstract and available discussion checked; complete article not reconstructed",
+          "method": "Web primary-source reading",
+          "title": "Extinction in a branching process: why some of the fittest strategies cannot guarantee survival",
+          "trigger": "Extinction comparison under unequal offspring variability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a natural ranking question for competing heterogeneous epidemic branching mechanisms controlled by a common parameter. It distinguishes a uniform physical thinning reversal from a purely formal p>1 extrapolation and gives a sharp unique crossing law across all positive mean/dispersion pairs, beyond routine single-curve evaluation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lloyd-Smith et al (2005) doi:10.1038/nature04153, full original article",
+    "Sawaya–Klaere (2014) doi:10.1186/2195-5832-1-10, partial",
+    "Bürger (2026) doi:10.1007/s00285-026-02349-7, paper identification and relevant comparison",
+    "Resultary semantic search: negative binomial Galton Watson offspring overdispersed extinction survival probability crossings uniform thinning distinct reproduction means dispersion unique rank reversal"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Applicability to Galton-Watson approximation, common p, fixed dispersions, and positive parameters only.",
+    "Novelty remains best-of-knowledge with 2005 supplement unread."
+  ]
+}

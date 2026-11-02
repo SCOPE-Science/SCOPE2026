@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The analytic verification uses the standard negative-binomial offspring pgf and the least fixed point of its generating function. The inverse survival map is a strict increasing average of a positive increasing integrand. The ratio of two such inverse maps reduces to a ratio of exponential increments whose logarithmic derivative is strictly positive. Therefore the global classification applies to every positive real parameter in its stated ordering, without relying on finite numerical sampling.
+## correctness
 
-The independent numerical reproduction file is `verify.py`. Run it with Python 3 and SciPy installed. It checks exact symbolic benchmark values by numeric evaluation, 2,500 random opposing-order parameter quadruples at the crossover and on both sides, and 2,000 same-order configurations. This program does not constitute exhaustive verification or independently performed mathematical auditing.
+PASS
 
-Numerical root solving can have floating-point limitations at extreme parameter ratios. The proof and statements specify continuous real parameter ranges; only the random tests are bounded ranges. Because physical independent Bernoulli thinning requires \(p\in[0,1]\), a mathematical crossover at \(p_*>1\) is not a possible thinning experiment. The theorem does not address finite-population epidemic final sizes, ongoing interventions changing offspring dispersion, or the transmission correlations characteristic of household and contact-network epidemics.
+The negative-binomial pgf after independent Bernoulli thinning is [1+(p R/k)(1-z)]^{-k}. Standard Galton-Watson fixed-point theory gives zero survival for pR<=1. For positive survival s, the inverse p=Phi_k(s)/R with Phi_k(s)=k[(1-s)^(-1/k)-1]/s is continuous strictly increasing by its initial-interval-average integral formula. Set s=1-exp(-t), t>0; for 0<k1<k2 the ratio H(t)=k1/k2 (exp(t/k1)-1)/(exp(t/k2)-1) rises strictly from 1 to infinity since a/(1-exp(-at)) increases in a>0. Thus with R1>R2 exactly one H=R1/R2 crossing exists beyond p=1/R2 and the strict pre/post rankings follow. Matching p for both inverse maps handles all positive parameters; the physically meaningful thinning domain restricts p to [0,1]. Independent exact-algebraic extinction-root evaluation checks the 4,1/2 vs 3,1 crossing at 5/9 and the reversal at p=1/2 and p=1; finite checks do not replace proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the published negative-binomial branching and population-wide mean scaling are acknowledged premises, but the inspected primary research does not assert the complete pairwise single-crossing classification for distinct R and k. The new step is a global monotone ratio of inverse survival curves and a physical p<=1 criterion, not a new epidemic offspring model.
+
+## value
+
+PASS
+
+This solves a natural ranking question for competing heterogeneous epidemic branching mechanisms controlled by a common parameter. It distinguishes a uniform physical thinning reversal from a purely formal p>1 extrapolation and gives a sharp unique crossing law across all positive mean/dispersion pairs, beyond routine single-curve evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
