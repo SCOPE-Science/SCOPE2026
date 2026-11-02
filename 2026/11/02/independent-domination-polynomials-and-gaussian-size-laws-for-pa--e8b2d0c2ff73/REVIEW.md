@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The proof reduces independent dominating sets to unique sequences of full-fiber nodes and monochromatic singleton runs. Boundary behavior, single- versus double-zero separators, weights, and the one exceptional optimum word are explicitly handled. The matrix gives every coefficient, while positive transfer singularities and two unequal-length positive loops yield the stated Gaussian law and positive variance. Original graph enumeration, independent fiber checking, and a node transfer check agree in the packaged finite cases. Computations are finite diagnostics, not the infinite proof.
+
+**Originality: PASS with residual priority risk.** Kuenzel–Rall (2019), arXiv:1901.03218, already classify admissible fiber labels by general weak partitions; Kuenzel–Rall (2022), arXiv:2203.12397, already give the minimum independent-domination number for path–clique direct products and explicit optimal patterns. These facts are not claimed as new. Jahari–Alikhani (2018), arXiv:1808.07369, define the independent-domination polynomial and enumerate other graph classes. The new quantitatively evaluated rational generating function, exact optimal multiplicities, Gaussian size distribution, and exponential rarity were not found in the inspected material. The 2019 general feasibility characterization could enable another derivation; unindexed equivalent enumerations remain a genuine risk.
+
+**Value: PASS.** The existing exact minimum does not describe multiplicity, the counts of nonoptimal maximal independent sets, or their typical size. The full distribution and CLT distinguish an optimal solution from a uniformly sampled inclusion-maximal solution on the same natural infinite product family. This is not merely renaming a graph parameter or re-running a table: it gives an exact bivariate generating function, closed optimal counts, and an asymptotic distribution with a strictly positive variance.
+
+**Scope and scientific risks.** Fixed \(q\ge3\); no extension to \(q=2\) or growing \(q\). The original general weak-partition criterion is a strong precursor, and literature priority cannot be certified from finite searches. No external mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
