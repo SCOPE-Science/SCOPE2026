@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is an all-finite-base theorem with explicit quantifiers. Finite rotations are connected to stabilizer orbits by a canonical unique-maximum representative, a proved surjective restriction argument, and the published global-extension theorem. The reversal and mixed-coset dichotomies follow from comparability and the dual action on the three labeled rotation classes. The extremal cases follow from the exact maximal-subset count and an elementary comparability-component characterization. Exhaustive independent enumeration for base sizes one through five agrees with all formulas, but the infinite proof is structural and does not depend on enumeration.
+## correctness
 
-**Originality — PASS, with substantive residual risk.** The 2011 five-group classification and the 2012 finite-rotation theorems are explicitly prior, and the previously published unbased group-orbit profile already uses unique-maximum normalization. The present claim resolves the *conditional pointwise-stabilizer fibers* of all five groups for every finite named base, including an exact combinatorial formula for turning types, the reversal/turning coincidence criteria, sharp extrema, and the exact all-five separating bases. The previously published unbased orbit numbers alone do not determine these conditional counts. Nevertheless, a terse implicit deduction may exist in the earlier rotation papers; independent novelty review is warranted.
+PASS
 
-**Mathematical value — PASS.** Pointwise-stabilizer orbits quantify which finite parameters distinguish automorphism-group reducts. The result provides a complete and nonconstant spectrum, proves a rigidity threshold (a comparable pair eliminates reversal effects; one oriented triple eliminates mixed effects), and classifies precisely the bases whose scalar nonalgebraic type counts separate all five groups. It also identifies sharp global extrema through natural poset classes, rather than a selected arbitrary finite census.
+Homogeneity identifies ordinary one-point types with admissible strict downset/upset pairs. A global reversal fixes the individually named base only if it is an antichain. For turning groups, finite rotation theory supplies a unique canonical representative whose new point is the sole greatest element, identifying one-point turning types with labeled rotations of A. Published maximal-set uniqueness characterizes those rotations by the nonempty two-level-complete induced subsets M. The extra reversal coset fixes A up to rotation iff every labeled base triple lies in the dual-invariant O1 class, i.e. A is two-level complete; Burnside on rotated antichain types yields the 2^(n-1) value. Absence of three-element O1 configurations precisely means at most two disjoint chains; this proves sharp extrema. The checker was read; independently enumerated all 242 labeled posets through n=4 and 4472 one-point extensions and compared signature fiber counts to rho.
 
-**Closest literature and limitations.** The primary sources are the reduct classification (arXiv:1111.7109) and finite rotations (arXiv:1208.3504). The closest published neighboring result is the 2026-09-30 unbased ordered-tuple orbit-profile record, whose `RESULT.md` was read and compared. Proof ingredients are inherited; the structural marked-base orbit correspondence and accompanying case distinctions are the assessed additions. No independent audit, external proof assistant, or global novelty certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for CONDITIONAL pointwise-stabilizer orbit fibers. The Pach–Pinsker–Pluhár–Pongrácz–Szabó reduct classification and Pach–Pinsker–Pongrácz–Szabó rotation theorem are substantive prior structure. A published Resultary finding gives unbased injective tuple-orbit counts p_k,(p_k+1)/2,p_(k-1),... and already uses the canonical greatest-point argument. Those marginal arity counts do not determine exact orbit fibers over each fixed finite ordered base. However many ingredients are direct consequences of published finite rotations and implicit conditional formulas remain a priority risk.
+
+## value
+
+PASS
+
+Pointwise-stabilizer orbits over named parameters are the natural fine invariants of homogeneous permutation groups. The formulas determine exactly how finite parameter order affects each reduct, classify sharp extremizers and the minimal base distinguishing all five groups by scalar one-type counts. This is a structural classification of all finite bases, not a finite example or a reprint of unbased orbit sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
