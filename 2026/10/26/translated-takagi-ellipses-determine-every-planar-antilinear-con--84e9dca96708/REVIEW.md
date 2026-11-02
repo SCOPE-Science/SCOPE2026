@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(q\) and planar conjugate-linear operator, the proof explicitly transforms the constrained bilinear expression to a convex combination of points on two nested ellipses plus a fixed complex skew translation. The ray-through-an-interior-point lemma establishes that these combinations exhaust the larger filled ellipse, not merely its boundary. Independent determinant phase supplies all radial directions, giving exactly the stated annulus; degenerate ellipses and the \(q=1\) endpoint are covered. The axial maximizer transition follows from a concave quadratic and is sharp. The reproducible finite checker tests the expansion, nestedness, axial extrema and limiting examples, but no finite enumeration is offered as an infinite proof.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+For any conjugate-linear A on a complex two-space and |q|=r<=1, reconstruct B=M*, its symmetric Takagi diagonal form diag(a,b), a>=b>=0, and skew coefficient kappa. With alpha=(1+r)/2, beta=(1-r)/2, tau=sqrt(1-r^2), h=alpha*a-beta*b, v=alpha*a+beta*b, c=tau*kappa, constrained bilinear values after a freely rotating determinant phase equal a convex combination of points on two centered nested ellipses minus c. The segment-union lemma fills the larger ellipse, including line/point degeneracies, so continuous radial moduli cover exactly [dist(c,E),maxdist(c,E)]. For real kappa, maximizing v^2+d^2-(v^2-h^2)cos^2(theta)-2dh cos(theta) gives the asserted dh=Delta transition; minimum equals (d-h)+. Independently recomputed the bilinear formula, overlap and ellipse containment for 200 complex random orthonormal bases and parameters, without using the submitted checker. These are finite diagnostics only; universality is supplied by the algebraic ellipse proof.
 
-The close 2026 source proves the general annular shape for planar antilinear \(q\)-numerical ranges but does not provide radii for arbitrary nonsymmetric maps. Li–Tam 2000 explains symmetric and skew congruence ranges and convexity, including the special \(n=2\) skew-circle case, but its inspected statements do not give the coupled overlap-constrained Takagi translation or the sharp axial outer-extremizer change. The old symmetric-congruence case discards the skew part; the skew-congruence case discards the symmetric part, so neither comparison implies the new coupled theorem alone. Earlier restricted antiunitary and quaternionic-root formulas are acknowledged as special cases. The inaccessible Thompson 1980 text and potentially related historical matrix-congruence computations remain a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural two-complex-dimensional non-Hilbert-linear numerical-range problem had an annularity theorem without an arbitrary-matrix quantitative classification. This theorem supplies every exact radius via an intrinsic canonical Euclidean object, a closed-form hole/no-hole test (including singular maps), and a sharp transition in the number of outer extremizers. The classification is structurally meaningful independently of whether a radicals-only quartic expression is desired.
+The arbitrary nonsymmetric two-dimensional conjugate-linear range is reduced to the exact translated Takagi ellipse, with a skew-sensitive inner/outer radius prescription and sharp axial bifurcation. Prior annularity alone and separate symmetric/skew unitary-congruence results do not logically determine these coupled radii. A highly relevant 2026 same mathematical model preprint was identified, but its complete text could not be accessed; the best-of-knowledge PASS is explicitly qualified by possible stronger prior coverage. No historical firstness is certified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The constrained numerical range of a general nonnormal planar antilinear operator is a natural operator invariant; complete radii and a hole criterion solve a genuine quantitative gap beyond proving its circular symmetry. The outer-extremizer bifurcation identifies a nontrivial geometric boundary. This is not merely substituting parameters into the known shape theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
