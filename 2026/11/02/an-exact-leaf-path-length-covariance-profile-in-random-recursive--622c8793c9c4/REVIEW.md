@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Final-leaf conditioning removes one possible parent independently at each later insertion; the resulting exact conditional-depth recurrence is solved by an elementary harmonic identity. Summing the proven local covariances telescopes to \( -(n-2)/4\). The adjacent-difference identity gives global unimodality, and the harmonic approximation identifies the unique limiting peak. A packaged, dependency-free verifier enumerates every increasing tree through size nine and checks all local and global identities by exact rational arithmetic; finite tests supplement but do not establish the infinite theorem.
+
+**Originality — PASS, with residual priority risk.** Actual published-record and external literature searches for mixed leaf/path-length covariance, conditional leaf regression and insertion-age profiles identified two close but non-dominating results: attachment-to-root covariance with leaf count, and attachment-to-root covariance with path length. Neither fixes the leaf/path-length mixed moment. Leckey–Neininger (arXiv:1202.2439) analyzes the separate marginal statistics (the primary full text was examined), not the stated cross-covariance. Dobrow–Fill (1999) treats path-length marginal moments, though only its accessible abstract was compared. Older combinatorial bivariate enumerators or unretrieved full texts could provide equivalent coverage.
+
+**Mathematical value — PASS.** A global leaf-count statistic and a global depth-cost statistic interact through a sharply localized insertion-age profile; the maximal effect comes from an interior age fraction \(1/e\). This resolves both the exact sign and order of covariance and reveals how late-arrival leaves, though numerous, individually matter little for path length. It adds a motivated joint structural law beyond known one-dimensional expectations and variances.
+
+Self-review: passed. Independent audit: not yet performed.

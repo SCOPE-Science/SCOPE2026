@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Independent attachment choices imply P(marked leaf)=(i-1)/(n-1). Conditional future choices avoid exactly one parent, yielding t*_(m+1)=[m/(m-1)]t*_m+1-H_(i-1)/(m-1), with unchanged depth of vertex i. Subtract the unconditional exact t_m=m(H_m-1) and induct to obtain a negative harmonic-tail shift. Multiply by leaf probability, exchange finite sums to obtain -(n-2)/4, and use exact adjacent differences plus harmonic approximations to prove a unique asymptotic peak at i/n=1/e. All boundary cases n=2, i=n, i=2 included. The packaged standard-library verifier checked exact enumeration through n=9 and exact finite identities through n=200; numerical large-n checks are not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leckey–Neininger, Theorems 2.5 and 2.6 separately give leaf count moments and internal-path-length moments for a root-biased family; no joint moment follows from separate marginal information.",
+        "Dobrow–Fill 1999 abstract treats path-length moments and limiting law."
+      ],
+      "reasoning": "The broader Hoppe-tree family contains the uniform model, but the inspected results do not furnish this cross-statistic law. The 1999 full text was not accessible, leaving residual coverage risk.",
+      "searches": [
+        "random recursive tree covariance number of leaves and total path length equals minus (n minus two)/four exact",
+        "total path length and external leaf-depth path length random recursive tree mixed moments",
+        "random recursive tree covariance leaves total path length exact covariance number leaves total path length",
+        "arXiv:1202.2439",
+        "DOI:10.1017/S0963548399003855"
+      ]
+    },
+    "checked_sources": [
+      "Leckey and Neininger (2012), arXiv:1202.2439: full primary text.",
+      "Dobrow and Fill (1999), DOI:10.1017/S0963548399003855: abstract and publisher description.",
+      "Published research record searches on local marked-leaf conditional expectation, mixed moments, and equivalent variants.",
+      "External research searches on leaf/path length covariance and bivariate laws.",
+      "Accessible earlier recorded claims checked for mathematical overlap only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published root-attachment versus leaf-count covariance is an inner product of two different observables.",
+        "A published root-attachment versus total-path-length covariance is another pair of statistics.",
+        "Leckey–Neininger gives marginal means and variances, not the cross moment."
+      ],
+      "reasoning": "Neither knowing two covariances with a third statistic nor knowing each marginal law determines the covariance between the two observables. The exact conditional-on-leaf recursion is not a corollary of those cited statements without an additional argument.",
+      "searches": [
+        "random recursive tree covariance number of leaves and total path length equals minus (n minus two)/four exact",
+        "random increasing recursive tree leaf indicator at arrival index conditioned final leaf versus total internal path length covariance -(i-1)/(n-1) harmonic tail",
+        "random recursive tree number of leaves total internal path length joint covariance -(n-2)/4 and maximizing leaf effect at n/e",
+        "arXiv:1202.2439"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the uniform recursive-tree attachment representation, a marked vertex being a final leaf means every later parent avoids that vertex. This is equivalent to a modified-parent-choice conditioned path-length regression.",
+        "Leckey and Neininger, arXiv:1202.2439, Secs. 2–3 (full text)."
+      ],
+      "reasoning": "Searched both negative covariance wording and equivalent leaf-event conditioning; no inspected result gives the same conditioned path-length regression.",
+      "searches": [
+        "random recursive tree joint distribution of leaf count and internal path length covariance negative",
+        "random increasing recursive tree leaf indicator at arrival index conditioned final leaf versus total internal path length covariance -(i-1)/(n-1) harmonic tail",
+        "joint distribution leaves total path length random recursive tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record search returned a root-degree/leaf-count covariance and a root-attachment/path-length covariance, rather than a number-of-leaves/total-path-length covariance.",
+        "Accessible existing mathematical claims concern other random structures and no recursive-tree local leaf/path-length profile was identified."
+      ],
+      "reasoning": "No exact leaf/path-length moment table was identified in the searched records or the accessible historical claims. Absence from search results alone is not a novelty proof.",
+      "searches": [
+        "random recursive tree covariance number of leaves and total path length equals minus (n minus two)/four exact",
+        "random recursive tree number of leaves total internal path length joint covariance -(n-2)/4 and maximizing leaf effect at n/e",
+        "\"leaves\" \"path length\" \"covariance\" \"recursive trees\""
+      ]
+    },
+    "rationale": "Primary full-text comparison of Leckey–Neininger 2012 found separate leaf and internal-path-length moments and no local conditional covariance. The 1999 Dobrow–Fill abstract treats marginal path-length moments; Published research records include nearby attachment-root/leaf and attachment-root/path-length results, with different statistic pairs and no implication fixing the mixed leaf/path-length moment. The exact per-vertex harmonic profile and global covariance remain uncovered in inspected sources, subject to acknowledged historical coverage uncertainty.",
+    "residual_risks": [
+      "The 1999 path-length paper full text was unavailable; its abstract does not exclude an unadvertised bivariate identity.",
+      "An older general multivariate enumerator of random increasing trees could imply the result without naming it directly.",
+      "The peak location and harmonic covariance law are elementary consequences of the conditioned-attachment recurrence; absolute novelty cannot be proved by search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal leaf and path-length results, but no exact covariance between those statistics nor marked-leaf conditional profile.",
+        "evidence": [
+          "Theorem 2.5 gives leaf moments and asymptotic normality; Theorem 2.6 gives internal path-length moments and martingale; no covariance or joint theorem in inspected full text."
+        ],
+        "identifier_or_url": "arXiv:1202.2439; https://www.math.uni-frankfurt.de/~neiningr/leckey.pdf",
+        "material_read": "Author-hosted 11-page primary PDF: introduction, Theorems 2.5–2.7, proof sections, bibliography; textual search for joint and covariance.",
+        "method": "Read relevant full-text page ranges and inspected theorem statements and proof structure.",
+        "title": "Asymptotic analysis of Hoppe trees",
+        "trigger": "Both leaf number and internal path length appear together in its abstract and main theorems."
+      },
+      {
+        "assessment": "Abstract describes path-length moments and limiting distribution, not leaf conditioning, but cannot rule out unadvertised joint calculations.",
+        "evidence": [
+          "Published online 1999-07-01, introduction to total path length and its moments."
+        ],
+        "identifier_or_url": "DOI:10.1017/S0963548399003855; https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/total-path-length-for-random-recursive-trees/FDA48E70E384342C0D8ABC47B510BCF4",
+        "material_read": "Public article landing page and complete abstract only; primary full text inaccessible.",
+        "method": "Read publisher abstract and bibliographic description.",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Foundational paper on the same total-depth functional."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "622c8793-c9c4-4949-bee4-0f527040e7eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf count and total root-to-vertex distance are separate, established descriptors of branching topology and search cost. Their joint dependence is not determined by existing marginal laws. The exact negative covariance and label-resolved harmonic influence explain which arrival ages contribute, with the strongest local contribution sharply at an interior fraction 1/e, whereas recent vertices contribute vanishingly. This provides a motivated global and local structural statement beyond a trivial finite computation.",
+    "status": "PASS"
+  }
+}
