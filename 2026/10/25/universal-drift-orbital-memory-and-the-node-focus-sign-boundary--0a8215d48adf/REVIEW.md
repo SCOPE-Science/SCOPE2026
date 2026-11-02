@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For arbitrary real stable \(2\times2\) drift \(B\) and positive-definite diffusion \(D\), the identity \(B^{\mathsf T}Q+QB=(\operatorname{tr}B)Q\) is reconstructed directly from the displayed torque quadratic form. Generator action and stationarity establish the exact centered eigenfunction and exponential correlation; Gaussian Wick identities establish the variance and characteristic function; the quadratic determinant identity proves the exhaustive support classification including both repeated-root cases. The integral variance follows by double integration. The standalone checker passed 77 deterministic exact and independent numerical assertions on all classifications. This is a proof-based finite-dimensional result, not a finite-simulation extrapolation.
+## correctness
 
-## Originality — PASS, subject to scholarly priority risk
-The 2018 multivariate OU literature already supplies Gaussian covariances and standard coordinate time correlations; this work does not claim those ingredients. The 2023/2024 Brownian-gyrator literature studies the full noisy increment angular momentum and angular velocity, which differ from the explicitly isolated deterministic drift quadratic form. The research comparison did not identify a direct equivalent statement of the universal drift-wedge eigenfunction together with the sharp node/focus support trichotomy. The result could follow from general Gaussian-polynomial calculations; independent assessment of whether it has been recognized elsewhere remains necessary.
+PASS
 
-## Scientific value — PASS
-The result isolates a well-defined drift-activity observable from derivative noise, yields a single reproducible dynamical rate despite multiple coordinate relaxation rates, and exactly classifies whether excursions of opposite rotational sign can occur from the deterministic flow. The classification is uniform in an unrestricted positive-definite diffusion matrix and persists across nonnormal and defective drifts; it supplies a benchmark and a sharp interpretive boundary for gyrator-style transport. No large-system thermodynamic claims follow.
+For stable real 2x2 drift B with trace k>0, detB>0 and SPD diffusion D, Q=[[-c,(a-d)/2],[(a-d)/2,b]] has B^T Q+QB=kQ (verified symbolically). The quadratic observable X^T Q X has generator L(T-mu)=-k(T-mu), mu=tr(QS), S>0 solves BS+SB^T=2D. Stationary conditional expectation then gives Cov=V exp(-k|t|) with V=2tr((S^{1/2}QS^{1/2})^2)>0 unless Q=0. Gaussian determinant identity yields characteristic function; integrated variance follows explicit kernel integral. detQ=detB-k^2/4=-Delta/4 gives indefinite/node both signs, definite/focus strict one sign, rank1 repeated-root one sign, scalar B activity 0. Independently checked symbolic 2x2 identity, 3 rational Lyapunov examples and finite lag Wick correlation.
 
-## Residual limitations
-The full Dutta–Saha source was not accessible during the final source comparison, although its archived preprint abstract and excerpts were available; an accessible Viot et al. manuscript and the full 2018 OU reference were inspected. Potential broader quadratic-Gaussian functional identities require external independent priority review. The soft-mode Brownian-ellipsoid example extends beyond the small-coupling physical regime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The drift-only wedge is not pathwise stochastic angular velocity and has an exact one-dimensional generator eigenspace for any stable planar B and SPD noise; Godreche-Luck supplies general OU covariance but does not expressly state this distinguished observable/sign trichotomy, and Viot et al. study noise-containing increment angular momentum. General quadratic OU polynomial eigenfunctions create a plausible equivalence risk, stated explicitly.
+
+## value
+
+PASS
+
+A physically motivated observable has universal single-time-scale memory independent of nonnormality, oscillations, and diffusion anisotropy, plus sharp node/focus sign-support boundary and exact integrated variance. This is substantive spectral/observable structure rather than routine computation of one covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

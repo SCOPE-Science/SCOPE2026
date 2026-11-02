@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T23:02:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stable real 2x2 drift B with trace k>0, detB>0 and SPD diffusion D, Q=[[-c,(a-d)/2],[(a-d)/2,b]] has B^T Q+QB=kQ (verified symbolically). The quadratic observable X^T Q X has generator L(T-mu)=-k(T-mu), mu=tr(QS), S>0 solves BS+SB^T=2D. Stationary conditional expectation then gives Cov=V exp(-k|t|) with V=2tr((S^{1/2}QS^{1/2})^2)>0 unless Q=0. Gaussian determinant identity yields characteristic function; integrated variance follows explicit kernel integral. detQ=detB-k^2/4=-Delta/4 gives indefinite/node both signs, definite/focus strict one sign, rank1 repeated-root one sign, scalar B activity 0. Independently checked symbolic 2x2 identity, 3 rational Lyapunov examples and finite lag Wick correlation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Godreche and Luck, Characterising nonequilibrium stationary states of Ornstein-Uhlenbeck processes, arXiv:1807.00694, sections 2 covariance formalism",
+        "Viot et al., Destructive effect of fluctuations on the performance of a Brownian gyrator, arXiv:2307.05248/Soft Matter 20 (2024), §§2-3 and supplement",
+        "Dutta and Saha, Microscopic Gyration with Dissipative Coupling, arXiv:2308.02085",
+        "Resultary published findings search: planar Ornstein Uhlenbeck wedge drift angular momentum quadratic eigenfunction trace autocorrelation sign discriminant Brownian gyrator"
+      ],
+      "rationale": "The drift-only wedge is not pathwise stochastic angular velocity and has an exact one-dimensional generator eigenspace for any stable planar B and SPD noise; Godreche-Luck supplies general OU covariance but does not expressly state this distinguished observable/sign trichotomy, and Viot et al. study noise-containing increment angular momentum. General quadratic OU polynomial eigenfunctions create a plausible equivalence risk, stated explicitly.",
+      "residual_risks": [
+        "General OU quadratic-polynomial spectral theorems may contain the wedge eigenfunction as an explicitly documented corollary; a first-to-prove claim is not made.",
+        "Physical experimental total angular-momentum observables differ from the drift-only one; no assertion for Brownian sample-path angular derivatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT the drift-only quadratic activity: includes noise in increments and related fluctuation tails, so its distribution does not imply the stated eigenfunction law for X wedge(-BX).",
+          "evidence": "Viot et al. supplement S12 has time-discretized velocities; present T depends only on the instantaneous state X.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+          "material_read": "Primary full text Sections 2-3 and supplementary stochastic angular-momentum equation S12, specifically discretized increments and noise-dependent angular velocity.",
+          "method": "full scientific text and relevant supplementary derivation inspected",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Same Brownian gyrator angular activity terminology"
+        },
+        {
+          "assessment": "General covariance theory provides inputs but no reviewed exact wedge eigenfunction or sign-support statement; whole-document noncoverage is NOT asserted.",
+          "evidence": "General stationary multivariate OU formalism includes arbitrary linear drift, Lyapunov covariance, irreversibility.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+          "material_read": "Accessible abstract and cited covariance sections 2.1-2.2, 2.6, 2.10 as described in candidate paper; primary full text not independently checked here.",
+          "method": "abstract and identified theorem/section contextual inspection",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+          "trigger": "Broad multivariate OU covariance/irreversible currents might imply theorem"
+        },
+        {
+          "assessment": "Shared special model and mean gyration, not verified as covering all stable planar drifts or exact drift-only autocorrelation; unresolved full-text priority.",
+          "evidence": "Special symmetric B example contained inside theorem; parameter-dominance does not establish statistics.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.02085",
+          "material_read": "Accessible abstract and cited mean-gyration context only; no independent full-text reading this run.",
+          "method": "targeted background/abstract inspection",
+          "title": "Microscopic Gyration with Dissipative Coupling",
+          "trigger": "Same dissipatively coupled Brownian ellipsoid model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically motivated observable has universal single-time-scale memory independent of nonnormality, oscillations, and diffusion anisotropy, plus sharp node/focus sign-support boundary and exact integrated variance. This is substantive spectral/observable structure rather than routine computation of one covariance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Godreche and Luck, Characterising nonequilibrium stationary states of Ornstein-Uhlenbeck processes, arXiv:1807.00694, sections 2 covariance formalism",
+    "Viot et al., Destructive effect of fluctuations on the performance of a Brownian gyrator, arXiv:2307.05248/Soft Matter 20 (2024), §§2-3 and supplement",
+    "Dutta and Saha, Microscopic Gyration with Dissipative Coupling, arXiv:2308.02085",
+    "Resultary published findings search: planar Ornstein Uhlenbeck wedge drift angular momentum quadratic eigenfunction trace autocorrelation sign discriminant Brownian gyrator"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General OU quadratic-polynomial spectral theorems may contain the wedge eigenfunction as an explicitly documented corollary; a first-to-prove claim is not made.",
+    "Physical experimental total angular-momentum observables differ from the drift-only one; no assertion for Brownian sample-path angular derivatives."
+  ],
+  "residual_risks": [
+    "General OU quadratic-polynomial spectral theorems may contain the wedge eigenfunction as an explicitly documented corollary; a first-to-prove claim is not made.",
+    "Physical experimental total angular-momentum observables differ from the drift-only one; no assertion for Brownian sample-path angular derivatives."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT the drift-only quadratic activity: includes noise in increments and related fluctuation tails, so its distribution does not imply the stated eigenfunction law for X wedge(-BX).",
+      "evidence": "Viot et al. supplement S12 has time-discretized velocities; present T depends only on the instantaneous state X.",
+      "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+      "material_read": "Primary full text Sections 2-3 and supplementary stochastic angular-momentum equation S12, specifically discretized increments and noise-dependent angular velocity.",
+      "method": "full scientific text and relevant supplementary derivation inspected",
+      "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+      "trigger": "Same Brownian gyrator angular activity terminology"
+    },
+    {
+      "assessment": "General covariance theory provides inputs but no reviewed exact wedge eigenfunction or sign-support statement; whole-document noncoverage is NOT asserted.",
+      "evidence": "General stationary multivariate OU formalism includes arbitrary linear drift, Lyapunov covariance, irreversibility.",
+      "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+      "material_read": "Accessible abstract and cited covariance sections 2.1-2.2, 2.6, 2.10 as described in candidate paper; primary full text not independently checked here.",
+      "method": "abstract and identified theorem/section contextual inspection",
+      "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+      "trigger": "Broad multivariate OU covariance/irreversible currents might imply theorem"
+    },
+    {
+      "assessment": "Shared special model and mean gyration, not verified as covering all stable planar drifts or exact drift-only autocorrelation; unresolved full-text priority.",
+      "evidence": "Special symmetric B example contained inside theorem; parameter-dominance does not establish statistics.",
+      "identifier_or_url": "https://arxiv.org/abs/2308.02085",
+      "material_read": "Accessible abstract and cited mean-gyration context only; no independent full-text reading this run.",
+      "method": "targeted background/abstract inspection",
+      "title": "Microscopic Gyration with Dissipative Coupling",
+      "trigger": "Same dissipatively coupled Brownian ellipsoid model"
+    }
+  ]
+}
