@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Verified nine stabilizer generators are independent and mutually commuting; complete enumeration of all 512 stabilizers confirms minimum nonidentity weight 12. The local 9-by-8 symplectic syndrome rank criterion exactly characterizes supported logical dimension on four erasures. Exhaustive integer rank census classifies all 4845 four-sets as 3840 with dimension 0, 970 with dimension 1, and 35 with dimension 2, with no higher case. Separately written Python enumerates all 4^4 local Paulis for every set, reconstructs exactly the same histogram and confirms all 35 two-dimensional cases are commuting; it recovers the source total of 1075 weight-four logicals. The complete C++ census confirms every one of the 2^20 erasure patterns and the size-at-least-five obstruction follows from 2|E|>9 and weight-12 stabilizer minimum. Hence exact independent-erasure success polynomial is proved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dzoba Section 4 establishes an exact distance-four code and minimum-weight logical count, not the complete erasure-support rank spectrum.",
+        "The general stabilizer Knill–Laflamme and binary symplectic formalism gives the criterion, not the numerical distribution for this source-specific matrix."
+      ],
+      "reasoning": "General quantum-code distance at four ensures any erasure set of at most three qubits is correctable, but cannot determine which four-sets are safe. The published weight-four logical tally does not encode support coincidences or which pairs commute. No reviewed broader theorem dominates the proposed concrete spectrum.",
+      "searches": [
+        "[[20,11,4]] quantum stabilizer erasure correctable set enumerator weight erasure failure polynomial 2026 Dzoba",
+        "Dzoba [[20,11,4]] erasure profile supported logical subspaces dimensions 0 1 2",
+        "https://arxiv.org/html/2610.24025v1",
+        "https://arxiv.org/abs/2610.24025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.24025v1",
+      "https://arxiv.org/html/2610.24025v1",
+      "https://arxiv.org/src/2610.24025v1/anc/quantum/q20_11_4_paulis.txt",
+      "Calderbank–Rains–Shor–Sloane 1998",
+      "published-finding corpus source-specific searches listed in four comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: source stabilizer minimum weight 12, weight-four logical count 1075, and [[20,11,4]] distance.",
+        "New: 1005 distinct weight-four logical supports consisting of 970 one-dimensional and 35 commuting two-dimensional spaces; 3840 safe four-sets and exact reliability polynomial."
+      ],
+      "reasoning": "An aggregate 1075 minimum-weight operator count permits different support multiplicities and does not mathematically force a histogram of 1005 failing sets, let alone the 35 commuting pairs. The exact local-support rank census supplies that missing information, while the five-erasure failure deduction is correctly recognized as a dimension argument rather than a separate novelty claim.",
+      "searches": [
+        "[[20,11,4]] quantum stabilizer erasure correctable set enumerator weight erasure failure polynomial 2026 Dzoba",
+        "[[20,11,4]] 35 four-qubit erasure sets three logicals 970 3840 1005 2026",
+        "https://arxiv.org/html/2610.24025v1",
+        "https://arxiv.org/src/2610.24025v1/anc/quantum/q20_11_4_paulis.txt"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a pure stabilizer code, correctable erasure sets are exactly supports that contain no nontrivial local centralizer; the equivalent binary rank test is established directly in the proof.",
+        "Source paper Section 4 states 1075 weight-four logical Pauli operators but does not give a count of their distinct four-coordinate supports."
+      ],
+      "reasoning": "The logical-support dimension histogram equals the rank distribution of the symplectic syndrome matrix restricted to each four-set. Aggregate logical operator count alone cannot distinguish the observed 970 singleton-support cases from 35 three-operator-support cases, nor determine how many erasure sets are correctable. Thus the new statement is not implied by the source aggregate count.",
+      "searches": [
+        "[[20,11,4]] quantum stabilizer erasure correctable set enumerator weight erasure failure polynomial 2026 Dzoba",
+        "qubit [[20,11,4]] erasure decoding failure probability support spectrum",
+        "[[20,11,4]] 35 four-qubit erasure sets three logicals 970 3840 1005 2026",
+        "https://arxiv.org/html/2610.24025v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published primary paper gives the complete nine-generator strings, a stabilizer weight spectrum and total 1075 weight-four logicals; it does not print the proposed 3840,970,35 support table.",
+        "Targeted indexed searches returned quantum code weight-enumerator and erasure articles for other codes, not the stated support spectrum for this 20-qubit matrix."
+      ],
+      "reasoning": "The exact source-released generator matrix enables recomputation but is not a table of local erasure-support ranks. No preexisting exact table or database entry with the stated values was identified; failure of search alone is not a novelty proof.",
+      "searches": [
+        "qubit [[20,11,4]] erasure decoding failure probability support spectrum",
+        "quantum 20 11 4 code erasure uncorrectable four subsets count",
+        "four qubit erasure failure 67/323 [[20,11,4]] quantum code",
+        "https://arxiv.org/abs/2610.24025"
+      ]
+    },
+    "rationale": "Direct comparison with the primary accessible full paper and ancillary generators establishes prior knowledge of code existence, stabilizer spectrum and the aggregate 1075 weight-four logical operators, but no erasure-support histogram, local logical dimension classification, commutation typing or exact erasure-recovery polynomial. The total 1075 does not determine how many distinct supports have multiple logicals. Relevant indexed records and prior accessible own-claim history were searched for the exact code, erasure spectrum and equivalent formulations; no covering result was recovered. Historical and unindexed calculations remain a priority risk.",
+    "residual_risks": [
+      "The source ancillary referee checkers are openly listed but the Python-content downloads could not be read in the accessible text interface; an existing unreported support computation in the supplemental code remains possible.",
+      "Unindexed prior or independent erasure decoding computations for this precise generator matrix could preempt the result.",
+      "The finite proof is independently replayable but has not undergone an external or formal-machine mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the concrete erasure-support classification: source gives 1075 aggregate weight-four logicals, not their distinct-support and commutation distribution",
+        "evidence": [
+          "Section 4 reports 9 generators, rank, minimum stabilizer weight 12, 1075 weight-four logicals.",
+          "Appendix A.3 lists the 9 exact Pauli strings used by both checkers.",
+          "No erasure-support spectrum or exact erasure probability statement appears in accessible article text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24025v1",
+        "material_read": "Accessible entire HTML, particularly quantum code section 4, verification paragraph and appendix A.3 containing all nine generators",
+        "method": "Compared all displayed quantum-code facts and searched within the full text for erasure, 1005, 3840 and local logical-support ranks",
+        "title": "New lower bounds for binary constant-weight codes from prescribed-automorphism search, and two quantum codes meeting their upper bounds",
+        "trigger": "Primary same-code full scientific result and most plausible source of stronger erasure coverage"
+      },
+      {
+        "assessment": "Contains generator data needed for replay, no statement of the support spectrum",
+        "evidence": [
+          "It lists 20 11 followed by nine generator strings, all copied into both verifier programs."
+        ],
+        "identifier_or_url": "https://arxiv.org/src/2610.24025v1/anc/quantum/q20_11_4_paulis.txt",
+        "material_read": "Full 11-line ASCII text of the nine 20-qubit Pauli strings",
+        "method": "Compared all nine Pauli strings verbatim to source-independent checker arrays; derived their symplectic X/Z bits",
+        "title": "Published nine-generator Pauli stabilizer ancillary",
+        "trigger": "Exact reproducibility and source identification"
+      },
+      {
+        "assessment": "BACKGROUND ONLY; not used to claim a full-paper novelty comparison",
+        "evidence": [
+          "The published stabilizer formalism supplies a general Pauli-commutation framework, not the code-specific four-erasure census."
+        ],
+        "identifier_or_url": "Calderbank–Rains–Shor–Sloane, IEEE Trans. Inform. Theory 44 (1998), 1369–1387",
+        "material_read": "Bibliographic and general mathematical background only, not a fresh full-text inspection",
+        "method": "Used the standard stabilizer erasure-correction criterion; no source-specific numerical claims attributed",
+        "title": "Quantum error correction via codes over GF(4)",
+        "trigger": "Background general stabilizer/symplectic error model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is for one explicitly named published code and known-location erasure only.",
+    "Five-erasure failure follows by basic dimension reasoning; the novel computation lies in the four-erasure support classification.",
+    "No independent review or exhaustive publication priority search is claimed."
+  ],
+  "scope_run_id": "dd21a362-c816-403e-870a-0e750f94a1c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the newly published optimal-parameter quantum code, four erasures are the first nontrivial failure event, and distinct supports rather than raw Pauli counts govern known-location erasure reliability. The exact 3840/970/35 classification reveals 35 support sets containing two independent commuting logical observables, separates these from 970 single-logical leaks, and determines the complete Bernoulli erasure-success curve. This natural finite-code reliability invariant is not a routine reprint of distance or MacWilliams totals, and is useful for evaluating code performance and support geometry.",
+    "status": "PASS"
+  }
+}
