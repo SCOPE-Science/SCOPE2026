@@ -1,15 +1,21 @@
-# Scientific assessment of the finite-field cycle classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The algebra is perfect, and the independence of natural-basis squares forces any isomorphism to be monomial. Comparing each square produces the exact complete congruence \(u_{i+1}=2u_i+B_{i+k}-A_i\pmod3\). This congruence yields precisely one solution per rotation for odd \(n\), and three solutions for each admissible rotation for even \(n\). The alternating exponent detects the two even-dimensional isomorphism types. The explicit lifted two-step rotation \(g\) has \(g^h=d^{h-1}\) and commutes with diagonal \(d\) of order three. These relations and the actual group order establish \(C_{3h}\), with splitting precisely when \(3\nmid h\). Separate direct-field arithmetic and exponent-based enumeration pass in the finite cases described in VERIFICATION.md. No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to stated bibliographic risks
-The closest primary works are Elduque–Labra (arXiv:1312.4685, Theorem 4.4; arXiv:1902.02191, Corollary 3.4 and Example 3.5), Martín Barquero and collaborators (arXiv:2505.14584, Section 6.1) and Kaygorodov–Martín González–Viruel (arXiv:2610.22248, Example 2, Proposition 21 and Question 33). Monomial rigidity, diagonal-group exact sequences and existing unweighted or isolated nonsplit examples are prior art. The current claim determines **all** finite-field weight orbits and the order and splitting of the rational automorphism group on one oriented cycle in **every** dimension, which none of those statements provides. Relevant published research records and accessible earlier claims did not yield the all-dimensional formulation. The 2025 paper contains a broad splitting formulation that needs specialist interpretation alongside proven nonsplit examples; this is recorded in AUDIT.json as a material residual risk, not mistaken for an independent validation or novelty proof.
+PASS
 
-## Value — PASS
-The question addressed is directly motivated by the explicit extension-splitting problem in arXiv:2610.22248. The algebra's directed-cycle graph is canonical and imposes a natural coefficient parameter space. The exact \(\mathbb F_4\) classification yields a small complete moduli set, explains which graph rotations lift, and realizes an infinite family of concrete nonsplit cyclic extensions in all dimensions divisible by six. The arithmetic iff criterion is structurally stronger than a single example.
+The perfect weighted permutation structure makes every natural-basis isomorphism monomial; comparing squares forces u_(i+1)=2u_i+B_(i+k)−A_i modulo 3, with cyclic closure. For odd n the closure has one solution per rotation; for even n it has three lifts iff Δ(A)=(-1)^kΔ(B). This proves exactly the class count and subgroup counts for every n≥1, including n=2. In the unbalanced normal form even rotations are the only permissible ones; an explicit two-step lift g commutes with the order-3 diagonal d and satisfies g^h=d^(h−1), n=2h. Hence Aut is cyclic of order 3h, and extension 1→C3→C3h→Ch splits exactly when gcd(3,h)=1. Independently enumerated monomial maps and element orders in F4 multiplicative exponents for n≤8 and reconstructed all Git trees.
 
-## Boundaries
-This is limited to \(\mathbb F_4\), a single directed cycle and rational automorphisms; it does not classify all perfect evolution algebras or their automorphism schemes after arbitrary base extension. The calculations were run in the source directory and are reproducible using the embedded standard-library scripts. An unindexed or implicit prior equivalent may still exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original all-dimensional F4 weight-orbit and nonsplit-extension classification. Elduque–Labra give graph/diagonal sequence and a two-dimensional weighted example; the 2026 survey gives a non-split C9 example on a different multi-cycle digraph. A 2025 weighted-graph paper announces an extremely broad automorphism description and purported split formulation: its precise applicability and consistency with independently verified nonsplit cases cannot be settled from the abstract/secondary summary alone; disclosure and source reading required before priority certainty.
+
+## value
+
+PASS
+
+A complete all-dimensional isomorphism and automorphism structure theorem for one canonical family, including infinitely many explicit nonsplit extensions, meets the natural exact-classification standard. This is not merely the monomial normal-form lemma or a single small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
