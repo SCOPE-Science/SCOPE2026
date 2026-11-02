@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:59:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the labeled sunlet S_n=C_n circ K_1 with n>=3, proper strong odd coloring has a degree-three neighbor multiset either monochromatic or rainbow. A proper rim coloring therefore admits exactly one pendant extension at a two-step backtrack and q-3 extensions otherwise. The q(q-1)-state transfer on ordered unequal rim colors has eigenvalue a=1+(q-3)(q-2); two centered color-space eigenvalues whose power sum U_n satisfies U_0=2,U_1=3-q,U_{j+2}=-(q-3)U_{j+1}+(4-q)a U_j; and symmetric/antisymmetric zero-row/column eigenvalues +/- (4-q) with multiplicities q(q-3)/2 and (q-1)(q-2)/2. The trace yields F_n(q)=a^n+(q-1)U_n+q(q-3)(4-q)^n/2+(q-1)(q-2)(q-4)^n/2. Equality for q>=3 and polynomial interpolation handles nonnegative q<3. This gives χ_so(S_n)=2 even n,4 odd n; optimal named-colorings 2 even and 3^n-3 odd. Independently enumerated 20 (n,q) cases, n=3..6 and q=3..7, against formula; inspected independent source transfer and original-definition verifiers. Finite enumeration does not replace spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caro et al. Proposition 2.2: connected unicyclic graphs other than C5 admit strong odd 4-coloring.",
+          "Kwon and Park supply foundational definitions and sparse graph bounds."
+        ],
+        "reasoning": "The broad upper-bound theorem implies existence of four colors, not the exact numbers of all named-color assignments for every palette. The q-dependent spectral enumerator is additional.",
+        "searches": [
+          "https://arxiv.org/abs/2410.02336",
+          "https://arxiv.org/abs/2401.11653"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2410.02336",
+        "https://arxiv.org/abs/2401.11653"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 4-colorability theorem gives only positivity at q=4; it cannot determine polynomial F_n(q), its coefficients, or optimal assignment numbers."
+        ],
+        "reasoning": "The proof requires solving the q(q-1)-state weighted transfer via invariant subspace dimensions, which is absent from the cited upper-bound implication.",
+        "searches": [
+          "https://arxiv.org/abs/2410.02336#Proposition-2.2",
+          "https://arxiv.org/abs/2401.11653"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strong odd means every color in each open neighborhood has odd multiplicity; for a degree-three rim vertex, this gives the all-equal/all-distinct dichotomy.",
+          "For named colors, the cycle-corona enumerator differs from standard proper chromatic polynomial by weighted backtracks."
+        ],
+        "reasoning": "Searched sunlet/corona/odd-neighborhood counting and transfer-matrix aliases. No checked reference equates the entire F_n(q) with a known ordinary graph polynomial formula.",
+        "searches": [
+          "Resultary query: Strong odd coloring polynomial sunlet graph cycle corona leaves transfer matrix enumeration",
+          "https://arxiv.org/abs/2410.02336",
+          "https://arxiv.org/abs/2401.11653"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source verifier compares 84 exact transfer-trace values, but this is a local check, not a prior published complete sunlet count table."
+        ],
+        "reasoning": "No matching exact table was located in the inspected sources. Unindexed enumeration might exist; finite checks only corroborate the general trace identity.",
+        "searches": [
+          "Resultary sunlet coloring query",
+          "https://arxiv.org/abs/2410.02336"
+        ]
+      },
+      "rationale": "Known strong odd coloring upper bounds for unicyclic graphs include χ_so<=4 outside C5. This chromatic upper bound covers one consequence but not the complete all-palette named-assignment polynomial, spectral recurrence, or exact optimal-coloring multiplicity. The weighted sunlet rim transfer is not an ordinary chromatic polynomial evaluation because q>=5 choices depend on two-step backtracking. Inspected Caro et al. Proposition 2.2 and related Kwon/Park source identification; no exact sunlet polynomial found.",
+      "residual_risks": [
+        "Transfer-matrix methods could yield an earlier equivalent sunlet formula under a different name.",
+        "Optimal-coloring threshold partly overlaps prior unicyclic chromatic upper bound; do not claim that bound as novel.",
+        "All colors are individually named and unused colors allowed; no graph/color permutation quotient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies upper bound four colors for connected unicyclic graphs except C5, not enumerative polynomial on sunlets in inspected material",
+          "evidence": "Proposition 2.2; no occurrence of sunlet found in PDF text search.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+          "material_read": "Relevant primary PDF Introduction and Proposition 2.2 page 4, with page screenshot and the surrounding proof",
+          "method": "arXiv primary PDF text and screenshot inspection",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Same strong odd neighborhood coloring definition and unicyclic class"
+        },
+        {
+          "assessment": "Provides context but full-text exclusion not claimed",
+          "evidence": "arXiv 2401.11653; definition and sparse-graph bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+          "material_read": "Article title, abstract/bibliographic information, not full mathematical text",
+          "method": "Open article search",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Introduced notion and provides general coloring bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sunlet is a canonical unicyclic corona with a local parity-coloring rule, and the full strong odd coloring polynomial is a natural exact enumerator. The closed transfer decomposition determines every palette count, parity-dependent chromatic threshold, and exponential growth without a case-by-case census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2410.02336",
+    "https://arxiv.org/abs/2401.11653"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one leaf per cycle vertex; no arbitrary unicyclic graph classification.",
+    "Independent brute-force rim enumeration for 20 finite (n,q), not a substitute for universal trace proof."
+  ],
+  "residual_risks": [
+    "Transfer-matrix methods could yield an earlier equivalent sunlet formula under a different name.",
+    "Optimal-coloring threshold partly overlaps prior unicyclic chromatic upper bound; do not claim that bound as novel.",
+    "All colors are individually named and unused colors allowed; no graph/color permutation quotient."
+  ],
+  "schema_version": 1
+}

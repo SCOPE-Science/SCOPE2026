@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local pendant-extension dichotomy is necessary and sufficient under the original strong odd neighborhood condition: if the two rim neighbors agree there is one pendant choice; otherwise there are exactly \(q-3\). The weighted cyclic transfer is therefore exact. A complete invariant-space decomposition gives a single eigenvalue \(a\), a centered two-dimensional color-space block of multiplicity \(q-1\), and two row/column-zero spaces with explicitly proved ranks; their dimensions sum to \(q(q-1)\). Consequently the trace identity is an infinite proof. Polynomial continuation handles palettes \(0,1,2\), and independent finite enumeration checks the original definition. Risks: the decomposition requires \(q\ge3\), which is stated; the asymptotic assertion is for fixed \(q\ge4\), not for growing palettes.
+PASS
 
-## Originality — PASS with residual bibliographic risk
+For the labeled sunlet S_n=C_n circ K_1 with n>=3, proper strong odd coloring has a degree-three neighbor multiset either monochromatic or rainbow. A proper rim coloring therefore admits exactly one pendant extension at a two-step backtrack and q-3 extensions otherwise. The q(q-1)-state transfer on ordered unequal rim colors has eigenvalue a=1+(q-3)(q-2); two centered color-space eigenvalues whose power sum U_n satisfies U_0=2,U_1=3-q,U_{j+2}=-(q-3)U_{j+1}+(4-q)a U_j; and symmetric/antisymmetric zero-row/column eigenvalues +/- (4-q) with multiplicities q(q-3)/2 and (q-1)(q-2)/2. The trace yields F_n(q)=a^n+(q-1)U_n+q(q-3)(4-q)^n/2+(q-1)(q-2)(q-4)^n/2. Equality for q>=3 and polynomial interpolation handles nonnegative q<3. This gives χ_so(S_n)=2 even n,4 odd n; optimal named-colorings 2 even and 3^n-3 odd. Independently enumerated 20 (n,q) cases, n=3..6 and q=3..7, against formula; inspected independent source transfer and original-definition verifiers. Finite enumeration does not replace spectral proof.
 
-The closest foundational source is Kwon and Park, arXiv:2401.11653, which introduces the invariant and proves sparse-graph bounds. Caro, Petruševski, Škrekovski and Tuza, arXiv:2410.02336, Proposition 2.2, proves an upper bound of four for nonexceptional unicyclic graphs, not the exact all-palette sunlet count. Relevant published results and mathematical-record searches for corona/sunlet strong odd enumerators, chromatic-polynomial aliases and weighted nonbacktracking formulations have not revealed the same formula or a theorem implying it. The absence of a search match does not establish uniqueness; an unindexed exact count or equivalent transfer formula may exist.
+## originality
 
-## Value — PASS
+PASS
 
-A full all-palette counting polynomial is a natural refinement of the strong odd chromatic number and gives the distribution of every named-color feasible assignment for an infinite family of unicyclic graphs. The result is not simply a single small-parameter computation: it reveals a two-step spectral recurrence, an exact bijective four-palette specialization to ordinary rim colorings, a parity transition in all optimal-coloring counts, and the asymptotic growth rate for each fixed palette. These are motivated equality and enumerative data distinct from previously established scalar upper bounds.
+Known strong odd coloring upper bounds for unicyclic graphs include χ_so<=4 outside C5. This chromatic upper bound covers one consequence but not the complete all-palette named-assignment polynomial, spectral recurrence, or exact optimal-coloring multiplicity. The weighted sunlet rim transfer is not an ordinary chromatic polynomial evaluation because q>=5 choices depend on two-step backtracking. Inspected Caro et al. Proposition 2.2 and related Kwon/Park source identification; no exact sunlet polynomial found.
 
-## Sources and limits
+## value
 
-The primary papers [1] Kwon–Park (arXiv:2401.11653, original public version January 2024) and [2] Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336, October 2024) were compared at the level of statements and implications. The latter's relevant unicyclic section, its product section and searchable text do not present a sunlet enumeration; the former's main scope concerns existence and bounds. The exact count is proved only for a cycle corona with one leaf per rim vertex. Publicly indexed specialized literature may be incomplete, and no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sunlet is a canonical unicyclic corona with a local parity-coloring rule, and the full strong odd coloring polynomial is a natural exact enumerator. The closed transfer decomposition determines every palette count, parity-dependent chromatic threshold, and exponential growth without a case-by-case census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

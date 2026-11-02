@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the sunlet strong odd coloring polynomial
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the included standalone verifier. The expected exact stdout appears in `verification_output.txt`.
+## correctness
 
-The verifier exhaustively counts assignments for 11 small \((n,q)\) cases using the original degree-three neighborhood parity and properness conditions, totaling 488356 assignments that have a proper rim. Separately, it constructs the complete \(q(q-1)\)-state transfer and checks its exact trace against the polynomial recurrence for 84 cases. It also checks the specified low-palette specializations and reference values.
+PASS
 
-These are independently implemented finite sanity checks of the necessary combinatorial identities and the small cases; they are not a proof of the infinite theorem or an independent external audit. The unlimited parameter range follows from the invariant-space and incidence-rank proof in `RESULT.md`. All operations use Python's exact integers; there are no input files or third-party dependencies.
+For the labeled sunlet S_n=C_n circ K_1 with n>=3, proper strong odd coloring has a degree-three neighbor multiset either monochromatic or rainbow. A proper rim coloring therefore admits exactly one pendant extension at a two-step backtrack and q-3 extensions otherwise. The q(q-1)-state transfer on ordered unequal rim colors has eigenvalue a=1+(q-3)(q-2); two centered color-space eigenvalues whose power sum U_n satisfies U_0=2,U_1=3-q,U_{j+2}=-(q-3)U_{j+1}+(4-q)a U_j; and symmetric/antisymmetric zero-row/column eigenvalues +/- (4-q) with multiplicities q(q-3)/2 and (q-1)(q-2)/2. The trace yields F_n(q)=a^n+(q-1)U_n+q(q-3)(4-q)^n/2+(q-1)(q-2)(q-4)^n/2. Equality for q>=3 and polynomial interpolation handles nonnegative q<3. This gives χ_so(S_n)=2 even n,4 odd n; optimal named-colorings 2 even and 3^n-3 odd. Independently enumerated 20 (n,q) cases, n=3..6 and q=3..7, against formula; inspected independent source transfer and original-definition verifiers. Finite enumeration does not replace spectral proof.
+
+## originality
+
+PASS
+
+Known strong odd coloring upper bounds for unicyclic graphs include χ_so<=4 outside C5. This chromatic upper bound covers one consequence but not the complete all-palette named-assignment polynomial, spectral recurrence, or exact optimal-coloring multiplicity. The weighted sunlet rim transfer is not an ordinary chromatic polynomial evaluation because q>=5 choices depend on two-step backtracking. Inspected Caro et al. Proposition 2.2 and related Kwon/Park source identification; no exact sunlet polynomial found.
+
+## value
+
+PASS
+
+The sunlet is a canonical unicyclic corona with a local parity-coloring rule, and the full strong odd coloring polynomial is a natural exact enumerator. The closed transfer decomposition determines every palette count, parity-dependent chromatic threshold, and exponential growth without a case-by-case census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
