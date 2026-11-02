@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact edge-flow balance reduces the entire equilibrium problem to a single real parameter, with an explicit admissible interval and all inverse-sine branch choices. The closure sum exhausts the sixteen branch possibilities (including coincident endpoints). The two isolated states and the four continuously joined arcs are mutually disjoint. The weighted-Laplacian characteristic polynomial yields an exact saddle normal spectrum, and a concave quadratic gives the sharp extremal rates. The included symbolic determinant calculation and independently assembled direct-flow checks passed. Finite checks are corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority risk.** General locked-ring sine-balance algorithms (Roy–Lahiri 2011), algebraic equilibrium solvers (Mehta et al. 2014), single-loop flow/stable-state theorems (Delabays–Coletta–Jacquod 2015), and complete degeneracy theory (Sclosa 2021) were compared at the level of statements and implications. They supply general ingredients but the inspected relevant sections do not specify a complete all-coupling three-component critical set for the alternating four-cycle, including a circle of nonisolated saddles and its exact spectrum. An unpublished or unindexed explicit specialization cannot be excluded. The generic flow equations alone are not presented as a new fact.
+PASS
 
-**Mathematical value — PASS.** The smallest nontrivial even cycle with nonzero alternating detuning has a structurally unexpected continuum of saddle equilibria above a sharp locking threshold. Complete topology and exact Morse–Bott normal rates quantify this degeneracy and distinguish it from generic isolated equilibria and from the stable branch only; the result offers an exact benchmark for symmetric network perturbations.
+For the specified alternating nearest-neighbor four-cycle Kuramoto vector field the locked edge-flow equations reduce exactly to b0=b2=s-2a/K and b1=b3=s, 2a/K−1≤s≤1. The interval proves none for K<a and a unique all-cosine-zero quotient point at K=a. For K>a, the inverse-sine/supplementary 16 branch census produces exactly the principal sink, the all-complementary source, and four mixed/mixed arcs glued alternately at s-interval endpoints into one smooth embedded S1 (not four components). The Jacobian is -K/2 times signed weighted cycle Laplacian; independently computed its exact characteristic polynomial z²(z²−4(x²+y²)) for mixed weights (x,y,−x,−y). Quotient circle eigenvalues 0,±K sqrt(2−(s−2a/K)²−s²), x²+y²>0 for K>a, proving Morse–Bott normal saddle type. The concave quadratic gives exact sharp min 2sqrt(a(K−a)) at endpoints and max sqrt(2(K²−a²)) at s=a/K. Sink/source eigenvalues ±Kc,±Kc,±2Kc. Symbolic identity and several representative K/a endpoint calculations independently passed; finite samples only corroborate complete analytic branch census.
 
-**Limits.** Four vertices, equal nearest-neighbor couplings, alternating frequency, no claim for perturbed frequencies/edges or threshold nonlinear stability. Historic-priority risk remains for unindexed four-cycle specializations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Roy–Lahiri derive general sine-flow balance for ring systems; Delabays–Coletta–Jacquod analyze winding/circulation and number of stable states; Sclosa analyzes completely degenerate four-cycle equilibria (largely zero intrinsic-frequency or specially chosen frequency) and their stability. They contain the tools or isolated degenerate phenomena, but the actual inspected statements do not give a complete ALL-locking-state Morse–Bott circle + source + sink classification or sharp transverse interval for precisely alternating nonzero intrinsic frequencies.
+
+## value
+
+PASS
+
+A four-node ring is the smallest nontrivial Kuramoto loop. The exact threshold and continuum of normally hyperbolic saddles clarify a non-generic but mathematically motivated symmetry-degenerate locking bifurcation beyond generic isolated equilibria, with explicit sharp normal exponents; these are structural dynamical facts not obtainable solely by renaming a general stable-solution bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
