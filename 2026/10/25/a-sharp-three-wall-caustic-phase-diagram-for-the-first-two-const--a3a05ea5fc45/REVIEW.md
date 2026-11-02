@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the exact strictly convex support family, the antipodal contact formula gives Wigner velocity \(D\tau\) and centre-symmetry velocity \(-D'n\), with \(D=-8a\cos3\theta-24b\cos5\theta\). Factoring these two scalar velocities into quadratics in \(\cos^2\theta\) produces the three rational transition ratios. Both discriminants stay strictly positive, excluding interior root collisions. The endpoint factors and one test point per interval prove the full open-region counts; Taylor orders settle the walls. Fourier orthogonality gives the matched oriented areas, and the exact amplitude bound certifies strict convexity. `verify.py` independently checks the algebra and representative configurations. It is not an infinite numerical proof.
+PASS
 
-## Originality
+From contact x=h n+h'τ, separated antipodal pair gives w=p n+p'τ and envelope S=w−D n where D=p+p''=-8a cos3θ−24b cos5θ; differentiation gives w'=Dτ and S'=−D'n. Independent exact multiple-angle expansion reproduced QW=4y−3+3t(16y²−20y+5) and QS=4y−1+5t(16y²−12y+1) with y=cos²θ. Their discriminants 16(45t²+6t+1) and 16(125t²−10t+1) are everywhere positive; endpoints give only walls −1/3,−3/25,1/5. Since every interior y root supplies two angles mod π and factors cosθ/sinθ contribute one each, exact root tracing proves all four generic counts and a=0,b=0 boundaries. Taylor expansion at each wall determines orders 2,3 as claimed. Support-area Fourier orthogonality gives A=πR²−4πa²−12πb², AW*=−2πa²−6πb² and AS*=−18πa²−150πb². Explicit ±b curves satisfy R>8|a|+24|b| and equal stated invariants while their W cusp counts differ; independent rational/symbolic derivative, root and area checks corroborated. Counts refer to parameter occurrences, not distinct spatial images.
 
-**PASS under the inspected sources, with residual literature risk.** The 2026 frontal paper gives general local singularity criteria and order lowering but no simultaneous global count for the aligned \(3\)/\(5\) constant-width support family. The 2026 mixed-volume paper gives general oriented area identities but not the explicit same-invariants/different-cusps example. Domitrz–de M. Rios give only the general cusp-count ordering. A nearby published two-mode comparison using an even second harmonic and an odd fifth harmonic always yields five cusps in both loci; the Fourier parity and phase behavior differ essentially. Searches for aliases, the two exact rational walls and the invariant-matching example yielded no claim implying this classification. The possibility of earlier unindexed examples is retained as a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Harmonics \(3\) and \(5\) are the first two geometrically nontrivial odd Fourier modes for constant-width support functions; a one-mode family cannot exhibit cusp-count transitions. This is therefore the lowest-order model in which the general inequality between Wigner and centre-symmetry cusp counts can change from equality to a strict gap. The theorem classifies its entire generic coefficient-ratio axis, resolves all three degenerate walls, and constructs an exact counterpair showing that five natural global scalar geometric invariants fail to determine cusp topology. The counterpair is not an arbitrary numerical slice but realizes two distinct open cusp phases with invariant equality.
+Local singularity criteria and harmonic support-area identities are existing results. The inspected primary treatments do not give the exact simultaneous three-wall (3,5)-aligned odd-harmonic classification, wall types and equal-four-scalar-invariant counterpair. Full comparison to Wigner/centre symmetry source passages supports a qualified best-of-knowledge new small-dimensional structural phase diagram.
 
-## Closest literature and limitations
+## value
 
-General singularity rules: Zwierzyński, arXiv:2609.14653, Theorems 3.3, 3.9, 4.1. Area relations: Zwierzyński, arXiv:2608.11068, §7. Cusp ordering: Domitrz and de M. Rios, 2014, Theorem 7.2. The cosine-phase two-mode family does not cover arbitrary Fourier phases or higher harmonics; source searches do not prove universal priority. Computations verify formulas, not novelty or general algebraic deductions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first two nontranslation odd support modes form a canonical minimal constant-width test family. Exact cusp-number walls and higher singularity orders give a complete low-dimensional bifurcation classification. Explicit equal-width/perimeter/area/caustic-area ovals with different cusp counts show precise failure of common scalar invariants to recover cusp topology, a substantive motivated counterexample beyond routine numeric evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
