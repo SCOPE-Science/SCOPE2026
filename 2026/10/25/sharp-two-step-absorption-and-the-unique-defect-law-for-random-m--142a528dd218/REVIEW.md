@@ -1,20 +1,21 @@
-# Review of sharp two-step absorption law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact one-position failure probabilities distinguish diagonal from off-diagonal entries, including the dependence of the two exceptional intermediary choices in the off-diagonal case. Pairwise defect intersections are bounded after excising up to four endpoints; the two overlap geometries have bases \(s_p\) and \(q_p^2\). Since both decay faster than the single-defect base \(q_p\), Bonferroni gives the sharp leading equivalent and a unique off-diagonal defect. Conditioning on nonempty rows and columns changes the relevant rare-event probability only by a lower-order term. Exhaustive enumeration through four vertices verifies exact marginal expectations and square-universal counts.
+PASS
 
-## Originality
+For B_n with iid Bernoulli p, q=1−p² and s=1−2p²+p³. Each diagonal missing Boolean square entry has probability (1−p)q^(n−1); each off-diagonal missing entry has probability s q^(n−2), because k=i,j walk conditions share b_ij. Thus expected missing entries are exactly μ=n(n−1)s q^(n−2)+n(1−p)q^(n−1). For two distinct missing positions, intermediates outside at most four endpoints provide independent upper bounds s^(n−4) when source or target coincides, q^(2(n−4)) otherwise; sum over O(n³)+O(n⁴) pairs is o(μ) since 0<s<q<1. Bonferroni proves Pr(D>0)~μ; diagonal defects and multiple defects vanish relative to μ, giving unique off-diagonal defect. Conditioning on nonempty rows/columns alters probabilities by at most 2n(1−p)^n=o(μ), and simultaneous label symmetry makes unique off-diagonal position uniform. At p=1/2, s=5/8, q=3/4 and s/q²=10/9. J is absorbing for no-empty-row/column relations. Independently enumerated every binary n×n matrix through n=4, verifying exact missing-entry expectations and known success counts 1,3,73,6003. This finite enumeration is not an asymptotic proof.
 
-PASS with priority risks recorded. The existing multipermutation paper provides the same algebraic object but not the sharp square-absorption distribution. The Moon–Moser primitive-matrix theorem already implies qualitative typical exponent two, which is not claimed as new. Shitov's 2024 paper cites independent-pair product results that do not immediately imply the self-square leading constant or unique-defect concentration. No equivalent sharp asymptotic appeared in the examined semantic-search hits or other inspected full sources. The 1966 original was inaccessible in full and may contain quantitative statements; independent historical verification remains needed.
+## originality
 
-## Value
+PASS
 
-PASS. The absorbing element is canonical in the monoid of all multipermutations. A sharp exponential rarity law and the one-obstruction structural classification quantify generic rapid semigroup absorption rather than merely asserting eventual primitivity. The factor \(10/9\) records a nontrivial same-matrix edge dependence absent from independent products, and the Bernoulli-density theorem isolates the full underlying mechanism.
+Qualified best-of-knowledge priority for the sharp fixed-density self-square failure equivalent and unique off-diagonal defect shape. OEIS A307232 already tabulates exact small-n success counts; those are explicitly credited and not claimed new. Moon–Moser established the qualitative exponent-two phenomenon, while Carvalho–Martin is structural and Shitov cites results for two independent factors. Complete Moon–Moser 1966 article was not obtained; priority risk is material but does not by itself falsify the new quantitative claim.
 
-## Scope and limits
+## value
 
-The claim is for fixed \(0<p<1\) and the limit \(n\to\infty\), with exact finite expectations as input. It does not establish sparse-density thresholds, exact finite-size probabilities, or first priority over inaccessible historical sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The monoid of multipermutations and the first failure of two-step reachability are canonical algebraic/probabilistic questions. The sharp fixed-density exponentially rare error equivalent, its 10/9 constant under uniform monoid sampling and the conditional single missing ordered-pair geometry supply meaningful quantitative refinements of the classical exponent-two almost-sure statement. Known small-n OEIS counts alone do not determine this new asymptotic structure.
 
+The dated certificate retains the supplied scientific assessment, sources and limitations.

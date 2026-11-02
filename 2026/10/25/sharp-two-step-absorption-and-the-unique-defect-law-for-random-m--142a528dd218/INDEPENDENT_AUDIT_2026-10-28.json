@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:44:47.526084Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For B_n with iid Bernoulli p, q=1−p² and s=1−2p²+p³. Each diagonal missing Boolean square entry has probability (1−p)q^(n−1); each off-diagonal missing entry has probability s q^(n−2), because k=i,j walk conditions share b_ij. Thus expected missing entries are exactly μ=n(n−1)s q^(n−2)+n(1−p)q^(n−1). For two distinct missing positions, intermediates outside at most four endpoints provide independent upper bounds s^(n−4) when source or target coincides, q^(2(n−4)) otherwise; sum over O(n³)+O(n⁴) pairs is o(μ) since 0<s<q<1. Bonferroni proves Pr(D>0)~μ; diagonal defects and multiple defects vanish relative to μ, giving unique off-diagonal defect. Conditioning on nonempty rows/columns alters probabilities by at most 2n(1−p)^n=o(μ), and simultaneous label symmetry makes unique off-diagonal position uniform. At p=1/2, s=5/8, q=3/4 and s/q²=10/9. J is absorbing for no-empty-row/column relations. Independently enumerated every binary n×n matrix through n=4, verifying exact missing-entry expectations and known success counts 1,3,73,6003. This finite enumeration is not an asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moon–Moser 1966 is credited for almost-sure primitive exponent two; original text unavailable, precise error term not verified.",
+          "Shitov 2024 Theorem 13 discusses Boolean AB=J for two independent uniformly random matrices; it is not a self-product.",
+          "Carvalho–Martin 2021 Sections 4.1–4.4 discuss monoid algebra, not fixed-density random squares."
+        ],
+        "reasoning": "The qualitative stronger-domain primitive-matrix result logically covers only convergence, not the exact leading equivalent or conditional defect shape. Independent-factor results lack the shared-entry k=i,j correlation s_p. The unread 1966 text could have quantitative overlap and remains an explicitly material priority risk.",
+        "searches": [
+          "random Boolean matrix square all ones sharp failure probability n(n−1) (1−2p²+p³)(1−p²)^(n−2) primitive exponent two multipermutations unique missing edge",
+          "Moon and Moser (1966), Almost all (0,1)-matrices are primitive, Studia Sci. Math. Hungar. 1:153-156",
+          "Carvalho Martin multipermutation Green relations arxiv:2103.06012",
+          "https://www.researchgate.net/publication/387219277_Almost_all_Boolean_matrices_are_prime"
+        ]
+      },
+      "checked_sources": [
+        "https://uhra.herts.ac.uk/id/eprint/8633/1/multipermutationsRIS.pdf",
+        "https://www.researchgate.net/publication/387219277_Almost_all_Boolean_matrices_are_prime",
+        "https://oeis.org/A307232",
+        "Moon and Moser (1966), Almost all (0,1)-matrices are primitive, Studia Sci. Math. Hungar. 1:153-156",
+        "Brualdi–Ryser, Combinatorial Matrix Theory (1991), Section 3.5 secondary exposition",
+        "Resultary search: random Boolean matrix square all ones sharp failure probability n(n−1) (1−2p²+p³)(1−p²)^(n−2) primitive exponent two multipermutations unique missing edge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Carvalho–Martin 2021 defines multipermutation monoid as no empty rows or columns, but does not give random asymptotics.",
+          "Shitov Theorem 13 two independent random matrices multiply to J w.h.p.; shared endpoint entries in B² yield s_p=1−2p²+p³, distinct from independent q_p².",
+          "OEIS A307232 finite sequence does not determine asymptotics or defect shape."
+        ],
+        "reasoning": "Known facts prove qualitative eventual absorption and exact small-n counts, not the sharper first-order failure probability or singleton defect distribution. The proof derives both from endpoint dependence and pair-intersection Bonferroni bounds. An as-yet-unread full 1966 source could contain the sharp rate, so originality is best knowledge, not guaranteed independence.",
+        "searches": [
+          "https://uhra.herts.ac.uk/id/eprint/8633/1/multipermutationsRIS.pdf",
+          "https://www.researchgate.net/publication/387219277_Almost_all_Boolean_matrices_are_prime",
+          "https://oeis.org/A307232",
+          "Moon and Moser (1966), Almost all (0,1)-matrices are primitive, Studia Sci. Math. Hungar. 1:153-156",
+          "random Boolean matrix square all ones sharp failure probability n(n−1) (1−2p²+p³)(1−p²)^(n−2) primitive exponent two multipermutations unique missing edge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boolean B²=J is equivalent to a directed loop-allowed graph having a length-two directed walk from every ordered vertex pair.",
+          "Primitive exponent exactly two describes the qualitative event (modulo B=J), known via Moon–Moser 1966 / Brualdi–Ryser."
+        ],
+        "reasoning": "Random looped-digraph length-two diameter, primitive exponent-two matrices and random Boolean squares were all considered as aliases. A qualitative probability tending to one does not give the first exponential correction n(n−1)s_p q_p^{n−2} or uniqueness and uniform location of the exceptional missing ordered pair.",
+        "searches": [
+          "random Boolean matrix square all ones sharp failure probability n(n−1) (1−2p²+p³)(1−p²)^(n−2) primitive exponent two multipermutations unique missing edge",
+          "\"primitive matrices\" \"exponent 2\" probability rate (3/4)^n",
+          "Moon and Moser (1966), Almost all (0,1)-matrices are primitive, Studia Sci. Math. Hungar. 1:153-156"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A307232 (Christopher Cormier, 2019): number of n×n binary matrices with real square containing no zeros, 1, 1, 3, 73, 6003, 2318521, 4132876803 for n=0..6.",
+          "The predicate in A307232 is exactly B²=J in Boolean arithmetic; all successful squares have nonempty rows/columns.",
+          "Its table/program concerns finite counts, not first-order asymptotic rate at arbitrary p nor conditional singleton off-diagonal defect location."
+        ],
+        "reasoning": "There IS an exact database/table match for the finite checker values; these counts are prior knowledge and not new. The submitted theorem claims instead a sharp infinite-n expansion for every fixed p, a 10/9 constant for uniform multipermutations, and the unique-defect conditional law. A307232 does not imply those limits without a nontrivial analysis.",
+        "searches": [
+          "https://oeis.org/A307232",
+          "OEIS 1 1 3 73 6003 2318521 random Boolean square universal",
+          "published Resultary findings semantic query: random Boolean matrix square all ones sharp failure probability n(n−1) (1−2p²+p³)(1−p²)^(n−2) primitive exponent two multipermutations unique missing edge"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge priority for the sharp fixed-density self-square failure equivalent and unique off-diagonal defect shape. OEIS A307232 already tabulates exact small-n success counts; those are explicitly credited and not claimed new. Moon–Moser established the qualitative exponent-two phenomenon, while Carvalho–Martin is structural and Shitov cites results for two independent factors. Complete Moon–Moser 1966 article was not obtained; priority risk is material but does not by itself falsify the new quantitative claim.",
+      "residual_risks": [
+        "Original Moon–Moser 1966 complete text not read; any sharp error probability/defect law therein may dominate this claim.",
+        "Other quantitative directed random-graph diameter-two or primitive-matrix literature may supply the same constant without using the term multipermutation.",
+        "OEIS already contains exact finite counts; only the fixed-density asymptotic and unique-defect law are candidate new results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same monoid, but no fixed-density random-square leading constant or unique-defect law in inspected results.",
+          "evidence": [
+            "Sections 4.1–4.4 develop algebraic structure, not Bernoulli random asymptotics."
+          ],
+          "identifier_or_url": "arXiv:2103.06012; https://uhra.herts.ac.uk/id/eprint/8633/1/multipermutationsRIS.pdf",
+          "material_read": "Complete 24-page lawful-author/open-access PDF; introduction and Sections 4.1–4.4 covering M_n, Green relations, regularity and generators.",
+          "method": "Full PDF textual reading plus visual inspection of monoid-definition pages.",
+          "title": "The lattice and semigroup structure of multipermutations",
+          "trigger": "Foundational paper for exact monoid M_n."
+        },
+        {
+          "assessment": "Theorem 13 concerns independent A,B with AB=J; does not state the correlated self-square constant or defect shape.",
+          "evidence": [
+            "Theorem 13 explicitly uses two independent random factors, while audited event uses a single matrix twice."
+          ],
+          "identifier_or_url": "Yaroslav Shitov, 2024; https://www.researchgate.net/publication/387219277_Almost_all_Boolean_matrices_are_prime",
+          "material_read": "Accessible complete paper HTML rendering, including introduction, Theorem 13, proof material and concluding generator count.",
+          "method": "Read HTML full-text theorem and compare product dependence to B².",
+          "title": "Almost all Boolean matrices are prime",
+          "trigger": "Potentially broader random Boolean matrix result; theorem on universal Boolean products."
+        },
+        {
+          "assessment": "COVERS finite counts, which must not be claimed novel; no asymptotic or unique-defect theorem in entry.",
+          "evidence": [
+            "A307232 text: a(n) number of square binary matrices with no zero in arithmetic square; n=2,3,4 entries 3,73,6003."
+          ],
+          "identifier_or_url": "https://oeis.org/A307232",
+          "material_read": "Entire OEIS entry including definition, sequence n=0..6, examples, 2019 submission and brute-force code.",
+          "method": "Read OEIS full HTML and compare real product nonzero criterion with Boolean product J condition.",
+          "title": "A307232: Number of n×n {0,1}-matrices that contain no zeros when squared",
+          "trigger": "Exact finite-table match for 1,3,73,6003 square-universal matrices."
+        },
+        {
+          "assessment": "COVERS qualitative almost-sure exponent two; whether it contains precise leading constants cannot be resolved from the accessible material.",
+          "evidence": [
+            "Classical cited assertion: almost all 0–1 matrices are primitive with exponent two; original quantitative bounds unverified."
+          ],
+          "identifier_or_url": "Moon and Moser (1966), Almost all (0,1)-matrices are primitive, Studia Sci. Math. Hungar. 1:153-156",
+          "material_read": "Secondary account in Brualdi–Ryser and citations/summary in accessible later sources; original 1966 complete article unavailable.",
+          "method": "Bibliographic and secondary-source statement comparison; no claim of having read the original paper.",
+          "title": "Almost all (0,1)-matrices are primitive",
+          "trigger": "Historically closest quantitative priority risk: primitive exponent-two probability."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The monoid of multipermutations and the first failure of two-step reachability are canonical algebraic/probabilistic questions. The sharp fixed-density exponentially rare error equivalent, its 10/9 constant under uniform monoid sampling and the conditional single missing ordered-pair geometry supply meaningful quantitative refinements of the classical exponent-two almost-sure statement. Known small-n OEIS counts alone do not determine this new asymptotic structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://uhra.herts.ac.uk/id/eprint/8633/1/multipermutationsRIS.pdf",
+    "https://www.researchgate.net/publication/387219277_Almost_all_Boolean_matrices_are_prime",
+    "https://oeis.org/A307232",
+    "Moon and Moser (1966), Almost all (0,1)-matrices are primitive, Studia Sci. Math. Hungar. 1:153-156",
+    "Brualdi–Ryser, Combinatorial Matrix Theory (1991), Section 3.5 secondary exposition",
+    "Resultary search: random Boolean matrix square all ones sharp failure probability n(n−1) (1−2p²+p³)(1−p²)^(n−2) primitive exponent two multipermutations unique missing edge"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The scientific finding applies only within exact hypotheses and normalizations in the source RESULT.md; no unproved parameter extensions were assumed.",
+    "Independent bounded checks do not certify infinite quantifiers or publication priority.",
+    "The repository archive remains unchanged. The complete current package tree was checked against pinned Git SHA; source content was evidence, not instructions.",
+    "No public replacement material was emitted; confidentiality guard prevents publication readiness."
+  ],
+  "residual_risks": [
+    "Original Moon–Moser 1966 complete text not read; any sharp error probability/defect law therein may dominate this claim.",
+    "Other quantitative directed random-graph diameter-two or primitive-matrix literature may supply the same constant without using the term multipermutation.",
+    "OEIS already contains exact finite counts; only the fixed-density asymptotic and unique-defect law are candidate new results."
+  ],
+  "schema_version": 1
+}
