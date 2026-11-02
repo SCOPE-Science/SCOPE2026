@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact rational weight total 25; 15 equality-pattern cases checked and directly reproducible; equality 25 would force full 64-output saturation by tight types; their nonconstant palindromic descendants occur in even pairs by outer symbol, contradicting three available per symbol. The explicitly listed 24-word witness has pairwise disjoint deletion balls, checked over all 64 outputs by stdlib Python. Exhaustion certifies finite steps only, and the symbolic parity obstruction supplies the universal upper bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee–Ge–Ling discuss perfect codes in neighboring regimes; the new 2026 Xie–Sun–Ge source concerns coverings and not maximum mutually disjoint one-deletion descendants."
+      ],
+      "reasoning": "Neither a different length or deletion number nor covering the universe by balls directly supplies an upper bound of 24 or a size-24 correcting code. The closest general hypergraph packing bounds allow 25.",
+      "searches": [
+        "arxiv:1008.1343 perfect q-ary deletion codes length 3 length 4",
+        "arxiv:2606.15379v1 deletion covering code upper bounds",
+        "maximum q=4 length n=4 code correcting one deletion subsequence set packing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1211.3128v1 Table I(c), exact displayed row",
+      "arxiv:2606.15379v1 title, abstract, date, covering scope",
+      "arxiv:1008.1343 abstract and neighboring short-length results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior matching LP upper bound 25 permits |C|=25; its direct consequences only yield |C|<=25, while this proof eliminates equality using three nonconstant palindromes per outer symbol.",
+        "The 24-word correcting code improves the tabulated 20-word construction."
+      ],
+      "reasoning": "The proposed theorem has both a stronger integer upper bound and a strictly larger explicit witness. Neither is implied by the cited source’s displayed numerical bounds; an unpublished integer optimizer could still have obtained the value earlier.",
+      "searches": [
+        "quaternary length-four single deletion correcting codes exact maximum size N_4(4,1), code over four letters q=4",
+        "24 4-ary words length four pairwise disjoint three-letter deletion descendants",
+        "no perfect 4-ary length-four one-deletion code q=4 24",
+        "arxiv:1211.3128v1 non-asymptotic LP bounds q 4 n 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deletion descendants are the hyperedges in Kulkarni–Kiyavash (2012), exactly the present packing formulation. Table I(c) gives a matching LP bound 25 rather than an integer optimum."
+      ],
+      "reasoning": "Direct equivalence between disjoint single-deletion sets and hypergraph set packing is recognized; the prior fractional upper bound does not imply the integer maximum 24. Binary, ternary or quinary alphabet size cases are not equivalent to this quaternary integer optimum.",
+      "searches": [
+        "quaternary length four single deletion correcting code maximum size q=4",
+        "arxiv:1211.3128v1 Table I(c)",
+        "quaternary length-four single deletion correcting codes exact maximum size N_4(4,1), code over four letters q=4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1211.3128v1, Table I(c), n=4 row: numerical LP-UB=25; |Tenengolts|=20.",
+        "Full explicit 24-word witness and independent pairwise-descendant verification given here."
+      ],
+      "reasoning": "The tabulated 25 is a fractional relaxation, not a code size; the 20 is a nonoptimal construction. No exact database or table result of 24 was identified in checked sources. The classification of unrelated lengths cannot substitute for an integer certificate.",
+      "searches": [
+        "Kulkarni Kiyavash deletion Table I c q 4 n 4 LP-UB Tenengolts",
+        "single-deletion error-correcting codes maximum sizes length four q=4",
+        "the quaternary length-four one-deletion-correcting code has maximum cardinality 24, a parity obstruction to 25"
+      ]
+    },
+    "rationale": "The checked published numerical benchmark leaves the exact (q,n,s)=(4,4,1) optimum between 20 and 25, whereas the present proof fixes it at 24 with a structural integrality obstruction. Related covering and other-alphabet results do not imply the exact size; unindexed priority remains possible.",
+    "residual_risks": [
+      "An earlier unindexed exact integer-packing census for q=4,n=4 could pre-empt priority.",
+      "No independent human mathematical review is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: reports fractional optimum 25 and then-known constructed value 20, not the integer maximum 24",
+        "evidence": [
+          "Table I(c), row n=4: 36,28,25,20 across named columns",
+          "Discussion distinguishes fractional matching and best known construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Abstract, problem definitions and LP dual formulation, detailed Table I(c) and accompanying discussion, through PDF page 14",
+        "method": "Direct PDF text examination and visual inspection of Table I at page 14",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Same alphabet, length, and deletion count tabulated in Table I(c)"
+      },
+      {
+        "assessment": "Not covering: deletion covering objective is different from disjoint-descendant correcting-code packing",
+        "evidence": [
+          "arXiv v1 publicly submitted 2026-06-13",
+          "Covering constructions and large-alphabet theorems, not a length-four correction packing maximum"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "Abstract and accessible full-text coverage of problem statement and covering results",
+        "method": "Open-access full-text web inspection and abstract verification",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Recent same-channel primary literature motivates contemporary research gap"
+      },
+      {
+        "assessment": "Not covering: one-deletion perfect-length-three or two-deletion-length-four regimes do not settle quaternary length-four one-deletion maximum",
+        "evidence": [
+          "Distinct deletion-radius or blocklength conditions in the discussed classifications"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1008.1343",
+        "material_read": "Full-text HTML abstract, introduction, state-of-affairs theorem list, paper section headings and scope: perfect one-deletion length-three and perfect two-deletion length-four",
+        "method": "Primary full-text HTML reading of its scopes and introductory results",
+        "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+        "trigger": "Potential short-length q-ary code classification covering exact parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0be86f28-351d-4a8a-ab20-c86ebd8c9ce3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the natural previously tabulated quaternary length-four single-deletion packing optimum exactly. It improves the documented 20-word construction to 24 and reduces the published fractional bound from 25 to a sharp integral obstruction; the new nontrivial parity proof explains the integrality gap.",
+    "status": "PASS"
+  }
+}
