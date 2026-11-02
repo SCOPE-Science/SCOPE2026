@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Checks and reproducibility
+# Independent mathematical audit
 
-- Explicit integer signed-permutation construction yields 24 distinct matrices and relative-angle class counts (1,6,3,8,6).
-- For eight exponents, direct symmetric distance-matrix eigenvalues match the four nontrivial character spectra with predicted multiplicities.
-- Centered squared-distance Gram matrices have numerical ranks 23 below and 19 at the analytic threshold.
-- The exact character-table proof separately verifies signs for all positive real exponents; sampling does not establish this.
-- At larger exponents the two-dimensional block is positive, so small-scale exponentials are indefinite; large-scale exponentials converge to identity.
+## correctness
 
-Run `python rotation_negative_type_check.py` with NumPy. This program uses only locally constructed integer rotation matrices. Exact infinite-parameter validity is supplied by the character proof, not finite numerical examples.
+PASS
+
+For the 24 orientation-preserving signed permutation matrices, independently formed all principal relative-rotation angles using the integer trace. The central distance-power matrix has the S4 character scalars (divided by pi^p) -3+8(2/3)^p-6(1/2)^p (dimension 1), 3-4(2/3)^p (multiplicity 4), 1-2(1/2)^p (multiplicity 9), and -3+2(1/2)^p (multiplicity 9). The 2D scalar changes sign exactly at p*=log(4/3)/log(3/2). Below that cutoff the other three are strictly negative: p*<1, b=(2/3)^p>=3/4, a=2^-p>1/2, b<sqrt(a) and 2sqrt(a)<=1+a. Above p* the positive 2D scalar obstructs conditional negative type. The centered Gram -HD_pH/2 therefore has rank 23 in the open admissible range and rank 19 at the endpoint. Schoenberg embedding and strict finite Gaussian positivity follow for distinct embedded points. For p>p*, the Gaussian is indefinite for small positive bandwidth by first-order expansion, yet tends to identity for large bandwidth. The independent 24x24 matrix computation at seven p-values matched all character spectra and ranks; numerical checks are corroborative only.
+
+## originality
+
+PASS
+
+The octahedral S4 angle-power cutoff with four-dimensional endpoint rank drop is not stated by the inspected general finite-metric negative-type or ambient projective-space results. This is a qualified best-of-knowledge originality assessment; a comprehensive check of specialized finite rotation-group metric literature remains outstanding.
+
+## value
+
+PASS
+
+The finite rotation group is canonical, its intrinsic angular metric arises from SO(3) geometry, and supremal negative type and the least Euclidean squared-distance embedding dimension are standard geometric metric invariants. An exact cutoff with a precise rank defect explains a genuine boundary phenomenon, not a one-off computed instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
