@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The reciprocal equals a fixed center plus a Gaussian projection ratio: a normal variable divided by an independent chi-square norm. This gives an exact Student-t distribution and an everywhere-positive smooth density. Local density at zero gives each one-sided Pareto coefficient, the exact moment range, and the logarithmic truncated mean. Symmetric/antisymmetric characteristic-function decomposition gives a rigorous Cauchy-domain limit with location the convergent principal-value integral and scale πf_R(0). The eigenvector boundary is deterministic. A standalone script passed 1,562 finite algebraic, distributional and limit-law checks; the written proof, not simulation, supports the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel--Liu--Nyman, arXiv:2607.10354v1 §5.3: ε||A^{-1}||<ρ is a sufficient condition for right-half-plane location, unlike a complete unconditional Gaussian law.",
+        "Nakatsukasa--Tropp, arXiv:2111.00113 §§6.3,6.8: ordinary sketched RR projection, not harmonic reciprocal.",
+        "Simoncini--Wang, doi:10.1002/nla.70022: stabilization and spectral location of recurrence reductions, not the fixed-input reciprocal t and Cauchy limit."
+      ],
+      "reasoning": "General subspace-embedding stability theorems are conditional on a good sketch and do not imply an unconditional infinite mean or Cauchy averaging law. Classical stable-domain-of-attraction theory is stronger in generality but requires deriving the specific numerical observable density and coefficient from the stochastic projection; this application and exact constants are the stated mathematical contribution.",
+      "searches": [
+        "arxiv:2607.10354v1 sketched harmonic Ritz positivity sufficient embedding Theorem 5.4",
+        "arxiv:2111.00113 sketched Rayleigh Ritz matrix equation (45) symmetric case",
+        "Stabilized Krylov Subspace Recurrences via Randomized Sketching spectral location"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.10354v1, §5.3 (harmonic reciprocal and embedding positivity)",
+      "arxiv:2111.00113, §§2,6 (sketched ordinary Rayleigh--Ritz)",
+      "doi:10.1002/nla.70022 (stabilized sketched recurrences)",
+      "Classical Student-t Gaussian ratio law and Cauchy characteristic-function limit (derived explicitly in RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source provides a general expression for each reciprocal harmonic Ritz value but supplies no Gaussian fixed-input law, nonintegrability, or Cauchy limit.",
+        "General sketched RR works with a denominator that is a positive Gaussian norm square; for sketch size at least two its one-dimensional quotient has a finite mean, in contrast to the harmonic quotient.",
+        "The present proof uses Gaussian orthogonal decomposition and the exact small-frequency characteristic-function expansion to establish the displayed Cauchy location and scale."
+      ],
+      "reasoning": "The published reciprocal identity by itself does not imply the heavy-tail theorem without the random Gaussian decomposition and density analysis. The classical probability lemmas do imply intermediate steps, and the result expressly does not claim those lemmas as new. Earlier results about choosing a vector after seeing the sketch have different quantifiers and do not cover the fixed-vector averaging law.",
+      "searches": [
+        "arxiv:2607.10354v1 §5.3 equation (23) reciprocal harmonic projection",
+        "arxiv:2111.00113 §6 sketched Rayleigh Ritz projection",
+        "\"randomized harmonic Arnoldi\" \"heavy tails\"",
+        "\"harmonic Ritz\" \"Student-t\" sketch"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Güttel--Liu--Nyman, arXiv:2607.10354v1, §5.3 Eq. (23): reciprocal sketched harmonic product, no moment/averaging theorem in the inspected section.",
+        "Ordinary Student-t and reciprocal-density formulas are known probability identities, but not the numerical-harmonic interpretation."
+      ],
+      "reasoning": "A reciprocal shifted Student random variable and its t^{-1} tail are mathematically equivalent descriptions of the one-step law. The source specifies the reciprocal bilinear expression without identifying its fixed-Gaussian distribution or all-order moment/replication consequences. The novelty assessment is on those jointly stated consequences, not the classical Student distribution.",
+      "searches": [
+        "\"sketched harmonic Ritz\" \"infinite\" \"mean\"",
+        "\"harmonic Ritz\" \"Student-t\" sketch",
+        "\"sketched harmonic Ritz\" \"Cauchy\" tails",
+        "\"Gaussian\" \"harmonic Ritz\" \"Student\" probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual semantic-record comparisons returned Student-tail, unrelated Cauchy-limit, and sketched spectral-filter results, not a matching harmonic Ritz moment table or full statement.",
+        "Primary full-text searches found no specialized enumerated Gaussian harmonic-Ritz moment database in the inspected papers."
+      ],
+      "reasoning": "The finding is a continuous exact distributional classification rather than a finite enumerative invariant. The semantically closest retrieved public records have different objects and cannot imply the one-step harmonic Cauchy limit; absence of matches alone is not a proof of uniqueness.",
+      "searches": [
+        "Gaussian sketched harmonic Ritz independent repeated sketches average nondegenerate Cauchy limit infinite first moment",
+        "one-step harmonic Ritz fixed Gaussian sketch reciprocal Student t distribution infinite moment",
+        "sketched harmonic Ritz heavy tail Cauchy domain of attraction Monte Carlo average",
+        "\"harmonic Ritz\" \"infinite expectation\" \"Gaussian\""
+      ]
+    },
+    "rationale": "First-step reciprocal sketched harmonic Ritz values and general sufficient embedding conditions occur in the 2026 primary source. The novel assessed conclusion is the precise order-one moment obstruction, sharp Pareto coefficient, and nondegenerate Cauchy limit of averages of independently sketched values at every finite sketch width. Sketched ordinary Rayleigh--Ritz and general stable-law methods contain classical ingredients, but the inspected papers do not give the claimed harmonic observable reliability theorem. Priority uncertainty from unlocated specialized random-ratio results remains.",
+    "residual_risks": [
+      "A specialized older result on Gaussian ratios may make some distribution and moment facts a direct corollary not yet located; scholarly priority has not been independently established.",
+      "The proof concerns one finite-width Gaussian harmonic scalar and does not establish stability of any full restarted method.",
+      "Existing conditional embedding results are not contradicted because heavy-tail events arise outside their safe embedding condition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest method source. General reciprocal relation and sufficient conditional positivity are present, but the claimed unconditional exact Gaussian heavy-tail and replicated Cauchy limit are not stated in inspected portions.",
+        "evidence": [
+          "§5.3 Eq. (23) gives θ^{-1}=(Sx)^*SA^{-1}x/||Sx||².",
+          "§5.3 supplies ε||A^{-1}||<ρ as sufficient for positivity.",
+          "§6 uses sparse sign sketches in numerical experiments; §2.2 also names Gaussian sketches."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+        "material_read": "Accessible full primary text, Sections 2.2, 5.2, 5.3 and experimental sketch distribution, including Eq. (23)",
+        "method": "Read source article mathematical statements and proofs in accessible arXiv full-text representation; compared equations and quantifiers",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Exact underlying one-step sketched harmonic projection and its positivity condition"
+      },
+      {
+        "assessment": "Defines ordinary sketched Rayleigh--Ritz, with a positive squared-norm denominator in the scalar case; does not cover the sketched harmonic inverse-denominator Cauchy theorem.",
+        "evidence": [
+          "§6.3 Eq. (45): Mhat=(SB)^†(SAB).",
+          "§6.8 discusses nonnormal sketched Ritz values even for symmetric A."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+        "material_read": "Full accessible arXiv text, Sections 1.3, 2, 6.1--6.8, including Eq. (45) and symmetric-case discussion",
+        "method": "Compared the reduced matrices and objectives and checked harmonic projection terminology",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Potential broader sketched Rayleigh--Ritz theorem covering single-dimensional Gaussian ratios"
+      },
+      {
+        "assessment": "Relevant context on stabilized random sketch recurrences, not an exact fixed-Gaussian harmonic quotient tail/replication theorem.",
+        "evidence": [
+          "Open-access 2025 original studies recurrence stabilization and spectral locations rather than the specified ratio distribution."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.70022",
+        "material_read": "Open 2025 article full-text sections discussing stabilized recurrence construction and spectral location",
+        "method": "Compared algorithm objects, Gaussian assumptions and whether exact one-step harmonic moment spectra appear",
+        "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+        "trigger": "Prior work on sketched Krylov stability and sketched spectral location"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dccda6f4-8a59-4a93-91a4-62e7ec942519",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem identifies a reliability issue for a specified randomized harmonic extraction step: expected magnitude and naive replication averaging are invalid even for SPD matrices and any arbitrarily large finite Gaussian sketch width. Its exact t^{-1} tail coefficient and nondegenerate Cauchy averaging law quantify why rare, unstable denominators invalidate first-moment performance metrics; the ordinary sketched Rayleigh--Ritz comparison isolates the inversion mechanism. It is not an arbitrary chosen invariant or a textbook restatement of a generic probability law; application to a newly analyzed numerical projection and the exact stable limit are mathematically motivated by the source method.",
+    "status": "PASS"
+  }
+}
