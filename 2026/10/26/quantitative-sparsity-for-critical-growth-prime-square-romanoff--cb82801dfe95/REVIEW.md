@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the specified \(a_k\), both \(a_k\mid a_{k+1}\) and \(a_k\ge2^k\) hold. Direct CRT gives the independent Bernoulli parameters \(1/r\) for random integers and \(2/(r-1)\) for sums of two squared reduced residues. Exponential Markov bounds match at \(t=1/\log2\) and give the same explicit \(\delta>0\). With \(Q\le\exp(O(\sqrt{\log X}))\), uniform Brun--Titchmarsh applies. Both exceptional index choices and primes dividing \(Q\) are \(O(X/\sqrt{\log X})\), so the stated bound follows without extrapolating experiments.
+## correctness
 
-## Originality — PASS, with documented residual access risk
-Ding--Verwee studies \(p+a\) rather than the two-prime-square, two-shift problem. Dai--Pan's positive-density theorem assumes bounded reciprocal-divisor sums, excluded by the divergent-support case; the full article was inaccessible. Yan--Xu's subsequent closely related result proves density zero qualitatively for arbitrary divergent divisibility chains and identifies the same local CRT probabilities. Sections 1--3 of their complete accessible text use Chebyshev's inequality and a fixed modulus, not a moving modulus and an exponential finite-\(X\) bound. The new quantitative estimate is not a rewording of their theorem, though a full additional literature review could reveal another estimate.
+PASS
 
-## Value — PASS
-The motivating family has \(\#\{k:a_k\le X\}\asymp\log X\), so counting the two shifts and two prime squares alone gives merely \(O(X)\), not sparsity. The proved \(\log\log X\) decay resolves that critical-density regime effectively and uniformly over arbitrary support subsets. The mathematical content is the large-deviation modulus that can grow with \(X\); the harmonic-mass bound and optimized rate are independently reusable.
+For any P subset of primes 1(mod4), a_k=2^k product_{r in P,r<=k}r forms a divisibility chain with log a_k=O(k). On Q=product_{r in P,r<=sqrt(log X)}r, CRT makes 1_{r|n} independent Bernoulli(1/r) over residues, and reduced-prime-square sums independent Bernoulli(2/(r-1)). Exponential Markov bounds high T(n) and low T(p²+q²) with shared exponent delta=1-t+t log t, t=1/log2, checked independently. Q=exp(O(sqrt(log X))) allows uniform Brun-Titchmarsh for p,q<=sqrt X; shifts k or l<ceil sqrt(log X) and primes dividing Q cost O(X/sqrt(log X)). Combining disjoint cases yields the claimed uniform finite-X bound. Mertens in progression 1 mod4 yields exponent delta/2 for loglog X. Independent finite checks validate eight prime moduli, not the analytic uniform bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Yan–Xu 2026 already proves density zero for all divisibility chains with divergent reciprocal divisor sum and Dai–Pan provides prior positive density under bounded reciprocal sum. The distinct quantitative theorem is an explicit uniform finite-scale large-deviation rate for this specific critical-growth chain, not the qualitative o(X) corollary or the elementary local CRT probability.
+
+## value
+
+PASS
+
+Effective sparsity with an explicit exponent for a logarithmic-counting divisibility chain on the boundary of a Romanoff-type positive-density criterion supplies a motivated quantitative refinement, not just a parameter change or numerical small gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

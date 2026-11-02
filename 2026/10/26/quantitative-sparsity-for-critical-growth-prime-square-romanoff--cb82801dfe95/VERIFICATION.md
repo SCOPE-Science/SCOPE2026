@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification notes
-The file `check_local.py`, executed with the Python standard library, returned `VERIFY_OK 16 moduli delta 0.086071332055934`. It tested every prime \(r\equiv1\pmod4\) up to \(151\) and all nonzero residues modulo each test prime, with integer arithmetic, and checked the equality of the two exponential rate formulas. This finite run tests the local counting formula only; the proof of the assertion for every admissible prime is by the two square roots of \(-1\) and the Chinese remainder theorem. Neither finite experimentation nor a successful script constitutes proof of the claimed asymptotic bound.
+# Independent mathematical audit
 
-For analytic verification, reconstruct in order the two moment-generating functions, their Markov thresholds, the identity \(t\log 2=1\), the modulus estimate \(Q\ll X^{1/4}\), the uniform Brun--Titchmarsh bound, the early-shift bound, and the exceptional primes dividing \(Q\). Then combine the cases. The quoted Mertens theorem for arithmetic progressions is used only for the displayed specialization to the full progression \(1\pmod4\).
+## correctness
 
-No independent audit or external certification has been performed. The Dai--Pan paper's full text was unavailable; its public abstract was inspected. The related Yan--Xu full text was read and compared for scope.
+PASS
+
+For any P subset of primes 1(mod4), a_k=2^k product_{r in P,r<=k}r forms a divisibility chain with log a_k=O(k). On Q=product_{r in P,r<=sqrt(log X)}r, CRT makes 1_{r|n} independent Bernoulli(1/r) over residues, and reduced-prime-square sums independent Bernoulli(2/(r-1)). Exponential Markov bounds high T(n) and low T(p²+q²) with shared exponent delta=1-t+t log t, t=1/log2, checked independently. Q=exp(O(sqrt(log X))) allows uniform Brun-Titchmarsh for p,q<=sqrt X; shifts k or l<ceil sqrt(log X) and primes dividing Q cost O(X/sqrt(log X)). Combining disjoint cases yields the claimed uniform finite-X bound. Mertens in progression 1 mod4 yields exponent delta/2 for loglog X. Independent finite checks validate eight prime moduli, not the analytic uniform bound.
+
+## originality
+
+PASS
+
+Yan–Xu 2026 already proves density zero for all divisibility chains with divergent reciprocal divisor sum and Dai–Pan provides prior positive density under bounded reciprocal sum. The distinct quantitative theorem is an explicit uniform finite-scale large-deviation rate for this specific critical-growth chain, not the qualitative o(X) corollary or the elementary local CRT probability.
+
+## value
+
+PASS
+
+Effective sparsity with an explicit exponent for a logarithmic-counting divisibility chain on the boundary of a Romanoff-type positive-density criterion supplies a motivated quantitative refinement, not just a parameter change or numerical small gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
