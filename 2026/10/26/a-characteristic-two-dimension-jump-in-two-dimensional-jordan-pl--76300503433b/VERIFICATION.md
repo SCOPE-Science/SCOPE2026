@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The supplied `verify.py` was executed with Python 3 and passed its literal matrix equation checks in \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), \(\mathbb F_5\), and \(\mathbb F_7\); it validates per-\(Y\) fibers and component point counts, not only overall totals. Expected and observed totals in this order were \(40\), \(153\), \(1216\), \(1225\), and \(4753\). Its terminal success marker is `JORDAN_PLANE_MODULAR_2X2_OK`.
+## correctness
 
-Algebraic checks, which are the proof of the infinite statements, consist of: (1) a trace-pairing solvability criterion and the two-dimensional centralizer for nonscalar \(Y\); (2) Cayley–Hamilton reduction to \(Y^2=0\) in odd characteristic; (3) a direct even-characteristic matrix substitution, giving the irreducible hypersurface equation; (4) the primitive linear-polynomial irreducibility test; (5) Jacobian partial derivatives on that reduced hypersurface; and (6) exact finite-field fiber counting. The embedded code has no external dependencies.
+PASS
 
-Finite exhaustive computations do not prove assertions for all fields. The statement concerns the reduced variety only; nonreduced scheme structure and independent external audit were not checked. The 2008 and 2012 Iyudu papers were inspected for specific hypotheses and implications; absolute novelty priority was not certified.
+PASS — For nonscalar Y, the 2D centralizer kI+kY and nondegenerate trace pairing reduce solvability to traces of Y² and Y³; Cayley–Hamilton forces square-zero Y outside char 2. In char 2 direct equations give either Y=0 or an irreducible primitive-linear-in-v hypersurface f=a²+bc+vc+bw=0 with dimensions 4 and 5. Its Jacobian gives singular line, and the q² X-fiber over each nonscalar admissible Y plus Y=0 gives exact polynomial counts. Independently enumerated exact GF2,GF3,GF4,GF5 literal products and component counts; finite cases do not prove all characteristics.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the explicit reduced dimension-two characteristic-two component jump, singular line, and complete even/odd finite-field census, not for the already known positive-characteristic nonnilpotence or general characteristic-zero representation theory. The primary Iyudu hypotheses were checked against the algebraic statement, and the identified broader framework does not directly imply the char-2 reduction and counts.
+
+## value
+
+PASS
+
+PASS — The Jordan plane is a canonical noncommutative quadratic algebra. The characteristic-two jump already at the smallest nontrivial representation dimension gives a natural modular counterpoint to characteristic-zero equidimensional representation geometry, with exact singular locus and rational-point counts. These are intrinsic geometric/arithmetic invariants, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
