@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-A standalone Python 3 exact-integer checker is included as `verify.py`. Run `python3 verify.py`; it needs no third-party package. It executes the Pieri rule on the integral Schubert basis of \(\operatorname{Gr}(2,2n+1)\) for \(2\le n\le15\), constructs the entire middle intersection matrix and checks its determinant is \(1\), finds a determinant-one minor in every relevant multiplication-by-\(x^2\) map below the middle, and verifies the top Plücker integral equals Catalan \(C_{2n-1}\). Observed output:
+# Independent mathematical audit
 
-```
-VERIFY_OK n=2..15 middle_integral_forms_det=1; low_degree_h2_primitive=true; Plucker_Catalan_degrees=true
-degree_samples=[(2, 5), (3, 42), (4, 429), (5, 4862), (6, 58786), (7, 742900), (8, 9694845)]
-```
+## correctness
 
-The universal argument is the integer Schubert Pieri triangular-minor proof, the recurrence for determinants of the middle matrix, integral Lefschetz/Poincaré duality, and the Gysin projection formula, reproduced in `RESULT.md`. The check is an independent exact-arithmetic consistency test of finitely many instances, *not* a computer proof for arbitrary \(n\). The cycle-class isomorphism depends on the published affine cellular decomposition. The formula is not claimed for \(k\ge3\), nongeneral pencils or equivariant/quantum rings. The \(n=2\) comparison is known prior art; the novelty claim starts at \(n=3\). No independent audit has been performed.
+PASS
+
+For each integer n>=3 over C, the general pencil of skew forms gives smooth X=S_2Gr(2,2n+1) as codimension-two Pluecker hyperplane complete intersection in G=Gr(2,2n+1). Fonarev–Kuznetsov Theorem 1.1 yields affine paving, torsion-free purely even cohomology and the middle rank n. Integral Schubert Pieri and [X]=x² yield middle Schubert restriction Gram matrix tridiagonal with diagonal 2 except final 1, adjacent 1, determinant 1; unimodularity proves the proposed n middle classes form an integral basis. Integral weak Lefschetz supplies restriction below middle. Multiplication by x² on low-degree Schubert bases has a unitriangular full-rank square minor, hence primitive image; PD and Gysin duality extend integral restriction surjectivity to all high degrees. Projection formula i_* i^*(alpha)=x² alpha and injectivity of i_* then give ker i^*=Ann_G(x²), yielding the colon ideal Z[x,y]/((f_{2n},f_{2n+1}):x²), f_j=xf_{j-1}-yf_{j-2}. Cellular cycle map is ring isomorphism CH*≅even H*. The top Pluecker degree is Catalan C_{2n-1}, versus C_{2n-2} of Gr(2,2n), distinguishing graded integral rings despite matching additive ranks. Independently calculated det middle matrices =1 for n2..11 and checked partition-degree integrality; finite checks are not universal proof. n=2 explicitly prior calibration, not a claim of novelty.
+
+## originality
+
+PASS
+
+Fresh best-of-knowledge statement-and-implication comparison across standard aliases, general theorems and exact tables. Inspected primary material does not establish the same final claim at the assessed level, although stated full-text access gaps and unindexed equivalences leave explicit priority risks. Affine paving alone does not imply ring structure. Although classical Schubert calculus and integral Lefschetz are enough after a new lattice-saturation proof, the exact all-n statement does not follow formally from the reported additive result alone; n=2 remains prior covered.
+
+## value
+
+PASS
+
+Determining *integral* intersection multiplication and integral middle-lattice saturation in a natural Fano Grassmannian subfamily is mathematically meaningful, not merely repackaging Betti numbers. The primary affine-paving paper specifically left the multiplicative ring as a separate problem. The full colon-ideal presentation and degree-based obstruction to ring isomorphism resolve this concrete gap for all odd pencil dimensions n>=3; the known n=2 case is carefully excluded from the novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
