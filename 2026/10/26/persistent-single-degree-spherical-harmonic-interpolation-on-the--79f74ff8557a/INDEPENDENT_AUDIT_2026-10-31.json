@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:50:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The 24 truncated-octahedral vertices are all permutations of (0,±1,±2)/√5, grouped into 12 antipodal pairs. For fixed degree ℓ, the spherical addition theorem makes evaluation rank equal to rank of the 12×12 real symmetric Gram matrix G_ℓ=(P_ℓ(v_i·v_j)) on parity-compatible representatives; positive scalar factors do not alter rank. Legendre arguments are rational j/5, −4≤j≤5, so the three-term recurrence supplies exact rational certificates. Independent exact Gaussian elimination freshly computed all 129 ranks ℓ=0..128 and reproduced [1,3,5,6,9,9,10,12,11] for ℓ=0..8, followed by rank 12 through 128; it also verified that the degree-six harmonic H=(x²−y²)(y²−z²)(z²−x²) evaluated on representatives spans a nonzero annihilator for G_8. For all ℓ≥129, distinct nonantipodal reps satisfy |dot|≤4/5, and Bernstein |P_ℓ(t)|≤sqrt(2/(πℓ sqrt(1−t²))) bounds each off-diagonal by sqrt(10/(3πℓ)), giving Gershgorin row sum ≤11 sqrt(10/(3πℓ))<1; the last inequality is rigorously established at 129 using π>223/71 and 85910/86301<1. Therefore no extrapolation from ℓ≤128 is required. Full rank at ℓ=7 then dip ℓ=8 makes the permanent threshold ℓ≥9 sharp; parity-compatible data, not arbitrary inconsistent antipodal values, is interpolated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An et al. construct well-conditioned t-designs for low-pass spherical-polynomial interpolation with N≥(t+1)^2.",
+          "Khalid et al. propose iso-latitude bandlimited transform sampling using L² points."
+        ],
+        "reasoning": "Both prior frameworks use different sampling domains/masks; neither available theorem determines the canonical truncated-octahedral single-degree rank at ℓ=8 or permanent threshold ℓ≥9.",
+        "searches": [
+          "An et al. 2010 full primary PDF doi:10.1137/100795140",
+          "Khalid et al. 2014 full primary arXiv:1403.4661",
+          "Resultary: spherical harmonics single exact degree interpolation truncated octahedron rank Gram matrix"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, checker.py; administrative JSON privacy-checked",
+        "An et al. 2010 primary institutional OA full PDF doi:10.1137/100795140 and page screenshots",
+        "Khalid et al. arXiv:1403.4661 full primary PDF and page screenshot",
+        "Resultary: spherical harmonics single exact degree interpolation truncated octahedron rank Gram matrix",
+        "Independent original exact-Fraction 12x12 Gram rank calculations ℓ=0..128; verified ℓ=8 null vector and analytic tail inequality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The addition theorem implies a positive-semidefinite Gram representation, not a predetermined rank for given coordinates.",
+          "Neither low-pass interpolation result implies each exact-degree rank, particularly an ℓ=8 drop after ℓ=7 full rank."
+        ],
+        "reasoning": "The new content lies in exact rational rank certificates plus the analytic Legendre tail; prior general sampling theorems do not logically yield the stated rank profile without nontrivial specialization and calculation.",
+        "searches": [
+          "An et al. 2010 addition theorem eq. (2.1) and low-pass interpolation sections",
+          "Khalid et al. 2014 §I and bandlimit L scheme",
+          "Resultary: spherical harmonics single exact degree interpolation truncated octahedron rank Gram matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-degree interpolation on 24 antipodal points is equivalent to rank 12 of a Legendre Gram matrix on 12 parity reps.",
+          "Bandlimited sampling concerns direct sums of ALL harmonic degrees ≤L, a different evaluation map."
+        ],
+        "reasoning": "The addition theorem supplies an equivalent Gram formulation but its generality alone does not evaluate the degree-specific rank profile. Multidegree systems do not imply ranks of each isolated degree.",
+        "searches": [
+          "Resultary: spherical harmonics single exact degree interpolation truncated octahedron rank Gram matrix",
+          "An–Chen–Sloan–Womersley doi:10.1137/100795140",
+          "Khalid–Kennedy–McEwen arXiv:1403.4661"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search found microphone-array truncated-octahedron discussion with different sample sites/modes, not rank table.",
+          "The full primary papers do not tabulate the nine exceptional ranks for this 24-vertex orbit."
+        ],
+        "reasoning": "No exact matching table found; this negative search is not treated as standalone novelty proof. Fixed Archimedean orbit harmonic tables are a residual risk.",
+        "searches": [
+          "Resultary: spherical harmonics single exact degree interpolation truncated octahedron rank Gram matrix",
+          "truncated octahedron spherical harmonics interpolation rank (web search)",
+          "truncated octahedron Legendre harmonic interpolation degree 8 (web search)"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the explicit all-degree RANK PROFILE of exact-degree harmonics on the 24-point truncated-octahedral orbit, including a nonmonotone ℓ=8 defect and permanent threshold ℓ=9. The addition theorem, interpolation criteria and general spherical designs are known and not presented as novel. The inspected An–Chen–Sloan–Womersley 2010 and Khalid–Kennedy–McEwen 2014 primary full texts concern low-pass spherical-design or bandlimited sampling schemes (with varying node sets), not this fixed single-degree 24-vertex rank classification. Related finite-group and lattice-orbit harmonic decompositions might already encode the same profile, and inaccessible/unindexed tables remain genuine risk. No inspected stronger theorem was found to imply all listed ranks and tail.",
+      "residual_risks": [
+        "Unindexed exact harmonic-representation tables of Archimedean solid orbits could include this profile, though none located in compared primary literature.",
+        "The theorem proves algebraic interpolation/surjectivity for parity-compatible samples, not condition numbers, stable reconstruction, or arbitrary antipodally inconsistent data.",
+        "The analytic ℓ≥129 proof depends on valid classical Legendre/Bernstein bounds, not finite enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND, different low-pass spherical-design setting",
+          "evidence": "Studies spherical t-designs with N≥(t+1)^2 and stability of all-degree polynomial space, not 24-point single-degree rank.",
+          "identifier_or_url": "doi:10.1137/100795140; PolyU institutional OA full PDF 2010",
+          "material_read": "Full primary 23-page version, particularly §§1–3, 5–7, sampling definitions/addition theorem, first two pages visually inspected",
+          "method": "Authorized open-access institutional PDF and visual page screenshots",
+          "title": "Well Conditioned Spherical Designs for Integration and Interpolation on the Two-Sphere",
+          "trigger": "Same harmonic addition theorem and interpolation problem"
+        },
+        {
+          "assessment": "BACKGROUND; NOT_DIRECT_COVERAGE",
+          "evidence": "An iso-latitude L²-point scheme for bandlimited transforms, not fixed-degree truncated-octahedron evaluation.",
+          "identifier_or_url": "arXiv:1403.4661v2, Khalid–Kennedy–McEwen (2014)",
+          "material_read": "Full 14-page primary arXiv PDF, especially §I prior work/contributions and bandlimited sampling description; page image inspected",
+          "method": "arXiv lawful preprint PDF with screenshot",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Possible stronger harmonic sampling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The Archimedean truncated octahedron is a canonical symmetric 24-point sampling orbit. Fixed-frequency spherical-harmonic interpolation differs from band-limited interpolation, and an exact exceptional loss at degree 8 after full rank at degree 7 is a meaningful representation-theoretic obstruction. Identifying the persistent degree-nine threshold and explicit blind mode, with a complete rational/analytic certificate, is a natural complete classification rather than an arbitrary computed slice. No claim of good numerical conditioning is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen full RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, checker.py; administrative JSON privacy-checked",
+    "An et al. 2010 primary institutional OA full PDF doi:10.1137/100795140 and page screenshots",
+    "Khalid et al. arXiv:1403.4661 full primary PDF and page screenshot",
+    "Resultary: spherical harmonics single exact degree interpolation truncated octahedron rank Gram matrix",
+    "Independent original exact-Fraction 12x12 Gram rank calculations ℓ=0..128; verified ℓ=8 null vector and analytic tail inequality"
+  ],
+  "disposition": "passed",
+  "limitations": "Only the 24 normalized (0,±1,±2) vertices and degree-exact real spherical harmonics on S². Interpolation is parity-compatible across antipodal pairs. No assertion of numerical stability or similar threshold for other polytopes.",
+  "residual_risks": [
+    "Unindexed exact harmonic-representation tables of Archimedean solid orbits could include this profile, though none located in compared primary literature.",
+    "The theorem proves algebraic interpolation/surjectivity for parity-compatible samples, not condition numbers, stable reconstruction, or arbitrary antipodally inconsistent data.",
+    "The analytic ℓ≥129 proof depends on valid classical Legendre/Bernstein bounds, not finite enumeration."
+  ],
+  "schema_version": 1
+}
