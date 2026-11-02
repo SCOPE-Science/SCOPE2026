@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stationary-age law is exponential and transforms into \(\mathrm{Beta}(q,1)\). Conditional on age, the position is exactly Gaussian with affine mean and quadratic conditional variance. The fourth cumulant is reconstructed by total cumulance and independently by raw normal-mixture moments. Exact rational arithmetic verifies each coefficient and the discriminant identity. The cubic has precisely two positive zeros, while Vieta's relations exhaust positive-root multiplicities, including threshold and matching-variance boundaries. The positive conditional noise ensures positive stationary variance, so cumulant and excess-kurtosis signs agree.
+PASS
 
-## Originality
+Reconstructed stationary age mixture U=exp(-κT) with U density q u^(q-1) and conditional X|U=u∼N(mu,v+du²), where q=r/κ>0, v=D/κ>0 and d=σ²−v>−v. Independently expanded all raw moments up to degree 4, formed the fourth cumulant and symbolically verified exactly the given rational A,B,C and positive quadratic discriminant 288q²(q²−2q+3)/[(q+1)^4(q+2)^2(q+3)^2(q+4)^2]. A changes sign at positive roots of q³−q²−6q+2, approximately 0.321637 and 2.855773; B changes sign at (√13−1)/2, between those roots. For d≠0, t=m²/|d| yields quadratic A t²+6sgn(d)B t+3C, with positive constant and discriminant. Vieta signs prove exactly two positive simple roots only in the two stated open regimes, one when A<0, and the asserted endpoint linear cases; d=0 is separate. Verified exact q=4 witness polynomial (13t²−850t+4375)/26250. No mistaken inference of Gaussianity from κ4=0.
 
-PASS on best available checked literature. Olsen (2023) proves an all-moment recurrence for arbitrary reset distributions and treats mean/variance/skew for Gaussian resets, but does not identify the sign diagram of the fourth cumulant, its two positive-root regions, or the two sharp rate thresholds. The present theorem relies on that hierarchy yet adds a full nonlinear sign classification. Related centered-reset analyses do not supply the noncentered mean-dependent reentrant roots. Other general resetting articles could contain unindexed related observations, and the moment hierarchy algebraically makes the result derivable; these are disclosed risks, not evidence of prior explicit coverage.
+## originality
 
-## Value
+PASS
 
-PASS. Excess kurtosis distinguishes super-Gaussian from sub-Gaussian fourth-moment shapes even where a single variance statistic is misleading. The two separate complete reentrant regimes occur on opposite sides of the thermal reset-width match and are delimited by exactly solvable rate thresholds. These are natural parameters of a previously studied experimental harmonic-reset model; the sign diagram supplies a sharp qualitative inference not conveyed by the known first-through-third cumulants.
+Qualified PASS limited to the complete quantitative fourth-cumulant sign/root diagram: Olsen (2023) gives every stationary OU resetting moment, including Gaussian resetting, so the underlying renewal law and raw cumulant are covered and not new. The two disjoint rate–width regimes, two positive roots and boundary classification require an additional discriminant and sign analysis not stated in Olsen §III or the comparison literature; their exact historical priority remains uncertain.
 
-## Scope and limitations
+## value
 
-Only one-time stationary fourth cumulants for independent Gaussian complete Poisson resets are classified. The theorem does not infer Gaussianity at vanishing fourth cumulant and does not assert any independent external certification. A published general moment formula can recover the new expression once the additional algebra and sign proof are supplied. Broader possible prior observations are recorded as residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the exact +/−/+ fourth-cumulant reentrance determines where two physical reset scales produce qualitative changes in shape of a natural stationary non-Gaussian process. It is a complete sharp parameter-space classification, not just substitution of Gaussian moments or a trivial two-point example, and it distinguishes fourth-cumulant zeros from Gaussianity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
