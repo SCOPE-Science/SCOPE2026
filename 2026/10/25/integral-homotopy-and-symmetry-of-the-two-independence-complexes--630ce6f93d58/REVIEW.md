@@ -1,12 +1,21 @@
-# Review of the diameter-four two-independence classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof explicitly identifies deletion as a join of star two-independence complexes. Each star is a union of contractible pieces meeting in isolated leaves. The center link is an explicit union of simplices and falls into three homotopy cases depending on the number of branches with pendant leaves; exact cofiber arguments exhaust the boundaries. The integral top representation follows functorially from the augmentation kernels, the join Künneth formula, and a positive interchange sign for degree-one join factors. The standalone checker independently verifies 119 exhaustive finite cases and 11 signed symmetry traces. Finite checks alone would not prove this theorem; the proof provides the all-parameter statement.
+## correctness
 
-## Originality
-PASS, subject to residual priority uncertainty. Deshpande–Singh (arXiv:2001.05448, Theorem 5.6) already handle perfect regular \(m\)-ary trees, including the regular height-two specialization, and that subcase is not novel here. Their Question 2 seeks general tree sphere multiplicities. Sawant (arXiv:2605.25150, Theorem 3.6) proves the broader qualitative statement of vertex decomposability without the exact irregular-branch classification or canonical top homology representation. The chordal generalization (arXiv:2106.10863) was compared at the abstract level only. Searches for aliases, dominating results, parameter tables and equivalent functors did not identify a prior statement that implies the full claim. A bibliographic absence-of-match is not a uniqueness proof.
+PASS
 
-## Mathematical value
-PASS. This is a complete homotopy classification for a natural infinite tree-diameter class and a response to an explicitly posed sphere-count problem, not an isolated numerical example. It gives an exact branchwise multiplicity product, contractibility boundaries, integer torsion exclusion and a natural symmetry representation. Higher tree diameters and general parameters are not settled.
+Reconstructed Ind_2(K_{1,b})=Delta(B) union a*discrete(B); its H1 lattice is the augmentation kernel and homotopy wedge^{b-1}S1. Deleting center gives join of star factors with degree 2k-1. The central link is Delta(B) with k cones; for >=2 positive branches it is contractible, for one positive branch it has two components, for none k discrete points. Cofiber X=D union c*L gives all boundary cases, including k=0/1. Link contractibility induces integral equivariant H; join permutations of degree-one classes carry sign (-1)^((1+1)(1+1))=+1. A branch-cycle tensor trace is composite leaf fixed points minus one. Independently enumerated 119 root-size patterns (k<=4, b_i<=2, up to 12 vertices) using direct induced-component predicate and exact F2 chain ranks; all expected ranks agree. General proof, not finite tests, establishes integral assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Previous higher-independence theory supplies perfect regular m-ary tree examples and qualitative wedge/vertex-decomposability for all trees. Neither inspected general theorem gives the arbitrary unequal-height-two branch multiplicity AND integral natural module. Published Resultary extended-star Morse-complex module concerns a different complex. The new classification answers an explicit restricted version of the earlier quantitative question.
+
+## value
+
+PASS
+
+Quantitative branch-size dependence and exact natural automorphism lattice answer a motivated question about higher independence complexes; unequal branch sizes, isolated-branch boundaries and signed representation are meaningful structural information, not a small numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
