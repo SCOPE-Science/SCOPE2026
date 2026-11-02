@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument reconstructs the full domain \(r\ge4\), the ordered-pair occurrence lemma, the weighted-factor upper and matching lower bounds with the necessary adjacent-block induction invariant, and the binary max-minus-min conversion. Three-letter Fourier inversion proves the exact integer recurrence. The absolutely and uniformly convergent phase series solves its functional equation. The quadratic-field roots-of-unity argument proves irrational rotation; nonconstancy follows from the functional equation. The recurrence-theoretic Fourier argument rules out base regularity without using finite experimentation as an infinite proof. The executable verifier agrees with the recurrence on 30 exact checks, including five newly treated parameters. The proof's key nonstandard weighted lemma was checked by a separate direct sliding-window enumeration over every ordered adjacent block pair. No assertion is made for lengths outside the stated power-scale formula.
+## correctness
 
-## Originality — PASS within examined evidence
-The closest paper is Allouche et al., arXiv:2610.03837: it proves the particular ternary exponent \(r=3\), develops a similar weighted-factor lemma, and expressly asks about other parameters in Remark 4. This finding is not the already-published \(r=3\) corollary: it proves simultaneously every integer \(r\ge4\), a nonconstant exact phase envelope, its full interval of accumulation values, and infinitely many distinct binary \(2\)-automatic examples. Its new generalizations require a parameter-uniform factor-induction proof and a new Fourier-Bohr nonregularity argument. The Pisot-type results in arXiv:2504.13584 have inapplicable spectral assumptions. Semantic searches of research records for the substitution, aliases, spectral function, and base-power claims located no stronger covering theorem, and available preceding claims concern different objects. Remaining risk: an equivalent treatment may be unindexed or unpublished.
+PASS
 
-## Mathematical value — PASS
-The motivating paper explicitly poses generalization beyond its single example. Resolving the exponent direction for an infinite family and determining an exact continuum of normalized growth limits provides more structure than a routine finite test or a single-parameter restatement. The infinite binary-automatic subfamily answers a natural scope question about the abundance of counterexamples to base-regular abelian complexity. It does not claim a formula for general lengths or the complete classification of all morphisms.
+C PASS. Every ordered pair of ternary letters occurs, allowing the factor-weight upper/lower induction. For length k^m with k=r+1, the maximizing-word splice in σ_r^(m+1)(c−1)σ_r^(m+1)(c)=U_(c−1)^r U_c^(r+1) U_(c+1) proves T_(m+1)=T_m+r max_a W_m(a); using weights ±1 at letter zero yields P_r(k^(m+1))−P_r(k^m)=r(max N_m−min N_m). Fourier diagonalization of cyclic incidence matrix gives N_m(a)=(k^m+2ρ^m cos(mθ−2πa/3))/3. The convergent H_r series therefore gives exact P_r(k^m)=ρ^m H_r(mθ)+2−H_r(0). θ/π is irrational by roots of unity in Q(ω); nonconstant continuous H_r has a full interval of phase limits. C-finite/nontrigonometric Fourier contradiction proves lack of k-regularity for every r>=4, and base-power invariance gives infinitely many 2-automatic not 2-regular examples r=2^e−1. Independent full sliding-window factor enumerations matched r=4,5,7 and m=0..3; finite checks do not establish the infinite result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+O PASS best of knowledge, materially qualified. Allouche–Rampersad–Rigo–Shallit–Stipulanti 2026 explicitly construct a single r=3 binary automatic non-regular abelian complexity example and raise other exponents in the assigned source comparison; the submitted all-r>=4 exact phase series and interval of limit points are extra theorems. The highly relevant original 2026 12-page paper could not be read in full: arXiv and lawful OA text retrieval failed, and authorized Oxford returned vpn_disconnected. Its uninspected appendices are a material priority risk; no whole-document NOT_COVERING conclusion is made. The 2025 Pisot-type framework excludes the growing non-Perron eigenvalues of modulus ρ>1.
+
+## value
+
+PASS
+
+V PASS. Extending one nonregular example to a parameter-uniform infinite family and identifying a nondegenerate exact interval of normalized abelian-complexity limits are motivated, natural structural results; this is not arbitrary finite sampling or a mere renaming of the r=3 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
