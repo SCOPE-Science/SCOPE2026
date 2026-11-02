@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:04:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized complex Hermite decomposition of full order-two Gaussian Fock space has one scalar angular sector -1 and a 2x2 sector for each j>=1. Direct incomplete gamma integration gives A_x^(j)=I_j(x)I+E_j(x)[[0,sqrt(j)],[sqrt(j),j-1-x]], E_j=e^-x*x^j/j!. Thus [A_x,A_y]^(j)=(x-y)*sqrt(j)*E_j(x)E_j(y)[[0,1],[-1,0]], yielding exactly singular pair s_j=|x-y|sqrt(j)e^-(x+y)(xy)^j/(j!)^2 and one-dimensional kernel, all Schatten orders by factorial decay. Adjacent ratio q/sqrt(j(j+1)^3) gives mode switch. Strict log-concavity of branch objective gives unique x_j,y_j; Robbins factorial remainders imply each maximum M_j < 1/(pi sqrt(2e)), Stirling shows convergence to that sharp but unattained supremum. Independent numeric 18 block commutators, several M_j, and symbolic radial identities corroborated. Only full order2 centered disks, not individual true levels or off-center disks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1905.00978",
+          "https://arxiv.org/pdf/2308.11292"
+        ],
+        "reasoning": "General structure/essential-commutant results cover operator decomposition and compactness concepts but no same two specific disk cutoffs with closed sharp norm. Explicit calculation and Robbins optimization are not stated consequences without additional derivation.",
+        "searches": [
+          "Maximenko Telleria Romero Theorem 1.1 Proposition 6.7 radial Fock operators",
+          "Fulsche Hagger essential commutants polyanalytic Fock"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, checker.py and checker_output.txt at tree 9324ea4957fe577f625881ea109f65d8ddc3524e",
+        "Maximenko–Tellería-Romero arXiv:1905.00978, Theorem 1.1, Proposition 6.7",
+        "Fulsche–Hagger arXiv:2308.11292v2, Section 4",
+        "Robbins factorial remainder (1955)",
+        "Resultary exact Fock commutator query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1905.00978",
+          "https://arxiv.org/pdf/2308.11292"
+        ],
+        "reasoning": "On individual true levels radial operators diagonalize; on the full reducible order-two space blocks are non-diagonal. The prior general block theorem permits but does not state the specialized noncommutativity supremum. 2024 essential-commutant compactness statements do not give its exact numerical constant.",
+        "searches": [
+          "radial Toeplitz polyanalytic simultaneous diagonalization true Fock levels",
+          "Maximenko 2019 Proposition 6.7 radial compression"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1905.00978",
+          "https://arxiv.org/pdf/2308.11292"
+        ],
+        "reasoning": "The 2019 full-space radial matrix representation specializes to the displayed 2x2 blocks; its general theorem does not by itself calculate the paired disk commutator eigenvalues and global extremal constant. The 2024 general quantum harmonic paper studies a distinct commutator ideal framework.",
+        "searches": [
+          "polyanalytic bianalytic Fock space radial disk Toeplitz commutator norm Schatten singular values sharp constant",
+          "Laguerre radial Toeplitz full polyanalytic Fock commuting disk concentration",
+          "Maximenko Telleria Romero radial 2x2 matrix representation Eq."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database of paired centered disk commutator singular values surfaced in targeted literature/Resultary searches.",
+          "Source gives closed s_j all j and exact mode thresholds T_j=sqrt(j(j+1)^3)."
+        ],
+        "reasoning": "No known prior table was found; object is an infinite-dimensional compact operator, and a finite computed j table would not determine strict universal bound/nonattainment without analytic factorial proof.",
+        "searches": [
+          "polyanalytic Fock disk Toeplitz commutator s_j noncommutativity constant 1/(pi sqrt(2e))",
+          "Resultary: polyanalytic bianalytic Fock space radial disk Toeplitz commutator norm Schatten singular values sharp constant"
+        ]
+      },
+      "rationale": "The relevant 2019 primary paper establishes general radial block representation for polyanalytic Fock operators, a necessary foundation; inspected theorems do not give the explicit two-disk commutator singular spectrum, mode staircase or globally sharp nonattained constant. The Fulsche–Hagger 2024 revision develops essential commutants and Toeplitz framework, not this disk-pair optimization in inspected relevant sections. Best-of-knowledge PASS with possible unindexed operator-ideal formula risk.",
+      "residual_risks": [
+        "A general unpublished paired-Laguerre or multiwindow Gabor concentration calculation could yield the same singular spectrum and sharp constant.",
+        "Non-centered disks and higher polyanalytic orders are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found essential existing radial block decomposition; inspected theorem and proposition give general radial matrices, not stated disk-pair commutator spectrum/mode optimization",
+          "evidence": [
+            "Theorem 1.1 and Proposition 6.7; https://arxiv.org/pdf/1905.00978"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.00978",
+          "material_read": "Full abstract/introduction, Theorem 1.1, Proposition 6.7 and relevant radial matrix formulas, PDF page screenshots",
+          "method": "Primary 26-page arXiv PDF, text and critical theorem screenshots",
+          "title": "Radial operators on polyanalytic Bargmann–Segal–Fock spaces",
+          "trigger": "Direct same Fock space and radial block theorem"
+        },
+        {
+          "assessment": "Characterizes essential commutants and related C1-algebra; no centered disk specialization or exact singular norm in inspected relevant sections",
+          "evidence": [
+            "2024 revision, Introduction and Section 4; https://arxiv.org/pdf/2308.11292"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11292",
+          "material_read": "Abstract, introduction, main-result summary and Section 4 essential commutants around p.32; PDF first page visually checked",
+          "method": "Primary 40-page arXiv PDF, keyword and section reading",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "Potential dominating modern operator-theoretic commutant theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Analytic Fock radial concentration operators commute, so the first bianalytic level where the two disk cutoffs fail to commute is mathematically natural. Full singular spectrum, all Schatten norms, exact mode switching and sharp global nonattained norm are significant quantitative operator invariants useful for localization questions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, checker.py and checker_output.txt at tree 9324ea4957fe577f625881ea109f65d8ddc3524e",
+    "Maximenko–Tellería-Romero arXiv:1905.00978, Theorem 1.1, Proposition 6.7",
+    "Fulsche–Hagger arXiv:2308.11292v2, Section 4",
+    "Robbins factorial remainder (1955)",
+    "Resultary exact Fock commutator query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general unpublished paired-Laguerre or multiwindow Gabor concentration calculation could yield the same singular spectrum and sharp constant.",
+    "Non-centered disks and higher polyanalytic orders are not covered."
+  ],
+  "schema_version": 1
+}
