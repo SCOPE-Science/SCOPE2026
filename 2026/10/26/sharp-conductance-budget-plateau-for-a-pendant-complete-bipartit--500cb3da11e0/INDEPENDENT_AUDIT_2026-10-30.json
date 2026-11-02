@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:45:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md complete Gram certificate and equality proof sha f507775abf24de7f90eb71b3962243f1218f3705",
+        "Assigned checks/verify.py sha 155b40ec6e9195464d81a1a19ecb8f207c0d19c7",
+        "Independent eigenvalue/Gram checks across 60 parameters"
+      ],
+      "rationale": "Put m=p-1>=3, v=(1,-3/m (m times),0 (q times),2); add to vv^T the positive coefficient (m²-9)/(m(m-1)) times the A0 centering projector. This X is PSD, zero on constants, trace X=m+5=p+4, and every allowed edge has squared X-distance exactly one. Thus tr(LX)=B >= λ2 tr(X) for every nonnegative weight allocation, including nonsymmetric ones. Candidate symmetric rates leaf 2λ, a-to-D 3λ/q, A0-to-D λ/q total B yield complete spectrum from four-class equitable quotient: eigenvalue 1 from A0, (p+2)/q from D, and remaining positive roots >1, giving gap λ min(1,(p+2)/q). At equality average an arbitrary maximizer over independent A0 and D permutations; concavity preserves λ2; complementary slackness forces Lv=λv and symmetric rates uniquely as candidate. Hence q>p+2 strict unattainability. Special p3,q2 rational weights yield gap 6/41>1/7. Independently reconstructed dual distances and eigenvalue formula for 60 (p,q) examples and exact SymPy boundary six-vertex spectrum. These supplement the all-weights trace certificate.",
+      "residual_risks": [
+        "The actual optimum above q>p+2 is not determined, only strictly below B/(p+4).",
+        "Uniqueness is proved only in symmetric allocation class; arbitrary nonsymmetric maximizing weights may not be unique."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SDP duality supplies tr(LX) argument, but its abstract optimality principle alone does not produce the explicit certificate X or threshold q=p+2.",
+          "Discrete-time intact Kp,q symmetric chain has a different objective and omits pendant sink."
+        ],
+        "reasoning": "No inspected broader coverage dominates this exact all-weights family; it is a concrete sharp explicit optimization that genuinely uses the graph geometry.",
+        "searches": [
+          "Göring Helmberg Wappler Embedded in the Shadow of the Separator Theorem 12",
+          "Sun Boyd Xiao Diaconis Fastest Mixing Markov Process on a Graph 2006",
+          "Boyd Diaconis Parrilo Xiao FMMC graphs with symmetries 2007"
+        ]
+      },
+      "checked_sources": [
+        "Göring–Helmberg–Wappler 2005 full PDF, Theorem 12",
+        "Sun et al SIAM Review 48 (2006) 681–699, dual formulation",
+        "Boyd et al arXiv:0709.0955 discrete-time comparison",
+        "Resultary semantic search on pendant biclique connectivity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general dual framework makes a putative bound checkable once X is constructed, but does not imply B/(p+4) or iff q<=p+2 without graph-specific work.",
+          "Symmetry reduction of arbitrary optimizer does not alone prove sharp inequality for every nonsymmetric allocation; the uniform edge-distance certificate is crucial."
+        ],
+        "reasoning": "The sharp plateau and p>=4 limitation are not mere named corollaries of inspected general SDP or intact-biclique results.",
+        "searches": [
+          "Sun et al 2006 continuous-time fastest mixing general graph SDP",
+          "Göring et al 2005 separator embedding duality",
+          "Boyd et al 2007 symmetry graph optimization Kpq"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Göring–Helmberg–Wappler describes embedding/separator eigenvalue duality but not explicit pendant Kp,q transition.",
+          "Sun–Boyd–Xiao–Diaconis discusses global fastest mixing via maximum-variance unfolding."
+        ],
+        "reasoning": "Comparisons use precise continuous-time unnormalized Laplacian and one-leaf graph rather than title similarity to intact Kp,q or discrete transition chains.",
+        "searches": [
+          "Resultary: Fastest algebraic connectivity weighted pendant complete bipartite graph total edge budget",
+          "pendant biclique algebraic connectivity optimal edge conductance",
+          "fastest mixing continuous-time leaf Kp,q weight budget"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits involve bipartite polytopes, domination, unrelated Laplacian spectra and other graph invariants.",
+          "No table for the p,q conductance optimum/plateau was found in inspected sources."
+        ],
+        "reasoning": "A table of unweighted Laplacian spectra or intact bipartite graphs cannot determine optimization over arbitrary nonnegative edge conductances.",
+        "searches": [
+          "Resultary pendant complete bipartite fastest algebraic connectivity optimization",
+          "graph algebraic connectivity edge weight budget Kpq leaf exact threshold",
+          "weighted pendant biclique SDP optimizer table"
+        ]
+      },
+      "rationale": "The semidefinite embedding duality and automorphism averaging are established by fastest-mixing and algebraic-connectivity literature, but the inspected primary results do not identify the pendant biclique graph family’s sharp conductance-budget plateau nor strict size-imbalance transition and p3 boundary. The claim does not ascribe novelty to the general SDP technique.",
+      "residual_risks": [
+        "Kirkland–Pati On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs (2002) was available by abstract only; possible stronger specialist prior results remain unexcluded.",
+        "An earlier explicit pendant-biclique application of the general duality may exist outside inspected indexes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_ONLY, not the specific plateau",
+          "evidence": "Embedding optimization and separators are general; no matching pendant complete bipartite threshold found in inspected theorem statements.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+          "material_read": "29-page primary preprint: introduction, optimization geometry, Theorem 12 and separator-shadow discussion with page screenshots of title and theorem",
+          "method": "Opened PDF text, searched graph-family terms and inspected page images p1 and p15",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "Closest primary embedding duality and separator theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Explicit admissible Gram certificate and complete quotient spectrum in RESULT.md",
+        "General fastest-mixing SDP motivation in Sun et al 2006"
+      ],
+      "rationale": "A sharp graph-dependent plateau under a total conductance budget is an interpretable optimization boundary; it tells exactly when the leaf-attached bipartite network can saturate a universal all-allocation SDP bound, including a genuinely unbalanced transition and a small-p exception. The exact certificate is reusable in spectral network design.",
+      "residual_risks": [
+        "Above transition q>p+2, exact optimizer is not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For weighted K_{p,q} plus a pendant leaf on the p-part, p>=4, q>=2, conductance budget B, maximal Laplacian algebraic connectivity is at most B/(p+4), and equality is attained exactly when q<=p+2. An explicit symmetric optimizer and uniqueness among symmetric optimizers are given; p=3,q=2 counterexample precludes universal extension.",
+  "limitations": [
+    "The actual optimum above q>p+2 is not determined, only strictly below B/(p+4).",
+    "Uniqueness is proved only in symmetric allocation class; arbitrary nonsymmetric maximizing weights may not be unique.",
+    "Kirkland–Pati On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs (2002) was available by abstract only; possible stronger specialist prior results remain unexcluded.",
+    "An earlier explicit pendant-biclique application of the general duality may exist outside inspected indexes.",
+    "Above transition q>p+2, exact optimizer is not classified.",
+    "Scientific acceptance is a best-of-knowledge completed assessment, not a publication, certification, or approval to disclose unsanitized public files."
+  ],
+  "schema_version": 1
+}

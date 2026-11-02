@@ -1,15 +1,21 @@
-# Scientific review: sharp pendant-biclique budget plateau
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every \(p\ge4\), \(q\ge2\), and \(B>0\), the explicit Gram matrix \(X=vv^{\mathsf T}+\sigma^2 E\) is positive semidefinite, annihilates constants, has trace \(p+4\), and gives squared distance one on every permitted edge. Tracing against any weighted Laplacian gives the unrestricted upper bound. The equitable quotient characteristic polynomial is checked symbolically, and its remaining roots exceed one; the opposite-side fluctuation eigenvalue supplies the exact saturation threshold. Averaging and complementary slackness rule out saturation above that threshold even for nonsymmetric weights. The explicit six-vertex counterexample shows why the claim excludes \(p=3\). The accompanying checker gives finite and symbolic cross-checks; the infinite claim uses the displayed proof.
+## correctness
 
-## Originality
-**PASS, subject to residual research-literature risk.** The September 2, 2005 Göring–Helmberg–Wappler preprint introduces a general embedding-duality theory and examples, not the explicit pendant-\(K_{p,q}\) saturation threshold. The 2006 Sun–Boyd–Xiao–Diaconis full text studies general continuous-time fastest mixing, with path/cycle examples, but no matching pendant-biclique family statement located in the examined sections or term searches. The 2007 Boyd–Diaconis–Parrilo–Xiao full preprint analyzes discrete-time graph symmetry and intact complete bipartite graphs, whose feasible objective differs. Related accessible mathematical records concern other graph families, discrete-time objectives, or fixed conductance spectra. The 2002 Kirkland–Pati vertex-connectivity article was available only at abstract level and is a residual uncertainty; no claim of exhaustive coverage of inaccessible literature is made.
+PASS
 
-## Value
-**PASS.** The mathematically natural absolute-algebraic-connectivity problem has an exactly solvable, nontrivial regime on a one-leaf perturbation of a complete bipartite core. The optimum is independent of opposite-side size until the sharp integer threshold \(q=p+2\), after which *every* allocation strictly misses the previous ceiling. The dual witness is simultaneously tight on all individual edge types and works against all nonsymmetric designs, providing a reusable design certificate for bottlenecked bipartite communication and diffusion networks. The explicit counterexample at \(p=3\) shows that the vertex-count assumption is structural, not a cosmetic proof constraint.
+Put m=p-1>=3, v=(1,-3/m (m times),0 (q times),2); add to vv^T the positive coefficient (m²-9)/(m(m-1)) times the A0 centering projector. This X is PSD, zero on constants, trace X=m+5=p+4, and every allowed edge has squared X-distance exactly one. Thus tr(LX)=B >= λ2 tr(X) for every nonnegative weight allocation, including nonsymmetric ones. Candidate symmetric rates leaf 2λ, a-to-D 3λ/q, A0-to-D λ/q total B yield complete spectrum from four-class equitable quotient: eigenvalue 1 from A0, (p+2)/q from D, and remaining positive roots >1, giving gap λ min(1,(p+2)/q). At equality average an arbitrary maximizer over independent A0 and D permutations; concavity preserves λ2; complementary slackness forces Lv=λv and symmetric rates uniquely as candidate. Hence q>p+2 strict unattainability. Special p3,q2 rational weights yield gap 6/41>1/7. Independently reconstructed dual distances and eigenvalue formula for 60 (p,q) examples and exact SymPy boundary six-vertex spectrum. These supplement the all-weights trace certificate.
 
-## Limits and closest literature
-No global exact value above the transition, no unrestricted uniqueness claim, and no independent audit are provided. Closest directly inspected sources: Göring–Helmberg–Wappler (2005, optimization-online.org/2005/09/1202/); Sun–Boyd–Xiao–Diaconis (2006, DOI 10.1137/S0036144504443821); Boyd–Diaconis–Parrilo–Xiao (2007, arXiv:0709.0955). Kirkland–Pati (2002, DOI 10.1080/03081080290025453) remained abstract-only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The semidefinite embedding duality and automorphism averaging are established by fastest-mixing and algebraic-connectivity literature, but the inspected primary results do not identify the pendant biclique graph family’s sharp conductance-budget plateau nor strict size-imbalance transition and p3 boundary. The claim does not ascribe novelty to the general SDP technique.
+
+## value
+
+PASS
+
+A sharp graph-dependent plateau under a total conductance budget is an interpretable optimization boundary; it tells exactly when the leaf-attached bipartite network can saturate a universal all-allocation SDP bound, including a genuinely unbalanced transition and a small-p exception. The exact certificate is reusable in spectral network design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
