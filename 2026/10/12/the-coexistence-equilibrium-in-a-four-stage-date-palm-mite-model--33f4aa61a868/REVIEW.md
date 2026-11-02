@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source's explicit coexistence equilibrium and printed quartic coefficients. The equilibrium formula gives \(\eta_4=t e_4\), \(0<t<1\), and the remaining Hurwitz determinant expands into strictly positive terms. The algebraic inequalities are explicit and the bundled checker independently replays the identities.
+## correctness
 
-## Originality
-PASS. The motivating article leaves \(\Delta_3>0\) as a hypothesis and checks it numerically only at its simulation parameter set. The closest inspected four-stage insect model is discrete-time, while the recent Beverton-Holt stability paper is a two-state reaction-diffusion model. No inspected source implies the automatic positivity theorem for the 2026 date-palm-mite ODE.
+PASS
 
-## Value
-PASS. The result closes the model's local coexistence classification over the full biological parameter region and proves that the positive equilibrium cannot undergo a Hopf loss of stability above threshold.
+For all strictly positive rates and R0>1, the exact positive equilibrium yields q*=R0 and B=bγE=t e4/D with t=(R0−1)/R0 in (0,1). The characteristic polynomial calculated from J is λ4+e1 λ3+(e2+B)λ2+(e3+Bc)λ+BD. Expanding Δ3 gives base Hurwitz determinant e1e2e3−e3²−e1²e4>0, plus e1²(1−t)e4>0, B[c(e1e2−2e3)+e1e3]>0, and B²c(e1−c)>0; e1e2−3e3=∑_{i<j}αiαj(αi+αj)>0 and e1−c=α1+μL>0. All ηi positive, proving Hurwitz stability by the quartic Liénard–Chipart criterion. The proof excludes Hopf crossings of this equilibrium but not other global dynamics.
 
-## Closest literature and limitations
-The closest structural comparison is Xing, Liu, and Guo (2019), DOI 10.1186/s13662-019-2449-x. Zhang and Zhao (2025), DOI 10.1080/27690911.2025.2551358, treat a different spatial model. The present theorem is local and does not remove the motivating paper's additional global-stability hypotheses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2026 article proves only a conditional Hurwitz criterion (Theorem 9); its global coexistence theorem (Theorem 13) also assumes local stability and six additional negativity bounds. Exact elimination of Delta3 for every positive rate vector and every R0>1 is not supplied there. Examined analogues use different discrete-time or two-state PDE operators. No identified published result implies this universal assertion; best-of-knowledge with classical-stage-model priority risk.
+
+## value
+
+PASS
+
+The determinant condition in the motivating published four-stage mite model is not a mere arbitrary algebra exercise: it separates proven local coexistence stability from an entire unclassified positive-parameter region. Showing it is automatic gives a complete sharp qualitative local threshold picture and rules out Hopf loss of the positive equilibrium anywhere for R0>1, avoiding casewise quartic tests. The result is model-specific and elementary in technique, but closes a real model-level analytical gap; this is an independently useful stability conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

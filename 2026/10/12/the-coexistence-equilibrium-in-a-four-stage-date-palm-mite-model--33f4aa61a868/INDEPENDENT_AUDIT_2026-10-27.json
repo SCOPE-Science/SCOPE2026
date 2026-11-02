@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T07:21:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Source ODE and Jacobian verified against 2026 motivating article Theorem 9.",
+        "SymPy independent exact symbolic determinant identity, positive decomposition and symmetric polynomial identity, printed EXACT_MATRIX_IDENTITY_OK/EXACT_HURWITZ_DECOMPOSITION_OK.",
+        "2048 deterministic strictly positive rational parameter cases independently checked exact Δ3 positivity, ancillary to analytic proof.",
+        "Assigned seven Git files and nested verifier read; full source-tree Git SHA independently reconstructed."
+      ],
+      "rationale": "For all strictly positive rates and R0>1, the exact positive equilibrium yields q*=R0 and B=bγE=t e4/D with t=(R0−1)/R0 in (0,1). The characteristic polynomial calculated from J is λ4+e1 λ3+(e2+B)λ2+(e3+Bc)λ+BD. Expanding Δ3 gives base Hurwitz determinant e1e2e3−e3²−e1²e4>0, plus e1²(1−t)e4>0, B[c(e1e2−2e3)+e1e3]>0, and B²c(e1−c)>0; e1e2−3e3=∑_{i<j}αiαj(αi+αj)>0 and e1−c=α1+μL>0. All ηi positive, proving Hurwitz stability by the quartic Liénard–Chipart criterion. The proof excludes Hopf crossings of this equilibrium but not other global dynamics.",
+      "scope": "Strictly positive stage transition, mortality, oviposition and capacity parameters; R0>1; uncontrolled four-stage continuous ODE; local spectral stability of unique positive equilibrium only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xing–Liu–Guo 2019 DOI 10.1186/s13662-019-2449-x studies discrete-time four-stage mosquito projection matrices with density-dependent stage survival rather than the specific continuous-time saturated recruitment Jacobian.",
+          "Zhang–Zhao 2025 DOI 10.1080/27690911.2025.2551358 studies two-stage reaction-diffusion with adult-only saturated recruitment and comparison monotonicity; no four-stage cross-inhibitory Jacobian.",
+          "Gurney–Nisbet 1980 DOI 10.1016/0040-5809(80)90030-1 abstract gives a general age-structure stability sufficient condition under age-independent death; source model has differing stage mortality and transitions, so the stated condition does not cover all rates.",
+          "Adenane et al. 2026 DOI 10.3934/mbe.2026098 concerns balanced bilinear epidemic models and next-generation rank-one classes, not this rational-density recruitment."
+        ],
+        "reasoning": "A broader theorem may imply special cases, but those inspected require different dynamics or assumptions not fulfilled for the full six-rate positive domain; none yields a universal determinant inequality for this matrix. General classical age-structured theory remains a priority risk.",
+        "searches": [
+          "web: linear chain Erlang stage structure density dependent birth at equilibrium local stability always Routh Hurwitz",
+          "web: positive equilibrium four compartment linear chain feedback fertility decreasing population global asymptotic stability without delays",
+          "web: Age- and density-dependent population dynamics in static and variable environments Gurney Nisbet 1980",
+          "web: A Perron-Frobenius strong threshold theorem balanced bilinear model 2026"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.20261058",
+        "doi:10.1186/s13662-019-2449-x",
+        "doi:10.1080/27690911.2025.2551358",
+        "doi:10.1016/0040-5809(80)90030-1",
+        "doi:10.3934/mbe.2026098",
+        "published SCOPE critical mite 2026-10-04 via Resultary search and Resultary/2026 RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 article characteristic coefficients match e1,e2+B,e3+Bc,BD exactly, but leaves Δ3 as unverified input.",
+          "2026 global theorem assumes local asymptotic stability, thus cannot be used as a premise-free proof of its own assumption.",
+          "Published R0=1 extinction law concerns a disjoint threshold state."
+        ],
+        "reasoning": "The new claim is not a restatement of a source theorem: it discharges a nontrivial analytic parameter inequality absent from the source; the existing conditional theorem yields the new all-parameter result only after proving that inequality. No inspected later antecedent closes it.",
+        "searches": [
+          "web: 2026 date palm mite paper Theorem 13 global conditions coexistence",
+          "web: Cost-effective strategies for controlling date palm mite infestations eta_3 eta_4 2026",
+          "Resultary: four-stage date palm mite Beverton Holt equilibrium unconditional local asymptotic stability quartic Routh Hurwitz"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aljurbua–El-Shahed 2026 DOI 10.3934/math.20261058, §3.7 Theorem 9: Δ3>0 is an additional sufficient condition, not resolved across all positive parameters.",
+          "Same article §3.9 Theorem 13 explicitly assumes local asymptotic stability and six auxiliary bounds; does not give unconditional R0>1 stability.",
+          "The published critical-threshold SCOPE result fixes R0=1 at the extinction equilibrium; it does not concern R0>1 coexistence."
+        ],
+        "reasoning": "The exact equivalent would assert Hurwitz stability of the four-stage positive equilibrium for every allowed parameter with R0>1, or prove the same determinant automatically positive; the inspected exact model paper states only conditional conclusions. The separate critical-extinction theorem is a different parameter regime.",
+        "searches": [
+          "Resultary: four-stage date palm mite Beverton Holt equilibrium unconditional local asymptotic stability quartic Routh Hurwitz",
+          "web: date palm mite stage structured model coexistence equilibrium local stability Routh Hurwitz condition",
+          "web: Aljurbua El-Shahed 2026 universal Routh Hurwitz stability 2026 date palm mite note"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top Resultary hit for exact mite object is published SCOPE critical-extinction R0=1 paper, not R0>1 coexistence.",
+          "Other retrieved records treat age-structured kernels, mosquito maps, and unrelated Hurwitz scenarios; none contains an exact table or theorem determining this automatic Delta3 positivity.",
+          "The motivating article includes numerical Δ3 evaluation for one beta value, not a complete exact all-parameter classification."
+        ],
+        "reasoning": "No database/table covers the exact continuous-parameter stability invariant in the returned records. Search non-detection is only supplementary to positive statement comparisons and is not novelty proof.",
+        "searches": [
+          "Resultary: four-stage date palm mite Beverton Holt equilibrium unconditional local asymptotic stability quartic Routh Hurwitz",
+          "Resultary: continuous-time four stage egg larva nymph adult density-dependent recruitment positive equilibrium always stable Hopf exclusion",
+          "Resultary: linear chain stage-structured population Beverton Holt birth Routh Hurwitz determinant automatically positive"
+        ]
+      },
+      "rationale": "The motivating 2026 article proves only a conditional Hurwitz criterion (Theorem 9); its global coexistence theorem (Theorem 13) also assumes local stability and six additional negativity bounds. Exact elimination of Delta3 for every positive rate vector and every R0>1 is not supplied there. Examined analogues use different discrete-time or two-state PDE operators. No identified published result implies this universal assertion; best-of-knowledge with classical-stage-model priority risk.",
+      "residual_risks": [
+        "Theorem may follow from a specialized older continuous-time stage structured renewal or feedback theorem that was not located; Gurney–Nisbet 1980 full paper was not inspected.",
+        "The 2025 two-stage PDE paper was available in indexed excerpts but direct complete publisher page returned 403; its different dimension and equation make exact coverage implausible, not logically excluded from unread appendices.",
+        "Elementary determinant decomposition could appear in unpublished or unindexed notes; qualified priority only.",
+        "No claim that above-threshold global convergence or extra Li–Muldowney bounds are automatic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISES_ONLY_AND_CONDITIONAL: exact equations and coefficients match; neither Theorem 9 nor global Theorem 13 proves universal Δ3 positivity.",
+          "evidence": "Theorem 9: if Δ3>0 then stable; Theorem 13 assumptions include local asymptotic stability and six C_j<0 estimates; positive equilibrium A*=K(R0−1)/(1+C_L+C_N).",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.20261058?viewType=HTML",
+          "material_read": "Publisher indexed full-text content for model (1), Sections 3.3–3.7 including printed Jacobian and quartic coefficients, Theorem 9, Section 3.9 and Theorem 13, numerical and global-stability qualification.",
+          "method": "Open-access publisher full-text HTML indexed passages verified against the mathematical formulae.",
+          "title": "Cost-effective strategies for controlling date palm mite infestations: an optimal control approach",
+          "trigger": "Exact four-stage ODE, positive-equilibrium formula and quartic stability criterion."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: difference-equation positive fixed point and unit-disc multipliers, not the continuous-time mite coexistence Jacobian.",
+          "evidence": "Equation (1.2) is a four-stage discrete map with stage-dependent survivorship; density affects survival terms, unlike the assessed continuous ODE egg recruitment.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13662-019-2449-x",
+          "material_read": "Open-access full article abstract, introductory model (1.2), density-dependent survival hypotheses (H1), constant-birth dynamics and stability/conclusions described in the primary HTML.",
+          "method": "Springer open-access HTML source (2019-12-12).",
+          "title": "A discrete-time mathematical model of stage-structured mosquito populations",
+          "trigger": "Four-stage insect Beverton–Holt analogue."
+        },
+        {
+          "assessment": "RELATED_PARTIAL_NOT_COVERING: two-state reaction-diffusion and adult-only saturated recruitment; whole-document noncoverage not asserted.",
+          "evidence": "Conclusion says two types of individuals (immature, mature) and PDE comparison/elliptic methods; does not display four-stage cross-inhibitory matrix in inspected material.",
+          "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/27690911.2025.2551358",
+          "material_read": "Indexed article full-text extracts: Abstract, Introduction, two-state system description, Theorem 2.1, Theorem 3.1 and Conclusion; direct page open returned HTTP 403.",
+          "method": "Publisher-indexed readable extracts; direct full-page access denied; no claim to have read omitted formulas.",
+          "title": "Global stability of stage-structured single species model on R^N with Beverton-Holt birth function",
+          "trigger": "Recent broader Beverton–Holt stage-structure global theorem."
+        },
+        {
+          "assessment": "NONCOVERING_PARAMETER_REGIME: proves extinction at R0=1, not coexistence at R0>1.",
+          "evidence": "Finding explicitly fixes R0=1 and critical extinction P0; positive coexistence exists only for R0>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-critical-date-palm-mite-extinction-is-globally-stable-with-a-uni--ba3881dcd4ec",
+          "material_read": "Complete published RESULT.md including assumptions, proof, critical spectral decomposition, comparison and limitations.",
+          "method": "Published GitHub repository read-only file fetch.",
+          "title": "Critical date-palm-mite extinction is globally stable with a universal t^{-1} stage profile",
+          "trigger": "Published result for exact same mite equations and reproduction threshold."
+        },
+        {
+          "assessment": "PLAUSIBLE_PRIOR_RISK: stated guarantee assumes death independent of age, not valid for unrestricted distinct stage mortality; complete paper not read.",
+          "evidence": "Abstract explicitly conditions local-stability guarantee on age-independent per-capita death and density feedback signs.",
+          "identifier_or_url": "https://strathprints.strath.ac.uk/41610/",
+          "material_read": "Repository abstract and bibliographic record only; publisher full text was not available in repository.",
+          "method": "Public repository indexed abstract; no whole-document finding.",
+          "title": "Age- and density-dependent population dynamics in static and variable environments",
+          "trigger": "Potential older general age-structured local-stability theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The determinant condition in the motivating published four-stage mite model is not a mere arbitrary algebra exercise: it separates proven local coexistence stability from an entire unclassified positive-parameter region. Showing it is automatic gives a complete sharp qualitative local threshold picture and rules out Hopf loss of the positive equilibrium anywhere for R0>1, avoiding casewise quartic tests. The result is model-specific and elementary in technique, but closes a real model-level analytical gap; this is an independently useful stability conclusion.",
+      "risks": [
+        "Model-specific, not a general four-stage feedback theorem.",
+        "Says nothing about global convergence, controls, delays or other recruitment laws.",
+        "Exact simplification may be known in general age-structured literature without matching model names."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/math.20261058",
+    "doi:10.1186/s13662-019-2449-x",
+    "doi:10.1080/27690911.2025.2551358",
+    "doi:10.1016/0040-5809(80)90030-1",
+    "doi:10.3934/mbe.2026098",
+    "published SCOPE critical mite 2026-10-04 via Resultary search and Resultary/2026 RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local stability only, not global attraction or uniqueness of all invariant sets.",
+    "Only uncontrolled continuous-time saturated recruitment system; no delay, modified recruitment or discrete analogue.",
+    "Best-of-knowledge novelty qualified by older age-structure literature.",
+    "Public-facing metadata requires guarded sanitization before publishing; operations below only stage bytes."
+  ],
+  "schema_version": 1
+}
