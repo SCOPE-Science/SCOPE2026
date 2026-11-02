@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns exactly the diagonal numerator \(Q_{m,n}\) of Edholm–Mathew, for all \(m=n+5\) with \(5\nmid n\). The coefficient reduction follows directly from the published five-term formula, including all exponent shifts and the central \(m^2\) term. The floor-block endpoints are affine in the quotient parameter, making every coefficient polynomial of degree at most three. Exact arithmetic independently verifies the resulting cubic polynomial identity at the four necessary nodes in every remainder class, which is sufficient by the proved degree bound. The nonnegative factored highest coefficients and all 384 strictly positive rational Bernstein coefficients imply strict positivity on the full closed interval. Reciprocal symmetry gives the precise count of five roots in the open disk and the published kernel formula gives actual kernel zeros. These are analytic deductions, not extrapolations from numeric tests.
+PASS
 
-## Originality — PASS
+Independently reconstructed Edholm–Mathew (1.4c)-(1.4h) including Q=s^{1-2n}P(s,s). Exact standalone derivation of floor-block power sums with the important h=4 upper endpoint capped at t=m-1 proves all four claimed polynomial identities SYMBOLICALLY in q, with coefficient degree ≤3; independent direct coefficient comparisons hold for each 5∤n<61. Separately recalculated all 384 rational Bernstein coefficients from B_r/C_r and compared each exactly with actual BERNSTEIN_CERTIFICATE.json from pinned Git blob; all match and each is strictly positive (B minima 1841/480,29/48,119/480,83/30; C minima 107/20,77/40,81/40,289/40). Factored (x+2)(4x²+2x−1)² has nonnegative coefficient for q≥0, hence no unit circle zeros. Reciprocity and nonzero endpoints imply exactly 5 reciprocal root pairs; (s,s) lies inside H_{m/n}, and original denominator is nonzero for 0<|s|<1. No extrapolation from finite experiments.
 
-The full original 2025 preprint and the open-access 2026 journal article explicitly leave the complete difference-five case open in Section 4.3 and Conjecture 4.20. Their established cases with differences one, two, three, four, or six do not imply the assertion for difference five, and their general theorem guaranteeing infinitely many examples at each fixed difference does not cover all coprime difference-five pairs. Edholm–McNeal's earlier result addresses \(\gamma\ge2\) but not the entire new subfamily with \(1<\gamma<2\). Source, parameter, alias and same-claim searches revealed no broader published coverage. A paper in preparation mentioned in the source may overlap; unpublished or unindexed work is not ruled out.
+## originality
 
-## Value — PASS
+PASS
 
-The integer gap five is specifically identified as the first unresolved difference and as more difficult because it requires four residue classes. Establishing every such pair, including infinitely many quotient parameters tending to one, resolves a natural conjectural subcase about zeros of canonical Bergman kernels of quotient domains. The positivity decomposition is a structural argument for all parameters and is useful beyond a finite computation. No theorem for other differences is asserted.
+Fresh independent literature and published-record comparisons support best-of-knowledge originality. Edholm–Mathew (2026) explicitly leaves fixed gap five open while providing the source formula; the full all-coprime difference-five positivity argument is new relative to reported gaps 1–4 and 6, published gaps 7–17, the n=1 integer-slope result and the m=2n+1 slice. Edholm–McNeal 2017 proves weaker kernel-zero existence for gamma>=2. The exact identical semantic hit is self material, never counted as independent prior evidence.
 
-## Sources and limits
+## value
 
-Edholm–Mathew, *Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains*, arXiv:2505.20489, DOI:10.1007/s00209-026-04059-8, Theorems 1.3, 1.5, Section 4.3. Edholm–McNeal, *Bergman subspaces and subkernels: Degenerate \(L^p\) mapping and zeroes*, arXiv:1605.06223, introduction and kernel-zero scope. The exact source kernel formula is accepted as a published premise. An equivalent independently derived result not indexed in the consulted literature, and the authors' announced work in preparation, remain possible originality risks. Root simplicity, root localization, and the general difference problem remain outside this finding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact unit-circle behavior of the canonical rational-Hartogs diagonal Bergman numerator at fixed gap k=5 is a named natural unresolved subcase of Edholm–Mathew Conjecture 4.20; the source expressly singles it out as more difficult because φ(5)=4. The all-n four-residue strict positivity theorem and exact rational Bernstein certificate are substantial new parameter-uniform geometry, not a tiny numerical instance or a textbook formula substitution. The result determines the complete five-root count and genuine kernel zeros for infinitely many domains tending toward exponent one, without claiming the unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
