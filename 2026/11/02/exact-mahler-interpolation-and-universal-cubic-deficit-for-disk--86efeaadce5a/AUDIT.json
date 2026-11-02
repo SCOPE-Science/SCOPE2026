@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Two independent sector decompositions establish the exact areas of the clipped polygon and its polar; multiplying yields the factorized product. An explicit derivative is negative on the full parameter interval using the elementary \\(\\beta\\le\\pi/4\\) and \\(\\pi/4<\\beta\\le\\pi/3\\) split. Direct endpoint Taylor expansions and uniform Taylor bounds prove both sharp endpoint rates and the cubic high-sided limit. A standard-library independent computational check passed 417 assertions; no empirical statement is substituted for a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Böröczky–Makai–Meyer–Reisner, arXiv:1507.01481, Theorem 3 and Corollary 4, PDF p.17: a lower bound with equality for a regular polygon; no radius-by-radius monotonicity.",
+        "Harrell–Henrot–Lamboley, arXiv:1104.3663, Theorems 1.1–1.2, PDF p.3: local minimizer and curvature constraints, not global ordering on this one-parameter family."
+      ],
+      "reasoning": "The comparison theorems imply only sharp endpoint bounds or local-minimizer constraints. They do not imply strict monotonicity of an arbitrary nested disk-intersection family or any exact coefficient or uniform cubic profile. The present computation uses the special regular-polygon polar geometry.",
+      "searches": [
+        "On the volume product of planar polar convex bodies lower estimates with stability arxiv 2013",
+        "Harrell Henrot Lamboley On the local minimizers of the Mahler volume arxiv pdf 2014",
+        "Mahler volume product radial truncation regular polygon circle monotone"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1507.01481 (Theorem 3, Corollary 4)",
+      "https://www.researchgate.net/publication/225173584_On_the_volume_product_of_polygons (Theorems 1–3)",
+      "https://arxiv.org/pdf/1104.3663 (Theorems 1.1–1.2)",
+      "https://doi.org/10.1007/s12188-011-0054-3 (first published 2011-04-05)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The lower bound \\(\\mathcal M(K)\\ge n^2\\sin^2(\\pi/n)\\) is prior, as is the ball upper bound \\(\\mathcal M(K)\\le\\pi^2\\); neither is claimed as new.",
+        "The explicit factorization, negative derivative and distinct endpoint/high-sided asymptotics are not contained in the inspected statements of these sources."
+      ],
+      "reasoning": "An inequality bounding a quantity at every radius cannot, without an additional parametric theorem, imply that it is ordered at two different radii. Likewise, equality cases at the disk and polygon do not determine a cubic scaling law; the new exact formula and its asymptotics supply that extra content.",
+      "searches": [
+        "On the volume product of polygons Meyer Reisner 2011 full text",
+        "Volume product of planar polar convex bodies lower estimates with stability arxiv 1507.01481 Theorem 3 Corollary 4",
+        "On the local minimizers of the Mahler volume arxiv 1104.3663 Theorem 1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The polar equivalence is \\((P_n\\cap rB_2)^\\circ=\\operatorname{conv}(P_n^\\circ,r^{-1}B_2)\\), proved in RESULT.md; this is distinct from the polar of the outer parallel body \\(P_n+tB_2\\).",
+        "Meyer–Reisner (2011) concerns polygonal volume-product extrema, not polygon/disk intersections; researchgate full text §2–3."
+      ],
+      "reasoning": "The full parametrized inner-rounding product is not a rewording of a published bound or the outer parallel-body product: the convex-hull polar construction and tangent/circle arc decomposition are different. No equivalent source was located in the named searches.",
+      "searches": [
+        "Mahler product concentric disk clipped regular polygon parametric formula n²(α−β+sinβcosβ)(α−β+tanβ) cubic limit",
+        "regular polygon circumscribed about circle truncated by circumsphere Mahler volume radial clipping circle area polar"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned publication-record topics include radial unions of rotated regular polygons, area of disk intersections, and volume products of cube–cross-polytope intersections; none tabulates this exact inner-rounding family or its normalized deficit profile.",
+        "The searched 2011, 2013 and 2015 papers contain lower/upper bounds and general variational results, not a matching table."
+      ],
+      "reasoning": "Direct searches for the formula, its geometric aliases, the tangent disk/dual polygon formulation, and the radius ordering yielded no matching table or parametrized result. This negative search is evidence with limits, not a proof of global uniqueness.",
+      "searches": [
+        "Mahler volume product intersection regular polygon with concentric disk polar convex hull disc polygon inscribed circumscribed",
+        "For regular n-gon P with inradius 1, centered disk of radius r between inradius and circumradius, formula Mahler volume product (area P intersect rB)*(area conv(P polar, r inverse disk)) and strict monotonic from pi squared to n squared sin squared(pi/n)",
+        "regular polygon disk intersection Mahler product area polar exact table"
+      ]
+    },
+    "rationale": "The nearest primary full texts prove endpoint bounds, fixed-vertex-count polygon extremality, or local variational properties, without the exact disk-clipped family product and its strict radius ordering/normalized cubic profile. Relevant publication-record searches found no equivalent parametrized result; historical priority remains a bounded, not independently certified, assessment.",
+    "residual_risks": [
+      "An unindexed historical computation of this exact inner-rounding Mahler product could exist.",
+      "Broader but differently formulated results beyond the inspected primary articles might imply some subclaims, particularly the strict monotonicity; the exact uniform cubic expansion was not found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "lower bound, equality and stability; not covering exact disk-clipping path, strict monotonicity, or cubic limit",
+        "evidence": "Theorem 3 and Corollary 4 state the bound \\(n^2\\sin^2(\\pi/n)\\) and exact regular-polygon equality.",
+        "identifier_or_url": "https://arxiv.org/pdf/1507.01481",
+        "material_read": "abstract, introductory framework, Theorem 3 and Corollary 4 at PDF page 17, and surrounding proof and stability example",
+        "method": "open-access full-PDF text with page rendering",
+        "title": "On the volume product of planar polar convex bodies—lower estimates with stability",
+        "trigger": "n-fold rotational symmetry extremal theorem could subsume the proposed Mahler interpolation"
+      },
+      {
+        "assessment": "polygon-extremal theorems do not concern hybrid disk/polygon boundary arcs",
+        "evidence": "Theorem 3 maximizes the Mahler product among polygons with a fixed number of vertices.",
+        "identifier_or_url": "https://www.researchgate.net/publication/225173584_On_the_volume_product_of_polygons",
+        "material_read": "available full article text: introduction, vertex-variation method and Theorems 1–3 (including polygon maxima)",
+        "method": "lawful publicly readable article text",
+        "title": "On the volume product of polygons",
+        "trigger": "exact polygon volume-product optimization may imply the shape-family formula"
+      },
+      {
+        "assessment": "does not assert global monotonicity for disk intersections or exact regular-polygon curves",
+        "evidence": "Theorems concern curvature of minimizers and planar local-minimizer classification.",
+        "identifier_or_url": "https://arxiv.org/pdf/1104.3663",
+        "material_read": "abstract, Introduction and results, Theorems 1.1–1.2 and stated local-concavity scope on PDF pages 1–3",
+        "method": "open-access full-PDF text with page rendering",
+        "title": "On the local minimizers of the Mahler volume",
+        "trigger": "general local concavity could provide broader directional monotonicity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86efeaad-ce5a-4022-9503-49e9ba251a78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete interpolation resolves the shape-dependent Mahler product on a canonical family joining the Euclidean disk to each regular polygon, a natural test path for planar volume-product extremal theory. The nonanalytic disk-side \\((r-1)^{3/2}\\) law, linear polygon-side law and universal cubic many-sided profile reveal quantitatively distinct regimes not supplied by endpoint inequalities or polygon-only formulas.",
+    "status": "PASS"
+  }
+}
