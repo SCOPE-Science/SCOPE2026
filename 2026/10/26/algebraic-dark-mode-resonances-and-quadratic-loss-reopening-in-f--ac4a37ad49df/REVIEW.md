@@ -1,15 +1,21 @@
-# Scientific review: algebraic SSH dark-mode resonances
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For the specified finite open 2\(N\)-site fermion chain the sublattice recurrence, left and right boundary conditions, and special band-edge cases yield an exact if-and-only-if classification. Positive hopping makes the Hermitian Jacobi spectrum simple. Each allowed interior sine node gives two distinct particle-hole partner modes. The dissipative eigenvalue identity distinguishes exact undamped modes from small but strictly positive decay rates, and the correlation-matrix contraction proves vacuum attraction off resonance. The Fock-space construction supplies \(2^q\) orthogonal stationary pure states on resonance. The normalized eigenvector weight and implicit-function derivative prove the stated positive quadratic coefficient in the specified ordered limit. The independent finite-matrix checker passed 4,237 comparisons across a parameter grid; finite testing is supporting evidence, not the proof.
+## correctness
 
-## Originality
-**PASS, best-knowledge; not an independent priority certification.** Wang and Zhang, arXiv:2607.10218v1, analyze the identical physical SSH single-loss model and give the weak-loss weight rule, exceptional-point and Zeno mechanisms. The accessible material from their section on weak dissipation explicitly notes that exact nodes can arise at special commensurate sites, but does not identify the complete positive-hopping resonance set, all exceptional multiplicities, or the iterated quadratic opening constant. Yang, Molignini and Bergholtz, arXiv:2305.00031, establish a broader dark-state preparation mechanism, focused on a nodal topological mode rather than complete tuning ratios for the even-length bulk modes here. The general Jacobi eigenvector formula, the one-body loss criterion, and first-order loss perturbation are prior mathematical tools; originality is restricted to the combined explicit classification and sharp detuning statement. Searches by nodal/rank-one/alternating-chain aliases found no direct covering claim. Incomplete inspection of portions of the preceding papers remains a residual priority risk.
+PASS
 
-## Value
-**PASS.** Whether single-site loss globally empties a finite fermionic chain is a qualitative dynamical question, and exact dark states invalidate any generic finite-gap assertion. The new formulas give a complete physically tunable nonergodicity criterion at all sizes and all defect positions, an exact protected-mode multiplicity, a demonstrably nonuniform multiple-mode resonance, and an explicit loss-rate reopening law. This distinguishes exact dark occupation sectors from exponentially long-lived but decaying edge modes, and provides testable rational-angle coupling targets.
+The irreducible 2N-site Jacobi chain has nonzero, simple real energies; eliminating B amplitudes gives E² a_j=(1+r²)a_j+r(a_{j-1}+a_{j+1}), with a_0=-r a_1 and a_{N+1}=0. For an interior node at A_m the only admissible real k satisfy sin(Lk)=0, k=πj/L, and the left boundary gives the positive finite ratio r=-sin(mk)/sin((m-1)k); both ± eigenvalues are dark and distinct j give distinct energies. Any eigenmode of K=-iH-γP_loss/2 with zero decay must have zero loss amplitude, hence be precisely such a clean dark orbital. If none, finite-dimensional e^{tK}->0, expectation of number decays for every fermionic density matrix, and vacuum attraction follows; otherwise dark occupied Fock configurations give 2^q orthogonal stationary pure states. At isolated roots the simple eigenvalue branch k(r) has k′=b, while the normalized loss-site weight is L²b²/[2 sum_h sin²(hk0)]·(r-r0)²; analytic first-order weak-loss perturbation proves the stated iterated limit. Independently diagonalized 28-site SSH matrix for N=14,m=3,r=√2, found four nodal orbitals, indices j=5,11, and checked both quadratic reopenings for two detunings. No claim of joint (γ,r) uniformity or exhaustion of all stationary density matrices.
 
-## Closest literature and limitations
-The nearest same-model paper is Y. T. Wang and X. Z. Zhang, *From local weight selection to Zeno slowdown in an open Su-Schrieffer-Heeger chain with a single local loss*, arXiv:2607.10218v1 (2026). Additional precedent is F. Yang, P. Molignini and E. J. Bergholtz, *Dissipative boundary state preparation*, arXiv:2305.00031 (2023). A generic theorem about observability of Jacobi matrices might imply part of the dark-mode classification without explicitly producing its finite positive-ratio set. The argument excludes gain, dephasing and interacting fermions; it establishes neither a thermodynamic transition nor a uniform small-loss/detuning limit. The full article texts were not all accessible for exhaustive priority comparison, so the assessment remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The single-loss finite-SSH model, local-weight weak-loss law and possible exact nodal modes are in Wang–Zhang (2026); dissipative edge modes are also known. The new finite all-(N,m,r>0) positive algebraic resonance list, exact multiplicity and coefficient are not stated in the primary full text inspected. General Jacobi recurrence/controllability theory may contain equivalent classifications, a material residual priority risk.
+
+## value
+
+PASS
+
+The set of exact dark-mode couplings is a motivated observability/control boundary in a finite open dissipative chain; an explicit arbitrary-loss-site classification and its quadratic reopening coefficient give usable quantitative robustness information. Nonuniform N=14,m=3,r=√2 yields four dark one-body orbitals and a 16-dimensional noiseless Fock sector, so the result is not merely a renamed parity count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
