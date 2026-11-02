@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the general conductance-budget problem by homogeneity to L>=Pi, constructs X_s=Pi(I/2+(1-s)A_M/2)Pi, checks every edge quadratic form and computes its exact trace. Positive semidefiniteness holds sharply for s<=2 with at least two pairs and s<=2(n-1)/(n-2) with one pair. Exact primal weights attain the lower bound at both regimes and show gap one by a complete eigenspace basis. Strict dual definiteness below the price transition forces L=Pi and unique uniform conductances; strict marked-edge price slack above the transition forces zero on every marked edge. An extracted, local exact-rational program passed 35,388 assertions for all 4<=n<=18, every matching size; these finite tests supplement, not replace, the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf: general optimization/duality includes the admissible problem as an instance but does not itself supply the matching-price closed form.",
+        "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf: convex hull of unweighted graph Laplacians, a distinct feasible-set model."
+      ],
+      "reasoning": "Generic SDP formulations contain the problem in the sense of a model class; they do not logically assert its explicit optimum, critical ratios, uniqueness or forced-zero structure without the current calculations. Discrete-time and unweighted graph-family results do not dominate the continuous-time price classification.",
+      "searches": [
+        "exact spectral gap maximization complete graph with priced matching all matching edges deleted when P/Q exceeds 2, unique uniform below threshold",
+        "edge-cost-constrained fastest mixing Markov process complete graph matching deletion phase transition rank k",
+        "maximum algebraic connectivity graph weighted edge budget Ghosh Boyd 2006 2008",
+        "Sun et al. (2006) maximum variance unfolding dual"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://arxiv.org/pdf/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+      "https://www.web.stanford.edu/~boyd/papers/fmmp.html",
+      "https://epubs.siam.org/doi/abs/10.1137/S0036144504443821"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf: symmetric continuous-time edge-rate budget plus dual method; examples treat path/cycle instances, not two-priced K_n matching classes.",
+        "https://arxiv.org/pdf/0709.0955: section 3.3.1 proves uniform complete-graph SLEM=0, a different budget and stationary transition model.",
+        "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf: section 2.1 treats convex hull of 0-1 unweighted graph Laplacians, not freely adjustable nonnegative edge conductances at two prices."
+      ],
+      "reasoning": "The theorem at P=Q specializes to the textbook uniform complete-graph gap, which is prior coverage and not claimed novel. The novel assertions require comparison of one versus at least two marked pairs and all real price ratios. Published generic duality and symmetry alone do not entail the sharp values, and the proof supplies explicit primal/dual constructions. Residual chance of an unlocated dedicated matching-price calculation remains.",
+      "searches": [
+        "algebraic connectivity conductance optimization K_n with designated matching price two edge orbits objective lambda2",
+        "edge-cost-constrained fastest mixing Markov process complete graph matching deletion phase transition rank k",
+        "fastest mixing Markov process K_n one marked edge weighted price minimax spectral gap",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://arxiv.org/pdf/0709.0955",
+        "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf: the continuous-time unit-gap SDP dualizes to a distance-constrained maximum-variance embedding.",
+        "https://arxiv.org/pdf/0709.0955: discrete-time SLEM and symmetry, including a uniform complete graph, are distinct objective/price assumptions."
+      ],
+      "reasoning": "Equivalent descriptions include minimum weighted edge cost for unit algebraic connectivity, fastest mixing symmetric continuous-time Markov process, matching-deletion graph (cocktail-party graph at a perfect matching), and Euclidean embedding dual constraints. The new two-price and all-optimizer assertions are compared under these equivalent descriptions, rather than by titles. No inspected result states their piecewise price thresholds.",
+      "searches": [
+        "complete graph one exceptional expensive edge algebraic connectivity budget spectral gap threshold deletion 2(n-1)/(n-2)",
+        "algebraic connectivity conductance optimization K_n with designated matching price two edge orbits objective lambda2",
+        "Sun et al. (2006), section 2 dual embedding and section 5 examples",
+        "Boyd et al., arXiv:0709.0955 sections 3 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search closest 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5 concerns orientation imbalance, not conductance or spectral-gap optimization.",
+        "published-finding corpus search closest 2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02 concerns a different one-skeleton and its spectrum."
+      ],
+      "reasoning": "Indexed results about K_n with a matching deleted describe different invariants. A graph spectrum table at fixed deletion weights would not, without an optimality certificate, cover all real price ratios or force deletion in every optimal asymmetric allocation. No exact table with the claimed design law was located.",
+      "searches": [
+        "complete graph one exceptional expensive edge algebraic connectivity budget spectral gap threshold deletion 2(n-1)/(n-2)",
+        "exact spectral gap maximization complete graph with priced matching all matching edges deleted when P/Q exceeds 2, unique uniform below threshold",
+        "graph conductance allocation complete graph exceptional edge cost spectral connectivity explicit threshold",
+        "complete graph with a priced matching and algebraic-connectivity maximization",
+        "matching deleted complete graph eigenvalues algebraic connectivity cocktail party graph"
+      ]
+    },
+    "rationale": "The assessed new statement is the complete two-price theorem for a matching in K_n, including the single-pair threshold 2(n-1)/(n-2), multi-pair threshold 2, uniqueness below the threshold and mandatory deletion above it. The inspected Sun et al. (2006) source provides general Laplacian semidefinite optimization and duality but not these exact pair-count-dependent formulas or rigidity; Boyd et al. (2007) uses discrete-time SLEM; Ghosh and Boyd (2006) treats upper bounds over graph families. Actual published-finding corpus searches for aliases and the K_n-minus-matching reduction returned no same spectral-gap price law. Residual specialist overlap is possible; absence of a retrieved match is not a proof of novelty.",
+    "residual_risks": [
+      "Specialist papers not identified by semantically ranked databases or keyword searches might already contain an equivalent two-price matching theorem.",
+      "The companion results cover other graph supports/objectives; no claim of global uniqueness of this topic is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general SDP and dual geometry, not the explicit two-price matching classification.",
+        "evidence": "SIAM Review 48 (2006), 681-699, DOI 10.1137/S0036144504443821; published online 2006-11-02; relevant general formulation and examples.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Open-access 19-page PDF: abstract, problem and dual sections, worked examples and mathematical formulations; text searched for price, matching and complete graph.",
+        "method": "Primary full-text PDF reading and targeted term searches, with page-image check.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact same continuous-time algebraic-connectivity objective and budgeted edge rates."
+      },
+      {
+        "assessment": "Distinct discrete-time second-largest-eigenvalue-modulus objective; no claimed two-price, continuous-time matched-edge threshold.",
+        "evidence": "arXiv:0709.0955v1 (2007-09-06), §3.3.1 uniform complete graph and general symmetry method.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "arXiv full 39-page PDF indexed; abstract and sections 1-4 including §3.3.1 complete graph read; matching and cost text searched.",
+        "method": "Open-access primary PDF text plus screenshot first page and focused section comparisons.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible symmetry reduction and uniform complete-graph spectral result."
+      },
+      {
+        "assessment": "Its design variables lie in convex hulls of unweighted graph Laplacians; not a theorem on positive priced conductance variables.",
+        "evidence": "Linear Algebra and its Applications 418 (2006), 693-707; publicly available online 2006-05-05; §2-3.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Open-access 15-page primary PDF: abstract, sections 1-3, model specification and family examples; full text searched for matching and weighted.",
+        "method": "Primary PDF text reading and screenshot first page.",
+        "title": "Upper Bounds on Algebraic Connectivity via Convex Optimization",
+        "trigger": "Potential more general graph-algebraic-connectivity optimization with symmetric complete-graph examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0a7ce24-99f8-4e44-a207-6dbd0356c189",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit, sharp price-screening law for network algebraic connectivity is a directly interpretable design result: a single costly link has a different critical price from two or more disjoint costly links, independent of n and matching cardinality in the latter case. It classifies optimizer rigidity below transition, unavoidable edge deletion above, and the precise optimal budget-to-gap tradeoff. These all-real-parameter, unrestricted-edge consequences are nontrivial beyond generic SDP or elementary graph eigenvalues and motivate the exact matching motif.",
+    "status": "PASS"
+  }
+}
