@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-one substitution \(N=f\otimes w\) reduces Nijenhuis torsion to one alternating-form equation. Evaluating on a central element forces the two necessary conditions in the nonzero-center-functional case; sufficiency follows by direct substitution. The counting uses actual kernel dimensions and the free action by \(k^\times\), with no exceptional characteristic. The free-algebra specialization uses the standard symplectic-orbit formula. Independent exhaustive torsion enumeration agreed in seven small prime-field parameter cases, including the six-dimensional free rank-three case over \(\mathbb F_2\). Finite checking is not relied upon as an infinite proof.
+## correctness
 
-## Originality — PASS (bounded-search assessment)
-The closest accessible sources are Liu–Sheng–Zhou–Bai's general Nijenhuis construction theory and Fulman–Goldstein's finite-field alternating-matrix rank distribution. Neither source's inspected full text identifies the combined stem-algebra rank-one classification and exact commutator-pencil census. Previous work on all Heisenberg Nijenhuis maps already covers the one-dimensional-center Heisenberg subfamily, which is not claimed to be independently new. An earlier result on rank-one Nijenhuis maps on \(\mathfrak{sl}_2\) does not imply the stem two-step result. Residual risks: a general rank-one Nijenhuis classification not found by the queries could imply the structural reduction; symplectic counts are classical. Priority is not certified.
+PASS
 
-## Value — PASS
-The commutator alternating pencil is a natural representation-theoretic invariant of a class-two Lie algebra; the theorem converts its rank spectrum into a complete, previously unprovided parameter-space cardinality for an infinite family, while exposing a sharp rank-one nilpotence dichotomy. The free case supplies a closed formula for every generator rank and finite field, beyond an isolated example. Known input orbit counts are acknowledged rather than promoted as new results.
+For a stem class-two L=V⊕Z over F_q, Z=[L,L], dim V=d≥2, dim Z=c, D=d+c, every nonzero rank-one endomorphism has the unique parameterization N=f⊗w modulo the free scalar action (f,w)∼(αf,α^{-1}w). Substituting in Nijenhuis torsion yields f∧g=f(w)h with g(x)=f([w,x]), h(x,y)=f([x,y]). If f|Z=0 then g=h=0 and every nonzero w works, contributing (q^d−1)(q^D−1). If b=f|Z≠0, evaluate at a central z with f(z)≠0 to get g=0, and surjectivity [L,L]=Z forces f(w)=0. Thus w is any nonzero vector in ker(B_b) lifted to L and intersected with ker f, of count q^(D−r_b−1)−1; each b admits q^d f-lifts. Divide by q−1 to get [(q^d−1)(q^D−1)+q^d∑_{b≠0}(q^(D−r_b−1)−1)]/(q−1). Nonzero N² occurs only for f|Z=0, and counts (q^d−1)q^(D−1). Alternating-form rank spectrum for free two-step algebra is standard and the Gaussian-binomial formula is consistent in all characteristics, including q even. Independent exact evaluation gives 833 rank-one Nijenhuis maps and 224 with nonzero square for free d=3 over F2. The rigorous count uses all possible vectors, not a partial enumeration.
 
-## Limitations
-Only vector-space rank one and stem two-step nilpotent Lie algebras are addressed. Complete conjugacy classification, higher-rank operators, and nonreduced scheme structure are outside scope. Independent mathematical validation and comprehensive priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the finite-field arbitrary-stem pencil-count formula and free-algebra distribution, not the Nijenhuis definition or known special Heisenberg cases. Liu–Sheng–Zhou–Bai develop general n-Lie Nijenhuis formalism and examples over complex fields without this finite-field rank-one census. Fulman–Goldstein study alternating/skew matrix rank distributions, which supply the standard rank spectrum but not its novel coupling to Nijenhuis torsion. A 2026 pre-Lie/associative low-dimensional classification is a different algebraic category. Broad low-rank tensor-operator classifications remain a priority risk.
+
+## value
+
+PASS
+
+The count solves a natural question about deformation-compatible operators on the full class of stem two-step Lie algebras. It identifies the commutator-pencil rank spectrum as the precise invariant, separates square-zero versus nonzero-square operators, and yields explicit counts for free nilpotent algebras in all prime-power field sizes. This is a complete structured classification of a motivated algebraic statistic, not an arbitrary small-slice computation; its value survives without classification of every operator rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
