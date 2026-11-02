@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:50:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual 5512-byte RESULT.md at blob 299b9ae3f37b94a4541ca8bdd8eef5a3cd98bc94 and checked the cited FULL 33-page primary PDF at Theorem 20, Claim 21 and Problem 43, including diagram/screenshot. Claim 21 supplies an actual bounded saturation witness for A=Γ_{0,1,0}. Independent exact edge-set inspection shows no B edge joins consecutive pattern positions, whereas A has the unique consecutive (4,5); deleting vertices 4 and 5 of A leaves B (after order-preserving renumbering). Therefore in any {A,B}-saturated H, a missing edge between consecutive isolated vertices cannot create B and would create an old B if it creates A. Thus no two consecutive isolated vertices, so z≤r+1 and |E(H)|≥r/2≥(n−1)/4. The argument holds for every n (vacuous for tiny n) and needs no incomplete enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Claim 21 establishes bounded saturation for Γ_{0,1,0} only.",
+          "Problem 43 specifically announces the multiple-forbidden case not treated."
+        ],
+        "reasoning": "General single-forbidden saturation dichotomy does not control a pair; neither the theorem nor its witness implies the new linear pair lower bound. The paper itself flags that possibility.",
+        "searches": [
+          "Bošković Keszegh arxiv:2203.05307 Theorem 20 Claim 21 Corollary 18",
+          "ordered graphs forbidden family saturation dichotomy multiple graphs",
+          "Ordered graph saturation multiple forbidden family Gamma_3 Gamma_{0,1,0} consecutive isolated vertices counterexample Problem 43"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2203.05307 (full PDF and screenshots: Theorem 20, Claim 21, Problem 43)",
+        "DOI:10.1137/22M1485735",
+        "Resultary search: Ordered graph saturation multiple forbidden family Gamma_3 Gamma_{0,1,0} consecutive isolated vertices counterexample Problem 43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Claim 21 is logically one half of the comparison but permits unbounded saturation after forbidding B.",
+          "The new consecutive-isolates argument forces ≥(n−1)/4 edges in any pair-saturated graph."
+        ],
+        "reasoning": "The universal comparison would contradict the exhibited pair; it is not implied by the known witness for A. The new structural deletion of A minedge is the decisive independent argument.",
+        "searches": [
+          "arxiv:2203.05307 Claim 21 witness bounded saturation",
+          "arxiv:2203.05307 Problem 43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bošković–Keszegh Problem 43 asks whether sat_<(n,{A,B})=O(sat_<(n,A)).",
+          "The submitted pair uses B as A with its only minedge and endpoints deleted."
+        ],
+        "reasoning": "A family saturation problem is not ordinary graph saturation or induced saturation: embeddings preserve vertex order, are not induced, and adding each absent edge must create a forbidden graph. Equivalence checks used this precise notion, not graph-abstract aliases.",
+        "searches": [
+          "Ordered graph saturation multiple forbidden family Gamma_3 Gamma_{0,1,0} consecutive isolated vertices counterexample Problem 43",
+          "ordered saturation families monotonicity comparison adding forbidden ordered matching Gamma3 Gamma010",
+          "Bošković Keszegh Problem 43"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conclusion is all-n asymptotic separation, not an uncomputed finite extremal table.",
+          "Resultary returned unrelated saturation families and no counterexample for this ordered pair."
+        ],
+        "reasoning": "A finite table cannot establish the claimed linear lower bound; no known exact family table identified. A later published solution under the same skeleton terminology remains possible.",
+        "searches": [
+          "ordered graph family saturation Gamma3 Gamma 0 1 0 2022 2026 counterexample",
+          "Ordered graph saturation multiple forbidden family Gamma_3 Gamma_{0,1,0} consecutive isolated vertices counterexample Problem 43",
+          "ordered matching saturation graph class pair numerical table"
+        ]
+      },
+      "rationale": "Qualified PASS: the same 2022/2023 primary paper proves sat_<(n,A)=O(1) and explicitly poses the universal two-forbidden-family comparison as Problem 43, rather than resolving it. The new forbidden-pair obstruction defeats that comparison with an infinite linear lower bound. Subsequent independent solutions could exist; targeted Resultary and web searches did not locate one.",
+      "residual_risks": [
+        "Later papers after 2023 may resolve Problem 43 or derive an equivalent skeleton argument under another terminology.",
+        "No exact sat_<(n,{A,B}) or matching upper bound is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONFIRMS_INPUT_AND_LEAVES_QUESTION_OPEN",
+          "evidence": "Claim 21 proves bounded sat for A; Problem 43 explicitly asks about multiple forbiddens, with no pair counterexample provided.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.05307",
+          "material_read": "Full primary PDF at definitions of linked matchings Γ_3, Γ_{0,1,0}, Theorem 20 and Claim 21 (Figure 5), Corollary 18, and Problem 43 (page 30)",
+          "method": "Read indexed PDF text and direct page images",
+          "title": "Saturation of Ordered Graphs",
+          "trigger": "Exact same patterns and explicit Problem 43"
+        },
+        {
+          "assessment": "NO_CLOSE_MATCH_IN_BOUNDED_RESULTS",
+          "evidence": "None of the returned titles/summaries concerns the particular A/B pair or Problem 43.",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Returned ranked titles/summaries for the full matching/family query, including unrelated saturation/graph obstruction findings; full sources not read because poor match",
+          "method": "Resultary semantic search",
+          "title": "Published semantic catalogue of graph saturation findings",
+          "trigger": "Possible equivalent counterexample in published mathematical records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph pair answers a clearly identified open comparison question by a short but structurally informative skeleton/minedge obstruction. It exhibits a striking loss of bounded saturation when a second forbidden graph is imposed; linear lower bound suffices without an exact matching upper bound. This is a mathematically motivated general-failure witness, not an arbitrary tiny counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For ordered matchings B with edges (1,3),(2,5),(4,6) and A with edges (1,3),(2,7),(4,5),(6,8), sat_<(n,A)=O(1) while sat_<(n,{A,B})≥(n−1)/4; this is a counterexample to the general two-forbidden-graph comparison posed as Problem 43 by Bošković–Keszegh.",
+  "limitations": [
+    "Later papers after 2023 may resolve Problem 43 or derive an equivalent skeleton argument under another terminology.",
+    "No exact sat_<(n,{A,B}) or matching upper bound is claimed."
+  ],
+  "schema_version": 1
+}
