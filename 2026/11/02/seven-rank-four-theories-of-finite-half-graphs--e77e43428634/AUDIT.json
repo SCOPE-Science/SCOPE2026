@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The mathematical order-game lifting argument is quantifier-free in the selected vertices and proves the infinite H_n tail from n>=15. Exhaustive exact tuple-type recursion over all ordered four-tuples (including repetitions) correctly recognizes all rank-four formulas, and computes type IDs 0,1,2,3,4,5,6,6,...,6 across n=1..15. Independent direct four-move adversarial EF minimax checks n=4 vs5, 5 vs6, 6 vs7 inequivalent and 7 vs8 equivalent. The recurrence and all necessary computations were run from bundled standalone paths; code/output checks are separate from the infinite mathematical argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pikhurko–Verbitsky arXiv:1003.4865 §2.2 gives a general finite-rank type recurrence, not its evaluation on half-graphs.",
+        "Malliaris–Shelah arXiv:1102.3904 Theorem 5.18 assumes absence of large half-graphs and proves an equitable uniform partition result, not quantifier-rank classification of the half-graph family.",
+        "A closest mathematical-index match concerns logical depth of complete multipartite graphs, but H_2 is a four-vertex induced path and is not complete multipartite."
+      ],
+      "reasoning": "Neither a general effective way to compute types nor a theorem about graphs with no large order patterns contains the exact seven-class partition. The linear-order transfer yields only a cutoff no larger than fifteen, so it does not dominate the sharp cutoff seven.",
+      "searches": [
+        "finite chain graphs Ferrers graphs exact first-order four-round type spectrum and quantifier depth",
+        "quantifier rank half graphs Ehrenfeucht Fraisse equivalence explicit",
+        "arXiv:1003.4865",
+        "arXiv:1102.3904",
+        "exact logical depth of complete multipartite graphs via a threshold path"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1003.4865 (first posted 2010-03-25; relevant §2.2 and §3)",
+      "https://arxiv.org/abs/1102.3904 (first posted 2011-02-18; relevant §1 and §5)",
+      "Scientific-index semantic searches under half-graph, chain/Ferrers-graph, rank-four EF, logical depth, and graph-type terminology; nearest topics were different graph families."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The arXiv:1003.4865 tuple-type recurrence determines all FO rank-four types but does not specify which types occur for H_n; the graph-specific values are obtained by an exact new evaluation.",
+        "The classical linear-order EF threshold n>=15 transfers to all H_n with n>=15. It does not show any equivalence at n=7, and cannot by itself distinguish n=6 from n=7.",
+        "The stable-graph regularity theorem concerns graphs excluding arbitrarily large half-graphs and is not a statement of bounded-rank equivalence among the half-graphs."
+      ],
+      "reasoning": "General prior results provide proof mechanisms, not the sharp conclusions. The new finite boundary computations and the combination with order transfer are logically necessary for the exact classification.",
+      "searches": [
+        "arXiv:1003.4865 Section 2.2 type recurrence",
+        "arXiv:1102.3904 Theorem 5.18",
+        "half graphs threshold logical indistinguishability at rank 4 exact 7 equivalence first order Ehrenfeucht Fraisse",
+        "chain graph first order definability distinguishing quantifier depth half graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The uncoloured graph H_n has both bipartite parts of size n and a_i adjacent to b_j iff i<=j; the family is also described as the connected half-graph or a bipartite chain/Ferrers graph. Malliaris–Shelah arXiv:1102.3904 §1 uses an i<j half-graph convention, which adds two isolated endpoint vertices relative to the connected convention.",
+        "The relevant published graph-theoretic order-property and model-theoretic stability discussions concern half-graphs, not the exact seven-class four-round relation."
+      ],
+      "reasoning": "The exact statement is invariant under simultaneous side swapping and index reversal, but does not follow automatically from an i<j indexed graph because the isolated endpoints change short logical types. Searches included both formulations and chain/Ferrers terminology; no equal statement or stronger theorem with this conclusion was found.",
+      "searches": [
+        "seven four round first order theories finite half graphs H_n, stabilization threshold n=7, pure uncolored graph, adjacency i<=j, chain Ferrers graph",
+        "finite chain graphs Ferrers graphs exact first-order four-round type spectrum and quantifier depth",
+        "half graph first order quantifier rank n Ehrenfeucht Fraisse chain graphs",
+        "first order logic half graph stability index Ehrenfeucht Fraisse finite",
+        "arXiv:1102.3904"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual index results closest in meaning treated (among other subjects) exact type profiles of finite one-red linear orders, finite directed paths, and logical depth of complete multipartite graphs, but supplied no half-graph rank-four table.",
+        "The full new finite type table for n=1..15 is embedded and reproduced by finite_types.py."
+      ],
+      "reasoning": "No checked public table has the same graph domain, relation signature, logical rank and seven-class numeric result. This is bounded negative search evidence, not proof that no such table exists elsewhere.",
+      "searches": [
+        "seven four round first order theories finite half graphs H_n, stabilization threshold n=7, pure uncolored graph, adjacency i<=j, chain Ferrers graph",
+        "half graphs threshold logical indistinguishability at rank 4 exact 7 equivalence first order Ehrenfeucht Fraisse",
+        "bounded rank Ehrenfeucht Fraisse game bipartite chain graph H_n graph pair H_7 H_8",
+        "half graphs quantifier rank 4 7 Ehrenfeucht Fraisse",
+        "chain graph first order definability distinguishing quantifier depth half graphs"
+      ]
+    },
+    "rationale": "The literature comparisons distinguish the exact claimed uncoloured rank-four equivalence partition from general FO game algorithms, classical order-game tail bounds, and stable-graph regularity. Both relevant primary papers were inspected in substantive sections; index and general web queries for the exact family and aliases did not find a covering statement. An inaccessible/unindexed historical numerical classification remains a residual risk, explicitly not ruled out.",
+    "residual_risks": [
+      "Unindexed or unpublished exact four-round computations for the connected half-graph family may duplicate the numeric result.",
+      "The inspected primary-paper sections, rather than exhaustive page-by-page reconstruction of every bibliographic reference, support the bounded originality assessment.",
+      "The finite table is produced by standalone exact source code and a second boundary solver, not a formal proof-assistant certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework supplies a general method, not the half-graph-specific seven-class result in inspected material.",
+        "evidence": [
+          "§2.2, pp. 8-10, equations and recurrence for the set of one-vertex extension types; §3, pp. 12-14, standard game semantics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1003.4865",
+        "material_read": "Abstract and contents; §1.1 discussion of graph logic; §2.2 definition and recursion for finite-rank tuple types; §3 discussion of Ehrenfeucht games; bibliography for relevant prior methods.",
+        "method": "Opened and read online paper text and relevant page image, with text search for half-graphs.",
+        "title": "Logical complexity of graphs: a survey",
+        "trigger": "General graph logical-depth techniques may imply the claimed rank-four partition."
+      },
+      {
+        "assessment": "Proves regularity results under a non-order-property hypothesis, not exact logical indistinguishability of connected half-graphs.",
+        "evidence": [
+          "Introduction Definition 1.2; Theorem 5.18 in §5; published variant uses strict i<j."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1102.3904",
+        "material_read": "Abstract; Introduction pp. 1-3 including the half-graph and order-property definitions; §5 theorem statement and its surrounding context at pp. 27-30.",
+        "method": "Opened and read online full-text sections and a relevant page image, and searched paper for half-graph and principal theorem.",
+        "title": "Regularity lemmas for stable graphs",
+        "trigger": "A seminal pre-cutoff original study directly naming half-graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e77e4342-8634-4c57-af61-198d6b9d1e23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half-graphs are canonical witnesses of the order property, so the exact uncoloured four-round length visibility boundary is a motivated finite-model-theoretic invariant. The classification sharpens the generic order-transfer bound of fifteen to seven, fully resolves all seven rank-four theories, and gives a sharp fourteen-vertex minimal representative within the half-graph family. In addition, all four-vertex atomic patterns stabilize at n=4 by index compression, so the further n=4,5,6 distinctions demonstrate the actual expressive gain from quantifier alternation rather than merely larger induced subgraphs.",
+    "status": "PASS"
+  }
+}
