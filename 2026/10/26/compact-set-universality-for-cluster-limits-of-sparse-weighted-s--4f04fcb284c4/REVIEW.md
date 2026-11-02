@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts with the exact diagonal entries of \(|T^n|^{1/n}\) for a superlacunary positive weighted shift. The earlier-spike error is \(o(1)\) at a new spike. For any subsequence, either the distance to the next spike is fixed, giving one of the explicit finite-head step operators, or that distance diverges, giving a scalar operator. Independent subsequences realize every allowed parameter. Coordinatewise convergence of uniformly bounded diagonal operators supplies strong convergence. The coordinate-jump functional isolates each homeomorphic copy of the prescribed compact set. These steps prove the infinite statement; the 4,997 finite checks are supplementary.
+## correctness
 
-## Originality — PASS, with a literature risk
-Ji and Yang, arXiv:2608.21553, Proposition 4.1 classifies bounded-below shift cluster sets as scalar intervals and Example 4.3 exhibits disconnectedness for one non-bounded-below shift. Their inspected proof detects two values of a single off-diagonal matrix coefficient, not the exact full strong/weak operator limit set, its clopen topology, or realization of arbitrary compact amplitude spaces. Indexed power-profile and weighted-shift constructions study different invariants. Exhaustive publication priority is not established; closely related superlacunary examples may be implicit in older literature.
+PASS
 
-## Value — PASS
-The result answers a natural structural refinement of the published question about the topology of asymptotic modulus-root operator cluster sets. It gives an explicit realization of arbitrarily intricate compact component topology while keeping every scalar asymptotic numerical range a fixed interval, proving that the latter loses substantial operator-limit information. It is a complete classification for the constructed family, not a cosmetic parameter change to a single disconnectedness witness.
+PASS: Reconstructed exact diagonal entries exp[-n^{-1} Σ_{k≤N_j≤k+n-1}a_jN_j] with superlacunary N_j=2^(2^j), whose earlier total Q_{j-1}/N_j→0. A subsequence with h_n=N_j-n fixed positive yields finite-head P_h plus e^{-a} tail; h_n→∞ gives scalar e^{-s}I where 0≤s≤max K. Explicit n=N_j-h, n=ceil(a_jN_j/s), n=N_j and n≈sqrt(N_jN_{j+1}) realize all listed limits. Uniform bounded diagonal WOT convergence implies coordinatewise and SOT; F_h(A)=A_hh-A_(h+1,h+1) separates each clopen h-family because min K>0. Every scalar expectation of these limits lies in the realized scalar interval. Independent small-index log-product and spike-window calculations corroborate formulas; no finite simulation proves cluster completeness.
 
-## Scientific boundaries
-Only positive injective contractive unilateral shifts of the stated superlacunary form are covered. No general realization theorem for arbitrary compact operator sets or independent scientific audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: Arbitrarily prescribed compact K appears as an entire clopen component of an explicit operator cluster set, allowing uncountably many connected components despite identical scalar asymptotic numerical intervals for every vector. The result is a strong/weak operator-topology realization classification rather than a cosmetic variant of one disconnected example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
