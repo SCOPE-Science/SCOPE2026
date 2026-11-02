@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Starting from the exact 2n×2n Laplacian, two explicitly invertible integer coordinate changes isolate one free generator, one cyclic factor of order (n-1+k)(n-2+2k), and n-2 copies of the same full-rank 2×2 integral matrix. Its first Smith entry is gcd(n,k-1), and the determinant is n(n-2+2k). This proves the group for all n>=3,k>=0, including k=0. The independent eigenvalue calculation verifies the resulting spanning-tree product. Direct full reduced-Laplacian Smith forms matched 90 cases; pure-integer matrix-tree determinants matched 88 cases. These finite checks are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reiner–Tseng (2013), Section 12.1, Remark 12.2 specifically gives the even-n formula under gcd(k-1,n)=1, while Corollary 12.1 covers odd n.",
+        "Their covering exact sequences alone do not specify all p-primary extension data when n is even and gcd(k-1,n)>1.",
+        "No verified stronger all-multiplicity Smith theorem was located in the checked primary material or targeted searches."
+      ],
+      "reasoning": "The prior explicit hypotheses omit infinitely many cases: take any even n and k=3, giving gcd(n,2)=2. The new integral decomposition calculates the exact previously unspecified cyclic factors, so the claim is not a special case of an inspected stronger formula.",
+      "searches": [
+        "\"Crown\" \"critical group\" \"even\" \"odd\" signed graph \"k\"",
+        "\"Crown\" \"k\" \"gcd(k-1,n)\" \"critical group\"",
+        "Crown n k critical group even n k odd gcd(k-1,n) Smith normal form Tseng Proposition 8.4"
+      ]
+    },
+    "checked_sources": [
+      "Reiner–Tseng, arXiv:1301.2977, pp.14–15 and31",
+      "Machacek, The Critical Group of a Line Graph: The Bipartite Case (2011), pp.9–10",
+      "Targeted web searches for multi-crown critical-group and Smith-form aliases",
+      "Semantic mathematical findings search for Crown_n^(k), sandpile group, and gcd(n,k-1) variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For odd n, the published Z_n^(n-2)⊕Z_q^(n-2)⊕Z_tq description is isomorphic to the current Z_g^(n-2)⊕Z_(nq/g)^(n-2)⊕Z_tq description.",
+        "For even n with gcd(n,k-1)=1, the two factors Z_(nq) and Z_(tq) combine into Z_q and Z_(ntq), matching Reiner–Tseng, Remark 12.2.",
+        "For even n,k=3, the current formula gives n-2 explicit Z_2 factors and a mod-four canonical Smith-form transition, absent from the cited stated results."
+      ],
+      "reasoning": "The new contribution is a uniform integral presentation calculation for the even non-coprime gap, not the already-known odd, coprime-even, ordinary crown, or spanning-tree results. No implication from the specific published formulas supplies its missing group extension data.",
+      "searches": [
+        "\"Crown_n^(k)\" \"Smith normal form\" \"gcd\" \"n\" \"k\" critical groups",
+        "\"Dennis Tseng\" \"crown\" \"Proposition 8.4\" graph thesis",
+        "\"Crown\" \"parallel\" \"Smith normal form\" \"sandpile\" complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed graphs are exactly the multicrowns Crown_n^(k) defined by Reiner and Tseng (2013), Example 7.3, with k parallel diagonal edges.",
+        "The special case k=0 is precisely Machacek (2011), Theorem 14.",
+        "The direct-sum formula agrees with the Reiner–Tseng odd-n expression since gcd(n,n-2+2k)=gcd(n,k-1) for odd n."
+      ],
+      "reasoning": "Comparisons were made after translating the graph names, the Laplacian presentation, and cyclic-factor isomorphisms via gcd and lcm; prior odd-n and k=0 conclusions are explicitly covered, not asserted novel.",
+      "searches": [
+        "\"Crown_n^(k)\" \"critical group\" \"gcd\" even",
+        "\"generalized crown\" \"critical group\" matching multigraph",
+        "Critical group of bipartite double cover complete graph K_n, Kronecker double cover K_n, sandpile group of crown graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Machacek (2011), Theorem 14 lists the k=0 invariant factors; it is acknowledged as prior coverage.",
+        "Reiner–Tseng (2013), Equation (7.3) repeats the ordinary crown k=0 formula, and Remark 12.2 provides only its specified coprime even extension.",
+        "No matching exact table for k=3 with even n or general gcd>1 was identified in the checked records."
+      ],
+      "reasoning": "Numerical coincidence with the k=0 table or previously known tree-count eigenvalue products would not establish a new critical group. The claimed novelty concerns the all-parameter integer group structure for the uncovered even non-coprime regime.",
+      "searches": [
+        "sandpile group critical group crown graph Smith normal form K_{n,n} remove perfect matching invariant factors",
+        "multicrown graphs sandpile group complete bipartite additional matching edges arbitrary multiplicity invariant factors",
+        "Smith normal form Laplacian crown graph K n n minus 1-factor n(n-2) sandpile"
+      ]
+    },
+    "rationale": "The closest complete primary text, Reiner–Tseng (2013), treats odd n for all k and even n only for gcd(k-1,n)=1; Machacek (2011) treats only k=0. The theorem resolves the omitted infinite even non-coprime parameter regime by calculating all cyclic factors and distinguishing n modulo 4 when k=3. Actual semantic research-record searches, literature searches and material primary reading identified no stronger covering statement; an unindexed result remains a risk.",
+    "residual_risks": [
+      "An equivalent full uniform Smith decomposition may appear in unindexed or unpublished work or under generic integer-matrix terminology.",
+      "The searches do not constitute an exhaustive priority determination over all mathematical literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": [
+          "Odd n all k addressed",
+          "Even n explicitly restricted to gcd(k-1,n)=1",
+          "Even k=3, even n omitted from stated closed formulas"
+        ],
+        "identifier_or_url": "arXiv:1301.2977, https://arxiv.org/pdf/1301.2977",
+        "material_read": "Section 7.1, pp. 14–15, including Example 7.3, Corollary 7.6 and Equation (7.3); Section 12.1, p. 31, especially Corollary 12.1 and Remark 12.2",
+        "method": "Open-access PDF full-text passages and page-image inspection, supplemented by arXiv HTML rendition",
+        "title": "Critical groups of covering, voltage and signed graphs",
+        "trigger": "Same named multicrown graphs and explicit earlier critical-group formulas"
+      },
+      {
+        "assessment": "COVERS_K_ZERO_ONLY",
+        "evidence": [
+          "Theorem 14 treats G=K_(n,n) minus a perfect matching",
+          "No nonzero diagonal matching multiplicity is a parameter of this theorem"
+        ],
+        "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/HonorsTheses/Machacek_thesis.pdf",
+        "material_read": "Section 4.1, pp. 9–10, Theorem 14, Lemma 15, and the beginning of the unimodular-reduction proof",
+        "method": "Open-access PDF text and page images",
+        "title": "The Critical Group of a Line Graph: The Bipartite Case",
+        "trigger": "Earlier explicit ordinary crown Smith formula acknowledged by the closest source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c611d1df-72f4-4920-b71c-5ab0814efa6c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite parameter hole in the principal covering-graph critical-group computation is filled exactly, with additional torsion factors in non-coprime cases. The conclusion is an infinite-family integral group decomposition and a constructive proof, not a relabelled known k=0 case, numerical table, or mere spanning-tree count. The k=3 even family exhibits a nontrivial mod-four change in invariant factors.",
+    "status": "PASS"
+  }
+}
