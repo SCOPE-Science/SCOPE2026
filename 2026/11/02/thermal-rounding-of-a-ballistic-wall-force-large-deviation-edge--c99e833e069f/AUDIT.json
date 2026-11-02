@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For any finite interval, the Skorokhod balance gives |(R-U)-A|<=L exactly; the stationary two-state tilted generator has dominant eigenvalue -lambda+sqrt(lambda²+v²q²), independent Brownian noise adds Dq², and bounded perturbation transfers the LDP. For D>0 the derivative is steep and strictly increasing. For D=0 the interior Legendre transform is explicit and no-flip events establish endpoint lower bounds. The positive optimizer near j=v scales as (lambda²/(vD))^(1/3); uniform large-q expansion proves the stated 1/3 height and 2/3 width profile. A standalone standard-library checker passed 1607 numerical, algebraic and pathwise consistency tests. Limits are sequential and no finite testing is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Popovic–Zoroddu establish a general PIDE-based LDP, but analytic examples are reflected Brownian and birth-death processes and biochemical reactions, not the specified thermal telegraph edge.",
+        "Mallmin–du Buisson–Touchette analyze reflection boundary conditions and a heterogeneous single-file diffusion current.",
+        "The distinct singular boundary-layer law follows from explicit Brownian-plus-telegraph cumulant analysis."
+      ],
+      "reasoning": "General large-deviation methods could provide existence or implicit characterization, so novelty cannot be claimed for the abstract LDP. The exact signed-wall current and its singular D^(1/3)/D^(2/3) edge asymptotics were not found in material inspected; generic theory alone does not state these parameter-specific quantitative results.",
+      "searches": [
+        "research-record search: Thermally rounded ballistic edge one-third exponent and two-thirds width for large deviations of signed wall-pressure impulse in a reflecting run-and-tumble active particle, free tilted telegraph generator D q squared minus flip plus square root.",
+        "arxiv:2012.13223 Sections 1-3 reflected jump-diffusion additive functional large deviations",
+        "arxiv:2102.04846 §§2-5 dynamical current large deviations on reflected diffusions",
+        "web: large deviations reflected diffusion difference boundary local times Brownian drift finite interval"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.01287v1 (2026-10-01)",
+      "arxiv:2302.01158",
+      "arxiv:2206.03123",
+      "arxiv:2102.04846",
+      "arxiv:2012.13223",
+      "accessible prior research records claims c81a4f00-da00-4cdb-b493-0cf190c41fa7, 0a60847c-963e-404d-a155-4cfd228b8d1f, c006de0c-6b77-4905-8460-3577f34ad442",
+      "indexed research-record searches listed in comparison objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing wall-force covariance result establishes the athermal second cumulant and width independence, explicitly not a full force-current path distribution; the new claim does not repackage covariance as novelty.",
+        "Another historical finding concerns a half-line reset/desorption bound-time LDP, a different renewal process.",
+        "Athermal joint occupation transforms can imply athermal large deviations, whereas their model omits D>0 translational Brownian forcing and the singular thermal edge."
+      ],
+      "reasoning": "The closest prior claim implies only the second derivative of the new SCGF at zero; it does not imply the entire mixed-thermal SCGF, its good rate function, or D→0 fractional-power edge. The athermal subcase is acknowledged as covered in principle by Bressloff; the accepted contribution relies on the thermal rounding theorem and its physically motivated signed-force observable.",
+      "searches": [
+        "prior research records claim c81a4f00-da00-4cdb-b493-0cf190c41fa7",
+        "prior research records claim 0a60847c-963e-404d-a155-4cfd228b8d1f",
+        "prior research records claim c006de0c-6b77-4905-8460-3577f34ad442",
+        "arxiv:2610.01287 §§ideal gas mean pressure",
+        "arxiv:2302.01158 §5 two-wall occupation transform",
+        "arxiv:2012.13223 theory and examples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bressloff §5 develops the two-contact occupation-time transform in athermal RTP; this can recover athermal force-imbalance laws.",
+        "Mallmin et al give spectral boundary conditions for diffusion currents but model different observables and examples.",
+        "Our bounded reflection identity converts the signed regulator into free propulsion and noise currents with an O(1) pathwise difference."
+      ],
+      "reasoning": "The athermal telegraph SCGF is equivalent to a transform-level corollary of the already studied joint athermal wall occupation process and is not asserted as independent novelty. The additional D>0 tilted law and D→0 edge profile are separate mixed-thermal results. Current-like diffusion spectral work does not explicitly instantiate the autonomous switching propulsion plus signed regulator and sharp fractional-power edge.",
+      "searches": [
+        "research-record search: Exact large deviation rate for difference of two boundary local times or reflection regulators of a run-and-tumble swimmer with Brownian translational diffusion in finite interval.",
+        "arxiv:2302.01158 §5 independent two-wall occupation times and double Laplace transform",
+        "arxiv:2102.04846 reflected current SCGF and boundary local-time formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact edge formula was returned by the research-record queries; nearest hits concern unrelated random-sensor and deterministic flow problems.",
+        "Source paper arxiv:2610.01287 derives finite-box mean active-gas laws, not this force-current rate table."
+      ],
+      "reasoning": "No exact-table reproduction was identified. Failed indexed searches cannot establish universal uniqueness; broader papers remain a residual priority risk.",
+      "searches": [
+        "research-record search: Large deviation singular limit D to zero telegraph integrated velocity Gaussian mixture boundary current rate function at maximum propulsion speed cube root correction.",
+        "research-record search: Confined active gas pressure wall force fluctuations non-Gaussian large deviations width independent Brownian telegraph propulsion.",
+        "web: run and tumble particle reflecting walls wall force fluctuations large deviation rate function thermal noise"
+      ]
+    },
+    "rationale": "The actual novelty scope is the thermal D>0 signed-wall large-deviation function and its fractional-power rounding of the athermal ballistic support edge. Previously derived athermal wall covariance and Bressloff’s joint athermal occupation transform are explicitly treated as prior, not claimed new. General reflected-process LDP methods are also prior. Searches and full-text checks did not find an explicit mixed-thermal signed-wall edge with these coefficients; priority remains qualified, not independently certified.",
+    "residual_risks": [
+      "A general result on colored-noise reflection LDP may imply the bounded-coboundary SCGF equivalence, a standard technique; novelty is limited to the motivated singular telegraph thermal edge profile.",
+      "The full athermal occupation-time transform of Bressloff has implicit coverage of athermal results.",
+      "An unlocated explicit singular small-noise edge theorem for the same tilted telegraph-plus-Brownian current would supersede this result; no independent publication-priority audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives mean finite-box ideal-active-gas pressure; not a matching dynamical signed-wall large-deviation edge",
+        "evidence": [
+          "Submission date 2026-10-01.",
+          "Main result is a finite-box ideal active gas law, exact for 1D RTP; no thermal small-noise rate function for signed wall impulse found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01287",
+        "material_read": "Main PDF body and supplemental material concerning one-dimensional RTP pressure, plus submitted-date metadata",
+        "method": "Primary PDF text and selected page images; compared pressure equations and stated outcomes against the edge theorem",
+        "title": "Ideal gas of active particles in a box",
+        "trigger": "Original recent active-gas finite-box paper"
+      },
+      {
+        "assessment": "Strong prior for athermal joint occupation-time laws; its full transform may imply all athermal cumulants, so athermal portion is explicitly excluded from novelty. D>0 fractional-power edge is not its model.",
+        "evidence": [
+          "§5 introduces joint occupation time A_0,A_L and their double Laplace transform.",
+          "The paper analyzes absorption/splitting from occupation-time thresholds, with athermal propulsion and boundary residence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.01158",
+        "material_read": "Primary complete HTML including model in §2 and joint occupation-time transform in §5",
+        "method": "Read abstract, physical boundary definitions, dual occupancy propagator, transforms and worked observables",
+        "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+        "trigger": "Same physical athermal sticky wall model and two boundary occupation times"
+      },
+      {
+        "assessment": "Provides established reflected-current LDP machinery; no explicit two-state telegraph propulsion with signed wall regulators and thermal edge profile in inspected results.",
+        "evidence": [
+          "General spectral boundary-condition formalism in §§2–4.",
+          "Main example is heterogeneous single-file diffusion on a ring; no telegraph keyword or wall-force example."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.04846",
+        "material_read": "Open-access full journal PDF, especially §2 model and SCGF, boundary treatment, conclusions and bibliography",
+        "method": "Primary PDF textual inspection and first-page screenshot; compared reflected-current observables and example models",
+        "title": "Large deviations of currents in diffusions with reflective boundaries",
+        "trigger": "General large deviations of integrated reflected-diffusion currents"
+      },
+      {
+        "assessment": "General LDP exists for compatible reflected jump-diffusion additive processes, but examples and statements do not present a signed thermal telegraph wall-imbalance edge exponent.",
+        "evidence": [
+          "General eigenvalue/PIDE framework with numerical examples for reflected Brownian and birth-death models.",
+          "Thermal telegraph q-tilt and the D→0 1/3–2/3 edge are not explicit within checked sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.13223",
+        "material_read": "Open arxiv PDF abstract, introduction, §2 assumptions and model classes, statement of examples",
+        "method": "Primary PDF textual inspection and page-two screenshot; compared generic PIDE characterization and concrete examples",
+        "title": "Large Deviations for Additive Functionals of Reflected Jump-Diffusions",
+        "trigger": "Broader reflected jump-diffusion and boundary local-time large-deviation method"
+      },
+      {
+        "assessment": "Establishes wall sticking, stationary occupancy, and mean force; no thermal edge LDP",
+        "evidence": [
+          "Stationary wall occupancy and mean pressure are prior results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.03123",
+        "material_read": "Primary full PDF, model and stationary pressure sections",
+        "method": "Read full-text passages and page image documenting stationary wall probabilities",
+        "title": "Confined run-and-tumble swimmers in one dimension",
+        "trigger": "Early RTP wall sticking and stationary pressure antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c99e833e-069f-4ebd-99c7-33088526aa51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mean active pressure and Gaussian wall-noise variance do not predict a rare fluctuation tail outside the athermal ballistic support. The exact D^(1/3) loss of boundary rate and D^(2/3) current scale classify how arbitrarily weak thermal translation opens new force-imbalance tails, with a finite-box geometry-independent observable and a computable universal crossover. This is a physically motivated boundary singularity, not an arbitrary small numerical correction or unmotivated slice.",
+    "status": "PASS"
+  }
+}
