@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=3, averaging an arbitrary feasible symmetric stochastic matrix over dihedral automorphisms does not increase ||P-J||_2, so a two-edge-orbit optimum exists. Fourier characters give exact 2-by-2 eigenblocks; the nonconstant positive branch at delta is a lower bound for every invariant matrix. Increasing spoke probability lowers this bound until rim holding vanishes. Along the resulting capacity boundary every other mode is dominated by that positive branch, including negative and zero-frequency modes. The scalar objective is strictly convex with opposite endpoint derivative signs and its explicitly stated stationary radical has norm sqrt(delta)/2, proving exact global optimality and uniqueness among invariant matrices. Taylor expansion of the exact trigonometric parameter proves the stated asymptotic. The calculation and full spectra are corroborated by the included verifier, without using finite checks as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd-Diaconis-Xiao gives an SDP valid on every connected graph but no analytic sunlet solution.",
+        "Boyd-Diaconis-Parrilo-Xiao gives the symmetry-averaging technique and exact cycle and wheel solutions; neither dominates the claimed distinct graph-family formula.",
+        "Jafarizadeh describes clique-lift, path, star, windmill and symmetric tree families; the sunlet is not a clique lift of its rim and cannot be reduced to the stated one-attachment tree subgraphs without coupling to the cycle."
+      ],
+      "reasoning": "A generic SDP or automorphism-reduction algorithm can in principle compute numerical answers but does not logically imply this explicit closed form, strict rim-capacity saturation proof, uniqueness inside the symmetric class, or two-term m-asymptotic. Published formulas for edge-transitive cycles fail the edge-transitivity premise on sunlets; wheel solutions concern one hub rather than distinct leaves.",
+      "searches": [
+        "\"sunlet graph\" \"mixing\" spectral gap",
+        "\"cycle\" \"pendant\" \"fastest mixing Markov chain\"",
+        "doi:10.1137/S0036144503423264 Sections 1-4",
+        "arxiv:0709.0955v1 Sections 2-5",
+        "doi:10.1109/TSIPN.2020.2964211 Introduction and topology taxonomy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1",
+      "doi:10.1137/S0036144503423264",
+      "doi:10.1109/TSIPN.2020.2964211"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2007 paper cycle: one edge orbit and m vertices; sunlet: two edge orbits and 2m vertices.",
+        "The 2007 paper wheel: an m-rim with one central universal vertex, not an m-rim with m separate leaves.",
+        "The 2007 paper periodic bump example: triangular appendages at every fifth rim position, 6m vertices, and only a numerical pattern.",
+        "The 2020 paper treats clique lifts and star-like attached pieces; it does not give a sunlet all-size radical."
+      ],
+      "reasoning": "Neither an edge-transitive formula for an ordinary cycle, nor a wheel Fourier block, nor a parameter-dependent clique lift result yields the present sunlet value without a new spectral comparison showing all other negative eigenvalues are inactive. The displayed comparison establishes the sharp lower-bound saturation and is the essential additional argument; source claims do not state it.",
+      "searches": [
+        "arxiv:0709.0955v1 Sections 3.1.1, 5.3.3, 5.3.6",
+        "doi:10.1137/S0036144503423264 Section 3",
+        "doi:10.1109/TSIPN.2020.2964211 Introduction Sections 3-7",
+        "\"cycle\" \"pendant\" \"fastest mixing Markov chain\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sunlet equals the graph corona C_m corona K_1, with m separate pendant vertices; the exact setting is symmetric stochastic FMMC and its SLEM objective is ||P-J||_2.",
+        "Boyd et al. arxiv:0709.0955v1 gives Fourier methods for ordinary cycles and wheels, not this corona and its radical formula."
+      ],
+      "reasoning": "Searching the standard name, cycle-corona alias, cycle-with-pendants description, and spectral-mixing formulation did not expose an equivalent statement. Neither the plain cycle nor a wheel has the m leaf eigenmodes or the 2m-state two-layer Fourier blocks claimed here.",
+      "searches": [
+        "\"sunlet\" \"fastest mixing\"",
+        "\"cycle corona\" \"fastest mixing\" Markov",
+        "\"sunlet graph\" \"mixing\" spectral gap",
+        "arxiv:0709.0955v1 Sections 2, 3.1.1, 5.3.3, 5.3.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The foundational paper small-example table covers graphs of four or five vertices, whereas the smallest sunlet has six.",
+        "The nearest catalog topic matches concern fastest mixing on balanced spiders and tetrahedral orbit-polytope random walks; neither tabulates sunlet edge allocations.",
+        "No directly matching exact sunlet FMMC table or formula was identified in the searched sources."
+      ],
+      "reasoning": "Searches for exact numbers, the named graph and its alias, and Markov spectral-gap optimization produced no existing table from which the infinite-family formula would be a lookup. Non-retrieval does not constitute an exhaustive database uniqueness certificate.",
+      "searches": [
+        "Fastest mixing Markov chain sunlet graph cycle with one leaf pendant at every cycle vertex optimal SLEM edge probability",
+        "Exact second largest eigenvalue modulus FMMC corona C_n K_1 cycle corona star graph",
+        "\"sunlet\" \"fastest mixing\"",
+        "\"pendant\" \"fastest mixing\" \"cycle\"",
+        "doi:10.1137/S0036144503423264 Section 3 graph examples"
+      ]
+    },
+    "rationale": "The closed formula solves the uniform-equilibrium fastest-mixing problem on all sunlet graphs C_m corona K_1, m>=3. The inspected foundational SDP paper establishes a general convex formulation, but not this graph-family answer. The inspected symmetry paper solves cycles and wheels and shows a different six-node-cycle bump graph only experimentally; these do not imply the sunlet allocation or its two-term asymptotic. A later full-text clique-lift and tree-subgraph study addresses distinct graph operations and subgraph structures, not a cycle carrying m separate leaves. Focused searches found no exact prior result in the accessible records. General algorithmic solvability is not equivalent to the present explicit theorem; residual specialized priority risk remains.",
+    "residual_risks": [
+      "Specialized work indexed under another graph name or FMMC alias may contain the same closed form.",
+      "A broader uninspected theorem might imply the formula after nontrivial specialization; the present search and close-paper inspection cannot prove historical uniqueness.",
+      "The set of globally optimal spatially asymmetric transition matrices is not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not directly covering the theorem; general convex objective but no sunlet exact solution",
+        "evidence": [
+          "Published problem uses symmetric stochastic P and SLEM and includes 90C22 in AMS classification.",
+          "Its explicitly tabulated small examples have four or five vertices, not the m>=3 sunlet family."
+        ],
+        "identifier_or_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/SIREV042326-1.pdf",
+        "material_read": "Abstract and introduction, mathematical formulation Section 2 and small graph examples and table in Section 3, searched full text for sunlet and pendant",
+        "method": "Read publicly accessible full-text PDF and visually inspected title page",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Primary original FMMC formulation and potential general stronger implication"
+      },
+      {
+        "assessment": "No exact sunlet solution in inspected materials; graph families have different degree sequences, edge orbits or objectives",
+        "evidence": [
+          "Preprint version 1 timestamp 2007-09-06 is printed on first page.",
+          "Cycle and wheel formulas use different Fourier blocks; the Section 5.3.6 periodic bump network is distinct and its weights only experimentally conjectured."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Abstract/introduction; Sections 2 (symmetry), 3.1.1 (cycle), 5.3.3 (wheel), 5.3.6 (periodic bump graph); conclusions and full-document term searches for sunlet, corona, pendant",
+        "method": "Read publicly accessible full-text preprint and visually inspected title page",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Plausible stronger symmetry-based coverage and explicit cycle or wheel solution"
+      },
+      {
+        "assessment": "No matching sunlet family or exact formula in inspected topology catalog; risks of implicit specializations acknowledged",
+        "evidence": [
+          "Lists clique lifts, path-attached subgraphs, palm structures, windmills and symmetric trees.",
+          "The sunlet construction is not the cycle clique lift described by these results."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs",
+        "material_read": "Accessible full-text abstract and detailed introduction of contributions (including its summary of Sections 3-7); document-wide searches for sunlet, pendant and cycle",
+        "method": "Read accessible author-supplied text of original manuscript",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Potential later general reduction for pendant or lifted configurations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6b1dacf-6436-40c7-9433-99bd11e48cec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A naturally defined infinite family of non-edge-transitive networks admits a nontrivial all-sizes closed-form global fastest-mixing rule. Unlike a parameter sweep, the theorem identifies the unique dihedrally invariant weight allocation and an active constraint: every optimal invariant chain removes all rim holding. The pendant transition probability shrinks as a constant multiple of the inverse rim size, while the optimal SLEM gap has a two-term expansion a quadratic inverse-size leading term and an explicit cubic inverse-size correction; the attached leaves have a precise spectral design cost. These results answer a motivated graph-optimization question not implied by a numerical SDP listing.",
+    "status": "PASS"
+  }
+}
