@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Source equations (2)-(4) yield exact random affine position chain. Exact Beta(2,1) moments give E[A²]=1-zD and the stationary variance. Strict D monotonicity gives unique threshold, the variance-defect quadratic gives two calibration steps, and Gaussian-mixture strict Jensen prohibits exact Gaussian stationarity. E[A⁴]-1 modulo the calibration polynomial has opposite signs at the two roots, proving finite versus infinite stationary fourth moment. Analytic arguments address infinite time; 245 standalone checker tests only corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bou-Rabee–Kleppe (2023), Section 3, Remark 1: Gaussian invariant variance explanation is expressly for Verlet, whereas rRKN 2.5 is investigated numerically and via small-step L² accuracy.",
+        "The source theorem assumes a small step; the present exact polynomial chain analysis goes beyond those hypotheses but does not claim its accuracy extension."
+      ],
+      "reasoning": "Published convergence upper bounds and numerical Gaussian-target comparisons do not themselves imply the exact stationary covariance roots or fourth-moment divergence of the distinct rRKN 2.5 chain.",
+      "searches": [
+        "Randomized Runge-Kutta-Nystrom Methods for Unadjusted Hamiltonian and Kinetic Langevin Monte Carlo arxiv 2310.07399 harmonic Gaussian invariant",
+        "published-finding corpus: stochastic unadjusted Hamiltonian Monte Carlo randomized Runge Kutta Nystrom 2023 harmonic target covariance optimal timestep nonGaussian stationarity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.07399 (full HTML examined)",
+      "arxiv:2211.11003 (abstract and primary-source comparison)",
+      "published-finding corpus published harmonic Langevin covariance findings (semantic summaries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2023 defines the random stage update but does not calculate its invariant random-affine law, the exact 7.0367 finite-variance cutoff, or its moment calibration roots.",
+        "2022 lower-order randomized integrator and 2026 published harmonic Langevin splitting results involve different maps and do not dominate the claimed rRKN 2.5 coefficients."
+      ],
+      "reasoning": "Substitution into the provided method is required, followed by a nontrivial stationary moment comparison; no directly stronger published theorem was identified. Classical random-affine contraction and moment criteria are openly treated as established tools.",
+      "searches": [
+        "Bou-Rabee Kleppe 2023 rRKN 2.5 one step uHMC equations (2)-(4) and (7)",
+        "Bou-Rabee Marsden 2022 stratified Monte Carlo time integration rRKN 1.5",
+        "published-finding corpus: harmonic-equilibrium-bias-low-cost-randomized-ulmc",
+        "published-finding corpus: fractional-midpoint-noise-ubu-configurational-bias"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Retrieved harmonic equilibrium records concern low-cost UBU/ULMC splitting integrators rather than the rRKN 2.5 random-affine position coefficient.",
+        "The source rRKN formula in arxiv:2310.07399, equations (2)-(4) and (7), reduces to A=1-z/2+z²V/12 and B=h(1-z/6)."
+      ],
+      "reasoning": "Random-coefficient AR(1), Gaussian-variance calibration, and Lyapunov moment criteria are checked as equivalent descriptions; none of the retrieved records entails the explicit two calibration roots plus fourth-moment split.",
+      "searches": [
+        "published-finding corpus: randomized Runge Kutta Nystrom 2.5 harmonic Gaussian unadjusted HMC exact invariant variance two exceptional calibrated step sizes 4 plus minus 2sqrt2",
+        "published-finding corpus: rRKN2.5 full momentum refresh one step harmonic oscillator stationary variance Gaussian scale mixture exact variance correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved published-finding corpus entries concern related Langevin stationary covariance but not the same algorithm, stage distribution or two exact calibration parameters.",
+        "No published exact moment table with this pair of parameters was located in inspected source sections."
+      ],
+      "reasoning": "An unsuccessful search alone does not prove novelty; polynomial coincidence and coefficient-moment implications were compared with the actual source, including its Gaussian remark and harmonic experiments.",
+      "searches": [
+        "published-finding corpus: randomized Runge Kutta Nystrom 2.5 harmonic Gaussian unadjusted HMC exact invariant variance two exceptional calibrated step sizes 4 plus minus 2sqrt2",
+        "Web: randomized Runge Kutta Nystrom stationary fourth moment harmonic full refresh Gaussian 4+2sqrt2",
+        "published-finding corpus: rRKN2.5 full momentum refresh one step harmonic oscillator stationary variance Gaussian scale mixture exact variance correction"
+      ]
+    },
+    "rationale": "Full-text rRKN2.5 source provides stage algorithm and Gaussian numerical testing but not its exact one-step harmonic stationary second/fourth moment phase or double target-variance calibration. Source harmonic invariant formula treats Verlet, a different integrator. The 2022 related randomized integrator is lower order. Searches of semantically related harmonic sampler records did not uncover direct implications; specialized exact harmonic analysis is a residual publication-priority risk.",
+    "residual_risks": [
+      "A specialized unpublished or older harmonic-rRKN calculation may contain equivalent parameter or moment results.",
+      "The 2022 source was compared at abstract level only; its algorithm is distinct, but broader unpublished details could affect priority.",
+      "The larger variance-calibration point is not within the accuracy theorem’s small-step domain and is a diagnostic, not a recommended sampling step."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "source defines algorithm; no direct exact one-step harmonic invariant moment phase or two calibration zeros reported",
+        "evidence": [
+          "Equation (4) position map, section 2.2 full independent momentum refresh, section 3 Remark 1 derives Gaussian bias for Verlet."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.07399",
+        "material_read": "full arXiv HTML article, section 2 equations (2)-(4), (7), section 3 Gaussian target illustrations and Remark 1, section 4 small-step accuracy theorem",
+        "method": "public arXiv HTML full text opened; mathematical formulas, numerical comparisons and invariant remarks inspected",
+        "title": "Randomized Runge-Kutta-Nyström Methods for Unadjusted Hamiltonian and Kinetic Langevin Monte Carlo",
+        "trigger": "exact rRKN 2.5 algorithm and one-step unadjusted Hamiltonian Monte Carlo"
+      },
+      {
+        "assessment": "earlier lower-order randomized Verlet modification; full-text priority uncertainty is recorded",
+        "evidence": [
+          "Abstract describes a randomized minor modification of Verlet with L²-Wasserstein complexity, not rRKN 2.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.11003",
+        "material_read": "arXiv abstract and source 2023 comparison/citation, full original paper not inspected",
+        "method": "public arXiv abstract and comparison in Bou-Rabee–Kleppe sections 1 and 4",
+        "title": "Unadjusted Hamiltonian MCMC with Stratified Monte Carlo Time Integration",
+        "trigger": "earlier randomized Hamiltonian sampler with similar target and momentum refresh"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e004c5cc-5f3a-4138-8f4c-9981db2c1bf3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For Gaussian-target unadjusted HMC, exact temperature calibration of the stationary position variance is a natural performance metric. Two separate positive variance-zero points coexist with non-Gaussian laws, and one has infinite fourth moment even as its variance is exactly correct, exposing a meaningful failure of variance-only assessment. A sharp finite-variance step threshold adds a complete stability boundary for this exactly specified published algorithm; high-step findings are explicitly diagnostic.",
+    "status": "PASS"
+  }
+}
