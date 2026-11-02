@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The published homotopy equivalence to a join of two simplex boundaries supplies one-dimensional integral top homology. The new argument verifies that every monotone degree-one coloring is simplicial, proves adjacent-color contraction maps are contiguous by extracting a forbidden independent set from any hypothetical obstruction, and transports rotation and reflection actions to the explicit base orientation. Rotation and reflection signs are computed on the actual join factors, with the degree-two boundary and all parity cases covered. Equivariant inclusions transfer the calculation to cycle powers in the specified range. The finite checker independently enumerates signed Lefschetz numbers and tests the new contiguity lemma. The infinite theorem rests on proof, not on the finite calculations.
+## correctness
 
-## Originality — PASS with qualified residual risk
-The closest full-text primary reference, Carnero Bravo, arXiv:2602.21427v1, proves homotopy types and non-equivariant coloring equivalences, but does not establish the top homology action of dihedral rotations and reflections. A prior equivariant Euler formula for connected bipartite robust clique complexes implies the \(d=3\), even-cycle subcase; the present result gives arbitrary \(d\), odd cycles and the stated cycle powers. Semantic and targeted literature checks did not identify a prior theorem covering this complete character; search absence is not a proof of novelty. Zaare-Nahandi's paper on the same underlying complexes could only be compared through its publisher abstract because institutional access to the full text was unavailable. That unresolved source and unindexed research remain risks.
+PASS
 
-## Value — PASS
-The difference between the abstract sphere type and its orientation character is mathematically substantive: the same nonequivariant sphere has either a rational homology-sphere dihedral quotient or an acyclic quotient depending on the parity of \(d\). The theorem provides the complete integral top representation and both natural quotient classifications uniformly in two unbounded parameters, with extension through equivariant homotopy-equivalent inclusions. The core contiguity step is not a mere restatement of the published nonequivariant coloring theorem.
+For d>=2,n>=2d, B_d(C_2d) is the join of boundaries of even and odd d-element classes. Rotation exchanges factors and simultaneously contributes a d-cycle sign, yielding +1, while the reflection preserves classes and has product restriction sign (-1)^(d-1). Every cyclic degree-one 0/1 contraction C_n→C_2d preserves faces: independent alternating d-colors would lift to an independent d-set in the source. Adjacent 01↔10 swaps differ at one source vertex, and forbidden target independent d-colors in a union would lift to an independent d-set in the original face, so induced maps are contiguous. Connectedness of fixed-weight binary words makes all normalized contractions homotopic. The published coloring map is a homotopy equivalence (d>=3), and degree-one circle mapping handles d=2. Normalized comparisons for f∘r and S∘f∘s transport the target orientation action to the source. For n>=2pd,d>=3, published equivariant inclusions preserve the representation. Finite-group rational invariants on barycentric-subdivided chain complexes give the quotient homology parity. Independent signed simplicial fixed-face traces matched predicted values in 240 group elements across 15 (d,n) cases, d=2..4, n=2d..2d+4, and 1,480 adjacent swap pairs over all fixed-weight increment words in d=2..4,n=2d+1..2d+3 were contiguous. Finite tests corroborate but do not establish infinite assertion.
 
-## Limits
-No assertion of integral quotient homology or equivariant homotopy equivalence is made. The inaccessible subscribed primary source and unindexed equivalent calculations leave a genuine residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full-text comparison finds that Bayer et al. Theorem 4.15 and Carnero Bravo Corollary 32 determine the nonequivariant sphere, while Carnero Bravo Theorem 33 gives a non-equivariant cyclic block-coloring homotopy equivalence and equivariant inclusions for cycle powers. Neither theorem states a rotation/reflection homology character, and an abstract homotopy equivalence does not determine an action. The submitted adjacent-swap contiguity lemma proves the needed comparison of rotated/reflected coloring maps. The existing connected-bipartite 3-robust Euler-character formula implies the d=3 even-cycle subcase but does not treat d>3 or odd cycles. Kim–Lew treats collapsibility, not this representation. No independently prior complete character theorem or table was found. The already published matching SCOPE/Resultary entry is the assigned finding itself, and is explicitly excluded as independent prior art. The inaccessible 2026 Zaare-Nahandi full text is recorded as a residual priority risk rather than an automatic novelty failure.
+
+## value
+
+PASS
+
+The dihedral orientation module is a natural invariant of a family already known to be homotopy spheres and is not determined by their ordinary homotopy types. The uniform sign description distinguishes homology of cyclic and full dihedral orbit spaces, yielding a sharp parity-dependent rational quotient criterion for every d>=2,n>=2d, plus dihedrally equivariant cycle-power persistence for d>=3,n>=2pd. The adjacent-increment contiguity lemma is a mathematically motivated structural compatibility result, not a rote relabeling or unmotivated finite slice. Does not overclaim equivariant homotopy type or integral quotient torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
