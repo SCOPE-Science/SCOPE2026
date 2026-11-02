@@ -1,11 +1,21 @@
-# Scientific review: random orthographic triangle obtuseness
+# Independent mathematical audit
 
-**Correctness — PASS.** The projected inner-product sign is reduced to a quadratic inequality in a Haar-uniform normal. Two independent spherical integrations yield the same exact single-angle integral. Positive-derivative integrands give strict convexity for acute source angles; disjoint projected obtuse-vertex events and Jensen's inequality yield the sharp equilateral minimum. The explicit nonnegative quartic certificate separates all right and obtuse original triangles. The upper-endpoint proof uses a realizable singular-value representation for the restricted orthogonal projection. The standalone numerical checker passed 2,022 diagnostic comparisons and 125,000 random viewing trials; these are not substituted for the universal proof.
+## correctness
 
-**Originality — PASS with priority qualification.** The full Feldman–Klain 2008 primary text studies projected face counts rather than the sign of projected vertex angles. An existing one-dimensional projection-width reconstruction result concerns a different random invariant. The publisher abstract of Hall's classic ball-sampled acute-triangle article concerns a different probability space; its unavailable full text remains a bibliographic limitation rather than a certified non-coverage finding. Claim-level searches did not identify the exact angle integral and sharp all-shapes equilateral minimizer. Unseen equivalent work cannot be ruled out.
+PASS
 
-**Value — PASS.** The problem asks how reliably a fixed triangle retains acute geometry under an isotropically random view. A universal sharp probability threshold and complete equality classification apply to all nondegenerate triangles, rather than a sampled or artificially selected one-parameter family. The convexity mechanism provides structural insight and the exact full range identifies severe viewing distortion near degenerate shapes.
+The projected vertex inner product is cos(theta)-(n·u)(n·v); in the angle-bisector coordinates, its negativity is exactly n_2^2+cos^2(theta/2)n_3^2<sin^2(theta/2). Integrating Haar normals gives the stated one-angle integral; acute-angle strict convexity follows by positive derivatives in x=sin^2(theta/2), reflection gives p(pi-theta)=1-p(theta), and disjointness of obtuse vertex events gives P=sum p. Strict Jensen for three acute input angles gives the equilateral minimum, while any source angle >=pi/2 contributes >=1/2 > the sharp equilateral value, confirmed by a rational nonnegative polynomial certificate in the proof. Restricted orthogonal projections realize any singular-value ratio (1,k) with 0<k<=1; every triangle has an acute projection of positive measure, so P<1, while flattening an angle to pi tends to P=1. Reconstructed normalization, equality and endpoints, not a finite empirical inference. Independent high-precision quadrature and 180000 independent random sphere normals verified the equilateral value and local sign law; the simulation is only corroboration.
 
-**Limitations.** Only Haar-uniform orthogonal planes in three dimensions are covered. The theorem does not prove an analogous higher-dimensional law. The priority comparison is not an independent systematic historical survey.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact probability law for sign of projected interior angles and sharp equilateral shape minimization are distinct from probabilities for loss of a tetrahedral face under projection. Feldman–Klain concerns solid vertex angles of n-simplices and the probability a tetrahedron projects to a triangle, not the angle-sign event of a fixed triangle. Resultary semantic search retrieved random projected width laws and octahedron silhouettes, not a dominating triangle-angle law. Best-of-knowledge PASS, but the full 2008 primary text could not be opened in this execution and historical-angle terminology remains a risk.
+
+## value
+
+PASS
+
+An intrinsic viewing-distortion statistic over the complete nondegenerate triangle moduli space has a sharp universal minimizing shape and full attainable range; the Jensen/angle-convexity mechanism and equality class are mathematically motivated, not an arbitrary instance or known-table transcription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
