@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The attached `data/qminus_genus4_results.json` lists all 254 smooth orbit representatives, each orbit size, rational theta-plane mask and rational-point count; it also includes the sixteen cubic basis monomials, all fifteen rational hyperplane descriptions and three-bit linear contact syndromes. Run the following commands from the package root:
+## correctness
 
-```sh
-python code/qminus_genus4.py
-python code/qminus_secondary.py data/qminus_genus4_results.json
-```
+PASS
 
-The complete generator exhaustively enumerates 65,535 nonzero coefficients as 683 orbits under an explicitly constructed order-120 orthogonal group, applies exact Gröbner ideals over the ground field on every affine chart for smoothness, and evaluates all fifteen rational theta-hyperplane criteria for the 254 surviving representatives. The printed exact distribution is `[(0,5680),(1,13580),(2,7020),(3,320),(4,460)]` (equation-weighted, not orbit-count weighted).
+The fixed nonsplit quadric Q in P3/F2 has exactly 5 rational points, 120 automorphisms permuting them, and a 16-dimensional cubic-section quotient (65535 nonzero classes). The full group orbit census gives 683 orbits. For every representative, the exact Jacobian-ideal Groebner unit test on four affine charts detects geometrically smooth complete intersections over the algebraic closure, not merely F2 or F4 rational smoothness; 254 smooth orbits of total weight 27060. Fifteen rational hyperplane sections consist of 10 smooth conics and 5 conjugate-line tangent conics; restriction to a conic yields a binary sextic, even-divisor iff odd exponents vanish (3 linear syndrome conditions), while tangent conics have analogous three-bit extension-field syndromes with a vertex parity condition. An independent implementation rebuilt group generators, reduced cubic action, 15 linear syndromes, exact Groebner smoothness and full weighted orbit census, reproducing bins 5680,13580,7020,320,460 and the 7 extremal orbits with weights 120,30,60,60,10,60,120. The independent implementation did not use the source certificate JSON, so the enumeration is supported by independent exact finite computation. Smoothness over Fbar is certified by algebraic ideal tests; small-extension point tests alone would not suffice.
 
-The secondary checker independently evaluates the two Jacobian gradients at every rational point of the quadric over extensions of degrees one through four, on all 254 accepted orbit representatives, totaling 1,016 combinations. It then reconstructs both the main weighted distribution and the two-type incidence table from the stored representatives. A finite extension search alone cannot rule out singularities over higher extensions, so the primary exact characteristic-two Gröbner calculation is essential.
+## originality
 
-Actual command output is supplied in `data/replay_primary.txt` and `data/replay_secondary.txt`. The program's algebraic-closure smoothness and theta criteria follow from the Jacobian criterion, elimination by Gröbner bases, and elementary square-factor tests in characteristic two; no external infinite theorem prover or independent audit is claimed.
+PASS
+
+Xarles 2020 already enumerates abstract genus-four F2 curves, split/nonsplit quadric models, source-coordinate automorphism orbits, and point counts: this prior curve enumeration is fully credited. Pacini-Testa 2020 supply characteristic-two even-divisor theta-hyperplane definitions and general geometric theory. Neither inspected relevant full-text theorem/tabulation supplies the 15 rational-hyperplane syndrome counts or the seven fixed-nonsplit extremal incidence orbits. The new claim is the extra theta incidence statistic in an explicitly fixed equation-weighted quotient, not existence or total classification of genus-four curves. An indirect calculation from Xarles' curve list is possible and is an explicit residual priority risk.
+
+## value
+
+PASS
+
+The theta-hyperplane incidence profile refines the established small-field genus-four census by a natural canonical divisor invariant, giving all rational even-section multiplicities and the sharp extremal classes. The complete exact list and split of smooth versus tangent quadric sections are independently useful arithmetic-geometric data, not an arbitrary single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

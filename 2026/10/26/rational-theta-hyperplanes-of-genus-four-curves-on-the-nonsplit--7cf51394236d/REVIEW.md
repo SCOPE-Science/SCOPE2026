@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 16-dimensional cubic quotient, complete 683-orbit enumeration, exact chartwise Gröbner smoothness tests and 15 explicit characteristic-two square/contact syndromes exhaust the stated domain. The primary executable yields 254 smooth orbits and 27,060 equations with five theta-count bins, and the independent gradient/weight checker agrees on recorded finite-field tests. The finite-field tests corroborate but do not substitute for geometric smoothness over the algebraic closure.
+## correctness
 
-**Originality — PASS, qualified.** Harris and Len provide tritangent geometry; Pacini and Testa define theta-hyperplanes in characteristic two and general geometric counts; Xarles classifies abstract genus-four models over the smallest field and rational point data. None of the inspected full articles gives this fixed-nonsplit-quadric equation-weighted theta-plane incidence distribution, seven extremal orbits or split/tangent refinement. The previous split-quadric classification concerns a disjoint ambient type. Indirect derivation from available census equations, unindexed earlier tables, and inaccessible earlier-week records remain residual priority risks. Searches are evidence of comparison, not proof of unique discovery.
+PASS
 
-**Value — PASS.** The arithmetic distribution of a canonical theta invariant in the nonsplit characteristic-two genus-four family is a motivated complete small-field classification. The sharp maximum, equality-orbit structure and two different conic-section contact patterns offer concrete geometric information beyond point-count tables.
+The fixed nonsplit quadric Q in P3/F2 has exactly 5 rational points, 120 automorphisms permuting them, and a 16-dimensional cubic-section quotient (65535 nonzero classes). The full group orbit census gives 683 orbits. For every representative, the exact Jacobian-ideal Groebner unit test on four affine charts detects geometrically smooth complete intersections over the algebraic closure, not merely F2 or F4 rational smoothness; 254 smooth orbits of total weight 27060. Fifteen rational hyperplane sections consist of 10 smooth conics and 5 conjugate-line tangent conics; restriction to a conic yields a binary sextic, even-divisor iff odd exponents vanish (3 linear syndrome conditions), while tangent conics have analogous three-bit extension-field syndromes with a vertex parity condition. An independent implementation rebuilt group generators, reduced cubic action, 15 linear syndromes, exact Groebner smoothness and full weighted orbit census, reproducing bins 5680,13580,7020,320,460 and the 7 extremal orbits with weights 120,30,60,60,10,60,120. The independent implementation did not use the source certificate JSON, so the enumeration is supported by independent exact finite computation. Smoothness over Fbar is certified by algebraic ideal tests; small-extension point tests alone would not suffice.
 
-**Limits.** All numerical frequencies count cubic section classes on the fixed nonsplit quadric, not abstract isomorphism types; no broader-field generalization or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xarles 2020 already enumerates abstract genus-four F2 curves, split/nonsplit quadric models, source-coordinate automorphism orbits, and point counts: this prior curve enumeration is fully credited. Pacini-Testa 2020 supply characteristic-two even-divisor theta-hyperplane definitions and general geometric theory. Neither inspected relevant full-text theorem/tabulation supplies the 15 rational-hyperplane syndrome counts or the seven fixed-nonsplit extremal incidence orbits. The new claim is the extra theta incidence statistic in an explicitly fixed equation-weighted quotient, not existence or total classification of genus-four curves. An indirect calculation from Xarles' curve list is possible and is an explicit residual priority risk.
+
+## value
+
+PASS
+
+The theta-hyperplane incidence profile refines the established small-field genus-four census by a natural canonical divisor invariant, giving all rational even-section multiplicities and the sharp extremal classes. The complete exact list and split of smooth versus tangent quadric sections are independently useful arithmetic-geometric data, not an arbitrary single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
