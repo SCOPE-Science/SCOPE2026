@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof exhaustively classifies intrinsic paths by all four endpoint choices and treats same-edge direct paths separately. Exact edge-orientation counting gives exceptional probability (m+n-2)/(4mn); conditional detour is 2 min(min(S,T),1-max(S,T)), whose survival is (1-z)^2. Independence of circle coordinates gives the mixed-orientation convolution and same-orientation baseline; replacing |S-T| by min(S+T,2-S-T) yields the complete CDF. The mean and unique negative/zero parity cases are derived algebraically. Two standalone exact-rational verifiers successfully executed 266256 route/detour comparisons and 91 independent polygon integral CDF/mean comparisons. Finite checks are corroboration, not a substitute for analytic universality. Risks: weighted edges and higher products are outside scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garijo–Márquez–Silveira (2021), abstract and main algorithm: general quadratic-in-edge-count continuous mean-distance computation; no family-wide toroidal CDF or detour distribution.",
+        "Baptista–Kennedy–Mugnolo (2024), definition and extremal results: bounds and structural mean inequalities for metric graphs, not this toroidal family exact law."
+      ],
+      "reasoning": "A general algorithm that can compute one continuous mean for any chosen finite graph is not a published all-parameter formula for the full distance CDF, conditional detour Beta law, or the sharp mean-sign classification across infinitely many toroidal grids. No inspected stronger distributional theorem was identified.",
+      "searches": [
+        "continuous average distance and extremal tails on Cartesian product of two cycles grid torus network",
+        "mean distance continuous edge metric C_m cartesian product C_n toroidal grid average",
+        "\"Continuous Mean Distance of a Weighted Graph\" arXiv:2103.11676",
+        "\"Mean Distance on Metric Graphs\" arXiv:2312.04952"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0412530",
+      "https://doi.org/10.1142/S0129626411000072",
+      "https://doi.org/10.1155/2020/6371694",
+      "https://arxiv.org/abs/2103.11676",
+      "https://arxiv.org/abs/2312.04952"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Doig (2004), Introduction and sections on Hamiltonian run lengths: gives the same toroidal grid definition but concerns a different graph invariant.",
+        "Cheng–Qiu–Shen (2011), definitions and Theorem 4: their mean of discrete vertex-to-vertex distances is \\(m/4+n/4-\\epsilon_m/(4m)-\\epsilon_n/(4n)\\), with vertex sampling only.",
+        "A direct four-route analysis of the edge interiors and explicit exceptional-pair counting are needed to derive the new \\(\\mathrm{Beta}(1,2)\\) detour law."
+      ],
+      "reasoning": "Known discrete means form one input to the proof, but cannot yield the continuous arclength distribution without accounting for subedge endpoint routing. The general mean algorithm does not state the new parameter-exact cancellation (3,3 negative, 3,5 zero, all other positive). No inspected result dominates the full claim.",
+      "searches": [
+        "Continuous mean distance toroidal Cartesian cycles mean (m+n)/4 plus parity correction zero at 3,5 only",
+        "toroidal grid network mean distance between points edges arclength",
+        "arXiv:math/0412530",
+        "doi:10.1142/S0129626411000072",
+        "arXiv:2103.11676"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cheng–Qiu–Shen (2011), §4 Theorem 4, obtains cyclic torus means over the vertex set, not arclength-uniform point pairs.",
+        "Qiang et al. (2020), §§2–3, study vertex eccentricity and graph center/periphery, not probability densities."
+      ],
+      "reasoning": "The present object is a one-dimensional metric graph sampled by normalized edge length. Neither the discrete vertex-distance shell generating function nor eccentricity is equivalent to the full continuous CDF; the new distribution contains a nontrivial correction for aligned parallel edges even when the vertex-distance law is known.",
+      "searches": [
+        "uniform arclength point intrinsic distance distribution on toroidal grid metric graph C_m Cartesian product C_n",
+        "On C_m square C_n toroidal grid metric graph continuous arclength-uniform two-point shortest path distance, full distribution with Beta correction for aligned parallel edges",
+        "Exact detour distribution between network geodesic and ambient flat Manhattan torus for uniform edge points, probability (m+n-2)/(4mn), beta(1,2) conditional",
+        "\"Distance Measurements Related to Cartesian Product of Cycles\" doi:10.1155/2020/6371694",
+        "\"On the Surface Areas and Average Distances of Meshes and Tori\" doi:10.1142/S0129626411000072"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest relevant published findings concern topological complexes of toroidal grids, a metric-cotype constant on discrete tori, and a one-dimensional cycle transportation-space distortion; none records this intrinsic distance distribution.",
+        "prior research records claims were screened for toroidal grids, Cartesian cycle products, continuous mean distance and their aliases. Closest own geometric records were about smooth flat tori and metric graph families with different edge structures."
+      ],
+      "reasoning": "No matching record or exact table was found in actual targeted searches. This is a limited negative database observation, not a proof of unique priority; no claimed absence is inferred from a partition alone.",
+      "searches": [
+        "uniform arclength point intrinsic distance distribution on toroidal grid metric graph C_m Cartesian product C_n",
+        "stochastic ordering of metric Cartesian product grid graphs cycle cycle",
+        "On C_m square C_n toroidal grid metric graph continuous arclength-uniform two-point shortest path distance, full distribution with Beta correction for aligned parallel edges",
+        "Exact detour distribution between network geodesic and ambient flat Manhattan torus for uniform edge points, probability (m+n-2)/(4mn), beta(1,2) conditional",
+        "Continuous mean distance toroidal Cartesian cycles mean (m+n)/4 plus parity correction zero at 3,5 only",
+        "continuous distance distribution toroidal grid metric graph Cartesian product cycles arclength uniform"
+      ]
+    },
+    "rationale": "Genuinely different object and quantifiers from closest exact toroidal vertex-shell and average-distance literature, and from general algorithms for continuous means. Targeted database searches and examined primary source texts did not find an equivalent full arclength CDF, conditional Beta detour or sharp grid-versus-area mean sign phase. Historical-priority uncertainty persists for unindexed or inaccessible older source texts.",
+    "residual_risks": [
+      "Doyle and Graver, Mean Distance for Shapes (1982), full text not inspected; historic exact mean-priority potentially uncertain.",
+      "Search-index omissions may conceal prior equivalent continuous CDF or detour analysis; absence in search results is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same graph family, but studies Hamiltonian runs, not pairwise metric-graph distances",
+        "evidence": "2004-12-29 posting timestamp and Introduction definition; no network arclength mean or distribution claim",
+        "identifier_or_url": "https://arxiv.org/abs/math/0412530",
+        "material_read": "Full arXiv HTML, abstract, Introduction and Hamiltonian-run constructions",
+        "method": "Open primary arXiv HTML and read text",
+        "title": "Maximum Run Length in a Toroidal Grid Graph",
+        "trigger": "Earliest dated archival source defining toroidal cycle-product grids"
+      },
+      {
+        "assessment": "Computes only vertex-shell counts and vertex mean distances; no edge-interior continuous metric law",
+        "evidence": "§3 explicitly sums \\(d_G(u,v)\\) over \\(u,v\\in V(G)\\); §4 Theorem 4 sums cyclic vertex distances",
+        "identifier_or_url": "https://doi.org/10.1142/S0129626411000072",
+        "material_read": "Full author-hosted text transcription on ResearchGate including introduction, §3 average distance definitions, §4 torus surface-area generating functions, Theorem 4 and concluding remarks",
+        "method": "Read full-text HTML transcription and compare formulas and quantifiers",
+        "title": "On the Surface Areas and Average Distances of Meshes and Tori",
+        "trigger": "Plausibly dominating result on exact toroidal-grid distances"
+      },
+      {
+        "assessment": "Concerns vertex eccentricity, graph radius and diameter, not arclength-sampled point-pair distance distribution",
+        "evidence": "Abstract and §§2–3 explicitly identify eccentricity and center/periphery as measured properties",
+        "identifier_or_url": "https://doi.org/10.1155/2020/6371694",
+        "material_read": "Full open access HTML, abstract, §2 graph center/periphery, §3 average eccentricity, conclusion",
+        "method": "Read primary Wiley HTML text and compare metric definitions",
+        "title": "Distance Measurements Related to Cartesian Product of Cycles",
+        "trigger": "Exact same discrete family and parity cases"
+      },
+      {
+        "assessment": "Provides a general mean-distance computation, but not an explicit toroidal-grid CDF, conditional detour or universal sign classification",
+        "evidence": "Abstract states quadratic algorithm in number of edges and structural results, not distribution law for products of cycles",
+        "identifier_or_url": "https://arxiv.org/abs/2103.11676",
+        "material_read": "Full arXiv HTML, abstract, Introduction and algorithmic description of continuous mean",
+        "method": "Read primary arXiv preprint text and search relevant terms",
+        "title": "Continuous Mean Distance of a Weighted Graph",
+        "trigger": "General method for continuous metric-graph means might dominate the derived mean"
+      },
+      {
+        "assessment": "General metric-graph mean and spectral bounds, not an exact toroidal-grid family distribution",
+        "evidence": "§2 defines arclength mean over all edge points and emphasizes extremal/spectral results",
+        "identifier_or_url": "https://arxiv.org/abs/2312.04952",
+        "material_read": "Primary manuscript abstract and metric-graph assumptions, definition of mean distance, main context of bounds",
+        "method": "Read primary OA manuscript and publisher full HTML",
+        "title": "Mean Distance on Metric Graphs",
+        "trigger": "Potential general metric-graph mean comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7acb75c-a8b2-411e-b265-0919047bb142",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full piecewise-quadratic law answers a naturally motivated probabilistic metric invariant of periodic street networks for every pair of cycle sizes, and the universal Beta detour describes precise infrastructure-constrained routing cost relative to the ambient geometry. The exact comparison to area-uniform Manhattan-torus travel exhibits a sharp parity-dependent sign transition, including the unique 3-by-3 negative and 3-by-5 equality classes. These are structurally motivated all-parameter statements, not isolated arithmetic curiosities or textbook renamings.",
+    "status": "PASS"
+  }
+}
