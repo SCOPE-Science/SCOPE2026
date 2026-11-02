@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:43:20Z",
+  "axes": {
+    "correctness": {
+      "independent_check": "independent_checks.py with 655072 bounded mathematical assertions across five subjects; additional independent exact r=1..5 Hamming integer-rank and kernel tests",
+      "rationale": "Singleton deck counts give t,z; nonadjacent same-symbol pair counts yield g11=C(t,2)−t+r1 and g00=C(z,2)−z+r0, recovering each run count. At fixed composition and run counts all mixed nonadjacent counts follow from q=g01 via g01+g10=tz−(r0+r1−1). For ≤3 runs, a one-parameter block length is uniquely determined by q, excluding all other run counts globally for n≥3; n=2 words 01,10 are properly excepted. For four runs, type A 0^a1^b0^c1^d has q=zt−2−bc and type B 1^a0^b1^c0^d has q=bc−1. Positive constrained lengths yield exact bounded divisor-representation fiber size R_{t,z}(q+1)+R_{t,z}(tz−2−q). Its q-range is the union of a multiplication table S−1 and reflection tz−2−S, giving K=2|S|−#{p∈S:tz−1−p∈S}. Direct exhaustive positional enumeration for binary lengths up to 12 and t,z through 9 independently checked all four-run fibers and first 3 length-six doubletons. Construction t=z=2^k+1, product 2^k, yields k+1 distinct words in one four-run fiber for all k≥1, not a finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Rigo–Stipulanti–Whiteland theorem provides an all-word if-and-only-if for equivalence but not all-word enumeration by deck or run strata.",
+          "Ordinary k-deck results (Chrisnata et al. 2021) count scattered-subsequence decks without the adjacent-pair deletion required for g=1."
+        ],
+        "reasoning": "The general equivalence characterization is a stronger test of equality but not a stronger quantitative statement implying exact R_{t,z} or the union-size K without additional combinatorics. This specific implication question was inspected rather than dismissed by different titles.",
+        "searches": [
+          "Rigo Stipulanti Whiteland Gapped Binomial Complexities in Sequences 2023 Lemma 2.1 and main results",
+          "Published Resultary semantic search: binary string gapped pair deck nonadjacent subsequences reconstructibility four runs multiplication table fibers (12 hits)"
+        ]
+      },
+      "checked_sources": [
+        "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+        "https://arxiv.org/abs/2201.12671",
+        "https://doi.org/10.3934/amc.2021032",
+        "Published Resultary semantic search: binary string gapped pair deck nonadjacent subsequences reconstructibility four runs multiplication table fibers (12 hits)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Lemma 2.1 gives equivalence decision, including 2-abelian and ordinary 2-binomial criteria, without any divisor-multiplicity count.",
+          "The audited four-run q formulas follow from run-length parameters b,c as multiplicative products, and K follows from union of reflected bounded multiplication tables."
+        ],
+        "reasoning": "The earlier general theorem is an important prerequisite that applies to every special case but does not enumerate the number of words meeting its equivalence criteria, so it does not alone imply R or K by direct specialization. Deriving product fibers is an additional natural finite classification.",
+        "searches": [
+          "Gapped Binomial Complexities in Sequences Lemma 2.1 complete binary gapped equivalence criterion",
+          "The Gapped k-Deck Problem 2022 earliest 1-gap length-6 collision",
+          "Published Resultary semantic search: binary string gapped pair deck nonadjacent subsequences reconstructibility four runs multiplication table fibers (12 hits)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rigo–Stipulanti–Whiteland 2023 Lemma 2.1 characterizes all binary 1-gap-2 equivalence pairs through ordinary 2-binomial and 2-abelian equivalence and an exceptional case.",
+          "Golm et al. 2022 give an earliest gapped-2 collision; the triple of length-6 pairs in the audited text is not claimed alone as new."
+        ],
+        "reasoning": "The data model is precisely the same as 1-gap-2 binomial equivalence. The earlier theorem covers decision of equivalence, but no exact fiber-cardinality stratification or optimal distinct-deck code sizes by composition/runs follows by substitution; the audited formulas analyze a specific natural low-run stratum.",
+        "searches": [
+          "Published Resultary semantic search: binary string gapped pair deck nonadjacent subsequences reconstructibility four runs multiplication table fibers (12 hits)",
+          "Rigo Stipulanti Whiteland ISIT 2023 Lemma 2.1 binary (1,2) gapped binomial equivalence",
+          "Golm Nahvi Gabrys Milenkovic gapped 2-deck length six collision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 paper states the single example (100110,011001) and factor complexity for infinite words, not the full three-doubleton census or four-run fiber product formula.",
+          "Resultary record on exact binary adjacent-pair multispectra uses contiguous length-two read windows, not distance≥2 ordered pairs."
+        ],
+        "reasoning": "The prior earliest collision is covered, and the natural run-restricted complete fiber count and optimal size K are absent from materially read primary statements. No-found-table is not proof against an earlier implicit formula.",
+        "searches": [
+          "Rigo Stipulanti Whiteland four-run product fiber multiplicity multiplication table 1-gap",
+          "binary nonadjacent pair deck four runs fiber R(t,z) first three doubletons length 6",
+          "Published Resultary semantic search: binary string gapped pair deck nonadjacent subsequences reconstructibility four runs multiplication table fibers (12 hits)"
+        ]
+      },
+      "rationale": "Golm et al. arxiv:2201.12671 establish the gapped-k-deck problem and length-six collision threshold, which the audited theorem explicitly credits. A highly relevant additional primary full text, Rigo–Stipulanti–Whiteland, ISIT 2023, has Lemma 2.1 giving a complete alternative general criterion for binary (1,2)-binomial equivalence in terms of usual 2-binomial and 2-abelian equivalence, plus a separate exceptional class. It even explicitly identifies the pair 100110,011001 of the three length-six collisions. This is important stronger general EQUALITY-TEST coverage, not a four-run fiber-size/count classification: the paper studies infinite-word factor complexity, Thue–Morse and Sturmian, and gives no formula R_{t,z}, K_{t,z}, or unbounded fibers at a fixed run count. The four-run factor-product census requires an additional combinatorial derivation. The prior general equivalence criterion significantly reduces the scope of originality and is a serious risk for implicit derivability, but does not in its read claims immediately supply the new exact parameterized invariant. Resultary’s adjacent-pair spectrum record is a different adjacency model.",
+      "residual_risks": [
+        "The full Rigo–Stipulanti–Whiteland equivalence theorem strongly overlaps the same observable and may imply a four-run enumerative corollary with elementary extra counting; historical originality for this sharper census remains qualified.",
+        "The original Golm et al. full text was not fully retrieved; snippets cannot establish no earlier table.",
+        "Claim limited to singleton-plus-gap-one ordered pairs, binary words and full four-run fibers; not a formula for five-plus runs or all q-ary decks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COMPLETE_EQUIVALENCE_CRITERION_BUT_NOT_FOUR_RUN_FIBER_ENUMERATION",
+          "evidence": "Lemma 2.1 classifies equality pairs and exhibits 100110∼011001, while main results concern infinite Thue-Morse/Sturmian factor complexity. No product-divisor four-run fiber formula or optimal composition code size in the inspected six pages.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+          "material_read": "Full six-page lawful author-institutional postprint, especially pp.1–3 Definition, Lemma 2.1 and its proof, and Sections IV–V on complexity; PDF page 3 visually inspected",
+          "method": "Full primary theorem and proof section text reading, direct comparison of quantifiers and consequences",
+          "title": "Gapped Binomial Complexities in Sequences",
+          "trigger": "Same binary 1-gap 2-binomial equivalence model; strong risk of prior exact coverage"
+        },
+        {
+          "assessment": "ORIGINAL_GAPPED_DECK_MODEL_AND_EARLY_COLLISION_PRIOR",
+          "evidence": "The length-six first collision predates the audited submission; full paper inspection inaccessible, so an uninspected appendix may contain more exact run results and this risk remains.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12671",
+          "material_read": "Primary arXiv abstract and accessible reported results, while full primary PDF was not successfully retrieved in this run",
+          "method": "Read accessible original statement/snippets and source paper discussion; explicitly not a whole-document negative-coverage claim",
+          "title": "The Gapped k-Deck Problem",
+          "trigger": "Original exact data model and length-six reconstruction collision"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact fiber classification at the first nontrivial run complexity is naturally needed for reconstruction-code design, where ambiguity cardinalities and maximum distinct observed profiles matter, not merely deciding whether a pair is equivalent. The number-theoretic bounded multiplication-table structure and unbounded ambiguity despite fixed four-run complexity are motivated results. Their novelty is specifically the enumerative fiber and packing invariants, not the already-known gap-deck equivalence framework or existence of a length-six collision.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Linear binary words; deck includes each singleton and ordered pairs with index separation at least 2.",
+    "Exact four-run fibers and unique ≤3-run words for n≥3; not higher-run or longer gapped subsequence classification.",
+    "Prior complete equivalence criterion is acknowledged and may offer alternative derivations; originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

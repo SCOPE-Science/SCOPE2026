@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The singleton and separated-pair counts recover both letter counts and both run counts; the two four-run orientations are bijective to ordered factor pairs. The displayed formulas follow algebraically and include the length-two exception. Independent direct positional enumeration through length 14 and all composition-restricted code checks through count 11 agree with the proof; these experiments are supporting checks, not a substitute for the all-length argument.
+## correctness
 
-## Originality
-PASS, subject to bibliographic risk. The directly inspected 2022 foundational gapped-deck paper supplies definitions and the length-six threshold/example but studies first collisions and upper bounds, not the entire four-run observation fibers or their exact optimal restricted code sizes. Ordinary \(k\)-deck work and contiguous adjacent-pair spectra are logically distinct channels. Searches of published mathematical records and relevant research listings did not yield the complete arithmetic fiber law, but cannot rule out an unindexed equivalent.
+PASS
 
-## Mathematical value
-PASS. This is a complete structure theorem at the first run count allowing nontrivial ambiguity, converting fiber sizes to restricted divisor counts and exact reconstruction-code sizes to a multiplication-table overlap. The theorem also establishes unbounded ambiguity with only four runs, a durable structural obstruction for gapped-read reconstruction rather than an arbitrary length-specific census.
+Singleton deck counts give t,z; nonadjacent same-symbol pair counts yield g11=C(t,2)−t+r1 and g00=C(z,2)−z+r0, recovering each run count. At fixed composition and run counts all mixed nonadjacent counts follow from q=g01 via g01+g10=tz−(r0+r1−1). For ≤3 runs, a one-parameter block length is uniquely determined by q, excluding all other run counts globally for n≥3; n=2 words 01,10 are properly excepted. For four runs, type A 0^a1^b0^c1^d has q=zt−2−bc and type B 1^a0^b1^c0^d has q=bc−1. Positive constrained lengths yield exact bounded divisor-representation fiber size R_{t,z}(q+1)+R_{t,z}(tz−2−q). Its q-range is the union of a multiplication table S−1 and reflection tz−2−S, giving K=2|S|−#{p∈S:tz−1−p∈S}. Direct exhaustive positional enumeration for binary lengths up to 12 and t,z through 9 independently checked all four-run fibers and first 3 length-six doubletons. Construction t=z=2^k+1, product 2^k, yields k+1 distinct words in one four-run fiber for all k≥1, not a finite extrapolation.
 
-## Scope and limits
-The statement concerns binary length-one-plus-nonadjacent-pair decks only. There is no assertion about five-run fibers, other gaps, or larger alphabets. Length two has a genuine short-observation exception. The first-collision number alone is in the source literature; it is not claimed as novel here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Golm et al. arxiv:2201.12671 establish the gapped-k-deck problem and length-six collision threshold, which the audited theorem explicitly credits. A highly relevant additional primary full text, Rigo–Stipulanti–Whiteland, ISIT 2023, has Lemma 2.1 giving a complete alternative general criterion for binary (1,2)-binomial equivalence in terms of usual 2-binomial and 2-abelian equivalence, plus a separate exceptional class. It even explicitly identifies the pair 100110,011001 of the three length-six collisions. This is important stronger general EQUALITY-TEST coverage, not a four-run fiber-size/count classification: the paper studies infinite-word factor complexity, Thue–Morse and Sturmian, and gives no formula R_{t,z}, K_{t,z}, or unbounded fibers at a fixed run count. The four-run factor-product census requires an additional combinatorial derivation. The prior general equivalence criterion significantly reduces the scope of originality and is a serious risk for implicit derivability, but does not in its read claims immediately supply the new exact parameterized invariant. Resultary’s adjacent-pair spectrum record is a different adjacency model.
+
+## value
+
+PASS
+
+A complete exact fiber classification at the first nontrivial run complexity is naturally needed for reconstruction-code design, where ambiguity cardinalities and maximum distinct observed profiles matter, not merely deciding whether a pair is equivalent. The number-theoretic bounded multiplication-table structure and unbounded ambiguity despite fixed four-run complexity are motivated results. Their novelty is specifically the enumerative fiber and packing invariants, not the already-known gap-deck equivalence framework or existence of a length-six collision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
