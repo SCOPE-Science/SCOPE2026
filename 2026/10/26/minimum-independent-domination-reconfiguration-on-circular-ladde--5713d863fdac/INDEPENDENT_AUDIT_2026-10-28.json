@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T22:52:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and the simple labeled prism P_n=C_n square K_2, reconstructed the 3-symbol column encoding: a selected column has exactly one A/B vertex; consecutive occupied columns must use opposite layers, every zero must have occupied neighbors in opposite layers, and zeros are isolated. Thus every occupied list has even length k>=n/2 and the minimum is k=2ceil(n/4), with h=n-k zeros. Root at a top occupied vertex and write a cyclic gap bit vector of length k, weight h; dividing by k/2 roots per configuration gives V=2n binom(k,h)/k. One-for-one independent-domination exchanges coincide with moves along original edges and swap adjacent unequal gap bits; cyclic run compositions count degree-2r vertices as 2n/r binom(h−1,r−1)binom(k−h−1,r−1), summing to E=2n binom(k−2,h−1). If h=k (n divisible by4), four configurations have no moves. Otherwise fixed-root adjacent gap swaps on a path connect all bit vectors, and a permitted boundary move shifts the marked top occupied token by one column, proving full connectivity. Gap index parity flips under each swap because k even, giving bipartiteness; when h=k−1 (n=3 mod4), connected 2-regular graph has 2n vertices and equals C_{2n}. Maximum degree <=6 as k−h<=3. Independently enumerated every vertex subset and full exchange graphs for n=3,...,9: counts/components/degrees exactly agree, including n=3 and n=4 boundaries; this is corroboration of the explicit uniform proof, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allagan 2026 Theorem 2/Proposition 1 counts min dominating sets; no exchange graph classification follows from counts alone."
+        ],
+        "reasoning": "Allagan gives a strong exact count for ordinary prism domination with quaternary words, but lacks the minimum-independent requirement and the adjacency graph; Brewster gives general realizability, not prism-specific exchange-edge and degree distribution.",
+        "searches": [
+          "Resultary semantic query: i-graph minimum independent dominating sets circular ladders prism C_n square K2 degree distribution connectivity",
+          "Brewster, Mynhardt and Teshima, Reconfiguration of Minimum Independent Dominating Sets in Graphs, arXiv:2303.06299; https://arxiv.org/pdf/2303.06299",
+          "Allagan, Deriglazov, Lopez-Bonilla and Pereyra, Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, 2026; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005"
+        ]
+      },
+      "checked_sources": [
+        "Brewster, Mynhardt and Teshima, Reconfiguration of Minimum Independent Dominating Sets in Graphs, arXiv:2303.06299; https://arxiv.org/pdf/2303.06299",
+        "Allagan, Deriglazov, Lopez-Bonilla and Pereyra, Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, 2026; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005",
+        "Teshima thesis repository abstract 2022/23",
+        "Resultary search: i-graph minimum independent dominating sets circular ladders prism C_n square K2 degree distribution connectivity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New cyclic gap-word swaps and marked-token connectivity establish claims not supplied by prior source counts."
+        ],
+        "reasoning": "Prior rigidity at n divisible by4 implies the four minimum dominating sets there but does not establish exchange-graph components for other congruences, exact 2n binom(k−2,h−1) edges, bipartiteness or 2r-degree multiplicities. General reconfiguration rules alone cannot determine the class.",
+        "searches": [
+          "Resultary semantic query: i-graph minimum independent dominating sets circular ladders prism C_n square K2 degree distribution connectivity",
+          "Brewster, Mynhardt and Teshima, Reconfiguration of Minimum Independent Dominating Sets in Graphs, arXiv:2303.06299; https://arxiv.org/pdf/2303.06299",
+          "Allagan, Deriglazov, Lopez-Bonilla and Pereyra, Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, 2026; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brewster full text defines i-graph; Allagan section 3.1 gives 4 rigid min dominating words for n=0 mod4, but ordinary domination at n=3 yields 9 pairs versus 6 independent ones."
+        ],
+        "reasoning": "The i-graph is the token-jump graph restricted to minimum maximal independent sets; Brewster et al. prove exchange must in fact be an edge slide. Allagan counts minimum ordinary domination words and is not generally the i-graph vertex census, though some n share optimum sets.",
+        "searches": [
+          "Resultary semantic query: i-graph minimum independent dominating sets circular ladders prism C_n square K2 degree distribution connectivity",
+          "Brewster, Mynhardt and Teshima, Reconfiguration of Minimum Independent Dominating Sets in Graphs, arXiv:2303.06299; https://arxiv.org/pdf/2303.06299",
+          "Allagan, Deriglazov, Lopez-Bonilla and Pereyra, Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, 2026; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One related published circular-ladder table computes a scale-two Rips homotopy invariant, mathematically distinct from exchange-graph degree distribution."
+        ],
+        "reasoning": "Allagan appendix small-n tables check ordinary dominating sets, and source verification enumerates small i-graphs. These are not a table of all-n independent-domination reconfiguration edges, degrees and components. Independently checked exhaustive n<=9.",
+        "searches": [
+          "Resultary semantic query: i-graph minimum independent dominating sets circular ladders prism C_n square K2 degree distribution connectivity",
+          "Allagan, Deriglazov, Lopez-Bonilla and Pereyra, Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, 2026; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005",
+          "2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668"
+        ]
+      },
+      "rationale": "Brewster–Mynhardt–Teshima already define i-graphs and prove a general equivalence of token-jump and token-slide for independent dominating sets, credited here. Their inspected full primary text addresses structural realizability, not this prism reconfiguration classification. Allagan et al. (2026) give an exact census for minimum ordinary dominating sets of the same labeled prism. For n=0 mod4 its four rigid optimum sets coincide with independent optima, so that cardinality is already known. Other congruences need not coincide: e.g. n=3 has ordinary minimum-dominating count 9, while minimum independent-dominating count is 6, and n=9 current i-graph has 60 vertices. The new contribution is the i-graph edge/degree/connectivity/bipartite classification and its exact independent-domination counts outside prior overlap; no claim of novelty for the basic token-slide equivalence or overlapping old counts.",
+      "residual_risks": [
+        "Uninspected full doctoral thesis may include a prism-specific i-graph classification or related reduction.",
+        "Earlier minimum-domination census already includes the four rigid configurations for n multiple of4 and some shared cardinalities.",
+        "The result describes minimum-cardinality independent dominating sets only, not arbitrary maximal independent sets or shortest reconfiguration distances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_PRISM_CLASSIFICATION",
+          "evidence": "The general equivalence of jumps and slides is known; the paper does not state the cyclic prism i-graph counts/degree/connectivity theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.06299",
+          "material_read": "Read full 22-page accessible primary PDF, focusing on definitions, token-jump/token-slide equivalence, structural realizability examples and graph families; searched for prism-specific statement.",
+          "method": "Full-text PDF plus screenshot",
+          "title": "Reconfiguration of Minimum Independent Dominating Sets in Graphs",
+          "trigger": "Same definition of i-graphs and possible general source classification"
+        },
+        {
+          "assessment": "ORDINARY_DOMINATION_OVERLAPS_ONLY_PARTIALLY",
+          "evidence": "Allagan counts minimum dominating sets, not the i-graph of minimum independent dominating sets; coinciding four sets at n divisible by4 are prior and credited.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005",
+          "material_read": "Read accessible full OA HTML: local word conditions, Theorem 2, all residue class proofs, n=0 mod4 four-word rigidity, n=3 exception and Appendix census.",
+          "method": "Full-text OA HTML",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Identical labeled prism and cyclic-word method; highest risk of counts being known"
+        },
+        {
+          "assessment": "UNREAD_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "Thesis explicitly classifies paths/cycles but accessible abstract does not claim Cartesian-product prisms; full thesis remains a qualified priority risk.",
+          "identifier_or_url": "https://dspace.library.uvic.ca/items/740e5c10-d1aa-4992-970b-3711b397f7f5",
+          "material_read": "Read repository catalogue/abstract specifying paths/cycles/i-graph realizability, but full PDF not obtained; page fetch timed out.",
+          "method": "Accessible thesis abstract only",
+          "title": "The i-Graph and Other Variations on the gamma-Graph",
+          "trigger": "Thesis plausibly classifies i-graphs of cycles and paths, potentially including prisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum independent dominating sets and their reconfiguration connectivity are natural graph invariants. This supplies a complete labeled infinite-prism-family classification: exact degree distribution, zero/exchange-edge counts, all connectivity exceptions, bipartiteness and sharp max degree. Especially informative is the four isolated configurations exactly for n divisible by4 and a cycle for n=3 mod4. The result is a meaningful classification, not an arbitrary small-instance computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Brewster, Mynhardt and Teshima, Reconfiguration of Minimum Independent Dominating Sets in Graphs, arXiv:2303.06299; https://arxiv.org/pdf/2303.06299",
+    "Allagan, Deriglazov, Lopez-Bonilla and Pereyra, Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words, 2026; https://onlinelibrary.wiley.com/doi/10.1155/ijmm/1411005",
+    "Teshima thesis repository abstract 2022/23",
+    "Resultary search: i-graph minimum independent dominating sets circular ladders prism C_n square K2 degree distribution connectivity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All vertices distinctly labeled; C_n is the simple n-cycle n>=3.",
+    "Finite n=3..9 exhaustive checks do not establish connectivity or counts for all n."
+  ],
+  "residual_risks": [
+    "Uninspected full doctoral thesis may include a prism-specific i-graph classification or related reduction.",
+    "Earlier minimum-domination census already includes the four rigid configurations for n multiple of4 and some shared cardinalities.",
+    "The result describes minimum-cardinality independent dominating sets only, not arbitrary maximal independent sets or shortest reconfiguration distances."
+  ],
+  "schema_version": 1
+}
