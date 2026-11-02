@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The density transformation from independent beta entries uses the exact invertible map \((u,v)=(s(1-r),sr)\), absolute Jacobian \(s\), and the correct moving support. The proof treats both spectral signs, all \(\alpha>0\), the measure-zero boundary, and the full iff statement. Comparing conditional density odds at two fixed stationary masses proves failure of independence for every other shape parameter; the support argument handles negative eigenvalues. The uniform-case marginal and moment integrals are computed exactly, and the standalone script independently replays the critical algebra. The proof, rather than finite checks, covers the continuum of cases.
+PASS
 
-## Originality
+The final claim is for exactly two fixed states, iid symmetric Beta(alpha,alpha) off-diagonal entries alpha>0, with Pi=V/(U+V), Lambda=1-U-V. The inverse (U,V)=(s(1-r),sr), s=1-Lambda, has Jacobian s and exact support max(0,1-1/s)<r<min(1,1/s) for 0<s<2. Thus the joint density is s^(2alpha-1)[r(1-r)(1-sr)(1-s+sr)]^(alpha-1)/B(alpha,alpha)^2. On s<1 at alpha=1 this is s, so r is uniform independent of s; for alpha≠1 its r=1/2 to 1/4 conditional-density odds vary with s, with exact bracket limits 4/3 and 16/9, proving the only-if. On s>1 moving positive conditional support makes independence impossible for all alpha. At alpha=1 the joint law is f(r,ell)=(1-ell) 1_D, eigenvalue density 1-|ell|, conditional variance 1/12 if ell>0 and (1+ell)^2/[12(1-ell)^2] if ell<0. Independently reran SymPy integrations: Var(Pi)=3/4-log2=0.05685281944 and Cov((Pi-1/2)^2,Lambda)=7/6-5log2/3=0.01142136573>0; marginal densities each integrate to 1/2. Exact constraints and measure-zero ell=0 are respected. These independent algebraic checks corroborate the self-contained analytic proof, not an appeal to logs or finite experiments.
 
-PASS on the inspected evidence, with residual priority risk. The principal prior reference [1] defines the independently Dirichlet-row Markov ensemble and gives its marginal entry distributions, not the particular joint law of stationary mass and nontrivial eigenvalue, nor the if-and-only-if phase across all symmetric shape parameters. Reference [2] addresses large-matrix spectral limits. Related generic two-state transition facts and beta transformations do not state the spectral-sign dependence classification. Searches of relevant research records and the primary sources found no equivalent claim; this does not prove global uniqueness. A closely related elementary treatment may exist outside inspected sources.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The paired equilibrium and mixing statistics are the two basic nonconstant invariants of a two-state chain. Their exact dependence matters for calibrating the uniform Dirichlet prior and disentangling uncertainty about stationary balance from uncertainty about relaxation/oscillation. The spectral-sign split, exact conditional-variance plateau, and unique shape parameter for conditional independence are a complete, natural classification, not an arbitrarily selected moment. No large-matrix consequence is claimed.
+Qualified best-of-knowledge: exact full sign-conditional independence iff alpha=1 and the associated random joint density/moments were not located in inspected same-ensemble and same-invariant primary literature. The deterministic support domain is already implied by Kirkland 2023 Theorem 4.1 and is not counted as new. Chafai provides independent uniform Dirichlet rows, a sufficient starting premise from which the alpha=1 law is a short calculation; this does not itself state the all-alpha iff law. Higher-dimensional circular-law results do not imply it. Residual priority risks explicitly retained.
 
-## Closest literature and limits
+## value
 
-See [1] D. Chafaï, *The Dirichlet Markov Ensemble*, arXiv:0709.4678, and [2] C. Bordenave, P. Caputo, D. Chafaï, *Circular Law Theorem for Random Markov Matrices*, arXiv:0808.1502. Both were read in accessible full-text primary form at relevant definitions and results. General matrix-density results permit the new formulas to be derived; an unknown earlier explicit derivation remains possible. The result is specifically two-state, without extrapolation to higher dimensions. Scientific claims have not received independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The stationary mass and nontrivial eigenvalue are the canonical two observables of equilibrium and mixing for a two-state stochastic matrix. Conditional independence under nonnegative spectral sign at exactly one symmetric Dirichlet prior, versus unavoidable dependence with negative sign, gives a complete natural classification of these coupled observables; the strict nonzero squared-balance/eigenvalue covariance illustrates dependence hidden from the ordinary covariance. Although the computations are short, the exact joint law and unique-alpha phase are a motivated distributional property rather than an arbitrary constant, renamed standard theorem, or mere numeric recomputation. No multi-state or broad universality consequence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:09:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim is for exactly two fixed states, iid symmetric Beta(alpha,alpha) off-diagonal entries alpha>0, with Pi=V/(U+V), Lambda=1-U-V. The inverse (U,V)=(s(1-r),sr), s=1-Lambda, has Jacobian s and exact support max(0,1-1/s)<r<min(1,1/s) for 0<s<2. Thus the joint density is s^(2alpha-1)[r(1-r)(1-sr)(1-s+sr)]^(alpha-1)/B(alpha,alpha)^2. On s<1 at alpha=1 this is s, so r is uniform independent of s; for alpha≠1 its r=1/2 to 1/4 conditional-density odds vary with s, with exact bracket limits 4/3 and 16/9, proving the only-if. On s>1 moving positive conditional support makes independence impossible for all alpha. At alpha=1 the joint law is f(r,ell)=(1-ell) 1_D, eigenvalue density 1-|ell|, conditional variance 1/12 if ell>0 and (1+ell)^2/[12(1-ell)^2] if ell<0. Independently reran SymPy integrations: Var(Pi)=3/4-log2=0.05685281944 and Cov((Pi-1/2)^2,Lambda)=7/6-5log2/3=0.01142136573>0; marginal densities each integrate to 1/2. Exact constraints and measure-zero ell=0 are respected. These independent algebraic checks corroborate the self-contained analytic proof, not an appeal to logs or finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chafai (2009 revised), Theorem 1.1, gives independent Dirichlet(1,...,1) rows for uniformly sampled Markov matrices, including alpha=1 at n=2, an input distribution allowing elementary change-of-variable derivation but not a stated pair-density or all-alpha conditional classification.",
+          "Bordenave et al. (2010 revised), Section 1.1, Theorems 1.1-1.4 prove n-to-infinity random Markov matrix singular/eigenvalue laws; Section 1.2 discusses invariant measures, not finite beta-parameter joint density.",
+          "Kirkland (2023), Theorem 4.1 fully covers admissible two-state support at each fixed stationary vector, but does not impose or study iid symmetric beta priors on transition probabilities."
+        ],
+        "reasoning": "The Kirkland theorem is stronger for deterministic SUPPORT and this component is acknowledged as covered. The larger-size random-matrix theory addresses different quantifiers n->infinity; neither it nor the deterministic spectral region specifies beta-prior weighting, a conditional factorization at alpha=1, or the iff distinction against alpha≠1. No directly dominating statement identified.",
+        "searches": [
+          "Chafai, arxiv:0709.4678, Theorem 1.1/Corollary 1.2 and eigenvalue section",
+          "Bordenave-Caputo-Chafai, arxiv:0808.1502, Theorems 1.1-1.4, Section 1.2",
+          "Kirkland 2023 ELA 39 pp.556-571 DOI 10.13001/ela.2023.7971",
+          "web: Markov 2-state beta prior stationary probability spectral gap joint distribution truncated beta"
+        ]
+      },
+      "checked_sources": [
+        "Chafai 2007/2009 arxiv:0709.4678, primary PDF pp.1-9 relevant sections",
+        "Bordenave, Caputo and Chafai 2008/2010 arxiv:0808.1502, primary PDF pp.1-5",
+        "Kirkland 2023 DOI 10.13001/ela.2023.7971, primary journal full-text relevant sections and pp.559/566",
+        "Resultary published semantic findings (three independent queries, 11-12 results each): none states this pair law",
+        "GitHub search in SCOPE-Science/SCOPE2026 for Dirichlet Markov ensemble stationary returned zero matches",
+        "RandomServices.org Discrete-Time Markov Chains: standard two-state deterministic formulas"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At alpha=1 Chafai implies (U,V) is uniform on (0,1)^2 but does not state the variable-pair pushforward f_{Pi,Lambda}(r,ell)=(1-ell) 1_D.",
+          "Kirkland implies the support condition lambda>=-min(r,1-r)/max(r,1-r); equivalently the negative-lambda support interval given in RESULT.md. It does not provide the joint density or conditional independence.",
+          "The conditional density odds between r=1/2 and r=1/4 are [4(1-s/2)^2/{3(1-s/4)(1-3s/4)}]^(alpha-1), whose bracket changes from 4/3 to 16/9 as s increases from 0 to 1; this proves the alpha iff, not a reported consequence of the compared theorems."
+        ],
+        "reasoning": "The support portion is implied by Kirkland and is not novel. Chafai plus a short explicit pushforward computation suffices to derive the alpha=1 density; having a known premise is not identical to a prior theorem stating the derived conclusion. No found prior statement implies the if-and-only-if comparison for all alpha>0 with its negative-sign obstruction. Priority remains qualified because the derivation is short.",
+        "searches": [
+          "Chafai arxiv:0709.4678 pp.2-7; Section 2 proof of Dirichlet row law",
+          "Bordenave-Caputo-Chafai arxiv:0808.1502 pp.1-5; Theorems 1.1-1.4",
+          "Kirkland DOI 10.13001/ela.2023.7971, Theorem 4.1, n=2",
+          "web: joint distribution stationary vector eigenvalue 2x2 random stochastic matrices independent uniform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard two-state eigenvalue/stationary formulas are lambda=1-U-V and pi_1=V/(U+V), not themselves new; RandomServices two-state chain formula (https://www.randomservices.org/random/markov/Discrete.html).",
+          "Kirkland 2023, ELA 39 pp.559,566 Theorems 2.1 and 4.1, derives all deterministic feasible eigenvalues lambda in [-min(pi,1-pi)/max(pi,1-pi),1], exactly covering the support geometry of the exceptional uniform joint density, but no beta-prior probability law.",
+          "The Lukacs sum/proportion gamma characterization concerns untruncated unconditional independence, not independence of bounded beta variables after conditioning U+V<=1."
+        ],
+        "reasoning": "The support and basic coordinates are standard or implied by the 2023 deterministic spectral-region theorem; do not claim novelty for them. The actual claim adds the joint density of the random pair, the sign-conditional independence iff alpha=1 across every positive alpha, and the strict squared-balance/eigenvalue covariance. These probabilistic statements are not consequences of the deterministic admissible-set classification alone.",
+        "searches": [
+          "Resultary semantic query: two state independent beta Dirichlet random transition matrix stationary stationary mass stationary ratio spectral eigenvalue conditional independence positive eigenvalue",
+          "Resultary semantic query: random 2x2 stochastic Markov matrix spectral sign stationary balance eigenvalue joint law beta family",
+          "web: two-state Dirichlet random Markov matrix stationary distribution eigenvalue joint density independent conditional positive eigenvalue",
+          "S. Kirkland, DOI 10.13001/ela.2023.7971, Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest Resultary published entries concern spectral information loss from autocovariances and numerical-integrator positivity, neither iid beta off-diagonal transition distributions.",
+          "A GitHub code search in the published repository found no result for the ensemble-specific query.",
+          "Kirkland 2023 gives a deterministic feasible eigenvalue interval for n=2, a support table that is NOT a joint probability table under a Dirichlet prior."
+        ],
+        "reasoning": "No exact database or published table for this full beta-prior pair law was identified. The negative search is only scoped evidence; it is not a proof of historical novelty.",
+        "searches": [
+          "Resultary search IDs 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf and 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "Resultary semantic query: exact joint distribution of the stationary distribution and eigenvalues of two state random Markov chains beta priors",
+          "GitHub search repository SCOPE-Science/SCOPE2026 query: Dirichlet Markov ensemble stationary (0 results)",
+          "web: uniform random 2x2 stochastic matrix stationary distribution eigenvalue dependence joint distribution"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: exact full sign-conditional independence iff alpha=1 and the associated random joint density/moments were not located in inspected same-ensemble and same-invariant primary literature. The deterministic support domain is already implied by Kirkland 2023 Theorem 4.1 and is not counted as new. Chafai provides independent uniform Dirichlet rows, a sufficient starting premise from which the alpha=1 law is a short calculation; this does not itself state the all-alpha iff law. Higher-dimensional circular-law results do not imply it. Residual priority risks explicitly retained.",
+      "residual_risks": [
+        "The all-alpha theorem is an elementary change-of-variables and conditional-density-ratio calculation; equivalent prior derivations under beta-ratio, restricted Dirichlet or random two-state chain terminology may have been missed.",
+        "The support geometry is already covered by Kirkland 2023 and must not be claimed novel.",
+        "The alpha=1 law is an immediate calculable pushforward of Chafai 2007; a stronger standard classification of conditional independence under truncation may render more of the claim known.",
+        "Primary full-text comparison focused on relevant sections and theorem statements, not every page of every appendix; historical uniqueness is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.1 provides precisely iid uniform Dirichlet rows at alpha=1; the spectral section studies asymptotic eigenvalues and does not evaluate the paired stationary-mass/eigenvalue joint distribution or parameter-classification.",
+          "evidence": [
+            "arxiv 0709.4678, Theorem 1.1 and Corollary 1.2, p.2",
+            "arxiv 0709.4678, Conjecture 1.7 and subdominant eigenvalue discussion, p.6",
+            "arxiv 0709.4678, proof of Theorem 1.1, p.9"
+          ],
+          "identifier_or_url": "arxiv:0709.4678; https://arxiv.org/pdf/0709.4678",
+          "material_read": "Original PDF introduction pp.1-2, Theorem 1.1/Corollary 1.2 p.2, subdominant eigenvalue discussion pp.5-7, and Theorem 1.1 proof pp.8-9; whole-document text searches for stationary, invariant and n=2.",
+          "method": "Read PDF extracted text, followed matching paper page-image screenshot verification of Theorem 1.1; compared all stated exact claims with the assessed pair-density.",
+          "title": "The Dirichlet Markov Ensemble",
+          "trigger": "Same exact uniform independent-Dirichlet-row ensemble and nontrivial eigenvalue; strongest likely premise and priority threat."
+        },
+        {
+          "assessment": "Large-n circular and singular spectral laws and discussion of invariant vectors; does not state a two-state finite-pair density or all-alpha sign-conditional independence.",
+          "evidence": [
+            "arxiv 0808.1502, Theorems 1.1-1.4, pp.3-4",
+            "arxiv 0808.1502, Section 1.2, pp.4-5"
+          ],
+          "identifier_or_url": "arxiv:0808.1502; https://arxiv.org/pdf/0808.1502",
+          "material_read": "Original PDF abstract, Introduction pp.1-3, Theorems 1.1-1.4 on pp.3-4 and invariant measure discussion Section 1.2 pp.4-5; whole-document text searches for invariant and stationary.",
+          "method": "Read PDF text and verified the central theorem page using screenshot.",
+          "title": "Circular Law Theorem for Random Markov Matrices",
+          "trigger": "Same random Markov-matrix paradigm; possibility of an invariant-vector/spectrum joint law."
+        },
+        {
+          "assessment": "Theorem 4.1 establishes all allowed deterministic nontrivial eigenvalues given a prescribed two-state stationary vector, so it already implies the claimed support shape. It does not put iid Beta(alpha,alpha) random weight on transition matrices or compute conditional independence, joint density or covariance.",
+          "evidence": [
+            "Kirkland 2023 Theorem 2.1, p.559",
+            "Kirkland 2023 Theorem 4.1, p.566, sigma_S(w)=[-w_min/w_max,1]"
+          ],
+          "identifier_or_url": "Stephen Kirkland, Electron. J. Linear Algebra 39 (2023) 556-571; https://doi.org/10.13001/ela.2023.7971",
+          "material_read": "Full original PDF, pp.556-559 definitions and Theorem 2.1, p.566 Theorem 4.1 and accompanying two-state support interval; relevant low-dimensional sections and statement search.",
+          "method": "Read original journal PDF text and visually verified title and Theorem 4.1 on displayed page images.",
+          "title": "Eigenvalues for stochastic matrices with a prescribed stationary distribution",
+          "trigger": "Exactly same stationary vector and eigenvalue, including n=2; may dominate domain/support claims."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stationary mass and nontrivial eigenvalue are the canonical two observables of equilibrium and mixing for a two-state stochastic matrix. Conditional independence under nonnegative spectral sign at exactly one symmetric Dirichlet prior, versus unavoidable dependence with negative sign, gives a complete natural classification of these coupled observables; the strict nonzero squared-balance/eigenvalue covariance illustrates dependence hidden from the ordinary covariance. Although the computations are short, the exact joint law and unique-alpha phase are a motivated distributional property rather than an arbitrary constant, renamed standard theorem, or mere numeric recomputation. No multi-state or broad universality consequence is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chafai 2007/2009 arxiv:0709.4678, primary PDF pp.1-9 relevant sections",
+    "Bordenave, Caputo and Chafai 2008/2010 arxiv:0808.1502, primary PDF pp.1-5",
+    "Kirkland 2023 DOI 10.13001/ela.2023.7971, primary journal full-text relevant sections and pp.559/566",
+    "Resultary published semantic findings (three independent queries, 11-12 results each): none states this pair law",
+    "GitHub search in SCOPE-Science/SCOPE2026 for Dirichlet Markov ensemble stationary returned zero matches",
+    "RandomServices.org Discrete-Time Markov Chains: standard two-state deterministic formulas"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Two labeled states, iid symmetric Dirichlet rows of common alpha>0; no assertion for larger state spaces or nonsymmetric priors.",
+    "Conditional at eigenvalue exactly zero is a null event, not a separately defined conditional distribution.",
+    "Finite exact identities and bounded support checks do not establish unrelated infinite claims; analytic density and odds argument proves the full domain.",
+    "Deterministic support constraints were proved in earlier literature; priority of explicit beta-law derivation remains uncertain."
+  ],
+  "residual_risks": [
+    "The all-alpha theorem is an elementary change-of-variables and conditional-density-ratio calculation; equivalent prior derivations under beta-ratio, restricted Dirichlet or random two-state chain terminology may have been missed.",
+    "The support geometry is already covered by Kirkland 2023 and must not be claimed novel.",
+    "The alpha=1 law is an immediate calculable pushforward of Chafai 2007; a stronger standard classification of conditional independence under truncation may render more of the claim known.",
+    "Primary full-text comparison focused on relevant sections and theorem statements, not every page of every appendix; historical uniqueness is not certified."
+  ],
+  "schema_version": 1
+}
