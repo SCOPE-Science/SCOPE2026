@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses consistent periodic finite-element mass and stiffness matrices and dimensionless time, with no conflation of matrix nonnegativity and positive definiteness. The cyclic inverse sign is proved for every mesh size, the uniform negative intermediate-time witness combines 45 **exact-rational** polynomial evaluations with a Cauchy-Laurent coefficient estimate for every remaining size, and eventual positivity follows from a simple zero mode. For six cells, explicit spectral kernels, a Descartes root bound and rational sign brackets yield the complete exact time threshold. Separate formulas exclude reentrant entries in all smaller admissible sizes. The actual packaged verification script ran successfully. Limits: larger-mesh positive-time zero counts and horizons are not classified.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The foundational finite-element papers establish small-time nonpositivity and eventual positivity conditions, whereas the new claim concerns a **specific initially positive entry that becomes negative** for every periodic size at least six, plus the minimal size and an exact six-node operator threshold. Neither statement follows from the published generic results inspected. A published three-spectral-level theorem characterizes whole-operator positivity-time sets rather than individual reentrant entries, and a positivity result for backward-Euler-filtered Crank–Nicolson concerns a different, lumped-mass operator. The author's PDF of a closely related 2015 finite-element paper could not be inspected, so unrecognized exact periodic examples in that source or elsewhere are the chief remaining risk; this risk is not converted into a fabricated negative coverage claim.
+PASS
 
-## Mathematical value — PASS
-Nodal positivity is a fundamental qualitative issue in standard Galerkin discretizations of the heat equation. The result shows that *a coefficient initially having the correct positive sign can later become negative* on **every** periodic mesh of six or more cells, rather than merely documenting negative coefficients immediately after time zero. The universal fixed-time witness, sharp minimal size, and complete exact first operator-positivity horizon for the minimal example give motivated structural information and a reproducible benchmark for positivity-preserving alternatives. This is not a routine one-case numerical test.
+The frozen package defines M=(ell/6)(4I+A_n), K=(1/ell)(2I−A_n), Q=6I−36(4I+A_n)^(-1), and P=exp(sQ), s=t/ell². The periodized inverse of 4I+A gives Q_(0,3)>0 for all n>=6, hence p_(0,3)(s)>0 at sufficiently small s; simple zero eigenvalue gives eventual positivity. At s=1/3, spectral interval [-4,0] for Q/3 bounds degree-21 exponential Taylor entry error by 4^22/22!. The source exact-rational finite certificate covers ALL integer 6<=n<=50, with a strict negative margin; the analytic Laurent symbol F(z) on circles |z|=2 and 1/2 has coefficient bound 3^10 2^(-|j|), which bounds all n>50 alias corrections to the lattice coefficient and proves p_(n,3)(1/3)<−0.0069 for every n>=6. For n=6 the exact Fourier polynomial 6p_(6,3)=(1−x²)H(x) and Descartes root-count transform give exactly two positive-time zero crossings and unique all-entry nonnegativity horizon s=−(5/6)log alpha, alpha in (1/2,3/5). The n=3,4,5 Fourier formulas rule out a positive–negative–positive entry. Independent eigen-decomposition for n=6,7,8,13 gave p3(1/3)≈−0.014714194, −0.007317761, −0.007063876, −0.007356104, respectively. These floating checks only corroborate the proved exact-rational plus analytic infinite-family bound.
 
-## Closest sources and limitations
-Jin–Lazarov–Thomée–Zhou, arXiv:1510.02825 (2015), especially the discussion and Theorems 3.1–3.2, is the closest fully inspectable source. Chatzipantelidis–Horváth–Thomée (2015), DOI 10.1515/cmam-2015-0018, is a relevant primary source whose author-hosted full text could not be retrieved; indexed abstracts and one extracted page snippet are not enough to rule out stronger coverage. Thomée–Wahlbin (2008) establishes general obstructions rather than the specified exponential-kernel sign transition. A published semigroup spectral-cardinality result and a filtered Crank–Nicolson result were examined in their accessible repository texts and address distinct claims. No claim is made to have independently certified publication priority or to have proved a complete time diagram for all larger meshes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jin–Lazarov–Thomée–Zhou arXiv:1510.02825, Theorems 3.1–3.2, prove small-time positivity failure and eventual positivity under assumptions, not one entry with reentrant +/−/+ behavior at the universal t=ell²/3 or the six-node exact horizon. The published SCOPE result on backward-Euler-filtered Crank–Nicolson instead concerns a composition of rational time-stepping filters (different operator) on a lumped-mass lattice; not a stronger result for the consistent-mass exponential semigroup. Originality of exact reentrant coefficient and n=6 minimality is plausible but qualified: a directly relevant 2015 Chatzipantelidis–Horváth–Thomée paper could not be read in full (Oxford VPN disconnected).
+
+## value
+
+PASS
+
+A physically meaningful sign reversal in the same nodal heat-propagation coefficient despite symmetry, row-sum conservation and eventual positivity demonstrates a sharp consistent-mass semidiscretization phenomenon. The universal negative witness, minimum six-node size, and complete six-node nonnegativity horizon are exact natural invariants, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

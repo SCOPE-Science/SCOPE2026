@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:56:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen package defines M=(ell/6)(4I+A_n), K=(1/ell)(2I−A_n), Q=6I−36(4I+A_n)^(-1), and P=exp(sQ), s=t/ell². The periodized inverse of 4I+A gives Q_(0,3)>0 for all n>=6, hence p_(0,3)(s)>0 at sufficiently small s; simple zero eigenvalue gives eventual positivity. At s=1/3, spectral interval [-4,0] for Q/3 bounds degree-21 exponential Taylor entry error by 4^22/22!. The source exact-rational finite certificate covers ALL integer 6<=n<=50, with a strict negative margin; the analytic Laurent symbol F(z) on circles |z|=2 and 1/2 has coefficient bound 3^10 2^(-|j|), which bounds all n>50 alias corrections to the lattice coefficient and proves p_(n,3)(1/3)<−0.0069 for every n>=6. For n=6 the exact Fourier polynomial 6p_(6,3)=(1−x²)H(x) and Descartes root-count transform give exactly two positive-time zero crossings and unique all-entry nonnegativity horizon s=−(5/6)log alpha, alpha in (1/2,3/5). The n=3,4,5 Fourier formulas rule out a positive–negative–positive entry. Independent eigen-decomposition for n=6,7,8,13 gave p3(1/3)≈−0.014714194, −0.007317761, −0.007063876, −0.007356104, respectively. These floating checks only corroborate the proved exact-rational plus analytic infinite-family bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin et al 2015 analyze semidiscrete Galerkin and subdiffusion on Dirichlet meshes; theorems give nonnegativity conditions but not reentrant cyclic distance-three kernels.",
+          "Chatzipantelidis et al 2015 heat equation article is highly relevant; full text unavailable after lawful OA and Oxford access attempts."
+        ],
+        "reasoning": "No inspected stronger theorem directly implies the exact all-cycle distance-three sign reversal or the six-node algebraic threshold; residual risk remains for inaccessible relevant full text.",
+        "searches": [
+          "arXiv:1510.02825 Theorems 3.1–3.2",
+          "DOI:10.1515/cmam-2015-0018",
+          "Resultary: Periodic consistent mass finite element heat semigroup positivity negative matrix entry time reentrant cyclic mesh"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.02825",
+        "DOI:10.1515/cmam-2015-0018",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Small-time sign failure for some FEM entries is a weaker existential statement and may occur at a different cyclic distance.",
+          "Eventual positivity is a separate long-time statement, not sufficient to force an intermediate negative epoch for an initially positive entry."
+        ],
+        "reasoning": "The audited theorem adds a concrete universal time and exact negative margin, and a six-node complete time set, which cannot be inferred from the two generic prior sign theorems.",
+        "searches": [
+          "arXiv:1510.02825 Theorems 3.1–3.2",
+          "Resultary query periodic consistent mass finite element heat semigroup",
+          "Resultary: Periodic consistent mass finite element heat semigroup positivity negative matrix entry time reentrant cyclic mesh"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Consistent-mass semigroup exp(−tM^(-1)K) differs from lumped mass or a rational time-stepping map.",
+          "General eventual positivity and generic initial failure do not characterize an individual off-diagonal coefficient reentering positivity."
+        ],
+        "reasoning": "The positive–negative–positive sign pattern for one fixed (0,3) entry is not equivalent to either a one-sided positivity horizon or eventual operator positivity.",
+        "searches": [
+          "Resultary: Periodic consistent mass finite element heat semigroup positivity negative matrix entry time reentrant cyclic mesh",
+          "arXiv:1510.02825 Theorems 3.1,3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE lattice result addresses a filtered rational propagation operator rather than exp of consistent-mass FEM generator.",
+          "No exact all-n distance-three reentrance table was found; independently checked n6..13 witnesses are finite corroboration."
+        ],
+        "reasoning": "A finite numerical sign table would not imply all n; current proof includes exact-rational 6..50 plus analytic uniform Cauchy bounds.",
+        "searches": [
+          "Resultary: Periodic consistent mass finite element heat semigroup positivity negative matrix entry time reentrant cyclic mesh",
+          "arXiv:1510.02825",
+          "Resultary: Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson"
+        ]
+      },
+      "rationale": "Jin–Lazarov–Thomée–Zhou arXiv:1510.02825, Theorems 3.1–3.2, prove small-time positivity failure and eventual positivity under assumptions, not one entry with reentrant +/−/+ behavior at the universal t=ell²/3 or the six-node exact horizon. The published SCOPE result on backward-Euler-filtered Crank–Nicolson instead concerns a composition of rational time-stepping filters (different operator) on a lumped-mass lattice; not a stronger result for the consistent-mass exponential semigroup. Originality of exact reentrant coefficient and n=6 minimality is plausible but qualified: a directly relevant 2015 Chatzipantelidis–Horváth–Thomée paper could not be read in full (Oxford VPN disconnected).",
+      "residual_risks": [
+        "Chatzipantelidis–Horváth–Thomée 2015 full primary may include a cyclic-mesh example or stronger operator theorem; no assertion of complete noncoverage.",
+        "Authorized institutional attempt for DOI:10.1515/cmam-2015-0018 returned vpn_disconnected (job 96c9637eb105b631dab9cd4b5da1c79d)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source establishes general early/late positivity behavior but does not state the periodic distance-three reentrance or exact n6 threshold.",
+          "evidence": "Theorem 3.1 normal triangulation with nondiagonal mass cannot be globally nonnegative; Theorem 3.2 eventual E(t)>0 when H^-1>0.",
+          "identifier_or_url": "arXiv:1510.02825",
+          "material_read": "Accessible full-text PDF Theorems 3.1–3.2 and visually inspected page 7",
+          "method": "arXiv full-text PDF and screenshot",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Classical consistent-mass Galerkin positivity results"
+        },
+        {
+          "assessment": "Cannot assert theorem-level NOT_COVERING; relevant inaccessible primary and high-priority originality residual risk.",
+          "evidence": "Oxford returned vpn_disconnected, job 96c9637eb105b631dab9cd4b5da1c79d.",
+          "identifier_or_url": "DOI:10.1515/cmam-2015-0018",
+          "material_read": "Bibliographic abstract and publisher/author landing record only; full article not obtained",
+          "method": "web/OA bibliographic search followed by Oxford authorized request",
+          "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+          "trigger": "Near-identical heat equation/finite element positivity subject"
+        },
+        {
+          "assessment": "Different rational filtered time-step operator and mass convention; does not by summary imply the exponential consistent-mass kernel theorem.",
+          "evidence": "Resultary summary explicitly concerns backward-Euler half-step followed by Crank–Nicolson, not exp(sQ).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Published title, precise summarized claim and operator definitions in Resultary record (not full Git paper)",
+          "method": "Resultary read-only search record",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+          "trigger": "Relevant published SCOPE positive lattice propagators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically meaningful sign reversal in the same nodal heat-propagation coefficient despite symmetry, row-sum conservation and eventual positivity demonstrates a sharp consistent-mass semidiscretization phenomenon. The universal negative witness, minimum six-node size, and complete six-node nonnegativity horizon are exact natural invariants, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1510.02825",
+    "DOI:10.1515/cmam-2015-0018",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform 0.0069 negative margin proved by finite exact certificate plus analytic n>50 tail, not finite enumeration alone.",
+    "Only six-node all-time positivity set classified; larger n only guaranteed at least two crossings for this entry.",
+    "Full 2015 heat-equation positivity PDF remains inaccessible, constraining novelty confidence."
+  ],
+  "residual_risks": [
+    "Chatzipantelidis–Horváth–Thomée 2015 full primary may include a cyclic-mesh example or stronger operator theorem; no assertion of complete noncoverage.",
+    "Authorized institutional attempt for DOI:10.1515/cmam-2015-0018 returned vpn_disconnected (job 96c9637eb105b631dab9cd4b5da1c79d)."
+  ],
+  "schema_version": 1
+}
