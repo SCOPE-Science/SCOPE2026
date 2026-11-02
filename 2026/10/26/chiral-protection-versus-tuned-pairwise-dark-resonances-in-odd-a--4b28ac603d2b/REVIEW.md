@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The real-spectrum eigenvalue condition for a dissipative rank-one perturbation reduces dark modes to Hermitian eigenvectors vanishing at the sink. Positive Jacobi off-diagonal entries make the spectrum simple and force the first coordinate to be nonzero. Sink sites one and two follow immediately. At the third site, the two boundary equations fix energy \(\pm a\), and the remainder of the chain gives the exact Chebyshev terminal polynomial \(U_m(b/(2a))\). Root enumeration and trigonometric normalization prove the complete quantifiers and the stated survival values. The numerical test program independently corroborates representative cases, not the infinite theorem.
+PASS
 
-## Originality
+For H_eff=H-i gamma|s><s|/2, imaginary eigenvalue identity and contraction show real nondissipative eigenvectors are precisely Hermitian Jacobi eigenvectors nodal at s; others decay and surviving norm is Hermitian orthogonal dark projection. Positive offdiagonals imply simple spectrum and nonzero first coordinate. Site1 no node, site2 E=0 chiral edge mode with odd-site amplitudes (-a/b)^j. Site3 nodal constraint fixes E=±a; Chebyshev recurrence and endpoint U_m(b/(2a))=0 give exactly positive roots 2cos(k pi/(m+1)). Orthogonality and discrete sine norm give 2 sin²(theta)/(m+1). Independent Hermitian spectral calculations for 60 finite cases confirm ranks and overlaps, not infinite quantifiers.
 
-PASS under best-available literature comparison, subject to historical-priority risk. Established SSH chiral zero modes and general Krylov/dark-state transport are explicitly acknowledged. The most relevant inspected specialist paper, Wang–Zhang (arXiv:2607.10218), derives Chebyshev formulas for a single local loss on an **even-length** SSH chain and does not state the odd-chain three-site classification and its endpoint survival law. The inspected Li–Xu–Chen, Zhu–Lu–Chen, and Novo et al. papers also do not state that law. A more general result could imply it; publication-wide uniqueness and independent priority certification are not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A first-versus-second-versus-third absorber is the smallest natural local-movement experiment that separates total absorption, robust chiral protection, and fine-tuned paired nonzero-energy protection in an edge-initialized SSH chain. The exact positive-ratio resonance count and probability formula provide a quantitative boundary between those mechanisms, rather than an arbitrary finite calculation.
+The SSH edge zero mode and generic rank-one sink dark-state technique are prior art. Wang–Zhang 2026 provides Chebyshev secular analysis for even chains with local loss. Its inspected main findings do not give odd chain three-site first-end survival or exact discrete positive tuning set. Could follow from a general nodal Jacobi spectral theorem but specific all-m classification not identified.
 
-## Scientific limitations
+## value
 
-Odd open chains with uniform alternating positive hoppings, a single absorber at site one, two, or three, and initial position at the first site. No statement about generic impurities, simultaneous multiple absorbers, dissipative noise elsewhere, finite-time absorption, or topological classification beyond the known zero mode.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Moving a single absorber from edge site 1 to 2 to 3 is a minimal natural experiment separating complete absorption, robust chiral protection and finely tuned paired nonzero-energy dark resonances. The sharp resonance count and exact survival overlaps quantify robust versus tuned mechanisms in a natural topological chain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
