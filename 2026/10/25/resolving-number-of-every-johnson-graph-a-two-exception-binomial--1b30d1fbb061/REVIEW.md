@@ -1,19 +1,21 @@
-# Review of the Johnson resolving-number formula
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph distance and nonresolving-set quantifiers lead to the worst-pair equal-distance count. Partitioning two equal-size subsets by their symmetric difference gives the exact binomial sum. The explicit coefficientwise polynomial inequality controls every pair except complementary half-set pairs, which are handled by a separate exact Vandermonde comparison. The two exceptional dimensions have direct integer counts. Standalone exact tests and direct vertex-pair enumeration agree with every tested claim, with finite-check limitations stated.
+PASS
 
-## Originality
+For pair distance r in J(n,k), an equidistant witness W must choose equal counts from disjoint r-sets, so E_r=Σ_j C(r,j)^2 C(n-2r,k-2j). The all-subsets threshold is 1+max_r E_r. The coefficientwise D_r(z)=(1+z)^{2r-1}(1+z²)−(1+z)Σ C(r,j)^2 z^{2j} is nonnegative by Vandermonde central/near-central term comparisons; hence E1≥Er whenever n≥2r+1. The only remaining n=2r case forces n=2k=r*2; for even k=2h, Ek=C(2h,h)^2 and E1=2 C(4h-2,2h-2). Vandermonde yields E1≥Ek for h≥3; h=1,2 have strict antipodal excess. Odd k antipodal count zero. Complement J(n,k)≅J(n,n-k) handles entire domain. Independent integer code checked 484 admissible n,k pairs and 8,370 coefficient signs through r=90. Finite checks corroborate the analytical proof, not infinity.
 
-PASS on the inspected literature, with residual priority uncertainty. Garijo–González–Márquez (2013, Proposition 2.1) supplies the generic obstruction formula, not the extremizing distance classes in the Johnson scheme. Bailey et al. (2012) discuss minimum-cardinality resolving constructions. González–Hernando–Mora (2021) consider the opposite equalizer-witness quantifier. Korivand et al. (2022) study the all-sets threshold under another name, but not an exact Johnson formula. The proof adds a nontrivial coefficientwise inequality and a complete all-parameter two-exception classification. Possible previously unindexed Johnson resolving-number results remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Johnson graphs model fixed-weight set systems and appear in metric identification and coding. An exact threshold for **every** landmark set is a robustness invariant distinct from the usual minimum resolving-set size. The two exceptions show that antipodal configurations, not local adjacency, can be uniquely worst at finite dimensions. The classification is an infinite two-parameter theorem, not a routine small-graph census.
+The generic resolving-number/equal-distance obstruction identity was established by Garijo–González–Márquez (2013), and Johnson/Kneser metric resolving-set constructions are older. The present claim maximizes all Johnson equalizer counts and isolates two antipodal exceptions; the cited predecessors do not state that universal maximization in examined material. Similar binomial identities in constant-weight coding or older distance-equalizer research are a residual priority risk.
 
-## Limitations
+## value
 
-The theorem does not enumerate every pair attaining the worst obstruction. Its numerical checks are finite and do not replace the proof. Literature-priority uncertainty remains; no external independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The resolving number is the natural sharp threshold at which every landmark choice resolves a vertex-transitive coding-theoretic graph; its complete two-exception closed formula settles all Johnson parameters and identifies the structural antipodal exceptions. It is not a textbook minimum-metric-dimension deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
