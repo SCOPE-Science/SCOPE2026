@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-1. Definition check: for each \(p_n\ge1\), the full Luxemburg norm is monotone under coordinatewise absolute domination, every coordinate evaluation has norm one, and the inclusion \(\ell_1\to Y\) is contractive with norm one.
-2. Critical threshold check: convergence of a positive series over a finite partition is equivalent to convergence on each part, so the threshold is the maximum of the subseries thresholds, unchanged after finitely many deletions. Nonzero lower coordinate bounds along a subset with infinite threshold are incompatible with membership in \(Y\).
-3. Compactness check: a finite net of \(\{Ke_n\}\), for any compact \(K\), yields a finite cover of \(\{e_n\}\). Coordinate extraction on the worst-abscissa class gives the exact necessary radius \(r_*\).
-4. Constructive check: at finite threshold, \(p_n\to\infty\). For each \(\lambda>r_*\), the two modular tails \(\sum_{j>N}(c/\lambda)^{p_j}\) and \(\sup_{j>N}((1-c)/\lambda)^{p_j}\) tend to zero. The displayed finite-rank map \(K_N\) therefore approximates the inclusion at error at most \(\lambda\). This also proves the claimed approximation-number and finite-cover equalities.
-5. Monotone check: comparison above the limsup with a convergent \(p\)-series, and below it with diverging partial sums, establishes the abscissa identity, including both infinite and zero endpoints.
+## correctness
 
-No finite computation is used in place of an infinite proof. No boundary convergence at the critical abscissa, uniqueness of a best compact map, or independence of review is asserted.
+PASS
+
+PASS: Coordinate unit vectors prove ||J||=1. For every finite partition of the coordinates, the positive-series convergence abscissa is the maximum of its pieces, and finite deletions do not change it. If the basis has a finite cover by balls of radius b<1, some center covers an infinite piece at maximum abscissa; coordinates of the center on that set have modulus >1-b, forcing b>exp(s*)/(1+exp(s*)) (or b>=1 if s*=∞). Compact K maps {e_n} into a precompact subset, giving the same essential-norm lower bound. For s*<∞, necessarily p_n→∞, and the finite-rank map K_N x=head(x)+c(sum_tail x_n)1_tail, c=1/(1+exp(s*)), is well defined in the FULL space; for every λ>r*, its column errors have modular at most Σ_{j>N}(c/λ)^{p_j}+sup_{j>N}((1-c)/λ)^{p_j}→0. Since ||T:ℓ1→Y||=sup ||Te_n||, get ||J-K_N||<=λ, giving essential norm, limiting approximation numbers and noncompactness cover radius all exactly r*. For monotone p_n, upper/lower exponential-series comparisons yield s*=limsup(log n)/p_n. Independently checked finite tail estimate for p_n=2n and λ=3/4, but proof is analytic for all sequences (C3_OK).
+
+## originality
+
+PASS
+
+PASS, qualified: Sanchiz 2512.16633 proves qualitative failure of compactness of Nakano inclusions. Kiwerski–Tomaszewski 2212.06723 develops precise multiplier essential norms but the stated general case relies on reflexive source or order-continuous target; ℓ1 is not reflexive and unbounded-p_n full Nakano need not be order continuous. Vuillermot 2610.19745 treats related modular embeddings, but its newly posted full 30-page manuscript was inaccessible; the abstract gives qualitative embedding/compactness, not this exact formula. Stronger full-space noncompactness-radius results remain a concrete risk.
+
+## value
+
+PASS
+
+PASS: This exact invariant answers how far the natural canonical inclusion lies from compact maps, sharply distinguishing the full non-order-continuous Nakano space from its heart. The three independent-looking quantities agree with a quantitative threshold in exponent-series growth. Logarithmic exponent families interpolate between exact values 1 and 1/2. Not a routine restatement of noncompactness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

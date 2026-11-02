@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof uses the Luxemburg modular with finite exponents and separately treats both infinite and finite convergence thresholds. The source norm is exactly one by coordinate tests. On any finite partition, the largest abscissa survives, and indicator supports with that abscissa force a lower bound for all finite covers and compact approximants. When the abscissa is finite, the exponents necessarily diverge, making the explicit finite-rank approximation valid; both parts of its modular tail tend to zero at every scale strictly larger than the claimed constant. This proves both inequalities, the approximation-number limit, and the finite-cover radius. Monotonicity is used precisely in the partial-sum comparison proving the auxiliary limsup expression; no borderline series-convergence assumption is needed.
+PASS
 
-## Originality: PASS (best-knowledge literature comparison)
+PASS: Coordinate unit vectors prove ||J||=1. For every finite partition of the coordinates, the positive-series convergence abscissa is the maximum of its pieces, and finite deletions do not change it. If the basis has a finite cover by balls of radius b<1, some center covers an infinite piece at maximum abscissa; coordinates of the center on that set have modulus >1-b, forcing b>exp(s*)/(1+exp(s*)) (or b>=1 if s*=∞). Compact K maps {e_n} into a precompact subset, giving the same essential-norm lower bound. For s*<∞, necessarily p_n→∞, and the finite-rank map K_N x=head(x)+c(sum_tail x_n)1_tail, c=1/(1+exp(s*)), is well defined in the FULL space; for every λ>r*, its column errors have modular at most Σ_{j>N}(c/λ)^{p_j}+sup_{j>N}((1-c)/λ)^{p_j}→0. Since ||T:ℓ1→Y||=sup ||Te_n||, get ||J-K_N||<=λ, giving essential norm, limiting approximation numbers and noncompactness cover radius all exactly r*. For monotone p_n, upper/lower exponential-series comparisons yield s*=limsup(log n)/p_n. Independently checked finite tail estimate for p_n=2n and λ=3/4, but proof is analytic for all sequences (C3_OK).
 
-Vuillermot, arXiv:2610.19745v1, examines qualitative continuous and compact modular embeddings; his Nakano compactness corollary requires bounded exponents and states no corresponding exact abscissa-controlled compact distance. Sanchiz, arXiv:2512.16633v1, proves a qualitative noncompactness statement for all Nakano inclusions (including \(\ell_1\to\ell_{(p_n)}\)), without this quantitative formula. Kiwerski–Tomaszewski, arXiv:2212.06723, obtain essential-norm multipliers under a reflexive-source or order-continuous-target hypothesis. The full unbounded-exponent Nakano target is not order continuous, and \(\ell_1\) is not reflexive; their stated theorem therefore does not directly settle the claim. Searches for equivalent abscissa, noncompactness-radius, and approximation-number formulations in published mathematical records did not identify dominating coverage. Residual risk: more general older nonseparable Köthe-space or noncompactness theories could phrase the same conclusion differently.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The exact constant is neither the elementary operator norm one nor an arbitrary numerical slice: it classifies a natural inclusion family, detects the divergence-growth of modular exponents through a convergence abscissa, quantifies qualitative known noncompactness, and yields a continuous sharp logarithmic-exponent transition. Equality of distance to compact operators, limiting approximation numbers and a geometric covering invariant gives structural information unavailable from a mere noncompactness proof. The distinction between full nonorder-continuous Nakano targets and separable-heart techniques is essential.
+PASS, qualified: Sanchiz 2512.16633 proves qualitative failure of compactness of Nakano inclusions. Kiwerski–Tomaszewski 2212.06723 develops precise multiplier essential norms but the stated general case relies on reflexive source or order-continuous target; ℓ1 is not reflexive and unbounded-p_n full Nakano need not be order continuous. Vuillermot 2610.19745 treats related modular embeddings, but its newly posted full 30-page manuscript was inaccessible; the abstract gives qualitative embedding/compactness, not this exact formula. Stronger full-space noncompactness-radius results remain a concrete risk.
 
-## Limitations
+## value
 
-The theorem does not cover general diagonal weights or arbitrary Orlicz modulars, and does not assert any single best compact approximant. The complete priority history of nonseparable modular embeddings has not been certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: This exact invariant answers how far the natural canonical inclusion lies from compact maps, sharply distinguishing the full non-order-continuous Nakano space from its heart. The three independent-looking quantities agree with a quantitative threshold in exponent-series growth. Logarithmic exponent families interpolate between exact values 1 and 1/2. Not a routine restatement of noncompactness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
