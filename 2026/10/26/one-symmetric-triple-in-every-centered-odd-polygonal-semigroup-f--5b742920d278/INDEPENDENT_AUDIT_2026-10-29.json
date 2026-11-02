@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:56:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd k>=3 and n>=k, a,b,c are three consecutive centered k-gonal values with b-a=kn,c-b=k(n+1), c-a=k(2n+1). Pairwise gcd(a,b),gcd(b,c)<=2 and gcd(a,c)=d=gcd(2n+1,3k+8), odd. Classical three-generator gluing criterion for symmetric semigroups reduces symmetry to a representability condition for some pair; inequalities modulo k eliminate pairs (a,b),(b,c). Bounds on d versus a/n and c/(n+1) force, for (a,c), coefficient count exactly d, hence v=dn/(2n+1) integer; gcd(n,2n+1)=1 forces 2n+1|d, so 2n+1=3k+8 and n=(3k+7)/2. The k=3 small-index boundary separately handled using d|17. Conversely when N=K, (n+1)a+n c=K b and gcd(K,b)=1 give gluing and symmetry. Frobenius formula F=ac/K-a-c+(K-1)b expands to displayed quintic; genus (F+1)/2. Independent exact integer Watanabe/gluing checks cover 855 (odd k, n) pairs k=3..39,n=k..k+44, and independent Apéry computations confirm F/g for k=3,5,7,9. No inference from finite search to all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yin et al. work on a n(n-1)+1 with integer a>=4, hence even centered orders k=2a, while here k is odd and a=k/2 half-integral."
+        ],
+        "reasoning": "A formula polynomial in a does not automatically extend its divisibility classification to half-integer a. Broader Watanabe gluing theory is used as a tool and not claimed novel.",
+        "searches": [
+          "Resultary semantic query: symmetric numerical semigroup three consecutive centered odd polygonal numbers Frobenius gluing classification",
+          "Yin–Mu–Komatsu Symmetry 16 (2024) 1090 DOI:10.3390/sym16081090",
+          "Fel arXiv:0803.1606"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md 1bb64eca3241f8586c1fe1225268be3de7a26756, verify.py b9d24087c08e15b2b879be715ea1a42602decd34; independent exact 855 gluing pairs and Apéry k=3,5,7,9.",
+        "Fel arXiv:0803.1606 PDF; Robles-Pérez–Rosales arXiv:1706.04378 PDF; Yin et al. DOI:10.3390/sym16081090 abstract/429.",
+        "Resultary semantic query: symmetric numerical semigroup three consecutive centered odd polygonal numbers Frobenius gluing classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general gluing formula yields F once one identifies the appropriate divisible pair.",
+          "No inspected prior paper solves the odd-k family-specific divisibility reduction N=3k+8 with necessary bounds n>=k."
+        ],
+        "reasoning": "The novel arithmetic uniqueness step and odd-k Frobenius specialization do not follow just from the name of the gluing criterion or even-order results.",
+        "searches": [
+          "Fel 2008 full PDF primary gluing theorem",
+          "Robles-Pérez–Rosales 2017 full PDF ordinary triangular/tetrahedral sequence results",
+          "Yin et al. 2024 generalized star numbers abstract",
+          "Resultary semantic query: symmetric numerical semigroup three consecutive centered odd polygonal numbers Frobenius gluing classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetry in embedding dimension three is equivalent to a pair-gcd gluing condition.",
+          "Robles-Pérez–Rosales study ordinary triangular numbers rather than centered odd polygonal 1+(k/2)n(n-1)."
+        ],
+        "reasoning": "The proof uses classical gluing but the condition N=K and uniqueness over all odd k are special arithmetic consequences not stated in inspected primary texts.",
+        "searches": [
+          "Resultary semantic query: symmetric numerical semigroup three consecutive centered odd polygonal numbers Frobenius gluing classification",
+          "Fel arXiv:0803.1606 symmetric numerical semigroup 3-generator gluing",
+          "Robles-Pérez–Rosales arXiv:1706.04378 figurate triples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS catalogs the centered heptagonal sequence, not these three-generator semigroup symmetry and Frobenius invariants."
+        ],
+        "reasoning": "The F table for k=3,5,7,9 computed independently is supporting evidence and not an existing exact table of the theorem.",
+        "searches": [
+          "Resultary semantic query: symmetric numerical semigroup three consecutive centered odd polygonal numbers Frobenius gluing classification",
+          "OEIS A069099 centered heptagonal numbers",
+          "Resultary search centered odd polygonal symmetric semigroup"
+        ]
+      },
+      "rationale": "PASS for the odd-order centered-polygonal symmetric-triple single-exception theorem and closed exceptional Frobenius number. Classical gluing/symmetry criteria are prior work; prior figurate semigroup results for ordinary triangular/tetrahedral sequences and generalized star numbers with INTEGER a (even centered 2a-gonal order) do not algebraically cover odd k without an independent half-integral extension. Earlier broader three-generator gluing classification remains a priority risk.",
+      "residual_risks": [
+        "An unindexed extension of generalized star-number formulas to half-integer a could cover the odd centered-polygonal case.",
+        "The classical three-generator gluing theorem is a prior premise, not a new result, and k odd and n>=k are indispensable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides classical gluing criterion and Frobenius formula, but not centered polygonal odd-order arithmetic.",
+          "evidence": ", , ",
+          "identifier_or_url": "https://arxiv.org/abs/0803.1606",
+          "material_read": "Complete 10-page primary PDF; Section 2 gluing setup and Fibonacci/Lucas examples; rendered screenshot",
+          "method": "web PDF textual read and screenshot",
+          "title": "Symmetric numerical semigroups generated by Fibonacci and Lucas triples",
+          "trigger": "three-generated symmetric semigroup gluing criterion"
+        },
+        {
+          "assessment": "Analyzes ordinary triangular/tetrahedral generators, not centered odd k-gonal family.",
+          "evidence": ", ",
+          "identifier_or_url": "https://arxiv.org/abs/1706.04378",
+          "material_read": "Primary 18-page PDF definitions of ordinary triangular sequences, principal results and early proof; rendered screenshot",
+          "method": "web PDF text and screenshot",
+          "title": "The Frobenius number for sequences of triangular and tetrahedral numbers",
+          "trigger": "adjacent figurate semigroup result may dominate"
+        },
+        {
+          "assessment": "Integer a corresponds to even centered polygonal orders only; cannot exclude a hidden broader rational-coefficient argument in full article.",
+          "evidence": ", ",
+          "identifier_or_url": "https://doi.org/10.3390/sym16081090",
+          "material_read": "Publisher abstract/search extracts containing integer a>=4 parameter scope; full article received HTTP 429 and was not read",
+          "method": "publisher abstract; web open rate-limited",
+          "title": "The p-Frobenius Number for the Triple of Generalized Star Numbers",
+          "trigger": "possible wider a n(n-1)+1 semigroup theorem"
+        },
+        {
+          "assessment": "Source of k=7 object; no matching semigroup symmetry theorem observed.",
+          "evidence": "OEIS:A069099",
+          "identifier_or_url": "https://oeis.org/A069099",
+          "material_read": "Catalog sequence name/metadata; not an exact semigroup classification",
+          "method": "web sequence discovery",
+          "title": "OEIS A069099: Centered heptagonal numbers",
+          "trigger": "exact source sequence may contain symmetry table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Numerical semigroup symmetry and Frobenius number are central exact invariants. For natural adjacent centered-polygonal generators, the theorem classifies an entire infinite odd-order family, pinpoints a unique symmetric triple after n>=k, and computes its exact F and genus. It is not an arbitrary bounded enumeration or a single example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md 1bb64eca3241f8586c1fe1225268be3de7a26756, verify.py b9d24087c08e15b2b879be715ea1a42602decd34; independent exact 855 gluing pairs and Apéry k=3,5,7,9.",
+    "Fel arXiv:0803.1606 PDF; Robles-Pérez–Rosales arXiv:1706.04378 PDF; Yin et al. DOI:10.3390/sym16081090 abstract/429.",
+    "Resultary semantic query: symmetric numerical semigroup three consecutive centered odd polygonal numbers Frobenius gluing classification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Indices n<k and even polygonal orders are not classified.",
+    "Finite gluing and Apéry tests corroborate but cannot establish universal necessity."
+  ],
+  "residual_risks": [
+    "An unindexed extension of generalized star-number formulas to half-integer a could cover the odd centered-polygonal case.",
+    "The classical three-generator gluing theorem is a prior premise, not a new result, and k odd and n>=k are indispensable."
+  ],
+  "schema_version": 1
+}

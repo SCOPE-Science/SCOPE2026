@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The triple-gcd identities follow by reduction modulo the centered polygon order and the odd integer \(2n+1\). The three-generator gluing criterion reduces symmetry to a divisibility problem. Two generator pairings are excluded using the fact that their gcd does not exceed two; the surviving pairing forces \(2n+1=3k+8\), including an explicit treatment of \(k=3\). The reverse gluing identity and Sylvester formula prove sufficiency and the exact Frobenius/genus formulas. The supplied verifier independently confirms 7,550 exact gluing tests, ten Apéry invariants and five negative Apéry tests; these finite checks are not substitutes for the universal argument.
+PASS
 
-## Originality — PASS (with risk)
+For odd k>=3 and n>=k, a,b,c are three consecutive centered k-gonal values with b-a=kn,c-b=k(n+1), c-a=k(2n+1). Pairwise gcd(a,b),gcd(b,c)<=2 and gcd(a,c)=d=gcd(2n+1,3k+8), odd. Classical three-generator gluing criterion for symmetric semigroups reduces symmetry to a representability condition for some pair; inequalities modulo k eliminate pairs (a,b),(b,c). Bounds on d versus a/n and c/(n+1) force, for (a,c), coefficient count exactly d, hence v=dn/(2n+1) integer; gcd(n,2n+1)=1 forces 2n+1|d, so 2n+1=3k+8 and n=(3k+7)/2. The k=3 small-index boundary separately handled using d|17. Conversely when N=K, (n+1)a+n c=K b and gcd(K,b)=1 give gluing and symmetry. Frobenius formula F=ac/K-a-c+(K-1)b expands to displayed quintic; genus (F+1)/2. Independent exact integer Watanabe/gluing checks cover 855 (odd k, n) pairs k=3..39,n=k..k+44, and independent Apéry computations confirm F/g for k=3,5,7,9. No inference from finite search to all k.
 
-Fel (arXiv:0803.1606) supplies the general gluing criterion rather than this arithmetic classification. Robles-Pérez and Rosales (arXiv:1706.04378) treat ordinary triangular and tetrahedral tuples. Yin–Mu–Komatsu (DOI:10.3390/sym16081090) treat generalized star-number triples \(a n(n-1)+1\) only for integer \(a\ge4\), corresponding to even centered polygon orders. Their stated domain is disjoint from the odd orders here. OEIS A069099 gives centered polygonal sequence data, not the symmetry classification. A direct equivalent in unlocated literature remains possible; the 2024 PDF could not be fully inspected, although its published abstract and introduction explicitly give its integer-parameter scope.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves, without an arbitrary finite parameter cutoff, the symmetry question for a two-parameter natural figurate-semigroup family and proves exactly one exceptional starting index per odd order in the stable regime. It provides explicit infinite Frobenius/genus values via a non-obvious gcd/gluing dichotomy; the stable bound \(n\ge k\) is mathematically essential because additional low-index exceptions can arise.
+PASS for the odd-order centered-polygonal symmetric-triple single-exception theorem and closed exceptional Frobenius number. Classical gluing/symmetry criteria are prior work; prior figurate semigroup results for ordinary triangular/tetrahedral sequences and generalized star numbers with INTEGER a (even centered 2a-gonal order) do not algebraically cover odd k without an independent half-integral extension. Earlier broader three-generator gluing classification remains a priority risk.
 
-## Limitations and status
+## value
 
-The theorem does not classify \(n<k\), even centered orders, or nonsymmetric Frobenius numbers. The known general gluing theory and related polygonal-family formulas are prior work, not independent evidence of novelty. External independent review remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Numerical semigroup symmetry and Frobenius number are central exact invariants. For natural adjacent centered-polygonal generators, the theorem classifies an entire infinite odd-order family, pinpoints a unique symmetric triple after n>=k, and computes its exact F and genus. It is not an arbitrary bounded enumeration or a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
