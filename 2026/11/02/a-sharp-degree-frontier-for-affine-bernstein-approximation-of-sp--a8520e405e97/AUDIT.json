@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact forward-difference EGF derives the top Bernstein coefficient; Gegenbauer leading-term and endpoint normalization algebra prove the formula for all d≥2,n≥1. Schoenberg cone signs prove failure for n≥d+2. Explicit Legendre expansions for n=1,2,3 and the classical Bernstein pointwise bound at 1/3 cover all Legendre orders; no finite experiment substitutes for the analytical steps. Standalone CHECK.py passed 292 exact rational assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beatson–zu Castell, SIGMA 12 (2016) 043, constructs spherical dimension-walk recurrences rather than ordinary affine Bernstein interpolation.",
+        "Schoenberg (1942) characterizes the cone but does not establish preservation by these discrete Bernstein operators."
+      ],
+      "reasoning": "Neither positivity-preserving convolution/dimension walks nor the Schoenberg coefficient characterization implies ordinary Bernstein interpolation preserves positivity for n=1,2,3, or fails for every n≥4 on S².",
+      "searches": [
+        "Bernstein operator preserving Schoenberg positive definiteness sphere S2 degree 3",
+        "spherical positive definite Bernstein operator Legendre polynomials affine degree cutoff",
+        "Bernstein approximation Gegenbauer cone threshold degree dimension n d+1 finite spheres positivity preserving",
+        "doi:10.3842/SIGMA.2016.043"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.04836, the relevant theorem/Section 4/conclusion",
+      "doi:10.1215/S0012-7094-42-00908-6 (Schoenberg characterization, theorem via supporting sources)",
+      "doi:10.1007/s11075-008-9208-5 Eq (56)",
+      "doi:10.3842/SIGMA.2016.043 (abstract/theorem descriptions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Otten–Nguyen–Watts Theorem 1.2 is for the circle geodesic variable; Section 4 demonstrates only the n=4 affine S² non-preservation.",
+        "Gautschi–Giordano Eq (56) bounds each Legendre value but does not make a cone-preservation classification.",
+        "Schoenberg gives the required coefficient test, not the action of Bernstein sampling on coefficients."
+      ],
+      "reasoning": "The known n=4 failure follows from the present formula by n=4; the converse is false. Bernstein pointwise bounds help prove the safe n=3 case but do not themselves state or imply the operator classification without the exact low-degree expansions.",
+      "searches": [
+        "arxiv:2608.04836 Theorem 1.2 Section 4 Conclusion",
+        "doi:10.1007/s11075-008-9208-5 Eq (56)",
+        "affine Bernstein operators positive definiteness S2 sphere exact degree n one two three four Legendre Gegenbauer negative coefficient",
+        "Bernstein Schoenberg spherical zonal positive definite operator affine Legendre polynomials all degrees classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Otten–Nguyen–Watts, arxiv:2608.04836, Section 4: affine n=4,S² counterexample -9/256; their main preservation theorem concerns geodesic-distance Bernstein on S¹.",
+        "No searched exact equivalence gave both all-degree S² if-and-only-if preservation and every-d all-n Gegenbauer coefficient."
+      ],
+      "reasoning": "Conjugating from affine t to angular distance does not preserve the operator: the sampling nodes and interpolation powers are different. A solitary n=4 counterexample is strictly weaker than the all-n exact classification.",
+      "searches": [
+        "Bernstein operator positive definiteness sphere degree n 3 4 dimension threshold counterexample Gegenbauer polynomials",
+        "affine Bernstein operators positive definiteness S2 sphere exact degree n one two three four Legendre Gegenbauer negative coefficient",
+        "Bernstein Schoenberg spherical zonal positive definite operator affine Legendre polynomials all degrees classification",
+        "arxiv:2608.04836 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating source explicitly contains only the single coefficient at n=4; the general n,d coefficient in the finding is a symbolic formula, not a tabulated constant.",
+        "Search results for Legendre interpolation and Gegenbauer bounds concerned other invariants and did not furnish an exact all-n table."
+      ],
+      "reasoning": "The all-parameter sign identity cannot be certified as new solely by lack of matching tables; the comparison instead rests on stronger-claim implication tests against relevant accessible primary text.",
+      "searches": [
+        "Legendre P_n Bernstein interpolation P_n+2 leading negative coefficient n 4",
+        "finite degree Bernstein interpolants Legendre input P_{n+2} negative coefficient for n>=4",
+        "positive definiteness preserving Bernstein polynomials S2 exact 3 to 4 threshold",
+        "Bernstein operator positive definiteness sphere degree n 3 4 dimension threshold counterexample Gegenbauer polynomials"
+      ]
+    },
+    "rationale": "The inspected motivating source has only the n=4 affine S² counterexample, not an all-n preservation classification or the normalized all-dimension coefficient formula; classical Schoenberg and Legendre bounds are inputs. Searches found no statement implying the full new result. The likelihood of unindexed prior approximation-theory coverage is explicitly retained.",
+    "residual_risks": [
+      "An equivalent all-degree preservation theorem could appear in incompletely indexed earlier Bernstein/Schoenberg approximation literature.",
+      "The abstract/theorem descriptions inspected for peripheral dimension-walk sources are not a full-proof inspection; their operators are distinct, so this is not a decisive unresolved same-object comparison.",
+      "The conclusions for d>2 are only a necessary degree restriction, not a classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partially overlapping n=4 instance only; not an all-degree S² classification or general-d top Gegenbauer identity",
+        "evidence": [
+          "Section 4: affine B4 P6 has P4 coefficient -9/256",
+          "Theorem 1.2: preservation for the circle operator in geodesic distance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.04836",
+        "material_read": "Accessible full-text mathematical Introduction/Theorem 1.2, Section 4, and conclusion, including the n=4 coefficient computation",
+        "method": "Read relevant primary sections and compared operator definitions and theorem implications",
+        "title": "Preservation of Positive-Definiteness by Bernstein Operators on the Circle",
+        "trigger": "Closest motivating study explicitly displays affine S² n=4 counterexample"
+      },
+      {
+        "assessment": "Establishes classical pointwise inequality used as a proof premise, not operator preservation",
+        "evidence": [
+          "Eq. (56): (sin theta)^(1/2)|P_n(cos theta)| < sqrt(2/(pi n))"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-008-9208-5",
+        "material_read": "Section 5.3, printed Eq. (56), including displayed Bernstein–Legendre inequality",
+        "method": "Inspected accessible PDF equation and rendered page",
+        "title": "Luigi Gatteschi’s work on asymptotics of special functions and their zeros",
+        "trigger": "Nonstandard bound needed to certify positivity at every odd Legendre order"
+      },
+      {
+        "assessment": "Standard cone characterization; no claim about this affine Bernstein operator",
+        "evidence": [
+          "Zonal S^d positive semidefiniteness corresponds to nonnegative normalized Gegenbauer coefficients"
+        ],
+        "identifier_or_url": "https://doi.org/10.1215/S0012-7094-42-00908-6",
+        "material_read": "Classical theorem statement as reliably reported in accessible mathematical sources; original complete text not claimed read",
+        "method": "Cross-checked Schoenberg characterization and normalization against modern sources",
+        "title": "Positive definite functions on spheres",
+        "trigger": "The canonical implication from coefficient signs to spherical positive definiteness"
+      },
+      {
+        "assessment": "Different operators; not decisive equivalent coverage",
+        "evidence": [
+          "Spherical dimension-walk recurrences are not ordinary affine Bernstein sampling"
+        ],
+        "identifier_or_url": "https://doi.org/10.3842/SIGMA.2016.043",
+        "material_read": "Accessible theorem descriptions and abstract; complete proof not claimed inspected",
+        "method": "Compared the stated dimension-walk operators and scope with ordinary affine Bernstein interpolation",
+        "title": "One-Step Recurrences for Stationary Random Fields on the Sphere",
+        "trigger": "Potential stronger positive-definiteness-preserving operations on spheres"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8520e40-5e97-4c32-97f3-95435dc70a1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ordinary polynomial approximation of spherical covariance kernels poses a natural harmonic-analysis shape-preservation problem; this theorem supplies its exact S² degree frontier and an all-dimensional explicit obstruction. It turns a literature n=4 example into a complete and quantitatively parameterized mechanism, without unmotivated finite slicing or unsupported downstream claims.",
+    "status": "PASS"
+  }
+}
