@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Fully explicit: reprojected two-node Lanczos exactly computes the bilinear inverse of a 2x2 SPD compression. Polar Gaussian separation yields two angular integrals, with the second obtained by differentiating the first; E[R²]=2 and E[R⁴]=8. From these the first and second moments, variance difference, squared bias, and if-and-only-if MSE thresholds follow algebraically. All eigenvalue and breakdown boundaries are stated, and 1,694 independent numerical/symbolic-identity checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Trogdon–Ubaru consider general SLQ/KPM errors uniformly over functions.",
+        "Fifen–Karambal–Hennig provide asymptotic quadrature and Monte Carlo error bounds and compare methods experimentally at matched budgets."
+      ],
+      "reasoning": "A general upper bound need not imply the exact sign and location of the MSE crossover; neither inspected source gives an identity that directly subsumes the finite-budget if-and-only-if result.",
+      "searches": [
+        "published-finding corpus: Gauss-Lanczos inverse trace estimation quadrature depth bias variance tradeoff finite matvec budget two-by-two spectrum",
+        "arXiv:2204.01941v3 Sections 1–3: general stochastic quadrature guarantees",
+        "arXiv:2609.10080v1 Theorem 20, Algorithm 1, Section 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10080v1, Theorem 20 and Algorithm 1, and Section 6.1",
+      "arXiv:2204.01941v3, Algorithm 1.1, eq. (2.1), background",
+      "published-finding corpus semantic records and recoverable current/previous prior research records claims for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing current-slot finding concerns the rank of a coupling-corrected residual covariance versus a Schur-complement residual covariance, not stochastic finite-probe trace MSE.",
+        "The 2026 motivating source gives P-SLQ consistency and cost Nl, but not the present sharp two-dimensional variance reversal."
+      ],
+      "reasoning": "The previous same-source result does not imply moment or allocation formulas: its matrix-rank comparison concerns deterministic covariance support. General SLQ bounds do not determine this exact threshold. Classical polar integration is used transparently and not separately claimed as new.",
+      "searches": [
+        "arXiv:2609.10080v1 Theorem 20 and Algorithm 1 and Section 6.1",
+        "arXiv:2204.01941v3 Algorithm 1.1 and Eq. (2.1)",
+        "Own previous finding a28ee80a-3cfb-4359-a998-b2dbb9b433db claim/ID"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The comparison can be reformulated as reciprocal Gaussian Rayleigh quotient moments for a 2-by-2 SPD matrix; equivalence was explicitly considered.",
+        "The relevant direct-source formula is P-SLQ Algorithm 1, not a different independent estimator."
+      ],
+      "reasoning": "Conventional Gaussian chi-square trace identities give exact two-node variance but do not determine the reciprocal-Rayleigh one-node moments or their sharp matvec allocation on their own; available matching searches did not return the same complete statement.",
+      "searches": [
+        "published-finding corpus: Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra Fifen Karambal Hennig 2609.10080",
+        "published-finding corpus: P-SLQ projected stochastic Lanczos quadrature finite sample two eigenvalue inverse trace",
+        "Web: \"one-step\" \"two-step\" stochastic Lanczos quadrature \"mean squared error\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked published-finding corpus hits included a two-step Lanczos matrix-exponential positivity horizon and unrelated two-level spectra; neither treats stochastic inverse trace or depth allocation."
+      ],
+      "reasoning": "Neither an exact small-dimensional table nor a record with the same formula was located in the accessible searches; lack of a hit is not treated as proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: one node Gauss quadrature Rayleigh quotient two mode sharp bias variance sample budget",
+        "published-finding corpus: projected SLQ one-step Rayleigh quotient Gaussian spectrum geometric mean exact mean squared error versus two-step Hutchinson",
+        "Web: \"lanczos\" \"one step\" \"two step\" \"mean squared error\" stochastic trace"
+      ]
+    },
+    "rationale": "Original claim limited to the exact two-mode Gaussian P-SLQ probe-depth allocation frontier: explicit one-node mean/variance and variance reversal, exact equal-probe and equal-product MSE crossovers. Relevant primary papers give SLQ definitions and general approximation guarantees rather than this sharp matched-cost classification. Real published-finding corpus searches for inverse trace, projected SLQ, one-/two-node, bias/variance and spectral tradeoffs returned no stronger equivalent claim; historical priority remains provisional.",
+    "residual_risks": [
+      "Historical articles on exact Gaussian Rayleigh quotient distributions or finite-node SLQ MSE might entail equivalent consequences without using the P-SLQ name.",
+      "published-finding corpus is not a complete bibliography; some primary full texts outside the two most relevant inspected sources may contain exact special-case moment formulas.",
+      "Projection and startup costs are excluded by the stated definition of the matched matvec budget."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper defines the same probe statistic and gives general exponential quadrature-bias and Monte Carlo variance bounds; its exact per-probe Gaussian moment and sharp depth-allocation crossover for complement dimension two are not stated in the inspected material.",
+        "evidence": [
+          "Algorithm 1, lines 7–11, weights each reprojected Gaussian probe by its squared norm times inverse first Ritz entry.",
+          "Algorithm 1 total matvec cost m+Nl+l+l_cg; the comparison isolates Nl.",
+          "Theorem 20 in Section 5.2 gives bias and Monte Carlo bounds; Section 6.1 compares trace accuracy at matched budgets."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.10080",
+        "material_read": "Original v1 PDF: abstract, introduction, Section 5.1 and 5.2 (pp. 23–28), Theorem 20 and its derivation, Algorithm 1 (p. 31), Section 6.1 (pp. 32 onward), and relevant discussion of trace budgets.",
+        "method": "Read PDF text and inspect page images of theorem and complete algorithm.",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "P-SLQ is the exact algorithm analyzed; a finite matvec depth tradeoff is not settled by its general consistency bound."
+      },
+      {
+        "assessment": "The general spectral-sum bounds and SLQ formulation cover the algorithmic ingredients but do not themselves give the two-dimensional exact Gaussian inverse-trace MSE or matched-budget threshold.",
+        "evidence": [
+          "Abstract states uniform spectral-sum and spectrum approximation bounds.",
+          "Algorithm 1.1 and equation (2.1) decompose sampling and quadrature errors, rather than reporting exact two-mode covariance and optimal choice between l=1 and l=2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.01941",
+        "material_read": "Author full-text PDF, abstract, pp. 1–3 (introductory algorithm and decomposition) and background of Sections 2–3; relevant general method and high-probability spectral-sum statements.",
+        "method": "Read PDF text and inspect the algorithm/approximation decomposition page image.",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "General randomized matrix-free quadrature theory might imply the exact finite-budget comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0dd0bf7-e77f-468c-aeaf-472424571329",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating P-SLQ algorithm makes a real design choice between quadrature depth and number of probes at a fixed product budget. This theorem exactly settles that choice (including strict and equality regimes) on the natural final two-dimensional unresolved complement. Its variance reversal shows why more accurate individual quadrature does not necessarily yield lower trace MSE under tight budgets. This is a sharp natural numerical-allocation invariant, rather than a parameter rename or a standalone software experiment; it does not pretend to be a general large-dimensional theorem.",
+    "status": "PASS"
+  }
+}

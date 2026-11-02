@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Two Lanczos nodes are exact on the two-dimensional positive-definite compression. The one-node estimator equals a reciprocal Rayleigh quotient with Gaussian radial factor. Computing two angular integrals yields the exact mean and second moment, the squared spectral bias, and the variance reversal. The mean-squared-error ordering reduces to a scalar inequality with one explicit positive crossover. Endpoints and probe breakdown are handled in the proof. The attached verifier passes 1,694 deterministic quadrature, sampled-matrix, and seeded moment checks. Sampling alone is not an infinite-dimensional proof.
+
+**Originality — PASS, subject to priority uncertainty.** The 2026 P-SLQ paper introduces the trace estimator and proves general bias/variance bounds with explicit \(Nl\) product costs. The 2022/2025 Chen–Trogdon–Ubaru paper develops general stochastic quadrature bounds. Neither inspected relevant portion states this exact two-mode variance reversal or finite-matvec allocation threshold. Searches of mathematical findings for equivalent Gaussian reciprocal Rayleigh representations, higher-coverage quadrature theorems, and exact result tables did not reveal an equivalent claim. A previous same-source result on Schur-complement covariance rank is not an implication of the present probe-moment statement. Exact older reciprocal-Rayleigh literature remains a plausible priority risk; this is not a uniqueness certificate.
+
+**Mathematical value — PASS.** The depth/probe tradeoff is intrinsic to a matvec-budgeted Krylov trace algorithm, and a two-dimensional complement is the last unresolved nontrivial spectral case after deflation. Despite two-node quadrature being exact for each probe, one-node estimates have lower stochastic variance and can attain strictly lower MSE with the same total products. The complete sharp crossover provides an actionable benchmark, not just a failed stability or normalization check.
+
+**Limitations.** Positive definite, two-dimensional real Gaussian compression, two fixed quadrature depths, independent probe averages, exact arithmetic, even product budgets; setup/projector overhead and coupling-corrected covariance excluded. Historic priority cannot be guaranteed from available materials.
+
+Self-review: passed. Independent audit: not yet performed.
