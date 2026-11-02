@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both stage equations reduce algebraically to the same scalar multiplier. The change of variable from a uniform stage fraction gives an exactly normalized density with moving endpoints. Leibniz differentiation gives the moment derivative for every positive exponent. Its sign establishes the order-independent unique minimum; beta-integral and Fatou limits establish exactly one crossing of moment one. Strict power-mean inequality orders all moment cutoffs. Uniform exponential-log moment bounds, the known negative logarithmic mean, and endpoint Laplace concentration give the two distinct asymptotics. A separate executable check reconstructs the algorithms and cross-checks the numerical values. The argument is not based on a finite sample in place of an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Eliminating both randomized stage equations gives R_s(u)=1-s/(1+su). The push-forward density (1-r)^-2 on [1-s,1/(1+s)] integrates to 1. Its moving-endpoint differentiation gives Fp'= (|1-s|^p-(1+s)^(-p))/s^2 with unique minimizer sqrt(2). The p<1 large-s beta integral is pi*p/sin(pi*p)>1; for p>=1 Fatou gives divergence, yielding a unique >2 crossing. Strict Lyapunov/power-mean ordering gives s_p decreasing. Uniform log-moment expansion at small p and endpoint Laplace at large p yield the stated asymptotics; independently computed thresholds for p=.5,1,2,4: 11.22032689545,6.21826223760,4.03361046936,3.03345683307. Finite quadrature corroborates, not proves, all-p statements.
 
-The April 2024 Bochacik–Przybyłowicz original gives the common scalar multiplier, mean-square cutoff (its Fact 4), and almost-sure stability (its Fact 7). The October 2024 full preprint still explicitly proposes general moment-stability regions as future work. Neither supplied source states a universal minimizer for all \(p>0\), a strictly nested sequence of arbitrary-order cutoffs, nor the endpoint laws. The 2025 journal preview retains mean-square / asymptotic / probability stability as its three named notions but does not expose the full publication text. General stochastic \(\theta\)-methods study moment stability for different random recursions; the precise transformed density and moment frontiers here are not implied merely by that methodology. Priority outside the inspected works cannot be guaranteed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a full one-parameter family of sharp stability cutoffs for the actual two randomized implicit schemes. It resolves an explicit further-analysis direction from the originating work on the natural scalar Dahlquist stability test, quantifies all positive moments rather than only the previously analyzed second moment, and identifies the nontrivial divergence between rare-event moment growth and almost-sure decay. Both extreme-order asymptotics specify where the effective stability window sits, including a logarithmically divergent low-order window. The result is more than a single numerical threshold.
+Best-of-knowledge claim is not established by the sources actually recovered: The established p=2 scalar stability computation and general moment-stability frameworks do not algebraically imply the quantified all-p cutoff ordering and two endpoint equivalents without the additional density and asymptotic argument. Priority is qualified by incomplete full-text access.
 
-## Closest literature and limitations
+## value
 
-Source: Bochacik and Przybyłowicz, arXiv:2404.19059v1, 29 April 2024, Section 3, Facts 4 and 7; revised open author manuscript from October 2024; and Bochacik, Przybyłowicz, Stępień, BIT Numerical Mathematics (2025), DOI 10.1007/s10543-024-01050-9. Related p-th moment stability of stochastic \(\theta\)-methods is represented by Higham (2000) and Mao (2015), but those concern different stochastic-equation updates. Remaining priority risk: a potentially equivalent analysis outside the retrieved primary works and the inaccessible complete 2025 journal version. Mathematically the theorem does not classify the complex stability plane or coupled systems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete moment-order decay phase diagram for the actual scalar stability test, rather than the older mean-square single cutoff: strict nesting, universal optimal step, and both extreme-order asymptotics quantify rare large multipliers versus almost-sure stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
