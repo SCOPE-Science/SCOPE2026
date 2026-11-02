@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For each valid single-wildcard word, the first k wildcard windows expand into exactly 2k deleted de Bruijn edges, and all other windows form a uniquely decodable Euler trail. Degree imbalance forces constant or alternating prefix as appropriate. Directed matrix-tree/BEST gives a first-position count of 2T_n, with T_n=2^(2^(n-1)-n). At the second position, three relevant edge deletions yield a rooted-Laplacian determinant update. The finite shift-register Green-function identity and alternating overlap sums give exact determinant (1-(-1/2)^(n-2))/6, so the two complementary prefixes give T_n(1-(-1/2)^(n-2))/3 completions. Special n=2,3 handled individually. A standalone stdlib verifier independently checks all small partial words, trail counts, integer cofactors and rational overlap identities through n=40; full-length conclusion is the analytical proof, not a finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016/2017 linear-upword paper treats existence and isolated examples, not complete enumerators. The 2026 universal partial cycles work uses cyclic rather than indexed linear windows and does not supply the desired boundary-position counts.",
+        "The 2018 paper chiefly treats non-binary alphabets and asks the general enumerative question as an open direction."
+      ],
+      "reasoning": "Existence is strictly weaker than enumeration. Cyclic partial cycles have different wraparound constraints and counting conventions, so their existence/construction results do not imply the linear counts. A de Bruijn sequence count without wildcards does not determine the upword counts.",
+      "searches": [
+        "Web: \"upwords\" \"enumeration\" \"one diamond\" binary",
+        "Web: \"universal partial words\" \"enumeration\" \"position\" single diamond",
+        "arxiv:1601.06456 full-text Theorems 9 and 10",
+        "doi:10.1007/s10623-026-01841-x introductory and cyclic construction sections"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1601.06456, original arXiv submitted 2016-01-25 and 2017 open HTML full text",
+      "arxiv:1611.03928, non-binary partial-word study and enumeration outlook",
+      "doi:10.1016/j.tcs.2017.12.022, publisher HTML",
+      "doi:10.1007/s10623-026-01841-x, selected open-access sections",
+      "published-finding corpus semantic searches for single-joker enumerators and boundary position ratios",
+      "Accessible own indexed previous findings, titles and recoverable claims for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 9 provides a first-position construction; Theorem 10 gives a second-position construction for n>=3. They establish the positivity of U_{n,1} and U_{n,2} but not their multiplicities.",
+        "Question 6.5 asks how many universal partial words exist; the new second-position formula answers a natural restricted instance.",
+        "The same mathematical model proof evaluates a rank-three directed tree update in closed form, producing a parity factor not present in the source theorems."
+      ],
+      "reasoning": "Neither an explicit witness nor a proof that at least one continuation exists logically implies exactly 2^(2^(n-1)-n)(1-(-1/2)^(n-2))/3 completions. The new statement gives every multiplicity and an asymptotic ratio, while retaining the same strong exact-one-cover condition.",
+      "searches": [
+        "arxiv:1601.06456 Theorems 9,10 and Lemma 4",
+        "doi:10.1016/j.tcs.2017.12.022 Question 6.5",
+        "published-finding corpus: Boundary wildcard upwords one diamond second symbol asymptotic one-sixth count first symbol"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An indexed binary linear upword is equivalently an Euler edge-trail after removing the expanded wildcard-prefix edges of the order-n binary de Bruijn graph. Theorem 10 constructs one instance for each admissible near-boundary placement but has no enumeration formula.",
+        "The second-position enumeration can be written as a rooted tree cofactor ratio: (1-(-1/2)^(n-2))/6 per fixed first-position-benchmark scale."
+      ],
+      "reasoning": "The equivalence to edge trails is used in the proof and provides a direct statement-level comparison, not merely a similarity of titles. The existing existence theorem guarantees a nonzero count but cannot determine the number, its parity correction or its limiting ratio.",
+      "searches": [
+        "published-finding corpus: Enumeration of linear de Bruijn partial words containing one hole at position two near boundary, rooted arborescences and BEST theorem",
+        "Web: \"universal partial words\" \"counting\" \"wildcard\" \"second\"",
+        "arxiv:1601.06456 sections 1.2, 3.2, Table 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 explicitly gives representative words for parameters through n=5 and is labeled examples, not enumerations of all upwords.",
+        "The closest search-index hits concerned subsequence-universality indices or adjacent-pair multispectra, different mathematical functions; no matching exact values or all-length count appeared."
+      ],
+      "reasoning": "Small illustrative construction tables and search snippets cannot imply the complete count of all upwords. Historical enumeration tables not indexed by the searches remain a residual risk.",
+      "searches": [
+        "arxiv:1601.06456 Table 1, section 1.2, section 3.2",
+        "published-finding corpus: Exact number of universal partial words binary alphabet one wildcard in second position 2^(2^(n-1)-n)/3 (1 - (-1/2)^(n-2)), alternating-prefix Euler trails",
+        "published-finding corpus: counting linear universal partial words single wildcard at boundary first or last position for all n"
+      ]
+    },
+    "rationale": "The first-position formula is a standard directed-tree count and is included as a baseline, not claimed as the substantive novel result. The parity-sensitive exact second-position count, including its forced-alternation classification and rank-three arborescence correction for all n>=4, is not implied by the closest source: Chen, Kitaev, Mütze and Sun, arXiv:1601.06456, whose Theorems 9 and 10 prove existence and display instances rather than full multiplicities. Goeckner et al. expressly ask for enumeration of universal partial words, Question 6.5. Current cyclic-partial-word results do not count indexed linear boundary-joker words. Multiple actual searches in scientific literature, the mathematical findings index, and accessible historical claims found no equivalent or stronger coverage; unpublished or unindexed historical priority remains a risk.",
+    "residual_risks": [
+      "Unpublished or unindexed historical tables may contain the same second-position count.",
+      "No independent specialist literature-priority validation has been performed.",
+      "The existing sources were inspected selectively according to relevant sections; no claim of reading every line of every related paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existence and examples; no complete second-position multiplicity or rank-three tree enumerator in material read",
+        "evidence": [
+          "arXiv first submitted 2016-01-25",
+          "Theorem 9 first position, Theorem 10 second through (n-1) positions; Table 1 examples only"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.06456v4",
+        "material_read": "Introduction and parameter table; Section 3.2 with full existence statements and graph-construction proof portions; first-public metadata at https://arxiv.org/abs/1601.06456",
+        "method": "Direct open-access full-text reading, cross-checking Theorems 9 and 10 against the exact counting claim",
+        "title": "On universal partial words",
+        "trigger": "Exact same binary linear upword model, one joker at positions 1 and 2"
+      },
+      {
+        "assessment": "Related structural results and an explicitly stated general enumeration question, no exact all-order binary second-position formula identified in read portions",
+        "evidence": [
+          "Question 6.5 asks how many universal partial words exist",
+          "The paper chiefly studies larger alphabets and cyclicity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2017.12.022",
+        "material_read": "Open HTML abstract, sections on binary and non-binary structural constraints, outlook questions including 6.5",
+        "method": "Read available scholarly full text rendered by publisher",
+        "title": "Universal Partial Words over Non-Binary Alphabets",
+        "trigger": "Possible broader enumeration or implicit coverage"
+      },
+      {
+        "assessment": "Different cyclic model and existence/structure objectives; indexed-linear exact multiplicity not identified in inspected material",
+        "evidence": [
+          "Definitions use cyclic wraparound and position rotation unlike the fixed linear boundary wildcard"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-026-01841-x",
+        "material_read": "Open-access abstract, introduction, cyclic construction and concluding discussion portions",
+        "method": "Read selected primary full-text sections; no whole-document negative assertion",
+        "title": "The existence and structure of universal partial cycles",
+        "trigger": "Current work on related universal partial words might dominate the proposed count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "746e9375-6418-4b31-bc33-ea17c370d0b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source literature gives linear boundary-joker existence but explicitly leaves enumerative questions open generally. The second-position count solves an infinite, natural sharply posed enumeration of all near-boundary partial de Bruijn words: it identifies forced alternating initial structure, a nontrivial rank-three tree correction, an exact parity oscillation, and asymptotic one-sixth loss relative to the first position. The first-position formula is a comparison baseline, not the main research contribution. This is a structural infinite theorem, not a small census or routine numerical increment.",
+    "status": "PASS"
+  }
+}
