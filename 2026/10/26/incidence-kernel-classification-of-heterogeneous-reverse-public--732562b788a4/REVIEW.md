@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reverse-minus-ordinary payoff offset is derived for each group, summed through the incidence operator, and shown to control every directed Fermi comparison for all binary strategy profiles. Regularity and the nonnegative quadratic identity reduce constant offsets to the incidence nullspace. A connected-graph odd-cycle argument and a complete multipartite choice argument prove the sharp structural classifications. The positive signless spectral lower bound and logistic Lipschitz estimate are reconstructed in the proof; both hold in the stated domains. The standalone checker passed 1,227 exact-rational/numeric finite assertions. Finite tests support the algebra but are not the universal proof.
+PASS
 
-## Originality — PASS (priority qualified)
+For finite connected g-uniform r-regular hypergraph, payoff conventions with player factors lambda in (1,g), common capacity m>0, directed Fermi pair update finite omega>0, substituting x=1-y in per-group payoffs gives strategy-independent reverse-minus-ordinary offset Delta_i=mr-(m/g)(BB^T lambda)_i. Strict monotonicity of logistic plus connectedness means every conditional imitation probability equals iff all Delta_i constant. Regularity implies BB^T1=gr1, so for v=lambda-mean(lambda)1 we have BB^Tv=0 iff ||B^Tv||²=0, yielding incidence-kernel classification and rank criterion. For graph incidence B^Tv edge values v_i+v_j, thus nonzero iff connected bipartite; complete equal-part g-partite uniform hypergraphs have kernel dimension g-1. Spectral lower bound uses L and signless Q on mean-zero vectors and positivity of Q in nonbipartite connected case; logistic derivative bounded omega/4 yields edgewise Lipschitz and synchronous T-step coupling TV<=min(1,T epsilon). Independently checked all profiles on C4, triangle and 6-vertex tripartite with exact rational offsets (-1 all), (-17/20,-1,-23/20), (-2 all); unbounded-size theorem follows from linear algebra.
 
-Closest work is Wang–Szolnoki (2022), which supplies the R-PGG model and finds homogeneous equivalence alongside examples of heterogeneous divergence. The assessed contribution is the iff incidence nullspace for exact heterogeneous agreement of directed Fermi imitation laws, its nonbipartite and complete multipartite consequences, and quantitative sensitivity. Lüthi–Tomassini–Pestelacci (2009) establish generic payoff-transform considerations; Flores et al. (2023) study heterogeneity through a different ordinary-PGG mechanism; Bervoets–Makihara (2023) study network equilibrium comparative statics. None of their compared statements directly entails the exact model-specific iff, though publication priority is not independently certified, unindexed equivalent formulations are possible, and the elementary graph incidence lemma is prior mathematics. Search and inspection details and residual risks are in AUDIT.json.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem addresses a motivated limitation of the qualitative observation that player heterogeneity disrupts equivalence of reversed and ordinary public-goods games. It identifies precisely when heterogeneity is dynamically invisible, gives complete graph and infinite hypergraph classifications, and supplies an explicit spectral obstruction otherwise. These facts distinguish network topology effects from heterogeneity magnitude and provide analytical benchmarks for Fermi simulations. The work does not treat nonregular groups, changing factors, or arbitrary updating.
+Wang–Szolnoki 2022 full primary text supplies heterogeneous payoff forms and the homogeneous reverse/ordinary equivalence, and Lüthi–Tomassini–Pestelacci 2009 studies general payoff-shift invariance. Graph signless-Laplacian bipartite nullspace is classical. But the model-specific necessary-and-sufficient condition ker B^T, all regular hypergraphs, nonconstant g-partite families, exact all-strength coupling and quantitative obstruction are not logically stated/implied by those tools alone, requiring the present structural calculation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact equivalence class for heterogeneous evolutionary games over every connected regular uniform hypergraph reveals a sharply motivated mechanism when heterogeneity is dynamically invisible, plus a bipartiteness boundary and quantitative deviation. This is more than renaming a known graph kernel because it determines an iff for a specific stochastic evolutionary model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
