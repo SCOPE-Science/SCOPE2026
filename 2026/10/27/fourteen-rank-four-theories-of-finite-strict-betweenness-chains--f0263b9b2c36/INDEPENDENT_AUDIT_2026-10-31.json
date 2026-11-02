@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:55:36.705739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the language of equality and STRICT B(a,b,c) only, the complete T_0 atomic diagram records equality and all oriented triples. Recursing T_(r+1)=(T_0,{T_r with each possible one-point extension}) exactly characterizes formulas of quantifier rank <=r, because first-order quantification observes existence not multiplicity. Independent reimplementation exhaustively enumerated all tuples of n=1..15, including repeats, and reproduced class counts [1,2,6,14] for ranks 1..4: at rank 4 types of 1..14 are distinct and types 14 and 15 agree. This finite range is not extrapolated: for all n>=15 the standard four-round EF interval-splitting strategy for pure linear orders (threshold 2^4-1=15) gives equivalence, and quantifier-free reduct to B preserves rank equivalence. Transitivity covers n>=14, so min(n,14) exactly classifies all n>=1. The independent finite checker cached 211372 complete assignment states. It says nothing about higher ranks, counting extensions, constants, or arbitrary betweenness structures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical interval splitting covers all pure orders of sizes >=15 and thus the B reduct only for >=15.",
+          "Courcelle provides broader tree-betweenness axiomatization but no exact finite rank-four spectrum in inspected theorems."
+        ],
+        "reasoning": "Known general theories provide a stabilization upper bound, not the extra 14/15 equivalence or 13/14 separation. Siders full text inaccessible is explicitly an O risk.",
+        "searches": [
+          "Immerman Descriptive Complexity Chapter 6, EF interval lemma",
+          "Siders 2010 DOI 10.1016/j.ic.2009.11.006",
+          "arXiv:2004.10127"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/2004.10127",
+        "https://people.cs.umass.edu/~immerman/book/ch6.pdf",
+        "https://doi.org/10.1016/j.ic.2009.11.006",
+        "quantifier rank four first order strict ternary betweenness finite chains fourteen equivalence classes orientation reversal",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A quantifier-free interpretation takes indistinguishability from pure order to betweenness, but cannot establish equivalence for n=14 when the known pure-order theorem starts at 15.",
+          "Richer colored-order and successor languages do not produce the exact needed reduct-game bound without additional arguments.",
+          "Complete published one-red oriented order and directed successor path RESULT.md statements were compared directly; neither uses the strict ternary-only B signature."
+        ],
+        "reasoning": "The source result needs the nontrivial T4(14)=T4(15) calculation and pairwise separation 1..13, which the compared general results do not imply.",
+        "searches": [
+          "arXiv:2004.10127 Introduction/Definitions",
+          "Immerman EF Chapter 6 rank-four pure orders"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Courcelle defines strict betweenness B(x,y,z) by x<y<z or z<y<x, matching the assessed signature.",
+          "The candidate counts rank-four sentences in this reduct, not full oriented linear orders or directed paths."
+        ],
+        "reasoning": "The quantifier-free reduct changes expressive power; an oriented order may distinguish 14/15 where its betweenness reduct cannot.",
+        "searches": [
+          "quantifier rank four first order strict ternary betweenness finite chains fourteen equivalence classes orientation reversal",
+          "arXiv:2004.10127 Definition 2.1",
+          "Resultary: finite ternary betweenness FO rank four reversal unoriented chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published results enumerate enriched unary-coloured oriented orders or successor-only directed paths, not strict ternary betweenness chains.",
+          "The full exact T_4 table computed anew is [1], ... ,[13],[14,15], with a symbolic all-n argument.",
+          "The complete one-red and directed-successor results exhibit different exact q-rank class formulas and signatures, not an exact B-chain table."
+        ],
+        "reasoning": "No matching 14-class strict-B table in actual searched sources; search absence is only bounded evidence, not proof of absolute priority.",
+        "searches": [
+          "quantifier rank four first order strict ternary betweenness finite chains fourteen equivalence classes orientation reversal",
+          "Resultary: exact quantifier-rank profiles for finite one-red linear orders",
+          "Resultary: exact quantifier-rank threshold for finite directed paths"
+        ]
+      },
+      "rationale": "Pure linear-order rank-four equivalence at threshold fifteen is classical, but forgetting orientation can merge the additional B14/B15 boundary; that strict-reduct equality is not a formal consequence of order equivalence at the size fourteen. Courcelle 2021 defines the same strict betweenness relation and axiomatizes it for tree orders, rather than computing finite-chain rank-four types. Resultary searches and adjacent one-red ordered-chain and directed-successor findings use different languages, so neither supplies the exact fourteen class count. Siders 2010 order equivalence full text and a 2009 thesis remain uninspected priority risks; qualified PASS.",
+      "residual_risks": [
+        "Uninspected Siders 2010 full text or related 2009 thesis may contain an implicit exact B14 equivalence.",
+        "General all-rank betweenness classification could subsume the isolated rank-four statement.",
+        "Reproducible enumeration through 15 is exhaustive only at those sizes; larger sizes rely on EF theorem, not computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides structural axiomatization of tree betweenness; no inspected fourteen-class rank-four finite-chain theorem.",
+          "evidence": [
+            "Definition 2.1 and Proposition 2.3, arXiv:2004.10127"
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2004.10127",
+          "material_read": "Introduction, definitions (B on chains), Proposition 2.3, axiomatization discussions and conclusion",
+          "method": "Accessible complete ar5iv HTML with mathematical section searches",
+          "title": "Axiomatizations of betweenness in order-theoretic trees",
+          "trigger": "Same strict ternary relation, potentially dominating rank spectra"
+        },
+        {
+          "assessment": "Classical >=15 pure-order stabilization only, rather than the extra betweenness 14/15 collapse.",
+          "evidence": [
+            "Chapter 6, Sections 6.1--6.2, interval-splitting lemma"
+          ],
+          "identifier_or_url": "https://people.cs.umass.edu/~immerman/book/ch6.pdf",
+          "material_read": "Order EF-game definitions and interval-splitting theorem as cited; this run independently reconstructed the standard strategy",
+          "method": "Historical chapter theorem comparison using available primary proof references",
+          "title": "Descriptive Complexity, Chapter 6: Ehrenfeucht--Fraisse Games",
+          "trigger": "Potential general four-round interval strategy"
+        },
+        {
+          "assessment": "Plausible normal-form implication remains a priority risk.",
+          "evidence": [
+            "Siders, Information and Computation 208 (2010), 417--432"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ic.2009.11.006",
+          "material_read": "Public abstract and bibliographic description only; primary body inaccessible in this run",
+          "method": "Bibliographic inspection, no whole-document claim",
+          "title": "On quantifier-rank equivalence between linear orders",
+          "trigger": "Potential stronger general quantifier-rank normal form"
+        },
+        {
+          "assessment": "Theorem requires an explicit oriented order and a marked red point; it does not imply the orientation-free pure ternary strict-betweenness 14/15 collapse.",
+          "evidence": [
+            "Published Git blob e877bafa38696fdf469a4d3bcfbf4e6543cc18f4; one-red q-rank theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5",
+          "material_read": "Complete RESULT.md, theorem for coloured oriented B^a R B^b, T_q=2^q-1, character proof, sources and limitations",
+          "method": "Actual complete public Git RESULT.md fetched read-only; theorem, proof, relationship-to-prior and limitations compared directly.",
+          "title": "Exact quantifier-rank profiles for finite one-red linear orders",
+          "trigger": "Nearest published chain rank-profile invariant"
+        },
+        {
+          "assessment": "Binary directed successor language is distinct from strict ternary betweenness, and its size threshold 2^q does not entail the candidate 14 class count.",
+          "evidence": [
+            "Published Git blob c484ca5c1f75f2b46fe3154347a5a674f1d048f; finite directed path q-rank theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+          "material_read": "Complete RESULT.md, successor relation theorem, EF proof, scope and references",
+          "method": "Actual complete public Git RESULT.md fetched read-only; theorem, proof, relationship-to-prior and limitations compared directly.",
+          "title": "Exact quantifier-rank threshold for finite directed paths",
+          "trigger": "Another small-rank path-like structure classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bounded quantifier-rank spectra and minimal representatives are natural finite-model-theory invariants. The exact fourteen-class rank-four result, optimal small-model representative, and one-point savings relative to oriented orders isolate the logical effect of forgetting orientation; the global EF argument makes it a complete theorem, not an arbitrary enumeration of finite n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uninspected Siders 2010 full text or related 2009 thesis may contain an implicit exact B14 equivalence.",
+    "General all-rank betweenness classification could subsume the isolated rank-four statement.",
+    "Reproducible enumeration through 15 is exhaustive only at those sizes; larger sizes rely on EF theorem, not computation."
+  ],
+  "schema_version": 1
+}

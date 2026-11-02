@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The full strict ternary atomic diagram and equality conditions are encoded in the exact recursive rank-type program. All finite sizes \(1\) through \(15\) are exhausted, not sampled. The fourth-rank types for \(1\) through \(14\) differ pairwise and those for \(14\) and \(15\) coincide. For every larger size the standard rank-four interval strategy on pure linear orders gives equivalence, which passes to their quantifier-free betweenness reducts. This last argument is the infinite-range proof, not extrapolation from the table. The Python 3 verification program and recorded output are included.
+## correctness
 
-## Originality
-**PASS under documented literature access.** Exact comparison against the published one-red oriented-order theorem and the directed-successor theorem does not imply the new rank-four strict-betweenness cutoff. Courcelle establishes the betweenness object and related axiomatization results, while standard order-game literature gives the weaker saturation threshold fifteen. The fourteen/fifteen match and exclusion of all smaller sizes require the present exact type recursion. The incomplete full-text access to Siders (2010), an uninspected cited thesis and potential mathematical folklore are residual risks, not claims that those documents were fully cleared.
+PASS
 
-## Value
-**PASS.** An exact, natural finite-model-theoretic classification of all finite strict-betweenness chains at rank four, with an optimal small-model kernel, isolates the logical cost of forgetting linear orientation. The answer is not merely a finite enumeration: a symbolic reduction covers all remaining sizes. It provides a precise low-rank baseline for comparisons with richer betweenness languages and finite path structures. No claim is made for arbitrary graph betweenness or higher ranks.
+In the language of equality and STRICT B(a,b,c) only, the complete T_0 atomic diagram records equality and all oriented triples. Recursing T_(r+1)=(T_0,{T_r with each possible one-point extension}) exactly characterizes formulas of quantifier rank <=r, because first-order quantification observes existence not multiplicity. Independent reimplementation exhaustively enumerated all tuples of n=1..15, including repeats, and reproduced class counts [1,2,6,14] for ranks 1..4: at rank 4 types of 1..14 are distinct and types 14 and 15 agree. This finite range is not extrapolated: for all n>=15 the standard four-round EF interval-splitting strategy for pure linear orders (threshold 2^4-1=15) gives equivalence, and quantifier-free reduct to B preserves rank equivalence. Transitivity covers n>=14, so min(n,14) exactly classifies all n>=1. The independent finite checker cached 211372 complete assignment states. It says nothing about higher ranks, counting extensions, constants, or arbitrary betweenness structures.
 
-## Closest literature and limitations
-See Libkin (2004), Immerman's chapter on EF games, Siders (2010) on order-game normal forms, Courcelle (2020/2021) on betweenness axiomatization, and the inspected published one-red order and directed-path profiles. Finite exhaustive verification is combined with a symbolic global bound; any assertion of unindexed-literature uniqueness is outside scope. The review is not an independent external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pure linear-order rank-four equivalence at threshold fifteen is classical, but forgetting orientation can merge the additional B14/B15 boundary; that strict-reduct equality is not a formal consequence of order equivalence at the size fourteen. Courcelle 2021 defines the same strict betweenness relation and axiomatizes it for tree orders, rather than computing finite-chain rank-four types. Resultary searches and adjacent one-red ordered-chain and directed-successor findings use different languages, so neither supplies the exact fourteen class count. Siders 2010 order equivalence full text and a 2009 thesis remain uninspected priority risks; qualified PASS.
+
+## value
+
+PASS
+
+Bounded quantifier-rank spectra and minimal representatives are natural finite-model-theory invariants. The exact fourteen-class rank-four result, optimal small-model representative, and one-point savings relative to oriented orders isolate the logical effect of forgetting orientation; the global EF argument makes it a complete theorem, not an arbitrary enumeration of finite n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
