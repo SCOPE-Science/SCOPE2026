@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T13:13:52.425305Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at source blob d3148f8fa073263cc698559c6c6d0b59b1f8134a",
+        "assigned verification.py at source blob bd12f52080bc906ae90317b6d7f962bc240eb474",
+        "independent_checks.py + independent_checks_output.json",
+        "Gasull–Zhao (2023) convex Poincaré argument https://www.researchgate.net/publication/367086201_Existence_of_at_most_two_limit_cycles_for_some_non-autonomous_differential_equations"
+      ],
+      "rationale": "Independently reconstructed the construction x*(t) by exponentiating the sign-specific linear equations. Strict decrease of h on [0,L] and antisymmetry imply 0<c*<H, positive first-half and negative second-half crossing, x*(0)=x*(L)=x*(2L)=0, and transverse velocities H-c*>0 and -(H+c*)<0. The Poincaré map is increasing and convex by scalar comparison; at infinity displacement tends to +∞ on both tails. At c=c*, the crossing residence-time derivative Q=1/(H-c*)+exp(bL)/(H+c*) gives P_uu=2bQ>0 and parameter derivative P_c=-2(1-exp(-bL))/b<0. This establishes isolated fold and, by strict monotone parameter response and convexity, exactly 0/1/2 fixed points. Reversal x(t)→-x(-t) yields initial values ±u and reciprocal multipliers. Taylor gives u~sqrt(2(1-exp(-bL))/(b² Q))sqrt(c-c*), multiplier expansions 1±2bQKsqrt(c-c*). Checked the trigonometric integration and B<A/3 derivative condition. Independent solve_ivp+root finding used three choices (A,B,b) and deltas 1e-3,1e-4; P(0,c*) residual <=6e-13, symmetric roots and predicted sqrt coefficient approached correctly. Numerical tests are corroborating, not infinite proof. Verified all seven actual Git blob identities and source tree SHA.",
+      "residual_risks": [
+        "The formal C³ regularity of the return map across transverse |x| crossing is a local crossing-time argument, not global C² everywhere.",
+        "The finite verification samples only selected waveforms; global claim is proved analytically from monotonicity and symmetry."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gasull–Zhao 2023 Theorem 1.1 classifies maximum two limit cycles under coefficient sign; its Proposition 2.3 is qualitative about splitting. https://www.researchgate.net/publication/367086201_Existence_of_at_most_two_limit_cycles_for_some_non-autonomous_differential_equations",
+          "Bravo et al. 2024 introduction §1 describes Carmona et al. 2004 reduced equation as x′=a±x+b0+b1cos t on sign sectors, and develops a trigonometric-polynomial-only family. https://link.springer.com/article/10.1007/s12346-023-00922-9",
+          "Resultary different first-harmonic piecewise scalar center finding allows four cycles with a coefficient that changes sign: 2026/10/11/SCOPE-four-hyperbolic-cycles-from-a-first-harmonic-piecewise-scalar-ce--67e74a2df2d3; its setup does not imply a formula in the constant b>0 class."
+        ],
+        "reasoning": "Broader upper bounds on cycle number are not broader evaluations of location and leading branch coefficients. The 2004 cosine family is a true special case; it does not dominate arbitrary strictly monotone even half-wave forcing. A different coefficient-sign regime supporting four cycles is inapplicable.",
+        "searches": [
+          "Resultary query: reversible time-periodic absolute-value differential equations exact two periodic orbits forcing harmonic",
+          "web: Carmona Freire Ponce Torres 2004 imamat pdf arxiv open access",
+          "web: Bravo Fernández Ojeda Hilbert Number family piecewise nonautonomous equations"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/367086201_Existence_of_at_most_two_limit_cycles_for_some_non-autonomous_differential_equations",
+        "https://link.springer.com/article/10.1007/s12346-023-00922-9",
+        "https://doi.org/10.1093/imamat/69.1.71",
+        "https://www.aimsciences.org/article/doi/10.3934/cpaa.2007.6.213",
+        "Resultary three targeted queries (self-match excluded)",
+        "Pinned mathematical package RESULT.md and its AUDIT.json self-review evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gasull–Zhao 2023 §§2–4: P>0 for crossing orbits, at most two periodic cycles, and semistable perturbation, but no formula for c_*(h,b), Q(h,b), or K(h,b). https://www.researchgate.net/publication/367086201_Existence_of_at_most_two_limit_cycles_for_some_non-autonomous_differential_equations",
+          "Bravo et al. 2024 equations (2.3), (2.4) and Theorems 2.3–2.4: implicit two-crossing equations and a trigonometric-coefficient family, not all monotone even half-waves. https://link.springer.com/article/10.1007/s12346-023-00922-9",
+          "Carmona et al. 2004 publisher abstract says Ambrosetti–Prodi-type conclusions from a reduced scalar equation; Bravo 2024 §1 identifies its forcing as b0+b1 cos t. https://doi.org/10.1093/imamat/69.1.71"
+        ],
+        "reasoning": "An upper count and generic fold perturbation do not yield the weighted half-period Laplace threshold nor the explicit Q/K and reciprocal multipliers under the quantified arbitrary h. Stronger coverage was not found in materially read sources; the old cosine subcase remains a named priority uncertainty, not a decisive coverage theorem.",
+        "searches": [
+          "Primary full text Gasull Zhao 2023 Theorem 1.1, Proposition 2.3, §§3–4",
+          "Primary full text Bravo Fernández Ojeda 2024 §§1–2 and Appendix A",
+          "Carmona et al. 2004 preprint/arXiv/open access search; institutional access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gasull–Zhao (2023), full manuscript Proposition 2.3 and §3, studies parameter perturbation of semistable cycles and convex time maps; it has no derived weighted integral threshold for a general even half-wave. https://www.researchgate.net/publication/367086201_Existence_of_at_most_two_limit_cycles_for_some_non-autonomous_differential_equations",
+          "Bravo–Fernández–Ojeda (2024), §2 equation (2.3) has a(t),b(t) first trigonometric polynomials and implicit two-crossing integrals in (2.4). https://link.springer.com/article/10.1007/s12346-023-00922-9"
+        ],
+        "reasoning": "Equivalent language includes periodic fixed points, rotating vector field parameter, half-return crossing integrals, saddle-node of the time map, and reversible reciprocal Floquet multipliers. Existing general count/implicit half-map statements do not themselves evaluate the claimed all-waveform exact threshold and curvature; the one-frequency case may be older.",
+        "searches": [
+          "Resultary query: exact fold critical threshold scalar periodic x' = b abs(x) + even half-wave antiperiodic h(t) - c and square-root splitting Floquet multipliers",
+          "web: Gasull Zhao existence at most two limit cycles and full text",
+          "web: reversible periodic absolute-value oscillator exact bifurcation weighted Laplace integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched the assigned record itself: 2026/10/11/SCOPE-exact-fold-threshold-and-square-root-splitting-for-symmetric-for--8a7eb98f9157; this was excluded from independent priority evidence.",
+          "Other top matches concerned distinct Abel equations, nilpotent cycles, or first-harmonic coefficients of changing sign; none contained this exact continuum waveform functional."
+        ],
+        "reasoning": "The claim is a weighted functional over an infinite-dimensional waveform class, not a finite known lookup table. The negative indexed search does not prove absolute novelty; it is corroborating evidence only.",
+        "searches": [
+          "Resultary query: periodic scalar piecewise linear nonautonomous ODE cosine forcing explicit saddle node fold bias weighted Laplace integral",
+          "Resultary query: exact fold critical threshold scalar periodic half-wave Laplace integral",
+          "web: exact threshold two periodic solutions absolute value cosine forcing"
+        ]
+      },
+      "rationale": "A fresh comparison of the actual mathematical implications finds no covering independent theorem. Gasull–Zhao (2023) gives global two-cycle upper bound, convexity and perturbative fold configurations, but not the exact half-wave bias functional or its explicit fold and Floquet constants. Bravo–Fernández–Ojeda (2024) restricts the coefficients to first trigonometric polynomials and develops half-map bounds, not a formula for arbitrary C^3 monotone even half-wave profiles. The older Carmona et al. cosine-reduced equation could cover the pure harmonic specialization, not the asserted arbitrary mixed-waveform class; its inaccessible text remains a priority risk. The indexed self-match was excluded as independent evidence.",
+      "residual_risks": [
+        "The full 2004 Carmona–Freire–Ponce–Torres article was inaccessible following arXiv/open-access search and authorized institutional attempt (VPN disconnected); its single-harmonic formula may overlap.",
+        "The full 2007 Bravo–Fernández–Tineo paper was not materially read; possible equivalent parameterization remains unexcluded.",
+        "Negative database/index search cannot establish absolute publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides global count/convexity and qualitative fold, not the exact all-half-wave parameter threshold or coefficient.",
+          "evidence": "Proposition 2.3 (rotated parameter fold), §3 Poincaré convexity P″>0 and Theorem 1.1; §4.2 crossing double limit cycle example.",
+          "identifier_or_url": "https://www.researchgate.net/publication/367086201_Existence_of_at_most_two_limit_cycles_for_some_non-autonomous_differential_equations",
+          "material_read": "Complete publicly displayed manuscript including Theorem 1.1, Propositions 2.1–2.6, Section 3 convexity derivation and Section 4 crossing-orbit perturbation/examples.",
+          "method": "Read full text in public research manuscript HTML and checked mathematical statements, hypotheses and parameter dependence.",
+          "title": "Existence of at most two limit cycles for some non-autonomous differential equations",
+          "trigger": "Exact general a(t)+b(t)|x| periodic ODE and at-most-two bound"
+        },
+        {
+          "assessment": "Restricts a(t),b(t) to first trigonometric polynomials; studies centers, finiteness, Hilbert numbers, not claimed general threshold.",
+          "evidence": "Introduction, equation (2.3), (2.4), Theorems 2.3–2.4 and Appendix A.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12346-023-00922-9",
+          "material_read": "Open-access full journal HTML: introduction, §§2.1–2.4, central theorems, appendix, restricted first-harmonic coefficient class.",
+          "method": "Read theorem statements and crossing integral equations (2.3)–(2.4), compare coefficient class and conclusion.",
+          "title": "Hilbert Number for a Family of Piecewise Nonautonomous Equations",
+          "trigger": "Primary comparison for piecewise absolute-value equations and half-map crossing formulas"
+        },
+        {
+          "assessment": "Important unresolved *subfamily* priority risk; available descriptions restrict the reduced forcing to b0+b1cos t. No evidence of full arbitrary h coverage.",
+          "evidence": "IMA Journal of Applied Mathematics 69 (2004) 71–91 abstract; Bravo et al. 2024 §1 at equation x′=a±x+b(t).",
+          "identifier_or_url": "https://doi.org/10.1093/imamat/69.1.71",
+          "material_read": "Publisher abstract and detailed primary 2024 full-text contextual discussion of the 2004 reduced equation; full 2004 article inaccessible.",
+          "method": "Searched arXiv and lawful open access for same paper, then attempted authorized institutional access; VPN connection required, no bypass.",
+          "title": "Invariant manifolds of periodic orbits for piecewise linear three-dimensional systems",
+          "trigger": "Older same-coefficient sinusoidally forced scalar reduction, relevant to pure harmonic subcase"
+        },
+        {
+          "assessment": "Abstract-level evidence insufficient to rule out all precise quantitative statements; retain originality risk.",
+          "evidence": "Gasull–Zhao 2023 cites it for C¹ Poincaré differentiability and derivative formula as Proposition 2.4.",
+          "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/cpaa.2007.6.213",
+          "material_read": "Cited primary reference and public publisher abstract only; full text not retrieved.",
+          "method": "Cross-checked bibliographic identification and the general qualitative result description.",
+          "title": "Periodic solutions of a periodic scalar piecewise ODE",
+          "trigger": "Broader earlier general scalar piecewise ODE framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gasull–Zhao (2023), universal two-cycle bound",
+        "Bravo et al. (2024) piecewise periodic dynamics",
+        "assigned RESULT.md analytical formula and mixed-harmonic example"
+      ],
+      "rationale": "The scalar b|x| forced oscillator is a natural exactly analyzable piecewise-linear periodic model. Determining the exact parameter at which periodic states first appear and their sharp local separation and reciprocal stability for an infinite-dimensional family of monotone symmetric forcing profiles answers more than the known universal two-cycle bound. The weighted Laplace functional distinguishes waveform shape; a mixed first/third-harmonic example shows this is not merely the classical single-sinusoid calculation. The full waveform-dependent theorem and natural bifurcation profile have plausible further use in nonlinear-oscillator comparisons.",
+      "residual_risks": [
+        "The one-frequency example alone might be known and is not the source of the PASS value judgment.",
+        "No claim of general nonsymmetric forcing or global finite-distance branch asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For b,L>0 and an even, 2L-periodic, half-wave antisymmetric C³ forcing h with h′<0 on (0,L), x′=b|x|+h(t)-c has exactly 0/1/2 distinct forcing-periodic solutions as c<c*, c=c*, c>c*, with c*=b/(1-e^{-bL})∫_0^L e^{-bt}h(t)dt, unique semistable fold at (u,c)=(0,c*), two reversible initial values ±u(c), reciprocal Floquet multipliers and stated exact square-root asymptotic coefficient K. Includes cos t+B cos3t class for 0<=B<A/3.",
+  "limitations": [
+    "General theorem depends on waveform monotonicity, evenness, and half-wave antisymmetry.",
+    "Full text of the 2004 cosine-reduction paper inaccessible because authorized institutional access requested manual VPN connection.",
+    "No use of numerical checks as proof for arbitrary C³ h.",
+    "Publication withheld pending neutralization of operational identifiers already in METADATA.json and AUDIT.json."
+  ],
+  "schema_version": 1
+}
