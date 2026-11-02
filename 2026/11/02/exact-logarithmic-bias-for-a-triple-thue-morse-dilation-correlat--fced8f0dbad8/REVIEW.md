@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Each binary input digit has two explicitly weighted carry transitions for simultaneous multiplication by three and five; after all digits, the terminal sign is the product of carry digit-parities. These seven states give \(C_r=e_1^\mathsf T M^rw\). Exact integer multiplication verifies the polynomial annihilator \(M(M^2-I)^3=0\). The seven initial correlation sums determine the full order-seven recurrence; the proposed closed form satisfies this recurrence for all exponents, so no unproved extrapolation from a finite census is used. The standalone verifier reproduces these finite matrix facts and cross-checks 65,535 original summands.
+
+**Originality — PASS within inspected evidence.** The closest mathematical source, Baake–Coons (2022), defines higher-order Thue–Morse correlations using fixed additive offsets and proves statements about their means; those results do not supply the exact, unnormalized, dyadic three-dilation statistic. Charlier–Cisternino–Massuir (2019) develop multiplier automata but do not determine this signed triple-correlation formula. Morgenbesser–Shallit–Stoll (2010) study single multiples. Searches for the three multipliers, parity aliases and equivalent carry-automaton formulas and searches in accessible mathematical research records identified no dominating result. Source coverage is incomplete, notably the inaccessible full text of Mauduit (2002), so this is a bounded originality assessment, not proof of absolute priority.
+
+**Mathematical value — PASS.** The count is a natural first nontrivial three-way joint parity statistic for the first three positive odd multiples. Its exact bias is only logarithmic in the dyadic cutoff, an unexpectedly small but nonzero correlation. The result gives every dyadic value, the rational generating function, and both parity populations; the finite carry normal form is mathematically informative and reusable for other joint digital statistics.
+
+The proof is limited to dyadic cutoffs and the dilations \(1,3,5\), and related unread or unindexed literature may imply it. Exact verification was performed locally, while independent scientific validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
