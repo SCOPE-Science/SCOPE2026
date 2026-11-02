@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every two-noun syllogistic sentence reads either zero/nonzero status of four Venn cells or the sign of one of four linear expressions in \(u=b-c\) and \(v=a-d\). The proof explicitly normalizes both differences while keeping these signs, rebuilds the same zero pattern with at most \(7\) elements, and therefore preserves every sentence. Jiang’s global full-tail/even-tail theorem restricts spectra to eleven possibilities, all realized by the displayed theories with correct extension to all larger admissible cardinalities. Independent finite enumeration was used only as corroboration, not as proof.
+PASS
 
-## Originality — PASS
+The four Venn-cell counts (a,b,c,d) determine all inclusion/Some statements by their zero pattern; every cardinal comparison of p, not-p, q, not-q is a sign of u=b-c, v=a-d, u+v or v-u. Normalizing |u| and |v| into 0,1,2 while retaining relative magnitude and signs, and rebuilding pairs (b,c),(a,d) with original positivity, costs at most 4+|u|+|v|<=7 and preserves every sentence, even for infinite theories. Jiang’s unrestricted dichotomy supplies the upper spectrum family. Eleven explicit theories have exact minima 1..7,2,4,6, and size-extension operations supply every permitted later size. Independent enumeration of 7,314 nonempty four-cell models at sizes 1..18 finds 67 profiles, all minimal profile sizes at most 7 and some requiring 7; eleven witness theories independently checked at sizes 1..12. Finite checks corroborate, do not establish, the unlimited compression.
 
-The inspected 2026 source proves the unrestricted shape classification without a sharp two-noun resource bound. A relevant publicly indexed one-noun note enumerates five spectra, not eleven. Targeted semantic searches and comparison against relevant published results found no stronger implication subsuming the seven-point compression or all eleven spectra. The older foundational literature was not universally available in full and creates residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact uniform seven-element bound makes satisfiability of all theories in the two-noun fragment reducible to a finite list of truth profiles, including when the theory is infinite. The sharp complete spectrum list isolates which unrestricted tail/even-tail behaviors survive two-noun resource constraints. This is a natural expressiveness and finite-model boundary, not an arbitrary finite instance or a restatement of the general spectrum theorem.
+Jiang establishes the full unrestricted tail-or-even-tail dichotomy but no known sharp two-raw-noun threshold from accessible abstract; an independently published Resultary theorem settles exactly five one-raw-noun spectra, not eleven two-raw-noun spectra. The actual two-noun statement, profile compression and explicit threshold-seven realizations are not implied by the single-noun analysis or the unrestricted shape classification without additional bounded-vocabulary arguments. Priority remains best of knowledge because Jiang’s full text and some older syllogistic material could not be inspected.
 
-## Closest literature and limitations
+## value
 
-The closest primary paper is Jiang, arXiv:2609.24902v1. The public one-noun spectrum result is narrower. An older cardinality-syllogistic reference was available only by abstract, so a differently phrased early counterpart is a residual originality risk. The result does not apply to three raw nouns or to Boolean connectives between sentences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of allowed raw noun variables is a natural expressivity parameter in syllogistic logic. An exact cutoff and finite spectrum classification for the first nontrivial two-variable fragment, including parity and a sharp seven-point compression theorem for all semantic profiles, is a motivated model-theoretic structural boundary rather than a routine rephrasing of the unrestricted spectrum theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
