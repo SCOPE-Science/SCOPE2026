@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:51:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45/RESULT.md Git blob 0b269f5eb063c85103a4c9f40e2a4edc78a7e9d8",
+        "2026/10/25/exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45/VERIFICATION.md",
+        "/mnt/data/scope_worker03_independent_checks_20261028.json"
+      ],
+      "rationale": "For Z_m={u_{j-1},u_j<=v_j<=1}, B_m=sum(v_j-(u_{j-1}+u_j)/2). Fubini integration over the m peak coordinates gives exactly <1,K_t^m1>, where K_t(x,z)=exp[-t(x+z)/2] ∫_max(x,z)^1 exp(ty)dy, preserving unnormalized Lebesgue volume. The Gram factorization makes K_t compact self-adjoint positive with strictly positive kernel and simple dominating Perron eigenvalue. Similarity and integration of eigenfunctions yields g''+t g'+λ^{-1}g=0, g(0)=0,g'(1)=0. Substituting u=exp(tx/2)g gives the lowest Robin mode, k cot k=t/2 for t<2 and κ coth κ=t/2 for t>2, with λ=1 at t=2. At t=0, λ(0)=4/π². Analytic perturbation of the simple principal eigenvalue yields log-mgf pressure log λ(t)/λ(0), derivatives μ=4/π² and σ²=24/π⁴-2/π²>0, O(1) cumulant edge effects and CLT via local analytic characteristic functions. λ(t) analytic/differentiable on all real t and B_m/m bounded, so differentiable full-domain Gärtner–Ellis gives full LDP with convex Legendre rate. Independent 95-node Nyström eigenvalue estimates at t=-1,0,1,2,4 agreed with root formulas within 1.6e-5; symbolic local root expansion checked separately. These quadratures do not prove full real t or all m.",
+      "residual_risks": [
+        "Canonical alternating odd-dimensional fence coordinates only; B_m is not invariant under arbitrary affine equivalence. Higher moments/densities or different fence tilings are not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benedetti et al. prove affine equivalence to fence order polytopes for snake matroids, and combinatorial/lattice properties.",
+          "Shonkwiler/Theis study confined polygon sampling, coordinate mean and chord-length marginals."
+        ],
+        "reasoning": "These stronger structural descriptions do not imply this specific coordinate-dependent tilted correlated sum under arbitrary affine maps, nor its σ² and LDP.",
+        "searches": [
+          "zigzag alternating fence order polytope peak clearance weighted transfer operator Gaussian CLT large deviations",
+          "Benedetti Knauer Valencia Porras arXiv:2303.10458 order polytope snake matroids",
+          "Shonkwiler Theis Direct Sampling of Confined Polygons in Linear Time"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.colostate.edu/~clayton/research/papers/confined-sampling.pdf (full relevant manuscript)",
+        "https://arxiv.org/abs/2303.10458 (full revised text)",
+        "https://arxiv.org/abs/0912.4240"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-point mean does not determine fluctuation variance, analytic log-mgf, or large-deviation rate of sum of dependent peaks.",
+          "Matroid affine equivalence preserves combinatorial structure but not this ambient Euclidean-coordinate slack statistic."
+        ],
+        "reasoning": "Explicit Sturm–Liouville Robin spectrum and analytic Perron eigenvalue are additional input not a direct corollary of cited combinatorial or sampling results.",
+        "searches": [
+          "Shonkwiler Theis confined polygon manuscript full text",
+          "arXiv:2303.10458 Theorem 1.1",
+          "classical Stanley alternating permutations survey arXiv:0912.4240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observed B_m is a correlated sum of v_j-(u_{j-1}+u_j)/2, not the individual u_j marginal.",
+          "Transfer operator K_t is a tilted integral over each peak, not merely the unweighted order-polytope volume operator."
+        ],
+        "reasoning": "A finite-dimensional mgf is equivalent to a weighted zigzag transfer-matrix/eigenvalue problem; compared both probability and transfer-operator vocabularies.",
+        "searches": [
+          "zigzag alternating fence order polytope peak clearance weighted transfer operator Gaussian CLT large deviations",
+          "fence order polytope weighted transfer integral maximum eigenvalue peak slack",
+          "Shonkwiler Theis confined polygons direct sampling limiting expectation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "12 Resultary nearest matches are unrelated Gaussian spectra or convex concentration problems; no indexed exact peak-clearance transform or large deviation table appeared.",
+          "The known m=1 exact mean 3/8 and variance 11/320 are elementary consistency checks, not an exact all-m table."
+        ],
+        "reasoning": "Classical stochastic integral-operator literature might give an equivalent formula; database silence cannot settle priority.",
+        "searches": [
+          "zigzag alternating fence order polytope peak clearance weighted transfer operator Gaussian CLT large deviations",
+          "Resultary zigzag alternating fence peak clearance Gaussian variance LDP search",
+          "alternating permutations order polytope tilted Euler zigzag transfer eigenvalue"
+        ]
+      },
+      "rationale": "Zigzag-order-polytope/snake-matroid identification and a limiting single-coordinate or mean law are preexisting and acknowledged. The exact all-real-t tilted transfer spectrum for the correlated total slack, variance, CLT and full large deviations are not implied by those source statements. Classical transfer kernels may contain equivalent spectral calculations under different terminology, a documented residual risk.",
+      "residual_risks": [
+        "An unindexed classical transfer-operator eigenvalue formula or integral-probability limit theorem may implicitly cover the exact tilt.",
+        "The claimed observable depends on chosen canonical coordinates, not arbitrary affine maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A related mean is preexisting; no full tilted total peak-clearance transform, asymptotic variance or LDP found in examined material.",
+          "evidence": "Sampling order and limiting single-coordinate expectations",
+          "identifier_or_url": "https://www.math.colostate.edu/~clayton/research/papers/confined-sampling.pdf",
+          "material_read": "Accessible complete manuscript, sampling and limiting coordinate/chord mean sections",
+          "method": "Primary open manuscript/full-text inspection",
+          "title": "Direct Sampling of Confined Polygons in Linear Time",
+          "trigger": "Direct work on sampling zigzag/fence order polytopes"
+        },
+        {
+          "assessment": "Affine equivalence/combinatorial geometry, not specific coordinate peak-clearance spectrum.",
+          "evidence": "Theorem 1.1 and related order-polytopal constructions",
+          "identifier_or_url": "https://arxiv.org/abs/2303.10458",
+          "material_read": "Accessible full revised arXiv HTML article, main Theorem 1.1 and fence/snake matroid sections",
+          "method": "ArXiv full-text reading",
+          "title": "Order and Gorenstein properties for lattice path matroid polytopes",
+          "trigger": "Potential all-dimensional structural source covering fence polytopes"
+        },
+        {
+          "assessment": "Unweighted volume/enumeration does not determine analytic tilt-dependent spectral branch.",
+          "evidence": "Alternating permutations and order-polytope volume connections",
+          "identifier_or_url": "https://arxiv.org/abs/0912.4240",
+          "material_read": "Accessible article statement and relevant enumeration context",
+          "method": "ArXiv source reading",
+          "title": "A Survey of Alternating Permutations",
+          "trigger": "Classical volume and Euler zigzag number relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45/RESULT.md",
+        "https://www.math.colostate.edu/~clayton/research/papers/confined-sampling.pdf (full relevant manuscript)",
+        "https://arxiv.org/abs/2303.10458 (full revised text)"
+      ],
+      "rationale": "The finite-m tilted clearance-volume integral is a natural exact invariant of alternating-fence order polytopes and specifies more than the previously known total volume or single-coordinate mean. An explicit Robin eigenvalue for every tilt gives correlated Gaussian fluctuation variance and all-rate large deviations; these are mathematically motivated probabilistic descriptions of a canonical order-polytope model.",
+      "residual_risks": [
+        "Scientific value concerns the precise stated invariant and scope, not a generalization beyond its explicit hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-tilted-spectrum-and-gaussian-peak-clearance-fluctuations-i--47e0fbbf6b45",
+    "https://www.math.colostate.edu/~clayton/research/papers/confined-sampling.pdf (full relevant manuscript)",
+    "https://arxiv.org/abs/2303.10458 (full revised text)",
+    "https://arxiv.org/abs/0912.4240"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Canonical alternating odd-dimensional fence coordinates only; B_m is not invariant under arbitrary affine equivalence. Higher moments/densities or different fence tilings are not classified.",
+    "Preexisting public AUDIT.json and METADATA.json contain scope_run_id operational provenance. Complete confidentiality-neutral replacement scientific/metadata bytes were not supplied and semantically verified in this execution; publication withheld. The minimal server-generated status plan cannot itself certify removal from unchanged source public metadata.",
+    "Independent bounded checks do not imply unbounded mathematical claims or formal certification."
+  ],
+  "residual_risks": [
+    "An unindexed classical transfer-operator eigenvalue formula or integral-probability limit theorem may implicitly cover the exact tilt.",
+    "The claimed observable depends on chosen canonical coordinates, not arbitrary affine maps.",
+    "Canonical alternating odd-dimensional fence coordinates only; B_m is not invariant under arbitrary affine equivalence. Higher moments/densities or different fence tilings are not classified."
+  ],
+  "schema_version": 1
+}

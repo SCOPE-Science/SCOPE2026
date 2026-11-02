@@ -1,15 +1,21 @@
-# Scientific assessment: tilted peak clearance in alternating fence polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-For the stated \(2m+1\)-coordinate inequalities, independent integration over the \(m\) peaks yields the precise symmetric nonnegative transfer kernel and exact finite-volume moment-generating function. The kernel is a Gram operator and positivity improving; the eigen-equation is conjugate to a second-order constant-coefficient boundary-value problem whose lowest root gives the displayed spectral radius in all three regimes \(t<2\), \(t=2\), and \(t>2\). A positive simple eigenvalue with spectral gap gives analytic cumulant expansions and the Gaussian central limit; differentiability for all real tilts and bounded observables provide a full large-deviation principle. A standalone computational checker confirms 22 finite comparisons, including independent one-peak moment values and both root regimes. The asymptotic theorem is justified by the operator proof, not by the checks.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary source (Benedetti–Knauer–Valencia-Porras, arXiv:2303.10458, Theorem 1.1 and Section 3) covers affine fence/snake identification, volumes, and lattice/Ehrhart geometry, but not the exponential clearance transform or its spectral cumulants. Stanley's alternating-permutation survey covers zigzag order-polytope volumes. Shonkwiler–Theis's sampling paper obtains the interior one-coordinate limit and corresponding first-order mean; therefore the average-clearance mean \(4/\pi^2\) is treated as supporting known information rather than separately novel. The evaluated contribution is the tilted-volume eigenlaw, its fluctuation variance and central limit, and the large-deviation profile. Targeted searches of mathematical findings and publication text did not identify a dominating prior theorem. A differently named continuum transfer-operator treatment remains a bibliographic residual risk, not resolved by searches alone.
+PASS
 
-## Mathematical value — PASS
-Incident facet slacks are geometrically natural local distances in the canonical order-polytope coordinates. Although the marginal peak height is known, the m-peak correlated sum is not determined by a marginal law: its exact all-tilt volume and strictly positive asymptotic variance quantify global nontrivial correlations across an infinite polytope family. The explicit trigonometric/hyperbolic crossover and the large-deviation rate control rare near-boundary clearance configurations, giving more information than the lattice volume or a routine expectation. The result is a structural law, not a small-dimensional isolated calculation.
+For Z_m={u_{j-1},u_j<=v_j<=1}, B_m=sum(v_j-(u_{j-1}+u_j)/2). Fubini integration over the m peak coordinates gives exactly <1,K_t^m1>, where K_t(x,z)=exp[-t(x+z)/2] ∫_max(x,z)^1 exp(ty)dy, preserving unnormalized Lebesgue volume. The Gram factorization makes K_t compact self-adjoint positive with strictly positive kernel and simple dominating Perron eigenvalue. Similarity and integration of eigenfunctions yields g''+t g'+λ^{-1}g=0, g(0)=0,g'(1)=0. Substituting u=exp(tx/2)g gives the lowest Robin mode, k cot k=t/2 for t<2 and κ coth κ=t/2 for t>2, with λ=1 at t=2. At t=0, λ(0)=4/π². Analytic perturbation of the simple principal eigenvalue yields log-mgf pressure log λ(t)/λ(0), derivatives μ=4/π² and σ²=24/π⁴-2/π²>0, O(1) cumulant edge effects and CLT via local analytic characteristic functions. λ(t) analytic/differentiable on all real t and B_m/m bounded, so differentiable full-domain Gärtner–Ellis gives full LDP with convex Legendre rate. Independent 95-node Nyström eigenvalue estimates at t=-1,0,1,2,4 agreed with root formulas within 1.6e-5; symbolic local root expansion checked separately. These quadratures do not prove full real t or all m.
 
-## Closest literature and scientific boundaries
-The 2023 snake/fence identification is not reproved or claimed as original. The 2025 uniform-coordinate sampling work is credited where it already implies the first-order mean. The claim is restricted to canonical odd-length alternating fences and ambient Lebesgue measure; it should not be transferred to intrinsic Euclidean metrics of affinely equivalent matroid base polytopes without explicitly transforming the observable. Independent bibliographic and mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zigzag-order-polytope/snake-matroid identification and a limiting single-coordinate or mean law are preexisting and acknowledged. The exact all-real-t tilted transfer spectrum for the correlated total slack, variance, CLT and full large deviations are not implied by those source statements. Classical transfer kernels may contain equivalent spectral calculations under different terminology, a documented residual risk.
+
+## value
+
+PASS
+
+The finite-m tilted clearance-volume integral is a natural exact invariant of alternating-fence order polytopes and specifies more than the previously known total volume or single-coordinate mean. An explicit Robin eigenvalue for every tilt gives correlated Gaussian fluctuation variance and all-rate large deviations; these are mathematically motivated probabilistic descriptions of a canonical order-polytope model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
