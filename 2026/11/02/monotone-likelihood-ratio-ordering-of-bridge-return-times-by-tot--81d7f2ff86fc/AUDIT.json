@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Complete Catalan first-return enumeration gives \\(2C_{j-1}\\) excursions of semilength \\(j\\); Lagrange inversion gives \\(a_{n,k}=[z^n]F(z)^k\\). The marked-return decomposition proves the conditional law on its entire support. The adjacent conditional likelihood ratio reduces to \\((u-q)/(2u-q-1)\\), whose derivative in \\(u\\) is \\((q-1)/(2u-q-1)^2\\); the omitted rightmost support point ensures strict stochastic ordering even at q=1 and singleton-support boundaries. At \\(q=1\\) the ratio is constant on common support, so the conditional law is an exact truncation and its TV distance equals the removed mass. A standalone exact checker passes 438,359 assertions, including exhaustive bridges through 20 steps and formula/normalization/order checks through semilength 40. The proof, not computation, covers all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lindell and Holst (2007), Journal of Applied Probability 44:1056-1067, DOI 10.1239/jap/1197908824; Section 2 gives the excursion generating function; Section 3 concerns ranked excursion lengths and Brownian-bridge limits.",
+        "Lindell–Holst analyze ranked longest excursions, a distinct functional from chronological r-th return time; Voss treats only the total count."
+      ],
+      "reasoning": "Neither the maximum-excursion distribution nor the marginal total-return distribution implies the conditional likelihood-ratio ordering of chronological return times without the new conditional coefficient calculation. No inspected general comparison theorem covering all ranks and k was identified.",
+      "searches": [
+        "conditional stochastic ordering return times random walk bridges conditioned local time",
+        "simple symmetric random walk bridges returns to zero maximum longest excursion duration conditional number of returns stochastic order",
+        "https://doi.org/10.1239/jap/1197908824"
+      ]
+    },
+    "checked_sources": [
+      "Lindell–Holst, Journal of Applied Probability 44 (2007), DOI 10.1239/jap/1197908824 (primary PDF)",
+      "Voss, Random walk bridges (2007-10-17), https://www.seehuhn.de/blog/6.html",
+      "published-finding corpus search on bridge excursions, chronological return ranks, Lagrange/Catalan equivalences, and monotone-likelihood-ratio terminology",
+      "Previously recorded bridge/peak claim cd2d4d6d-5efe-484f-9560-36b0fb4d49ac and bridge/energy claim 62634418-9f2b-4fe5-88fe-e04e2e799b10, compared for logical implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lindell and Holst (2007), Journal of Applied Probability 44:1056-1067, DOI 10.1239/jap/1197908824; Section 2 gives the excursion generating function; Section 3 concerns ranked excursion lengths and Brownian-bridge limits.",
+        "Voss (2007-10-17), https://www.seehuhn.de/blog/6.html, derives the distribution of the total number of zero returns, but does not condition rank-resolved chronological return times on that count.",
+        "Prior own claim cd2d4d6d-5efe-484f-9560-36b0fb4d49ac concerns peak regression given the total return count. Prior own claim 62634418-9f2b-4fe5-88fe-e04e2e799b10 concerns quadratic energy covariance with return counts."
+      ],
+      "reasoning": "The new result orders the conditional distributions of rank-indexed return times, not maxima, peaks, energy, or counts alone. The latter do not imply this return-time order; the classical generating functions supply the starting counts, while a new ratio comparison establishes the theorem. The special case with one remaining excursion is an exact conditioning/truncation statement not present in the identified sources.",
+      "searches": [
+        "simple random walk bridges conditioned on exact total number of excursions return time of rth visit zero likelihood ratio ordering monotonicity Catalan",
+        "Lindell Holst Distributions of the Longest Excursions in a Tied Down Simple Random Walk Brownian Bridge 2007",
+        "https://www.seehuhn.de/blog/6.html",
+        "https://doi.org/10.1239/jap/1197908824"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lindell and Holst (2007), Journal of Applied Probability 44:1056-1067, DOI 10.1239/jap/1197908824; Section 2 gives the excursion generating function; Section 3 concerns ranked excursion lengths and Brownian-bridge limits.",
+        "The chronological r-th return equals the sum of the first r excursion lengths; the resulting coefficient ratio is explicitly compared at adjacent total excursion counts."
+      ],
+      "reasoning": "Equivalent plane-Catalan-forest compositions or tied-down renewal sums have the same coefficient law, but the investigated sources did not assert the conditional monotone likelihood-ratio comparison or its boundary truncation. A merely similar Catalan formula is not by itself an explicit broader dominance theorem.",
+      "searches": [
+        "simple random walk bridges conditioned on exact total number of excursions return time of rth visit zero likelihood ratio ordering monotonicity Catalan",
+        "Catalan ballot forest count a(n,k) conditional rth return time monotone likelihood ratio total variation",
+        "https://doi.org/10.1239/jap/1197908824"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus search yielded unrelated closest IDs such as 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17 and 2026/10/4/SCOPE-catalan-schr-der-orbit-profiles-of-ordered-ultrametric-ball-pres--e6f7c412919e.",
+        "Finite exact bridge enumerations in the supplied checker establish numerical consistency only and are not novelty evidence."
+      ],
+      "reasoning": "No published-finding corpus hit or inspected published numerical table provides the full exact conditional return-time law together with the likelihood-ratio hierarchy and sharp total-variation boundary identity. Similarity search cannot establish absolute novelty.",
+      "searches": [
+        "Lindell Holst Distributions of the Longest Excursions in a Tied Down Simple Random Walk Brownian Bridge 2007",
+        "Jochen Voss Random walk bridges 2007 number of visits zero conditional returns probability",
+        "Catalan ballot forest count a(n,k) conditional rth return time monotone likelihood ratio total variation",
+        "simple random walk bridges conditioned on exact total number of excursions return time of rth visit zero likelihood ratio ordering monotonicity Catalan"
+      ]
+    },
+    "rationale": "Full-text comparison with Lindell–Holst (2007), supplemented by Voss (2007) and relevant search results, identified the pre-existing excursion generating function and total-return-count law as inputs, but no rank-resolved finite conditional monotone likelihood-ratio theorem or exact last-return TV identity. Comparisons with reachable own records on bridge peaks and quadratic energy show distinct objects and consequences. Historical priority is qualified because classical enumeration could conceal an equivalent earlier observation.",
+    "residual_risks": [
+      "The ordering may be an unstated consequence of a more general renewal or composition comparison theorem not identified during the bounded literature review.",
+      "Classical Catalan/ballot coefficients are long known; priority is asserted only for the complete conditional order and sharp boundary identity, not for its starting enumeration.",
+      "No independent mathematical audit or exhaustive literature certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper derives a first-return generating function and ranked-longest-excursion distributions, but no rank-conditioned chronological return-time likelihood-ratio ordering",
+        "evidence": [
+          "Journal of Applied Probability 44 (2007), pp. 1056–1067, especially §§2–3 and Appendix A",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/DBFE4C12676F551D6F5095BAAA8ED354/S0021900200003739a.pdf/distributions_of_the_longest_excursions_in_a_tied_down_simple_random_walk_and_in_a_brownian_bridge.pdf"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1197908824",
+        "material_read": "Full 12-page article text: Sections 1–4, Proposition 2.1, Proposition 3.1, Theorem 3.1, ranked-excursion corollaries, numerical section and Kummer appendix",
+        "method": "Read primary open-access journal PDF, checking its formulas and original result scope",
+        "title": "Distributions of the Longest Excursions in a Tied Down Simple Random Walk and in a Brownian Bridge",
+        "trigger": "Same bridge and excursion-size setting, potentially dominating original joint law"
+      },
+      {
+        "assessment": "Marginal number-of-returns law, without the chronological conditional rank-indexed law or MLR theorem",
+        "evidence": [
+          "Post dated 2007-10-17",
+          "https://www.seehuhn.de/blog/6.html"
+        ],
+        "identifier_or_url": "https://www.seehuhn.de/blog/6.html",
+        "material_read": "Entire public post on zero-visit distribution and its bijections",
+        "method": "Read article prose and displayed return-count identities",
+        "title": "Random walk bridges",
+        "trigger": "Same exact total-return statistic and explicit earlier dated baseline"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81d7f2ff-86fc-4fdb-af00-5df8d1c64236",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The chronological r-th return is an intrinsic mark of the local-time/renewal profile of a finite tied-down walk. The theorem establishes a full likelihood-ratio order, stronger than moment or stochastic comparisons, uniformly over every rank \\(r\\), bridge size \\(n\\) and return-count level \\(k\\). It implies ordering of all increasing return-time losses and yields a sharp exact conditioning/total-variation identity for the penultimate-return boundary. This is a natural structural dependence result with a complete domain, not an arbitrary fixed numerical instance.",
+    "status": "PASS"
+  }
+}
