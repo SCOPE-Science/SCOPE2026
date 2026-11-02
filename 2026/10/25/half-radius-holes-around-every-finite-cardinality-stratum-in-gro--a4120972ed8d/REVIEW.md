@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The construction adds \(n+1-|X|\) points at separation \(R\) from a chosen base point and at distances \(R+d_X(x_0,x)\) from the original space. The resulting correspondence has distortion \(R\). Pigeonhole forces every correspondence to any space with at most \(n\) points to identify two points separated by at least \(R\), giving the matching lower bound. The proof also establishes closedness, density of finite spaces, and meagreness.
+## correctness
 
-## Originality
-PASS relative to checked sources. Ivanov–Tuzhilin study local neighborhoods of finite spaces in general position but do not state the exact half-radius hole or the distance-to-stratum equality. Ishiki's recent abstract establishes a global topological classification, which does not preserve metric porosity; its full text could not be retrieved, so that remains an explicit risk. Fukano's abstract concerns isometric embeddings and does not state this estimate.
+PASS
 
-## Value
-PASS. The result strengthens the familiar dense-meagre observation to an explicit radius-\(R/2\) hole at every sufficiently small scale around every finite center. It is a metric-geometric statement about the location of finite-cardinality strata, rather than a consequence of topology alone.
+Let m=|X| and x0 in X; add q=n+1-m points mutually at distance R and at distance R+d_X(x0,x) from each old x. All triangle inequalities hold, the strict R<sep(X) makes minimum separation of Y exactly R, and |Y|=n+1. Identity on X plus mapping all new points to x0 is a full correspondence of distortion exactly R; any correspondence from Y to <=n points must pair two distinct Y points to the same image, forcing distortion >=minsep(Y)=R. Thus d_GH(X,Y)=dist(Y,M<=n)=R/2; the open GH ball about Y of radius R/2 avoids the stratum and lies inside B(X,R). A separated (n+1)-point subset gives the closure argument, finite epsilon nets show density, and countable union of closed nowhere dense strata gives meagreness. An independently exhaustive finite X2/Y3 correspondence calculation found min distortion R=1 over 25 surjective correspondences. The general claim rests on the correspondence proof, not that example.
 
-## Closest literature and limitations
-The closest sources are arXiv:1611.04484v1 on local structure near finite metric spaces, arXiv:2609.09639v1 on the global topology of Gromov–Hausdorff space, and arXiv:2609.21469v1 on isometric embeddings into that space. The latter two were available only as abstracts in this run. The proof applies for \(0<R<\operatorname{sep}(X)\); no claim is made at larger radii.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level implication and object/parameter comparisons checked in cited primary literature and Resultary; novelty is best-of-knowledge, with named inaccessible full texts and generic-theorem risks. The previously known subclaims are explicitly excluded from the novelty claim.
+
+## value
+
+PASS
+
+Finite metric spaces are dense but stratified by cardinality; a sharp uniform half-scale explicit GH hole at every finite center and every sufficiently small radius is a substantive metric-geometric quantitative strengthening of the elementary dense/meagre statement. It survives all degeneracies and is not implied by topological homeomorphisms or local generic-point neighborhoods. The construction can be used as an exact separation witness in GH metric arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
