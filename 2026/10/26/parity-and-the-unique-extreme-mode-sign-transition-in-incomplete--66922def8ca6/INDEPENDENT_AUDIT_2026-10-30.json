@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:49:34.976251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md full interpolation remainder and Ritz boundary proof; original verify.py read",
+        "independent_checks.py 6 bounded exact/float interpolation sign checks",
+        "Published m=2 special case primary RESULT.md read in full"
+      ],
+      "rationale": "Exact polynomial Lanczos identity yields y_m(t)=p_(m-1,t)(A)b, with interpolation at Ritz nodes. Strict Ritz upper bound follows because a Krylov polynomial of degree <m cannot isolate L when m<s. Hermite–Genocchi integral gives p_(m-1,t)(x)e^(tx)=1−(−1)^m H_m(t,x), where H_m=t^m prod(x−theta_j)∫_{Delta_m}exp[t Σu_j(x−theta_j)]du. For x>theta_m, H_m grows continuously and strictly from 0 to infinity as t rises; odd m then remains positive while even m crosses uniquely, and H_m grows with extrapolation x, yielding decreasing crossing times. Lagrange coefficients show top-mode relative error has sign (−1)^(m−1) and diverges exponentially at rate L−theta1. Independent interpolation sign tests covered 6 depths; the analytic simplex argument proves the arbitrary-depth result.",
+      "residual_risks": [
+        "Only the largest physical eigenvalue coordinate and monotonicity above all Ritz nodes; odd m does NOT imply positivity in every physical coordinate.",
+        "m=s full Krylov terminates exactly, so transition theorem excludes that case.",
+        "Finite numerical checks are corroborative; no floating-point robustness claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al present optimal rational matrix-function approximation and standard Lanczos matrix-function primitives; Druskin abstract/main introduction establish strict Euclidean error norm decrease and approximation norm increase, not physical-coordinate positivity."
+        ],
+        "reasoning": "Broader matrix classes/methods in prior papers do not logically imply componentwise high-mode sign rule; acknowledge incomplete Druskin full text material.",
+        "searches": [
+          "lanczos matrix exponential positivity largest eigenvalue coordinate parity interpolation sign change",
+          "https://arxiv.org/pdf/2202.11251",
+          "DOI:10.1016/j.laa.2008.04.046"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: lanczos matrix exponential positivity largest eigenvalue coordinate parity interpolation sign change",
+        "Published Resultary full RESULT.md for m=2 horizon",
+        "Chen et al arxiv:2202.11251 primary PDF sections 1–2",
+        "Druskin DOI:10.1016/j.laa.2008.04.046 authorized first pages and abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither a degree-one interpolant horizon nor convergence/norm estimates imply higher-degree interpolants have one sign switch at the top mode. The latter follows the sign of the order-m divided difference and its increasing absolute magnitude."
+        ],
+        "reasoning": "The material needed beyond prior formulas is a structural all-m sign/monotonicity analysis; classical interpolation implication remains an explicit originality risk.",
+        "searches": [
+          "lanczos matrix exponential positivity largest eigenvalue coordinate parity interpolation sign change",
+          "arxiv:2202.11251",
+          "m=2 published Resultary full source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 two-step theorem is the exact m=2 restriction. The all-depth result uses standard interpolation remainder plus strict Ritz extremality, but applies to every odd/even m and monotone x>theta_m thresholds."
+        ],
+        "reasoning": "Explicitly remove the previously covered m=2 subclaim from novelty; standard polynomial interpolation formulas alone are methods, not the evaluated whole parity law without a sign argument.",
+        "searches": [
+          "lanczos matrix exponential positivity largest eigenvalue coordinate parity interpolation sign change",
+          "Resultary exact positivity horizon two-step Lanczos exponential",
+          "DOI:10.1016/j.laa.2008.04.046"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact two-step time t*=(theta2−theta1)^(-1) log((L−theta1)/(L−theta2)) and three-dimensional witness are already published."
+        ],
+        "reasoning": "Finite m=2 entry and numerical examples do not determine m>=3 all-Ritz simplex transition; treated as prior data.",
+        "searches": [
+          "lanczos matrix exponential positivity largest eigenvalue coordinate parity interpolation sign change",
+          "Resultary m=2 positivity horizon",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8"
+        ]
+      },
+      "rationale": "Published 2026 Resultary two-step positivity horizon covers exactly m=2 and even gives whole-coordinate positivity before its horizon. That special case is expressly excluded from the novel content. Chen–Greenbaum–Musco–Musco (2023) and Druskin (2008) treat Krylov approximation, norm errors, and reduced Jacobi-vector positivity, not the all-m physical top-eigenmode parity. General Hermite–Genocchi interpolation is classical; the structurally meaningful all-depth sign dichotomy requires its specialized Ritz evaluation. The older Druskin primary PDF could only be read through early pages after authorized access; later read was blocked, so its full section coverage remains a residual priority risk.",
+      "residual_risks": [
+        "The m=2 theorem and Newton divided difference representation are prior work, not claimed as novel.",
+        "A classical interpolation text might already explicitly state the alternating extrapolation sign for every node count and monotone unique crossing, potentially reducing the contribution to routine application.",
+        "Further authorized full-text reading of Druskin after initial successful retrieval was blocked by a safety gate; cannot claim whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Completely covers m=2, explicitly excludes higher Krylov dimensions; no all-m parity theorem in full text",
+          "evidence": [
+            "Explicit limitation: m=2 only; m>=3 sign geometry not claimed"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+          "material_read": "Entire published primary RESULT.md: theorem, exact witness, interpolation proof, source comparison and limitations",
+          "method": "Fetched GitHub primary full file via read-only connector",
+          "title": "The exact positivity horizon of the two-step Lanczos exponential",
+          "trigger": "Identical exponential action, top physical coordinate at m=2"
+        },
+        {
+          "assessment": "Optimizes weighted-norm rational approximation; inspected material does not prove top physical coordinate parity",
+          "evidence": [
+            "Definition of Krylov space and Lanczos-FA, Theorem 2.2 is H-norm optimality of Lanczos-OR"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.11251",
+          "material_read": "Primary PDF abstract, introduction, Sec. 1.2 and rational optimization Sec. 2 through Theorem 2.2; page 3 screenshot",
+          "method": "Opened arXiv PDF, read model and method definitions, inspected key theorem page",
+          "title": "Low-memory Krylov subspace methods for optimal rational matrix function approximation",
+          "trigger": "Same Lanczos matrix function operator and polynomial-exponential benchmark"
+        },
+        {
+          "assessment": "Main abstract claims strict norm-error and approximation-norm monotonicity; no valid whole-document noncoverage conclusion without later pages",
+          "evidence": [
+            "Abstract: strictly monotonic Euclidean approximation error decrease and norm increase as m grows; full detailed lemmas not inspected"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2008.04.046",
+          "material_read": "Authorized complete five-page PDF became available; actual read was page 1 abstract/introduction and beginning of page 2 SLDM setup. A subsequent read was safety-blocked; remainder not read.",
+          "method": "Lawful authorized institutional retrieval; read returned page text; did not bypass later block",
+          "title": "On monotonicity of the Lanczos approximation to the matrix exponential",
+          "trigger": "Same exact spectral Lanczos algorithm and potentially stronger positivity lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact positivity/relative-error theorem",
+        "Earlier m=2 Resultary theorem establishes natural base case and motivates all-depth extension"
+      ],
+      "rationale": "The approximation targets a positivity-preserving semigroup but truncation can lose positivity. The theorem gives a complete all-depth parity classification at the stiffest physical eigenmode, a unique time threshold at every even depth, and demonstrates that odd-depth sign preservation is compatible with exponentially bad relative accuracy. This is a directly motivated structural warning for Lanczos exponentials, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "No general componentwise positivity result outside the extreme eigenmode, exact arithmetic and diagonal matrices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For incomplete symmetric Lanczos approximation of positive diagonal exponential actions, the extreme physical eigenmode is positive at all times for odd Krylov dimensions, but has one strictly monotone sign loss for even dimensions; high-extrapolation crossing occurs sooner at larger eigenvalues, while relative errors grow exponentially.",
+  "limitations": [
+    "Published m=2 horizon is already known; novelty scope only m odd and m even at least 4.",
+    "Classic interpolation is not itself novel and may imply the sign dichotomy in earlier literature.",
+    "Authorized Druskin full-text subsequent read was safety blocked; retain as material priority uncertainty."
+  ],
+  "schema_version": 1
+}

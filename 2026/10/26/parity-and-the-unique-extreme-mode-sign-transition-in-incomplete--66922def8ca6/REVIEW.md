@@ -1,15 +1,21 @@
-# Scientific review: extreme-mode sign parity in Lanczos exponential approximation
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is the exact-arithmetic, incomplete, polynomial symmetric Lanczos approximation applied to an entrywise positive starting vector and a positive diagonal generator. The orthogonal-polynomial/Krylov representation yields a degree-\(m-1\) Ritz interpolation polynomial. Exact Newton remainder plus the Hermite–Genocchi integral yields \(p_{m-1,t}(x)e^{tx}=1-(-1)^mH_m(t,x)\), with \(H_m(0,x)=0\), strictly increasing to infinity for \(x>\theta_m\). This proves both the all-time odd-depth sign and the sole even-depth crossing, including boundaries. Relative-error growth follows from the leading Lagrange basis coefficient. The provided Python verification reproduces finite checks of representative depths; it is not substituted for the analytic argument.
+## correctness
 
-## Originality — PASS (best-knowledge, residual risk)
-The closest prior statement is *The exact positivity horizon of the two-step Lanczos exponential* (2026), which covers exactly \(m=2\). Its complete mathematical presentation was inspected and its higher-depth disclaimer checked. The general Lanczos-FA background in Chen–Greenbaum–Musco–Musco (arXiv:2202.11251, 2022) was inspected in full-text sections covering Lanczos and matrix functions, without finding the extreme-mode sign parity. Related polynomial/rational Krylov background in Bergermann–Stoll (arXiv:2303.09482, 2023), Druskin (2008) bibliographic context, published-result searches, and accessible mathematical claims showed no result entailing the all-order odd/even sign law. The possibility of an earlier equivalent interpolation lemma specialized to Krylov extrapolation is the main unresolved risk. A failed search alone does not certify novelty.
+PASS
 
-## Value — PASS
-The result distinguishes sign preservation from approximation accuracy across every incomplete Krylov dimension, showing an alternating parity obstruction to preserving the highest-frequency positive mode. The uniqueness and monotonic spectral ordering of crossings yield an exact, non-asymptotic failure criterion at *each even depth*, and the odd-depth error asymptotic prevents mistaking a positive coordinate for a reliable approximation. This is a natural structural extension of the known two-step phenomenon, not another isolated finite witness.
+Exact polynomial Lanczos identity yields y_m(t)=p_(m-1,t)(A)b, with interpolation at Ritz nodes. Strict Ritz upper bound follows because a Krylov polynomial of degree <m cannot isolate L when m<s. Hermite–Genocchi integral gives p_(m-1,t)(x)e^(tx)=1−(−1)^m H_m(t,x), where H_m=t^m prod(x−theta_j)∫_{Delta_m}exp[t Σu_j(x−theta_j)]du. For x>theta_m, H_m grows continuously and strictly from 0 to infinity as t rises; odd m then remains positive while even m crosses uniquely, and H_m grows with extrapolation x, yielding decreasing crossing times. Lagrange coefficients show top-mode relative error has sign (−1)^(m−1) and diverges exponentially at rate L−theta1. Independent interpolation sign tests covered 6 depths; the analytic simplex argument proves the arbitrary-depth result.
 
-## Scope and limitations
-The theorem does not claim all-coordinate positivity for odd depths, an optimal approximation, a general non-diagonal positive-semigroup theorem, or any finite-precision guarantee. Its first-public date is the February 23, 2022 arXiv record for the primary Lanczos-FA literature, not a date for the new theorem. The source paper's primary 2020 MSC classification is 65F60. Independent review and validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published 2026 Resultary two-step positivity horizon covers exactly m=2 and even gives whole-coordinate positivity before its horizon. That special case is expressly excluded from the novel content. Chen–Greenbaum–Musco–Musco (2023) and Druskin (2008) treat Krylov approximation, norm errors, and reduced Jacobi-vector positivity, not the all-m physical top-eigenmode parity. General Hermite–Genocchi interpolation is classical; the structurally meaningful all-depth sign dichotomy requires its specialized Ritz evaluation. The older Druskin primary PDF could only be read through early pages after authorized access; later read was blocked, so its full section coverage remains a residual priority risk.
+
+## value
+
+PASS
+
+The approximation targets a positivity-preserving semigroup but truncation can lose positivity. The theorem gives a complete all-depth parity classification at the stiffest physical eigenmode, a unique time threshold at every even depth, and demonstrates that odd-depth sign preservation is compatible with exponentially bad relative accuracy. This is a directly motivated structural warning for Lanczos exponentials, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
