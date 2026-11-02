@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:49:56Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 04ccd8281456d87c726cd4845e9862415374fef8; original verification source blob a9e38d75d97a7d725d6e3d667323519310b21872 inspected.",
+        "independent_fermat_lattice_results.json: all 1128 exact F25 line-pair incidence ranks, 48x48 Gram rank20 and determinant-64 basis, 24x24 trace Gram rank8, HNF rank8, det-4096, SNF 2^6 8^2, rank mod2 8.",
+        "independent_checks_results.json: independent complete F5 and F25 normalized projective counts and discriminant group arithmetic.",
+        "Schütt–Shioda–van Luijk arXiv:0812.2377, Proposition6.2 gives characteristic-zero full line lattice and discriminant -64; Shimada–Shioda arXiv:1604.06265 gives 48 line model."
+      ],
+      "rationale": "The smooth Fermat quartic over F5 has 48 explicit geometric lines over F25, three partitions times sixteen parameter choices, all exchanged in 24 nonfixed Frobenius pairs. Independent finite-field rank of each combined pair of line equations over F25 checked all 1128 intersections; Gram G has rank20, signature eigenvalues 12,-12,-8(6),-4(12),0(28), an integral twenty-line basis of discriminant -64, as supported by published complex Fermat quartic lattice. The F5 point count zero and H2 Lefschetz trace, together with Deligne Weil purity, identify the 2-dimensional Frobenius complement with roots -3±4i, whose normalized roots are not roots of unity; geometric NS rank remains20. Kummer specialization excludes all prime-to-5 overindex and the discriminant64 excludes 5-overindex. For the 24 trace divisors the HNF lattice has rank8, determinant -4096, Smith factors (2,2,2,2,2,2,8,8); independent mod2 rank8 eliminates all possible index-two invariant overlattices because 2L^Frob lies in the trace lattice. Point counts #X(F5)=0, #X(F25)=1112 agree with zeta but are not themselves the novelty claim.",
+      "risks": [
+        "Uses published geometric line generation and standard smooth proper base change/Kummer input, not formal proof-assistant certification.",
+        "The characteristic-zero Galois ranks are a different arithmetic problem; unindexed char5 integral calculations possible."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schütt et al. classify complex geometric line generation for many degrees, including quartic.",
+          "Shimada–Shioda study an alternative quartic model and positive-characteristic reductions; 56-line geometry not 24 trace fixed lattice.",
+          "Degtyarev broader line-generation theorem concerns underlying geometric lattices."
+        ],
+        "reasoning": "General degree coverage does not supply the requested arithmetic Frobenius-fixed subgroup or its integral index/discriminant at p=5.",
+        "searches": [
+          "arXiv:0812.2377 Theorem1.1 Prop6.2 Fermat surface integral line generation",
+          "arXiv:1604.06265 §3 §5 reductions 56 lines",
+          "arXiv:1305.3073 lines generate Picard groups certain Fermat surfaces"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.2377v3 full §6.1",
+        "arXiv:1604.06265v3 full introduction and selected §§3–5",
+        "arXiv:1305.3073 integral line generation context",
+        "arXiv:2607.17387 abstract; PDF inaccessible",
+        "Resultary finite-field Fermat-lattice exact query 2026-10-28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Geometric NS rank20/disc -64 does not determine fixed NS group under Frobenius.",
+          "F5/F25 zeta/count gives eigenvalue multiplicities and rank8 but not a discriminant group or saturation; 2-adic Smith calculations are separate."
+        ],
+        "reasoning": "The exact integral invariant subgroup and index-one trace generation require new finite-field intersection/HNF/saturation work not implied by earlier geometric/rational data.",
+        "searches": [
+          "arXiv:0812.2377 Proposition6.2",
+          "arXiv:1604.06265 48 lines and quartic reduction",
+          "arXiv:2607.17387 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:0812.2377 Prop6.2 is geometric over C; arXiv:1604.06265 provides 48-line and reduction geometry.",
+          "arXiv:2607.17387 studies Galois modules/ranks over number fields, not F5 integral invariant Gram group."
+        ],
+        "reasoning": "Checked finite-field Frobenius-invariant lattice, not same as a rational number-field Galois invariants table or geometric NS rank alone.",
+        "searches": [
+          "Resultary: Fermat quartic over F5 Frobenius invariant Neron Severi lattice 24 trace divisors rank8 discriminant",
+          "web: Fermat quartic characteristic5 Picard Frobenius trace divisor lattice",
+          "arXiv:2607.17387 Galois-invariant NS ranks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact mathematical records had no match for 24 trace divisors or arithmetic Smith profile; Schütt–Shioda–van Luijk gives only -64 geometric discriminant.",
+          "2026 Jumagulov paper tabulates number-field rational ranks 4<=d<=30, but not this finite-field integral lattice."
+        ],
+        "reasoning": "No verified exact existing arithmetic Smith table for this surface; search nonfindings do not prove absolute novelty.",
+        "searches": [
+          "Resultary: Fermat quartic F5 Frobenius invariant trace 24 lattice discriminant -4096",
+          "web: Picard lattice Fermat quartic over F5 2^6 8^2"
+        ]
+      },
+      "rationale": "Older primary work establishes the geometric 48-line lattice, and classical Jacobi sums imply point counts/zeta. The surviving claim is specifically the integral characteristic-five Frobenius-fixed arithmetic lattice: rank8, 24 degree-two trace generators with index1, discriminant -4096 and full Smith group. A 2026 Fermat Galois-rank paper studies rational ranks over number fields rather than finite-field fixed integral groups. Priority qualified by unindexed or inaccessible arithmetic invariant-lattice equivalents.",
+      "residual_risks": [
+        "Recent arXiv:2607.17387 complete primary text not accessible; abstract implies distinct number-field rational rank object but uninspected text remains a priority risk.",
+        "Older cyclotomic/K3 Frobenius invariant-lattice literature could hide equivalent index/discriminant calculation.",
+        "The zeta/point-count component is classical consistency only and not asserted as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: geometric lattice generated by lines, discriminant -64; no F5 fixed lattice.",
+          "evidence": [
+            "Proposition6.2 states complex Fermat quartic NS integrally line-generated, disc -64."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.2377",
+          "material_read": "Full PDF §6.1, Proposition6.2 and preceding line lattice calculation",
+          "method": "ArXiv PDF text plus rendered page 17 screenshot",
+          "title": "Lines on Fermat surfaces",
+          "trigger": "Same complex Fermat quartic geometric lattice"
+        },
+        {
+          "assessment": "NOT_IMPLYING: geometric 48/56-line configurations, reductions; no 24 Frobenius trace-lattice Smith table.",
+          "evidence": [
+            "Theorem1.3 concerns the 56-line alternative quartic model under reduction; p7 discusses automorphism/Galois over cyclotomic field."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06265",
+          "material_read": "Full PDF introduction and section on 48-line lattice/Galois action, rendered p7",
+          "method": "ArXiv primary full PDF",
+          "title": "On a smooth quartic surface containing 56 lines which is isomorphic as a K3 surface to the Fermat quartic",
+          "trigger": "48-line configuration, reductions and Galois action plausibly overlapping"
+        },
+        {
+          "assessment": "LIMITED_MATERIAL: number-field rational ranks rather than characteristic5 integral trace lattice; full text not available and may have further relevant comparisons.",
+          "evidence": [
+            "Abstract explicitly specifies Q(zeta_d) subfields K, rational ranks and degree tables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17387",
+          "material_read": "ArXiv abstract only; full PDF and HTML endpoints unavailable",
+          "method": "ArXiv abstract metadata and bounded lawful OA attempts",
+          "title": "Galois-invariant Néron–Severi ranks of Fermat surfaces over number fields",
+          "trigger": "Very recent same Fermat Galois-invariant rank title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Canonical Fermat quartic at a good characteristic; 24 natural Frobenius line pairs.",
+        "Exact rank8 lattice and (Z/2)^6⊕(Z/8)^2 group, not merely the already-known rank20 geometric lattice or zeta formula."
+      ],
+      "rationale": "A canonical K3 surface over F5 has an arithmetic Picard subgroup whose integral discriminant group and explicit trace-line generators are not captured by geometric rank or zeta. Establishing its index one and 2-primary Smith profile is a natural arithmetic-lattice invariant, useful in divisor-class descent and arithmetic intersection questions; the exact self-contained invariant has intrinsic value without a general all-Fermat theorem.",
+      "risks": [
+        "Only one field characteristic and one quartic model, with standard geometric lattice theorems required."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0812.2377v3 Prop6.2",
+    "arXiv:1604.06265v3",
+    "arXiv:2607.17387 abstract and noted access limitation",
+    "Resultary 2026-10-28 targeted source query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical arithmetic lattice priority remains qualified; the abstract-only recent related source cannot be declared whole-document noncovering.",
+    "Uses published geometric line generation and standard smooth proper base change/Kummer input, not formal proof-assistant certification.",
+    "The characteristic-zero Galois ranks are a different arithmetic problem; unindexed char5 integral calculations possible."
+  ],
+  "residual_risks": [
+    "Historical arithmetic lattice priority remains qualified; the abstract-only recent related source cannot be declared whole-document noncovering."
+  ],
+  "schema_version": 1
+}
