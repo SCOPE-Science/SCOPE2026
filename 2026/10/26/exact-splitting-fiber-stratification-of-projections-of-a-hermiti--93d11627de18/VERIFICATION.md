@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The included standalone `verify.py` was executed with Python 3. Its output was:
+# Independent mathematical audit
 
-```
-EXTERIOR_SPLIT_PROFILE {11: 72, 14: 648, 16: 2052, 17: 864, 18: 432, 26: 12}
-ON_CURVE_SPLIT_PROFILE {39: 72, 40: 9}
-LINE_SECTION_PROFILE {0: 1080, 1: 1953, 2: 72, 3: 1056}
-F4_OUTSIDE_EXTREMALS 12
-VERIFY_OK
-```
+## correctness
 
-The program asserts field irreducibility, group-law-independent geometric incidence counts, line-intersection root counts, equality of two exhaustive per-center implementations, incidence double counts and the exact pointwise subplane characterization. Its validity is for the particular finite field only. Independent audit has not been performed.
+PASS
+
+In F2[u]/(u^6+u+1), irreducibility, normalized projective points (4161), smooth cubic membership (81), and canonical cross-product lines were reconstructed. All 3240 unordered curve-point pairs give 1056 distinct 3-secants and 72 distinct 2-secants. Independent projective incidence enumerates all 4080 exterior N(P) and reconstructs the entire six-bin histogram and the exact twelve-point F4 identity, not just its total. Since a degree-three line section has three distinct rational points iff the corresponding projection fiber splits completely, the incidence certificate proves the entire finite claim. Double count sum N(P)=1056*62=65472. No higher-field conclusion inferred.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality concerns the exact restricted result, not known underlying theory. Having the explicit N(P) histogram implies completeness, but knowing all N(P) are nonzero or the total of 1056 three-secants does not recover the histogram or subfield-identified maximizers. No researched stronger prior theorem supplied these counts as a corollary. Comparison with arXiv:1510.08375, arXiv:2302.10162, doi:10.1007/s10801-025-01456-w and published semantic research searches found no established equivalent in material actually read; inaccessible full texts are not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+The pointwise splitting-fiber count is a natural arithmetic invariant of a degree-three map from a genus-one cubic, and the six complete strata plus unexpected exact F4 maximum locus refine the known global complete-arc property. This is a full, geometrically interpretable finite classification, not a random tiny numerical test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
