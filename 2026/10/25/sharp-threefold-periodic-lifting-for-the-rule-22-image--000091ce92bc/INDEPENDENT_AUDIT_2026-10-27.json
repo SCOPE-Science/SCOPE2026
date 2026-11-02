@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T13:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From exact Rule 22 truth table, two-bit overlap relations on states 00,01,10,11 are L0=(1,8,2,12), L1=(2,4,1,0) as four bit masks. A word w repeated cyclically has a kn-periodic antecedent iff the Boolean relation R(w)^k has a loop; any periodic image word yields a directed cycle in its four-state return graph. An independent exact integer BFS from the identity, closing under both symbols without word-length cutoff, found exactly 2375 reachable relations and multiplier classes {1:2012,2:130,3:2,4:0,none:231}. The only multiplier-three-first relations are L1 and L1². Augmenting reachable relation with a flag recording an encountered zero gives 2375 augmented states and no zero-containing path with first return 3. L1 is a directed 3-cycle, proving all-one output needs factor3 precisely when 3 does not divide n; the word 001 has no 3-period antecedent but has a 6-period one. Thus uniform multiplier≤3, mixed/zero≤2, and both sharpness witnesses hold for every n, by exhaustive state closure, not a finite word cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salo proves decidability of WPP for all cellular automata, which dominates the YES/NO decision framework but does not determine the Rule22 optimal bound 3 or its only exceptional word.",
+          "The general periodic preimage result for surjective CA gives different hypotheses; its q^(2r) state bound is a generic upper bound and not sharp evaluated Rule22."
+        ],
+        "reasoning": "Classical algorithmic decidability and broader surjective factor results are credited but do not imply the exact quantitative per-output classification for nonsurjective Rule22.",
+        "searches": [
+          "arXiv:2209.13373 Salo Proposition 22 weak periodic point condition",
+          "Mariot Leporati Dennunzio Formenti 2017 full OA PDF Section3",
+          "elementary cellular automaton Rule 22 periodic point lifting multiplier 3 2 preimage period"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.13373",
+        "https://doi.org/10.1007/978-3-319-58631-1_12",
+        "https://doi.org/10.1007/s10955-010-0103-9",
+        "Resultary semantic query: elementary cellular automaton Rule 22 periodic point lifting multiplier 3 2 preimage period",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/sharp-threefold-periodic-lifting-for-the-rule-22-image--000091ce92bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gravner–Griffeath studies space-time dynamics of finite support seeds, not one-step periodic antecedents of every image point.",
+          "Mariot et al assumes surjectivity in its strongest periodic lifting results; Rule22 is not surjective.",
+          "The finite relation graph has four vertices for every rule, but there is no generic theorem giving Rule22 first return exponent distribution {1,2,3} and a single exceptional constant configuration."
+        ],
+        "reasoning": "A generic four-state cycle bound at most4 is substantially weaker than excluding4 and classifying triple-only outputs; computing exact generated relations and the zero-containing invariant is mathematically necessary.",
+        "searches": [
+          "Gravner Griffeath exactly one cellular automaton from finite seeds",
+          "Mariot et al periodic preimages surjective automata 2017",
+          "Salo 2022 WPP algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A periodic input to an ECA is a closed walk of the labeled overlap graph, equivalent to trace(R(w)^k)>0; the representation is classical.",
+          "The 2017 Mariot–Leporati–Dennunzio–Formenti results concern surjective maps, whereas Rule22 has forbidden image configurations."
+        ],
+        "reasoning": "Alternative words are spatially periodic antecedent, weak periodic point condition, periodic image preimage exponent. No inspected previous result evaluates this exact nonlinear nonsurjective ECA22 semigroup.",
+        "searches": [
+          "elementary cellular automaton Rule 22 periodic point lifting multiplier 3 2 preimage period",
+          "Rule 22 periodic preimage graph trace Boolean matrix 3-fold periodic lift",
+          "Mariot Leporati Computing the Periods of Preimages in Surjective Cellular Automata 2017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The historical Rule22 de Bruijn/subset diagrams and Garden-of-Eden configurations do not, in inspected descriptions, tabulate the entire 2375-generated relation semigroup and the exceptional exponent classes.",
+          "The exhaustive 2375-state closure is a finite complete algebraic certificate for all output word lengths, not merely a finite-length lookup table."
+        ],
+        "reasoning": "No independently published exact database or table encoding this all-period bound and mixed-word exception was found in the examined material; older software-oriented tables remain a residual risk.",
+        "searches": [
+          "Rule22 elementary cellular automaton period ancestor table inverse de Bruijn matrix exact",
+          "elementary cellular automaton Rule 22 periodic point lifting multiplier 3 2 preimage period"
+        ]
+      },
+      "rationale": "General four-state labeled de Bruijn and Boolean-semigroup techniques are established, and the broad theorem on periodic preimages of SURJECTIVE CAs by Mariot et al (2017), and WPP decidability by Salo (2022), were materially compared. Rule 22 is NONSURJECTIVE and nonlinear/non-bipermutive; the prior general statements do not give its exact 2375-relation exhaustive classification, only exceptional all-one triple inflation, or the mixed-output factor-two theorem. The 2019 Martínez et al Rule 22 de Bruijn/subset diagrams were acknowledged; no evaluated same-multiplier result in inspected primary material. Best-knowledge PASS with potential older exact CA computations risk.",
+      "residual_risks": [
+        "Unindexed CA Rule22 ancestor/period tables might already contain a complete 2375-state semigroup and multiplier classification.",
+        "Exhaustive relation closure is exact but does not constitute formal proof checking; independent bitmask reimplementation specifically verified generated closure and exceptional set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General decidability and comparison rules, not quantitative exact ECA22 result",
+          "evidence": "Proposition 22 and list of example rules",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "Primary full HTML, Section 6 and Proposition 22 on decidable weak periodic point condition; ECA examples scanned",
+          "method": "read full text relevant theorem",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "General decidability and weak periodic point conditions might dominate period-lifting bound"
+        },
+        {
+          "assessment": "General method and bounds for surjective cellular automata; Rule22 non-surjective so hypothesis excludes it",
+          "evidence": "Title and hypotheses, quantitative general state-graph bounds",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-58631-1_12",
+          "material_read": "Authorized open author-postprint full PDF, introduction and core Section 3; pages 1 and 8 screenshot inspected",
+          "method": "read OA full PDF and its displayed theorems",
+          "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+          "trigger": "Directly matching periodic antecedent multiplication theorem"
+        },
+        {
+          "assessment": "Does not in material read establish sharp preimage-period lifting for every periodic image; residual uncertainty recorded",
+          "evidence": "Finite-seed replication and temporal/spatial evolution focus",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-010-0103-9",
+          "material_read": "Primary bibliographic abstract and described finite-seed focus; full text not read",
+          "method": "abstract scope comparison",
+          "title": "The One-Dimensional Exactly 1 Cellular Automaton: Replication, Periodicity, and Chaos from Finite Seeds",
+          "trigger": "Same ECA22 local rule and dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Period lifting is a natural invariant of the image shift and periodic-point fibers of a classical nonlinear CA. An all-period exact and sharp multiplier classification (1,2,3), with the unique family requiring tripling and finite exhaustive semigroup proof, distinguishes strong periodic-point failure from complete image surjectivity; substantially more than numerical enumeration of short rings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed CA Rule22 ancestor/period tables might already contain a complete 2375-state semigroup and multiplier classification.",
+    "Exhaustive relation closure is exact but does not constitute formal proof checking; independent bitmask reimplementation specifically verified generated closure and exceptional set.",
+    "Only the exact hypotheses/domain of the assigned RESULT.md were evaluated; no external attestation, formal Lean proof, publication or automated certificate is claimed.",
+    "Submitted reproducibility scripts are corroborative unless exhaustive state closure plus a proved finite reduction is explicitly established."
+  ],
+  "schema_version": 1
+}
