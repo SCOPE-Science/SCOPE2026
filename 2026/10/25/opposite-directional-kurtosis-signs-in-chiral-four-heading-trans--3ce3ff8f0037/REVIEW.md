@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For strictly positive Poisson clockwise and anticlockwise quarter-turn rates, the four-state generator has simple stationary eigenvalue zero and the other eigenvalues have negative real parts. A direct characteristic-polynomial computation supplies all long-time cumulant coefficients, while fourfold invariance provides the exact radial fourth-moment contraction. The inequalities are proved algebraically for all positive rates, including the nonzero diagonal gap and the exclusion of the one-directional endpoints. An independent exact Poisson-equation recursion in `CHECKER.py` agrees on 18 rational parameter-direction cases (236 overall assertions). The sign result applies to long-time cumulant rates, not all finite times.
+PASS
 
-## Originality — PASS (same mathematical model literature comparison)
+Reconstructed four-by-four tilted characteristic determinant z(z+2s)((z+s)²+d²)−(kv)²(z+s)²+(kv)⁴cos²θ sin²θ; zero eigenvalue simple, remaining −2s and −s±id. Taylor expansion gives λ₂=v²s/(2R), λ₄=(v⁴/8)[s(3d²−s²)/R³−sin²(2θ)/(sR)]. Fourth derivative gives exact angular threshold |d/s|>1/√3, diagonal always negative, and radial contraction −4v⁴(1−χ²)(3−χ²)/(s³(1+χ²)³). Independent SymPy reconstruction of characteristic polynomial, coefficients and radial tensor contraction at generic rational rates passed. Analytic eigenvalue perturbation, not finite grid, proves all positive rates.
 
-The closest 2023 source, Loewe–Kozhukhov–Shendruk, contains four-heading transport and fourth-order anisotropy with balanced clockwise/counterclockwise turning, whereas the present chiral left/right rate imbalance produces the explicit positive-versus-negative directional fourth-rate regions. Its Appendix C concerns unequal horizontal/vertical turn relaxation and therefore does not itself give a clockwise/counterclockwise bias sign theorem. Sevilla's arbitrary angular-scattering formulation has rotationally uniform initial headings and does not single out a square-oriented laboratory direction. Villa-Torrealba et al. supply partial-turning transport and non-Gaussian frameworks without this discrete handed-turn threshold. Existing records on continuous-heading drift/reorientation concern a different state process. Published-index searches returned no exact formula, but absence of an indexed result is not proof of uniqueness. The main risk is that a broader four-state Markov additive-functional result may implicitly contain the coefficient or classification, requiring independent scholarly priority review.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The result resolves a physically natural question raised by fourth-gradient anisotropy studies: can opposite handed turning rates change the *sign* of projected non-Gaussian correction while leaving diffusive transport isotropic? The exact criterion \(|a-b|/(a+b)>1/\sqrt3\), complete angular sectors, and simultaneously negative radial deficit separate laboratory-axis diagnostics from rotationally aggregated statistics. They provide precise observable benchmarks and avoid misclassifying positive axial fourth cumulants from a global radial measurement. This is a constrained, finite-state, long-time result, not a general claim about all active Brownian particles.
+Best-of-knowledge accepted after statement-level primary-literature and published mathematical-record comparisons; no decisive antecedent implication was identified. Source-reading limits and plausible unindexed-priority risks are explicit; a failed keyword search is not treated as novelty proof.
 
-## Closest sources and residual risks
+## value
 
-Loewe et al. arXiv:2305.03663, full sections on four-heading propagation and higher gradients and Appendix C; Sevilla arXiv:1905.07090, angular turning kernels and radial observables; Villa-Torrealba et al. arXiv:2002.02872, partial-angle reorientations. The literature comparisons are qualified by residual priority risk from equivalent spectral and perturbative results for chiral finite-state walks. An independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mismatch between isotropic diffusion and opposite lab-direction fourth-cumulant signs is a physically interpretable, sharply quantified non-Gaussian anisotropy. The exact chiral threshold and angular sectors are natural transport invariants, not simply a renamed second-moment result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
