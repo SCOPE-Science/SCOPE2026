@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "From the exact binary EF1 predicate, each participant violates precisely when its own pair is 00 and at least one rival pair is 11. Agent row independence gives the product formula. The geometric-mean critical function is strictly increasing, proving unique global minimization and monotonicity. A logarithmic analysis at that root proves the all-n asymptotic including loglog and constant; exact enumeration independently matches 18 rational examples, and numeric root checks supplement rather than substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Long Section 4.2 gives an algorithm-uniform worst-input EF1 success upper bound with deterministic valuation inputs, not a Bernoulli-utility chance for any fixed partition.",
+        "Bu et al. establishes existence of lotteries with support-wide ex-post fairness when valuation vectors are known; it cannot be substituted for a specific frozen allocation under unknown realization."
+      ],
+      "reasoning": "Neither stronger-sounding guarantee covers the measured stochastic experiment. The fixed-assignment chance can be arbitrarily small while an allocation chosen after valuations are observed can satisfy EF1.",
+      "searches": [
+        "\"high probability\" \"EF1\" \"online\" independent valuations 2026",
+        "\"best of both worlds\" binary valuation EF1 ex ante ex post",
+        "arxiv:2609.23577v1 Theorem 4.3; arxiv:2410.06877v1 Sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.23577 (primary full-text material)",
+      "https://arxiv.org/abs/2410.06877 (primary full-text material)",
+      "https://econpapers.repec.org/paper/arxpapers/2607.10064.htm (abstract only; different known-utility domain)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Long upper-bounds the confidence achievable by randomized algorithms against worst deterministic inputs; the present conclusion fixes all goods assigned in pairs and varies an unknown Bernoulli parameter.",
+        "Bu et al. conditions on known binary utility profiles to design allocation lotteries; the candidate does not optimize over those lotteries."
+      ],
+      "reasoning": "The previous results do not imply or subsume the claimed formula, unique minimizing parameter, strict population monotonicity, or second-order rare-rate logarithmic expansion. A claim of general EF1 impossibility does not establish an exact success probability under the markedly narrower probabilistic experiment.",
+      "searches": [
+        "arxiv:2609.23577v1 Section 4 EF1 success probabilities",
+        "arxiv:2410.06877v1 Sections 1–2, ex-ante and ex-post binary fairness",
+        "\"worst Bernoulli rate\" \"EF1\" balanced two goods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Long arxiv:2609.23577v1 defines probability over online algorithm randomization with deterministic values (Section 2.1); its EF1 impossibility relies on a finite distribution of adversarial instances (Theorem 4.3).",
+        "Bu et al. arxiv:2410.06877v1 Section 2 defines randomized assignments over fixed valuation profiles, distinct from stochastic utility realization."
+      ],
+      "reasoning": "EF1 as a predicate is shared, but fixed predetermined balanced bundles with i.i.d. random valuations is not equivalent to randomizing allocation conditional on a fixed valuation instance. No distributional equivalence or parameter identification turns the earlier EF1 guarantee into this p-dependent success law.",
+      "searches": [
+        "\"independent Bernoulli valuations\" \"EF1\" probability balanced allocation",
+        "\"ex-post EF1 probability\" \"two goods\"",
+        "arxiv:2609.23577v1, Sections 2 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary sources give proofs and general guarantee bounds, not an exact table or formula for the n-dependent optimizing Bernoulli parameter.",
+        "The new verifier enumerates n=2..6 cases as a proof cross-check; it is not a pre-existing published table."
+      ],
+      "reasoning": "No located database or table evaluated this exact probability, its single-root condition or asymptotic profile. A failed search is not a uniqueness proof, and unknown indexed or unindexed earlier work remains a priority risk.",
+      "searches": [
+        "\"Bernoulli\" \"EF1\" exact probability allocation",
+        "\"two goods\" \"EF1\" independent random valuations",
+        "arxiv:2609.23577v1 appendices and Section 4"
+      ]
+    },
+    "rationale": "Primary full texts inspected distinguish allocation randomness on fixed utility instances from exogenous i.i.d. utility randomness for a deterministic balanced partition. No inspected source or compared recoverable nearby claim establishes the exact all-n EF1 probability, unique least-favorable Bernoulli rate and rare-event asymptotics; unindexed equivalents remain possible.",
+    "residual_risks": [
+      "Exact formula or asymptotic may have appeared in unindexed prior probabilistic fair-division analysis.",
+      "An abstract-only 2026 binary-valuation characterization was not fully inspected, though its deterministic-known-value model is materially different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different random variable: paper fixes utility inputs and randomizes allocation; no exogenous independent utility matrix or p-minimization equation",
+        "evidence": [
+          "First submitted September 20, 2026, Section 2.1 fixed valuation input, Section 4.2 Theorem 4.3 worst-input confidence upper bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+        "material_read": "Abstract, Introduction, Sections 2.1–2.3, 3.3, 4.1–4.2, conclusion, including Theorem 4.3 statement and proof",
+        "method": "Full text rendered via arxiv text extraction; inspected exact model, hypothesis and EF1 theorem",
+        "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+        "trigger": "Most relevant recent EF1 high-probability result and source for current motivation"
+      },
+      {
+        "assessment": "Conditional randomized allocations on deterministic utility profiles; no fixed balanced assignment stochastic utility realization probability",
+        "evidence": [
+          "First submitted October 9, 2024, Sections 1–2, Definition 2.1 and 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.06877",
+        "material_read": "Abstract, Introduction Sections 1.1–1.2 and Definitions 2.1–2.2",
+        "method": "Arxiv full text rendered; inspected model and relevant fairness notion definitions",
+        "title": "Best-of-Both-Worlds Fair Allocation of Indivisible and Mixed Goods",
+        "trigger": "Classical ex ante / ex post binary-valuation fairness guarantee"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "efc469d6-8643-46d2-8a79-a242521e74d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two goods per participant are the minimal natural regime in which nonnegative additive EF1 can fail. The exact all-n rare-parameter minimizer, strict population drift and second-order log-scale failure law identify structural instability of a canonical ex ante fair assignment before binary values are known; this is more informative than finite numerical examples and is not entailed by correctness alone.",
+    "status": "PASS"
+  }
+}
