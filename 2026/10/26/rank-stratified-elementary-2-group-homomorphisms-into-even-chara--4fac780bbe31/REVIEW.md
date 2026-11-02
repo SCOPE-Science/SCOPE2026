@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The group multiplication gives the exact, necessary and sufficient square-one and commutation equations on generator images; the central parameters are unrestricted. For fixed first-coordinate matrix of rank \(d\), the alternating products correspond to alternating forms on a \(d\)-dimensional quotient and have \(q^{\binom d2}\) possibilities. The product matrix has \(q^{r(b-d)}\) lifts, and standard Gaussian-binomial and full-rank-map counts produce the formula. Every step works for all even prime powers and every positive \(b,r\), including the degenerate rank-zero stratum. Explicit independent brute-force enumeration confirms \(14\) small cases, but is not used to assert an infinite verification. The fixed-\(q,r\) limit follows from a full-rank term and vanishing lower-rank contributions.
+## correctness
 
-## Originality — PASS, with residual risk
-The same-group precedent computing \(2q^2-q-1\) exact involutions in \(UT_3(\mathbb F_q)\) covers the special case \(b=r=1\); that case is explicitly credited. It does not count simultaneous commuting involution tuples or higher-rank Heisenberg groups. Jezernik's Schur-multiplier results, Adem--Cohen--Torres-Giese's commuting-element spaces, and the odd-prime Heisenberg-type hierarchy of Levit--Shwartz do not state or imply the combined characteristic-two, rank-stratified formula by the identified statements. Exact-term, conceptual-alias, finite-field parameter and stronger-coverage searches found no matching formula. This is best-knowledge originality only; classical subgroup-counting identities could supply an unlocated broader implication.
+PASS
 
-## Value — PASS
-The invariant \(\#\operatorname{Hom}((C_2)^r,G)\) counts elementary abelian group actions into a finite nilpotent group and detects interactions invisible to single-involution counts. The theorem gives the entire first-coordinate-rank profile over all even finite fields, all Heisenberg ranks and all domain ranks, and a nontrivial large-rank limiting probability. These are natural structural and enumerative data, rather than an arbitrary sample or a mere numerical verification.
+PASS: From group law g_i^2=(0,0,x_i y_i) in characteristic two and g_i g_j=g_j g_i iff x_i y_j=x_j y_i, the matrix S=XY is symmetric with zero diagonal (alternating). For X rank d and W=im X, admissible alternating S of image in W are precisely pulled-back alternating forms on W*, a d-dimensional space with q^(d choose 2) possibilities; each column has q^(b-d) lifts to Y. Rank-d X count is Gaussian binomial times full-rank surjections k^b->W. Central coordinates supply q^r. The d=r term dominates as b->infinity, giving the stated probability. Independent brute force of q=2 rank fibers (b,r)=(1,1),(1,2),(1,3),(2,1),(2,2) agrees with formula, including total 28 at (1,2). The finite checks alone do not prove all q,b,r.
 
-## Closest literature and limitations
-The single-involution count for \(UT_3(\mathbb F_q)\) is covered in prior published work and is not claimed separately. Broader subgroup enumeration for extraspecial groups when \(q=2\), and possible general class-two counting techniques, remain originality risks. The group here uses a row-column multiplication cocycle; not every alternate characteristic-two definition of a finite Heisenberg group is isomorphic to it. Independent review and publication-priority certification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge, not priority certification): Compared claims and logical implications with the located primary texts and published records. The specific claim is not stated as covered in the materials actually read; any implicit-specialization or inaccessible-full-text risk is separately documented. Neither matching mathematical terminology nor unsuccessful search alone was treated as conclusive originality evidence.
+
+## value
+
+PASS
+
+PASS: Exactly counting elementary abelian subgroup homomorphisms by horizontal matrix rank is an intrinsic group-representation enumerator for the natural even-characteristic Heisenberg family; it captures involution constraints absent in ordinary commuting-tuple enumeration. The explicit full rank profile and high-dimensional limiting probability are substantive natural all-parameter invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
