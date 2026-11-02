@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:53:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform binary shuffles with positive fixed class sizes a,b and N=a+b, runs R=1+sum_{j=1}^{N-1} 1{X_j != X_(j+1)} and Q=sum_{t=1}^{N-1}(N*A_t-a*t)^2 give the correctly scaled two-sample CvM statistic T=Q/(ab*N^2). Conditioning on a transition at j makes its two letters a fair 01/10 orientation independent of the uniform remaining (a-1,b-1) shuffle. The hypergeometric mean and variance yield the explicit quadratic conditional influence delta_j, summing to N(N-1)(N-2ab)/6 and exact Cov(R,T)=(N-2ab)/(3N^2), negative for N>=3; N=2 has R constant. Classical Var R=2ab(2ab-N)/(N^2(N-1)), empirical finite-population Brownian-bridge convergence, and uniform integrability of T^2 give Var T->1/45 when a/N->p in (0,1), hence sqrt(N)Corr(R,T)->-sqrt(5) independently of p. Independently exhaustively enumerated all binary words for 36 positive-composition pairs with 2<=N<=9, verifying exact finite covariance. These checks do not prove all N or the functional CLT; the supplied conditional moment argument and classical bridge theorem do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scientific comparison: https://www.jstatsoft.org/article/view/v017i08",
+          "Scientific comparison: https://doi.org/10.1214/aoms/1177704477",
+          "Scientific comparison: https://doi.org/10.1214/aoms/1177731909"
+        ],
+        "reasoning": "Graph-based two-sample asymptotic test theory treats Wald–Wolfowitz runs as a path graph statistic, but inspected accounts emphasize univariate limits and consistency; they do not determine this finite exact runs–CvM mixed moment or the next-order universal correlation. The Brownian-bridge marginal limit alone similarly gives no mixed covariance rate.",
+        "searches": [
+          "Resultary: negative runs Cramer von Mises covariance universal finite-sample statistic",
+          "web: joint distribution Wald Wolfowitz runs two-sample Cramér von Mises covariance exact",
+          "web: Anderson 1962 On the Distribution of the Two-Sample Cramer von Mises Criterion full paper pdf free",
+          "primary: https://www.jstatsoft.org/article/view/v017i08",
+          "primary: https://doi.org/10.1214/aoms/1177704477",
+          "primary: https://doi.org/10.1214/aoms/1177731909"
+        ]
+      },
+      "checked_sources": [
+        "https://www.jstatsoft.org/article/view/v017i08",
+        "https://doi.org/10.1214/aoms/1177704477",
+        "https://doi.org/10.1214/aoms/1177731909",
+        "https://econpapers.repec.org/article/tsjstataj/v_3a3_3ay_3a2003_3ai_3a3_3ap_3a270-277.htm",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scientific comparison: https://www.jstatsoft.org/article/view/v017i08",
+          "Scientific comparison: https://doi.org/10.1214/aoms/1177704477"
+        ],
+        "reasoning": "Wald–Wolfowitz (1940) establishes the runs test; Anderson (1962) defines the two-sample CvM statistic and studies its distribution; Xiao et al. calculate its exact marginal null distribution; the published Resultary 2026-10-04 item gives dependencies among local run transitions, not the mixed squared-bridge statistic. The exact conditional-influence derivation supplies the missing implication.",
+        "searches": [
+          "Resultary: negative runs Cramer von Mises covariance universal finite-sample statistic",
+          "web: joint distribution Wald Wolfowitz runs two-sample Cramér von Mises covariance exact",
+          "web: Anderson 1962 On the Distribution of the Two-Sample Cramer von Mises Criterion full paper pdf free",
+          "primary: https://www.jstatsoft.org/article/view/v017i08",
+          "primary: https://doi.org/10.1214/aoms/1177704477"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scientific comparison: https://www.jstatsoft.org/article/view/v017i08",
+          "Scientific comparison: https://github.com/SCOPE-Science/SCOPE2026/blob/68645bf4619cec1151436ccc53f5d66aab9d4541/2026/10/26/exact-negative-runs-cram-r-von-mises-covariance-and-a-universal--44e1e8c41113/RESULT.md"
+        ],
+        "reasoning": "The statistics are equivalently the number of label transitions in a fixed-count shuffle and the integrated squared finite-population empirical bridge Q. Existing individual run and CvM representations give their marginals; the cross-product moment and conditional transition-influence profile are additional data.",
+        "searches": [
+          "Resultary: negative runs Cramer von Mises covariance universal finite-sample statistic",
+          "web: joint distribution Wald Wolfowitz runs two-sample Cramér von Mises covariance exact",
+          "web: Anderson 1962 On the Distribution of the Two-Sample Cramer von Mises Criterion full paper pdf free",
+          "primary: https://www.jstatsoft.org/article/view/v017i08",
+          "primary: https://github.com/SCOPE-Science/SCOPE2026/blob/68645bf4619cec1151436ccc53f5d66aab9d4541/2026/10/26/exact-negative-runs-cram-r-von-mises-covariance-and-a-universal--44e1e8c41113/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Scientific comparison: https://www.jstatsoft.org/article/view/v017i08",
+          "Scientific comparison: https://doi.org/10.1214/aoms/1177704477",
+          "Scientific comparison: https://doi.org/10.1214/aoms/1177731909"
+        ],
+        "reasoning": "Anderson (1962) and Xiao–Gordon–Yakovlev (2006) provide CvM null tables/program for its marginal exact law; Smeeton–Cox provides runs null shuffling tables. Separate marginal tables cannot determine Cov(R,T). The exact finite mixed covariance was not located in these indexed resources.",
+        "searches": [
+          "Resultary: negative runs Cramer von Mises covariance universal finite-sample statistic",
+          "web: joint distribution Wald Wolfowitz runs two-sample Cramér von Mises covariance exact",
+          "web: Anderson 1962 On the Distribution of the Two-Sample Cramer von Mises Criterion full paper pdf free",
+          "primary: https://www.jstatsoft.org/article/view/v017i08",
+          "primary: https://doi.org/10.1214/aoms/1177704477",
+          "primary: https://doi.org/10.1214/aoms/1177731909"
+        ]
+      },
+      "rationale": "The Wald–Wolfowitz run count, Anderson two-sample CvM and its marginal distribution are classical, and the Resultary fixed-composition local-transition result already determines run-indicator covariances. None of these inspected marginal/local statements yields the exact mixed moment E[R*Q] without a conditional bridge analysis or its sharp -sqrt5 normalized correlation rate. An earlier joint calculation under different test-statistic notation remains a substantial priority risk.",
+      "residual_risks": [
+        "The 1940 runs originals and Anderson 1962 full text were not fully accessible; older cross-statistic calculations under a different normalization may preexist.",
+        "The JSS exact null paper PDF could not be fetched, so its entire contents are not declared NOT_COVERING.",
+        "Only second-order mixed covariance is determined, not the joint distribution; correlation limit requires a/N stay in (0,1)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Originalizes marginal CvM criterion and finite null tables, but complete text not inspected; possible historical overlap remains",
+          "evidence": [
+            "Abstract and definition eq. (2) only",
+            "doi:10.1214/aoms/1177704477"
+          ],
+          "identifier_or_url": "doi:10.1214/aoms/1177704477",
+          "material_read": "Original 1962 abstract and equation (2) normalization via bibliographic full-abstract record; attempted full text at Project Euclid but inaccessible",
+          "method": "publisher/bibliographic abstract and failed primary full-text request",
+          "title": "On the Distribution of the Two-Sample Cramér–von Mises Criterion",
+          "trigger": "original definition and possible mixed-moment coverage"
+        },
+        {
+          "assessment": "Explicitly marginal exact CvM null distribution, not a shown runs cross-moment; cannot exclude unseen full-text mention",
+          "evidence": [
+            "Abstract, scope and distribution algorithm",
+            "doi:10.18637/jss.v017.i08"
+          ],
+          "identifier_or_url": "doi:10.18637/jss.v017.i08",
+          "material_read": "Publisher landing page full abstract and attached PDF link; full PDF retrieval timed out",
+          "method": "publisher abstract and PDF retrieval attempt",
+          "title": "A C++ Program for the Cramér–von Mises Two-Sample Test",
+          "trigger": "direct exact finite-sample CvM tables"
+        },
+        {
+          "assessment": "Calculates the run count under fixed-count shuffling, but the material inspected does not cover an integrated empirical squared bridge",
+          "evidence": [
+            "Abstract and conditional shuffling",
+            "doi:10.1177/1536867X0300300304"
+          ],
+          "identifier_or_url": "doi:10.1177/1536867X0300300304",
+          "material_read": "Full accessible bibliographic abstract and abstracted original text excerpt, full PDF request blocked by 403",
+          "method": "bibliographic source and text excerpt",
+          "title": "Do-it-yourself shuffling and the number of runs under randomness",
+          "trigger": "same fixed-composition uniform binary shuffle and runs"
+        },
+        {
+          "assessment": "Asymptotic runs framework, without the inspected exact CvM mixed-moment formula",
+          "evidence": [
+            "Section 1.1.1",
+            "https://academic.oup.com/jrsssb/article/81/3/575/7048374"
+          ],
+          "identifier_or_url": "https://academic.oup.com/jrsssb/article/81/3/575/7048374",
+          "material_read": "Accessible introduction, Section 1.1.1 on Wald–Wolfowitz runs as path-graph statistic",
+          "method": "publisher full HTML passage",
+          "title": "General Asymptotic Framework for Distribution-Free Graph-Based Two-Sample Tests",
+          "trigger": "possible broader runs joint asymptotic framework"
+        },
+        {
+          "assessment": "Local run-indicator dependence does not determine the mixed run count–CvM statistic by itself; source-package residual risk maintained",
+          "evidence": [
+            "Title and indexed statement",
+            "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "material_read": "Resultary indexed title and summary: adjacent/disjoint run transitions and exact dependence thresholds; not complete source package",
+          "method": "semantic research index and summary",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "relevant published local transition covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sign and finite-size covariance quantify a nontrivial interaction between two standard distribution-free goodness-of-fit statistics, and the sample-allocation-independent -sqrt5 correlation coefficient at N^(-1/2) is a natural calibration fact for simultaneous runs/CvM inference. This is not a full joint law, but the exact mixed moment has independent statistical use.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/68645bf4619cec1151436ccc53f5d66aab9d4541/2026/10/26/exact-negative-runs-cram-r-von-mises-covariance-and-a-universal--44e1e8c41113/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/68645bf4619cec1151436ccc53f5d66aab9d4541/2026/10/26/exact-negative-runs-cram-r-von-mises-covariance-and-a-universal--44e1e8c41113/verify.py",
+    "https://www.jstatsoft.org/article/view/v017i08",
+    "https://doi.org/10.1214/aoms/1177704477",
+    "https://doi.org/10.1214/aoms/1177731909",
+    "https://econpapers.repec.org/article/tsjstataj/v_3a3_3ay_3a2003_3ai_3a3_3ap_3a270-277.htm",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Proof reconstructed from pinned RESULT.md and verification source; finite checks described in correctness rationale independently reproduced and do not stand for an infinite theorem.",
+    "All seven file-entry SHA-1 values from the pinned directory were independently assembled into a Git tree SHA-1, matching the exact assigned source_tree_sha.",
+    "No GitHub write or publication; status not_ready is a transport/privacy-preparation limitation, not a scientific failure."
+  ],
+  "residual_risks": [
+    "The 1940 runs originals and Anderson 1962 full text were not fully accessible; older cross-statistic calculations under a different normalization may preexist.",
+    "The JSS exact null paper PDF could not be fetched, so its entire contents are not declared NOT_COVERING.",
+    "Only second-order mixed covariance is determined, not the joint distribution; correlation limit requires a/N stay in (0,1)."
+  ],
+  "schema_version": 1
+}
