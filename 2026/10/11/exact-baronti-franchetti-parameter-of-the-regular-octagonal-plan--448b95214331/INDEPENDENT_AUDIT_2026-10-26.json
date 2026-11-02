@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T02:12:02.209558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Marco Baronti and Carlo Franchetti, The isosceles orthogonality and a new 2-dimensional parameter in real normed spaces, Aequationes Mathematicae 89 (2015) 673–683, doi:10.1007/s00010-014-0255-9",
+        "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md, algebra_check.py; source Git blob SHA identities",
+        "Independent norm-facet convex-envelope calculation"
+      ],
+      "independent_checks": [
+        "Fetched all seven Git blobs from frozen commit and independently recomputed exact Git tree SHA e6b11213008241a3d5576bdd4be0517092ace840.",
+        "Reconstructed the exact octagonal norm as maximum of eight signed linear facets, minimized along both signed segments at every pairwise facet crossing. Direct h(r) values at r=0,r0,a,r1,1 agreed to 1.1e-16.",
+        "Independent 2,000 deterministic random unit-pair segment minimizations all respected the analytic L bound; smallest sampled value was 0.6795849287407411 versus proven L=0.679129302431368. This finite sample is corroboration only.",
+        "The independent derivative numerators are a*r^2+2*r-a in the first branch and (1+a)*(r^2+2*a*r-1) in the second, with unique positive zeros in their stated intervals.",
+        "Defining source pp. 674, 677–679 independently confirms uniqueness of unit isosceles pairs in dimension 2, the symmetric-plane quarter-turn description and the signed four-cone argument."
+      ],
+      "rationale": "Reconstructed the full all-pair minimax. In any normed plane, the two absolute evaluations reduce by signed separation and convex duality to the maximum of distances from 0 to [x,y] and [x,-y]. A symmetric-plane unit isosceles companion is a quarter turn of x; signed permutation symmetry reduces it to x=(u,ru), y=(-ru,u), 0<=r<=1, u=1/(1+ar), a=sqrt(2)-1. The exact piecewise-linear octagon segment optimization and matching dual norm-one functionals yield h(r)=(1+r^2)/(sqrt(2)(1+ar)) for r<=a and h(r)=(1+r^2)/((1+r)(1+ar)) for r>=a. Derivatives change sign only at r0=a/(1+sqrt(1+a^2)) and r1=sqrt(1+a^2)-a, with both values L=sqrt(2)/(1+sqrt(1+a^2)), and boundaries larger. For arbitrary unit w,z, the four signed cones spanned by w and its quarter turn provide z=alpha*epsilon*k+beta*sigma*w, alpha,beta>=0 and alpha+beta>=1; a common positive dual norm-one support for each orthogonal pair gives |f(w)|,|f(z)|>=L. The explicit pair at r0 gives equality.",
+      "residual_risks": [
+        "The exact proof applies only to the given real regular-octagonal norm; neither arbitrary symmetric planes nor general polygons inherit these numerical branch formulas.",
+        "Finite pair sampling checks only sampled pairs; global correctness rests on the geometric proof, dual witnesses, facet cases and signed-cone argument.",
+        "No formal proof assistant check or external expert attestation was performed; existing distinct verification channels remain untouched."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 Theorem 1 proves 1/2 <= Lambda(E) <= 1/sqrt(2); Theorem 2 treats hexagon and universal examples; Theorem 3 concerns ell_p^2, not octagons.",
+          "2014 Section 5 defines the exact norm A and its dual and discusses orthogonality tests, but has no quantitative Lambda(A) equality.",
+          "2022 paper studies James/Schäffer and their orthogonal variants and computes sqrt(2) on an octagonal norm; these are not Lambda(A)."
+        ],
+        "reasoning": "A genuine formula for Lambda on all symmetric Minkowski planes or all regular polygons would dominate the record, but no such covering implication appears in the inspected general results. An isometric reparametrization of the polygon does not turn J, g, H2, or Omega into the Lambda minimax.",
+        "searches": [
+          "10.1007/s00010-014-0255-9",
+          "2014 Theorems 1–4 and Section 5 complete text",
+          "Marco Baronti and Pier Luigi Papini, Parameters in Banach spaces and orthogonality, Constructive Mathematical Analysis 5 (2022) 37–45, doi:10.33205/cma.1067323",
+          "Baronti Franchetti parameter Lambda regular octagon octagonal normed plane exact numerical constant isosceles orthogonality",
+          "Resultary/2026 2026/10/11/SCOPE-quadratic-isosceles-constant-as-rotation-distortion-in-symmetric--e5abe2498338/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Marco Baronti and Carlo Franchetti, The isosceles orthogonality and a new 2-dimensional parameter in real normed spaces, Aequationes Mathematicae 89 (2015) 673–683, doi:10.1007/s00010-014-0255-9",
+        "Marco Baronti and Pier Luigi Papini, Parameters in Banach spaces and orthogonality, Constructive Mathematical Analysis 5 (2022) 37–45, doi:10.33205/cma.1067323",
+        "Resultary/2026 2026/10/11/SCOPE-exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/RESULT.md",
+        "Resultary/2026 2026/10/11/SCOPE-exact-weighted-james-profile-of-the-regular-octagonal-plane--e444949daa08/RESULT.md",
+        "Resultary/2026 2026/10/11/SCOPE-quadratic-isosceles-constant-as-rotation-distortion-in-symmetric--e5abe2498338/RESULT.md",
+        "Resultary semantic searches: Baronti Franchetti parameter Lambda regular octagon octagonal normed plane exact numerical constant isosceles orthogonality | isosceles orthogonality Baronti–Franchetti parameter exact planar polygon norm minimax functionals octagon | octagonal plane Lambda(E) Banach space two-dimensional parameter Baronti Franchetti 2014 2015",
+        "Web searches of DOI, authors, symbol Lambda, exact octagon and exact radical"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary 2014 Theorem 3 proof Step 4 already contains the cone-reduction technique for ell_p^2, but no octagonal branch minimization. Its Section 5 only implies failure of property B, an inequality strictly below 1/sqrt(2).",
+          "The 2022 Example 5.3 computes J_perp/g_perp=sqrt(2) for a regular octagon; the objective is a pair of chord norms, rather than a dual norm-one functional with two lower evaluations.",
+          "The Omega constant optimizes a squared rational norm quotient over isosceles pairs, H2 a rotation-distortion quotient, weighted James a two-chord minimum; none supplies an implication determining Lambda(A)."
+        ],
+        "reasoning": "The sharp octagonal Lambda requires actual piecewise segment optimization and matching positive dual support, beyond the published universal bounds and geometric methods. Other canonical invariants do not entail this minimax.",
+        "searches": [
+          "10.1007/s00010-014-0255-9",
+          "Marco Baronti and Pier Luigi Papini, Parameters in Banach spaces and orthogonality, Constructive Mathematical Analysis 5 (2022) 37–45, doi:10.33205/cma.1067323",
+          "Resultary/2026 2026/10/11/SCOPE-exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/RESULT.md",
+          "Resultary/2026 2026/10/11/SCOPE-exact-weighted-james-profile-of-the-regular-octagonal-plane--e444949daa08/RESULT.md",
+          "Resultary/2026 2026/10/11/SCOPE-quadratic-isosceles-constant-as-rotation-distortion-in-symmetric--e5abe2498338/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2014 primary source pp. 675–679 gives Lambda as a dual-functional two-vector minimax and the isosceles-pair reduction; pp. 681–682 gives the same regular octagon but no exact Lambda(A).",
+          "Signed-segment distance H(x,y)=max{dist_A(0,[x,y]),dist_A(0,[x,-y])} was analyzed as an equivalent formulation, not merely a title synonym.",
+          "The Resultary exact Omega, weighted James, and H2 records define different optimization functionals even after linear isometric octagonal normalization."
+        ],
+        "reasoning": "Equivalent dual-functional and signed-segment minimax statements were compared; exact values of other octagonal constants cannot substitute because objective and quantifiers differ. No inspected source evaluates this Lambda functional.",
+        "searches": [
+          "Baronti Franchetti parameter Lambda regular octagon octagonal normed plane exact numerical constant isosceles orthogonality",
+          "isosceles orthogonality Baronti–Franchetti parameter exact planar polygon norm minimax functionals octagon",
+          "octagonal plane Lambda(E) Banach space two-dimensional parameter Baronti Franchetti 2014 2015",
+          "\"regular octagon\" \"Lambda\" \"Franchetti\" constant",
+          "\"0.679129302431368\" normed octagon parameter",
+          "10.1007/s00010-014-0255-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned the exact target record itself, which was explicitly excluded as independent priority evidence.",
+          "Results for the same regular octagon provide Omega=(3+2sqrt(2))/5, weighted James profile, and H2=sqrt(4-2sqrt(2)), each using a different defining objective.",
+          "Exact nested-radical and author/invariant/geometry web queries found no separate complete exact Lambda(A) table entry."
+        ],
+        "reasoning": "The identified database outputs are distinct quantities; numeric coincidence or a matching polygon does not imply coverage. An unsuccessful search is not a novelty proof.",
+        "searches": [
+          "Baronti Franchetti parameter Lambda regular octagon octagonal normed plane exact numerical constant isosceles orthogonality",
+          "isosceles orthogonality Baronti–Franchetti parameter exact planar polygon norm minimax functionals octagon",
+          "octagonal plane Lambda(E) Banach space two-dimensional parameter Baronti Franchetti 2014 2015",
+          "\"Lambda\" \"Baronti\" \"Franchetti\" \"octagonal\" exact",
+          "\"regular octagon\" \"Lambda\" \"Franchetti\" constant",
+          "\"0.679129302431368\" normed octagon parameter",
+          "Resultary/2026 2026/10/11/SCOPE-exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/RESULT.md",
+          "Resultary/2026 2026/10/11/SCOPE-exact-weighted-james-profile-of-the-regular-octagonal-plane--e444949daa08/RESULT.md",
+          "Resultary/2026 2026/10/11/SCOPE-quadratic-isosceles-constant-as-rotation-distortion-in-symmetric--e5abe2498338/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the exact Baronti--Franchetti minimax value for the paper’s canonical regular octagonal plane. The defining 2014 full text supplies the definition, universal bounds, values for affine regular hexagons and ell_p^2, and octagon geometry, but nowhere evaluates Lambda(A). A 2022 same-author full paper and three distinct published exact octagonal constant records were compared by their definitions and implications; their statements do not cover the Lambda(A) optimization. Searches do not guarantee historical priority.",
+      "residual_risks": [
+        "An equivalent octagonal Lambda value may exist in unindexed manuscripts, theses, or nonstandard notation. Targeted negative searches cannot establish priority absolutely.",
+        "The full 2022 octagon article determines different parameters; an unidentified general inequality relating those constants to Lambda could exist outside inspected literature, but no checked source yields an exact Lambda implication.",
+        "The defining 2014 paper supplies much of the global geometry method, so novelty is the exact octagonal branch minimization and sharp extremizer, not invention of Lambda or the cone technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_PARAMETER_AND_IDENTICAL_OCTAGON_BUT_NOT_EXACT_LAMBDA_VALUE",
+          "evidence": "p. 675 definition (3); pp. 675–679 universal bounds, ell_p^2 value and four-cone method; pp. 681–682 the two octagonal norms and orthogonality Facts 1–2, without Lambda(A) calculation.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-014-0255-9",
+          "material_read": "Complete 11-page article, pp. 673–683, including Theorems 1–4, their proofs, Section 5 Fact 1 and Fact 2, octagonal formulas and closing references.",
+          "method": "Full article examination across all eleven printed pages, especially pp. 675–679 and 681–682.",
+          "title": "The isosceles orthogonality and a new 2-dimensional parameter in real normed spaces",
+          "trigger": "Original definition of Lambda and exact same octagonal norm A; highest-priority comparison."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANTS_NOT_COVERING_LAMBDA_A",
+          "evidence": "pp. 38–39 define g_perp/J_perp via norms of x±y; Example 5.3 determines sqrt(2) on a regular octagon; no Lambda(A) minimax identity.",
+          "identifier_or_url": "https://doi.org/10.33205/cma.1067323",
+          "material_read": "Introduction and invariant definitions pp. 37–39, the regular-octagon Example 5.3 on p. 41, and the concluding comparison section; not every line of the full nine-page article was checked.",
+          "method": "Read relevant material in the nine-page open-access published article, including its octagon example and definitions.",
+          "title": "Parameters in Banach spaces and orthogonality",
+          "trigger": "Later same-author paper with regular octagonal Example 5.3 and potential parameter overlap."
+        },
+        {
+          "assessment": "DIFFERENT_OMEGA_OBJECTIVE_NOT_COVERING",
+          "evidence": "Theorem evaluates Omega=(3+2sqrt(2))/5 as a quotient of squared norms of x+2y,2x+y,x+y, not the Lambda dual minimax.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/RESULT.md",
+          "material_read": "Entire RESULT.md including definition, full four-branch proof and relationship to primary sources.",
+          "method": "Complete published mathematical result and proof examined.",
+          "title": "Exact isosceles-orthogonal Omega-constant of the regular octagonal Banach plane",
+          "trigger": "Same octagonal plane, same isosceles orthogonality, adjacent invariant."
+        },
+        {
+          "assessment": "DIFFERENT_CHORD_MINIMUM_NOT_COVERING",
+          "evidence": "Weighted James J(lambda,X) optimizes min{N(lambda x+(1-lambda)y),N(lambda x-(1-lambda)y)}, whereas Lambda uses sup over dual functionals then inf over unit pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weighted-james-profile-of-the-regular-octagonal-plane--e444949daa08/RESULT.md",
+          "material_read": "Entire RESULT.md proof and limitations.",
+          "method": "Complete published mathematical result and proof examined.",
+          "title": "Exact weighted James profile of the regular octagonal plane",
+          "trigger": "Same octagonal geometry; potential equivalent min-norm formulation."
+        },
+        {
+          "assessment": "BROADER_GEOMETRY_BUT_DISTINCT_H2_QUOTIENT",
+          "evidence": "H2 equals maximal rotation operator distortion (regular octagon sqrt(4-2sqrt(2))); no Lambda functional or implication is asserted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-quadratic-isosceles-constant-as-rotation-distortion-in-symmetric--e5abe2498338/RESULT.md",
+          "material_read": "Entire RESULT.md, including structural operator norm theorem and polygon corollary.",
+          "method": "Complete published mathematical result and proof examined.",
+          "title": "Quadratic isosceles constant as rotation distortion in symmetric planes",
+          "trigger": "Stronger geometry scope all symmetric Minkowski planes and the same octagon."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Marco Baronti and Carlo Franchetti, The isosceles orthogonality and a new 2-dimensional parameter in real normed spaces, Aequationes Mathematicae 89 (2015) 673–683, doi:10.1007/s00010-014-0255-9",
+        "Marco Baronti and Pier Luigi Papini, Parameters in Banach spaces and orthogonality, Constructive Mathematical Analysis 5 (2022) 37–45, doi:10.33205/cma.1067323",
+        "Frozen RESULT.md and independent analytical facet reconstruction"
+      ],
+      "rationale": "The Baronti--Franchetti constant is a defined Banach-space geometry invariant for which exact canonical plane examples form the main mathematical study in the defining article. That same primary article introduces and analyzes the regular octagonal plane without determining this constant; the omitted exact value is therefore a natural, independently useful benchmark rather than an arbitrary slice. It lies strictly between the 1/2 and 1/sqrt(2) universal endpoints and is attained at an interior isosceles edge pair. The explicit two-branch optimization and complete all-unit-pairs reduction explain its geometric mechanism; no downstream general theorem or paper-sized contribution is required.",
+      "residual_risks": [
+        "Single fixed two-dimensional norm only; not a uniform formula for larger polygon classes.",
+        "The general cone-reduction strategy is largely prior literature; value belongs to the exact new computation, not repackaging that technique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real two-dimensional regular octagonal A is covered; no assertion for arbitrary symmetric planes or polygon families.",
+    "Earlier papers give the invariant, the isosceles-pair method, and this octagon, but do not give the inspected exact Lambda(A) value.",
+    "Historical priority cannot be guaranteed by a finite primary-literature search; see structured originality residual risks.",
+    "Exact source mathematical files RESULT.md and SLOGAN.txt unchanged. Public administrative records are confidentiality-sanitized; no changes have been published."
+  ],
+  "schema_version": 1
+}

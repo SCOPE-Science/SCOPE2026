@@ -1,15 +1,18 @@
-# Same-model review
+# Scientific assessment
 
-## Correctness
-PASS. The defining supremum is reduced exactly to signed-segment distance. Every isosceles pair has a complete one-parameter description, elementary facet analysis gives two exact branches, and explicit norm-one dual functionals attain them. The unique branch minima coincide. A four-cone argument extends the common lower bound to every unit pair, and the displayed interior pair attains equality.
+## Finding and correctness
+The Baronti--Franchetti parameter of the regular octagonal plane
+\[\|(u,v)\|=\max\{|u|+(\sqrt2-1)|v|,\ |v|+(\sqrt2-1)|u|\}\]
+is exactly
+\[\Lambda(A)=\frac{\sqrt2}{1+\sqrt{4-2\sqrt2}}.\]
+The proof's octagonal segment-distance minimization gives two exact branches; explicit dual norm-one supports attain both. Their distinct interior critical points have the same minimum. A four-cone decomposition extends the common lower bound to every unit pair, and an interior isosceles pair attains it. The unmodified result contains the complete proof.
 
-## Originality
-PASS. The defining Baronti--Franchetti article was inspected in full. It computes the parameter for the affine-regular hexagon and all \(\ell_p^2\), then studies this regular octagon and its dual without computing \(\Lambda(A)\). Searches over authors, parameter notation, regular-octagon aliases, nearby exact octagonal constants and the exact radical found no equivalent statement.
+## Comparison with the literature
+Baronti and Franchetti, *The isosceles orthogonality and a new 2-dimensional parameter in real normed spaces*, Aequationes Mathematicae 89 (2015), 673--683, DOI 10.1007/s00010-014-0255-9, introduced this parameter and the same octagonal plane. The article proves general bounds and exact special-space values, and its Section 5 studies the regular octagon, but it does not determine this octagon's parameter.
 
-## Value
-PASS. Exact computation in special Minkowski planes is a central purpose of the parameter, and the source itself singles out this regular octagon for detailed orthogonality study. The missing exact value is therefore a natural benchmark; its extremizer is an interior edge pair rather than a vertex or coordinate pair.
+Baronti and Papini, *Parameters in Banach spaces and orthogonality* (2022), DOI 10.33205/cma.1067323, evaluates different James- and Schäffer-type invariants. Published regular-octagon calculations of the isosceles-orthogonal Omega constant, weighted James profile and quadratic H2 constant also concern different objectives. None of their inspected mathematical statements implies this exact Baronti--Franchetti minimax value.
 
-## Closest literature and limitations
-The closest source is the defining 2014 Baronti--Franchetti paper. Its final section supplies the octagonal geometry, while its earlier proof supplies the geometric reduction adapted here. A later differently notated restatement remains a bibliographic risk.
+Historical originality is a best-of-knowledge assessment. An unindexed equivalent result remains a priority risk; failed searches are not novelty proofs.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Mathematical value and scope
+The exact value completes a natural canonical example singled out in the defining paper, lies strictly between the universal endpoint values, and identifies a genuine interior edge-pair extremizer. This is a focused two-dimensional geometric invariant; it is not a formula for arbitrary regular polygons or normed planes.
