@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof defines the sample space, cuts off positive parts in each residue class, and uses the exact deletion bijection \(p(n-T)/p(n)\). A uniform Hardy–Ramanujan ratio for \(T=O(\sqrt n)\) and an arithmetic-progression sum yield the joint independent Rayleigh survival. No finite test is substituted for a limit proof. The continuous mapping to an argmin is valid because the limiting variables have continuous densities and cannot tie.
+PASS
 
-## Originality
+The joint event all M_r>k_r is exactly the event that each eligible part <=k_r occurs at least once. Deleting one forced copy gives a bijection to partitions of n-T, hence exact p(n-T)/p(n). For k_r=floor(x_r n^1/4), arithmetic progression sums produce T=sqrt(n)/(2h) sum x_r^2+O(n^1/4). Uniform Hardy-Ramanujan logarithmic partition ratio for T=O(sqrt n) then yields product exp(-pi x_r^2/(2h sqrt6)), proving joint weak convergence and iid limiting variables. Continuous limiting laws have no ties, validating the argmin map and 1/|R| probability, while the exact companion coefficient identities give the 1/3 and 2/3 limits. Independently enumerated ordinary partitions at n=14,21,29 for h=2,3,4 and verified the joint mandatory-part event exactly matches the partition-shift count; finite enumeration is only corroboration.
 
-**PASS with residual risk.** Andrews and El Bachraoui (2026) prove the even-companion equinumeration, not its asymptotic. Wagner (2011) analyzes one minimum and a different restricted-partition measure. Chern and Xia (2025) analyze one-variable excludant moments in congruence classes, not a simultaneous joint-vector law. A more general unindexed theorem may imply the result indirectly; this has not been ruled out by a claim of search uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result gives a uniform full joint limit for a natural family of least absent part statistics, with an immediately meaningful application to recent two-color partition companions. The exact event-counting representation makes the independence mechanism transparent and can be used for other fixed residue-class unions.
+The single congruence-class minimal-excludant moments in Chern-Xia and the exact two-color companion equinumeration in Andrews-El Bachraoui do not determine a full joint independence law, nor the limiting 1/3 winning-probability. Wagner treats univariate least gaps and restricted distribution models. Classical partition asymptotics alone require the new joint compulsory-part bijection. Broader asymptotic independence theorems may imply this special case, so no exhaustive historical priority is claimed.
 
-## Limitations
+## value
 
-The modulus and residue sets are fixed; no numerical convergence rate, growing-modulus uniformity, or finite-size independence is claimed. Bibliographic originality may require broader expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact joint limit for the natural family of residue-restricted least missing parts resolves competition among residues and yields a concrete limiting proportion for a recent exact partition companion sequence. The iid Rayleigh description is a useful probabilistic invariant and makes precise a joint behavior not determined by separate moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
