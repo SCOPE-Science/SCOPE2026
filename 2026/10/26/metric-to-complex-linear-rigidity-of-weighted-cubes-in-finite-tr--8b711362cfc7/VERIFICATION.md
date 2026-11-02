@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the weighted-cube trace-norm classification
+# Independent mathematical audit
 
-The universal classification follows from the proof in `RESULT.md`: trace-norm metric-segment equality, positivity of the common polar preimages, orthogonality of singleton supports, and a trace-saturation argument. In particular, the absence of embeddings below the dimension bound does **not** come from computation.
+## correctness
 
-The standalone Python program `checker.py` requires NumPy. Run it using `python checker.py` in a directory containing this file; no input data or network is required. The deterministic reference run printed:
+PASS
 
-`PASS: 104261 finite diagnostics (floating complex matrices and exact integer witnesses)`
+For all n>=3 and strictly positive weights, every isometric embedding of the full 2^n weighted Hamming cube in the complex rectangular Schatten-1 class is classified. Equality in the top-to-bottom trace-norm triangle forces each vertex to lie in the positive cone U H_epsilon for the SAME polar partial isometry U, 0<=H_epsilon<=|A|. Singleton P_i=H_{e_i} have trace w_i and ||P_i-P_j||_1=w_i+w_j; the sign-duality equality condition forces mutually orthogonal supports. For each vertex epsilon and each active i, ||H_epsilon-P_i||_1=Tr(H_epsilon-P_i) yields H_epsilon>=P_i. Saturation of total trace over the mutually orthogonal supports leaves no off-support or off-diagonal mass; hence H_epsilon=sum_{i active}P_i. These disjoint positive blocks yield complex-linear extension L(z)=U sum z_i P_i with trace norm sum w_i|z_i|. Nonzero disjoint supports force rank(top-bottom)>=n and min(p,q)>=n, realized by diagonal constructions; at p=q=n all blocks rank one, giving the two-unitary normal form. Inspected `checker.py` generates higher-rank complex rectangular witnesses and exact diagonal metrics. Its 104261 reported diagnostics are not used to prove the universal rigidity.
 
-The diagnostics cover weighted cubes of dimensions three through six embedded by random complex rectangular partial isometries, cases with nontrivial higher-rank positive blocks, and complete integer-diagonal Hamming-distance identities for dimensions three through eight. The checker is independent of any other package path and uses no saved test log. Numerical tests do not establish the universal rigidity or minimal matrix size. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS after comparison of theorem statements, hypotheses, reductions and implications. The inspected sources do not establish the complete final claim for this record; known components are acknowledged. Metric-to-complex-linear rigidity of weighted cubes in finite trace-class matrix spaces retains explicit residual priority risks. An inaccessible plausible source alone is not treated as failure or as a whole-document NOT_COVERING finding.
+
+## value
+
+PASS
+
+This is an exact classification of every nonlinear isometric realization of a natural finite weighted ℓ1 cube inside the noncommutative trace norm, forcing a complex-linear extension and characterizing all equality configurations. Its all-weight and rectangular scope gives substantive information beyond the known unweighted dimension obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
