@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T19:03:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at frozen commit, blob a12a044d252a6b2c365d35761736c6a49e4b9b07",
+        "Assigned verify.py, blob 7107074179dc900ab8db88669ed428f028a929da",
+        "Assigned VERIFICATION.md, blob a4d397a4242c9287d81d0cc31b55622210a5f170"
+      ],
+      "rationale": "Reconstructed the exact system xdot=a-(b+1)x+x²y, ydot=bx-x²y for a,b>0. S=x+y obeys Sdot=a-x. Invariance applied to all smooth antiderivatives H(S) yields E[x|S]=a and Cov(x,S)=0. Consequently Cov(x,y)=-Var(x), Var(y)=Var(S)+Var(x), Var(x)=E[Sdot²]. Antiderivative tests K(x) yield E[y|x]=F(x)=((b+1)x-a)/x². The pointwise residual y-F=xdot/x² and conditional orthogonality yield Var(y)-Var(F)=E[(xdot/x²)²]. Compact positive support guarantees bounded x^{-1} and positive y_min, so F>=y_min on the x-support and x>a/(b+1). Zero Var(x) or Var(S) together with invariance forces x=a and y=b/a, giving all strict non-equilibrium cases. Independent SymPy symbolic cancellation checks for Sdot, nullcline residual and equilibrium passed. The Git tree SHA reconstructed exactly from the eight observed Git blob identities; packaged VERIFY_OK was not taken as a proof of analytic steps.",
+      "residual_risks": [
+        "Compact invariant support in (0,∞)^2 is required; none of the identities asserts existence of a periodic orbit for every (a,b).",
+        "Exact symbolic checks verify algebraic substeps only; the generator and equality proof were separately reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 4 same-system work covers all compactly supported invariant measures, a direct match in objects and hypotheses, and adds inhibitor-fiber calibration, size-bias, and global s>a barrier beyond the assigned central conclusion.",
+          "General stationarity identity E[L H(x)]=0 supplies the remaining x-fiber nullcline residual from the published Brusselator vector field."
+        ],
+        "reasoning": "The October 4 prior source has equal quantifier strength and strictly broader geometric/statistical scope. Other same mathematical model papers classify orbit geometry or integrability but do not defeat this direct mathematical coverage.",
+        "searches": [
+          "Resultary exact same-system broad query and read full October 4 RESULT.md",
+          "Read 2012 Llibre–Valls integrability theorem DOI 10.1142/S1402925112500167",
+          "Read de Abreu–Llibre 2026 global phase portraits DOI 10.1007/s10883-026-09780-5",
+          "Read Schnakenberg full October 11 conditional generator theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-stationary-slice-calibrations-and-variance-speed-rigidity--41daf1768156/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fiberwise-flux-calibration-and-exact-anticorrelation-in-the-schn--0c5dc030ae79/RESULT.md",
+        "https://ddd.uab.cat/pub/artpub/2012/gsduab_3252/LliVal2011j.pdf",
+        "https://link.springer.com/article/10.1007/s10883-026-09780-5",
+        "doi:10.1016/0022-247X(78)90238-X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same hypotheses after A=a, B=b; prior proves E[x|S]=a and Var(y)=Var(S)+Var(x), implies Cov(x,y)=-Var(x) and E[(Sdot)^2]=Var(x).",
+          "For non-equilibrium invariant measure, Var(S)>0: otherwise Sdot=a-x=0 on invariant support forces x=a and y=b/a. Thus its covariance and strict variance claims are direct corollaries of October 4.",
+          "For remaining x-fiber regression, 0=E[psi(x)xdot] for every continuous psi by invariance, giving x²E[y|x]=(b+1)x-a. Setting F=((b+1)x-a)/x² and conditioning yields Var(y)-Var(F(x))=E[(xdot/x²)²]. Positive y on compact support forces F>0 and x>a/(b+1)."
+        ],
+        "reasoning": "Every headline assertion is either an identical October 4 theorem or a one-step standard invariance/conditional-variance consequence of the previously stated Brusselator equations. An identical wording/numerical parameter is not required for coverage. The residual x-fiber identity cannot independently sustain a novel full final claim under the stated C/O/V standard.",
+        "searches": [
+          "Full source comparison assigned RESULT.md vs Oct4 published RESULT.md",
+          "Full source comparison assigned RESULT.md vs Schnakenberg RESULT.md",
+          "1996–2026 same mathematical model literature and current exact published source search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct same mathematical model October 4 finding explicitly identifies identical conditional E[x|S]=a, Cov(x,y)=-Var(x), Var(y)=Var(S)+Var(x), and speed law.",
+          "The alternative activator regression E[y|x]=((b+1)x-a)/x² is the stationary generator formula E[x-dot|x]=0 for the already-published vector field; its residual variance gap is the standard conditional variance decomposition."
+        ],
+        "reasoning": "Synonyms stationary slice calibration, concentration fibers, total concentration and nullcline regression were searched. The core first-fiber, covariance and variance claims are exactly equivalent to the previous source. The remaining second-fiber formula follows immediately by testing any antiderivative in x in the established dynamics; no independent nonstandard result remains.",
+        "searches": [
+          "Resultary semantic query: Brusselator classical chemical oscillator autocatalytic x+y sum invariant measures exact conditional mean activator inhibitor covariance variance negative correlation",
+          "Resultary semantic query: Rosenzweig MacArthur predator prey oscillator invariant measures fiberwise nullcline calibration exact anticorrelation mean shifts cycles Holling II",
+          "web: Brusselator stationary measure conditional expectation x given x+y anticorrelation covariance variance",
+          "web: Brusselator periodic orbit mean covariance x y negative chemical oscillations period invariant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct4 public research result explicitly prints E_mu[x|x+y]=A, Cov_mu(x,y)=-Var_mu(x) and Var_mu(y)-Var_mu(x+y)=Var_mu(x)=E_mu[(dot x+dot y)^2]."
+        ],
+        "reasoning": "This is direct exact formula coverage in an earlier dated public mathematical result, not an unsuccessful database search. Numerical parameter-table matching is inapplicable because the theorem is a symbolic all-positive-parameter invariant-measure identity.",
+        "searches": [
+          "Resultary semantic exact Brusselator query (26 hits; same Oct4 record identified)",
+          "Full exact October 4 Brusselator RESULT.md",
+          "GitHub publication path 2026/10/4/SCOPE-exact-stationary-slice-calibrations-and-variance-speed-rigidity--41daf1768156"
+        ]
+      },
+      "rationale": "Direct prior mathematical coverage by the October 4 exact Brusselator stationary slice-calibration theorem, not merely the same title or analogous parameters. It proves the entire total-concentration law, autocovariance law, variance/speed identity and rigidity; the extra x-fiber regression, speed residual and x-support threshold are elementary consequences of the standard generator invariance equation for this already-published polynomial flow. The submitted final headline therefore lacks a surviving original mathematical assertion. This is a scientific implication judgment; VPN failure for a separate 1978 source is not treated as evidence of nonnovelty.",
+      "residual_risks": [
+        "Original 1978 Ponzo–Wax full text was unavailable because authorized institutional access returned vpn_disconnected; this does not affect the decisive October 4 same-object coverage.",
+        "The founding 1968 article was seen through bibliographic and indexed material, not used for a whole-document exclusion.",
+        "No claim of independent formal verification, priority certificate or complete universe-wide literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT COVERAGE: for all compact positive stationary measures, explicitly gives E[x|x+y]=a, Cov(x,y)=-Var(x), Var(y)=Var(x+y)+Var(x), Var(x)=E[(dot x+dot y)^2], and equality only at equilibrium. Strict y-variance follows by one-line rigidity; all are identical or immediate corollaries, not novel.",
+          "evidence": [
+            "The prior Finding displays E_mu[x|x+y]=A, Cov_mu(x,y)=-Var_mu(x), and Var_mu(y)-Var_mu(x+y)=Var_mu(x)=E_mu[(dot x+dot y)^2].",
+            "The same prior proof establishes only equilibrium has Var_mu(x)=0; its Sdot=A-x implies Var(S)>0 for every non-equilibrium invariant measure.",
+            "The same prior paper was published in the October 4 collection; assigned final claim belongs to the October 11 collection."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-stationary-slice-calibrations-and-variance-speed-rigidity--41daf1768156/RESULT.md",
+          "material_read": "Complete prior RESULT.md, including theorem, all hypotheses, proofs of conditional first law, covariance and speed-variance identity, equality rigidity, and cited 1971 paper",
+          "method": "Read actual public source via repository connector and compare every formula and quantifier under A=a, B=b",
+          "title": "Exact stationary slice calibrations and variance-speed rigidity in the Brusselator",
+          "trigger": "Direct same-system prior theorem under different wording; decisive implication check"
+        },
+        {
+          "assessment": "Distinct vector field; does not by itself imply the Brusselator-specific second nullcline formula. Shows that the stationary-generator/covariance calculation is an already established method in a closely related autocatalytic oscillator.",
+          "evidence": [
+            "For u+v it states E[u|u+v]=a+b and Cov(u,v)=-Var(u), but its v equation has a constant feed unlike Brusselator ydot=bx-x^2y."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fiberwise-flux-calibration-and-exact-anticorrelation-in-the-schn--0c5dc030ae79/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, model equations, conditional derivations, strict variance/equality proof",
+          "method": "Full mathematical text comparison of vector fields, not just identical formulas",
+          "title": "Fiberwise flux calibration and exact anticorrelation in the Schnakenberg oscillator",
+          "trigger": "Exact paired conditional generator method and identical covariance identity on a neighboring chemical oscillator"
+        },
+        {
+          "assessment": "Theorems concern Liouvillian and analytic integrability, not stationary fiber disintegrations; original exact vector field confirms normalization. Does not rescue novelty from direct October 4 prior.",
+          "evidence": [
+            "Equation (1) is xdot=a-(b+1)x+x²y, ydot=bx-x²y.",
+            "Theorem 2 states that with a≠0 there are no analytic first integrals; Corollary 6 classifies existence of analytic/Liouvillian integrals."
+          ],
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2012/gsduab_3252/LliVal2011j.pdf",
+          "material_read": "Original PDF preprint: first three pages containing the exact equations, Proposition 1, Theorem 2, Propositions 3 and 4, Theorem 5, Corollary 6 and proof of Theorem 2; pages 1-3 visually inspected as PDF screenshots. Later pages not separately read.",
+          "method": "Lawful university-hosted original PDF read, web screenshots pages 1-3; theorem-level comparison",
+          "title": "Liouvillian and Analytic First Integrals for the Brusselator System",
+          "trigger": "Primary published full mathematical same-system study"
+        },
+        {
+          "assessment": "Global orbit topology and Hopf classification are not stationary moment identities; no matching moments located. Direct October 4 same-system math is nonetheless decisive.",
+          "evidence": [
+            "Theorem 1 distinguishes b≤a²+1 from b>a²+1 and describes Hopf/global portraits.",
+            "Full-text searches for variance, average and moment returned no matching text."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10883-026-09780-5",
+          "material_read": "Open full-text HTML source: abstract, exact system, introduction, Theorem 1, and selected local-equilibrium and compactification setup; document-wide term searches for variance, average, moment. Remaining proof sections not separately read in full.",
+          "method": "Relevant original article sections and document-wide term checks, mathematical implication comparison",
+          "title": "Classification of Global Phase Portraits for the Brusselator System",
+          "trigger": "Strong full-text 2026 same-system primary article"
+        },
+        {
+          "assessment": "Not claimed NOT_COVERING; provenance and an explicitly acknowledged residual priority uncertainty only. This is not the basis of O failure.",
+          "evidence": [
+            "The 2026 global classification cites Ponzo and Wax (1978) for uniqueness of the limit cycle."
+          ],
+          "identifier_or_url": "doi:10.1016/0022-247X(78)90238-X",
+          "material_read": "Bibliographic record and the 2026 primary paper reference identifying its uniqueness argument; original full text unavailable",
+          "method": "Searched arXiv and lawful OA, then authorized institutional request returned vpn_disconnected, without bypass",
+          "title": "Note on a model of a biochemical reaction",
+          "trigger": "Potential original paper on uniqueness of Brusselator limit cycle"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-stationary-slice-calibrations-and-variance-speed-rigidity--41daf1768156/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fiberwise-flux-calibration-and-exact-anticorrelation-in-the-schn--0c5dc030ae79/RESULT.md",
+        "Assigned RESULT.md at frozen commit"
+      ],
+      "rationale": "The Brusselator and its total concentration and nullcline are natural mathematical objects, and the original formulas are correct. But the most meaningful purported invariant—universal negative covariance and strict variance ordering for all stationary states—already appears, with the full conditional and speed identity, in the published October 4 same mathematical model theorem. The remaining x-fiber calibration is directly E[x-dot|x]=0 and its square-integrable residual is the standard law of total variance. The x lower barrier is immediate from positivity of that regression (and from elementary vector-field crossing). No independently unknown or mathematically motivated invariant/classification remains after removing covered or routine deductions. Value is not denied merely because the proof is short; it is denied because the precise finished mathematical content is already covered plus routine consequences.",
+      "residual_risks": [
+        "A genuinely new stronger statistical classification could have mathematical value, but it is not present in this frozen final claim.",
+        "The verdict is about the submitted mathematical finding, not about the importance of the physical oscillator."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-stationary-slice-calibrations-and-variance-speed-rigidity--41daf1768156/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fiberwise-flux-calibration-and-exact-anticorrelation-in-the-schn--0c5dc030ae79/RESULT.md",
+    "https://ddd.uab.cat/pub/artpub/2012/gsduab_3252/LliVal2011j.pdf",
+    "https://link.springer.com/article/10.1007/s10883-026-09780-5",
+    "doi:10.1016/0022-247X(78)90238-X"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "One mathematical record assessed with C PASS/O FAIL/V FAIL; scientific rejection is due to stronger preexisting direct same mathematical model coverage and trivial remaining consequences.",
+    "Unverified original 1978 full text is named as residual risk, not a reason to fail novelty.",
+    "No GitHub write, dispatcher closeout, external attestation, independent proof assistant verification or publication."
+  ]
+}
