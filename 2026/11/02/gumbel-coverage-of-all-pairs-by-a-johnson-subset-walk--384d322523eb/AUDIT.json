@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact killed chain on the finitely many marked vertices is a true lumping; the zero-arrival kernel has a simple eigenvalue 1 and spectral gap 1/r. Its normalized left eigenvector has one-marked-state mass r/(n-r)+O(n^-2), producing the universal escape coefficient 2(r-1)k/n^2+O(n^-3). Uniform-in-fixed-k expansions imply Poisson missing pairs and a standard Gumbel time; an independent one-pair tail bound proves expectation asymptotics. The actual packaged standard-library checker passed 212 assertions comparing rational full and reduced chain survival, and numerical spectral rates. Finite checks are corroboration only, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://link.springer.com/article/10.1007/s10959-025-01417-w Theorem 2.5: only r=s Johnson vertex cover time.",
+        "https://link.springer.com/article/10.1007/s10959-025-01417-w Theorem 2.3: independent block drawings.",
+        "https://digitalcommons.mtu.edu/michigantech-p/3964/ abstract: independently selected blocks, not a Markov walk."
+      ],
+      "reasoning": "The r=s theorem has the wrong s when r>2; independent-drawing Gumbel limits give neither avoidance asymptotics nor the extremal index under single-swap memory. Generic graph-walk cover bounds do not imply exact full lower-shadow Gumbel behavior.",
+      "searches": [
+        "Markov chain on r-subsets replacement all 2 subsets collected cover time expectation",
+        "Athreya Mukherjee Conjecture 2.4 proved Markovian",
+        "random walk r-subsets s-subsets cover time"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.01145",
+      "doi:10.1007/s10959-025-01417-w",
+      "doi:10.1006/jcta.1996.0065",
+      "semantic mathematical-result searches on Johnson lower-shadow coverage and Markovian super-coupons",
+      "accessible previous related probability finding titles and claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://link.springer.com/article/10.1007/s10959-025-01417-w Conjecture 2.4 and Theorems 2.3, 2.5 reviewed directly in the accessible article.",
+        "https://digitalcommons.mtu.edu/michigantech-p/3964/ states Poisson approximation for independent selected covering blocks."
+      ],
+      "reasoning": "If the 2023/2025 primary work implied the new statement, it would settle the explicitly conjectured off-diagonal case s=2<r. Its proofs use independent repeated block samples or Johnson vertex hitting only for s=r, not forbidden-edge avoidance under r-set swaps. Their results cannot directly yield the claimed universal per-edge spectral escape coefficient and full factorial-moment limit.",
+      "searches": [
+        "proof of Athreya Mukherjee Mukherjee Conjecture 2.4 Markovian super coupon collector s=2 fixed r Johnson graph cover pair time n^2 log n /(r-1)",
+        "Athreya Mukherjee Conjecture 2.4 proved Markovian",
+        "random walk r-subsets s-subsets cover time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2304.01145: Conjecture 2.4 defines the Johnson-subset replacement walk with all s-subsets to be seen.",
+        "https://link.springer.com/article/10.1007/s10959-025-01417-w sections 2 and 3: the proven Markovian case is s=r, not s=2 with r>2."
+      ],
+      "reasoning": "Pair-shadow coverage, the stopping time when the lower two-shadow of the visited r-sets is complete, and Markovian 2-super-coupon collection are exactly the same event. Searches for all aliases did not identify a known Gumbel limit for r>2. The independent random-covering-design formulation lacks temporal dependence and is not equivalent.",
+      "searches": [
+        "proof of Athreya Mukherjee Mukherjee Conjecture 2.4 Markovian super coupon collector s=2 fixed r Johnson graph cover pair time n^2 log n /(r-1)",
+        "Johnson random walk 3-subsets cover all pairs Gumbel limit Poisson missed pairs",
+        "Markovian super-coupon Gumbel pair collector"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact object is a growing-index Markov walk, not a fixed finite invariant in a classification table.",
+        "Relevant semantic research search results concerned unrelated Johnson-slice spectra, graph cover-free packings, or generic walk mixing, with no claimed pair-shadow terminal law."
+      ],
+      "reasoning": "No direct database/table entry supplies the limiting law. An unsuccessful indexed search alone is not a uniqueness argument; the comparison relies chiefly on the original explicit conjecture and the difference in sampling mechanisms.",
+      "searches": [
+        "Johnson random walk 3-subsets cover all pairs Gumbel limit Poisson missed pairs",
+        "Johnson walk all pairs cover time lower shadow"
+      ]
+    },
+    "rationale": "Conjecture 2.4 of Athreya--Mukherjee--Mukherjee explicitly leaves the Markovian s=2, r>2 case unresolved. Theorem 2.5 covers only s=r and their Gumbel theorem covers independent block draws. Fixed-dimensional killed-chain spectral expansion derives new Markovian pair coverage and a standard Gumbel law for every fixed r>=3. The strongest available directly relevant full primary article and independent-block references were compared by hypotheses and conclusions; historical completeness cannot be guaranteed.",
+    "residual_risks": [
+      "An unindexed or newly published work may already solve the exact s=2 Markovian conjecture or imply it by a general rare-event theorem.",
+      "The 1996 random covering-design article was evaluated from its abstract, not its full text.",
+      "No independent mathematical referee has reconstructed the spectral perturbation proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The statement is left as a conjecture for s=2<r; the proved Gumbel law uses independent block samples, and the Markovian result only covers r=s.",
+        "evidence": [
+          "Conjecture 2.4, section 2",
+          "Theorem 2.3 and proof in section 3",
+          "Theorem 2.5 and its proof in section 3"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10959-025-01417-w",
+        "material_read": "HTML full article: introduction, Theorems 2.1--2.5, Conjecture 2.4, Remark 2.2, moment method, proof of Theorem 2.5, and reference list",
+        "method": "Read accessible full HTML sections and directly compared models, cases and stated hypotheses",
+        "title": "On a generalisation of the coupon collector problem",
+        "trigger": "Exact originating Markovian s-super-coupon conjecture, possible dominating theorem"
+      },
+      {
+        "assessment": "Confirms pre-2024 first public date and the stated off-diagonal conjecture in its abstract.",
+        "evidence": [
+          "arXiv:2304.01145 originally posted 2023-04-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+        "material_read": "Preprint abstract and bibliographic public-posting timestamp (2023-04-03)",
+        "method": "Inspected arXiv abstract listing; substantive comparison used the openly accessible full publisher text of the same paper",
+        "title": "On a generalisation of the coupon collector problem (original preprint)",
+        "trigger": "Determine earliest verified first public date for category ownership"
+      },
+      {
+        "assessment": "The inspected description treats independently selected random blocks; it does not establish direct Markovian coverage. Full-text priority risk remains.",
+        "evidence": [
+          "1996 article abstract identifies independently selected random covering blocks"
+        ],
+        "identifier_or_url": "https://digitalcommons.mtu.edu/michigantech-p/3964/",
+        "material_read": "Publisher/author repository abstract and bibliographic information; not the full article",
+        "method": "Compared the sampled-block assumptions described explicitly in the abstract with Markovian single-swap subset updates",
+        "title": "Random covering designs",
+        "trigger": "Classic random pair-covering design and Poisson uncovered-set result might dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "384d3225-23eb-4fae-9b3c-04f6e6d178b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The statement addresses the directly motivated and explicitly conjectured off-diagonal case s=2<r of Markovian group coupon collection for all fixed r, and upgrades the proposed expected-time asymptotic to a full Gumbel law. Independence of the leading k-target escape rate from target-edge overlap is a structural feature essential for the Poisson limit, not a routine parameter relabeling.",
+    "status": "PASS"
+  }
+}
