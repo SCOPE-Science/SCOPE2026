@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For every binary pattern, the Gram matrix splits at unaveraged sites into explicitly described Jacobi blocks. The strict increase of their Perron eigenvalues in block length proves global optimality of exactly one unaveraged site; irreducible Perron uniqueness gives all complex extremizers. A rank-one perturbation argument proves exactly one eigenvalue above one. The ground-state quadratic identity proves a uniform strict finite-cycle inequality; a two-boundary secular equation and derivative expansion establish the exact exponential coefficient. The code separately checks direct finite selector spectra, symbolic characteristic recurrences and the asymptotic simplification. All limits are analytically proved and not inferred from samples.
+
+**Originality — PASS against the inspected literature and database records, with residual risk.** The primary 2026 centered-maximal result is a full-radii continuous \(L^p\) theorem, not a finite cyclic two-choice norm. The 2026 discrete derivative paper concerns a different functional. The 2021 directed-graph sharp-bound paper uses all graph balls and proves its main exact estimates for stars, not for this two-choice cycle. Closest database results concern numerical radii of cyclic shifts or an infinite-lattice two-choice constant; neither result implies the finite cyclic optimizer classification and sharp exponential correction. A full older literature equivalence not indexed in these searches remains possible.
+
+**Value — PASS.** The finite-cycle correction is a natural and nontrivial spectral finite-size effect for a maximal averaging operator on a directed graph. The proof gives a complete optimal active-pattern classification, all extremizers, an exact polynomial prescription and the sharp exponential approach to the infinite-lattice constant; it is not a numerical census or a routine substitution into a known norm formula. It supplies an analytic benchmark for finite graph maximal operators and separates boundary-induced localization from periodicity.
+
+**Scope and risks.** Complex phase-sensitive averages, two choices, \(\ell^2\), integer \(N\ge2\), and fixed \(0<\theta<1\). The literature claim remains self-review, not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
