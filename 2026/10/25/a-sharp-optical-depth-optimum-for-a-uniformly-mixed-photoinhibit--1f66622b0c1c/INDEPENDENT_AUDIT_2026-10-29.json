@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:02:29.195655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reintegrated the depth mean after v=q exp(-u) to M_q(t)=e/t integral_0^t[q exp(-u)exp(-q exp(-u))]du. The response f_q(u) has derivative f(q exp(-u)-1). For q<=1 it decreases strictly; for q>1, g=t f(t)-integral f increases until log q, decreases thereafter, starts at zero and tends to -(1-e^-q), so exactly one positive global maximum. At the stationary point y=q exp(-t) in (0,1), the equation t y=1-e^(y-q) gives partial_t G=t y(y-1)<0 and partial_q G=[1-(1+q-y)e^-(q-y)]/q>0, proving strict q-monotonicity by the implicit-function theorem. Taylor/analytic IFT at (q,t)=(1,0) gives the 3/2 coefficient; t*y=1+O(e^-q) yields t=log q+log t+O(e^-q), hence double-log limit. Independent symbolic Taylor and direct quadrature/bracket checks agree, but no finite data prove the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior depth-integrated production models have related formulas and possible optimization but no inspected fully-read theorem yields the t*(q) strict global monotonicity and both regimes.",
+          "Idso–Foster 1975 specifically treats analytical light-forced primary production and is a plausible dominating source; full text not obtained, so absence of coverage is NOT asserted."
+        ],
+        "reasoning": "The one potentially stronger 1975 primary source remained inaccessible; its access failure is recorded as a residual priority risk, not an automatic originality rejection.",
+        "searches": [
+          "Bannister 1974 full text and Equation (20)",
+          "Idso–Foster 1975 DOI 10.1007/BF00348095 abstract",
+          "Walsby 1997 DOI 10.1046/j.1469-8137.1997.00736.x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md a125844a80f1f4ead4b375e484b400c1b9f6dd57",
+        "Frozen verify.py e5c82a78abb5fa102009c107d6de2a47b9870d09",
+        "Bannister 1974 primary journal full HTML Equation (20)",
+        "Steele 1962 original response",
+        "Idso–Foster 1975 abstract and Oxford vpn_disconnected",
+        "Walsby 1997 bibliographic/source-level comparison",
+        "Independent symbolic Taylor/derivative checks and q=2 numeric brackets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bannister integrated production equations imply the integral structure, not the claimed exact root count and asymptotics as a stated result.",
+          "The Idso–Foster abstract leaves open whether a more general method could imply the theorem; without its full text no whole-document noncoverage finding is made."
+        ],
+        "reasoning": "The proof uses monotonicity and sharp parameter expansions beyond the prior integrated formula; an uninspected more general theorem could still cover it.",
+        "searches": [
+          "Bannister 1974 Eq. (20)",
+          "Idso–Foster 1975 abstract",
+          "Walsby 1997 production integration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is the initial running average of f_q(u)=q exp(-u)exp(-q exp(-u)), a unimodal function.",
+          "Bannister gives depth-integrated exponential photosynthesis kernels; that integral formula is not claimed new."
+        ],
+        "reasoning": "The running-mean first-order condition and known production-integral aliases were explicitly compared; general unimodal averaging may yield uniqueness but does not by itself supply the full exact q-dependent asymptotics.",
+        "searches": [
+          "Resultary search: Steele photoinhibition Beer Lambert vertically mixed water column optimal attenuation optical depth light average double logarithmic",
+          "Bannister 1974 Equation (20)",
+          "Steele 1962 original light response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=2 numerical optimizer follows from the unique stationary equation and is not presented as an original observation.",
+          "No exact all-q optimizer table was identified in the Resultary ranked searches; the search result does not establish global novelty."
+        ],
+        "reasoning": "Numerical examples and available tables do not dominate the universal analytic classification.",
+        "searches": [
+          "Resultary search: Steele photoinhibition Beer Lambert vertically mixed water column optimal attenuation optical depth light average double logarithmic",
+          "Steele 1962 model and Bannister 1974 integral formula",
+          "Independent q=2 optimum numeric bracket t≈1.08189"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the all-q unique optical-depth optimizer, strict monotonicity and two sharp asymptotics, NOT for the Steele physiological curve or the integrated-column production formula. Steele (1962) introduced response; Bannister (1974) derives related depth-integrated exponential production equations, explicitly acknowledged as prior. Walsby (1997) supplies numerical integration in time/depth under more complex circumstances. Idso–Foster (1975) and Murphy (1962) are plausible prior sources; accessible abstracts alone cannot exclude a stronger optimizing statement. The Oxford attempt for Idso–Foster returned vpn_disconnected; no access bypass attempted. Generic unimodal running-mean optimization is a residual possible dominating principle; full claim coverage not established by inspected text.",
+      "residual_risks": [
+        "Idso–Foster 1975 full text inaccessible (Oxford VPN disconnected); a broader analytic optimization result may subsume part or all of the claim.",
+        "Older generic unimodal running-mean theorem may imply uniqueness, while the full asymptotic optimizer classification might still be specific.",
+        "Optimizing attenuation with biomass and physiology fixed is a hypothetical conditional model, not environmental policy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers integration antecedent; exact global optimizing root and scales not found in inspected material",
+          "evidence": [
+            "Equation (20) and discussion of water column production"
+          ],
+          "identifier_or_url": "https://doi.org/10.4319/lo.1974.19.1.0001",
+          "material_read": "Accessible full journal HTML and equation (20) with analytic production discussion",
+          "method": "Read primary HTML including formula and surrounding analysis",
+          "title": "Production Equations in Terms of Chlorophyll Concentration, Quantum Yield, and Upper Limit to Production",
+          "trigger": "Nearly identical exponential depth-integration objective"
+        },
+        {
+          "assessment": "Steele form is prior and not claimed new",
+          "evidence": [
+            "The response P(I)=Pmax(I/I*) exp(1-I/I*)"
+          ],
+          "identifier_or_url": "https://doi.org/10.4319/lo.1962.7.2.0137",
+          "material_read": "Original model and bibliographic description checked; no full-document noncoverage assertion",
+          "method": "Primary indexed description and referenced historical model",
+          "title": "Environmental Control of Photosynthesis in the Sea",
+          "trigger": "Original photoinhibition law"
+        },
+        {
+          "assessment": "ACCESS INCOMPLETE; cannot conclude whole-paper noncoverage; specific originality priority risk remains",
+          "evidence": [
+            "Abstract considers analytic light-forced primary production; Oxford job 6f59e632314ce10fca5c3ae06b64b4a3"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00348095",
+          "material_read": "Accessible abstract only; arXiv/preprint and lawful OA full-text attempts failed; Oxford authorized retrieval returned vpn_disconnected",
+          "method": "Primary abstract and restricted-access attempt only",
+          "title": "An Analytical Study of Three Characteristic Forms of Light-Forced Primary Production in Aquatic Ecosystems",
+          "trigger": "Strongly plausible 1975 global production analysis"
+        },
+        {
+          "assessment": "Numerical time-dependent integration differs from strict all-q frozen response optimization",
+          "evidence": [
+            "1997 temporal/depth numerical integration method"
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1469-8137.1997.00736.x",
+          "material_read": "Accessible cited work summary and model description; no claim entire paper read in this run",
+          "method": "Bibliographic/abstract-level comparison plus package literature analysis",
+          "title": "Numerical Integration of Phytoplankton Photosynthesis Through Time and Depth in a Water Column",
+          "trigger": "Time/depth integration could subsume frozen model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In an ecologically motivated conditional model, the optimum changes sharply when surface light exceeds the inhibitory threshold, with an interior optimum responding monotonically to incident light and growing on a non-obvious log-log scale. The exact natural dimensionless optimizer is a useful, reproducible design/falsification benchmark, not a claim that increasing ecological turbidity improves productivity in the field.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md a125844a80f1f4ead4b375e484b400c1b9f6dd57",
+    "Frozen verify.py e5c82a78abb5fa102009c107d6de2a47b9870d09",
+    "Bannister 1974 primary journal full HTML Equation (20)",
+    "Steele 1962 original response",
+    "Idso–Foster 1975 abstract and Oxford vpn_disconnected",
+    "Walsby 1997 bibliographic/source-level comparison",
+    "Independent symbolic Taylor/derivative checks and q=2 numeric brackets"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform biomass, frozen Steele response and Beer attenuation, instantaneous gross depth-mean at fixed surface light/depth.",
+    "No seasonal dynamics, self-shading feedback or ecosystem productivity claim."
+  ],
+  "residual_risks": [
+    "Idso–Foster 1975 full text inaccessible (Oxford VPN disconnected); a broader analytic optimization result may subsume part or all of the claim.",
+    "Older generic unimodal running-mean theorem may imply uniqueness, while the full asymptotic optimizer classification might still be specific.",
+    "Optimizing attenuation with biomass and physiology fixed is a hypothetical conditional model, not environmental policy."
+  ],
+  "schema_version": 1
+}
