@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Scalar resolvent coefficients directly give the unique all-center calibration. Strict contraction supplies a unique invariant law; centered independent affine updates give V and geometric lag covariance, and geometric summation gives the exact sample-average limit. Two- and three-component rational identities factor into a square and a polynomial times r-1, respectively. Ten symbolic identity groups, 275 exact rational test cases and three seeded stochastic comparisons passed using the embedded verifier; these tests supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sadiev, Condat and Richtárik, arXiv:2405.14255, Sections 3–5: bounds for random resolvents and corrected schemes, not the exact calibrated stationary covariance and minimal-component step-size reversal.",
+        "Toulis and Airoldi, arXiv:1408.2923, implicit SGD theory: estimator asymptotics use a different step-size regime and do not give this stationary fixed-step family."
+      ],
+      "reasoning": "General iid random affine recursions subsume the basic covariance recurrence, and that elementary ingredient is expressly acknowledged. The identified broad proximal and estimator theorems do not directly imply the specific all-center distribution choice plus the exact two-component obstruction and three-component strict reverse sign; those are obtained by coefficient matching and special rational derivatives. A more comprehensive specialized theorem could still imply them and remains a priority risk.",
+      "searches": [
+        "implicit stochastic proximal point quadratic heterogeneous curvature optimal sampling stationary variance autocorrelation",
+        "proximal stochastic implicit SGD exact time averaging variance step size independence",
+        "2023 Traore Apidopoulos Salzo Villa stochastic proximal point quadratic importance sampling stationary error",
+        "finite sum quadratic stochastic proximal point stationary sample average asymptotic variance monotonicity two versus three terms",
+        "arXiv:2405.14255",
+        "arXiv:1408.2923"
+      ]
+    },
+    "checked_sources": [
+      "Traoré, Apidopoulos, Salzo and Villa, Variance reduction techniques for stochastic proximal point algorithms, arXiv:2308.09310 (first submitted 2023-08-18), https://arxiv.org/html/2308.09310v3",
+      "Sadiev, Condat and Richtárik, Stochastic Proximal Point Methods for Monotone Inclusions under Expected Similarity, arXiv:2405.14255, https://arxiv.org/html/2405.14255v1",
+      "Toulis and Airoldi, Asymptotic and finite-sample properties of estimators based on stochastic gradients, arXiv:1408.2923, https://arxiv.org/html/1408.2923v6",
+      "Bauschke and Wang, The Bregman proximal average, arXiv:2108.11440, https://arxiv.org/abs/2108.11440",
+      "Bertsekas, Incremental proximal methods for large scale convex optimization (2011), author-hosted monograph manuscript, https://web.mit.edu/dimitrib/www/Incremental_Proximal.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Traoré et al. 2023 supplies the uncalibrated stochastic proximal iteration and convergence analysis, not the new conditional mean identity or exact averaging variance.",
+        "Sadiev et al. 2024 supplies SPPM under expected similarity and correction steps, but general convergence inequalities do not determine the sign of the derivative of an exact stationary averaging coefficient.",
+        "Bauschke and Wang 2021 provides the proximal-average operator principle, which neither identifies the arithmetic-mean quadratic for the calibrating distribution nor includes stationary stochastic sampling covariances.",
+        "An available prior claim about symmetric Chebyshev stochastic-gradient stages concerns random Chebyshev amplification and Bernoulli support structure, not random scalar resolvents."
+      ],
+      "reasoning": "The mean-calibration identity is proved directly for all centers; the stationary covariance is exact rather than a bound; the polynomial sign factor proves no step-size decrease with two components and strict decrease in the three-component witness. None follows as stated from the compared source claims, though standard random-affine-moment lemmas simplify their derivation.",
+      "searches": [
+        "stochastic proximal point quadratic finite-sum exact stationary distribution random sampling unequal curvatures stepsize variance optimum",
+        "stochastic proximal point nonuniform sampling invariant stationary mean unbiased quadratics exact long run variance sample average step size curvature",
+        "two versus three quadratic components proximal sampling reverses ergodic average variance increasing stepsize",
+        "random iterative resolvent mean equals full proximal map importance sampling affine quadratic",
+        "arXiv:2308.09310",
+        "arXiv:2405.14255",
+        "arXiv:2108.11440"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bauschke and Wang, arXiv:2108.11440, introduction: a convex combination of prox maps can be a prox of a proximal average, but the proximal average is generally distinct from an ordinary arithmetic sum.",
+        "Traoré et al., arXiv:2308.09310, Sections 1 and 4: their random component resolvent is not explicitly curvature-calibrated to the original mean-resolvent."
+      ],
+      "reasoning": "Aliased formulations searched included weighted resolvent averages, implicit SGD, stochastic proximal point, proximal-average commutation, and expected proximal mapping. The exact asserted identity is equality to the ordinary arithmetic-mean objective for all center vectors, not the more general but weaker statement that the average of resolvents is some resolvent. The all-center coefficient matching establishes uniqueness in its scope. Specialized unknown weighted-quadratic identities remain a residual risk.",
+      "searches": [
+        "stochastic proximal point quadratic finite-sum exact stationary distribution random sampling unequal curvatures stepsize variance optimum",
+        "stochastic proximal point nonuniform sampling invariant stationary mean unbiased quadratics exact long run variance sample average step size curvature",
+        "stochastic proximal point unequal curvature p_i proportional 1+gamma a_i unbiased resolvent exact",
+        "random iterative resolvent mean equals full proximal map importance sampling affine quadratic",
+        "arXiv:2108.11440"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published comparison on capped SPS curvature weights concerns a different stochastic-gradient step-size scheme, not one-component proximal mappings.",
+        "Published comparison on constant-template STORM stationary variance concerns a different variance-reduced gradient estimator, not the calibrated proximal chain.",
+        "Published comparison on inverse-positive coordinate descent probabilities concerns a different objective and sampling criterion, not the mean-resolvent identity."
+      ],
+      "reasoning": "Semantic searches of the available published record found related curvature, stationary-variance and sampling claims but no matching formula/table for the specified finite-sum resolvent and two-to-three step-size transition. Search absence is not by itself a novelty proof; each named close result was distinguished by algorithm, quantities and implication. Previously available mathematical claims on randomized Chebyshev stages, clipped SGD, and stochastic variance concern different update operators and targets.",
+      "searches": [
+        "unbiased stochastic proximal point sampling probabilities 1+stepsize curvature stationary mean time-average variance",
+        "two versus three quadratic components proximal sampling reverses ergodic average variance increasing stepsize",
+        "stochastic proximal point unequal curvature p_i proportional 1+gamma a_i unbiased resolvent exact",
+        "finite sum quadratic stochastic proximal point stationary sample average asymptotic variance monotonicity two versus three terms"
+      ]
+    },
+    "rationale": "Inspected primary papers on stochastic proximal updates, generalized random resolvents, implicit SGD and proximal averages do not establish the precise conditional equality to the original sum together with the minimal component-count derivative-sign reversal. The basic affine-recursion moment formulas and convex-combination proximal-average facts are not claimed new. Named possible stronger equivalences and priority uncertainty are explicitly recorded.",
+    "residual_risks": [
+      "A generic iid affine-recursion theorem could imply the covariance formulas, though not a demonstrated exact calibrated sampling law and minimal-component sign transition.",
+      "A specialized weighted quadratic resolvent or proximal-average publication may establish an equivalent choice or stronger statement not uncovered by the bounded searches.",
+      "The priority assessment is based on accessible records and selected relevant full-text sections, not an exhaustive universe of papers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Genuine standard method and related convergence work; no identified all-center calibration, stationary covariance or two-versus-three derivative theorem.",
+        "evidence": "arXiv:2308.09310 Section 4.1 derives stochastic proximal point without stated nonuniform mean-resolvent calibration.",
+        "identifier_or_url": "https://arxiv.org/html/2308.09310v3",
+        "material_read": "Abstract, introduction, Sections 2 and 4 on algorithm, uniform component sampling and derivations; relevant results statements.",
+        "method": "Read accessible arXiv full-text HTML sections and compared algorithm/prox maps.",
+        "title": "Variance reduction techniques for stochastic proximal point algorithms",
+        "trigger": "Motivating 2023 finite-sum stochastic proximal point method and plausible prior expected dynamics"
+      },
+      {
+        "assessment": "Arbitrary stochastic operator distribution and convergence to a neighborhood, not exact specified fixed-sum quadratic probability and stationary averaging derivative sign.",
+        "evidence": "Algorithm 1 samples generic distribution; Theorems 1–3 give mean-square convergence bounds rather than exact long-run covariance.",
+        "identifier_or_url": "https://arxiv.org/html/2405.14255v1",
+        "material_read": "Abstract, Sections 2 and 3, SPPM Algorithm 1 and Theorem 1, Sections 4–5 algorithms and convergence bounds.",
+        "method": "Read arXiv full-text HTML and compared distribution and quantifiers.",
+        "title": "Stochastic Proximal Point Methods for Monotone Inclusions under Expected Similarity",
+        "trigger": "Broader random resolvent framework and stronger possible coverage"
+      },
+      {
+        "assessment": "Step-size-decay estimator asymptotics not the fixed-step calibrated finite-sum stationary stochastic proximal chain.",
+        "evidence": "arXiv:1408.2923 implicit SGD estimator variance framework.",
+        "identifier_or_url": "https://arxiv.org/html/1408.2923v6",
+        "material_read": "Introduction, implicit stochastic-gradient and averaged estimator analysis; relevant theorem statements and experimental constant-step context.",
+        "method": "Inspected publicly available arXiv full-text HTML relevant sections.",
+        "title": "Asymptotic and finite-sample properties of estimators based on stochastic gradients",
+        "trigger": "Potential stronger asymptotic variance and implicit gradient results"
+      },
+      {
+        "assessment": "Does not assert that a convex combination of given proximal maps is the prox of the arithmetic average of the same original functions, nor exact random-chain covariances.",
+        "evidence": "Theorem 3.3 and Corollary 3.4 identify convex combinations with a proximal average, not in general with the original arithmetic-average objective.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.11440",
+        "material_read": "Abstract, introduction, Theorem 3.3 and Corollary 3.4 on convex combinations of proximal mappings.",
+        "method": "Read accessible arXiv rendered text and checked implication scope.",
+        "title": "The Bregman proximal average",
+        "trigger": "Possible equivalence between sums of proximal mappings and one proximal mapping"
+      },
+      {
+        "assessment": "Found randomized incremental framework but not exact calibrated mean map, fixed-step invariant covariance or contrasting component-count derivative.",
+        "evidence": "Bertsekas (2011) randomized incremental proximal methodology.",
+        "identifier_or_url": "https://web.mit.edu/dimitrib/www/Incremental_Proximal.pdf",
+        "material_read": "Introduction and selected sections on randomized order, bounds and random component choices.",
+        "method": "Inspected available parsed author-hosted PDF portions and page images at start of document; not a claim of having read every page.",
+        "title": "Incremental proximal methods for large scale convex optimization",
+        "trigger": "Classical randomized incremental proximal sampling and convergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6a33a8f-2681-4e9f-92a1-e4617e529d10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact curvature-calibrated sampling scheme removes conditional mean resolvent bias without a control-vector correction. Its stationary time-averaging precision is not monotone in the same direction across component structures: all two-component models forbid decreasing long-run variance, yet a stable natural three-component family has strict decrease despite rising iterate variance. This algebraic phase distinction has interpretive value for step-size design and independent proximal sampling.",
+    "status": "PASS"
+  }
+}
