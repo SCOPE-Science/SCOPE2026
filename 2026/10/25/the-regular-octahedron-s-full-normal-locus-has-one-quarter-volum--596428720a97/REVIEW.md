@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The facet projection formula gives barycentric coordinates \(3\lambda_i=1+2s_i y_i-s_jy_j-s_ky_k\); requiring them nonnegative for all eight facets is exactly \(\|y\|_1+\|y\|_\infty\le1\). The edge normal-cone inequalities reduce to the same condition. The six vertex normals are present throughout the octahedron's interior. Strict inequality gives 26 distinct bases; equality causes a facet/edge base collision. The exact sector integral is \(1/144\), yielding volume \(1/3\) and probability \(1/4\). The rational checker is supplementary, not the geometric proof.
+PASS
 
-## Originality — PASS, with priority limits
+For each of the eight facets, projecting y to the plane s·x=1 gives barycentric 3lambda_i=1+2s_i*y_i-s_j*y_j-s_k*y_k. Minimizing across sign choices and vertices gives precisely 1-||y||_1-||y||_infinity; strict positivity is equivalent to projections in all facet interiors. Edge normal-cone inequalities simultaneously reduce to ||y||_1+||y||_infinity<=1, and all six vertex normals occur throughout int(O). In strict interior of Sigma3 the 6+12+8 distinct base points give 26, and a boundary facet-edge collision prevents 26 at equality; outside some facet foot is inactive. Independently integrated the chamber 0<=z<=y<=x, 2x+y+z<=1 symbolically to 1/144; 48 chambers give vol Sigma3=1/3, while vol O=4/3, yielding exactly 1/4. Independently verified facet barycentric minima for representative rational interior, exterior and boundary points. No claim about other octahedra or full count distribution.
 
-The closest inspected source is Nasonov–Panina–Siersma, arXiv:2406.01773, whose active-region framework and discussion of average normal counts motivate the invariant. Its inspected full text does not state the octahedron's full-normal locus or its exact volume fraction. Related work on the \(\ell_1+\ell_\infty\) polyhedral body and on normal counts for planar polygons concerns other invariants or dimensions and does not imply this result. The search was targeted, not an exhaustive proof of historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact volume fraction measures how robust maximal normal concurrency is under uniform interior sampling, a natural quantitative complement to a pointwise maximum-normal theorem. The locus is a recognizable polyhedral body and the fraction is a simple exact constant, not a numerical estimate. The result does not claim the entire normal-count distribution or generalize to all octahedral deformations.
+Best-of-knowledge PASS for the exact full-normal active region and uniform-volume fraction of a specific non-simple Platonic polyhedron. The materially inspected Nasonov–Panina–Siersma primary paper introduces the normal-count framework and studies general three-dimensional bounds and simple-polytope cases, not an explicit regular-octahedron active region or its volume. Other Resultary octahedral findings address projection width/diameter and moments, not normal concurrency.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact 1/4 fraction measures the robustness of the maximal normal-concurrency locus under a natural uniform interior distribution, not merely its nonemptiness. The octahedron is a canonical non-simple polyhedron; complete identification of its 26-normal region gives a motivated, exact, independently checkable geometric invariant that can anchor average-count or perturbative studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
