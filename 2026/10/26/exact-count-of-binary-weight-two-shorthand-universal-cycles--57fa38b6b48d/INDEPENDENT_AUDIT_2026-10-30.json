@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:09:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The edge-labeled overlap graph has every weight-one vertex of degree two and every zero/two vertex degree one. Forced-path contraction gives a balanced two-arc directed graph on m=n-2 vertices with arcs i->i-1 mod m and i->m-1-i (loops and parallel arcs distinct). Euler cycles anchored by the unique 0^(n-2)1 edge are counted by in-arborescences via BEST, since all outdegrees two. The Fourier blocks of 2I-P-R have paired determinants 2(1-zeta^k)(1-zeta^-k) and exceptional eigenvalue four for even m; directed tree cofactor equals 2^floor(m/2). Independently constructed all contracted integer cofactors for m=1..15 and directly enumerated binary rotation classes for n=3..6: 1,2,2,4. Rotational anchoring is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ruskey et al. give construction/existence across weights, which subsumes the family but not exact unrestricted population counts.",
+          "Chen et al. address mutually orthogonal families, a different quantity."
+        ],
+        "reasoning": "Existence for all weights and maximal orthogonal packing do not imply the weight-two total count.",
+        "searches": [
+          "Resultary published findings: binary weight two shorthand universal cycles de Bruijn sequences enumeration Euler circuits count",
+          "doi:10.1137/100808782",
+          "doi:10.3390/e27040366"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1137/100808782",
+        "doi:10.3390/e27040366",
+        "Resultary semantic query explicitly recorded under all four originality comparison fields"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A tour-construction algorithm entails at least one, not an enumeration of all tours.",
+          "The new forced degree-one path contraction and 2I-P-R Fourier determinant are necessary for exact cofactor evaluation."
+        ],
+        "reasoning": "The classical BEST/matrix-tree identities are credited; their application alone is not the evaluated formula without graph reduction and spectral computation.",
+        "searches": [
+          "Resultary published findings: binary weight two shorthand universal cycles de Bruijn sequences enumeration Euler circuits count",
+          "doi:10.1137/100808782",
+          "doi:10.3390/e27040366"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shorthand fixed-weight-two original length-n words correspond exactly to the weight-one-or-two length-(n-1) dictionary.",
+          "Overlap digraph Euler tours counted only up to cyclic rotation, unlike ordinary unconstrained de Bruijn counts."
+        ],
+        "reasoning": "The representation aliases are matched; the source existence/construction theorem does not state the total number of tours under the present equivalence.",
+        "searches": [
+          "Resultary published findings: binary weight two shorthand universal cycles de Bruijn sequences enumeration Euler circuits count",
+          "doi:10.1137/100808782",
+          "doi:10.3390/e27040366"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary query returned binary subsequence universality and other string counts, not this constrained cyclic Euler-tour count.",
+          "The construction database supplies representatives and methods, not a complete count table in inspected materials."
+        ],
+        "reasoning": "Finite OEIS-like powers of two alone do not identify the combinatorial interpretation; no exact matching table found, without claiming exhaustive indexing.",
+        "searches": [
+          "Resultary published findings: binary weight two shorthand universal cycles de Bruijn sequences enumeration Euler circuits count",
+          "doi:10.1137/100808782",
+          "doi:10.3390/e27040366"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge statement-level comparison with relevant published Resultary findings and primary articles, acknowledging known general methods and narrower ancestors; no inspected stronger theorem implies the exact final result. Priority is qualified by explicit residual risks.",
+      "residual_risks": [
+        "Older unindexed enumeration or appendix may contain the same power-of-two count despite current negative searches.",
+        "The 2025 orthogonal-paper full text was not materially inspected in this run, so no full-text noncoverage is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence/construction of constrained universal cycles, no total weight-two count in inspected relevant material",
+          "evidence": [
+            "SIAM J. Discrete Math. 26 (2012), Sections 1–2, 6–7."
+          ],
+          "identifier_or_url": "doi:10.1137/100808782",
+          "material_read": "Open author-uploaded primary text, introduction and graph definitions, sections on construction and concluding problems",
+          "method": "Read relevant full-text sections and compare existence quantifier with total population count",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "Original shorthand fixed-weight constrained cycle construction"
+        },
+        {
+          "assessment": "Orthogonality-constrained collection design; full-text priority comparison remains qualified",
+          "evidence": [
+            "Entropy 27(4) (2025), paper 366."
+          ],
+          "identifier_or_url": "doi:10.3390/e27040366",
+          "material_read": "Abstract and accessible bibliographic/method summary only; complete paper not verified in this run",
+          "method": "Read available abstract/summary, no whole-paper exclusion",
+          "title": "Generalized Orthogonal de Bruijn and Kautz Sequences",
+          "trigger": "Related recent fixed-weight de Bruijn counting terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Universal cycles for all two-subsets in shorthand representation form a natural constrained de Bruijn population-count problem; determining how many such cyclic orderings exist is independent of constructing one, and an exact all-length exponential count is a usable combinatorial invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1137/100808782",
+    "doi:10.3390/e27040366",
+    "GitHub frozen RESULT.md blob 0b092a064e5a56a747d4ae187a4561016bf45bbf",
+    "GitHub frozen verify.py blob 6848b8b17d64e7b5ea4f2e4ca22dd5d46f76004e",
+    "Independent checks at local independent_checks.py and independent_results.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each n>=3, the number of rotation-only equivalence classes of binary circles of length binomial(n,2) whose every length-(n-1) factor has weight one or two exactly once is 2^floor((n-2)/2). Reversal and complementation are not identified.",
+  "limitations": [
+    "Older unindexed enumeration or appendix may contain the same power-of-two count despite current negative searches.",
+    "The 2025 orthogonal-paper full text was not materially inspected in this run, so no full-text noncoverage is asserted.",
+    "Exact source tree SHA was copied from the actual assigned record; the accessible RESULT.md and verification script blobs were independently fetched at the frozen commit, but full tree object byte reconstruction was not available through the repository connector.",
+    "Public metadata contain source provenance and need verified confidentiality-safe complete replacement contents before publication.",
+    "Finite checks corroborate but do not constitute unrestricted proof."
+  ],
+  "schema_version": 1
+}
