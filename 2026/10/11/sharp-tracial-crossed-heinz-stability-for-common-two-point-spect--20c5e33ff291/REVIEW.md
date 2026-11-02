@@ -1,15 +1,21 @@
-# Scientific review: sharp tracial crossed-Heinz stability
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies a finite tracial von Neumann algebra, parameters \(a>b>0\), \(0<t<1\), and arbitrary orthogonal projections. The polynomial defect \(A+B-C_t=d_t(P-Q)^2\) is exact. The polar sign of \(P-Q\) implements spectral reflection \(X\mapsto2-X\) on the support of \(X(2-X)\), ensuring equal trace weights for paired spectral values in any finite tracial algebra, including continuous spectra. Pairing establishes the exact scalar minimum formula; the polynomial square identity supplies the bound. Two rank-one two-dimensional witnesses separately realize both sharpness branches. Rational arithmetic independently verifies the noncommuting branch at \(a=100,b=1,t=1/2\). Finite numerical tests have no role in proving the infinite-dimensional quantifiers.
+## correctness
 
-## Originality — PASS, with stated literature risk
-The focal full text, Sababheh–Bourin arXiv:2610.04567v1, Section 6, proves the sharp Loewner coefficient \(\min\{d_t,L-d_t\}/(a-b)^2\). Its Corollary 6.2 passes that value to traces, while Remark 6.3 expressly does not determine trace optimality. In the parameter region \(d_t\le L/2\) the existing value is already sharp for traces, which is acknowledged as covered. The new coefficient is strictly larger precisely when \(d_t>L/2\), with an explicit attaining pair and a factor of improvement that becomes unbounded. Zhang arXiv:2602.00358v1, read through Section 3, treats noncommutative symmetric-space norm domination without a sharp squared-distance remainder. Targeted mathematical-record queries and available prior mathematical claims did not identify this exact phase transition. These searches do not certify global uniqueness; unindexed prior implications remain possible.
+PASS
 
-## Value — PASS
-The missing optimal trace constant is singled out by Remark 6.3 of the motivating paper. The theorem resolves this precise naturally arising optimization over projection pairs, extends it to finite tracial operator algebras, and exhibits a significant separation between matrix-order and trace-norm stability. The exact phase boundary and rank-one sharpness certificates can be reused in quantitative operator-ideal inequalities. This is a complete sharp-constant classification, not merely an arbitrary numerical sample.
+Reconstructed the proof over all finite tracial von Neumann algebras with faithful normal finite trace, a>b>0, 0<t<1 and arbitrary projections. Projection identities R^2=X(2-X) and R(X-1)=-(X-1)R yield self-adjoint C_t=s(X)-d_tu(X). The polar sign U=sgn(P-Q) conjugates X to 2-X on E=supp u(X); faithful finite trace supplies spectral reflection even for continuous spectra. Pairing h(x)+h(2-x) establishes the EXACT trace-deficit functional-calculus minimum min(d_tu(x),a+b-delta|x-1|). The polynomial-square identity 2s(x)-Lu(x)=((sqrt(a)+sqrt(b))x-2sqrt(b))^2>=0 proves the uniform coefficient min(d_t,L/2)/delta^2. For d_t<=L/2 complementary rank-one M2 projections attain d_t/delta^2; for d_t>L/2 rank-one P,Q with overlap r*=(sqrt(a)-sqrt(b))/(sqrt(a)+sqrt(b)) attain L/(2delta^2). Independently computed 2x2 rational witness a=100,b=1,t=1/2, r*=9/11: C eigenvalues -820/121,18782/121, trace deficit 40, distance squared 6480, quotient 1/162. All seven frozen files and current identical Git blobs were read/checked. These explicit finite checks corroborate, but do not replace, the analytic infinite-dimensional proof.
 
-## Scope and residual risk
-The extension is for finite traces, not arbitrary semifinite weights. Known 2025 and 2026 Bourin comparisons bound the overall norm but do not provide this exact tracial coefficient. Kittaneh–Ricard (2025) and Darweesh et al. (2023) were accessible in abstract/bibliographic form only; possible hidden equivalents in their full texts remain a modest literature risk. Independent assessment is not represented by this review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the genuinely new high-contrast sharp tracial constant, not for the already-covered low-contrast case. Sababheh--Bourin arXiv:2610.04567v1 Theorem 6.1 proves the sharp Loewner-order coefficient min(d_t,L-d_t)/(a-b)^2 and Corollary 6.2 its trace consequence, while Remark 6.3 explicitly declines a claim of trace optimality. The submitted tracial coefficient min(d_t,L/2)/(a-b)^2 agrees when d_t<=L/2 but is strictly higher for d_t>L/2, with rank-one noncommuting sharpness. The trace-optimal phase is not implied by the earlier Loewner inequality. Fresh broader norm, Heinz, and published-record searches found no decisive mathematically covering result. Gaps in older full-text access and possible implicit projection-angle identities are retained as priority risks, not treated as proof of novelty.
+
+## value
+
+PASS
+
+The natural trace-optimal quadratic stability question arises directly because the closest sharp Loewner predecessor expressly leaves trace optimality unclaimed. The result determines a complete exact sharp universal constant over a natural projection-pair family, including a nontrivial high-contrast phase and an unbounded asymptotic separation between order and trace coefficients. The polar-sign spectral reflection extends the extremal calculation to continuous-spectrum projection pairs in finite tracial vN algebras; both phases have exact low-dimensional sharp witnesses. Unlike a routine renaming of the known Loewner bound, the high-contrast coefficient is strictly stronger and mathematically motivated; no generalization to unconstrained positive operators or unrelated symmetric norms is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

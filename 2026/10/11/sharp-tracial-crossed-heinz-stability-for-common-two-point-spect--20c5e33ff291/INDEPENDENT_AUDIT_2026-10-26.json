@@ -1,0 +1,201 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T20:05:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md exact reduction, spectral reflection, trace pairing, scalar square, both sharpness constructions",
+        "Assigned VERIFICATION.md, verify_trace.py, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json read at frozen tree and compared main-current blobs"
+      ],
+      "rationale": "Reconstructed the proof over all finite tracial von Neumann algebras with faithful normal finite trace, a>b>0, 0<t<1 and arbitrary projections. Projection identities R^2=X(2-X) and R(X-1)=-(X-1)R yield self-adjoint C_t=s(X)-d_tu(X). The polar sign U=sgn(P-Q) conjugates X to 2-X on E=supp u(X); faithful finite trace supplies spectral reflection even for continuous spectra. Pairing h(x)+h(2-x) establishes the EXACT trace-deficit functional-calculus minimum min(d_tu(x),a+b-delta|x-1|). The polynomial-square identity 2s(x)-Lu(x)=((sqrt(a)+sqrt(b))x-2sqrt(b))^2>=0 proves the uniform coefficient min(d_t,L/2)/delta^2. For d_t<=L/2 complementary rank-one M2 projections attain d_t/delta^2; for d_t>L/2 rank-one P,Q with overlap r*=(sqrt(a)-sqrt(b))/(sqrt(a)+sqrt(b)) attain L/(2delta^2). Independently computed 2x2 rational witness a=100,b=1,t=1/2, r*=9/11: C eigenvalues -820/121,18782/121, trace deficit 40, distance squared 6480, quotient 1/162. All seven frozen files and current identical Git blobs were read/checked. These explicit finite checks corroborate, but do not replace, the analytic infinite-dimensional proof.",
+      "residual_risks": [
+        "The theorem does not extend to arbitrary positive operators lacking common two-point spectra, nontracial states, or infinite-trace identities.",
+        "The universal constant need not be optimal inside a fixed restricted algebra; equality witnesses require the comparison class to include M2.",
+        "Saved computational verifier is finite and its printed success is not a proof of arbitrary vN spectral pairing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "T. Zhang arXiv:2602.00358v1 Theorem 1.3 controls general fully symmetric norms of crossed-Heinz expressions by the norm of A+B, but has no positive sharp quadratic distance remainder for this common-spectrum class.",
+          "Sababheh--Bourin stronger Loewner-order inequality gives a weaker numerical coefficient in high contrast; an operator-order bound with optimal gamma_L does not imply a strictly larger sharp tracial gamma_tr.",
+          "Full result Rank-one crossed-Heinz operators have a spectral-support Schatten crossover, Resultary 2026/10/11, yields Schatten comparison C_t vs H_t for a rank-one (not strictly positive 2point) input, not the submitted ratio."
+        ],
+        "reasoning": "Broader domains and stronger order relations were checked for logical implication. Neither general norm bounds without a stability remainder nor the specific sharp Loewner coefficient cover the improved tracial remainder in d_t>L/2.",
+        "searches": [
+          "Resultary query: Sababheh Bourin crossed Heinz Loewner trace optimal stability coefficient min d L/2 finite tracial von Neumann algebra polar projection reflection",
+          "Resultary query: Crossed Heinz tracial stability sharp constant finite von Neumann algebra symmetric difference squared projection",
+          "arXiv:2602.00358v1 full theorem and Section 3; arXiv:2610.04567v1 full Sections 2 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Sababheh--Bourin arXiv:2610.04567v1 full sections including Theorem 6.1, Corollary 6.2, Remark 6.3",
+        "T. Zhang arXiv:2602.00358v1 Theorem 1.3 and Section 3 full proof",
+        "2016 Manjegani DOI:10.1186/s13660-016-0965-8 full primary text",
+        "Bottazzi et al. arXiv:1403.7472v1 full primary text",
+        "Distinct Resultary 2026/10/11 crossed-Heinz Schatten-crossover RESULT.md complete",
+        "2023 Darweesh et al. DOI:10.1080/03081087.2022.2091507 publisher abstract only",
+        "2025 Kittaneh--Ricard DOI:10.1016/j.laa.2025.02.004 abstract/related primary citation only",
+        "2017 Manjegani DOI:10.1080/03081087.2016.1276151 abstract only",
+        "Four distinct actual Resultary semantic search queries, compared retrieved claims by implication"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=100,b=1,t=1/2: d_t=81,L=121, gamma_L=40/9801 while gamma_tr=1/162, attained by a noncommuting M_2 rank-one projection pair with overlap 9/11.",
+          "For t=1/2 and a/b->infinity, gamma_tr/gamma_L=L/(8 sqrt(ab))->infinity, disproving implication of the new optimal trace coefficient from the older sharp-order coefficient.",
+          "The 2016 ordinary-Heinz trace inequalities have a different symmetric product and lack the common-spectrum sharp crossed deficit."
+        ],
+        "reasoning": "Compared exact domains, constants, operator order versus tracial relaxation, and extremizing pairs. The low-contrast portion is prior covered; the high-contrast phase requires a trace-reflection and paired spectrum argument not established in the inspected predecessor. Prior broad norm inequalities do not imply it.",
+        "searches": [
+          "arXiv:2610.04567v1 Section 6 Theorem 6.1, Corollary 6.2 and Remark 6.3, full original mathematical proof",
+          "arXiv:2602.00358v1 Theorem 1.3 and proof; J Inequal Appl 2016 Manjegani full text; arXiv:1403.7472v1 full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sababheh--Bourin sharp Loewner gamma_L=min(d_t,L-d_t)/delta^2; its trace corollary does not claim sharpness, by Remark 6.3.",
+          "New exact tracial gamma_tr=min(d_t,L/2)/delta^2; for d_t>L/2 difference gamma_tr-gamma_L=(d_t-L/2)/delta^2>0, whereas for d_t<=L/2 both equal d_t/delta^2.",
+          "Rank-one crossed/ordinary Heinz Schatten crossover published 2026-10-11 compares C_t against H_t under rank-one input B, not the trace deficit A+B-|C_t| at common strictly positive two-point spectra."
+        ],
+        "reasoning": "Alternative crossed/Heinz, Schatten-one, projection-principal-angle, and equal two-point spectrum terminology was compared by mathematical expression and target comparator. Two coefficients coincide only on covered lower branch. The related rank-one-input record compares against a different operator, so it is not an equivalent theorem.",
+        "searches": [
+          "Resultary query: Sharp Schatten trace norm crossed Heinz deficit positive operators two projection common two point spectrum exact quadratic Frobenius stability coefficient",
+          "Resultary query: Exact trace norm Heinz type inequalities rank one projection pair principal angles two spectra Schatten one deficit",
+          "arXiv:2610.04567v1, Theorem 6.1/Corollary 6.2/Remark 6.3; arXiv:1403.7472v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed the submitted exact same publication, which is self-coverage and supplies no independent prior claim.",
+          "Closest distinct indexed crossed-Heinz result concerns a rank-one-input Schatten crossover, not the exact sharp two-projection quadratic deficit.",
+          "The question is a continuous sharp universal coefficient, not a finite numerical database; no independent exact table was located."
+        ],
+        "reasoning": "No indexed independent record covering the high-contrast formula was located. The subject record was explicitly excluded from priority corroboration; search absence is not treated as proof of originality.",
+        "searches": [
+          "Resultary four targeted sharp crossed-Heinz tracial-projection-stability semantic searches on 2026-10-26",
+          "Web and primary-mathematics searches: sharp Schatten-one crossed-Heinz quadratic trace deficit / principal angles / two-point eigenvalue spectra"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the genuinely new high-contrast sharp tracial constant, not for the already-covered low-contrast case. Sababheh--Bourin arXiv:2610.04567v1 Theorem 6.1 proves the sharp Loewner-order coefficient min(d_t,L-d_t)/(a-b)^2 and Corollary 6.2 its trace consequence, while Remark 6.3 explicitly declines a claim of trace optimality. The submitted tracial coefficient min(d_t,L/2)/(a-b)^2 agrees when d_t<=L/2 but is strictly higher for d_t>L/2, with rank-one noncommuting sharpness. The trace-optimal phase is not implied by the earlier Loewner inequality. Fresh broader norm, Heinz, and published-record searches found no decisive mathematically covering result. Gaps in older full-text access and possible implicit projection-angle identities are retained as priority risks, not treated as proof of novelty.",
+      "residual_risks": [
+        "An implicit sharp trace coefficient in older unindexed two-projection angle or noncommutative trace-inequality literature might predate the paper.",
+        "The full 2023 Darweesh et al., 2025 Kittaneh--Ricard and 2017 Manjegani papers were not inspected; their abstracts cannot support a whole-article noncoverage claim.",
+        "Authorized institutional route to the plausible 2017 source was blocked by disconnected VPN; no authentication bypass or fictitious reading.",
+        "The low-contrast d_t<=L/2 branch is covered by Sababheh--Bourin Corollary 6.2; originality rests specifically on sharp high-contrast trace phase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: optimal Loewner coefficient and lower-contrast trace phase; does not state or prove tracial optimum in high contrast.",
+          "evidence": [
+            "Theorem 6.1 gamma_L=min(d_t,L-d_t)/delta^2.",
+            "Corollary 6.2 inherits this trace coefficient; Remark 6.3 expressly makes no claim of tracial sharpness."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.04567v1",
+          "material_read": "Full available mathematical text including introduction, Section 2, Section 6 Theorem 6.1, proof, Corollary 6.2, Remark 6.3 and references.",
+          "method": "Read primary arXiv HTML through accessible full-text mirror and checked exact formulas and logical implications.",
+          "title": "Crossed-Heinz Inequalities: The Two-Dimensional Threshold and Higher-Dimensional Stability",
+          "trigger": "Identical crossed-Heinz expression and common two-point spectrum; strongest known competing sharp order theorem."
+        },
+        {
+          "assessment": "NOT_COVERING: global crossed-Heinz norm domination without sharp squared-distance stability term.",
+          "evidence": [
+            "Theorem 1.3 norm-comparison multiplier; no coefficient of ||A-B||_2^2 in tracial A+B-|C_t| deficit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.00358v1",
+          "material_read": "Complete relevant abstract, introduction, Theorem 1.3 and Section 3 proof and concluding discussion.",
+          "method": "Read primary lawful arXiv HTML full theorem/proof and compared existence of quadratic remainder.",
+          "title": "Bourin-type inequalities for tau-measurable operators in fully symmetric spaces",
+          "trigger": "Potentially dominating general noncommutative tracial norm theorem."
+        },
+        {
+          "assessment": "NOT_COVERING: second positive input has rank one; compares crossed against ordinary Heinz, unlike A+B trace-deficit at common strictly positive two-point spectra.",
+          "evidence": [
+            "Main identities compare ||C_t||_1^2-||H_t||_1^2 and ||H_t||_2^2-||C_t||_2^2; no proposed gamma_tr."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-rank-one-crossed-heinz-operators-have-a-spectral-support-schatte--e20efd37906d/RESULT.md",
+          "material_read": "Complete RESULT.md finding, proof of covariance identities, equality and crossover classifications, and limitations.",
+          "method": "Fetched and read entire primary GitHub result text; compared operators and scope.",
+          "title": "Rank-one crossed-Heinz operators have a spectral-support Schatten crossover",
+          "trigger": "Closest distinct indexed crossed-Heinz trace and Schatten result from fresh Resultary search."
+        },
+        {
+          "assessment": "NOT_COVERING: ordinary symmetrized Heinz-mean trace inequalities, not crossed two-spectrum sharp quadratic trace remainder.",
+          "evidence": [
+            "Ordinary expression H_nu=A^nu B^(1-nu)+A^(1-nu) B^nu is mathematically different from C_t=A^tB^(1-t)+B^tA^(1-t)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-016-0965-8",
+          "material_read": "Full available OA paper including main Sections 1 and 2 and Theorems 2.5 and 2.6.",
+          "method": "Read primary open-access publisher article and checked comparator operator and assumptions.",
+          "title": "Tracial and majorisation Heinz mean-type inequalities for matrices",
+          "trigger": "Earlier trace-Heinz majorization may imply optimal norm deficits."
+        },
+        {
+          "assessment": "NOT_COVERING: crossed/ordinary comparisons and operator-norm obstructions, not an exact tracial quadratic stability constant.",
+          "evidence": [
+            "The comparator is ordinary Heinz H_t, and existing Hilbert--Schmidt and operator-norm comparisons do not provide the new coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.7472",
+          "material_read": "Full accessible arXiv mathematical paper, central comparison and examples/counterexamples.",
+          "method": "Read lawful arXiv primary text and compared norm and remainder statements.",
+          "title": "Inequalities related to Bourin and Heinz means with a complex parameter",
+          "trigger": "Classical earlier crossed versus Heinz norm bounds."
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: abstract covers overall norm domination, but ancillary unstated trace-stability result cannot be ruled out.",
+          "evidence": [
+            "Accessible abstract describes crossed norm bounded by scalar times ||A+B|| under spectral comparability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2022.2091507",
+          "material_read": "Publisher bibliographic abstract and reported principal inequality only; not the full mathematical article.",
+          "method": "Inspected accessible primary abstract; no full-text noncoverage inference.",
+          "title": "Norm inequalities for positive definite matrices related to a question of Bourin",
+          "trigger": "Earlier positive matrix norm inequality with spectral comparability."
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: possible ancillary prior quantitative result remains a priority risk.",
+          "evidence": [
+            "Related central-range unitarily invariant norm bound, not explicit sharp gamma_tr in material read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2025.02.004",
+          "material_read": "Bibliographic abstract and detailed citations in later primary 2026 mathematical articles; full article unread.",
+          "method": "Abstract/primary cross-reference only; no whole-document assessment.",
+          "title": "On a question of Bourin",
+          "trigger": "Highly relevant predecessor to modern crossed-Heinz bounds in central exponent range."
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: plausible implicit result cannot be excluded; inaccessibility by itself not treated as originality failure.",
+          "evidence": [
+            "Publisher abstract centers on Young/Heinz faithful tracial state inequalities; no inspected proof establishing the sharp common-two-point crossed coefficient."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1276151",
+          "material_read": "Accessible publisher bibliographic abstract only; full text unavailable via lawful preprint/OA searches.",
+          "method": "Searched lawful OA/preprint and requested authorized institutional source after failures; institutional VPN disconnected; did not bypass authentication.",
+          "title": "On Young and Heinz inequalities for faithful tracial states",
+          "trigger": "Plausible older trace-state Heinz paper with potential scalar/noncommutative stability implications."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sababheh--Bourin arXiv:2610.04567v1 Section 6 Remark 6.3 identifies trace-optimality gap",
+        "Exact C proof and analytic high-contrast extremal witness a=100,b=1,t=1/2, showing strict gain"
+      ],
+      "rationale": "The natural trace-optimal quadratic stability question arises directly because the closest sharp Loewner predecessor expressly leaves trace optimality unclaimed. The result determines a complete exact sharp universal constant over a natural projection-pair family, including a nontrivial high-contrast phase and an unbounded asymptotic separation between order and trace coefficients. The polar-sign spectral reflection extends the extremal calculation to continuous-spectrum projection pairs in finite tracial vN algebras; both phases have exact low-dimensional sharp witnesses. Unlike a routine renaming of the known Loewner bound, the high-contrast coefficient is strictly stronger and mathematically motivated; no generalization to unconstrained positive operators or unrelated symmetric norms is claimed.",
+      "residual_risks": [
+        "The low-contrast coefficient is already known; the novel mathematical value specifically lies in high-contrast sharp trace optimization and continuous-spectrum pairing.",
+        "An older implicit equivalent sharp trace identity would undermine independently unknown value; this is represented as priority risk in O."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite faithful normal trace, a>b>0, 0<t<1, arbitrary orthogonal projections P,Q, A=b1+(a-b)P and B=b1+(a-b)Q only.",
+    "Not an operator-order improvement, nor a theorem for general positive spectra or semifinite infinite traces.",
+    "Existing order result already gives the low-contrast sharp trace coefficient; high-contrast phase is the originality/value target.",
+    "Literature novelty is best-of-knowledge, not historical priority guarantee; no external attestation or formal proof claimed."
+  ],
+  "schema_version": 1
+}
