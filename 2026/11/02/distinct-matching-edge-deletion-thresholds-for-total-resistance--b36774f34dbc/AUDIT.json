@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity/concavity and injective Laplacian weighting prove unrestricted uniqueness; full matching-preserving automorphisms yield the two orbits. Two exact spectral eigenspaces, scalar budget substitution and derivative sign analysis prove both full all-m and boundary formulas. 1131 standalone checks including rational full-matrix inverses/cofactors and asymptotics corroborate critical calculations; finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh et al. 2006 general KKT and 2008 §§5–8 give generic conductance optimization and tree/wheel/barbell graph families.",
+        "Tovar et al. 2026 §§II–III provides a general α=1 price-weighted gradient criterion, not specific rational matching thresholds.",
+        "Klee–Stamps 2019 §1–2 gives the general Matrix–Tree identity and particular weight enumerators; objective maximization and price ratios are not their subject."
+      ],
+      "reasoning": "General convexity, matrix-tree and KKT criteria can be specialized and used as proof ingredients, but none of the inspected statements provides the matching spectral reduction or the two compared deletion prices. The domain and separate objectives are material, not cosmetic.",
+      "searches": [
+        "\"Minimizing Effective Resistance of a Graph\" Ghosh Boyd Saberi 2006 pdf",
+        "\"Cost convexity controls the architecture of resistance-optimal networks\" arxiv 2610.03627",
+        "\"Linear algebraic techniques for weighted spanning tree enumeration\" 1903.03575",
+        "Unrestricted K_{2m} optimal conductance allocation matching edges versus remaining edges, Kirchhoff index versus determinant with budget, exact matching deletion transition"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://arxiv.org/abs/1903.03575",
+      "https://arxiv.org/abs/2610.03627"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The related K_{2m} result minimizes the maximum over pairwise resistances, a different convex objective; its optimal threshold of 2 does not imply the mean-resistance or tree-count thresholds.",
+        "The related K_{m,m} priced-matching result has absent within-part connections and hence a different Laplacian spectral decomposition.",
+        "The single-expensive-edge K_n result gives a one-edge perturbation, not a perfect matching of m edges; neither structural case is an implication of the other for m≥2."
+      ],
+      "reasoning": "An optimizer for maximum effective resistance need not optimize their sum or maximize weighted spanning tree count, and spectra of K_{m,m} versus K_{2m} differ. General KKT necessity alone does not assert the formulas; the new two-eigenspace reduction and exact derivative inequalities are required.",
+      "searches": [
+        "Ghosh Boyd Saberi MTNS 2006 §§IV–VII conductivity optimization, barbell",
+        "Klee Stamps 2019 complete graphs with multiplicative vertex weights",
+        "complete graph perfect matching price resistance versus determinant",
+        "Related statement identifiers: 78a63c5a-f6f2-4630-86f8-ad0530e1c96f; b65b2ff4-0797-4068-8a88-d9ef21bbd9bd; a63eab52-c968-4581-91c7-ed2c8de102f2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi MTNS 2006 §§I,II,IV-VII establishes resistance design and optimized barbell; no priced matching two-criterion classification appears in the inspected relevant text.",
+        "Klee–Stamps 2019 §§1–2 treats vertex-product edge weights and determinant evaluation, not cost-constrained optimal edge allocations."
+      ],
+      "reasoning": "Equivalent descriptions include A-optimal graph design/Kirchhoff-index minimization and D-optimal edge-conductance/log-tree-count maximization. The novelty target is the explicit two-objective support comparison, not those equivalences themselves.",
+      "searches": [
+        "\"priced matching\" \"effective resistance\" \"spanning tree\" optimization complete graph",
+        "\"complete graph\" \"perfect matching\" \"Kirchhoff index\" conductance allocation",
+        "Complete graph with distinguished perfect matching priced conductances. Compare minimum total effective resistance and maximum weighted spanning tree determinant. Sharp support thresholds 2m/(2m-1) and 2m^2/(2m^2-2m+1)."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved mathematical findings concerned weighted matching complexes, complete graph spanning-tree polytopes, graph edge-spectral bounds, and unrelated matching-deleted structures; no returned title/summary supplied the two A/D threshold formulas.",
+        "Relevant related mathematical statements include distinct max-pair-resistance on K_{2m}, a different single-price-edge complete graph, and priced matching on K_{m,m}; none states the A/D matching-complete comparison."
+      ],
+      "reasoning": "This is a parameter-uniform exact theorem rather than a finite table. Failure to retrieve an exact table is only weak novelty evidence; it is supplemented by direct statements/implication comparisons and primary source inspection.",
+      "searches": [
+        "Complete graph with distinguished perfect matching priced conductances. Compare minimum total effective resistance and maximum weighted spanning tree determinant. Sharp support thresholds 2m/(2m-1) and 2m^2/(2m^2-2m+1).",
+        "Unrestricted K_{2m} optimal conductance allocation matching edges versus remaining edges, Kirchhoff index versus determinant with budget, exact matching deletion transition",
+        "\"weighted complete graph\" \"perfect matching\" \"optimal conductance\" resistance",
+        "\"perfect matching\" \"edge weights\" \"Kirchhoff index\" \"budget\""
+      ]
+    },
+    "rationale": "The exact K_{2m} perfect-matching price deletion thresholds for both the resistance and weighted spanning-tree objectives, and their strict disagreement and 1/m scaling, are not implied by the inspected general convex-design results, matrix-tree enumeration results or relevant related mathematical claims; residual specialized coverage remains possible.",
+    "residual_risks": [
+      "Specialized weighted complete graph matching-design literature not captured by textual or semantic searches could imply part or all of the formulas.",
+      "The 2006 and 2008 papers were inspected by relevant sections and searchable whole-text queries; this is not a guarantee of line-by-line exhaustive reading.",
+      "No independent expert or formal proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general convex/KKT formulation and barbell, paths and example graphs; no matching-price two-criterion classification in inspected relevant material.",
+        "evidence": [
+          "Page 1 establishes objective and date/session TuP12.2.",
+          "§IV KKT for total resistance; §V barbell; §VI examples; §VII other convex objectives."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Conference PDF pages 1–3, 8–11 and relevant text of I, II-C, IV, V–VII including KKT, examples, extensions; first and ninth page images crosschecked.",
+        "method": "PDF extracted text plus rendered page screenshots",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006)",
+        "trigger": "Foundational archival primary resistance optimization source"
+      },
+      {
+        "assessment": "Discusses unpriced complete graph, trees, wheel and barbell; this is broader methodology, not the two-priced-edge-orbit support theorem.",
+        "evidence": [
+          "§5 analytic wheel and barbell; §6 complete graph uniform at uniform prices; §8 other objectives."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Introductory and methodological sections, §5 analytic examples, §6 complete graph comparison, §7 examples, §8 extensions; rendered first page.",
+        "method": "PDF extracted text and page screenshot",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008)",
+        "trigger": "Expanded full-text version may contain additional analytic families"
+      },
+      {
+        "assessment": "Computes enumerators especially vertex-product weights; no budgeted A/D price design or matching threshold.",
+        "evidence": [
+          "§1 describes four graph enumerator families, with edge weights of form x_i x_j."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.03575",
+        "material_read": "arXiv HTML §§1–2 and section summaries of Ferrers/threshold graph cases.",
+        "method": "Full-text HTML page",
+        "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+        "trigger": "Possible determinant formula or stronger complete graph coverage"
+      },
+      {
+        "assessment": "General marginal gain and alpha=1 support characterization, not this priced matching + D-optimal comparison.",
+        "evidence": [
+          "§II.2 gives arbitrary price coefficients; §III eq. (6) biharmonic marginal value and KKT."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+        "material_read": "arXiv HTML §§I–III, equations (1)–(7), support and optimality discussion.",
+        "method": "Full-text HTML page",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Potential broader contemporary coverage of price-weighted support decisions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b36774f3-4dbc-4aa3-bca8-991f67cdfb7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two standard and independently motivated network objectives produce genuinely different optimal support on a nonempty explicit surcharge interval for every network size. This resolves exact pruning policy and size scaling, not just a generic KKT condition or finite numerical table. The difference persists with all edge conductances optimized independently, and is pertinent to spanning-tree-versus-commute-time allocation choices.",
+    "status": "PASS"
+  }
+}
