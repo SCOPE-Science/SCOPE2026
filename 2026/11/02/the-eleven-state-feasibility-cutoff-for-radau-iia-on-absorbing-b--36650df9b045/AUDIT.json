@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all integers n>=2 and h>=0 the nilpotent shift explicitly yields c_k and b_k. The six-state sign is exactly governed by a strictly increasing quintic. For h<=3, b_k has positive-amplitude sin(k phi+psi) form and phi>pi/12, psi>pi/6, forcing a negative b_k with k<=10; for h>3 c0<0. Exact rational recurrence at h=3 gives c1..c9,b0..b9 positive and hence feasibility through n=11. SymPy replay verified 1701 exact identities/entries. Taylor tests are not substituted for the all-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lóczi–Ketcheson (2013), arXiv:1303.6651v1, concerns rational absolute-monotonicity radius optimization, not graph-specific positive windows under a fixed time-step function.",
+        "Higueras–Ketcheson–Kocsis (2015), arXiv:1505.04024, studies optimized perturbed integrators, unlike the fixed unmodified Radau endpoint.",
+        "Prior exact Radau graph studies on directed cycles, balanced multipartite graphs, stars, unequal bicliques and hypercubes concern different generators and do not supply the absorbing-chain maximum size."
+      ],
+      "reasoning": "General absolute-monotonicity results can guarantee method-independent SSP ranges but do not automatically classify entrywise nonnegative rational functions of an absorbing pure-birth generator when small steps are unsafe. No inspected stronger theorem dominates the n=11 existence cutoff or n>=12 impossibility.",
+      "searches": [
+        "published-finding corpus: two stage third order Radau IIA pure birth absorbing Markov chain earliest dimension six positivity failure and recovered positive step interval",
+        "published-finding corpus: two-stage Radau IIA rational stability (6+2z)/(6-4z+z^2) Markov semigroup positivity dimension threshold",
+        "arXiv:1505.04024 full text: Radau; Markov"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1303.6651v1 full HTML",
+      "arxiv:1505.04024 accessible extracted full text",
+      "Published eight-state [2/2] Padé published-finding corpus synopsis",
+      "Prior directed-cycle Radau claim and related family claims for direct implication comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The directed-cycle result establishes universal small-step five-state safety and its distinct six-state cycle root 0.208608859735...; it gives eventual large-step strict positivity on all directed cycles.",
+        "The absorbing-chain sixth-state root is approximately 0.253946561637..., and positivity fails for every step above three.",
+        "The new all-length conclusion is exactly no positive safe step at n>=12, while h=3 is safe for every n<=11; neither prior cyclic nor multipartite calculation implies this sign-angle cutoff."
+      ],
+      "reasoning": "Both old and new analyses use the same Radau rational function, but the absorbing boundary creates a nilpotent path block and tail-polynomial constraints absent on directed cycles. The claimed novelty consists of the sharp absorbing-chain size-feasibility frontier and bounded six-state safe set, not the already-known sixth Taylor coefficient or small-step five-state fact.",
+      "searches": [
+        "Prior manuscript claim: Sharp six-state recovery of Markov positivity for Radau IIA on directed cycles",
+        "Prior manuscript claim: The twelve-vertex reentrant positivity barrier for two-stage Radau IIA on balanced multipartite networks",
+        "published-finding corpus: Radau IIA two-stage [1/2] Padé six-state pure-birth small-step positivity failure and sharp recovery window"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published [2/2] Padé eight-state barrier concerns a fourth-order Gauss–Legendre rational function, whereas the present stability function is third-order [1/2].",
+        "An earlier directed-cycle analysis using the same Radau function proves a different six-state cycle recovery threshold and eventual positivity for every cycle length; its unbounded recovery conclusion does not extend to absorbing paths.",
+        "The unmodified Radau absorbing-chain 11/12 transition was not located in the inspected literature or search outputs."
+      ],
+      "reasoning": "Equivalent matrix functions on these two different generators are not established, and directed-cycle circulant functional calculus does not imply the nilpotent absorbing-column coefficient constraints. The prior universal five-state small-step fact and six-state Taylor obstruction are expressly excluded from novelty claims.",
+      "searches": [
+        "published-finding corpus: Radau IIA two-stage [1/2] Padé six-state pure-birth small-step positivity failure and sharp recovery window",
+        "published-finding corpus: third-order Radau IIA positivity Markov generators five states universal local nonnegativity six states counterexample exact 0.253946",
+        "Web: Radau IIA pure birth chain positivity 11 states 12 states discrete Markov transition",
+        "arXiv:1303.6651 full-text find: birth, Markov, Radau"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest indexed entries were the [2/2] Padé eight-state barrier (2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab) and SSP-SDIRK2(2) three-state sharpness (2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7).",
+        "Neither closest result supplies this exact polynomial or absorbing-chain eleven-state cutoff."
+      ],
+      "reasoning": "Searches did not find a same-method, same-generator exact table. The lack of a hit is not treated as proof of novelty; an unindexed specialized table remains possible.",
+      "searches": [
+        "published-finding corpus: Runge Kutta Markov positivity six state pure birth chain sharp polynomial step threshold",
+        "Web: Markov chain transition matrix positivity third order Radau IIA Erlang absorption rational approximation sign changes",
+        "published-finding corpus: Radau IIA endpoint positivity six-state Erlang chain, pure birth chain, monotonicity nonmonotone timestep"
+      ]
+    },
+    "rationale": "The new claim is the unit-rate absorbing-chain exact largest feasible size (eleven) and bounded six-state recovery window. Same-method directed cycles give a different root and eventual positivity, while [2/2] Pade and perturbed methods are not implications. Previously known five-state general safety and distance-five Taylor sign are not claimed as novel. Full specialist literature remains a residual risk.",
+    "residual_risks": [
+      "An unindexed treatment of unmodified Radau IIA on Erlang or pure-birth generators could contain the same maximum-chain-size cutoff.",
+      "The related eight-state Padé manuscript could not be retrieved in full, though its stated scheme is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General absolute-monotonicity results do not give an exact absorbing-chain 11/12 cutoff; this is not a whole-literature novelty proof",
+        "evidence": [
+          "arXiv first submission 2013-03-26",
+          "Sections 1–9 discuss radii of absolute monotonicity, with no identified pure-birth generator theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.6651v1",
+        "material_read": "Complete accessible HTML, introduction and results sections, plus text searches for birth, Markov and Radau",
+        "method": "Read original full-text HTML and searched for direct rational-function/generator claims",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Core rational-function SSP / positivity theory with applicable MSC 65L06"
+      },
+      {
+        "assessment": "Concerned with changing the numerical method; does not entail the exact unmodified Radau pure-birth admissibility set",
+        "evidence": [
+          "arXiv first submission 2015-05-15",
+          "Text discusses perturbed Runge–Kutta schemes and monotonicity radii"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.04024",
+        "material_read": "Accessible full extracted text including introduction, optimized linear perturbations and method results; searches for Radau, Markov",
+        "method": "Inspected text sections and examined the distinction between perturbed versus fixed schemes",
+        "title": "Optimal monotonicity-preserving perturbations of a given Runge-Kutta method",
+        "trigger": "Closest methodological work on numerical positivity of Runge–Kutta steps"
+      },
+      {
+        "assessment": "Different [2/2] Padé scheme; does not imply [1/2] Radau eleven-state existence cutoff. Full appendix overlap risk remains.",
+        "evidence": [
+          "Summary states eight-state small-step barrier and intermediate safe window for [2/2] Padé / Gauss–Legendre"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Published index title and substantive synopsis; direct full-text GitHub retrieval was inaccessible",
+        "method": "Read published result summary and compared the rational stability functions and exact dimensions",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Highly relevant natural Markov time-step positivity barrier with a pure-birth witness"
+      },
+      {
+        "assessment": "The original directed-cycle result already covers the universal five-state safety statement but not the absorbing-chain eleven-state cutoff, bounded six-state window or impossibility beyond eleven",
+        "evidence": [
+          "Directed-cycle six-state boundary approximately 0.208608859735; absorbing-chain six-state boundary approximately 0.253946561637",
+          "Cyclic matrices eventually positive for every n; absorbing chains for n>=12 never positive for any h>0"
+        ],
+        "identifier_or_url": "Prior directed-cycle result, scientific claim available for comparison",
+        "material_read": "Statement and parameters at claim level; prior work used for overlap comparison only",
+        "method": "Compared exact generator, root polynomial, eventual positivity and implications",
+        "title": "Sharp six-state recovery of Markov positivity for Radau IIA on directed cycles",
+        "trigger": "Same numerical method, similar six-state onset and recovery issue"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36650df9-b045-42bb-b2af-eb794dae533b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A finite stochastic simulation method can have no safe timestep at all on natural absorbing chains of twelve or more states, despite an admissible nondegenerate interval for every smaller chain; the exact six-state window exhibits failure on both the small- and large-step sides. The sharp structural maximum size and exact algebraic boundary provide useful method-selection and positivity tests rather than an arbitrary numerical instance.",
+    "status": "PASS"
+  }
+}
