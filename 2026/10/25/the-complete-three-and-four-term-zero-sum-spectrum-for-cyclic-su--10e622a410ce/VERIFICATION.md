@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the arithmetic certificate
+# Independent mathematical audit
 
-The standalone `verify_eleven.py` uses standard-library integer arithmetic only. It enumerates every sorted multiset of \(3\) and \(4\) exponents in \(\{0,\ldots,10\}\), identifies the canonical affine representatives, independently reconstructs each cyclotomic multiplication matrix and its exact determinant, compares all \(16\) table values, and checks their prime factors. It also constructs and verifies direct modular witnesses for all seven exceptional primes.
+## correctness
 
-As a separate cross-check, all sixteen exact determinants were recomputed as \(\operatorname{Res}(\Phi_{11},f_J)\) using SymPy polynomial resultants; all sixteen values agreed, and all seven exceptional moduli passed a primality test. The executable completed successfully with the final line `PASS: all 1287 multisets, 16 affine orbits, exact norms and witnesses`. These are exhaustive finite *symbolic* certificates of the matrices and orbits, not mere data collection from bounded primes. The unrestricted result uses the proved resultant divisibility equivalence, which is valid for every prime whose multiplicative group has an order-eleven subgroup.
+PASS
 
-No arbitrary precision numerical tolerance, outside database of prime minima, or unperformed external validation is involved. The classification does not assert any exact minimum above four, and full-text comparison with some older related finite-field articles was inaccessible.
+For any p≡1 mod11 and q order11, reduction mod p of cyclotomic resultant |Res(Phi11,sum X^e)| is zero iff a primitive order11 root in the subgroup supports a vanishing short sum. Odd order excludes lengths 1,2. Recomputed independently every 286 three-element and 1001 four-element exponent multiset under AGL(1,11), finding exactly 4 and 12 complete affine orbits, and used symbolic resultant computation to verify all 16 integer norms and their prime factorizations, independently of supplied 10x10 Bareiss checker. The k3 prime set is exactly {23,683}, k4 exactly {23,67,89,419,661,991}; after removing k3 primes obtain m=4 at {67,89,419,661,991}, m≥5 for other admissible p. Finite symbolic orbit exhaustiveness combined with universal splitting lemma, not a cutoff on primes.
+
+## originality
+
+PASS
+
+Jacob–Külshammer Example 16(i) gives order11 instances p23 length3 and p67/89 length4, along with longer examples, and their Proposition15 classifies order7. Those facts do not state the complete order11 m≤4 exceptional-prime spectrum or the missing cases p683,419,661,991. General cyclotomic resultant and Lam–Leung methods are established, while exact order-specific orbit enumeration and complete list are the claim. Dvornicich–Zannier 2002 uninspected full text leaves a material priority risk.
+
+## value
+
+PASS
+
+Exact uniform order11 zero-sum classification is a natural missing case between published order7 completeness and illustrative order11 computations, with complete 16-orbit certificate; the classification and new exceptional primes are independently useful arithmetic data. It is not a mere renaming of order13 because their affine-orbit structures and prime factors differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
