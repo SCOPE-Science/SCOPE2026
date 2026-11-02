@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:55:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With constant normal stress, normalized Dieterich state Γ satisfies Γdot=(1-Γ)/a−Γ sdot, and stress jumps multiply Γ by exp(-Δs). Integrating factor gives Γ(t)=exp(-t/a−s(t))D(t), D(t)=1+(1/a)∫_0^t exp(u/a+s(u))du, hence N_s(T)=ra log D(T). Strict convexity e^z≤1+[(e^H-1)/H]z (equality iff z=0,H), followed by strictly increasing-weight bathtub rearrangement, proves unique max s=H on the last B/H units. For min, the pointwise strictly convex Lagrangian exp(x+z)−exp(C)z on [0,H] has unique minimizer clamp(C−x,0,H); its budget is continuous strictly monotone in C∈(0,H+T/a), guaranteeing unique C for 0<B<HT. Integrating three plateaus reproduces exact N_min and N_max. Independent calculation gives C=7/2−√2, N_min≈2.76976928170860,N_max≈3.27086268884977 at a=r=1,T=2,H=1.5,B=2; 100 independent budget-feasible discrete profiles lie between analytic bounds. Finite tests do not replace rearrangement proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heimisson–Segall 2018 handles arbitrary stressing histories but evaluates a fixed history, not the equal-exposure max/min comparison.",
+          "Candela et al. 2022 and Groningen 2026 impose coupled injection-flow constraints and objectives, not freely adjustable bounded stress."
+        ],
+        "reasoning": "General arbitrary-history evaluation does not assert a universal extrema theorem; physically coupled flow controls also are neither a superset nor equivalent feasible set of independently designable stress functions.",
+        "searches": [
+          "Dieterich 1994 doi 10.1029/93JB02581 model original",
+          "Heimisson Segall 2018 doi 10.1029/2018JB015656 equation 18 arbitrary stress count integral",
+          "Ziv 2003 quasi-static fault rectangular stress pulses doi 10.1029/2002JB002318",
+          "Candela 2022 injection optimization induced seismicity doi 10.3389/feart.2022.1053951",
+          "Resultary Search: Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1029/2018JB015656 (Full accessible Wiley HTML, including Introduction, section 2 derivation of Eq.18, analysis of stressing histories and Discussion sections)",
+        "DOI:10.1029/93JB02581 (Publisher abstract and bibliographic description; original full text not obtained)",
+        "DOI:10.3389/feart.2022.1053951 (Abstract and descriptions of constrained coupled injection problem; original whole paper not directly read in this run)",
+        "Resultary Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heimisson–Segall Eq.18 implies N_s(T) functional, the proof starting point, but its conclusions do not imply the strictly optimal bang-bang and clipped-ramp shapes.",
+          "The upper proof uses strict convex chord plus weighted rearrangement; lower proof uses a budget-tuned pointwise convex minimizer."
+        ],
+        "reasoning": "The exact optimal allocation and unique equality conditions are additional inequalities. They are elementary variational mechanisms but a substantive complete closed-form all-parameter characterization for the specific rate-state response.",
+        "searches": [
+          "Dieterich 1994 doi 10.1029/93JB02581 model original",
+          "Heimisson Segall 2018 doi 10.1029/2018JB015656 equation 18 arbitrary stress count integral",
+          "Ziv 2003 quasi-static fault rectangular stress pulses doi 10.1029/2002JB002318",
+          "Candela 2022 injection optimization induced seismicity doi 10.3389/feart.2022.1053951",
+          "Resultary Search: Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heimisson–Segall 2018 Eq.18 gives a positive arbitrary-stressing integral for cumulative nucleated earthquakes under constant normal stress.",
+          "The model ODE and kernel D(t) are equivalent descriptions, explicitly reconstructed here and NOT claimed new."
+        ],
+        "reasoning": "A change of variables reduces the physics to minimizing/maximizing ∫exp(t/a+s(t))dt with a box constraint and one integral budget; that variational optimization is the new proposition, not the already-known constitutive identity.",
+        "searches": [
+          "Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp",
+          "Dieterich 1994 doi 10.1029/93JB02581 model original",
+          "Resultary Search: Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2018 primary full text describes integral solutions, derived state equations and illustrative stress histories, not an exact budgeted optimizer table.",
+          "Candidate analytic closed formulas depend continuously on T,a,H,B and require no finite lookup."
+        ],
+        "reasoning": "A table of rectangular pulses or numerical injection operations cannot imply exact unique minimizer over all measurable paths.",
+        "searches": [
+          "Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp",
+          "Candela 2022 injection optimization induced seismicity doi 10.3389/feart.2022.1053951",
+          "Resultary Search: Dieterich seismicity stress history budget integral exponential rearrangement optimal late pulse declining ramp"
+        ]
+      },
+      "rationale": "Dieterich 1994 defines the underlying seismicity law; Heimisson–Segall 2018 full accessible paper derives arbitrary-stress cumulative count formula (Eq.18), fully credited. That evaluation kernel alone does not solve fixed-integral stress-exposure optimization. The primary 2018 article focuses derivation, rate evolution and assumptions, not unique extrema over all bounded histories. Ziv 2003 analyzes fixed pulses; Candela et al. 2022 and a 2026 Groningen controller optimize physically coupled injection/feedback variables and different objective. Generic convex duality and rearrangement are known methods, so the novelty is only their explicit budgeted seismicity application; possibility of generic equivalent published optimizer remains a residual risk.",
+      "residual_risks": [
+        "Original Dieterich 1994 full text not inspected, possible priority material there.",
+        "A generic weighted exponential integral box-budget optimizer might already be explicit in optimization literature and subsume the variational result.",
+        "Stress itself is an idealized control, not a physically assured realizable injection schedule; result is not empirical earthquake-hazard policy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVIDES_THE_KERNEL_NOT_THE_VARIATIONAL_EXTREMA",
+          "evidence": "Wiley HTML web , Eq.18 and sections 2–4",
+          "identifier_or_url": "DOI:10.1029/2018JB015656",
+          "material_read": "Full accessible Wiley HTML, including Introduction, section 2 derivation of Eq.18, analysis of stressing histories and Discussion sections",
+          "method": "Read complete indexed primary HTML, compared Eq.18 and explicit optimization objects",
+          "title": "Constitutive Law for Earthquake Production Based on Rate-and-State Friction: Dieterich 1994 Revisited",
+          "trigger": "Closest arbitrary-stressing kernel and cumulative event functional"
+        },
+        {
+          "assessment": "PRIOR_MODEL_FULL_TEXT_INACCESSIBLE",
+          "evidence": "CiNii primary abstract web , publication Feb 10 1994",
+          "identifier_or_url": "DOI:10.1029/93JB02581",
+          "material_read": "Publisher abstract and bibliographic description; original full text not obtained",
+          "method": "Publisher/metadata and 2018 derivation comparison only",
+          "title": "A constitutive law for rate of earthquake production and its application to earthquake clustering",
+          "trigger": "Original constitutive model could predate all optimization statements"
+        },
+        {
+          "assessment": "DIFFERENT_CONTROL_AND_FEASIBLE_SET",
+          "evidence": "Candela et al. 2022 DOI:10.3389/feart.2022.1053951",
+          "identifier_or_url": "DOI:10.3389/feart.2022.1053951",
+          "material_read": "Abstract and descriptions of constrained coupled injection problem; original whole paper not directly read in this run",
+          "method": "Scientific control-variable and objective comparison, partial access",
+          "title": "A physics-informed optimization workflow to manage injection while constraining induced seismicity: The Oklahoma case",
+          "trigger": "Closely titled seismicity optimization may dominate the claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A model-specific sharp all-measurable-history extrema theorem gives the exact optimal stress shape, multiplicative count bounds, and uniqueness at prescribed exposure and cap. It distinguishes late concentrated forcing and early tapering in an ideal constitutive model. The modeled objective is expected nucleation count, not injection operations or risk of damage, and these restrictions are central.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only homogeneous constant-normal-stress Dieterich law, positive capped shear-stress offsets, fixed 0<B<HT, expected cumulative event count, not damage or magnitudes.",
+    "Original Dieterich 1994 full text not inspected, possible priority material there.",
+    "A generic weighted exponential integral box-budget optimizer might already be explicit in optimization literature and subsume the variational result.",
+    "Stress itself is an idealized control, not a physically assured realizable injection schedule; result is not empirical earthquake-hazard policy."
+  ],
+  "schema_version": 1
+}
