@@ -1,15 +1,21 @@
-# Scientific review: binary-cubic slice at a fourfold automorphism jump
+# Independent mathematical audit
 
-## Correctness
-PASS. The coefficient quadrics contain all three coordinate squares, hence define a basepoint-free projective bundle; adjunction makes every member a smooth Fano fourfold. The two contraction classes and their section counts recover the ambient projections from any abstract automorphism. Their induced stabilizer is calculated exactly by the base scheme of the annihilator conic pencil: a four-point projective frame off the special parameter, and a disjoint line-point pair at the special parameter. The Lie-algebra calculation yields a four-dimensional orbit and a four-dimensional irreducible normal module, explicitly identified by the rank-two Clebsch--Gordan decomposition. A direct determinant derivative identifies the transverse module with binary cubic discriminants and proves that the derivative has exactly the orbit tangent as kernel. The included exact checker corroborates the frame determinants and infinitesimal-rank calculation. These arguments cover every parameter in characteristic zero.
+## correctness
 
-## Originality
-PASS, subject to classical-priority risk. The 2026 originating paper constructs the syzygy fourfolds, proves that their full automorphisms are projective stabilizers, notes finite generic and positive-dimensional special automorphism groups, and gives the exceptional equation. Its deductions are acknowledged as prior work. The generic \(S_4\) stabilizer of a projective four-point frame is also classical and is not claimed independently as new. The additional exact \(\operatorname{GL}_2\) identification of the exceptional full group, its contrast across a smooth all-parameter family, and the irreducible binary-cubic normal representation do not appear in the inspected sections or the closest retrieved research records. A classical classification of ternary-conic-pencil orbits could contain part of the normal-representation description; targeted searches did not establish such coverage, but cannot exclude it conclusively.
+PASS
 
-## Mathematical value
-PASS. The exceptional hypersurface is the concrete counterexample to uniform vanishing of infinitesimal automorphisms in the originating paper. Determining its **entire** group, rather than only exhibiting a torus, quantifies the jump from the finite general group. The normal representation identifies the four genuine transverse infinitesimal variations as binary cubics via the first variation of the conic-pencil discriminant, a geometric invariant relevant to the orbit stratification and local moduli behavior of these smooth Fano fourfolds. No deformation-unobstructedness or global classification is asserted.
+Since W contains all three pure squares, its coefficient quadrics are basepoint free and X is a projective-plane bundle over P2; adjunction gives -K=H1+3H2. Picard rank two and unequal dimensions h0(H1)=3,h0(H2)=4 force every abstract automorphism to extend and to be a projective stabilizer of W. The annihilator pencil has a four-point projective frame for t != 0 (stabilizer S4) and disjoint line-plus-point base scheme for t = 0 (stabilizer GL2). Its tangent quotient is [Hom(Sym^2 V,V)/V*] = Sym^3 V* tensor det(V), of dimension four. The first-order determinant derivative onto binary cubics has rank four; the independent checker reconstructed the frame and derivative ranks. This proves the displayed family and first-order normal representation, not a complete moduli deformation theory.
 
-## Closest literature and limitations
-Bunnett--Namanya (arXiv:2609.38572v1, Section 5.4.2) supplies the exact geometry and automorphism-to-stabilizer reduction; Dolgachev's classical account supplies the projective-frame \(S_4\) fact. A published result on the normalization of a different conic-pencil orbit closure and another result on rank-two quadratic-symbol symmetry jumps concern different objects and do not imply this stabilizer's binary-cubic normal module. The proof relies on characteristic zero and does not classify all subsystem degenerations or the full abstract deformation space. Independent historical verification remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identical (2,1) fourfold family and reduction of automorphisms to stabilizers were established by Bunnett and Namanya. Generic frame S4 is classical. The evaluated full exceptional GL2 group and irreducible four-dimensional normal representation require the additional special-orbit analysis; no materially stronger accessible result was found in targeted published and indexed comparisons. Best-of-knowledge priority is qualified by classical conic-pencil orbit literature.
+
+## value
+
+PASS
+
+Determining the exact stabilizer jump and its intrinsic binary-cubic normal module distinguishes a geometrically natural exceptional orbit of smooth Fano fourfolds and explains a nontrivial symmetry-stratum boundary; it is not just renaming the known generic projective-frame stabilizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
