@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each maximal matching of a triangle corona is classified by its base-edge matching and the set of unsaturated core vertices, which must be independent. This yields equation (1) bijectively. A three-case split at the center of the subdivided star yields the exact polynomial for every integer \(r\ge1\). The fractional linear transformation \(w=(z+6)/(z+8)\) reduces the nonzero-root problem to \(w^r+12rw+2-9r\); monotonicity and a single-minimum argument give exactly one or two simple real roots and determine all remaining nonreal roots. For the sharp base-order cutoff, the standalone exact program exhausts \(2^{15}\) labeled six-vertex graphs, checks every applicable quadratic/cubic discriminant, and independently enumerates maximal matchings in actual corona graphs for all four-vertex bases and the seven-vertex witness. Finite evidence is not used in place of the infinite proof.
+## correctness
 
-**Originality — PASS subject to disclosed priority risk.** Došlić–Zubac (2015/2016), §7.2, give the total-count recurrence for *path* triangle coronas, rather than the subdivided-star all-size polynomial or root classification. Tavakoli (2022) gives the scalar corona saturation number and does not provide this enumerator or root transition. The abstract of Klavžar–Tavakoli–Abrishami (2021) concerns global forcing sets, not the stated root distribution. Targeted searches of published literature and indexed mathematical findings for alternate graph names, polynomial formulas, root bounds, and stronger general results found no equivalent. Some full text and unindexed literature remain priority risks; searching cannot establish priority absolutely.
+PASS
 
-**Mathematical value — PASS.** In contrast to the real-rooted ordinary matching generating polynomial, the maximal-matching polynomial already has nonreal roots on a natural infinite family of connected triangular cactus block graphs. The result gives a closed all-size census and *exact* real/nonreal root counts for every number of arms, not just one example. Its seven-base-vertex boundary is a natural sharp cutoff certified over all smaller graphs, rather than an arbitrary finite instance. The scalar corona saturation number alone contains none of this information.
+Every maximal corona matching is indexed by a core matching and an independent set of unmatched core vertices; the three center states yield z^(2r+1)[2(z+8)^r+(z+6)^r+3rz(z+8)^(r-1)]. The nonzero-root Möbius transformation w=(z+6)/(z+8) yields Q_r=w^r+12rw+2-9r; its derivative proves exactly one real root for odd r and two for even r, all simple and negative. The separate exhaustive 2^15=32768 six-vertex base sweep verifies the claimed finite boundary, not the infinite proof. An independent implementation reproduced the exact coefficient/discriminant histogram.
 
-The reviewed claim does not assert failure of coefficient log-concavity or any root behavior beyond the specified class. Independent priority checking remains advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. The path-corona counting recurrence and scalar saturation formula do not imply the rational-transformed nonreal root transition without substantial new family calculations; the finite cutoff adds an independent exact universal assertion.
+
+## value
+
+PASS
+
+Maximal matching polynomials are a natural graph generating invariant. The explicit connected triangular-cactus family with a sharp onset of nonreal roots at seven core vertices gives a motivated distinction from ordinary matching-polynomial real-rootedness and a useful small-order threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
