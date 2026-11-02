@@ -1,9 +1,21 @@
-# Review of the alternating-time cycle cover result
+# Independent mathematical audit
 
-**Correctness (PASS).** Deleting a candidate last site gives an interval on which absolute-time parity equals displacement parity. Its time-alternating transitions are therefore equivalent to a static weighted birth-death path; the two-neighbor order decomposition and harmonic resistance formula give the complete finite law. Odd-order cancellation and exact total variation follow algebraically. Uniform expansions and two-class Riemann sums prove the even-order limit. The independent exact-rational absorbing-chain checker passes 60 target comparisons; they corroborate but do not replace the analytic proof.
+## correctness
 
-**Originality (PASS, qualified).** The full available text of Idnani–Salem, arXiv:2610.15115v1, has a general infinite-series formula but no stated alternating complement parity resonance or order-parity limit. Buchanan–Horn–Rombach treats static walks; Panny–Prodinger studies two-periodic path extremes; Mosbah–Saheb studies static weighted cycles, with full text not accessible. The even-cycle specialization and the weighted-path harmonic method are acknowledged as existing coverage and not separately claimed. The residual risk is an implicit specialization of general time-dependent formulas or an older unindexed explicit alternating result. No novelty is claimed for stationary weighted-cycle formulas.
+PASS
 
-**Value (PASS).** The odd-cycle law is an exact all-size classification of a natural periodic driving protocol; its nonvanishing total-variation discrepancy contradicts naive averaging of the zero net drift. The even-order comparison exposes a factor-two discontinuity between the two subsequences of cycle sizes and provides a useful exact benchmark for time-inhomogeneous cover dynamics.
+PASS: Reconstructed the candidate-deletion mapping to a path, checked that t mod 2 equals spatial parity displacement and therefore edge conductances become stationary on the deleted path. The harmonic current formula for hitting endpoint-neighbor 1 before n-1, then the strong Markov decomposition, gives P(L=k)=u*r0/R[0:n-2]+(1-u)*r[n-1]/R[1:n-1]. For odd n the two boundary resistances and m-pair denominator cancel u, proving the exact parity law and TV. For even n the stated affine weights and uniform O(m^-2) expansion yield the half-sized Riemann integral. The cover time is a.s. finite for 0<p<1. Independent whole-visited-set absorbing Markov systems verified n=3..6 at p=1/5,7/10, including P(L=1,2,3,4)=(.4,.1,.4,.1) for n=5,p=.2. Finite tests are corroboration only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge, not priority certification): Compared claims and logical implications with the located primary texts and published records. The specific claim is not stated as covered in the materials actually read; any implicit-specialization or inaccessible-full-text risk is separately documented. Neither matching mathematical terminology nor unsuccessful search alone was treated as conclusive originality evidence.
+
+## value
+
+PASS
+
+PASS: The last-discovery distribution for periodic nonstationary cycles is a natural cover observable. Exact uniformity within two parity classes, a size-independent nonuniformity at every odd order, and an even-order asymptotic half-bias contrast show nontrivial phase memory despite zero two-step average drift. This is more than restating standard path hitting probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
