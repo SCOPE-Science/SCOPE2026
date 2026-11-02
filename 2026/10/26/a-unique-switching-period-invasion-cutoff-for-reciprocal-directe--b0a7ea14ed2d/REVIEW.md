@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-With positive rates and equal half-periods, the two directed matrices satisfy \(A_j^2=abI\). The exact closed-form exponent follows from multiplying their exponential series, computing the positive determinant-one product's trace, and using the positive Perron eigenvalue. Strict negative curvature of \(\operatorname{arsinh}(\Gamma\sinh z)\) for \(\Gamma>1\) proves strict frequency monotonicity and the unique zero; the Taylor and large-time expansions establish the boundary laws. The positive example was checked independently by direct matrix multiplication. No finite computation is used to infer an infinite theorem.
+PASS
 
-## Originality — PASS with residual risk
+For alternating equal-duration directed layers A1=[[0,a],[b,0]], A2=[[0,b],[a,0]], let κ=sqrt(ab), Γ=(a+b)/(2κ). Since Aj²=κ² I, their exact half-period exponentials multiply to a positive determinant-one 2×2 matrix with half-trace 1+2Γ² sinh²(βκT/2); its Perron eigenvalue is exp(2 asinh(Γ sinh(βκT/2))). Thus Λ=−μ+2/T asinh(Γ sinh(βκT/2)). With Γ>1, f(z)=asinh(Γ sinh z) has f(0)=0 and f(z)=Γ(1−Γ²)sinh z/(1+Γ² sinh² z)^(3/2)<0 for z>0, so f(z)/z decreases strictly from Γ to 1, yielding a unique cutoff iff βκ<μ<β(a+b)/2 and correct equality/degenerate a=b cases. Expanding f(z) at 0 gives C2=β³κ³Γ(Γ²−1)/24>0 and Tc~sqrt((βm−μ)/C2); large-z gives βκ−μ+2logΓ/T. Independent symbolic matrix trace/determinant and f checks and a numeric bracket around Tc=0.947213258 for a=9,b=1,β=1,μ=4 passed. These are only the disease-free Floquet exponent of the deterministic approximation, not stochastic persistence or global endemic convergence.
 
-The qualitative existence of epidemic-inducing switching between stable directed SIS subsystems is already covered by Ait Rami et al. (2013/2014), Section 6, and is explicitly **not** an originality assertion here. Sejunti et al. (2024) analyze undirected symmetric counterparts and numerically report no reverse cases. Sanatkar et al. (2015) supply general switching product conditions in discrete time. Existing symmetric frequency-monotonicity results are inapplicable to the nonsymmetric contact matrices. None of the materially inspected sources states or specializes to the explicit mirror-directed continuous-time formula, its strictly decreasing all-period threshold, unique cutoff and onset coefficient. An equivalent specialized hyperbolic-matrix computation might exist under a different name; independent literature validation is absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact cutoff determines **which switching times** destabilize a pair of otherwise subcritical strongly connected directed contact layers, rather than merely invoking the older existence-of-fast-switching principle. It gives a necessary-and-sufficient parameter window, period-resolved risk classification, recovery of the two relevant mean-contact limits, and the critical square-root law. The sharp contrast with the undirected numerical study motivates the family and makes the directional boundary independently useful for interpreting temporally varying contact asymmetry.
+Best-of-knowledge exact statement and implication comparison: closest accessible primary papers and ranked published findings do not establish this precise claim under the stated parameters. This is not a historical-priority certificate; see source inspections and risks.
 
-## Closest sources and limitations
+## value
 
-Sejunti–Taylor–Masuda, arXiv:2406.16787; Ait Rami–Bokharaie–Mason–Wirth, arXiv:1306.0135 (particularly Theorem 6.2); Sanatkar et al., arXiv:1501.02472; Liu–Lou–Song, DOI 10.1137/20M1320973. Only deterministic local disease-free linearization for equal-duration mirror-directed two-group layers is claimed; no global or stochastic endemic persistence is asserted. The closed formula and all-period monotonic proof are short enough for independent rederivation, but outside equivalence under another parametrization has not been exhaustively excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rapid switching of individually subcritical directed contact layers is previously known qualitatively, but the precise critical half-period is an important natural missing invariant. This two-group family admits an exact all-period monotone phase diagram with strict necessary-and-sufficient parameter window, unique switching cutoff and quantified square-root emergence, making the directional effect mathematically interpretable rather than merely exhibiting one example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

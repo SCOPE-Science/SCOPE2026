@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:02:05.360776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For alternating equal-duration directed layers A1=[[0,a],[b,0]], A2=[[0,b],[a,0]], let κ=sqrt(ab), Γ=(a+b)/(2κ). Since Aj²=κ² I, their exact half-period exponentials multiply to a positive determinant-one 2×2 matrix with half-trace 1+2Γ² sinh²(βκT/2); its Perron eigenvalue is exp(2 asinh(Γ sinh(βκT/2))). Thus Λ=−μ+2/T asinh(Γ sinh(βκT/2)). With Γ>1, f(z)=asinh(Γ sinh z) has f(0)=0 and f(z)=Γ(1−Γ²)sinh z/(1+Γ² sinh² z)^(3/2)<0 for z>0, so f(z)/z decreases strictly from Γ to 1, yielding a unique cutoff iff βκ<μ<β(a+b)/2 and correct equality/degenerate a=b cases. Expanding f(z) at 0 gives C2=β³κ³Γ(Γ²−1)/24>0 and Tc~sqrt((βm−μ)/C2); large-z gives βκ−μ+2logΓ/T. Independent symbolic matrix trace/determinant and f checks and a numeric bracket around Tc=0.947213258 for a=9,b=1,β=1,μ=4 passed. These are only the disease-free Floquet exponent of the deterministic approximation, not stochastic persistence or global endemic convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ait Rami et al. Theorem 6.2 asserts existence of a persistent switching rule/periodic orbit if each layer stable but a convex combination unstable; Sejunti et al. analyze undirected symmetric switching, Sanatkar studies discrete-time joint spectral radii."
+        ],
+        "reasoning": "The exact continuous-time equal-half-period reciprocal directed matrices satisfy these general frameworks, but none of the inspected statements fixes an explicit unique Tc or the full period ordering, so existence alone does not dominate the quantitative claim.",
+        "searches": [
+          "periodic directed SIS switching two reciprocal matrices Floquet exponent monotonic switching period threshold",
+          "Ait Rami Bokharaie Mason Wirth 2014 Theorem 6.2",
+          "Sejunti Taylor Masuda 2024 Parrondo periodic network",
+          "Sanatkar 2015 switching epidemic threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1306.0135",
+        "https://arxiv.org/html/2406.16787v3",
+        "https://arxiv.org/pdf/1501.02472",
+        "Resultary semantic search: periodic directed SIS switching two reciprocal matrices Floquet exponent monotonic switching period threshold",
+        "Resultary repository ranked published findings (search date 2026-10-30 UTC)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/96820bea16c368ad87a6c40e0b6b65dea8f40266/2026/10/26/a-unique-switching-period-invasion-cutoff-for-reciprocal-directe--b0a7ea14ed2d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unstable averaged matrix criterion βm>μ recovers fast-switching instability for βκ<μ, but does not decide the unique finite critical period or all T. General switching spectral-radius criteria calculate a product but are not the closed trace/strict-monotonicity result here."
+        ],
+        "reasoning": "Prior general stability theory combined with elementary matrix exponentiation is a route to the formula, not evidence the exact sharp all-period classification is mechanically stated as an existing theorem. The conclusion is intentionally restricted to the quantitative invariant.",
+        "searches": [
+          "periodic directed SIS switching two reciprocal matrices Floquet exponent monotonic switching period threshold",
+          "arXiv:1306.0135 §6 Proposition 6.1 Theorem 6.2",
+          "arXiv:2406.16787 §3",
+          "arXiv:1501.02472"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Floquet multiplier is a hyperbolic trace invariant: ρ(E2E1)=exp(2asinh(Γ sinh z)); equivalently its discriminant is fixed by matrix trace and determinant one."
+        ],
+        "reasoning": "Reformulations as periodic positive linear systems or SL(2,R) Floquet matrices were inspected. Ait Rami et al. covers existence of some rapidly switched epidemic growth from an unstable average, but not the explicit multiplier and monotonic all-period family.",
+        "searches": [
+          "periodic directed SIS switching two reciprocal matrices Floquet exponent monotonic switching period threshold",
+          "2x2 reciprocal directed switched SIS Floquet trace determinant Perron",
+          "Ait Rami switching SIS convex hull instability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary switching epidemic records cover dengue saltation matrices or spectral reductions in Ricker competition, not this mirror two-contact SIS matrix formula."
+        ],
+        "reasoning": "No exact period table was recovered; a classical 2×2 hyperbolic matrix trace identity could predate the result independently of epidemic modeling and is retained as a concrete priority risk.",
+        "searches": [
+          "periodic directed SIS switching two reciprocal matrices Floquet exponent monotonic switching period threshold",
+          "2x2 hyperbolic SIS period threshold table reciprocal directed matrices",
+          "Resultary crossing-only dengue switching Floquet"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact statement and implication comparison: closest accessible primary papers and ranked published findings do not establish this precise claim under the stated parameters. This is not a historical-priority certificate; see source inspections and risks.",
+      "residual_risks": [
+        "An older closed-form SL(2,R) trace-product formula for mirror reciprocal matrices may express the same period monotonicity without SIS terminology.",
+        "No claims about unequal dwell times, larger networks, nonlinear attracting endemic orbit or finite stochastic survival."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves qualitative existence of persistence/periodic orbit when stable individual systems have unstable convex combination; not specific mirror two-group period formula.",
+          "evidence": [
+            "Theorem 6.2 (page 15) existence of σ with periodic orbit under convex-hull instability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.0135",
+          "material_read": "Primary 21-page PDF §6, Proposition 6.1, Theorem 6.2 and supporting averaged-system proof, §8 and conclusion",
+          "method": "Read primary full-text relevant mathematical sections and first page image",
+          "title": "Stability Criteria for SIS Epidemiological Models under Switching Policies",
+          "trigger": "Strongest older theorem for epidemic amplification under individually stable switching"
+        },
+        {
+          "assessment": "Its main examples are symmetric undirected layers; they do not entail the nonsymmetric two-direction exact all-period Floquet exponent.",
+          "evidence": [
+            "Equation (16) gives the correct ordered product of layer exponentials for switched contact matrices, whereas equations (10)–(12) write a single averaged exponential that is not generally equal for noncommuting layers. The tested numerical two-node layers are symmetric, unlike the present mirror-directed pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.16787v3",
+          "material_read": "Primary HTML introduction, explicit contact-matrix model and results on undirected temporal networks, numerical reverse-paradox discussion",
+          "method": "Read primary HTML relevant sections",
+          "title": "A Parrondo paradox in susceptible-infectious-susceptible dynamics over periodic temporal networks",
+          "trigger": "Same SIS switching motivation, symmetry difference may be decisive"
+        },
+        {
+          "assessment": "General discrete-time threshold and product criteria are related but not an explicit continuous-time mirror-directed half-period formula.",
+          "evidence": [
+            "The paper linearizes SIS network switching and derives joint spectral-radius threshold conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.02472",
+          "material_read": "Primary PDF abstract, introduction and methods on discrete-time switching/joint spectral radius; first page image inspected",
+          "method": "Read relevant primary portions, not entire document",
+          "title": "Epidemic Threshold of an SIS Model in Dynamic Switching Networks",
+          "trigger": "General product matrix epidemic threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rapid switching of individually subcritical directed contact layers is previously known qualitatively, but the precise critical half-period is an important natural missing invariant. This two-group family admits an exact all-period monotone phase diagram with strict necessary-and-sufficient parameter window, unique switching cutoff and quantified square-root emergence, making the directional effect mathematically interpretable rather than merely exhibiting one example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1306.0135",
+    "https://arxiv.org/html/2406.16787v3",
+    "https://arxiv.org/pdf/1501.02472",
+    "Resultary semantic search: periodic directed SIS switching two reciprocal matrices Floquet exponent monotonic switching period threshold",
+    "Resultary repository ranked published findings (search date 2026-10-30 UTC)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/96820bea16c368ad87a6c40e0b6b65dea8f40266/2026/10/26/a-unique-switching-period-invasion-cutoff-for-reciprocal-directe--b0a7ea14ed2d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite symbolic and enumerative checks corroborate specified identities only; unrestricted correctness rests on reconstructed analytical proof.",
+    "Originality is best-of-knowledge, with specified unread primary texts/historical priority risks.",
+    "Read-only scientific review: no GitHub writes or external mathematical certification."
+  ],
+  "residual_risks": [
+    "An older closed-form SL(2,R) trace-product formula for mirror reciprocal matrices may express the same period monotonicity without SIS terminology.",
+    "No claims about unequal dwell times, larger networks, nonlinear attracting endemic orbit or finite stochastic survival."
+  ],
+  "schema_version": 1
+}
