@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph construction gives degree three and connectedness. Every vertex sees two votes from its dense neighbour cluster and one from its sparse neighbour cluster. The exact identity \(M_j(t+1)=M_{j-1}(t)M_{j+1}(t)\) follows without approximations, and the \(t\)-step moving-AND formula provides the precise recurrent templates and pointwise entry times. The payload update is bijective on the four eventual templates, with a two-step permutation of two independent \(m\)-cycles in each. Möbius inversion and the cyclic run automaton yield all stated enumerations. The executable checks reproduce exhaustive vertex-state results for \(m=2,3,4\) and template tests through \(m=8\). Neither finite checks nor numerical experiments substitute for the general argument.
+## correctness
 
-## Originality — PASS, bounded literature assessment
-The principal static threshold theorem of Goles–Olivos and its explicit exposition by Benjamini et al. do not imply dynamics under alternating adjacency matrices. Haslegrave–Cannings allows a non-threshold agent while keeping the graph fixed, so its long-cycle construction does not cover uniform majority on two isomorphic cubic graph snapshots. Relevant research-record semantic searches and accessible primary text disclosed no graph-isomorphic temporal switching construction with four-template necklace spectrum or the exact cyclic-run entrance law. Searches cannot rule out an unindexed equivalent. The 1980 original article's abstract and bibliographic data, not its entire full text, were available; its stated scope is the fixed threshold function.
+PASS
 
-## Mathematical value — PASS
-The classical strict-majority period-two barrier is a major structural theorem for static symmetric interactions. This explicit family shows that even two connected, simple, isomorphic cubic bipartite snapshots do not retain the barrier under a prescribed alternating schedule. Beyond a bare counterexample, it classifies **every** recurrent state, all primitive augmented periods, all orbit multiplicities and every exact transient depth, with a sharp \(m-1\) bound. The pair-mixedness factor explains mechanistically why this phenomenon and full enumeration coexist; the invariant is natural to the graph construction and not an arbitrary small numerical slice.
+The prescribed dense K_{2,2} and sparse matching links give each cluster vertex exactly three neighbors and connected isomorphic graphs. Checking the two dense votes against the one sparse vote gives the Boolean identity M_j(t+1)=M_{j−1}(t) M_{j+1}(t), hence a moving conjunction over t+1 indices on one cyclic parity subsequence. All nonconstant parity words ultimately turn all-zero, with exact arrival time equal to the longest cyclic 1-run; all-ones persists. On the four uniform-by-parity mixedness templates, the two-step payload map permutes two m-cycles and is bijective, so these and only these states recur. Count 4×2^(2m)=4^(m+1) recurrent states, use Möbius inversion on two binary necklaces to derive N_(2d)=(4/d)∑_(e|d)μ(d/e)4^e and all d|m; cyclic finite-state trace counts mixedness words without a longer 1-run. Independently implemented direct vertex-level simulation exhausted all 2^(4m) configurations at m=2,3,4 and checked the exact entry-time and period formulas. These finite checks are corroboration; moving-AND and return permutation prove all m.
 
-## Literature and residual risks
-Benjamini et al., arXiv:1405.2486, introduction and finite period-two exposition; Haslegrave–Cannings, arXiv:1606.05496, sections on nonconforming thresholds and long-cycle constructions; Goles–Olivos, Discrete Mathematics 30 (1980), fixed symmetric threshold abstract. The novelty conclusion is conditional on inspected and searchable records; temporal-majority results outside these sources may contain an equivalent gadget. The model is deliberately time-inhomogeneous and is not a counterexample to the static theorems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Static symmetric-threshold theorems give eventual period at most two for each frozen graph but do not restrict an alternating composition. A fixed-network nonconforming vertex in another paper is a distinct mechanism. The explicit exact orbit-and-transient classification is not entailed by those inspected antecedents.
+
+## value
+
+PASS
+
+The construction exhibits unbounded augmented majority periods despite two individually simple connected, isomorphic, cubic snapshots; its full necklace and transient census reveals a structural switch-induced periodicity mechanism. The result answers a natural dynamical distinction rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

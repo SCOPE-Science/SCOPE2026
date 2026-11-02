@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:38:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/a-complete-necklace-spectrum-for-majority-dynamics-on-alternatin--8c3289a96bd9?path=RESULT.md",
+        "independent_checks.py",
+        "verify_trees.py"
+      ],
+      "rationale": "The prescribed dense K_{2,2} and sparse matching links give each cluster vertex exactly three neighbors and connected isomorphic graphs. Checking the two dense votes against the one sparse vote gives the Boolean identity M_j(t+1)=M_{j−1}(t) M_{j+1}(t), hence a moving conjunction over t+1 indices on one cyclic parity subsequence. All nonconstant parity words ultimately turn all-zero, with exact arrival time equal to the longest cyclic 1-run; all-ones persists. On the four uniform-by-parity mixedness templates, the two-step payload map permutes two m-cycles and is bijective, so these and only these states recur. Count 4×2^(2m)=4^(m+1) recurrent states, use Möbius inversion on two binary necklaces to derive N_(2d)=(4/d)∑_(e|d)μ(d/e)4^e and all d|m; cyclic finite-state trace counts mixedness words without a longer 1-run. Independently implemented direct vertex-level simulation exhausted all 2^(4m) configurations at m=2,3,4 and checked the exact entry-time and period formulas. These finite checks are corroboration; moving-AND and return permutation prove all m.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos fixed symmetric map theorem and Benjamini et al. full PDF are explicitly fixed adjacency rules; the present update switches graph edge sets every step."
+        ],
+        "reasoning": "Their period bound holds for each F_p separately, not for F_1∘F_0, and does not dominate the 2d periods. Aliases: majority network period at most 2; periodic switching composition.",
+        "searches": [
+          "Resultary semantic search: alternating isomorphic connected cubic bipartite majority dynamics switched graph necklaces primitive periods transients",
+          "Primary-source comparison: E. Goles and J. Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187–189"
+        ]
+      },
+      "checked_sources": [
+        "E. Goles and J. Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187–189",
+        "I. Benjamini et al., Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs, arXiv:1405.2486",
+        "J. Haslegrave and C. Cannings, Majority dynamics with one nonconformist, arXiv:1606.05496"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary full text arXiv:1405.2486 gives fixed-network period ≤2, while the four template permutations permit primitive 2m augmented periods."
+        ],
+        "reasoning": "The construction violates no static theorem; it provides new switched-network information and an exact attractor census not implied by the prior assumptions. Aliases: fixed graph majority two-cycles vs time-periodic arbitrarily long cycles.",
+        "searches": [
+          "Resultary semantic search: alternating isomorphic connected cubic bipartite majority dynamics switched graph necklaces primitive periods transients",
+          "Primary-source comparison: E. Goles and J. Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187–189"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benjamini et al. arXiv:1405.2486 explains static symmetric majority convergence; Haslegrave–Cannings arXiv:1606.05496 considers a fixed graph with one rule-breaking vertex."
+        ],
+        "reasoning": "The definition of the two-phase augmented map is not equivalent to a single fixed symmetric-threshold map; the static period bound is not applicable to it. Aliases: switching threshold networks; asynchronous clocked Boolean majority; two-periodic cubic graph majority.",
+        "searches": [
+          "Resultary semantic search: alternating isomorphic connected cubic bipartite majority dynamics switched graph necklaces primitive periods transients",
+          "Primary-source comparison: E. Goles and J. Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187–189"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The arithmetic formula uses standard Möbius inversion for binary necklaces but attaches four invariant templates to explicit majority graphs; no matching Resultary full census appeared in the actual query."
+        ],
+        "reasoning": "Classical necklace tables alone are insufficient to establish that the actual graph update is conjugate to these rotations or the transient law. Aliases: binary necklace orbit counts for switched cubic majority; cyclic run transfer recurrence.",
+        "searches": [
+          "Resultary semantic search: alternating isomorphic connected cubic bipartite majority dynamics switched graph necklaces primitive periods transients",
+          "Primary-source comparison: E. Goles and J. Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187–189"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Static symmetric-threshold theorems give eventual period at most two for each frozen graph but do not restrict an alternating composition. A fixed-network nonconforming vertex in another paper is a distinct mechanism. The explicit exact orbit-and-transient classification is not entailed by those inspected antecedents.",
+      "residual_risks": [
+        "A general time-periodic majority-circuit theorem not found by bounded search could include this exact construction.",
+        "Augmented periods include phase parity; they must not be called unaugmented least configuration periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SWITCHED_SETTING",
+          "evidence": "The theorem bounds eventual periods for fixed symmetric graph updates, while the audited composite alternates two graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Primary full PDF, introductory finite-network period theorem, synchronous majority setting",
+          "method": "Opened full PDF and relevant theorem pages",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Primary fixed majority dynamical constraint"
+        },
+        {
+          "assessment": "ABSTRACT_LEVEL_DIFFERENT_MECHANISM",
+          "evidence": "The paper title/abstract identifies one nonconforming site on a fixed graph, not two uniformly conforming switched cubic graphs; no full-document noncoverage conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.05496",
+          "material_read": "Public abstract/metadata and source citation only; full primary text not inspected",
+          "method": "arXiv metadata and available summary",
+          "title": "Majority dynamics with one nonconformist",
+          "trigger": "Longer periods from different majority-rule modification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "E. Goles and J. Olivos, Periodic behaviour of generalized threshold functions, Discrete Mathematics 30 (1980) 187–189",
+        "I. Benjamini et al., Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs, arXiv:1405.2486",
+        "J. Haslegrave and C. Cannings, Majority dynamics with one nonconformist, arXiv:1606.05496"
+      ],
+      "rationale": "The construction exhibits unbounded augmented majority periods despite two individually simple connected, isomorphic, cubic snapshots; its full necklace and transient census reveals a structural switch-induced periodicity mechanism. The result answers a natural dynamical distinction rather than an arbitrary finite sample.",
+      "residual_risks": [
+        "A general time-periodic majority-circuit theorem not found by bounded search could include this exact construction.",
+        "Augmented periods include phase parity; they must not be called unaugmented least configuration periods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every m≥2, alternating two explicit isomorphic connected cubic bipartite graphs under strict binary majority yields exactly the phase-augmented periods 2d for d|m, four copies of binary two-necklace return dynamics, 4^(m+1) recurrent configurations per phase, and a sharp m−1-step transient with exact run-transfer counts.",
+  "limitations": [
+    "A general time-periodic majority-circuit theorem not found by bounded search could include this exact construction.",
+    "Augmented periods include phase parity; they must not be called unaugmented least configuration periods.",
+    "Finite computations establish only their explicitly bounded cases; universal results rely on reconstructed analytic arguments."
+  ],
+  "schema_version": 1
+}
