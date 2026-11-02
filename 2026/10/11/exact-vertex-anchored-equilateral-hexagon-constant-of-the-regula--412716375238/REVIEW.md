@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is deliberately vertex-anchored rather than global. An explicit six-point cyclic boundary configuration is written in \(\mathbb Q(\sqrt5)\). Each normalized side vector is exhibited exactly on a specific edge or vertex of the difference body \(D=(C-C)/2\), so all six relative side lengths equal \(\frac{3(\sqrt5-1)}4\). The published common-vertex theorem for \(k\ge4\) then upgrades this construction to the stated uniqueness of the side-length value for every equilateral hexagon through that vertex. The packing-ratio formula is an exact algebraic substitution. `verify.py` replays all algebraic identities exactly.
+## correctness
 
-## Originality
-**PASS.** The 2004 primary source is especially close: it identifies the regular pentagon as the likely extremal body for the six-point problem and depicts a six-copy packing with ratio approximately \(0.32\), corresponding to side length approximately \(0.94\), but it does not state the radical value or an exact vertex-anchored computation. Exact-form, decimal, alias, and implication-level searches found no covering statement. A later theorem on six arbitrary points in a regular pentagon has a different domain because it permits an interior point; it does not imply a boundary-inscribed equilateral hexagon through a prescribed vertex. The residual risk is an unindexed or unpublished exact calculation behind the 2004 figure.
+PASS
 
-## Value
-**PASS.** This is a natural exact benchmark singled out by the source's own six-copy packing discussion. The fixed vertex is not an arbitrary slice: the source theorem makes it a canonical boundary-point invariant, since every relatively equilateral hexagon sharing that vertex has the same side length. The result converts a published approximate benchmark into a closed golden-ratio expression useful for testing the unresolved global regular-pentagon and worst-body questions, while making no unsupported global-optimality claim.
+The actual source defines the Minkowski relative gauge with difference body D=(C−C)/2 and prescribes a pentagon vertex, NOT globally optimized first boundary point. An independent exact Q(√5) calculation reconstructed all five pentagon vertices and all ten D vertices, checked D is precisely the convex hull of all 25 pairwise half-differences, proved all six successive cyclic edge vectors have Minkowski gauge d=3(√5−1)/4, checked exact parameter ordering and d/(2+d)=3−6√5/5. The independent construction establishes existence. Lassak 2004 Theorem 1 and immediately following observation (materially read in primary full text) prove every relatively equilateral k≥4 polygon through the same boundary vertex has the same side length, establishing universality. Dihedral symmetry and affine invariance extend to all vertices and affine pentagon images. No global optimum d_C(6) is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest 2004 primary source already proves the uniqueness structure and depicts a six-copy regular-pentagon packing near 0.32, but does not provide the explicit exact anchored-side computation or a statement algebraically implying its radical value. Three Resultary semantic queries and exact/decimal/alias literature searches were compared against primary papers and a historical thesis. Self-identical published record excluded. The most relevant stronger six-point theorem permits an interior center and does not cover the boundary anchor. Best-of-knowledge PASS, expressly not proof of absolute historical priority.
+
+## value
+
+PASS
+
+The fixed pentagon vertex is canonically determined rather than an arbitrary numerical slice: Lassak’s k≥4 theorem guarantees a single common side length for every equilateral hexagon sharing it. The regular pentagon is singled out in the source literature as a likely extremal geometry for six homothetic copies, but its illustrated numerical benchmark is only approximately 0.32. The exact algebraic anchored value and homothetic ratio form a natural, exact, reproducible geometric invariant with potential use in testing or bounding unresolved global packing problems. A finite exact natural classification need not settle the global conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

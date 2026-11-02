@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The new claim was checked in exact arithmetic.
+# Independent mathematical audit
 
-The calculation uses the affine pentagon model from `RESULT.md`, the exact difference body \(D=(C-C)/2\), and the six cyclic boundary parameters
-\[
-0,\quad \frac34,\quad \frac{15-\sqrt5}{8},\quad \frac52,\quad
-\frac{25+\sqrt5}{8},\quad \frac{17}{4}.
-\]
-For every consecutive side vector \(Z_i\), `verify.py` checks symbolically that
-\[
-\frac{Z_i}{3(\sqrt5-1)/4}
-\]
-is exactly a listed vertex or convex combination of adjacent vertices of \(D\). Hence each normalized side lies on \(\partial D\), which proves the six equal relative distances.
+## correctness
 
-The same checker verifies the exact simplification
-\[
-\frac{d}{2+d}=3-\frac{6\sqrt5}{5}.
-\]
+PASS
 
-The universal statement over all relatively equilateral hexagons containing the prescribed vertex uses the primary source's common-vertex equal-length observation for \(k\ge4\); the source passage was materially inspected.
+The actual source defines the Minkowski relative gauge with difference body D=(C−C)/2 and prescribes a pentagon vertex, NOT globally optimized first boundary point. An independent exact Q(√5) calculation reconstructed all five pentagon vertices and all ten D vertices, checked D is precisely the convex hull of all 25 pairwise half-differences, proved all six successive cyclic edge vectors have Minkowski gauge d=3(√5−1)/4, checked exact parameter ordering and d/(2+d)=3−6√5/5. The independent construction establishes existence. Lassak 2004 Theorem 1 and immediately following observation (materially read in primary full text) prove every relatively equilateral k≥4 polygon through the same boundary vertex has the same side length, establishing universality. Dihedral symmetry and affine invariance extend to all vertices and affine pentagon images. No global optimum d_C(6) is claimed.
 
-No finite sampling is used to establish an infinite or universal claim. The theorem does not determine the global value \(d_C(6)\).
+## originality
+
+PASS
+
+The closest 2004 primary source already proves the uniqueness structure and depicts a six-copy regular-pentagon packing near 0.32, but does not provide the explicit exact anchored-side computation or a statement algebraically implying its radical value. Three Resultary semantic queries and exact/decimal/alias literature searches were compared against primary papers and a historical thesis. Self-identical published record excluded. The most relevant stronger six-point theorem permits an interior center and does not cover the boundary anchor. Best-of-knowledge PASS, expressly not proof of absolute historical priority.
+
+## value
+
+PASS
+
+The fixed pentagon vertex is canonically determined rather than an arbitrary numerical slice: Lassak’s k≥4 theorem guarantees a single common side length for every equilateral hexagon sharing it. The regular pentagon is singled out in the source literature as a likely extremal geometry for six homothetic copies, but its illustrated numerical benchmark is only approximately 0.32. The exact algebraic anchored value and homothetic ratio form a natural, exact, reproducible geometric invariant with potential use in testing or bounding unresolved global packing problems. A finite exact natural classification need not settle the global conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
