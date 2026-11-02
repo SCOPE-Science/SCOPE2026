@@ -1,19 +1,21 @@
-# Review of the two-agent curvature–mixing frontier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The linear recurrence is exactly derived from the specified update for positive scalar curvatures and consistent gradient initialization; the cubic Schur reduction, four inequalities and exact radical boundary are proved without unverified numerical extrapolation. Initial-state directions \(v_1,v_2\) and their image have determinant \(\lambda-1\ne0\), so an unstable eigenmode cannot be invisible to all allowed initial primal data. The full identity checker reproduces the polynomial and reduction.
+PASS
 
-## Originality
+Gradient initialization implies z_c=e_c+d e_d identically, reducing the true primal dynamics to stated 3x3 A(λ,d). Independent symbolic charpoly gives z³−λ z²+λ(λ−1−d²)z+λd². Schur/Jury cubic tests reduce strictly to J>0 in λ,d∈(-1,1), and negativity at J=0 gives a unit-modulus complex pair; the span of v1,v2,A v2 with determinant λ−1 proves necessity for actual initialized trajectories, not just arbitrary tracker states. Independent exact boundary at λ=−1/2 and signs on either side confirmed. No extension to arbitrary steps or general networks.
 
-**PASS, narrowly scoped.** Wang et al. (arXiv:2608.03548v1) motivate the canonical step and give a general reduced matrix and conservative heterogeneous sufficient certificate. A published signed-spectrum result for this algorithm addresses homogeneous curvature only. Tian et al. (arXiv:2607.23601v1) study different tracker update placements and worst-case function/graph classes. The combined strict necessary-and-sufficient heterogeneous two-agent criterion was not found in the searched indexed records or inspected primary texts. The external full text of one close published record was not available; its complete recoverable statement and published abstract were compared, leaving a disclosed originality risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** A previously optimally fast complete-network step need not converge when the network has a sufficiently negative non-consensus eigenvalue. The exact \(\lambda=-1/3\) immunity threshold, curvature-mismatch transition, and golden-ratio terminal mixing boundary supply a sharp, mathematically motivated classification for tuning two-agent communication weights at that step. No general network or free-stepsize optimality is claimed.
+Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.
 
-## Limitations
+## value
 
-Assumes two agents, scalar strictly convex quadratic costs, symmetric positive mixing, one fixed common stepsize and correctly initialized trackers. No independent validation. The current search cannot rule out unindexed equivalent literature, and a close published homogeneous study was not readable in its remote complete package.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise two-agent curvature–mixing boundary replaces conservative distributed optimization convergence certificates and identifies the exact instability threshold despite correct tracker initialization, including boundary roots. This is a natural small model with a new strict phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

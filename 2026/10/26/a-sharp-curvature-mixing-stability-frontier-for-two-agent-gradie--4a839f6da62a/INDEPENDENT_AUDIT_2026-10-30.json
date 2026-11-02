@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:49:43.698756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gradient initialization implies z_c=e_c+d e_d identically, reducing the true primal dynamics to stated 3x3 A(λ,d). Independent symbolic charpoly gives z³−λ z²+λ(λ−1−d²)z+λd². Schur/Jury cubic tests reduce strictly to J>0 in λ,d∈(-1,1), and negativity at J=0 gives a unit-modulus complex pair; the span of v1,v2,A v2 with determinant λ−1 proves necessity for actual initialized trajectories, not just arbitrary tracker states. Independent exact boundary at λ=−1/2 and signs on either side confirmed. No extension to arbitrary steps or general networks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2608.03548: Abstract emphasizes adaptive sufficient convergence guarantees and interaction of network topology/curvature heterogeneity.",
+          "arXiv:2607.23601: Problem class and operators are not identical to fixed two-agent quadratic initialized-subspace frontier.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6: Different optimization over steps and fixed d=0."
+        ],
+        "reasoning": "General scalar quadratic gradient tracking sufficient convergence certificates contain the class, but the claim is a sharp fixed-two-agent instance; an exact general spectral criterion can make it a corollary if already given.",
+        "searches": [
+          "two agent gradient tracking quadratic heterogeneous curvature Schur stability exact step mixing parameter",
+          "arXiv:2608.03548",
+          "arXiv:2607.23601",
+          "Resultary:SCOPE-exact-sign-aware-graph-specific-tuning"
+        ]
+      },
+      "checked_sources": [
+        "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs (arXiv:2608.03548)",
+        "Exact Worst-case Convergence Rates of Distributed Gradient Tracking Methods (arXiv:2607.23601)",
+        "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking (https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6)",
+        "Resultary query: two agent gradient tracking quadratic heterogeneous curvature Schur stability exact step mixing parameter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2608.03548: Abstract emphasizes adaptive sufficient convergence guarantees and interaction of network topology/curvature heterogeneity.",
+          "arXiv:2607.23601: Problem class and operators are not identical to fixed two-agent quadratic initialized-subspace frontier.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6: Different optimization over steps and fixed d=0."
+        ],
+        "reasoning": "Wang et al supplies the underlying iteration and normalized natural stepsize; its accessible metadata does not establish strict iff J>0 for heterogeneous initialized trajectories, and inaccessible full formulas remain a risk.",
+        "searches": [
+          "two agent gradient tracking quadratic heterogeneous curvature Schur stability exact step mixing parameter",
+          "arXiv:2608.03548",
+          "arXiv:2607.23601",
+          "Resultary:SCOPE-exact-sign-aware-graph-specific-tuning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2608.03548: Abstract emphasizes adaptive sufficient convergence guarantees and interaction of network topology/curvature heterogeneity.",
+          "arXiv:2607.23601: Problem class and operators are not identical to fixed two-agent quadratic initialized-subspace frontier.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6: Different optimization over steps and fixed d=0."
+        ],
+        "reasoning": "Schur stability of the 3x3 initialized-state gradient-tracking matrix is an equivalent spectral formulation; one must compare the exact update order/normalization.",
+        "searches": [
+          "two agent gradient tracking quadratic heterogeneous curvature Schur stability exact step mixing parameter",
+          "arXiv:2608.03548",
+          "arXiv:2607.23601",
+          "Resultary:SCOPE-exact-sign-aware-graph-specific-tuning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2608.03548: Abstract emphasizes adaptive sufficient convergence guarantees and interaction of network topology/curvature heterogeneity.",
+          "arXiv:2607.23601: Problem class and operators are not identical to fixed two-agent quadratic initialized-subspace frontier.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6: Different optimization over steps and fixed d=0."
+        ],
+        "reasoning": "Resultary homogeneous graph-specific exact tuning concerns d=0; other two-component PAGE/RR threshold records use different algorithms. No exact parameter table for J in searched sources.",
+        "searches": [
+          "two agent gradient tracking quadratic heterogeneous curvature Schur stability exact step mixing parameter",
+          "arXiv:2608.03548",
+          "arXiv:2607.23601",
+          "Resultary:SCOPE-exact-sign-aware-graph-specific-tuning"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.",
+      "residual_risks": [
+        "Full text of the exact general heterogeneous gradient-tracking preprint was not read; its reduced matrix or appendices may already imply the same Schur frontier.",
+        "Difference between tracker update orders and initial state restriction matters; no arbitrary-state claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior formulation and sufficient/general stepsize certificates; cannot make whole-document noncoverage assertion for inaccessible full text.",
+          "evidence": "Abstract emphasizes adaptive sufficient convergence guarantees and interaction of network topology/curvature heterogeneity.",
+          "identifier_or_url": "arXiv:2608.03548",
+          "material_read": "Abstract and source-equation summary available; full manuscript not retrieved this execution",
+          "method": "Read public metadata and abstract, compared exact algorithmic form supplied in record",
+          "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+          "trigger": "Same two-agent scalar quadratic gradient tracking and mean-curvature step"
+        },
+        {
+          "assessment": "Worst-case and different tracker-update orders; full-text implication risk remains.",
+          "evidence": "Problem class and operators are not identical to fixed two-agent quadratic initialized-subspace frontier.",
+          "identifier_or_url": "arXiv:2607.23601",
+          "material_read": "Bibliographic abstract only",
+          "method": "Public preprint metadata/abstract comparison",
+          "title": "Exact Worst-case Convergence Rates of Distributed Gradient Tracking Methods",
+          "trigger": "Possible dominating exact stability theorem for related distributed trackers"
+        },
+        {
+          "assessment": "Homogeneous curvature special case, not a general nonzero mismatch frontier.",
+          "evidence": "Different optimization over steps and fixed d=0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+          "material_read": "Indexed title and summary referenced by the package, no current full proof read",
+          "method": "Compare published research summary and d=0 specialization",
+          "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking",
+          "trigger": "Relevant published calculation at d=0"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise two-agent curvature–mixing boundary replaces conservative distributed optimization convergence certificates and identifies the exact instability threshold despite correct tracker initialization, including boundary roots. This is a natural small model with a new strict phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At normalized step α=1/mean(h), universal gradient-initialized primal convergence for two heterogeneous quadratic agents is exactly J(λ,d²)>0, with full sharp mixing/curvature phase diagram.",
+  "limitations": [
+    "Full text of the exact general heterogeneous gradient-tracking preprint was not read; its reduced matrix or appendices may already imply the same Schur frontier.",
+    "Difference between tracker update orders and initial state restriction matters; no arbitrary-state claim."
+  ],
+  "schema_version": 1
+}
