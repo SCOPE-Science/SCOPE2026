@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T01:08:27.642768Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Seven actual source blobs including RESULT.md, SLOGAN.txt, VERIFICATION.md and check_profile.py from the assigned frozen commit, tree SHA fe8c24b0bea16268d7cc989520f27e451e00aec4",
+        "Independent exact-rational witness enumeration with 14 cases n=2..5, k=1..7, epsilon=1/[3(n-1)^2]",
+        "Primary 2018 upper-bound proof Theorem 7.10, https://www.researchgate.net/publication/325834613_The_convexification_effect_of_Minkowski_summation"
+      ],
+      "rationale": "For every integer n>=2 and k>=1 and 0<epsilon<1/(n-1)^2, the normalized regular-simplex inner products give ||sum (lambda_i-mu_i)v_i||^2 = n/(n-1) sum (lambda_i-mu_i)^2. A coordinate discrepancy a forces horizontal distance >= n*a/(n-1). For any base barycentric lambda, floor counts f_i=floor(k lambda_i) have sum F>=k-n+1; every height j*epsilon/k for 0<=j<=F is accessible above that exact base point by selecting raised multiplicities c_i<=f_i and filling remaining k-j summands with one common base point. This gives d<=epsilon for k<n and d<=(n-1)epsilon/k for k>=n. Below threshold, the top centroid point (0,epsilon) is epsilon from the base and horizontally more than epsilon from every stratum containing a lifted vertex. At/above threshold, lambda_1=(k-n+1+(n-1)/n)/k and lambda_{i>1}=(n-1)/(nk) yield exactly J=k-n+1 attainable lifted copies; j<=J gives vertical gap >=(n-1)epsilon/k, while j>J forces a horizontal barycentric discrepancy >=1/(nk) and therefore horizontal gap >=1/((n-1)k)>(n-1)epsilon/k. Height J gives exact equality. For the Schneider index, the top face of A+s conv(A) is union_i(v_i+sT) and covers (1+s)T iff s>=n-1; for s>=n-1 its bottom slab [0,s epsilon] and top slab [epsilon,(1+s)epsilon] cover the prism. No boundary cases are skipped, including n=2, k=1 or k=n. An independent 14-instance exact Fraction-based multiplicity enumeration and KKT projection corroborated the claimed sharp witnesses. Reconstructed the 7-blob tree, matching the assigned SHA. Thus C passes analytically; finite checks do not replace the infinite proof.",
+      "residual_risks": [
+        "The epsilon interval is proven sufficient but its optimal endpoint is not determined.",
+        "Finite tests cover 14 selected cases only; the all-n, all-k conclusion depends on the reconstructed symbolic proof.",
+        "No Lean proof or external expert attestation; the statement is evaluated as a mathematical argument, not formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "FMMZ Theorem 7.10 bounds d(A^(k)) by min(1,ceil(c(A))/k)d(A); c(A)=n-1 for the assessed set, giving the upper inequality.",
+          "van Hintum Theorem 1.4 gives a weaker universal k=n upper coefficient 1-(n-1)/[n(2n-1)], not equality for this A.",
+          "Recent Meyer 2026 preprint abstract studies convexity of A+lambda K with convex K, not an all-k self-average of A."
+        ],
+        "reasoning": "A general upper estimate, including its sharp form as a bound, does not yield equality for this specific family without a matching lower witness; the proof supplies one. The general recent convexifier question has a different operation and does not dominate the submitted statement.",
+        "searches": [
+          "Resultary query: Schneider nonconvexity index sharp Hausdorff distance bound Minkowski average all orders simplex prism extremizer sharpness lower bound (n-1)/n",
+          "web: Fradelizi Madiman Marsiglietti Zvavitch \"Theorem 7.10\" \"d(A(k))\" Schneider index exact sharp 2018 pdf",
+          "https://arxiv.org/abs/1704.05486",
+          "arXiv:2610.26744 (2026 Mark Meyer, finite convexification by A+lambda K; abstract only, different operation)"
+        ]
+      },
+      "checked_sources": [
+        "P. van Hintum, The sharp threshold for Hausdorff convexification under Minkowski addition, arXiv:2606.10815v1, Theorems 1.3 and 1.4 and both proofs, https://www.researchgate.net/publication/406875078_The_sharp_threshold_for_Hausdorff_convexification_under_Minkowski_addition",
+        "M. Fradelizi, M. Madiman, A. Marsiglietti and A. Zvavitch, The convexification effect of Minkowski summation, EMS Surveys in Mathematical Sciences 5 (2018), Theorem 7.10, https://www.researchgate.net/publication/325834613_The_convexification_effect_of_Minkowski_summation",
+        "Published finite simplex-skeleton Minkowski threshold, complete RESULT.md: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722/RESULT.md",
+        "Published exact regular-simplex vertex-grid deep-hole profile, complete RESULT.md: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d/RESULT.md",
+        "R. Schneider, A measure of convexity for compact sets, Pacific J. Math. 58 (1975), index definition used as reproduced in FMMZ (not claimed read in full)",
+        "Three fresh Resultary semantic searches, each checked for exact self-match and nearby distinct records; contemporaneous web alias searches for all-order equality and index saturation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Van Hintum Theorem 1.3 implies only the k<n branch (and a narrower epsilon range), while his Theorem 1.4 bounds but does not evaluate the k=n branch.",
+          "FMMZ 2018 Theorem 7.10 plus the newly proven index c(A)=n-1 implies an upper bound, but does not imply lower equality or identify a farthest-point witness.",
+          "The simplex-skeleton result and finite vertex-grid result concern different sets and their theorems do not reduce to the lifted-prism instance."
+        ],
+        "reasoning": "The critical implication missing from the compared sources is the geometric inequality for j>J at the selected top witness, which forces d(A^(k))>=(n-1)epsilon/k simultaneously for every k>=n. Neither a bound nor a related simplex theorem logically supplies it.",
+        "searches": [
+          "P. van Hintum, arXiv:2606.10815v1, Theorems 1.3 and 1.4, full public manuscript",
+          "FMMZ 2018 Theorem 7.10 and proof, primary text",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "van Hintum's Theorem 1.3 constructs the same prism-like raised-simplex family but proves d(A^(k))=epsilon only for 1<=k<=n-1; Theorem 1.4 is a general k=n upper bound.",
+          "The assessed all-order claim additionally proves d(A^(k))=(n-1)epsilon/k for every k>=n; no inspected equivalent post-threshold statement was found."
+        ],
+        "reasoning": "Names such as Shapley–Folkman convexification, Minkowski averages, Hausdorff distance from convex hull, lifted simplex, raised cap, and prism-top witness were included. The shared input family and early-order profile are not claimed as new, and unsuccessful searches alone are not novelty proofs.",
+        "searches": [
+          "Resultary query: exact Hausdorff convexification gap of Minkowski averages of raised simplex plus lifted vertices at every k saturating Schneider index bound epsilon min 1 n-1 over k",
+          "Resultary query: Peter van Hintum sharp threshold convexification raised simplex k-fold Minkowski sum exact Hausdorff gap postthreshold example",
+          "web: \"raised simplex\" \"epsilon\" \"n-1\" \"k\" Hausdorff distance",
+          "https://arxiv.org/abs/2606.10815"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary hit is the identical record under review; it is excluded as independent priority evidence.",
+          "A published pure-simplex vertex grid gives a different exact formula, and a published skeleton study gives a different finite threshold; both full theorems were compared."
+        ],
+        "reasoning": "The claim is a complete sequence of exact gaps for an infinite parameter family, not a finite tabulated invariant. No inspected external table or named indexed record (apart from this same record) supplies the specific full sequence; indexing gaps remain a risk.",
+        "searches": [
+          "Resultary query: exact Hausdorff convexification gap of Minkowski averages of raised simplex plus lifted vertices at every k saturating Schneider index bound epsilon min 1 n-1 over k",
+          "Resultary query: Peter van Hintum sharp threshold convexification raised simplex k-fold Minkowski sum exact Hausdorff gap postthreshold example",
+          "Resultary results: self-hit SCOPE-exact-all-order-hausdorff... excluded; related published skeleton and simplex-grid exact calculations inspected directly"
+        ]
+      },
+      "rationale": "The motivating van Hintum construction and equality for k<=n-1 are explicitly prior; FMMZ's general Schneider-index bound supplies the upper half. The asserted contribution is the exact lower bound and full post-threshold profile for the specific raised-simplex family, plus its simultaneous saturation of the general upper bound at every averaging order. The motivating primary five-page preprint was fully read and does not state that equality; the 2018 primary theorem gives no matching witness. Resultary semantic searches and complete readings of closest simplex-skeleton and finite vertex-grid published claims revealed distinct objects/invariants, not dominating results. This is a best-of-knowledge PASS, not a historical-priority guarantee.",
+      "residual_risks": [
+        "Unindexed or unpublished detailed treatment may prove an equivalent all-order raised-simplex profile; no negative search proves absolute novelty.",
+        "The 64-page FMMZ paper was inspected materially in Sections 7.1–7.4, not every page; uninspected appendices or other historical results could affect priority.",
+        "The original 1975 Schneider paper was not read in full; its index definition and role were checked via FMMZ 2018.",
+        "A later 2026 Meyer finite-convexification preprint was checked at abstract level only and concerns addition of a convex K; no whole-document NOT_COVERING inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already supplies the raised-simplex example for dimensions n>=3 with height epsilon<1/n^3 and proves d(A^(k))=epsilon for k<=n-1. It proves a distinct universal n-fold upper bound. It does not state or prove the exact k>=n profile, the matching all-k lower witnesses, or the claimed simultaneous Schneider-index saturation.",
+          "evidence": [
+            "Theorem 1.3 and proof construct T union elevated vertices and handle only k<=n-1; Theorem 1.4 gives 1-(n-1)/(n(2n-1)) for arbitrary A.",
+            "Discussion explicitly considers replacement of the general coefficient by 1-1/n as a question, not a settled universal result."
+          ],
+          "identifier_or_url": "arXiv:2606.10815v1; https://www.researchgate.net/publication/406875078_The_sharp_threshold_for_Hausdorff_convexification_under_Minkowski_addition",
+          "material_read": "Complete public five-page preprint displayed as searchable full text: abstract, introduction, Theorems 1.3/1.4, both proofs, final discussion and references; especially lines 152–213, 248–448, 450–700 of accessible reproduction.",
+          "method": "Read full lawful open text of primary preprint on an author-paper repository after direct arXiv text/PDF retrieval was unavailable.",
+          "title": "The sharp threshold for Hausdorff convexification under Minkowski addition",
+          "trigger": "The same lifted regular-simplex base and its earliest non-contraction orders; direct potential coverage of the final claim."
+        },
+        {
+          "assessment": "Theorem 7.10 proves d(A^(k)) <= min(1,ceil(c(A))/k)d(A), the upper half of the final equality once c(A)=n-1. Its proof gives no raised-simplex simultaneous equality example nor a matching lower witness for every k.",
+          "evidence": [
+            "Theorem 7.10 at reproduced lines 5076–5095 is the stated Schneider-index upper inequality.",
+            "Corollary 7.8 and previous results provide eventual contraction/monotonicity, not the all-order extremizer."
+          ],
+          "identifier_or_url": "arXiv:1704.05486; EMS Surveys in Mathematical Sciences 5 (2018), DOI:10.4171/EMSS/26; https://www.researchgate.net/publication/325834613_The_convexification_effect_of_Minkowski_summation",
+          "material_read": "Actual primary full-text reproduction with emphasis on Sections 7.1–7.4, Theorems 7.1–7.5, Corollaries 7.6 and 7.8, Theorem 7.10 and its proof (accessible text lines 4576–5095); not an assertion that all 64 pages were inspected line by line.",
+          "method": "Read lawful public full-text reproduction of original article and mathematical derivation of Section 7.4; direct author PDF URL unavailable.",
+          "title": "The convexification effect of Minkowski summation",
+          "trigger": "Potentially dominating general Hausdorff-average inequality and Schneider nonconvexity-index bound."
+        },
+        {
+          "assessment": "Concerns equal-weight averages of a simplex r-skeleton and finite filling of the simplex, not a prism comprising a full base facet plus elevated isolated vertices or its Hausdorff distance for all k.",
+          "evidence": [
+            "Main theorem M_k(S_r)=Delta iff kr>=d; the underlying nonconvex set is S_r and the invariant is exact finite saturation, unlike the positive all-order gap of the assessed family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722/RESULT.md",
+          "material_read": "Complete published RESULT.md including exact sparse barycentric splitting lemma, proof, assumptions and limits.",
+          "method": "Read actual GitHub file via repository connector, blob SHA 8c92227987fa79da6072be0952867aa2f7a08e01.",
+          "title": "Sharp finite convexification thresholds for every skeleton of a simplex",
+          "trigger": "Related published exact Minkowski-average saturation of simplex-derived nonconvex sets."
+        },
+        {
+          "assessment": "Only pure vertex averages V^(k) in one affine simplex, with d to simplex of order (1/k)sqrt(r(d-r)); no continuous base, extra height variable, or Schneider-index saturation. It does not imply the prism profile.",
+          "evidence": [
+            "Main formula for V_(k) is l/k sqrt(r_*(d-r_*)/(2d)), with classification of finite barycentric-grid deep holes; different object and invariant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d/RESULT.md",
+          "material_read": "Complete published RESULT.md, covering formula, farthest-point classification, proof and limitations.",
+          "method": "Read actual GitHub file via repository connector, blob SHA 9aa1038375d29b10d176ec6fb570eaa0a4e29861.",
+          "title": "Exact deep-hole spectrum of regular-simplex Minkowski vertex averages",
+          "trigger": "Related all-k exact Hausdorff formula for simplex vertex grids and possible normalization equivalence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "van Hintum 2026, Theorem 1.3 and discussion of open sharp coefficient, https://www.researchgate.net/publication/406875078_The_sharp_threshold_for_Hausdorff_convexification_under_Minkowski_addition",
+        "FMMZ 2018 Theorem 7.10 and surrounding convexification bounds, https://www.researchgate.net/publication/325834613_The_convexification_effect_of_Minkowski_summation",
+        "Independently reconstructed full all-order proof and witness separation in audited RESULT.md"
+      ],
+      "rationale": "The raised regular-simplex cap is the natural canonical example in the recent sharp-threshold problem for Hausdorff convexification. Determining its exact first post-threshold decrease and every subsequent distance is a motivated all-order geometric invariant, not an arbitrary narrow slice or repetition of the early noncontraction theorem. A single explicit family attaining a previously established Schneider-index inequality at every k supplies its missing extremizing examples and a lower obstruction (n-1)/n to stronger universal k=n contraction. This is a mathematically meaningful exact classification for a natural input; it does not assert a universal upper bound, a maximal epsilon interval, or generality for arbitrary norms.",
+      "residual_risks": [
+        "Contribution is restricted to one explicit extremal family; it does not settle the general sharp universal contraction constant.",
+        "The largest possible epsilon range and behavior for distorted simplexes or non-Euclidean norms remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact height interval sufficient, not proven optimal.",
+    "No universal sharp n-fold upper coefficient claimed.",
+    "Full FMMZ 64-page scan not read line by line; relevant primary section and complete closest five-page preprint read.",
+    "Priority best-of-knowledge, no formal Lean or expert attestation."
+  ],
+  "schema_version": 1
+}
