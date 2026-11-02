@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Kummer counts base-p subtraction borrows exactly. Removing r terminal base-p digits equal to p-1 repeats the reduced-row good/bad indicator p^r times. In reduced row N=m-1, Q=p^alpha and R=m mod Q (1<=R<Q), first R entries suffer fewer than alpha borrows. For any K with [K,K+R] inside row N, digitwise maximum Z of K mod Q with the digits of R lies in [K,K+R] and forces alpha consecutive borrows against the lowest alpha digits of N=R-1 mod Q. Thus every longer interval contains a multiple of p^alpha and both edge R-blocks attain the bound. All limits n>=0, prime p, alpha>=1 are addressed. Direct exact binomial verifier covers 8320 configurations and 1,221,990 forbidden windows; the infinite conclusion follows from the proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kummer (1852) supplies a valuation for each individual coefficient and is an imported proof premise.",
+        "Rowland (2010/2011) Theorem 1 sums numbers of coefficients at all small valuations.",
+        "Spiegelhofer-Wallner (2016), Introduction and main theorem, derive explicit generating functions for exact valuation counts, not extremal consecutive-index runs.",
+        "Spiegelhofer-Wallner (2017), Introduction and main theorem, obtain asymptotic normality of aggregate divisibility proportions."
+      ],
+      "reasoning": "Pointwise Kummer coverage is mathematically stronger data than a threshold characteristic function, but deriving a uniform exact interval bound is a separate extremal implication proved here; no named inspected broad theorem states the optimal interval or constructive witness. Aggregate counts do not imply adjacency. A survey not fully examined could change priority.",
+      "searches": [
+        "arxiv:1001.1783v1 Kummer nonzero binomial coefficients modulo p alpha row counts",
+        "arxiv:1604.07089v1 exact divisibility generating functions binomial row",
+        "arxiv:1710.10884v1 divisibility binomial coefficients powers of two normal distribution",
+        "arxiv:1001.1783v1",
+        "arxiv:1604.07089v1",
+        "arxiv:1710.10884v1"
+      ]
+    },
+    "checked_sources": [
+      "Kummer 1852 borrow-count theorem (as stated and used in arxiv:1001.1783v1)",
+      "Fine 1947 row counts (as stated in arxiv:1001.1783v1)",
+      "arxiv:1001.1783v1",
+      "arxiv:1604.07089v1",
+      "arxiv:1710.10884v1",
+      "arxiv-related search on Pascal rows, consecutive nondivisible runs, maximal intervals, modulo prime powers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical Kummer condition is necessary and sufficient for each single coefficient to be nonzero modulo p^alpha.",
+        "Fine, Rowland and Spiegelhofer-Wallner control marginal row counts, and a separate indexed result concerning odd-binomial arithmetic progressions addresses a different invariant.",
+        "The digitwise-max construction gives, for every starting point K, an explicit bad coefficient Z in the next R+1 positions; this is not entailed by a total-count formula."
+      ],
+      "reasoning": "Direct implication comparison: knowing all pointwise valuations trivially permits a search through every index, but does not present the uniform closed-form maximum. The proof supplies nontrivial interval optimisation, a sharp covering certificate, and endpoint sharpness. Odd-binomial arithmetic-progression maximum length is a different extremal object (nonconsecutive differences allowed), so it neither states nor dominates the all-prime/all-power consecutive-run result.",
+      "searches": [
+        "arxiv:1001.1783v1",
+        "arxiv:1604.07089v1",
+        "arxiv:1710.10884v1",
+        "longest consecutive nonzero binomial coefficients modulo p Pascal row longest runs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rowland 2010 Sections 1-3 define a_{p^alpha}(n) as total survivor count, not longest adjacent run.",
+        "The displayed length is equivalently the least positive (n+1)-residue mod p^(nu_p(n+1)+alpha), and equally the largest zero-free interval length; no matching formulation found in inspected texts."
+      ],
+      "reasoning": "Checked row-indicator, zero-free intervals, maximal adjacent survivor streak, and least-positive-residue formulations. Counts of survivors do not determine their ordering, and neither the count nor a word-count polynomial implies the sharp contiguous covering statement without the digitwise construction.",
+      "searches": [
+        "Pascal row longest consecutive run of binomial coefficients not divisible by p^alpha",
+        "maximal streak of nonzero binomial coefficients modulo prime powers initial run p-adic digits",
+        "Pascal triangle longest consecutive nonzero binomial coefficients modulo 4 run",
+        "Pascal row longest run odd coefficients trailing ones n",
+        "arxiv:1001.1783v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rowland tables and formulas count nonzero row coefficients for small prime powers and general alpha.",
+        "Spiegelhofer-Wallner tables and coefficient polynomials count entries at prescribed valuations, not maximum runs.",
+        "No inspected table directly tabulates the unrestricted maximum-run invariant."
+      ],
+      "reasoning": "An exact database of the number of good entries is not equivalent to a database of longest consecutive good intervals. The proposed formula computes the latter for every row and prime-power modulus; tested finite rows are verification, not the original mathematical evidence.",
+      "searches": [
+        "Pascal row longest consecutive run of binomial coefficients not divisible by p^alpha",
+        "longest run of entries not divisible by p^k in Pascal triangle",
+        "consecutive nondivisible binomial coefficients length row prime powers modulus p^a",
+        "arxiv:1001.1783v1",
+        "arxiv:1604.07089v1"
+      ]
+    },
+    "rationale": "The searched primary results of Fine, Rowland and Spiegelhofer-Wallner give counts and subword generating functions, not maximum consecutive nondivisibility runs. Kummer is a general pointwise valuation theorem, but does not state the all-parameter sharp covering extremum; the constructive maximum-digit witness proves this missing interval claim. An earlier exact statement in unlocated prime-power Pascal-row geometry remains a priority risk, particularly the detailed 1997 Granville survey that was identified but not materially inspected. Literature searches alone are not novelty proof.",
+    "residual_risks": [
+      "Exact extremal identity may be explicitly stated in historical work under a different term or an equivalent p-adic digit condition.",
+      "Granville (1997), Arithmetic Properties of Binomial Coefficients I, is plausibly relevant and identified but not examined in full; its general digit congruence is not treated as a full-document negative comparison.",
+      "Prime-modulus special case may be known as an elementary consequence of Lucas; novelty claim is the uniform all-prime-power sharp covering theorem, not the elementary p-only case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: exact survivor cardinalities are derived, no maximal consecutive survivor interval formula or constructive interval obstruction stated.",
+        "evidence": [
+          "Sections 1-3, Rowland a_{p^alpha}(n) and sum over borrow levels; Kummer restated in Introduction."
+        ],
+        "identifier_or_url": "arxiv:1001.1783v1 | https://arxiv.org/abs/1001.1783",
+        "material_read": "Complete accessible arXiv HTML body, especially Introduction, Theorem 1 and proof in Section 2, and digital-subword formulas in Section 3.",
+        "method": "Read mathematical definitions, the theorem and derivation; compared the counted set versus order-sensitive consecutive intervals.",
+        "title": "The number of nonzero binomial coefficients modulo p^alpha",
+        "trigger": "Closest direct primary work on binomial coefficients surviving modulo arbitrary prime powers"
+      },
+      {
+        "assessment": "NOT_COVERING: produces exact counting polynomials and their generating functions, not maximal adjacent nonzero intervals.",
+        "evidence": [
+          "Introduction Sections 1-2 define theta_p(j,n) and polynomial P_j based on subword statistics."
+        ],
+        "identifier_or_url": "arxiv:1604.07089v1 | https://arxiv.org/abs/1604.07089",
+        "material_read": "Complete accessible arXiv HTML, including Introduction, definitions of theta_p(j,n), Theorem 0 and main generating-function development.",
+        "method": "Compared mathematical objects and theorem outputs: aggregate valuation counts versus adjacent-index run lengths; checked stated principal theorems.",
+        "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+        "trigger": "Potential broader exact digit-word generating functions"
+      },
+      {
+        "assessment": "NOT_COVERING: a normal law for row counts and their distribution does not yield the exact worst-case interval.",
+        "evidence": [
+          "Introduction and Theorem in Section 2 deal with valuation-count distribution and normal approximation."
+        ],
+        "identifier_or_url": "arxiv:1710.10884v1 | https://arxiv.org/abs/1710.10884",
+        "material_read": "Accessible arXiv HTML Introduction and main theorem, including Theta_p(j,n) and its normal limiting profile.",
+        "method": "Compared the order-free row distributions and typical-value asymptotic with exact longest consecutive survivor runs.",
+        "title": "Divisibility of binomial coefficients by powers of two",
+        "trigger": "Later analytical work potentially dominating all-row residue structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9c9cfba-e1e4-49ed-a7f4-19bb60103b28",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural extremal invariant for every row of Pascal’s triangle, complementing Fine/Rowland exact survivor counts with order-sensitive geometric information. The formula provides an immediate answer without binomial expansion for every prime power and row; stronger than a count, it supplies a uniform optimal hitting radius and a constructive divisible coefficient inside every overlong interval. The obstruction operates at arbitrary alpha and general p, and the two edge blocks prove sharpness. Motivated by the exact count literature and missing longest-run profile, not arbitrary finite slices. No downstream application is claimed as proved.",
+    "status": "PASS"
+  }
+}
