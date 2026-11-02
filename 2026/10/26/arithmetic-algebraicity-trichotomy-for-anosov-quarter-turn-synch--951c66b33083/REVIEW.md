@@ -1,15 +1,21 @@
-# Scientific review: arithmetic algebraicity trichotomy for Anosov–quarter-turn synchronization
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement treats **every** integer determinant-one matrix of trace greater than two relative to a fixed quarter-turn. The kernel-index identity gives a finite cardinality exactly when the determinant is nonzero. The Cayley–Hamilton recurrence yields exact odd/even determinant formulas, including the singular skew parameter and the single exceptional absolute-value correction. Exponentiation of the two parity-selected generating series produces the displayed zeta germs. The distinction between algebraic and transcendental is rigorously detected by a nonreal logarithmic-derivative residue at the imaginary unit, contrary to rational Puiseux orders for algebraic germs. Eigenvalue asymptotics establish both root-growth statements. Exact finite verification passed, but is supplementary, not an infinite certificate.
+## correctness
 
-## Originality — PASS with disclosed priority risk
-Miles (2013), Theorem 3.1, already proves the determinant formula for **all** nonsingular two-torus pairs and rationality of their *ordinary* generating functions; the present work credits and uses that theorem and does not claim its general mechanism. The 2026 synchronization-zeta article discusses commuting rationality and an algebraic nonrational example on three points (Remark 26), but does not supply an analytic algebraicity classification of Anosov–quarter-turn torus pairs. The related 2026 coincidence/Nielsen article imposes simultaneous triangularizability for its zeta-rationality and growth conclusions (Theorem 22(ii)–(v)), which this hyperbolic/quarter-turn pair does not satisfy. The novel target is the **two-integer full analytic zeta/growth trichotomy**, including a transcendental region detected by a nonreal residue. Closest-record and alternate-terminology searches found no statement equivalent to this classification. An extensive 2013 determinant theorem makes alternate unlocated derivations a genuine residual priority risk, so no absolute novelty certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The classification distinguishes three naturally defined arithmetic phases (non-tameness, algebraic irrationality with oscillatory growth, and transcendence with a proper growth limit) throughout an infinite, structurally important Anosov/isometry family. The boundary is the geometrically natural symmetric-matrix locus, with the exceptional non-tame line determined exactly. The result directly contrasts the competing zeta rationality and growth assumptions in the cited recent literature. The Dold-congruence example is an explanatory consequence, not the basis of value.
+Torus coincidence number equals |det(A^n-J^n)| when nonzero and infinity when the determinant vanishes. Cayley–Hamilton A^n=U_n A-U_(n-1)I gives off-diagonal difference δU_n, U_n=(λ^n−λ^-n)/sqrt(t²-4). For odd n=2k+1 det=2+(-1)^k δ U_n; even n=2k det=2−(-1)^k tr(A^n). With t>2, U3>=8 and tr(A^n)>2, only singular equality is n=1 and δ=-2. For δ=-1 at n=1 the ordinary sign formula needs the stated +2 correction; all other signs follow from size of U_n. Summing even and odd count power series yields the two explicit zeta germs. If δ=0, Z=(1+z)(1+z²)/((1-z)sqrt(D_t(z))) is algebraic nonrational, odd counts exactly 2 and even counts exponential, so liminf root 1 and limsup λ. If δ!=0,-2, the rational log-derivative has at z=i residue 1−i sgnδ, not rational; an algebraic germ Puiseux leading exponent would give rational residue. Thus Z is transcendental and both parities have exponential growth rate λ. Independent exact integer det(A^n−J^n) for sample trace t=3,4,5,6 and deltas 0,1,-1,-2,-3 for n=1..16 matched all boundaries; the analytic Puiseux argument proves the infinite assertion.
 
-## Closest literature and limits
-Primary sources: R. Miles (2013), DOI 10.1090/S0002-9947-2013-05829-1, especially §3, Theorem 3.1; A. Fel'shtyn and M. Slomiany, arXiv:2601.21888, §§3.4–3.6 and 4; A. Fel'shtyn and M. Slomiany, arXiv:2603.08527, §7, Theorem 22. Claims outside the fixed two-torus/quarter-turn family are not made. The review is not independent; historical priority under Nielsen coincidence and related zeta terminology remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Miles gives the general torus coincidence determinant framework, and Fel’shtyn–Slomiany introduce synchronization zeta and related rationality/growth theorems. The claimed advance is complete analytic type and precise growth/singularity trichotomy in the *noncommuting* hyperbolic-quarter-turn family, using the imaginary Puiseux residue.
+
+## value
+
+PASS
+
+The analytic algebraic/transcendental trichotomy and parity-dependent root-growth limit for a natural noncommuting toral synchronization pair are exact qualitative boundary classifications. The nonreal log-residue also explains why rationality conjectures for commuting/simultaneously triangularizable cases cannot transfer blindly; the δ=-2 singularity and Gauss–Dold counterexample are genuine structural boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
