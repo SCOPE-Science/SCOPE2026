@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The marked-square classification follows by an exhaustive symbolic partition of repeated factors: factors containing the fresh marker must align with one of two explicit maximal common contexts; factors avoiding it cannot cross the unique doubled endpoint digram. Every remaining repeated factor occurrence is contained in one of three specified net occurrences. The d-bonacci corollary follows from a proven substitution identity for recursive Zimin words. The checker independently enumerates factor multiplicities and extensions for 173 admissible marked-square examples and the initial d-bonacci iterates through dimension eight. The infinite quantifiers are discharged by the proof, not by sample computations.
+PASS
 
-## Originality — PASS within examined evidence
+For every nonempty X with identical first/last symbol a and no adjacent aa, and fresh z∉X, T=XzXXzX^- contains exactly two z's. The maximal aligned repeated factor containing z is B=XzX^- at starts 0 and 2m+1; each z-free run X, XX, X^- contains complete X copies only at 0,m+1,2m+1 because the join XX uniquely creates aa. The middle X has unique left/right extensions, hence a net occurrence; proper factors of these three marked repeated occurrences have at least one repeated one-symbol extension and cannot be net. Any repeated factor containing z aligns the two z's and is contained in a B; any repeated z-free factor either cannot cross unique aa or is contained in a complete X. Thus exactly (0,2m),(m+1,m),(2m+1,2m) net position-length pairs. The Zimin recursion Z_{j+1}=Z_j j Z_j, no '00', gives W_d=Z_d, W_{d+1}=Z_{d-1}(d−1)Z_{d-1}Z_{d-1}(d−1)Z_{d-1}^-, and earlier iterates have exactly two repeated maximal Z-block occurrences. Reconstructed this induction; independent all-factor extension enumeration checked 379 admissible marked words, corroboration not infinite proof. k=0,1 zero, 2≤k≤d two, k=d+1 three (d≥3). No assertion for higher k.
 
-The 2026 paper by Faro and Pavone, arXiv:2610.04298, explicitly confines its d-bonacci consequence to period-aligned iterates. The first post-Zimin iterate studied here occurs before that range for all dimensions at least three. The primary works arXiv:2505.02307 and arXiv:2605.18034 treat Fibonacci/Thue–Morse families and occurrence-preserving morphisms, not this general marked-square construction. Semantic research-record searches and prior accessible claim comparisons did not identify an implication covering the full marked-square family. The 2025 known Fibonacci case is expressly excluded from the originality assertion. Residual priority risk remains for implicit older characterizations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The identified question is a concrete boundary of a recent exact net-occurrence theorem: the first d-bonacci iterate beyond the Zimin prefix, outside a full directive period. A structural lemma answers it simultaneously for all dimensions and for a substantially wider class of arbitrary marked-square words. The mechanism distinguishes long repeated boundary factors from the single isolated adjacency at the square join and supplies all occurrence positions and lengths. This is an exact natural structural classification, not a numeric example or reparameterization of the known period-aligned result. It does not settle intermediate iterates at arbitrary later stages.
+Guo–Kishi 2025 proves the special Fibonacci and Thue–Morse net-occurrence counts; the marked-square lemma is a different structural criterion, not a restatement of a Fibonacci count. Faro–Pavone 2026 addresses period-aligned regular epistandard morphic approximants; its full paper was inaccessible, so its abstract does not justify blanket noncoverage. The particular first post-Zimin initial d-bonacci iterate W_{d+1} is not the period-aligned iterate described by the accessible abstract. The all-alphabet marked-square theorem has not been shown to follow from the inspected literature, but possible implicit general string combinatorics and the inaccessible plausible paper are material risks.
 
-## Closest literature and limits
+## value
 
-See the three primary references and the precise scope distinctions in `RESULT.md`. No independent scientific audit has been performed. A priority search cannot exclude all unindexed or implicit formulations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a structural classification of repeated factors with unique extensions, giving an exact and unexpectedly stable three-occurrence mechanism across arbitrary alphabets/word lengths; it also identifies the earliest natural d-bonacci transition beyond the Zimin prefix. It resolves a motivated boundary of net-occurrence enumeration rather than an arbitrary one-off numeral. Finite experiments are corroboration of the general factor argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
