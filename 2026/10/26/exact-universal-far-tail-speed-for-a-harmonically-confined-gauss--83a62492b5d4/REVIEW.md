@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary stochastic convolution converges absolutely and the Gaussian/Poisson Laplace transform is finite at every real argument. Applying a subcritical Chernoff parameter yields the lower bound on normalized negative log-tail probability. An event with approximately \(x/(\sigma\sqrt{2\log x})\) positive recent Gaussian marks provides the matching upper bound with independent old-and-thermal residual probability at least one-half. The two rare-event costs (Poisson count and Gaussian amplitudes) each contribute one \(\log x\) per kick. The proof explicitly fixes positive shot frequency and variance before the large-displacement limit. The independent coefficient checker passed 315 deterministic assertions. Source: `RESULT.md` proof and `checker.py`. Risk: numerical checks corroborate series identities only; analytic inequalities carry the infinite-tail argument.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-The 2023 Di Bello et al. full text, arXiv:2309.13424, Sections 3–4, conclusion and appendices, supplies the stationary transform and finite moments, but not an explicit leading \(x\sqrt{\log x}\) Gaussian-shot tail rate. The 2021 Park et al. full text studies a finite-duration active-force model and observed approximate exponential tails. Ganesh et al. (2005) concerns horizon/intensity-scaled monotone cumulative shot noise; its theorem does not directly give the signed, decaying stationary Gaussian-shot asymptotic. Relevant published-record and primary-literature searches produced no exact covering result. The 1960 Gilbert–Pollak general amplitude-distribution framework is a real unresolved priority risk because its full article was not read; a general light-tailed shot-noise theorem elsewhere might subsume the limit. The exact stationary Fourier characterization mathematically determines its own tail but the sharp limit requires additional extreme-event analysis not stated in that work.
+PASS
 
-## Value — PASS
-The original active-bath model motivates rare large displacements through its visibly broader-than-Gaussian stationary shape. Finite moments and kurtosis cannot distinguish exponential from \(x\sqrt{\log x}\) or other rates. The new exact speed classifies the far-tail regime and identifies a universal kick-scale coefficient, giving a quantitative rare-excursion benchmark under experimentally tunable confinement, kick rate, and Brownian noise. This is a natural invariant for the model, not an arbitrary parameter slice. No claim of a broader thermodynamic phase transition or finite-threshold statistics is made.
+The stationary Poisson stochastic convolution has an all-real mgf: Dt²/(2k)+r/(2k)*integral_0^(sigma² t²/2)(e^v-1)dv/v. Choosing t=sqrt(2)(1-epsilon)sqrt(log x)/sigma makes mgf subleading relative to t*x, giving Chernoff liminf >=sqrt(2)/sigma. A burst of about (1+epsilon)x/(sigma sqrt(2log x)) kicks during last 1/log x, with each Gaussian mark near sigma sqrt(2 log x), costs n*(2 log x+o(log x)); independent older bath is nonnegative with probability at least half. This gives matching limsup and symmetry handles other tails. Independently confirmed exact second and fourth stationary cumulant coefficients and sampled large-log event costs; finite diagnostics do not establish limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Di Bello et al. 2023 derive the exact Gaussian shot-noise bath stationary law, Fourier transform and moments, but the examined model paper does not give the sharp log tail x sqrt(log x) coefficient. Gilbert–Pollak 1960 gives general shot-noise distribution/transform equations including exponential kernels, a serious potential implicit-coverage source; their inspected examples do not state the Gaussian mark coefficient. A general transform-to-tail Tauberian or large-deviation theorem could imply this by combining past results, a remaining mathematical priority risk.
+
+## value
+
+PASS
+
+The exact coefficient and independence from confinement, kick rate and thermal diffusivity determine the far rare-event scale for an established non-Gaussian active-bath model. This is a quantitative sharp asymptotic not explained by the prior low-order moments or qualitative leptokurtosis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
