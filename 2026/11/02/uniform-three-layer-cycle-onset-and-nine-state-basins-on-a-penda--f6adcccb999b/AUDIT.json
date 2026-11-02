@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Seven nonempty color supports for the nonhub clique vertices and three leaf-relative colors exhaust every initial state up to a global color rotation. The 21-case transition classification follows from the original open-neighborhood update, and yields both the sharp iterate \\(F^5=F^2\\) and exact first-entry labels. Inclusion-exclusion gives \\(Q_r\\), all six counts summing to \\(3^{r+2}\\), and orbit-specific sizes nine and \\(3(2^{r+1}-1)\\). The proof holds for every integer \\(r\\ge2\\). A separate 21-class checker and a separate vertex-by-vertex direct C++ simulation of 2,391,471 labelled states corroborate, but do not replace, the unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff Theorem 3 covers the zero-winding criterion and synchronization by diameter, which is two here. Its statement is silent on exact nonzero-circulation oscillatory entry times and basin cardinality.",
+        "Published friendship-graph CCA result has period-three cycles and a two-step total bound but non-clique petal adjacency; complete multipartite CCA similarly classifies another graph family."
+      ],
+      "reasoning": "Broader graph-level qualitative facts cover parts of the present theorem and are cited as prior; no inspected theorem implies the remaining exact per-orbit size and uniform oscillatory first-entry layers for one pendant leaf.",
+      "searches": [
+        "arXiv:1610.07320v1 Theorem 3 and its Section 4 proof",
+        "published historical claims for friendship-graph CCA, cocktail-party CCA, complete multipartite CCA, and one-leaf clique majority"
+      ]
+    },
+    "checked_sources": [
+      "Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, Sections 1–2 and 4.",
+      "Durrett–Griffeath, arXiv:patt-sol/9303002, title and abstract only.",
+      "Published friendship graph CCA classification: common \\(3\\)-cycle skeleton and temporal layers (accessible historical claim).",
+      "Published complete multipartite CCA and cocktail-party CCA classifications (accessible historical claims).",
+      "Published one-leaf clique synchronous majority classification (accessible historical claim)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "On the pendant clique, the general 2016 theorem implies the core is ultimately synchronized exactly when it lacks the three-color circulation and bounds its convergence by two updates. This is not asserted independently novel.",
+        "The friendship graph is a hub with independent triangular petals, whereas the new graph has a complete core and only a single leaf; the update rule on the nonhub vertices is different.",
+        "The clique-with-one-leaf majority result uses a two-state majority rule, not three-state cyclic successor contact.",
+        "The cocktail-party graph is obtained from an even-order clique by deleting a perfect matching, not by adding a pendant vertex."
+      ],
+      "reasoning": "The reviewed claim is deliberately restricted to the exact distribution of first entry and to orbit-by-orbit basin populations, together with the structural effect of adding one leaf. These do not follow by renaming parameters in the earlier statements. The general theorem does constrain fixed versus oscillatory fate and bounds synchronizing transients; those consequences are disclosed as prior.",
+      "searches": [
+        "arXiv:1610.07320v1 Theorems 3 and 5; compare graph-specific consequence",
+        "published historic friendship-graph CCA result",
+        "published historic clique-with-one-leaf majority-dynamics result",
+        "published historic cocktail-party CCA result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved work states the graph-specific exact 9-to-one basin law for a complete graph with a pendant vertex. The closest general source, arXiv:1610.07320v1, gives a criterion for eventual synchronization rather than first entry for oscillatory trajectories.",
+        "The model is also termed 3-color successor-contact CCA, and the graph may be described as a one-pendant clique, (n,1)-lollipop or a degenerate pineapple graph."
+      ],
+      "reasoning": "Aliases and graph descriptions were searched. A general synchronization criterion is not equivalent to a classified labelled three-cycle predecessor map. The explicit phase-lift and every-orbit basin size remain unentailed by searched statements.",
+      "searches": [
+        "three color cyclic cellular automaton on a complete graph with an appended leaf or pendant vertex, fixed point basins and primitive three cycles",
+        "on clique K_n with one pendant leaf, synchronous 3-color cyclic cellular automaton: every fully three-colored clique gives a three-cycle with exactly nine predecessor states; three equally populated first periodic entry layers",
+        "exact first-entry distribution for three color successor contact dynamics on a complete graph with one leaf",
+        "\"pineapple graph\" \"cyclic cellular automaton\"",
+        "\"clique with a leaf\" \"three-color cyclic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual queries returned no table for the single-leaf-clique cyclic temporal basin distribution. Prior published records use different graph families, even when their global iterate identity is also \\(F^5=F^2\\)."
+      ],
+      "reasoning": "Presence of a similar iterate identity or a known synchronization count does not supply exact individually labelled attraction basins. Search failure is not treated as proof of novelty; the risk of an unindexed table remains.",
+      "searches": [
+        "on clique K_n with one pendant leaf, synchronous 3-color cyclic cellular automaton: every fully three-colored clique gives a three-cycle with exactly nine predecessor states; three equally populated first periodic entry layers",
+        "exact first-entry distribution for three color successor contact dynamics on a complete graph with one leaf",
+        "\"pineapple graph\" \"cyclic cellular automaton\"",
+        "published records: friendship graph three-color cyclic dynamics; cocktail-party three-color cyclic dynamics"
+      ]
+    },
+    "rationale": "The existing general CCA irrotationality theorem and diameter cutoff are explicitly excluded from the novelty claim. The assessed new object is the complete exact labelled first-entry and individual periodic-orbit basin census for a single-leaf clique. Previous published records treating other graphs or update rules do not imply the \\(9\\)-state basins or exact uniform three-phase entrance. Subject to unindexed-equivalence and incomplete bibliographic-access risks.",
+    "residual_risks": [
+      "No literature search can rule out equivalent findings in unindexed or inaccessible manuscripts.",
+      "The 2016 general theorem already establishes the synchronization criterion and its two-step bound here; these parts are not presented as standalone novelty.",
+      "The 1993 background source was assessed from abstract only and has no document-wide NOT_COVERING determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: Theorem 3 proves synchronization iff the CCA 1-form is irrotational and supplies the diameter bound for synchronizers. It does not state the exact time of entrance into oscillatory orbits, the uniform three-layer law, or nine-state individual orbit basins for a pendant clique.",
+        "evidence": [
+          "arXiv:1610.07320v1, definition (2), Section 1: synchronous successor rule.",
+          "Theorem 3 (Section 2): synchronizes iff dX_0 irrotational, by graph diameter D; activity from cycle circulation.",
+          "Section 4 proof of Theorem 3 (Eq. 48–49) and Theorem 5 proof (Eq.55) establish qualitative coverage but contain no pendant-clique first-entry classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.07320 (arXiv:1610.07320v1)",
+        "material_read": "Accessible full HTML text, including Definition (2), introductory scope, Section 2 Theorems 3 and 5, and Section 4 proof of Theorem 3 and discussion of matching-cycle bound; text searched for pendant, friendship and windmill.",
+        "method": "Read primary text and theorem hypotheses and proof; compared consequences on a clique with one leaf.",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Direct model match and general graph-level theorem potentially covering first-entry assertions."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: concerns asymptotic lattice behaviors rather than individual first-entry basins on a pendant clique; unseen full text is not certified as excluding this specialization.",
+        "evidence": [
+          "arXiv:patt-sol/9303002 abstract describes GHM and CCA on lattices and threshold/range scaling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "Title, abstract and source date (1993-03-22); full article was not inspected.",
+        "method": "Bibliographic and abstract inspection; no claim of document-wide negative check.",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Earlier foundational source for the same cyclic successor model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6adcccb-999b-4d72-a1d0-37a6ee812979",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimal nontrivial one-leaf perturbation of the complete interaction graph turns every formerly immediate fully three-colored clique cycle into three equal temporal entrance layers, each primitive \\(3\\)-cycle having exactly nine labelled initial states in its basin, independent of graph size. This is a motivated complete attraction-basin classification for a natural infinite family and explains a sharp difference between core periodicity and full-network periodicity. The exact equal conditional onset law and per-orbit basin uniformity are not generic consequences of the prior irrotationality criterion.",
+    "status": "PASS"
+  }
+}
