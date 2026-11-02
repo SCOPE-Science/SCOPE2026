@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:00:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/eight-leaves-are-necessary-and-sufficient-for-positive-cherry-pi--b022ef794994/RESULT.md",
+        "2026/10/26/eight-leaves-are-necessary-and-sufficient-for-positive-cherry-pi--b022ef794994/verify.py",
+        "2026/10/26/eight-leaves-are-necessary-and-sufficient-for-positive-cherry-pi--b022ef794994/VERIFICATION.md",
+        "https://ueaeprints.uea.ac.uk/id/eprint/90251/7/1_s2.0_S004058092200079X_main.pdf"
+      ],
+      "rationale": "Conditioned on the four Ford alpha attachment-edge categories, rederived the five raw moment recurrences for cherry C_n, pitchfork A_n, C_n^2, A_n C_n and A_n^2 with denominator n-alpha. Starting at the unique n=3 state, independent SymPy recurrences give the exact n<=7 covariance formulas and reproduce the two degree-4 and degree-6 numerator polynomials for n=6 and n=7. After substituting alpha=t/(1+t), the relevant numerator polynomials have strictly positive coefficients for t>=0, establishing covariance<0 on 0<=alpha<1 for 4<=n<=7; n=3 covariance=0. Differentiating the moment recurrences at the deterministic comb boundary alpha=1 yields linear-response coefficient r_n=(n-3)/2-H_{n-3}. Since r_{n+1}-r_n=1/2-1/(n-2)>0 for n>=5 and r_7<0<r_8, r_n>0 for every n>=8. Fixed-n rational analyticity gives positive covariance for alpha<1 sufficiently close to 1. The exact symbolic checks independently corroborate n<=7 signs and the universal harmonic threshold; they do not replace the recurrence induction.",
+      "residual_risks": [
+        "Moment recurrences rely on Ford growth edge-class conditional probabilities, confirmed against the published source.",
+        "Near-comb first variation proves fixed-n existence of a positive region, not any uniform width in n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaur–Choi–Wu derive a joint PMF recurrence for every n and alpha and an asymptotic covariance sign for sufficiently large n.",
+          "Wu–Choi have only alpha=0 and alpha=1/2 endpoint laws (Yule/PDA), not behavior arbitrarily near alpha=1."
+        ],
+        "reasoning": "A universal exact recurrence allows this new calculation but does not already bound the sign for every n<=7 or prove existence for each n>=8.",
+        "searches": [
+          "Kaur Choi Wu 2023 Theoretical Population Biology section4.4 moments",
+          "Wu Choi 2015 Yule PDA cherry pitchfork joint distributions",
+          "Ford alpha tree covariance positive eight leaves"
+        ]
+      },
+      "checked_sources": [
+        "https://ueaeprints.uea.ac.uk/id/eprint/90251/7/1_s2.0_S004058092200079X_main.pdf",
+        "https://arxiv.org/pdf/1508.03139"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary4.7 states eventually positive covariance for fixed alpha>1/2 as n grows; it has no smallest n and no universal sign exclusion below 8.",
+          "2015 source is limited to two endpoint models."
+        ],
+        "reasoning": "The result needs a new uniform finite-n inequality and differentiation of the known recurrences at alpha=1. This is not an immediate numerical parameter substitution or a restatement of the published asymptotic sign split.",
+        "searches": [
+          "Kaur Choi Wu 2023 Corollary4.7, Proposition4.2",
+          "Wu Choi arxiv:1508.03139 joint distributions under two evolutionary models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalent to the smallest n for which Cov(A_n,C_n;alpha)>0 for some alpha in [0,1).",
+          "At alpha=1 the process is deterministic and covariance=0, so first derivative detects a nearby sign."
+        ],
+        "reasoning": "Prior recurrences determine covariance implicitly, but their published asymptotic critical alpha=1/2 is not this all-finite-n existence threshold.",
+        "searches": [
+          "Ford alpha trees cherry pitchfork covariance sign finite leaf threshold 8",
+          "cherry pitchfork covariance Ford alpha near alpha 1 n 8 threshold",
+          "Ford tree alpha moments correlations finite size n=8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Paper has exact recurrence for PMFs and limiting covariance phase parameter 1/2, not explicit cutoff n=8.",
+          "No published full-n sharp sign table was identified in primary-paper text or targeted queries."
+        ],
+        "reasoning": "Finite tables for particular n or alpha would not prove all n>=8; the harmonic near-comb coefficient is the uniform key.",
+        "searches": [
+          "Ford alpha trees cherry pitchfork covariance sign finite leaf threshold 8",
+          "Ford alpha tree smallest n positive cherry pitchfork covariance eight",
+          "Kaur Choi Wu 2023 Fig 3 covariance positivity finite leaves"
+        ]
+      },
+      "rationale": "Qualified PASS: Kaur–Choi–Wu 2023 contains the full joint distribution recurrence, means, second moments and eventual sign change at alpha=1/2 for sufficiently large n. It does not state the exact smallest leaf count for positive covariance or the near-comb harmonic first-order coefficient. Wu–Choi 2015 treats only the Yule and PDA endpoints, which do not capture near-alpha=1 positivity. Derivation from a preexisting exact recurrence is mathematically valid new implication when the nontrivial all-n sign inequality and natural sharp n=8 cutoff were not stated; potential independently published finite-size consequences remain a priority risk.",
+      "residual_risks": [
+        "The 2023 full joint PMF recurrence can generate all fixed-n moments; a separate historical treatment might already extract this exact threshold.",
+        "A finite hand calculation in a forthcoming publication could overlap despite no indexed matching abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior joint recurrence and asymptotic sign at alpha=1/2 established; exact first n=8 with interior positive sign and harmonic boundary response not claimed",
+          "evidence": "Kaur–Choi–Wu, Theor Population Biol 149 (2023), pp.27–38, CC-BY PDF",
+          "identifier_or_url": "https://ueaeprints.uea.ac.uk/id/eprint/90251/7/1_s2.0_S004058092200079X_main.pdf",
+          "material_read": "Primary 12-page PDF: inspected abstract, relevant joint-recurrence and asymptotic covariance results in Sections 2–4 and Appendix, including Proposition 4.2, Corollary 4.4, Theorem 4.6 and Corollary 4.7; rendered pages 7 and 10 inspected",
+          "method": "Direct recurrence reconstruction and compare all-n versus asymptotic sign conclusions",
+          "title": "Distributions of cherries and pitchforks for the Ford model",
+          "trigger": "Exact model transition law and nearest published covariance assertion"
+        },
+        {
+          "assessment": "YHK and PDA endpoints only; no full alpha-near-1 first-order covariance or all-n onset",
+          "evidence": "Wu–Choi, arXiv:1508.03139, 2015",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03139",
+          "material_read": "Primary preprint abstract and introduction stating the YHK/PDA model scope; rendered first page inspected",
+          "method": "Parameter-model inclusion test",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Earlier cherry/pitchfork paper possibly implying a universal finite cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/eight-leaves-are-necessary-and-sufficient-for-positive-cherry-pi--b022ef794994/RESULT.md"
+      ],
+      "rationale": "The first leaf count permitting positive cherry/pitchfork covariance is a canonical finite-size threshold for a standard phylogenetic random tree model. The closed-form harmonic first derivative supplies an explanatory all-n mechanism, and exact small-n sign exclusion completes the natural classification; not mere tabulation.",
+      "residual_risks": [
+        "The existing full joint recurrence makes the result derivable, but the sharp all-size threshold and sign proof require substantial analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=8 requires only a nonempty alpha neighborhood below 1, not positivity for every alpha>1/2.",
+    "At alpha=1 the distribution is deterministic and covariance zero."
+  ],
+  "schema_version": 1
+}
