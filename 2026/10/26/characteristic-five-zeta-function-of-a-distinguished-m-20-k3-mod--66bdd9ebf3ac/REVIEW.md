@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The three diagonal quadrics have a coefficient matrix with all 20 three-column minors nonzero modulo five; the Jacobian is therefore everywhere rank three. The complete intersection is a geometrically integral K3. Reproducible normalized-projective enumeration gives exactly 96 and 1176 points over the base field and its quadratic extension. The second count saturates the Weil bound for the sum of squares of all 22 middle-cohomology Frobenius eigenvalues; hence every square equals 25, and the first count fixes their signs (18 positive, four negative). This is an infinite-field extension theorem based on a finite input and a general proof, not inference from test cases. Remaining scientific dependence: standard K3 cohomology and Weil theorems.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Bonnafé–Sarti (arXiv:1910.05955, Section 5) give the source equations and the complex K3/Kummer description. Brandhorst–Hashimoto (arXiv:1910.05952) classify complex automorphism actions; neither text's inspected relevant sections supplies the specified mod-five two counts or exact Frobenius polynomial. Bonnafé–Sarti (arXiv:2112.12400, Section 6.4 and Remark 6.17) treat distinct reflection-group K3 models at other primes, not this reduction. Exact-parameter and algebraic-equivalence searches in the mathematical research index and published literature did not identify a dominating theorem or identical table. The full historical literature is not exhaustively indexed; a preexisting unindexed arithmetic computation remains possible.
+PASS
 
-**Mathematical value — PASS.** The specialized arithmetic is a natural consequence of reducing a singled-out, maximally symmetric K3 model at the ramified prime of its golden-ratio coefficient field; it is not an arbitrary surface census. Two small exact counts unexpectedly force a complete degree-22 Frobenius factorization, a supersingular Newton polygon, and every extension-field count. These are motivated arithmetic invariants beyond the source's complex-geometry model.
+The exact 3x6 coefficient matrix has all twenty 3x3 minors nonzero in F5, forcing geometric Jacobian rank three on the finite square-cover of P2; adjunction and H1 vanish for a smooth complete intersection (2,2,2). Independently enumerated square-character projective lifts: F5 six base points of r=5 give 96, and F25 15 of r=4, six of r=5, thirty of r=6 give 1176. K3 Betti number 22 gives traces 70 and 550. Since |alpha_i|=5, the second trace saturates the triangle inequality, forcing each alpha_i=±5; trace 70 gives 18 plus, four minus. Thus Z=1/[(1-T)(1-25T)(1-5T)^18(1+5T)^4].
 
-The claim is scoped to this explicit \(\mathbb F_5\) model; neither an Artin invariant nor persistence of its characteristic-zero symmetry is asserted. The review is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+The exact full zeta function determines every extension-field point count and the cohomological Frobenius spectrum for an explicitly distinguished symmetric K3 surface; this is not merely reproducing its complex model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
