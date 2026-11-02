@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:47:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md c4d73e5f1023227a08750149307b02addaafdea2 proof and inspected Kautz bitset verification script with the actual pinned Git SHA.",
+        "Independent exact GF(2) bitset matrix powers for 18 graph cases yielded 99 correct rank identities; all 8,396 binary states in small graph instances were individually evolved until recurrence and matched exact delay and periodic counts. Finite checks do not establish all-q,m Jordan multiplicities, which follow from symbolic rank arguments."
+      ],
+      "rationale": "Admissible Kautz words are length-m walks with adjacent letters unequal. For t<m, each row of F^t sums coordinates in a disjoint nonempty cylinder determined by a suffix of length m−t, giving rank q(q−1)^{m−1−t} over F2. The last-letter subspace W has dimension q and F|W=I+J; J²=qJ yields an involution for even q and idempotent projection onto even-parity vectors for odd q. Stabilized rank yields the exact periodic subspace; inverse images give all cumulative depth populations; differences of consecutive ranks give zero-Jordan block lengths, while the rank-one J specifies the eigenvalue-one blocks. Boundaries m=1 and q=2 are covered separately, and the claimed fixed/two-cycle counts follow.",
+      "risks": [
+        "Only outgoing-neighbour XOR over F2. Characteristic polynomial alone does not determine zero-Jordan structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General additive-automaton theories encompass linear update operators; Dalfó–Fiol and Rosenfeld provide iterated line-digraph combinatorics and spectral identities.",
+          "The relevant 2008 cellular-automata paper was not accessible in full."
+        ],
+        "reasoning": "General frameworks and eigenvalue facts are not explicit all-parameter F2 rank profiles and exact transient population formulas. A universal iterated-line-digraph rank theorem might imply the profile if found, and remains a residual priority comparison.",
+        "searches": [
+          "Resultary: Kautz digraph binary XOR adjacency power ranks exact transient depth Jordan blocks over F2",
+          "Web: Kautz digraph binary XOR update Jordan transient rank additive automata",
+          "Rosenfeld 2002 Enumerating Kautz Sequences §2.3 Lemma 6",
+          "Dalfó–Fiol arXiv:1607.08832",
+          "arXiv:1607.08832 iterated line digraph orders"
+        ]
+      },
+      "checked_sources": [
+        "https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf",
+        "https://arxiv.org/abs/1607.08832",
+        "https://content.wolfram.com/uploads/sites/13/2018/02/02-6-3.pdf",
+        "https://doi.org/10.3233/FUN-2008-87202",
+        "Resultary Kautz XOR searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known characteristic polynomial and iterated line graph identities help predict eigenvalues but do not determine non-semisimple characteristic-two Jordan blocks.",
+          "A generic theorem on eventual periodicity over finite fields does not give K or the exact depth census without power ranks."
+        ],
+        "reasoning": "Only the new disjoint-cylinder rank computation and small I+J analysis yield the quoted entry-time probabilities and full Jordan decomposition; the precise object-specific specialization is not directly published in the compared sources.",
+        "searches": [
+          "Resultary: Kautz digraph binary XOR adjacency power ranks exact transient depth Jordan blocks over F2",
+          "Web: Kautz digraph binary XOR update Jordan transient rank additive automata",
+          "Rosenfeld 2002 Enumerating Kautz Sequences §2.3 Lemma 6",
+          "Dalfó–Fiol arXiv:1607.08832",
+          "Rosenfeld (2002) Lemma 6; Sutner (1988) additive automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dynamics is linear adjacency update over F2 on Kautz graphs; it can also be phrased as a graph additive cellular automaton or iteration of line-digraph adjacency operators.",
+          "Rosenfeld gives characteristic polynomial x^(N−q)(x−q+1)(x+1)^(q−1) over integers."
+        ],
+        "reasoning": "After reduction mod 2, that polynomial fixes generalized eigenvalue multiplicities but NOT nilpotent Jordan lengths or all power ranks. The prefix/suffix row-cylinders provide genuinely additional information.",
+        "searches": [
+          "Resultary: Kautz digraph binary XOR adjacency power ranks exact transient depth Jordan blocks over F2",
+          "Web: Kautz digraph binary XOR update Jordan transient rank additive automata",
+          "Rosenfeld 2002 Enumerating Kautz Sequences §2.3 Lemma 6",
+          "Dalfó–Fiol arXiv:1607.08832",
+          "Sutner, Additive Automata on Graphs (1988)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked Resultary exact table gives N=q(q−1)^{m−1}, zero Jordan blocks by length, C<=t=2^{N−r_t+r_K}, or even-q two-cycle counts for all q,m."
+        ],
+        "reasoning": "The claim is a simultaneous infinite classification rather than a small finite-state enumeration; an absent indexed table is not proof of novelty.",
+        "searches": [
+          "Resultary: Kautz digraph binary XOR adjacency power ranks exact transient depth Jordan blocks over F2",
+          "Web: Kautz digraph binary XOR update Jordan transient rank additive automata",
+          "Rosenfeld 2002 Enumerating Kautz Sequences §2.3 Lemma 6",
+          "Dalfó–Fiol arXiv:1607.08832",
+          "Resultary Kautz XOR and linear automata queries"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-q,m characteristic-two rank/Jordan/entry-time classification of the Kautz adjacency XOR operator; Rosenfeld already supplies the characteristic polynomial and Kautz line-digraph identities, not the finite-state dynamics census.",
+      "residual_risks": [
+        "Ganguly et al. (2008) potentially relevant full text was inaccessible; an unindexed exact rank result may exist.",
+        "The characteristic polynomial is known and cannot be presented as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": [
+            "The characteristic polynomial gives algebraic eigenvalue multiplicities (zero, q−1, −1) and iterated line-digraph structure but does not give rank(F^t), zero-Jordan length distribution, or the number of binary states at each transient depth."
+          ],
+          "identifier_or_url": "Rosenfeld, Kragujevac Journal of Mathematics 24 (2002), 19–41; https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf",
+          "material_read": "Original 23-page lawful PDF; examined abstract, Section 2.3, Proposition 5 (iterated line-digraph identity), Lemma 6 (characteristic polynomial) and Eulerian enumeration context; visually inspected first and later mathematical pages. Not every page was read.",
+          "method": "Primary PDF original full-text section comparison and screenshots",
+          "title": "Enumerating Kautz Sequences",
+          "trigger": "Same all-parameter Kautz word graphs and explicit characteristic-polynomial result, the strongest direct prior"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "No specific Kautz words or q,m rank/Jordan theorem identified at abstract level; source could contain a relevant general reduction and remains a historical-priority risk."
+          ],
+          "identifier_or_url": "Ganguly et al., Fundamenta Informaticae 87 (2008), 137–154; https://doi.org/10.3233/FUN-2008-87202",
+          "material_read": "Accessible abstract only: additive cellular-automaton cycle structures, no full primary paper available in this execution",
+          "method": "Abstract-level comparison; not full-text noncoverage",
+          "title": "Exploring Cycle Structures of Additive Cellular Automata",
+          "trigger": "Plausible general parity cellular automata study"
+        },
+        {
+          "assessment": "NOT_COVERING_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "Treats additive rules on finite undirected graphs and reversible unicyclic cases; no Kautz directed-word all-q,m Jordan and transient-depth census is stated in examined material."
+          ],
+          "identifier_or_url": "Sutner, Complex Systems 2 (1988), 649–661; https://content.wolfram.com/uploads/sites/13/2018/02/02-6-3.pdf",
+          "material_read": "Original 13-page PDF abstract, introduction, definition of neighbourhood XOR and reversibility statements, with first-page screenshot; remaining statements were not exhaustively read",
+          "method": "Primary partial PDF comparison",
+          "title": "Additive Automata on Graphs",
+          "trigger": "General additive rule over F2 on graph adjacency, possible dominating framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All q>=2,m>=1, with sharp maximum delay, fixed-state and primitive two-cycle counts, and complete zero-primary Jordan lengths."
+      ],
+      "rationale": "Kautz graphs are canonical iterated line digraphs and their mod-two adjacency operators give natural finite linear dynamics. A uniform classification of every Jordan block and every transient-depth population sharpens known eigenvalue information; parity determines whether recurrent dynamics is involutive or fixed, a useful exact dynamical invariant not obtainable from spectral multiplicity alone.",
+      "risks": [
+        "Not asserted for undirected Kautz versions or arbitrary finite fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree d000457931abbda6a34a439eb131deaa698d032e",
+    "RESULT.md/c4d73e5f1023227a08750149307b02addaafdea2",
+    "AUDIT.json/fd078e10b747ac32090a353277c38e84342f27af",
+    "METADATA.json/cb31a4da4efdc7dadf88f7d17fb0bf663138f755",
+    "https://imi.pmf.kg.ac.rs/kjm/pub/12617301003674_3.pdf",
+    "https://arxiv.org/abs/1607.08832",
+    "https://content.wolfram.com/uploads/sites/13/2018/02/02-6-3.pdf",
+    "https://doi.org/10.3233/FUN-2008-87202",
+    "Resultary Kautz XOR searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Directed outgoing-neighbour XOR over characteristic two only; 2008 cellular-automata paper not fully inspected."
+  ],
+  "residual_risks": [
+    "Ganguly et al. (2008) potentially relevant full text was inaccessible; an unindexed exact rank result may exist.",
+    "The characteristic polynomial is known and cannot be presented as original.",
+    "Only outgoing-neighbour XOR over F2. Characteristic polynomial alone does not determine zero-Jordan structure."
+  ],
+  "schema_version": 1
+}

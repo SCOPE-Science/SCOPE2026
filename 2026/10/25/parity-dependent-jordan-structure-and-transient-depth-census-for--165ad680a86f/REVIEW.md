@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The calculation starts from a precisely specified directed update on admissible words. For each \(t<m\), its matrix rows are indicator vectors of nonempty, disjoint prefix cylinders indexed by length-\(m-t\) suffixes; this yields the exact rank \(q(q-1)^{m-t-1}\). Restriction to the last-letter subspace is precisely \(I+J\) over \(\mathbb F_2\). The identities \(J^2=qJ\), \(\operatorname{rank}J=1\), and the power-rank second differences prove all eventual cycles, exact entry-time populations, and Jordan blocks. All boundary cases \(q=2\), \(m=1\), and both alphabet parities were explicitly reconstructed. The independent finite-instance checker directly builds the adjacency matrix and confirms 149 rank equalities and 8,788 full state simulations; exhaustive finite checks supplement but cannot replace the infinite proof.
+PASS
 
-## Originality — PASS, historically qualified
+Admissible Kautz words are length-m walks with adjacent letters unequal. For t<m, each row of F^t sums coordinates in a disjoint nonempty cylinder determined by a suffix of length m−t, giving rank q(q−1)^{m−1−t} over F2. The last-letter subspace W has dimension q and F|W=I+J; J²=qJ yields an involution for even q and idempotent projection onto even-parity vectors for odd q. Stabilized rank yields the exact periodic subspace; inverse images give all cumulative depth populations; differences of consecutive ranks give zero-Jordan block lengths, while the rank-one J specifies the eigenvalue-one blocks. Boundaries m=1 and q=2 are covered separately, and the claimed fixed/two-cycle counts follow.
 
-The closest source inspected is Rosenfeld (2002), which gives the iterated-line-digraph characteristic polynomial; that statement does not determine the nilpotent Jordan block profile or preperiod populations in characteristic two. Dalfó and Fiol (2016) analyze iterated-line-digraph and cyclic-Kautz enumeration, without the same binary state-transition classification. Sutner (1988) and Giang (2010) give general additive/linear finite-state frameworks. The related Ganguly et al. (2008) work concerns cycle structures of additive cellular automata, but full text was not available, so a hidden equivalent cannot be excluded. No exact statement or stronger result covering this Kautz rank/entry-time census was found in the completed scientific comparisons. The novelty judgement is a bounded search conclusion, not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Kautz digraphs have a natural iterated-line shift architecture, making them a motivated test family for finite-field dynamics. The characteristic-two parity transition is structurally meaningful: the same update becomes a projection in odd alphabet sizes and an involution in even sizes after the shift compression. Unlike a single rank evaluation, the theorem determines all nilpotent block sizes, sharp transient depth, exact counts at every depth, and recurrent orbit populations uniformly over two unbounded parameters.
+Best-of-knowledge original all-q,m characteristic-two rank/Jordan/entry-time classification of the Kautz adjacency XOR operator; Rosenfeld already supplies the characteristic polynomial and Kautz line-digraph identities, not the finite-state dynamics census.
 
-## Main risks
+## value
 
-Known characteristic-polynomial and line-digraph formulas are clearly separated from the new rank/Jordan/dynamical census. An inaccessible related 2008 paper and unindexed sources are residual originality risks. The numerical verifier is finite and no independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kautz graphs are canonical iterated line digraphs and their mod-two adjacency operators give natural finite linear dynamics. A uniform classification of every Jordan block and every transient-depth population sharpens known eigenvalue information; parity determines whether recurrent dynamics is involutive or fixed, a useful exact dynamical invariant not obtainable from spectral multiplicity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
