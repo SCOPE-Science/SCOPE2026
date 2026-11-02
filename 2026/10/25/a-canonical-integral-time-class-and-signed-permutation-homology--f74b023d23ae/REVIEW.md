@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every connected finite simple graph with at least one edge, the one-cell directed from a sink to a source is canonically oriented. This defines a cellular integral one-cocycle because the signed boundary of every square pairs to zero. Kozlov's Theorems 5.18 and 6.1 imply that every circular component collapses onto an \(n\)-edge core cycle traversed by sink flips, so the cocycle has period exactly \(+n\) on a primitive integral generator. Its positive period uniquely normalizes that generator, independently of the choice of core. Graph automorphisms preserve the cocycle; global edge reversal negates it. This proves the stated complete signed-permutation lattice in degree one. The finite-quotient homology formula is the invariant-subspace computation for a signed permutation representation over \(\mathbb Q\). The proof establishes the integral class and group action, but only **rational** homology for quotient spaces. Reproducibility checks cover 18 test graphs and complete mod-two first homology of each.
+## correctness
 
-## Originality — PASS with residual priority risk
-The inspected public full text of D. N. Kozlov, *Flex complexes of graphs* (2026), proves the general circle-collapse and sink core-cycle results, which are inputs here; its orientation signature is on graph cycles and does not give the new cohomology class on \(\operatorname{Flex}(G)\). The published published-finding corpus complete-graph equivariant result already proves positive circle orientation for \(K_n\) and supplies a directly acknowledged special case, but is not a proof for arbitrary connected graphs or global arrow reversal. The published published-finding corpus cycle-anchor/geodesic result studies connected components and shortest flip sequences, not homological characters or their quotient criterion. No equivalent or dominating general statement was found using source-specific, synonym, and consequence searches. Neither the finite checks nor unsuccessful search prove universal novelty; undiscovered equivalent work remains possible.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a canonical primitive integral winding class on **every** circular component of the orientation-reconfiguration complex of **any** connected finite graph. It upgrades the nonequivariant circle decomposition into a uniform simultaneous action of the full graph automorphism group and the global orientation-reversal involution, and computes rational first homology for **every** subgroup quotient directly from orbit stabilizers. In particular, all tree automorphisms are homologically orientation preserving whereas global reversal is orientation reversing. These exact structural and quotient statements are useful without a closed formula for the number of flex components, and go beyond the published complete-graph enumeration.
+The uniform integer flex one-cochain α assigning +1 to each sink-to-source directed flex edge is closed: each cubical square has two positive and two negative boundary terms. Kozlov Theorems 5.18 and 6.1 supply the explicitly used non-equivariant deformation retract of every circle component onto an n-edge sink-flip core cycle (and other components contract). Its primitive core generator pairs n with α, so the positive integral generator is unique. Automorphisms preserve sink/source and α, while global reversal J swaps them and sends α to −α; naturality forces the claimed full integral signed permutation action. Rational orbit-space homology equals invariant rational homology for finite cellular group actions after equivariant subdivision, and a signed permutation orbit has a one-dimensional invariant precisely when its stabilizer contains no sign-negative element. The tree corollary uses Kozlov Corollary 6.13. Fresh independent orientation/square enumeration checked path_4 (8 orientations, four squares), cycle_4 (16, two squares), triangle (8, no squares); the general proof depends on the published core theorem, not finite sampling.
 
-## Relationship to prior work and limitations
-The key nonstandard input is the published general core-cycle theorem of Kozlov (Theorem 6.1), not a newly proved collapse. A previous specialized complete-graph equivariant formula is acknowledged. The new result does not determine integral torsion or the homeomorphism type of general symmetry quotients, and finite searches cannot exclude unpublished equivalent formulas. The test program does not constitute independent scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Kozlov classifies the underlying flex components and their core cycles, not the global integral cohomological time normalization or combined graph-automorphism/reversal module. A published stronger explicit K_n character covers the complete-graph specialization but not arbitrary connected graphs nor reversal-containing subgroups. The time cochain is a fairly direct but nontrivial general equivariant consequence of those inputs.
+
+## value
+
+PASS
+
+A graph-natural integral orientation of all circular homology classes makes the Aut(G)×C2 action a canonical signed permutation lattice, avoiding reliance on arbitrary cycle orientations. The stabilizer criterion computes rational H1 of every finite symmetry quotient without re-computing homology and is applicable uniformly to noncomplete graphs; this is a meaningful structure theorem, not merely H1 rank restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
