@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Proof via de Bruijn graph vertex removal: exactly three excluded windows, imbalance of u and v precludes a one-use Euler tour; the only one-edge balancing augmentation duplicates e. Every ordinary binary de Bruijn cycle contracts its unique 0^(r+1) loop-and-passage into the added e, and every optimum has exactly two inverse expansions. A unique-multiplicity permitted window makes every optimum primitive, preventing rotational identification of the two preimages. Classical cycle count divided by two yields the formula. The embedded verifier enumerates r=2,3, exactly computes Laplacian tree determinants for r=2..6, and tests 225 constructions through r=10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. (2020) count sequences with a window-repetition spacing constraint; their forbidding-periodic-pattern formulation is not the run-limited universal-cover object considered here.",
+        "2025 generalized orthogonal/Kautz paper treats Kautz maximum run length one and orthogonality, not the all-r shortest forbidden 0^r cover count.",
+        "An earlier zero-run cover theorem establishes shortest length and balancing augmentation for the k=r+1 regime but does not count all Euler tours/necklaces."
+      ],
+      "reasoning": "The broader general graph machinery (Euler tours/BEST) provides methods, and earlier zero-run covering results imply the optimum length, but no located statement determines the exact number of optimal circular words at every r. The new two-to-one enumeration is not a direct implication of the sharp-length theorem alone.",
+      "searches": [
+        "Forbidden substring binary de Bruijn cycle 0^r avoiding all-zero block, arborescence BEST theorem exact enumerator",
+        "Binary cyclic shortest superstrings covering every permitted (r+1)-mer avoiding r consecutive zeroes: length 2^(r+1)-2, number exactly 2^(2^r-r-2), de Bruijn cycles with forbidden zero block",
+        "arxiv:2005.03102 Section III, IV",
+        "PMC12025929 2025 run length/Kautz sections"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/0711.1695v1",
+      "https://arxiv.org/abs/2005.03102",
+      "https://ir.cwi.nl/pub/31113",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12025929/",
+      "Semantic published-mathematics searches for modified and forbidden-run de Bruijn cyclic covers and prior mathematical statement comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier zero-run cover theorem covers L=2^(r+1)-2 when k=r+1 and fixes the one-edge balancing augmentation; the row does not claim an optimal-necklace count.",
+        "An earlier golden-mean cover theorem concerns avoiding 11 rather than forbidding the long run 0^r.",
+        "Moreno–Matamala discuss exact-once restricted-language cycles and lexicographic minimality; Chee et al. constrain window repetitions; Bernardini et al. solve different string-construction tasks."
+      ],
+      "reasoning": "This result does not assert that minimum length or the needed duplicate factor is newly discovered. It adds the full count 2^(2^r-r-2) and two-to-one construction, neither stated or implied without further nontrivial Euler-tour analysis by the identified closest results.",
+      "searches": [
+        "Comparison of known zero-run cyclic covering and golden-mean cyclic covering claims",
+        "arxiv:0711.1695v1 Theorem 2.1 and Sections 2–3",
+        "arxiv:2005.03102 Sections III–IV and conclusions",
+        "doi:10.4230/LIPIcs.CPM.2021.9 abstract and repository"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard binary de Bruijn necklace count is 2^(2^r-r-1), but our constrained optimum count is half that number, with a two-to-one map.",
+        "Moreno-Matamala define words in their forbidden-factor language through periodically admissible extensions (Section 2.1), unlike our entire set of linearly admissible (r+1)-windows."
+      ],
+      "reasoning": "Searched forbidden-run constrained de Bruijn, modified de Bruijn, deleted-zero-run and graph-cycle formulations. The ordinary de Bruijn theorem alone does not state the covering inverse count; the contraction and its exactly two inverse sites are proved here. Moreno–Matamala analyze the lexicographically least single-occurrence cycle under a different word-set convention, so it does not directly imply this enumeration.",
+      "searches": [
+        "All binary cyclic words without 0^r that contain every allowed (r+1)-factor: de Bruijn cycles delete two zeros, counting optimum necklaces",
+        "Web: \"modified de Bruijn\" \"two zero\" \"delete\" sequences number",
+        "Web: \"de Bruijn\" \"avoid consecutive zeros\" \"count\" number cycles",
+        "arxiv:0711.1695v1 §§2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical optimum-necklace sequence begins 1,8,1024,33554432, but that sequence is algebraically a shift and half-factor of the classical full binary de Bruijn sequence count.",
+        "No authoritative retrieved database statement attributed these numbers specifically to the zero-run-constrained shortest-cover problem."
+      ],
+      "reasoning": "Numerical coincidence with a classical sequence is explicitly accounted for and not presented as novel integer terms. The claim is a new structural interpretation and enumeration for the constrained covering object; the absence of a search result is not treated as proof of novelty.",
+      "searches": [
+        "Web: \"1, 8, 1024, 33554432\" \"de Bruijn\"",
+        "Web: \"2^(2^n-n-2)\" de bruijn forbidden",
+        "Web: \"1, 8, 1024, 33554432\" constrained",
+        "number of golden-mean constrained de Bruijn covers length F_{k+2}+F_k-1 2 6 84 3816 Eulerian"
+      ]
+    },
+    "rationale": "Closest published papers treat ordinary/restricted de Bruijn enumeration, nearby-window nonrepetition or forbidden-substring routing, not the all-r exact optimal constrained necklace census. Earlier available zero-run work gives minimum length and forced edge augmentation but does not count optimal words. Four implication-level checks and full accessible relevant primary material show no established result that determines the exact two-to-one covering map. Numerical powers of two are classical in another interpretation; the object/bijection is the claimed contribution. Residual risk of unindexed exact equivalent or inaccessible 2021 full text remains.",
+    "residual_risks": [
+      "An unindexed equivalent restricted-de-Bruijn enumeration or graph contraction formula may exist.",
+      "The full 2021 CPM forbidden-substrings article was not retrieved; only its full abstract and bibliographic details were inspected.",
+      "Classical binary de Bruijn numbers coincide up to factor two, so originality depends on the nontrivial constrained covering interpretation and two-to-one bijection, not new number values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not directly establish the different all-linearly-admissible window covering count; the definition of the restricted language requires periodic admissibility of individual candidate words",
+        "evidence": [
+          "HTML §§1,2.1,2.2,3; explicit definition of W^F(n) and theorem for Eulerian restricted graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0711.1695v1",
+        "material_read": "Full accessible HTML through Section 3, including Definition and Theorem 2.1, BEST discussion, definitions of periodically admissible words",
+        "method": "Full-text HTML inspection and claim comparison",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Closest forbidden-factor de Bruijn and BEST enumeration framework"
+      },
+      {
+        "assessment": "Their constraint prohibits repeats of a k-window within b positions; no exact shortest cyclic 0^r-avoiding universal cover count appears in the examined material",
+        "evidence": [
+          "2020 preprint §§I,III,IV, concluding problems; run pattern and repetition definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.03102",
+        "material_read": "Accessible full-text portions on definitions, forbidden periodic patterns, enumeration/rates and conclusions; searched occurrences of runs and shortest",
+        "method": "Web full-text section and find inspection",
+        "title": "Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications",
+        "trigger": "Contemporary constrained de Bruijn codes and enumeration work"
+      },
+      {
+        "assessment": "Study optimizes ordered fragment-preserving sanitization and prefix/suffix constraints, not enumeration of universal cyclic covers; inaccessible full text is a residual overlap risk",
+        "evidence": [
+          "2021-06-30 repository abstract, CPM DOI 10.4230/LIPIcs.CPM.2021.9"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/31113",
+        "material_read": "Repository abstract describing three optimization/decision problems, DOI, publication date; full PDF retrieval timed out",
+        "method": "Repository abstract and bibliographic inspection; PDF retrieval attempted",
+        "title": "Constructing Strings Avoiding Forbidden Substrings",
+        "trigger": "2021 forbidden-factor shortest-construction study"
+      },
+      {
+        "assessment": "Kautz adjacency forbids runs longer than one and orthogonal cycles; does not directly count all shortest covers for forbidden 0^r, r>=2",
+        "evidence": [
+          "Sections 1-2, 6 and Kautz definitions"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12025929/",
+        "material_read": "HTML introduction and Sections 2/6 as located by targeted searches",
+        "method": "Web HTML inspection of definitions, Kautz/run-length discussion and cited results",
+        "title": "Generalized Orthogonal de Bruijn and Kautz Sequences",
+        "trigger": "Later work on restricted de Bruijn graphs and run-length constraints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f30ba639-8bd2-4995-96fb-6694430b0278",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural forbidden-homopolymer cyclic coverage design family has exactly classified optimal designs and a doubly-exponential exact census for all forbidden run lengths, with a direct constructive translation to classical de Bruijn cycles. The result goes beyond optimum length or a small finite calculation by counting the entire nonlinear design space and identifying its precise two-fold ambiguity.",
+    "status": "PASS"
+  }
+}
