@@ -1,0 +1,231 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:49:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen source RESULT.md blob 669d7bd315fc8a0a3f74527ec849408424820df1, Sections 1–4 and all quantifier/normalization statements.",
+        "Goldberger–Kang–Okoudjou, arXiv:2106.01509v1, Theorem 1 and Theorem 2, rank–ambiguity equivalence.",
+        "Independent symbolic checks: the geometric numerator (z^a−z^k+1−z^{k+a})=(1−z^k)(1+z^a); β(m,a) solution count via a·b=N/2 modulo m.",
+        "Independent exact cyclotomic residue computation with no floating-point zeros for all N=3,...,45 and k=1,...,N−1, using divisor-root multiplicities φ(t) and overlap coefficients. This is a bounded test, not a proof.",
+        "Sample predicted/direct counts: N=8 ranks [8,23,38,51,52,50,52]; N=9 [9,27,43,59,77,71,77,81]; N=16 max 224 at k=9,11,13,15.",
+        "Frozen source verify_boxcar.py blob b27a6f5df3d33163796ce185eeefbb82e7f12fa8 inspected; independent check used separately written code rather than trusting a log."
+      ],
+      "limitations": [
+        "For the power-of-two capacity result N=2^q with q≥2; N=2 excluded from base theorem, though a separate formula might be extended.",
+        "The complex rank is also the real rank of the span of Hermitian projector observables; nonlinear pure-state phase retrieval and stability are not inferred from deficient span.",
+        "Normalization k^(−1/2) only multiplies ambiguity values by k^(−1) and cannot change rank; all conclusions use full cyclic time-frequency orbit.",
+        "Finite tests through N=45 substantiate formulas only on that finite domain; exact proof needed for arbitrary N is supplied by arithmetic derivations."
+      ],
+      "rationale": "The theorem is correct for every N≥3 and 1≤k<N with the stated complex projector span. The Weyl character diagonalization gives R=# of nonzero ambiguities (Goldberger–Kang–Okoudjou Theorem 1). The overlap I∩(I+a) is exactly two possible intervals with lengths r=max(k−a,0), s=max(k+a−N,0). For a single interval, nonzero b geometric-series zeros count gcd(N,r+s)−1; for two nonempty intervals the numerator factorization is (1−z^k)(1+z^a), z=exp(2πib/N)≠1. The condition z^k=1 contributes gcd(N,k)−1, z^a=−1 contributes β_N(a), and the intersection contributes β_d(a), while b=0 is positive. Summing yields c_a as claimed. For k≤N/2 an empty overlap prevents full rank; for k>N/2 odd N requires all lengths in [2k−N,k] coprime to N, equivalent to [s,2s] avoiding smallest prime divisor p and hence s≤(p−1)/2. For even N the a=N/2, odd b two-arc coefficient vanishes. For N=2^q, grouping b by exact root order t=2^j gives Z_t(k)≥N/t for k≤N/2 and Z_t(k)=N/t except positive t|k excess for k>N/2; summing φ(t)=t/2 gives N²−R=qN/2+(2k−N)(2d−2−h)/2, and exactly odd k>N/2 minimize the deficiency. A separately written exact integer cyclotomic-residue checker (not the supplied code) directly counted all lags/order classes for every 3≤N≤45 and every k, agreeing with the per-lag rank count, odd thresholds, and 2-power formulas; the infinite claim follows from the derivation, not finite testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bendory–Eldar Corollary 3.2 says full recovery from a rectangular window if N/2<W<N and N is coprime to each integer 2W−N,...,W; it covers all positive full-rank odd boxcar lengths by the new threshold, and this coverage is acknowledged.",
+          "Published prime-cyclic arithmetic rigidity theorem gives rank p|S−S| for every nonnegative rational proper-support g on an odd prime group; for an interval S of length k this gives the entire prime case p·min(p,2k−1).",
+          "Published two-hole cyclic theorem gives exact rank when N−2 coordinates are ones and two are zero, including the consecutive two-hole/boxcar case k=N−2.",
+          "Bendory–Eldar–Boumal Lemma III.3 treats admissibility for short W≤N/2 under coprimality assumptions and other sections concern phase retrieval algorithms rather than the complete projector-span rank capacity."
+        ],
+        "reasoning": "The prime and k=N−2 slices are covered or strongly implied and cannot be counted as new. General Gabor rank criteria reduce to the ambiguity support calculation, but neither the inspected broader families nor algorithmic invertibility results imply the full quantitative deficient-rank profile for all composite N and 1≤k<N, the even/odd boundary combined with all deficiencies, or the sharp logarithmic power-of-two capacity with all optimizing lengths.",
+        "searches": [
+          "Goldberger–Kang–Okoudjou arXiv:2106.01509v1 Sections 2–3 and Proposition 3",
+          "Bendory–Eldar arXiv:1510.00920v1 Theorem 3.1, Corollary 3.2, Section 3.2",
+          "Bendory–Eldar–Boumal arXiv:1607.08218v3 Section III Lemma III.3 and Propositions III.4–III.6",
+          "Published result: Arithmetic rigidity of prime-cyclic Gabor tomography for positive rational windows, Resultary 2026/10/11",
+          "Published result: Exact arithmetic rank of two-hole cyclic Gabor measurements, Resultary 2026/10/11"
+        ]
+      },
+      "checked_sources": [
+        "Goldberger–Kang–Okoudjou, arXiv:2106.01509v1, full HTML, Theorem 1, Proposition 3, Theorem 4.",
+        "Bendory–Eldar, arXiv:1510.00920v1, full five-page PDF, Theorem 3.1, Corollaries 3.2 and 3.4.",
+        "Bendory–Eldar–Boumal, arXiv:1607.08218v3, 18-page public PDF, Section III Lemma III.3 and algorithm sections.",
+        "Bojarovska–Flinth, arXiv:1503.05800v2, PDF Theorems 2.2–2.3 and difference-set Proposition 2.2.",
+        "Published Resultary full mathematical RESULT: Arithmetic rigidity of prime-cyclic Gabor tomography for positive rational windows.",
+        "Published Resultary full mathematical RESULT: Exact arithmetic rank of two-hole cyclic Gabor measurements.",
+        "Published Resultary full mathematical RESULT: Sharp operator-span capacity of two-sparse multi-window Gabor systems.",
+        "Resultary semantic queries and web searches for cyclic boxcar/rectangular Gabor exact rank, operator span, Dirichlet kernel, 2-adic capacity and arithmetic thresholds."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining Goldberger–Kang–Okoudjou Theorem 1 with Bendory–Eldar Corollary 3.2 proves sufficient full rank for successful long odd windows; it does not state the exact rank when any overlap Fourier transform vanishes.",
+          "The prime rational theorem plus the interval difference-set identity gives the complete odd-prime rank, p·min(p,2k−1): this is actual prior implication for that subfamily.",
+          "The two-hole theorem gives all N at k=N−2; for N odd and 3|N, for example k=N−2 its rank deficiency is four, matching the formula.",
+          "The 2021 general theorem determines rank from A(a,b) abstractly; the new expression requires explicit two-interval factorization (1−z^k)(1+z^a)/(1−z), inclusion-exclusion with β-functions, and a separate divisor-order census to derive 2^q optimality."
+        ],
+        "reasoning": "A mathematical corollary is covered without identical words. Several meaningful subclaims and endpoint cases are indeed covered, so no novelty is attributed to them. The complete composite-family rank and sharp power-of-two optimum are not logical conclusions of the examined published theorems without additional arithmetic computations whose content is not stated in those results; on the evidence inspected this is a new exact classification. Independent equivalence elsewhere remains possible.",
+        "searches": [
+          "Full public HTML arXiv:2106.01509v1 Theorem 1, Proposition 3, Theorem 4, Section 3.",
+          "Full PDF arXiv:1510.00920v1 p.2 Corollary 3.2 and p.3 Corollary 3.4, viewed in page screenshots.",
+          "Full PDF arXiv:1503.05800v2 p.4 Theorems 2.2–2.3, p.7 Proposition 2.2, screenshot inspected.",
+          "Full PDF arXiv:1607.08218v3 p.4 Lemma III.3 and Section III, screenshot inspected.",
+          "Published Resultary 2026 exact prime rational Gabor and two-hole rank full RESULT texts."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou Theorem 1: rank of projector Gramian equals number of nonzero self-ambiguity coefficients; Theorem 2 gives eigenvalues N|A|^2, arXiv public HTML, https://arxiv.org/html/2106.01509v1",
+          "Bojarovska–Flinth Theorems 2.2–2.3: nonzero ambiguity sufficient for all-signal phase retrieval and operator lifting with frame bounds, arXiv:1503.05800v2, PDF pp. 4–5.",
+          "Bendory–Eldar Section 3 derives cyclic circulant invertibility in terms of Fourier transforms of overlapping shifted windows; https://arxiv.org/pdf/1510.00920."
+        ],
+        "reasoning": "The measurement lifting, circulant STFT inversion, projector Gramian and Weyl ambiguity support are mathematically equivalent linear-rank descriptions (not different results merely because of names). The earlier machinery reduces the problem to exact Fourier zeros, but the examined statements do not count those zeros at every cyclic boxcar lag and length or optimize the rank over all boxcar lengths in 2-power order.",
+        "searches": [
+          "Resultary query: exact operator span rank cyclic Gabor boxcar interval indicator windows length N k formula power of two",
+          "Resultary query: Gabor POVM rectangular windows informational completeness odd dimension least prime factor",
+          "Web search: Gabor POVM finite cyclic interval window exact rank dimension powers of two odd gcd",
+          "Goldberger–Kang–Okoudjou arXiv:2106.01509v1 Theorems 1–2 and Section 3",
+          "Bojarovska–Flinth arXiv:1503.05800v2 Theorems 2.2–2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed copy of the present result was returned by Resultary and explicitly excluded from independent priority evidence.",
+          "Distinct published SCOPE records on prime rational windows and two-hole windows have exact rank formulas but domain-restricted support classes; the former mathematically covers prime intervals and the latter k=N−2.",
+          "Published 2026 two-sparse multi-window capacity treats unions of N×(1+2s) translation rows from s two-site windows, not a single contiguous k-site boxcar, so it cannot supply the full boxcar rank table.",
+          "The independently derived N=8 profile (8,23,38,51,52,50,52), N=9 (9,27,43,59,77,71,77,81), and N=16 capacity 224 show the concrete meaning of the claimed all-length table; no identical prior census was located."
+        ],
+        "reasoning": "A query failure is not proof of novelty. Exact published tables/special-case formulas were compared by the actual support family, and none inspected spans every composite cyclic dimension and window length; the strongest quantitative 2-power result was not found elsewhere. There is an unindexed-table priority risk.",
+        "searches": [
+          "Resultary searches: exact operator span rank cyclic Gabor boxcar interval indicator; Gabor projector span two interval support; Gabor POVM rectangular windows least prime factor",
+          "Web search: boxcar Gabor POVM rank rectangular windows ambiguity zeros operator span",
+          "Web search: Gabor POVM finite cyclic interval window exact rank powers of two",
+          "Web search: rank Gabor POVM rectangular window rank incomplete",
+          "Web search: finite discrete Gabor spectrogram rectangular window Fourier zero rank arithmetic length"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the complete (N,k) quantitative rank profile and sharp power-of-two capacity. Goldberger–Kang–Okoudjou (2021/2022) establish the general rank/nonzero-ambiguity equivalence and support-one/two cases but no all-length interval-indicator census. Bendory–Eldar (2015) supply the sufficient overlap-coprimality criterion for successful long rectangular windows; those successful odd-dimensional cases are therefore not claimed as novel. The 2026 published prime-dimension positive-rational-window theorem already implies every odd-prime boxcar rank; a published two-hole theorem covers the k=N−2 special case. Neither mathematically determines all composite dimensions/lengths or the sharp 2^q capacity and optimizer classification. The claim derives these via two-arc overlap cancellations and order-specific exact zero counts. Search absence alone is not used as a novelty proof; unindexed exact rank tables and a possible implication in uninspected sources remain risks.",
+      "residual_risks": [
+        "An unindexed dissertation, signal-processing appendix, or older exact ambiguity-zero census could already supply the complete composite boxcar rank/profile or 2-power capacity. Negative searches are not priority certification.",
+        "The 2015 rectangular-window coprimality sufficiency already covers positive full-rank odd cases; the 2026 published prime rational-window theorem covers all odd-prime boxcar ranks; a two-hole theorem covers k=N−2. The originality claim must be restricted to the full cross-composite profile and power-two optimization.",
+        "Two related 2026 Resultary findings share the date of the assigned result, and public time ordering of their original mathematical formulation was not established; nevertheless their mathematical coverage of special cases is explicitly credited.",
+        "Highly specialized non-arXiv literature could discuss rectangular Weyl POVM deficiencies under different conventions or an equivalent circulant nullity table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes equivalence rank=nonzero ambiguity and small-support examples, not an explicit all-length consecutive-support census nor optimum over boxcar length.",
+          "evidence": [
+            "Theorem 1 and 2, HTML lines 92–117, spectral rank exactly counts nonzero ambiguity entries.",
+            "Proposition 3 supports at most two coordinates; Theorem 4 classifies rank d, not all k-supported consecutive windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2106.01509v1",
+          "material_read": "Public full HTML: Introduction, Section 2 Theorems 1–2 and their proof structure, Proposition 3, Sections 2.2 and 3 including rank d characterization, prime rank constraints and conclusions.",
+          "method": "Read full primary HTML in web, section searches for interval/consecutive/rectangular and mathematical statements.",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Same full cyclic projector Gramian and operator-span rank invariant; closest general predecessor."
+        },
+        {
+          "assessment": "Gives sufficient invertibility for exactly the successful odd windows; not exact missing-rank counts, converse in full deficient cases or sharp 2^q optimization.",
+          "evidence": [
+            "Corollary 3.2, PDF p.2, N/2<W<N and N coprime with {2W−N,...,W} guarantee.",
+            "Section 3.1 derives G_ell circulant DFT inversion; Corollary 3.4 is weaker nonvanishing-signal recovery."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.00920",
+          "material_read": "Five-page arXiv v1 primary PDF: Section 2 definitions; Section 3 through Corollaries 3.2/3.4 and their arguments, algorithmic conditions and conclusions.",
+          "method": "Full primary PDF text and page-1/page-2 screenshots examined.",
+          "title": "A Least Squares Approach for Stable Phase Retrieval from Short-Time Fourier Transform Magnitude",
+          "trigger": "Direct same interval-indicator window and circulant overlap DFT; plausible domination of the completeness threshold."
+        },
+        {
+          "assessment": "Admissible W≤N/2 windows and nonlinear reconstruction algorithms; no asserted complete projector-span rank census for all N,k or sharp rank optimization in reviewed relevant portions.",
+          "evidence": [
+            "PDF p.4 Lemma III.3: coprimality of α=2,...,W gives admissibility for 2≤W≤N/2.",
+            "Proposition III.4 concerns nonvanishing-signal phase retrieval, not matrix-lifting rank of all windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1607.08218",
+          "material_read": "Primary arXiv PDF abstract/introduction, Sections II–III definitions, Lemma III.3 and Propositions III.4–III.6, Section VI and identified Section VII rectangular-case portions; searched full PDF for exact rank and rectangular coverage.",
+          "method": "Public 18-page PDF parsed text; page-3 screenshot directly checked for the rectangular-window lemma.",
+          "title": "Non-Convex Phase Retrieval From STFT Measurements",
+          "trigger": "Later comprehensive work on rectangular STFT windows and invertibility with appendices."
+        },
+        {
+          "assessment": "Establishes general zero-free ambiguity criterion and some difference-set indicator sufficient conditions, not a complete interval-indicator deficient-rank census or optimizer over k.",
+          "evidence": [
+            "Theorem 2.3, printed p.4, full lifting frame bounds under all ambiguity values nonzero.",
+            "Proposition 2.2, printed p.7, applies to combinatorial difference sets with size and multiplicity below prime factors; no universal boxcar classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Primary 17-page arXiv v2 PDF introduction, Section 2 Gabor characterization Theorems 2.1–2.3, §2.3.2 difference-set Proposition 2.2, and Section 2.4 missing-shift obstruction.",
+          "method": "Public PDF text and screenshots of PDF pages 3 and 6; direct theorem/assumption reading.",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Historical primary spectral/injectivity work; potential characteristic-function coverage."
+        },
+        {
+          "assessment": "Mathematically covers complete rank profile for odd primes, and that subcase is excluded as novel; does not cover composite N or sharp power-of-two capacity.",
+          "evidence": [
+            "For proper nonnegative rational support S in F_p: rank p|S−S|. For consecutive k-site S: |S−S|=min(p,2k−1).",
+            "Its proof uses irreducibility of Φ_p, which does not apply unchanged at composite cyclic orders."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-arithmetic-rigidity-of-prime-cyclic-gabor-tomography-for-positiv--65df80cb23d5",
+          "material_read": "Complete published RESULT.md including theorem, cyclotomic lemma, Weyl kernel, Cauchy–Davenport bound, limitations and references.",
+          "method": "Read entire published primary mathematical result from public GitHub raw content; not merely semantic search result.",
+          "title": "Arithmetic rigidity of prime-cyclic Gabor tomography for positive rational windows",
+          "trigger": "Resultary highly relevant published broader rational positive window rank theorem in odd prime dimension."
+        },
+        {
+          "assessment": "Covers k=N−2 special case for all N; varying k changes number and geometry of missing sites, so no all-length theorem nor power-of-two optimizer follows.",
+          "evidence": [
+            "Its source theorem calculates N^2−R_N(a) for two missing sites {0,a}; consecutive boxcar N−2 is cyclically shifted complement with a=1.",
+            "Proof uses 2- or 4-term deletion sums, different from arbitrary interval-overlap geometry."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0",
+          "material_read": "Complete published RESULT.md: all-order arithmetic formula, proof by deleted-point character sums, verification and relationship to prior work.",
+          "method": "Read full public scientific result and checked the correspondence for two adjacent missing points.",
+          "title": "Exact arithmetic rank of two-hole cyclic Gabor measurements",
+          "trigger": "Same full Gabor projector rank with flat window excluding two sites, including complement of consecutive N−2 boxcar."
+        },
+        {
+          "assessment": "Capacity N·min(N,1+2s) for multiple 2-site windows is distinct: no implication for one long contiguous window family.",
+          "evidence": [
+            "Each two-site window contributes at most lag rows 0,±d; union over s windows yields N·min(N,1+2s).",
+            "Boxcar k>2 has multiple lag overlaps with cancellation and cannot be modeled as one 2-sparse window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-operator-span-capacity-of-two-sparse-multi-window-gabor-sy--b553eeb756ed",
+          "material_read": "Full published RESULT.md, including theorem and support-row proof, constructions and limitations.",
+          "method": "Read complete public scientific result, not search snippets.",
+          "title": "Sharp operator-span capacity of two-sparse multi-window Gabor systems",
+          "trigger": "Nearby published exact rank-capacity theorem in same operator-span setting."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Frozen RESULT.md exact per-lag formula and sharp qN/2 deficiency, including all optimizers.",
+        "Independent exact counts demonstrate nonmonotone rank at N=8 (k=5→6 decreases 52→50) and N=16 optimal 224, with full algebraic proof beyond finite data.",
+        "Contrast with arXiv:1510.00920 Corollary 3.2 sufficient recovery and arXiv:2106.01509 Theorem 1 general support criterion; neither assigns every deficient measurement rank."
+      ],
+      "limitations": [
+        "The result measures linear span rank, not condition numbers, sample selection, robustness or a pure-state phase-retrieval equivalence.",
+        "No generalization beyond one rectangular window or partial time-frequency sampling is established.",
+        "Several natural special cases are covered in existing work and are not independently valuable/new contributions."
+      ],
+      "rationale": "A contiguous flat (“boxcar”) window is a canonical experimental probe in cyclic STFT/spectrogram measurements, and the complex dimension of its full rank-one measurement-operator span is a natural quantitative linear-tomography invariant. Prior general ambiguity criteria and rectangular-window recoverability conditions do not give the number of undetectable Hermitian observables at each deficient N,k. The family-wide exact gcd/2-torsion formula is reusable for composite dimensions, detects nonmonotonicity under increasing window length, and the sharp 2^q law N²−(N/2)log2 N with all odd upper-half maximizing k gives a nontrivial constrained-design obstruction. These specific unknown arithmetic ranks could reasonably be needed in structured measurement design even without a new reconstruction algorithm or a paper-sized downstream theorem. The standard endpoint k=1, all odd-prime ranks and k=N−2 have published antecedents, but the complete composite classification and quantitative 2-power optimum are independently motivated and not an arbitrary finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Goldberger–Kang–Okoudjou, arXiv:2106.01509v1, full HTML, Theorem 1, Proposition 3, Theorem 4.",
+    "Bendory–Eldar, arXiv:1510.00920v1, full five-page PDF, Theorem 3.1, Corollaries 3.2 and 3.4.",
+    "Bendory–Eldar–Boumal, arXiv:1607.08218v3, 18-page public PDF, Section III Lemma III.3 and algorithm sections.",
+    "Bojarovska–Flinth, arXiv:1503.05800v2, PDF Theorems 2.2–2.3 and difference-set Proposition 2.2.",
+    "Published Resultary full mathematical RESULT: Arithmetic rigidity of prime-cyclic Gabor tomography for positive rational windows.",
+    "Published Resultary full mathematical RESULT: Exact arithmetic rank of two-hole cyclic Gabor measurements.",
+    "Published Resultary full mathematical RESULT: Sharp operator-span capacity of two-sparse multi-window Gabor systems.",
+    "Resultary semantic queries and web searches for cyclic boxcar/rectangular Gabor exact rank, operator span, Dirichlet kernel, 2-adic capacity and arithmetic thresholds."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge O PASS is not an exhaustive priority certificate.",
+    "Published prime-dimensional and two-hole special cases and 2015 sufficient successful-window criteria were explicitly credited.",
+    "Current scientific claim stands unchanged; no substantive repair was necessary.",
+    "Privacy sanitization of existing operational metadata is not verified; publication remains not_ready."
+  ],
+  "residual_risks": [
+    "An unindexed dissertation, signal-processing appendix, or older exact ambiguity-zero census could already supply the complete composite boxcar rank/profile or 2-power capacity. Negative searches are not priority certification.",
+    "The 2015 rectangular-window coprimality sufficiency already covers positive full-rank odd cases; the 2026 published prime rational-window theorem covers all odd-prime boxcar ranks; a two-hole theorem covers k=N−2. The originality claim must be restricted to the full cross-composite profile and power-two optimization.",
+    "Two related 2026 Resultary findings share the date of the assigned result, and public time ordering of their original mathematical formulation was not established; nevertheless their mathematical coverage of special cases is explicitly credited.",
+    "Highly specialized non-arXiv literature could discuss rectangular Weyl POVM deficiencies under different conventions or an equivalent circulant nullity table."
+  ],
+  "schema_version": 1
+}
