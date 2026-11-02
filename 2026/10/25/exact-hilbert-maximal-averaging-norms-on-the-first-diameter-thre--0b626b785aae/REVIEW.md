@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact nonnegative selector identity converts the nonlinear norm into the maximum of finitely many Gram Perron roots. The certificate checks all 20,480 radius masks using positive leading principal minors over integers; 4,084 and 16,377 masks lie strictly below rational separators. Strict integer Rayleigh lower bounds, integer characteristic coefficients and certified rational upper bounds isolate the two winning eigenvalues. Positivity of the winning Gram matrices and cycle dihedral invariance establish all extremizers, including arbitrary phases. No extrapolation beyond the two finite cycles is made.
+PASS
 
-## Originality — PASS within inspected evidence
+The exact finite selector identity reduces the centered graph-ball maximal-operator squared l2 norm to max_lambda(A_sigma^T A_sigma) over every 4^n radius mask for n=6,7. I independently reconstructed the 30- and 105-scaled averaging matrices. Exact integer Bareiss/Sylvester checks enumerated all 4096 C6 masks and all 16384 C7 masks: respectively exactly 12 and 7 dihedral winners, with 4084 and 16377 strict losing inequalities at 1.517 and 1.531. Exact integer Rayleigh witnesses exceed 1.520400 and 1.532672; positive-definite upper isolations at 1.520401 and 1.532673, Gram characteristic coefficients and announced quintic/cubic are verified. Uniform-ball rows make the winning Grams entrywise positive, so Perron simplicity fixes the modulus; arbitrary coordinate signs/phases are permitted because M uses |f|. This proves precisely two cycles, real and complex, not a larger-cycle family.
 
-The original finite-graph work of Soria–Tradacete develops general bounds and the four-cycle example, but its inspected theorems do not imply the two algebraic strong-type Hilbert constants. González-Riquelme–Madrid's sharp \(\ell^2\) results concern complete and star graphs; later small-graph variation results concern a distinct invariant. The available abstract of the fractional maximal-operator paper also specifies complete and star families, but its inaccessible full text remains a priority risk. Earlier related four- and five-cycle computations concern strictly different graphs and do not imply the present two constants or equality classes. The claim is the completed classification at the first diameter-three scale, not merely the finite-selector reduction.
+## originality
 
-## Value — PASS
+PASS
 
-Exactly two simple cycle lengths have diameter three, bringing a fourth genuinely distinct ball radius. Their exact algebraic sharp norms and complete equality classes form a natural boundary classification for multiscale nonlinear averaging, with different even and odd optimizing radius geometries. No large-cycle asymptotic or downstream general theorem is asserted.
+Best-of-knowledge PASS for the exact two finite-cycle maximizations and full equality classes. Prior general and small-graph results do not mathematically imply the two algebraic maxima or winning-mask classification; the linear-selector reduction is standard and not presented as novel.
 
-## Limitations
+## value
 
-No independent mathematical or bibliographic audit has been performed. The decisive finite upper bounds are verified by exhaustive exact integer computation. Earlier unpublished or unindexed equivalences cannot be ruled out completely.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The six- and seven-cycles are the first natural diameter-three cycle pair, with distinct parity and different equality orbits. Exact algebraic Hilbert maximal norms and ALL extremizers supply a nontrivial finite extremal benchmark; the result is not a mere recomputation of the norm of a fixed linear averaging operator because it optimizes all 20,480 nonlinear row selections. Its bounded scope is explicit, and no claim of a universal cycle theorem is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
