@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-All \(1024\) complementary-pair selectors are enumerated by a finite integer-mask loop. The obstruction loop proves the complete set of forbidden balanced quadruples, and independently enumerated centered integer weights cover exactly the remaining selectors. Strict probability realization is verified algebraically for all subset sizes; the computation also tests all \(64\) subsets for every coherent selector. The label-action orbit partition is checked by all \(720\) permutations. Four printed triples provide a direct, hand-checkable obstruction to the specific example. The proof does not infer infinite validity from finite testing: the mathematical claim itself has a finite exhaustive domain.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The original Moss–Pedersen article supplies the frame semantics, coherence characterization, and the printed six-point configuration; its Proposition B.23 asserts precisely the contrary local four-subfamily statement. The later Moss–Pedersen and Blanco papers establish asymptotic constructions and unbounded index rather than an exact census of this \(1024\)-element finite domain. Broader older trade-robustness results explain the general mechanism, and historical tabulations of self-dual threshold functions could imply parts of the orbit census after nontrivial filtering; such potential overlap is explicitly not treated as excluded. Targeted semantic searches did not identify these exact \(332/692\) quantities or the sharp radius-three coverage. The finite test, probability reconstruction and external printed-example contradiction are independently specified, not inferred from titles.
+PASS
 
-## Value — PASS
-This is a complete natural classification of all six-voter maximal standard majority frames at the first small even electorate relevant to the 2026 finite-coherence discussion. Besides a reproducible finite benchmark and sharp quantitative small-integer realization result, it changes the interpretation of a concrete published example asserted to witness coherence index \(6\); its actual index is \(4\). The separate ten-point and unbounded constructions are unaffected.
+PASS: Independent pure-Python enumeration generated all 20 triples/10 complement pairs, all 30 balanced complementary-pair-free quadruples, all 1024 selector masks, all integer zero-sum perturbations with radius bounds 1,2,3, and all 720 relabellings. Output SIX_VOTER_OK: exactly 30 quadruples, 332 unblocked, 692 obstructed, representation counts [20,20,332], coherent orbit sizes [6,6,20,60,60,180], incoherent [12,20,90,90,120,180,180] (private independent_checks.py; compared with actual checker.py proof specification). For all |w_i|<=3 sum w=0, q_i=7+w_i>0, sum q=42; pairs have weight<=20<21 and complements of pairs establish 4-subset winning; selected triples have positive centered sum. Four balanced selected triples have total mass exactly 2 and cannot all exceed 1/2. No balanced two-triple selector exists due to excluded complements and no odd balanced list of 3-sets on six voters can exist. Specific printed 123,145,256,346 each voter twice, direct obstruction; independent read of printed Moss–Pedersen example confirms all 4 listed. Thus exact finite exhaustive theorem rather than partial enumeration.
 
-## Limitations
-No broader six-voter class, larger electorate, or minimum total positive weight theorem is claimed. An older full threshold-function catalogue could subsume some orbit information. There has been no independent expert check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Primary Moss–Pedersen 2026 text actually prints the 10 triples and asserts no balanced four; direct incident-sum of four printed triples decisively contradicts the local assertion. Authors’ broader general index and unbounded constructions are different. General trade criteria and old threshold-function catalogues are prior; exact 332/692, radius bound, and orbit partition might partly be extractable from a historical table, so no unqualified priority claim for that component.
+
+## value
+
+PASS
+
+PASS: Complete finite classification of a structurally canonical six-voter self-dual majority frame family; a sharp small-integer representation radius plus orbit decomposition are reusable benchmarks. The direct counterexample alters a concrete published six-point index claim, while leaving separate later ten-voter and unbounded constructions untouched. This is substantively motivated exact finite mathematics, not arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
