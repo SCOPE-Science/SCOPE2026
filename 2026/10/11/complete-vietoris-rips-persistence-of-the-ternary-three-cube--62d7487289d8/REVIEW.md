@@ -1,19 +1,21 @@
-# Scientific review — complete Vietoris–Rips persistence of the ternary three-cube
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The underlying 27-point metric and all threshold conventions are explicit. At scale one, all 27 coordinate triangles have free edges and collapse to a connected graph of first Betti number 28. At scale two, the flag condition is identical to independence for the triple categorical product; direct integer-bit enumeration produces 5,949 faces. The exact face-poset matching has 2,951 pairs with one critical vertex and 46 critical 3-faces. All 27,189 codimension-one incidences are checked for directed cycles, making the discrete-Morse wedge conclusion a complete finite proof rather than an extrapolation. Independent mod-two chain ranks agree. At scale three, the full simplex completes the proof and barcode. The built-in algorithm and Python execution are the relevant reproducibility assumptions.
+PASS
 
-## Originality — PASS
+The inclusive Hamming cutoff r∈[0,1) has 27 isolated vertices. At scale one the H(3,3) graph has 81 edges and 27 edge-disjoint filled coordinate triangles, each with a free edge, leaving connected graph with 27 vertices/54 edges and cycle rank 28. At scale two the allowed-pair relation agrees with nonadjacency in categorical K3×K3×K3, so R2=Ind(product). Independently rebuilt all cliques from the 27 triples with an algorithm different from the source, confirming exact f-vector (27,243,945,1728,1620,945,351,81,9), total 5949 faces. Reconstructed ordered vertex toggles deterministically, obtaining 2951 disjoint cover pairs, one critical 0-cell and 46 critical 3-cells. Independently formed every one of the 27189 nonempty-face codimension-one incidences with matched reversal and verified topological-sort visit of all 5949 face vertices. Forman discrete Morse gives a CW complex with one 0-cell and 46 3-cells and no lower positive cells, necessarily a wedge of 46 S3 over integers. At scale three all 27 vertices span the full simplex. Piecewise-constant filtration and vanishing other degrees yield reduced bars 26×[0,1) in H0, 28×[1,2) in H1, 46×[2,3) in H3, plus one unreduced infinite H0 bar; no claim beyond this fixed metric.
 
-A closely relevant full-text source, Antolín Camarena–Carnero Bravo (2023), proves the case with a factor of order two (Proposition 25) and states the arbitrary-three-factor classification as Conjecture 26. The three equal factors of order three fall outside the proved theorem and yield the predicted 46 three-spheres. Goyal–Shukla–Singh (2019) treat two factors, whereas Adams–Frick–Virk (2022) provide a general Rips framework without this finite computation. The closest prior investigations of other Hamming-space topology involve different constructions and do not imply this barcode. Residual risk: an unindexed later proof or equivalent formulation in the theory of intersecting families may cover this fixed case; no global uniqueness claim is warranted.
+## originality
 
-## Value — PASS
+PASS
 
-This is the first uniform-alphabet, no-factor-two test of a specifically published topological conjecture. The exact 46-sphere homotopy type is stronger than a numerical Betti calculation, and the full integral persistence classification connects the conjectural combinatorial model to natural metric topology. The result is deliberately confined to a motivated finite benchmark; no general-alphabet conjecture is claimed.
+The exact scale-two Rips complex on {0,1,2}^3 is canonically Ind(K3×K3×K3), the first symmetric all-three-equal instance of the 2023 paper's explicit Conjecture 26. The 2023/2024 primary paper proves the three-factor subfamily having a K2 factor, NOT K3×K3×K3. The 2021 Goyal–Shukla–Singh result treats only two complete factors and supplies the acyclic vertex-toggle scheme but not the new finite critical cell census. A later same-author path-product paper, binary hypercube Rips homotopy theorem, and Mycielskian paper do not entail the metric ternary claim. Resultary returned the same published SCOPE finding (self-match), not an independent predecessor, and neighboring distinct objects; no exact independent covering prior result was located. The verdict is best-of-knowledge; no failed-search-as-proof inference.
 
-## Closest literature and limitations
+## value
 
-The closest explicit statement is Conjecture 26 of arXiv:2307.12401. Its Proposition 25 does not subsume this case; nor does the two-factor theorem in arXiv:1905.06926. The method is an exhaustive, reproducible proof for a fixed 27-vertex complex, not a symbolic theorem for all alphabet sizes. Related variants using intrinsic Čech complexes have different face sets and different homology. Independent audit has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The ternary three-coordinate Hamming space is a natural next alphabet after binary cubes, and its scale-two Rips complex is exactly the smallest fully equal-non-K2 three-factor case of the specific published Conjecture 26. Computing the integral homotopy type and full barcode provides a meaningful finite benchmark of the conjecture, not an arbitrary tiny parameter substitution: prior homotopy theorems exclude the target and the 5949-face discrete Morse certification is substantial. The 46-sphere integral wedge assertion is stronger than a mod-two Betti count and separates the nontrivial scale-two topology from scale-one circles. The exact fixed space is self-contained and can be used as a test case for future larger-alphabet approaches; a general theorem is not required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
