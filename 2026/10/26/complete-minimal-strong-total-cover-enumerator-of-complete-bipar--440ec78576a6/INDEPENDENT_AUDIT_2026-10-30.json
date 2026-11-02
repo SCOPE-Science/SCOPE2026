@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:51:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Classify omitted vertices U=A\\X and W=B\\X. For U,W both nonempty, all edges UxW are mandatory; any other selected edge is removable, so canonical covers with size m+n-a-b+ab, count binom(m,a)binom(n,b). If U nonempty,W empty, each omitted vertex must select exactly one incident edge; selected B vertices all indispensable iff its function U->B is nonconstant, giving n^a-n choices. Symmetric degeneration gives m^b-m, and all-vertex selection is unique. Subtract overlap of a=1/b=1 to count minimum covers, rewrite exponent m+n-1+(a-1)(b-1), and maximize product for terminal gaps. Direct definition exhaustively classified 575,744 candidate subsets across K2,2 K2,3 K2,4 K3,3 K3,4. Independent paper Claim13 gives prior nondegenerate structural trichotomy but not the degenerate function counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aprile–Ferrarini studies minimum cost cover via trichotomy and greedy degenerate handling; not a general size enumerator.",
+          "Generic minimal-dominating-set enumeration algorithms are broader in graph class, but an algorithm does not by itself supply this exact closed form."
+        ],
+        "reasoning": "The closest source includes a strong structural foundation from which some nondegenerate counts are routine; the nonconstant-function degenerate census and global cardinality gap are not printed in material read. An unindexed derivation from a general enumeration method remains possible.",
+        "searches": [
+          "arXiv:2610.23312v1 Claim 13",
+          "Enumerating minimal dominating sets and variants in chordal bipartite graphs (2025)",
+          "complete bipartite strong total covers minimal dominating incidence graph enumerator cardinality gaps"
+        ]
+      },
+      "checked_sources": [
+        "The Strong Total Cover Problem — https://arxiv.org/html/2610.23312v1",
+        "Enumerating minimal dominating sets and variants in chordal bipartite graphs — 2025 Castelo–Defrain–Gomes preprint (bibliographic description only)",
+        "Resultary semantic search: complete bipartite strong total covers minimal dominating incidence graph enumerator cardinality gaps",
+        "Actual frozen Git package 2026/10/26/complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known structural trichotomy implies the case split, but does not determine how many degenerate covers survive inclusionwise minimality; the nonconstant f:U->B condition yields n^a-n.",
+          "Known minimum cardinality m+n-1 does not imply sizes m+n-1+uv or arbitrary terminal gaps."
+        ],
+        "reasoning": "The full counting theorem is an extension, not the prior minimum result disguised. The first-case binomial term is a straightforward enumeration of prior canonical covers; the new statement is the complete total including degenerate structures and gap law.",
+        "searches": [
+          "arXiv:2610.23312v1 Claim 13 and Proposition 12",
+          "complete bipartite strong total covers minimal dominating incidence graph enumerator cardinality gaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aprile–Ferrarini Claim13 states a trichotomy of minimal covers (canonical nondegenerate; degenerate noncanonical; all vertices), but does not give counts of degenerate functions or entire generating polynomial.",
+          "Proposition 3 relates the cover to domination in the incidence graph."
+        ],
+        "reasoning": "The concept is equivalent to minimal dominating sets of the subdivision/incidence graph, not ordinary domination in K_m,n. Earlier structural trichotomy is properly credited; the full coefficients and gap spectrum are additional results, derived from a refined treatment of degenerate cases.",
+        "searches": [
+          "complete bipartite strong total covers minimal dominating incidence graph enumerator cardinality gaps",
+          "arXiv:2610.23312v1 Claim 13 / Proposition 3 / Proposition 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary multipartite domination results use other feasibility definitions; no table of minimal strong total covers or size gaps matched.",
+          "Source 2026 paper Proposition12 minimum m+n-1, not full coefficient table."
+        ],
+        "reasoning": "A general dominator-count table or ordinary domination polynomial would be mathematically inapplicable unless its ground set is vertices plus edges of the incidence graph. No direct existing exact enumerator was identified.",
+        "searches": [
+          "complete bipartite strong total covers minimal dominating incidence graph enumerator cardinality gaps",
+          "Resultary:2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a",
+          "arXiv:2610.23312v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge: The concept is equivalent to minimal dominating sets of the subdivision/incidence graph, not ordinary domination in K_m,n. Earlier structural trichotomy is properly credited; the full coefficients and gap spectrum are additional results, derived from a refined treatment of degenerate cases. The full counting theorem is an extension, not the prior minimum result disguised. The first-case binomial term is a straightforward enumeration of prior canonical covers; the new statement is the complete total including degenerate structures and gap law. Priority and access limits explicitly preserved.",
+      "residual_risks": [
+        "The core canonical/nondegenerate trichotomy is prior Aprile–Ferrarini Claim13, so the contribution is a refined count and size-spectrum consequence; no new covering definition or minimum claim.",
+        "A prior minimal dominating set polynomial specialized to incidence graphs might have the same closed form under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_TRICHOTOMY but no exact full cardinality polynomial identified",
+          "evidence": "Claim13 lists degenerate noncanonical, nondegenerate canonical and all-vertex cases. Proposition12 gives only minimum cardinality m+n-1; the complete labelled polynomial and cardinality gaps are additional.",
+          "identifier_or_url": "https://arxiv.org/html/2610.23312v1",
+          "material_read": "Complete accessible arXiv HTML, especially §3.2 Proposition12 and Claim13 (lines 249–320), plus definition, proofs and degenerate greedy treatment",
+          "method": "public full-text HTML and in-document theorem inspection",
+          "title": "The Strong Total Cover Problem",
+          "trigger": "Same exact covering notion and graph family"
+        },
+        {
+          "assessment": "RELATED_POSSIBLE: unresolved priority",
+          "evidence": "Generic enumeration of minimal dominating sets may include this incidence case algorithmically; no whole-document statement is inferred.",
+          "identifier_or_url": "2025 Castelo–Defrain–Gomes preprint (bibliographic description only)",
+          "material_read": "Bibliographic title/abstract description only, no full text read",
+          "method": "indexed title/reference",
+          "title": "Enumerating minimal dominating sets and variants in chordal bipartite graphs",
+          "trigger": "Potential broader enumeration technique for incidence graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact coefficient census and sharp missing-cardinality spectrum for natural incidence-graph dominating sets is useful beyond the previously known optimization minimum. The arbitrarily long gap family supplies a structural boundary showing minimal covers need not populate an interval of sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every complete bipartite K_{m,n}, m,n>=2, the full labelled-subset enumerator of inclusionwise minimal strong total covers is the double binomial sum over a,b>=1 plus z^(m+n)[1+sum_a binom(m,a)(n^a-n)+sum_b binom(n,b)(m^b-m)]. It determines the exact number of minimum covers, all attainable cardinalities, unique all-edge maximal cover for m,n>=3 and arbitrarily long terminal gaps.",
+  "limitations": [
+    "The core canonical/nondegenerate trichotomy is prior Aprile–Ferrarini Claim13, so the contribution is a refined count and size-spectrum consequence; no new covering definition or minimum claim.",
+    "A prior minimal dominating set polynomial specialized to incidence graphs might have the same closed form under different terminology.",
+    "No published scientific files were edited; no publication performed.",
+    "Numerical finite examples are not substitutes for the unrestricted mathematical argument."
+  ],
+  "schema_version": 1
+}

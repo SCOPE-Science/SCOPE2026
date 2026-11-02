@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof decomposes minimal covers by whether each part has omitted vertices. Both omitted parts force exactly the induced missing bipartite rectangle; a one-sided omitted part forces a single incident chosen edge per omitted vertex and a nonconstant endpoint map, or some selected vertex is redundant. All chosen vertices with no chosen edges is the final case. Reconstructing these conditions yields the full polynomial. Direct exhaustive verification of independent constraints and deletion minimality agrees in seven small graph cases, including all \(2^{19}\) candidate element subsets for \(K_{3,4}\). Finite tests support, but do not replace, the all-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+Classify omitted vertices U=A\X and W=B\X. For U,W both nonempty, all edges UxW are mandatory; any other selected edge is removable, so canonical covers with size m+n-a-b+ab, count binom(m,a)binom(n,b). If U nonempty,W empty, each omitted vertex must select exactly one incident edge; selected B vertices all indispensable iff its function U->B is nonconstant, giving n^a-n choices. Symmetric degeneration gives m^b-m, and all-vertex selection is unique. Subtract overlap of a=1/b=1 to count minimum covers, rewrite exponent m+n-1+(a-1)(b-1), and maximize product for terminal gaps. Direct definition exhaustively classified 575,744 candidate subsets across K2,2 K2,3 K2,4 K3,3 K3,4. Independent paper Claim13 gives prior nondegenerate structural trichotomy but not the degenerate function counts.
 
-The initiating Aprile–Ferrarini primary text is acknowledged for the precise notion, minimum size and canonical nondegenerate structural branch (Proposition 12, Claim 13). Its conclusions do not provide the count of nonconstant-function degenerate minimal covers, the full polynomial, exact minimum multiplicity, or arbitrarily long gaps. Comparisons with mathematical records, past claims on rook graphs, and minimal-domination terminology found no equivalent statement. Possible unseen subdivision-graph counting literature remains a priority risk; non-detection is not uniqueness certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete coefficient law controls every inclusionwise minimal cover and the equivalent minimal dominating sets of incidence subdivisions, rather than only a minimum objective. The theorem determines the unique upper extremum and an exact arbitrarily long gap in the support, a substantive structural feature of this natural two-parameter family.
+Best-of-knowledge: The concept is equivalent to minimal dominating sets of the subdivision/incidence graph, not ordinary domination in K_m,n. Earlier structural trichotomy is properly credited; the full coefficients and gap spectrum are additional results, derived from a refined treatment of degenerate cases. The full counting theorem is an extension, not the prior minimum result disguised. The first-case binomial term is a straightforward enumeration of prior canonical covers; the new statement is the complete total including degenerate structures and gap law. Priority and access limits explicitly preserved.
 
-## Scope and residual limitations
+## value
 
-Only complete bipartite graphs are treated. The top gap requires both part sizes at least three. No claim about generic host graphs or unknown historical priority is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact coefficient census and sharp missing-cardinality spectrum for natural incidence-graph dominating sets is useful beyond the previously known optimization minimum. The arbitrarily long gap family supplies a structural boundary showing minimal covers need not populate an interval of sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
