@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses Python 3 standard-library `fractions`, `itertools`, `collections` and `math`, and requires no external files or services. Run `python verify.py` from the extracted package directory. It directly enumerates all finite partial injections, checks distance preservation on all pairs in their domains, rejects directed cycles, determines the nilpotency index by following every orbit, and counts the rank/index cells.
+## correctness
 
-Separately, the verifier expands the two labeled component generating functions using rational arithmetic and factorial normalization; it does not reuse the graph-metric predicate when producing the predicted coefficients. Both methods agree for all ordered part sizes \(1\leq a,b\leq4\) with \(a+b\leq7\) (15 configurations), including balanced and unequal-part graphs. The sharp maximum-index and extremizer formulas are checked against the direct counts in the same configurations. The previously established star case is included in tests as a boundary check, not as a new research claim.
+PASS
 
-Expected stdout: `VERIFY_OK 15 complete bipartite graph sizes; every rank/index cell and maximal-chain count`.
+In K_{a,b} with a,b>=2, any nonempty distance-preserving partial injection has exactly one part-preserving or part-swapping orientation: within-part pairs have graph distance two, cross-part pairs distance one, singleton sources still determine the target part. A nilpotent injection is a labeled assembly of directed paths without cycles, with index the longest path vertex count and rank its arrow count; the two orientation-class exponential EGFs P_L and Q_L count all such assemblies and overlap only at the empty map. Finite bidegree extraction and successive cutoffs give exact full rank-index polynomial. Comparing maximal within-side path length a versus alternating length 2b+1 (a>=b), with disjoint mechanism counting at the tie a=2b+1, proves all four phase formulas. Independently enumerated every partial injection and tested every distance pair and orbit cycle for K_2,2, K_3,2, K_4,2, K_5,2 and K_3,3, reproducing index histograms 1,24,8,8 and 1,56,60,24,12 and 1,138,224,120,48, plus extremal index/count for all five instances. The general result rests on symbolic combinatorial arguments, not small enumerations.
 
-Exhaustive finite checks support the formulas but do not prove the unrestricted theorem; the proof uses the two-orientation decomposition, cycle-free path assemblies, and direct extremal counting. No independent audit has been performed.
+## originality
+
+PASS
+
+Known star (one part has size one) and C4 cycle (a=b=2) cases are explicitly excluded as independent novelty. The inspected cycle paper describes full monoid structure/cardinality/presentation and not the complete a,b>=2 nilpotent joint rank/index EGF and sharp imbalance transition; related published mathematical records address different invariants. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The two-color path-assembly formula is a natural complete joint rank/index distribution of a concrete inverse monoid family, while the exact longest-chain phase boundary at a=2b+1 exhibits distinct mechanisms and counts. Nontrivial colored combinatorics and explicit extremizers give a usable structural invariant beyond a general EGF tautology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
