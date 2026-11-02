@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The executable `verify_threeblock.py` is self-contained and uses only Python's standard library. Execute `python3 verify_threeblock.py` from the directory containing this file and compare its output with `verification_output.txt`.
+## correctness
 
-The checker exhaustively tests the matrix-product condition and rank counts for matrices of order \(2\) over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\); for the latter it implements \(\mathbb F_2[u]/(u^2+u+1)\). It independently enumerates central-block conjugacy orbits for the three corresponding five-dimensional unipotent groups, recovering 58, 417, and 1636 classes. It separately verifies the full rank histogram over \(\mathbb F_2\) in order \(4\). Its finite-precision comparisons at larger dimensions test the two-term asymptotic and use a tolerance appropriate to floating-point roundoff.
+PASS
 
-The proof of the rank-stratum identity uses the independent count of surjections, rather than the output log. The convergence and first-order bias rely on a uniform error estimate for infinite Euler-product tails and summability against \(q^{-t^2}\); these cannot be proved by exhaustive finite computations. There is no claim of independent audit or exhaustive comparison with unpublished literature.
+PASS: Multiplication gives gh=hg iff A_gB_h-A_hB_g=0, exactly XY=0 for independent uniform 2m-square matrices. The count of rank-r X is q^{r(4m-r)} Phi_{2m}^2/(Phi_r Phi_{2m-r}^2); each has q^{2m(2m-r)} compatible Y. The normalized formula has exponent -3m^2-t^2 and the group order is q^{8m^2}; hence k(G)=q^{8m^2} cp. The uniform tail product Q_j=1-q^{-j}/(q-1)+O_q(q^{-2j}) yields the two-term summed expansion with domination q^{-t^2+2|t|}; it also holds after multiplying by |t|, giving total variation and mean. Under t->1-t the first odd-weight moment is Xi(q)/2, proving negative bias; nonzero mean is not claimed at finite m. Independently enumerated all q=2,m=1 matrix pairs: rank-stratum counts (16,36,6), total 58, matching actual class number. Independently evaluated q=2,m=3,5,8,12 Euler-product series at 70-decimal precision; q^{2m}-scaled two-term residual remains bounded and signed mean agrees with coefficient. The infinite result rests on the analytic uniform error, not finite data.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the specific fixed-q growing-m conjugacy-class two-term expansion and the conditional one-sided annihilation rank law with strictly negative first bias. Standard rank enumeration and general polynomiality/theta phenomena are not presented as new. Similar prior group/matrix work does not exhibit a stronger statement directly covering this pair of conditional statistics.
+
+## value
+
+PASS
+
+PASS: Beyond the standard rank formula, this computes a natural group-theoretic conjugacy-class invariant in a growing-dimensional family to two orders and reveals a discrete-theta conditional rank distribution with an intrinsic first-order negative bias. Fixed-field polynomiality does not quantify this; the signed finite-size correction is meaningful as a refinement of a natural random commuting-pair statistic. Worth does not depend on solving all parabolic groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

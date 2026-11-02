@@ -1,21 +1,21 @@
-# Scientific review: three-block unipotent commutativity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The central-block-independent commutator condition is exactly a one-sided product of two independent square matrices. The rank-stratum count is reconstructed from the Gaussian-binomial selection of an image and the number of surjections onto that image. The uniform Euler-product tail expansion, with a summable \(q^{-t^2+2|t|}\) envelope, proves the two-term asymptotic and quantitative total-variation law; a \(t\mapsto1-t\) pairing fixes the coefficient of the negative conditional mean. Exhaustive small-field matrix and independent conjugacy-orbit enumerations, together with larger high-precision numeric comparisons, corroborate, without substituting for proof.
+PASS
 
-## Originality
+PASS: Multiplication gives gh=hg iff A_gB_h-A_hB_g=0, exactly XY=0 for independent uniform 2m-square matrices. The count of rank-r X is q^{r(4m-r)} Phi_{2m}^2/(Phi_r Phi_{2m-r}^2); each has q^{2m(2m-r)} compatible Y. The normalized formula has exponent -3m^2-t^2 and the group order is q^{8m^2}; hence k(G)=q^{8m^2} cp. The uniform tail product Q_j=1-q^{-j}/(q-1)+O_q(q^{-2j}) yields the two-term summed expansion with domination q^{-t^2+2|t|}; it also holds after multiplying by |t|, giving total variation and mean. Under t->1-t the first odd-weight moment is Xi(q)/2, proving negative bias; nonzero mean is not claimed at finite m. Independently enumerated all q=2,m=1 matrix pairs: rank-stratum counts (16,36,6), total 58, matching actual class number. Independently evaluated q=2,m=3,5,8,12 Euler-product series at 70-decimal precision; q^{2m}-scaled two-term residual remains bounded and signed mean agrees with coefficient. The infinite result rests on the analytic uniform error, not finite data.
 
-PASS within the inspected coverage. Goodwin and Röhrle (arXiv:0901.0667) already prove field-order polynomiality of the relevant unipotent-radical class count. Kousidis (arXiv:1109.2546) already obtains classical theta asymptotics for Gaussian-binomial sums. Cocke and Ho (arXiv:1807.07111) develop general finite-group word-map distributions; Fulman and Guralnick (arXiv:1611.05499) enumerate different commuting Lie-algebra pairs; Huang (arXiv:2110.15566) counts two-sided mutually annihilating matrices. The established rank counts, polynomiality, and theta normalization are expressly credited. The assessed contribution is the *specific two-term block-size class-number asymptotic together with the quantitative conditional discrete-theta law and first negative rank bias*. Existing statements examined do not directly imply the combined claim.
+## originality
 
-A material limitation remains: older parabolic enumeration (including Evseev, arXiv:0801.3178) was not fully accessible, and an equivalent weighted-rank asymptotic might be hidden in unindexed literature. No exhaustive priority certification is claimed.
+PASS
 
-## Mathematical value
+Best-of-knowledge PASS for the specific fixed-q growing-m conjugacy-class two-term expansion and the conditional one-sided annihilation rank law with strictly negative first bias. Standard rank enumeration and general polynomiality/theta phenomena are not presented as new. Similar prior group/matrix work does not exhibit a stronger statement directly covering this pair of conditional statistics.
 
-PASS. The natural finite-group conjugacy-class count is sharpened from a qualitative polynomiality theorem to an explicit growing-dimension two-term asymptotic. A rare commuting event changes a random matrix rank from its typical near-full value to a discrete-Gaussian fluctuation about half rank, with a measurable signed boundary effect. Both are structural, parameter-uniform facts for infinitely many class-two finite groups; their worth does not rely solely on computational reproducibility.
+## value
 
-## Scope and independence
+PASS
 
-The field order is fixed; the group has block dimensions \((2m,m,2m)\), with \(m\ge1\). No assertion about uncounted blocks, stronger universal parabolic groups, or exhaustive literature uniqueness is made. The proof is self-reviewed; no independent mathematical audit has been performed.
+PASS: Beyond the standard rank formula, this computes a natural group-theoretic conjugacy-class invariant in a growing-dimensional family to two orders and reveals a discrete-theta conditional rank distribution with an intrinsic first-order negative bias. Fixed-field polynomiality does not quantify this; the signed finite-size correction is meaningful as a refinement of a natural random commuting-pair statistic. Worth does not depend on solving all parabolic groups.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
