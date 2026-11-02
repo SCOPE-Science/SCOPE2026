@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof isolates a necessary-and-sufficient condition for the product \(ef\) to be idempotent: each \(e\)-root whose fiber meets \(\operatorname{im}(f)\) must map under \(f\) into that fiber. A disjoint three-type rooted-block decomposition then gives a fully reversible labeled exponential generating function and the closed coefficient formula, including all factorials, normalization and zero cases. The independent verifier exhaustively checks actual map compositions for sizes \(1\) through \(6\) and uses a separate root-set count for sizes \(1\) through \(4\). Tests support but do not replace the universal proof.
+PASS
 
-## Originality
+For e-anchor a with kernel fiber P_a and f-image roots B, ef fixes its image e(B) iff f(a)∈P_a for each e-fiber meeting B. Partition rooted e-fibers into those without f-root, those whose anchor is an f-root, and those with an f-root away from the anchor, giving exponential block weights sz exp(sz), v x z exp((s+x)z), v x z² exp((s+x)z). Labeled set exponential formula yields claimed EGF. Extract u^r v^t x^s z^n via coefficients: s^(r-t) t^(s-t) z^(r+s-t)(1+z)^t exp(rs z)/[(r-t)!t!(s-t)!]. This recovers exact rank-triple formula including support n>=r+s-t and ordered composition convention. Independently brute-enumerated all idempotent maps on n=1..5 and every pair, computed actual products and rank triples, obtaining total qualifying ordered pairs [1,9,94,1417,28856] and exact agreement for every triple. Finite checks corroborate the reversible all-n labeled-block proof.
 
-**PASS with recorded priority risk.** Prior literature analyzes skew-pair existence, factorization lengths, and the biordered set of idempotent maps. The inspected primary structural theorem (Gray–Ruškuc, arXiv:1101.1833) and inspected later skew-pair article (Luangchaisri–Changphas, DOI:10.3390/math10010002) do not state the complete three-rank enumeration. In particular, a rank-refined count of commuting idempotents does not determine the noncommuting cases counted here. The close 2006 Blyth–Almeida Santos paper could not be fully accessed; its abstract concerns existence, and the possibility of implicit equivalent coverage remains a limitation. Search non-results are not treated as proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Product idempotence is the defining condition underlying a natural class of idempotent pairs and its failure distinguishes skew pairs. The exact joint rank spectrum and support classification provide a complete natural finite algebraic enumeration for all labeled sizes, beyond the commuting subcase and beyond a numerical table.
+Classical transformation-semigroup work on skew pairs, kernel partitions and maximal groups does not in inspected texts give joint (rank e,rank f,rank ef) enumeration. A full 2006 skew-pair article was inaccessible despite authorized attempt, so equivalent historical enumeration is a named priority risk. Distinction from commuting pairs is substantive: n=3 has 94 admissible vs 58 commuting pairs. Qualified originality PASS based on the new exact triple distribution, not idempotent structure itself.
 
-## Closest literature and limitations
+## value
 
-Relevant references are Gray–Ruškuc (2011), Blyth–Almeida Santos (2006), Howie (1984), and Luangchaisri–Changphas (2021). The claim is restricted to two total idempotent maps and the rank triple of an idempotent product. It does not enumerate skew-pair types separately, factorization fibers of individual maps, or partial-map analogues. Historical priority is not independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-rank spectrum is a natural structural invariant of ordered idempotent pairs with one-sided composition idempotence in the full transformation monoid. Complete coefficient distribution for all n separates genuinely noncommuting arrangements and determines which rank triples occur. This is an exact natural finite-algebra census of unbounded size, useful without a downstream general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
