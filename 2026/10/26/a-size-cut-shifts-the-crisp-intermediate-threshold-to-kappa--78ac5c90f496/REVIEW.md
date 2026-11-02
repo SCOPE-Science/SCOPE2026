@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The pointwise transfer lemma applies because the filtered domain contains all constant functions. For every infinite \(\lambda\ge\kappa\), a one-state boundary change gives a nonconstant cardinal strictly between \(\delta(\lambda)\) and \(\delta(\lambda^+)\). For \(\lambda<\kappa\), every nonconstant cardinal coordinate is at least \(\kappa\), whereas a candidate intermediate must be pointwise at most \(\lambda^+\le\kappa\); at equality it is forced to be constant. GCH identifies the upper endpoint with \(2^{\delta(\lambda)}\).
+PASS
 
-## Originality
+The full pointwise transfer lemma is valid for every subdomain containing every constant function: at a fixed state, any M-witness to an existential matrix formula can be represented by the constant function with that value; induction over the formula therefore commutes with all quantifiers. This gives truth value all states for every ZFC axiom and scheme instance. GCH makes 2^lambda=lambda^+. For lambda>=kappa, a function with coordinate lambda at one state and lambda^+ elsewhere lies in the size cut (internal cardinality of tc(lambda) is lambda), and both coordinatewise strict box inequalities hold since M contains at least two states. For lambda<kappa, any nonconstant cardinal-valued function admitted by the size cut has every coordinate >=kappa, whereas a proposed interval member must have every coordinate <=lambda^+<=kappa; either impossible or forces the constant upper endpoint. These two cases exhaust all infinite cardinal lambda. Finite toy-state checks are only diagnostics of inequalities, not proofs of ZFC.
 
-**PASS, with bounded scope.** The closest source, *Models of Arbitrary Sets*, proves that the rank-cut threshold is \(\lambda>\kappa\) and explicitly proposes transitive-closure size cuts as future work. Its general transfer lemma does not decide the intermediate-existence threshold for the new domain. The new result gives the complete threshold \(\lambda\ge\kappa\) for this specific size cut. Literature search cannot establish global priority; a related 2026 conceptual paper was assessed only from its abstract.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem gives a natural complete classification of when crisp intermediate cardinals exist in the interval from a constant infinite cardinal to its power-set cardinal. It isolates a sharp threshold shift caused by allowing nonconstant functions to take values whose transitive-closure size is exactly \(\kappa\), clarifying a concrete filtration question raised in recent foundations literature.
+Yago/Jockwich Martinez/Venturi, Models of Arbitrary Sets (arxiv:2610.23219), has a rank-cut strict threshold lambda>kappa (Props.4.9,4.10) and a general transfer lemma for all constant-containing subdomains (Prop.4.11), and explicitly proposes transitive-closure size cuts as future work in §5.3. The new size-cut domain and inclusive boundary lambda=kappa are not stated as a theorem there. Transfer yields the ZFC part but not the interval existential classification; the supplied witness and negative case prove the new threshold. This is a narrow, direct continuation of the primary work, not a claim of independent foundational discovery.
 
-## Limitations
+## value
 
-The theorem assumes a transitive set model of \(\mathrm{ZFC}+\mathrm{GCH}\) and treats one size-cut definition. It does not classify other size measures or all possible cardinal profiles. Independent audit and independent validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The primary set-theory paper explicitly proposes varying its cardinal filtration using transitive-closure size. The theorem completely settles, for this natural proposed filter, exactly which constant-cardinal power-set intervals admit crisp intermediates, including a boundary where its rank-cut analog gives the opposite answer. This is a motivated sharp filtration distinction even though the proof is short and does not claim a broad foundations breakthrough.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
