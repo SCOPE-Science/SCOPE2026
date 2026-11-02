@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:03:55.462157Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md vacant-interval equations, trimer_verify.py and trimer_transient.py read, independent ODE residual construction at multiple rates/times; full Lebovka primary."
+      ],
+      "rationale": "For each vacant length n>=3 interval, the loss equation has n-2 internal triple starts and exactly four starts crossing its boundaries; all four extensions have lengths n+1 or n+2. The candidate E_{i,n}=exp(-t sum_{j=i}^{i+n-3}r_j) u_parity(i)u_parity(i+n-1) with the two displayed u0,u1 ODEs satisfies each equation. The bounded linear hierarchy uniqueness follows from Duhamel/Gronwall after factoring negative diagonal terms; the probability solution is bounded, so the ansatz is the correct infinite-lattice vacancy probability. Successful triple arrival rates are a exp(-at)u0^2 and b exp(-bt)u1^2; counting two even/one odd, or reverse, yields C0=2J0+J1, C1=J0+2J1. For b=eps->0, on compact fast time u0,u1->exp(-(1-e^{-at})), yielding J0->(1-e^-2)/2. Uniform tail bounds give u1(s/eps)->e^-1 for each s>0; changing variable v=eps t and dominated convergence gives J1(s/eps)->e^-2(1-e^-s), including s=infinity. This proves exact singular jump in mean 3e^-2/2 between b downarrow0 after jamming vs b=0 initially. Independently checked 44 vacancy hierarchy equations at each of four times for rates (1,1),(1,.2),(2,3),(.1,1) with fresh SciPy ODE integration and independently formed residuals.",
+      "residual_risks": [
+        "The s>0 pointwise slow-scale limit is not asserted uniform through s=0; finite numerical tolerance cannot prove the infinite-volume hierarchy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1994 abstract explicitly reports exact linear-chain sublattice coverage as function of adsorption probability, a potentially dominating general result if its footprint includes length-three segments. 2011 full paper focuses orientation on 2D square lattice. 1993 is general classical RSA review."
+        ],
+        "reasoning": "The possible broader 1994 theorem is flagged as potentially covering rather than declared inapplicable. Existing evidence does not determine if it specializes to the specific 3-site alternating-start model and noncommuting slow rate/time limit.",
+        "searches": [
+          "de Oliveira Tomé Phys Rev E 50 (1994) 4523 DOI:10.1103/PhysRevE.50.4523",
+          "Lebovka Karmazina Tarasevich Laptev arxiv:1109.3271v1",
+          "Evans Rev Mod Phys 65 (1993) 1281"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git source RESULT.md, two numerical scripts and self-review",
+        "APS 1994 DOI abstract and publication info",
+        "arxiv:1109.3271v1 full PDF and rendered page",
+        "Evans RMP 1993 bibliographic/abstract context",
+        "Resultary semantic query for alternating trimer RSA"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2011 2D orientation anisotropy and classical 1D homogeneous formulas do not algebraically imply alternating-start 2-component ODE. 1994 close abstract alone cannot answer implication because its particle geometry and full equations are inaccessible."
+        ],
+        "reasoning": "Conditional on the published 1994 model being a different exclusion process, this is a distinct exact trimer result. If it includes the same trimer exclusion/rate rule and an equivalent exact expression, O must be reconsidered. The current assessment is explicitly best knowledge with high source risk, not categorical novel certification.",
+        "searches": [
+          "doi:10.1103/PhysRevE.50.4523 abstract",
+          "arxiv:1109.3271 full PDF",
+          "Evans RevModPhys 65 (1993)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Adsorbing 3-site contiguous hard segments with clocks distinguished by left endpoint is not automatically equivalent to adsorbing single particles at even/odd vertices with nearest-neighbor exclusion. The 1994 abstract does not identify its exclusion particle footprint.",
+        "reasoning": "The same notions of sublattice coverage and time-dependent exact 1D kinetics appear in the closest paper. Without the full exclusion rule an equivalence is neither established nor ruled out; do not infer coverage from title or noncoverage from abstract.",
+        "searches": [
+          "Resultary semantic query random sequential adsorption 1D trimers alternating parity rates",
+          "APS 1994 de Oliveira Tome inhomogeneous random sequential adsorption bipartite lattices",
+          "Evans 1993 empty interval hierarchy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform 1D trimers have known mean coverage about 0.82365296; present claim asks both sublattices and b->0 discontinuity. No accessible exact source table with those boundary values was read."
+        ],
+        "reasoning": "Not a recomputation of homogeneous jamming, but the inaccessible 1994 exact time dependent coverage could yield equivalent values; search failure is not proof.",
+        "searches": [
+          "Published Resultary trimer alternating rate jamming search",
+          "Classical uniform k-mer RSA jamming benchmark Lebovka 2011",
+          "1994 APS abstract exact sublattice time profile"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, with particularly serious named priority risk. Classical 1D homogeneous trimer RSA and empty-interval techniques are prior. Lebovka et al. arXiv:1109.3271 full primary discusses two-dimensional orientation anisotropy and uniform 1D baseline, not alternating 1D start positions in its inspected model. The highly plausible 1994 de Oliveira–Tomé paper *Inhomogeneous random sequential adsorption on bipartite lattices* states exact time-dependent 1D sublattice coverage under inhomogeneous adsorption, but its abstract does NOT specify the exclusion footprint or whether its full result implies this trimer ODE and singular limit. arXiv and lawful OA access attempts were unsuccessful, and authorized Oxford returned vpn_disconnected (no bypass). Abstract-only access is not taken as whole-document NOT_COVERING. There is no demonstrated exact implication; its unresolved priority remains an explicit material risk.",
+      "residual_risks": [
+        "High priority: de Oliveira–Tomé (1994) full text inaccessible; its exact linear-chain sublattice coverage might include a model that implies this specific trimer result.",
+        "Oxford institutional full text attempt returned vpn_disconnected; no bypass, no assertion that inaccessible paper is noncovering.",
+        "An older exact generalized inhomogeneous k-mer empty-interval hierarchy might contain equivalent formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIAL_STRONG_COVERAGE_NOT_RESOLVED_FROM_ABSTRACT",
+          "evidence": "1994 paper claims exact time-dependent sublattice coverage for linear chain but abstract does not establish whether particles occupy three consecutive sites or whether b->0 slow crossover follows.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.4523",
+          "material_read": "APS published abstract, bibliographic details, and exact-1D coverage assertion ONLY; complete article inaccessible, particle footprint unknown",
+          "method": "APS publicly available abstract, lawful OA searches, authorized Oxford full text attempt (vpn_disconnected)",
+          "title": "Inhomogeneous random sequential adsorption on bipartite lattices",
+          "trigger": "Highest-priority title and matching parity-dependent 1D occupancy"
+        },
+        {
+          "assessment": "RELATED_NOT_THE_ALTERNATING_START_RATE_MODEL",
+          "evidence": "Focuses two-dimensional square-lattice orientation anisotropy; 1D homogeneous k-mer formulas are classical baseline.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.3271",
+          "material_read": "Full 12-page arXiv PDF, model and introduction, rendered page 2 discussing 2D orientation choices and 1D baseline",
+          "method": "OA arXiv full PDF and page image",
+          "title": "Random sequential adsorption of partially oriented linear k-mers on square lattice",
+          "trigger": "Same trimer geometry and uniform reference benchmark"
+        },
+        {
+          "assessment": "GENERAL_METHOD_PRIOR",
+          "evidence": "Classical empty-interval methods and homogeneous k-mer jamming are prior; no whole-document novelty exclusion inferred.",
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+          "material_read": "General published source citation and abstract-level model context; full review not read in this execution",
+          "method": "Publisher bibliographic abstract and literature background",
+          "title": "Random and cooperative sequential adsorption",
+          "trigger": "Classical RSA exact-hierarchy source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Random sequential adsorption, empty interval hierarchies, singular perturbations, two-stage defect filling and sublattice coverage."
+      ],
+      "rationale": "Parity-dependent deposition rates are a natural kinetic perturbation in irreversible hard-segment adsorption. The complete finite-time two-component infinite-volume closure is an exact tractable inhomogeneous RSA model; the slow b->0 limit yields a noncommutation of jamming and parameter limit with an explicit nonzero coverage jump 3e^-2/2 and a universal exponential slow-time profile. Both the object and invariant are physically/mathematically motivated, and the result is not a finite simulation or a trivial homogeneous parameter substitution.",
+      "residual_risks": [
+        "Priority risk from 1994 exact bipartite adsorption source is substantive and must be revisited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Irreversible length-three segments on infinite Z, alternating start rates a,b>0, fixed s>0 slow-time limit; b=0 separate boundary.",
+    "1994 primary DOI full text uninspected due authorized VPN disconnected; high historical-priority risk."
+  ],
+  "schema_version": 1
+}
