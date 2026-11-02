@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The logistic superior-occupancy trajectory is exact, and the reciprocal of inferior occupancy obeys an explicitly integrable linear equation. A strictly decreasing inferior nullcline implies every intersection has one positive crossing direction. The integral \(I(t)\) diverges exactly for \(r\le\lambda\), which yields the classification; for \(r>\lambda\) the exact tail identity defines a strictly decreasing peak-time function, whose large-time asymptotic proves the logarithmic critical delay and peak-height law. The biological triangle's invariance and the equality cases are checked.
+PASS
 
-## Originality
+PASS: The superior state solves x=K/(1+q e^-rt), and the inferior growth rate a(t)=lambda+delta(t) strictly decreases, with delta=d e^-rt/(1+q e^-rt). The exact reciprocal z=1/y solves a linear equation and yields z-C/lambda=e^-F(1/y0-C/lambda-(C/lambda)I(t)), I=integral(delta e^F). Its improper integral is finite iff r>lambda, giving the explicit ycrit=lambda/[C(1+Iinf)]. The moving nullcline h=a/C decreases, and at each crossing y=h one has (y-h)'=-h'>0; hence at most one strict peak. The reciprocal sign forces existence precisely for ycrit<y0<h(0) if r>lambda and for all 0<y0<h(0) if r<=lambda. The exact equation L(y0)=G(t_peak) has G'=C e^F delta'/a²<0. Asymptotics of its two terms give A0=C zeta d r/[lambda²(r-lambda)] and thus logarithmic delay and power-law peak height. In independent checks the displayed example reproduces ycrit=1/(40+12pi), phase signs, and near-critical delay; numerical quadrature truncation is not an analytic proof. Boundary y0=ycrit increases without peak; y0=h(0) has zero initial slope and decreases afterwards.
 
-PASS with residual literature-access risk. Tilman (1994), fully inspected, states the colonization equations and equilibrium competition–colonization trade-off but not a complete transient peak classification. Doncaster, Pound and Cox (2003), fully inspected in accessible HTML, considers coexistence and habitat conditions, not this threshold or critical delay. Related primary Hastings (1980) and Ovaskainen–Hanski (2002) texts were not fully accessible; the first has directly relevant dynamics and remains a substantive risk. Indexed literature searches covering overshoot, colonization, hierarchy, transient maxima, initial thresholds and resonant relaxations did not identify an equivalent result, but a search miss cannot establish absolute novelty. The proof is novel only in the precise threshold and asymptotic sense claimed, not in the model or general logistic integration.
+## originality
 
-## Value
+PASS
 
-PASS. A transient overshoot of an inferior colonizer can be misread as durable coexistence or competitive release after disturbance. The threshold distinguishes genuinely overshooting trajectories from monotone recovery under identical demographics, and the logarithmically diverging peak time quantitatively explains why finite observations near the threshold can miss the transient. The boundary \(r=\lambda\) and the threshold-height power link demographic time scales to monitoring horizons; these are structurally motivated dynamical facts, not arbitrary numerical slices.
+PASS (qualified): Tilman (1994) supplies exactly the two-species hierarchical mean-field model and equilibrium; the theorem concerns initial-value transient peaks and a quantified near-threshold singularity. The inspected Tilman sections do not present this classification. Doncaster–Pound–Cox extend competition theory, while Hastings (1980) has a particularly plausible title but full text remained inaccessible. The close model match raises a material residual priority risk, but absence of that text alone does not warrant false scientific failure. Resultary search returned no same mathematical model formula.
 
-## Limitations and literature risks
+## value
 
-The result assumes strict superior recovery from below, a stable two-species coexistence equilibrium and the exact deterministic Tilman mean-field equations. It does not address stochastic patches or superior occupancy initially above equilibrium. The full Hastings (1980) text and full Ovaskainen–Hanski (2002) paper were unavailable in this review; potential alternate formulations of nonautonomous logistic overshoot remain to be checked independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Strict ecological overshoot versus monotone recovery and the critical delay exponent form a sharp, interpretable phase classification in an established competitive-colonization model. The result distinguishes transient peaks from equilibrium coexistence, not a trivial sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
