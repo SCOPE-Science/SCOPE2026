@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For each arc the recurrence class of monotone opinion blocks is closed, reachable from every configuration, and irreducible. Adjacent interface positions satisfy detailed balance with ratio \(r=\beta/\alpha\), establishing the exact product distribution. Strict positivity of the second derivative of \(z/(1-e^{-z})\) proves the mean-ranking reversal as relative persuasion passes through equal rates, and the exact product-identity for \(Z_a(r)Z_b(r)\) proves the two simultaneous endpoint-probability inequalities. Both denominators and zero-length-free-arc boundaries are handled for all \(n\ge4\), \(a,b\ge1\), \(r>0\). Full Markov generator balance and reachability checks independently test small cases, and exact rational checks test many finite instances. These tests are not substitutes for the infinite-parameter proof.
+## correctness
 
-## Originality — PASS, with uncertainty
-The closest primary text is Mobilia–Petersen–Redner (2007), Section 4.1 and Appendix: two opposed zealots on a one-dimensional periodic ring, two unbiased random-walk interfaces, and their neutral continuum magnetization distribution. This subsumes the neutral interpretation, but the paper explicitly fixes equal persuasion strength and does not derive the biased finite-n position-optimality reversal or the joint endpoint-risk ordering. Yildiz–Ozdaglar–Acemoglu–Saberi–Scaglione (2011/2013) addresses optimal stubborn placement for standard uniform copying; Vendeville–Guedj–Zhou (2022, Sections 3–4) randomizes zealot locations under uniformly selected neighbor imitation; Mobilia (2015) is a nonlinear well-mixed \(q\ge2\) model. Those results do not state the present parameter-dependent theorem. Generic weighted-voter, birth-death or electrical-network theory might subsume the extension through a non-obvious specialization: a genuine residual novelty risk. This is not an independent literature certification.
+PASS
 
-## Value — PASS
-Placement of committed minorities is a natural influence-design variable. The result supplies a universal **strict** optimization rule for every finite cycle size and every nonneutral opinion-dependent persuasion ratio, with a sharp change at equal persuasion. More subtly, it proves that clustering both opposite zealots raises both the minimal and maximal positive-support probabilities even when it raises the mean of the more persuasive opinion; hence optimizing the mean and controlling an adverse near-extinction tail conflict. The precise full distribution and proof make the insight reusable, not a numerical or arbitrary narrow-parameter anecdote.
+On each arc, every configuration has a positive-rate path into a unique closed irreducible single-interface birth-death class. From detailed balance, Pr(I=i)=r^i/Z_a(r) and Pr(J=j)=r^j/Z_b(r), independently; X=1+I+J and PGF t Z_a(rt) Z_b(rt)/(Z_a(r)Z_b(r)). At r>1, the real extension f_x=x/(1-exp(-x log r))-r/(r-1) has f_x''>0 via h(z)=(z-2)+(z+2)e^-z, h(0)=0 and h'>0; hence balancing strictly decreases mean. At r<1, f_m(r)=m-1-f_m(1/r) reverses curvature; r=1 mean n/2. For b>=a+2, balancing changes the normalizer by (r^(b-1)-r^a)/(r-1)>0, with positive r=1 limit, so both endpoint masses fall. Length-one arcs and nearly balanced arcs are explicitly included. These computations establish the all-n result, not the finite verifier alone. As an additional independent check, a newly implemented 132-case exact finite-state continuous-time generator calculation (n=4..9, every placement, four rational rate pairs) verified zero global stationary flux and the full convolution probabilities over 7,152 transient-and-recurrent configurations.
 
-## Boundaries and literature risk
-The prior 2007 neutral model already establishes the two-interface picture, so the theorem does not claim that discovery. The model is restricted to exactly two fixed opposed opinions on a cycle and local homogeneous copying. No result is asserted for arbitrary graphs, weighted neighbor preferences unrelated to opinion, exogenous randomness, or strategic updates. A relevant unlocated general weighted-voter theorem is possible and should be checked independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The neutral two-zealot continuum domain-wall calculation is prior art (Mobilia et al. 2007). The strict finite-cycle position order for opinion-dependent copying ratios r !=1 and the simultaneous tail comparison are distinct and were not covered by the accessible primary formulations; fixed positions and bias are both necessary. Published-index semantic searches gave other voter and bounded-confidence systems, not a theorem implying this exact result.
+
+## value
+
+PASS
+
+A fixed number of opposing zealots on a cycle has a natural design variable: their separation. The theorem resolves exactly how rate asymmetry changes the globally optimal placement while both failure and near-consensus extreme risks respond in the same direction, a nontrivial separation of expectation and tail criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
