@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:49:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Identified the edge/base polytope as the simplex sum x_i=2, x_i>=0, class sums<=1. With Y=X/2 the ambient uniform simplex has Dirichlet(1,...,1) coordinate law, with block totals Dirichlet(m,...,m); the truncation max T_j<=1/2 is exactly the polytope and its forbidden events T_j>1/2 are pairwise disjoint, giving h=1-rp_{m,k}. Tilted-Dirichlet second moments yield u=E[T_1^2|cap] with tails p_{m+2,k},p_{m,k+2}. Block permutation symmetry and the conditional within-block Dirichlet(1,...,1) covariance yield the two eigenvalues on orthogonal subspaces of dimensions r(m−1) and r−1. Applied two beta half-tail recurrences to derive the exact positive gap 2^(1−rm)(r−2)/[(r−1)(m+1)((r−1)m+1) B(m,(r−1)m)h], hence strict finite anisotropy. Stirling and h→1 give C_r sqrt(m) rho_r^m with rho_r<1. An independent Fraction/binomial-sum calculation verified both eigenvalues, exact gap and positivity for 45 (r,m) pairs r=3..7,m=2..10 including (3,2): 4/49 vs 5/147, gap 1/21. Algebra, not finite tests, proves the infinite parameter family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard Dirichlet moment identities for conditioning on coordinate sums produce u when combined with the disjoint half-caps observation",
+          "The two inspected matroid papers provide stronger generality in *combinatorial* matroid parameters but not this observable"
+        ],
+        "reasoning": "The broad Dirichlet framework makes the integral tractable, but does not state this two-eigenvalue strict finite gap or the exact sharp fixed-r rate for this polytope. General theorems in other invariants are not dominating.",
+        "searches": [
+          "truncated Dirichlet conditional covariance exchangeable symmetric caps at half",
+          "Ferroni–Schröter 2025 rank-two cases and theorem",
+          "complete multipartite edge polytope covariance continuous volume"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.08183 full primary HTML Theorems 1.1/1.2",
+        "Ferroni–Schröter Cambridge DOI:10.1017/S0963548325000021 Theorem 2.5 and Section 2",
+        "Resultary matroid/inertia semantic searches",
+        "Classical Dirichlet and beta recurrence identities (credited proof tools)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ehrhart leading coefficient recovers volume but not second moments",
+          "Face enumeration gives combinatorial f-vector and cannot determine the covariance matrix from those numbers alone"
+        ],
+        "reasoning": "From the prior halfspace description plus standard probability identities the present theorem can be *derived*, but it is not a stated or mechanically implied numeric corollary of Ehrhart positivity or face enumeration; it requires conditional second moments and strict recurrence cancellation.",
+        "searches": [
+          "arXiv:2106.08183 sections 1–4, rank-two inequalities",
+          "arXiv:2310.05487 / Cambridge DOI:10.1017/S0963548325000021 Theorem 2.5",
+          "Dirichlet(m,...,m) beta half-tail moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferroni–Jochemko–Schröter Theorem 1.1 gives Ehrhart polynomial in parallel-class sizes and Theorem 1.2 its coefficients",
+          "Ferroni–Schröter Theorem 2.5 computes f-vectors of split matroid polytopes"
+        ],
+        "reasoning": "The objects are the same matroid base polytopes, but lattice-point counts and face counts do not determine second moments of uniform continuous volume in the Euclidean affine span. The new gamma/Dirichlet conditional calculation is needed.",
+        "searches": [
+          "balanced complete multipartite matroid base polytope uniform continuous volume covariance inertia eigenvalues truncated Dirichlet",
+          "arXiv:2106.08183 rank two matroid polytope Ehrhart polynomial",
+          "arXiv:2310.05487 face enumeration for split matroid polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary neighboring records concern ellipsoids/inballs or face structure, not uniform-volume covariance",
+          "The two specific primary theorems enumerate lattice and face information rather than tabulating this spectrum"
+        ],
+        "reasoning": "No exact database/table of the volume-covariance eigenvalue split was identified; that is a bounded search observation, not historical novelty proof.",
+        "searches": [
+          "Resultary: complete multipartite edge polytope volume inertia covariance Dirichlet",
+          "Resultary: balanced complete multipartite matroid base polytope uniform continuous volume covariance inertia eigenvalues truncated Dirichlet",
+          "arXiv:2106.08183 Theorem 1.1 and arXiv:2310.05487 Theorem 2.5"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: prior rank-two matroid work evaluates Ehrhart and face vectors of the same polytope family; no inspected primary result yields continuous-volume covariance spectra, strict anisotropy or sharp exponential equilibration.",
+      "residual_risks": [
+        "A probabilistic treatment of exchangeable truncated Dirichlet variables or capped simplices may have exactly the same spectral formula under different terminology.",
+        "The fixed-r asymptotic does not cover unequal classes or r growing with m; h tends to one only in the stated regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same combinatorial objects but distinct lattice-point functional, no volume covariance spectrum in inspected statements",
+          "evidence": [
+            "Theorem 1.1 explicit Ehrhart formula; Theorem 1.2 coefficient bounds; no covariance mention"
+          ],
+          "identifier_or_url": "arXiv:2106.08183; DOI:10.1016/j.aam.2022.102410",
+          "material_read": "Full ar5iv HTML introduction, rank-two polytope setup, Theorems 1.1/1.2 and main Ehrhart positivity and h*-real-rooted sections",
+          "method": "Full open arXiv HTML",
+          "title": "Ehrhart polynomials of rank two matroids",
+          "trigger": "Same rank-two matroid base polytope, possible stronger formulas"
+        },
+        {
+          "assessment": "Computes face vectors and counts modular flats; no implication of continuous-volume covariance spectra",
+          "evidence": [
+            "Theorem 2.5 formula for f-polynomial in cyclic-flat data"
+          ],
+          "identifier_or_url": "arXiv:2310.05487; DOI:10.1017/S0963548325000021",
+          "material_read": "Cambridge Open Access full HTML Sections 1–2, Theorem 2.5, discussion of rank-two matroids and face data",
+          "method": "Full publisher HTML",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Contains explicit rank-two matroid polytope formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The balanced complete multipartite base polytope is canonical and has two inequivalent tangent representations; equality of directional covariance is not forced by symmetry. The exact sign and magnitude of its anisotropy and the sharp exponential isotropization scale constitute a meaningful geometric invariant and transition, distinct from the known discrete lattice and face counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Uniform intrinsic Euclidean volume, not uniform vertices; affine dimension rm−1; r>=3,m>=2, fixed r for asymptotic; normalizing by X/2 is essential.",
+  "schema_version": 1
+}

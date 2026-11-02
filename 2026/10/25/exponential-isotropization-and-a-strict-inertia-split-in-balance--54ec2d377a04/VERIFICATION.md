@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The seven-file record contains a standalone Python 3 program, `verify.py`, using no third-party packages. Running `python3 verify.py` produces:
+# Independent mathematical audit
 
-```
-VERIFY_OK exact_spectra=54 independent_polytope_integrals=6 seeded_mc=4 asymptotic_ratios=4
-```
+## correctness
 
-The exact beta-tail evaluation uses integer binomial sums. It checks the formula for both covariance eigenvalues and the exact positive gap for all 54 pairs with \(3\le r\le8\) and \(1\le m\le9\); the \(m=1\) check tests algebraic moments only because no within-block eigenspace then exists. Independently, direct rational polynomial integration over the truncated three-block simplex verifies the conditional second moment for each \(1\le m\le6\). Four seeded Dirichlet simulations provide numerical checks, and four large-parameter exact-rational comparisons test the announced Stirling coefficient.
+PASS
 
-All-dimensional correctness is supplied by the proof in `RESULT.md`, not by the finite checks or simulations. Publication overlap checks did not establish any external independent validation. The historical literature comparison is incomplete to the extent that equivalent formulas could appear under different probabilistic names.
+Identified the edge/base polytope as the simplex sum x_i=2, x_i>=0, class sums<=1. With Y=X/2 the ambient uniform simplex has Dirichlet(1,...,1) coordinate law, with block totals Dirichlet(m,...,m); the truncation max T_j<=1/2 is exactly the polytope and its forbidden events T_j>1/2 are pairwise disjoint, giving h=1-rp_{m,k}. Tilted-Dirichlet second moments yield u=E[T_1^2|cap] with tails p_{m+2,k},p_{m,k+2}. Block permutation symmetry and the conditional within-block Dirichlet(1,...,1) covariance yield the two eigenvalues on orthogonal subspaces of dimensions r(m−1) and r−1. Applied two beta half-tail recurrences to derive the exact positive gap 2^(1−rm)(r−2)/[(r−1)(m+1)((r−1)m+1) B(m,(r−1)m)h], hence strict finite anisotropy. Stirling and h→1 give C_r sqrt(m) rho_r^m with rho_r<1. An independent Fraction/binomial-sum calculation verified both eigenvalues, exact gap and positivity for 45 (r,m) pairs r=3..7,m=2..10 including (3,2): 4/49 vs 5/147, gap 1/21. Algebra, not finite tests, proves the infinite parameter family.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: prior rank-two matroid work evaluates Ehrhart and face vectors of the same polytope family; no inspected primary result yields continuous-volume covariance spectra, strict anisotropy or sharp exponential equilibration.
+
+## value
+
+PASS
+
+The balanced complete multipartite base polytope is canonical and has two inequivalent tangent representations; equality of directional covariance is not forced by symmetry. The exact sign and magnitude of its anisotropy and the sharp exponential isotropization scale constitute a meaningful geometric invariant and transition, distinct from the known discrete lattice and face counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

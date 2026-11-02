@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The polytope is the standard rank-two matroid base polytope cut out by nonnegative coordinates, a total coordinate sum of two, and block-sum upper bounds of one. Its uniform continuous-volume law is a Dirichlet(1, ..., 1) simplex law conditioned on disjoint block caps. The two covariance subspaces follow from the block permutation group, with eigenvalues computed through conditional Dirichlet second moments. Exact beta-tail recurrences give a positive gap, and Stirling plus vanishing beta tail gives the sharp asymptotic coefficient. The proof directly handles all integer \(r\ge3\), \(m\ge2\), including boundary dimension and metric normalizations. The independent polynomial-slice integration and finite exact tests corroborate the identities without being mistaken for the infinite proof.
+PASS
 
-## Originality
+Identified the edge/base polytope as the simplex sum x_i=2, x_i>=0, class sums<=1. With Y=X/2 the ambient uniform simplex has Dirichlet(1,...,1) coordinate law, with block totals Dirichlet(m,...,m); the truncation max T_j<=1/2 is exactly the polytope and its forbidden events T_j>1/2 are pairwise disjoint, giving h=1-rp_{m,k}. Tilted-Dirichlet second moments yield u=E[T_1^2|cap] with tails p_{m+2,k},p_{m,k+2}. Block permutation symmetry and the conditional within-block Dirichlet(1,...,1) covariance yield the two eigenvalues on orthogonal subspaces of dimensions r(m−1) and r−1. Applied two beta half-tail recurrences to derive the exact positive gap 2^(1−rm)(r−2)/[(r−1)(m+1)((r−1)m+1) B(m,(r−1)m)h], hence strict finite anisotropy. Stirling and h→1 give C_r sqrt(m) rho_r^m with rho_r<1. An independent Fraction/binomial-sum calculation verified both eigenvalues, exact gap and positivity for 45 (r,m) pairs r=3..7,m=2..10 including (3,2): 4/49 vs 5/147, gap 1/21. Algebra, not finite tests, proves the infinite parameter family.
 
-PASS, with residual bibliographic risk. Ferroni–Jochemko–Schröter (2021 initial preprint; 2022 journal paper) gives rank-two matroid base-polytope structure and Ehrhart coefficients; Ferroni–Schröter (2025) calculates face numbers of split and rank-two matroid polytopes. The relevant full-text portions were examined, including their rank-two sections and the theorem statements. They do not present continuous-volume covariance eigenvalues or exponential anisotropy. Related published research results concerning rank-two matroid inradii, Minkowski centers, and basis-exchange graph Laplacians address different invariants: their statements do not imply the claimed conditional-volume covariance moments without the new calculation. Searches by capped simplex, truncated Dirichlet, complete multipartite edge polytope, uniform point inertia and covariance terminology found general formulas but no covering equal-block spectral rate. These searches cannot rule out a difficult-to-index equivalent identity.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A balanced family of matroid base polytopes is highly symmetric but not transitive on its Euclidean tangent directions; obtaining the strict direction of its two covariance eigenvalues is therefore a natural geometric classification problem. The theorem proves strict finite-dimensional anisotropy, identifies its exact magnitude, and shows a sharp exponentially small relative gap with a nontrivial rate depending on the number of parallel classes. The result is not a recomputation of face numbers, lattice-point counts, or a numerically observed trend.
+PASS best-of-knowledge: prior rank-two matroid work evaluates Ehrhart and face vectors of the same polytope family; no inspected primary result yields continuous-volume covariance spectra, strict anisotropy or sharp exponential equilibration.
 
-## Limits and closest literature
+## value
 
-The proof relies on uniform intrinsic Euclidean volume, not uniform random vertices. The two-class matroid polytope has a lower affine dimension and lies outside the theorem. The asymptotic fixes the number of parts and does not claim simultaneous limits. The closest primary papers study rank-two matroid Ehrhart polynomials and split-matroid face numbers; general Dirichlet moment formulas are standard. Bibliographic equivalence under probabilistic truncation terminology remains possible, and independent mathematical assessment has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The balanced complete multipartite base polytope is canonical and has two inequivalent tangent representations; equality of directional covariance is not forced by symmetry. The exact sign and magnitude of its anisotropy and the sharp exponential isotropization scale constitute a meaningful geometric invariant and transition, distinct from the known discrete lattice and face counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
