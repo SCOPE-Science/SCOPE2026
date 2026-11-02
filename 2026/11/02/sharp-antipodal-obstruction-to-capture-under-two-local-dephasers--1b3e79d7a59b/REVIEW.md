@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The projection theorem follows from trace monotonicity, stationary Cesàro limits, the negative-semidefinite purity identity, and the connectivity of the hypercube to eliminate all stationary populations at monitored sites. Exact Walsh row-rank analysis then yields the full dimension formula with correct endpoint eigenspace contributions and the sharp dimension-three exception. A stand-alone checker performs 59,988 exact integer spectral-rank assertions through dimension seven and four direct Lindblad propagations in dimensions three and four. Numerical agreement is not an all-dimensional proof; the displayed analytic argument is.
+
+**Originality: PASS, subject to historical-priority uncertainty.** The most relevant primary sources are Strauch's 2008 all-vertex hypercube decoherence model, Novo and collaborators' 2014 coherent one-sink hypercube cyclic-space calculation, and Le and collaborators' 2017 general graph dark-state treatment. None of the inspected text states this exact two-selected-dephaser, three-monitored-site antipodal classification. The earlier two-marked-vertex hypercube result does not determine the independent third evaluation functional. The remaining risk is an equivalent unindexed or less accessible result, or a broader theorem whose consequences were not recognized.
+
+**Mathematical value: PASS.** Exact monitoring placement, rather than time-dependent optimal rates, determines which hypercube excitation subspaces remain forever inaccessible to a sink. Three selected monitored sites are the first nontrivial case yielding a universal-capture cutoff in dimension three and a rate-independent \(d-1\) loss under antipodal placement. These are meaningful structural constraints for coherent capture and monitoring, not small changes in a numerical bound.
+
+**Limits.** The theorem addresses finite homogeneous binary hypercubes with one sink, two distinct local Markovian dephasers and positive rates. It does not establish finite-time capture rates, perturbation tolerance or arbitrary-graph extensions. External historical priority and independent validation are unverified.
+
+Self-review: passed. Independent audit: not yet performed.
