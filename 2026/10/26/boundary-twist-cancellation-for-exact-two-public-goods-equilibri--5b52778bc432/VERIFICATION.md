@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_twist.py` using standard Python 3: the checker constructs each graph from its edges, independently tests every candidate profile against all local best responses, and compares exact producer-count dictionaries for each \(n=3,\ldots,9\). This checks 699008 labeled profiles over fourteen instances, and completes with `PASS`.
+# Independent mathematical audit
 
-Run `python3 certify_transfer.py` with SymPy installed: the checker builds the sixteen-state transfer matrix, verifies row-swap commutation and invariant bases, verifies both symbolic characteristic polynomials, and checks symbolic trace formulas for lengths three through nine. It completes with two `PASS` lines.
+## correctness
 
-The all-length proof follows from the transfer construction and **symbolically exact** characteristic factors stated in `RESULT.md`, combined with the formal-logarithm identity. The direct enumeration tests are finite and do not prove the theorem by themselves. No external or independent audit is claimed.
+PASS
+
+Verified the 16-state two-column transfer rule and row-interchange involution J commuting with T; inspected symbolic certificate deriving χ_+=t³(t−z)(t²−z³)(t⁴−t³−z⁴) and χ_-=t³(t−z)(t²+z³). Their sum/difference power traces give exact formulas; independent direct enumeration tested all labeled profiles for n=3..9 for both boundary types (14 families), and boundary cubic degrees. Infinite conclusion rests on exact polynomial identities, not small n.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. No same exact prism vs Möbius weighted equilibrium census identified
+
+## value
+
+PASS
+
+Comparing periodic and twisted boundary identifications isolates a topological seam effect on a complete exact equilibrium-count distribution. A finite-support defect of two explicit producer degrees is structural and useful in graph game combinatorics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
