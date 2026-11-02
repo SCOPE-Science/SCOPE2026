@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit affine normalization, piecewise-linear Minkowski functional, rectangle reduction and all-four-quadrant maximization prove the precise threshold for all \(0<p,q\le1\). The minimizing gauge is maximized at an explicit point inside the required dilated quadrilateral, ensuring necessity rather than only sufficiency. The separate exposed-edge obstruction proves the lower endpoint \(\lambda\ge1\); a pure rational checker confirms 36 exact examples. The argument does not extrapolate from computation.
+## correctness
 
-**Originality — PASS (bounded literature assessment).** Full-text inspections of Meyer's arXiv:2610.26744v1 and Artstein-Avidan–Falah–Slomka's arXiv:2407.20604v1 show general finite convexification characterizations and vertex-generation results, but not the exact two-diagonal-ratio index for all quadrilaterals. Related quadrilateral area products, reflection convexity points and simplex-skeleton convexification concern different observables; their conclusions do not imply the claimed formula. Known general vertex-index bounds are strictly weaker. Residual risk: historical specialized Schneider-index or convex covering calculations not discoverable in available indexes.
+PASS
 
-**Value — PASS.** The general finite-convexification program motivates determining explicit thresholds for concrete affine classes. A quadrilateral has two nontrivial affine moduli; the result resolves the entire class, exactly identifies the only index-one equality shapes, and gives the complete range \([1,2)\). This is a natural complete classification, not a parameter-renaming or small numerical improvement.
+Reconstructed the affine model with vertices (-p,0),(1,0),(0,-q),(0,1), its piecewise-linear Minkowski gauge, coverage outside the coordinate rectangle for lambda>=1, and the interior minimum of two translated-gauge envelopes. The four quadrant maximizations yield the northeast maximum 1+(1-pq)/(1+q) for p<=q, attained at (1-p,(1-pq)/(1+q)), inside 2Q. Exposed-edge gaps exclude lambda<1. The formula has all-positive quantifiers, includes p=q=1 and limiting p,q->0 but excludes degenerate shape p=0. An independent exact-Fraction piecewise-affine vertex/equality-line solver reproduced all 36 p,q pairs from {1,1/2,1/3,1/5,2/3,3/4}; finite corroboration is not the all-parameter proof.
 
-**Limits.** Convex quadrilaterals only; no higher-dimensional or other-convexifier conclusions. Computational samples support, but do not establish, the analytic quantifiers. Independent historical-priority and scientific audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-diagonal-ratio formula is a new best-knowledge computation of Schneider's c(V(Q)) (or the reciprocal vertex-generation parameter). Meyer's finiteness theorem and Artstein-Avidan--Falah--Slomka's general covering and vertex-generation results apply to this object but do not calculate its value. An identical historical quadrilateral formula under alternate Schneider terminology remains possible.
+
+## value
+
+PASS
+
+For any four-vertex planar convex body, the diagonal intersection ratios are complete affine shape parameters. Classifying the sharp Minkowski vertex-convexification index across the full two-parameter class answers a motivated, natural exact extremal invariant and isolates parallelograms and the full attained range, rather than a one-off computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

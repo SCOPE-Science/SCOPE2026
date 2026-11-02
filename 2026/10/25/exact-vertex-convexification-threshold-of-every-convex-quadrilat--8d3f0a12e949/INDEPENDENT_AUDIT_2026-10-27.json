@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:43:16.677461Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-vertex-convexification-threshold-of-every-convex-quadrilat--8d3f0a12e949/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-vertex-convexification-threshold-of-every-convex-quadrilat--8d3f0a12e949/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-vertex-convexification-threshold-of-every-convex-quadrilat--8d3f0a12e949/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-vertex-convexification-threshold-of-every-convex-quadrilat--8d3f0a12e949/verify.py"
+      ],
+      "rationale": "Reconstructed the affine model with vertices (-p,0),(1,0),(0,-q),(0,1), its piecewise-linear Minkowski gauge, coverage outside the coordinate rectangle for lambda>=1, and the interior minimum of two translated-gauge envelopes. The four quadrant maximizations yield the northeast maximum 1+(1-pq)/(1+q) for p<=q, attained at (1-p,(1-pq)/(1+q)), inside 2Q. Exposed-edge gaps exclude lambda<1. The formula has all-positive quantifiers, includes p=q=1 and limiting p,q->0 but excludes degenerate shape p=0. An independent exact-Fraction piecewise-affine vertex/equality-line solver reproduced all 36 p,q pairs from {1,1/2,1/3,1/5,2/3,3/4}; finite corroboration is not the all-parameter proof.",
+      "residual_risks": [
+        "Independent finite checks corroborate, but where the statement is infinite only the reconstructed analytic argument justifies the universal quantifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer 2026 establishes necessary/sufficient finiteness criteria and planar special cases; Artstein-Avidan et al. 2024 give general vertex-generated classes and Carathéodory bounds."
+        ],
+        "reasoning": "Existence and bounds c<=2 for quadrilaterals do not imply sharp shape dependence. No quoted general theorem in those inspected texts specializes to the displayed rational expression.",
+        "searches": [
+          "arXiv:2610.26744v1 Theorems 1.1-1.3, section 2.3",
+          "arXiv:2407.20604v1 sections 4 and 7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.26744v1",
+        "https://arxiv.org/html/2407.20604v1",
+        "Resultary: vertex convexification V(P)+lambda P equals (1+lambda)P quadrilateral exact threshold diagonal ratios"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Meyer c^(K) finite criterion holds for V(Q),Q but omits exact threshold; general vertex-generated criterion only identifies the lambda=1 endpoint."
+        ],
+        "reasoning": "The new formula entails, but is not entailed by, mere eventual convexification or the parallelogram endpoint; the whole continuum of p,q values needs the new exact minimax calculation.",
+        "searches": [
+          "arXiv:2610.26744v1 all-quadrilateral finite convexification",
+          "arXiv:2407.20604v1 vertex-generated polytope lambda(P)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Artstein-Avidan et al. define lambda(P)=1/(1+c(V(P))) and show P+V(P)=2P for vertex-generated polytopes; Meyer defines c^(K)(A)."
+        ],
+        "reasoning": "The new result computes exactly the same invariant for every quadrilateral; inversion changes normalization but not content. The inspected article's general identities do not produce the explicit p,q formula.",
+        "searches": [
+          "vertex convexification V(P)+lambda P equals (1+lambda)P quadrilateral exact threshold diagonal ratios",
+          "arXiv:2407.20604v1 Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related polygon and normed-plane shape invariants but no matching p,q threshold in the examined hits; the two closest primary papers lack the word quadrilateral in full HTML."
+        ],
+        "reasoning": "The checked table/search results concern distinct invariants; a negative retrieval is not proof that an unindexed quadrilateral table does not exist.",
+        "searches": [
+          "Resultary: vertex convexification V(P)+lambda P equals (1+lambda)P quadrilateral exact threshold diagonal ratios",
+          "Schneider quadrilateral diagonal vertex convexification index"
+        ]
+      },
+      "rationale": "The exact two-diagonal-ratio formula is a new best-knowledge computation of Schneider's c(V(Q)) (or the reciprocal vertex-generation parameter). Meyer's finiteness theorem and Artstein-Avidan--Falah--Slomka's general covering and vertex-generation results apply to this object but do not calculate its value. An identical historical quadrilateral formula under alternate Schneider terminology remains possible.",
+      "residual_risks": [
+        "Unindexed Schneider nonconvexity computations for four-vertex planar sets could state the same result.",
+        "The published general frameworks supply the normalization and basic bounds, so those ingredients are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General convexification conditions and existence; no computed all-quadrilateral p,q index.",
+          "evidence": [
+            "arXiv:2610.26744v1 introduction and Theorems 1.1–1.3; section 2.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.26744v1",
+          "material_read": "Complete accessible HTML: definitions, Theorems 1.1-1.3, planar section 2.3, proof structure and references",
+          "method": "Direct HTML read and exact terminology search for quadrilateral and diagonal",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "Same invariant c^(K)(A) and planar setting"
+        },
+        {
+          "assessment": "Identical invariant under lambda(P) but does not provide explicit quadrilateral diagonal-ratio formula.",
+          "evidence": [
+            "arXiv:2407.20604v1 Definition 1.1 and sections 4,7"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.20604v1",
+          "material_read": "Complete accessible HTML sections 1-7, especially Definition 1.1, planar section 4.1 and section 7 bounds",
+          "method": "Direct HTML read, searched quadrilateral, inspected parameter normalization",
+          "title": "Vertex generated polytopes",
+          "trigger": "Direct Schneider vertex index and lambda(P) identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-vertex-convexification-threshold-of-every-convex-quadrilat--8d3f0a12e949/RESULT.md",
+        "https://arxiv.org/html/2610.26744v1",
+        "https://arxiv.org/html/2407.20604v1"
+      ],
+      "rationale": "For any four-vertex planar convex body, the diagonal intersection ratios are complete affine shape parameters. Classifying the sharp Minkowski vertex-convexification index across the full two-parameter class answers a motivated, natural exact extremal invariant and isolates parallelograms and the full attained range, rather than a one-off computation.",
+      "residual_risks": [
+        "Significance is confined to the precise object/invariant and exact scope stated, not a general theory beyond it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate convex quadrilateral Q with diagonal shorter/longer ratios p,q in (0,1], the threshold for V(Q)+lambda Q=(1+lambda)Q is exactly 1+(1-pq)/(1+max(p,q)), attained for every lambda above it; range [1,2), equality 1 iff parallelogram.",
+  "limitations": [
+    "Unindexed Schneider nonconvexity computations for four-vertex planar sets could state the same result.",
+    "The published general frameworks supply the normalization and basic bounds, so those ingredients are not credited as new.",
+    "The existing public-facing METADATA.json and AUDIT.json contain operational provenance (scope_run_id); coordinated privacy-neutral full UTF-8 replacements were not supplied, semantically inspected and hash-guarded. Public publication must be withheld; scientific review is complete but plan is not importable."
+  ],
+  "schema_version": 1
+}
