@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:03:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set A,B,C as selected column subsets in the outer/middle/outer K_n layers and a,b,c sizes. Direct neighborhood counts yield outer conditions a,c≥2 and required B coverage if an outer count equals two, plus separate middle conditions b=0,1,2,≥3. The proof divides minimal solutions into b=0,1,2,3,4 and excludes b≥5 because a middle vertex becomes redundant; in each case outer minimality and deletion of B vertices force a finite size profile. The resulting counts are the six terms using q=C(n−2,2), r=2q+C(n−2,3), h=C(n−3,3), j=C(n−3,2); n=6,7 coincident exponents are summed. Independently exhaustively checked all 2^18=262144 layer selections at n=6 by checking 3n neighbor inequalities and every one-vertex deletion; obtained 116290 feasible sets and minimal cardinality counts {6:15,7:600,8:1290,9:920,12:1}, matching the polynomial. The all-n proof rests on complete b-case arguments, not extrapolation from n=6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kazemi et al complete rook graph minimum yields γ≥6 for spanning subgraph K_n □ P3; the construction attains this.",
+          "Kazemi 2017 gives upper-parameter bounds and rook K_n □ K_m results, not this path factor."
+        ],
+        "reasoning": "The minimum 6 is substantially covered by prior monotonicity; mathematical novelty and value of current theorem reside in the complete minimal-set enumerator and upper size 2n.",
+        "searches": [
+          "Kazemi–Pahlavsay–Stones arXiv:1509.08208 complete product k-tuple total domination",
+          "Kazemi 2017 Upper k-tuple total domination in graphs, propositions 5–6 and theorems 5–7",
+          "Carballosa–Wisby arXiv:2001.07850 complete product total k-domination"
+        ]
+      },
+      "checked_sources": [
+        "Kazemi–Pahlavsay–Stones arXiv:1509.08208 abstract/scope",
+        "Kazemi 2017 Upper k-tuple total domination in graphs section 4 full relevant statements",
+        "Li Yue Zhang 2023 publisher abstract",
+        "Resultary semantic search",
+        "SCOPE2026 RESULT.md and verify.py source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spanning-supergraph monotonicity and known γ(K_n □ K_3)=6 give γ(K_n □ P3)≥6, and one explicit construction makes it equal six.",
+          "None of these comparisons logically yields inclusion-minimal sets at sizes 7,8,9,n+2,2n nor their multiplicities."
+        ],
+        "reasoning": "The scalar minimum is a corollary of earlier theory plus construction, not a new isolated claim. Full polynomial is independent additional combinatorial classification under distinct minimality conditions.",
+        "searches": [
+          "Kazemi–Pahlavsay–Stones 2018 lower total domination product theorems",
+          "Kazemi 2017 Upper k-tuple total domination in graphs",
+          "Li Yue Zhang 2023 products of paths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Double total domination requires every vertex, selected or not, to have two selected *neighbors* (not itself).",
+          "The enumerator is over inclusion-minimal feasible sets, not all sets, minimum sets alone, or maximal non-dominating sets."
+        ],
+        "reasoning": "The upper k-tuple total domination number equals the maximum exponent of this polynomial, but prior scalar upper results for other graph families do not determine the full polynomial.",
+        "searches": [
+          "Resultary query K_n Cartesian P_3 minimal double total domination polynomial inclusion minimal spectra",
+          "Literature searches: upper k-tuple total domination rook graphs K_n □ K_m and K_n □ P_3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary exact entry for this product/polynomial in semantic hits; neighboring results include total k-domination on threshold graphs and complete prisms.",
+          "Prior path-product table has P_n □ P_m rather than K_n □ P3."
+        ],
+        "reasoning": "No exact coefficient table for these six families was found; absence from semantic index is not novelty proof. An existing upper-domination or irredundance polynomial under different terminology could overlap.",
+        "searches": [
+          "Resultary minimal double total domination polynomial K_n P3",
+          "Kazemi 2017 upper k-tuple domination product tables",
+          "Li Yue Zhang 2023 double total domination Cartesian product of paths"
+        ]
+      },
+      "rationale": "Kazemi–Pahlavsay–Stones classify and bound scalar k-tuple total domination on Cartesian products of complete graphs, giving the scalar lower bound 6 but no inclusion-minimal spectrum for clique × path. Kazemi's 2017 upper k-tuple total-domination work covers rook graphs and general extremal bounds, not the target G_n. Path × path double total domination and Roman/paired variants concern different graphs or parameters. The exact complete inclusion-minimal polynomial and unique 2n maximum are not implied by the inspected sources.",
+      "residual_risks": [
+        "The complete inclusion-minimal enumeration may be known under irredundance/upper-tuple total domination polynomials not indexed by these search terms.",
+        "Independent enumeration reached n=6 only; the n≥6 generality rests on the written deletion-minimality case partition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rook graph scalar result provides lower bound, not full target minimal polynomial as read",
+          "evidence": "Product K_n □ K_m bounds are for complete factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.08208",
+          "material_read": "Accessible arXiv abstract/result scope; entire primary paper not read during this execution",
+          "method": "arXiv abstract/search",
+          "title": "Cartesian product graphs and k-tuple total domination",
+          "trigger": "Direct k-tuple total domination in Cartesian product and rook comparison"
+        },
+        {
+          "assessment": "Theorems give general upper-parameter inequalities and rook Cartesian examples, not explicit K_n □ P3 enumerator",
+          "evidence": "Section 4 of article includes Γ_{×k,t}(K_n □ K_m) lower bounds, with complete factors.",
+          "identifier_or_url": "https://www.researchgate.net/publication/316620718_Upper_k-tuple_total_domination_in_graphs",
+          "material_read": "Accessible primary text including section 4 Propositions 5–6 and Theorems 5–7 and adjacent proofs",
+          "method": "primary article HTML read",
+          "title": "Upper k-tuple total domination in graphs",
+          "trigger": "Potential covering exact maximum and all minimal sets"
+        },
+        {
+          "assessment": "Both factors are paths and only scalar number; not a covering theorem for K_n □ P3 minimal polynomial",
+          "evidence": "Li–Yue–Zhang 2023 scope P_m □ P_n.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023479",
+          "material_read": "Accessible title, abstract and statement scope, not complete source",
+          "method": "publisher abstract/search",
+          "title": "Double total domination number of Cartesian product of paths",
+          "trigger": "Same domination parameter and P3 factor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete cardinality polynomial for inclusion-minimal double total domination on the natural width-three clique strip exposes a striking sparse spectrum with a unique maximum and potentially unbounded gap, information not captured by the known scalar minimum. The three-layer transition makes this more than a routine complete-graph substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete inclusion-minimal enumeration may be known under irredundance/upper-tuple total domination polynomials not indexed by these search terms.",
+    "Independent enumeration reached n=6 only; the n≥6 generality rests on the written deletion-minimality case partition.",
+    "The published metadata package contains operational provenance. Publication is withheld until privacy-safe complete replacement files and guards are staged; mathematical review and publication authorization are separate."
+  ],
+  "schema_version": 1
+}
