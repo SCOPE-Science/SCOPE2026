@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(m\\ge1\\), the two canonical embeddings force at most \\(2m\\) occurrences of either symbol and exactly \\(2m\\) of one symbol; otherwise shared zero and one would require contradictory order. Splitting at the middle two zeros forces exterior one-counts \\(a=b=j<m\\) and central count \\(m-j\\) by single-deletion minimality. Conversely each such word loses an input subsequence after any deletion. Choosing j ones independently in each anchored arm gives \\(\\binom{m+j-1}{j}^2\\), with a disjoint complemented branch. A direct ratio bound and Stirling establish the geometric deficit limit and total asymptotic. The bundled checker independently exhausts all input words for \\(m\\le4\\) and all proof-eligible words for \\(m=5\\), with exact agreement; these tests are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sopp–Liyanage–Gong–Zhu, arXiv:2603.22591v1: general MCS enumeration and graph structure.",
+        "Lin, arXiv:2609.26650v1, Lemma 3.1: a general upper bound on numbers of MCS with fixed length.",
+        "Alon–Bourla–Graham–He–Kravitz, arXiv:2209.11882v1: related shortest-supersequence multiplicity inequalities."
+      ],
+      "reasoning": "A generic enumeration algorithm implies every finite instance is computable, but not the explicit infinite family spectrum or the geometric asymptotic. The fixed-length general upper bounds exceed the claimed count for this pair and thus are not stronger results that imply equality.",
+      "searches": [
+        "\"Computing and Enumerating Minimal Common Supersequences Between Two Strings\"",
+        "\"Lower Bounds for all List-Decodable Deletion Codes\" minimal common supersequences",
+        "\"minimal common supersequences\" generic upper bounds fixed length"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.22591v1",
+      "arxiv:2609.26650v1",
+      "arxiv:2209.11882v1",
+      "Fraser-thesis-1995-ch6",
+      "OEIS:A112029"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposed claim: for every \\(m\\ge1\\), each length \\(3m+j\\) with \\(0\\le j<m\\) has \\(2\\binom{m+j-1}{j}^{2}\\) minimal common supersequences, and no other lengths; limiting length-deficit law.",
+        "Sopp et al. (2026) give a general enumeration mechanism, not the reported symbolic coefficients.",
+        "Lin (2026) bounds individual fixed-length counts but not with equality here.",
+        "Fraser (1995) discusses length ranges and dynamic programming, not this explicit length profile.",
+        "OEIS A112029 gives an arithmetic summation but no stated full word-theoretic classification."
+      ],
+      "reasoning": "The complete generating polynomial plus word-by-word bijection implies the total and all asymptotic profile claims. The inspected prior statements do not imply the coefficients as identities without a new nontrivial combinatorial evaluation, and the previously known total identity is disclaimed rather than presented as original.",
+      "searches": [
+        "arxiv:2603.22591 minimal common supersequence enumerate length profile opposite blocks",
+        "arxiv:2609.26650 minimal common supersequence count bound",
+        "Fraser 1995 minimal common supersequence lengths dynamic programming"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sopp et al., arXiv:2603.22591v1, Sections 2–5: general st-path representation and enumeration; no explicit opposite-block spectrum in inspected sections.",
+        "C. B. Fraser, Subsequences and Supersequences of Strings, 1995, Chapter 6: a dynamic programming framework for minimal supersequence lengths."
+      ],
+      "reasoning": "The natural alternate form is a generating polynomial for irreducible common supersequence merges of \\(0^m1^m\\) and its reversal, or a bijection to two bounded anchored interleavings. Related algorithms characterize arbitrary minimal common supersequences operationally but do not themselves state the symbolic length multiplicities or corresponding law.",
+      "searches": [
+        "\"minimal common supersequences\" \"0^n1^n\" \"1^n0^n\"",
+        "\"minimal common supersequences\" \"two runs\" count",
+        "\"minimally common supersequence\" block runs exact enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A112029 gives a(n)=sum_{k=0}^n binom(n+k,k)^2 and an existing asymptotic.",
+        "The present total is exactly 2*A112029(m-1); these arithmetic values are acknowledged as prior tabulated data."
+      ],
+      "reasoning": "The total sequence and pure binomial summation are not claimed original. An integer database entry for the arithmetic sum does not, without a stated combinatorial equivalence, supply the classified words, exact individual length coefficients, or geometric deficit law. An unindexed combinatorial interpretation remains possible.",
+      "searches": [
+        "OEIS \"2, 10, 92, 1034, 12752\"",
+        "OEIS A112029 binomial squares sum",
+        "\"binomial(m+j-1,j)\" \"supersequence\" minimal"
+      ]
+    },
+    "rationale": "The principal 2026 minimal-common-supersequence paper proves general structural and enumeration algorithms but does not state the present opposite-block length spectrum. The 2026 fixed-length upper bound does not imply equality, and the older shortest-supersequence and dynamic-programming results do not give this bijection or limiting law. OEIS A112029 already records the arithmetic sum and its asymptotic, which are explicitly excluded from the novelty claim. The new claim is the word-specific full length profile and its structural/geometric interpretation, subject to possible unindexed special-case priority.",
+    "residual_risks": [
+      "An earlier unindexed special-case formula or interpretation might coincide exactly despite the available primary comparisons.",
+      "General algorithms can enumerate any individual instance, so priority attaches to the closed infinite symbolic family and structural analysis, not to computability alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents general enumeration and complexity, without the proposed explicit opposite-block distribution in the inspected sections",
+        "evidence": [
+          "arxiv:2603.22591v1, graph characterization and enumeration theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+        "material_read": "Abstract, definitions, graph characterization and enumeration sections 2–5",
+        "method": "Inspected accessible primary HTML, with focused reading of definitions and Sections 2–5 and searches for block-pair specializations",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "Directly treats the same minimal-supersequence invariant"
+      },
+      {
+        "assessment": "The inequality is not sharp enough to imply the claimed exact coefficients",
+        "evidence": [
+          "arxiv:2609.26650v1, Lemma 3.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.26650v1",
+        "material_read": "Definitions and Lemma 3.1 with surrounding application",
+        "method": "Inspected accessible HTML and compared the bound to the formula in the present family",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Contains a fixed-length upper bound on number of minimal common supersequences"
+      },
+      {
+        "assessment": "Different extremal/comparative focus; does not state the full minimal-supersequence length polynomial",
+        "evidence": [
+          "arxiv:2209.11882v1, common supersequence bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11882",
+        "material_read": "Theorem statements and discussion of shortest common supersequence multiplicity",
+        "method": "Inspected accessible arXiv full text and compared quantifiers (shortest versus deletion-minimal)",
+        "title": "Logarithmically larger deletion codes of all distances",
+        "trigger": "General common supersequence enumeration and multiplicity results"
+      },
+      {
+        "assessment": "Describes general computation of lengths, not the opposite-block full spectrum",
+        "evidence": [
+          "Fraser, 1995, Chapter 6"
+        ],
+        "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+        "material_read": "Chapter 6, pages covering minimal common supersequence length bounds and dynamic programming",
+        "method": "Inspected the primary PDF text and representative page images",
+        "title": "Subsequences and Supersequences of Strings",
+        "trigger": "Early source specifically devoted to minimal common supersequences"
+      },
+      {
+        "assessment": "Arithmetic total and its asymptotic previously known; the proposed new result is only the structural combinatorial interpretation, full graded spectrum and limit law",
+        "evidence": [
+          "OEIS A112029, binomial-square sum"
+        ],
+        "identifier_or_url": "https://oeis.org/A112029",
+        "material_read": "Sequence formula, comments and asymptotic description",
+        "method": "Compared the displayed binomial sum and asymptotic to the specialization",
+        "title": "A112029",
+        "trigger": "Numerical sequence matches total count exactly"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5df86cdf-4ed9-40dd-9d22-60ac4071af79",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Opposite equal binary blocks are a canonical antagonistic two-string merge family. Minimal common supersequences are an emerging object with nontrivial length diversity. The result derives the complete length distribution of irreducible merges, an explicit bijection to independently interleaved arms and a nondegenerate geometric concentration law. These facts are useful as exact analytic benchmarks and identify genuinely different behavior at each feasible length; the motivation is not an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
