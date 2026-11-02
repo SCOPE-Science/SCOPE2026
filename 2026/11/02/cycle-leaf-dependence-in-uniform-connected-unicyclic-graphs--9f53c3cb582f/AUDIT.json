@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For a fixed cycle of length \\(c\\), the rooted-forest determinant yields exactly \\(c n^{m-1}\\) forests, and a forced-leaf deletion bijection yields the full conditional empty-box law. Explicit increments of the conditional mean establish strict negative regression for \\(n\\ge4\\). The truncated Poisson CLT and a bounded martingale-difference CLT for vacant boxes establish the joint independent half-normal/Gaussian limit. The quadratic conditional mean response and uniform integrability yield covariance asymptotic coefficient \\(-1/(e\\sqrt{2\\pi})\\). Standalone exhaustive finite enumeration verifies all bivariate tables and mixed moments for \\(3\\le n\\le7\\); infinite claims use the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ben-Naim–Krapivsky (2004) focuses on mean numbers of components of size k in an evolving random multigraph and critical-time asymptotics.",
+        "Zhang–Zhang (2013) proves deterministic orderings of Laplacian coefficients within graph families with fixed number of leaves and girth."
+      ],
+      "reasoning": "Neither examined theorem concerns the same uniform conditioned simple unicyclic law, so they do not dominate the joint distribution, strict negative regression, or joint central limit with second-order covariance. General conditioned random-graph probability theory could imply a marginal CLT, but marginal results alone do not imply this exact dependence statement.",
+      "searches": [
+        "Uniform connected unicyclic labeled graph, length of unique cycle conditioned, leaf count distribution stochastic monotonicity and covariance",
+        "Uniform random unicyclic graph cycle size and number of leaves dependence, negative association",
+        "Joint half normal Gaussian independent limiting cycle length and leaf count in random unicyclic labelled graph",
+        "Negative regression between girth and leaf count for every increasing transform, random unicyclic graph",
+        "arXiv:cond-mat/0403453v1",
+        "arXiv:1311.1987v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0403453v1",
+      "arXiv:1311.1987v1",
+      "OEIS:A057500",
+      "Related literature: random-tree endpoint degree/distance, random-recursive-tree leaves, unicyclic extremal graph theory",
+      "OEIS:A098909"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rooted-forest matrix-tree formulas and occupancy asymptotics are standard ingredients; these are acknowledged rather than claimed as separately new.",
+        "The 2004 random multigraph paper derives U_k(t), an expected count of components of size k, not the joint law of girth and leaf count.",
+        "The 2013 Laplacian paper treats fixed parameters deterministically and supplies neither random conditional probabilities nor dependent limit laws."
+      ],
+      "reasoning": "The complete theorem combines precise conditional factorial-binomial moments, strictly decreasing conditional mean across every cycle length, independent half-normal/Gaussian leading fluctuations, and a negative sqrt(n)-scale covariance. The cited prior claims are not logically strong enough to imply all four together without additional combinatorial and probabilistic derivations. Their shared parameters and standard building blocks alone do not constitute coverage.",
+      "searches": [
+        "Uniform connected unicyclic labeled graph, length of unique cycle conditioned, leaf count distribution stochastic monotonicity and covariance",
+        "Uniform random unicyclic graph cycle size and number of leaves dependence, negative association",
+        "Covariance of unique cycle length and number of leaves in uniformly random unicyclic graphs is strictly negative with asymptotic -sqrt(n)/(e sqrt(2 pi))",
+        "Joint half normal Gaussian independent limiting cycle length and leaf count in random unicyclic labelled graph",
+        "arXiv:cond-mat/0403453v1",
+        "arXiv:1311.1987v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ben-Naim–Krapivsky, arXiv:cond-mat/0403453v1, equations (1) and the growth-process description; a different multigraph component-size law.",
+        "Zhang–Zhang, arXiv:1311.1987v1, definition of the fixed-leaf, fixed-girth family and extremal Laplacian results."
+      ],
+      "reasoning": "The claimed conditional distribution can equivalently be expressed as exchangeable leaf indicators with all joint avoidance probabilities (1-j/n)^(n-c-1), a finite occupancy inclusion-exclusion law, or a bivariate cycle/girth versus leaf count enumerator. The inspected works do not derive those equivalent distributions for the uniform simple connected unicyclic model. Such an equivalent formulation in another enumeration remains a residual priority risk.",
+      "searches": [
+        "Rooted labeled forests with fixed roots and number of leaves under varying number of roots, occupancy representation, stochastic ordering",
+        "Uniform labelled simple connected unicyclic graph conditional on unique cycle length has leaf count equal in law to empty boxes among n-c boxes after n-c-1 draws into n",
+        "Poisson(n) conditioned downward, generalized Prüfer forest code, leaf-girth dependence second order in random connected unicyclic graph",
+        "uniform random connected unicyclic graph number leaves conditional cycle length rooted forests"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A057500 tabulates the aggregate counts; OEIS A098909 explicitly tabulates the exact cycle-length counts \\(T(n,c)=(n-1)!n^{n-c}/(2(n-c)!)\\). Neither includes the leaf-count refinement.",
+        "Explicit joint counts for all 3<=n<=7 are reproduced by a standalone exhaustive enumerator."
+      ],
+      "reasoning": "The known cycle-length refinement is explicitly treated as established prior coverage, not new. Existing totals and the exact univariate cycle-length triangle do not tabulate or imply the full conditional distribution of leaves, negative regression or mixed asymptotic coefficient without additional arguments. A specialized bivariate table elsewhere remains possible.",
+      "searches": [
+        "Uniform labelled simple connected unicyclic graph conditional on unique cycle length has leaf count equal in law to empty boxes among n-c boxes after n-c-1 draws into n",
+        "Covariance of unique cycle length and number of leaves in uniformly random unicyclic graphs is strictly negative with asymptotic -sqrt(n)/(e sqrt(2 pi))",
+        "OEIS:A057500",
+        "OEIS:A098909"
+      ]
+    },
+    "rationale": "Targeted literature comparisons and full-text primary inspections identified no prior theorem logically implying the specific conditional vacancy distribution plus strict regression and subtle mixed-limit statement. Existing univariate cycle-length tables and aggregate unicyclic counts and deterministic fixed girth/leaf classifications are not equivalent results. Residual risk from broad conditioned-graph theory is acknowledged.",
+    "residual_risks": [
+      "A specialized bivariate enumeration of labeled unicyclic graphs with prescribed girth and leaf count could implicitly encode the exact conditional law.",
+      "General asymptotic combinatorial-allocation theorems could imply the joint Gaussian factorization or covariance with additional work.",
+      "Independent historical-priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_MODEL_NOT_COVERING",
+        "evidence": "The paper explicitly allows self-links and gives \\(U_k(t)\\), the mean number of unicyclic components of size \\(k\\) at time \\(t\\); it does not condition on a single uniform simple unicyclic graph and count its leaves by girth.",
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0403453v1",
+        "material_read": "Full accessible arXiv HTML, abstract, evolving multigraph model, formulas for component-size counts and asymptotic discussion.",
+        "method": "Compared model, conditioning, component statistics, formulas and theorem implications.",
+        "title": "Unicyclic Components in Random Graphs",
+        "trigger": "Archival primary random-graph literature with explicit unicyclic component distribution."
+      },
+      {
+        "assessment": "SAME_OBJECTS_DIFFERENT_INVARIANT_NOT_COVERING",
+        "evidence": "The paper defines U(n,l,g) and studies partial orderings of Laplacian coefficients; no theorem provides joint random leaf/cycle counts or conditional regression.",
+        "identifier_or_url": "https://arxiv.org/html/1311.1987v1",
+        "material_read": "Full accessible arXiv HTML, introduction, statements and proofs in Sections 2–4, final remarks.",
+        "method": "Compared fixed girth/leaf classes and their deterministic spectral minimization with claimed probabilities and asymptotics.",
+        "title": "Laplacian coefficients of unicyclic graphs with the number of leaves and girth",
+        "trigger": "Exact same two graph parameters; plausible related theorem."
+      },
+      {
+        "assessment": "AGGREGATE_ONLY",
+        "evidence": "Records totals 1,15,222,3660,68295,... and a cycle-count refinement, not the complete bivariate leaf–girth law.",
+        "identifier_or_url": "https://oeis.org/A057500",
+        "material_read": "Definition, values, comments, formulas, references, reference to A098909.",
+        "method": "Compared known aggregate totals with new bivariate distribution and exact conditional law.",
+        "title": "OEIS A057500: number of connected labeled graphs with n edges and n nodes",
+        "trigger": "Exact finite total sequence and possible known-table overlap."
+      },
+      {
+        "assessment": "KNOWN_UNIVARIATE_CYCLE_ENUMERATION_ONLY",
+        "evidence": "The exact triangle \\(T(n,k)=(n-1)!n^{n-k}/(2(n-k)!)\\) equals the marginal cycle-length counts used here; the sequence does not include leaf counts.",
+        "identifier_or_url": "https://oeis.org/A098909",
+        "material_read": "Definition, row values, factorial formula, crossreferences to total sequence, publication-history notes.",
+        "method": "Verified the known cycle-length refinement, compared it with the bivariate leaf-count theorem.",
+        "title": "OEIS A098909: Unicyclic labeled graphs by unique-cycle length",
+        "trigger": "Exact sequence/database coverage of the univariate cycle law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f53c3cb-582f-410e-aab7-45cabd541f52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two intrinsic and motivated random-graph statistics have an exact finite conditional law, a universal strictly negative regression for every increasing cycle function, and a counterintuitive independent first-order scaling limit with negative sqrt(n)-order raw covariance. This provides a natural structural dependence classification rather than a routine isolated enumeration.",
+    "status": "PASS"
+  }
+}
