@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:57:17.039171Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/27/exact-matrix-size-threshold-for-even-cycle-trace-norm-embeddings--d4c2f55fa88a/RESULT.md",
+        "2026/10/27/exact-matrix-size-threshold-for-even-cycle-trace-norm-embeddings--d4c2f55fa88a/checker.py",
+        "independent_checks_batch4949.py"
+      ],
+      "rationale": "For k>=2, the trace-norm triangle inequality followed by Minkowski gives R_{k,d}(f)<=k*sqrt(3/2). Equality makes every cyclic edge norm the same positive c and every k-edge arc trace-norm geodesic; hence every shorter arc is geodesic, giving an isometric cycle embedding after scaling. For any norming contraction H of one half-cycle, polar duality makes H*A_i=|A_i| and -H*A_{k+i}=|A_{k+i}| on each right support. A separate norming contraction for arcs containing A_i and A_{k+j} when i!=j forces their right supports orthogonal. The positive sums of B_i and C_i agree, so Tr(B_i C_i)>=Tr(B_i^2)>0, while off-diagonal B_i/C_j pairings vanish. Choosing nonzero pairings gives a k-by-k diagonal rank-k matrix in C^d, forcing d>=k. Diagonal +/- E_ii cycles realize d=k (then any larger d); compactness of normalized finite-dimensional maps makes the below-threshold upper bound strict. Independent exact diagonal L1 distances checked all pairs k=2..17 (7,136 checks).",
+      "residual_risks": [
+        "No exact numerical best ratio is computed for d<k; the compactness proof supplies strictness only. Diagnostics verify explicit sufficiency, not nonexistence among arbitrary nonnormal matrices. Scope excludes odd cycles and higher-dimensional tori."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiao–Luo–Wu arXiv:2610.21445 2026 theorem statement: (3 sqrt(70) m + 6 sqrt(n)) metric-cotype bound, no equality dimension.",
+          "Mendel–Naor Metric Cotype Ann. Math. 168 (2008): general framework, not S1 finite-rank saturation.",
+          "Rigobert–Laurent arXiv:2607.07939: binary Abelian Cayley host dimension, not general trace-class matrices.",
+          "Independent exact diagonal cycle construction checked every pair at k=2..17.",
+          "arxiv:2610.21445 abstract/main theorem"
+        ],
+        "reasoning": "The arbitrary-matrix model is more general than diagonal L1 or binary Cayley hosts; a dimension-independent upper bound is strictly weaker than a finite-d equality classification.",
+        "searches": [
+          "arxiv:2610.21445 abstract/main theorem",
+          "arxiv:2607.07939 binary Cayley hosts",
+          "Mendel–Naor Metric Cotype 2008"
+        ]
+      },
+      "checked_sources": [
+        "Jiao–Luo–Wu, Sharp Scale Inequality for the Schatten Trace Class, arXiv:2610.21445 (abstract and theorem statement; full text inaccessible)",
+        "Mendel–Naor, Metric Cotype, Annals of Mathematics 168 (2008) (original metric-cotype formulation)",
+        "Rigobert–Laurent, Dimension and Order Bounds for Isometric Embeddings into Abelian Cayley Graphs, arXiv:2607.07939 (even-cycle host restriction)",
+        "Resultary search: isometric embeddings of even cycles into Schatten trace class finite square complex matrices minimum dimension equality triangle metric cotype"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiao–Luo–Wu arXiv:2610.21445 2026 theorem statement: (3 sqrt(70) m + 6 sqrt(n)) metric-cotype bound, no equality dimension.",
+          "Mendel–Naor Metric Cotype Ann. Math. 168 (2008): general framework, not S1 finite-rank saturation.",
+          "Rigobert–Laurent arXiv:2607.07939: binary Abelian Cayley host dimension, not general trace-class matrices.",
+          "Independent exact diagonal cycle construction checked every pair at k=2..17.",
+          "arxiv:2607.07939 even-cycle discussion"
+        ],
+        "reasoning": "An isometric embedding into a binary Abelian host proves sufficiency via diagonal matrices but cannot exclude a smaller noncommuting matrix host; polar-support rank is the additional obstruction. The metric cotype bound cannot imply equality dimension.",
+        "searches": [
+          "arxiv:2607.07939 even-cycle discussion",
+          "arxiv:2610.21445 general theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiao–Luo–Wu arXiv:2610.21445 2026 theorem statement: (3 sqrt(70) m + 6 sqrt(n)) metric-cotype bound, no equality dimension.",
+          "Mendel–Naor Metric Cotype Ann. Math. 168 (2008): general framework, not S1 finite-rank saturation.",
+          "Rigobert–Laurent arXiv:2607.07939: binary Abelian Cayley host dimension, not general trace-class matrices.",
+          "Independent exact diagonal cycle construction checked every pair at k=2..17.",
+          "Resultary exact Schatten matrix cycle embedding query"
+        ],
+        "reasoning": "Exact iff d>=k metric embedding of C_2k is equivalent to equality in the n=1 trace-class cotype ratio R=k sqrt(3/2); both formulations were searched.",
+        "searches": [
+          "Resultary exact Schatten matrix cycle embedding query",
+          "arxiv:2610.21445 inequality formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jiao–Luo–Wu arXiv:2610.21445 2026 theorem statement: (3 sqrt(70) m + 6 sqrt(n)) metric-cotype bound, no equality dimension.",
+          "Mendel–Naor Metric Cotype Ann. Math. 168 (2008): general framework, not S1 finite-rank saturation.",
+          "Rigobert–Laurent arXiv:2607.07939: binary Abelian Cayley host dimension, not general trace-class matrices.",
+          "Independent exact diagonal cycle construction checked every pair at k=2..17.",
+          "Resultary indexed exact Hilbertian dimension of S_4^2"
+        ],
+        "reasoning": "No cited matrix-size table states the nuclear-norm cycle threshold; nearest indexed Hilbertian dimension S_4^2 concerns p=4 rather than p=1.",
+        "searches": [
+          "Resultary indexed exact Hilbertian dimension of S_4^2",
+          "Resultary Schatten cycle embedding query"
+        ]
+      },
+      "rationale": "The tested equality-dimension theorem concerns arbitrary nonlinear maps into M_d(C) with nuclear norm, not merely dimension-free metric cotype bounds nor binary-coordinate host embeddings. Jiao–Luo–Wu 2026 gives a scale-optimal but numerically much weaker general bound for Schatten 1 without this finite-matrix saturation classification. Rigobert–Laurent restrict to Abelian Cayley hosts; a noncommutative Schatten embedding need not respect that host restriction. Resultary closest Schatten-4 Hilbertian dimension is a different norm and object. Jiao–Luo–Wu full paper was inaccessible via arXiv/OA/Oxford, so best-of-knowledge PASS retains this direct-source risk.",
+      "residual_risks": [
+        "The October 2026 trace-class scale paper may contain an uninspected equality case in full text; arXiv and OA failed, Oxford reported vpn_disconnected.",
+        "Older characterizations of metric cycle embeddings into nuclear-norm balls might dominate the specific threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No whole-document noncoverage claim; primary unresolved historical risk, theorem statement does not give d>=k",
+          "evidence": [
+            "Abstract displays C=3 sqrt(70) m+6 sqrt(n), unlike sharp one-coordinate k sqrt(3/2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21445",
+          "material_read": "Abstract and precise displayed theorem only; PDF/HTML OA unavailable; institutional retrieval vpn_disconnected",
+          "method": "Web abstract; arXiv and OA failed; authorized Oxford attempt blocked",
+          "title": "The Sharp Scale Inequality for the Schatten Trace Class",
+          "trigger": "Closest current theorem on the same Schatten 1 metric-cotype expression"
+        },
+        {
+          "assessment": "General vector-valued metric cotype, no observed finite-dimensional equality-rank theorem",
+          "evidence": [
+            "Annals of Mathematics 168 (2008), metric cotype framework"
+          ],
+          "identifier_or_url": "https://annals.math.princeton.edu/2008/168-1/p07",
+          "material_read": "Main problem formulation and bibliographic statement, not complete exhaustive pages",
+          "method": "Published abstract/theorem overview",
+          "title": "Metric Cotype",
+          "trigger": "Original formulation of metric cotype"
+        },
+        {
+          "assessment": "Binary host restriction does not imply all complex Schatten host obstruction",
+          "evidence": [
+            "Even-cycle binary-host dimension statement"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.07939",
+          "material_read": "Title, abstract and relevant cycle-host scope; no whole-paper noncoverage inference",
+          "method": "Accessible abstract and inspected source-context statements",
+          "title": "Dimension and Order Bounds for Isometric Embeddings of Graphs into Abelian Cayley Graphs",
+          "trigger": "Closest even-cycle host dimension result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum complex matrix dimension of an exact geodesic C_{2k} realization in trace norm is a natural finite-dimensional nonlinear-geometry threshold. The polar-support obstruction is structural, works beyond commuting Hermitian models, and determines equality in a familiar metric-cotype ratio.",
+      "residual_risks": [
+        "The claim is valuable only with its precise invariant and hypotheses; do not extrapolate beyond the domain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jiao–Luo–Wu, Sharp Scale Inequality for the Schatten Trace Class, arXiv:2610.21445 (abstract and theorem statement; full text inaccessible)",
+    "Mendel–Naor, Metric Cotype, Annals of Mathematics 168 (2008) (original metric-cotype formulation)",
+    "Rigobert–Laurent, Dimension and Order Bounds for Isometric Embeddings into Abelian Cayley Graphs, arXiv:2607.07939 (even-cycle host restriction)",
+    "Resultary search: isometric embeddings of even cycles into Schatten trace class finite square complex matrices minimum dimension equality triangle metric cotype"
+  ],
+  "disposition": "passed",
+  "limitations": "No exact numerical best ratio is computed for d<k; the compactness proof supplies strictness only. Diagnostics verify explicit sufficiency, not nonexistence among arbitrary nonnormal matrices. Scope excludes odd cycles and higher-dimensional tori. Publication not_ready is a provenance/privacy transport blocker, NOT scientific failure; no external attestation claimed.",
+  "residual_risks": [
+    "The October 2026 trace-class scale paper may contain an uninspected equality case in full text; arXiv and OA failed, Oxford reported vpn_disconnected.",
+    "Older characterizations of metric cycle embeddings into nuclear-norm balls might dominate the specific threshold."
+  ],
+  "schema_version": 1
+}
