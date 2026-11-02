@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Connected-bipartition classification yields exactly the transversal triples and within-path pairs for every simple theta graph. The all-positive path bound proves Ldim<=3; explicit shattered supports prove all VC lower bounds and the direct-edge obstruction proves VC<=2. A complete eight-leaf house query tree establishes Ldim=3 in the strict-gap case. Counting six hypotheses handles the diamond. A separate universal classification handles trees/unicyclic graphs, and a finite graph-core case split proves six edges is the first and unique minimal threshold. The standalone checker exactly validates both bond enumerations, all house support traces and online depth, nine theta cases, and 595 labeled small connected graphs; no extrapolation supplies an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona et al. (2021), Theorem 3.10: VC=Littlestone=rank minus one for the **complete** zero-set family, a superfamily of matroid hyperplanes.",
+        "Duarte et al. (2020), abstract, §1 and connected-bipartition discussion: largest-bond and connected-cut algorithmic results, without a learning-dimension statement.",
+        "Lee, Li, Santha and Zhang, arXiv:2011.05085 (2020): dimension of the linear span of minimum-cut vectors, not VC or Littlestone dimension of every bond."
+      ],
+      "reasoning": "A dominating result would need an implication covering the restricted hyperplane family and both dimensions, or all theta/cycle parameter cases. The cited complete-zero-set theorem does not give subfamily lower bounds or its VC dimension; graph-cut optimization and linear-span dimensions measure different invariants. No directly dominating theorem was found in the accessible comparisons.",
+      "searches": [
+        "Web: \"Littlestone dimension\" matroid cocircuits VC dimension bonds",
+        "Web: \"VC dimension\" \"matroid hyperplanes\"",
+        "Web: \"Littlestone dimension\" \"hyperplanes\" \"matroid\"",
+        "Web: \"online learning\" \"independent sets\" graph concept class",
+        "published-finding corpus: minimal edge cuts graph bond families online learning shattering dimension",
+        "published-finding corpus: cyclomatic number one graph bonds VC Littlestone dimensions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.04513 (Duarte et al., first posted 2020-07-09)",
+      "arXiv:2109.04805 (Guingona et al., first posted 2021-09-10)",
+      "arXiv:2011.05085 (Lee et al., cut dimension abstract, posted 2020-11-10)",
+      "Related prior findings on matroid basis concept families (accessible prior research claim records 16 and 80; deduplication only)",
+      "published-finding corpus semantic queries recorded in the four check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 zero-set theorem gives equality for the full family, with no theorem asserting preservation of equal dimensions under maximal-zero-set restriction.",
+        "The 2020 largest-bond paper characterizes the same graph-theoretic objects but its theorems optimize bond size, not shattering tree depth.",
+        "Earlier related work on matroid basis-membership concepts (accessible claim records identified in prior research ledger, findings 16 and 80) concerns bases, not hyperplane-membership concepts."
+      ],
+      "reasoning": "A corollary from full zero sets would require preservation of both dimensions on taking inclusion-maximal zero sets; this fails in the house example, where full zero sets have dimensions (3,3) while the maximal-flat subfamily has (2,3). The asserted unique six-edge threshold additionally requires distinguishing all simpler graph core types. Neither cited source supplies these implications. A hidden alternative formulation remains possible.",
+      "searches": [
+        "published-finding corpus: matroid hyperplanes cocircuit families separate VC dimension and Littlestone dimension",
+        "published-finding corpus: theta graph house graph bonds VC dimension Littlestone strict gap",
+        "Web: \"VC dimension\" \"matroid hyperplanes\"",
+        "Web: \"bonds\" \"shattering\" graph cuts",
+        "Web: \"maximal zero sets\" \"Littlestone\" matroid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Duarte et al., arXiv:2007.04513, pp. 1–2: inclusion-minimal disconnecting sets are the bonds of connected bipartitions.",
+        "In a connected graphic matroid, hyperplanes are complements of bonds (duality of graphic circuits and cocircuits); pointwise complement switches every query label and preserves both learning dimensions.",
+        "Guingona et al., arXiv:2109.04805, theorem 3.10 and closing discussion: all linear zero sets, not only maximal proper zero sets."
+      ],
+      "reasoning": "All main aliases were reduced to the same edge-label concept class rather than merely comparing titles. There is a mathematical distinction between the full linear zero-set family (all cuts in the binary graphic representation) and its restricted inclusion-maximal subfamily (hyperplanes/complements of bonds). The former equality theorem cannot imply equality or the sharp theta threshold for the latter; the house graph provides distinct VC values. Oriented-matroid covector/tope-face VC dimensions concern another ground-domain concept and were not equated with bond incidence.",
+      "searches": [
+        "published-finding corpus: graphic matroid cocircuits bond concept class VC dimension Littlestone dimension five vertex house graph theta",
+        "published-finding corpus: matroid hyperplanes cocircuit families separate VC dimension and Littlestone dimension",
+        "Web: \"cocircuits\" \"VC dimension\" matroid",
+        "Web: \"Littlestone dimension\" \"hyperplanes\" \"matroid\"",
+        "Web: \"bonds\" \"shattering\" graph cuts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus indexed the house-graph Morse-complex record titled 'The house-graph Morse complex is a wedge of five 3-spheres' (opaque ID suffix 8f095a85c4dc); simplicial homotopy does not imply bond-incidence shattering.",
+        "published-finding corpus indexed the generalized-theta configuration-space record titled 'Complete theta-class relations for three-point generalized theta configurations' (opaque ID suffix 7d068c6381b8); it studies different objects and invariants.",
+        "published-finding corpus indexed the three-path theta-graph algebraic-gnarledness record (opaque ID suffix cceb12dd2a0d); it studies a different graph invariant."
+      ],
+      "reasoning": "The semantic lookup found related graph names but no matching dataset of bond VC/Littlestone dimensions. A lack of records is not a proof of originality, and database coverage remains incomplete.",
+      "searches": [
+        "published-finding corpus: theta graph house graph bonds VC dimension Littlestone strict gap",
+        "published-finding corpus: graphic matroid cocircuits bond concept class VC dimension Littlestone dimension five vertex house graph theta",
+        "published-finding corpus: matroid hyperplanes cocircuit families separate VC dimension and Littlestone dimension",
+        "Web: \"shatter\" \"matroid hyperplanes\" VC",
+        "Web: \"VC dimension\" \"co-path\" \"geodesic convexity\""
+      ]
+    },
+    "rationale": "The 2021 all-zero-sets equality theorem does not imply the dimensions of the inclusion-maximal subfamily: house hyperplanes have (VC,Ldim)=(2,3), while all zero sets have (3,3). The 2020 bond paper supplies definitions and optimization results, not the exact learning dimensions. Searches for equivalent formulations, dominating theorems and exact small tables found no matching theorem. Historical priority outside accessible primary literature remains a nonzero risk.",
+    "residual_risks": [
+      "Unindexed papers may phrase the same theorem as maximal-zero-set, cocircuit or minimal-cut online learning without explicit theta terminology.",
+      "Database hits were mostly semantically adjacent graph-invariant results rather than exact coverage; absence does not certify priority.",
+      "The cut-dimension paper was compared via its abstract and invariant definition, not full-text exhaustion; its definition is materially different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_IMPLY: all nonzero-linear-combination zero sets are included, while the claim concerns inclusion-maximal proper zero sets; the restriction can reduce VC but preserve Littlestone dimension.",
+        "evidence": [
+          "Theorem 3.10 states equality for the complete class of zero sets of nontrivial linear combinations.",
+          "Closing remarks explicitly pose restricted-parameter dimension questions; no named matroid-hyperplane or bond result was located in inspected material."
+        ],
+        "identifier_or_url": "arXiv:2109.04805 / https://arxiv.org/pdf/2109.04805",
+        "material_read": "Abstract, introduction and theorem summary (pp. 1–2), section 3 theorem 3.10 (p. 9), closing discussion and restricted-parameter questions (p. 18), plus document-wide searches for hyperplane and matroid terminology.",
+        "method": "Opened original open-access PDF, inspected extracted text and rendered page image; searched within full PDF for relevant terms.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Closest dimension-equality theorem for the representable linear zero-set superfamily."
+      },
+      {
+        "assessment": "DEFINITIONAL_PRIOR_ONLY: relevant bond characterization and largest-bond algorithms are credited; no exact shattering result was identified in inspected text.",
+        "evidence": [
+          "Section 1 defines a bond as an inclusion-minimal disconnecting edge set and equates bonds with cuts having two connected shores.",
+          "Abstract describes optimization and hardness results for largest bonds and connected cuts, not VC or online dimensions."
+        ],
+        "identifier_or_url": "arXiv:2007.04513 / https://arxiv.org/pdf/2007.04513",
+        "material_read": "Abstract and introduction/definitions (pp. 1–2), theorem statements and topic summary located in the source, and document-wide searches for Littlestone and VC-dimension terminology.",
+        "method": "Opened original open-access PDF, inspected extracted text and rendered page image; searched within full PDF for learning terminology.",
+        "title": "Computing the Largest Bond and the Maximum Connected Cut of a Graph",
+        "trigger": "Primary literature for the precise bond definition and connected-bipartition characterization."
+      },
+      {
+        "assessment": "NOT_THE_SAME_INVARIANT: dimension of linear span of minimum cuts is not VC/Littlestone dimension of all inclusion-minimal edge cuts.",
+        "evidence": [
+          "Abstract defines cut dimension as dimension of linear span of minimum-cut vectors."
+        ],
+        "identifier_or_url": "arXiv:2011.05085 / https://arxiv.org/abs/2011.05085",
+        "material_read": "Public abstract and definition of cut dimension, describing the linear span of minimum-cut characteristic vectors.",
+        "method": "Inspected open abstract and publication metadata.",
+        "title": "On the cut dimension of a graph",
+        "trigger": "Potentially confusing graph cut dimension terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d305f19-4b4c-4835-98a5-cbfa7fc0f482",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete uniform classification for all simple theta graphs identifies exactly when maximal-flat restriction retains online dimension but lowers static VC dimension. An analytic graph-core census identifies a unique six-edge first obstruction, while a general lemma proves equality for all trees and unicyclic graphs. This is a motivated boundary for matroid-hyperplane concept complexity and not merely a small numeric re-tabulation.",
+    "status": "PASS"
+  }
+}
