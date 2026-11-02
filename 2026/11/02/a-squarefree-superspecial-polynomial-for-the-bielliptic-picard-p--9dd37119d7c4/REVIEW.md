@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The geometric smoothness condition is \(a^2\ne4\) and the differential basis is the standard genus-three Picard basis. The Cartier calculation is rebuilt from \(p^{-1}\)-linearity, not from an asserted rank: in residue class \(p=6m+5\), its only potentially nonzero entries are the coefficients \(Q_p\) and \(P_p\). The differential-equation and conjugation identity (2) prove \(P_p=c_p(a^2-4)^{m+1}Q_p\) for every such prime; recurrence denominators are invertible modulo \(p\). At allowed roots the equation for \(Q_p\) makes repeated roots impossible, and evaluation at \(a=\pm2\) excludes discriminant collisions. Hence exactly \(m\) smooth parameters have zero Cartier operator. Off this locus Cartier has stable rank two, giving the stated \(p\)-rank and Newton polygon. For \(p\equiv1\pmod3\), the ordinary \(j=0\) elliptic quotient rules out superspeciality. The complete bielliptic Picard isomorphism invariant yields the \(\lceil m/2\rceil\) class count. Exact independent coefficient computations for 23 applicable primes below 200 reproduced the identities, but the proof does not rely on that finite range.
+
+## Originality — PASS, with historical priority qualification
+
+The exact quartic family and invariant are present in Laga–Shnidman, *The geometry and arithmetic of bielliptic Picard curves*, §2, while Kazemifard–Tafazolian, *A note on some Picard curves over finite fields*, §3, settles the special Fermat-type member. Neither supplies the uniform, all-prime separable superspecial polynomial or its complete root and moduli counts in the material read. Nourozi–Rahmati, *The Rank of the Cartier operator on Picard Curves*, §3, prints the general coefficient framework but also asserts a constant \(a\)-number in this residue class, an assertion inconsistent with the classical Fermat cases and the explicit Cartier calculation here. Thus the new polynomial identity and two-stratum theorem are not merely a restatement of that claim. Estrada-Sarlabous (1991) has a highly relevant general Hasse–Witt study: only its abstract was accessible, so detailed historic overlap cannot be excluded. Broader genus-three census work may implicitly include small-prime examples, but does not state the all-prime polynomial and root count. The originality assessment is therefore a best-knowledge mathematical comparison, not a guarantee of first publication.
+
+## Mathematical value — PASS
+
+Superspecial genus-three curves are a natural finite arithmetic locus, and the bielliptic Picard family is a distinguished one-dimensional geometric sublocus with extra automorphisms and Prym structure. The theorem determines an *entire* superspecial intersection in every permissible prime characteristic, proves transverse/simple roots, identifies the entire complementary Newton stratum when \(p\equiv2\pmod3\), and counts geometric classes. This is a structural arithmetic classification with direct use in explicit moduli and superspecial enumeration, not an arbitrary finite numerical table or a renamed textbook calculation.
+
+## Closest sources and limitations
+
+Kazemifard–Tafazolian (2015) covers selected Fermat-derived Picard examples, not the parameter-dependent locus. Nourozi–Rahmati (2023) provides the general Cartier coefficients but includes a stronger constant-rank statement whose application to this subfamily is contradicted by explicit examples. Laga–Shnidman (2023/2025) treats the exact family and its geometric invariant, but not its all-prime Cartier stratification. Estrada-Sarlabous (1991) is an unresolved primary full-text priority risk. The theorem does not determine the fields of definition of arbitrary roots or all Newton strata for \(p\equiv1\pmod3\). Exact tests for \(p<200\) support but do not constitute the infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.
