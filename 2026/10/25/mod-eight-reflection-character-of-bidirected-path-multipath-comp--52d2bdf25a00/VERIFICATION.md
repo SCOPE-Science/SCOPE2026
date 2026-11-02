@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-Execute `python3 check.py` from a directory containing the supplied standalone file. The script enumerates every admissible ternary face word for graph lengths 1 through 12 and verifies the character of the geometric reversal, the precise count of invariant faces, and the Euler–Lefschetz sign identity. For lengths 1 through 9 it also reconstructs all simplicial faces and reduces boundary matrices over the binary field, checking the predicted unique reduced Betti number and degree. A successful run ends with `REFLECTION_CHARACTERS_OK`.
+## correctness
 
-These computational checks are exhaustive only for the stated finite ranges and use characteristic two for the independent homology check. The theorem for arbitrary length follows separately from the proven signed-word fixed-face correspondence, the Hopf trace theorem and the previously published integral sphere homotopy classification. This file does not claim a full integral quotient-homology calculation or an independent external audit.
+PASS
+
+Faces of X_n are exactly the words in {0,+,-}^n with adjacent nonzero orientations agreeing; reversing path vertices reverses word order AND arc orientation. A fixed simplex has 2p arcs in reflection pairs and orientation sign (-1)^p. For m=floor((n-1)/2), central constraints yield a bijection of fixed faces with those of X_m. In the augmented Hopf trace, each fixed face contributes -(-1)^p, so the reduced Lefschetz trace is χ̃(X_m). The established homotopy X_n≃S^m (Caputi–Collari–Smith, Prop.2.2) then forces sign (-1)^(m+floor((m-1)/2)), with m=0 handled using χ̃(X_0)=-1. The displayed mod-eight pattern follows by exact parity; the quotient over Q is the invariant eigenspace after barycentric subdivision and averaging. Independently enumerated fixed words and supertraces for n=1..11 and read original check.py, but the all-n argument is the fixed-face proof plus cited sphere theorem.
+
+## originality
+
+PASS
+
+The nonequivariant sphere classification is previously proved; the candidate new result is the exact path-reversal homology character, including even-length cases, and the resulting rational quotient homology. The 2026 analogous strong-Morse-matching character and bidirected-polygon dihedral result apply to distinct face sets and cannot be substituted for the bidirected path. Full bidirected-path source text was inspected for its actual proposition, not inferred from titles. Best-of-knowledge originality PASS is qualified by possible older equivariant computations.
+
+## value
+
+PASS
+
+A discrete symmetry action on the uniquely nonzero homology of a canonical infinite graph-complex family is an intrinsic equivariant invariant not fixed by its known sphere homotopy type. The exact eight-residue classification resolves which sphere orientation survives the quotient and distinguishes even cases where previously known joins are insufficient. This is a focused structural theorem rather than a renamed nonequivariant sphere count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Each multipath is encoded uniquely by a ternary word with adjacent nonzero signs equal. Reflection-fixed faces are in bijection with faces of the shorter bidirected path on \(\lfloor(n-1)/2\rfloor\) edges; every nonempty invariant face contributes its correct signed simplex-permutation term to the reduced Lefschetz number. Using the pre-existing all-\(n\) sphere homotopy classification and the Hopf trace identity gives an integral sign, not merely a mod-two congruence. The rational quotient statement follows from barycentric subdivision and characteristic-zero finite-group averaging. The endpoint cases with zero-dimensional reduced homology and the augmented empty face are included explicitly.
+## correctness
 
-The embedded reproducibility script was run from the packaged source and returned `REFLECTION_CHARACTERS_OK`: exhaustive fixed-face signs for lengths 1 through 12 and mod-two boundary ranks for lengths 1 through 9. The proof for arbitrary length does not rest on finite data.
+PASS
 
-## Originality — PASS with residual risk
-The 2026 paper *Multipath complexes of bidirectional polygonal digraphs*, Proposition 2.2, already supplies the nonequivariant sphere homotopy classification, which is expressly credited. Its explicit join for odd lengths makes the odd-length action accessible by further derivation, so the principal new content is the even-length character, the uniform period-eight rule, and the rational orbit-space classification. Neither the cited sphere equivalences nor their even-length join models are equivariant statements. Published related calculations for bidirected cycles have different cell sets; reversal calculations for strong Morse matching complexes concern a demonstrably different graph complex. The separately checked prior indexed results are compared by implication rather than keyword alone. Equivalent unindexed results are an acknowledged bibliographic risk.
+Faces of X_n are exactly the words in {0,+,-}^n with adjacent nonzero orientations agreeing; reversing path vertices reverses word order AND arc orientation. A fixed simplex has 2p arcs in reflection pairs and orientation sign (-1)^p. For m=floor((n-1)/2), central constraints yield a bijection of fixed faces with those of X_m. In the augmented Hopf trace, each fixed face contributes -(-1)^p, so the reduced Lefschetz trace is χ̃(X_m). The established homotopy X_n≃S^m (Caputi–Collari–Smith, Prop.2.2) then forces sign (-1)^(m+floor((m-1)/2)), with m=0 handled using χ̃(X_0)=-1. The displayed mod-eight pattern follows by exact parity; the quotient over Q is the invariant eigenspace after barycentric subdivision and averaging. Independently enumerated fixed words and supertraces for n=1..11 and read original check.py, but the all-n argument is the fixed-face proof plus cited sphere theorem.
 
-## Value — PASS
-A nonequivariant sphere equivalence does not say whether the geometric reversal preserves or reverses its integral fundamental class. The answer changes in four-length pairs, yielding a sharp, all-length quotient homology dichotomy for a canonical graph-complex family. The fixed-face bijection reveals the mechanism behind the period-eight character and gives a reusable method of extracting symmetry information from combinatorial Lefschetz numbers.
+## originality
 
-## Limits
-The quotient is classified only over \(\mathbb Q\), not over \(\mathbb Z\); the ordinary homotopy type and shellability are not new claims. No independence of this examination from its authoring process is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nonequivariant sphere classification is previously proved; the candidate new result is the exact path-reversal homology character, including even-length cases, and the resulting rational quotient homology. The 2026 analogous strong-Morse-matching character and bidirected-polygon dihedral result apply to distinct face sets and cannot be substituted for the bidirected path. Full bidirected-path source text was inspected for its actual proposition, not inferred from titles. Best-of-knowledge originality PASS is qualified by possible older equivariant computations.
+
+## value
+
+PASS
+
+A discrete symmetry action on the uniquely nonzero homology of a canonical infinite graph-complex family is an intrinsic equivariant invariant not fixed by its known sphere homotopy type. The exact eight-residue classification resolves which sphere orientation survives the quotient and distinguishes even cases where previously known joins are insufficient. This is a focused structural theorem rather than a renamed nonequivariant sphere count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
