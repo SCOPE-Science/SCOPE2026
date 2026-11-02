@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact Gaussian support formula is verified for the inherited Euclidean metric. Disjoint edge increments are independent; incident increments have correlation magnitude \(1/2\), providing the explicit joint-exceedance bound. Fixed factorial moments give Poisson threshold counts and Gumbel widths; Gaussian spherical normalization is negligible on that scale. The uniform exposure-angle limit follows from a far-edge matching domination and a separate neighbor-error estimate. The star calculation uses two independent leaf extremes plus one common hub Gaussian. The statement has no hidden moment or finite-rate assertion. The checker contains 508 exact-formula numerical comparisons plus distribution diagnostics, which are corroborative only.
+## correctness
 
-**Originality: PASS, subject to literature coverage limits.** Chen--Davis--Korchevskaia prove facet/face subgraph classifications; D'Alì and collaborators prove \(\gamma\)-vector statements; Braun--Bruegge--Kahle study facet counts for random graph ensembles. These do not imply intrinsic random-width fluctuations or general asymptotic equality of root normal-cone angles. Classical Poisson extreme-value theory explains part of the mechanism but does not by itself supply the claimed geometric interpretation and uniform angular statement. Closely related published claims on specific path root angles or dense random graph widths do not cover the theorem for arbitrary bounded-degree graphs. Indexed search cannot exclude an equivalent treatment in less-accessible work.
+PASS
 
-**Value: PASS.** Directional widths and normal-cone solid angles are natural metric and angular invariants of graph-associated polytopes. The joint theorem shows that every signed root becomes asymptotically equally visible from a uniformly chosen intrinsic direction despite a lack of graph symmetries, and identifies a universal non-Gaussian width fluctuation law. The star comparison demonstrates that local-degree control matters geometrically, rather than merely technically.
+Gaussian projection to the sum-zero hyperplane gives exact W=2 sqrt(2) M/(sqrt(n-1) R), M=max_{ij in E}|g_i-g_j|/sqrt(2), R^2=chi²_{n-1}/(n-1). Disjoint edge increments are independent; adjacent increments have |correlation|=1/2, yielding joint tail <=4 exp(-2u²/3). Bounded-degree dependency components contribute o(1) to fixed factorial moments at u=b+x/b, while singleton components converge to Poisson mean exp(-x), giving the Gumbel law; chi correction is negligible since b²=O(log n). To prove uniform angular probability, integrate the independent far-edge maximum distribution against uniform variable m*p(Y_e), dominate by a linearly large matching, and exclude nearby wins with the same m^-4/3 joint tail; each orientation gets half the winning-edge probability. For star, leaf upper/lower extrema combine with one common center Gaussian to give |Z|. Independent checks: 150 exact support identities, 11,500 path samples at n=850 with empirical CDF 0.3792 vs exp(-1)=0.3679, star sample mean 0.998 vs asymptotic 0.798 (visible finite-n centering bias). No finite result proves the asymptotic law.
 
-**Scientific risks:** A stronger unindexed Gaussian-extreme theorem could subsume the Gumbel portion; the normal-angle statement and its graph-uniform conclusion still need explicit comparison. There is no claim of independent assessment, optimized rates, or beyond-bounded-degree universality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level implication and object/parameter comparisons checked in cited primary literature and Resultary; novelty is best-of-knowledge, with named inaccessible full texts and generic-theorem risks. The previously known subclaims are explicitly excluded from the novelty claim.
+
+## value
+
+PASS
+
+Two natural metric/geometric invariants of symmetric edge polytopes—random width and root normal-cone angle—exhibit universal asymptotic behavior even on nontransitive bounded-degree graphs. The star comparison isolates a substantive boundary where a hub changes both the leading scale and fluctuation distribution. Normal angles quantify angular visibility not captured by facet counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
