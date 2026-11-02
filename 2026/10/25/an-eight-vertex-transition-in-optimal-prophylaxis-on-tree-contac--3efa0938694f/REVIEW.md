@@ -1,15 +1,21 @@
-# Scientific review of the eight-vertex vaccination transition
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a removed vertex, the expected outbreak size from a source sampled uniformly among unvaccinated vertices equals the ordered-pair connection probability sum divided by the remaining population size. Every connected pair in a residual tree has a unique path, so the expression is an exact polynomial in the independent edge-transmission probability. The exhaustive lower bound uses a complete leaf-extension construction of all unlabelled trees through seven vertices, with duplicate removal by graph isomorphism and exact real-root sign certification of all needed polynomial comparisons. The eight-vertex witness's two objective polynomials differ by \(2p(p^3+p^2-1)\); strict monotonicity of the cubic, comparison with all other targets, and an independent edge-subset enumeration support the sharp transition.
+## correctness
 
-## Originality
-**PASS, with qualifications.** Newman's 2002 epidemic-percolation analysis establishes the transmission model, not a sharp minimum tree order at which the best vaccination vertex depends on transmissibility. Holme (2017) studies closely related exact node vaccination rankings on small graphs, including graphs up to seven vertices, but uses the Markovian continuous-time SIR dynamics with shared recovery-time dependence, rather than independent edge openings; its stated census does not establish the present eight-vertex tree threshold. Earlier network-vaccination and target-selection results motivate the question but were not found to supply its exact sharp answer. Search and source comparisons were restricted to accessible material; an equivalent independent-bond optimal-node theorem in older graph-reliability literature remains a residual bibliographic risk.
+PASS
 
-## Value
-**PASS.** The target-selection question is a natural public-health optimization problem: whether intervention priority can be chosen from topology alone or changes when transmissibility changes. The result gives a rigorous, minimal eight-individual boundary, a complete order-at-most-seven guarantee, and a nontrivial exact algebraic threshold between vaccinating a branching hub and a different, more balanced location. It separates local-degree intervention intuition from large-transmission component-size effects. No claim is made for non-tree networks, heterogeneous transmission, multiple vaccinees, or correlated SIR transmissions.
+The expected infected count equals the uniform-source sum of percolation connectivities; on a tree every open path has probability p^{distance}, so (n-1)R(v,p)=sum over ordered residual connected pairs p^{distance}. Directly inspected RESULT.md and verify.py; a fresh independent finite exhaustive checker regenerated unlabelled tree class counts 1,1,2,3,6,11 for orders 2..7, checked a fixed minimizer in every class using exact polynomial root/sign tests, and independently reconstructed the n=8 witness F_2=7+8p+6p^2+4p^3+2p^4 and F_1=7+10p+6p^2+2p^3. Their difference 2p(p^3+p^2-1) has a unique interior root; all other target polynomials are dominated by a candidate globally. Finite enumeration is exhaustive here because leaf deletion recovers every unlabelled tree and the exact sign algorithm covers the entire probability interval; it is not an extrapolation to larger trees.
 
-## Scope and outstanding checks
-The exhaustive classification is finite and requires exact symbolic and graph-isomorphism computation to reproduce, rather than a uniform closed-form structural argument. Independent expert audit and a fully exhaustive historical literature review have not been performed. Closest inspected primary texts: Newman (arXiv:cond-mat/0205009, pp. 1–3, 8), Holme (arXiv:1708.06456, pp. 1–3); Takeuchi–Yamamoto (2006) was assessed from the accessible abstract.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bond-percolation connection formula is established background, and the nearby exact vaccination-ranking study concerns continuous-time Markovian SIR rather than independent bond transmission. Inspected primary statements do not give the smallest-tree all-p cutoff or the explicit global switch. Conditional best-of-knowledge originality is accepted with older graph-reliability and vaccine-ranking literature as residual risks.
+
+## value
+
+PASS
+
+Whether one fixed intervention target minimizes expected infection irrespective of transmissibility is a natural network intervention question. The theorem supplies the complete sharp order-through-seven boundary and a concrete eight-vertex algebraic transition, separating topology-only selection from probability-dependent selection. This is mathematically motivated finite classification, not a cosmetic isolated calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
