@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified over all finite loopless directed graphs with nonnegative weights and all convex mixing coefficients. The co-singleton calculation is exact because outside the coalition containing every vertex except one, the external contribution is the sum of that vertex's outgoing weights. Adding the implied individual upper bounds forces an empty core below one half and pins all coordinates at the boundary. Above one half the explicit allocation has the exact nonnegative cut-slack decomposition shown in the proof; strictness identifies the active component-union constraints and yields the core dimension. Restricted core allocations are constructed directly for every player subset, proving total balancedness. The two-vertex case establishes sharpness. The exact-arithmetic checker returned PASS on 22,085 parameterized finite graph cases. Finite checks are not used as a proof of infinite-size assertions.
+PASS
 
-## Originality — PASS, with residual priority risk
+Using co-singleton coalitions yields x_j<=lambda I_j+(2lambda-1)O_j and sum x= lambda W <=(3lambda-1)W; W>0 prohibits lambda<1/2 and pins x=I/2 at equality. For lambda>1/2, explicit x*=I/2+(lambda-1/2)O has coalition slack (lambda-1/2)(A+B)+(1-lambda)(B-E), B>=E, so exact tight coalitions are positive-component unions and affine dimension n-c by relative interior. For every restricted R, y^R_j=lambda incoming-from-R+(1-lambda)min incoming-from-outside-R is efficient and satisfies T-subcoalitions for lambda>=1/2. Exact independent rational checker on 64 three-vertex binary digraphs times 5 parameters verified identity, feasibility and tightness. Two-vertex one-arc witness confirms sharp threshold. Null graph gives singleton zero core.
 
-The closest primary work is Ryzák and Kroupa (arXiv:2605.18157v1, Sections 2, 5, and 6). It solves the fixed unweighted-sum model and explicitly proposes studying convex combinations as future work. The earlier Bandhana–Kroupa–García AAMAS 2024 paper likewise concerns the original fixed sum. Neither inspected work states the three-phase empty/singleton/positive-dimensional classification, the exact weak-component dimension, or the all-coefficient total-balancedness criterion. General theory of internal edge-sum games gives a known endpoint but not the claimed parameter-wide converse. Targeted phrase and implication searches did not surface equivalent coverage. Equivalent material under alternative parametric cooperative-game terminology has not been exhaustively excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mixing coefficient is a natural model choice that governs whether coalitions value internal edges or external minimum trust. The theorem answers a research direction explicitly posed in the motivating paper. It shows a qualitative instability for even infinitesimal weight changes below one half, a unique stable allocation at equality, and an exact graph-topological dimension of bargaining freedom above one half. The sharp two-node example and total-balancedness classification make the transition structural rather than a numerical instance-specific observation.
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
 
-## Scope and limitations
+## value
 
-All claims use the stated zero-for-empty-minimum convention and nonnegative weights. The full core vertex and facet structure is not classified. The tests cover finite families only; independent validation and exhaustive bibliographic priority confirmation are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural convex interpolation of internal trust and minimum outsider trust explicitly proposed for study in prior source; qualitative empty/singleton/dimensional transition, precise n-c topology dependence and total balancedness answer a genuinely motivated structural game-theoretic question, not a cosmetic parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Execute `python verify_parametric_trust.py` with Python 3.9 or later. The program requires only the Python standard library and performs exact rational evaluations of the characteristic function and all pertinent coalition inequalities. It checks all directed zero-or-one-weight support graphs with one through four vertices at five mixing values, plus seeded directed graphs with weights from \(\{0,1/5,2/5,3/5,4/5,1\}\) on two through five vertices at seven mixing values. Total parameterized graph cases: 22,085. The program verifies the co-singleton upper-bound identity, the negative-phase impossibility certificate, the explicit core allocation, the exact tightness pattern and component equations, core certificates for every restricted coalition game, and the two-agent critical interval. On successful completion its first output line begins with `PASS 22085`.
+## correctness
 
-The proof for arbitrary finite order and arbitrary real nonnegative weights is in `RESULT.md`; no finite enumeration implies the universal statement. In particular the affine-dimension assertion follows from an analytic strict-feasibility argument in the component-sum affine space, not from rank extrapolation. No external certification or independent audit has been performed.
+PASS
+
+Using co-singleton coalitions yields x_j<=lambda I_j+(2lambda-1)O_j and sum x= lambda W <=(3lambda-1)W; W>0 prohibits lambda<1/2 and pins x=I/2 at equality. For lambda>1/2, explicit x*=I/2+(lambda-1/2)O has coalition slack (lambda-1/2)(A+B)+(1-lambda)(B-E), B>=E, so exact tight coalitions are positive-component unions and affine dimension n-c by relative interior. For every restricted R, y^R_j=lambda incoming-from-R+(1-lambda)min incoming-from-outside-R is efficient and satisfies T-subcoalitions for lambda>=1/2. Exact independent rational checker on 64 three-vertex binary digraphs times 5 parameters verified identity, feasibility and tightness. Two-vertex one-arc witness confirms sharp threshold. Null graph gives singleton zero core.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS after independent statement/implication comparisons with primary literature and published semantic records. Known starting theorems explicitly credited; absence of matching search results not treated as proof of priority.
+
+## value
+
+PASS
+
+Natural convex interpolation of internal trust and minimum outsider trust explicitly proposed for study in prior source; qualitative empty/singleton/dimensional transition, precise n-c topology dependence and total balancedness answer a genuinely motivated structural game-theoretic question, not a cosmetic parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
