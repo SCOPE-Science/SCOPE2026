@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify_kernel_fingerprint.py` with Python 3. No nonstandard packages or external data are needed.
+## correctness
 
-The script generates every integer partition through \(n=32\) and checks the uniqueness of the computed power sums and successful greedy inverse for all 43,819 partitions. For \(2\le n\le32\), it sorts every fingerprint and verifies that the true minimum adjacent difference is exactly \(2^n-2\). It constructs actual transformations on \(n\le6\) points to check the rank-one product counts in 29 direct profiles, and enumerates actual ordinary permutations as outer factors for \(n\le4\) in 11 profiles.
+PASS
 
-The expected terminal marker is `VERIFY_OK_KERNEL_FINGERPRINT direct_profiles=29 direct_outer_profiles=11 partition_decodes=43819 sharp_gaps_n=2..32`.
+For sandwich product f star_a g=f∘a∘g, ordinary outer permutations preserve rank, so B_n(a)=n! sum over nonempty kernel fibers lambda_z^n. For each n, m^n>n(m-1)^(n-1) for integers 2<=m<=n ensures the largest part-count discrepancy dominates all smaller parts and supports the descending greedy decoder. For largest differing part 2, mass balance forces gap at least 2^n-2; for part >=3 the increasing lower h_n(m)=m^n-n(m-1)^(n-1) strictly exceeds 2^n-2. Thus sharp gap n!(2^n-2) for n>=2, attained by one doubleton against all singletons. The isomorphism equivalence uses Tsyaputa known Theorem 2 for kernel partitions (not claimed new). Independent complete integer partitions through n=23 verify injectivity and gap; the proof covers all n including n=1 special case.
 
-These are finite consistency checks only. They do not certify universal claims or the historical-priority assessment; both depend on the explicit proof and primary-literature comparison respectively. The proof of the abstract-isomorphism corollary uses Tsyaputa's Theorem 2, which is not independently reconstructed in the verifier.
+## originality
+
+PASS
+
+Primary published results were compared by their mathematical implications; the stated precisely delimited new theorem is not established by the inspected statements, with incomplete-source and implicit-folklore risks retained. Originality is a qualified best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The natural rank-one mixed multiplication count compresses the full kernel partition of a finite transformation variant into one O(n log n)-bit scalar, with exact decoder and optimal guaranteed separation. This is a meaningful quantitatively robust invariant despite not replacing the known partition classification; outer permutation marking is declared representation-dependent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
