@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has explicit graph conventions, exact rank-two updating, and periodized Green-kernel formulas. The proof checks every denominator via positive definiteness on the zero-sum subspace. Strict discrete convexity yields monotone wheel Green correlations and the single sign change. Direct rational evaluations prove the five small boundary cases, while an explicit exact geometric-series bound handles every larger wheel. The first-negative asymptotic follows from a uniform expansion at logarithmic separation, not experimental extrapolation. `verify.py` independently checked 222 exact finite identities and comparisons; these are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Ground hub; rim Dirichlet Laplacian is A=3I−S−S^-1. Periodization of r^|j|/√5 and the explicitly derived squared-Green kernel gives exact c_d and u_d. Rank-one/rank-two Woodbury on the zero-sum subspace yields S=Nσ/α, D=2N[ασ+c_d(u_d−1/N)]/(α²−c_d²), I=2Nc_dY_d/[α(α²−c_d²)]; connection guarantees α>c_d>0. Strict decrease and discrete convexity of the positive infinite-line kernels establish decrease of c_d,u_d and Y_d through half the cycle; adjacent interaction is positive, hence unique maximum at d=1 and at most one interaction sign change. Explicit n=3..7 boundary algebra, and majorant B_4=125000000000/152387956161<1 decreasing for m≥4, prove the n=6 threshold. Uniform r^d(d/5+O(1))−1/N asymptotics for d=O(log n) give the claimed first-negative scale. Independent fresh numerical Laplacian direct inverses agreed at all 599 separations for 3≤n≤49. These finite checks are not the all-n proof.
 
-The closest mathematical input is Carmona, Mitjana and Monsó, *Effective resistances and Kirchhoff Index in subdivision networks* (arXiv:1609.04642v1): its Section 5 computes wheel Green kernels but studies subdivision networks rather than two deleted hub spokes. Gago's 2016 non-complete-wheel work treats equally spaced retained spokes. These sources supply powerful background but do not establish the general interaction-sign phase transition, adjacent maximizer, or asymptotic crossover. The Gago full paper could not be inspected completely; an equivalent unindexed result remains possible. General rank-two update algebra and the wheel's unperturbed Green kernel are not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-The wheel is a natural hub-and-ring fault-tolerant network. The result separates compounding from compensating two-link damage with a sharp network-size boundary, locates all worst spoke pairs, and quantifies the crossover distance on expanding wheels. It is a natural complete sign classification for the specified failure family, with an exact finite evaluation rule and a nontrivial asymptotic scale.
+The known Green matrix of complete or periodically-spoked wheel networks, and classical rank-two Laplacian update, are prior methods. The inspected primary wheel results do not order all two-spoke deletions, give a unique interaction-sign transition or its sharp first-negative asymptotics. The new content is the global rank-two comparison and precise sign behavior, not the formula for a wheel Green kernel.
 
-## Limits
+## value
 
-Only pairs of spokes and unit conductances are treated; rim failures and heterogeneous networks are outside scope. The precise integer crossover is given by a closed sign test, not by a simpler universal floor formula. Historical uniqueness is not established and one plausible source remained only partially accessible. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp optimized perturbation theorem for the natural Kirchhoff index of a common network family. The competition of superadditive near spoke losses and subadditive distant losses is described quantitatively at all graph sizes, including an exact n=6 onset and a nontrivial log-log separation scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
