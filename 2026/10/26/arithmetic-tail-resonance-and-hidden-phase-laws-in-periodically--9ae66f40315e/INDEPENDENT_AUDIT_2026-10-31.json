@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:39:11Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private standalone calculations; FFT Laurent coefficients and direct phase-conditioned geometric-pole integrations)",
+      "rationale": "For any block duration t, integrating the exponential Poisson amplitude gives bilateral geometric lattice masses c_t q_t^|j| and F_t(z)=[1+lambda_bar*t(1-(z+z^-1)/2)]^-1. A stationary elapsed uniform phase U makes an integer n-period observation comprise n−1 whole blocks and independent partial blocks (1−U), U; direct integration yields 2 log(h)/[h^(n−1)(h²−1)] with h=1+B[1−(z+z^-1)/2]. Near unique outer singularity z=q^-1, h=c^-1(1−qz)+higher terms, giving 2q^m/m at n=1 and 2c^(n−1)m^(n−2)log(m)q^m/(n−2)! for n≥2. For n+α, 0<α<1, split U at 1−α: n full-block sector contributes order h^-n times J_α=2 log(1/(1−α))/(2−α); the other sector has at most order h^-(n−1)log h. For n=1, endpoint layer U=w/m gives conditional likelihood c q^m exp(−cw) and symmetric endpoints. For n≥2, n−1 complete block geometric convolutions under the q^-m tilt and partial tilted increments at u in [m^-b,m^-a] give fixed-phase local mass c^(n−1)m^(n−2)q^m/((n−2)!u(1−u)); integrating du/u over log-scale intervals and dividing by full log(m) mass produces independent uniform log exponent and fair endpoint label. Infinite statements rest on analytic pole/singularity/convolution comparisons, not finite tests. Independent FFT Laurent contour calculations used an independently integrated two-sector noninteger generating function and checked n=1,2,3, α=0,0.3,0.4,0.35 and B=0.2,1,5; direct geometric-pole likelihood quadrature corroborated both phase limits at m=100,300,1000. Boundary parameters B>0,n fixed positive,α strictly in (0,1); zero-duration limit and joint near-integer boundary-layer scaling are not claimed.",
+      "specific_checks": [
+        "For B=1 and integer n=1, ratio exact mass/(2q^m/m) at m=300: 1.00006747.",
+        "For B=1 and integer n=2, ratio exact mass/(2c q^m log m) at m=300: 1.00522438.",
+        "For B=1, n=1, alpha=0.3, ratio exact mass to leading n+alpha asymptotic at m=300: 1.03951367.",
+        "For B=1, n=2, alpha=0.4 ratio at m=300: 1.15782003; convergence slower due to lower-order log term.",
+        "For n=2,B=1 and m=1000, conditional probability of U in [m^-0.8,m^-0.2] is 0.317008, versus limit 0.3000.",
+        "For n=1,B=1, m=1000, P(U≤2/m|Z=m) =0.342665 versus limit (1−exp(−2c))/2 =0.342424."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2012.09656v2 (Pacheco-Pozo–Sokolov, Phys. Rev. E 103 042116, 2021): sections II–III treat independent renewal waiting times and large-time rate functions rather than the exact periodic-Cox phase mixture.",
+          "arxiv:2005.13174v3 (Wang–Barkai–Burov, March 22, 2022): main §§II–IV treat finite-time far tails of IID-wait CTRW with Gaussian jumps; their logarithmic correction is in the exponential rate, unlike the log(m) multiplicative factor from phase mixing.",
+          "doi:10.1155/2008/367170 (Dassios–Jang, 2008): a stationary shot-noise intensity Cox-process interarrival-law problem, not this deterministic-period response."
+        ],
+        "reasoning": "Published large-deviation principles and saddle-point formulas for renewal CTRW can establish exponential-scale effects for their own model but do not specify the lattice local-mass constants or a conditional latent clock phase in the periodically redrawn Cox environment. Classical transfer theorems calculate coefficients when supplied the model-specific integrated generating function; they do not independently state this stochastic-model result.",
+        "searches": [
+          "Pacheco Pozo Sokolov Large Deviations in Continuous Time Random Walks arxiv 2012.09656 full text",
+          "stationary Cox process periodic refresh rate random phase conditional extreme displacement",
+          "arxiv:2005.13174 Large deviations for continuous time random walks fixed time large displacement",
+          "periodic random environment Cox walk extreme displacement conditional rate renewal phase log uniform asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2302.07041v3 (Arutkin–Reuveni, Phys. Rev. Research 6 L012033, 2024)",
+        "arxiv:2012.09656v2 (Pacheco-Pozo–Sokolov, Phys. Rev. E 103 042116, 2021)",
+        "arxiv:2005.13174v3 (Wang–Barkai–Burov, March 22, 2022)",
+        "doi:10.1155/2008/367170 (Dassios–Jang, 2008)",
+        "Three Resultary published SCOPE semantic queries: stationary randomly phased periodically refreshed Cox continuous-time random walk rare displacement lattice tail logarithmic prefactors hidden phase conditional extreme positions; Doubly stochastic continuous time random walk periodically refreshed exponential jump rates random observation phase large deviation endpoint localization; periodic random environment Cox walk extreme displacement conditional rate renewal phase log uniform asymptotic",
+        "Targeted web queries: Arutkin Reuveni Doubly stochastic continuous time random walk 2302.07041 full text supplementary phase observation time aligned renewal; periodically renewed Cox random walk uniform random phase rare displacement local probability logarithmic singularity; Pacheco Pozo Sokolov Large Deviations in Continuous Time Random Walks arxiv 2012.09656 full text; stationary Cox process periodic refresh rate random phase conditional extreme displacement; Cox process exponentially distributed rates redrawn periodically stationary phase time origin displacement tail log uniform; randomly shifted periodic exponential environment random walk generating function logarithm rare event phase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2302.07041v3 (Arutkin–Reuveni, Phys. Rev. Research 6 L012033, 2024): main equation (4) uses fixed renewal/block timing; its supplement concerns first passage and moments, including a different time-domain discontinuity.",
+          "arxiv:2012.09656v2 (Pacheco-Pozo–Sokolov, Phys. Rev. E 103 042116, 2021): premises include independent renewal waiting times; those fail for periodically shared Cox intensity.",
+          "arxiv:2005.13174v3 (Wang–Barkai–Burov, March 22, 2022): §II equation (2) explicitly assumes a renewal waiting-time density ψ and independent waiting times, while the audited model has correlated within-block waits and a latent phase."
+        ],
+        "reasoning": "Aligned-rate propagator supplies a legitimate ingredient h(z), but it is neither the random-phase generating function 2 log h/(h^(n−1)(h²−1)) nor a published general theorem implying its dominant Laurent singularities. Existing renewal deviations cannot be specialized to block-correlated intensity increments. The new statement is not an already-covered corollary under the compared precise assumptions, while broad unindexed results could change priority.",
+        "searches": [
+          "Arutkin Reuveni Doubly stochastic continuous time random walk 2302.07041 full text supplementary phase observation time aligned renewal",
+          "Pacheco Pozo Sokolov Large Deviations in Continuous Time Random Walks arxiv 2012.09656 full text",
+          "arxiv:2302.07041 eq 4 phase anchored transform and supplementary material",
+          "arxiv:2005.13174 renewal far tail prefactors",
+          "Doubly stochastic continuous time random walk periodically refreshed exponential jump rates random observation phase large deviation endpoint localization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2302.07041v3 (Arutkin–Reuveni, Phys. Rev. Research 6 L012033, 2024): eq. (4) has refresh-aligned observation time and conditional block-product characteristic function, not a uniform observation phase.",
+          "arxiv:2005.13174v3 (Wang–Barkai–Burov, March 22, 2022): §II eqs. (1)-(2), (7) describe renewal CTRW with IID waiting times and Laplace saddle-point tail.",
+          "Resultary result 2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8 concerns age/residual power correlations, not this Cox lattice process."
+        ],
+        "reasoning": "Representing the refreshed intensity as a Cox process or the model as a Markov-modulated walk leaves the same task of integrating the uniform phase; the aligned transform alone is not the claimed stationary result. The stationary phase integral 2 log(h)/(h^(n-1)(h^2-1)) and its posterior phase asymptotics are not equivalent to renewal waiting-time rates. No matching theorem was identified under these aliases.",
+        "searches": [
+          "stationary randomly phased periodically refreshed Cox continuous-time random walk rare displacement lattice tail logarithmic prefactors hidden phase conditional extreme positions",
+          "Doubly stochastic continuous time random walk periodically refreshed exponential jump rates random observation phase large deviation endpoint localization",
+          "Arutkin Reuveni Doubly stochastic continuous time random walk 2302.07041 full text supplementary phase observation time aligned renewal",
+          "periodically renewed Cox random walk uniform random phase rare displacement local probability logarithmic singularity",
+          "Resultary semantic query: periodic random environment Cox walk extreme displacement conditional rate renewal phase log uniform asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:2302.07041v3 (Arutkin–Reuveni, Phys. Rev. Research 6 L012033, 2024): displayed aligned propagator, moment and exit-time calculations, with no table of these fixed-time integer/noninteger lattice local mass coefficients.",
+          "The directly related published Resultary quantum-walk Riccati phase item 2026/10/4/SCOPE-exact-radial-burn-in-exponent-for-the-full-disorder-quantum-walk--f8aab63cc76e concerns a different quantum phase and rate exponent, not a table of these masses.",
+          "arxiv:2005.13174v3 (Wang–Barkai–Burov, March 22, 2022): exact kernels relate to Gaussian jump laws and renewal waits rather than iid redrawn block rates."
+        ],
+        "reasoning": "No exact published table or mathematical database record recovered by the executed searches gives the triple of q^m tail constants, n-dependent powers and log, and conditional phase limits for this specific stationary Cox walk. An empty search is not a mathematical novelty proof; unindexed sources remain a risk.",
+        "searches": [
+          "Cox process exponentially distributed rates redrawn periodically stationary phase time origin displacement tail log uniform",
+          "randomly shifted periodic exponential environment random walk generating function logarithm rare event phase",
+          "stationary randomly phased periodically refreshed Cox continuous-time random walk rare displacement lattice tail logarithmic prefactors hidden phase conditional extreme positions",
+          "arxiv:2302.07041 stationary random phase mass table",
+          "Resultary published SCOPE semantic search, three exact queries logged in assignment audit"
+        ]
+      },
+      "rationale": "Direct statement-to-statement comparison distinguishes this stationarily random-phase, exponentially refreshed Cox lattice walk from the directly antecedent aligned-initialization model and from generic renewal CTRW large-deviation studies. The antecedent fixes the rate-block boundary at the observation origin and supplies the one-block transform, but neither the uniform-phase logarithmic generating function nor the sharp integer/noninteger exact lattice prefactors and extreme-displacement conditional phase. A separate 2022 fixed-time large-displacement paper does treat tail prefactors and logarithmic corrections, but presupposes independent waiting times; it does not imply this temporally correlated fixed-period Cox model or the latent-phase law. The Resultary semantic searches did not return a directly covering statement. This is a bounded, best-of-knowledge originality assessment, not proof of historical priority.",
+      "residual_risks": [
+        "Unindexed stochastic intensity/phase-mixture results or classical exact coefficient identities might imply these formulas indirectly.",
+        "The principal antecedent shares its exponential-rate periodic model; the claimed novelty is only uniform stationary observation phase, arithmetic tail prefactors, and conditional hidden-phase laws.",
+        "Exact large-deviation transfer is standard analytic-combinatorial machinery, not itself novel; no historical priority certificate or human expert verification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_RATE_MODEL_BUT_ALIGNED_PHASE_NOT_COVERING_STATIONARY_EXTREME_TAIL_OR_POSTERIOR",
+          "evidence": [
+            "The source conditions on refresh-aligned initial time when multiplying whole-period rate transforms; its supplement studies first exit and moments, not a hidden uniform clock phase conditioned on extreme lattice displacement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.07041",
+          "material_read": "Complete primary paper including fixed-boundary generating function (equation 4), moment/transport and first-exit sections, conclusions and references; supplementary PDF main mathematical sections (first-passage discontinuities, Gamma rate variations).",
+          "method": "Read arXiv primary PDF and openly accessible supplement with targeted model/phase comparison; inspected source page image.",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "Same exponentially refreshed jump-rate model and possible stronger exact propagator"
+        },
+        {
+          "assessment": "RENEWAL_CTRW_RATE_FUNCTION_NOT_MODEL_SPECIFIC_LOCAL_MASS_AND_PHASE_LAW",
+          "evidence": [
+            "Independent waiting-time renewal structure, leading large-deviation exponential rate, rather than a phase-randomized deterministic refresh environment with correlated waiting times."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09656",
+          "material_read": "Primary full text: setup and renewal assumptions, rate-function derivations in sections II–III, examples and conclusion.",
+          "method": "Read openly accessible primary arXiv PDF and inspected first-page screenshot; compared hypotheses, observables and asymptotic regime.",
+          "title": "Large Deviations in Continuous Time Random Walks",
+          "trigger": "Potential general large-deviation theorem or stronger prefactor covering this model"
+        },
+        {
+          "assessment": "DIFFERENT_IID_RENEWAL_WAITS_AND_CONTINUOUS_GAUSSIAN_JUMPS;_LOG_CORRECTION_OF_EXPONENT_NOT_PHASE_MIXTURE_PREFAC",
+          "evidence": [
+            "Equation (2) defines number of jumps through renewal waiting times ψ; §II says χ are iid independent jumps; conditional hidden refresh phase does not exist in their model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.13174",
+          "material_read": "Primary arXiv PDF abstract, introduction, sections II–IV on exponential/Erlang/mixture renewal waiting laws, exact finite-time kernels and tail equations (1)-(7), (39), (49), plus conclusion and appendices summaries; 19-page source available.",
+          "method": "Primary PDF text inspection, targeted source comparisons and image screenshot of page 1.",
+          "title": "Large deviations for continuous time random walks",
+          "trigger": "Strong closer alternative: exactly solvable finite-time large-displacement tails including logarithmic corrections"
+        },
+        {
+          "assessment": "SHOT_NOISE_COUTING_INTERVAL_LAW_NOT_PERIODIC_EXACT_TAIL_OR_PHASE",
+          "evidence": [
+            "Poisson shot-noise driven Cox process and time between events, rather than deterministic rate-refresh period with spatial random-walk displacement and extreme conditional phase."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2008/367170",
+          "material_read": "Available primary HTML abstract, shot-noise intensity model and interval distribution theorem; not a full line-by-line paper audit.",
+          "method": "Openly accessible original article HTML, compare intensity update mechanism and target statistics.",
+          "title": "Distribution of the Interval between Events of a Cox Process with Shot Noise Intensity",
+          "trigger": "Check general stationary stochastic-intensity Cox-process methods for domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a deterministically refreshed stochastic-intensity environment, uniform random phase is the canonical observation-time stationary law. The theorem classifies exact fixed-time rare-displacement lattice prefactors over every integer and strictly noninteger refresh ratio, showing a sharp logarithmic/arithmetic resonance not recoverable from Gaussian or mean-square transport results. Its two distinct conditional hidden-clock distributions quantify which unobserved refresh alignments dominate rare events. These are natural asymptotic and inference invariants for the model, not arbitrary finite slices, routine reparameterizations, or a known-table recomputation; the result does not claim broader intensity priors or code/experiment guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Analytic asymptotics hold at fixed B>0, tau>0, integer n>=1 and alpha in (0,1), m tending to positive infinity, stationary phase initialization, exponential independent rate redraws and ±1 jumps.",
+    "No uniform joint limit as alpha approaches 0 or 1 with growing m, other rate distributions, nonstationary alignment, first-passage laws, or actual finite-data identifiability is proved.",
+    "Numerical contour and quadrature checks are bounded corroboration of a reconstructed analytic proof, not formal infinite certificates.",
+    "No expert attestation, Lean proof, or certified exhaustive priority search."
+  ],
+  "schema_version": 1
+}
