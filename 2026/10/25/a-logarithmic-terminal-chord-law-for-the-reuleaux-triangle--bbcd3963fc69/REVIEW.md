@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses exact intersections of three disk intervals, a three-sector symmetry reduction, a uniform identification of active endpoint constraints away from angular boundary strips, and a root expansion whose integrated error is bounded by \(O(\varepsilon)\). Independently integrating the exact full chord formula confirms the sharp coefficient. The inference depends on uniformity of the angular root bound; this has been supplied explicitly.
+## correctness
 
-## Originality
-PASS on presently accessible evidence, with a material historical-priority caveat. The regular-polygon chord distributions of Harutyunyan–Ohanyan (2009) and Bäsel (2012) do not cover curved Reuleaux boundaries. Nearby records on Reuleaux radial area and halfspace depth study different distributions. General chord work of Gates (1987) is a residual risk: its abstract was accessible, but the full article could not be read. Neither a failed keyword search nor partitioned subject ownership is treated as a proof of uniqueness.
+PASS
 
-## Value
-PASS. The logarithmic endpoint probability is a natural observable of constant-width geometry and supplies a quantitative example where a body with circular arcs and corners has a different long-chord exponent from a Euclidean disk. The explicit coefficient and uniform error sharpen a qualitative comparison of nonsmooth and smooth convex bodies.
+An invariant line meets the intersection of three unit disks in the intersection of their exact chord intervals. In each 60-degree normal sector t=0 has length one. For L>1-ε all offsets obey |t|<=sqrt(2ε); the angular strips of width O(sqrt ε) contribute O(ε). For the interior angles the active endpoint expansion gives q_ε(α)=ε cot α+O(ε² cot³ α), whose integrated error is O(ε); each angular sector has measure ε log(1/ε)+O(ε), with total line mass π, yielding 3/π. Independent exact disk-intersection numerical quadratures across ε=1e-3,1e-4,1e-5 yield finite-difference coefficient approaching 0.9549297. Finite checks do not establish uniform asymptotics.
 
-## Literature and limits
-The claims are limited to invariant-line sampling and the endpoint regime, not the complete law or other probabilistic chord models. Historic priority requires expert review of older general chord-distribution literature. The numerical checks are corroborative rather than exhaustive proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality best-of-knowledge based on mathematical comparison of cited primary results and related published records, not merely keyword absence; important historical priority risks noted.
+
+## value
+
+PASS
+
+The terminal long-chord probability under invariant line sampling is a basic stochastic-geometric invariant of a canonical constant-width but nonsmooth body. An explicit εlog(1/ε) law and sharp 3/π coefficient distinguish its near-diameter behavior from smooth disks and straight-edge polygons, a meaningful endpoint singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

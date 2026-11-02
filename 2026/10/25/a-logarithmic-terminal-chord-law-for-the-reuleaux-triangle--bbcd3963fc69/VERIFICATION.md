@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the terminal long-chord law
+# Independent mathematical audit
 
-Run `python verify_reuleaux_tail.py` with NumPy and SciPy. On the packaged copy, the checks completed with:
+## correctness
 
-```
-THREE_DISK_CHORD_INTERVAL_GEOMETRY_OK
-TAIL_SCALED_REMAINDER 1e-03 0.6819772
-TAIL_SCALED_REMAINDER 1e-04 0.6804441
-TAIL_SCALED_REMAINDER 1e-05 0.6802437
-TAIL_SCALED_REMAINDER 1e-06 0.6802171
-LOG_COEFFICIENT_DIFFERENCE_OK 1e-03 0.95426385
-LOG_COEFFICIENT_DIFFERENCE_OK 1e-04 0.95484264
-SHARP_EPSILON_LOG_EPSILON_CHORD_TAIL_CHECKS_OK
-ALL_REULEAUX_CHORD_TAIL_CHECKS_OK
-```
+PASS
 
-The three-disk calculation uses elementary circle intervals, bisection and angular quadrature; the difference estimate cancels the unknown \(O(\varepsilon)\) contribution at leading order. The infinite-dimensional asymptotic assertion follows only from the uniform analytical proof in `RESULT.md`; finite numerical checks do not prove it. The available scientific comparison was restricted by access to the full 1987 Gates article.
+An invariant line meets the intersection of three unit disks in the intersection of their exact chord intervals. In each 60-degree normal sector t=0 has length one. For L>1-ε all offsets obey |t|<=sqrt(2ε); the angular strips of width O(sqrt ε) contribute O(ε). For the interior angles the active endpoint expansion gives q_ε(α)=ε cot α+O(ε² cot³ α), whose integrated error is O(ε); each angular sector has measure ε log(1/ε)+O(ε), with total line mass π, yielding 3/π. Independent exact disk-intersection numerical quadratures across ε=1e-3,1e-4,1e-5 yield finite-difference coefficient approaching 0.9549297. Finite checks do not establish uniform asymptotics.
+
+## originality
+
+PASS
+
+Originality best-of-knowledge based on mathematical comparison of cited primary results and related published records, not merely keyword absence; important historical priority risks noted.
+
+## value
+
+PASS
+
+The terminal long-chord probability under invariant line sampling is a basic stochastic-geometric invariant of a canonical constant-width but nonsmooth body. An explicit εlog(1/ε) law and sharp 3/π coefficient distinguish its near-diameter behavior from smooth disks and straight-edge polygons, a meaningful endpoint singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
