@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:14:00.338994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The convex spectral-norm objective is nonincreasing under averaging by all arm permutations, so optimizing the invariant family gives the unrestricted global minimum. Its Laplacian decomposes into a four-dimensional radial block R and k-1 copies of three-dimensional contrast block B; interlacing bounds the gap by min(B). Put gamma=2/(3k+5+sqrt((3k+5)^2-24k)) and a=(1-5gamma)/(3gamma)>0. The positive contrast vector (a,a+1,a+2) obeys B*v=gamma*v at x=1/k,y=(2-gamma)/3,z=(1+gamma)/3. For any feasible weights, its Rayleigh quotient is (x*a^2+y+z)/norm(v)^2<=gamma because x<=1/k and y+z<=1. Equality forces x=1/k,y+z=1 and the final eigenvector equation uniquely gives z, y. The radial characteristic factors as t(t-1-gamma)[t^2-(2+1/k-gamma)t+(3+1/k)(2-gamma)/9]; checking q(2-gamma)=(2-gamma)(3k-8)/(9k)>0 and the vertex ensures max radial and contrast eigenvalues <2-gamma. Hence SLEM exactly 1-gamma and all boundaries/loops are feasible. Independent eigenspectrum reconstruction for k=3..22 passed. Nonsymmetric uniqueness is not claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General FMMC SDP and symmetry averaging contain the optimization problem but no closed formula for its constrained depth-three uniform-mass case. The symmetric-star sufficient stationary inequality k*pi_1<=2*pi_0 fails at pi_1=pi_0,k>=3."
+        ],
+        "reasoning": "A general optimization method is not an already solved exact special case; the closest published explicit symmetric-star regime does not cover these parameters.",
+        "searches": [
+          "nonnegative fastest mixing Markov chain symmetric spider depth three star uniform stationary distribution optimal probabilities [Resultary semantic, 10]",
+          "Boyd Diaconis Parrilo Xiao fastest mixing Markov chain symmetry arxiv:0709.0955",
+          "Jafarizadeh reversible Markov chain symmetric star arxiv:2501.02421"
+        ]
+      },
+      "checked_sources": [
+        "Boyd et al 2004 SIAM Review FMMC",
+        "Boyd et al arxiv:0709.0955",
+        "Jafarizadeh Jamalipour arxiv:1001.4278",
+        "Jafarizadeh arxiv:2501.02421",
+        "Resultary 2026/9/7/SCOPE002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2010 optimum root edge 2/(k+2) violates nonnegative root holding for k>=3. Later reversible formulas in investigated regime require k*pi_1<=2*pi_0; unrestricted SDPs do not identify this particular boundary optimum."
+        ],
+        "reasoning": "The published results imply principles used in proof but not the entire constrained theorem; an unknown alternate parameter regime remains a residual risk.",
+        "searches": [
+          "arxiv:1001.4278",
+          "arxiv:2501.02421",
+          "arxiv:0709.0955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same three-edge-arm topology appears in Jafarizadeh--Jamalipour, but they minimize unrestricted average-consensus spectral radius and choose center weight 2/(k+2), not a Markov-feasible chain for k>=3."
+        ],
+        "reasoning": "Topology matches, feasible domains do not: their root diagonal (2-k)/(k+2)<0, whereas Markov entries must be nonnegative.",
+        "searches": [
+          "nonnegative fastest mixing Markov chain symmetric spider depth three star uniform stationary distribution optimal probabilities [Resultary semantic, 10]",
+          "Jafarizadeh Jamalipour symmetric CCS/KCS star 3 edges 2010 arxiv:1001.4278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published balanced-spider item studies lazy simple random walk coalescing-coupling TV mixing bounds, not optimal SLEM weights."
+        ],
+        "reasoning": "No exact Markov-feasible depth-three SLEM lookup/table was encountered; an unsuccessful search does not certify novelty.",
+        "searches": [
+          "nonnegative fastest mixing Markov chain symmetric spider depth three star uniform stationary distribution optimal probabilities [Resultary semantic, 10]",
+          "Resultary 2026/9/7/SCOPE002"
+        ]
+      },
+      "rationale": "Boyd et al supply general convex FMMC formulation rather than this exact constrained spider optimum; the closest same-topology symmetric-star consensus solution permits negative root holding, and the 2020/2025 reversible formula assumes a stationary-mass inequality that fails here under uniform mass. Resultary balanced-spider mixing law addresses a fixed lazy walk, not optimization. Historical specific formulas remain possible.",
+      "residual_risks": [
+        "Specialized same-tree constrained results may be unindexed.",
+        "No claim of nonsymmetric optimizer uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CONSTRAINED_MARKOV",
+          "evidence": "Optimal consensus root edge 2/(k+2) produces root holding negative for k>=3.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.4278",
+          "material_read": "Complete ten-page paper, especially topology figure and optimal weights/diagonal constraints",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "Weight optimization for distributed average consensus algorithm in symmetric CCS & KCS star networks",
+          "trigger": "Exact same three-edge-arm topology"
+        },
+        {
+          "assessment": "NOT_COVERING_UNIFORM_DEPTH_THREE_REGIME",
+          "evidence": "Parameter restriction k*pi_1<=2*pi_0 not met by uniform pi for k>=3; depth-two unconditional formula differs.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+          "material_read": "Full accessible paper, section 6.6, 7.2--7.3 and Appendix D",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "Fastest mixing reversible Markov chain: clique lifted graphs and subgraphs",
+          "trigger": "Potential stronger general symmetric-star formulas"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": "Symmetrization method is prior, exact depth-three nonnegative boundary optimum is an additional computation.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Symmetry averaging framework and applications, as relevant to candidate special case",
+          "method": "Read accessible paper formulation and cited symmetric examples; compared hypotheses and objective.",
+          "title": "Fastest mixing Markov chain on graphs with symmetries",
+          "trigger": "General stronger FMMC formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a natural mixing-design optimization under the physically essential nonnegative stochasticity and uniform stationary law. The exact optimum and unique invariant edge weights identify which holding constraints bind (root and depth two zero) and quantify spectral-gap asymptotics, sharply separating feasible Markov-chain design from earlier unconstrained consensus weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only k>=3 and depth-three equal arms, uniform stationary symmetric Markov matrices with permitted loops.",
+    "Uniqueness established only among arm-permutation-invariant optimizers; no arbitrary nonsymmetric uniqueness.",
+    "Prior art under other terminology may contain an equivalent formula."
+  ],
+  "schema_version": 1
+}
