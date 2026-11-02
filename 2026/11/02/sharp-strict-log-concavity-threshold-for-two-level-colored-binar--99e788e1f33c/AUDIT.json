@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Coefficient identities verified by rational polynomial interpolation with the proven <=4m-2 degree bound in all eight \\(m=4,5,6,7\\) parity cases, followed by a rigorous total-nonnegative Toeplitz convolution induction for every \\(m\\ge4\\); sharpness follows from Delta_m(1)=m(m-3)/2. The standalone checker has no dependencies beyond the Python standard library. Computational confirmation of initial coefficients is additional, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gajdzica 2022 Theorem 5.6 requires n exceeding a large parameter-dependent bound, and its special all-n case is the constant multiset of ones.",
+        "Bringmann et al. 2026 Theorem 1.1 addresses the all-denomination k-colored ordinary partition numbers."
+      ],
+      "reasoning": "Neither broader class theorem proves this sharp two-denomination all-index result: one is eventual only for nonconstant multisets, and one concerns a different generating series. There is no monotonicity of strict log-concavity under deletion of higher denominations.",
+      "searches": [
+        "Web: Krystian Gajdzica 2022 log-concavity of restricted partition function a1 ... ak theorem k >= n threshold special multiset 1 1 1 1 2 2 2 2",
+        "Web: \"binary partitions\" \"truncated\" \"log-concavity\"",
+        "Source: https://arxiv.org/html/2206.04752v1, Theorem 5.6",
+        "Source: https://www.cambridge.org/core/journals/proceedings-of-the-royal-society-of-edinburgh-section-a-mathematics/article/strict-logconcavity-of-kcoloured-partitions/0643B3E2F39FFD006102F266D8B7C944"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1703.01955v1",
+      "arxiv:2206.04752v1",
+      "arxiv:2305.00085v1 (abstract only)",
+      "doi:10.1017/prm.2026.10154",
+      "published-finding corpus semantic searches for exact rational series and restricted partitions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gawron--Miska--Ulas conjecture: b_m(n)^2>b_m(n-1)b_m(n+1) for \\(m\\ge4\\), full powers of 2.",
+        "Gajdzica criterion yields eventually \\(n\\) sufficiently large but does not cover the exact transition at \\(n=1\\) and all subsequent n for the particular 2-level case.",
+        "Bringmann et al derive strict inequalities for k-colored unrestricted partitions with every positive part size."
+      ],
+      "reasoning": "Full-product conjecture remains logically distinct from finite truncation; a theorem on unrestricted partition numbers cannot imply the corresponding restricted statement without an additional transfer lemma, and none appears in the inspected material. The 2022 eventual theorem leaves finitely many low n unresolved. The new proof supplies precisely this missing all-index classification.",
+      "searches": [
+        "Gawron--Miska--Ulas arXiv:1703.01955v1, sections 4.1, 5, Conjecture 5.10",
+        "Gajdzica arXiv:2206.04752v1 sections 1, 5, Theorem 5.6",
+        "Bringmann et al DOI:10.1017/prm.2026.10154 introduction, Theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gawron--Miska--Ulas, Conjecture 5.10, arXiv:1703.01955v1, states the full product problem.",
+        "published-finding corpus closest semantic hits concern distinct rational partitions, log-concavity of Grassmannian degrees, and geometric problems; none stated this two-denomination threshold."
+      ],
+      "reasoning": "The object can be described as the multiset-restricted partition function with m repeated 1s and m repeated 2s, or as coefficients of (1-q)^(-m)(1-q^2)^(-m). Neither the relevant original conjecture nor available indexed claims provides the if and only if \\(m\\ge4\\) statement for every positive n.",
+      "searches": [
+        "published-finding corpus: sharp strict log concavity for colored partitions using only powers of 2 less than 4, with generating series (1-q)^(-m)(1-q^2)^(-m), iff m >= 4",
+        "published-finding corpus: two-part-size restricted colored partitions p_m(n) log-concavity and positive coefficients of (1-x)^-m(1-x^2)^-m",
+        "Web: \"log-concavity\" \"1 and 2\" \"colored\" \"partitions\" restricted"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-denomination threshold or formula was found among returned published-finding corpus records or scoped indexed tables."
+      ],
+      "reasoning": "The retrieved mathematical database results do not supply the exact two-denomination Turán threshold. The absence of a directly matching table is not a uniqueness proof; the full two-colored binary-partition congruence is unrelated to the sharp global inequality.",
+      "searches": [
+        "published-finding corpus: truncated m-colored binary partitions 1 2 two denominations strict logconcavity m four 2017 Gawron Miska Ulas conjecture",
+        "Web: \"(1-q^2)\" \"log-concavity\" \"(1-q)\" partitions"
+      ]
+    },
+    "rationale": "No directly equivalent or dominating all-index theorem for m equally colored 1s and m equally colored 2s was located after comparing the motivating conjecture, the relevant full-text restricted-partition theorem, the 2026 full-colored theorem, published-finding corpus hits. The assessment is best-known priority only, with residual bibliographic risk.",
+    "residual_risks": [
+      "An implicit specialization of a general finite-part inequality in other publications might already cover all n.",
+      "The full text of arxiv:2305.00085v1 was not available through the inspected sources.",
+      "Search-index coverage is incomplete; absolute priority not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact two-denomination theorem; conjectures stricter property for the full infinite product",
+        "evidence": "Conjecture 5.10 explicitly says b_m(n)^2-b_m(n-1)b_m(n+1)>0 for m>=4.",
+        "identifier_or_url": "arxiv:1703.01955v1; https://link.springer.com/article/10.1007/s00605-017-1041-2",
+        "material_read": "Full accessible HTML, definitions and relevant §§4.1 and 5 including conjecture and references",
+        "method": "Read public full text and compared finite vs infinite generating functions",
+        "title": "Arithmetic properties of coefficients of power series expansion of a binary infinite product",
+        "trigger": "Same colored binary partition family, Conjecture 5.10"
+      },
+      {
+        "assessment": "NOT_COVERING the all-index threshold: Theorem 5.6 is eventually valid, its exceptional all-n case consists only of ones",
+        "evidence": "Theorem 5.6 applies for n beyond explicit product-of-denominations bound, not all n of nonconstant multisets.",
+        "identifier_or_url": "arxiv:2206.04752v1; https://arxiv.org/html/2206.04752v1",
+        "material_read": "Full arXiv HTML, especially definition (1.1), Theorem 5.6 and proof in §5",
+        "method": "Matched assumptions for repeated 1,2 multiset and compared quantification on n",
+        "title": "Log-concavity of the restricted partition function and the new Bessenrodt--Ono type inequality",
+        "trigger": "General multiset-restricted partition function directly contains this specific multiset"
+      },
+      {
+        "assessment": "NOT_COVERING finite dyadic truncation",
+        "evidence": "Theorem 1.1 uses all positive part sizes in the generating function.",
+        "identifier_or_url": "doi:10.1017/prm.2026.10154",
+        "material_read": "Accessible Cambridge HTML abstract, introduction, main theorem and the convolution lemma discussion",
+        "method": "Compared generating functions and hypotheses, full ordinary colored vs restricted powers of two",
+        "title": "Strict log-concavity of k-coloured partitions",
+        "trigger": "Possible stronger global statement for colored partitions"
+      },
+      {
+        "assessment": "UNCERTAIN; known abstract speaks of r-logconcavity of quasi-polynomial-like functions, not a specific exact finite-color threshold",
+        "evidence": "Abstract identifies general quasi-polynomial-like asymptotic criteria, without the exact case.",
+        "identifier_or_url": "arxiv:2305.00085v1",
+        "material_read": "Publication abstract and bibliographic metadata; primary full text not accessible in the available source",
+        "method": "Compared abstract-level asymptotic scope",
+        "title": "Restricted partition functions and the r-log-concavity of quasi-polynomial-like functions",
+        "trigger": "Later general result could dominate restricted-partition logconcavity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99e788e1-f33c-4bbf-9495-6db67d79f414",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines the exact sharp threshold simultaneously for all colors m and every coefficient n in the canonical two-denomination dyadic truncation, the first nontrivial finite stage of published Gawron--Miska--Ulas Conjecture 5.10. The result supplies an explicit algebraic certificate and strict-convolution propagation, beyond the existing generic eventual log-concavity theorem. No claim is made for larger truncations or the original conjecture.",
+    "status": "PASS"
+  }
+}
