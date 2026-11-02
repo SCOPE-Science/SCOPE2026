@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T08:50:43.476441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd n, n>=3, the normalized width-one Reuleaux polygon is the intersection of unit disks centered on a regular n-gon of radius R=1/(2cos(pi/(2n))). Its t-erosion is intersection of disks of radius rho=1-t, and odd n symmetry yields radial radius -R cos(theta)+sqrt(rho^2-R^2 sin^2(theta)) for |theta|<=pi/n. Integrating its square gives exact F_n(rho) and monotone Cheeger equation F_n(1-t)=pi t^2. In z=pi/n, t=1/4+a z^2+b z^4, independently recomputed symbolic radial coefficients -a+u^2/12-1/16 and -b-2a u^2/9+7u^4/432-u^2/96-5/768. Angular moments yield residual coefficients -a-5/288 and 7a/216-b-107/69120; hence a=-5/288 and b=-1313/622080. Reciprocal gives h_n=4+5pi^2/(18n^2)+2063pi^4/(38880n^4)+O(n^-6). Direct finite-n exact integral root solves at n=11,31,101,301,1001 agree, with scaled n^6 residual bounded; leading area deficit pi^3/(48n^2) yields gap ratio 40/(3pi). The analytic implicit function and uniform radial expansion, not finite n, prove asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan/Yao/Zhang published abstract: regular Reuleaux N-gon uniquely minimizes Cheeger constant among at-most-N-sided polygons (). Bogosel 2026: extremality among constant width bodies, not n^-4 coefficients ()."
+        ],
+        "reasoning": "Prior results are stronger in extremal class but not in quantified convergence, as far as available texts establish. The Pan full-text gap prevents a decisive statement about its derivation details.",
+        "searches": [
+          "Pan Yao Zhang 2026 DOI 10.1090/proc/17686 abstract",
+          "Henrot Lucardesi 2020/2024 full arXiv",
+          "Bogosel 2026 DOI 10.5802/AIF.3729"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md 8640f05b0dea5b40b7a298e3c3377d05ef7caac1",
+        "SCOPE2026 check_cheeger.py 5becd8f11f192e736b56f5d8bd712b1b27ff0f2b",
+        "Henrot-Lucardesi arXiv:2011.07244 relevant PDF pages 1-9 and appendix",
+        "Pan Yao Zhang DOI 10.1090/proc/17686 accessible abstract; Oxford access vpn_disconnected",
+        "Bogosel DOI 10.5802/AIF.3729 abstract",
+        "Resultary Cheeger Reuleaux semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Henrot eq (1.2) and published Pan finite-n extremality are foundational; none of the inspected accessible theorem statements contains coefficients 5/18 and 2063/38880."
+        ],
+        "reasoning": "The older root criterion plus elementary radius geometry yields this result only after new explicit expansion and coefficient solving; not a direct existing quantitative implication. Full Pan appendix unavailable, so no whole-document noncoverage assertion.",
+        "searches": [
+          "Lachand-Robert Kawohl convex Cheeger criterion via Henrot eq (1.2)",
+          "Pan Yao Zhang 2026 minimizing theorem",
+          "This record exact F_n polar formula and asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Henrot-Lucardesi p2 eq (1.2) states Cheeger erosion equation |Omega_-R|=pi R^2; §3.4 explicitly says regular n-gon constants could be computed (, )."
+        ],
+        "reasoning": "Same radius normalization is reproduced. Existing Cheeger root characterization implies computability but does not specify exact asymptotic coefficients, which require a uniform expansion of this special n-dependent erosion.",
+        "searches": [
+          "Henrot Lucardesi arXiv:2011.07244 eq (1.2) and discussion of regular Reuleaux",
+          "Pan Yao Zhang DOI 10.1090/proc/17686",
+          "Resultary regular Reuleaux Cheeger asymptotic query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Henrot table reports arc-length bounds, not n^-4 Cheeger values; text says exact computation possible. Pan abstract gives extremizers only."
+        ],
+        "reasoning": "No existing table of the two-term n asymptotic coefficients was identified. A published implicit expression might permit derivation; this risk is stated explicitly.",
+        "searches": [
+          "Henrot Lucardesi arXiv 2011.07244 Table 1 and §3.4",
+          "Pan Yao Zhang 2026 abstract search",
+          "Resultary regular Reuleaux Cheeger query"
+        ]
+      },
+      "rationale": "QUALIFIED PASS: The convex Cheeger erosion identity is classical; Henrot-Lucardesi prove triangle extremality and discuss exact computation of regular Reuleaux polygons, and Pan-Yao-Zhang (2026) prove regular n-gon minimization in a finite complexity class. The available full Henrot text does not give the displayed n^-2/n^-4 Cheeger coefficients or normalized ratio. Pan full article was inaccessible (arXiv/OA search failed; authorized institutional access reported vpn_disconnected), so its possible asymptotic appendix remains a material priority risk, not automatic failure.",
+      "residual_risks": [
+        "Pan/Yao/Zhang 2026 full 12-page article not read; it may include exact quantitative Cheeger asymptotics. Authorized retrieval blocked at VPN and does not justify any claim of noncoverage.",
+        "Only odd n asymptotics, not closed finite-n Cheeger formulas or monotonicity over n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS standard erosion root and triangle extremality, discusses regular polygons without specifying the audited n^-4 expansion in relevant material",
+          "evidence": [
+            "",
+            "",
+            ""
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.07244",
+          "material_read": "22-page arXiv PDF: Introduction/equation (1.2), theorem 1.1, §3.4 Remark 3.4 on regular polygons, Table 1 and appendix regular polygon geometry",
+          "method": "Read PDF parsed text with rendered page 2 and searched §3/appendix for quantitative regular n statements",
+          "title": "A Blaschke–Lebesgue Theorem for the Cheeger Constant",
+          "trigger": "Closest full-text Cheeger regular-Reuleaux precedent"
+        },
+        {
+          "assessment": "Same objects; abstract gives n-sided extremality but full article not inspected, so a possible n^-4 coefficient derivation is material unresolved priority risk",
+          "evidence": [
+            "",
+            ""
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/proc/17686",
+          "material_read": "Publisher/secondary bibliographic abstract only; arXiv and lawful OA full text not found; authorized Oxford attempt returned vpn_disconnected",
+          "method": "Searched title + pdf/arXiv/OA, compared accessible theorem statement, attempted authorized download only after failed OA attempts",
+          "title": "Minimization of the Cheeger Constant for Reuleaux Polygons",
+          "trigger": "Potentially dominating same regular n-gon Cheeger results"
+        },
+        {
+          "assessment": "Does not via accessible abstract assert quantified regular n convergence; no claim about full-text noncoverage",
+          "evidence": [
+            ""
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/AIF.3729",
+          "material_read": "2026 publication abstract explaining inner-parallel and Cheeger extremality, not full text",
+          "method": "Compare claim type, invariants, and quantified n dependence",
+          "title": "A Geometric Proof of the Blaschke–Lebesgue Theorem for the Cheeger Constant",
+          "trigger": "Recent stronger constant-width class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantitative convergence of a canonical sequence of constant-width bodies to the disk is a natural shape-optimization invariant, especially because each polygon is a finite-complexity Cheeger extremal by published results. The fourth-order term distinguishes exact geometry beyond leading-area deficit; the explicit ratio calibrates optimal Cheeger decay against area loss. The result is not a mere restatement of qualitative extremality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md 8640f05b0dea5b40b7a298e3c3377d05ef7caac1",
+    "SCOPE2026 check_cheeger.py 5becd8f11f192e736b56f5d8bd712b1b27ff0f2b",
+    "Henrot-Lucardesi arXiv:2011.07244 relevant PDF pages 1-9 and appendix",
+    "Pan Yao Zhang DOI 10.1090/proc/17686 accessible abstract; Oxford access vpn_disconnected",
+    "Bogosel DOI 10.5802/AIF.3729 abstract",
+    "Resultary Cheeger Reuleaux semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Verification was bounded to the actual audited statement and source trees; finite checks supplement full proofs.",
+    "Publication withheld: existing public METADATA.json contains scope_run_id and requires confidentiality-neutral exact-guard replacement before importer ingestion.",
+    "No public research files or GitHub state changed."
+  ],
+  "residual_risks": [
+    "Pan/Yao/Zhang 2026 full 12-page article not read; it may include exact quantitative Cheeger asymptotics. Authorized retrieval blocked at VPN and does not justify any claim of noncoverage.",
+    "Only odd n asymptotics, not closed finite-n Cheeger formulas or monotonicity over n."
+  ],
+  "schema_version": 1
+}
