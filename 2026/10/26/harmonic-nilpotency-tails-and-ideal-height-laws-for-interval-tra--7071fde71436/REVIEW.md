@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite count follows from enumerating every allowable starting interval for each positive or negative translation, using the power condition \(h\ge(j-1)|d|\). The real body and principal-ideal event volumes reduce to explicit convergent polynomial integrals with no limiting interchange. A monotone Riemann-sum error estimate uniformly controls the finite-to-continuum limit, and the tail-sum identity proves the logarithmic finite mean and divergent real mean. Repeated products for all admissible triples through \(N=18\), plus exact rational integration checks, corroborate the critical computations; these finite checks alone are not proof of the infinite theorem.
+## correctness
 
-## Originality — PASS against inspected sources
-The 2021 Fikioris–Fikioris finite rook-monoid paper gives the product, powers, index of each element and total nilpotent count. The 2023 real extension gives the real monoid, unbounded individual indices, affine isomorphism, and complete height-ideal description. Neither inspected result states the cumulative finite index enumerator, the normalized-volume harmonic pushforward, or the principal-ideal conditional distribution. The classical sequence of probabilities \(1/[j(j-1)]\) is not itself asserted to be new. The exact Pareto-II ratio and associated index distribution are nontrivial but elementary statistical refinements of an explicitly credited pointwise result. Related nilpotency and commuting-pair studies on different or identical monoids do not imply the particular statistical law.
+PASS
 
-## Mathematical value — PASS
-Nilpotency index and natural principal ideals are intrinsic monoid invariants. Uniform integer counting and the affine-compatible real coordinate volume provide a direct way to quantify their abundance. The exact scale-free heavy tail makes every index finite almost surely while destroying its expectation, and the finite mean grows logarithmically. The ideal-height formulas show how the rare-event constant changes through the complete ideal chain without losing the harmonic exponent. These connections between structural power formulas, finite lattice counts, and geometric volumes motivate the precise facts.
+Independently derived ν=2+floor(h/|d|) from consecutive nonzero product intersections, including integer equality boundaries; every admissible finite nilpotent triple can be counted by shift, length and placement. Enumerating independently for N=1..16 gave the exact finite j-tail sum, with N(N+1)(N+2)/3 total. In real triple coordinates Jacobian 1 per sign, two-sign volume V=L³/3; the event h≥ra has volume L³/[3(1+r)], giving Pareto-II and P(ν>j)=1/j. Conditioning h≤H and integrating 2(1−h−a) over 0≤a≤min(h/(j−1),1−h) gives the stated two branches and c(u)/j. Harmonic tail implies infinite mean, α-moment cutoff 1; uniform Riemann sums produce finite mean logN+O1. Correct for N≥1, n≥2, j≥1 except ideal formula j≥2, 0<u≤1.
 
-## Sources and limitations
-The nearest primary texts are arXiv:2111.01863 (November 2, 2021) and arXiv:2302.09496 (February 19, 2023; later Semigroup Forum, DOI:10.1007/s00233-023-10393-8). Stronger equivalent coverage elsewhere has not been excluded; the first article was studied in relevant sections without a full page-by-page reading. The result applies only to the stated uniform integer and Euclidean-coordinate sampling models. Height-zero ideals have no normalized three-dimensional volume, and the measure is not claimed multiplicatively invariant. No independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality confined to the normalized finite counting-law, continuous Pareto-II volume distribution and principal-ideal conditional tails. Fikioris–Fikioris already derive the exact powers, integer counts, real monoid and ideal-height classification; those structural results are fully credited. Full primary texts materially inspected do not provide the random nilpotency-index distributions or the c(u)/j ideal-tail law. A general partial-translation probabilistic formula remains a priority risk.
+
+## value
+
+PASS
+
+Sampling nilpotency indices in canonical finite-counting and explicitly specified continuous parameter-volume models is a natural quantitative extension of a semigroup classification. The exact harmonic tail, infinite-mean phenomenon and ideal-height conditional law provide a complete motivated distribution, not an arbitrary one-parameter special slice. It is not claimed Haar invariant, and the pointwise index identity is acknowledged prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
