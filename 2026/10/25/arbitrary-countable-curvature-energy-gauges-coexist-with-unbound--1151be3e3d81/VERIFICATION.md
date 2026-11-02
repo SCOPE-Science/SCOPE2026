@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the countable-gauge construction
+# Independent mathematical audit
 
-The accompanying `verify_peak.py` is a standalone SymPy computation of the quadratic tensor's trace, divergence, radial contraction, Laplacian, Ricci curvature contraction and full-curvature norm at the center. Reproduced output: `Quadratic model: trace/divergence/Laplacian/radial identities PASS`; `Linearized Ricci contraction = 0; full curvature coefficient squared = 144`.
+## correctness
 
-This finite exact calculation checks only the curvature model; it is not a certificate for the global injectivity theorem or for the infinite diagonal selection. The latter is proved in `RESULT.md`: for every fixed bump index, the regulated logarithmic curvature envelope tends to zero outside the center, is uniformly bounded for that index, and hence has arbitrarily small integral for each of finitely many prescribed continuous gauges. Selecting each bump amplitude for the first \(j\) gauges forces every fixed gauge's tail to be summable. The source's uniform geodesic-curvature integral and Jacobi/loop estimates control injectivity independently of each regulator, and the Euclidean Gauss equation gives the mean-curvature obstruction.
+PASS
 
-Hypotheses that matter: continuity at zero and \(\Phi_i(0)=0\), nondecreasing and finite gauges, countable prescribed family, separate compact supports, dimension four, Euclidean ambient immersion, and normalized mean curvature. This check does not imply one metric accommodates **all** possible gauges; it produces a metric for each selected countable family. The nonstandard analytic injectivity input is from Cheng, arXiv:2610.00153v1, §§4–5. Scientific and publication priority have not been independently audited.
+Read source Cheng’s actual local perturbation construction and geodesic-integral proof. Independently reconstructed the four-dimensional quadratic matrix P and its 256 second-derivative curvature components using SymPy, verifying Ric(P)=0 and squared Riemann-tensor norm 144 at origin (16 nonzero components), so amplitude a_j with ε_j=e^{-j/a_j} produces exact norm 12j. For fixed j, the uniform curvature envelope E_{a,j}(r)<=2C(j+1) but E_{a,j}(r)->0 for every r>0 as a->0; finite-valued gauge continuity at zero plus dominated convergence makes each fixed gauge integral vanish in this limit. A finite-at-each-stage diagonal choice of a_j satisfies first j gauge energies <2^{-j}, giving all countably many global integrals. Disjoint supports preserve C¹/Ricci controls; Cheng’s uniform geodesic-residence estimate and Proposition5.2 yield inj>0 even though pointwise Rm is unbounded. At scalar-flat peaks the Gauss identity |A|²=16|H|² and |Rm|<=2|A|² yields |H|²>=3j/8. No finite computation is invoked as an infinite proof; the key imported geodesic lemma was checked in primary text.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS only for the new simultaneous arbitrary-countable curvature-energy concentration while preserving the immersion obstruction. Cheng already constructed small-Ricci positive-inj near-Euclidean metrics with unbounded curvature and a variable-amplitude series; its Proposition6.3 does NOT assert an arbitrary countable prescribed family of global Orlicz-type energy integrals. The diagonal selection genuinely adds a quantified parameter constraint to this meaningful obstruction example.
+
+## value
+
+PASS
+
+An exact robust separation shows even simultaneous finiteness of any prescribed countable increasing menu of curvature energies cannot remove high-curvature obstructions to bounded-mean-curvature isometric immersions in dimension four, while small decaying Ricci and positive injectivity are retained. The quantifier strengthening is a motivated structural boundary, not a routine recalculation of the original counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:44:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md plus source METADATA/AUDIT",
+        "Cheng arXiv:2610.00153v1 source Sections3–6",
+        "Cheeger–Naber arxiv:1406.6534 theorem context",
+        "Independent SymPy reconstruction: center tensor norm²=144, Ricci identically zero",
+        "Resultary curvature-gauge queries and related published findings"
+      ],
+      "rationale": "Read source Cheng’s actual local perturbation construction and geodesic-integral proof. Independently reconstructed the four-dimensional quadratic matrix P and its 256 second-derivative curvature components using SymPy, verifying Ric(P)=0 and squared Riemann-tensor norm 144 at origin (16 nonzero components), so amplitude a_j with ε_j=e^{-j/a_j} produces exact norm 12j. For fixed j, the uniform curvature envelope E_{a,j}(r)<=2C(j+1) but E_{a,j}(r)->0 for every r>0 as a->0; finite-valued gauge continuity at zero plus dominated convergence makes each fixed gauge integral vanish in this limit. A finite-at-each-stage diagonal choice of a_j satisfies first j gauge energies <2^{-j}, giving all countably many global integrals. Disjoint supports preserve C¹/Ricci controls; Cheng’s uniform geodesic-residence estimate and Proposition5.2 yield inj>0 even though pointwise Rm is unbounded. At scalar-flat peaks the Gauss identity |A|²=16|H|² and |Rm|<=2|A|² yields |H|²>=3j/8. No finite computation is invoked as an infinite proof; the key imported geodesic lemma was checked in primary text.",
+      "residual_risks": [
+        "Metric depends on the prescribed family; does not integrate every imaginable gauge at once.",
+        "Gauges must be continuous finite at every finite input and vanish at zero on infinite-volume R^4; no conclusion for Φ_i(0)>0.",
+        "Uniform injectivity radius depends on source’s actual short-geodesic residence proof, not merely small Ricci or metric bilipschitz bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng supplies the necessary uniform curvature envelope and geodesic/injectivity mechanism; not the countable-gauge integrability.",
+          "Cheeger–Naber local L² under geometric hypotheses does not construct an example integrating arbitrary growing energies."
+        ],
+        "reasoning": "The stronger underlying construction permits a refinement but its fixed parameter prescription does not logically include the all-countable gauge result.",
+        "searches": [
+          "arxiv:2610.00153v1 Prop5.2,6.3",
+          "arxiv:1406.6534 Cheeger Naber local L² curvature",
+          "Orlicz curvature all moments counterexample bounded Ricci injectivity"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md plus source METADATA/AUDIT",
+        "Cheng arXiv:2610.00153v1 source Sections3–6",
+        "Cheeger–Naber arxiv:1406.6534 theorem context",
+        "Independent SymPy reconstruction: center tensor norm²=144, Ricci identically zero",
+        "Resultary curvature-gauge queries and related published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cheng’s fixed amplitude recipe a_j=a/(j+1) does not allow arbitrary fast gauge growth integrability; e^{k t} for all k requires shrinking amplitudes differently as j grows.",
+          "A new choice ε_j=e^{-j/a_j} and dominated-convergence diagonalization controls every gauge while fixing the growing peak 12j."
+        ],
+        "reasoning": "The extension is not a direct statement of the earlier theorem: it requires exploiting independent amplitude/scale freedom and a new simultaneous limiting argument. The Gauss obstruction itself is prior and credited.",
+        "searches": [
+          "Cheng arxiv:2610.00153v1 Proposition6.3",
+          "Cheng arxiv:2610.00153v1 Section3 envelope and Section4 geodesic bounds",
+          "Cheeger Naber arxiv:1406.6534"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheng arxiv:2610.00153 Proposition6.3 gives amplitudes a/(j+1) and regulators e^{-(j+1)^3} with curvature peaks, not universal control over separately prescribed countably many growth gauges."
+        ],
+        "reasoning": "The model and obstruction are inherited, but the new family-dependent diagonalization is a strictly stronger quantified energy-integrability statement.",
+        "searches": [
+          "Resultary: Complete almost flat 4 dimensional metric unbounded full curvature bounded small Ricci injectivity positive isometric immersions unbounded mean curvature curvature gauge integral energy Cheng",
+          "Resultary: curvature integrability gauges Cheng small Ricci Euclidean mean curvature",
+          "Web: arbitrary Orlicz moments Riemann curvature unbounded bounded Ricci injectivity examples",
+          "arxiv:2610.00153v1 §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No searched published SCOPE exact-gauge classification appears; Resultary search returned nearby Ricci/curvature estimates rather than the same existence quantifiers.",
+          "Cheng supplies pointwise peaks but no global Orlicz table or simultaneous prescribed-gauge classification."
+        ],
+        "reasoning": "The novel object is an existence theorem for arbitrary preselected countable gauge collection, not a numerical table. The table check is specifically inapplicable because no finite discrete database defines this property.",
+        "searches": [
+          "Resultary: curvature integrability gauges Cheng small Ricci Euclidean mean curvature",
+          "Resultary: Complete almost flat 4 dimensional metric unbounded full curvature bounded small Ricci injectivity positive isometric immersions unbounded mean curvature curvature gauge integral energy Cheng",
+          "Web: curvature-energy countable prescribed gauges small Ricci positive injectivity counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS only for the new simultaneous arbitrary-countable curvature-energy concentration while preserving the immersion obstruction. Cheng already constructed small-Ricci positive-inj near-Euclidean metrics with unbounded curvature and a variable-amplitude series; its Proposition6.3 does NOT assert an arbitrary countable prescribed family of global Orlicz-type energy integrals. The diagonal selection genuinely adds a quantified parameter constraint to this meaningful obstruction example.",
+      "residual_risks": [
+        "A general curvature-concentration theorem may imply countable-gauge integrability under other terminology.",
+        "Cheng source already contains variable amplitudes; novelty limited to universal preselected gauge integrability, not metric model or mean-curvature obstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS base construction/mean-curvature obstruction; new gauge-diagonal existence not present in inspected paper",
+          "evidence": "Prop6.3 fixes a_j=a/(j+1) and ε_j=e^{-(j+1)^3}; Prop5.2 is general injectivity criterion; norm peak coefficient 12.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00153v1",
+          "material_read": "Full original arXiv HTML: Section3 quadratic P and curvature envelope, §4 geodesic residence, §5 Prop5.2, §6 Corollary6.1, Proposition6.3 including variable amplitudes",
+          "method": "Read primary full text §§3–6 and checked exact cited equations",
+          "title": "A counterexample to Yau’s bounded-mean-curvature embedding question",
+          "trigger": "Identical four-dimensional tensor construction and immersion obstruction"
+        },
+        {
+          "assessment": "DIFFERENT DIRECTION, conditional local curvature estimates rather than global freely prescribed gauge examples",
+          "evidence": "No asserted universal global Orlicz-energy counterexample from those estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6534",
+          "material_read": "Primary abstract and relevant theorem statements; full paper not independently reread here",
+          "method": "Primary arXiv abstract/theorem context",
+          "title": "Regularity of Einstein manifolds and the codimension 4 conjecture",
+          "trigger": "Potentially stronger local curvature-energy regularity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md plus source METADATA/AUDIT",
+        "Cheng arXiv:2610.00153v1 source Sections3–6",
+        "Cheeger–Naber arxiv:1406.6534 theorem context",
+        "Independent SymPy reconstruction: center tensor norm²=144, Ricci identically zero",
+        "Resultary curvature-gauge queries and related published findings"
+      ],
+      "rationale": "An exact robust separation shows even simultaneous finiteness of any prescribed countable increasing menu of curvature energies cannot remove high-curvature obstructions to bounded-mean-curvature isometric immersions in dimension four, while small decaying Ricci and positive injectivity are retained. The quantifier strengthening is a motivated structural boundary, not a routine recalculation of the original counterexample.",
+      "residual_risks": [
+        "No bounded full curvature or non-embeddability without the bounded-mean-curvature qualification; no universal uncountable-gauge metric."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any eta>0 and any preselected countable family of continuous nondecreasing finite curvature gauges Φ_i with Φ_i(0)=0, a complete near-Euclidean metric on R^4 exists with small/vanishing-at-infinity Ricci, positive injectivity radius, volume ~r^4, each ∫Φ_i(|Rm|)<∞, yet peaks |Rm|(p_j)=12j force |H_F(p_j)|²>=3j/8 for every Euclidean C² isometric immersion.",
+  "limitations": [
+    "Metric depends on the prescribed family; does not integrate every imaginable gauge at once.",
+    "Gauges must be continuous finite at every finite input and vanish at zero on infinite-volume R^4; no conclusion for Φ_i(0)>0.",
+    "Uniform injectivity radius depends on source’s actual short-geodesic residence proof, not merely small Ricci or metric bilipschitz bounds.",
+    "A general curvature-concentration theorem may imply countable-gauge integrability under other terminology.",
+    "Cheng source already contains variable amplitudes; novelty limited to universal preselected gauge integrability, not metric model or mean-curvature obstruction.",
+    "No bounded full curvature or non-embeddability without the bounded-mean-curvature qualification; no universal uncountable-gauge metric."
+  ],
+  "schema_version": 1
+}

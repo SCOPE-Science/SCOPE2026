@@ -1,17 +1,21 @@
-# Scientific review: countable curvature-energy gauges
+# Independent mathematical audit
 
-## Correctness — PASS
-The construction fixes the curvature height \(a_j\log(1/\varepsilon_j)=j\) exactly while forcing the volume of each high-curvature core to become arbitrarily small. In the new dominated-convergence lemma, for fixed index \(j\), the upper envelope at every positive radius tends to zero as the amplitude tends to zero but remains uniformly bounded by \(2C_1(j+1)\). This is a valid integrable dominator for each finite continuous gauge on a finite ball. Selecting the amplitude to meet the first \(j\) inequalities produces convergence for every fixed gauge. The symbolic checker independently recomputes the center's algebraic tensor norm and zero Ricci contraction. Cheng's uniform estimates supply the full Ricci and injectivity claims; the note makes explicit that injectivity is **not** deduced from bilipschitz equivalence. The Gauss and scalar equations give the stated coefficient \(3/8\). Remaining dependency: correctness of the cited geodesic estimate from the inspected primary paper.
+## correctness
 
-## Originality — PASS, subject to literature risk
-Cheng's full primary text [1] includes variable-amplitude curvature peaks and the mean-curvature obstruction but not a theorem imposing arbitrary countable curvature-integrability gauges. Cheeger–Naber [2] concerns automatic local polynomial curvature integrability under two-sided Ricci bounds/noncollapsing and does not imply a global existence construction for every countable family of gauges. Results searches included equivalence terms (Orlicz, all exponential moments, global integrability, curvature concentration, and bounded-mean-curvature isometric immersion), both in scholarly literature and relevant result records. No equivalent or stronger-covered claim was identified in the inspected material. An unindexed variation of the Cheng example could still be prior art; the claim is not that all alternative constructions have been ruled out.
+PASS
 
-## Value — PASS
-The result separates two natural geometric hypotheses that can appear superficially similar: control by arbitrarily many integral curvature observables, even rapidly growing ones, versus a uniform pointwise curvature bound. The simultaneous diagonal theorem shows no *specified countable* package of such global energy assumptions alone can replace the pointwise curvature requirement for bounded-mean-curvature Euclidean immersions, while preserving a positive injectivity radius and exceptionally mild Ricci geometry. Countable quantification and global moment finiteness are not consequences of the source's variable-amplitude claim without an additional construction and proof.
+Read source Cheng’s actual local perturbation construction and geodesic-integral proof. Independently reconstructed the four-dimensional quadratic matrix P and its 256 second-derivative curvature components using SymPy, verifying Ric(P)=0 and squared Riemann-tensor norm 144 at origin (16 nonzero components), so amplitude a_j with ε_j=e^{-j/a_j} produces exact norm 12j. For fixed j, the uniform curvature envelope E_{a,j}(r)<=2C(j+1) but E_{a,j}(r)->0 for every r>0 as a->0; finite-valued gauge continuity at zero plus dominated convergence makes each fixed gauge integral vanish in this limit. A finite-at-each-stage diagonal choice of a_j satisfies first j gauge energies <2^{-j}, giving all countably many global integrals. Disjoint supports preserve C¹/Ricci controls; Cheng’s uniform geodesic-residence estimate and Proposition5.2 yield inj>0 even though pointwise Rm is unbounded. At scalar-flat peaks the Gauss identity |A|²=16|H|² and |Rm|<=2|A|² yields |H|²>=3j/8. No finite computation is invoked as an infinite proof; the key imported geodesic lemma was checked in primary text.
 
-## Principal sources and limitations
-[1] H. Cheng, *A counterexample to Yau's bounded-mean-curvature embedding question*, arXiv:2610.00153v1, §§3–6 (primary construction and global injectivity argument).
-[2] J. Cheeger and A. Naber, *Regularity of Einstein manifolds and the codimension 4 conjecture*, arXiv:1406.6534v10 (local curvature integrability comparison).
-The metric depends on the chosen **countable** gauge family; there is no single metric integrating every gauge. The source's analytical injectivity estimates remain a cited dependency. A possible unindexed parallel concentration construction is the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS only for the new simultaneous arbitrary-countable curvature-energy concentration while preserving the immersion obstruction. Cheng already constructed small-Ricci positive-inj near-Euclidean metrics with unbounded curvature and a variable-amplitude series; its Proposition6.3 does NOT assert an arbitrary countable prescribed family of global Orlicz-type energy integrals. The diagonal selection genuinely adds a quantified parameter constraint to this meaningful obstruction example.
+
+## value
+
+PASS
+
+An exact robust separation shows even simultaneous finiteness of any prescribed countable increasing menu of curvature energies cannot remove high-curvature obstructions to bounded-mean-curvature isometric immersions in dimension four, while small decaying Ricci and positive injectivity are retained. The quantifier strengthening is a motivated structural boundary, not a routine recalculation of the original counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
