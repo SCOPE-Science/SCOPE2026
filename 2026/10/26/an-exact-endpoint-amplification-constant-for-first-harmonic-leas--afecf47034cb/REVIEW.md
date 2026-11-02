@@ -1,15 +1,21 @@
-# Scientific review: first-harmonic semicircle projection
+# Independent mathematical audit
 
-## Correctness — PASS
-The analytic Gram covariance has mutually orthogonal centered Cartesian coordinates; this yields the explicit symmetric projector kernel. Pairing opposite arc points reduces the global absolute row integral to a maximum of two scalar expressions. For \(0\le\sin\theta\le1/3\), concavity in the paired source coordinate and pointwise monotonicity prove the endpoint comparison. For \(1/3\le\sin\theta\le1\), a convex Cauchy--Schwarz diagonal bound is strictly below \(2\), while a rationally certified negative-kernel witness makes the endpoint norm strictly greater than \(2\). Two analytic zeros give the exact split integral and the claimed sharp value. Sign inputs attain it on \(L^\infty\). The symmetric kernel gives the matching \(L^1\) norm. Replayed standalone `verify.py`: 48 checks passed. Numerical samples do not substitute for continuum proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-Full-text reading of Huybrechs (2010), especially half-range orthogonal-polynomial bases, Fourier-extension stability and numerical sections, identifies the same approximation setting but no explicit sharp degree-one endpoint norm. Full-text sections on \(L^p\) least-squares projector stability in Hangelbroek et al. (arXiv:1005.2424) provide general bounds for other kernel-generated spaces, not a covering exact constant. The published cyclic three-frequency projection calculation applies to a full finite Fourier group rather than continuous arclength on a semicircle, with a distinct Gram kernel. Targeted publication and mathematical-record searches found no stronger implication. Residual risk: unindexed half-range Fourier-extension calculations and a month-dated 2009 technical report. Search failure alone is not treated as proof of global novelty.
+PASS
 
-## Value — PASS
-This sharp constant measures the worst-case amplification of the lowest nontrivial continuous Fourier-extension least-squares fit on a natural half-period interval. The result identifies the extremal evaluation geometry and exhibits a rigorous \(>2\) instability even though the corresponding full-period projector has norm about \(1.436\). Endpoint localization requires a nontrivial continuum comparison, not merely integrating a known kernel. It offers a precise baseline for boundary effects in nonperiodic Fourier least squares, without claiming higher-degree consequences.
+The normalized arclength moments E cos=0, E sin=2/π, E cos²=1/2, Var sin=1/2-4/π² yield the exact symmetric reproducing kernel K=1+2cosθcosφ+((sinθ-m)(sinφ-m))/v. Symmetry yields equal L1 and L∞ norms, each equal to max_θ ∫|K|dφ/π. Reflecting φ about π/2 reduces F(θ) to a max over |1+(t-m)(s-m)/v| and 2√(1-t²)√(1-s²), t=sinθ. For 0≤t≤1/3 the positive branch on s≤m and the negative/b branch on s>m are nonincreasing; the positive s>m branch is dominated by b by concavity, with strict decrease for t>0. For 1/3≤t≤1 the Cauchy bound F²≤K(θ,θ), a strictly convex quadratic with both endpoint values <4, gives F<2, whereas an exact rational interval witness proves F(0)>2. Thus only θ=0,π maximize. At θ=0, the two interior kernel sign roots φ±=π-arctan(2π/D)±arccos(π²/R) allow exact integration to the displayed 2.048099271479... constant, attained by sign(K(0,·)). Independent 45-digit quadrature reproduced the algebraic formula and checked five interior evaluations. Full-circle finite cyclic Fourier projection is not the same Gram kernel.
 
-## Boundaries and status
-No general arc-opening-angle or higher-degree theorem is asserted. Bibliographic priority is provisional. Independent mathematical and bibliographic assessment remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Fourier-extension literature treats half-range trigonometric approximation and projector stability, but its inspected full text does not provide the exact degree-one norm or global endpoint maximizer. Uniform kernel Lp bounds do not imply this sharp value. The published Resultary three-character cyclic full-circle projection has a distinct normalized Dirichlet kernel and norm (1/3+2√3/π); it does not dominate this continuous semicircle problem.
+
+## value
+
+PASS
+
+Sharp worst-case error amplification for least-square affine restriction to a semicircular arc is a natural operator invariant directly relevant to stability of Fourier extension and geometry-induced conditioning. The fact that only boundary evaluation maximizes, and amplification exceeds two against a full-circle value about 1.436, is substantial rather than a routine finite sample norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

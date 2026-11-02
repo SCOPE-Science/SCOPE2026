@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:00:36.308827Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized arclength moments E cos=0, E sin=2/π, E cos²=1/2, Var sin=1/2-4/π² yield the exact symmetric reproducing kernel K=1+2cosθcosφ+((sinθ-m)(sinφ-m))/v. Symmetry yields equal L1 and L∞ norms, each equal to max_θ ∫|K|dφ/π. Reflecting φ about π/2 reduces F(θ) to a max over |1+(t-m)(s-m)/v| and 2√(1-t²)√(1-s²), t=sinθ. For 0≤t≤1/3 the positive branch on s≤m and the negative/b branch on s>m are nonincreasing; the positive s>m branch is dominated by b by concavity, with strict decrease for t>0. For 1/3≤t≤1 the Cauchy bound F²≤K(θ,θ), a strictly convex quadratic with both endpoint values <4, gives F<2, whereas an exact rational interval witness proves F(0)>2. Thus only θ=0,π maximize. At θ=0, the two interior kernel sign roots φ±=π-arctan(2π/D)±arccos(π²/R) allow exact integration to the displayed 2.048099271479... constant, attained by sign(K(0,·)). Independent 45-digit quadrature reproduced the algebraic formula and checked five interior evaluations. Full-circle finite cyclic Fourier projection is not the same Gram kernel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huybrechs analyzes projection geometry/convergence; Hangelbroek et al provide general uniform-in-degree L∞ projector bounds under structural hypotheses."
+        ],
+        "reasoning": "Qualitative uniform boundedness, and norm inequalities with nonsharp constants, do not imply the exact algebraic–inverse-trigonometric degree-one norm and unique endpoint maximizers.",
+        "searches": [
+          "Huybrechs, DOI:10.1137/090752456, Eq. 3.12 / Cor. 3.8",
+          "Hangelbroek et al. arXiv:1005.2424",
+          "Resultary Resultary: least squares projection first harmonic trigonometric functions on semicircle continuous arc Lebesgue constant L infinity exact endpoint norm"
+        ]
+      },
+      "checked_sources": [
+        "Huybrechs, On the Fourier Extension of Nonperiodic Functions, DOI:10.1137/090752456, full PDF Eq.1.1,3.12,Cor3.8",
+        "Hangelbroek–Narcowich–Sun–Ward arXiv:1005.2424 (summary comparison)",
+        "Resultary 2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242",
+        "Resultary: least squares projection first harmonic trigonometric functions on semicircle continuous arc Lebesgue constant L infinity exact endpoint norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary works give the projection setting and general bounds, not the inequality F(θ)<F(0) for all θ interior nor the sharp constant 2.048099..."
+        ],
+        "reasoning": "The global continuous extremizer proof is the additional mathematical implication, not a specialization of a finite cyclic norm identity.",
+        "searches": [
+          "Huybrechs 2010 full PDF Sections 1/3",
+          "Hangelbroek et al. arXiv:1005.2424",
+          "Resultary Fourier cyclic projection record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projecting onto {1,cosθ,sinθ} is the first-degree half-range Fourier extension of an affine Cartesian function; its endpoint norm is a Lebesgue constant for a nonperiodic continuous arc."
+        ],
+        "reasoning": "An equivalent projective formulation still uses nonorthogonal half-range sine/constant features, so the full-circle Dirichlet-kernel norm does not imply the constant.",
+        "searches": [
+          "Resultary: least squares projection first harmonic trigonometric functions on semicircle continuous arc Lebesgue constant L infinity exact endpoint norm",
+          "Huybrechs 2010 L2 half-range projection equations",
+          "Resultary published three-frequency cyclic Fourier-projection norm b176a6018242"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary table is over finite cyclic groups Z_N, converging to the full-circle 1/3+2√3/π, not normalized semicircular arclength."
+        ],
+        "reasoning": "No cited full-circle finite table supplies the half-range Gram inverse or unique endpoint result. A negative search for the new exact constant is not complete bibliographic proof.",
+        "searches": [
+          "Resultary: least squares projection first harmonic trigonometric functions on semicircle continuous arc Lebesgue constant L infinity exact endpoint norm",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242"
+        ]
+      },
+      "rationale": "The primary Fourier-extension literature treats half-range trigonometric approximation and projector stability, but its inspected full text does not provide the exact degree-one norm or global endpoint maximizer. Uniform kernel Lp bounds do not imply this sharp value. The published Resultary three-character cyclic full-circle projection has a distinct normalized Dirichlet kernel and norm (1/3+2√3/π); it does not dominate this continuous semicircle problem.",
+      "residual_risks": [
+        "A specialist Fourier-extension table or thesis might contain the degree-one semicircle Lebesgue constant even if not indexed.",
+        "Only the first harmonic on continuous uniform arclength for half-circle; no arbitrary arc or high-harmonic extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes half-range projection structure and convergence, not a stated sharp degree-one Linfty norm or unique endpoint location",
+          "evidence": [
+            "Half-range trigonometric projection Eq. 3.12/Corollary 3.8, no explicit 2.048... in inspected sections"
+          ],
+          "identifier_or_url": "https://people.cs.kuleuven.be/~daan.huybrechs/research/sinum_fourierextension.pdf",
+          "material_read": "Author-posted complete PDF; equations 1.1–1.2 and 3.12, Corollary 3.8, projection/orthogonal polynomial discussion",
+          "method": "Read substantive relevant full-text sections and visually inspected relevant PDF pages",
+          "title": "On the Fourier Extension of Nonperiodic Functions",
+          "trigger": "Exact half-range Fourier extension operator and possible covering norm bound"
+        },
+        {
+          "assessment": "General estimate relevant background, exact degree-one semicircle formula not verified absent throughout full paper",
+          "evidence": [
+            "Uniform projector estimates under geometric structural hypotheses"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Abstract and bibliographic summary; full article was not retrieved for this run",
+          "method": "Compared general kernel Lp stability theorem scope with a sharp half-circle finite-degree constant",
+          "title": "Kernel Approximation on Manifolds II: The L∞-norm of the L²-projector",
+          "trigger": "Potential general-dimension projector norm bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp worst-case error amplification for least-square affine restriction to a semicircular arc is a natural operator invariant directly relevant to stability of Fourier extension and geometry-induced conditioning. The fact that only boundary evaluation maximizes, and amplification exceeds two against a full-circle value about 1.436, is substantial rather than a routine finite sample norm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Huybrechs, On the Fourier Extension of Nonperiodic Functions, DOI:10.1137/090752456, full PDF Eq.1.1,3.12,Cor3.8",
+    "Hangelbroek–Narcowich–Sun–Ward arXiv:1005.2424 (summary comparison)",
+    "Resultary 2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242",
+    "Resultary: least squares projection first harmonic trigonometric functions on semicircle continuous arc Lebesgue constant L infinity exact endpoint norm"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real L1/L∞ on θ∈[0,π], uniform continuous normalized arclength; no discrete nodes, filled half-disk, or general arc angles.",
+    "Finite interior samples support but do not prove the unique global maximizer, which requires the analytic monotonicity/Cauchy argument."
+  ],
+  "residual_risks": [
+    "A specialist Fourier-extension table or thesis might contain the degree-one semicircle Lebesgue constant even if not indexed.",
+    "Only the first harmonic on continuous uniform arclength for half-circle; no arbitrary arc or high-harmonic extension."
+  ],
+  "schema_version": 1
+}
