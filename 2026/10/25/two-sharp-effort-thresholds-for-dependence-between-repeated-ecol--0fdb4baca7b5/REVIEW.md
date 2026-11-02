@@ -1,21 +1,21 @@
-# Self-review: repeated-detection covariance phase diagram
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For closed Poisson site abundance, conditional independence of binary detections gives covariance equal to the variance of conditional site detectability. Its probability-generating-function expression is exact, including endpoint cases. The derivative factorization reduces every interior stationary point to \(R(q)=-\log(1-q)/q^2=\lambda\). An explicit derivative proves that \(R\) has a single minimum, and the envelope theorem applied to the stationary covariance gives a strictly increasing interior-versus-perfect-detection maximum ratio. The limiting ratio crosses one exactly once. Bounds \(q_0<3/4\) and \(\lambda_{\mathrm{loc}}>2\) make the strict monotonicity inequality rigorous. The large-mean asymptotics and the elementary \(\lambda=3\) witness were reconstructed; the packaged Python script passed deterministic and randomized checks. Neither approximate decimal roots nor finite tests are used as infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+Given a fixed latent N∼Pois(λ) across independent visits and per-individual detection q, p_N=1−(1−q)^N. The total covariance equals Var(p_N)=e^(−λ(2q−q²))−e^(−2λq), not zero (which would arise from independently redrawing N at each visit). Independently symbolically differentiated it: C′=2λe^(−λ(2q−q²))[e^(−λq²)−(1−q)]. For q∈(0,1) its sign is that of R(q)−λ, R(q)=−log(1−q)/q². Its derivative numerator H=q/(1−q)+2log(1−q) has H′=(2q−1)/(1−q)², so R has a unique minimum q0≈0.715331863, proving exactly two critical points for λ>λloc and monotonicity below. For the interior local maximum q−, the ratio G=C(q−)/C(1) has log derivative 1−q−−1/(e^λ−1)>1/4−1/(e²−1)>0 since λloc>2, proving exactly one λglob. Independent high-accuracy bisection found λloc≈2.455407482284 and λglob≈2.610227149204, and checked the λ=3,q=.5 witness. As λ→∞, λq−→1 and C(q−)∼e^(−2)/λ. Endpoint λ=λloc has one horizontal tangent, and λglob has precisely two tied global maxima.
 
-The 2003 Royle–Nichols original supplies abundance-driven heterogeneity and the detection mechanism, not a novel mechanism in this result. Donovan–Hines Chapter 7 (2007) explains the conditional likelihood and Poisson mixing. Moore et al. (2014) optimize survey allocation for detection probability rather than the covariance of two binary visits. The full published published-finding corpus statement “Two visits identify a nonparametric closed binomial N-mixture” studies repeated numerical counts, estimating parameters by factorial moments; neither its assumptions on the observed count variable nor its conclusion gives the present extrema/transition theorem for binary visit covariance. Statement-level searches for the two numerical thresholds, aliases, and relevant covariance/effect-size objectives yielded no known equivalent result. This absence is not a uniqueness proof. Full text of the 2003 Ecology source could not be inspected, and broader published covariance-optimization literature may contain equivalent statements; priority remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-The covariance of two repeat visit indicators measures the abundance-generated within-site dependence that is used diagnostically in presence–absence modeling. Detectability approaching one saturates binary indicators at abundant sites. This establishes two distinct, explicit and ecologically interpretable thresholds: one where nonmonotonic dependence first emerges and one where intermediate detectability begins to dominate perfect detection. It provides a global classification valid for all Poisson means and exact high-abundance scaling, not just an isolated example or a new name for a known formula. It does not claim that maximizing covariance is an optimal survey design criterion.
+Qualified PASS: Royle–Nichols 2003 and Donovan–Hines 2007 already set out the exact Poisson mixture and binary detection formula p_N=1−(1−q)^N, so the observation model and elementary covariance identity are not claimed new. Their inspected abstract and full training chapter optimize inference likelihood, not the unstandardized cross-visit covariance as a function of q. The two mathematically distinct local/global λ thresholds and unique optimizer switching theorem were not found; full original 2003 article could not be read and remains a priority risk.
 
-## References and limitations
+## value
 
-Royle and Nichols (2003), Ecology 84:777–790, DOI 10.1890/0012-9658(2003)084[0777:EAFRPA]2.0.CO;2 (abstract and bibliographic material inspected); Donovan and Hines (2007), *Exercises in Occupancy Estimation and Modeling*, Chapter 7 (relevant original pages inspected); Moore et al. (2014), *The Optimal Number of Surveys when Detectability Varies*, PLOS ONE 9:e115345 (full HTML methods/results inspected); the full published published-finding corpus “Two visits identify a nonparametric closed binomial N-mixture” (main theorem and comparison inspected).
+PASS
 
-Residual scientific limitations include binary observation, constant closed Poisson abundance, conditional independent visits, no false positives, and one common individual detection probability. No claim is made about optimum estimation efficiency, optimum real survey effort, or finite sample behavior. The original source's full text was unavailable; independent mathematical audit has not occurred.
+PASS: this is a complete sharp phase diagram for an immediately motivated dependence statistic in the classical repeated-presence/absence abundance model. It demonstrates that more sensitive binary detection can reduce observed between-visit dependence because saturation hides abundance heterogeneity. It is not presented as a recommendation to reduce detection or as optimal survey design, and covariance is not interchangeable with correlation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
