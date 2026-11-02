@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Q is invertible over finite fields, and its polynomial T^2-T-1 has distinct nonzero roots for every prime >5. In the split and nonsplit cases, diagonalization gives Q^(ell-1)=I and Q^(ell+1)=-I respectively. The two exact decompositions of pq+1 have even multiplicative factors for sign cancellation; taking matrix entries and the negative-index Fibonacci identity proves both local congruences. Chinese remaindering is exact for p≠q. A_2=A_4=0 while B_2=4, B_4=12 have no prime divisors >5; reducing characters yields p≡2 mod5, with q=p+d. For d≥6, positive fixed A_d,B_d imply p≤B_d. Modular fast doubling checks 14028 pairs as corroboration only; no infinite result rests on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "O. Flynn-Connolly, arXiv:2504.09938 (2025), Remark 1: semiprime approach and sufficient—not necessary—Pisano-type criteria; main theorem concerns Fibonacci indices, not fixed prime gaps.",
+        "Křížek and Somer, Integers 24 (2024), A36, Theorem 2.6 and Example 2.1: general recurrence average criterion and instance 319=11*29, not a uniform fixed-gap classification.",
+        "Fatehizadeh and Yaqubi, Journal of Integer Sequences 25 (2022), Article 22.2.6: implicit criterion n divides F_(n+2)-1 and special sufficient families, without evaluated gap-parametrized semiprime congruences."
+      ],
+      "reasoning": "General criteria for second-order recurrences or Pisano periods could in principle specialize to this pair. Existing inspected general statements give structural tests or sufficient conditions without deriving an evaluated fixed-difference necessary-and-sufficient law or its two-gap finiteness dichotomy. The new claim does not claim a general theorem beyond the Fibonacci case.",
+      "searches": [
+        "Exact criterion for product of two odd primes p and q dividing sum of first pq Fibonacci numbers in terms of q minus p and Legendre symbol 5/p and 5/q",
+        "Fibonacci average integral semiprimes p q and prime gaps fixed difference exact congruence",
+        "Integers 24 (2024) A36, Theorem 2.6 and Example 2.1",
+        "arXiv:2504.09938, Remark 1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2504.09938",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf",
+      "https://math.colgate.edu/~integers/y36/y36.pdf",
+      "https://oeis.org/A124456",
+      "Public research record: Even-even period equality for Lucas pairs with q=-1",
+      "Public research record: All local prime parts are Dold for split companion Lucas sequences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "O. Flynn-Connolly, arXiv:2504.09938 (2025), Remark 1: semiprime approach and sufficient—not necessary—Pisano-type criteria; main theorem concerns Fibonacci indices, not fixed prime gaps.",
+        "Křížek and Somer, Integers 24 (2024), A36, Theorem 2.6 and Example 2.1: general recurrence average criterion and instance 319=11*29, not a uniform fixed-gap classification.",
+        "Fatehizadeh and Yaqubi, Journal of Integer Sequences 25 (2022), Article 22.2.6: implicit criterion n divides F_(n+2)-1 and special sufficient families, without evaluated gap-parametrized semiprime congruences.",
+        "Nearby public research result \"Even-even period equality for Lucas pairs with q=-1\" concerns period equality, not Fibonacci-average divisibility for fixed gaps."
+      ],
+      "reasoning": "The new theorem simultaneously gives local residues, a biconditional for every prime pair p,q>5, an exact classification for differences 2 and 4, and a uniform explicit finiteness bound for every larger fixed even difference. The prior implicit n-index criterion does not state these consequences; a single semiprime example and distinct Lucas-period research cannot dominate the quantified claim. An equivalent earlier elementary matrix argument is the principal residual priority risk.",
+      "searches": [
+        "Exact criterion for product of two odd primes p and q dividing sum of first pq Fibonacci numbers in terms of q minus p and Legendre symbol 5/p and 5/q",
+        "Fibonacci partial sums prime pair fixed difference q=p+d with d even local residues F_{d-3}-1 and F_{d+3}-1",
+        "F_{n+2} congruent one modulo n twin primes p(p+2) Fibonacci sums",
+        "Fibonacci sum divisibility pq twin primes p p+2 Legendre symbol prime gap",
+        "arXiv:2504.09938 Remark 1",
+        "Křížek–Somer 2024 Example 2.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fatehizadeh and Yaqubi, Journal of Integer Sequences 25 (2022), Article 22.2.6: implicit criterion n divides F_(n+2)-1 and special sufficient families, without evaluated gap-parametrized semiprime congruences.",
+        "Křížek and Somer, Integers 24 (2024), A36, Theorem 2.6 and Example 2.1: general recurrence average criterion and instance 319=11*29, not a uniform fixed-gap classification.",
+        "OEIS A124456: list of integrality indices including 77, 319, 323, 1517, 30049; no prime-pair-gap formula in entries/comments/formulas."
+      ],
+      "reasoning": "Replace the Fibonacci sum by F_(pq+2)-1, or use Q^(pq+1) with the Fibonacci matrix. Such equivalent formulations reduce the integrality question to modular congruences but do not, in the inspected sources, evaluate the two residues solely from the fixed difference q-p. The 319 example is an instance of, not a theorem covering, the new universal formula.",
+      "searches": [
+        "Exact criterion for product of two odd primes p and q dividing sum of first pq Fibonacci numbers in terms of q minus p and Legendre symbol 5/p and 5/q",
+        "Fibonacci partial sums prime pair fixed difference q=p+d with d even local residues F_{d-3}-1 and F_{d+3}-1",
+        "F_{n+2} congruent one modulo n twin primes p(p+2) Fibonacci sums",
+        "OEIS A124456",
+        "Integers 24 (2024), A36, Theorem 2.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A124456: list of integrality indices including 77, 319, 323, 1517, 30049; no prime-pair-gap formula in entries/comments/formulas.",
+        "The 2024 example 319 and first OEIS examples overlap the numerical instances but not the universal statement."
+      ],
+      "reasoning": "A finite index list or a program checking n | (F_(n+2)-1) does not determine the fixed prime-gap family for unbounded p and q. The table was inspected for a formula or reference covering the prime-pair criterion; none was found. The agreement of known values serves as numerical corroboration, not novelty proof.",
+      "searches": [
+        "OEIS A124456",
+        "twin prime cousins p p+2 p+4 integers dividing Fibonacci sum S_{p q} iff p congruent 2 modulo 5"
+      ]
+    },
+    "rationale": "Evaluated both modular residues by a prime-pair difference and Legendre characters; compared the exact statement and its implications with the 2025 motivating preprint, the 2022 implicit congruence theorem, the 2024 general Lucas-average theory (including an overlapping example), the exact integer-sequence record, and targeted mathematical-record searches. None inspected states the complete fixed-gap residue law, the sharp gaps 2/4 criterion, or explicit finiteness for each larger even gap. This is a positive best-knowledge originality assessment, not proof of historical uniqueness.",
+    "residual_risks": [
+      "A different historical formulation of Frobenius/Fibonacci matrix congruences may already imply the fixed prime-gap theorem without mentioning averages.",
+      "Database retrieval is not a uniqueness proof, and an independent historical-priority check is not performed.",
+      "Some older literature beyond the targeted primary sources and inspected sections remains unexamined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering evaluated fixed prime-pair-gap local congruences; recognizes the semiprime challenge and gives different sufficient constructions",
+        "evidence": "O. Flynn-Connolly, arXiv:2504.09938 (2025), Remark 1: semiprime approach and sufficient—not necessary—Pisano-type criteria; main theorem concerns Fibonacci indices, not fixed prime gaps.",
+        "identifier_or_url": "https://arxiv.org/pdf/2504.09938",
+        "material_read": "Accessible eight-page preprint; introduction, Theorem 1, semiprime Remark 1, main theorem/corollary and references inspected; targeted full-document text search",
+        "method": "Read PDF text and visually inspected pages containing Remark 1 and final discussion",
+        "title": "On the divisibility of sums of Fibonacci numbers",
+        "trigger": "Recent motivating preprint expressly discusses semiprime indices and their difficulty"
+      },
+      {
+        "assessment": "Implicit equivalent initial test but not the fixed difference character-residue evaluation",
+        "evidence": "Fatehizadeh and Yaqubi, Journal of Integer Sequences 25 (2022), Article 22.2.6: implicit criterion n divides F_(n+2)-1 and special sufficient families, without evaluated gap-parametrized semiprime congruences.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Yaqubi/yaq6.pdf",
+        "material_read": "Introduction, basic Fibonacci-sum identity, Theorem 7 and special explicit families, with full-text review for related claims",
+        "method": "PDF text inspection and page-image inspection",
+        "title": "Average of the Fibonacci Numbers",
+        "trigger": "Original average-integrality question and implicit divisibility criterion"
+      },
+      {
+        "assessment": "Provides general recurrence/Pisano framework and 319 instance; no full fixed-gap classification identified",
+        "evidence": "Křížek and Somer, Integers 24 (2024), A36, Theorem 2.6 and Example 2.1: general recurrence average criterion and instance 319=11*29, not a uniform fixed-gap classification.",
+        "identifier_or_url": "https://math.colgate.edu/~integers/y36/y36.pdf",
+        "material_read": "Introduction and relevant sections through Theorem 2.6 and Example 2.1; targeted searches of the full 41-page text",
+        "method": "PDF text plus visual inspection of relevant pages",
+        "title": "Period Lengths Modulo n and Average of Terms of Second Order Linear Recurrences",
+        "trigger": "Potential stronger general recurrence result and a known overlapping semiprime example"
+      },
+      {
+        "assessment": "Records individual n with integral Fibonacci average; no formula evaluating fixed prime-gap pairs",
+        "evidence": "OEIS A124456: list of integrality indices including 77, 319, 323, 1517, 30049; no prime-pair-gap formula in entries/comments/formulas.",
+        "identifier_or_url": "https://oeis.org/A124456",
+        "material_read": "Entry, comments, formulas, references, available listed values",
+        "method": "Direct HTML reading",
+        "title": "OEIS A124456",
+        "trigger": "Exact known-value table that could preempt a finite/census claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e5712218-28d2-4704-ab9c-d9622467e715",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent semiprime-integral-average question naturally asks how the gap between two prime factors affects the index condition. The complete fixed-difference local residue law turns a Fibonacci number of index pq into a test involving two fixed small-index Fibonacci integers and quadratic characters. It distinguishes exactly two potentially unbounded fixed prime gaps from all larger fixed gaps, which are provably finite with explicit bounds, and identifies a sharp congruence restriction on twin/cousin-prime families. This is structurally stronger than a handful of numeric examples or an implicit restatement of divisibility; it does not claim to solve twin/cousin-prime infinitude.",
+    "status": "PASS"
+  }
+}
