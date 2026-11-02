@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no external packages. The included `verification_output.txt` records the output of the same standalone code as executed in the provided scientific package. The verifier constructs unlabeled graphs with one to five vertices from all labeled edge masks and all vertex relabelings, tests every vertex subset for maximal independence, and checks all possible bounded palette assignments for both ordinary packing feasibility and first-fit realizability. The exact small-order graph class totals are 1, 2, 4, 11, 34; well-covered totals are 1, 2, 3, 7, 14; a unique well-covered graph at order five has unequal chromatic parameters, namely 3 and 4. Its graph is checked explicitly against the stated pendant-path triangle.
+## correctness
 
-Additionally, the verifier constructs clique-tail graphs of clique orders 3 to 10, checks the exhibited packing and greedy colorings, and verifies well-coveredness by exhaustive subset testing. For clique orders 3 to 5 it independently enumerates all color maps and determines both chromatic parameters exactly. The infinite-family claim is proved in RESULT.md by structural bounds and explicit colorings; the finite checks are corroboration, not a substitute for that proof. The uniqueness result is genuinely finite and is certified by an exhaustive search whose coverage follows from enumerating every adjacency mask and every color assignment. No assertion is made about other graph families, the order of larger counterexamples, bibliographic exhaustiveness, or independent validation.
+PASS
+
+For H_m (m≥3), all maximal independent sets have size two; diameter three gives maximum size two for color-1 and color-2 packings, while every higher color appears at most once. Cover count gives chi_rho≥m and the explicit (a,d) color-1, (b,e) color-2 assignment attains m. A greedy color-1 class is maximal independent, forcing Gamma_rho≤m+1; order e,a,b,c,d followed by remaining clique attains m+1. Unlabeled graphs through five vertices were independently enumerated (counts 1,2,4,11,34), with well-covered counts 1,2,3,7,14; all feasible packing and first-fit colorings yielded exactly one five-vertex gap graph isomorphic to H_3. Enumeration establishes only the bounded uniqueness, not all orders.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge novelty of the precise additional claim only; original definitions, exact source formulas, special cases and existing methods remain prior work. Source readings and explicit residual priority risks are recorded; no assertion of exhaustive literature coverage.
+
+## value
+
+PASS
+
+An explicit connected infinite well-covered family separates two natural packing-coloring invariants, resolving an explicitly posed equality question. The smallest five-vertex obstruction and uniqueness census give a sharp structural boundary; not merely a textbook value for a clique.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
