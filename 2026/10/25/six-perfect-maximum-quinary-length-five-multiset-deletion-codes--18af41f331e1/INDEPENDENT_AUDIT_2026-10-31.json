@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:39:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 126 transmitted multisets are weak compositions of 5 into 5 parts; two have a shared deletion descendant iff their L1 distance is two. Thus codes are independent sets in the unit-transfer graph, or size-26 cliques of its complement. Source verify_n5.cpp uses a greedy proper coloring of every candidate subgraph: prefix color numbers give a rigorous upper bound on later clique extension. Independent C++17 code implemented the vertex compositions in reverse lexicographic ordering, edges from L1>2, and a separate coloring-branch enumeration; it visited 93,475,251 nodes, obtained exactly six size-26 cliques, and matched these to the six distinct checksum-zero classes among all 120 label permutations. For each class, independent deletion shadow enumeration found exactly all 70 received profiles. Any clique size>=27 would contain at least 27 distinct 26-subcliques, so the six-class census excludes it. The root-of-unity filter gives |C_f|=(binom(9,4)+4)/5=26. Affine checksum relabeling yields stabilizer size20, S5 orbit size6; exact positive-coordinate profile (5):5,(3,1,1):10,(2,2,1):10,(1^5):1 gives 5+30+30+5=70 shadows. The finite census is exhaustive for q=n=5 only; no other-parameter extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-graph Proposition 9.4 proves alpha_5(5)<=26 via local weighted cover and additive construction achieving 26; it does not classify all maximizing independent sets.",
+          "Known multiset-code results already establish cardinality 26 and cyclic constructions; no exact six-code exhaustion in inspected theorem statements."
+        ],
+        "reasoning": "Broad optimum-size results dominate the size assertion but not the all-optima theorem. The independently verified exhaustive search is necessary to distinguish other 26-element independent sets, which a sharp upper bound does not automatically identify.",
+        "searches": [
+          "Zabokritskiy arXiv:2607.13733 full HTML §6 and Proposition 9.4",
+          "Kreindel–Essayag–Zabokritskiy arXiv:2601.05636",
+          "Machacek arXiv:2010.11112"
+        ]
+      },
+      "checked_sources": [
+        "Zabokritskiy arXiv:2607.13733 full primary HTML, §6 and Proposition 9.4",
+        "Machacek arXiv:2010.11112, equivalent monomial graph",
+        "Kreindel–Essayag–Zabokritskiy arXiv:2601.05636 and 2603.18322",
+        "Resultary semantic search: maximum monomial graph independent sets and deletion-code complete classifications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A weighted-cover certificate proves the maximum size and an additive family constructs examples. It supplies no equality-rigidity theorem forcing every maximum to coincide with an additive fiber."
+        ],
+        "reasoning": "Known 26-size bounds plus existence of six checksum codes only show at least six maxima; the independent exhaustive 26-clique enumeration proves no additional maximum exists, and hence perfection and orbit structure for every maximum.",
+        "searches": [
+          "Zabokritskiy 2026 full primary Proposition 9.4 (cover and additive lower bound)",
+          "Kreindel et al 2026 optimum and cyclic code construction",
+          "Machacek 2020 monomial graph and uniqueness cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A one-deletion multiset code is exactly an independent set of graph G_5(5) on degree-five monomials in five variables under a unit transfer.",
+          "The new count is the number of maximum independent sets, not the size alpha_5(5), whose value 26 is known."
+        ],
+        "reasoning": "The complete equality-case classification is compared in multiset-channel, monomial-graph, simplex-packing, perfect deletion-ball and additive-checksum language; none of the inspected statements lists all six maximum sets.",
+        "searches": [
+          "Resultary: all maximum independent sets in five variable degree five monomial graph multiset single deletion correcting code six 26 word perfect",
+          "Machacek arXiv:2010.11112 monomial-graph independent-set table",
+          "Zabokritskiy arXiv:2607.13733, q=5,d=5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Machacek known small count cases do not include the five-variable degree-five count of six.",
+          "The later paper gives the same exact optimum 26 but no list of 26-vertex maxima. The independent graph census returns precisely six, all checksum classes."
+        ],
+        "reasoning": "The exact table/database check directly targets the missing equality-case statistic a_5(5)=6; prior alpha_5(5)=26 is a different invariant and does not logically determine a_5(5).",
+        "searches": [
+          "Machacek arXiv:2010.11112 small degree maximum-independent-set counts",
+          "Zabokritskiy arXiv:2607.13733 Proposition 9.4 and tables",
+          "Source primary verify_n5.out and independent full clique enumeration"
+        ]
+      },
+      "rationale": "Same-object and stronger-implication search compared: The complete equality-case classification is compared in multiset-channel, monomial-graph, simplex-packing, perfect deletion-ball and additive-checksum language; none of the inspected statements lists all six maximum sets. Broad optimum-size results dominate the size assertion but not the all-optima theorem. The independently verified exhaustive search is necessary to distinguish other 26-element independent sets, which a sharp upper bound does not automatically identify. Known 26-size bounds plus existence of six checksum codes only show at least six maxima; the independent exhaustive 26-clique enumeration proves no additional maximum exists, and hence perfection and orbit structure for every maximum. A semantic Resultary query was executed for this problem. All source limitations and possible hidden equivalences are retained as residual risks, not misreported as proof of absolute priority.",
+      "residual_risks": [
+        "The finite proof relies on the full completeness of a coloring-pruned clique search; independently reimplemented graph enumeration matches six sets, but this is a computational finite classification rather than a short analytic uniqueness proof.",
+        "An unindexed equality-case theorem in multiset deletion coding may classify all perfect q=5,n=5 codes; no such stronger result was located.",
+        "The result concerns only five symbols and five transmitted items; no higher-degree or other-alphabet formula follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_SIZE_NOT_CLASSIFICATION: exact optimum 26 known, all-six equality classification not implied by stated certificate",
+          "evidence": [
+            "Zabokritskiy arXiv:2607.13733, Proposition 9.4; full HTML retrieved and materially read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.13733",
+          "material_read": "Read accessible full arXiv HTML text, graph definitions, §6 q=5 and §9 Proposition 9.4 proof. Proposition 9.4 constructs an upper-bound cover of cost 26 and cites additive attainment, without enumerating all maximum 26-sets.",
+          "method": "Primary full-text arXiv HTML; direct search and section reading",
+          "title": "Independent Sets in Multiset Profile Graphs via Weighted Local Covers",
+          "trigger": "Precisely same graph and parameters q=5,d=5; strongest priority threat"
+        },
+        {
+          "assessment": "RELATED_COUNTS_NOT_EXACT_TARGET: distinct degrees/number of variables covered in checked table",
+          "evidence": [
+            "Machacek, arXiv:2010.11112"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.11112",
+          "material_read": "Compared arXiv primary abstract and relevant stated small count cases against q=5,d=5; source range available for this comparison does not include degree-five five-variable census.",
+          "method": "Primary arXiv abstract and indexed theorem descriptions",
+          "title": "Unique maximum independent sets in graphs on monomials of a fixed degree",
+          "trigger": "Same equivalent monomial graph and exact maximum-set counts"
+        },
+        {
+          "assessment": "COVERED_MAXIMUM_SIZE: classification of every maximum codebook is separate",
+          "evidence": [
+            "Kreindel, Essayag, Zabokritskiy arXiv:2601.05636"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+          "material_read": "Compared published description of multiset model, additive construction and maximum size 26; not a whole-document exclusion.",
+          "method": "Primary arXiv published abstract/claims",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same deletion channel and exact size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a natural multiset deletion-channel parameter whose extremal size was already known, determining every equality codebook, exact algebraic rigidity, symmetry and perfection is an independently useful complete finite classification. It identifies that no nonadditive maxima exist and supplies a benchmark for multiset-code rigidity, without suggesting a new code rate or arbitrary parameter theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zabokritskiy arXiv:2607.13733 full primary HTML, §6 and Proposition 9.4",
+    "Machacek arXiv:2010.11112, equivalent monomial graph",
+    "Kreindel–Essayag–Zabokritskiy arXiv:2601.05636 and 2603.18322",
+    "Resultary semantic search: maximum monomial graph independent sets and deletion-code complete classifications"
+  ],
+  "disposition": "passed",
+  "final_claim": "For length-five multisets on five distinguishable symbols with one deletion correction, the maximum code size is the previously known 26, and precisely six labeled maximum codes attain it. All are the checksum-zero classes for bijections F5→F5, forming a single S5 orbit with affine stabilizer AGL(1,5) order 20; every maximum code gives a perfect partition of the 70 received four-multisets.",
+  "limitations": [
+    "The finite proof relies on the full completeness of a coloring-pruned clique search; independently reimplemented graph enumeration matches six sets, but this is a computational finite classification rather than a short analytic uniqueness proof.",
+    "An unindexed equality-case theorem in multiset deletion coding may classify all perfect q=5,n=5 codes; no such stronger result was located.",
+    "The result concerns only five symbols and five transmitted items; no higher-degree or other-alphabet formula follows."
+  ],
+  "residual_risks": [
+    "The finite proof relies on the full completeness of a coloring-pruned clique search; independently reimplemented graph enumeration matches six sets, but this is a computational finite classification rather than a short analytic uniqueness proof.",
+    "An unindexed equality-case theorem in multiset deletion coding may classify all perfect q=5,n=5 codes; no such stronger result was located.",
+    "The result concerns only five symbols and five transmitted items; no higher-degree or other-alphabet formula follows."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STRONG_PRIOR_SIZE_NOT_CLASSIFICATION: exact optimum 26 known, all-six equality classification not implied by stated certificate",
+      "evidence": [
+        "Zabokritskiy arXiv:2607.13733, Proposition 9.4; full HTML retrieved and materially read"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2607.13733",
+      "material_read": "Read accessible full arXiv HTML text, graph definitions, §6 q=5 and §9 Proposition 9.4 proof. Proposition 9.4 constructs an upper-bound cover of cost 26 and cites additive attainment, without enumerating all maximum 26-sets.",
+      "method": "Primary full-text arXiv HTML; direct search and section reading",
+      "title": "Independent Sets in Multiset Profile Graphs via Weighted Local Covers",
+      "trigger": "Precisely same graph and parameters q=5,d=5; strongest priority threat"
+    },
+    {
+      "assessment": "RELATED_COUNTS_NOT_EXACT_TARGET: distinct degrees/number of variables covered in checked table",
+      "evidence": [
+        "Machacek, arXiv:2010.11112"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2010.11112",
+      "material_read": "Compared arXiv primary abstract and relevant stated small count cases against q=5,d=5; source range available for this comparison does not include degree-five five-variable census.",
+      "method": "Primary arXiv abstract and indexed theorem descriptions",
+      "title": "Unique maximum independent sets in graphs on monomials of a fixed degree",
+      "trigger": "Same equivalent monomial graph and exact maximum-set counts"
+    },
+    {
+      "assessment": "COVERED_MAXIMUM_SIZE: classification of every maximum codebook is separate",
+      "evidence": [
+        "Kreindel, Essayag, Zabokritskiy arXiv:2601.05636"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+      "material_read": "Compared published description of multiset model, additive construction and maximum size 26; not a whole-document exclusion.",
+      "method": "Primary arXiv published abstract/claims",
+      "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+      "trigger": "Same deletion channel and exact size"
+    }
+  ]
+}

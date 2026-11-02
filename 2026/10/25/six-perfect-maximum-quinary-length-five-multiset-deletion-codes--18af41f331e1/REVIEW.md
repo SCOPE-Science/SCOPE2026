@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The deletion-conflict graph and the checksum construction are proved explicitly. Exhaustive enumeration of all 26-cliques among all 126 multiplicity profiles gives exactly six; a proper-coloring clique bound justifies every search prune, and an independent checksum/shadow checker reconstructs all six solutions and their 70 disjoint received multisets. The classification, orbit stabilizer and composition profile follow. This finite exact computation is not extrapolated to other parameters.
+## correctness
 
-**Originality: PASS, with literature risk.** The size 26, the multiset deletion model, and the cyclic construction are earlier results and are credited. Machacek's published small-case count table covers five-variable degree four but not five-variable degree five. The 2026 weighted-cover paper establishes extremal sizes and discusses additive colorings, but the accessible description did not establish a classification of all maximal-size codes. The six-code exhaustive classification, symmetry and perfectness were not found in the inspected primary material or searched literature; the inaccessible complete weighted-cover text remains a meaningful residual risk.
+PASS
 
-**Value: PASS.** Complete classification of equality cases at a natural, previously solved extremal parameter provides an exact structural answer beyond the extremal cardinality. It establishes no nonadditive optimum can exist, identifies the symmetry stabilizer, and shows every maximum code is perfect. The computation serves as a finite benchmark for structural rigidity in the multiset deletion channel, without claiming broader coding gains.
+The 126 transmitted multisets are weak compositions of 5 into 5 parts; two have a shared deletion descendant iff their L1 distance is two. Thus codes are independent sets in the unit-transfer graph, or size-26 cliques of its complement. Source verify_n5.cpp uses a greedy proper coloring of every candidate subgraph: prefix color numbers give a rigorous upper bound on later clique extension. Independent C++17 code implemented the vertex compositions in reverse lexicographic ordering, edges from L1>2, and a separate coloring-branch enumeration; it visited 93,475,251 nodes, obtained exactly six size-26 cliques, and matched these to the six distinct checksum-zero classes among all 120 label permutations. For each class, independent deletion shadow enumeration found exactly all 70 received profiles. Any clique size>=27 would contain at least 27 distinct 26-subcliques, so the six-class census excludes it. The root-of-unity filter gives |C_f|=(binom(9,4)+4)/5=26. Affine checksum relabeling yields stabilizer size20, S5 orbit size6; exact positive-coordinate profile (5):5,(3,1,1):10,(2,2,1):10,(1^5):1 gives 5+30+30+5=70 shadows. The finite census is exhaustive for q=n=5 only; no other-parameter extrapolation.
 
-**Closest literature and limitations.** Machacek (arXiv:2010.11112), Kreindel–Essayag–Zabokritskiy (arXiv:2601.05636; arXiv:2603.18322), and Zabokritskiy (arXiv:2607.13733). Finite proof is exact but is conditional on faithfully running the supplied executable and its verified prune logic; full text of arXiv:2607.13733 was inaccessible. No independent assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-object and stronger-implication search compared: The complete equality-case classification is compared in multiset-channel, monomial-graph, simplex-packing, perfect deletion-ball and additive-checksum language; none of the inspected statements lists all six maximum sets. Broad optimum-size results dominate the size assertion but not the all-optima theorem. The independently verified exhaustive search is necessary to distinguish other 26-element independent sets, which a sharp upper bound does not automatically identify. Known 26-size bounds plus existence of six checksum codes only show at least six maxima; the independent exhaustive 26-clique enumeration proves no additional maximum exists, and hence perfection and orbit structure for every maximum. A semantic Resultary query was executed for this problem. All source limitations and possible hidden equivalences are retained as residual risks, not misreported as proof of absolute priority.
+
+## value
+
+PASS
+
+At a natural multiset deletion-channel parameter whose extremal size was already known, determining every equality codebook, exact algebraic rigidity, symmetry and perfection is an independently useful complete finite classification. It identifies that no nonadditive maxima exist and supplies a benchmark for multiset-code rigidity, without suggesting a new code rate or arbitrary parameter theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
