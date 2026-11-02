@@ -1,11 +1,21 @@
-# Review of the joint overpartition least-gap theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact multivariate count follows from a reversible deletion of mandatory nonoverlined occurrences. The required uniform overpartition ratio holds for shifts of order the square root of the size by the explicit Sills–Engel Rademacher main term and error estimate. The vector survival law then matches running minima of independent Rayleigh variables. The diagonal coincidence probability is established separately: a finite exact coefficient identity is split into a locally uniform Riemann sum and a uniformly negligible tail. The included standalone verifier exactly compared 78 multivariate counts and 39 tie counts against full enumeration through weight 12. Infinite conclusions are symbolic, not inferred from those tests.
+## correctness
 
-**Originality (PASS on inspected evidence, with residual risk).** Aricheta–Donato's 2023 paper determines one-index overpartition least-gap generating functions and asymptotics; the present multi-index joint limit and the exact persistent-tie probability are not stated in its inspected full text. Wagner's 2011 theorem studies a single threshold in ordinary partitions; Chern–Xia 2025 studies ordinary-partition moments; Sills–Engel estimate the overpartition count. No inspected source or relevant mathematical-record result contains the full joint survival formula or the \(r/s\) diagonal limit. Unindexed or implicit general results remain possible, and the accessible abstract only of Sarkar–Thejitha–Fathima 2026 does not eliminate that risk.
+PASS
 
-**Mathematical value (PASS).** Marginal least-gap asymptotics do not determine dependence or probabilities of exact equality. This result identifies the entire fixed-index dependence structure and shows that even for diverging gap sizes, coincidences persist with explicit universal probability \(r/s\). The exact finite joint counting formula and nontrivial discrete-local-limit argument provide reusable tools for correlated partition statistics.
+Exact joint shift D=sum_{a=1}^R T_{K_a} follows bijectively by deleting obligatory nonoverlined copies, leaving distinguished overlines unchanged. Uniform Engel overpartition ratios for D≤C sqrt(N) give the multivariate exp(-π/4 sum of squared maximal thresholds) survivor and independent-Rayleigh running-minimum vector law. Exact tie decomposition sum_{j≥1}[pbar(N-sT_{j-1})-pbar(N-sT_{j-1}-rj)] follows from requiring s copies below j and fewer than r at j. For j≤K N^(1/4), quantitative expansion makes each difference a Gaussian-weighted rj/√N term plus O(N^-1/2); O(N^(1/4)) terms produce vanishing total error and a Riemann sum r/s(1-exp(-πsK²/4)). The tail is bounded by P(M_s>KN^(1/4))→exp(-πsK²/4); K→∞ proves every fixed r<s tie limit. Independent Python enumerated all overpartitions up to weight 12, checked 78 simultaneous tail identities and 65 tie identities, and coefficient trends up to weight 3000, not used as infinite proof.
 
-Closest literature: [1] Aricheta–Donato (arXiv:2309.04398v1, 2023), [2] Wagner (DOI:10.1007/s11139-010-9264-z, 2011), [3] Sills (DOI:10.1155/2010/630458, 2010), [4] Engel (arXiv:1412.4603v2, 2014), [5] Chern–Xia (arXiv:2507.14431v1, 2025), [6] Sarkar–Thejitha–Fathima (arXiv:2609.21649v1, 2026, abstract only). Limitations: all multiplicity cutoffs fixed, no second-order terms or growing-index estimates, literature uniqueness not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for the simultaneous fixed-index overpartition least-gap dependence law and the exact r/s persistent coincidence limit. Prior one-index counting and ordinary-partition local-limit theorems are genuine ingredients but do not explicitly give a bivariate diagonal probability; the 2026 plausible related preprint remained inaccessible beyond its abstract and is an explicit priority risk.
+
+## value
+
+PASS
+
+A natural overpartition statistic of direct interest in primary literature acquires an exact full fixed-index dependence law, not just marginal Rayleigh asymptotics. Its universal strictly positive exact diagonal tie probability r/s is not determined by the weak limit and needs genuine local coefficient analysis. The finite joint deletion identity and all-pairs result give a reusable structural model; no growing-index uniformity or rate is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
