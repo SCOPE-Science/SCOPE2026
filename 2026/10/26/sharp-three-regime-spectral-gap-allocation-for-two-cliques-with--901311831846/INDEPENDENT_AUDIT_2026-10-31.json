@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:20:46.943419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Rayleigh-min formula makes lambda2 concave in the weights; averaging over both gateway/nongateway permutations and layer swap reduces global optimization to a,c,d,b. Explicit invariant-subspace diagonalization yields odd-mode polynomial mu²-(nd+2kb)mu+2k²bd and gateway fluctuation eigenvalue ka+ud+kb, while mu_-<kd<nd, making nongateway-nongateway c never useful. With kd=lambda(1+t), the Schur inequality gives b0=lambda[((n/k)(1+t)-1)]/(2kt); additional b can be transferred to cheaper a. The budget equals lambda F(t) and both spectral constraints attain it. The involution t->1/(2t), convex active derivative u(1+1/k-1/(2kt²)) and H(t)=1 thresholds yield t*=1/2, t_- or tau_k exactly; averaging and nonnegativity force the claimed supports in every optimum. Independent direct Laplacian eigenvalue/budget calculations checked 110 (k,u) pairs (matrix checks up to n=16), rather than treating source VERIFY.py success as proof. No normalized/Markov Laplacian is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd establishes concavity, symmetry, structured Laplacian bounds; Boyd ICM establishes generic total-weight optimization.",
+          "None of the accessible stated results evaluates the exact biclique gateway all-edge budget with its all-optima support switches."
+        ],
+        "reasoning": "These broad results dominate the convex formulation but not demonstrably its specialized closed solution; exact implication was tested against four invariant subspaces.",
+        "searches": [
+          "Ghosh Boyd Upper bounds on algebraic connectivity via convex optimization 2006",
+          "Boyd Convex optimization of graph Laplacian eigenvalues 2006",
+          "Resultary full gateway spectral allocation aliases"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh & Boyd (2006), DOI:10.1016/j.laa.2006.03.006",
+        "Shakeri et al. (2015), arXiv:1510.06785",
+        "Tavasoli et al. (2024), DOI:10.1017/nws.2024.9",
+        "Resultary semantic query for complete biclique gateway algebraic-connectivity allocation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 and 2024 interlayer design fix intralayer weights, contrary to the theorem's budget (k(k-1)a+u(u-1)c+2ku d+k²b=B).",
+          "The general concavity reduction does not set b=b0, calculate F(t), or prove every optimum c=0."
+        ],
+        "reasoning": "Neither a spanning subgraph optimum nor an interlink-only optimum implies this co-designed optimum; the explicit distinct spectral constraints establish a new computation.",
+        "searches": [
+          "Shakeri et al 2015 arxiv:1510.06785",
+          "Tavasoli et al 2024 Cambridge Networks Science article §§2–6",
+          "Ghosh Boyd 2006 group averaging"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shakeri 2015 treats one-to-one cross links with layer Laplacians fixed; Tavasoli 2024 handles many-to-many cross W with fixed intra-layer Laplacians.",
+          "This graph has k² cross edges rather than k; its gateway-fluctuation eigenvalue is ka+ud+kb, so the matching-gateway solution is not equivalent."
+        ],
+        "reasoning": "Full co-design is not reducible to a fixed-layer interconnection optimizer by a parameter rename. General symmetry/SDP frameworks identify method, not this evaluated three-piece minimizer.",
+        "searches": [
+          "Resultary semantic search: maximizing algebraic connectivity two cliques complete bipartite gateway joint total edge weights spectral gap three regimes",
+          "\"K_{k,k}\" \"algebraic connectivity\" \"two cliques\" edge budget",
+          "Shakeri et al. arXiv:1510.06785 and Tavasoli et al. DOI:10.1017/nws.2024.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced related bipartite spectral graphs and graph-partition results rather than the same optimized four-orbit family."
+        ],
+        "reasoning": "No exact tabulation of F(t*) or both edge-orbit support transitions was located; search absence is not novelty proof.",
+        "searches": [
+          "Resultary query: maximizing algebraic connectivity two cliques complete bipartite gateway joint total edge weights spectral gap three regimes",
+          "\"three-regime\" \"two cliques\" biclique spectral gap",
+          "Ghosh Boyd examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.",
+      "residual_risks": [
+        "A hidden exact graph-family specialization of generic absolute algebraic connectivity could imply this answer.",
+        "2015 preprint complete proof not independently accessible on this run; do not assert whole-document noncoverage.",
+        "Symmetry averaging proves existence of one symmetric optimizer but does not fully classify all asymmetric optimizers; only stated orbit supports are proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_INTRA_NOT_EXACT_CO_DESIGN",
+          "evidence": "Its L(w) has fixed intra-layer contributions and cross-edge weights as decision variables; this cannot directly evaluate a common intra- and interlayer budget.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+          "material_read": "Publisher HTML mathematical formulation, model definitions and equations for interlayer weight matrix, introduction and results",
+          "method": "Directly opened primary full-HTML article",
+          "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+          "trigger": "Closest k-to-k interconnections"
+        },
+        {
+          "assessment": "GENERAL_CONVEXITY_FRAMEWORK",
+          "evidence": "General symmetric optimization, but no located closed three-regime F(t) formula for the gateway graph.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/eigbounds_laplacian.html",
+          "material_read": "Author-hosted abstract, problem definition and published 2006 bibliographic metadata; repository includes further cited derivation",
+          "method": "Primary author webpage and paper abstract",
+          "title": "Upper bounds on algebraic connectivity via convex optimization",
+          "trigger": "Strongest general convexity framework"
+        },
+        {
+          "assessment": "POTENTIAL_IMPLICATION_RISK",
+          "evidence": "Fixed L1,L2 and diagonal cross weighting; full text was not independently retrievable this execution.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+          "material_read": "Accessible indexed model description/summary and original repository comparison; full arXiv HTML unavailable on fresh retrieval",
+          "method": "Abstract/model-level primary comparison, not claim of complete independent full-text read",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Earlier two-network connection allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A joint intra-/interlayer resource allocation of intrinsic interest in spectral graph optimization: exact lambda2, support-regime transitions and globally forced edge deletions across a natural two-community family. The mixed optimization distinguishes what to build inside communities from the interconnection budget; not a routine substitution of fixed-layer weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A hidden exact graph-family specialization of generic absolute algebraic connectivity could imply this answer.",
+    "2015 preprint complete proof not independently accessible on this run; do not assert whole-document noncoverage.",
+    "Symmetry averaging proves existence of one symmetric optimizer but does not fully classify all asymmetric optimizers; only stated orbit supports are proved.",
+    "No formal Lean proof or human expert attestation inferred from bounded independent computations."
+  ],
+  "schema_version": 1
+}
