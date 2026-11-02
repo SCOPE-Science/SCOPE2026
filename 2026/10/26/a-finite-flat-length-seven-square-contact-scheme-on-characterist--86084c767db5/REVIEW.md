@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The smoothness hypotheses exclude repeated roots of the defining quartic, and the point at infinity is nonsingular. The square criterion for binary quartics in characteristic two follows directly from Frobenius. On the entire complement of the affine dual chart \(W\ne0\), an odd mixed coefficient is invertible, so there are no missed lines or embedded components. Exact substitution on the affine chart gives \((v(a+cu^2),u+cv^3)\), whose elimination gives the monic equation \(v^7+(a/c^3)v\). Over a field with \(a\ne0\), the separable cubic-squared factorization yields local lengths \((1,2,2,2)\); over \(a=0\) the sole local algebra is \(k[v]/v^7\). The packaged program checks these critical polynomial equalities, with the family-wide proof supplied algebraically.
+## correctness
 
-## Originality — PASS with residual risk
-Nart–Ritzenthaler (arXiv:math/0312366) explicitly classify **geometric support counts** of bitangent lines of characteristic-two quartics; the material read does not give this scheme-theoretic coefficient-ring calculation or its length-seven degeneration. Searches for Picard-quartic bitangent square-contact schemes, multiplicity, and curvilinear collision in relevant research records returned no matching result. Wall's 1995 paper is potentially relevant but was not fully accessible; an alternative formulation may exist, and novelty is assessed with that limitation rather than asserted as absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-Characteristic-two quartics exhibit substantially fewer geometric bitangents than their characteristic-zero counterparts; this natural seven-unit square-contact scheme explains quantitatively, in an explicit smooth genus-three family, how four visible lines carry higher multiplicity and how those units collide in a natural coefficient degeneration. The finite-flat formula and local Artin lengths measure infinitesimal structure not implied by the established bare support counts. It is a motivated intrinsic incidence construction on the given family, not an arbitrary numerical slice.
+The proposed square-contact scheme is explicitly defined as the vanishing locus of two odd mixed coefficients; in characteristic two a degree-four binary form is a polynomial square iff both are zero. Lines at dual infinity W=0 cannot enter because the odd coefficient c (when V nonzero) or the coefficient 1 (line X=0) is a unit, scheme-theoretically. In the W=1 chart Z=uX+vY, independent symbolic expansion modulo 2 confirmed odd coefficients v(a+c u²), u+c v³. Eliminating u=c v³ gives av+c³v^7, and since c is invertible the normalized monic relation v^7+(a/c³)v gives a free family basis {1,v,...,v^6}; finite flatness holds over the smooth coefficient base. In a nonzero-a geometric fibre v(v³+s)², s²=a/c³, and the cubic has simple roots since its derivative v² is nonzero at roots, yielding local lengths 1,2,2,2; when a=0 the quotient is k[v]/v^7 and the maximal ideal has Hilbert function seven ones. Smoothness follows since f and f prime have no common root in affine chart, and the point at infinity has nonzero Z derivative. This statement is only about the particular square-contact scheme, not theta-characteristic moduli or mixed characteristic.
 
-## Relationship and limits
-The claim concerns the square-contact closed scheme, not the theta-characteristic stack or every quartic. Reproduction requires only the attached symbolic verifier and the displayed elimination. An equivalent treatment in inaccessible historical literature remains a genuine originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified with significant classical source risk. Nart–Ritzenthaler arXiv:math/0312366 gives classification of geometric bitangent supports in characteristic two, including the 4-versus-1 types, but does not, in the inspected full-text material, identify the specific rank-seven square-contact scheme with local Artin lengths for this Picard family. C. T. C. Wall (1995) is a plausible historical source of exact plane-quartic degenerations; his full text was not available even after arXiv/OA and authorized institutional attempt, so only its bibliographic extract was read. No equivalent degree-seven monic quotient appeared in the targeted Resultary or wider searches, which is not proof of priority.
+
+## value
+
+PASS
+
+Geometric bitangent support counts of characteristic-two genus-three quartics do not determine infinitesimal multiplicity or flat specialization. An explicit finite flat rank-seven incidence scheme on a natural Picard subfamily, including a curvilinear length-seven collision and full Hilbert function, gives independently useful local geometry beyond the known 4-point and 1-point supports. Its definition is motivated by square-contact lines rather than an arbitrary numerical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
