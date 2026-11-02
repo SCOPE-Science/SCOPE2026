@@ -1,15 +1,21 @@
-# Scientific review: sharp degree-controlled spoke deletion in determinant-optimal tree cones
+# Independent mathematical audit
 
-## Correctness — PASS
-The grounded weighted matrix-tree theorem identifies the objective with the determinant of an affine, injective positive-definite Laplacian map; strict log-determinant concavity yields uniqueness. The Gaussian tree-distance matrix has covariance entries \(\rho^{\operatorname{dist}_T(u,v)}\), explicit inverse and determinant. Its inverse constructs a candidate that obeys the exact conductance budget and all first-order inequalities. The candidate is feasible precisely at and above the degree-controlled threshold, and the unused tree-edge derivatives establish the star-only solution when the relative tree-edge price is at least two. Below the degree threshold, assuming every spoke is positive forces all tree edges positive, then forces the covariance to have the same tree-distance form, contradicting nonnegative weights at a maximum-degree spoke. Computations corroborate but do not replace these universal arguments. 
+## correctness
 
-## Originality — PASS, with limited historical access
-The full accessible text of Khosoussi, Sukhatme, Huang and Dissanayake (arXiv:1604.01116, first posted 2016-04-05) addresses general maximum-spanning-tree determinant design and edge selection, rather than the exact continuous, two-price allocation on the cone of an arbitrary tree. Malioutov, Johnson and Willsky (JMLR 7, 2006) give tree-structured Gaussian inference tools; they do not optimize this conductance budget. An earlier solved direct-edge-plus-disjoint-path network **does already cover** the special case where the internal tree is a star with equal edge prices, as well as the smallest three-vertex path instance. Novelty is not asserted for these subsumed cases, the covariance identity, or generic concavity. The original part assessed here is the arbitrary-tree sharp maximum-degree support threshold, joint priced-tree design, and topology-independent optimal determinant throughout its fully solved regime. Cheng's 1981 design paper was available through bibliographic description but not complete text; a specialized earlier formula cannot be categorically excluded.
+PASS
 
-## Mathematical value — PASS
-This is an exact continuous D-optimal resource-allocation rule on a natural infinite network family, including arbitrary asymmetric conductances and all trees on every finite order. The sharp degree threshold predicts when high-connectivity spokes become economically redundant and identifies a universal tree-shape-independent optimum over a nontrivial price interval. The unsolved low-cost branch is explicitly delimited; its existence does not weaken the proved support transition. This is not a fixed-small-instance table, generic KKT restatement, or relabeling of the already-solved terminal-path special case.
+For any tree n≥3 with hub cone, grounded Laplacian M=diag(a)+∑x_e(e_u−e_v)(e_u−e_v)^T and det M equals the weighted spanning-tree count. The weight-to-M map is injective on a tree; logdet is strictly concave and KKT is globally sufficient. Tree distance correlation Cρ(u,v)=ρ^{dist_T(u,v)} is positive definite with determinant (1−ρ²)^(n−1) and inverse edge entry −ρ/(1−ρ²), diagonal [1+(d_v−1)ρ²]/(1−ρ²). Set ρ=1−t/2 for t≤2, M*=(B/n)Cρ^-1; comparing entries gives x=(B/n)ρ/(1−ρ²), a_v=(B/n)[1−(d_v−1)ρ]/(1+ρ), feasible iff t≥t0=2(Δ−2)/(Δ−1) for Δ≥3 (otherwise t0=0). KKT derivatives all n/B on spokes and tn/B on tree edges, yielding unique optimum and det=(B/n)^n[t(4−t)/4]^−(n−1). For t≥2 star-only is KKT-optimal. If t<t0 and all spokes positive, zero tree edge would have derivative 2n/B>tn/B, so all edges positive; Gaussian tree Markov forces Cρ and then negative spoke at degree Δ, contradiction. Independent 4-fold matrix/cost/inverse/determinant checks on 3 tree families of orders3..9 and feasible prices corroborated the argument.
 
-## Reproducibility and residual limits
-The supplied Python verifier performs 836 candidate checks, 3,344 random feasible comparisons, nine exact-rational matrix identities, and 232 below-threshold infeasibility checks. Finite testing alone cannot certify infinite claims. Complete classification of all low-price weights is not asserted. The bibliographic source by Cheng was not inspected in full, and unindexed earlier specialized work could potentially cover the exact result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Khosoussi et al. full 2016 original covers general maximum weighted spanning-tree network design and determinant submodularity, not this closed-form independently priced all-tree cone optimum. Malioutov et al. provide Gaussian Markov tree covariance, not optimal allocation. Earlier theta-network path/star subcases for equal prices are genuinely known and are not counted as novel. The arbitrary-tree degree threshold and topology-independent determinant appear not to be prior corollaries of inspected work; Cheng 1981 original inaccessible.
+
+## value
+
+PASS
+
+A natural weighted spanning-tree reliability/design functional on arbitrary cones has a unique asymmetric-edge optimal allocation with explicit support phase boundary governed only by maximum tree degree, and a shape-independent optimum in an entire cost regime. This resolves a family-wide graph-design problem rather than a routine logdet KKT rephrasing; low-cost unfinished branch is stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

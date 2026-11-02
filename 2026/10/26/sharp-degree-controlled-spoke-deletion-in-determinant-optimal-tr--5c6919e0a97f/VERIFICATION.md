@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python verify.py` with Python 3, NumPy and SymPy. The script uses a fixed pseudorandom seed and is independent of the construction of the document. The recorded standard output is included in `verification_output.txt`.
+# Independent mathematical audit
 
-## Scientific checks performed
-The checker reconstructs the grounded reduced Laplacian, computes its inverse and determinant numerically for 836 valid combinations of path, star and other tree topologies and cost parameters, verifies the explicit tree-distance covariance and marginal conditions, and compares 3,344 randomly sampled feasible conductance allocations. Nine selected rational configurations are verified in exact arithmetic using SymPy, including the precision-covariance matrix identity, determinant and budget. In 232 parameter combinations below the degree threshold it confirms that the analytically continued formula has negative spoke weight and is not a feasible design.
+## correctness
 
-## Limits
-Random comparisons do not establish global optimality, and below-threshold infeasibility of the closed formula does not establish that no other optimal design exists. The analytic convexity/KKT proof establishes global optimality of the displayed feasible allocations, while the Gaussian tree-separation argument proves that at least one spoke must vanish below the threshold. No general formula for that low-cost regime is asserted. No independent external audit was performed.
+PASS
+
+For any tree n≥3 with hub cone, grounded Laplacian M=diag(a)+∑x_e(e_u−e_v)(e_u−e_v)^T and det M equals the weighted spanning-tree count. The weight-to-M map is injective on a tree; logdet is strictly concave and KKT is globally sufficient. Tree distance correlation Cρ(u,v)=ρ^{dist_T(u,v)} is positive definite with determinant (1−ρ²)^(n−1) and inverse edge entry −ρ/(1−ρ²), diagonal [1+(d_v−1)ρ²]/(1−ρ²). Set ρ=1−t/2 for t≤2, M*=(B/n)Cρ^-1; comparing entries gives x=(B/n)ρ/(1−ρ²), a_v=(B/n)[1−(d_v−1)ρ]/(1+ρ), feasible iff t≥t0=2(Δ−2)/(Δ−1) for Δ≥3 (otherwise t0=0). KKT derivatives all n/B on spokes and tn/B on tree edges, yielding unique optimum and det=(B/n)^n[t(4−t)/4]^−(n−1). For t≥2 star-only is KKT-optimal. If t<t0 and all spokes positive, zero tree edge would have derivative 2n/B>tn/B, so all edges positive; Gaussian tree Markov forces Cρ and then negative spoke at degree Δ, contradiction. Independent 4-fold matrix/cost/inverse/determinant checks on 3 tree families of orders3..9 and feasible prices corroborated the argument.
+
+## originality
+
+PASS
+
+Khosoussi et al. full 2016 original covers general maximum weighted spanning-tree network design and determinant submodularity, not this closed-form independently priced all-tree cone optimum. Malioutov et al. provide Gaussian Markov tree covariance, not optimal allocation. Earlier theta-network path/star subcases for equal prices are genuinely known and are not counted as novel. The arbitrary-tree degree threshold and topology-independent determinant appear not to be prior corollaries of inspected work; Cheng 1981 original inaccessible.
+
+## value
+
+PASS
+
+A natural weighted spanning-tree reliability/design functional on arbitrary cones has a unique asymmetric-edge optimal allocation with explicit support phase boundary governed only by maximum tree degree, and a shape-independent optimum in an entire cost regime. This resolves a family-wide graph-design problem rather than a routine logdet KKT rephrasing; low-cost unfinished branch is stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

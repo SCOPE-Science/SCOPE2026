@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:46:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/10/26/sharp-degree-controlled-spoke-deletion-in-determinant-optimal-tr--5c6919e0a97f/RESULT.md",
+        "frozen 2026/10/26/sharp-degree-controlled-spoke-deletion-in-determinant-optimal-tr--5c6919e0a97f/REVIEW.md",
+        "independent_checks.py: INDEPENDENT_CHECKS_OK 1272",
+        "Git tree 35b9e0be64b854e7f7230f766ef7e648af04a3b4"
+      ],
+      "rationale": "For any tree n≥3 with hub cone, grounded Laplacian M=diag(a)+∑x_e(e_u−e_v)(e_u−e_v)^T and det M equals the weighted spanning-tree count. The weight-to-M map is injective on a tree; logdet is strictly concave and KKT is globally sufficient. Tree distance correlation Cρ(u,v)=ρ^{dist_T(u,v)} is positive definite with determinant (1−ρ²)^(n−1) and inverse edge entry −ρ/(1−ρ²), diagonal [1+(d_v−1)ρ²]/(1−ρ²). Set ρ=1−t/2 for t≤2, M*=(B/n)Cρ^-1; comparing entries gives x=(B/n)ρ/(1−ρ²), a_v=(B/n)[1−(d_v−1)ρ]/(1+ρ), feasible iff t≥t0=2(Δ−2)/(Δ−1) for Δ≥3 (otherwise t0=0). KKT derivatives all n/B on spokes and tn/B on tree edges, yielding unique optimum and det=(B/n)^n[t(4−t)/4]^−(n−1). For t≥2 star-only is KKT-optimal. If t<t0 and all spokes positive, zero tree edge would have derivative 2n/B>tn/B, so all edges positive; Gaussian tree Markov forces Cρ and then negative spoke at degree Δ, contradiction. Independent 4-fold matrix/cost/inverse/determinant checks on 3 tree families of orders3..9 and feasible prices corroborated the argument.",
+      "residual_risks": [
+        "Low-cost 0<t<t0 optimum weights and determinant not classified; only zero-spoke necessity proved.",
+        "Continuously weighted undirected simple-tree cone, no edge-count/integer budget cap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi 2016 paper maximizes weighted spanning-tree counts under graph design constraints, not complete exact continuous allocation.",
+          "Cheng broad title about optimum spanning-tree counts could potentially include a special theorem; only bibliographic description available."
+        ],
+        "reasoning": "No inspected primary statement dominates arbitrary finite tree cones with independent cost t, sharp support t0, and shape-independent maximum. Inaccessible Cheng remains a concrete priority risk, not a fabricated failure.",
+        "searches": [
+          "web:",
+          "JMLR:7(2006):2031-2064",
+          "Cheng doi:10.1016/S0095-8956(81)80028-7"
+        ]
+      },
+      "checked_sources": [
+        "Cheng doi:10.1016/S0095-8956(81)80028-7",
+        "JMLR:7(2006):2031-2064",
+        "Resultary query: weighted spanning tree maximum determinant cone of tree spoke conductance budget Gaussian Markov covariance degree threshold",
+        "doi:10.1016/S0095-8956(81)80028-7",
+        "web:"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Khosoussi general edge-selection optimization provides framework but not shape-uniform closed-form KKT solution.",
+          "Gaussian tree graphical models provide inverse/determinant identities but no budget optimizer."
+        ],
+        "reasoning": "New theorem is the nontrivial combination plus sharp necessity of zero spokes; its fully covered equal-price small subcases are acknowledged.",
+        "searches": [
+          "web:",
+          "JMLR:7(2006):2031-2064",
+          "doi:10.1016/S0095-8956(81)80028-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian Markov tree covariance and D-optimal logdet mechanics are classical tools.",
+          "Theta-network designs cover the star at equal costs and n=3 path special case but not arbitrary-tree price t."
+        ],
+        "reasoning": "The arbitrary-tree closed-form budget design cannot be deduced solely from the general determinant relaxation; the tree covariance inverse and degree feasibility yield the additional specific theorem.",
+        "searches": [
+          "web:",
+          "Resultary query: weighted spanning tree maximum determinant cone of tree spoke conductance budget Gaussian Markov covariance degree threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned weighted ladder/tree polytopes and network quantities but no exact determinant-optimal all-tree-cone table."
+        ],
+        "reasoning": "Unsuccessful semantic search is not novelty certification; a historical network design equivalence could exist.",
+        "searches": [
+          "Resultary query: weighted spanning tree maximum determinant cone of tree spoke conductance budget Gaussian Markov covariance degree threshold",
+          "web:"
+        ]
+      },
+      "rationale": "Khosoussi et al. full 2016 original covers general maximum weighted spanning-tree network design and determinant submodularity, not this closed-form independently priced all-tree cone optimum. Malioutov et al. provide Gaussian Markov tree covariance, not optimal allocation. Earlier theta-network path/star subcases for equal prices are genuinely known and are not counted as novel. The arbitrary-tree degree threshold and topology-independent determinant appear not to be prior corollaries of inspected work; Cheng 1981 original inaccessible.",
+      "residual_risks": [
+        "Cheng 1981 exact optimum design manuscript not inspected, and other D-optimal tree-cone designs could imply a broader statement.",
+        "Already-known small path and star equal-price special cases are explicitly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General optimization/edge selection but not arbitrary tree cone with two relative conductance prices and degree support formula.",
+          "evidence": "web:",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "Accessible full arxiv preprint including problem setup, determinant optimization algorithms, graph design bounds and examples.",
+          "method": "HTML full-text source inspection",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Same weighted spanning-tree determinant objective"
+        },
+        {
+          "assessment": "Classical covariance Markov factorization, not a spanning-tree budget design theorem.",
+          "evidence": "JMLR 7 (2006) 2031–2064",
+          "identifier_or_url": "https://jmlr.org/papers/volume7/malioutov06a/malioutov06a.pdf",
+          "material_read": "Prior-work statements and cited general tree Gaussian inverse method; not complete PDF inspection in this run.",
+          "method": "Source summary and cited literature",
+          "title": "Walk-Sums and Belief Propagation in Gaussian Graphical Models",
+          "trigger": "Tree Gaussian inverse mechanisms"
+        },
+        {
+          "assessment": "Cannot classify it as NOT_COVERING; specialized overlap remains a risk.",
+          "evidence": "Cheng (1981), JCT B 31:240–248",
+          "identifier_or_url": "https://doi.org/10.1016/S0095-8956(81)80028-7",
+          "material_read": "Bibliographic abstract/title only; complete article not accessed.",
+          "method": "Publication metadata only",
+          "title": "Maximizing the Total Number of Spanning Trees in a Graph",
+          "trigger": "Plausible older thesis/title of optimum graph design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/10/26/sharp-degree-controlled-spoke-deletion-in-determinant-optimal-tr--5c6919e0a97f/RESULT.md",
+        "Cheng doi:10.1016/S0095-8956(81)80028-7",
+        "JMLR:7(2006):2031-2064",
+        "Resultary query: weighted spanning tree maximum determinant cone of tree spoke conductance budget Gaussian Markov covariance degree threshold",
+        "doi:10.1016/S0095-8956(81)80028-7",
+        "web:"
+      ],
+      "rationale": "A natural weighted spanning-tree reliability/design functional on arbitrary cones has a unique asymmetric-edge optimal allocation with explicit support phase boundary governed only by maximum tree degree, and a shape-independent optimum in an entire cost regime. This resolves a family-wide graph-design problem rather than a routine logdet KKT rephrasing; low-cost unfinished branch is stated.",
+      "residual_risks": [
+        "Do not claim full conductance vectors or graph-shape independence below t0."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact unique optimal conductance allocation and shape-independent weighted spanning-tree determinant for cones over arbitrary finite trees in t≥t0, and sharp degree-based spoke support threshold over all t>0.",
+  "limitations": [
+    "Low-cost 0<t<t0 optimum weights and determinant not classified; only zero-spoke necessity proved.",
+    "Continuously weighted undirected simple-tree cone, no edge-count/integer budget cap.",
+    "Cheng 1981 exact optimum design manuscript not inspected, and other D-optimal tree-cone designs could imply a broader statement.",
+    "Already-known small path and star equal-price special cases are explicitly excluded from novelty.",
+    "Do not claim full conductance vectors or graph-shape independence below t0."
+  ],
+  "schema_version": 1
+}
