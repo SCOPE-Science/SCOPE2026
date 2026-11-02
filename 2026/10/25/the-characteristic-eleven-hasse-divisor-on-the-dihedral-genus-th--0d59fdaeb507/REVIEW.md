@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the smooth family \(y^2=x^8+a x^4+1\) in characteristic \(11\), binomial coefficient extraction yields the sparse Hasse--Witt matrix with nonzero positions \((1,3),(2,2),(3,1)\). The exact factors \(u=5-a^2\) and \(v=a(a^2-3)(a^2+1)\) are coprime and squarefree, so their zero sets give all stable Frobenius ranks and determinant vanishing orders. The proof explicitly handles smoothness \(a^2\ne4\), semilinear iteration and the Cartier-operator relation. `verify_p11.py` independently checks the polynomial identities and separability of factors. The finite-field sample is corroborative only.
+## correctness
 
-## Originality — PASS (qualified)
-Gutierrez--Shaska give the same natural family and moduli parameter \(w=a^2\). Harvey--Sutherland supply the general Hasse--Witt coefficient formula. Paulhus gives genus-three Jacobian decomposition context; Achter--Pries give generic hyperelliptic p-rank stratum dimensions. Their inspected relevant sections do not tabulate the seven characteristic-eleven geometric exceptional parameters or distinguish the double and simple Hasse divisor intersections. Literature searches for equivalent families, alternate parameters and rank strata revealed no stronger covering result. Other modular descriptions of this exact divisor remain possible; missing indexed results alone do not establish novelty.
+PASS
 
-## Mathematical value — PASS
-The explicit length-nine nonordinary divisor (two double plus five simple points) along the intrinsic dihedral pencil describes a nontransverse modular incidence and determines every geometric p-rank and a-number in this automorphism-symmetric genus-three family. This is more than a field-element enumeration: the scheme-theoretic multiplicities are established uniformly over the algebraic closure. It is a natural complete family classification; it does not imply a general theorem for all genus-three curves.
+Independent symbolic expansion in F_11[a,z] of (z^2+a z+1)^5 produced [z²]=[z^8]=u=5-a² and [z^5]=v=a^5-2a³-3a=a(a²-3)(a²+1), and therefore H=[(0,0,u),(0,v,0),(u,0,0)]. Verified gcd(u,v)=1 and squarefreeness of the individual factors; det H=-u²v has degree nine. For a²!=4 squarefreeness of degree-eight polynomial gives genus three. Anti-diagonal u/u and diagonal v are stable under p-power semilinear iteration: p-rank equals nonzero coordinate count. u,v never simultaneously zero (at a²=5 v=a!=0). Cartier rank=rank(H), a-number=3-rank(H). All seven parameters are smooth and multiplicity lengths exactly 2+2+5=9. F_11 point checks alone would not cover algebraic closure; factorization does.
 
-## Limitations
-There is no classification of Newton polygons beyond p-rank, and no assertion about compactification of the pencil. Equivalent historical treatment remains a residual risk. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same dihedral family and w=a² coordinate are classical from Gutierrez–Shaska, and general hyperelliptic Hasse–Witt coefficient and rank machinery is prior work. The inspected primary normal-form paper does not enumerate the seven special characteristic-eleven parameters, their exact ranks or the two doubled Hasse intersections. This is an exact family-specific complete stratification, not a novel formula for Hasse–Witt matrices. Similar treatments under modular coordinates remain plausible.
+
+## value
+
+PASS
+
+The genus-three dihedral pencil is a naturally moduli-motivated one-dimensional automorphism locus. The scheme-theoretic nonordinary divisor has two tangible tangencies, exactly two p-rank-1 members and no rank-0 members, a complete stratification over the algebraic closure. A future researcher studying characteristic-11 Hasse intersections or dihedral curve families needs these exact multiplicities, rather than only generic p-rank or an algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

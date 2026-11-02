@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:43:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Proof and Assumptions; verify_p11.py blob eace0d70de3c5345b34052b173e079e31f055c46",
+        "Independent polynomial reconstruction /mnt/data/scope06_independent_checks.py [private evidence]",
+        "Harvey–Sutherland, arXiv:1402.3246, standard hyperelliptic Hasse-Witt coefficient identity"
+      ],
+      "rationale": "Independent symbolic expansion in F_11[a,z] of (z^2+a z+1)^5 produced [z²]=[z^8]=u=5-a² and [z^5]=v=a^5-2a³-3a=a(a²-3)(a²+1), and therefore H=[(0,0,u),(0,v,0),(u,0,0)]. Verified gcd(u,v)=1 and squarefreeness of the individual factors; det H=-u²v has degree nine. For a²!=4 squarefreeness of degree-eight polynomial gives genus three. Anti-diagonal u/u and diagonal v are stable under p-power semilinear iteration: p-rank equals nonzero coordinate count. u,v never simultaneously zero (at a²=5 v=a!=0). Cartier rank=rank(H), a-number=3-rank(H). All seven parameters are smooth and multiplicity lengths exactly 2+2+5=9. F_11 point checks alone would not cover algebraic closure; factorization does.",
+      "residual_risks": [
+        "No claim about Newton polygons beyond p-rank, singular a²=4 fibers, or global compactification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gutierrez–Shaska supplies normal form/invariants, not char11 p-rank table in inspected sections.",
+          "Harvey–Sutherland supplies coefficient algorithm applicable here; it does not tabulate Hasse divisor of this pencil.",
+          "Moduli p-rank strata existence does not fix intersection multiplicities with a specified parameter line."
+        ],
+        "reasoning": "General tools are broad in curve class, but their conclusions do not logically imply the explicit seven parameters and length-nine divisor without nontrivial evaluation.",
+        "searches": [
+          "Gutierrez–Shaska Hyperelliptic Curves with Extra Involutions, 2005, §§2–4",
+          "Harvey–Sutherland arXiv:1402.3246",
+          "Achter–Pries 2011 p-rank hyperelliptic strata"
+        ]
+      },
+      "checked_sources": [
+        "Gutierrez–Shaska, Hyperelliptic Curves with Extra Involutions, LMS J Comput Math 8 (2005), arXiv:math/0601456 / DOI:10.1112/S1461157000000917",
+        "Resultary: hyperelliptic genus three y^2=x^8+a x^4+1 characteristic 11 Hasse Witt p rank a number nonordinary divisor, 2026-10-28",
+        "Harvey–Sutherland arXiv:1402.3246",
+        "Achter–Pries, p-rank strata of hyperelliptic moduli, Adv Math 227 (2011)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the polynomial into general coefficient formula requires evaluating [z²],[z⁵],[z⁸] modulo 11 and studying semilinear stable images.",
+          "Tangency order two at u=0 is not encoded solely by generic p-rank stratum dimension."
+        ],
+        "reasoning": "Prior broad methodologies allow reproduction but do not contain the final explicit complete numerical divisor statement, so only the concrete specialization is assessed as surviving.",
+        "searches": [
+          "Harvey–Sutherland arXiv:1402.3246 Hasse formula",
+          "Gutierrez–Shaska §3 dihedral normal form",
+          "Resultary: hyperelliptic genus three y^2=x^8+a x^4+1 characteristic 11 Hasse Witt p rank a number nonordinary divisor, 2026-10-28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same family appears as y²=x^{2g+2}+a x^{g+1}+1 for g=3, with w=a² dihedral coordinate.",
+          "Its Hasse–Witt Frobenius/Carter matrix is anti-diagonal with factors u,v as independently computed."
+        ],
+        "reasoning": "Checked parameter reparametrization w=a², Hasse-Witt/Cartier, p-rank/a-number and nonordinary divisor as alternate formulations. A w-coordinate discriminant may collapse ±a but cannot independently establish multiplicities without explicit computation.",
+        "searches": [
+          "Resultary: hyperelliptic genus three y^2=x^8+a x^4+1 characteristic 11 Hasse Witt p rank a number nonordinary divisor, 2026-10-28",
+          "Gutierrez–Shaska genus-three dihedral invariant w=a²",
+          "Web: genus 3 hyperelliptic y^2=x^8+a*x^4+1 char 11 p-rank Hasse 2026-10-28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Queries retrieve broader genus-three superspecial classifications and char11 arithmetic, but not an exact seven-parameter pencil table.",
+          "Pencil-specific u²v determinant and a-number distribution were independently reconstructed."
+        ],
+        "reasoning": "No precise published table matching this curve equation, characteristic and scheme structure located; alternative dihedral-moduli indexing remains a priority risk.",
+        "searches": [
+          "Resultary: hyperelliptic genus three y^2=x^8+a x^4+1 characteristic 11 Hasse Witt p rank a number nonordinary divisor, 2026-10-28",
+          "Web: \"genus 3 hyperelliptic y^2=x^8+a*x^4+1 char 11 p-rank Hasse\" 2026-10-28"
+        ]
+      },
+      "rationale": "The same dihedral family and w=a² coordinate are classical from Gutierrez–Shaska, and general hyperelliptic Hasse–Witt coefficient and rank machinery is prior work. The inspected primary normal-form paper does not enumerate the seven special characteristic-eleven parameters, their exact ranks or the two doubled Hasse intersections. This is an exact family-specific complete stratification, not a novel formula for Hasse–Witt matrices. Similar treatments under modular coordinates remain plausible.",
+      "residual_risks": [
+        "Classical coefficient extraction makes the calculation accessible; an earlier exact table could contain the seven strata, no exhaustive indexing guarantee.",
+        "General genus-three superspecial enumerations are not same p-rank spectrum and do not by themselves imply the scheme multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the family/context but does not state characteristic-eleven Hasse divisor or seven exceptional a-values in inspected sections.",
+          "evidence": [
+            "General extra-involution normal form y²=x^{2g+2}+a_g x^{g+1}+1; g=3, w=a² invariant."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0601456",
+          "material_read": "Available HTML body: normal forms and dihedral invariants, including genus-three examples and sections on moduli",
+          "method": "Full text relevant sections 2–4 examined",
+          "title": "Hyperelliptic Curves with Extra Involutions",
+          "trigger": "Exact dihedral genus-three family, invariant w=a²"
+        },
+        {
+          "assessment": "General Hasse-Witt formula applies, but it does not itself give this seven-point intersection.",
+          "evidence": [
+            "For y²=f, matrix is coefficients of f^{(p-1)/2} at exponents pi-j."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.3246",
+          "material_read": "Accessible introductory formula and bibliography; not represented as complete paper inspection",
+          "method": "Published formula / introductory passages",
+          "title": "Computing Hasse–Witt Matrices of Hyperelliptic Curves in Average Polynomial Time",
+          "trigger": "Standard coefficient extraction [x^{p i-j}]f^{(p-1)/2}"
+        },
+        {
+          "assessment": "General hyperelliptic moduli p-rank strata do not by themselves specify intersection multiplicities with this dihedral line.",
+          "evidence": [
+            "Broader ambient parameter space but different conclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aim.2011.03.017",
+          "material_read": "Abstract/known theorem-scope inspected; full document not claimed read",
+          "method": "Scope comparison",
+          "title": "The p-rank strata of the moduli space of hyperelliptic curves",
+          "trigger": "Potential general result dominating a one-parameter p-rank classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dihedral invariant family of Gutierrez–Shaska",
+        "Hyperelliptic Hasse–Witt determinant, characteristic 11 exact factorization"
+      ],
+      "rationale": "The genus-three dihedral pencil is a naturally moduli-motivated one-dimensional automorphism locus. The scheme-theoretic nonordinary divisor has two tangible tangencies, exactly two p-rank-1 members and no rank-0 members, a complete stratification over the algebraic closure. A future researcher studying characteristic-11 Hasse intersections or dihedral curve families needs these exact multiplicities, rather than only generic p-rank or an algorithm.",
+      "residual_risks": [
+        "It is a focused one-parameter calculation and not a general genus-three classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Over algebraically closed characteristic 11 for smooth C_a: y^2=x^8+a*x^4+1 (a^2!=4), Hasse divisor is -(5-a^2)^2*a*(a^2-3)*(a^2+1) of length 9: two double parameters a^2=5 of p-rank 1, five simple parameters a=0 or a^2 in {3,-1} of p-rank 2, otherwise ordinary rank 3. a-numbers respectively 2,1,0; no rank-zero member.",
+  "limitations": [
+    "No claim about Newton polygons beyond p-rank, singular a²=4 fibers, or global compactification.",
+    "Classical coefficient extraction makes the calculation accessible; an earlier exact table could contain the seven strata, no exhaustive indexing guarantee.",
+    "General genus-three superspecial enumerations are not same p-rank spectrum and do not by themselves imply the scheme multiplicities.",
+    "It is a focused one-parameter calculation and not a general genus-three classification."
+  ],
+  "schema_version": 1
+}
