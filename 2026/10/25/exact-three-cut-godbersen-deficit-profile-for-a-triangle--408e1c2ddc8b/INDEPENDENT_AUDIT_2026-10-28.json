@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:51:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-three-cut-godbersen-deficit-profile-for-a-triangle--408e1c2ddc8b/RESULT.md Git blob 16983a4705eb853eb29661b44c831a4139215373",
+        "2026/10/25/exact-three-cut-godbersen-deficit-profile-for-a-triangle--408e1c2ddc8b/VERIFICATION.md",
+        "/mnt/data/scope_worker03_independent_checks_20261028.json"
+      ],
+      "rationale": "For cut depths a,b,c>=0 and q=a²+b²+c² in (0,1/2), (a+b)²,(a+c)²,(b+c)²<=2q<1, so the three similar removed corner triangles have disjoint interiors. Thus area(K)=(1-q)/2. Edge-length/support-function formula V2(K,-K)=1/2 sum_F length(F)h_{-K}(unit outward normal) over the up-to-six edges simplifies to 1-s+ab+ac+bc with s=a+b+c. Therefore Δ=1-V2/(2 area K)=(2s-s²-q)/(2(1-q)). Fixed q gives a continuous interval sqrt(q)<=s<=sqrt(3q); derivative (1-s)/(1-q) is positive up to 1, negative after. The minimum is at one nonzero cut a=sqrt(q), giving sqrt(q)/(1+sqrt(q)); the maximum at equal cuts when q<=1/3, or at s=1 when q>=1/3, giving plateau Δ=1/2. Equality cases hold exactly by Cauchy–Schwarz and s-level feasibility. Independent convex-hull mixed-area calculations for five separate polygon choices matched exact identities within 3.4e-16. This is an exact 2D calculation, not extrapolation from numerical optimization.",
+      "residual_risks": [
+        "Scope is the three side-parallel, nonoverlapping corner cuts of a single triangle, with q in (0,1/2), not arbitrary convex bodies or overlapping truncations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fryš et al. prove global mixed-volume inequalities and equality characterization at simplices.",
+          "Resultary quadrilateral result computes reflected mixed area by maximal triangle for 4-gons; a three-cut triangle is generically a hexagon."
+        ],
+        "reasoning": "Neither stronger universal inequality nor 4-vertex formula provides the actual s-dependent loss or plateau of fixed-area extremizers.",
+        "searches": [
+          "Godbersen deficit mixed area reflected triangle truncation three vertices fixed removed area",
+          "arXiv:2610.06806 higher-order Godbersen inequality simplex equality",
+          "Resultary quadrilateral reflected mixed area"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.06806 (full relevant text)",
+        "Resultary published 2026-10-11 one-vertex truncation summary",
+        "Resultary published 2026-10-11 quadrilateral mixed-area summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Godbersen bound Δ>=0 and simplex equality cannot imply explicit Δ(q,s).",
+          "The one-cut formula matches Δ_min, but its one-parameter expression cannot quantify three-cut max plateau."
+        ],
+        "reasoning": "The exact mixed-area formula and scalar constrained optimization are needed additional steps and determine both new equality families.",
+        "searches": [
+          "arXiv:2610.06806 Theorems 1.2 1.4 1.5 1.8",
+          "Resultary one-vertex truncation 2026/10/11",
+          "Resultary reflected quadrilateral mixed area 2026/10/11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-vertex simplex truncation profile gives the special boundary a>0,b=c=0; generic three-cut polygon has up to six sides.",
+          "The deficit also equals a polynomial of total depth s at fixed squared depth q, which is a distinct optimization."
+        ],
+        "reasoning": "All affine triangle choices normalize to the standard triangle, but the three-depth family cannot be reduced to the single-depth result by an affine substitution.",
+        "searches": [
+          "Godbersen deficit mixed area reflected triangle truncation three vertices fixed removed area",
+          "two dimensional Godbersen difference body mixed area triangle three vertices cut",
+          "Resultary 2026/10/11 one-vertex simplex truncations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published-table entries found at Resultary ids 2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949 and 2026/10/11/SCOPE-the-maximal-triangle-formula-for-reflected-mixed-area-of-convex--ad85c8e58a4d.",
+          "The first covers one cut, second covers quadrilaterals, neither summary claims full 3-cut fixed-q profile."
+        ],
+        "reasoning": "Only snippets/summaries of these records were available; they are not characterized as completely noncovering on unexamined text.",
+        "searches": [
+          "Godbersen deficit mixed area reflected triangle truncation three vertices fixed removed area",
+          "Resultary published record exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "Resultary published record maximal-triangle-formula reflected mixed-area quadrilaterals"
+        ]
+      },
+      "rationale": "The general Godbersen inequality and simplex equality cases are known. A published one-vertex truncation profile gives the one-cut boundary; a quadrilateral reflected mixed-area formula does not include generic hexagonal three-cut bodies. The exact two-parameter fixed-q optimization and transition at q=1/3 are not established by the inspected references; corpus records were summary-level only.",
+      "residual_risks": [
+        "Only summaries, not full bodies, of two highly relevant published-finding records were accessible.",
+        "Possible general polygonal truncation formula outside searched sources could reduce novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves governing inequality and simplex equality but not present fixed-area three-cut deficit profile.",
+          "evidence": "Theorems 1.2,1.4,1.5,1.8",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06806",
+          "material_read": "Accessible full arXiv HTML article, main Theorems 1.2, 1.4, 1.5, 1.8 and consequences",
+          "method": "ArXiv full-text reading",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Very close general mixed-volume inequality and equality classification"
+        },
+        {
+          "assessment": "One-cut boundary covered, interior 3-cut formula not established from accessible summary.",
+          "evidence": "Summary explicitly refers to one truncation parameter",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "material_read": "Published-record semantic search title and mathematical abstract; full record not read",
+          "method": "Resultary search summary",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Exact same deficit on one-cut boundary"
+        },
+        {
+          "assessment": "Generic 3-cut polygon is hexagonal; direct quadrilateral coverage inapplicable.",
+          "evidence": "Statement V2(Q,-Q)=2T(Q) for quadrilaterals",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-maximal-triangle-formula-for-reflected-mixed-area-of-convex--ad85c8e58a4d",
+          "material_read": "Published-record semantic search summary, full result not read",
+          "method": "Resultary search summary",
+          "title": "The maximal-triangle formula for reflected mixed area of convex quadrilaterals",
+          "trigger": "Possible general shape mixed-area identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/exact-three-cut-godbersen-deficit-profile-for-a-triangle--408e1c2ddc8b/RESULT.md",
+        "https://arxiv.org/abs/2610.06806 (full relevant text)",
+        "Resultary published 2026-10-11 one-vertex truncation summary"
+      ],
+      "rationale": "The fixed-removed-area problem is a natural stability refinement of sharp Godbersen equality, not just a reparameterization of the general inequality. The exact one-cut minimum, equal-cut maximum and nontrivial plateau transition at q=1/3 classify a three-dimensional cut family with clear extremizers; an exact result useful when comparing truncated simplices.",
+      "residual_risks": [
+        "Scientific value concerns the precise stated invariant and scope, not a generalization beyond its explicit hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-three-cut-godbersen-deficit-profile-for-a-triangle--408e1c2ddc8b",
+    "https://arxiv.org/abs/2610.06806 (full relevant text)",
+    "Resultary published 2026-10-11 one-vertex truncation summary",
+    "Resultary published 2026-10-11 quadrilateral mixed-area summary"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scope is the three side-parallel, nonoverlapping corner cuts of a single triangle, with q in (0,1/2), not arbitrary convex bodies or overlapping truncations.",
+    "Preexisting public AUDIT.json and METADATA.json contain scope_run_id operational provenance. Complete confidentiality-neutral replacement scientific/metadata bytes were not supplied and semantically verified in this execution; publication withheld. The minimal server-generated status plan cannot itself certify removal from unchanged source public metadata.",
+    "Independent bounded checks do not imply unbounded mathematical claims or formal certification."
+  ],
+  "residual_risks": [
+    "Only summaries, not full bodies, of two highly relevant published-finding records were accessible.",
+    "Possible general polygonal truncation formula outside searched sources could reduce novelty.",
+    "Scope is the three side-parallel, nonoverlapping corner cuts of a single triangle, with q in (0,1/2), not arbitrary convex bodies or overlapping truncations."
+  ],
+  "schema_version": 1
+}
