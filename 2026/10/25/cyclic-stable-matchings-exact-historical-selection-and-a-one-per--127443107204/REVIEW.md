@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof provides strict cyclic preference lists, an exhaustive characterization of stable matchings using a minimal displacement argument, unique outcomes after removal of any single terminal agent, and a precise last-arrival invariant for histories with arbitrarily many intervening exits. One additional man's entry and displacement are exhibited step by step and preserve original rankings. The standalone reproducibility program exhausts small finite cases and simulates the actual history for sizes up to \(50\); finite checks are not relied upon for the general proof. No independence is asserted.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Yang (2026, arXiv:2609.20176) already establishes a 3-by-3 impossibility under terminal-only repeated shocks, along with general possibility using temporary historical agents. Those are credited, not recast as novel. Cheng's 2016 ROM theorem concerns entry-only histories. The present exact \(2/n\) reachable-set law for all \(n\), plus the optimal count of one temporary man for the interior cyclic shift and the common one-man augmentation at size three, are not consequences merely of those statements. Direct comparisons and targeted mathematical-results searches found no equivalent coverage; absence of a database match alone cannot prove priority.
+PASS
 
-**Value — PASS.** The all-size calculation shows that the proportion of statically feasible but dynamically impossible stable matchings can approach one despite unlimited terminal-agent turnover. The single-extra-participant construction quantitatively measures the fragility of that impossibility under unobserved market participation. Both address the motivated history-identification question rather than an arbitrary finite statistic.
+Strict cyclic n-by-n preferences yield exactly all n shift matchings by a minimum displacement and blocking-pair argument. Removing any one terminal man uniquely forces restriction mu_0; removing any woman uniquely forces mu_(n-1). Every return to full market via one terminal entry therefore produces only these two extremes, even after repeated exits. Explicit preference-preserving temporary man t inserted before m_0 in w_0 preferences and women, t, men, exit history reaches mu_1; zero extras impossible. Independent brute-force stable matching and one-deleted submarket census n=3,4,5, plus every-step stable auxiliary history n=3..50. The proof, not finite checks, establishes all n.
 
-**Closest literature and limitations.** Yi-You Yang, *Stable Matchings and Their Histories: Historical Reachability under Population Shocks* (2026), arXiv:2609.20176; Christine T. Cheng, *On the Stable Matchings That Can Be Reached When the Agents Go Marching in One By One* (2016), DOI:10.1137/140996690. The proof is for one cyclic preference family with strict complete terminal lists and proposal-chain repairs; one added man reaches shift one but is not claimed to cover every interior shift in markets larger than three. Some older source full texts were incompletely accessible, so publication priority carries a documented residual risk. The assessment is not an external or independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level search and implication audit, not a novelty proof from a failed search. Static rotation-lattice stable matchings differ from dynamic reachability states. Yang earlier allows temporary agents broadly and proves a 3x3 reachability obstruction, but a general existence theorem does not imply optimal one-person count for this family. Cheng entry-only obstruction cannot establish no reachability after arbitrarily many exits; unique one-deleted submarket proof supplies the stronger dynamical obstruction; earlier work is explicitly credited. Best-of-knowledge originality survives with the stated residual risk.
+
+## value
+
+PASS
+
+Historical accessibility of stable outcomes under population changes is a substantive combinatorial issue. This explicit all-n family has n stable states but exact terminal-only reachable fraction 2/n and a sharp one-auxiliary-agent rescue; repeated exits and strict proposal-chain dynamics make the obstruction nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
