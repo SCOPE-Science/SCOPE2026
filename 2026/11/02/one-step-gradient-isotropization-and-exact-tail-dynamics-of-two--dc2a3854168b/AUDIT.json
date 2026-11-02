@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary full-row-rank 2-by-n gradient, the left polar SPD factor A and row-isometry O give G_1=(A-(tr A/tr H)H)O. The symmetric bracket is trace-free and its square is scalar I_2, so G_1G_1^T is scalar I_2. At every subsequent nonzero gradient nuclear norm times polar equals 2G and the update becomes ordinary GD with effective step 2/tr H. The trace-free C=I-2H/tr H squares to rho^2I_2. All boundaries, termination and rank-one stratum are explicitly proved; 648 exact rational full-rank and 48 rank-one checks were executed, along with 300 direct numerical SVD checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jawanpuria et al. Theorem 3 bounds objective contraction; Appendix C Proposition 8 treats special invariant eigendirections, not arbitrary dense noncommuting rank-two initial matrices.",
+        "Lau et al. bound rates in terms of curvature and gradient condition numbers but do not identify the exact one-iteration equal-singular manifold."
+      ],
+      "reasoning": "A general convergence bound cannot imply the finite-time exact equalization nor the identity of the complete nonlinear tail with fixed-step GD, without additional structure. Two-row anisotropic and dense starts are within the new quantifier.",
+      "searches": [
+        "arXiv:2610.27747v1 Theorem 3 Appendix C Proposition 8",
+        "arXiv:2505.21799v2 Section 4 Theorem 4.1",
+        "PolarGrad one step gradient singular value equalization two dimensional SPD quadratic exact stepsize inverse trace"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.27747v1",
+      "https://arxiv.org/html/2505.21799v2",
+      "https://arxiv.org/abs/2610.27747",
+      "https://arxiv.org/abs/2505.21799"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper already proves the one-step exact energy identity and a rank-sensitive global step-size frontier; those statements are expressly not new.",
+        "Its Appendix C explicitly says the general initialization rate is not known in closed form.",
+        "The independent 2025 introduction defines the polar update but its Section 4 does not give a full-row-rank two-row finite identification theorem."
+      ],
+      "reasoning": "The proposed claim supplies additional matrix-level orbit information not stated by the source results: G_1 G_1^T is exactly scalar, followed for all later steps by G_{k+1}=(I-2H/tr H)G_k. It is not an improved step-size threshold, not an invariant-eigendirection example, and not the isotropic rank-two termination specialization already known elsewhere.",
+      "searches": [
+        "arXiv:2610.27747v1 Appendix C identity (8) Remark 2 Proposition 8",
+        "arXiv:2505.21799v2 PolarGrad Section 4",
+        "PolarGrad nuclear norm scaled polar gradient two curvature diagonal 2x2 exact line search one step ratio locking optimal trace stepsize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper identifies a nonlinear polar step and rank-aware descent; no full-rank two-row exact one-step gradient-isotropy identity or exact post-first-step ordinary-gradient-descent equivalence was located in its inspected text.",
+        "The 2025 original supplies polar/nuclear geometry and general convergence bounds rather than this exact finite-dimensional orbit classification."
+      ],
+      "reasoning": "Under full row rank the two-row polar factor is a partial isometry; the trace-matched next left factor is symmetric and traceless, forcing a scalar-square identity and an exact linear tail. Earlier papers formulate the update but do not state this implication in the inspected portions. The general energy identity is not itself an explicit one-step singular-value classification.",
+      "searches": [
+        "PolarGrad nuclear norm scaled polar gradient two curvature diagonal 2x2 exact line search one step ratio locking optimal trace stepsize",
+        "nuclear norm scaled polar gradient two row full rank gradient becomes equal singular values exactly one step traceless 2x2 all later optimal gradient descent rate",
+        "arXiv:2610.27747v1 Appendix C",
+        "arXiv:2505.21799v2 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly equivalent prior claim appeared among the retrieved mathematical record matches.",
+        "The relevant source Appendix C contains a scalar curvature threshold and invariant directions, not a two-row full-rank conditioning identity or rate-classification table."
+      ],
+      "reasoning": "This is an analytic iterative dynamics law rather than a numerical value in a pre-existing table. Retrieval is non-exhaustive; lack of a match is not a proof of novelty.",
+      "searches": [
+        "nuclear norm scaled polar gradient two row full rank gradient becomes equal singular values exactly one step traceless 2x2 all later optimal gradient descent rate",
+        "PolarGrad one step gradient singular value equalization two dimensional SPD quadratic exact stepsize inverse trace",
+        "matrix spectral norm steepest descent two row quadratic polar gradient one step rank conditioning followed by gradient descent",
+        "arXiv:2610.27747v1 Appendix C full text"
+      ]
+    },
+    "rationale": "A material full-text comparison with the introducing 2025 PolarGrad paper and the 2026 strongly convex quadratic analysis distinguishes the new all-full-row-rank, noncommuting two-row finite-gradient-isotropy result and exact linear-tail dynamics from their general convergence/step-size bounds and prescribed invariant directions. Search of accessible prior claims and mathematical records found no equivalent. Priority remains subject to older spectral-norm steepest-descent results and unindexed sources.",
+    "residual_risks": [
+      "Search and record retrieval do not establish publication priority; classical 2-by-2 trace-free polar or spectral-norm steepest-descent literature could contain an equivalent unwitnessed formulation.",
+      "The exact collapse applies only to two rows in exact arithmetic at inverse-trace stepsize."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact full-row-rank two-row gradient isotropization and all-step GD reduction; DOES cover the algorithm, trace stepsize convergence, exact energy identity and invariant initial directions",
+        "evidence": [
+          "Theorem 3 and Appendix C give global linear convergence and exact energy identity (8).",
+          "Proposition 8 treats invariant eigenvector supports; the text notes general initial rates are not known in closed form."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+        "material_read": "Abstract, Sections 2–5, Appendix C proof of Theorem 3 and Proposition 8, Remark 2, and Appendix E boundary",
+        "method": "Opened and inspected mathematical statements, formula (8), proofs and boundary cases in accessible HTML",
+        "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+        "trigger": "Same nuclear-scaled polar update, exactly the same curvature-quadratic objective and fixed stepsize"
+      },
+      {
+        "assessment": "NOT_COVERING the full-rank 2-row one-step equalization and subsequent exact GD trajectory; covers the introduced update and qualitative benefits of orthogonalization",
+        "evidence": [
+          "Section 4.1 explicitly defines the nuclear-scaled polar step.",
+          "Theorem 4.1 supplies general loss-rate bounds rather than a two-row exact trajectory."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.21799v2",
+        "material_read": "Abstract, Sections 3.4–3.5 and 4.1–4.3, the associated convergence theorem and appendices headings",
+        "method": "Opened and compared the update definition, curvature/gradient conditioning discussion and formal convergence statements in accessible HTML",
+        "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+        "trigger": "Original nuclear-scaled polar-gradient formulation and general gradient-conditioning perspective"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc2a3854-168b-4718-974c-9a0611e78b43",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-row finite identification theorem rigorously explains an unexpected one-step perfect gradient conditioning phenomenon for arbitrary dense, noncommuting full-rank initial matrices and exactly identifies the entire thereafter-linear optimizer orbit. It determines the precise asymptotic rate and a genuine rank-dependent discontinuity, directly addressing the motivating literature gap that general polar-gradient directional rates are not known in closed form. No additional larger-dimension theorem is needed to make this natural complete two-row classification informative.",
+    "status": "PASS"
+  }
+}
