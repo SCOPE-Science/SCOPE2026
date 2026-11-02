@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:03:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<=n<m, Haar-orthonormal unnormalized SU(2) characters have Clebsch–Gordan tensor decomposition in degree-two step progressions. Direct intersection counts yield integrals chi_n^4=A, chi_m^4=B, chi_n^2 chi_m^2=A and triple products H=max(0,A-(m-n)/2), J=A for even gaps (both zero for odd gaps). Expansion for arbitrary complex a,b depends on x=Re(a bar b) as A|a|^4+B|b|^4+2A|ab|^2+4Ax^2+4H|a|^2x+4J|b|^2x. For odd gaps, choosing aligned/opposed phase and maximizing B+2(3A-B)u-(5A-B)u^2 gives the precise B<3A mixing and B>=3A pure-m threshold. For even gaps, convexity in relative phase forces positive alignment, reducing the sharp value to unique maximum of F(t)=(At^4+4Ht^3+6At^2+4At+B)/(1+t^2)^2. Its derivative has sign p(t)=A+(3A-B)t+3(H-A)t^2-2At^3-Ht^4, one positive root by Descartes, and no better boundary. Independent exact character fusion checked 63 (n,m) pairs x 3 nonreal coefficient choices; sympy independently verified derivative factorization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published high-weight result states K_m(S)=m C(e,o)+O_S(1) for FIXED finite offset set S as m grows, and explicitly does not give exact finite m optimizers.",
+          "Kirilov–de Moraes–Ruzhansky treat partial Fourier smoothness/solvability rather than sharp packet fourth moments."
+        ],
+        "reasoning": "The full leading asymptotic is relevant but does not logically dominate exact K_{n,m} when m,n vary or provide all finite complex equality cases.",
+        "searches": [
+          "SU2 two characters L4 fourth moment sharp norm Clebsch Gordan parity extremizers Chebyshev two-term",
+          "Resultary 2026/10/11/SCOPE-high-weight-parity-localization-of-central-fourth-moments-on-su--00a2a7bedf04 full RESULT.md",
+          "arXiv:1909.12824"
+        ]
+      },
+      "checked_sources": [
+        "Dooley–Gupta 1996 primary PDF",
+        "Kirilov–de Moraes–Ruzhansky arXiv:1909.12824 abstract and available material",
+        "Resultary 2026-10-11 high-weight primary full RESULT.md",
+        "Resultary semantic SU2 two-character search",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Our exact F(t) root depends on finite gap k via H=max(0,A-k/2), while the high-weight theorem gives only parity-count leading m and O_S(1) uncertainty.",
+          "Our odd-gap pure-mode threshold B>=3A allows offsets growing proportionally to n, outside the fixed-offset high-weight regime."
+        ],
+        "reasoning": "A bounded O(1) remainder cannot recover the exact constant/optimizer, and noncentral single-representation results do not imply this entire central pair family.",
+        "searches": [
+          "Resultary full high-weight packet primary theorem",
+          "Dooley–Gupta 1996 PDF",
+          "SU2 two characters L4 fourth moment sharp norm Clebsch Gordan parity extremizers Chebyshev two-term"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "chi_j(theta)=sin((j+1)theta)/sin(theta) identifies the problem with a two-Chebyshev fourth moment under SU(2) Haar class weight.",
+          "Dooley–Gupta study noncentral matrix coefficients inside one representation rather than two central characters of arbitrary weights."
+        ],
+        "reasoning": "The Chebyshev reformulation is a credible alias, and historical Chebyshev pair optimizers may cover it; the inspected SU(2) primary full text does not supply the same sharp finite-two-character theorem.",
+        "searches": [
+          "SU2 two characters L4 fourth moment sharp norm Clebsch Gordan parity extremizers Chebyshev two-term",
+          "SU(2) character as Chebyshev U_j(cos(theta)) weighted fourth-norm extremal",
+          "Dooley–Gupta Pacific J Math 175 (1996) full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published packet result provides a leading numerical parity coefficient but no exact all-pair K_{n,m} table."
+        ],
+        "reasoning": "No finite database determines a continuum root optimizer at arbitrary weights; a theorem that implied that expression would count as coverage, but no such theorem was materially identified.",
+        "searches": [
+          "SU2 two characters L4 fourth moment sharp norm Clebsch Gordan parity extremizers Chebyshev two-term",
+          "Resultary search of central SU2 two-mode fourth moments",
+          "published high-weight packet record full RESULT.md"
+        ]
+      },
+      "rationale": "Classical Clebsch–Gordan and orthogonality identities are essential prior ingredients. A highly relevant published asymptotic SU(2) packet theorem determines the fixed-offset high-weight leading term only, not the exact all-weights pair norm or finite optimal phases. Older equivalent Chebyshev U polynomial extremal inequalities remain a genuine priority risk.",
+      "residual_risks": [
+        "Historical sharp two-Chebyshev weighted fourth-norm inequality under another normalization might subsume result.",
+        "Finite fusion enumeration cannot prove all-weights uniqueness; Descartes and exact fusion do."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering exact all-degree pair constants or full finite maximizer family",
+          "evidence": [
+            "Bound |K_m(S)-m C(e,o)| <=(L+1)|S|², explicitly limiting claims to fixed offsets."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/11/SCOPE-high-weight-parity-localization-of-central-fourth-moments-on-su--00a2a7bedf04/RESULT.md",
+          "material_read": "Full RESULT.md, including precise fixed-offset theorem K_m(S)=m C(e,o)+O_S(1), proof, limitation and references",
+          "method": "Read source GitHub file at published record path",
+          "title": "High-weight parity localization of central fourth moments on SU(2)",
+          "trigger": "Same group, exponent and central spectral packets"
+        },
+        {
+          "assessment": "Treats noncentral matrix coefficient polynomials, not all-pair central characters",
+          "evidence": [
+            "Single irrep matrix-coefficient setting differs from span {chi_n,chi_m}."
+          ],
+          "identifier_or_url": "Pacific J. Math. 175 (1996), 491–509; Dooley–Gupta",
+          "material_read": "Accessible full PDF relevant definitions and main extremal results",
+          "method": "Direct PDF inspection",
+          "title": "On norms of trigonometric polynomials on SU(2)",
+          "trigger": "Possible broad fourth-norm inequalities on same compact group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two-mode central L²-to-L⁴ packet norm and its complex extremizers are fundamental, naturally motivated harmonic-analysis invariants. The finite-weight parity dichotomy and sharp dimension-ratio transition provide facts unavailable from leading high-weight asymptotics; the result covers every pair, not an arbitrary single numerical instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dooley–Gupta 1996 primary PDF",
+    "Kirilov–de Moraes–Ruzhansky arXiv:1909.12824 abstract and available material",
+    "Resultary 2026-10-11 high-weight primary full RESULT.md",
+    "Resultary semantic SU2 two-character search",
+    "Frozen RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical sharp two-Chebyshev weighted fourth-norm inequality under another normalization might subsume result.",
+    "Finite fusion enumeration cannot prove all-weights uniqueness; Descartes and exact fusion do.",
+    "Publication metadata contain operational provenance requiring guarded sanitization before public release."
+  ],
+  "schema_version": 1
+}

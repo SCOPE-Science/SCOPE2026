@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verification.py` with a standard Python 3 interpreter. No external packages, network access, simulated quantum hardware or stored input data are required. The script constructs the explicitly stated generator family and its exact Fourier-binomial character distribution; it also performs direct moving-shift and Grover-coin evolution for the smallest member.
+## correctness
 
-Observed direct-evolution position probability for \(h=2\): \(0.6654649078163376\). Independently computed Fourier/binomial probability: \(0.6654649078163382\), discrepancy below \(10^{-12}\). Exact Fourier reductions give the following finite outcomes:
+PASS
 
-| \(h\) | \(\Delta\) | \(T\) | \(p_T(\sigma)\) | \(h(1-p_T)\) |
-| ---: | ---: | ---: | ---: | ---: |
-| 2 | 9 | 15 | 0.665464907816 | 0.669070184 |
-| 4 | 65 | 103 | 0.881758106069 | 0.472967576 |
-| 8 | 513 | 805 | 0.964708846916 | 0.282329225 |
-| 16 | 4097 | 6435 | 0.980333052775 | 0.314671156 |
-| 32 | 32769 | 51473 | 0.989810022429 | 0.326079282 |
-| 64 | 262145 | 411777 | 0.994703893132 | 0.338950840 |
-| 128 | 2097153 | 3294201 | 0.997365422308 | 0.337225945 |
+PASS: Exact Fourier block diagonalization gives scalar target amplitude κ E cosρ; E[m²]=1/Δ from distinct generators. For |m|<=Δ^-1/3, Taylor arcsin and 1-cos estimates bound expected phase loss by 8Δ^-1/3; complementary modes controlled by second moment. The full-coin target p≥|A|² yields 1-p<=16Δ^-1/3. In the connected h=2^k, Δ=h³+1 family, character mass 1/h has CLT S_(h²)/h⇒N(0,1) and cubic phase −πZ³/12; orthogonal coin amplitude O(1/h) yields the full position infidelity asymptotic, not merely a scalar-overlap claim. Independent full Hilbert-space h=2 gives p=0.6654649078163375 at T=15, Gaussian quadrature c*=0.3340087126293562. Arbitrary Δ bound is analytic, not finite-test inference.
 
-All implemented finite assertions passed. The values oscillate mildly as the nearest parity-matched integer changes; the limiting constant is not estimated by blindly extrapolating the first few cases. The analytic Gaussian integral is
+## originality
 
-\[
-c_*=\frac{2}{\sqrt{2\pi}}\int_{-\infty}^{\infty}
-\left[1-\cos\left(\frac{\pi z^3}{12}\right)\right]e^{-z^2/2}\,dz
-\approx0.3340087115.
-\]
+PASS
 
-The verification program computes finite exact binomial weights using logarithmic gamma values; its outputs are floating-point approximations, not interval certificates. The universal degree bound, graph connectivity, nonzero target, limit law, error exponent sharpness and positivity of the integral rely on the written mathematical proof rather than finite tests. No independent audit has been performed.
+PASS (best-of-knowledge): Mulherkar proves only O(Delta^-1/5) at the identical measurement window; the 1/3 uniform bound plus a connected nonzero-XOR family with matching cubic Gaussian constant is new relative to inspected claims. Character formula and second moment are credited. No broader matching theorem found.
+
+## value
+
+PASS
+
+PASS: Natural exact worst-case position-transfer exponent for discrete Grover walks on all connected cubelike graphs; an explicit connected nonzero target gives matching obstruction and concrete cubic Gaussian limit. Clarifies when hypercube-specific faster rates do not generalize.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

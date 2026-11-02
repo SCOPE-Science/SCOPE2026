@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:06:07.926353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For n>=3, graph M_{2n}=C_{2n} with antipodal chords; square joins vertices at distance at most two. Any four-color square coloring makes each closed neighborhood (size four) rainbow, so each color class is a radius-one efficient dominating set. The direct x_{i-1}+x_i+x_{i+1}+x_{i+n}=1 equations force n=2 mod 4, and i mod 4 colors validly for every such n>=6. For n=8 no independent four-set exists in the square (otherwise a perfect code), so with 16 vertices alpha<=3 implies chi>=6. At n=3,4 the squared graphs are K6,K8. The explicit two-row words for n=5,7,8,9,12 are valid, and replicating the first four columns of the 7,9,12 words repeats only already validated local three-column patterns; the crossed seam stays unchanged. This covers all remaining odd n>=5 and multiples of four n>=12, hence the whole classification. Independent direct circular graph construction checked all five base words, extensions through n=50, every four-residue case in that range, and 0 independent four-sets for n=8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Untwisted Cartesian toroidal products are not twisted Möbius ladders; interval edge colors have a different conflict relation."
+        ],
+        "reasoning": "Neither applies a theorem that evaluates the vertex chromatic number of the twisted circulant square for all n.",
+        "searches": [
+          "Möbius ladder graph-square two-distance colouring literature",
+          "Sopena Wu 2009 square Cartesian product cycles",
+          "Petrosyan 2008 interval edge colouring"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.ejc.2012.04.007",
+        "arXiv:0801.0159",
+        "Sopena/Wu 2009",
+        "SciELO locating chromatic number 2021",
+        "MathWorld Moebius ladder",
+        "Resultary Möbius ladder square semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior implication: square 4-colorability forces 1-perfect codes and hence n congruent 2 mod4. New steps: alpha(M16^2)<=3 gives 6 lower bound; explicit five/six words and local periodic extension give upper bounds."
+        ],
+        "reasoning": "The prior perfect-code theorem directly covers only the 4-color cases. Additional n=8 argument and infinite periodic coloring constructions are necessary to obtain the remaining values.",
+        "searches": [
+          "Knor et al Lemma 2.2 efficient domination",
+          "MathWorld square circulant identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knor et al. Lemma 2.2 gives n=2(mod4) iff a 1-perfect code exists. MathWorld identifies square with a circulant of jumps 1,2,n-1,n."
+        ],
+        "reasoning": "Perfect-code existence is equivalent to four-colorability here, but it does not imply the exact 5/6/8 chromatic values for the other widths.",
+        "searches": [
+          "Resultary: Möbius ladder square graph chromatic number distance two vertex coloring 4 5 6 8",
+          "DOI:10.1016/j.ejc.2012.04.007",
+          "Wolfram MathWorld Möbius ladder square circulant graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known structural tables identify the underlying squared circulant and efficient dominating widths, but no inspected table gives the claimed all-n square-chromatic values including n=8."
+        ],
+        "reasoning": "A graph-identification entry is not an exact chromatic-number table; failure to locate another entry is recorded as residual risk, not novelty proof.",
+        "searches": [
+          "Resultary semantic ladder square coloring",
+          "MathWorld Möbius Ladder graph square circulant",
+          "Knor et al. 2012 perfect-code criterion"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: Knor et al. Lemma 2.2 already proves exactly which Möbius ladders admit efficient domination; this yields the four-color necessary condition but not full five-color upper bounds or the exceptional n=8 six-color classification. Other inspected papers study interval edge coloring, strong edge coloring, locating coloring or untwisted toroidal grid squares and do not dominate the present square vertex chromatic formula. A differently indexed circulant-square coloring classification remains a real originality risk.",
+      "residual_risks": [
+        "A general square-chromatic theorem for the circulant Ci_{2n}(1,2,n-1,n), perhaps under L(1,1) coloring terminology, could reproduce the formula.",
+        "Previously published efficient-domination lemma is explicitly credited and cannot be claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_STRONG_COVERAGE",
+          "evidence": "Its Lemma 2.2 establishes efficient domination iff n≡2 mod4, directly explaining 4-color obstruction; no result there giving whole chi(M_{2n}^2) spectrum was identified.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2012.04.007",
+          "material_read": "Full accessible publisher webpage, notably Lemma 2.2 and proof for Möbius ladders n≡2 mod4, plus surrounding definitions and theorem.",
+          "method": "Lawful openly rendered primary article, detailed lemma comparison",
+          "title": "Efficient domination in cubic vertex-transitive graphs",
+          "trigger": "same graph and exact efficient-code equivalence"
+        },
+        {
+          "assessment": "INAPPLICABLE_GRAPH_FAMILY",
+          "evidence": "The Möbius seam is crossed and changes distance-two constraints; it is not the untwisted toroidal product.",
+          "identifier_or_url": "https://www.labri.fr/perso/sopena/sw09a_v1.pdf",
+          "material_read": "Graph family definition and central coloring scope: Cartesian products and untwisted cyclic grids.",
+          "method": "Primary manuscript overview and hypothesis comparison",
+          "title": "Coloring the square of the Cartesian product of two cycles",
+          "trigger": "plausible stronger square-coloring construction"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Its 4/6 locating-chromatic numbers are not chi(M_{2n}^2).",
+          "identifier_or_url": "https://www.scielo.cl/scielo.php?pid=S0716-09172021000300659&script=sci_arttext",
+          "material_read": "Abstract and definition of locating-chromatic coloring, which involves distance codes of color classes, rather than proper coloring of graph square.",
+          "method": "Open primary journal article definitions",
+          "title": "On locating chromatic number of Möbius ladder graphs",
+          "trigger": "same graph with confusing similarly named coloring invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Complete square-chromatic classification of a natural cubic circulant/ladder family, especially the n=8 exceptional six-color threshold and constructive periodic five-color families, resolves more than a routine lower bound from perfect codes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1016/j.ejc.2012.04.007",
+    "arXiv:0801.0159",
+    "Sopena/Wu 2009",
+    "SciELO locating chromatic number 2021",
+    "MathWorld Moebius ladder",
+    "Resultary Möbius ladder square semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=3; n denotes antipodal pairs and square means distance at most two, not exactly two.",
+    "The theorem classifies chromatic numbers, not all optimal colorings or list chromatic numbers.",
+    "A general square-chromatic theorem for the circulant Ci_{2n}(1,2,n-1,n), perhaps under L(1,1) coloring terminology, could reproduce the formula.",
+    "Previously published efficient-domination lemma is explicitly credited and cannot be claimed new."
+  ],
+  "schema_version": 1
+}

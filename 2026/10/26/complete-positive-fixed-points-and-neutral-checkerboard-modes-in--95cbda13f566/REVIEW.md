@@ -1,19 +1,21 @@
-# Scientific review: positive fixed points of centered nonlinear diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-point equation of the specified zero-reaction, reflected-Neumann update reduces exactly to a discrete reflecting Laplace equation for the product \(w=u|G_hu|^{p-2}\). A finite maximum principle makes \(w\) constant, its corner value is zero, and strict positivity forces every centered gradient to vanish. The resulting one- and two-dimensional parity recurrences are exhaustive, and the converse is immediate. The edge-energy coefficient follows by counting all horizontal and vertical edges. For \(p>3\), the coefficient map has zero derivative at zero gradient, yielding an identity Jacobian. All proof steps are independent of timestep size and of the finite-grid tests. The standard-library exact-rational checker passed 982 checks; finite checks are corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS, with stated residual historical risk
+For the exact source-type rational update with positive tau, zero reaction and coordinatewise mirrored Neumann ghosts, a fixed state satisfies the reflected five-point harmonic equation Delta_ref w=0 for w=u|G_hu|^{p−2}. Finite maximum principle on the connected reflected grid forces w constant; at a mirrored corner G_hu=0, hence w=0. With u>0 and p>2 this forces all centered differences to vanish, giving exactly four independent values on index-parity classes in 2D and two in 1D; every such state conversely has G_hu=0 and is fixed. Checkerboard edge energy counts 2N(N+1) opposite edges and equals 2(1+1/N)N^p|a−b|^p. For p>3 the map x→|x|^{p−2} has zero derivative at x=0, so DT_tau=identity at every parity-class state. An independent rational implementation verified 12 patterns and exact energy640 at N=p=4; the proof is unrestricted in grid/step/p and does not assume stability beyond Jacobian.
 
-Zinihi–Ehrhardt–Sidi Ammi (arXiv:2607.00489, equations (5)–(7), Theorem 2) present the specific update and prove inclusion of constant equilibria, not a complete classification of all positive fixed points for the stated coordinatewise reflected boundary rule. Reiss (arXiv:1402.0998, §§1–2) explicitly explains classic odd–even decoupling of collocated central derivatives; that mechanism is acknowledged and not claimed as an invention. The 2004 Andreianov–Boyer–Hubert paper (doi:10.1051/m2an:2004045, Theorem 2.12) proves uniqueness for different coercive finite-volume schemes with Dirichlet conditions; it does not cover this two-time-level Neumann map. Searches of published mathematical records for equivalent parity-class fixed-point classifications found related but non-implicative diffusion and parity results. The exact stationary manifold, corner-pinning argument, all-step high-edge-energy family, and Jacobian at degenerate equilibria were not identified as covered. Possible historical equivalence in older centered nonlinear diffusion literature is a genuine remaining risk; search absence is not a novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete equilibrium classification answers a natural model-fidelity question: does the positivity-preserving numerical diffusion retain only the continuous zero-reaction Neumann equilibria? It does not. Every positive four-parity pattern remains exactly stationary independently of the timestep, and a fixed-contrast checkerboard has edge-gradient energy growing at the explicit rate \(h^{-p}\). When \(p>3\), first-order perturbation analysis cannot see damping at these equilibria because the entire update Jacobian is the identity. This is a structural obstruction relevant to diffusion discretization and testing, not an arbitrary small-grid calculation or an isolated numerical anomaly.
+The primary 2026 source develops exactly the update and proves constant-equilibrium preservation (Theorem2) and positive solutions (Theorem1), but does not classify every strictly positive fixed point of its mirror-ghost specialization. Reiss 2014 explains generic centered-derivative odd-even decoupling; it is not claimed new. Here a source-specific product w=u|G_hu|^{p−2}, reflecting harmonicity and corner zero prove the entire positive stationary manifold, high edge-energy checkerboard family and identity-Jacobian regime. The full source and Reiss introduction were read; alternative boundary completions and broader centered-gradient literature remain historical risks.
 
-## Scope and priority limitations
+## value
 
-The result is for the exact rational update displayed in the source, with a fully specified coordinatewise even-reflection ghost completion, zero reaction, \(p>2\), and strictly positive grid states. The printed source specifies corner ghosts but not every side ghost equation, so its other conceivable boundary implementations are not covered. The \(p>3\) derivative statement is local and does not assert nonlinear stability. Classical odd–even decoupling and source constant-equilibrium preservation are prior knowledge. Independent historical-priority and proof audit have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A positivity-preserving and constant-equilibrium-preserving diffusion scheme could still harbor high-gradient stationary artifacts. The exact classification shows every positive four-parity array is fixed at every step, and its worst checkerboard gradient energy diverges as h^(-p) while the continuum Neumann p-heat equilibrium is spatially constant. The p>3 identity Jacobian explains linear neutrality. This is a substantive discretization-fidelity and numerical-model-interpretation result for a natural scheme rather than a cheap isolated parity example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

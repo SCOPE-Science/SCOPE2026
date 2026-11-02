@@ -1,15 +1,21 @@
-# Scientific review: sharp rotating-dephasing thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
-For a qubit dephasing matrix \(D=\operatorname{diag}(q,q,1)\), the one-step singular spectrum is immediate. At two steps, the planes orthogonal to the damping axis before and after rotation intersect, forcing the singular value \(q^2\); determinant preservation and arithmetic--geometric mean force the other two to sum to at least \(2q\). A quarter-turn attains equality. At all depths, determinant yields \(3q^{2n/3}\) as a lower bound. The supplied axis-angle construction realizes \((DR)^n=q^{2n/3}I_3\) for each \(n\geq3\) by prescribing the first two elementary symmetric coefficients of \(DR\) and using a distinct-root characteristic polynomial. These are exact mathematical arguments, not finite observations. The standard qubit-unital nuclear-norm criterion converts the sharp norm to the exact entanglement-breaking thresholds. All domain and strict/inclusive boundary conditions were checked. Numerical code corroborated 1673 finite assertions. The code is supporting evidence only.
+## correctness
 
-## Originality — PASS, with priority limitations
-The closest source is Bhat–Dey–Saha (2026), arXiv:2609.24168, especially its eventual-EB theorem 6.11 and phase-damping example 5.11. It characterizes eventual breaking of a fixed general unital channel but does not evaluate the minimum over one *reused* rotation for every finite depth. Lami–Giovannetti (2014/2015), arXiv:1411.2517, provides the exact qubit-unital singular-value criterion in Eq. (7) and related filtered indices; neither fact by itself constructs a rotation whose nth power is depolarizing. Cuevas et al. (2017), arXiv:1707.00161, vary unitaries to preserve, not optimize destruction of, entanglement in an experimental two-step setting. Wakaura–Tanimae (2026), arXiv:2604.08587, shows unchanged-axis Markovian dephasing stays nonbreaking for finite rates. Searches for equivalent statements in indexed mathematical records and accessible primary literature identified no direct implication of the sharp formula. An unlocated general matrix-product isotropization theorem could still cover the statement, so priority is not independently certified.
+PASS
 
-## Value — PASS
-The exact optimum answers a natural controlled-noise question: how little entanglement can survive a prescribed number of identical noisy uses when only one fixed coherent rotation is tunable? The answer separates the two-step geometry from a qualitatively different all-depth isotropization phenomenon, gives sharp threshold curves, and constructs a single time-homogeneous physical control realizing an *exact depolarizing channel* after any prescribed depth of at least three. This is not a restatement of the general EB test or a numerical table: the equality construction is nontrivial and gives explicit realizable controls.
+For Bloch D=diag(q,q,1), 0<q<1, a fixed qubit unitary induces R in SO(3). At n=1 the three singular values are 1,q,q. For n=2, the intersecting transverse planes W and R^{-1}W force one singular value q^2 of DRD; determinant q^4 fixes the product q^2 of the other two, giving nuclear norm >=q^2+2q with quarter-turn equality. For n>=3, det((DR)^n)=q^(2n) yields >=3q^(2n/3). The explicit Rodrigues rotation has prescribed diagonal trace coordinates, verified feasibility for 0<=1+2cos(2pi/n)<3, and characteristic roots u,u exp(+/-2pi i/n), u=q^(2/3). Because these roots are distinct, (DR)^n=u^n I. The known unital qubit Choi/PPT criterion ||B||_*<=1 yields exact inclusive EB thresholds q<=sqrt(2)-1 at n=2 and q<=3^(-3/(2n)) for n>=3; never at n=1. Independently reconstructed 15 numerical exact-power witnesses across q=.12,.45,.8 and depths 3,4,5,8,15; no sampling used as infinite proof.
 
-## Limitations and evidence status
-The chosen rotation can depend on the intended depth and is not claimed to optimize simultaneously at multiple depths. The model is only unital qubit phase damping with equal transverse contractions. Nothing is claimed for state-dependent or nonunitary controls. Computation is finite consistency checking, while the exact result follows from the proof. Search noncoverage is not proof of novelty; a broad algebraic-control identity could imply the specialization. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A best-of-knowledge new exact all-depth trace-norm minimization and fixed-rotation depolarizing witness. The familiar unital-qubit EB nuclear-norm membership test and existing eventual-EB classifications are credited. The full text of the most relevant very recent eventual-EB paper was not accessible, so a stronger formula elsewhere remains a risk.
+
+## value
+
+PASS
+
+The optimizer over identical reused rotations is a motivated control problem for a physically canonical anisotropic dephasing channel. Exact realization of a depolarizing power at every prescribed depth >=3 is structurally stronger than only bounding an EB index. It yields implementable depth/noise thresholds and demonstrates a qualitative two-step versus later-depth transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

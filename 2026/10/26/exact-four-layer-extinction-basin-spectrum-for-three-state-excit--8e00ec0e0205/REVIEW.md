@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly defines the synchronous Greenberg–Hastings update and derives the necessary-and-sufficient obstruction via a rotating rainbow transversal and Hall's theorem. It exhaustively partitions the complementary assignments into two-color profiles and three-color profiles with two same-color monochromatic parts. Direct transitions locate exact first-hitting times, and inclusion-exclusion counts every disjoint class, yielding the stated histogram for arbitrary positive part sizes. The stand-alone exhaustive checker tests 18 parameter triples and 206172 labelled configurations, including sharp boundary cases; this finite test is corroboration rather than the proof.
+## correctness
 
-## Originality — PASS (bounded)
-A known general circulation/synchronization theorem implies a qualitative non-extinction criterion; a prior complete-multipartite orbit census supplies exact periodic-orbit counts and four-step eventual periodicity, not extinction-basins split by first-hitting time. The new claim isolates an exact basin-resolved enumeration and the two contrasting graph-shape limits. Searches for the same objects, equivalent rainbows/circulations, exact generating tables, and broader theorem coverage found no stated histogram. This is not proof of worldwide uniqueness: inaccessible or unindexed equivalent calculations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-An exact labelled extinction-basin distribution by first-absorption time is a natural dynamical invariant, distinct from periodic-orbit counts. The complete formulas reveal a sharp depth-four boundary and different limiting extinction behavior between a hub-dominant tripartition and balanced tripartitions, making the precise counting identity useful for interpreting initialization in excitable networks rather than an arbitrary finite slice.
+PASS: For synchronous Greenberg-Hastings 0/1/2 rule on K_{a,b,c}, a rainbow transversal triangle (all three colors across parts) rotates and cannot lose excitation. Conversely, with all three colors globally present but no transversal rainbow, Hall SDR theorem forces two parts to have union size one, hence both monochromatic in the same state j; unique remaining part contains both other states. A direct update table shows extinction at t=2,3,4 when j=2,1,0 respectively, including the possibility j is also in exceptional part. For globally at most two states, time-1 {0,2}, time-2 {1,2}, time-3 generally {0,1}, and time-4 {0,1} with all excited vertices confined to one mixed part. For a part of size k the number of exceptional assignments containing both other colors is q_k=3^k−2^{k+1}+1, giving Q=sum q. Therefore d0=1, d1=2^N−1, d2=2^N−1+Q, d3=2^N+4−S+Q, d4=S−6+Q, dt>=5=0; sum E=3*2^N−3+3Q. Sharp cutoff 3 only at (1,1,1), otherwise 4. Independent direct vertex-state simulation verified all 10 triples with 1<=a<=b<=c<=3 (32670 labelled configurations).
 
-## Closest literature and scope
-Fisch–Gravner–Griffeath (1993), Gravner–Lyu–Sivakoff (2016), and Doba (2018) give the excitable dynamics context and general circuit methods. The prior complete-multipartite periodic-orbit census (identifier `2327e9a1-48f2-4b71-8d77-fd24dccd688a`) is the closest overlap and is expressly distinguished. The claim does not extend to asynchronous rules or individually resolved nonzero-attractor basins.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge with a specific antecedent: Gravner/Lyu/Sivakoff and Doba establish graph-circulation/cycle criteria and qualitative sustained excitation or extinction. A previously published complete-multipartite three-cycle census (source identifier 2327e9a1-48f2-4b71-8d77-fd24dccd688a) already establishes four-step entry to periodic behavior and counts periodic initial configurations; these are credited. A count of periodic states is not the labelled attraction-basin first-hitting-time histogram, and the inspected prior sources do not furnish the present five coefficients or the rainbow-SDR criterion as a complete basin count. Unexamined full earlier SCOPE source remains priority risk.
+
+## value
+
+PASS
+
+PASS: The full labelled extinction-basin time histogram, exact combinatorial rainbow-transversal criterion and sparse-vs-balanced tripartite extinction probability asymptotics provide a natural dynamical classification beyond the already known entry-to-periodicity bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

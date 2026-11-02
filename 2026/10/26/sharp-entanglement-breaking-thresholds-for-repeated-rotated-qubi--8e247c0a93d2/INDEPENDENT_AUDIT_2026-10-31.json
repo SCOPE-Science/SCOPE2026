@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:03:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Bloch D=diag(q,q,1), 0<q<1, a fixed qubit unitary induces R in SO(3). At n=1 the three singular values are 1,q,q. For n=2, the intersecting transverse planes W and R^{-1}W force one singular value q^2 of DRD; determinant q^4 fixes the product q^2 of the other two, giving nuclear norm >=q^2+2q with quarter-turn equality. For n>=3, det((DR)^n)=q^(2n) yields >=3q^(2n/3). The explicit Rodrigues rotation has prescribed diagonal trace coordinates, verified feasibility for 0<=1+2cos(2pi/n)<3, and characteristic roots u,u exp(+/-2pi i/n), u=q^(2/3). Because these roots are distinct, (DR)^n=u^n I. The known unital qubit Choi/PPT criterion ||B||_*<=1 yields exact inclusive EB thresholds q<=sqrt(2)-1 at n=2 and q<=3^(-3/(2n)) for n>=3; never at n=1. Independently reconstructed 15 numerical exact-power witnesses across q=.12,.45,.8 and depths 3,4,5,8,15; no sampling used as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhat–Dey–Saha address eventual breaking of selected unital channels; no exact all-depth control-minimum formula was evidenced in available material.",
+          "Lami–Giovannetti distinguish filters extending preservation from the present deliberate destruction objective."
+        ],
+        "reasoning": "The general fixed-channel membership and classification theorems do not supply a sharp optimum over constant rotations, but unread full text of Bhat–Dey–Saha prevents asserting complete noncoverage.",
+        "searches": [
+          "Bhat–Dey–Saha arXiv:2609.24168 (abstract/metadata)",
+          "Lami–Giovannetti arXiv:1411.2517 PDF",
+          "fixed identical unitary repeatedly applied rotated qubit dephasing entanglement breaking nuclear norm exact isotropization powers depolarizing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.2517 full accessible PDF relevant sections",
+        "arXiv:2609.24168 abstract/metadata only",
+        "Resultary semantic-search qubit isotropization query",
+        "Frozen RESULT.md and finite verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Our formula gives for each n a rotation R(q,n) with (DR)^n=q^(2n/3)I, matching an AM–GM lower bound.",
+          "The prior norm criterion only tests EB after R is selected; it does not guarantee the determinant lower bound is attained for every n."
+        ],
+        "reasoning": "Combining the old criterion with a newly constructed Rodrigues characteristic-polynomial witness yields the asserted thresholds; the construction is not derived from the cited older classification alone.",
+        "searches": [
+          "arXiv:1411.2517 qubit EB criterion",
+          "arXiv:2609.24168 eventual EB classification",
+          "fixed identical unitary repeatedly applied rotated qubit dephasing entanglement breaking nuclear norm exact isotropization powers depolarizing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The optimization is equivalently min_{R in SO(3)} ||(diag(q,q,1) R)^n||_*; equivalently attain exact scalar power q^(2n/3)I when n>=3.",
+          "Lami–Giovannetti characterize when a *given* unital qubit map has a trace norm <=1, without optimizing over repeated R."
+        ],
+        "reasoning": "The Choi criterion is a necessary ingredient but does not imply the existence of a constant rotation whose nth power becomes scalar. Resultary semantic searches found related qubit-control problems, not the same optimization, which is not proof of novelty.",
+        "searches": [
+          "fixed identical unitary repeatedly applied rotated qubit dephasing entanglement breaking nuclear norm exact isotropization powers depolarizing",
+          "Lami–Giovannetti arXiv:1411.2517 Sections II and V",
+          "Bhat–Dey–Saha arXiv:2609.24168 (abstract)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned qubit minimax measurement/control and dephasing-related findings, not an exact table of F_n(q) for constant R."
+        ],
+        "reasoning": "The claim is a continuum optimal-control formula, not an enumerated database or numerical table; a broader analytic expression would still cover it, so lack of an exact table is only weak evidence.",
+        "searches": [
+          "fixed identical unitary repeatedly applied rotated qubit dephasing entanglement breaking nuclear norm exact isotropization powers depolarizing",
+          "Resultary semantic-search top 15 qubit isotropization/dephasing results"
+        ]
+      },
+      "rationale": "A best-of-knowledge new exact all-depth trace-norm minimization and fixed-rotation depolarizing witness. The familiar unital-qubit EB nuclear-norm membership test and existing eventual-EB classifications are credited. The full text of the most relevant very recent eventual-EB paper was not accessible, so a stronger formula elsewhere remains a risk.",
+      "residual_risks": [
+        "Unread arXiv:2609.24168 primary full text could contain a dominating special case.",
+        "A general repeated nonnormal contraction isotropization theorem might imply the rotation witness.",
+        "Bounded numerical checks cannot certify continuum optimality; analytic construction and determinant bound do."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers criterion and preservation/filtering but not the constant-R minimization",
+          "evidence": [
+            "Unital qubit EB iff Bloch nuclear norm <=1; dynamic indices quantify entanglement survival."
+          ],
+          "identifier_or_url": "arXiv:1411.2517",
+          "material_read": "Accessible full PDF material on qubit trace-norm EB criterion and filtered powers; relevant definitions and theorem statements",
+          "method": "Direct inspection of published PDF",
+          "title": "Entanglement-Breaking Indices",
+          "trigger": "Exact qubit EB criterion and filtered channel powers"
+        },
+        {
+          "assessment": "Comparison remains qualified; full-text noncoverage not asserted",
+          "evidence": [
+            "Abstract states eventual-EB classification of unital channels; detailed theorem not inspected."
+          ],
+          "identifier_or_url": "arXiv:2609.24168",
+          "material_read": "Accessible abstract/metadata only; full paper not read despite attempts",
+          "method": "ArXiv/OA retrieval attempt; authorized institutional access returned vpn_disconnected",
+          "title": "A complete characterization of eventually entanglement breaking unital quantum channels",
+          "trigger": "Highly plausible stronger fixed-channel classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimizer over identical reused rotations is a motivated control problem for a physically canonical anisotropic dephasing channel. Exact realization of a depolarizing power at every prescribed depth >=3 is structurally stronger than only bounding an EB index. It yields implementable depth/noise thresholds and demonstrates a qualitative two-step versus later-depth transition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1411.2517 full accessible PDF relevant sections",
+    "arXiv:2609.24168 abstract/metadata only",
+    "Resultary semantic-search qubit isotropization query",
+    "Frozen RESULT.md and finite verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unread arXiv:2609.24168 primary full text could contain a dominating special case.",
+    "A general repeated nonnormal contraction isotropization theorem might imply the rotation witness.",
+    "Bounded numerical checks cannot certify continuum optimality; analytic construction and determinant bound do.",
+    "Publication metadata contain operational provenance requiring guarded sanitization before public release."
+  ],
+  "schema_version": 1
+}

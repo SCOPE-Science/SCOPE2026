@@ -1,19 +1,21 @@
-# Scientific review: sharp finite-circle spline projector stability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from a reconstructed finite hat Gram matrix, its explicitly periodized signed inverse, and exact integral evaluation of a piecewise-linear knot kernel. The extension from knot norms to the full operator uses convexity of kernel absolute integrals. The nonperiodic cardinal kernel has exact total absolute mass two; periodizing it gives an upper defect estimate, and fixed even/odd sign-collision windows give strictly positive lower defects at the identical geometric scale. Taking nth roots proves the optimal rate. Exact-rational finite replay over 26 circle sizes checks the recurrence, symmetry, closed inverse, small exact fractions, and stated bounds; its 1,722 assertions are supplementary, not a proof of the universal result.
+PASS
 
-## Originality — PASS within investigated evidence
+For n>=3 uniform periodic continuous linear splines, nodal hats have Gram matrix (4I+S+S^{-1})/(6n). The infinite Green sequence h_j=(-q)^|j|/(2 sqrt3), q=2-sqrt3, periodizes absolutely to g_{n,j}=((−q)^j+(−q)^{n-j})/(2sqrt3(1−(−q)^n)). The knot kernel on each arc is the affine interpolation of neighboring inverse entries, hence sharp norm 6 sum_j H(g_j,g_{j+1}); convexity of evaluation kernels ensures no interior output exceeds a knot, and the signed kernel attains it. The infinite kernel has absolute L1 mass exactly 2; periodization yields upper defect <=4q^floor(n/2). Even and odd fixed-width opposite-sign overlap windows yield lower defect >=3(7q−1)/(32sqrt3)*q^floor(n/2)>0, hence all finite Lambda<2 and nth-root defect sqrt(q). Independent exact inversion/segment integration for n=3..18 matched first norms and bounds, finite corroboration only. Assumptions include unit circle, normalized Lebesgue and equally spaced distinct n>=3 nodes.
 
-Passenbrunner (arXiv:1608.06720) proves uniform boundedness for periodic spline projectors with arbitrary knot sequences, but the inspected theorem and proof do not give these finite uniform-circle constants. Oswald (arXiv:math/0611573) discusses one-dimensional upper bounds and a contrasting multivariate counterexample. Kayumov (arXiv:math/0408418) records the classical arbitrary-knot sharp bound three. The closest accessible previously established uniform bi-infinite spline norm equals two, but does not imply exact finite periodic strictness or its sharp decay rate. Published mathematical records were compared for periodic finite-dimensional spline constants, equivalent cyclic tridiagonal inverse descriptions, and finite cyclic Fourier projection results; no examined statement supplies the claimed finite-circle norm and exponential defect. Historical priority remains provisional because older periodic spline calculations and some original cited literature are not exhaustively inspected.
+## originality
 
-## Value — PASS
+PASS
 
-On a canonical finite periodic mesh, the exact maximum-norm amplification coefficient quantifies how much least-squares spline smoothing may magnify bounded perturbations. It is strictly smaller than the infinite uniform-mesh norm and the general arbitrary-knot bound. The result determines an exact finite formula, a nontrivial finite-size improvement, and its provably optimal geometric rate. No general optimal-mesh claim, second asymptotic coefficient, or uniqueness of maximizing output locations is asserted.
+The classical spline Gram recursion and uniform stability estimates are prior knowledge. Passenbrunner 2016/2018 full-text article covers arbitrary-knot periodic orthoprojection with L∞ uniform bound independent of knots and localization, but not the displayed sharp uniform-n formula or strictly positive finite-circle exponential defect in inspected theorem sections. Earlier infinite-line norm=2 is only a limiting value and cannot imply strict finite cancellation or exact q^{n/2} rate. Originality restricted to exact finite-circle constant and sharp defect rate, with possible old circulant finite-element antecedents.
 
-## Closest literature and limitations
+## value
 
-The principal comparison is Passenbrunner's periodic-spline boundedness theorem. The arbitrary-knot 1D norm-three result and the infinite-uniform-grid norm-two claim are complementary benchmarks, not equivalent coverage. Periodic matrices may have been analyzed under different names; independent checking would be valuable. The exact formula is a finite sum, and only a sharp exponential order, not a full parity-dependent leading coefficient, is proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Endpoint stability of L² spline projection is a central approximation-theoretic invariant. Computing the entire finite uniformly periodic Lebesgue constant and proving its exact rate of approach to the infinite-mesh norm is a natural complete finite-size problem, useful for quantitative projector stability and testing spline solvers. It is not a gratuitous numerical fragment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

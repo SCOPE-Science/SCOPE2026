@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The observable-support criterion is proved in both directions with an explicit modal Boolean construction and generator-preserving frame automorphisms; the exponential formula counts exactly all qualifying colored partitions. The Stam urn law is derived directly from Dobinski's identity and the published block-count concentration estimate is stated with its precise use. Uniform birthday expansion, the singleton-support collision bound, and the fixed-size support bound establish the critical law and zero/one regimes. The logarithmic phase argument uses the vanishing increments of \(\log_2(n\alpha_n)\). The standalone exhaustive finite checks independently test the exact coefficient and support criterion.
+## correctness
 
-## Originality
-PASS with historical-priority risk. The 2025 finite \(\mathsf{S5}\) category paper and 2026 coequivalence paper address algebraic structure and definability, not the random-generation law; Horn 1978 is a strong predecessor for deterministic free \(\mathsf{S5}\) algebras; Zantedeschi 2026 gives distinct modal-exchangeability representation theorems; Stam and Chern et al. provide the probabilistic urn technique and concentration facts. The checked material does not provide the combined Bell-uniform exact random-generation probability, critical \(n\log n\) threshold and lattice-phase cluster interval. Horn's complete text could not be inspected and may imply stronger deterministic facts; equivalently formulated probability results could have been missed. Searches and exact implication comparisons are recorded in AUDIT.json.
+PASS
 
-## Value
-PASS. The number of independent propositional observations needed for full modal distinguishability in a random epistemic equivalence frame is a natural resource invariant. A complete finite formula and sharp probabilistic transition resolve this invariant across all frame sizes; the unavoidable integer-generator phase interval explains why a single naive limiting probability need not exist.
+PASS: Boolean color atoms from k predicates and modal Diamonds encode each equivalence-class support; full algebra iff colors unique within each block and class supports distinct. Labeled EGF product ∏_{s=1}^q(1+z^s)^C(q,s) yields exact numerator n![z^n], denominator B_n q^n; max cover weight q2^(q−1). Stam/Dobinski urn gives M~n/α_n and conditional birthday probability (Mq)_n/(Mq)^n; q≥a nα_n makes box-support aliases negligible, yielding exp[−nα_n/(2q)]+o(1) uniformly, 0/1 other regimes. Fractional log2(nα_n) is dense, giving cluster [e^-1,e^-1/2] for floor k. Independent exhaustive n≤4 and q=2,3,4 exactly matched coefficient, including 12 cases. Infinite limit uses prior concentration theorem, not finite enumeration.
 
-## Scope and limitations
-The theorem concerns Bell-uniform equivalence relations and independent uniform Boolean generators, not an arbitrary distribution of modal frames or other accessibility languages. The asymptotic argument relies on a published concentration result; numerical tests do not establish the infinite theorem. Publication priority and correctness have not been validated independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: support-label injectivity yields a new exact Bell-uniform full-generation coefficient, and birthday/Stam urn analysis produces q~n alpha_n threshold and integer log-phase interval. Stam and deterministic S5 algebra descriptions are credited. Horn 1978 inaccessible and possible exact support enumeration antecedents remain risks.
+
+## value
+
+PASS
+
+PASS: Exact joint random-frame / random-generator probability and sharp n log n phase transition with log-periodic nonconvergence, a natural probabilistic invariant for finite modal algebras beyond deterministic free-S5 structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

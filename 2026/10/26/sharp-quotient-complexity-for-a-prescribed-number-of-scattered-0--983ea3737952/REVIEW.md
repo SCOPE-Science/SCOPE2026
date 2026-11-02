@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every prefix and suffix, the scattered \(01\) count splits into within-prefix pairs, within-suffix pairs, and the product of prefix-zero count and suffix-one count. This gives exact right quotients. Every parameter pair claimed reachable has an explicit prefix. The proof shows all zero, dead, one-one, and multi-one quotient identifications and uses explicit distinguishing suffixes to prevent false mergers; it separately verifies the \(k=0\) boundary. Therefore the Myhill–Nerode count is exact for all \(k\). The standalone script confirms the formula for \(k=0,\ldots,45\), but no finite test substitutes for the universal proof.
+## correctness
 
-## Originality
-**PASS, with literature risk.** The closest inspected primary works concern (i) whether at least one occurrence of a subsequence exists in a regular-language text, and (ii) the number of fixed-length binary words with exactly a given number of scattered occurrences. Neither statement entails the exact minimal number of states for the unbounded-length fixed-multiplicity language or the full quotient classification. The comparison includes the distinct notation of binary inversion count and Parikh-matrix entries. Database and published-result searches did not locate a matching stronger theorem, but incompleteness of such searches remains a real uncertainty and no claim of certified priority is made.
+PASS
 
-## Mathematical value
-**PASS.** The counting condition is a natural exact-multiplicity refinement of binary subsequence matching, and state complexity is an intrinsic minimal memory requirement of its regular language. A naïve two-counter saturation automaton does not exhibit the exact quotient identifications. The proof identifies all equivalence classes and delivers a sharp closed form, explaining the quadratic dependence with precise parity correction; the result is neither a renaming of a sample enumeration nor a routine case of the published pattern-existence bound.
+The concatenation identity c01(uv)=c01(u)+z(u)#1(v)+c01(v) derives from partitioning ordered 0-before-1 pairs into left, right and cross-boundary pairs. Every reachable nondead quotient for fixed k has form R(a,t)={v:a#1(v)+c01(v)=t} with a=z(u), t=k-c01(u); any a>=1,0<=t<=k is reached by u=0 1^(k-t) 0^(a-1), and a=0 yields the initial quotient. Collapses: R(a,0)=0*, and 0<t<a is empty. For a<=t<2a, quotient is uniquely 0^(t-a) 1 0*, giving ceil(k/2) distinct single-one quotients. For 1<=a<=floor(t/2), 1<=t<=k, the two successful exponent tests 0^j1 and 1 0^j1 determine j=t-a and j=t-2a, hence determine a,t; this contributes sum_{t=1}^k floor(t/2)=floor(k²/4) multi-one quotients. Initial quotient and 0* and dead are pairwise distinct, including k=0 initial 1*0*, so Myhill–Nerode gives 3+floor((k+1)²/4). Independently built the full saturated counting DFA and minimized it by fresh partition refinement for k=0..34, matching every count; that is bounded confirmation of the exact quotient proof.
 
-## Closest literature and limits
-Brzozowski–Davies–Madan, arXiv:1806.04645, studies pattern existence and worst-case state-complexity operations. Menon–Singh, arXiv:2306.07870, studies length-restricted multiplicity enumerations. Publication search is not exhaustive, so a non-inspected theorem might cover the formula. The statement is only for the binary scattered \(01\) pattern and fixed \(k\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed scattered-subsequence frequency is classical, and recent authors study exact word counts or binary Parikh-matrix classes. The claimed invariant is the exact minimal complete automaton state count of the all-length language with c01=k, not the number of finite words, the universality index, or the existence of at least one subsequence. Four materially compared works on those adjacent parameters do not imply the stated quotient formula; a potential unindexed automata note remains a risk.
+
+## value
+
+PASS
+
+The language L_k is canonical for subsequence multiplicity, and the minimum COMPLETE DFA size directly measures optimal streaming memory required for exact recognition for each fixed k. A complete Myhill–Nerode classification with a sharp quadratic law and exact floor correction is an independently useful state-complexity invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

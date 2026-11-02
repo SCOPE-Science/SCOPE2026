@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:03:27.784315Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct primes p>q>a>=2, gcd(a,p-a)=gcd(a,p)=1 and likewise for q, so the definition p-a|pq-a reduces to p-a|q-1. Set r=p-a, s=q-a, c=a-1; r>s>0 and r|(s+c), s|(r+c). Unique u=(s+c)/r, v=(r+c)/s satisfy 1<=u<v and with d=uv-1>0 give r=(v+1)c/d and s=(u+1)c/d. Conversely any such integer u,v giving prime a+r,a+s satisfies both congruences. From s>=1, v<=c+(c+1)/u<=2c+1, so the parameter search is finite. If a even, r,s,c odd and u,v even. The rational ratio (v+1)/(uv-1) decreases with either variable, maximizing at (u,v)=(1,2) without parity or (2,4) under even parity. Thus p<=4a-3 if a odd and p<=a+5(a-1)/7 if even. Exact equality witnesses (a,p,q)=(11,41,31),(8,13,11) are prime and satisfy both divisibilities. Independently enumerated all primes for 79 shifts 2..80 and matched all 133 parametrized pairs; finite agreement is supportive, not the all-a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wright 2026 concerns arbitrary squarefree (a,a)-Carmichael products and counting them under a prime-distribution conjecture; its main theorem is an asymptotic abundance result.",
+          "Zheng 2022 main theorem concerns infinitely many (-1,1)-Carmichael integers, not equal positive shifts.",
+          "Resultary prior weak Carmichael 3^a p q classifies a different divisibility condition."
+        ],
+        "reasoning": "A larger family of integers in the statement of Wright does not logically give the sharp two-prime upper bound; the other two definitions are distinct.",
+        "searches": [
+          "Resultary: (a,a) Carmichael numbers semiprime shifted Korselt condition parity bounds",
+          "Web: (a,a) Carmichael numbers two prime shifted divisibility parametrization",
+          "arXiv:2607.02738",
+          "arXiv:2207.08641",
+          "Resultary: 2026/9/20/SCOPE-weak-carmichael-three-power-two-prime-parametrization--384e7b62c958"
+        ]
+      },
+      "checked_sources": [
+        "Wright 2026 arXiv:2607.02738 and full lawful primary text",
+        "Zheng 2022 arXiv:2207.08641 and full lawful primary text",
+        "Resultary 2026 weak Carmichael 3^a p q finding (different definition)",
+        "Independent direct 79-shift 133-pair exact finite tests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wright Theorem 1 gives a conditional lower bound on the count of generalized shifted Carmichael numbers with a gcd constraint, not a semiprime structure theorem.",
+          "Zheng Theorem 1.1 proves infinitely many (-1,1) cases using a many-prime construction."
+        ],
+        "reasoning": "Neither asymptotic statement entails a two-prime n=pq factor upper bound for positive equal shifts; the positivity/monotonicity and even-shift parity arguments are additional.",
+        "searches": [
+          "Resultary: (a,a) Carmichael numbers semiprime shifted Korselt condition parity bounds",
+          "Web: (a,a) Carmichael numbers two prime shifted divisibility parametrization",
+          "arXiv:2607.02738",
+          "arXiv:2207.08641",
+          "Resultary: 2026/9/20/SCOPE-weak-carmichael-three-power-two-prime-parametrization--384e7b62c958"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zheng Definition 1.1 defines (a,b)-Carmichael integers via p-a|n-b; the equal-shift case is also called k-Korselt numbers.",
+          "The claimed equivalence p-a|pq-a <=> p-a|q-1 uses gcd(a,p-a)=1 under p>a prime."
+        ],
+        "reasoning": "Equivalent terminology and first-step congruence are known; the actual claimed addition is the complete u,v parametrization with prime inequalities and parity-sharp maxima.",
+        "searches": [
+          "Resultary: (a,a) Carmichael numbers semiprime shifted Korselt condition parity bounds",
+          "Web: (a,a) Carmichael numbers two prime shifted divisibility parametrization",
+          "arXiv:2607.02738",
+          "arXiv:2207.08641",
+          "Resultary: 2026/9/20/SCOPE-weak-carmichael-three-power-two-prime-parametrization--384e7b62c958"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wright primary 2026 article introduction and main conditional counting theorem establish the (a,a) nomenclature.",
+          "Resultary weak Carmichael finite-prime-support result is not the same Korselt condition; no exact (u,v) table/odd-even bounds was returned."
+        ],
+        "reasoning": "There is no identified existing table giving the complete prime-pair parametrization for each positive shift. This remains provisional against older k-Korselt tables and unindexed journals.",
+        "searches": [
+          "Resultary: (a,a) Carmichael numbers semiprime shifted Korselt condition parity bounds",
+          "Web: (a,a) Carmichael numbers two prime shifted divisibility parametrization",
+          "arXiv:2607.02738",
+          "arXiv:2207.08641",
+          "Resultary: 2026/9/20/SCOPE-weak-carmichael-three-power-two-prime-parametrization--384e7b62c958"
+        ]
+      },
+      "rationale": "The generalized shifted-Korselt definition is prior work; the displayed two-prime parameter bijection and sharp parity-restricted largest-prime thresholds are a distinct finite prime-support classification absent from the materially reviewed Wright and Zheng theorems. The modular reduction itself is elementary and is not claimed to be novel. A possible older k-Korselt semiprime parametrization is a significant priority risk.",
+      "residual_risks": [
+        "Potential earlier k-Korselt semiprime work or tables using a different term have not been exhaustively excluded.",
+        "Uniform sharpness means at least one attained shift of each parity, not each individual shift; source states and proof respect this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected theorem studies conditional abundance/gcd, not sharp two-prime classification; not claiming no uninspected appendix could contain a simple semiprime reduction.",
+          "evidence": "Theorem states C_nu(X,a)>=X^(1-o(1)) under a strong prime-progressions assumption, structurally unlike explicit p,q bounds.",
+          "identifier_or_url": "https://www.researchgate.net/publication/408521135_aa-Carmichael_numbers_and_greatest_common_divisors_of_p-a",
+          "material_read": "Lawful full-text rendering: introduction and generalized shifted condition, Theorem 1 on C_nu(X,a), construction and results around Sections 2 onward.",
+          "method": "Read full accessible ResearchGate primary article including lines 57–140 and theorem/construction sections.",
+          "title": "(a,a)-Carmichael numbers and greatest common divisors of p-a",
+          "trigger": "Exact same integer definition, possible stronger many-prime statement"
+        },
+        {
+          "assessment": "General name and definition overlap, but proved case (-1,1) differs in both shifts and many-prime infinite existence.",
+          "evidence": "Definition 1.1: squarefree p-a|n-b; Theorem 1.1 proves infinitude of (-1,1).",
+          "identifier_or_url": "https://www.researchgate.net/publication/362088693_There_are_infinitely_many_-11-Carmichael_numbers",
+          "material_read": "Lawfully accessible full manuscript: Definition 1.1, introductory Theorem 1.1 and construction sections.",
+          "method": "Read full ResearchGate-rendered manuscript sections around lines 80–180 and construction.",
+          "title": "There are infinitely many (-1,1)-Carmichael numbers",
+          "trigger": "General (a,b) nomenclature might dominate equal-shift result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prescribed two-prime support is the first nontrivial compositeness case for shifted Carmichael divisibility and is naturally contrasted with the ordinary (1,1) condition, for which semiprimes are impossible. A complete finite parameterization and parity-sharp global size bounds for all shifts are useful as structural classification and an algorithmic sieve; motivation is not dependent on large computational tables.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wright 2026 arXiv:2607.02738 and full lawful primary text",
+    "Zheng 2022 arXiv:2207.08641 and full lawful primary text",
+    "Resultary 2026 weak Carmichael 3^a p q finding (different definition)",
+    "Independent direct 79-shift 133-pair exact finite tests"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes squarefree n=pq, p>q>a>=2; no assertion for factors <=a or >=3 prime factors.",
+    "Bounds may not be attained for an arbitrary fixed a.",
+    "Potential earlier k-Korselt semiprime work or tables using a different term have not been exhaustively excluded.",
+    "Uniform sharpness means at least one attained shift of each parity, not each individual shift; source states and proof respect this."
+  ],
+  "schema_version": 1
+}

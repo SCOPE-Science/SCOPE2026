@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated polynomial is precisely the singular characteristic-three quartic described by Veniani, Example 5.4. The exhaustive finite-field algorithm considers every RREF two-plane over \(\mathbf F_9\) (all 7,462 matrices), tests the five quartic coefficients, and yields 48 distinct lines. The published geometric total is 48, so this exhaustive finite-field list includes every geometric support point. The Frobenius cycles are six fixed points and 21 transpositions. The dual-number Jacobian of all five restrictions gives tangent dimension one at seven points and zero at 41; the support is finite, so exactly those seven points are nonreduced. Field and scheme quantifiers, extension counts, and the reduced-scheme zeta function follow. The verification code is included and was run successfully. This is a mathematical/computational check within the stated scope, not external certification.
+## correctness
 
-## Originality — PASS (qualified)
-Shimada–Shioda cover the original 56-line model and its reductions, and Veniani explicitly publishes the singular 48-line reduction, its eight nodes, and its geometric line total. Neither inspected source states the six-plus-21 Frobenius cycle decomposition or the seven special tangent-positive points of the line Hilbert scheme. Distinct surface models at two primes over three are explicitly distinguished. Searches for arithmetic splitting, nonreduced line schemes, and the exact quartic did not yield an equivalent statement in inspected available literature or published mathematical-record results. The 48-line count itself is known, not a novelty claim. There is residual risk from less-accessible literature, unpublished calculations, and any overlooked more general arithmetic classification.
+PASS
 
-## Mathematical value — PASS
-The field of definition of every geometric line is a natural arithmetic invariant for an extremal line-rich singular quartic. More significantly, the seven nonreduced points show that the scheme of lines is not merely a finite set of 48 rigid lines: the full Hilbert scheme carries genuine infinitesimal structure at a precisely classified locus. The geometric line count alone does not determine these scheme-theoretic or arithmetic invariants. The result gives a complete support-level classification with explicit finite-field arithmetic and a ready-to-reproduce tangent calculation.
+The quartic is exactly the one in Veniani Example 5.4. An independent finite-field implementation enumerated all 9^4+9^3+2·9^2+9+1=7462 RREF 2-subspaces of F9^4, tested all five coefficients of the quartic restriction and obtained exactly 48 distinct F9 lines; pivot charts contain 33,11,0,2,1,1 candidates. Veniani independently establishes there are exactly 48 *geometric* lines, so the F9 list exhausts algebraic closure. Frobenius (x→x^3) partitions these 48 as 6 fixed +21 pairs. On each RREF Grassmannian chart, independent dual-number differentiation of all five restricted quartic equations gives tangent dimension 1 at exactly seven supports (one fixed + three pairs) and 0 at 41. Since geometric support is finite, tangent≠0 implies nonreduced local Artin ring, whereas tangent0 implies residue field by Nakayama; reduced part is finite étale over perfect F3. This yields N_n=6 (odd),48 (even) and zeta (1-T)^(-6)(1-T^2)^(-21). The local *lengths* of the seven thickened points are not determined.
 
-## Boundaries
-No lengths or full local Artin algebras are asserted at nonreduced points. Zeta statements apply only to the reduced line scheme. The geometric line total is taken from Veniani and cross-checked by constructing 48 distinct lines. An independent audit of the result has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Veniani's actual Example 5.4 supplies exact singular model and geometric 48-line count and the eight A1 nodes; both are credited as prior. The inspected source does not determine the F3/F9 Frobenius orbit profile or which line-scheme supports are infinitesimally nonrigid. This is a new arithmetic and infinitesimal classification of the original model to best knowledge; there may be other algebraic-geometry computation sources giving equivalent or stronger scheme data.
+
+## value
+
+PASS
+
+Fields of definition and nonreduced tangent support are natural arithmetic and scheme-theoretic invariants of an extremal line-rich singular quartic; they cannot be recovered just from the known 48 geometric lines. The seven marked nonreduced supports identify a genuine infinitesimal deformation phenomenon, while the exact reduced zeta counts all finite extensions. The result is a complete natural classification at the support/tangent level, not a restatement of a known line count or arbitrary coordinate slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

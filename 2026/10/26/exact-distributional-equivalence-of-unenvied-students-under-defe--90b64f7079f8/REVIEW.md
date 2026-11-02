@@ -1,15 +1,21 @@
-# Scientific review: exact unenvied-count distribution under DA and RSD
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every set of marked serial positions, each later agent must rank the then-available schools above each earlier marked recipient's school. Independent uniform rankings give the product of conditional probabilities exactly. The same product characterizes avoidance of any repeat of a marked first-appearance coupon type; finite inclusion-exclusion yields the equality of full indicator-vector distributions. The known DA coupon representation is reconstructed from independent random proposal streams, cover-time termination, and the equivalence of unenvied students and single-proposer schools. The displayed closed product, covariance, variance, and exponential limit are derived with all quantifiers and boundaries explicit. The standalone checker executed exact profile enumerations and finite rational identities. Finite tests do not prove the all-\(n\) assertion; the product identity does.
+PASS
 
-## Originality — PASS, subject to residual historical-priority risk
+PASS: Assumptions are n students/n unit-capacity schools, independent uniform complete strict preferences, independent uniform school priorities for student-proposing DA and uniform serial order for RSD. An earlier serial chooser cannot envy a later chooser. For marked RSD serial positions K, at time t each later chooser must prefer one of n-t+1 available schools to the a_t=|K∩{1,...,t-1}| previously selected marked schools, giving conditional probability (n-t+1)/(n-t+1+a_t). Identical hazard holds for first-appearance-ranked coupon types staying singletons until cover. Equality of all subset-inclusion probabilities implies joint indicator-vector equality by Boolean inclusion-exclusion; telescoping gives r!/product_{s=1}^r(n-k_s+s). DA has the already-known coupon singleton representation under the exact random market model, so full unenvied-count distributions agree. Pair covariance and variance follow from r=1,2, with harmonic asymptotics and factorial moments giving Exp(1) after log n normalization. Independent exhaustive RSD n=4 checked 331776 profiles, every one of 15 nonempty inclusion subsets, and full distribution (97,97,67,27)/288.
 
-The full text of Ortega, Ziegler, Arribillaga, and Zhao, *The Distribution of Envy in Matching Markets* (2026), establishes equality of the expected unenvied counts under DA and RSD and the coupon distribution under DA, but not RSD's joint inclusion law or equality of the two entire laws. The earlier coupon distribution (Myers–Wilf) and coupon exponential limit (Papanicolaou–Doumas) are credited. Related indexed work on RSD/PS stochastic dominance, DA Pareto efficiency, and ex-ante envy-freeness concerns logically distinct objects and does not imply this all-\(n\) count-law identity. The possibility of an earlier synonymously stated equivalence has not been conclusively excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Full finite-market distributional equivalence is a substantively stronger answer than equality of means: it determines tail probabilities, fluctuations, higher moments, and correlation of serial-position fairness events. The joint product and positive-dependence formulas are usable for precise school-choice fairness comparisons. The contribution does not claim new general coupon laws, equivalence of complete matching distributions, or nonuniform-preference robustness.
+PASS, qualified: Ortega, Ziegler, Arribillaga and Zhao (2026) already obtain DA coupon singleton representation and equality of DA/RSD expectations H_n; Myers and Wilf give the coupon singleton distribution and Papanicolaou/Doumas the exponential coupon limit. The inspected original school-choice paper does not identify the full RSD serial-indicator joint law or DA/RSD finite-distribution equality. These are the novelty-bearing parts; no claim of new coupon distribution or known expectation is made.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Matching an entire finite-market law, rather than a previously established first moment, and providing joint inclusion/covariance formulas yields a motivated distributional bridge for a natural market statistic. This is a nontrivial sharpening of known expectation identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

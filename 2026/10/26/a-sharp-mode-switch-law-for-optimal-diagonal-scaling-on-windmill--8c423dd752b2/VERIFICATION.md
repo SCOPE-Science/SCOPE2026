@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Run `python verify_windmill.py` using Python 3 with NumPy, SciPy and SymPy. The executable prints PASS summaries for the stated checks when all tests complete.
+# Independent mathematical audit
 
-The executable performs exact symbolic checks of the eigenvalue-crossing polynomial, the mode-transition identity, and the Jacobi-optimality identity. It then validates the complete (unscaled and scaled) characteristic polynomials on five full rational matrices, compares closed forms with 75 full-matrix spectral decompositions, makes 75 independent bounded one-dimensional numerical minimizations, and checks 6,000 unrelated asymmetric diagonal scalings.
+## correctness
 
-The mathematical proof is analytic and does not rely on statistical or finite checking. The symbolic checks verify displayed identities, not the group-averaging argument or every possible positive real parameter; the latter are established in `RESULT.md`. In particular, random trials are not exhaustive global optimization certificates. Independent mathematical review has not been performed.
+PASS
+
+Positive diagonal congruence corresponds to diagonal Loewner sandwich W<=A<=κW; averaging W over the leaf-permuting automorphism group keeps inequalities valid and produces an invariant optimum without assuming an optimizer is invariant. On invariant D(q), spectra are 1-s (multiplicity k), 1+s (k-1) and the two eigenvalues of [[q,sqrt(2kq)t],[sqrt(2kq)t,1+s]]. The upper block eigenvalue strictly increases, while λ+/λ- is minimized uniquely at q=1+s. The lower active level switches where λ-=1-s, at q=s(1-s)/(s-θ); comparing its position to 1+s gives θ_c=2s²/(1+s). Exact branch formulas and Jacobi locus then follow. Independently recomputed symmetric matrix eigenvalues and one-dimensional minimizers in 27 interior configurations; finite optimization was numerical corroboration, not proof of global unrestricted optimality.
+
+## originality
+
+PASS
+
+All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. The family can be formulated as a semidefinite diagonal sandwich, but its special two-level ratio/transition is not a statement found in the general solver. Property-A assumptions fail in the windmill graph, so the known Jacobi conclusion does not cover it.
+
+## value
+
+PASS
+
+Exact scalable condition numbers, a coupling-dependent active-eigenmode transition and the sharply exceptional unit-diagonal-optimality curve provide meaningful performance and symmetry information for a natural triangle-rich SPD sparsity family; general black-box scaling algorithms do not expose this explicit geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

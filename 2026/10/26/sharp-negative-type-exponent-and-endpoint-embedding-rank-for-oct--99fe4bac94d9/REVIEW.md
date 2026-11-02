@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit conjugacy-class and five-character calculation gives all four nontrivial Fourier eigenvalue families. For admissible exponents the two-dimensional block is nonpositive, and an exact AM–GM bound proves all remaining blocks strictly negative. The two-dimensional block becomes positive immediately above the threshold. Centering proves the exact endpoint rank, while finite-dimensional Gaussian theory proves the all-scale kernel statement. The standalone group-matrix checker passed class counts, all spectral comparisons, and embedding ranks. Numerical checks are not the proof.
+## correctness
 
-**Originality — PASS under bounded review.** The inspected primary full texts of Sánchez (arXiv:1108.0451) and Robertson (arXiv:1302.5790) do not contain the present cube-rotation class calculation or the four-dimensional endpoint nullity. A related icosahedral result has the same exponent, but its domain has no 90-degree turns and cannot cover the cube rotation group by restriction. Searches for exact angle metrics, irreducible-character formulations, positive-type Gaussian covariances, and equivalent rank statements did not identify a dominating result. General finite-metric algorithms are not explicit octahedral classifications. Residual risk: a previously published character-table computation or an unindexed classification could imply the theorem.
+PASS
 
-**Value — PASS.** Intrinsic angular distance between the 24 orientations preserving a cube is a natural finite rotation-space metric. The exact supremal exponent determines precisely when every Gaussian bandwidth is valid and shows a sharp loss of four Euclidean embedding dimensions, traced to a nontrivial two-dimensional quotient representation. Completing this concrete finite-symmetry case is mathematically informative even without a claim about the full rotation manifold.
+For the 24 orientation-preserving signed permutation matrices, independently formed all principal relative-rotation angles using the integer trace. The central distance-power matrix has the S4 character scalars (divided by pi^p) -3+8(2/3)^p-6(1/2)^p (dimension 1), 3-4(2/3)^p (multiplicity 4), 1-2(1/2)^p (multiplicity 9), and -3+2(1/2)^p (multiplicity 9). The 2D scalar changes sign exactly at p*=log(4/3)/log(3/2). Below that cutoff the other three are strictly negative: p*<1, b=(2/3)^p>=3/4, a=2^-p>1/2, b<sqrt(a) and 2sqrt(a)<=1+a. Above p* the positive 2D scalar obstructs conditional negative type. The centered Gram -HD_pH/2 therefore has rank 23 in the open admissible range and rank 19 at the endpoint. Schoenberg embedding and strict finite Gaussian positivity follow for distinct embedded points. For p>p*, the Gaussian is indefinite for small positive bandwidth by first-order expansion, yet tends to identity for large bandwidth. The independent 24x24 matrix computation at seven p-values matched all character spectra and ranks; numerical checks are corroborative only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The octahedral S4 angle-power cutoff with four-dimensional endpoint rank drop is not stated by the inspected general finite-metric negative-type or ambient projective-space results. This is a qualified best-of-knowledge originality assessment; a comprehensive check of specialized finite rotation-group metric literature remains outstanding.
+
+## value
+
+PASS
+
+The finite rotation group is canonical, its intrinsic angular metric arises from SO(3) geometry, and supremal negative type and the least Euclidean squared-distance embedding dimension are standard geometric metric invariants. An exact cutoff with a precise rank defect explains a genuine boundary phenomenon, not a one-off computed instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

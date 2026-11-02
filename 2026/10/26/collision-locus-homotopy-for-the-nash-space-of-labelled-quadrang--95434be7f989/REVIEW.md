@@ -1,19 +1,21 @@
-# Review: collision-locus homotopy of labelled quadrangles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global quotient chart for a coincident pair is bijective and bicontinuous after normalizing its two distinct labelled vertex locations. The excluded triangle conditions at the second collision become exactly two punctures of a cylinder. The punctured-plane model proves a free rank-three fundamental group for each single-collision piece. The two-component double-collision stratum has closed collared inclusions; the homotopy pushout of the two pieces yields a free rank-seven fundamental group and wedge-of-circles homotopy type. Label partitions exclude inter-component intersections. A direct Euler-characteristic check agrees with the result. Dependence on the cited incidence definition is explicitly identified.
+PASS
 
-## Originality — PASS (best knowledge, residual risk)
+By the original quadrangle incidence condition, no three labels can collide. The collision locus decomposes into three disjoint clopen pieces indexed by disjoint pairings. For E12, normalize its two distinct vertices to 0 and 1 by a unique oriented similarity; the free line directions and fourth vertex give parameters (r,β,α), excluding α=0,β exactly when r=0. A continuous β-dependent angular homeomorphism identifies E12 with (0,π)×(C\{0,1,-1}), a three-circle wedge. E12∩E34 has two contractible chambers α<β and β<α, collared in each piece. The homotopy pushout of two connected three-circle wedges along two contractible components adds one circle, giving wedge^7 per pairing, H0=Z³ and H1=Z²¹. Euler characteristic per component (-2)+(-2)-2=-6 matches 1-7; it corroborates, not replaces, the full gluing proof.
 
-The full accessible originating paper [1] describes the real Nash quotient, degeneration types and aspect stratification, but the inspected mathematical statements do not calculate the homotopy type or integral homology of its vertex-collision locus. Martin's earlier graph-picture theory [2] treats algebraic graph picture spaces with similar incidence data, not the real oriented-similarity quotient invariant computed here. Targeted scholarly and mathematical-database searches for collision-locus topology, picture-space quotient homology, and alternative configuration-space formulations returned no equivalent or stronger theorem. Prior accessible findings were compared by mathematical claim, not by title alone. The submitted related manuscript cited by [1] was unavailable in full, so an unindexed or unpublished priority overlap is a residual risk; absence from the searches is not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The collision locus is a natural semialgebraic subset of a newly constructed moduli manifold, and it is exactly where retained line directions become essential. An explicit complete homotopy classification distinguishes three disconnected collision types while revealing seven independent loops within each; it supplies the exact integral Betti numbers and fundamental groups, rather than a routine restatement of the Nash smoothness theorem. The result identifies topological data not implied by the source's geometric degeneration trichotomy.
+Qualified best-of-knowledge finding after an actual Resultary query, targeted primary-literature comparison, and an implication-level review of the submitted theorem. Specific same-object access restrictions and broader historical-priority risks remain in source_inspections and residual_risks. No failed search alone is treated as proof of novelty.
 
-## Scope and limitations
+## value
 
-Only labelled quadrangles and orientation-preserving similarities are treated. The full moduli manifold, the unoriented or unordered quotients, and the maps from boundary homology to ambient homology remain uncomputed. No independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The collision-locus topology of a natural labelled four-point incidence moduli space is a meaningful complete geometric invariant. Explicitly resolving the real oriented-similarity quotient, its components, and fundamental groups gives information not supplied by manifold existence or a mere list of degeneracy types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

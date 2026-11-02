@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for every finite connected simple unit-edge graph; both projectors are defined by the incidence matrix, with orientation independence. Orthogonal complementary columns differ in absolute sum by exactly \(2R_e-1\). Dirichlet's minimum-energy principle and an all-exterior-vertices-constant trial potential yield \(R_e\ge 4/(p+q+2)\ge2/(\Delta+1)\), hence the asserted sharp norm gap. A separately optimized potential gives the refined inequality. Harmonicity of that trial is equivalent, at degrees at least two, to adjacent true twins. The \(K_{\Delta+1}\) projector is calculated explicitly, proving equality for each degree, including the single-edge case. A standalone exact-rational computation checked 74 graph instances and 635 edge columns, but the infinity of cases rests only on the analytic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2023 Dilworth–Kutzarova–Ostrovskii paper establishes the projection framework and analyzes special graph families; the inspected text does not state a sharp universal maximum-degree comparison. The 2025 De Loera–Eddy–Robertson–Samper paper, Theorem 3.9, **already states the degree-only effective-resistance inequalities** used in the proof, and these are not original parts of the present work. The claim at issue is the sharp complementary operator-norm conclusion and the equality structure of the refined local comparison. Search of published mathematical research records and relevant electrical-network terminology found no covering statement. Closely related electrical-network literature may contain equivalent formulations, and originality remains provisionally assessed without independent bibliographic review.
+PASS
 
-## Mathematical value — PASS
-Controlling whether the graph-derived cut or cycle projector is larger in an endpoint Banach norm usually demands signed-current computations. The theorem instead gives a uniform sharp threshold across every finite simple graph: maximum degree three forces cut dominance, degree four admits reversal, and complete graphs attain the best possible bound for every maximum degree. It also applies beyond low-degree graphs via a sharper condition on the degrees at opposite ends of individual edges. This is a graph-structural Banach-space comparison with no graph-family restrictions and an exact saturation criterion. The individual resistance inequalities alone would not be a new contribution and would not support the finding in isolation.
+PASS: Q=B^TL^+B symmetric idempotent and Qee=R_e, C=I-Q; off-diagonal columns have equal absolute entries, so q_e-c_e=2R_e−1. Dirichlet trial potential 1/2 outside endpoints gives R_e≥4/(p+q+2)≥2/(Δ+1); endpoint-degrees-optimized constant t gives R_e≥(p+q−2)/(pq−1). Exterior harmonicity at equality requires common or neither neighbors; for p,q≥2 forces p=q adjacent true twins. Bridges saturate separately. Complete K_(Δ+1) has constant column sums Q=2Δ/(Δ+1), C=3(Δ−1)/(Δ+1), saturating. Independent exact rational K5 gap -1/5, K4 0, path/star 1 and C4 1/2.
 
-## Boundaries and prior coverage
-Only the canonical Euclidean-orthogonal projectors are compared, with the usual edge-coordinate \(\ell_1\) and \(\ell_\infty\) norms; neither minimum-norm projection constants nor weighted graphs are addressed. Complete graphs prove sharpness but unique global extremizers are not asserted. Closest sources: Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582v1 (projection framework and symmetric families); De Loera–Eddy–Robertson–Samper, arXiv:2510.11894v1 §3.3, Theorem 3.9 (the exact degree-resistance estimates). An independently conducted mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, strongly qualified. The two resistance lower bounds are exactly pre-existing Theorem 3.9 of De Loera et al. and straightforwardly imply a numerical lower bound after the elementary Q/C column identity; no novelty is asserted for that electrical input. The surviving distinct statement is its sharp complementary operator-norm comparison across arbitrary graphs and the equality characterization of the local bound via exterior harmonicity, neither found in inspected prior statements. This is a narrow algebraic corollary rather than an independent new electrical theorem.
+
+## value
+
+PASS
+
+PASS, narrow structural value: gives sharp uniform endpoint comparison of complementary cut/cycle projections and the first maximum-degree sign reversal; the equality-in-local-degree-bound criterion by true twins is a complete natural structural saturation statement. The headline inequality is short once prior resistance estimates are imported, so value is modest rather than a new resistance theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

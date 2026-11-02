@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** Every parameter is quantified over positive real rates, the window normalization and Zak convention are fixed, and the complete proof reduces sharpness to a strictly monotone frequency coordinate and a unique interior quadratic spatial optimizer. Nonstandard parity identities and the endpoint derivative signs were reconstructed symbolically from the package code, while independent truncated Zak series agree at sampled rates. Remaining risk is an unnoticed analytical transcription error; direct numerical checks cannot independently prove an infinite theorem.
+## correctness
 
-**Originality: PASS, qualified.** The 2013 Kloos–Stöckler full text treats totally positive finite-type frame existence and lower estimates for even two-sided exponentials. The 2014 Kloos full text treats Zak zero uniqueness. Neither inspected theorem implies sharp bounds and all extremal fiber coordinates for two independent asymmetric rates. The closest indexed research record concerns sharp *translation-sampling* bounds of asymmetric exponentials, a distinct operator without the modulation lattice. Residual publication-priority uncertainty remains for nonindexed or unavailable older sources and for equivalent formulations in general Gabor-frame tables.
+PASS
 
-**Mathematical value: PASS.** Exact frame bounds quantify stable twofold-oversampled time–frequency reconstruction for a standard nonsymmetric exponential generator. The theorem covers the complete two-parameter family, identifies both extremizing fibers without numerical optimization, yields an explicit conditioning ratio, and provides a rate-sensitive shift of the worst fiber. It is not merely a restatement of frame existence or the known even case; no results at other densities are asserted.
+For a,b>0, g(x)=e^{-ax} for x>=0 and e^{bx} for x<0; translation 1 and modulation 1/2. Its Zak transform is the absolutely convergent rational sum Z=P/(1-u/t)+Qvt/(1-vt), u=e^-a,v=e^-b,P=e^-ax,Q=e^bx. Even/odd lattice-index splitting gives S=|Z(x,w)|²+|Z(x,w+1/2)|² as a rational function of cos(4πw) with nonnegative numerator coefficients and positive denominators, strictly increasing in that cosine. At cos=-1, S-=2[αe^-2ax+βe^2bx−2γe^(b-a)x] and its derivative has sign of -aα+bβ y²−(b−a)γy, y=e^(a+b)x; one positive root lies strictly between 1 and e^(a+b), giving unique x*. At cos=1, S+ is a positive sum of three exponentials with strictly positive second derivative and equal x=0,1 endpoints by Zak quasi-periodicity, so B is attained exactly there. Explicit positive A and exact extremizing frequency classes follow. Independent 361-term Zak sums compared against closed fibers for five distinct rate pairs and were within prescribed truncation error; an initial 101-term approximation was insufficient for the slowest rate, corrected with tail extension, not a mathematical counterexample.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Foundational Zak fiber diagonalization and totally-positive exponential Gabor frames are prior. Kloos–Stoeckler 2013 Section 5 concerns even two-sided exponentials and constructs admissible frame bounds but does not state this exact two-parameter asymmetric optimum; Kloos 2014 addresses Zak zeros. Published separate result on shifted discrete sampling of asymmetric exponentials uses different operator/measurements. The exact two-rate redundancy-2 lower/upper bounds and precise Zak-fiber extremizers are the narrow qualified new statements.
+
+## value
+
+PASS
+
+Optimal lower frame bound governs stability of Gabor synthesis/analysis, upper bound dynamic range, and the condition number gives quantitative reconstruction quality. Explicit sharp formulas across two unequal decay rates and all extremizing fibers solve a natural asymmetric-generator stability problem beyond existence of frames or symmetric special cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

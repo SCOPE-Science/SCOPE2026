@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:05:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 uniform periodic continuous linear splines, nodal hats have Gram matrix (4I+S+S^{-1})/(6n). The infinite Green sequence h_j=(-q)^|j|/(2 sqrt3), q=2-sqrt3, periodizes absolutely to g_{n,j}=((−q)^j+(−q)^{n-j})/(2sqrt3(1−(−q)^n)). The knot kernel on each arc is the affine interpolation of neighboring inverse entries, hence sharp norm 6 sum_j H(g_j,g_{j+1}); convexity of evaluation kernels ensures no interior output exceeds a knot, and the signed kernel attains it. The infinite kernel has absolute L1 mass exactly 2; periodization yields upper defect <=4q^floor(n/2). Even and odd fixed-width opposite-sign overlap windows yield lower defect >=3(7q−1)/(32sqrt3)*q^floor(n/2)>0, hence all finite Lambda<2 and nth-root defect sqrt(q). Independent exact inversion/segment integration for n=3..18 matched first norms and bounds, finite corroboration only. Assumptions include unit circle, normalized Lebesgue and equally spaced distinct n>=3 nodes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Passenbrunner arXiv:1608.06720 abstract, introduction and Theorem 1.4: uniform L∞ boundedness for arbitrary knot sequences.",
+          "Its result permits vastly wider meshes but only bounds norms uniformly; it does not specify the exact finite uniform-circle constant 6 ΣH or rate of approach to 2 in inspected text.",
+          "Oswald arXiv:math/0611573 discusses general L2 projection stability and dimension effects."
+        ],
+        "reasoning": "The general boundedness theorem applies but does not dominate the numerical values or q^floor(n/2) strict defect. Its localization method is a shared proof technique, not a same-claim theorem.",
+        "searches": [
+          "periodic uniform linear spline orthogonal projection L infinity Lebesgue constant finite circle circulant Gram exponential convergence 2",
+          "https://arxiv.org/pdf/1608.06720",
+          "arbitrary knot periodic spline orthogonal projection L infinity stability sharp bound constant"
+        ]
+      },
+      "checked_sources": [
+        "Passenbrunner arXiv:1608.06720 PDF abstract, Theorem 1.4 and rendered first page",
+        "Oswald arXiv:math/0611573",
+        "Kayumov arXiv:math/0408418",
+        "Resultary semantic query: periodic uniform linear spline orthogonal projection L infinity Lebesgue constant finite circle circulant Gram exponential convergence 2",
+        "Frozen RESULT.md Git blob 517c496cea6397293c2366d5115220c42090c999, check.py blob 6a3d7fe049fa4b5c8b77da3b7d12e357e8beadec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Passenbrunner states a k-dependent upper bound and convergence for periodic splines with arbitrary knots.",
+          "The infinite-line sharp endpoint norm 2 gives only Lambda_n<=2 upon periodization.",
+          "The lower defect uses explicit opposite-sign contributions from two period images for both n parity cases."
+        ],
+        "reasoning": "A theorem that merely controls inverse Gram exponential decay cannot force exact lower defect c q^{floor n/2}; cancellations might be much larger without a sign witness. This quantitative step survives known broad theory as inspected.",
+        "searches": [
+          "periodic uniform linear spline orthogonal projection L infinity Lebesgue constant finite circle circulant Gram exponential convergence 2",
+          "https://arxiv.org/abs/1608.06720",
+          "infinite spline projector linear splines L infinity norm exactly 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent terminology is Lebesgue constant of the periodic L2 linear spline orthoprojector and L1 norm of its nodal reproducing kernel.",
+          "The exact finite row g_j is the periodized Green function for 4I+S+S^{-1}, a standard recurrence."
+        ],
+        "reasoning": "Classical Green kernel formula alone does not evaluate the absolute-value integral after periodization; the sign-cancellation defect is the extra exact object. No indexed equivalent all-n formula located.",
+        "searches": [
+          "periodic uniform linear spline orthogonal projection L infinity Lebesgue constant finite circle circulant Gram exponential convergence 2",
+          "finite periodic piecewise linear spline Lebesgue function circulant Gram matrix sharp norm 2 convergence",
+          "https://arxiv.org/abs/1608.06720"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational values Lambda3=16/9, Lambda4=17/9, Lambda5=257/132, Lambda6=2923/1485 derive from inverse circulant row; independent calculations match.",
+          "No exact finite-n Lebesgue constant table identified in Resultary query, but classical spline literature may have unindexed small-n values."
+        ],
+        "reasoning": "Finite low-n constants alone would not subsume full O(n) formula plus uniform strict bounds and optimal exponential root limit.",
+        "searches": [
+          "periodic uniform linear spline orthogonal projection L infinity Lebesgue constant finite circle circulant Gram exponential convergence 2",
+          "periodic spline Lebesgue constant 16/9 17/9 257/132 2923/1485",
+          "uniform periodic linear spline norm finite n exact"
+        ]
+      },
+      "rationale": "The classical spline Gram recursion and uniform stability estimates are prior knowledge. Passenbrunner 2016/2018 full-text article covers arbitrary-knot periodic orthoprojection with L∞ uniform bound independent of knots and localization, but not the displayed sharp uniform-n formula or strictly positive finite-circle exponential defect in inspected theorem sections. Earlier infinite-line norm=2 is only a limiting value and cannot imply strict finite cancellation or exact q^{n/2} rate. Originality restricted to exact finite-circle constant and sharp defect rate, with possible old circulant finite-element antecedents.",
+      "residual_risks": [
+        "Old circulant Gram and periodic B-spline papers may contain an exact same finite-circle formula under different terminology.",
+        "Source claims only exact q-root exponential rate, not leading asymptotic parity constants or monotonicity in n.",
+        "Whole assigned directory tree SHA not reconstructed; exact task snapshot SHA preserved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General arbitrary-knot boundedness established; exact finite uniform n limit defect not identified in inspected theorem statements.",
+          "evidence": "Abstract proves L∞ bounds independent of knots; Theorem 1.4 general periodic projector.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.06720",
+          "material_read": "First page screenshot inspected; full PDF text extracted and introduction, boundedness theorems including Theorem 1.4, and localization sections compared; not every appendix line separately inspected.",
+          "method": "Lawful arXiv PDF text plus rendered first-page screenshot.",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "Direct general periodic spline L2 orthoprojector"
+        },
+        {
+          "assessment": "Does not settle finite uniform one-dimensional periodic norm from material read.",
+          "evidence": "Oswald studies higher-dimensional lack of uniform stability, contrasts one-dimensional setting.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+          "material_read": "Public abstract and intro-level findings about nonperiodic/high-dimensional stability; not whole primary body.",
+          "method": "Open arXiv abstract/scope comparison.",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Classical linear-spline max-norm stability context"
+        },
+        {
+          "assessment": "Historical general spline work; older exact circulant result not excluded.",
+          "evidence": "Kayumov treats least squares and spline constants.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Public abstract/bibliographic scope, no full new read this execution.",
+          "method": "Open arXiv listing and scientific comparison.",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "History of sharp linear-spline stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Endpoint stability of L² spline projection is a central approximation-theoretic invariant. Computing the entire finite uniformly periodic Lebesgue constant and proving its exact rate of approach to the infinite-mesh norm is a natural complete finite-size problem, useful for quantitative projector stability and testing spline solvers. It is not a gratuitous numerical fragment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Passenbrunner arXiv:1608.06720 PDF abstract, Theorem 1.4 and rendered first page",
+    "Oswald arXiv:math/0611573",
+    "Kayumov arXiv:math/0408418",
+    "Resultary semantic query: periodic uniform linear spline orthogonal projection L infinity Lebesgue constant finite circle circulant Gram exponential convergence 2",
+    "Frozen RESULT.md Git blob 517c496cea6397293c2366d5115220c42090c999, check.py blob 6a3d7fe049fa4b5c8b77da3b7d12e357e8beadec"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Old circulant Gram and periodic B-spline papers may contain an exact same finite-circle formula under different terminology.",
+    "Source claims only exact q-root exponential rate, not leading asymptotic parity constants or monotonicity in n.",
+    "Whole assigned directory tree SHA not reconstructed; exact task snapshot SHA preserved.",
+    "Scientific correctness, originality, value are separate; no formal Lean or expert external attestation claimed.",
+    "Publication not_ready is a confidentiality/guard limitation, not a scientific failure."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The classification follows from the exact recurrence \(F^{n+1}\nu-F^n\nu=r(F^n\nu-F^{n-1}\nu)\). When \(r\ge1\), boundedness of probability measures forces the recurrence increment to vanish, and uniform inverse-preimage averaging then forces Haar. When \(r<1\), total-variation convergence yields an explicitly invertible bijection with deterministic invariant measures. The Wasserstein rate follows from an explicit uniform-grid transport coupling and is of optimal order by a 1-Lipschitz Fourier test. Countable support establishes the total-variation contrast. The exact-fraction checker verifies finite identities only, with the analytic proof carrying the infinite quantifiers.
+## correctness
 
-## Originality
-PASS on inspected evidence, with residual priority risk. Section 4.3 and Proposition 4.11 of Goverse–Kleptsyn (arXiv:2607.11421v1) construct stationary probabilities from doubling-invariant laws in the forward-dominant regime; that construction is prior art and is not claimed as new. Their displayed statements do not assert that these are **all** stationary laws or characterize all Borel stationary laws at and below balance. Homburg–Kalle (arXiv:2207.09987v1) analyze closely related affine expanding/contracting dynamics, but their main classifications concern two-point trajectories and measures, not this complete one-point stationary simplex. Direct equivalence and broader-coverage searches found no matching previously indexed theorem. General renewal or Markov-operator arguments may imply the result after specialization and remain a genuine historical priority risk.
+PASS
 
-## Mathematical value
-PASS. The motivating quotient system already has many constructed stationary measures in the expanding-on-average regime, but the precise boundary between an infinite-dimensional stationary simplex and unique Haar stationarity is a natural unresolved classification question. The explicit inverse map establishes exhaustiveness. The uniform, sharp-order Wasserstein collapse alongside maximal total-variation separation of dense atomic stationary states captures a significant measure-theoretic phase transition not expressed by simply knowing an individual stationary example.
+PASS: Q_b^jδ_x is uniform preimage grid with W1 to Haar≤1/(4b^j), showing Haar is unique Q_b-fixed probability. FQ_b=I and stationarity imply μ_{n+1}-μ_n=r(μ_n-μ_{n-1}), μ_n=F^nν. For r≥1, bounded probability signed variation forces Fν=ν and Qν=ν=Haar; r<1, μ_n TV→F-invariant ρ=(Fν−rν)/(1−r), and ν=(1−r)Σr^jQ_b^jρ. Continuity proves affine homeomorphism, and α=0 separate case. W1 geometric grid coupling≤(1−r)/(4(1−r/b)); 1-Lipschitz cos(2πx)/(2π) on atomic δ0 branch gives lower (1−r)/(2π). Countable b-adic grids yield TV=1 for r<1 and dense support for 0<r<1. Independent rational truncation tests b=2,3,4 and r=0,1/3,2/3 verify geometric residuals; full probability-measure theorem analytical.
 
-## Scientific scope
-Only symmetric uniform inverse branches of an integer circle multiplication map are covered. No physicality, arbitrary nonlinear conjugacy, two-point classification, or transfer to unrelated random systems is asserted. No independent mathematical or literature-priority audit was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: forward geometric series when r<1 is credited to Goverse–Kleptsyn for b=2, but the all-Borel converse simplex homeomorphism, unique Haar on the non-forward-dominated side, and sharp Wasserstein versus total variation boundary profile are not established by the accessible prior material. Full primary Section 4.3 could not be read; qualified best-of-knowledge risk retained.
+
+## value
+
+PASS
+
+PASS: Complete stationary-simplex phase transition for a natural expanding/inverse Markov kernel, with quantitative Wasserstein collapse and persistent total-variation singularity; relevant to physical-vs-abstract stationarity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is reconstructed from the exact covariance operator \(T=I+D^*(\Sigma-I)D\) on the real Hermitian Hilbert space; the identity holds even for singular \(\Sigma\). Differentiating equivariance at every diagonal matrix unit forces each Lie-algebra off-block entry to vanish unless the respective rows of \(\Sigma-I\) agree. Explicit block-trace factorization gives the converse. Normalizing the entire connected block-unitary subgroup forces any disconnected symmetry to permute coordinate blocks, and exact permutation invariance is equivalent to preserving \(\Sigma\). Both necessity and sufficiency and all normalization boundary cases are proved. The finite verification script passed 102 exact-rational checks, but the analytic proof, not the checks, establishes the infinite theorem.
+## correctness
 
-## Originality — PASS, with literature limitations
-The exact matching 2026 primary paper was inspected through its full available HTML text, particularly the model and symmetry definitions, Proposition 2.2, and Remark 2.3(ii). Its theorem requires positive definiteness and excludes \(1\) from the covariance spectrum. Its remarks explicitly leave the exceptional eigenspace case open to further analysis and show two full-unitary special families. The present theorem resolves every exceptional covariance by a row-partition criterion and describes the entire identity component and finite quotient. The prior generic theorem and special full-unitary examples are credited. Targeted web and mathematical-record searches found no directly encompassing formula. A general classical covariance-stabilizer classification might yield the present explicit formula, and literature search is not exhaustive; these are genuine residual novelty risks.
+PASS
 
-## Mathematical value — PASS
-The new result closes an explicit structural classification gap for a natural Gaussian random-matrix model, rather than giving a small parameter variation. It gives a computable characterization of every possible intermediate symmetry group, a precise criterion distinguishing a generic spectrum degeneracy from an actual enlargement, and covers singular diagonal covariance not handled in the source's generic theorem. The block-group dimension and component quotient are useful for symmetry reductions of Gaussian ensembles.
+On the real Hilbert space of Hermitian matrices, normalized circular complex off-diagonal variance1 makes standard GUE covariance the identity, so T=I+D*(Sigma-I)D even when Sigma is singular. A unitary preserves the centered Gaussian law exactly when Ad_U commutes with S=D*A D. Differentiating at skew-Hermitian K and testing E_ii forces K_ab(A_bi−A_ai)=0; therefore its Lie algebra is block diagonal for identical-row classes of A. Block-trace representation S(X)=sum a_ab Tr(P_b X)P_a proves every U(C_a) symmetry. Normalizers of this identity component permute the primitive central block projectors; their coordinate permutations preserve the law iff P Sigma P^T=Sigma. This establishes G=(prod U(C_a)) Aut_perm(Sigma), the component quotient and dimension, and full U(M) iff Sigma=I+b11^T with b>=−1/M. I independently tested general complex Haar block rotations, non-symmetry of cross-block rotations, and an example with eigenvalue1 but distinct rows. Tests are finite corroboration; the compact Lie normalizer proof is unrestricted.
 
-## Limitations and source comparison
-Houdré–Kidonakis (arXiv:2610.12950v1, Proposition 2.2 and Remark 2.3) is the closest primary work. Only distributional conjugation symmetries of the stated independent-off-diagonal Gaussian law are covered. Finite computations support but do not replace proof. Independent literature and mathematical auditing may uncover an equivalent statement not retrieved by the targeted searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same-model primary paper Houdré–Kidonakis 2026 introduces the correlated-diagonal Hermitian ensemble and, according to its cited Proposition2.2/Remark2.3(ii), identifies monomial stabilizers subject to 1 not in the diagonal covariance spectrum; exceptional unit eigenvalues were left outside those hypotheses. This theorem completes their exceptional cases with an *exact row-equivalence* criterion, all continuous connected block groups and disconnected permutations, including singular covariance. Its novelty is qualified: the original primary full text was inaccessible through arXiv/other lawful OA; authorized institutional download returned vpn_disconnected, so source comparison used the available abstract, source package’s exact quoted proposition hypotheses and independent mathematical derivation. A general covariance-stabilizer theorem could already imply the specialization without naming this model.
+
+## value
+
+PASS
+
+The symmetry classification resolves a sharp natural exception of a current correlated-diagonal random matrix ensemble. Eigenvalue1 alone does not enlarge symmetry, whereas identical rows of Sigma−I generate continuous unitary blocks; explicit dimensions, components and singular boundaries enable symmetry reduction for probabilistic and spectral questions. It is a complete classification for all PSD covariance matrices and M>=2, not a routine low-dimensional example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

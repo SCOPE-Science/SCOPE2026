@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T00:03:47.162083Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a complete multipartite graph, deg(v)=N-part_size(v). A defender in another part has sufficient degree exactly if its part is no larger. This yields gamma_st=1 when a singleton exists, =2 when the smallest part m>=2 has multiplicity>=2, and =m when it is unique. Deleting all k singleton parts is uniquely minimal if k>0. Without singletons, single deletions change gamma except at repeated m=3; then deleting two vertices from the same size-three part is necessary and sufficient, yielding 3a minimum pairs. Other eligible singleton deletions are classified by m,a and part sizes m+1. Direct brute force recomputed degrees and all minimizers for 86 part profiles with 3–9 vertices, including K_2,2,2 (6 singletons) and K_3,3,3 (9 pairs). The proof, not the finite tests, covers all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General vertex-deletion bounds are not sharp enough to determine all minimum deletion sets.",
+          "Claimed balanced coverage is false for small explicit profiles under the same definition."
+        ],
+        "reasoning": "No valid broader statement read supplies both the exact threshold and full labeled minimizing family for arbitrary multipartite sizes.",
+        "searches": [
+          "arXiv:2212.01860v1 Theorem 2.1",
+          "arXiv:2601.03891v1 Theorem 2.12"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.03891v1 — Stability of the Strong Domination Number of Graphs",
+        "arXiv:2212.01860v1 — Strong domination number of a modified graph",
+        "DOI:10.22044/JAS.2022.11646.1595 — On the Strong Dominating Sets of Graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum-part multiplicity and the effect of deleting within one part determine gamma_st exactly, including increases/decreases.",
+          "The exception m=3,a>=2 requires a separate complete two-deletion analysis; general single-deletion bounds do not provide it."
+        ],
+        "reasoning": "The new theorem includes a strict classification not inferable from cited valid bounds or the contradictory balanced assertion.",
+        "searches": [
+          "arXiv:2601.03891v1 §2.1",
+          "arXiv:2212.01860v1 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same stability parameter and balanced family are treated in arXiv:2601.03891, but its numerical outcome is incompatible for K222.",
+          "Nearby Resultary super/secure/(3,2) domination on multipartite graphs are distinct domination definitions."
+        ],
+        "reasoning": "The exact original definition was checked; names alone cannot transfer formulas across domination variants or rescue the contradicted balanced formula.",
+        "searches": [
+          "arXiv:2601.03891v1 §2.1",
+          "Resultary semantic: stability strong domination number complete multipartite graph minimum vertex deletion sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Concrete K222: degree of a vertex is four and no universal vertex; after one deletion a surviving singleton is universal, so stability=1.",
+          "The new classification determines all part profiles, not a finite table."
+        ],
+        "reasoning": "A prior formula/table that disagrees with a verifiable small case cannot establish coverage; finite records of other domination parameters are inapplicable.",
+        "searches": [
+          "arXiv:2601.03891v1 balanced sample formulas",
+          "Resultary semantic: multipartite strong domination stability"
+        ]
+      },
+      "rationale": "The January 2026 primary paper studies the SAME stability parameter on balanced multipartite graphs but asserts an incompatible p+1 result for K_{p,p,p}. Already K_{2,2,2} has gamma_st=2 and, after deleting one vertex, gamma_st=1, disproving that assertion under the stated definition. The new theorem proves an exact arbitrary-part classification and every minimizing labeled deletion set; the older general 2022 vertex-deletion bounds cannot imply this. One foundational 2023 article remains incompletely accessible.",
+      "residual_risks": [
+        "Full 2023 foundational strong-domination article not read; other unindexed degree-critical set results may overlap.",
+        "Complete graphs/all-singleton parts are excluded because no proper deletion changes gamma_st.",
+        "Strong domination always recomputes degrees in each induced residual graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Balanced formula contradicts direct degree calculation for K222; not adopted as premise",
+          "evidence": [
+            "https://arxiv.org/abs/2601.03891"
+          ],
+          "identifier_or_url": "arXiv:2601.03891v1",
+          "material_read": "Full available Section 2.1, Theorem 2.12/Remark 2.14 and strong-domination definition",
+          "method": "arXiv primary full-text material",
+          "title": "Stability of the Strong Domination Number of Graphs",
+          "trigger": "identical parameter and balanced complete multipartite family"
+        },
+        {
+          "assessment": "General nonexact bounds do not determine stability and all minimizers",
+          "evidence": [
+            "https://arxiv.org/abs/2212.01860"
+          ],
+          "identifier_or_url": "arXiv:2212.01860v1",
+          "material_read": "Theorem 2.1 bounds on gamma_st(G-v) and stated hypotheses",
+          "method": "available original arXiv text",
+          "title": "Strong domination number of a modified graph",
+          "trigger": "graph vertex deletion effect"
+        },
+        {
+          "assessment": "Possible earlier family characterization not excluded",
+          "evidence": [
+            "https://doi.org/10.22044/JAS.2022.11646.1595"
+          ],
+          "identifier_or_url": "DOI:10.22044/JAS.2022.11646.1595",
+          "material_read": "Bibliographic and limited abstract/first-page material, not full main article",
+          "method": "limited published primary metadata",
+          "title": "On the Strong Dominating Sets of Graphs",
+          "trigger": "early graph strong-domination family investigation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete structural determination of a natural critical vertex-deletion invariant, including a unique exception at repeated minimum-part size three, corrects a prominent contrary assertion and identifies every minimal deletion witness across unbalanced families. The exception and all-set classification have mathematical content beyond an isolated example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2601.03891v1 — Stability of the Strong Domination Number of Graphs",
+    "arXiv:2212.01860v1 — Strong domination number of a modified graph",
+    "DOI:10.22044/JAS.2022.11646.1595 — On the Strong Dominating Sets of Graphs"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 2023 foundational strong-domination article not read; other unindexed degree-critical set results may overlap.",
+    "Complete graphs/all-singleton parts are excluded because no proper deletion changes gamma_st.",
+    "Strong domination always recomputes degrees in each induced residual graph.",
+    "Originality is a documented best-of-knowledge comparison, not exhaustive priority certification.",
+    "All independent experiments have bounded domains and do not replace the all-parameter proofs.",
+    "No protected expert, formal verification or publication attestation is asserted."
+  ],
+  "schema_version": 1
+}

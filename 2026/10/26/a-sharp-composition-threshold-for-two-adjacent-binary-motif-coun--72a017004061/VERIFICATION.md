@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. This execution printed `PASS exact assertions: 31990`.
+## correctness
 
-The checker enumerates every word of each fixed binary composition for all lengths \(6\le n\le13\); directly counts \(001\) and \(010\) at every consecutive start; and compares independently enumerated rational expectations, mixed moments and covariances to the closed forms. It separately checks the original overlap moment identity, the reduced polynomial formula, and the sharp sign and polynomial-slack identities on all admissible grid points with \(1\le a\le80\), \(2\le b\le80\).
+PASS
 
-All arithmetic uses exact Python integers and `fractions.Fraction`; no random draws, floating-point tolerances, or network resources are involved. The finite checks test the implementation and boundary behavior but do not replace the unlimited exact counting argument and sign proof. No separate external validation has been obtained.
+Uniform binary words with a>=1 ones, b>=2 zeros, n=a+b>=6. Each fixed specified configuration with r ones and s zeros has probability (a)_r(b)_s/(n)_(r+s). For the ordered 001/010 window pairs, exactly (n-4)(n-5) disjoint and two compatible overlap families (n-4) length-five 01001 and (n-3) length-four 0010 contribute; other overlaps are incompatible. The resulting mixed moment and subtracting equal mean squared gives Cov=-ab(b-1)P(a,b)/(n²(n-3)(n-2)(n-1)²). For b<=a+1 set v=a-b+1 and positive polynomial coefficients show P>0; for b>=a+2 set v=b-a-2 and negative coefficients show P<0, including the b=2,a>=4 and a=1,b>=5 edge cases. New independent direct word enumeration confirmed 39 complete composition cases 6<=n<=11 and all covariance signs; universal proof rests on finite overlap partition plus polynomial identities, not extrapolation.
+
+## originality
+
+PASS
+
+The full integer-composition positive/negative threshold for the two literal contiguous trigrams and exact rational covariance are assessed original relative to inspected references, not the classical method of counting overlapping motifs or finite-population hypergeometric probabilities.
+
+## value
+
+PASS
+
+The covariance changes sign across a simple exact composition threshold despite equal motif means. This is a natural finite-population joint word-statistic invariant relevant to sequence motif dependence, with no hidden asymptotic condition and no equality cases; its finite overlap geometry and all-composition sign proof are stronger than a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

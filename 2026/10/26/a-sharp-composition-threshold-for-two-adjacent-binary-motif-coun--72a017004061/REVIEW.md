@@ -1,21 +1,21 @@
-# Scientific review: fixed-composition binary trigrams
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion quantifies over every integer \(a\ge1\), \(b\ge2\), \(a+b\ge6\). Uniform sampling without replacement fixes the probability of each finite specified configuration. All \((n-2)^2\) ordered pairs of windows are accounted for by \((n-4)(n-5)\) disjoint pairs, \(n-4\) compatible two-position-shift pairs with union \(01001\), \(n-3\) compatible one-position-shift pairs with union \(0010\), and three incompatible overlap types. Exact algebra gives the printed covariance numerator \(P(a,b)\) and positive denominator. Both nonnegative-slack expansions of \(P\) have rigorous coefficient signs and strict boundary handling, proving a complete sign split and no zero case. Independent enumeration through length thirteen and exact formula checks on a large integer grid passed 31,990 assertions. Those finite tests are not substituted for the unrestricted proof.
+## correctness
 
-## Originality — PASS, with historical-priority uncertainty
-The closest primary-60C05 work by Even-Zohar, Lakrec and Tessler (arXiv:2012.00742, initially posted December 1, 2020) studies the exact same uniform fixed-composition sampling law, but counts **not-necessarily-consecutive subsequences** and derives multivariate spectral and asymptotic covariance facts, not literal adjacent-window counts. Other papers investigate one nonconsecutive subsequence-pattern count in uniformly sampled alphabet words (Mansour–Rastegar–Roitershtein, arXiv:1905.05646), pattern avoidance and Wilf connections (Mansour–Rastegar, arXiv:2102.00443), and pair-pattern avoidance in fixed-multiset permutations, again using nonconsecutive pattern containment (Jelínek–Mansour–Ramírez–Shattuck, arXiv:2111.06185). Their inspected definitions and main results do not state a mixed moment or strict zero/positive/negative phase line for the *consecutive literal* motifs \(001\) and \(010\) conditioned on the complete composition. A published related result gives dependence phases for two-point transition indicators, but its stated information does not determine covariances of three-point motif counts. More general weighted cluster/correlation-matrix methods can calculate joint moments in principle; an unnoticed exact equivalent or implicit special case is a real risk, not excluded by negative searches. The novelty claim is only the exact sharp integer composition boundary and its covariance identity.
+PASS
 
-## Value — PASS
-The two motifs have the same local symbol content and exactly the same expected frequency, yet their dependence changes sign across the sharp threshold \(b=a+2\). In fixed-composition randomization tests, an \(001\) counts a run-boundary with a preceding repeated zero while \(010\) counts an isolated one. Their joint fluctuation is not determined by expected motif frequencies. A complete all-composition strict phase boundary supplies interpretable finite-null dependence structure for these two canonical third-order run/motif statistics. The claim does not assert a general covariance theorem for every binary motif or a new general cluster technique.
+Uniform binary words with a>=1 ones, b>=2 zeros, n=a+b>=6. Each fixed specified configuration with r ones and s zeros has probability (a)_r(b)_s/(n)_(r+s). For the ordered 001/010 window pairs, exactly (n-4)(n-5) disjoint and two compatible overlap families (n-4) length-five 01001 and (n-3) length-four 0010 contribute; other overlaps are incompatible. The resulting mixed moment and subtracting equal mean squared gives Cov=-ab(b-1)P(a,b)/(n²(n-3)(n-2)(n-1)²). For b<=a+1 set v=a-b+1 and positive polynomial coefficients show P>0; for b>=a+2 set v=b-a-2 and negative coefficients show P<0, including the b=2,a>=4 and a=1,b>=5 edge cases. New independent direct word enumeration confirmed 39 complete composition cases 6<=n<=11 and all covariance signs; universal proof rests on finite overlap partition plus polynomial identities, not extrapolation.
 
-## Closest literature and remaining limits
-- C. Even-Zohar, T. Lakrec, R. J. Tessler, 2020, arXiv:2012.00742 (focal primary MSC 60C05; fixed composition, nonconsecutive subwords).
-- T. Mansour, R. Rastegar, A. Roitershtein, 2019, arXiv:1905.05646 (single subsequence-pattern counts; iid alphabet words).
-- T. Mansour, R. Rastegar, 2021, arXiv:2102.00443 (pattern avoidance and permutations).
-- V. Jelínek, T. Mansour, J. L. Ramírez, M. Shattuck, 2021, arXiv:2111.06185 (fixed multiset, nonconsecutive pattern avoidance).
-- A. L. Rukhin, 2010, joint pattern frequencies for Markov text (an overview was accessible; complete text not inspected for this review).
+## originality
 
-The sampling law excludes Markov, iid unconditioned, weighted-word, and arbitrary motif models. The first public version of the focal primary-60C05 paper is December 1, 2020; the 2019 pattern-enumeration paper is older supporting context and is not the focal source. The remaining high-priority historical risk is an implicit extraction of the sign boundary from an existing multivariate pattern-count generating function.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full integer-composition positive/negative threshold for the two literal contiguous trigrams and exact rational covariance are assessed original relative to inspected references, not the classical method of counting overlapping motifs or finite-population hypergeometric probabilities.
+
+## value
+
+PASS
+
+The covariance changes sign across a simple exact composition threshold despite equal motif means. This is a natural finite-population joint word-statistic invariant relevant to sequence motif dependence, with no hidden asymptotic condition and no equality cases; its finite overlap geometry and all-composition sign proof are stronger than a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

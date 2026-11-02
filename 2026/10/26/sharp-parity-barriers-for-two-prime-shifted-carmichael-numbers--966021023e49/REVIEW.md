@@ -1,15 +1,21 @@
-# Review of the parity-sensitive semiprime classification
+# Independent mathematical audit
 
-## Correctness — PASS
-For primes \(p>q>a\), the shifted divisibility is equivalent to \(p-a\mid q-1\) and \(q-a\mid p-1\), because \(\gcd(a,p-a)=\gcd(a,q-a)=1\). Setting \(r=p-a\), \(s=q-a\), and \(c=a-1\), the exact parameter equations \(s+c=ur\), \(r+c=vs\) give the unique rational formulas with positive denominator \(uv-1\). Conversely, their integer solutions restore both divisibilities. The separate parity argument forces even \(u,v\) when \(a\) is even. Monotonicity of \((v+1)/(uv-1)\) gives sharp universal bounds, with prime examples attaining equality. The included finite verifier confirms 99 independent parameter instances but is not used to prove the infinite statement.
+## correctness
 
-## Originality — PASS with residual risk
-Wright (arXiv:2607.02738, first posted 2026-07-02) studies the same shifted Carmichael condition but proves conditional abundance and prescribed-GCD results by constructions with many prime factors. The inspected primary introduction, main theorems and proof do not state this finite two-prime parametrization or the sharp odd/even bound. Zheng's earlier \((-1,1)\)-Carmichael work uses a different ordered pair of shifts and is documented here at abstract level only. Searches of published records, known Carmichael tables, and related archived number-theory results did not identify an equivalent statement; however, search absence does not prove priority. The familiar modular reduction is shared background, not claimed as the contribution.
+PASS
 
-## Mathematical value — PASS
-The least nontrivial factor-support case for the generalized Korselt condition behaves differently from ordinary Carmichael numbers: squarefree two-prime examples can occur but only below a *sharp shift-dependent linear barrier*. The complete integer-parameter bijection makes that branch decidable for every shift, while the parity split quantifies a genuine structural restriction (a factor of \(5/7\) for even shifts versus \(3\) for odd shifts when normalized by \(a-1\)). The two sharp examples demonstrate the optimality of the bounds. This distinguishes the rank-two branch from the many-prime asymptotic constructions without claiming results for smaller prime factors or for arbitrary squarefree integers.
+For distinct primes p>q>a>=2, gcd(a,p-a)=gcd(a,p)=1 and likewise for q, so the definition p-a|pq-a reduces to p-a|q-1. Set r=p-a, s=q-a, c=a-1; r>s>0 and r|(s+c), s|(r+c). Unique u=(s+c)/r, v=(r+c)/s satisfy 1<=u<v and with d=uv-1>0 give r=(v+1)c/d and s=(u+1)c/d. Conversely any such integer u,v giving prime a+r,a+s satisfies both congruences. From s>=1, v<=c+(c+1)/u<=2c+1, so the parameter search is finite. If a even, r,s,c odd and u,v even. The rational ratio (v+1)/(uv-1) decreases with either variable, maximizing at (u,v)=(1,2) without parity or (2,4) under even parity. Thus p<=4a-3 if a odd and p<=a+5(a-1)/7 if even. Exact equality witnesses (a,p,q)=(11,41,31),(8,13,11) are prime and satisfy both divisibilities. Independently enumerated all primes for 79 shifts 2..80 and matched all 133 parametrized pairs; finite agreement is supportive, not the all-a proof.
 
-## Closest literature and limitations
-Wright, *\((a,a)\)-Carmichael numbers and greatest common divisors of \(p-a\)* (arXiv:2607.02738, 2026) is the closest source; Zheng (arXiv:2207.08641) is earlier nomenclature for a different shift pair. The prime factors must be distinct and larger than \(a\). The proof is unconditional, but bibliographic completeness cannot be guaranteed; the earlier Zheng paper was not inspected in full and absence of a matching record was not treated as a proof of uniqueness. No independent audit or certification was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized shifted-Korselt definition is prior work; the displayed two-prime parameter bijection and sharp parity-restricted largest-prime thresholds are a distinct finite prime-support classification absent from the materially reviewed Wright and Zheng theorems. The modular reduction itself is elementary and is not claimed to be novel. A possible older k-Korselt semiprime parametrization is a significant priority risk.
+
+## value
+
+PASS
+
+The prescribed two-prime support is the first nontrivial compositeness case for shifted Carmichael divisibility and is naturally contrasted with the ordinary (1,1) condition, for which semiprimes are impossible. A complete finite parameterization and parity-sharp global size bounds for all shifts are useful as structural classification and an algorithmic sieve; motivation is not dependent on large computational tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

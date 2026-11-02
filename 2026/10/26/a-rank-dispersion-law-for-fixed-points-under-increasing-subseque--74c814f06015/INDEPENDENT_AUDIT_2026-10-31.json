@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:09:35.691193Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform permutation, n>=2, 2<=k<=n, nonconsecutive increasing position-subsequences. For a fixed point at i, a k-subset avoiding i retains probability 1/k!, while a subset with rank r at i contributes K_{i,r}^2/(n-1)_(k-1) after conditioning. Vandermonde gives q_{i,r}=K/B with sum_r q=1; subtract B/k! and multiply by P(pi(i)=i)=1/n to obtain the exact nonnegative sum of squares. Strict log-concavity excludes uniform q for k>=3; k=2 is zero only at the median position when n is odd. Summation gives the global covariance, and division by E Z=binom(n,k)/k! gives size-biased E F. Fixed-k beta-integral and central binomial convolution prove the displayed asymptotic. Independently enumerated all permutations n=2..7, 112 exact labeled (n,k,i) comparisons, with all zero cases; checked all seven source-tree entries and independently reconstructed the complete 7-blob tree SHA. The exhaustive check is not the proof for arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinsky controls Z second moments, not the F–Z cross-moments.",
+          "The Resultary fixed-point/descent result concerns adjacent descents, not nonconsecutive increasing subsequences of arbitrary length."
+        ],
+        "reasoning": "Neither a bound on Var(Z) nor the existing fixed-point/descent covariance forces the exact rank-dependent sign/zero profile.",
+        "searches": [
+          "Pinsky 2006 increasing subsequence LLN and size-bias",
+          "Diaconis–Evans–Graham 2013 unseparated pairs and fixed points",
+          "Resultary fixed-point-descent dependence query"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0407353",
+        "https://arxiv.org/abs/2301.00125",
+        "Lifschitz–Pittel 1981 JCTA 31:1–20 (metadata)",
+        "Resultary fixed-point descent/fixed composition searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E Z and size-biased mu are antecedents, but they do not specify E[F Z] or determine each labeled local covariance.",
+          "The beta-integral asymptotic uses the new rank vector q, not Pinsky’s second-moment summand."
+        ],
+        "reasoning": "Prior tools could be adapted to derive a cross-moment, but no inspected prior theorem directly states or implies the complete strict local zero classification without additional work.",
+        "searches": [
+          "arXiv:math/0407353v2 Proposition/definition comparisons",
+          "arXiv:2301.00125 Hossein–Starr second-moment generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky (2006), arXiv:math/0407353v2, eq. (1.1) and (1.3) introduces the same Z and size-biased mu but studies total variation and Var(Z).",
+          "Independent conditioning yields local Cov(1_{pi(i)=i},Z) as squared rank dispersion, not a second moment of Z."
+        ],
+        "reasoning": "The measure itself is equivalent; the local mixed fixed-point observable is not equivalent to the variance or total-variation statements and requires a distinct conditioning argument.",
+        "searches": [
+          "Resultary: fixed points increasing subsequences random permutation size-biased covariance rank distribution Pinsky",
+          "arXiv:math/0407353v2 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact fixed-point/increasing-subsequence table was identified in the retrieved Resultary records.",
+          "Lifschitz–Pittel 1981 concerns the number of increasing subsequences, with full text unavailable in this review."
+        ],
+        "reasoning": "A mathematical identity, not a finite database assertion; no search-result absence establishes priority. Possible older unindexed mixed moments remain a residual risk.",
+        "searches": [
+          "Resultary semantic query for fixed-point vs nonconsecutive increasing-subsequence mixed moments",
+          "Lifschitz–Pittel 1981 JCTA bibliographic search"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty is the exact local fixed-point / increasing-subsequence cross-moment, nonnegative hypergeometric rank-dispersion decomposition, unique local cancellation and explicit fixed-k asymptotics, not the size-biased measure or standard permutation first/second moments.",
+      "residual_risks": [
+        "Full 1981 Lifschitz–Pittel text not inspected; an earlier mixed-moment formula may be implicit.",
+        "No independent stochastic domination of full F distribution is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANTECEDENT, not direct coverage of labeled fixed-point covariance",
+          "evidence": "arXiv:math/0407353v2 eq. (1.1), size-biased measure; abstract second-moment law.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407353",
+          "material_read": "Abstract, Introduction pp.1–4 including equations (1.1) and (1.3), statement and second-moment discussion",
+          "method": "Primary arXiv PDF text plus visual page inspection",
+          "title": "Law of large numbers for increasing subsequences of random permutations",
+          "trigger": "Exactly same increasing-subsequence variable and same size-biased law"
+        },
+        {
+          "assessment": "POTENTIAL_UNREAD_ANTECEDENT, not adjudicated as noncoverage",
+          "evidence": "Cited in original record; no whole-document exclusion made.",
+          "identifier_or_url": "Lifschitz–Pittel, JCTA 31 (1981), 1–20",
+          "material_read": "Bibliographic title and publication metadata; full article not read",
+          "method": "Public search/reference citation only",
+          "title": "The Number of Increasing Subsequences of the Random Permutation",
+          "trigger": "Earlier same-object original study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local covariance nonnegativity and exact exceptional median cancellation describe how a canonical size-bias changes another natural permutation statistic. The complete arbitrary-n identity and fixed-k leading constant are independent useful cross-dependence invariants; a researcher studying permutation change of measure can use the precise formula, not merely a generic second-moment bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0407353",
+    "https://arxiv.org/abs/2301.00125",
+    "Lifschitz–Pittel 1981 JCTA 31:1–20 (metadata)",
+    "Resultary fixed-point descent/fixed composition searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic only for fixed k, no full stochastic domination or k-growing regime.",
+    "Independent finite enumeration through n=7 corroborates but does not certify infinite theorem.",
+    "Lifschitz–Pittel primary full text unavailable; historical priority qualified."
+  ],
+  "schema_version": 1
+}

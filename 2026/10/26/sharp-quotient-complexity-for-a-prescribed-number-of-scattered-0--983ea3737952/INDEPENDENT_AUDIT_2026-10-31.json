@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:03:27.784329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The concatenation identity c01(uv)=c01(u)+z(u)#1(v)+c01(v) derives from partitioning ordered 0-before-1 pairs into left, right and cross-boundary pairs. Every reachable nondead quotient for fixed k has form R(a,t)={v:a#1(v)+c01(v)=t} with a=z(u), t=k-c01(u); any a>=1,0<=t<=k is reached by u=0 1^(k-t) 0^(a-1), and a=0 yields the initial quotient. Collapses: R(a,0)=0*, and 0<t<a is empty. For a<=t<2a, quotient is uniquely 0^(t-a) 1 0*, giving ceil(k/2) distinct single-one quotients. For 1<=a<=floor(t/2), 1<=t<=k, the two successful exponent tests 0^j1 and 1 0^j1 determine j=t-a and j=t-2a, hence determine a,t; this contributes sum_{t=1}^k floor(t/2)=floor(k²/4) multi-one quotients. Initial quotient and 0* and dead are pairwise distinct, including k=0 initial 1*0*, so Myhill–Nerode gives 3+floor((k+1)²/4). Independently built the full saturated counting DFA and minimized it by fresh partition refinement for k=0..34, matching every count; that is bounded confirmation of the exact quotient proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brzozowski–Davies–Madan 2018 Section 6 treats existence of a subsequence from a pattern language, without fixed embedding multiplicity.",
+          "Bruda 2026 Theorem 1.4 proves eventual polynomiality of fixed-length counts B_p(n,k), not minimal all-length DFA size.",
+          "Fazekas–Huang–Mercaş 2026 analyzes existence and universality in classes with prescribed |w|a, |w|b, |w|ab."
+        ],
+        "reasoning": "These are related but non-dominating parameters. The language-level union is regular by bounded counting, yet its exact Myhill–Nerode quotient count does not follow from finite-length enumerators or existence-of-pattern bounds.",
+        "searches": [
+          "Resultary: minimal DFA states exact k scattered subsequence 01 language Myhill Nerode quotient complexity",
+          "Resultary: exact number scattered subsequences 01 k Parikh matrix quotient automaton regular language",
+          "Web: exactly k 01 subsequences DFA states quotient complexity",
+          "arXiv:1806.04645",
+          "arXiv:2306.07870",
+          "arXiv:2607.02578",
+          "arXiv:2610.06717",
+          "Resultary: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "checked_sources": [
+        "Brzozowski–Davies–Madan 2018 full primary PDF Section 6, screenshot p.1",
+        "Bruda 2026 arXiv:2607.02578 full lawful text, Theorems 1.4/1.8",
+        "Fazekas–Huang–Mercaş 2026 arXiv:2610.06717 accessible full HTML",
+        "Menon–Singh 2023 arXiv:2306.07870 abstract and cited discussion",
+        "Resultary published binary subsequence universality (not same invariant)",
+        "Independent complete DFA minimization k0..34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2018 State Complexity of Pattern Matching Theorem in Section 6 bounds shuffle/subsequence existence complexity, not exact-k embeddings.",
+          "2026 Parikh matrix Theorem results on all words sharing A,B,C constrain subsequence universality but not their union L_k state complexity.",
+          "Bruda 2026 polynomial B_p(n,k) for fixed n does not directly determine pairwise right-quotient equivalences."
+        ],
+        "reasoning": "None of these prior theorems yields the claimed lower bound, which needs the explicit two test-word families distinguishing each remaining (a,t) quotient.",
+        "searches": [
+          "Resultary: minimal DFA states exact k scattered subsequence 01 language Myhill Nerode quotient complexity",
+          "Resultary: exact number scattered subsequences 01 k Parikh matrix quotient automaton regular language",
+          "Web: exactly k 01 subsequences DFA states quotient complexity",
+          "arXiv:1806.04645",
+          "arXiv:2306.07870",
+          "arXiv:2607.02578",
+          "arXiv:2610.06717",
+          "Resultary: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting 01 scatterings is exactly the off-diagonal entry |w|_ab of the binary Parikh matrix (Fazekas–Huang–Mercaş 2026, §2).",
+          "Fazekas et al. study L_{A,B,C} with all three entries fixed, whereas L_k fixes only C=k and permits arbitrary A,B; L_k is an infinite union of their finite classes."
+        ],
+        "reasoning": "The Parikh-matrix formulation is equivalent as a statistic, but the 2026 paper does not compute minimal DFA size for that union or its right quotients.",
+        "searches": [
+          "Resultary: minimal DFA states exact k scattered subsequence 01 language Myhill Nerode quotient complexity",
+          "Resultary: exact number scattered subsequences 01 k Parikh matrix quotient automaton regular language",
+          "Web: exactly k 01 subsequences DFA states quotient complexity",
+          "arXiv:1806.04645",
+          "arXiv:2306.07870",
+          "arXiv:2607.02578",
+          "arXiv:2610.06717",
+          "Resultary: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published word universality finding 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 computes a different statistic.",
+          "Bruda 2026 and Menon–Singh 2023 enumerate B_p(n,k) by word length, not complete DFA states.",
+          "No exact prior table with 3+floor((k+1)²/4) was identified by actual Parikh-matrix/DFA searches."
+        ],
+        "reasoning": "There is no identified exact DFA table covering all k; finite counts are distinguishable because DFA minimization optimizes infinitely many continuations.",
+        "searches": [
+          "Resultary: minimal DFA states exact k scattered subsequence 01 language Myhill Nerode quotient complexity",
+          "Resultary: exact number scattered subsequences 01 k Parikh matrix quotient automaton regular language",
+          "Web: exactly k 01 subsequences DFA states quotient complexity",
+          "arXiv:1806.04645",
+          "arXiv:2306.07870",
+          "arXiv:2607.02578",
+          "arXiv:2610.06717",
+          "Resultary: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "rationale": "Fixed scattered-subsequence frequency is classical, and recent authors study exact word counts or binary Parikh-matrix classes. The claimed invariant is the exact minimal complete automaton state count of the all-length language with c01=k, not the number of finite words, the universality index, or the existence of at least one subsequence. Four materially compared works on those adjacent parameters do not imply the stated quotient formula; a potential unindexed automata note remains a risk.",
+      "residual_risks": [
+        "Potential automata-theory literature on inversion-count languages/Parikh matrix sets may already have equivalent quotient formula under a different title.",
+        "Only pattern 01 is classified; longer words and variable input k are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts complexity of existential subsequence matching in regular languages, not equality to a prescribed number of embeddings.",
+          "evidence": "Section 6 upper bound for words containing at least one matching subsequence in pattern language.",
+          "identifier_or_url": "https://www.dgp.toronto.edu/~amadan/matching-tcs.pdf",
+          "material_read": "Full publicly available PDF: introduction and subsequence matching Section 6, including theorem statements and associated proofs; visually checked first PDF page with screenshot.",
+          "method": "Opened PDF text lines 0–190 and 770–910, screenshot of p.1, compared precise input/quantifiers.",
+          "title": "State Complexity of Pattern Matching in Regular Languages",
+          "trigger": "Could directly dominate state complexity for scattered patterns"
+        },
+        {
+          "assessment": "Fixed-length enumeration eventual-polynomial theorem and run bounds; no material theorem about minimizing an all-length c01=k DFA.",
+          "evidence": "Theorem 1.4 controls B_p(n,k) for n sufficiently large; Theorem 1.8 bounds maximum subsequence occurrences via run length parameters.",
+          "identifier_or_url": "https://www.researchgate.net/publication/408521949_Enumerating_binary_words_restricted_by_subsequence_frequency",
+          "material_read": "Full lawful author-uploaded article: introduction, Theorem 1.4, proof of counting polynomial, Theorem 1.8 and further-work Section 4.",
+          "method": "Read primary ResearchGate rendered text lines 42–90, 220–400 and 2020–2180.",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "New 2026 full text for exactly k subsequences, highly relevant"
+        },
+        {
+          "assessment": "Precisely same scattered pair statistic but fixes both letter counts as well and studies subsequence universality, not complete DFA quotient size.",
+          "evidence": "Eq.(2) defines L_{A,B,C}; main theorems bound universality and pattern occurrence probability.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Full accessible arXiv HTML: introduction, formal definition L_{A,B,C} in §2, main existential/universal universality results and discussion; source dated October 5 2026.",
+          "method": "Read arXiv HTML lines 0–60 and relevant theorem discussion lines 70–300.",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same c01 count and binary Parikh matrix equality, plausible dominating result"
+        },
+        {
+          "assessment": "Known k<=4 fixed-length counts, not evidence of exact all-k minimal automaton complexity.",
+          "evidence": "Bruda introduction explicitly identifies prior fixed-length enumeration by Menon and Singh.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+          "material_read": "Primary arXiv abstract and references from subsequent full papers; full text not inspected in this run.",
+          "method": "Read bibliographic abstract and Bruda introduction discussion.",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Original frequency enumeration potentially matching L_k"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The language L_k is canonical for subsequence multiplicity, and the minimum COMPLETE DFA size directly measures optimal streaming memory required for exact recognition for each fixed k. A complete Myhill–Nerode classification with a sharp quadratic law and exact floor correction is an independently useful state-complexity invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Brzozowski–Davies–Madan 2018 full primary PDF Section 6, screenshot p.1",
+    "Bruda 2026 arXiv:2607.02578 full lawful text, Theorems 1.4/1.8",
+    "Fazekas–Huang–Mercaş 2026 arXiv:2610.06717 accessible full HTML",
+    "Menon–Singh 2023 arXiv:2306.07870 abstract and cited discussion",
+    "Resultary published binary subsequence universality (not same invariant)",
+    "Independent complete DFA minimization k0..34"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete binary DFA, including dead state; scattered rather than consecutive occurrences.",
+    "Finite automaton tests k<=34 corroborate, whereas proof by right quotients covers every k>=0.",
+    "Potential automata-theory literature on inversion-count languages/Parikh matrix sets may already have equivalent quotient formula under a different title.",
+    "Only pattern 01 is classified; longer words and variable input k are outside scope."
+  ],
+  "schema_version": 1
+}

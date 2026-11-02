@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible checks
-The attached standalone `verify_degree_projection.py` constructs reduced graph Laplacians, inverts them using Python's exact `fractions.Fraction`, forms full cut and cycle projectors, and checks their algebraic properties and the stated local/global inequalities.
+# Independent mathematical audit
 
-Executed command: `python3 verify_degree_projection.py`.
+## correctness
 
-Observed output:
-```
-PASS exact rational graphs= 74 columns= 635
-PASS K4 equality and K5 sharp reversal, local twin resistance equality
-```
+PASS
 
-Configurations include complete graphs, cycles, paths, stars, books, generalized Petersen graphs, and deterministic pseudorandom connected graphs. Exact integer/rational computations do not establish general graph assertions: the proof for every graph is the separate Dirichlet variational argument plus the complementary-column identity in `RESULT.md`. The checker makes no claims about independent audit, completeness of a literature search, or optimized nonorthogonal projections.
+PASS: Q=B^TL^+B symmetric idempotent and Qee=R_e, C=I-Q; off-diagonal columns have equal absolute entries, so q_e-c_e=2R_e−1. Dirichlet trial potential 1/2 outside endpoints gives R_e≥4/(p+q+2)≥2/(Δ+1); endpoint-degrees-optimized constant t gives R_e≥(p+q−2)/(pq−1). Exterior harmonicity at equality requires common or neither neighbors; for p,q≥2 forces p=q adjacent true twins. Bridges saturate separately. Complete K_(Δ+1) has constant column sums Q=2Δ/(Δ+1), C=3(Δ−1)/(Δ+1), saturating. Independent exact rational K5 gap -1/5, K4 0, path/star 1 and C4 1/2.
+
+## originality
+
+PASS
+
+PASS, strongly qualified. The two resistance lower bounds are exactly pre-existing Theorem 3.9 of De Loera et al. and straightforwardly imply a numerical lower bound after the elementary Q/C column identity; no novelty is asserted for that electrical input. The surviving distinct statement is its sharp complementary operator-norm comparison across arbitrary graphs and the equality characterization of the local bound via exterior harmonicity, neither found in inspected prior statements. This is a narrow algebraic corollary rather than an independent new electrical theorem.
+
+## value
+
+PASS
+
+PASS, narrow structural value: gives sharp uniform endpoint comparison of complementary cut/cycle projections and the first maximum-degree sign reversal; the equality-in-local-degree-bound criterion by true twins is a complete natural structural saturation statement. The headline inequality is short once prior resistance estimates are imported, so value is modest rather than a new resistance theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

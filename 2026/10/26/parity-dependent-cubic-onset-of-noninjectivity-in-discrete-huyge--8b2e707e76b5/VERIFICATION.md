@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Analytical obligations
+## correctness
 
-The exhaustive first singular locus follows from simultaneous equality in a symmetric Rayleigh chain on the sum-zero tangent hyperplane and the Fourier top-eigenspace support properties. The two odd-frequency basis functions cannot share two distinct zeros on an odd ring. At every critical configuration, the one-dimensional nullspace and the orthogonal complement give an analytic Lyapunov–Schmidt reduction with strictly positive cubic coefficient. The nontrivial inverse branches are roots of an analytic equation in squared amplitude. These analytic arguments, not computation, cover all \(n\ge3\).
+PASS
 
-## Reproducible finite checks
+On the sum-zero torus E, the derivative I+hK diag(cos z) is singular first when Rayleigh equality selects the top cycle eigenspace and the corresponding highest-frequency eigenvector vanishes wherever cos z>-1. For even n the top eigenvector is alternating and nonzero everywhere, giving only all pi; for odd n any top eigenvector has at most one zero, so closure forces exactly one zero phase among pi entries and n cyclic positions. Both have one-dimensional nullity. The analytic odd Lyapunov–Schmidt reduction gives cubic coefficient sum_i w_i^4/6=1/(6n) even or 1/(4n) odd and three near-critical preimages at amplitudes ±sqrt(6n mu), ±sqrt(4n mu) plus O_n(mu^(3/2)). Uniform all n>=3 follows analytically. Independent eigenvector checks n=3..16 had <1e-10 residual, not proof of all n.
 
-Run `python checks/verify.py` after installing `checks/requirements.txt`. The script verifies the phase closure, Laplacian eigenpairs and critical nullity, fourth-power sums, transverse invertibility, and three solutions of the full lifted preimage equation. It covers lengths \(3\le n\le15\) and parameters \(\mu\in\{0.005,0.015\}\) with a least-squares root correction in the actual codimension-one transverse space. The program completed with `VERIFY_OK` in the stated run. Floating-point tolerances and the bounded length range prevent the tests from constituting universal certificates; the mathematical proof is independent of them.
+## originality
 
-## Limitations
+PASS
 
-The tested local roots do not establish the global number of preimages or behavior for large \(h\). Exact symbolic coefficients and the existence of the local branches are established analytically. This verification did not involve an independent scientific audit.
+The 2026 Huygens-ring paper provides the map and sufficient diffeomorphism interval and explicitly treats an even-cycle sharpness case. Odd-cycle first singular set and analytic cubic inverse branching appear additional on the available result statements. The highly plausible paper full texts remained unavailable, preventing a categorical exclusion of an implicit/general theorem; accepting O is qualified best-of-knowledge, not certification.
+
+## value
+
+PASS
+
+The parity-sensitive exact first failure of local invertibility and explicit cubic bifurcation branches solve a motivated boundary of an established discrete ring model, including odd-cycle closure constraints absent on trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

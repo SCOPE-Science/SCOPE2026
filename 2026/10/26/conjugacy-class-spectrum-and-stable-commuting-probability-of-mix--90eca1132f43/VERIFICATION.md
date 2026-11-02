@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the conjugacy-class census
+# Independent mathematical audit
 
-The proof reduces equality of products of two automorphisms to the three necessary and sufficient residue-field equations in RESULT.md. Its cases distinguish a nonzero diagonal residue difference, a zero difference with nonzero off-diagonal vector, and a zero difference with a zero vector. Direct calculation gives centralizers of orders \((p-1)^2p^{b-1}\), \((p-1)p^b\), and \((p-1)^2p^{b+1}\), respectively; dividing the group order by these numbers gives the class sizes. Counting every element in each case yields the displayed complete distribution.
+## correctness
 
-Run `python3 check_aut_classes.py` with Python 3 and no third-party packages. The checker enumerates all automorphism matrices and all their centralizers under genuine modular multiplication in seven parameter pairs, checks the distribution of **elements** across class sizes, and verifies the resulting class counts. The final marker is `AUT_CYCLIC_MIXED_CLASS_EQUATION_OK`. It does not certify untested parameters; those follow from the written proof. No independent mathematical audit has been performed.
+PASS
+
+Every automorphism of C_p⊕C_(p^b), b≥2, has unique constrained mixed-modulus matrix [[a,u],[p^(b-1)v,d]] with a, d mod p nonzero. Multiplication modulo p and p^b gives three necessary and sufficient commutation equations xu’=x’u, xv’=x’v and vu’=v’u, x=a-d mod p. Cases x≠0, x=0 with (u,v)≠0, and x=u=v=0 give respectively centralizer sizes (p-1)²p^(b-1), (p-1)p^b and |G|=(p-1)²p^(b+1). Counting elements and dividing by class sizes yields exactly the table 1:(p-1)p^(b-1), p(p-1):(p²-1)p^(b-2), p²:(p-1)(p-2)p^(b-1). Then k=(p-1)(p²+1)p^(b-2) and cp=k/|G|=(p²+1)/(p³(p-1)), independent b. The last class type correctly vanishes for p=2. Independent exhaustive pair commutation tests on four small groups (p,b)=(2,2),(2,3),(3,2),(5,2) confirmed the element distributions; the all-parameter classification rests on the three equations.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge finding after an actual Resultary query, targeted primary-literature comparison, and an implication-level review of the submitted theorem. Specific same-object access restrictions and broader historical-priority risks remain in source_inspections and residual_risks. No failed search alone is treated as proof of novelty.
+
+## value
+
+PASS
+
+A complete conjugacy-class size and multiplicity distribution is a standard natural group invariant. The stable commuting probability across increasing cyclic exponents captures a non-obvious feature of an infinite automorphism-group family, beyond the already known group order and fixed-point enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

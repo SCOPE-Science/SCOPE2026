@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:06:07.926365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For uniform spanning tree T of labelled K_{a,b}, sum of B-side degree excess is a−1, so at most a−1 B-vertices are nonleaves and removing all other B leaves gives a unique connected acyclic skeleton on A and the core. Conditional on this exact skeleton, all omitted B vertices attach independently and uniformly to one of a A-neighbors. For two independent trees, union of core B labels has size r<=2(a−1); the b−r double leaves contribute independent Bernoulli(1/a) overlaps, independent of all core overlap conditional on skeletons. For b>=2a−2 factor out Bin(b−2a+2,1/a) from every conditional PGF, leaving a mixture with nonnegative coefficients; maximal total overlap a+b−1 bounds residual degree by 3(a−1). For K_{3,n}, I/II skeleton types of a 3-star or two 2-stars are exhaustive. Enumeration by core sharing and edge overlap gives the stated Q_n(t) nonnegative correction polynomial, exact edge-disjoint ordered pair count and mean/variance. Independent direct tree enumeration matches full polynomial at n=4,5: 432 and 2025 spanning trees, 186624 and 4100625 ordered pairs, and zero-overlap counts 216 and 6480.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited general forest-completion method concerns single-tree conditioning on an external prescribed forest, not the overlap law of two independent sampled trees with explicit nonnegative correction coefficients."
+        ],
+        "reasoning": "Generic enumeration tools could in principle reproduce pieces but no inspected stronger statement implies the finite decomposition and explicit K3n polynomial without derivation.",
+        "searches": [
+          "arXiv:2501.18570v4 section 5",
+          "arXiv:2103.05294 complete bipartite forest-containing counts",
+          "arXiv:2602.03602 multipartite forest counting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.18570v4",
+        "arXiv:2103.05294",
+        "arXiv:2602.03602",
+        "Resultary K3n spanning tree overlap semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Core degree-sum identity yields a unique skeleton plus uniform leaf attachments; conditioning on a pair gives exact independent Bernoulli factor; direct enumeration of two I/II skeletons yields Q_n."
+        ],
+        "reasoning": "These additional structural steps establish finite nonnegative factorization, not a mere parameter substitution into the approximate-binomial theorem.",
+        "searches": [
+          "Bóna Burghart Wagner 2026 fixed-side observation",
+          "Dong Ge prescribed forest theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bóna/Burghart/Wagner note approximate binomial fixed-side behavior; Dong/Ge count extensions containing prescribed forests."
+        ],
+        "reasoning": "Asymptotically close to binomial is much weaker than exact nonnegative-PGF factorization for every admissible b, and forest-containing counts require additional weighted summation to yield pair overlap.",
+        "searches": [
+          "Resultary: complete bipartite K3n two independent uniform spanning trees overlap common edge distribution exact binomial polynomial",
+          "arXiv:2501.18570v4",
+          "arXiv:2103.05294"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known complete bipartite total tree count is n^2 3^{n−1}; inspected papers do not tabulate Q_n or 9n(n−1)(n−2)(n−3)6^{n−4} ordered zero-overlap pairs."
+        ],
+        "reasoning": "General tree-count tables and asymptotic overlap limits do not directly determine the full exact probability generating polynomial.",
+        "searches": [
+          "Resultary K3n common tree edge law",
+          "Bóna et al sections 4-5 for overlap distributions",
+          "Dong Ge enumerations"
+        ]
+      },
+      "rationale": "PASS, qualified: Bóna, Burghart and Wagner (2026, full paper section 5) establish asymptotic/approximately binomial overlap for fixed small side, not exact finite semiring divisibility or explicit K_{3,n} distribution. Dong and Ge give a generic count of spanning trees containing a fixed forest; extracting an exact common binomial factor and positive residual from pairs is not an immediate stated corollary. The exact Q_n polynomial and ordered disjoint-tree census are specialized novel content relative to inspected originals. Possible unindexed exact enumeration remains a risk.",
+      "residual_risks": [
+        "An exact overlap polynomial might be derivable from an older edge-disjoint spanning-tree packing enumerator not indexed in searched sources.",
+        "General a theorem only asserts existence of a residual probability law, not its explicit coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_RELATED_ASYMPTOTIC_PRIOR",
+          "evidence": "For fixed smaller bipartition the overlap is described as approximately binomial; full exact independent binomial core and correction polynomial are not supplied by that statement.",
+          "identifier_or_url": "https://arxiv.org/html/2501.18570v4",
+          "material_read": "Full 17-page open version including section 5 paragraph on complete multipartite graphs, exact vs approximate binomial discussion and limiting laws.",
+          "method": "Lawful OA arXiv HTML, primary full text and inspected PDF screenshot",
+          "title": "On the intersection of pairs of trees",
+          "trigger": "same random-tree overlap variable and fixed-small-side complete bipartite case"
+        },
+        {
+          "assessment": "GENERAL_COUNTING_TOOL",
+          "evidence": "Counts completions containing a specified forest. Does not directly state exact pair-overlap PGF factorization or ordered edge-disjoint count.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "Primary article abstract, main forest-count problem and identity descriptions, not a proven whole-document absence of every corollary.",
+          "method": "ArXiv source inspection",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "plausible dominating enumeration of pairs via conditioning on fixed intersection"
+        },
+        {
+          "assessment": "POTENTIAL_GENERAL_TOOL",
+          "evidence": "General forest-extension theorem does not expressly identify the required finite pairwise overlap distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.03602",
+          "material_read": "Main statement/abstract on prescribed forest completion in multipartite graphs.",
+          "method": "Primary abstract and scope inspection",
+          "title": "On enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+          "trigger": "generalization of previous forest-count framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact positive binomial-factor extraction is a natural structural feature of uniform spanning-tree intersections on bipartite graphs; an explicit K_{3,n} overlap law and ordered tree-packing census are reusable finite exact invariants, not a recomputed single small case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2501.18570v4",
+    "arXiv:2103.05294",
+    "arXiv:2602.03602",
+    "Resultary K3n spanning tree overlap semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The independent factor requires a>=2 and b>=2a−2; explicit Q_n is only for a=3 and n>=4.",
+    "Ordered pairs of labelled uniform independent trees, not general weighted tree models.",
+    "An exact overlap polynomial might be derivable from an older edge-disjoint spanning-tree packing enumerator not indexed in searched sources.",
+    "General a theorem only asserts existence of a residual probability law, not its explicit coefficients."
+  ],
+  "schema_version": 1
+}

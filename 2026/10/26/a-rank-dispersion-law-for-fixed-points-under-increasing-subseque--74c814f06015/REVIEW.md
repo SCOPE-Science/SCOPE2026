@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses a uniform permutation and all nonconsecutive increasing subsequences of each length \(2\le k\le n\). Conditioning on \(\pi(i)=i\), a subsequence avoiding \(i\) retains increasing probability \(1/k!\). A subsequence containing \(i\) has a rank-specific hypergeometric probability, and summing its possible positions produces the exact squared-rank expression. Vandermonde normalization and Cauchy–Schwarz give nonnegativity; strict log-concavity isolates the only equality case, a central position for a two-element subsequence. The fixed-\(k\) asymptotic follows by a uniform binomial approximation, beta integrals and a central-binomial convolution. Exact exhaustive checks of \(46{,}232\) permutations and \(2{,}814\) finite identities agree with the analytic proof. Limitation: the infinite theorem is not inferred from finite enumeration.
+## correctness
 
-## Originality — PASS (priority not independently established)
-The checked Pinsky paper, arXiv:math/0407353, defines the same subsequence count and its size-biased distribution but studies variance and total-variation approximation rather than fixed-point cross-moments. Hossein–Starr, arXiv:2301.00125, treats the Pinsky second-moment generating function. Diaconis–Evans–Graham's Berkeley Report 822 concerns fixed points and consecutive unseparated pairs, not arbitrary increasing subsequences. The closest accessible comparison findings concern individual fixed points versus local descents or consecutive permutation-pattern counts; their implication statements do not cover this rank-dispersion formula. The older Lifschitz–Pittel 1981 paper on increasing-subsequence counts was not accessible in complete form and creates residual priority risk. A negative search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The result quantifies a previously unspecified marginal consequence of Pinsky's monotone-subsequence size-bias construction. It proves a sign at *each* fixed position, not only after aggregation, and identifies the exceptional middle position exactly. The squared-rank representation explains the dependence structurally rather than giving an isolated rational number. It also specifies the sharp order and constant of the cross-moment for every fixed subsequence length, thereby measuring the response of a natural permutation statistic to a classical change of measure. Only a mean shift is established; full stochastic domination and growing-length asymptotics remain open here.
+Uniform permutation, n>=2, 2<=k<=n, nonconsecutive increasing position-subsequences. For a fixed point at i, a k-subset avoiding i retains probability 1/k!, while a subset with rank r at i contributes K_{i,r}^2/(n-1)_(k-1) after conditioning. Vandermonde gives q_{i,r}=K/B with sum_r q=1; subtract B/k! and multiply by P(pi(i)=i)=1/n to obtain the exact nonnegative sum of squares. Strict log-concavity excludes uniform q for k>=3; k=2 is zero only at the median position when n is odd. Summation gives the global covariance, and division by E Z=binom(n,k)/k! gives size-biased E F. Fixed-k beta-integral and central binomial convolution prove the displayed asymptotic. Independently enumerated all permutations n=2..7, 112 exact labeled (n,k,i) comparisons, with all zero cases; checked all seven source-tree entries and independently reconstructed the complete 7-blob tree SHA. The exhaustive check is not the proof for arbitrary n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge novelty is the exact local fixed-point / increasing-subsequence cross-moment, nonnegative hypergeometric rank-dispersion decomposition, unique local cancellation and explicit fixed-k asymptotics, not the size-biased measure or standard permutation first/second moments.
+
+## value
+
+PASS
+
+The local covariance nonnegativity and exact exceptional median cancellation describe how a canonical size-bias changes another natural permutation statistic. The complete arbitrary-n identity and fixed-k leading constant are independent useful cross-dependence invariants; a researcher studying permutation change of measure can use the precise formula, not merely a generic second-moment bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

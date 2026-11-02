@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The clipped endpoint limit is derived from the binomial central limit theorem, the one-sided derivative jump, and uniform integrability. The repaired sequence is constructed from a nonnegative nondecreasing twice continuously differentiable extension; positivity of coefficients, equal degrees, global monotonicity and the \(\|h''\|_\infty/(8n)\) Bernstein bound are proved explicitly. The assumptions \(f'(b)>0\) and the extension-dependent constant are essential scope disclosures.
+PASS
 
-## Originality
+At x=b, p_b(b)=1/2 and clipped transformed f∘psi_b has derivative jump from 4bf'(b) on left to zero right. Bin(n,1/2) CLT and uniform integrability yield exact limit sqrt(n)(R_clip(f;b)-f(b))=-bf'(b)sqrt(2/pi). Extending h0(t)=f(bt/(1-t)), t≤1/2, to nonnegative nondecreasing C² h by a positive derivative cutoff gives global Bernstein rational with degree n positive-leading numerator and denominator coefficients, nondecreasing behavior and +1/n strict positivity. Taylor variance estimate gives ||B_n h-h||∞≤||h''||∞/(8n), hence stated uniform error bound. Correct for b>0,f∈C²[0,b], f,f'≥0,f'(b)>0,n≥1. Independent n=50..3000 endpoint experiments show scaled errors tending toward −sqrt(2/pi), only corroboration.
 
-The closest source is Minguzzi's 2025 preprint, which proves density and gives a clipped rational Bernstein construction with a modulus-of-continuity error bound. The present claim adds the exact endpoint asymptotic for that clipping and a smooth-continuation construction preserving the coefficient and monotonicity constraints. Classical Bernstein approximation supplies the rate once the smooth extension is built, so the novelty is narrow and constructive; the literature search cannot prove uniqueness.
+## originality
 
-## Value
+PASS
 
-The result separates a boundary artifact of one explicit approximation formula from the constraints of positive coefficients and monotonicity. It gives a sharper rate for smooth targets and a diagnostic for when the clipped construction loses a full half-order.
+Minguzzi already proves positive isotone rational density and the clipped Bernstein construction, and in Remark 3.3 uses +1/n strict-positivity adjustment. The exact clipped endpoint n^(-1/2) bias diagnosis and C² monotone-unclipped extension delivering n^(-1) within same rational coefficient class are not stated in Minguzzi Theorem 3.2 and Remark 3.3. Classical Bernstein C² rate itself is prior; contribution is the particular smooth positive-rational repair.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A quantified rate loss in a recently published constructive positive-monotone approximation theorem and a rate-preserving correction under its strict coefficient constraints form a natural, reproducible algorithmic improvement rather than an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

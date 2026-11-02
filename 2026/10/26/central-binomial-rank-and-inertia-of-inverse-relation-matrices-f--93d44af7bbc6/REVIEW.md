@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces all mutual-inverse entries to products of interval-transversal incidence entries. Induction on the final variable proves the required full row rank without genericity assumptions. A real singular-value decomposition then gives every positive, negative and zero eigenvalue count; Vandermonde identities sum the image-rank blocks. Direct exact enumeration (`verify.py`) and a separate numerical eigensign check (`verify_eigensigns.py`) agree for chain sizes through five. Finite checks are supporting evidence only.
+## correctness
 
-## Originality — PASS, qualified
-The closest recent source is Higgins's 2026 balanced-weighting theorem for permutation matchings of order-preserving transformation monoids; its abstract does not report real inertia, but the full text was inaccessible. Higgins's accessible 2024 paper and relevant 2019/2015 material address matching and inverse-subsemigroup structures rather than the precise spectral signature. Existing inverse-degree formulas are prior work and are not presented here as novel. No exact rank/inertia formula was found in the bounded scientific searches. An unindexed or inaccessible equivalent source remains a risk.
+PASS
 
-## Mathematical value — PASS
-The mutual-inverse adjacency matrix is the natural finite matrix underlying matching questions. The theorem computes the complete sign signature of its spectrum in every image-rank stratum and yields a central-binomial global rank; neither property is fixed by known vertex-degree statistics or a perfect-matching theorem.
+Each weakly monotone map is specified by its interval kernel partition B and increasing image I. Direct substitution into fgf=f and gfg=g yields reciprocal transversal conditions, hence the rank-r matrix is the operator X↦M X^T M. The interval-transversal matrix M has full row rank: its rows are the squarefree coefficient vectors of products of block sums; setting z_n=0 inductively isolates nonsingleton final blocks and then final singleton blocks. For a=binom(n-1,r-1), b=binom(n,r), SVD yields a(a+1)/2 positive, a(a-1)/2 negative and a(b-a) zero eigenvalues, summing via Vandermonde to the claimed central-binomial global rank and inertia. Boundary n=1 and all strata including r=n work. Independent construction of the entire inverse matrix for n=1..4 confirmed signs (1,0,0),(2,0,1),(5,1,4),(14,6,15), respectively; this finite calculation corroborates the unrestricted proof.
 
-## Limits and prior comparison
-The theorem concerns real inertia, not individual nonzero eigenvalues or existence of involution matchings. The directly relevant 2026 full primary text could not be inspected; its abstract and public bibliographic data were read. The general proof and standalone verification instructions are in `RESULT.md` and `verify.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge finding after an actual Resultary query, targeted primary-literature comparison, and an implication-level review of the submitted theorem. Specific same-object access restrictions and broader historical-priority risks remain in source_inspections and residual_risks. No failed search alone is treated as proof of novelty.
+
+## value
+
+PASS
+
+The full rank and sign signature of the canonical mutual-inverse adjacency matrix is a natural spectral invariant of the order-preserving transformation monoid. It is not determined by the previously studied degree counts or matching existence and provides an exact answer for every n and image rank, including large matrix nullity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
