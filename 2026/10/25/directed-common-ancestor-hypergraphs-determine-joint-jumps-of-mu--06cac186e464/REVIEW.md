@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quadratic inverse is analytic at the origin because \(B^{\mathsf T}\) is nonsingular. Repeated differentiation gives the exact two-subtree recursion with its \(1/2\) multiplicity. The Neumann-series representation proves nonnegative coefficients and strictly positive reachability entries. An induction proves positivity of each derivative exactly when its root reaches every target. The Lévy–Khintchine cumulant identity translates this result into a precise simultaneous-jump support classification, and zero cross-pair jump intensity yields process-level group independence. The six-dimensional example uses an exactly nilpotent excitation matrix; 1,588 exact computer assertions test the calculations, not the general proof. No finite computation is mistaken for an infinite certificate.
+## correctness
 
-**Originality — PASS, qualified by priority risks.** Wang–Xu–Zhu (arXiv:2610.10525, 2026) gives the defining nonlinear transform and the one-way diagonal independence specialization; it does not state the all-orders mixed cumulant support, equivalence to simultaneous-jump support or the pairwise-versus-triple counterexample. Jovanović–Hertz–Rotter (arXiv:1409.5353, 2015), Privault (arXiv:2012.07256, 2020) and Achab et al. (arXiv:1607.06333, 2017) describe rooted-tree cumulants for stable Hawkes counting systems and are strong structural precursors. Their fixed-parameter count results do not directly establish the asserted limiting-subordinator Lévy hypergraph: moment convergence at critical scaling is not licensed by convergence in law. The general field first-passage work of Chaumont–Marolleau (arXiv:1912.10474) was located, but its full text was inaccessible. Consequently originality here is a qualified best-knowledge judgment, not historical certification.
+PASS
 
-**Mathematical value — PASS.** The exact joint-jump hypergraph and its complete graph-theoretic independence criterion describe the dependence geometry of a newly established multitype Lévy class. They retain information lost by covariance: explicit types \(4,5,6\) have strictly positive pairwise dependence but rigorously no simultaneous three-way jumps. The result is a whole-family finite-order characterization rather than an arbitrary numerical instance, and it clarifies when sparse cross-excitation creates higher-order common shocks. No general density formula or broader Hawkes asymptotic is claimed.
+For finite d>=1, B=sI-C nonsingular M-matrix with C>=0 and s>rho(C), strictly positive immigration η and t>0, the quadratic inverse Laplace equation admits an analytic branch at u=0. J=(B^T)^-1 has J_(i,j)>0 iff the directed C path i->j exists; diagonal strictly positive. Repeated implicit differentiation gives labeled-set recurrence H_i(S)=1/2 sum_l J_(i,l) sum_(nontrivial ordered position splits)H_l(S1)H_l(S minus S1), H_i({a})=J_(i,j_a). All terms nonnegative; induction with l=i proves H_i(S)>0 iff i reaches all j_a. Summation against η>0 gives exact sign/zero of every cumulant. For r>=2, Levy-Khintchine mixed cumulants equal t∫product x_(j_a)ν(dx), giving simultaneous-jump support and disjoint-group independence equivalence. Exact six-type C with links 1->4,5; 2->4,6; 3->5,6, weights 1/5 gives covariances t/25 for all three pairs but third mixed cumulant of 4,5,6 exactly zero. Independently checked exact rational derivative recurrence for these examples including κ(1,4,5)=3t/25. Source 1,588 finite checks through length four do not prove arbitrary dimension/order.
 
-The principal scientific risks are the proximity to older Hawkes graph-motif formulas, the inaccessible complete 2019 first-passage source, and lack of independent validation. The particular analytic and graph arguments supporting each part of the final claim are given in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-order exact limiting-process common-ancestor jump hypergraph, joint-cumulant recursion and six-type pairwise-vs-threewise obstruction are a motivated specialization of known branching motifs; limiting IG process itself is attributed to Wang–Xu–Zhu.
+
+## value
+
+PASS
+
+Complete combinatorial characterization of simultaneous multi-coordinate Lévy jumps at every order for a newly studied canonical coupled multitype subordinator, with a reusable finite exact cumulant recursion and a concrete six-type hypergraph that is invisible to all pairwise covariances. Independent of merely naming covariance dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
