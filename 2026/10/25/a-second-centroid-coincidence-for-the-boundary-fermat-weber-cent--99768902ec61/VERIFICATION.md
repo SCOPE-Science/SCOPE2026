@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem concerns the arclength-weighted Euclidean distance integral on the three sides of the triangle \(\operatorname{conv}\{(-1,0),(1,0),(0,h)\}\), \(h>0\). Its proof relies on strict convexity, an elementary antiderivative, certified signs, continuity, and uniform asymptotics.
+# Independent mathematical audit
 
-Run `python3 verify.py` with `mpmath>=1.3`. This checks \(B_h(1/3)\) at the exact rational heights \(1/10\), \(1/8\), \(1\), and \(2\) by outward-rounded interval arithmetic. Expected strict signs: negative, positive, positive, negative. It additionally reports illustrative solutions of \(B_h(q)=0\), a numerical estimate of the non-equilateral centroid-coincidence height, an equilateral symmetry check, and closed-form versus independent numerical-integration comparisons. The four interval signs certify the finite comparisons; numerical approximations are not interval uniqueness proofs, and the asymptotic and existence arguments are supplied in RESULT.md.
+## correctness
 
-No external expert validation or independent audit was performed.
+PASS
+
+The arclength boundary objective is strictly convex, so its unique minimizer lies on the symmetry axis and solves the explicit scalar derivative B_h(q)=0. Independent high-precision quadrature agreed with the closed expression below 1e-42. At q=1/3 the independently recomputed signs are B_0.1≈−0.0197076574, B_0.125≈+0.0285128683, B_1≈+0.10509727, B_2≈−0.02981764; rigorous signs can be obtained from the supplied interval algorithm, while the existence follows by continuity and the separated signs. Equilateral h=√3 is forced by rotational symmetry, with nonzero negative parameter derivative. The source's uniform local expansions around the unique q→1/2 root support both h→0 and ∞ asymptotic corrections. No uniqueness of non-equilateral height is asserted.
+
+## originality
+
+PASS
+
+The prior Zhang–Carlsson framework integrates Euclidean distances from convex polygon edges and provides algorithms; this result needs a non-equilateral perimeter-median/area-centroid intersection at h in (1/10,1/8) plus two asymptotic formulae. Panov–Savvateev's isosceles median calculation is area-weighted, not boundary-arclength weighted. Different measures do not imply this result. Priority under niche facility location nomenclature remains possible.
+
+## value
+
+PASS
+
+The coincidence between perimeter-weighted Euclidean median and ordinary area centroid is a natural facility-location/convex-geometric question; a certified non-equilateral coincidence refutes a plausible rigidity conjecture, and the singular-aspect-ratio profiles quantify the mechanism. The result does not rely on arbitrary parameter slicing for its motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
