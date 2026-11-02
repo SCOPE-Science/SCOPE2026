@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python3 triaconta_checker.py` in a directory containing the supplied standalone program. The program uses only the Python 3 standard library and prints `CERTIFICATE_OK` after all assertions. It constructs 32 explicit vertices of two classical orbits, enumerates all 35,960 unordered four-subsets, evaluates each signed determinant by two independent formulas in \(\mathbb Z[\varphi]\), and compares signs without approximation. It proves there are exactly twenty maximizing four-subsets with determinant magnitude \(6+8\varphi\), all with one dodecahedral and three icosahedral vertices, no shared three-vertex face, and the stated large-equilateral-triangle/apex description.
+# Independent mathematical audit
 
-## Analytical steps not delegated to the enumeration
-The signed determinant is separately affine in all four corners. Expanding corners as convex combinations of polytope vertices proves a global maximum is vertex-attained. More strongly, a nonvertex maximum would force at least two distinct maximizing vertex quadruples sharing three corners, excluded by the finite certificate. The elementary face-area/inradius decomposition gives containing polytope volume \(20\). All tetrahedra counted as maximizers are distinct unordered subsets, not symmetry-orbit representatives.
+## correctness
 
-## Limits
-No computation over arbitrary perturbations or over other polytopes is claimed. The geometric proof and exact exhaustive certificate together establish the complete stated theorem for this fixed body. An independent audit has not been performed.
+PASS
+
+Reconstructed the exact 32 distinct vertices in the quadratic ring Z[φ], φ²=φ+1, with 12 icosahedral and 20 dodecahedral orbit points. An independent enumeration compared both signed determinants and absolute determinant maxima for all C(32,4)=35,960 vertex quadruples using exact integer pair arithmetic, recovering exactly 20 maxima |det|=6+8φ and the 3-icosahedral/1-dodecahedral equilateral-apex description, with no two maximizing 4-sets sharing 3 vertices. Multiaffinity of signed volume on convex combinations gives a vertex optimum, and strict no-three-vertex-sharing forbids any nonvertex equality case. Dividing max determinant by six yields (5+2√5)/3. Face pyramids give body volume 20 and sharp ratio (5+2√5)/60; the known 10 dodecahedral compound tetrahedra have smaller 8/3 volume.
+
+## originality
+
+PASS
+
+Qualified PASS: classical 32-vertex geometry, volume and the regular tetrahedron compound are known, but those do not imply the mixed-icosahedral/dodecahedral exact maximum, 20 isolated global equality cases, or rigidity against interior vertices. Related published icosahedron-only tetrahedral optimization has a different containing body.
+
+## value
+
+PASS
+
+PASS: largest contained simplex and equality rigidity are canonical convex-geometric extremal invariants for a highly symmetric polyhedron. Showing the familiar regular tetrahedral compound is not extremal is a mathematically motivated, exact mixed-orbit classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
