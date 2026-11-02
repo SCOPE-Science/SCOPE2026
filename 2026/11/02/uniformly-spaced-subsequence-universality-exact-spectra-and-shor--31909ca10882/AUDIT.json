@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Greedy earliest embeddings prove equality of index and the number of spacing-aware completed arches in both directions. Minimal arches and forced skipped positions are uniquely defined. Inclusion–exclusion and stage multiplication yield the exact rational functions; length minimality and enumeration follow from sharp per-arch size. Literal independently programmed exhaustive checks of 127,594 words across eight parameter ranges match all coefficients. Finite checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Day et al., arXiv:2206.13896 full accessible HTML: broad lower-and-upper or regular gap constraints and hardness results, Theorems 4.2–4.4.",
+        "Adamson et al., arXiv:2311.10658 HTML, Section 4: counts ordinary k-universal paths/words of finite automata."
+      ],
+      "reasoning": "General-language and heterogeneous-gap algorithms apply to classes containing this constrained instance, but their statements provide neither this fixed-lower-gap closed form nor the unique spacing-arch decomposition and exact shortest-host counts. A generic finite-automaton enumeration may compute individual coefficients but does not state the symbolic all-parameter formula.",
+      "searches": [
+        "gapped subsequence universality lower bound only polynomial recognition exact enumeration alphabet size gap",
+        "subsequence universality with gap constraints minimal universal word length alphabet k gaps"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.13896 (first public 2022-06-28)",
+      "arXiv:2007.09192 (first public 2020-07-17)",
+      "arXiv:2311.10658 (first public 2023-11-17)",
+      "Publicly indexed summary: Closed-form law for binary subsequence universality (unrestricted, spacing one only; full text not retrievable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2007.09192 §2: unspaced universality iff enough ordinary arches.",
+        "arXiv:2206.13896 §§1,4: complexity for arbitrary gap constraints, including settings with upper bounds.",
+        "arXiv:2311.10658 §4: unconstrained counting/ranking across regular languages.",
+        "Previously observed upper-jump bound for ordinary shortest universal words permits no inference of exact lower-spacing host counts."
+      ],
+      "reasoning": "The new statement implies the ordinary binary distribution upon specialization to spacing one, but the converse implication is false as a deduction: ordinary universality imposes no distance requirement and distinguishes neither forced spacer boundaries nor shorter/longer host thresholds. Complexity upper bounds do not supply exact enumerators. The new proof independently justifies the needed positive-spacing lemma.",
+      "searches": [
+        "subsequence universality under bounded gaps periodic words exact enumeration",
+        "uniform lower bounded gap subsequence universality index greedy arch factorization generating function distribution shortest universal words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2007.09192, Definition 3 and Theorem 1: ordinary greedy arches, corresponding to spacing one.",
+        "arXiv:2206.13896, Sections 1 and 4: gap-constrained universal sets; no displayed all-parameter uniform-minimum-spacing distribution."
+      ],
+      "reasoning": "The natural aliases are constrained subword richness, minimum inter-index spacing, distance-separated subsequences, and spacer-aware arches. Ordinary arches yield the spacing-one specialization only, whereas inserting an arbitrary fixed filler into a host is not an implication for all hosts or index distributions.",
+      "searches": [
+        "uniform lower bounded gap subsequence universality index greedy arch factorization generating function distribution shortest universal words",
+        "exact generating function distribution gap constrained subsequence universality uniform minimum gaps arch factorization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed prior result: Closed-form law for binary subsequence universality; its available summary states the rational function for unrestricted binary subsequences only.",
+        "Targeted public literature searches did not return a published uniform-positive-spacing bivariate table or formula."
+      ],
+      "reasoning": "A known unrestricted binary table concerns spacing one and is explicitly excluded. The present formula produces every index-refined count at each host length for every alphabet and spacing, not an isolated cell.",
+      "searches": [
+        "minimum length length-k subsequence universal host with consecutive indices at least s apart formula q k plus (s-1)(k-1) counted permutation blocks",
+        "uniform minimum gap subsequence universality generating function exact spectrum"
+      ]
+    },
+    "rationale": "Targeted research-record queries and relevant full-text literature comparisons separate the positive uniform minimum-spacing index distribution from known ordinary arch results and general constrained matching complexity. The explicit two-variable formula for every alphabet and positive spacing was not identified as stated or implied; possible unindexed automata specializations remain a disclosed risk.",
+    "residual_risks": [
+      "An equivalent formula could be implicit in an unlocated general weighted-automaton or regular-language counting theorem.",
+      "The publicly indexed unrestricted binary distribution was compared through its available summary only; no claim about uninspected text is made.",
+      "A novel terminology for uniformly separated greedy arches could defeat title and keyword searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General complexity results, including hardness under bounded gap intervals; the inspected text does not state the specific greedy enumeration or shortest-host classification.",
+        "evidence": [
+          "arXiv:2206.13896, HTML §§1,4 and Theorems 4.2–4.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.13896",
+        "material_read": "Full arXiv HTML, introduction, constraint definitions, Section 4 universality theorems and proof appendices",
+        "method": "Compared constraint families and conclusions with homogeneous positive minimum-spacing spectra",
+        "title": "Subsequences With Gap Constraints: Complexity Bounds for Matching and Analysis Problems",
+        "trigger": "Closest research on universality under gap constraints"
+      },
+      {
+        "assessment": "Provides ordinary arch factorization for spacing one but does not include the constrained-gap spectrum claimed for positive extra spacing.",
+        "evidence": [
+          "arXiv:2007.09192, HTML Definition 3, Theorems 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.09192",
+        "material_read": "Full arXiv HTML, Definition 3, Theorems 1 and 2, algorithmic sections and concluding extensions",
+        "method": "Tracked whether its ungapped arch theorem includes minimum separation of selected embedding positions",
+        "title": "The Edit Distance to k-Subsequence Universality",
+        "trigger": "The classical arch lemma is a plausible dominating precursor"
+      },
+      {
+        "assessment": "Counts classical k-universal paths/words under regular restrictions, not the stated positive-spacing index-refined distribution.",
+        "evidence": [
+          "arXiv:2311.10658, HTML Section 4 and cited ordinary-arch prerequisites"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Full arXiv HTML, introduction, Sections 2–4 including counting and ranking algorithms",
+        "method": "Distinguished ordinary subsequences accepted by automata from uniform minimum-distance constrained embeddings",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "General enumeration of subsequence-universal words might imply an exact spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31909ca1-0882-4e6d-8061-42ba4d0a19ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform lower spacing is a natural operational case of constrained-subsequence universality. The result settles its complete index-refined enumerator for arbitrary finite alphabets and spacings, identifies an exact tractable subclass distinct from general constrained-hardness results, and fully classifies/counts shortest witnesses. This is an all-parameter structural theorem rather than a routine substitution or small isolated computation.",
+    "status": "PASS"
+  }
+}
