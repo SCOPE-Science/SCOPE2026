@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T03:13:06.353144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-critical-omega-limit-selection-and-recurrence-simplex-in-t--6b6b751ef84d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-critical-omega-limit-selection-and-recurrence-simplex-in-t--6b6b751ef84d/verify_symbolic.py",
+        "https://sprott.physics.wisc.edu/pubs/paper240.pdf",
+        "https://sprott.physics.wisc.edu/pubs/paper250.pdf"
+      ],
+      "independent_checks": [
+        "Fetched all eight record files from the assignment commit and independently recomputed the Git tree SHA from the returned original blob IDs: 656138c523de267dc9ae10cd31c1522540e540d7.",
+        "Independent SymPy calculation verified d/dt[vw+(A/2)v²-(1/2)x|x|+x]=w²−v² on each x-sign branch.",
+        "Independent SymPy calculation verified dH/dt=−Aw²−sgn(x)v² and d(H+AG)/dt=−(A+sgn x)v² on both open sign branches, and checked both critical oscillator solutions and L=r²−1/2 on all displayed circles.",
+        "Reconstructed the switching-set lemma: for C¹ x(t), v(t)=0 almost everywhere in time on the level set x=0; stationarity transfers this via Fubini to zero kinetic measure on the switching plane; smoothing |x| establishes legitimate stationary integration.",
+        "For |A|>1 used the strict same-sign weighted kinetic identity and L monotonicity, bounded-derivative continuity and connected omega-limit sets; for A=±1 used bounded complete linear halfspace solutions with the growing/decaying mode excluded.",
+        "Reconstructed critical omega-level selection: monotone L has unique limiting radius, with only the r=1/opposite-equilibrium tie, resolved by connectedness; invariance fills each selected nontrivial circle.",
+        "Reconstructed periodic Wirtinger on mean-zero v=ẋ; equality forces a first harmonic and substitution into |c+r cos|+Ar cos=1 yields only A=±1 with 0<r≤1."
+      ],
+      "rationale": "For the globally Lipschitz vector field ẋ=v, v̇=w, ẇ=−Aw−v+|x|−1, the explicitly rederived G,H satisfy Ġ=w²−v² and Ḣ=−Aw²−sgn(x)v² away from the switch; a smooth |x| regularization plus the kinetic-zero-on-x=0 lemma legitimate invariant-generator integration. Thus stationary K=∫v²=∫w² and (A+1)∫_{x>0}v²+(A−1)∫_{x<0}v²=0. Strict sign |A|>1 excludes non-equilibrium compact measures; monotone L=H+AG, integrability of v² and omega-limit connectedness prove convergence of each bounded forward orbit. At A=±1 any stationary typical complete orbit other than the opposite isolated equilibrium lies wholly in the harmonic halfspace; boundedness in both time directions eliminates exponential modes and |x| sign confinement is equivalent to radius≤1. Invariant measures there are Haar-angle mixtures. On any bounded forward critical orbit L is monotone with a finite limit, constant on its omega-limit set, equal to r²−1/2 on circles and 1/2 at the isolated opposite equilibrium; connectedness resolves the sole r=1 tie. A nonconstant periodic orbit has zero-mean v, ∫w²=∫v², and Wirtinger gives T≥2π, while equality substitution gives exclusively the indicated A=±1 circles (r>0). The proof is global analytic, not a finite enumeration.",
+      "residual_risks": [
+        "The universal claim depends on proper generator integration across the nonsmooth plane. The proposed smoothing and level-set kinetic-zero arguments were examined and are sufficient for compact invariant measures.",
+        "It does not prove that every forward orbit is bounded at the critical parameters, does not classify all interior |A|<1 compact states, and makes no phase-convergence claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Goodwin published result proves ∫w²=b∫v² and ∫−g′(x)v²=(ab−c)∫v² for C¹ feedback; these are prior energy/multiplier ingredients.",
+          "The 1999 model paper provides all piecewise-linear local solutions, not a proof that all compact recurrent statistics are exhausted by endpoint circles.",
+          "The no-chaos article has only abstract access and cannot be assigned a whole-document NOT_COVERING verdict."
+        ],
+        "reasoning": "Specializing the general stationary slope identity (or its a.e. Lipschitz extension) gives only a kinetic sign obstruction. Neither its statement nor ordinary Wirtinger forces the endpoint complete invariant simplex, exact radius cutoff, unique selected omega-limit circle, or outer bounded-orbit selection. The inaccessible paper remains a stated residual risk.",
+        "searches": [
+          "Resultary semantic query: Global Hopf-slope balance for third-order feedback cycles and the Goodwin oscillator",
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7/RESULT.md",
+          "Search for no-chaos criteria for certain jerky dynamics Stefan Linz 2000",
+          "https://doi.org/10.1016/S0375-9601(00)00576-4"
+        ]
+      },
+      "checked_sources": [
+        "https://sprott.physics.wisc.edu/pubs/paper240.pdf",
+        "https://sprott.physics.wisc.edu/pubs/paper250.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7/RESULT.md",
+        "https://doi.org/10.1016/S0375-9601(00)00576-4",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-critical-omega-limit-selection-and-recurrence-simplex-in-t--6b6b751ef84d",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-equilibrium-geometry-and-a-nonsmooth-obstruction-to-the-re--c03c133148cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1999 printed p.243 has the local Hopf imaginary pair at A=1, p.244 general two-zone solutions and a claim of generic negative-parameter escape.",
+          "General derivative-energy and slope laws imply the period floor after Wirtinger, so period floor by itself is not original.",
+          "At A=1, compact stationarity plus sign-weighted kinetic rigidity forces all nontrivial typical trajectories into x≤0, where backward-boundedness deletes the e^(−t) mode; Lyapunov values r²−1/2 distinguish radii. This new chain does not appear in checked source statements."
+        ],
+        "reasoning": "Prior published theorems imply the kinetic balance, local spectral endpoints, and elementary least-period floor. The final claim adds global exclusion and completeness of measures at both nonsmooth critical boundaries and exact orbitwise omega radius selection. These are not obtained as a simple stated corollary of the earlier general theorem or model segment-solving algorithm. Unknown content of the 2000 no-chaos article could change priority; no fabricated implication verdict assigned to its unread full text.",
+        "searches": [
+          "https://sprott.physics.wisc.edu/pubs/paper240.pdf",
+          "https://sprott.physics.wisc.edu/pubs/paper250.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7/RESULT.md",
+          "https://doi.org/10.1016/S0375-9601(00)00576-4",
+          "Web exact title/DOI author-hosted full PDF search and arXiv/preprint/OA checks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original article gives the same equation and a sign-branch matching algorithm but not an invariant-measure classification.",
+          "Resultary first semantic result is this SAME record, excluded as independent evidence; other high-ranked jerk findings concern different differential equations."
+        ],
+        "reasoning": "Equivalent dynamics would be phrased as bounded complete harmonic solutions on sign-invariant halfspaces, ergodic/stationary decomposition, or a LaSalle-selected omega radius. The original segment solver and local Hopf label do not imply the full global statistical and orbitwise theorem without new recurrence/monotonicity reasoning.",
+        "searches": [
+          "Resultary semantic query: Global invariant measures omega-limit classification nonsmooth modulus jerk x''' + A x'' + x' - |x| + 1 = 0 A=1 A=-1 neutral circles",
+          "Web exact equation and Linz–Sprott 1999 original paper",
+          "https://sprott.physics.wisc.edu/pubs/paper240.pdf",
+          "https://sprott.physics.wisc.edu/pubs/paper250.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary search returned this same exact target record and distinct jerk recurrence/period records, without a distinct exact Linz–Sprott critical-measure theorem.",
+          "The c03c133148cb absolute-value jerk is a different multi-coefficient equation with a different spectral obstruction, not a table of critical moduli for this equation."
+        ],
+        "reasoning": "The exact database match is the record being independently audited and cannot establish earlier distinct coverage; the remaining retrieved entries have different vector fields. Absence from search is not an originality certificate.",
+        "searches": [
+          "Resultary semantic query: Global invariant measures omega-limit classification nonsmooth modulus jerk x''' + A x'' + x' − |x|+1 at critical damping",
+          "Resultary semantic query: Universal period bound for jerk equation Linz Sprott absolute value feedback steady states",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-critical-omega-limit-selection-and-recurrence-simplex-in-t--6b6b751ef84d",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-equilibrium-geometry-and-a-nonsmooth-obstruction-to-the-re--c03c133148cb"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the published exact equation and algorithmic halfspace integration, and a later general C¹-feedback stationary-slope theorem, cover the model, local A=1 spectrum, energy balances and the routine Wirtinger period floor, not the complete two-endpoint invariant-probability simplex and orbit-by-orbit omega-limit selection via the exact L level. The critical classification requires the nonsmooth occupation-rigidity step, bounded-complete oscillator exhaustion and Lyapunov-level selection, not merely a parameter substitution. The closest uninspected no-chaos primary text is specifically named as a priority risk, not treated as a failed search proving novelty.",
+      "residual_risks": [
+        "The closely relevant 2000 Linz no-chaos paper was not retrieved in full: OA/arXiv full-text searches failed, one institutional DOI attempt yielded a wrong 1976 Rössler article and the direct publisher attempt was blocked by disconnected VPN. It may contain stronger sufficient/nonchaos/critical results.",
+        "The C¹ general feedback theorem covers the weighted energy and period ingredients, which are expressly not presented as novel by themselves.",
+        "Unindexed manuscripts or a different feedback/absolute-value notation could state the same critical omega-limit result; targeted negative searches are not proof of first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact governing equation, equilibria, local imaginary pair at A=1, sign-dependent segment solutions and numerical regimes; does not state a complete invariant-probability simplex or omega-limit radius-selection theorem. It asserts generic negative-A divergence, which cannot exclude the explicit A=−1 exceptional circles.",
+          "evidence": [
+            "Eq. (2), printed p.241, is x triple-dot + A x double-dot + x dot − |x| +1=0.",
+            "Printed p.243 states local imaginary eigenpair at A=1 for the negative equilibrium; p.243 also describes negative-A divergence.",
+            "Printed pp.244–245 give segment-wise exact linear solutions and switching-time matching but no all-measure classification or bounded-orbit omega-limit selection."
+          ],
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper240.pdf",
+          "material_read": "All six full PDF pages (240–245): model equation (2) on p.241; nonlinear equilibrium/spectral statement and negative-A discussion p.243; explicit linear halfspace algorithm and matching pp.244–245; references and note added in proof. Page images inspected, including equation and parameter claims.",
+          "method": "Author-hosted lawful open PDF, extracted full text, page-image screenshots",
+          "title": "Elementary chaotic flow",
+          "trigger": "The original source defining exactly the Linz–Sprott modulus jerk and its critical spectrum"
+        },
+        {
+          "assessment": "Eq. (30) describes the same modulus equation and the numerical bifurcation region, exact segment matching and references; no complete critical compact invariant-measure classification or orbitwise omega-level theorem found in the read treatment.",
+          "evidence": [
+            "Printed p.12 Eq. (30) matches the one-parameter absolute-value jerk at b=1.",
+            "Printed pp.12–13 discuss Lyapunov numerics and two-branch analytic segments, not all critical orbit measures."
+          ],
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper250.pdf",
+          "material_read": "Complete 20-page PDF accessible; inspected the modulus-jerk discussion on printed pp.12–13, its figures and reference to Linz no-chaos work; contextual other sections. Page image of section five checked.",
+          "method": "Author-hosted lawful open PDF full-text and visual inspection",
+          "title": "Algebraically Simple Chaotic Flows",
+          "trigger": "Follow-up article by original discoverers, potentially broader coverage of the same equation"
+        },
+        {
+          "assessment": "Genuinely covers the C¹-feedback derivative-energy balance, stationary slope identity and generic harmonic-period mechanism. It does not establish the piecewise-nonsmooth radius-one critical circles, all critical invariant probabilities, or omega-limit selection for this model. These generic ingredients are excluded from novelty.",
+          "evidence": [
+            "Theorem (3) states ∫w²=b∫v²; theorem (4) states ∫−g′(z)v²=(ab−c)∫v² for compact invariant measures with C¹ g.",
+            "The proof is generator/multiplier integration; the specialization is Goodwin, not the modulus jerk."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7/RESULT.md",
+          "material_read": "Entire published RESULT.md including equations (1)–(5), invariant-measure proof, Goodwin specialization and limitations",
+          "method": "Published Resultary record retrieved as complete GitHub file",
+          "title": "Global Hopf-slope balance for third-order feedback cycles and the Goodwin oscillator",
+          "trigger": "Strong general prior theorem that may imply derivative-energy and sign-weighted occupation balance"
+        },
+        {
+          "assessment": "Abstract promises analytical necessary conditions for chaos in a broad third-order jerk class but cannot be used to assert noncoverage of the endpoint stationary-simplex theorem. Substantive historical-priority risk retained.",
+          "evidence": [
+            "Physics Letters A 275 (2000), 204–210, DOI 10.1016/S0375-9601(00)00576-4.",
+            "Abstract concerns conditions excluding chaotic long-time solutions; no full paper was read; an unrelated Rössler PDF was explicitly rejected as a mismatch."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0375-9601(00)00576-4",
+          "material_read": "Public bibliographic metadata and abstract, plus references in the 2000 survey. FULL ARTICLE UNAVAILABLE: lawful preprint/OA searches did not locate text; an institutional DOI retrieval returned a two-page 1976 Rössler paper, not this article; publisher URL attempt reported vpn_disconnected.",
+          "method": "Search of arXiv and lawful open access, public abstract, institutional full-text attempt with material-identity check",
+          "title": "No-chaos criteria for certain jerky dynamics",
+          "trigger": "Same model author and broader jerk class; potentially dominating global no-chaos criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://sprott.physics.wisc.edu/pubs/paper240.pdf",
+        "https://sprott.physics.wisc.edu/pubs/paper250.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7/RESULT.md"
+      ],
+      "rationale": "For the historically central piecewise-linear Linz–Sprott jerk, the A=±1 transitions are canonical spectral/recurrence boundaries, not arbitrary parameter slices. The complete set of endpoint compact stationary measures as a simplex of circle Haar laws and one opposite equilibrium, with exact radius-one grazing cutoff and unique omega-limit radius for every bounded forward orbit, provides substantive global information unavailable from the earlier local eigenvalue or segment algorithm. The explicit exceptional bounded A=−1 circles also refine the original broad claim of negative-A divergence. The generic period lower bound is useful corroboration but not the main new value.",
+      "residual_risks": [
+        "No proof of attraction from every initial condition, stability of endpoint circles, or an all-parameter compact-measure phase diagram for −1<A<1.",
+        "The standard derivative-energy period bound alone would be too routine as a standalone contribution; value rests on the global critical measure and omega-limit classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Compact invariant-measure classification proved only for |A|≥1, not for |A|<1.",
+    "Omega-limit radius selection applies to bounded forward orbits; no claim all critical orbits bounded or of asymptotic phase convergence.",
+    "No claimed novelty for general derivative-energy/slope identities or the generic Wirtinger period floor.",
+    "The closely relevant 2000 no-chaos paper remained abstract-only; noncoverage of its full text was not asserted."
+  ],
+  "schema_version": 1
+}
