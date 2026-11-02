@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:16:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md normal form, spectral contraction, 2-by-2 discriminant and explicit attainment",
+        "verify.py inspected; independently recomputed rational witness and 5 extremal gamma cases"
+      ],
+      "rationale": "Normal form q1=gamma e1+sqrt(1−gamma²)e_{s+1}, q2=e2, q3 normal to plane. Center/scale B=(A−cI)/d, symmetric contraction; then H=cI+d[[a−t nu,b−t v],[b,k]], t=sqrt(1−gamma²)/gamma. For conjugate nonreal eigenvalues, (Im λ/d)²=t b v−b²−(a−k−t nu)²/4<=t b v−b². Bq2 contraction implies b²+v²<=1. Largest eigenvalue of [[−1,t/2],[t/2,0]] equals (sqrt(1+t²)−1)/2=(gamma^{-1}−1)/2. Orthogonal rank-two B=q2 h^T+h q2^T with h=b*q1+v*q3, b=sqrt((1−gamma)/2),v=sqrt((1+gamma)/2) attains bound with eigenvalues ±1. At gamma=1 ordinary orthogonal compression symmetric. Exact rational witness A [[6,−1,0],[−1,6,2],[0,2,6]], gamma=3/5 gives H [[6,−5/3],[1,6]] and sharp Im=sqrt(5/3). Independently verified rational discriminant and extremal numerical checks.",
+      "residual_risks": [
+        "Only 2D real trial space, full-rank codimension-one coordinate sketch, exact arithmetic; does not address arbitrary row weights, higher dimensional trials or stochastic sketches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kahan 1974/75 nearly Hermitian spectral estimates bound imaginary eigenvalues by skew-Hermitian perturbation norm; applying a generic norm bound gives a weaker t/2 dependence and does not give the exact constrained extremum.",
+          "Massey–Stojanoff–Zárate 2021 Ritz variation sharp principal-angle bounds concern differences of two orthogonal Hermitian compressions; nonreal oblique eigenvalues are not those objects."
+        ],
+        "reasoning": "General Hermitian subspace-variation and nearly-Hermitian estimates do not directly dominate this nonlinear exact sRR envelope.",
+        "searches": [
+          "Kahan spectra nearly Hermitian matrices imaginary eigenvalue skew Hermitian norm",
+          "nonreal sketched Ritz values symmetric positive definite coordinate sketch 2D principal angle sharp imaginary spectral bound"
+        ]
+      },
+      "checked_sources": [
+        "Nakatsukasa–Tropp 2024 §6.8",
+        "Liu–Liu arXiv:2610.22261 abstract",
+        "Kahan 1974/75 contextual nearly Hermitian bounds",
+        "Resultary nonreal sketched Ritz values symmetric positive definite coordinate sketch 2D principal angle sharp imaginary spectral bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nakatsukasa–Tropp §6.8 explicitly warns about nonreal sketched Ritz values, but no imaginary-part maximum shown.",
+          "Liu–Liu 2026 abstract describes real-Schur treatment and algorithm convergence; full 27p unavailable; no whole-paper NOT_COVERING inference."
+        ],
+        "reasoning": "General Kahan skew-norm estimate and special prior witness do not assert or imply exact universal upper envelope without solving the constrained 2x2 contraction maximization.",
+        "searches": [
+          "Nakatsukasa Tropp Section 6.8 nonreal sketched Ritz 2024",
+          "Liu Liu Real Arithmetic Sketched Eigensolvers 2610.22261 2026",
+          "nonreal sketched Ritz values symmetric positive definite coordinate sketch 2D principal angle sharp imaginary spectral bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nakatsukasa–Tropp 2024 Eq.(6.12) defines sketched Ritz matrix (SB)^dagger(SAB), matching this model.",
+          "Their §6.8 states sRR may produce complex eigenvalues even for symmetric original A; no sharp universal angle-dependent imaginary envelope in materially inspected section."
+        ],
+        "reasoning": "The non-Hermitian oblique compression and sketched Ritz aliases identify the same operator, but qualitative possibility does not imply the sharp spectral-width/angle constant.",
+        "searches": [
+          "nonreal sketched Ritz values symmetric positive definite coordinate sketch 2D principal angle sharp imaginary spectral bound",
+          "oblique projection Hermitian matrix nonreal eigenvalue imaginary part principal angles spectral diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query retrieved operator imaginary-part bounds and Ritz numerical-range topics but not this exact codimension-one sRR parameter envelope.",
+          "An earlier three-state E-optimal row-selection example shares its lower-bound sharpness profile but does not furnish universal upper bound."
+        ],
+        "reasoning": "No exact tabulated worst-case sRR constant covering arbitrary bounded SPD A was found; missing indexed sources remain possible.",
+        "searches": [
+          "nonreal sketched Ritz values symmetric positive definite coordinate sketch 2D principal angle sharp imaginary spectral bound",
+          "sketched Ritz imaginary part sec theta sqrt gamma exact sharp SDP bound table"
+        ]
+      },
+      "rationale": "The phenomenon that symmetric input can produce complex sketched Ritz values is explicitly prior (Nakatsukasa–Tropp 2024 §6.8, Liu–Liu 2026). Earlier E-optimal three-state construction attains the same profile only as a lower-bound example, not a universal upper bound. Reviewed claim is sharp maximum over all bounded SPD operators/trial planes; no inspected prior covers it. Original 2026 Liu–Liu full text unavailable, Oxford VPN disconnected; residual overlap risk.",
+      "residual_risks": [
+        "Liu–Liu 2026 full text inaccessible due Oxford VPN disconnection; overlap cannot be excluded.",
+        "Older oblique numerical-range perturbation theory might implicitly contain the exact bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_QUALITATIVE_NOT_QUANTITATIVE_SHARP_BOUND",
+          "evidence": "States possible nonreal sRR outputs but not parameter-optimal imaginary envelope.",
+          "identifier_or_url": "DOI:10.1137/23M1565413; https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+          "material_read": "Full relevant §§6.3–6.8, especially Eq.(6.12) and p1203 complex eigenvalue discussion; PDF full text searchable",
+          "method": "parsed PDF and rendered p1203",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Direct original sketched Rayleigh–Ritz definition and complex eigenvalues"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PRIORITY_RISK",
+          "evidence": "No whole-document noncoverage claim; important 27-page source priority risk.",
+          "identifier_or_url": "arXiv:2610.22261; https://arxiv.org/abs/2610.22261",
+          "material_read": "Abstract and bibliographic listing only; arXiv HTML/PDF and lawful OA attempts failed, Oxford returned vpn_disconnected",
+          "method": "available abstract plus attempted lawful full-text retrieval",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "Latest direct real-Schur treatment of complex sRR eigenvalues"
+        },
+        {
+          "assessment": "ORTHOGONAL_HERMITIAN_RITZ_VARIATION",
+          "evidence": "Works with two orthogonal compressions of a Hermitian A, not nonreal eigenvalues of an oblique sampled Ritz matrix.",
+          "identifier_or_url": "arXiv:2012.09018; DOI:10.1137/20M1386906",
+          "material_read": "Published abstract and stated bound setting only",
+          "method": "publisher bibliographic abstract comparison",
+          "title": "Absolute variation of Ritz values, principal angles and spectral spread",
+          "trigger": "Possible dominating principal-angle spectral-width bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact optimization/attainment",
+        "Nakatsukasa–Tropp §6.8 motivation"
+      ],
+      "rationale": "A real symmetric eigenproblem can yield nonreal outputs under sketching; the exact worst-case imaginary height in terms of two observable parameters (spectral diameter and missing-coordinate principal angle) is a sharp diagnostic/design limit, with attained examples for every nonzero angle. It resolves a real stability question beyond the known qualitative observation.",
+      "residual_risks": [
+        "No finite-precision accuracy or higher-rank random-sketch claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Liu–Liu 2026 primary full text inaccessible; Oxford returned vpn_disconnected; historical priority qualified."
+  ],
+  "schema_version": 1
+}
