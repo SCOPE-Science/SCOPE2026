@@ -1,15 +1,21 @@
-# Scientific review: degree–leaf covariance by birth age
+# Independent mathematical audit
 
-## Correctness — PASS
-The independent uniform-parent construction gives the exact probability that each nonroot vertex survives as a rooted leaf. Conditioning on a later attachment gives the positive off-diagonal covariance; the product of a child's outdegree and its own leaf indicator vanishes, giving the negative diagonal. Summing proves the full birth-age profile. Its exact positive second difference, negative penultimate endpoint, and zero final endpoint imply ordered covariance signs with a possibly empty early positive block; the harmonic-sum limit gives the unique interior root near \(0.284668137\). Exact-rational finite enumeration supplements the unrestricted analytical proof.
+## correctness
 
-## Originality — PASS, with stated priority risk
-The previously published root-degree/leaf-count note proves the entire root row and root-total covariance, which are credited and explicitly excluded from the novelty claim. The present theorem's nonroot rows, strict convexity and complete birth-age sign classification are not stated there. Inspected primary writings on recursive-tree leaves, labeled degrees and leaf-degree counts do not directly supply the nonroot theorem. The mathematical comparison concerns propositions and implications rather than titles; older implicit moment identities remain a risk and no independent priority examination is claimed.
+PASS
 
-## Value — PASS
-This is a natural full cross-covariance between local birth-labeled outdegrees and global leaf count in the canonical recursive tree. The nonroot signs reverse across a sharp asymptotic fraction of birth times, so the known positive root correlation masks late-vertex negative dependence. The full array and strict convexity identify the age mechanism and a precise asymptotic cutoff; they are not merely a re-expression of the published root result.
+Uniform independent parent P_t in {1,...,t-1} yields Pr(Y_j=1)=(j-1)/(n-1), Y_1=0. The off-diagonal cross-covariance of D_i with Y_j telescopes to ((j-1)/(n-1))*(1/(max(i,j)-1)-1/(n-1)), i != j >= relevant, while D_jY_j=0 yields diagonal -Pr(Y_j) sum_{t=j}^{n-1}1/t. Row summation gives Cov(D_1,L)=(n-2)/(2(n-1)) and for nonroot i Cov(D_i,L)=((n-i)(n-3))/(2(n-1)^2)-(i-1)/(n-1) sum_{t=i}^{n-1} 1/t. Exact discrete second difference 1/[i(n-1)]>0 and last nonroot point negative while endpoint a_{n,n}=0 imply one ordered sign crossing even allowing zero/empty positive block. Harmonic sums converge to f(x)=(1-x)/2+x log x, uniquely crossing zero at alpha approximately .284668. Fresh independent parent-product enumeration of every recursive tree for n=2..8 verified 203 exact rational cross-covariance entries; not an infinite proof.
 
-## Reproducibility and limitations
-`python verify.py` uses exact rational arithmetic, exhaustive independent parent arrays for \(2\le n\le9\), and algebraic checks through \(n=200\). The program returned `VERIFY_OK 34860 exact assertions; 46233 enumerated trees`. The theorem is specific to rooted leaves defined by outdegree zero and uniform parent choice. It does not imply independence from vanishing covariance, general stochastic association, or preferential-attachment analogues. Numerical checks cannot replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published root covariance is expressly prior; its one row is not the nonroot covariance matrix. The assessed original part is the full birth-age mixed-covariance law, strict convexity and threshold alpha. Earlier labeled-degree results and leaf-distribution studies concern different statistics, although broader implicit moment formulas remain a priority risk.
+
+## value
+
+PASS
+
+An exact birth-label profile for dependence between local outdegree and global rooted-leaf abundance answers a natural question left open by root-only covariance. The asymptotic sign reversal at a canonical fraction alpha reveals that young vertices correlate positively and late nonterminal vertices negatively with leaves. The formula is a reusable structural finite and limiting invariant, not a table extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
