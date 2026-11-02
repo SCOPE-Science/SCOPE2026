@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:02:01.731436Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write normalized rank-one T=u⊗v with ||u||=||v||=1 and c=<u,v>. Then T^m=c^(m-1)T and ||T^m||=a^(m-1), a=|c|, for each even m>=2; T^m has nonnegative trace a^m. On span{u,v}, I+T^m is unitarily represented by an upper-triangular 2x2 block with diagonal 1+a^m,1 and off diagonal a^(m-1)sqrt(1-a^2). From determinant 1+a^m and squared Frobenius norm 2+2a^m+a^(2m-2), its largest singular value is (sqrt(4+4a^m+a^(2m-2))+a^(m-1))/2; the untouched orthogonal complement is no larger. Thus the claimed F_m(a) is exact for all dimensions >=2, including a=0,1. At m=2 direct differentiation gives unique a*=1/sqrt5, beta2=1-2/sqrt5 and rationalized exact quadratic rigidity. For c=m(1-a), a^(m-1)<=e^(-c/2) ensures compactness of maximizing c; uniform convergence mF_m(1-c/m)-> c/(2e^c+1) yields unique critical c*=1+W(1/(2e)) and limit m beta_m=W(1/(2e)), all maximizing selections. Independent 2x2 singular-value checks at seven degrees and 8 overlaps plus bounded numerical maximizations through m=2000 agreed: gamma=0.15718495148, m beta_2000 about 0.15722342, optimal c about 1.15714. These checks do not replace uniform tail analysis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qualitative general-Banach equivalence is stronger in scope of spaces and qualitative identity, not in numerical deficit estimates; one-scale projection test is likewise qualitative."
+        ],
+        "reasoning": "These theorems characterize when all rank-one deficits vanish; a Hilbert quantitative optimization can have positive maxima and its Lambert-W boundary layer is not a special case of qualitative equivalence.",
+        "searches": [
+          "Langemets Characterizing the Daugavet property by squares of rank-one operators",
+          "Kadets–Martín–Merí Norm equalities for operators on Banach spaces",
+          "Resultary one-scale rank-one projection test for the Daugavet property"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 672b03003df4aed1c53214971a533ff66f3e8430 and CHECK.py blob 3a16bb67ec4abc41288b083726190c45e7f326f2",
+        "Independent 2x2 singular values, exact m=2 maximum and m=2000 Lambert limiting norm calculation",
+        "Langemets arXiv:2609.27693 full primary Theorem 2.2 and Proposition 2.1",
+        "Kadets–Martín–Merí 2007 cited Proposition 4.9 via Langemets",
+        "Resultary rank-one Davis–Wielandt and Daugavet query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous statements concern the presence of exact Daugavet equality or Davis–Wielandt radius; neither states finite positive Hilbert deficit extremizers, rigidity or large-power scaling."
+        ],
+        "reasoning": "The new claim calculates quantitatively what earlier identities can fail by; it acknowledges all earlier rank-one-square motivation, does not claim a new Banach-space Daugavet characterization.",
+        "searches": [
+          "Langemets 2026 Proposition 2.1 Theorem 2.2",
+          "Kadets–Martín–Merí 2007 Proposition 4.9 (via Langemets primary citation)",
+          "Resultary sharp Davis–Wielandt rank-one record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Daugavet positive-square identity is the zero-deficit condition for every rank-one operator; here one optimizes a nonzero deficit over norm-one rank-one operators on Hilbert H."
+        ],
+        "reasoning": "The new question has an exact singular-value two-plane equivalent formulation. Prior zero-vs-nonzero characterization does not imply the sharp positive m-dependent constants, stability or high-even-power asymptotics.",
+        "searches": [
+          "Langemets arXiv:2609.27693 Theorem 2.2 and Proposition 2.1",
+          "Kadets–Martín–Merí arXiv:math/0604102",
+          "Resultary rank-one Davis–Wielandt bifurcation 8213a478c378"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table containing beta2=1-2/sqrt5, entire F_m(a), and W(1/(2e)) even-power limit was identified. The Davis–Wielandt radius table has a different objective."
+        ],
+        "reasoning": "A table of singular values of I+uv* would provide a computational input; without the global over-overlap optimization and high-degree limit it would not tabulate the full theorem. No claim that all older literature was exhaustively searched.",
+        "searches": [
+          "Resultary: rank-one Daugavet deficit even powers Hilbert Lambert W",
+          "Web: norm of I plus rank one operator power overlap Hilbert optimal gap constant"
+        ]
+      },
+      "rationale": "Best-of-knowledge original quantitative normalized Hilbert rank-one positive-even-power deficit profile, exact m=2 rigidity and Lambert-W asymptotic. The Langemets 2026 primary Theorem 2.2 and Kadets–Martín–Merí 2007 characterize qualitative signed rank-one-square Daugavet identities in general Banach spaces; they do not calculate Hilbert-space best finite gap, parameter-dependent norm or high-degree boundary layer. An indexed Resultary sharp rank-one Davis–Wielandt result optimizes a different functional.",
+      "residual_risks": [
+        "An older two-dimensional rank-one singular-value optimization may contain an equivalent elementary F_m formula or maximum for m=2.",
+        "Kadets–Martín–Merí (2007) was not re-read in full; its statements were compared through the later primary Langemets paper.",
+        "No second-order large-m expansion or uniqueness of each finite m>=4 maximum is claimed; asymptotic uniqueness concerns every maximizing sequence only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives qualitative equivalence of signed square identity and Daugavet property; no numerical Hilbert deficit extremizers or even-power asymptotic in inspected statements.",
+          "evidence": "2026-09-23 arXiv primary, Proposition 2.1 and Theorem 2.2.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27693",
+          "material_read": "Read full accessible arXiv web article, in particular introduction, Proposition 2.1, Theorem 2.2, Corollary 2.7 and comparison section.",
+          "method": "Full primary theorem and quantitative-vs-qualitative comparison",
+          "title": "Characterizing the Daugavet property by squares of rank-one operators",
+          "trigger": "Same rank-one squares Daugavet functional, closest primary"
+        },
+        {
+          "assessment": "Qualitative norm-equality background; stronger quantitative coverage cannot be categorically excluded without own full text.",
+          "evidence": "Langemets introduction and Proposition 2.1 cite Kadets–Martín–Merí Proposition 4.9.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0604102",
+          "material_read": "Inspected its stated results and Proposition 4.9 indirectly through direct full Langemets discussion; complete 2006 original not reread here.",
+          "method": "Precisely attributed primary theorem through later full-text citation",
+          "title": "Norm equalities for operators on Banach spaces",
+          "trigger": "Earlier general rank-one operator norm identity theory"
+        },
+        {
+          "assessment": "Optimizes Davis–Wielandt radius rather than operator-norm Daugavet deficit; not itself coverage of the claimed Lambert even-power limit.",
+          "evidence": "Resultary record abstract explicitly describes cubic-root cusp and Davis–Wielandt radius.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-maximizer-bifurcation-and-cubic-root-cusp-for-rank-one-dav--8213a478c378",
+          "material_read": "Read published semantic record title and detailed summary; whole record was not read.",
+          "method": "Resultary abstract/summary comparison",
+          "title": "Sharp maximizer bifurcation and cubic-root cusp for rank-one Davis–Wielandt radii",
+          "trigger": "Resultary semantically nearest rank-one operator optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Daugavet property and the rank-one-square characterization motivate measuring its exact quantitative obstruction on real Hilbert spaces, where strict convexity precludes the full property. The sharp m=2 gap, global stability around the optimum, and universal even-high-power Lambert-W boundary layer are natural operator-theoretic benchmarks not a mere renaming of a qualitative theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real Hilbert dimension >=2, rank-one operators of norm exactly 1, positive-sign even powers m>=2.",
+    "Odd powers and arbitrary bounded operators are outside scope; all overlap a∈[0,1] including endpoints.",
+    "The Lambert limit is first order along even integers only."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of sharp normalized even-power Daugavet deficits
+# Independent mathematical audit
 
-## Correctness (PASS)
-The rank-one multiplication identity yields an exact two-dimensional triangular block for the even power, with positive trace even when the initial overlap is negative. Its determinant and Frobenius trace give the top singular value and thereby the exact norm deficit. At degree two, differentiation proves the unique maximizing overlap and a rationalized square identity proves global quadratic rigidity. For even high degrees, the rescaled deficit converges uniformly on compact boundary-layer intervals, while an exponential tail bound excludes escaping optimizers; the unique maximum of the limiting scalar profile gives the Lambert-function constant. Endpoints, zero overlap, dimension-two attainment and the arbitrary-dimensional identity complement are included. The supplementary finite numerical checks are explicitly not used as proofs.
+## correctness
 
-## Originality (PASS; residual priority risks below)
-The September 2026 primary article establishes the qualitative signed-square characterization, without any sharp Hilbert operator-norm deficit or power-asymptotic. The older rank-one functional calculus literature treats qualitative norm equalities, and the October 2026 public one-scale projection result proves a different qualitative reduction: its full result was read and does not supply the present constants. The other nearby rank-one Hilbert optimization study concerns Davis–Wielandt radii, not norm deficits, and its full result was read. Targeted searches for equivalent rank-one overlap singular norms, the particular square constant, higher-even-power gap and Lambert coefficient did not reveal a statement implying the full claim. A known generic two-by-two singular-value formula makes one step elementary but does not state or dominate the sharp all-even-power envelope, asymptotic law, and maximizer boundary layer. This remains a literature-based originality judgment, not a claim of absolute uniqueness.
+PASS
 
-## Mathematical value (PASS)
-The recent rank-one-square Daugavet characterization naturally raises the size of the failure in a canonical uniformly convex space and how that failure changes when the testing power grows. The exact square obstruction and stability quantify the defect's geometry, while the universal high-even-degree law shows a nontrivial inverse-degree collapse despite a positive defect at every fixed even power. The Lambert constant and optimizer boundary-layer law measure the competition between a nearly idempotent operator and power suppression. These are parameter-complete sharp facts for a natural test class, not arbitrary finite table values.
+Write normalized rank-one T=u⊗v with ||u||=||v||=1 and c=<u,v>. Then T^m=c^(m-1)T and ||T^m||=a^(m-1), a=|c|, for each even m>=2; T^m has nonnegative trace a^m. On span{u,v}, I+T^m is unitarily represented by an upper-triangular 2x2 block with diagonal 1+a^m,1 and off diagonal a^(m-1)sqrt(1-a^2). From determinant 1+a^m and squared Frobenius norm 2+2a^m+a^(2m-2), its largest singular value is (sqrt(4+4a^m+a^(2m-2))+a^(m-1))/2; the untouched orthogonal complement is no larger. Thus the claimed F_m(a) is exact for all dimensions >=2, including a=0,1. At m=2 direct differentiation gives unique a*=1/sqrt5, beta2=1-2/sqrt5 and rationalized exact quadratic rigidity. For c=m(1-a), a^(m-1)<=e^(-c/2) ensures compactness of maximizing c; uniform convergence mF_m(1-c/m)-> c/(2e^c+1) yields unique critical c*=1+W(1/(2e)) and limit m beta_m=W(1/(2e)), all maximizing selections. Independent 2x2 singular-value checks at seven degrees and 8 overlaps plus bounded numerical maximizations through m=2000 agreed: gamma=0.15718495148, m beta_2000 about 0.15722342, optimal c about 1.15714. These checks do not replace uniform tail analysis.
 
-## Limits and closest coverage
-The result is restricted to normalized rank-one operators on real Hilbert spaces and even powers. The older qualitative sources and the public projection result are distinct in logical strength; none claims the quantitative maximization. A poorly indexed elementary two-by-two optimization or later revision could still establish priority, and independent examination is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original quantitative normalized Hilbert rank-one positive-even-power deficit profile, exact m=2 rigidity and Lambert-W asymptotic. The Langemets 2026 primary Theorem 2.2 and Kadets–Martín–Merí 2007 characterize qualitative signed rank-one-square Daugavet identities in general Banach spaces; they do not calculate Hilbert-space best finite gap, parameter-dependent norm or high-degree boundary layer. An indexed Resultary sharp rank-one Davis–Wielandt result optimizes a different functional.
+
+## value
+
+PASS
+
+The Daugavet property and the rank-one-square characterization motivate measuring its exact quantitative obstruction on real Hilbert spaces, where strict convexity precludes the full property. The sharp m=2 gap, global stability around the optimum, and universal even-high-power Lambert-W boundary layer are natural operator-theoretic benchmarks not a mere renaming of a qualitative theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
