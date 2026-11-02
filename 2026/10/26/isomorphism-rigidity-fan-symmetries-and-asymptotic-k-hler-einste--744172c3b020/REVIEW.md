@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every ray is explicit. The three antipodal fiber-root pairs are intrinsic because all nonzero base twists rule out antipodal base rays. The resulting lattice quotient forces a permutation of the base pairs and preservation of their fiber-vector sums; this proves isomorphism rigidity. Standard maximal-torus conjugacy passes from toric to abstract variety isomorphism. The split finite fan-symmetry group follows from explicit base-pair reflections. The normal-form and rational generating functions are algebraic consequences, and the leading pole gives the asymptotic. Exact bounded computations independently reproduce small cases; they are not presented as proofs of infinitude.
+## correctness
 
-**Originality — PASS, with residual historical priority uncertainty.** Wuebben's 2026 source already defines and proves all smooth/Fano/stable/KE facts and derives a normal form to treat Kähler–Einstein geometry; the same source tabulates nine low-dimensional classes. The proposed additional result is a proof that the normal form is the complete *abstract algebraic-variety* isomorphism invariant, exact fan symmetry groups, and a rational class enumerator for every dimension with a scarcity limit. Direct statement and implication comparisons to the originating source and related general toric theory did not identify the complete result. A finite table or normal form is not by itself a published proof of isomorphism rigidity, though deriving the final series is elementary once the normal form is known. Undiscovered implicit literature remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The work classifies isomorphism types of a natural and actively studied infinite family of stable toric Fano varieties, gives their toric fan symmetry orders, and quantifies a sharp contrast between tangent-bundle stability and Kähler–Einstein existence. The classification and group statement, not just the formal generating function, provide structural content.
+From the six fiber rays, the only opposite ray pairs are the three antipodal A2-root pairs because each nonzero base pair sums to t_i!=0. These intrinsically recover the fiber lattice; quotient antipodal base pairs and their lift sums recover root multiset modulo D6. Pair flips form (Z/2)^k and stabilizing hexagon automorphisms together with permutations give the asserted semidirect product and order. Zero-sum differences equal a common delta, whose absolute value plus ordered minimum pairs yields unique normal form. Independent exact integer enumeration of ordered q triples for k=2..20 gave first counts A=(1,1,2,1,4,2,5,4) for k=2..9 and E=(1,1,2,0,4,0,4,2); matches the two generating functions. Asymptotics follow from pole orders (1/144)*(k^3/6)=k^3/864. The toric Fano/stability and KE symmetry criterion are imported from Wuebben, not independently reproved.
 
-**Nearest sources and limits.** Wuebben, arXiv:2608.20411v1, §7 (construction, multiplicity normal form, nine-class sample, stability and KE). General toric references supply fan equivalence and algebraic-group maximal torus conjugacy. The new result applies only to nonzero zero-sum root twists; it does not describe all toric Fano varieties, the whole algebraic automorphism groups, nor what happens when some twists vanish. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wuebben (2026) constructs the same root-twisted family, asserts stability and an exact KE symmetry criterion; those are credited. The added assertions concern abstract-isomorphism rigidity, discrete fan automorphism group and enumerators. Whether the original full Section 7 already gives equivalent classifications is a specific unresolved priority risk, but available abstract does not establish these claims.
+
+## value
+
+PASS
+
+The intrinsic recovered fiber lattice and complete abstract-isomorphism classification are structural; exact enumeration distinguishes stable but non-KE isomorphism types asymptotically, rather than repeating the source stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
