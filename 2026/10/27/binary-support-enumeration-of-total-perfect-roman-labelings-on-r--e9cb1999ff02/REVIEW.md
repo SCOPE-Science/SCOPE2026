@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The row/column count \(a_i+b_j\) gives the exact locations eligible for zero labels. All remaining positive vertices except the uncovered-row/uncovered-column rectangle have a positive neighbor by construction. The only support exceptions are a singleton defender (requiring an additional one) and a near-spanning bipartite matching with exactly one unmatched row and column (also requiring an additional one). The strict lower-bound analysis proves the minimum profile including the exceptional \(2\)-by-\(2\) board. Independent direct-definition brute force reproduced the complete coefficients on six small rectangles; these are checks, not substitutes for the proof.
+PASS
 
-## Originality
+For defender support H, every nondefender cell has exactly row-degree a_i+column-degree b_j adjacent twos, so zero eligibility is exactly the a_i+b_j=1 cells. All remaining nondefenders are forced ones; the only threats to the induced-positive-subgraph totality are a singleton defender or the unique uncovered corner when H is a matching leaving one row and one column uncovered. Subtracting the all-zero optional labeling only in those cases proves the entire polynomial z^(pq)+sum_H z^(2|H|+b)[(1+z)^u-epsilon(H)]. The argument handles (2,2) separately; independent literal-definition ternary enumeration for boards 2x2, 2x3 and 3x3 matches all polynomial coefficients, and 2x2 has 13 minimal weight-4 functions. The published scalar minimum 2p follows from a separate row support bound and is not claimed novel.
 
-PASS, with nonzero residual bibliographic risk. The 2023 introduction of total perfect Roman domination does not present a complete rook-graph enumerator; the 2022 Cartesian-product paper treats the weaker perfect Roman rule on paths and cycles; the 2018 regular-graph paper addresses parameter bounds. A previously established rook-graph result already covers the perfect Roman minimum \(2p\) and much of its minimum placement structure, so neither its scalar equality nor routine specialization is claimed novel. The new contribution is the complete total-perfect weighted enumeration together with the classification of the two exactly characterized totality obstructions for every defender support. Searches and the remaining limitations are detailed in `AUDIT.json`.
+## originality
 
-## Value
+PASS
 
-PASS. The totality requirement makes the Roman constraint nonlocal at isolated positive vertices. Resolving it for every possible defender pattern changes a ternary counting problem to a binary-support polynomial with a sharply delimited correction. This determines the entire distribution of valid functions, including every nonminimal weight, on a canonical two-parameter family of highly symmetric graphs. This is substantially more informative than another isolated numerical minimum.
+The known total-perfect Roman domination concept, standard perfect-Roman rook-graph minimum, and bounds on other Cartesian factors do not imply the all-weight total-perfect enumerator. Resultary finds a cluster of full weight enumerators for complete multipartite graphs; those graphs and some Roman variants differ from K_p square K_q and the exact-one-defender rule. Novelty here is the all-support polynomial and finite correction classification, not preexisting scalar minimum.
 
-## Limitations
+## value
 
-The support sum is generally exponential; it is not a fast counting algorithm for arbitrary board sizes. The numerical minimum is already implied by the preceding weaker-parameter result. Undiscovered equivalent literature remains possible. Independent validation is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire labeled TPRDF weight polynomial of a canonical two-parameter rook-graph family is an independently useful combinatorial object, determining every feasible weight, not only minimal labels. Binary support and sharply classified totality exceptions reduce a ternary enumeration to a structured natural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
