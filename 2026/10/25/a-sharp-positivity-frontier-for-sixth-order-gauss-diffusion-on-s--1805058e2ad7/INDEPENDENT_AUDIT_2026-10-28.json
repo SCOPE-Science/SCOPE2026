@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:05:40.142066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e513a53792614fd7acf76da5dbe18ced26350be7",
+        "Frozen verify.py blob ac9e2570d774af55f1b60cce0773e3c0af8e86f5"
+      ],
+      "evidence": [
+        "Two independent exact rational derivative certificates",
+        "SRG adjacency algebra, two offdiagonal coefficients and spectral projector diagonals",
+        "Strict diagonal monotonicity and asymptotic limit",
+        "Independent exact symbolic verification and Petersen boundary signs"
+      ],
+      "rationale": "The exact rational map is R(z)=(120−60z+12z²−z³)/(120+60z+12z²+z³). The strongly regular graph identity reduces R(hL) to I+b(h)L+c(h)L², whose two offdiagonal values are μ c(h) and −b(h)−(2k−λ)c(h). The proof constructs scalar divided-difference and secant inequalities using R′(z)=−24[(z²−15)²+375]/Q(z)²<0 and derivative ((R(z)−1)/z)′=2(z⁴+120z²+1200z+3600)/Q(z)²>0, forcing both values positive. Symmetry/regularity give each spectral projector constant diagonal, so F(h)=[1+fR(ah)+gR(bh)]/v has F′(h)<0, F(0)=1 and F(∞)=(2−v)/v<0; uniqueness of H_G follows. Symmetric spectral A-stability and eigenvalue 1 at zero give norm2=1 even after diagonal negativity. Exact SymPy derivatives independently vanish to residual zero; Petersen graph diagonal is 163/22231 at h=3 and −4057/82955 at h=4; finite graph checks corroborate, not prove, all-graph assertion.",
+      "residual_risks": [
+        "Graph must be finite, connected, noncomplete, undirected and strongly regular.",
+        "Only the completed RK step; not positivity of internal stages, rounding or nonlinear equations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna et al 2012 proves high-order Padé need not preserve positivity on arbitrary positive systems and provides sufficient conditions; this is consistent with a finite positivity interval in SRG.",
+          "Blanes et al 2022 proves general positivity barriers and different constructive schemes; no all-SRG [3/3] frontier stated."
+        ],
+        "reasoning": "General negative examples do not logically imply negativity or a unique diagonal-only failure in every strongly regular subclass; the subclass imposes strong algebraic constraints.",
+        "searches": [
+          "Three-stage Gauss Legendre Padé [3/3] positivity threshold strongly regular graph Laplacian off-diagonal nonnegative",
+          "\"positive systems\" diagonal Pade conditional entrywise positivity",
+          "Zappavigna Colaneri Kirkland Shorten Padé positivity strongly regular graph"
+        ]
+      },
+      "checked_sources": [
+        "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+        "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2012 original paper Section 4 and Theorem 1 discuss general Pade positivity and counterexamples under Metzler assumptions, not the exact SRG transition coefficients.",
+          "2022 positivity-preserving integrators use distinct schemes; their unconditional positivity does not imply the completed three-stage Gauss step remains stochastic beyond H_G.",
+          "[2/2] published record has positivity loss possible at arbitrarily small h, but uses a different diagonal Padé order and generator geometry."
+        ],
+        "reasoning": "A-stability bounds |R(hλ)|≤1 in symmetric spectra and preserves row sums, yet cannot establish individual nonnegative entries. The new off-diagonal inequalities and strict diagonal monotonicity need exact derivative and projector calculations.",
+        "searches": [
+          "Three-stage Gauss Legendre Padé [3/3] positivity threshold strongly regular graph Laplacian off-diagonal nonnegative",
+          "\"Essentially Negative News About Positive Systems\" [3/3]",
+          "\"Positivity-preserving methods for ordinary differential equations\" standard Runge Kutta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-stage Gauss–Legendre RK stability function on y’=−Ly is exactly diagonal Padé [3/3] R(hL).",
+          "SRG regular adjacency algebra spans I,A,J, so entrywise signs reduce to one diagonal, one edge and one nonedge value."
+        ],
+        "reasoning": "Compared the RK end-step, rational matrix exponential and stochastic semigroup approximant as equivalent statements. Earlier general algebraic reduction is a tool, not an all-parameter positive-entry theorem.",
+        "searches": [
+          "Three-stage Gauss Legendre Padé [3/3] positivity threshold strongly regular graph Laplacian off-diagonal nonnegative",
+          "\"sixth order Gauss\" \"strongly regular\" \"positivity\"",
+          "[3/3] Padé Markov step stochastic time strongly regular adjacency algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2026/9/20 eight-state positivity barrier treats [2/2] Padé, a directed pure birth generator and reentrant positivity interval; original full RESULT.md inspected.",
+          "The present all-SRG formula includes Petersen and triangular graphs and specifies a single positive degree-six scalar root for each graph."
+        ],
+        "reasoning": "A known [2/2] eight-state example and fixed adjacency tables neither contain nor imply the all-SRG [3/3] interval; search hits are bounded, not exhaustive.",
+        "searches": [
+          "Three-stage Gauss Legendre Padé [3/3] positivity threshold strongly regular graph Laplacian off-diagonal nonnegative",
+          "\"[3/3]\" \"strongly regular\" positivity",
+          "published mathematical records 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        ]
+      },
+      "rationale": "The original Zappavigna–Colaneri–Kirkland–Shorten paper establishes negative general Padé positivity behavior and gives positive-systems counterexamples, but not exact all-SRG sixth-order positive off-diagonals and single diagonal zero. Blanes–Iserles–Macnamara addresses general positivity barriers and different positivity-preserving integrators. A relevant publicly recorded [2/2] Markov-chain result treats fourth-order Gauss and an eight-state directed generator, not the candidate [3/3] undirected all-parameter strongly regular transition. Standard strongly regular adjacency algebra supplies reduction, not the sign/unique-zero theorem. The originality conclusion is qualified for unindexed specialized literature and possible general complete-multipartite formulas.",
+      "residual_risks": [
+        "A specialized older positivity theorem for graph association schemes or Padé may imply the exact sign pattern despite not naming strongly regular graphs.",
+        "Existing complete-multipartite [3/3] formulas may cover that subfamily; only primitive-inclusive unified result is claimed.",
+        "The third source is a public result on a different Padé order; search failure for [3/3] is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general negative results and sufficient conditions, not the exact undirected SRG [3/3] frontier",
+          "evidence": [
+            "Section 4 is a general Metzler positivity analysis; no class-wide SRG diagonal zero classification"
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Original lawful 23-page PDF, introduction, Padé preliminaries, Section 4 positivity conditions and Theorem 1; visually rendered pages 1 and 10",
+          "method": "Read original PDF equations and theorem/condition statements, inspected page screenshots",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Padé positive-system predecessor"
+        },
+        {
+          "assessment": "Constructs different positivity-preserving integrators; discusses RK order barrier without explicit [3/3] SRG threshold",
+          "evidence": [
+            "High-order Runge–Kutta general positivity is limited, but restricted SRG finite-interval statement not supplied"
+          ],
+          "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+          "material_read": "Full primary open 28-page PDF; read introduction, §§1–3, methods and relevant examples, inspected rendered pages 1 and 9",
+          "method": "Read mathematical statements and compared the actual integrator",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Potential higher-order numerical method dominating positivity classification"
+        },
+        {
+          "assessment": "Known fourth-order [2/2] directed Markov example does not cover sixth-order [3/3] symmetric SRG",
+          "evidence": [
+            "Published work finds n=8 minimal small-step failure and an exact reentry window for [2/2]"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Entire public RESULT.md fetched from actual GitHub published mathematical-record source, including proofs and 2012 reference",
+          "method": "Read full theorem and proof; compared approximation order and graph class",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Closest public exact Padé positivity computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+        "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md"
+      ],
+      "evidence": [
+        "Sharp unique graph-specific stochasticity interval",
+        "Positive offdiagonal entries and eventual negative diagonal despite spectral contractivity"
+      ],
+      "rationale": "A-stability says nothing about entrywise physical positivity of diffusive concentrations. The exact sharp timestep on the mathematically natural infinite family of strongly regular graphs, including primitive Petersen and triangular members, is a structural classification rather than a sample-time computation. It identifies a surprising all-time strictly positive offdiagonal pattern coexisting with a single diagonal sign frontier.",
+      "residual_risks": [
+        "No claim of optimality for all positive integrators, other Padé orders or arbitrary graph Laplacians."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+    "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+    "Git tree 7d820b649fba9021df586fb333fa23b71b0bd6aa",
+    "Git source RESULT.md blob e513a53792614fd7acf76da5dbe18ced26350be7"
+  ],
+  "disposition": "passed",
+  "limitations": "Completed [3/3] matrix rational step only; unweighted undirected connected noncomplete SRGs, h≥0 exact arithmetic; no internal RK stage or floating point guarantee.",
+  "residual_risks": [
+    "A specialized older positivity theorem for graph association schemes or Padé may imply the exact sign pattern despite not naming strongly regular graphs.",
+    "Existing complete-multipartite [3/3] formulas may cover that subfamily; only primitive-inclusive unified result is claimed.",
+    "The third source is a public result on a different Padé order; search failure for [3/3] is not priority proof."
+  ],
+  "schema_version": 1
+}

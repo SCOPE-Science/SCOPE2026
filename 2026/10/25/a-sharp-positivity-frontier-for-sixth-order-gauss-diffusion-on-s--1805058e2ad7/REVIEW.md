@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is an all-parameter argument, not an extrapolation from samples. For any connected noncomplete strongly regular graph, the exact adjacency identity reduces the sixth-order [3/3] Padé step to three spectral values. Two independently checked rational derivative identities imply a positive quadratic coefficient and a negative spectral secant; these force both off-diagonal transition classes to be strictly positive for every positive timestep. Constant diagonal spectral-projector ranks yield a strictly decreasing common diagonal from 1 to \((2-v)/v<0\), so exactly one sharp positivity horizon exists. The direct rational matrix and reduced polynomial were checked in exact arithmetic for multiple primitive and imprimitive examples. Limit: no assertion about internal stages, general weighted graphs, or rounding.
+PASS
 
-## Originality — PASS, with residual risks
+The exact rational map is R(z)=(120−60z+12z²−z³)/(120+60z+12z²+z³). The strongly regular graph identity reduces R(hL) to I+b(h)L+c(h)L², whose two offdiagonal values are μ c(h) and −b(h)−(2k−λ)c(h). The proof constructs scalar divided-difference and secant inequalities using R′(z)=−24[(z²−15)²+375]/Q(z)²<0 and derivative ((R(z)−1)/z)′=2(z⁴+120z²+1200z+3600)/Q(z)²>0, forcing both values positive. Symmetry/regularity give each spectral projector constant diagonal, so F(h)=[1+fR(ah)+gR(bh)]/v has F′(h)<0, F(0)=1 and F(∞)=(2−v)/v<0; uniqueness of H_G follows. Symmetric spectral A-stability and eigenvalue 1 at zero give norm2=1 even after diagonal negativity. Exact SymPy derivatives independently vanish to residual zero; Petersen graph diagonal is 163/22231 at h=3 and −4057/82955 at h=4; finite graph checks corroborate, not prove, all-graph assertion.
 
-Comparison at the implication level covered general SSP Runge–Kutta theory, Padé positivity loss in positive systems, the strongly regular adjacency-algebra literature, modern positive integrators, and accessible mathematical records for Markov Padé problems. Those cover distinct general barriers, [2/2] fourth-order results, or graph spectra without the present exact [3/3] all-SRG transition signs and unique horizon. Earlier complete multipartite sixth-order results do not imply the primitive Petersen and triangular-graph cases. All relevant available materials were compared; an unindexed specialized result or inaccessible full text remains a genuine originality risk. Search failure alone is not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-An exact graph-wide positivity criterion for a standard sixth-order implicit integrator is useful because A-stability is insufficient for nonnegative diffusion data, and negative entries can occur for large steps despite spectral nonexpansiveness. The finding explains exactly which transition class first fails on a large, mathematically natural family, supplies a unique reproducible degree-six threshold, and includes primitive strongly regular graphs not covered by complete-multipartite calculations. This is a structural classification rather than an arbitrary numeric cutoff.
+The original Zappavigna–Colaneri–Kirkland–Shorten paper establishes negative general Padé positivity behavior and gives positive-systems counterexamples, but not exact all-SRG sixth-order positive off-diagonals and single diagonal zero. Blanes–Iserles–Macnamara addresses general positivity barriers and different positivity-preserving integrators. A relevant publicly recorded [2/2] Markov-chain result treats fourth-order Gauss and an eight-state directed generator, not the candidate [3/3] undirected all-parameter strongly regular transition. Standard strongly regular adjacency algebra supplies reduction, not the sign/unique-zero theorem. The originality conclusion is qualified for unindexed specialized literature and possible general complete-multipartite formulas.
 
-## Limits
+## value
 
-This is an exact-arithmetic theorem about completed steps, not a verified property of internal stages or nonlinear solvers. The literature comparison is extensive but not exhaustive; independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A-stability says nothing about entrywise physical positivity of diffusive concentrations. The exact sharp timestep on the mathematically natural infinite family of strongly regular graphs, including primitive Petersen and triangular members, is a structural classification rather than a sample-time computation. It identifies a surprising all-time strictly positive offdiagonal pattern coexisting with a single diagonal sign frontier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
