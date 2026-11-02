@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The increasing-tree exponential generating function marks a protected vertex exactly when it is not a leaf and has no leaf child. Its root-marked analogue has the displayed mixed derivative, with coefficient normalization by \((n-1)!\). The identity agrees with complete parent-array enumeration through nine vertices. The expansion at \(z=1\) has two explicitly cancelled logarithmic poles; after cancellation, the remaining entire factors give a controlled \(O(n^{-2})\) coefficient remainder. Numerical tests do not substitute for the all-size proof.
+
+**Originality — PASS, qualified.** Devroye–Janson (arXiv:1310.0665, Section 7) prove limiting protected proportions; Mahmoud–Ward (DOI:10.1239/jap/1429282623, Sections 2–3) study protected means and variances. Holmgren–Janson (DOI:10.1214/EJP.v20-3627, Sections 1 and 8) provide general covariance formulas for *fringe-subtree counts* and degree profiles, not one distinguished root's outdegree jointly with the protected total. Toofanpour–Javanian–Imany-Nabiyyi (DOI:10.1137/S0040585X97T991040, Sections 1–2) consider depth-specific protected/nonprotected profiles. Matching their statements against the current claim yields no explicit covering result. General bivariate marked-tree enumeration could contain it implicitly; mathematical priority remains subject to independent assessment.
+
+**Value — PASS.** Root branching is a natural local predictor of global protective structure in growth trees. While the total number of protected vertices has mean of linear order and root degree grows logarithmically, their covariance has a nonzero, explicitly negative limit; this contrasts with a positive root-degree/leaf covariance for the same model. The exact finite-size formula and first correction quantify the effect without asserting an unsupported whole-distribution order.
+
+**Limitations.** The calculation is for uniform random recursive trees only. It proves eventual negative covariance, not strict negativity at every finite order; empirical negativity at tested sizes is not promoted to a theorem. Potential implicit coverage in general marked-tree methods remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
