@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact Green solution \\(w(t)=G_q(y(t))\\int_{t_*}^{t}\\varepsilon(s)\\,\\mathrm ds\\) gives the operator norm. The left-side root-gap has derivative \\(y^{1-q}/[(1-y)(q-1-qy)^2]>0\\), with endpoint limits \\(-\\infty\\) and \\(+\\infty\\), hence a unique left maximum. The right branch is bounded by \\(\\log(q/(q-1))<1/(q-1)<B_q\\). Under the scaled coordinate \\(z=q(1-y)\\), the root equation has a strictly decreasing limiting function with one zero, proving \\(qB_q\\to z_*/(z_*-1)\\). The standard-library checker reproduced 3,139 supplementary checks. The unweighted comparison is a proven lower-bound asymptotic only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boros §4, Theorem 4.2 covers pin placements for bounded homogeneous propagators, not the optimized speed-relative inhomogeneous norm.",
+        "Du (2016) abstract describes integral reformulations and matrix conditioning rather than this exact ignition-orbit gain."
+      ],
+      "reasoning": "The general propagator includes the Green-kernel ingredients but supplies no q-sharp weighted residual constant or unique pre-pin worst state. General operator-preconditioning results work with different operators and norms. An older specialized Green-kernel extremum remains a priority risk.",
+      "searches": [
+        "front-pinned spectral collocation for flame problem arxiv 2610.27864 sharp relative residual certification Bq",
+        "spectral collocation weighted residual conditioning nonlinear flame problem phase pinning exact",
+        "On well-conditioned spectral collocation and spectral methods by the integral reformulation https://doi.org/10.1137/15M1046629"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.27864v1",
+      "https://doi.org/10.1137/050641296",
+      "https://doi.org/10.1137/15M1046629",
+      "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-singular-pinn-weighted-residual-integrability--3a141a44694e",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boros Proposition 4.1 yields exactly P(t,s)=Q(t)/Q(s) and remarks an unweighted forcing integral can grow like 1/mu.",
+        "Boros Theorem 4.2 maximizes homogeneous pin stability; its proof does not classify optimal speed-weighted inhomogeneous forcing or its large-q behavior.",
+        "Tee and Trefethen 2006 concerns moving-node interpolation; Du 2016 concerns matrix integral preconditioning."
+      ],
+      "reasoning": "The new theorem builds on, rather than rediscovers, the speed-ratio identity. The unreported mathematical work is the globally sharp response gain, its unique pre-front extremizer, and the large-reaction-order special-function constant. These do not follow from the published numerical stability tables or the pin-location theorem alone without additional global optimization.",
+      "searches": [
+        "https://arxiv.org/html/2610.27864v1 Sections 2, 4, 5, 6",
+        "https://doi.org/10.1137/050641296",
+        "https://doi.org/10.1137/15M1046629"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boros Proposition 4.1 gives P(t,s)=Q(t)/Q(s) for unweighted r; its time integral is not optimized in the speed-relative forcing norm.",
+        "The source gives no exact extremal state or large-order exponential-integral constant."
+      ],
+      "reasoning": "Inserting r=Q epsilon into the known variation-of-constants formula produces a new norm optimization. The unique global optimizer and large-q constant are not simply the known bound |P|<=1 or the chosen pin.",
+      "searches": [
+        "front pinned ignition flame ODE weighted relative residual inverse norm exact maximum Green function amplification constant",
+        "autonomous scalar differential equation linearized residual relative to solution velocity propagator pin normalized forcing exact sharp stability constant",
+        "flame problem y^q(1-y) log y perturbation residual weighted Q times distance unique gain maximizing point",
+        "https://arxiv.org/html/2610.27864v1 Proposition 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-singular-pinn-weighted-residual-integrability--3a141a44694e analyzes weighted PDE residual integrability for singular PINNs, not an ignition Green operator.",
+        "Published record https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce analyzes spectral-spacing maximal regularity, not speed-relative scalar orbit forcing.",
+        "Exact-number, alias and exponential-integral-formula searches did not identify the same sharp ignition-orbit coefficient; no uniqueness conclusion is inferred from these negative searches."
+      ],
+      "reasoning": "Semantic searches and direct published-record comparison did not identify this sharp reaction-order-dependent, speed-relative gain invariant. Lack of matches is not itself a novelty proof.",
+      "searches": [
+        "front pinned ignition flame ODE weighted relative residual inverse norm exact maximum Green function amplification constant",
+        "front-pinned spectral collocation for flame problem arxiv 2610.27864 sharp relative residual certification Bq",
+        "front pinned ignition flame weighted relative residual exact global maximum",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-singular-pinn-weighted-residual-integrability--3a141a44694e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce",
+        "sharp weighted residual amplification front pinned flame ignition q order speed 4.300640970392 1.302971455838",
+        "Ei(z)-Ei(1) e^z/(z-1) unique maximizer ignition velocity weighted Green operator",
+        "\"4.30064097\" \"1.302971\" ODE",
+        "\"y^q(1-y)\" \"relative residual\" \"pin\""
+      ]
+    },
+    "rationale": "The full Boros source derives the general pinned speed-ratio propagator and explicitly cautions that unweighted forcing can grow with interval length. The exact speed-relative norm, uniquely maximizing pre-front state, and high-order universal limiting constant are not stated there; they require new global optimization, a strict left/right comparison and a limiting root analysis. Published-result and literature searches found no precise equivalent, with residual priority risk for broader Green-function estimates.",
+    "residual_risks": [
+      "A general older inhomogeneous Green-operator extremum theorem might specialize to the same sharp gain.",
+      "Only the motivating arXiv primary source was fully inspected; the two older algorithmic references were screened by abstracts, not certified absent from full text.",
+      "No independently performed audit or external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the fundamental propagator; no exact velocity-relative inhomogeneous norm, global maximizing state or high-q limit. General kernel is acknowledged as prior.",
+        "evidence": [
+          "Proposition 4.1 establishes P(t,s)=Q(t)/Q(s) and states the inhomogeneous integral estimate.",
+          "After Proposition 4.1 it warns that unweighted residual integration can grow with interval length O(1/mu).",
+          "Theorem 4.2 optimizes placement of the imposed condition for homogeneous propagator stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.27864v1",
+        "material_read": "Complete accessible arXiv HTML, including abstract, Sections 1–6; detailed inspection of Proposition 2.1, Proposition 4.1, Theorem 4.2, Lemma 4.3 and conclusions",
+        "method": "Read mathematical statements, displayed propagator and proof, and statements about residual growth and lack of discrete inverse bound",
+        "title": "Front-pinned spectral collocation for the flame problem and related ignition problems",
+        "trigger": "Exactly the same scalar ignition equation, logarithmic variable and front pin; strongest potential overlap"
+      },
+      {
+        "assessment": "Abstract focuses on transformed grid and rational interpolation, not explicit ignition residual norm. Whole-document noncoverage is not asserted.",
+        "evidence": [
+          "SIAM J. Sci. Comput. 28 (2006), 1798–1811, publisher abstract describes transformed nodes, Chebyshev–Padé poles and moving-front examples."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050641296",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text not inspected",
+        "method": "Compare stated method, target and abstract to this speed-weighted Green norm",
+        "title": "A rational spectral collocation method with adaptively transformed Chebyshev grid points",
+        "trigger": "Earlier mapped-grid front collocation cited by the primary source"
+      },
+      {
+        "assessment": "Abstract addresses compact-perturbation-of-identity matrix conditioning; full general results could contain related inverse estimates but no exact profile-specific coverage was established.",
+        "evidence": [
+          "SIAM J. Sci. Comput. 38 (2016), A3247–A3263, publisher abstract on integration reformulation and well-conditioning."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M1046629",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text not inspected",
+        "method": "Compare target operator and norm stated in abstract",
+        "title": "On well-conditioned spectral collocation and spectral methods by the integral reformulation",
+        "trigger": "Broad potential domination by integral-preconditioning stability theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20b1d3a0-3df1-44dc-9f38-6aaa72268a34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating source explicitly identifies residual forcing as a remaining continuous-conditioning caveat after front pinning. This result quantifies a natural velocity-relative residual norm by the exact best possible gain, locates the unique worst-response state before the front, and yields a universal large-reaction-order limit. It is a motivated structural benchmark for spatially varying residual tolerance analysis, not an unconditional numerical residual certificate; near-equilibrium weights can be very small.",
+    "status": "PASS"
+  }
+}
