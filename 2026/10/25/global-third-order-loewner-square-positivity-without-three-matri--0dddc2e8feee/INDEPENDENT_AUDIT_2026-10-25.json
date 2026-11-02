@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T19:01:16.540245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed rational divided difference k(a,b) for q(s)=s+s^3/3+2s^5/25 on (0,0.01), with f=q(nu) and nu(x)=x/[100(1+x)]. Independently ran exact SymPy symbolic polynomial division: Q2=[d(t)d(t+u)-k(t,t+u)^2]/u² has 16 nonzero terms, constant 1/3, negative-monomial bound <1/12, hence 2x2 principal minors positive. Q3=det[k]/Vandermonde² has 44 rational terms all negative, constant -7/675, proving every distinct-node 3x3 L_q has one negative eigenvalue. Q3sq=det[k^2]/Vandermonde² has 681 terms, positive constant 22/675 and all 680 other coefficients negative; evaluation at (0.01,0.01,0.01)>0.03 certifies all ordered triples on the cube. The positive rank-one divided difference nu[x,y]=1/[100(1+x)(1+y)] gives diagonal congruences transferring both matrices to arbitrary positive x, with repeated-node PSD by continuity. Loewner finite-order criterion then gives 2-monotone, not 3-monotone; no claim about actual Frobenius radial convexity. The finding calls the scaling function u while the formula writes nu, but the proof explicitly defines nu and the intended single scaling x/[100(1+x)] is uniquely specified; treat as a notation inconsistency, not two mathematical maps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Czerwińska–Franco–Merino identify the determinant sign obstruction and a different failing example",
+          "Hiai–Sano characterize conditional positive/negative definiteness of ordinary L_f, L_{tf}, etc., not elementwise squares"
+        ],
+        "reasoning": "Prior theory establishes why a 3x3 Schur square loses sign but does not provide the globally all-triples analytic witness or certify its polynomial inequalities.",
+        "searches": [
+          "arXiv:2610.17393 Proposition 4.14, Remark 4.16",
+          "arXiv:1007.2478 Theorems 1.1 and 2.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.17393",
+        "arXiv:1007.2478",
+        "Resultary 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 Remark 4.16 has a distinct counterexample with a negative eigenvalue in L_f circ L_f at one triple",
+          "General 2010 Loewner positivity criteria require ordinary Loewner matrix or conditional criteria not implied by Schur square"
+        ],
+        "reasoning": "The already-known generic algebraic difference of determinants does not ensure there exists a single Loewner kernel of an analytic 2-monotone f with Schur square PSD at every positive triple; the new rational construction supplies precisely that missing global witness.",
+        "searches": [
+          "arXiv:2610.17393 Proposition 4.8, Remark 4.12, Proposition 4.14, Remark 4.16",
+          "arXiv:1007.2478 Intro and theorem framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Condition L_f(x1,x2,x3) circ L_f(x1,x2,x3) PSD for all triples is exactly the differential Loewner-square necessary test from radial convexity",
+          "It is weaker than full radial convexity and is not itself a global metric property"
+        ],
+        "reasoning": "Equated Schur-square, Hadamard-square and Frobenius differential inner-product formulations; the theorem concerns only the necessary kernel condition, not the entire original radial-convexity conjecture.",
+        "searches": [
+          "Hadamard square Loewner matrix positive semidefinite all triples not 3-monotone analytic function",
+          "positive Schur squared Loewner matrices order three analytic not matrix monotone",
+          "arXiv:2610.17393 Proposition 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary positivity result concerns triangular Schur truncation, not an entrywise square of a Loewner divided-difference kernel"
+        ],
+        "reasoning": "No identified exact 681-coefficient three-node kernel witness previously tabulated; lack of matching search is not novelty proof.",
+        "searches": [
+          "Hadamard square Loewner matrix positive semidefinite all triples not 3-monotone analytic function",
+          "positive Schur squared Loewner matrices order three analytic not matrix monotone",
+          "Resultary 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121"
+        ]
+      },
+      "rationale": "The motivating 2026 paper derives the Loewner Hadamard-square necessary condition and states its three-dimensional determinant obstruction; its Remark 4.16 exhibits a 2-monotone function whose squared test also fails, not one passing the squared test globally while failing 3-monotonicity. Hiai–Sano study conditional definiteness of ordinary Loewner matrices and finite-order monotonicity, not this Schur-square separation. The all-triple rational witness therefore survives those comparisons, subject to unindexed kernel literature.",
+      "residual_risks": [
+        "An equivalent all-triple Schur-square kernel witness in older positive-kernel literature may exist; no exhaustive priority certification.",
+        "The RESULT finding uses u(x) once and subsequently nu(x); later definition fixes the intended function, but notation should be standardized before publication.",
+        "Result concerns 3x3 condition only; full radial convexity and higher-size squared-kernel positivity are not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: establishes the test and differential obstruction, but not a global positive-squared/negative-unsquared witness",
+          "evidence": "Remark 4.16 explicitly has L_f circ L_f not PSD for its example at diag(1,2,3).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.17393",
+          "material_read": "Full original arXiv HTML, especially Sections 2 and 4, Propositions 4.5,4.8,4.14 and Remark 4.16; explicit example comparison",
+          "method": "Complete public original HTML",
+          "title": "Towards a Characterization of Matrix Monotonicity via Radial Convexity",
+          "trigger": "Identical squared Loewner necessary condition and dimension-three comparison"
+        },
+        {
+          "assessment": "NO VERIFIED COVERAGE: conditional-definiteness and finite monotonicity criteria, not the globally Schur-square test",
+          "evidence": "The Introduction explicitly studies L_f,L_tf,L_t²f and conditional definiteness, while original counterexample concerns Schur square.",
+          "identifier_or_url": "https://arxiv.org/pdf/1007.2478",
+          "material_read": "40-page original PDF abstract, Introduction, matrix-order definitions, main theorem statements and relevant hypotheses; first-page image viewed; find for Hadamard yielded no occurrence",
+          "method": "Lawful arXiv full PDF with page-image check",
+          "title": "Loewner matrices of matrix convex and monotone functions",
+          "trigger": "Potential stronger older Loewner criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-positive-three-node Schur-square Loewner positivity condition is a natural differential necessary test for the degree-three radial-convexity question. A single globally smooth analytic counterexample shows the full all-triple test does not force 3-monotonicity, beyond an isolated matrix or a sample triple. Exact rational certificates close the infinite-node assertion without extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.17393",
+    "arXiv:1007.2478",
+    "Resultary 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Typographical u/nu inconsistency requires safe clarification; no rewrite of RESULT is made under passed status.",
+    "No conclusion about global Frobenius radial convexity; differential condition alone is considered."
+  ],
+  "residual_risks": [
+    "An equivalent all-triple Schur-square kernel witness in older positive-kernel literature may exist; no exhaustive priority certification.",
+    "The RESULT finding uses u(x) once and subsequently nu(x); later definition fixes the intended function, but notation should be standardized before publication.",
+    "Result concerns 3x3 condition only; full radial convexity and higher-size squared-kernel positivity are not established."
+  ],
+  "schema_version": 1
+}

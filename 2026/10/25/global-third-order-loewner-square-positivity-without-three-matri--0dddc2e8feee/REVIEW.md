@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(q(s)=s+s^3/3+2s^5/25\), direct divided differences produce a rational bivariate kernel. The exact polynomial certificate establishes strictly positive two-by-two principal minors, negative three-by-three unsquared determinant for any distinct nodes in \((0,1/100)\), and strictly positive three-by-three squared determinant with positive lower-order principal minors. The rank-one Möbius divided-difference congruence transports these statements to all positive nodes. The finite-order Loewner criterion then gives exactly degree-two, not degree-three, matrix monotonicity. All repeats are handled by continuity. This is a complete proof of the stated claim. The standalone symbolic checker passed its exact rational assertions on the delivered sources.
+PASS
 
-## Originality — PASS, with priority limitations
+Reconstructed rational divided difference k(a,b) for q(s)=s+s^3/3+2s^5/25 on (0,0.01), with f=q(nu) and nu(x)=x/[100(1+x)]. Independently ran exact SymPy symbolic polynomial division: Q2=[d(t)d(t+u)-k(t,t+u)^2]/u² has 16 nonzero terms, constant 1/3, negative-monomial bound <1/12, hence 2x2 principal minors positive. Q3=det[k]/Vandermonde² has 44 rational terms all negative, constant -7/675, proving every distinct-node 3x3 L_q has one negative eigenvalue. Q3sq=det[k^2]/Vandermonde² has 681 terms, positive constant 22/675 and all 680 other coefficients negative; evaluation at (0.01,0.01,0.01)>0.03 certifies all ordered triples on the cube. The positive rank-one divided difference nu[x,y]=1/[100(1+x)(1+y)] gives diagonal congruences transferring both matrices to arbitrary positive x, with repeated-node PSD by continuity. Loewner finite-order criterion then gives 2-monotone, not 3-monotone; no claim about actual Frobenius radial convexity. The finding calls the scaling function u while the formula writes nu, but the proof explicitly defines nu and the intended single scaling x/[100(1+x)] is uniquely specified; treat as a notation inconsistency, not two mathematical maps.
 
-The close October 2026 source Czerwińska–Franco–Merino (arXiv:2610.17393v1, Sections 2 and 4, especially Propositions 4.5, 4.8, 4.14 and Remark 4.16) supplies the squared-Loewner necessary condition and notes that the determinant is the remaining degree-three obstruction. It does not supply a single function satisfying this necessary condition for *all* positive triples while failing degree-three monotonicity. Remark 4.16 instead exhibits a function failing both monotonicity and the squared test at a chosen triple. The new all-triple rational witness is not obtained by merely renaming that example. The Hiai–Sano (arXiv:1007.2478) description addresses related conditional Loewner positivity rather than explicitly this squared-test separation; its complete 20-page text could not be inspected. A broader historical equivalence therefore remains a residual publication-priority risk, not a claimed impossibility.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new assertion distinguishes a natural globally imposed necessary condition from the sought finite-order monotonicity property in the exact first dimension where the determinant obstruction appears. The distinction is scientifically useful because it rules out completing the degree-three argument using *only* pointwise squared-Loewner positivity. The explicit smooth example and exact rational witness are stronger than an arbitrary isolated matrix with indefinite unsquared but positive squared entries. The full radial-convexity conjecture is not asserted or resolved.
+The motivating 2026 paper derives the Loewner Hadamard-square necessary condition and states its three-dimensional determinant obstruction; its Remark 4.16 exhibits a 2-monotone function whose squared test also fails, not one passing the squared test globally while failing 3-monotonicity. Hiai–Sano study conditional definiteness of ordinary Loewner matrices and finite-order monotonicity, not this Schur-square separation. The all-triple rational witness therefore survives those comparisons, subject to unindexed kernel literature.
 
-## Boundaries and source access
+## value
 
-The result is limited to matrix size three and one explicit function. One older comparison could be assessed only at abstract level, so historical priority remains uncertain; the motivating 2026 primary paper was read directly in HTML. The verification does not rely on finite-grid coverage or floating-point extrapolation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-positive-three-node Schur-square Loewner positivity condition is a natural differential necessary test for the degree-three radial-convexity question. A single globally smooth analytic counterexample shows the full all-triple test does not force 3-monotonicity, beyond an isolated matrix or a sample triple. Exact rational certificates close the infinite-node assertion without extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
