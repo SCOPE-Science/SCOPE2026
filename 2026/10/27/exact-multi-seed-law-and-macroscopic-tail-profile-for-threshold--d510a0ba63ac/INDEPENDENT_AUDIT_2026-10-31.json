@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:57:17.039198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/27/exact-multi-seed-law-and-macroscopic-tail-profile-for-threshold--d510a0ba63ac/RESULT.md",
+        "2026/10/27/exact-multi-seed-law-and-macroscopic-tail-profile-for-threshold--d510a0ba63ac/verify.py",
+        "independent_checks_batch4949.py"
+      ],
+      "rationale": "For each chosen terminal active set of size k containing s seeds, m=k-s candidate nonseeds must have sorted thresholds t_(j)<=s+j-1. Circular parking functions count exactly s*k^(m-1) admissible ordered vectors for m>0, with empty case one. All other N-k nonseeds must have threshold>k, yielding P(K=k)=C(N-s,k-s)*s*k^(k-s-1)/N^(k-s)*(1-k/N)^(N-k), including k=s and k=N yielding s/N. For fixed s and k>=epsilon*N, the exact ratio to the one-seed PMF tends uniformly to s. The one-seed distribution equals binomial mass B(N,k)/k and uniform Stirling yields N^(-3/2)/(sqrt(2*pi)*x^(3/2)*sqrt(1-x)); a binomial endpoint bound controls x->1, and integrating gives s*sqrt(2/pi)*sqrt((1-epsilon)/epsilon). Dividing gives conditional density sqrt(epsilon)/(2 sqrt(1-epsilon))*x^(-3/2)*(1-x)^(-1/2), no atom at 1. Independent exact rational normalization for N<=22 and exhaustive threshold vectors N<=7 confirm finite cases only.",
+      "residual_risks": [
+        "Asymptotics require fixed integer s and fixed epsilon in (0,1), not growing seeds or moving epsilon. Exact distribution assumes uniformly discrete iid thresholds on 1..N and complete mixing; this is a single movement, not network contagion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fontanari arXiv:2606.25921: single-seed exact mass and mean scaling, which the s=1 formula recovers.",
+          "Karampourniotis et al. 2015 DOI 10.1371/journal.pone.0143020: multi-initiator network contagion without this all-k finite full-mixing mass in inspected primary text.",
+          "Ishikawa–Fontanari arXiv:2608.20555: closest potential broader prior with exact finite-N Beta-threshold theory, uninspected full text and genuine risk.",
+          "Independent exact enumeration N<=7 across all s and normalization N<=22.",
+          "arxiv:2606.25921 abstract/one-instigator model"
+        ],
+        "reasoning": "Fontanari one-seed paper allows arbitrary CDF but only s=1; Karampourniotis has multiple initiators but networks and different observables. Ishikawa–Fontanari 2026 considers multiple initial fractions and Beta thresholds, potentially covers alpha=beta=1 and s/N, but abstract alone cannot resolve implications.",
+        "searches": [
+          "arxiv:2606.25921 abstract/one-instigator model",
+          "PMC4646465 multi-initiator full article",
+          "arxiv:2608.20555 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Fontanari, Exact Solution of Granovetter’s Threshold Model for a Finite Population, arXiv:2606.25921 / Mathematics 14(14), 2620 (one-seed exact law)",
+        "Karampourniotis et al., Impact of Heterogeneous Thresholds on Social Contagion with Multiple Initiators, PLOS ONE 10(11), 2015 (full PMC article)",
+        "Ishikawa–Fontanari, Exact Scaling Theory of Social Tipping Phenomena in Finite Populations, arXiv:2608.20555 (abstract; highly relevant full text inaccessible)",
+        "Resultary search: exact finite population Granovetter uniform threshold cascades multiple initial seeds parking functions macroscopic tail law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fontanari arXiv:2606.25921: single-seed exact mass and mean scaling, which the s=1 formula recovers.",
+          "Karampourniotis et al. 2015 DOI 10.1371/journal.pone.0143020: multi-initiator network contagion without this all-k finite full-mixing mass in inspected primary text.",
+          "Ishikawa–Fontanari arXiv:2608.20555: closest potential broader prior with exact finite-N Beta-threshold theory, uninspected full text and genuine risk.",
+          "Independent exact enumeration N<=7 across all s and normalization N<=22.",
+          "Fontanari arxiv:2606.25921 one instigator"
+        ],
+        "reasoning": "The precise new part beyond one seed is all s and macroscopic fixed-s tail; standard parking-function counting alone has no cascade statement without connecting the dynamics. The recent exact Beta-threshold theory may imply the all-s mass as a specialization; this remains an explicitly unresolved high-priority full-text comparison, not asserted noncoverage.",
+        "searches": [
+          "Fontanari arxiv:2606.25921 one instigator",
+          "Karampourniotis PMC4646465 original results",
+          "Ishikawa–Fontanari arxiv:2608.20555 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fontanari arXiv:2606.25921: single-seed exact mass and mean scaling, which the s=1 formula recovers.",
+          "Karampourniotis et al. 2015 DOI 10.1371/journal.pone.0143020: multi-initiator network contagion without this all-k finite full-mixing mass in inspected primary text.",
+          "Ishikawa–Fontanari arXiv:2608.20555: closest potential broader prior with exact finite-N Beta-threshold theory, uninspected full text and genuine risk.",
+          "Independent exact enumeration N<=7 across all s and normalization N<=22.",
+          "Resultary finite Granovetter multiple seeds parking functions query"
+        ],
+        "reasoning": "The law is a generalized parking-function terminal-set count, equivalently a multiseed Granovetter complete-graph distribution; compare these aliases as well as cascade size and branching.",
+        "searches": [
+          "Resultary finite Granovetter multiple seeds parking functions query",
+          "arxiv:2606.25921 finite one-seed distribution",
+          "arxiv:2608.20555 exact finite-N Beta case"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fontanari arXiv:2606.25921: single-seed exact mass and mean scaling, which the s=1 formula recovers.",
+          "Karampourniotis et al. 2015 DOI 10.1371/journal.pone.0143020: multi-initiator network contagion without this all-k finite full-mixing mass in inspected primary text.",
+          "Ishikawa–Fontanari arXiv:2608.20555: closest potential broader prior with exact finite-N Beta-threshold theory, uninspected full text and genuine risk.",
+          "Independent exact enumeration N<=7 across all s and normalization N<=22.",
+          "Resultary complete-graph threshold query"
+        ],
+        "reasoning": "No same closed PMF or fixed-s tail density in accessible Resultary hits. The published one-seed table is the s=1 slice; no database absence can settle the newer broader preprint.",
+        "searches": [
+          "Resultary complete-graph threshold query",
+          "Fontanari 2026 s=1 mass",
+          "arxiv:2608.20555 title/abstract"
+        ]
+      },
+      "rationale": "Fontanari 2026 exact law is stated for one initial instigator; generalized parking functions are standard but enable the explicit multi-seed all-k PMF. Full accessible 2015 Karampourniotis et al. text studies heterogeneous thresholds, network topology and expected cascade sizes, not the asserted finite complete-graph discrete-uniform terminal mass. CRITICAL direct risk: Ishikawa–Fontanari arXiv:2608.20555 (20 Aug 2026) studies the same Granovetter model with initial seed fraction and Beta thresholds, claims exact finite-N combinatorial formulations. The beta(1,1) and seed fraction s/N can specialize the model, but the full text could not be read: arXiv PDF/HTML and OA failed, authorized Oxford returned vpn_disconnected. Its abstract does not display this closed parking-function PMF or the fixed-s macroscopic sqrt-N tail profile. PASS is qualified best-of-knowledge only, not proof of noncoverage; this source is high-priority before publication.",
+      "residual_risks": [
+        "High-priority: Ishikawa–Fontanari 2026 full text may already imply both finite-s PMF and asymptotic tail, despite abstract not displaying them; Oxford access blocked (vpn_disconnected).",
+        "Unindexed prior applications of generalized parking functions to threshold cascade sizes may cover the exact same s-dependent law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "s=1 mass agrees; no demonstrated general s formula in inspected passages",
+          "evidence": [
+            "One-instigator premise; Mathematics 14(14), 2620 (2026)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.25921",
+          "material_read": "Published abstract, one-instigator statement and finite-size formula description; this run arXiv PDF disabled, no full-paper reading claimed",
+          "method": "Primary abstract/published summary, plus explicit algebraic s=1 comparison",
+          "title": "Exact Solution of Granovetter’s Threshold Model for a Finite Population",
+          "trigger": "Exact one-seed predecessor and same discrete threshold law"
+        },
+        {
+          "assessment": "Finite complete-graph discrete-uniform all-k PMF and fixed-s rare-tail profile not reported in inspected model and results",
+          "evidence": [
+            "PLOS ONE 10(11), 2015; network contagion and expected cascade observables"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4646465/",
+          "material_read": "Accessible complete PMC HTML, methods/model/heterogeneous network results, relevant discussion",
+          "method": "Full legal OA article HTML inspected",
+          "title": "The Impact of Heterogeneous Thresholds on Social Contagion with Multiple Initiators",
+          "trigger": "Same multi-initiator label makes possible alias coverage"
+        },
+        {
+          "assessment": "Strong possible implicit specialization; no whole-document noncoverage conclusion",
+          "evidence": [
+            "Abstract: rho0 control, Beta(alpha,beta) thresholds, exact finite-N combinatorial formulations; arXiv 20 Aug 2026"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20555",
+          "material_read": "Only abstract and model summary, not whole paper; arXiv/OA failures; Oxford vpn_disconnected",
+          "method": "Web publication abstract plus failed authorized full-text attempts",
+          "title": "Exact Scaling Theory of Social Tipping Phenomena in Finite Populations",
+          "trigger": "Very close August 2026 paper on exact finite-N multiple seed threshold process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete terminal-size distribution for every seed count and finite population size is a natural cascade-risk observable. The exact full-mobilization probability s/N, rare macroscopic-tail constant and conditional profile improve on the one-instigator law and on expectations, and mathematically explain multi-seed sensitivity.",
+      "residual_risks": [
+        "The claim is valuable only with its precise invariant and hypotheses; do not extrapolate beyond the domain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fontanari, Exact Solution of Granovetter’s Threshold Model for a Finite Population, arXiv:2606.25921 / Mathematics 14(14), 2620 (one-seed exact law)",
+    "Karampourniotis et al., Impact of Heterogeneous Thresholds on Social Contagion with Multiple Initiators, PLOS ONE 10(11), 2015 (full PMC article)",
+    "Ishikawa–Fontanari, Exact Scaling Theory of Social Tipping Phenomena in Finite Populations, arXiv:2608.20555 (abstract; highly relevant full text inaccessible)",
+    "Resultary search: exact finite population Granovetter uniform threshold cascades multiple initial seeds parking functions macroscopic tail law"
+  ],
+  "disposition": "passed",
+  "limitations": "Asymptotics require fixed integer s and fixed epsilon in (0,1), not growing seeds or moving epsilon. Exact distribution assumes uniformly discrete iid thresholds on 1..N and complete mixing; this is a single movement, not network contagion. Publication not_ready is a provenance/privacy transport blocker, NOT scientific failure; no external attestation claimed.",
+  "residual_risks": [
+    "High-priority: Ishikawa–Fontanari 2026 full text may already imply both finite-s PMF and asymptotic tail, despite abstract not displaying them; Oxford access blocked (vpn_disconnected).",
+    "Unindexed prior applications of generalized parking functions to threshold cascade sizes may cover the exact same s-dependent law."
+  ],
+  "schema_version": 1
+}

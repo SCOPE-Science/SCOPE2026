@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final-size mass factors into (i) a choice of the \(k-s\) recruited nonseeds, (ii) the generalized parking-function count \(s k^{k-s-1}\) divided by \(N^{k-s}\), and (iii) the independent probability that all remaining thresholds exceed \(k\). The circular-parking argument verifies the combinatorial count. The exact ratio to the one-seed mass is uniform for \(k\ge\epsilon N\) when \(s\) is fixed. Stirling's formula and an endpoint bound justify the Riemann-sum limit, and the conditional density is normalized explicitly.
+PASS
 
-## Originality — PASS, with residual priority risk
+For each chosen terminal active set of size k containing s seeds, m=k-s candidate nonseeds must have sorted thresholds t_(j)<=s+j-1. Circular parking functions count exactly s*k^(m-1) admissible ordered vectors for m>0, with empty case one. All other N-k nonseeds must have threshold>k, yielding P(K=k)=C(N-s,k-s)*s*k^(k-s-1)/N^(k-s)*(1-k/N)^(N-k), including k=s and k=N yielding s/N. For fixed s and k>=epsilon*N, the exact ratio to the one-seed PMF tends uniformly to s. The one-seed distribution equals binomial mass B(N,k)/k and uniform Stirling yields N^(-3/2)/(sqrt(2*pi)*x^(3/2)*sqrt(1-x)); a binomial endpoint bound controls x->1, and integrating gives s*sqrt(2/pi)*sqrt((1-epsilon)/epsilon). Dividing gives conditional density sqrt(epsilon)/(2 sqrt(1-epsilon))*x^(-3/2)*(1-x)^(-1/2), no atom at 1. Independent exact rational normalization for N<=22 and exhaustive threshold vectors N<=7 confirm finite cases only.
 
-The closest exact source, Fontanari (2026), gives the fully mixed finite-population law for one initial instigator and a critical mean-size asymptotic. It does not state the multi-seed mass formula. The accessible abstract/summary of the multiple-initiator literature describes networked contagion and average cascade size, while the recent competitive-mobilization paper models multiple rival groups. The 2015 multiple-initiator paper was not read line-by-line, so an equivalent complete-graph special case remains a specific residual risk. Literature-index searches returned deterministic conversion-set, epidemic-chain, and threshold-ODE results, not this exact stochastic law. The generalized parking-function identity is standard and is not claimed as new. An unindexed prior derivation for the same multi-seed complete-graph model remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact law gives an actionable seed-count dependence, including the exact full-mobilization probability \(s/N\), and the macroscopic-tail law quantifies rare large cascades rather than only their mean. The conditional density describes the size distribution among those rare macroscopic outcomes. These are natural finite-population risk quantities for collective-action and intervention models, not merely a numerical table or a restatement of the one-seed mean.
+Fontanari 2026 exact law is stated for one initial instigator; generalized parking functions are standard but enable the explicit multi-seed all-k PMF. Full accessible 2015 Karampourniotis et al. text studies heterogeneous thresholds, network topology and expected cascade sizes, not the asserted finite complete-graph discrete-uniform terminal mass. CRITICAL direct risk: Ishikawa–Fontanari arXiv:2608.20555 (20 Aug 2026) studies the same Granovetter model with initial seed fraction and Beta thresholds, claims exact finite-N combinatorial formulations. The beta(1,1) and seed fraction s/N can specialize the model, but the full text could not be read: arXiv PDF/HTML and OA failed, authorized Oxford returned vpn_disconnected. Its abstract does not display this closed parking-function PMF or the fixed-s macroscopic sqrt-N tail profile. PASS is qualified best-of-knowledge only, not proof of noncoverage; this source is high-priority before publication.
 
-## Closest literature and limitations
+## value
 
-- Fontanari (2026), arXiv:2606.25921v1: exact one-seed law and critical mean scaling; the inspected initial condition is explicitly a single instigator.
-- Karampourniotis et al. (2015), DOI 10.1371/journal.pone.0143020: multiple initiators, but networked threshold contagion and average cascade-size questions.
-- Ishikawa and Fontanari (2026), arXiv:2601.18682v1: competing groups and different dynamics.
+PASS
 
-The theorem assumes complete mixing, independent discrete-uniform thresholds, one irreversible movement, fixed \(s\), and fixed \(\epsilon\in(0,1)\). No independent audit has been performed.
+A complete terminal-size distribution for every seed count and finite population size is a natural cascade-risk observable. The exact full-mobilization probability s/N, rare macroscopic-tail constant and conditional profile improve on the one-instigator law and on expectations, and mathematically explain multi-seed sensitivity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
