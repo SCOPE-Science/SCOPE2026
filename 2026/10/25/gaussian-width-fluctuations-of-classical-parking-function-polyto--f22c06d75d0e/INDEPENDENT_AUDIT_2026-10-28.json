@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked exact classical parking-function vertex maximization: h(G)=Σ_i G_i+Σ_{i<j}max(0,G_i,G_j); direct enumeration of all vertex layers for n=2..6 confirmed formula and opposite-direction width as S_n/R_n with kernel L(x,y)=max(0,x,y)-min(0,x,y). K_n=max(1,number of negative Gaussian coordinates), hence binomial layer fluctuations. Independently integrated the one-point Hoeffding projection f(x)=|x|Φ(|x|)+φ(|x|)+φ(0), obtaining μ=(1+√2)/√π and E f²−9μ²/8=(14π+12√3−30√2−21)/(24π)=0.017778933...; cross radial covariance E[(G²−1)f(G)]=μ/2. Degenerate U remainder has O(n²) second moment, negligible against n^(3/2), while chi-radius expansion contributes −μ/4(G²−1) to influence. Joint iid CLT and even influence vs centered odd sign indicator yield independent normal limits, the latter with variance 1/4. Exact mean follows from radial independence E S_n=E R_n E W_n. The finite numerical checks corroborate but do not prove the n→∞ theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader polytope family descriptions establish combinatorial facets, vertices and some deterministic functionals, not the exact random-direction joint second-order law.",
+          "Classical U-statistics theorem applies after identifying the kernel and radial correction but does not provide the specific variance formula."
+        ],
+        "reasoning": "Stronger combinatorial generality does not dominate a specific unstudied probabilistic fluctuation observable. The general probabilistic theorem supplies a proof tool, not the explicit geometric theorem as a stated corollary.",
+        "searches": [
+          "Bayer et al arxiv:2403.07387 combinatorics of generalized parking function polytopes",
+          "Behrend arxiv:2403.06975 Ehrhart polynomials of partial permutohedra",
+          "Hoeffding 1948 CLT U statistics"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md/verify.py/AUDIT.json/REVIEW.md/METADATA.json/VERIFICATION.md retrieved at pinned commit 1f8e0be379eb81eef2fb9793610c55b58e95c7d6",
+        "Resultary semantic index searches executed 2026-10-28 UTC (specific queries in originality checks)",
+        "Independently integrated Gaussian f² and f(x)(x²−1) moments and direct support maximization for n=2..6, 10 directions each; analytic Hoeffding and chi-delta derivation inspected.",
+        "Hanada et al arXiv 2212.06885 initial primary PDF pages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published parking-function polytope vertex description implies one kernel identity under optimization, but does not imply the eventual independent bivariate fluctuations.",
+          "Hoeffding decomposition applied to the exact L(x,y) plus independent chi radial factor yields the stated second-order Gaussian law."
+        ],
+        "reasoning": "This is mathematically more than a simple change of variables in a quoted general theorem because the radial correction, precise f² moments and parity-based independence are separately computed.",
+        "searches": [
+          "Hanada et al 2022 arxiv:2212.06885",
+          "Bayer et al 2024 arxiv:2403.07387",
+          "Hoeffding 1948 U-statistic CLT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing vertex list and partial permutohedron realization give an equivalent support function expression.",
+          "The present new random asymptotic involves the joint CLT and independence of an exposed-vertex statistic rather than a first-order width mean."
+        ],
+        "reasoning": "A first-order support identity does not by itself imply a joint Gaussian limit or exact radial-adjusted variance; the U-statistic Hoeffding projection must be evaluated.",
+        "searches": [
+          "Resultary: classical parking function polytope random spherical directional width Gaussian CLT exact variance exposed vertex layer",
+          "Hanada Lentfer Vindas-Meléndez arxiv:2212.06885 classical parking polytope vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed near matches concern deterministic circumspheres, Löwner ellipsoids, inballs and other Gaussian geometry; no exact 0.017778933 width-CLT value located.",
+          "Source links report first-order partial-permutohedron width behavior."
+        ],
+        "reasoning": "An exact table or theorem yielding the same variance would cover the claim even without CLT phrasing; the targeted sources checked did not show one, but indexing is incomplete.",
+        "searches": [
+          "Resultary: classical parking function polytope random spherical directional width Gaussian CLT exact variance exposed vertex layer",
+          "Resultary: parking-function polytope width mean variance random directions"
+        ]
+      },
+      "rationale": "Joint second-order random Euclidean width/exposed-layer Gaussian CLT with exact variance is finer than the published polytope vertex descriptions, partial-permutohedron embeddings and first-order deterministic width laws. Generic Hoeffding CLTs give the method but not this exact identified kernel and radial correction.",
+      "residual_risks": [
+        "Broader asymptotic Gaussian polytope literature could contain an equivalent formula for this exact partial permutohedron via an alias.",
+        "No finite-n Gaussianity, convergence rate or generalized parking-function polytope family is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies combinatorial vertex geometry, not the centered order-n width CLT or variance.",
+          "evidence": "Extremal vertices parametrized by layers of ones and terminal consecutive integers.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.06885",
+          "material_read": "Actual open-access primary PDF initial pages including vertex description and classical case.",
+          "method": "Opened and rendered arXiv paper pages; compared vertex definitions and original support optimization.",
+          "title": "Generalized parking function polytopes",
+          "trigger": "Exact polytope vertex list and classical specialization."
+        },
+        {
+          "assessment": "Studies generalized-permutahedral geometry; no claim of this random width joint fluctuation found in the inspected material.",
+          "evidence": "Paper studies generalized parking-function polytope combinatorics and related geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.07387",
+          "material_read": "Public arXiv article abstract and introductory claims; complete text not read.",
+          "method": "Open preprint metadata and abstract-level comparison of stated polytope observables.",
+          "title": "Combinatorics of generalized parking-function polytopes",
+          "trigger": "Possible broader family geometric results covering random width."
+        },
+        {
+          "assessment": "Supplies general CLT tool only, not the particular geometric kernel, exact mean, radial adjustment, or independence with K_n.",
+          "evidence": "Nondegenerate order-two U-statistic has first-order iid Hoeffding projection controlling CLT.",
+          "identifier_or_url": "Hoeffding 1948 Ann. Math. Stat. 19:293–325",
+          "material_read": "Classical theorem statement and standard Hoeffding decomposition as used in proof; original full scanned article not read.",
+          "method": "Standard mathematical theorem comparison, including asymptotic variance of nondegenerate first projection.",
+          "title": "A class of statistics with asymptotically normal distribution",
+          "trigger": "General order-two U-statistic central limit theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precise second-order Gaussian law and independent exposed-vertex layer behavior for the canonical parking-function polytope are natural probabilistic convex-geometric invariants. The nontrivial exact covariance/radial cancellation and variance are not supplied by elementary vertex enumeration or first-order width scaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broader asymptotic Gaussian polytope literature could contain an equivalent formula for this exact partial permutohedron via an alias.",
+    "No finite-n Gaussianity, convergence rate or generalized parking-function polytope family is asserted."
+  ],
+  "schema_version": 1
+}
