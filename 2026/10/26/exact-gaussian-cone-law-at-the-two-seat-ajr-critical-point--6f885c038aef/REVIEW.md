@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The one-cohesive coalition test is reduced exactly on a high-probability event, while all two-cohesive tests have exponentially small probability. Explicit Bernoulli-moment calculations yield the positive-definite covariance and the multivariate CLT gives an exact limiting orthant probability. The bivariate marginal gives \(5/8\). The package checker verifies the finite algebra and exhaustive small-profile compatibility; Gaussian numerical evaluation is illustrative rather than a certified interval.
+## correctness
 
-**Originality — PASS within inspected evidence, residual priority risk.** The central 2025 literature proves only a nonzero/nonunit critical probability, without the concrete six-dimensional orthant law or fixed-committee \(5/8\) for the specified small model. The accessible full article, its SODA record, a related 2026 complexity-paper abstract, available prior-claim ledger titles/claims and mathematical-results searches were compared by mathematical implication. No located stronger theorem supplies the value, though outside publications and the uninspected body of the related 2026 paper remain a priority risk; absence from an index is not a proof of novelty.
+PASS
 
-**Value — PASS.** Identifying the actual critical probability and expected number of feasible committees resolves a quantitative gap at the sharp two-seat transition. The three-candidate instance is the smallest candidate set with a nontrivial two-seat selection problem, and the cone representation makes the limit amenable to further exact/numerical probability analysis.
+Under three named independently Bernoulli(1/2)-approved candidates and two seats, for each omitted c every 1-cohesive subgroup for a committee must consist of c supporters unless all members already approve an elected candidate. With quota q=ceil(n/2), letting H_c count c-supporters with committee utility <=1, P(H_c>=q)<=exp(-n/32) by Hoeffding because E H_c=3n/8. On H_c<q, if N_c>=q the worst q-member coalition uses all H_c deficient supporters and then two-utility voters, yielding total utility 2q-L_c, so 1-cohesive AJR fails iff N_c>=q and L_c>q. Two-cohesive groups require all n voters and unanimous approval of a common candidate pair, an event at most 3*4^(-n). Thus simultaneous committee failure reduces with exponentially small error to six inequalities in (N_1,N_2,N_3,L_1,L_2,L_3). Enumerating eight equally probable ballots independently gives per-voter covariance Sigma=(1/8)[[2I,3I-J],[3I-J,5I-J]], determinant 2^-16>0, so the multivariate CLT and continuity yield P(exists AJR) -> 1-P(G_1,...,G_6>0). The bivariate submatrix correlation 1/sqrt2 has first-quadrant probability 3/8 and hence each committee succeeds with probability 5/8, expected total 15/8. Independent exact ballot covariance and finite-profile checks plus numerical Gaussian orthant integration gave ~0.98403; the decimal is not a certified interval. No finite search substitutes for the CLT.
 
-**Limits.** The Gaussian integral is not reduced to elementary constants and its printed numerical approximation is not certified. The claim is only for independent \(p=1/2\) approval votes, three candidates and two seats. Priority assessment is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Han–Tao–Xia–Zhang–Zhou (arXiv:2510.18718, SODA 2026) treat the critical two-seat random-AJR boundary and show both existence and nonexistence have nonzero limiting probability; their Theorem 2.2 and Section 5 give neither this three-candidate explicit six-dimensional Gaussian covariance cone nor fixed-committee success 5/8. The current claim is a genuinely quantitative minimal three-candidate refinement, not the broader qualitative phase diagram; best-of-knowledge PASS with residual risk that a more general published polyhedral CLT has this as an implicit specialization.
+
+## value
+
+PASS
+
+The critical p=1/2, two-seat case is the natural nontrivial phase boundary for randomized approval representation. An exact six-dimensional cone law for the smallest three-candidate instance, its covariance, and the fixed-committee 5/8 benchmark quantify the boundary instead of a mere bounded-away-from-zero dichotomy. The result is a useful precise reference point for larger-candidate asymptotics and probabilistic social choice, despite its narrow natural slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

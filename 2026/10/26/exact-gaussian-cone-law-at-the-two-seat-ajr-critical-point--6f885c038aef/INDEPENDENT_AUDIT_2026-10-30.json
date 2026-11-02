@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:44:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under three named independently Bernoulli(1/2)-approved candidates and two seats, for each omitted c every 1-cohesive subgroup for a committee must consist of c supporters unless all members already approve an elected candidate. With quota q=ceil(n/2), letting H_c count c-supporters with committee utility <=1, P(H_c>=q)<=exp(-n/32) by Hoeffding because E H_c=3n/8. On H_c<q, if N_c>=q the worst q-member coalition uses all H_c deficient supporters and then two-utility voters, yielding total utility 2q-L_c, so 1-cohesive AJR fails iff N_c>=q and L_c>q. Two-cohesive groups require all n voters and unanimous approval of a common candidate pair, an event at most 3*4^(-n). Thus simultaneous committee failure reduces with exponentially small error to six inequalities in (N_1,N_2,N_3,L_1,L_2,L_3). Enumerating eight equally probable ballots independently gives per-voter covariance Sigma=(1/8)[[2I,3I-J],[3I-J,5I-J]], determinant 2^-16>0, so the multivariate CLT and continuity yield P(exists AJR) -> 1-P(G_1,...,G_6>0). The bivariate submatrix correlation 1/sqrt2 has first-quadrant probability 3/8 and hence each committee succeeds with probability 5/8, expected total 15/8. Independent exact ballot covariance and finite-profile checks plus numerical Gaussian orthant integration gave ~0.98403; the decimal is not a certified interval. No finite search substitutes for the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General AJR existence phase diagram covers variable committee size and number of candidates but does not state an exact limiting probability; Ai/Tao concerns decision complexity."
+        ],
+        "reasoning": "A broader parameter theorem giving a positive constant lower/upper probability need not imply the exact six-dimensional covariance integration or exact fixed-committee marginal.",
+        "searches": [
+          "Han et al 2025/2026 arXiv:2510.18718 main Theorem 2.2 Section 5",
+          "Ai Tao arXiv:2606.29643 abstract"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md and checks/check_ajr_boundary.py, exact Git tree 7a85a105d996addbbfd59f76377a2dbf142dfe6b",
+        "Independent enumeration of eight Bernoulli approval ballots gives exact 36 covariance entries and determinant 2^-16",
+        "Independent finite-profile coalition comparison and numerical six-normal orthant integration ~0.9840276",
+        "Han Tao Xia Zhang Zhou arXiv:2510.18718 main theorem and critical phase proof",
+        "Ai Tao arXiv:2606.29643 abstract",
+        "Resultary random AJR query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted reduction to N_c and L_c, exact six-variate covariance, and joint cone event require an additional finite-candidate calculation; source bounds alone do not logically force the limit value."
+        ],
+        "reasoning": "General probability existence bounded away from zero and one does not entail numerical 0.9840 or a particular orthant representation. Classical CLT is background, not a prior determination of the coalition inequalities and covariance.",
+        "searches": [
+          "Han et al 2025/2026 Theorem 2.2 and Section 5",
+          "Bivariate Gaussian quadrant law",
+          "Eight-ballot covariance and CLT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest SODA paper proves both possibilities bounded away from 0 at p=1/2 k=2, not a six-coordinate explicit normal cone or fixed committee exactly 5/8."
+        ],
+        "reasoning": "The same qualitative phase boundary has been studied; quantitative orthant law at three candidates is not a renaming of bounded nondegenerate probability bounds.",
+        "searches": [
+          "Han Tao Xia Zhang Zhou arXiv:2510.18718",
+          "Resultary random AJR Gaussian cone query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The studied source reports qualitative probabilities at threshold; not a listed 3-candidate 6-D orthant law or 5/8 fixed-committee limit."
+        ],
+        "reasoning": "The limit is an analytic Gaussian probability with no claimed certified decimal interval, not a recomputation of a known finite table.",
+        "searches": [
+          "Resultary AJR random approval critical query",
+          "Han Tao Xia Zhang Zhou critical-boundary figures/tables",
+          "Ai Tao abstract"
+        ]
+      },
+      "rationale": "Han–Tao–Xia–Zhang–Zhou (arXiv:2510.18718, SODA 2026) treat the critical two-seat random-AJR boundary and show both existence and nonexistence have nonzero limiting probability; their Theorem 2.2 and Section 5 give neither this three-candidate explicit six-dimensional Gaussian covariance cone nor fixed-committee success 5/8. The current claim is a genuinely quantitative minimal three-candidate refinement, not the broader qualitative phase diagram; best-of-knowledge PASS with residual risk that a more general published polyhedral CLT has this as an implicit specialization.",
+      "residual_risks": [
+        "A published general multivariate CLT/coalition polyhedral theorem could imply the special 3-candidate cone by specialization, but no such decisive implication found in the primary critical-case theorem.",
+        "The 0.9840 decimal is approximate, not independently interval certified; the exact claim is an orthant probability.",
+        "2-cohesive exceptional event reduction and no p !=1/2 result limit the mathematical scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Publishes sharp qualitative critical-case nontriviality but not the submitted exact three-candidate Gaussian orthant/covariance law",
+          "evidence": "Theorem 2.2 has positive/bounded nonexistence at p=1/2, k=2; not an identified exact six-dimensional integral.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.18718",
+          "material_read": "Primary lawful arXiv 39-page PDF, Theorem 2.2 and critical boundary Section 5 proof and event reductions",
+          "method": "read primary full paper and numbered key theorem/section; PDF pages visually inspected",
+          "title": "Likelihood of the Existence of Average Justified Representation",
+          "trigger": "same random AJR model, p=1/2 k=2 critical phase, potential dominating theorem"
+        },
+        {
+          "assessment": "Different computational-complexity objective; related-mathematics residual risk acknowledged",
+          "evidence": "Description focuses on complexity rather than random-approval asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29643",
+          "material_read": "Public preprint abstract, computational decision problem focus",
+          "method": "abstract only; not a whole-text NOT_COVERING assertion",
+          "title": "Computational Complexity of Strong and Average Justified Representation",
+          "trigger": "AJR might contain alternative probabilistic formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical p=1/2, two-seat case is the natural nontrivial phase boundary for randomized approval representation. An exact six-dimensional cone law for the smallest three-candidate instance, its covariance, and the fixed-committee 5/8 benchmark quantify the boundary instead of a mere bounded-away-from-zero dichotomy. The result is a useful precise reference point for larger-candidate asymptotics and probabilistic social choice, despite its narrow natural slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md and checks/check_ajr_boundary.py, exact Git tree 7a85a105d996addbbfd59f76377a2dbf142dfe6b",
+    "Independent enumeration of eight Bernoulli approval ballots gives exact 36 covariance entries and determinant 2^-16",
+    "Independent finite-profile coalition comparison and numerical six-normal orthant integration ~0.9840276",
+    "Han Tao Xia Zhang Zhou arXiv:2510.18718 main theorem and critical phase proof",
+    "Ai Tao arXiv:2606.29643 abstract",
+    "Resultary random AJR query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment is best-of-knowledge: partial/inaccessible primary sources remain as precisely stated in originality residual risks; a failed search is not an originality guarantee.",
+    "Finite independent checks are corroboration only, not a proof of infinite quantifiers.",
+    "Publication transport not ready for confidentiality/provenance reasons; no source modifications attempted."
+  ],
+  "residual_risks": [
+    "A published general multivariate CLT/coalition polyhedral theorem could imply the special 3-candidate cone by specialization, but no such decisive implication found in the primary critical-case theorem.",
+    "The 0.9840 decimal is approximate, not independently interval certified; the exact claim is an orthant probability.",
+    "2-cohesive exceptional event reduction and no p !=1/2 result limit the mathematical scope."
+  ],
+  "schema_version": 1
+}
