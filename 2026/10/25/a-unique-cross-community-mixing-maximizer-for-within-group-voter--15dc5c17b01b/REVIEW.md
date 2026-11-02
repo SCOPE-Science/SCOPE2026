@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-size proof uses an exact Markov generator, exact first- and second-moment closure under community permutation symmetry, rational solution of the stationary linear system, a differentiable quartic with one positive root by Descartes' rule, and a positive rational ceiling identity. Root bracketing at \(r=c/\sqrt m\) proves the sharp large-population optimum. The accompanying independent exact-rational stationary count-chain calculations agree in twelve cases. Numerical derivative checks are corroborative and not presented as infinite proofs.
+PASS
 
-## Originality — PASS, qualified
+Single-agent stationarity yields x=mb/(z+2mb) for an A-person holding 1. Exchangeable within-community discord W and between-community discord E satisfy exactly (a+mb+z)W=mb E+z x and (mb+z)E=(m-1)bW+z(1-x), with strictly positive determinant. Solving yields W=2mbz(mb+z)/[(2mb+z)(amb+az+mb²+2mbz+z²)]. Differentiation after r=b/z,h=a/z has denominator positive and numerator F=(h+1)+2m(h+1)r+m(hm-1)r²−4m²r³−2m³r⁴. Descartes sign pattern has exactly one sign change regardless of sign of middle coefficient, and F(0)>0, F(r)→−∞; therefore exactly one simple positive root, strict rise and fall, and tails W(0)=W(∞)=0. For r=c/sqrt(m), F/m→hc²−2c⁴; uniqueness traps sqrt(m)r*→sqrt(h/2). Exact positive rational identity for 1/(h+2)-W proves strict finite ceiling and substitution proves sharpness. Independently solved rational stationary pair equations, derivative and ceiling identity, and checked m=2,a=b=z=1 gives W=6/25 and E=7/25.
 
-The 2022 work by Vendeville, Zhou and Guedj develops the underlying general zealot-voter discord system and numerically studies community discord. Its general pair equations imply the present finite pair equations as a specialization: those alone are not claimed new. The additional extremal classification, simple quartic positive-root uniqueness, optimum's sharp large-group scaling and strict, sharp finite-size ceiling were not located in inspected primary sections or relevant published research records. Gastner and Ishida's superficially related \(N^{3/2}\) scaling concerns a different no-zealot consensus-time problem. The possibility of earlier unindexed analytic optimization remains an acknowledged scientific priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact location of maximal within-group discord is meaningful when assessing whether increased intergroup social contact reduces polarization while increasing or decreasing internal disagreement. A strict all-size one-peak theorem is more informative than a single simulated trend. The sharp universal ceiling and large-community scaling provide quantitative benchmarks for model comparison and a demonstrable contrast with the strictly decreasing mean opinion gap.
+Vendeville–Zhou–Guedj establish general exact pairwise voter discord equations on weighted networks and already discuss qualitative non-monotonic within-community discord as cross-community interaction changes. These qualitative observations and the linear equations are prior work, NOT novel. The surviving precise result is a complete exact two-clique rational specialization, unique global optimum for all m,a,z, algebraic quartic criterion, sqrt(m) scaling and sharp unattained ceiling. Gastner–Ishida study different transient consensus objectives, not this stationary optimizer.
 
-## Limitations and closest prior literature
+## value
 
-The model is binary, complete two-block, homogeneous, balanced, and continuously updated by rates, with opposite stubborn sources. No claim is made for general network discord, other source rules, random cross-edge realizations or arbitrary multistate dynamics. Principal antecedent: Vendeville, Zhou and Guedj, arXiv:2203.02002; also Gastner and Ishida, arXiv:1908.00849; Vendeville and collaborators, arXiv:2006.07265; Zimmaro, Contucci and Kertész, arXiv:2303.09587. Additional literature may change originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact optimizer and sharp dimension-dependent law for a nontrivial stationary statistic of a natural canonical voter network. The separation of strictly monotone opinion gap from uniquely nonmonotone same-group discord and the unattained uniform ceiling clarify which network mixing effects can be optimized, beyond merely plotting a known nonmonotone graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
