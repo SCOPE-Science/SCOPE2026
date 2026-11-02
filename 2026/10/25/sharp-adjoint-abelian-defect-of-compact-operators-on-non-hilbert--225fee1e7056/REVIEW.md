@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The infinite-family argument uses the precise normalized duality map, remote disjoint unit coordinates, compactness of both the operator and its transpose, and an optimized one-variable lower bound. A rank-one coordinate projection produces exact equality; no finite tests are substituted for infinite compactness. The result has been reconstructed with real and complex conventions.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Stampfli (1969) and Fleming–Jamison (1977, 1989) already describe exact adjoint-abelian maps on non-Hilbert sequence geometries, so the qualitative implication that a compact exact solution must vanish is covered. The new assertion is the sharp positive infimum of the nonlinear residual normalized by operator norm across the complete compact ideal. The 2026 spectral-representation source and compared published research records address the exact equation or unrelated defect norms, not this sharp norm inequality. An older quantitative equivalent remains a genuine residual risk.
+PASS
 
-**Value — PASS.** It supplies a dimension-free, extremally attained stability coefficient for a natural equation in Banach-space operator theory; it quantifies the non-Hilbert obstruction and identifies the exact transition as the sequence exponent approaches the Hilbert value. Restrictions to \(p>2\), compact operators, and classical \(\ell_p\) are important.
+PASS: Compact T on infinite ℓ_p satisfies Te_n→0 and T'e_n'→0 for remote coordinates, while J_p(a u+b e_n)=a^(p−1)J_p(u)+b^(p−1)e_n' on disjoint unit supports. Therefore δ_p(T)≥a||Tu||−a^(p−1)||T||, uniformly after ε→0; maximizing a−a^(p−1) gives c_p=(p−2)/(p−1)*(p−1)^(-1/(p−2)). Rank-one coordinate projection exactly yields t−t^(p−1), sharp over all compact T. Independently checked p=4 coefficient 2/(3√3), optimizer 1/√3, and endpoint limits. Uses infinite-dimensional compactness essentially; finite checks alone cannot prove this.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: Qualitative exact-solution classification only proves δ(T)>0 for each nonzero compact T, not the UNIFORM sharp bound δ(T)≥c_p||T|| or the rank-one attainment. The disjoint-coordinate weak-null/compactness argument is the substantive improvement. Residual risks: An older quantitative stability theorem for approximate duality intertwiners under a different name could give the coefficient, though none was identified.; No assertion for 1<p<2 or general Lp; complex scalar homogeneity convention requires care.
+
+## value
+
+PASS
+
+PASS: The prior qualitative absence of nonzero compact adjoint-abelian operators is strengthened to the best possible stable norm gap with an elementary attaining rank-one map. This sharp ideal-wide coefficient is a meaningful perturbative invariant on non-Hilbert Banach sequence spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
