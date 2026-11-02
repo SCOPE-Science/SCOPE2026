@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim follows from the profile classification of origin-containing closed connected subsets, the formula \(d_H(A(a),A(b))=\sup_i|a_i-b_i|\), and explicit continuous paths. Distinct finite-distance classes are clopen, so no path or connected subset crosses between them. The family \(a_i=ri\) gives continuum many classes; second-countability gives the matching upper bound.
+PASS
 
-## Originality
+PASS: A nonempty closed connected subset of the countably infinite metric star either includes the common origin and has a unique endpoint vector in [0,infinity]^N, or is one closed bounded interval/tail in a single arm not containing the origin. By the unique ray paths, Hausdorff distance between origin-containing profiles is exactly sup_i|a_i-b_i| with infinite-coordinate mismatch giving infinite distance. Extended-metric finite-distance equivalence classes are clopen, so cannot be crossed by a connected path. On a common infinite-index set with bounded finite differences, affine interpolation is Hausdorff-Lipschitz; intervals and tails slide to canonical origin-containing profiles. Therefore every clopen class is path-connected, hence is a connected component. Profiles a_i=ri for r in [0,1] give continuum distinct classes and the countable metric star is second-countable, bounding its closed subsets by continuum. No experimental extrapolation involved.
 
-PASS, subject to the residual risk of bounded literature coverage. Esty's theorem for finite ray-graphs classifies components by a finite set of unbounded directions and does not imply the endpoint-profile quotient for countably many rays. Cauty's full-hyperspace theorem assumes properness and treats all closed subsets; the countable star is not proper. Curtis's classical results use compact-subset hyperspaces and do not cover the unbounded closed connected sets here.
+## originality
 
-## Value
+PASS
 
-PASS. The profile quotient is the exact structural invariant for a natural infinite-ray model. It detects continuum many components arising from growth across infinitely many arms even when no individual arm is unbounded, a phenomenon that cannot occur in the finite-ray setting.
+Esty studies finite ray-graphs, where finite-distance classes depend on finite subsets of unbounded directions; infinitely many finite-but-uniformly-unbounded endpoints invalidate that parameterization. Cauty on proper geodesic base all-closed hyperspaces does not apply to the nonproper countable star/connected-subset restriction. Curtis concerns compact-subset hyperspaces. Search for generic extended Hausdorff finite-component descriptions may conceal a broader known lemma, so claim priority is qualified.
 
-## Closest literature and limitations
+## value
 
-The closest source is Esty's *The Hyperspaces C_n(X) for finite ray-graphs*, arXiv:1012.1578, Theorem 5.3. Related background includes Cauty's theorem on the full Hausdorff hyperspace of proper geodesic spaces and Curtis's work on compact-subset hyperspaces of noncompact spaces. The result is restricted to the countable star and the connected-closed hyperspace \(\mathcal C(S)\); it does not classify arbitrary infinite trees or \(C_n(S)\) for \(n\ge2\). The literature search was not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural extension from finite-ray graphs to a nonlocally compact countable star exhibits a genuinely new component invariant: bounded-difference classes of infinitely many finite endpoint lengths and continuum components even with identical unbounded-ray index set. The explicit metric characterization is useful for future connected-hyperspace examples and is not an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

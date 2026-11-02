@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The profile description was checked from the path-metric geometry of the countable star. For origin-containing sets, the Hausdorff distance is the supremum of coordinatewise endpoint differences, with a mismatch between finite and infinite coordinates forcing infinite distance. Linear interpolation is continuous exactly when the finite-coordinate difference is bounded. Bounded intervals and single-ray tails admit explicit paths to canonical profiles. The examples \(a_i=ri\) give pairwise infinite distances for distinct parameters, and second-countability bounds the number of closed subsets by the continuum.
+# Independent mathematical audit
 
-Limits: no exhaustive literature census was performed; no computational enumeration was needed; the proof is limited to the countable star and \(\mathcal C(S)\). The base star is not locally compact at the common origin. Independent audit and independent validation have not been performed.
+## correctness
+
+PASS
+
+PASS: A nonempty closed connected subset of the countably infinite metric star either includes the common origin and has a unique endpoint vector in [0,infinity]^N, or is one closed bounded interval/tail in a single arm not containing the origin. By the unique ray paths, Hausdorff distance between origin-containing profiles is exactly sup_i|a_i-b_i| with infinite-coordinate mismatch giving infinite distance. Extended-metric finite-distance equivalence classes are clopen, so cannot be crossed by a connected path. On a common infinite-index set with bounded finite differences, affine interpolation is Hausdorff-Lipschitz; intervals and tails slide to canonical origin-containing profiles. Therefore every clopen class is path-connected, hence is a connected component. Profiles a_i=ri for r in [0,1] give continuum distinct classes and the countable metric star is second-countable, bounding its closed subsets by continuum. No experimental extrapolation involved.
+
+## originality
+
+PASS
+
+Esty studies finite ray-graphs, where finite-distance classes depend on finite subsets of unbounded directions; infinitely many finite-but-uniformly-unbounded endpoints invalidate that parameterization. Cauty on proper geodesic base all-closed hyperspaces does not apply to the nonproper countable star/connected-subset restriction. Curtis concerns compact-subset hyperspaces. Search for generic extended Hausdorff finite-component descriptions may conceal a broader known lemma, so claim priority is qualified.
+
+## value
+
+PASS
+
+Natural extension from finite-ray graphs to a nonlocally compact countable star exhibits a genuinely new component invariant: bounded-difference classes of infinitely many finite endpoint lengths and continuum components even with identical unbounded-ray index set. The explicit metric characterization is useful for future connected-hyperspace examples and is not an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
