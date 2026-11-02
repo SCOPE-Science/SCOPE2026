@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The zero-sum powered-distance quadratic form is expanded exactly into within-blade squares and blade sums. A sharp two-stage Cauchy–Schwarz reduction gives a necessary-and-sufficient scalar negative-type inequality, with all equality vectors explicitly reconstructed. The scalar function is strictly increasing in the powered distance, and strict concavity of its blade-size summands proves the integer majorization statement and endpoint uniqueness. The one-dimensional critical kernel also gives the stated minimal Euclidean snowflake embedding dimensions. The included standard-library checker supports the derivation on 131 finite graph configurations with 655 independently computed matrix spectra; finite tests are not substituted for the universal proof.
+
+## Originality — PASS with bounded explicit risks
+Li–Weston's negative-type interval results and Sánchez's general distance-matrix test do not state the strict mixed-blade size majorization theorem. A 2011 Cornell collaboration, documented by two conference abstracts, announces the exact generalized roundness for conventional **equal-blade windmill graphs**; those homogeneous formulas are explicitly excluded from the novelty assertion. The present claim relates genuinely heterogeneous blade-size compositions under a fixed vertex budget, with strict unique endpoint characterizations. A Deza–Maehara general graph-metric embedding method may computationally recover the threshold for any individual example, but an individual algorithmic output does not supply strict comparisons across all compositions. Searches of relevant mathematical records and accessible historical claims found no covering mixed-blade majorization assertion. A full unpublished Cornell manuscript and Deza–Maehara primary full text were unavailable; equivalences hidden there remain a specific originality risk, and no definitive uniqueness claim is made.
+
+## Mathematical value — PASS
+For a fixed size budget, choosing the distribution of cliques controls the metric's precise Hilbert snowflake-embedding threshold. The theorem resolves its strict ordering, two unique extremal graph types, critical null-vector rigidity, and the exact criterion for every intermediate heterogeneous graph; this goes beyond recomputing a homogeneous example or a generic finite-matrix table. The discrepancy between balanced and unbalanced graphs is already nonzero for three blades and six peripheral vertices. The result is self-contained, natural within finite negative-type geometry, and does not rely on an asserted downstream theorem.
+
+## Scope and limits
+Unit-edge finite vertex metrics only; neither weighted graph metrics nor arbitrary block graphs are classified. General negative-type methods and homogeneous windmill calculations are not new. Prior source manuscript availability is incomplete, particularly the Cornell 2011 windmill-roundness work and Deza–Maehara 1990 paper. The numerical script provides independent finite diagnostics but no infinite-dimensional or infinite-family certification.
+
+Self-review: passed. Independent audit: not yet performed.
