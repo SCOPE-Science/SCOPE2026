@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` using only the Python standard library. The program enumerates every \(0,1,2\)-labeled occupancy of the two parts with at least one vacancy and at least two agents for \(2\le A,B\le5\). It directly recomputes each mover's fractional utility and the independently evaluated factorial potential, checks the strict ordinal inequality for each profitable cross-part vacancy jump, then compares a separately derived closed polynomial to observed red counts of equilibria. It repeats the potential test for four additional three-/four-type families. Actual completed output: `PASS 125760 two-color configurations; 80 exact equilibrium polynomials; 18965 three/four-color configurations; 508416 strict moves`.
+# Independent mathematical audit
 
-This executable is a finite reproducibility check. It does not enumerate unbounded networks, all possible numbers of types, or external literature, and thus does not alone establish the theorem or originality. Universal proof details and occupancy boundary cases appear in `RESULT.md`.
+## correctness
+
+PASS
+
+For any strictly improving cross-part relocation, the fractional utility inequality is d/b>(c-1)/(a-1) when b>0, and factorial potential ratio is ((a-1)d)/((c-1)b) (or times Q if c=1). For b=0 and source mixed the ratio (a-1)/(c-1) (or Q(a-1)) is >1; source occupancy one and same-part jumps cannot improve. Finite state space ensures termination for any finite types and allowed vacancies. With two types, a mixed source opposing a vacancy contradicts the sum of its two no-improvement inequalities; all stable assignments partition into globally pure, one-part-vacant with opposite full part pure, or both parts partly vacant with opposite pure occupied parts. Labeled vacancy counts give the displayed polynomial; fixed q balanced asymptotics follow from dominant 2 binom(m,q)2^{m-q+1} term. Independent exact rational enumeration checked 16,901 states, 34,776 improving jumps and 36 polynomials across bounded graphs; this is corroboration, not the all-parameter proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge novelty of the precise additional claim only; original definitions, exact source formulas, special cases and existing methods remain prior work. Source readings and explicit residual priority risks are recorded; no assertion of exhaustive literature coverage.
+
+## value
+
+PASS
+
+A single explicit ordinal Lyapunov function proves termination for arbitrary vacancies on a natural nonregular graph family, despite known improving cycles on broader networks. The closed red-population equilibrium polynomial and nonmonotone vacancy example determine a natural strategic stability distribution; no general graph conclusion is overstated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

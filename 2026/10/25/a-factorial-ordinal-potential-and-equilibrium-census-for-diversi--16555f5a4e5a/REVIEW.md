@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The case-complete proof directly compares a mover's occupied-neighbor fractions. When the destination is occupied, factorial cancellation yields an increasing potential ratio identical to the strict-improvement inequality whenever the source type multiplicity is at least two; the one-source-copy boundary has an extra factor \(Q>A+B\). When the destination is empty, the old utility is exactly zero and the displayed ratio is greater than one precisely for profitable moves. A one-agent source cannot improve; same-part moves preserve utility. The two-color equilibrium proof uses a sum-of-fractions contradiction, handles an empty opposite part, and gives an exhaustive disjoint census. The stated fixed-vacancy asymptotic follows from that exact census. Exact-rational enumerations in `verify.py` completed for 125760 two-color and 18965 three-/four-type states, with 508416 profitable moves tested. This finite testing supports rather than replaces the universal algebra.
+## correctness
 
-## Originality — PASS with residual risk
-The closest primary full text is Narayanan–Sabbagh–Voudouris (arXiv:2305.17757; §§4–5 and open questions), which treats one vacancy on regular graphs and spiders, arbitrary vacancies on degree-at-most-two graphs, and counterexamples with many vacancies on other regular graphs. The known one-vacancy complete-bipartite exact potential and enumerator do not entail the all-vacancy ordinal potential or mixed-vacancy equilibrium class. A separate original full text, Monaco–Moscardelli–Velaj (2020; §§2,4, including Theorem 9), studies modified fractional hedonic coalition moves and supplies neither this fixed-capacity, vacancy-constrained result nor this counting polynomial. The later variety-seeking model counts types rather than fractional neighbors. A different terminological presentation of the exact all-vacancy claim might exist outside inspected sources; this remains a genuine originality risk, not an independence certification.
+PASS
 
-## Value — PASS
-Fractional diversity-jump games have improving cycles on some graphs with several vacancies, so finding a genuinely nonregular infinite graph family with the finite-improvement property for **every** vacancy count is structurally informative. The complete two-color equilibrium stratification and exact polynomial resolve a natural enumerative question beyond existence, and the explicit \(K_{3,5}\) fractions show that equilibrium prevalence need not decrease monotonically with vacancy count. Results do not extend to arbitrary bipartite graphs, nonfractional payoffs or multilateral moves.
+For any strictly improving cross-part relocation, the fractional utility inequality is d/b>(c-1)/(a-1) when b>0, and factorial potential ratio is ((a-1)d)/((c-1)b) (or times Q if c=1). For b=0 and source mixed the ratio (a-1)/(c-1) (or Q(a-1)) is >1; source occupancy one and same-part jumps cannot improve. Finite state space ensures termination for any finite types and allowed vacancies. With two types, a mixed source opposing a vacancy contradicts the sum of its two no-improvement inequalities; all stable assignments partition into globally pure, one-part-vacant with opposite full part pure, or both parts partly vacant with opposite pure occupied parts. Labeled vacancy counts give the displayed polynomial; fixed q balanced asymptotics follow from dominant 2 binom(m,q)2^{m-q+1} term. Independent exact rational enumeration checked 16,901 states, 34,776 improving jumps and 36 polynomials across bounded graphs; this is corroboration, not the all-parameter proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge novelty of the precise additional claim only; original definitions, exact source formulas, special cases and existing methods remain prior work. Source readings and explicit residual priority risks are recorded; no assertion of exhaustive literature coverage.
+
+## value
+
+PASS
+
+A single explicit ordinal Lyapunov function proves termination for arbitrary vacancies on a natural nonregular graph family, despite known improving cycles on broader networks. The closed red-population equilibrium polynomial and nonmonotone vacancy example determine a natural strategic stability distribution; no general graph conclusion is overstated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
