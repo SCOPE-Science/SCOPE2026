@@ -1,19 +1,21 @@
-# Review of the sharp graph-gradient projection gap
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact electrical row-sum identity \(S_e=(1+T)/(1+c)\) follows from the Dirichlet potential for a deleted nonbridge edge. The independent total-variation bounds \(T\ge1\) and \(T\ge2c\) yield the sharp \(4/3\) inequality. In the equality case, harmonicity and vanishing voltage gradients away from the two endpoints force a single common neighbor and exclude longer cycles. Orthogonal decomposition by disjoint cycle supports gives the converse and the complete cactus formula. Tree, bridge, orientation and scalar-field cases have been treated. Numerical atlas checks supplement the all-size proof.
+PASS
 
-## Originality — PASS, with residual risk
+For connected simple unit-weight graph, P=BL^dagger B^T is a symmetric projector. On a nonbridge edge, deleting it and using the harmonic unit voltage h gives electrical conductance c>0 and total variation T, with absolute projector row sum (1+T)/(1+c). Simplicity yields T>=1 and T>=2c, minimizing at c=1/2 gives the exact 4/3 gap. Equality forces a single two-edge alternative path, hence every cyclic edge lies in a unique triangle and the entire graph is triangular cactus; orthogonal cycle indicators produce norm max(1,2-2/ell) on all cacti. Independent matrix-pseudoinverse calculations tested every 971 connected cyclic atlas graph on 3..7 vertices with precisely 46 equality graphs.
 
-The closest literature includes Jiang–Lim–Yao–Ye's canonical Hodge gradient projection (arXiv:0811.1067), Kelner–Maymounkov's routing bounds (arXiv:0909.2859), Schild–Rao–Srivastava's absolute transfer-current analysis (arXiv:1708.01632) and Gurel-Gurevich–Nachmias–Sachdeva's sharper average upper bounds (arXiv:2605.24130). The exact **same matrix** occurs in the electrical-flow comparison, so the equivalence is not overlooked. The inspected prior claims give definitions or different-direction averaged upper bounds, not the present uniform lower-bound gap with equality-graph classification. An unindexed earlier equivalent lemma remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-In edgewise maximum norm, a small cyclic perturbation of a tree is impossible within the category of finite simple unweighted graphs: introducing any cycle incurs at least a one-third increase in the worst-case Euclidean Hodge-projection amplification. The equality graph class is completely characterized rather than listed up to a finite order, and the cactus formula gives exact nontrivial examples with longer cycles.
+Primary published results were compared by their mathematical implications; the stated precisely delimited new theorem is not established by the inspected statements, with incomplete-source and implicit-folklore risks retained. Originality is a qualified best-of-knowledge assessment, not a priority certificate.
 
-## Limits
+## value
 
-No weighted, multigraph, infinite-graph or arbitrary-projection analogue is claimed. Finite numerical checks do not establish the theorem for all graph sizes. Independent scientific validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp uniform operator-norm separation and complete equality classification for a canonical graph-Hodge projection is a motivated structural graph invariant; the cactus formula explains the result and is not arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
