@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T05:53:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git snapshot RESULT.md, SLOGAN.txt, verify.py, VERIFICATION.md",
+        "Domokos--Langi arXiv:1406.0813v1 planar Hann identity",
+        "independent_normal_checks.py and independent_normal_results.json"
+      ],
+      "rationale": "For odd n=2m+1, alpha=pi/n, c=cos(alpha), s=sin(alpha), area(P)=nsc. For the edge from (c,-s) to (c,s), normals from edge interiors meet the polygon in the strip |y|<=s. The upper omitted cap has vertices v_0,...,v_(m-1), q=(-1+s²/c,s) on the final edge, with shoelace area 2C=(s/c)(2(m-1)c²-2c+1); the lower cap is congruent. This yields U_E=(s/c)(3c²+2c-1). Hann planar identity, reproduced in Domokos--Langi Remark 1, equates total vertex and edge active areas, giving mean=2n U_E/(nsc)=6+4/c-2/c²=8-2(sec(alpha)-1)² for all odd n>=3. Since sec(pi/n)-1 decreases with n and sec(x)-1=x²/2+O(x⁴), the claimed strict increase, n=3 value 6, and quartic asymptotic follow. An independently written clipping code matched formula for odd n=3,5,7,9,11,13,17,31,51,101 to ~1e-14 and a 100,000-interior-point Monte Carlo face-normal census corroborated n<=17. These finite checks are not the general proof.",
+      "residual_risks": [
+        "The proof relies on Hann planar Euler-type identity as reproduced in a later inspected primary paper; the original 1993 article was inaccessible.",
+        "RESULT.md final asymptotic math display contains a literal form-feed character instead of backslash-frac; this is a formatting defect, not a failure of the stated mathematical theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Domokos--Langi arXiv:1406.0813v1 states the planar face-region Euler relation and attributes the centrally symmetric cyclic n(P)=8 equality to Hug.",
+          "Nasonov--Panina--Siersma arXiv:2406.01773v2 gives the triangle case and polytopal estimates but no inspected theorem computing all odd regular n.",
+          "Langi--Varkonyi arXiv:2407.19177v2 summarizes class-wide average-normal bounds rather than the exact odd regular-n family.",
+          "Hann/Hug originals inaccessible; no full-text negative coverage conclusion is drawn from their abstracts or from downstream summaries."
+        ],
+        "reasoning": "General face-area identities bound or reduce the computation but are not formulas for the area of the active strip of an arbitrary odd regular polygon. The even centrally symmetric cyclic equality n=8 applies to a disjoint parity class. Broader surveyed bounds and an explicit triangle value alone do not imply the exact odd n>=5 formula. The original historical works remain qualified risks rather than presumed noncoverage.",
+        "searches": [
+          "Web: Hann \"average number of normals\" \"regular\" polygon",
+          "Web: Hug \"mean number of normals\" regular cyclic polygon n=8",
+          "Web: Nasonov Panina Siersma mean number of normals regular polygons",
+          "Resultary: Polygon Euler-type identity edge vertex active area formula for average normal counts Hug Hann Santaló 1993 1995"
+        ]
+      },
+      "checked_sources": [
+        "Domokos--Langi, On the average number of normals through points of a convex body, arXiv:1406.0813v1 (full text, especially Definition 1, planar Hann identity in Remark 1, Section 3.1, Section 4)",
+        "Nasonov--Panina--Siersma, Concurrent normals problem for convex polytopes and Euclidean distance degree, arXiv:2406.01773v2 (full text including average-normal section and triangle proposition)",
+        "Langi--Varkonyi, Centroids and equilibrium points of convex bodies, arXiv:2407.19177v2 (full-text relevant average-normal section and known-bound table)",
+        "Hann, The average number of normals through a point in a convex body and a related Euler-type identity, Geom. Dedicata 48 (1993), 27--55, DOI:10.1007/BF01265675 (original inaccessible; identity quoted in inspected 2014 source)",
+        "Hug, On the mean number of normals through a point in the interior of a convex body, Geom. Dedicata 55 (1995), 319--340, DOI:10.1007/BF01266322 (abstract and secondary attribution, no full text accessed)",
+        "Dumitrascu, Every convex polygon is swept by its inner normal more than 4 times (1998; bibliographic attribution in 2014 source, original unavailable)",
+        "Resultary semantic records: current record self-match and nearby regular-polygon/elliptic-normal records, explicitly not taken as prior independent proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hann planar identity as reproduced by Domokos--Langi: sum_v area(U_v)=sum_E area(U_E). It yields n(P)=2 sum_E area(U_E)/area(P) but does not evaluate individual edge-strip area.",
+          "Hug cyclic centrally symmetric equality n(P)=8 applies to even regular polygons and does not entail n(P_n)=8-2(sec(pi/n)-1)^2 for odd n.",
+          "The triangle special case n(P_3)=6 in Nasonov--Panina--Siersma is already covered by their result, while the n>=5 all-odd-n family and quartic asymptotic are not entailed by that isolated case.",
+          "Independent polygon cap-area evaluation U_E=(sin(alpha)/cos(alpha))(3cos²(alpha)+2cos(alpha)-1), n=2m+1, supplies the extra computation linking the general identity to the new family."
+        ],
+        "reasoning": "Matching ambient objects and parameters is essential: Domokos--Langi gives the exact invariant and general reduction, not its specialized cap area; Hug covers a different parity; the recent polytope paper covers an explicit triangle but no all-n formula. The claim is not a corollary by substitution alone from any materially inspected theorem. Hann/Hug full-text comparison remains an explicit risk due missing authorized access.",
+        "searches": [
+          "Primary full-text reading Domokos--Langi arXiv:1406.0813v1, specifically Hann identity, polygonal bounds, Hug cyclic equality, and Section 4 question",
+          "Primary full-text reading Nasonov--Panina--Siersma arXiv:2406.01773v2, average-number section",
+          "Primary full-text reading Langi--Varkonyi arXiv:2407.19177v2, surveyed average-normal bounds",
+          "Web: Hann 1993 and Hug 1995 articles arXiv and lawful OA plus authorized institutional retrieval (VPN disconnected)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returns the indexed exact claim itself; it does not establish prior priority. Nearby elliptic normal multiplicity and affine diameter findings involve different objects/invariants.",
+          "The 2014 Domokos--Langi primary paper defines the same averaged normal count and the face-active regions but does not state the exact all-odd regular polygon profile in its inspected full text.",
+          "Exact formula, secant expansion, and diagnostic n=5 decimal searches returned no independently covering statement."
+        ],
+        "reasoning": "Santaló mean normal multiplicity, area of inward-normal active regions, the secant-form identity and the regular-pentagon numerical fingerprint were compared. Equal terminology is not proof of novelty, nor do adjacent even polygon statements imply the odd formula. No independently inspected equivalent result was established; self-match is excluded as priority evidence.",
+        "searches": [
+          "Resultary: Mean number of inward normals through random interior point of convex regular odd polygon exactly 8 minus 2 secant pi over n minus one squared n=5 7.888543819998",
+          "Web: \"8 - 2 (sec(pi/n)-1)^2\" \"average\" \"normals\" polygon",
+          "Web: \"regular pentagon\" \"average\" \"normals\" \"7.888543819\"",
+          "Web: Domokos Langi average number of normals regular polygons exact, Santaló polygon active regions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hit was the record being audited; surrounding polygon numerical records address different invariants.",
+          "Domokos--Langi table reports class bounds and known extremal statements, not an exact all-odd-n regular polygon table.",
+          "No independent checked table of 6, 7.888543819998..., 7.97583682974..., etc., or of the associated closed formula was located."
+        ],
+        "reasoning": "A database or numerical table could anticipate the result without formula wording, so decimal and low-n fingerprints were sought. None emerged in the sources checked. This negative search is not a proof no unindexed table exists.",
+        "searches": [
+          "Resultary: regular odd polygon normal cones normal deficit average excess angular deficit support normals geometric invariant",
+          "Web: \"regular pentagon\" average normals 7.888543819998",
+          "Web: regular heptagon average normals 7.97583682974",
+          "Web: exact numerical average normals regular odd polygons table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, with specific historical access risks. Three materially inspected primary full texts supply the general identity, parity-specific known equality and triangle special case, but none of those statements implies the full odd n>=5 formula and quartic deficit. The complete family requires an independent polygonal active-strip cap-area computation. Resultary and exact-form/decimal searches found no independent priority match, which is not itself proof of novelty.",
+      "residual_risks": [
+        "Hann 1993 original article inaccessible; an explicit regular-polygon calculation may be present in uninspected sections. Oxford authorized access attempted but its VPN was disconnected; no bypass performed.",
+        "Hug 1995 original full text inaccessible; the cited known cyclic/even theorem is narrower, but additional uninspected calculations cannot be ruled out.",
+        "Dumitrascu 1998 polygon normal-sweep article inaccessible; older unindexed special-family computations or non-English tables remain plausible.",
+        "Resultary self-hit is not independent novelty evidence; searches do not prove absence of earlier equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_NOT_COVERING: supplies essential identity and even centrally symmetric cyclic equality, without statement of all-odd exact formula in inspected full text.",
+          "evidence": "Definition n(K), Remark 1 Euler-type face-area relation, Section 3.1 known cyclic equality and Section 4 Question 1.",
+          "identifier_or_url": "arXiv:1406.0813v1; DOI:10.1556/012.2015.52.4.1320",
+          "material_read": "The accessible arXiv full text (15 pages) including Definition 1, Hann/Hug history, Section 3.1 polygon statements, Section 4 planar question and Remark 1 planar face-region identity, with relevant PDF page inspection.",
+          "method": "Read accessible arXiv paper full text and source PDF pages.",
+          "title": "On the average number of normals through points of a convex body",
+          "trigger": "Same invariant and its original polygonal active-region/Euler-type relation; strongest directly applicable background."
+        },
+        {
+          "assessment": "NOT_COVERING beyond already-known n=3: the inspected polytope theorem and triangle computation do not imply the exact all-odd-n regular polygon profile.",
+          "evidence": "Average-normal section and explicit planar triangle proposition giving the equilateral-triangle average.",
+          "identifier_or_url": "arXiv:2406.01773v2",
+          "material_read": "Accessible arXiv full text including definitions, the planar generic discussion and the full average-normal section (especially triangle proposition), with relevant PDF page inspection.",
+          "method": "Read arXiv full text and targeted PDF pages.",
+          "title": "Concurrent normals problem for convex polytopes and Euclidean distance degree",
+          "trigger": "Later article studying the same average-normal invariant on polytopes and the explicit planar triangle."
+        },
+        {
+          "assessment": "NOT_COVERING in the inspected related material: table concerns class-wide bounds and citations rather than odd regular polygon exact values.",
+          "evidence": "Section 3.5 and the tabulated known averages/bounds.",
+          "identifier_or_url": "arXiv:2407.19177v2",
+          "material_read": "Relevant full-text section on average normal counts and the table of classes/bounds, with paper PDF inspected.",
+          "method": "Read lawful arXiv full-text relevant sections and PDF page.",
+          "title": "Centroids and equilibrium points of convex bodies",
+          "trigger": "Primary comprehensive survey with normal-multiplicity context and aggregate known bounds."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK: the identity is supported by inspected secondary reproduction but original text cannot justify whole-paper noncoverage.",
+          "evidence": "Domokos--Langi Remark 1 explicitly attributes the face-active-region identity to Hann 1993.",
+          "identifier_or_url": "K. Hann, Geometriae Dedicata 48 (1993) 27--55; DOI:10.1007/BF01265675",
+          "material_read": "Bibliographic metadata and its exact planar identity reproduced by Domokos--Langi; no full text of Hann article obtained.",
+          "method": "Searched arXiv and lawful open-access routes; attempted authorized institutional retrieval, which reported disconnected VPN and required human reconnection. No bypass.",
+          "title": "The average number of normals through a point in a convex body and a related Euler-type identity",
+          "trigger": "Original identity used centrally in the submitted proof; plausible prior explicit special-family computation."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK: known cited cyclic centrally symmetric statement does not imply odd-n formula, but uninspected additional content cannot be ruled out.",
+          "evidence": "Known Hug result and source attribution in Domokos--Langi polygon section.",
+          "identifier_or_url": "D. Hug, Geometriae Dedicata 55 (1995) 319--340; DOI:10.1007/BF01266322",
+          "material_read": "Published abstract and explicit attribution in Domokos--Langi 2014; attempted legacy PDF link no longer supplied article full text.",
+          "method": "Searched arXiv/open-access and historical institutional host; no original full text obtained.",
+          "title": "On the mean number of normals through a point in the interior of a convex body",
+          "trigger": "Original theorem about equality at 8 for centrally symmetric cyclic polygons, potentially containing odd regular calculations."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK: no negative whole-document statement.",
+          "evidence": "Domokos--Langi discussion of sweeping by inner normals and its 1998 citation.",
+          "identifier_or_url": "S. Dumitraşcu (1998), bibliographic source cited by arXiv:1406.0813v1",
+          "material_read": "Bibliographic title and attribution in the Domokos--Langi full text; original paper unavailable.",
+          "method": "Bibliographic comparison and lawful search for accessible original.",
+          "title": "Every convex polygon is swept by its inner normal more than 4 times",
+          "trigger": "Older polygon-specific normal-sweep analysis, plausibly includes regular examples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Domokos--Langi 2014 introduction, polygonal equality and planar open question",
+        "Exact cap-area computation and quartic expansion"
+      ],
+      "rationale": "The mean number of boundary normals is a natural classical Santaló invariant. Odd regular n-gons form the canonical non-centrally-symmetric counterparts to even regular polygons known to have mean 8. The exact full-family computation identifies a nontrivial quartic deficit 8-mean=pi^4/(2n^4)+O(n^-6), supplying a rigorous benchmark for planar extremal investigations. It is not a table recomputation or a trivial substitution: it requires evaluating active strip geometry for all odd orders. This does not resolve whether arbitrary convex bodies can have mean >8.",
+      "residual_risks": [
+        "Value pertains only to Euclidean regular odd polygons and the average-normal invariant, not all convex polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Domokos--Langi, On the average number of normals through points of a convex body, arXiv:1406.0813v1 (full text, especially Definition 1, planar Hann identity in Remark 1, Section 3.1, Section 4)",
+    "Nasonov--Panina--Siersma, Concurrent normals problem for convex polytopes and Euclidean distance degree, arXiv:2406.01773v2 (full text including average-normal section and triangle proposition)",
+    "Langi--Varkonyi, Centroids and equilibrium points of convex bodies, arXiv:2407.19177v2 (full-text relevant average-normal section and known-bound table)",
+    "Hann, The average number of normals through a point in a convex body and a related Euler-type identity, Geom. Dedicata 48 (1993), 27--55, DOI:10.1007/BF01265675 (original inaccessible; identity quoted in inspected 2014 source)",
+    "Hug, On the mean number of normals through a point in the interior of a convex body, Geom. Dedicata 55 (1995), 319--340, DOI:10.1007/BF01266322 (abstract and secondary attribution, no full text accessed)",
+    "Dumitrascu, Every convex polygon is swept by its inner normal more than 4 times (1998; bibliographic attribution in 2014 source, original unavailable)",
+    "Resultary semantic records: current record self-match and nearby regular-polygon/elliptic-normal records, explicitly not taken as prior independent proof"
+  ],
+  "disposition": "passed",
+  "limitations": "Only Euclidean regular odd polygons n>=3 and averaged boundary normals, not nonregular polygons or global maximization; originality best-of-knowledge with inaccessible Hann/Hug/Dumitrascu originals; publication not_ready due unsanitized metadata and malformed RESULT math escape.",
+  "residual_risks": [
+    "Hann 1993 original article inaccessible; an explicit regular-polygon calculation may be present in uninspected sections. Oxford authorized access attempted but its VPN was disconnected; no bypass performed.",
+    "Hug 1995 original full text inaccessible; the cited known cyclic/even theorem is narrower, but additional uninspected calculations cannot be ruled out.",
+    "Dumitrascu 1998 polygon normal-sweep article inaccessible; older unindexed special-family computations or non-English tables remain plausible.",
+    "Resultary self-hit is not independent novelty evidence; searches do not prove absence of earlier equivalents."
+  ],
+  "schema_version": 1
+}
