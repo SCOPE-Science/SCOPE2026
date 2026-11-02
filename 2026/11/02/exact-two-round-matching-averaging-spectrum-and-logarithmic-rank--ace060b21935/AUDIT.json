@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every matching pair, normalized pair-indicator isometries give T=EA( EA^T EB )EB^T. Each alternating component reduces to the cyclic normal matrix (I+S_l)/2, proving the complete cosine singular values and exact nullity. The matching EGF is computed with explicitly counted connected component weights; singularity transfer near s=0,1 proves the CLT and sharp zero-deficiency constant. Componentwise Lipschitz transport proves the expected Wasserstein bound. The embedded independent finite checker exhausts 11464 matchings through m=6 and 124975 assertions; no finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bajović et al. 2012, arXiv:1202.6389, Theorem 9 gives a long-time exponential convergence-in-probability rate for products of stochastic matrices, not a fixed-two-factor complete spectrum.",
+        "Chiclana 2026, arXiv:2610.14724, Corollary 1.7 gives an expected Frobenius squared norm, and Section 8.1 gives an averaging application."
+      ],
+      "reasoning": "Neither an averaged Frobenius statistic nor a long-time contraction exponent implies the full finite two-round singular spectrum and its precise rank-defect distribution. The inspected broader sources do not contain a stronger matching-specific theorem.",
+      "searches": [
+        "two round simultaneous pairwise averaging singular spectrum rank and cycle distribution",
+        "product two random pair matching consensus averaging matrices singular values cycle spectrum",
+        "convergence symmetric stochastic matrices projection products cycle 2 matchings random consensus"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.14724",
+      "https://arxiv.org/abs/0911.3604",
+      "https://arxiv.org/abs/1202.6389",
+      "https://www.stat.berkeley.edu/~aldous/FMIE/index.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chiclana 2026, arXiv:2610.14724, Theorem 1.8 and Section 8.1 concern mixing and opinion averaging, without a two-factor spectral decomposition.",
+        "Lugo 2009, arXiv:0911.3604, Section 8 provides the component law but not any stochastic averaging operator.",
+        "Bajović et al. 2012, arXiv:1202.6389, Theorem 9 concerns the large-time consensus exponent."
+      ],
+      "reasoning": "The theorem follows by combining old components with a newly established exact projection-cosine correspondence, and then extracting a parity-specific generating function, CLT, rare probability, and Wasserstein bound. Its complete statement is not an immediate instance of any located theorem as stated; a stronger general unlocated result could still cover the calculation.",
+      "searches": [
+        "rank loss of two independent random synchronous pairwise consensus averaging rounds even cycles Ewens parameter 1/2",
+        "arXiv 2610.14724 Poisson occupancy of paths on permuted regular graphs synchronous opinion averaging pairwise random matchings",
+        "random perfect matching averaging projections rank deficiency Ewens(1/2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chiclana 2026, arXiv:2610.14724, Section 8.1 states synchronous matching averaging and studies occupancy, not full singular values.",
+        "Lugo 2009, arXiv:0911.3604, Section 8 establishes alternating matchings and their cycle law, without an averaging matrix."
+      ],
+      "reasoning": "Exact averaging-projection angle/singular-value descriptions and alternating-graph cycle descriptions were both explicitly considered. Matching-cycle combinatorics alone does not state the spectral formulas; the new claim connects this prior cycle law with the exact averaging projection spectrum and Gaussian/rare rank losses.",
+      "searches": [
+        "product of projections onto two independent random perfect matching pair-constant subspaces exact singular values cosine alternating cycles",
+        "two round pair averaging spectral arcsine law random matching cycle singular values",
+        "two round synchronous random matching pair averaging singular values rank cycle graph projections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lugo 2009, arXiv:0911.3604, Propositions 8.1–8.2 give the exact random matching component law and the total-cycle count as a Bernoulli sum.",
+        "The claimed weighted even-component generating function and zero-excess constant were independently derived from the credited cycle-index law; no distinct previously published averaging rank-loss table was identified."
+      ],
+      "reasoning": "The predecessor paper covers exact matching component enumeration. That is explicitly not claimed as new. The new spectrum, rank-defect interpretation, parity-specific generating function and sharp no-extra-rank-loss probability were checked as mathematical statements, not as matches of keywords or numerical constants. An implicit table derivation remains possible.",
+      "searches": [
+        "probability no even cycles Ewens one half theta distribution Gamma quarter",
+        "Michael Lugo cycle structure compositions fixed point free involutions random matching rank cycle length",
+        "two matchings union cycles Ewens one half distribution even cycle count"
+      ]
+    },
+    "rationale": "The new statement is the complete two-round singular-value spectrum and the induced exact and sharp probabilistic rank-loss laws, distinct from a row-occupancy/consensus-distance theorem and from the prior alternating-cycle enumeration. Full primary material for the two closest sources was inspected. Targeted searches returned related cycle/projection or consensus results but no statement dominating the combined finite spectral and sharp rank-loss theorem. A possible implicit classical general result remains a disclosed risk; priority is not independently certified.",
+    "residual_risks": [
+      "Classical cyclic projection or random two-regular configuration-graph spectrum theory may imply components of the formula without identical terminology.",
+      "The exact even-cycle Ewens probability is a nontrivial but accessible coefficient extraction from Lugo’s credited graph-cycle enumeration; priority of that parity-specific statistic may exist under a different guise.",
+      "A definitive exhaustive historical-priority search and independent review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state an exact two-round singular-value law or parity-sensitive rank loss. Its projection rank observation and Frobenius second moment are credited.",
+        "evidence": [
+          "Theorem 1.8 and Section 8.1 explicitly discuss random synchronous pair averaging.",
+          "Section 8.1 identifies block averages as orthogonal projections; no singular-value decomposition for a pair of such projections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.14724",
+        "material_read": "Abstract; Theorems 1.6–1.10 and Corollary 1.7; Sections 1.2, 1.3, 6 and 8.1 including the averaging proof and references",
+        "method": "Accessible complete arXiv HTML text, direct section inspection and specific searches for rank/singular spectrum",
+        "title": "Poisson occupancy of paths on permuted regular graphs",
+        "trigger": "Direct source defining the exact synchronous random-pair averaging model"
+      },
+      {
+        "assessment": "Prior equivalence with even-only permutation cycles and total-cycle count are established; no averaging product spectrum or rank is studied.",
+        "evidence": [
+          "Proposition 8.1 gives a bijection between superpositions of fixed-point-free involutions and even-cycle permutations.",
+          "Proposition 8.2 gives total cycle counts as a Bernoulli sum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0911.3604",
+        "material_read": "Abstract, introduction and Section 8, especially Propositions 8.1–8.4 with their proofs",
+        "method": "Accessible complete arXiv HTML text; proposition and cycle-law inspection",
+        "title": "The cycle structure of compositions of random involutions",
+        "trigger": "Exact alternating-cycle enumeration for two perfect matchings could be stronger covering prior work"
+      },
+      {
+        "assessment": "Gives long-time exponential decay-rate probability for random stochastic products; no fixed-two-round full spectrum or random alternating-cycle statistic.",
+        "evidence": [
+          "Theorem 9 concerns an exponential rate as the number of rounds tends to infinity.",
+          "Example 1 describes single-edge gossip rather than simultaneous independent perfect matching rounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.6389",
+        "material_read": "Abstract, introduction, Section II model assumptions and Section III Theorem 9 and associated proof discussion",
+        "method": "Accessible arXiv HTML full text, direct theorem/assumptions inspection and targeted searches for matching/rank/singular",
+        "title": "Consensus and Products of Random Stochastic Matrices: Exact Rate for Convergence in Probability",
+        "trigger": "Broad random consensus product theorem might imply the proposed finite-round spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ace060b2-1935-4d99-a1f8-eb8cb20cc604",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two synchronous pairwise averaging rounds form a natural, recent consensus process. The precise dimension of information discarded after two rounds and its full singular spectrum determine which modes can survive, how a parity-sensitive logarithmic loss fluctuates, and the rare probability of no extra loss. The joint exact finite spectral decomposition and sharp probabilistic rank laws are a motivated complete characterization, not a generic single-coefficient computation.",
+    "status": "PASS"
+  }
+}
