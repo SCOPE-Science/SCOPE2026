@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Hasse derivatives and the explicit parametrization determine a three-dimensional image inside the irreducible sextic; the generic affine Jacobian determinant is the free parameter \(r\), and irreducibility follows because the affine quartic-in-\(x_3\) right-hand side is not a square in the function field. The identity \(F=H^2+x_0x_4G^2\) determines every partial derivative. The two polynomial syzygies and the \(x_0=0\) boundary prove equality of the reduced singular support with the plane-plus-scroll union. Four explicit charts prove scroll smoothness; the blowup linear system gives degree three. The intersection's reduced support is a line, **not** asserted to be scheme-theoretically reduced. The checker independently verifies the identities and finite-field sanity check. These steps are algebraic over any algebraically closed field of characteristic two; the finite census is not used to prove geometric completeness.
+## correctness
 
-## Originality — PASS (qualified)
-Bernardi–Catalisano–Gimigliano–Idà (2004) treat osculating Veronese varieties, but impose characteristic zero and study secant dimensions; the complete source's definitions and statements do not establish this characteristic-two equation or singular decomposition. Aprodu–Farkas–Papadima–Raicu–Weyman (2018) study the first tangential variety and its syzygies, not the second osculating threefold. Queried mathematical records and literature yielded no implication-equivalent statement; closest scroll/plane results concern different varieties. Residual uncertainty: older positive-characteristic projective differential geometry may express an equivalent theorem under different names.
+PASS
 
-## Mathematical value — PASS
-This is an intrinsic and naturally motivated exact singular-support classification for a basic exceptional-characteristic osculating variety. It identifies two geometrically distinct divisorial singular strata, their incidence, and the failure of normality, rather than a tiny numerical improvement or an arbitrary parameter slice. The object is a canonical osculating construction attached to the rational normal quartic.
+In characteristic two, the three Hasse jets of (1,t,t²,t³,t⁴) yield the stated incidence map. Direct substitution annihilates F=x0²x3⁴+x1⁴x4²+x0x2⁴x4+x0³x4³, and a generically nonzero 3×3 incidence Jacobian gives dimension three. The affine quartic in x3 has nonsquare right-hand side in k(x1,x2,x4), ensuring irreducibility. The exact polynomial identity F=H²+x0x4 G² forces gradient components x4G² and x0G² only. Syzygies K²=x0H+x1²G and x0L=x1G+x2K and the x0=0/x4!=0 chart show all reduced singular points lie in the plane P or the cubic scroll S=V(G,K,L). Four affine charts cover S and are smooth; P∩S has reduced line x0=x2=x4=0. This proves codimension-one singularity and nonnormality, without claiming scheme-reduced intersection. Independent symbolic modulo-two identities confirmed.
 
-## Limitations
-No claim about the full Jacobian singular scheme, normalization, conductor, multiplicities or scheme-theoretic reducedness of the two components' intersection. Historical equivalences remain possible; independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Characteristic-zero osculating-Veronese secant-dimensional results and characteristic-two first tangential syzygies do not imply the reduced singular locus of this second Hasse-osculating hypersurface; no exact classification was found in Resultary searches. Historical modular projective geometry equivalences remain possible.
+
+## value
+
+PASS
+
+This is a complete reduced singular-support classification of the natural exceptional-characteristic second osculating variety of the rational normal quartic, distinguishing a plane and smooth degree-three scroll as divisorial components and identifying the nonnormality boundary. It is structural algebraic geometry rather than isolated numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
