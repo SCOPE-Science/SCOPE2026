@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof identifies every face of the tuple complex with a matching of distinct colors and uses \(3r>2r+1\) to exclude all two-dimensional simplices. The Johnson-support two-step connectivity argument works for all positive part sizes. Every fixed vertex is counted by cycle-wise return-map fixed points; fixed graph edges are divided into disjoint preserved-endpoint and exchanged-endpoint cases and counted without orientation ambiguity. The signed cellular Lefschetz equation gives the full rational character. The embedded independent enumerator passed 495 finite integer comparisons. These tests are corroboration, not a claimed general proof.
+## correctness
 
-## Originality
-**PASS under available evidence, subject to residual literature risk.** Lesh–Schreiner–Wahl (arXiv:2506.10436v1), Definition 2.1 and Theorem A, give the abstract tuple definition and connectivity bounds, not the precise weighted odd-Kneser graph homology character. Shareshian–Wachs (arXiv:0808.3114) address complete hypergraph matching complexes with different symmetry and face dimensions. Targeted published-record searches for tuple/multipartite/Kneser blow-up homology characters found no matching claim; searches alone are not proof of uniqueness. The standard graph-cycle-module exact sequence is prior knowledge and is explicitly acknowledged. Possible unpublished or differently named colored-hypergraph trace formulas are residual risks.
+PASS
 
-## Value
-**PASS.** A paper introducing a new tuple construction explicitly identifies homology representations as a direction of interest. The result answers this for a natural infinite class of non-simplex input complexes, with all part sizes and every natural relabeling action, including orientation-reversing edge stabilizers. At \(r=2\), five part sizes two give a 201-dimensional homology module whose trace at a double transposition is \(-7\), information not contained in the rank or connectivity theorem. It is a complete natural parameter-space calculation, not a routine isolated small example.
+Because q=2r+1 and 3r>2r+1 for r≥2, three pairwise disjoint r-faces are impossible, so the tupling complex is exactly a graph. Graph vertices are colored r-tuples and edges correspond to omitted color ℓ plus unordered complementary r-subsets of the other 2r colors, giving V and E. Johnson support graph is connected and every Johnson adjacency has a two-edge path via the complementary support, so odd Kneser support graph and its complete-bipartite fiber inflations are connected; integral cycle rank E−V+1 follows. A fixed colored tuple requires supports to be unions of entire color permutation cycles and one compatible fixed return element per cycle. Each fixed edge has an invariant omitted color: if endpoints are fixed separately, its used color cycles are allocated wholesale with hℓ/2 complementary partitions; if exchanged, each must alternate along even-length cycles with 2^{kℓ−1} assignments. Signed graph chain exact sequence gives χ=1−V_g+E_g^+−E_g^−, no missed orientation signs. Independently enumerated 40 vertices and 240 edges at r=2,a_i=2, and checked 31 distinct color permutations against exact signed action; in the nontrivial (0 1)(2 3) example (V_g,E_g^+,E_g^−)=(4,4,8), χ=−7. Read the source verifier tests 495 actions including r=3. Finite checks are corroboration only.
 
-## Scope and risks
-The result concerns the natural part-respecting action and rational characters, not arbitrary complex automorphisms or integral isotypic splittings. Undiscovered equivalent literature would affect originality. Verification is self-review only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing implications of inspected foundational primary literature and closely related published results. Prior components are explicitly credited; the complete asserted added representation, character, filtration, or signed trace is not supplied by the checked stronger objects. This is not an absolute priority guarantee.
+
+## value
+
+PASS
+
+The graph D^r(X) is a natural near-threshold case of the recently introduced simplicial tupling operation. A complete all-part-size first-homology character for its natural colored symmetry group separates preserved and reversed edge contributions and can determine invariants of symmetry quotients; this is mathematically informative beyond a routine graph rank. The local combinatorial expression works for every automorphism in a large parameterized family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

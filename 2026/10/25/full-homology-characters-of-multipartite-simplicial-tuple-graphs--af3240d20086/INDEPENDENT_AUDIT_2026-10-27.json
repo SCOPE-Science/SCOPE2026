@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:04:46.340918Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob 8e66f5a1015c16f312ccea858d5d56daf9099b24",
+        "Frozen Git verifier blob dbe0230fcc51853d41c641e4920a1083ea9838e7",
+        "Independent exact finite check script /mnt/data/audit_scope05_checks.py"
+      ],
+      "rationale": "Because q=2r+1 and 3r>2r+1 for r≥2, three pairwise disjoint r-faces are impossible, so the tupling complex is exactly a graph. Graph vertices are colored r-tuples and edges correspond to omitted color ℓ plus unordered complementary r-subsets of the other 2r colors, giving V and E. Johnson support graph is connected and every Johnson adjacency has a two-edge path via the complementary support, so odd Kneser support graph and its complete-bipartite fiber inflations are connected; integral cycle rank E−V+1 follows. A fixed colored tuple requires supports to be unions of entire color permutation cycles and one compatible fixed return element per cycle. Each fixed edge has an invariant omitted color: if endpoints are fixed separately, its used color cycles are allocated wholesale with hℓ/2 complementary partitions; if exchanged, each must alternate along even-length cycles with 2^{kℓ−1} assignments. Signed graph chain exact sequence gives χ=1−V_g+E_g^+−E_g^−, no missed orientation signs. Independently enumerated 40 vertices and 240 edges at r=2,a_i=2, and checked 31 distinct color permutations against exact signed action; in the nontrivial (0 1)(2 3) example (V_g,E_g^+,E_g^−)=(4,4,8), χ=−7. Read the source verifier tests 495 actions including r=3. Finite checks are corroboration only.",
+      "residual_risks": [
+        "The allowed automorphism group is induced by size-preserving color permutations and bijections inside classes; not necessarily the full abstract graph automorphism group for degenerate sizes.",
+        "The factor hℓ/2 is an integer because complements pair equal-r subsets, while E_g^- only contributes for even cycles; r≥2 is necessary for graph dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hypergraph matching-complex representations concern disjoint hyperedges with uncolored ground-set constraints and top-dimensional homology; a colored blown-up odd Kneser graph H1 is a different object. The general connectivity theorem does not include the character."
+        ],
+        "reasoning": "Neither broader representation techniques nor connectedness of arbitrary tupling complexes alone logically dictates the return-cycle signed-edge formula.",
+        "searches": [
+          "simplicial r-tupling join of 2r+1 discrete sets odd Kneser graph first homology character fixed edges permutations",
+          "Shareshian Wachs top homology hypergraph matching complexes 0808.3114",
+          "Lesh Schreiner Wahl simplicial r-tupling general connectivity theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search query: simplicial r-tupling join of 2r+1 discrete sets odd Kneser graph first homology character fixed edges permutations",
+        "Other published SCOPE odd-Kneser/graph homology entries inspected at title and summary level, no dominating exact character",
+        "Repository full RESULT.md and verify.py proof; independently enumerated 31 r=2 color permutations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Foundational D^r definition and connectivity result imply that tupling is a natural object; standard Euler–Poincaré implies χ_H1=1−tr_V+tr_oriented_edges for a connected graph. The exact V_g,E_g^+,E_g^− cycle return counts and arbitrary part multiplicities require the new class-specific enumeration."
+        ],
+        "reasoning": "The general graph-chain identity is a prior ingredient, not the claimed all-parameter character itself. Neither it nor the prior D^r connectivity bound states the specific signed fixed-edge enumeration.",
+        "searches": [
+          "simplicial r-tupling join of 2r+1 discrete sets odd Kneser graph first homology character fixed edges permutations",
+          "arxiv:2506.10436 Definition 2.1 Theorem A",
+          "permutation representation graph cycle space fixed edge character"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lesh–Schreiner–Wahl define the same D^r simplicial tupling operator and general connectedness bounds, not the exact colored odd Kneser graph and all-fiber automorphism character. The rank is accessible through graph Euler characteristic, but the full fixed-edge orientation sign character is additional."
+        ],
+        "reasoning": "The exact theorem specializes D^r to a join of 2r+1 discrete sets and computes a specific equivariant H1 character; no equivalent formula appears in the inspected central theorem of the foundational operator paper.",
+        "searches": [
+          "simplicial r-tupling join of 2r+1 discrete sets odd Kneser graph first homology character fixed edges permutations",
+          "Lesh Schreiner Wahl The double of a simplicial complex arxiv:2506.10436",
+          "odd Kneser graph blow-up symmetric group homology character"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph rank E−V+1 follows immediately once the graph is identified, and that standard graph identity is credited; exact fixed permutation trace requires two independently counted edge signs and fiber maps."
+        ],
+        "reasoning": "No exact table or all-size fixed-character formula for this family was found in actual semantic searches. A search absence is only best-of-knowledge evidence, not a claim of proven novelty.",
+        "searches": [
+          "simplicial r-tupling join of 2r+1 discrete sets odd Kneser graph first homology character fixed edges permutations",
+          "Resultary odd Kneser r-tupling H1 character",
+          "published result Shareshian Wachs hypergraph matching module"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing implications of inspected foundational primary literature and closely related published results. Prior components are explicitly credited; the complete asserted added representation, character, filtration, or signed trace is not supplied by the checked stronger objects. This is not an absolute priority guarantee.",
+      "residual_risks": [
+        "The answer may be an undocumented specialization of a general fixed-simplex Lefschetz trace identity, though the precise enumeration for color/fiber actions was not found.",
+        "An older generalized blown-up Kneser-graph representation theory may contain an equivalent formula under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_GENERAL_CONNECTIVITY_PRIOR_NO_SPECIFIC_CHARACTER",
+          "evidence": "The existing paper defines D^r(X) and proves general homotopy/connectivity properties but no return-map fixed cycle signed-edge H1 formula for this 2r+1-partite graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.10436",
+          "material_read": "Full HTML primary introduction, Definition 2.1 and Theorem A, and discussion of D^r connectivity, compared for colored classes and group action",
+          "method": "Primary arXiv HTML text reading",
+          "title": "The double of a simplicial complex (Lesh, Schreiner, Wahl)",
+          "trigger": "The originating simplicial r-tupling construction; high-priority dominating source"
+        },
+        {
+          "assessment": "RELATED_REPRESENTATIONS_DISTINCT_COMPLEX",
+          "evidence": "Target is top homology of hypergraph matching complexes, not the colored r-tupling graph H1 with fiber bijections; source not used to assert full-document noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.3114",
+          "material_read": "Accessible title, abstract, and indicated matching-complex theorem context; no claim of complete article reading",
+          "method": "Bibliographic/abstract and theorem-scope comparison",
+          "title": "Top homology of hypergraph matching complexes, p-cycle complexes and Quillen complexes of symmetric groups (Shareshian, Wachs)",
+          "trigger": "Plausible older symmetric-group character theory for disjoint tuple complexes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Specific final invariant and its full proof in frozen RESULT.md blob 8e66f5a1015c16f312ccea858d5d56daf9099b24",
+        "Scope and credited prior coverage in relevant cited primary results"
+      ],
+      "rationale": "The graph D^r(X) is a natural near-threshold case of the recently introduced simplicial tupling operation. A complete all-part-size first-homology character for its natural colored symmetry group separates preserved and reversed edge contributions and can determine invariants of symmetry quotients; this is mathematically informative beyond a routine graph rank. The local combinatorial expression works for every automorphism in a large parameterized family.",
+      "residual_risks": [
+        "Standard graph Euler characteristic alone is routine; value is in complete explicit return-cycle character and its orientation-sensitive fixed edge counting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only r≥2 and exactly 2r+1 nonempty classes; only induced size-preserving color and fiber automorphisms, not every abstract graph automorphism.",
+    "Determines rational characters and an integral free rank, not complete integral indecomposable representation lattice."
+  ],
+  "schema_version": 1
+}
