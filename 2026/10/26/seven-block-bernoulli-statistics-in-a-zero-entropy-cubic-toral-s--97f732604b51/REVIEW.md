@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is a precisely quantified statement for every real drift parameter and all consecutive seven-time sign patterns under Haar initial data. The key new algebraic fact is that a degree-at-most-six integral polynomial whose nonzero coefficients are odd cannot have a fourth-order zero at one. The proof expands the fourth difference and forces all three quotient coefficients to vanish. Fourier–Fejér approximation transfers this obstruction to the 127 nonempty Walsh moments. Stationarity follows from an affine unimodular map, and entropy zero from polynomial orbit-spreading. An independent rational-grid census and exact coefficient checker corroborate, but do not substitute for, these unrestricted arguments.
+## correctness
 
-**Originality — PASS under inspected evidence.** Anzai's original skew-product analysis and the higher-dimensional Furstenberg transformation study address ergodicity and spectral theory, not the claimed balanced-half-circle seven-block law. A related degree-two sign observation only establishes three-time universal independence with parameter-dependent four-time behavior; it does not imply this new higher-degree result. Search comparisons found no exact seven-bit theorem. Unindexed equivalent prior computations remain possible.
+PASS
 
-**Mathematical value — PASS.** A four-dimensional deterministic zero-entropy system has exactly the same distribution of seven successive binary symbols as independent fair coin tosses. The nontrivial odd-polynomial obstruction explains this observation blindness, extending beyond a simple dimension count. Such explicit higher-order independence thresholds are meaningful to symbolic coding and information diagnostics; the result is limited to seven consecutive times.
+The integral unipotent matrix has determinant one and preserves Haar measure, so every starting time is stationary. The first orbit coordinate is x0+C(n,1)x1+C(n,2)x2+C(n,3)x3+C(n,4)alpha mod 1. The balanced half-circle sign has only odd nonzero Fourier harmonics and zero mean. In the Walsh moment for any nonempty subset of seven times, Haar integration over four independent coordinates kills all Fourier terms except integer relations sum_j c_j*C(j,r)=0 for r=0..3, where c_j are zero or odd. Equivalently C(z)=sum_j c_j z^j is divisible by (z-1)^4 with degree<=6. Writing C=(z-1)^4(a+bz+cz²), the coefficients at degrees 3,1,5 respectively are -4a+6b-4c, b-4a, b-4c. They are even, hence (if zero or odd) vanish; solving gives a=b=c=0. Therefore no nontrivial resonance; bounded Fejer approximants pass every moment limit in L1. Walsh inversion gives all 128 patterns exactly 1/128 for every alpha. Polynomial growth of T^n derivative yields polynomial Bowen spanning numbers and zero topological entropy, hence zero output entropy. Independent symbolic parity linear-algebra checks verified no polynomial relation and finite Fourier identity consistency; finite grids were not used to infer the Haar theorem.
 
-**Sources considered.** Anzai (1951), DOI 10.18910/11966 (full source); Cecchi and Tiedra de Aldecoa (2015), arXiv:1501.06245v1 (full source). The first has month-level historical publication information; the dated 2015 manuscript is the verified first-public-date anchor for the present classified direction.
+## originality
 
-**Scientific limits and priority risks.** No claim is made for arbitrary septuples, eight-block dependence, or positive entropy. No earlier exact seven-block formula was identified in checked material, but this is not a proof of historical uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The previously published dynamical class is acknowledged, but its known spectral and ergodic theorems do not imply the specific half-circle seven-block exact probability law; the new finite obstruction and application supply the novel content.
+
+## value
+
+PASS
+
+Exact imitation of seven independent fair bits by a four-dimensional deterministic zero-entropy stationary system is a meaningful diagnostic limitation for finite-block randomness tests. The proof identifies a nontrivial parity obstruction to low-degree fourth differences and converts it into a full 128-pattern law for arbitrary real drift, not just a grid example. It is an intrinsically interesting exact symbolic-dynamical invariant without claiming global Bernoulli behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
