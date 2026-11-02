@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T14:55:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/RESULT.md @6c379935c2e469fc18959fc6c387e31328c64bcf blob 913816ff9a54e41f012e03097a9b5c71645860df",
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/verify.py @6c379935c2e469fc18959fc6c387e31328c64bcf blob 2c593cb0eb3c39975ccd52355ed774d032b69759",
+        "Qi Liu, Zhijian Yang, Yuankang Fu, Yongjin Li, New geometric constants of isosceles orthogonal type, arXiv:2111.08392v2 (2022), Proposition 3.2, Lemma 4.1, Proposition 4.2",
+        "independent_octagon_check.py (exact SymPy algebra, independent implementation)",
+        "Git tree fddec4762f3c4d3eb703656801943901205f9823 reconstructed from all 7 actual GitHub-returned blob SHA entries"
+      ],
+      "rationale": "For real X_8 with N(s,u)=max(|s|,|u|,(|s|+|u|)/sqrt(2)), the defining primary source Lemma 4.1 and Proposition 4.2 reduce every isosceles unit pair to the 1-variable Phi(t) quotient. Signed-coordinate and swap symmetries imply Phi(t)=Phi(1/t). On 0<=t<=1 the exact active norm facets switch at d=5sqrt(2)-7, a=sqrt(2)-1, c=(5sqrt(2)-1)/7. The four rational pieces and exact derivatives are reconstructed independently: (t^2+9)/10 with derivative t/5; (3t^2+14t+17)/20 with derivative (3t+7)/10; (3t^2+14t+17)/(10(1+t)^2) with derivative -2(2t+5)/(5(1+t)^3); and (5t^2+8t+5)/(5(1+t)^2) with derivative 2(t-1)/(5(1+t)^3). Endpoint norm facets hold exactly, and convexity of each competing |affine| norm facet guarantees the active branch throughout each interval. Therefore strictly rising before a, strictly falling after a except zero derivative at t=1, and reciprocal symmetry yields exactly t=a and t=1/a. The explicit unit pair x=(1,a),y=(-a,1) has ||x±y||=sqrt(2), ||x+2y||=||2x+y||=1+sqrt(2), giving Omega=(3+2sqrt(2))/5. Independently the source general upper bound 2/5+J^2/10+2J/5 with J(X_8)=sqrt(2) yields the same upper value. A separate SymPy checker confirmed 32 exact endpoint-facet evaluations, all branch formulas, derivative identities, and the extremal pair; no finite sampling was used as a continuum proof.",
+      "residual_risks": [
+        "The global reduction depends on the published Lemma 4.1/Proposition 4.2 for symmetric Minkowski planes; the relevant complete proof was read.",
+        "The two maximizing ratios describe the published one-parameter reduction, not a complete symmetry-orbit classification of all ordered x,y pairs.",
+        "Only real two-dimensional regular-octagonal norm is covered; no claim about arbitrary polygons or infinite-dimensional spaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al Proposition 3.2 upper bound evaluates to (3+2sqrt(2))/5 for J(X_8)=sqrt(2), exactly the claimed upper value.",
+          "The James-extremizer record gives J(X_8)=sqrt(2) and quarter-turn structure, but does not report the Omega expression or its two maximizing parameter ratios.",
+          "A dodecagon Omega result involves a different unit ball, no implication of the octagon value."
+        ],
+        "reasoning": "The known upper bound is strong and nearly settles the numerical question, so novelty must not be overstated. The upper bound alone does not imply attainment; an explicit sharp pair and ratio-uniqueness are additional object-specific facts. No inspected dominating result supplies those facts.",
+        "searches": [
+          "arXiv:2111.08392v2 Proposition 3.2 James inequality",
+          "Resultary: regular-octagon James extremizer rigidity",
+          "Resultary: regular dodecagonal Omega profile",
+          "web: Isosceles-Orthogonal Takahashi von Neumann Jordan-Type Constants 2026"
+        ]
+      },
+      "checked_sources": [
+        "Qi Liu, Zhijian Yang, Yuankang Fu, Yongjin Li, New geometric constants of isosceles orthogonal type, arXiv:2111.08392v2 (2022), Proposition 3.2, Lemma 4.1, Proposition 4.2",
+        "Resultary 2026/10/11/SCOPE-rigidity-of-james-extremizers-in-the-regular-octagonal-banach-pl--4f3ce4ea33fa",
+        "Resultary 2026/10/11/SCOPE-exact-omega-profile-of-the-regular-dodecagonal-banach-plane--86982d908b4b",
+        "Resultary self-hit 2026/10/11/SCOPE-exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da (excluded as priority evidence)",
+        "doi:10.5666/KMJ.2022.62.2.271 abstract",
+        "doi:10.3390/axioms15090684 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known upper bound precisely equals the target number after inserting J=sqrt(2).",
+          "The lower bound in Proposition 3.2 does not imply equality and Proposition 4.2 is a variational reduction only.",
+          "The explicit x=(1,sqrt(2)-1), y=(1-sqrt(2),1) simultaneously attains norm(x+2y)=norm(2x+y)=1+sqrt(2), achieving the prior upper bound.",
+          "Exact maximizer ratios require ruling out other t, completed by distinct active-facet intervals; no inspected prior theorem states this conclusion."
+        ],
+        "reasoning": "The bare exact number is a short consequence of a sharp construction combined with a known general upper bound, so it is incremental. The full claim includes an original explicit global optimizer classification in the canonical reduced coordinate and an exact four-branch profile, which are not supplied as a prior corollary without the new facet analysis.",
+        "searches": [
+          "arXiv:2111.08392v2 Proposition 3.2 and Proposition 4.2",
+          "Resultary: rigidity of James extremizers regular octagon",
+          "doi:10.5666/KMJ.2022.62.2.271 abstract",
+          "web: exact isosceles orthogonal Omega regular octagon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 4.2 identifies exact equivalent reduced f(t),g(t) optimization for a symmetric Minkowski plane.",
+          "The assigned record self-matched Resultary; this is not independent priority evidence.",
+          "Other same-object hits compute James/weighted James/P-angle or different constants, not this Omega profile."
+        ],
+        "reasoning": "Direct quotient, one-variable Phi(t), and linearly equivalent regular-octagon normalizations were considered. A general equivalent maximization formula does not explicitly evaluate its four octagon-specific branches or select the two ratios.",
+        "searches": [
+          "Resultary: isosceles orthogonal Omega regular octagon Banach plane exact constant maximizers",
+          "Resultary: Liu Yang Fu Li Omega(X) regular polygon symmetric Minkowski octagonal norm",
+          "web: regular octagon Banach plane isosceles orthogonal Omega constant (3+2sqrt2)/5",
+          "arXiv:2111.08392v2 Proposition 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned only the audited record for the exact Omega octagon formula; self-hit excluded.",
+          "Nearest other findings concern regular dodecagon Omega or octagon different invariants.",
+          "Full defining manuscript contains no textual octagon evaluation."
+        ],
+        "reasoning": "No independent exact table was identified. Absence from an index is not proof of novelty; comparison rests on inspected mathematical implications and specific source content.",
+        "searches": [
+          "Resultary: 3+2sqrt(2) /5 orthogonal Omega octagon",
+          "Resultary: isosceles orthogonal Omega regular octagon Banach plane exact constant maximizers",
+          "web: Omega regular octagon isosceles orthogonality geometric constant",
+          "web: New geometric constants of isosceles orthogonal type octagon"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete octagonal value PLUS unique one-parameter maximizing ratios and four-branch reduced profile. The 2022 defining source already proves a universal James upper bound that, with J(X_8)=sqrt(2), equals this numerical value; this greatly limits the independent novelty of the bare number. But a sharp octagon-specific witness is still needed for equality, and the complete facet transition profile and uniqueness of reduced maximizing ratios are absent from the inspected source. Same-day Resultary findings for the James extremizers and for the regular dodecagon concern related but not identical statements. Search self-hit excluded from priority evidence. Full-text uncertainty and earlier equivalent computations remain risks.",
+      "residual_risks": [
+        "An earlier exact octagon evaluation under another norm normalization or notation may not be indexed.",
+        "The 2022 near-title article was not obtained in full; its abstract is materially different, but a hidden specialization cannot be excluded.",
+        "The 2026 Takahashi-type paper could not be inspected fully due access limiting; the available abstract describes another family.",
+        "Novelty and value of the bare numerical Omega value are modest because the sharp upper bound is a substitution into a known James inequality; the full four-branch optimizer profile is the substantive remainder."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_REDUCTION_NOT_EXACT_VALUE: Proposition 3.2 upper bound becomes (3+2sqrt(2))/5 after inserting James constant sqrt(2), so the numerical upper bound is known. Its lower inequality does not give equality, and Proposition 4.2 supplies only the reduction, not the octagonal facet partition or sharp ratio uniqueness.",
+          "evidence": "Proposition 3.2: Omega(X)<=2/5+J(X)^2/10+2J(X)/5. Proposition 4.2: Omega(X)=max_{t>=0}(f(t)^2+f(-t)^2)/(5g(t)^2); its examples treat square and hexagon, not octagon.",
+          "identifier_or_url": "arXiv:2111.08392v2; https://www.researchgate.net/publication/356281407_New_geometric_constants_of_isosceles_orthogonal_type",
+          "material_read": "Author-uploaded full-text transcription: definition and examples; Proposition 3.2 with proof; complete Lemma 4.1 and Proposition 4.2 statement and proof; source-wide octagon term search.",
+          "method": "Lawful author-posted textual full manuscript, cross-checked against arXiv identifier and its date.",
+          "title": "New geometric constants of isosceles orthogonal type",
+          "trigger": "Defines precisely the same Omega quotient and treats symmetric Minkowski planes, with potentially dominating inequalities."
+        },
+        {
+          "assessment": "ABSTRACT_DISTINCT_WITH_FULLTEXT_RISK: defines parameterized Omega_X(alpha) and relates it to gamma_X(alpha), not evidently the fixed 2,1-coefficient quotient; no whole-document negative coverage conclusion is asserted.",
+          "evidence": "Kyungpook Mathematical Journal 62 (2022), 271–287; the published abstract specifies parameterized Omega_X(alpha) and gamma_X(alpha).",
+          "identifier_or_url": "doi:10.5666/KMJ.2022.62.2.271; https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002853357",
+          "material_read": "Public article abstract and bibliographic metadata; accessible source only, not full paper.",
+          "method": "OA/preprint search, public KCI/MaRDI abstract inspection; authorized full-text request returned disconnected-VPN block.",
+          "title": "A New Geometric Constant in Banach Spaces Related to the Isosceles Orthogonality",
+          "trigger": "Almost identical title and overlapping Omega notation, plausible hidden reformulation."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_FAMILY_ON_AVAILABLE_MATERIAL: power means of chord lengths are not demonstrated to encode the x+2y,2x+y Omega quotient; no definitive whole-paper exclusion claimed.",
+          "evidence": "Axioms 15(9), 684, published 15 September 2026; abstract describes Takahashi–von Neumann–Jordan-type family.",
+          "identifier_or_url": "doi:10.3390/axioms15090684",
+          "material_read": "Public abstract and conclusion summary only; no full-text coverage claim.",
+          "method": "Public search-result article abstract and metadata; article page rate-limited on full open.",
+          "title": "Isosceles-Orthogonal Takahashi–von Neumann–Jordan-Type Constants in Banach Spaces",
+          "trigger": "Recent 2026 primary publication concerning isosceles-orthogonal power-mean constants and exactness of bounds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-isosceles-orthogonal-omega-constant-of-the-regular-octagon--95bab14a54da/RESULT.md @6c379935c2e469fc18959fc6c387e31328c64bcf blob 913816ff9a54e41f012e03097a9b5c71645860df",
+        "Qi Liu, Zhijian Yang, Yuankang Fu, Yongjin Li, New geometric constants of isosceles orthogonal type, arXiv:2111.08392v2 (2022), Proposition 3.2, Lemma 4.1, Proposition 4.2",
+        "Resultary 2026/10/11/SCOPE-exact-omega-profile-of-the-regular-dodecagonal-banach-plane--86982d908b4b",
+        "Resultary 2026/10/11/SCOPE-rigidity-of-james-extremizers-in-the-regular-octagonal-banach-pl--4f3ce4ea33fa",
+        "independent_octagon_check.py"
+      ],
+      "rationale": "The regular octagon is a canonical fourfold-symmetric intermediate between the square and Euclidean disk, and the Liu–Yang–Fu–Li constant is a natural precise measure of isosceles-orthogonal parallelogram geometry. An exact calibrated benchmark and the complete four-facet transition/unique parameter-maximizer profile are useful for comparison with other regular polygonal Banach planes (a published-finding analogue for the dodecagon is already available). This is genuinely narrower and more elementary than a general theorem, and the bare value alone can be derived rapidly from the known James bound plus a sharp pair. The full profile, however, describes nontrivial facet changes in the optimization and pinpoints where equality occurs; thus the accepted mathematical value lies in complete object-specific classification, not a novel global inequality.",
+      "residual_risks": [
+        "Small object-specific exact benchmark with modest reach, not a regular-4n-gon formula.",
+        "The value could be regarded as routine if divorced from the full exact profile and optimizer uniqueness; significance should not be exaggerated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Public status/not-ready prevents publication even though the scientific C/O/V assessment is complete.",
+    "No source edits, importer intake, external certification or GitHub writes took place.",
+    "The included SymPy checker verifies the branch formulas and exact equality, not bibliographic priority."
+  ],
+  "schema_version": 1
+}
