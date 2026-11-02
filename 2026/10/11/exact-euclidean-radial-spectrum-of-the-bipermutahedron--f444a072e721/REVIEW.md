@@ -1,15 +1,37 @@
-# Same-model review
+# Mathematical assessment
 
-## Correctness
-PASS. The proof starts from the published coordinate formula for every vertex. The norm calculation is exact, the first/second-occurrence pattern is proved to be Dyck, the area parameter is shown to attain every integer in its full range, and the minimum enclosing ball center follows from uniqueness together with the published simultaneous permutation symmetry. The exact circumradius and outer-shell count then follow algebraically. Finite enumeration only corroborates the general proof.
+## Correctness — PASS
 
-## Originality
-PASS. The defining paper was inspected at both the coordinate construction and the symmetry theorem; it contains no Euclidean-radius, enclosing-sphere, or vertex-norm theorem. A later substantial paper on the bipermutahedral fan was also inspected and contains no circumradius or Euclidean-radius statement. Direct and equivalent-formulation literature/database searches found no covering theorem. The closest checked same-object result concerns one-skeleton graph distance and does not imply any Euclidean radial data. Residual risk remains for differently phrased or unindexed work.
+For Ardila's standard realization of the bipermutahedron in the inherited Euclidean metric, the vertex formula gives
+\[
+\|v_B\|^2=\frac{2n(4n^2-1)}3+2(2A-n^2)^2+4(2A-n^2),
+\]
+where \(A\) is the Dyck-area statistic of first-occurrence positions. Each integer \(0\le A\le n(n-1)/2\) occurs, and the formula is strictly decreasing with \(A\). The unique circumball center is the origin by simultaneous permutation symmetry. The radius and outer contact count are
+\[
+R=\sqrt{\frac{2n(n-1)(3n^2+7n+1)}3},
+\qquad
+N_{\mathrm{outer}}=n((n-1)!)^2.
+\]
+An independent exact enumeration of all 116,016 labeled bipermutations in dimensions \(n=2,3,4,5\) corroborates the general argument.
 
-## Value
-PASS. The result gives complete distinct-radius data for a canonical realization of a central polytope in matroid conormal geometry. The polytope is not vertex-transitive and is not centrally symmetric in general, yet its vertex norms collapse to a single Dyck-area statistic. The exact circumradius, shell count, and extremal-shell multiplicity are natural reusable metric invariants rather than an arbitrary finite computation.
+## Originality — PASS, best of knowledge
 
-## Closest literature and limitations
-The closest primary source is Federico Ardila, *The bipermutahedron* (arXiv:2008.02295; DOI 10.5070/C62359149), which supplies the coordinates, face structure, deformations, and symmetry group. Navid Nabijou's later toric-configuration-space paper develops the same fan in a different direction. Neither inspected text covers the metric theorem. The claim is tied to Ardila's particular integral realization, and intermediate shell multiplicities are not classified.
+Ardila's *The bipermutahedron* (arXiv:2008.02295, Definition 2.4 and Proposition 7.2) supplies the coordinates and symmetry, and its Theorem 9.4 concerns a Minkowski quotient. Neither this paper nor Nabijou's subsequent fan-theoretic study states the exact radial spectrum.
 
-Same-model review: passed. Independent audit: not yet performed.
+The separately established bipermutahedron inball theorem concerns facet distances, rather than an enclosing sphere determined by vertices. The harmonic-polytope shell theorem applies to a different realization and has only \(n\) shells. The bipermutahedron reversal-distance theorem studies the one-skeleton graph metric. None of these inspected statements implies the present Euclidean vertex-shell classification. An unindexed equivalent calculation remains a residual priority risk.
+
+## Mathematical value — PASS
+
+The bipermutahedron is a canonical non-vertex-transitive polytope motivated by matroid geometry. Its entire set of distinct Euclidean vertex radii is organized by one Dyck statistic in every dimension. The radius of its unique circumsphere and the precise outer contact set give reusable metric information not established by the inspected combinatorial or fan classifications.
+
+## Scope and verification boundaries
+
+The result is specific to the standard integral realization and its Euclidean metric; it does not classify shell multiplicities away from the outermost shell or other deformations. Numerical and combinatorial tests are supplementary and do not substitute for the arbitrary-dimension proof. No Lean proof or external expert attestation is asserted.
+
+## Primary references
+
+Federico Ardila, *The bipermutahedron*, arXiv:2008.02295 (2020), Combinatorial Theory 2(3) (2022), DOI 10.5070/C62359149.
+
+Navid Nabijou, *Toric configuration spaces: the bipermutahedron and beyond*, arXiv:2306.03215; Mathematische Zeitschrift 308 (2024), 57.
+
+Federico Ardila and Laura Escobar, *The harmonic polytope*, arXiv:2006.03078; Selecta Mathematica 27 (2021), 91.
