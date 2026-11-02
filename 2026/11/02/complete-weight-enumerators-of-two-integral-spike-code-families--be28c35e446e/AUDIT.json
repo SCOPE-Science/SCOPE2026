@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Identity-block injection makes the message sum exact. Splitting by s=sum(u_i) gives B for s=0 from an additive-character zero-sum projector; for s!=0 each pair (u_i,s-u_i) has weight one for exactly v=0 or s, and its Fourier polynomial F_{a,s} is explicit. Expanding F_{a,s}^k and evaluating the root-of-unity sum by gcd(q,j-1) gives H, valid for arbitrary composite q. The extra final coordinate raises only the nonzero-sum weights. Direct enumeration for 41 pairs and integer arithmetic for 1421 parameter pairs reproduces the formulas, published full-support expressions and claimed weight-four count; the symbolic derivation proves the infinite family. No unproved lemma is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brändén–Moci (2014) develops multivariate arithmetic Tutte polynomial tools, a potentially covering general framework.",
+        "Kuroda–Nakashima–Tsujie, arXiv:2512.10838v3, gives general coboundary-quasi-polynomial machinery for integral arrangements."
+      ],
+      "reasoning": "General evaluation frameworks can encode the answer implicitly but their existence alone is not an evaluated theorem for the specific matrices. The inspected source portions did not state this all-modulus binomial-and-gcd polynomial. The possibility of a prior evaluated arithmetic Tutte specialization remains a genuine risk.",
+      "searches": [
+        "Tutte polynomial binary spike tipped spike rank n weight enumerator",
+        "arithmetic Tutte polynomial spike matroid N_k Z_k binary spike with tip weight enumerator q",
+        "binary k-spike tipped and untipped codes over integer residue rings complete Hamming weight distributions"
+      ]
+    },
+    "checked_sources": [
+      "Imamura–Nakashima–Saito, arXiv:2601.21121v2, Sections 4–5",
+      "Kuroda–Nakashima–Tsujie, arXiv:2512.10838v3, abstract, introduction and examples",
+      "Brändén–Moci, The multivariate arithmetic Tutte polynomial (2014), background/bibliographic comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source arXiv:2601.21121v2 explicitly remarks that a complete description of the weight enumerators is delicate; Proposition 5.1 and Corollary 5.2 address distance, and Theorem 5.3 addresses full support.",
+        "arXiv:2512.10838v3 presents a general coboundary polynomial formalism rather than a closed spectrum for these two families in the inspected passages."
+      ],
+      "reasoning": "Both sources give concepts and partial constraints compatible with the new expressions, but neither inspected set of statements implies each coefficient as written without additional character-sum evaluation. The new expression specializes to the old full-support result, not conversely. Specializations from existing binary spike Tutte polynomials may be covered and are not claimed in isolation.",
+      "searches": [
+        "Imamura Nakashima Saito 2026 periodicity weight enumerators full support gcd j-1 q",
+        "matroid N_k Z_k coboundary quasi-polynomial from rank k spike representation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Imamura–Nakashima–Saito, arXiv:2601.21121v2, Section 5 defines exactly these generator matrices; Theorem 5.3 counts full-support words only.",
+        "The present coefficient formula sums roots of unity over all message sums and all weights."
+      ],
+      "reasoning": "The two generators are compared directly rather than by naming convention. The previously proved top-weight coefficient is a strict projection of the present polynomial; knowing only it and the distance does not imply all intermediate coefficients. No fully equivalent formula was found in the named exact-matrix searches.",
+      "searches": [
+        "\"I_k\" \"J_k-I_k\" \"weight enumerator\"",
+        "\"N_k\" \"Z_k\" \"weight enumerator\" spike matroid",
+        "For integral code G=(I_k | J_k - I_k), exact all-weight enumerator for q modular arithmetic and k with gcd(j-1,q) correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 5.3 of arXiv:2601.21121v2 tabulates full-support words and Sections 5.1–5.2 discuss minimal weights, not the full coefficients.",
+        "Related accessible mathematical-record results on other linear-code weight enumerators involve different generator matrices."
+      ],
+      "reasoning": "The source with the actual displayed generators was compared at the level of its numerical invariant. None of the inspected tables or returned summaries gives the complete spectrum. A failed search does not establish absolute novelty.",
+      "searches": [
+        "\"Imamura\" \"Nakashima\" \"Saito\" \"weight enumerators\" spike",
+        "complete weight enumerator all Hamming weights Z_k N_k spikes codes I_k J_k - I_k over Z/qZ",
+        "weight enumerator \"J-I\" matrix code spike"
+      ]
+    },
+    "rationale": "Section 5 of the exact-matrix primary paper arXiv:2601.21121v2 has minimum distances and the full-support coefficient, but explicitly does not provide the complete all-weight enumerators. The general coboundary-quasi-polynomial literature supplies methodology, not the displayed evaluation in inspected material. Exact-matrix, Tutte, equivalence and character-sum queries returned no dominating theorem. The remaining risk from unindexed spike and arithmetic Tutte evaluations is identified explicitly.",
+    "residual_risks": [
+      "An explicit arithmetic Tutte or coboundary evaluation for the same integral representations may be buried in literature not fully inspected.",
+      "Binary spike-matroid Tutte identities may imply prime-field specializations.",
+      "Search coverage does not certify publication priority; no independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Full-support coefficient and minima are covered, all-weight enumerators for both matrices and composite moduli are not given in examined results",
+        "evidence": [
+          "The paper defines G_N and G_Z and reports the difficulty of a complete weight enumerator.",
+          "Theorem 5.3 evaluates only the highest-weight coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.21121v2",
+        "material_read": "Abstract, introductory context, Sections 4–5, including generator definitions, Proposition 5.1, Corollary 5.2, Theorem 5.3 and its statement about complete spectra",
+        "method": "Primary HTML full-text section inspection and direct comparison of stated polynomial invariants",
+        "title": "Periodicity of weight enumerators for codes generated by an integral matrix",
+        "trigger": "Exact same matrices and full-support word formula"
+      },
+      {
+        "assessment": "General related framework is available but the inspected material does not evaluate the two stated spectra; not a definitive exclusion of the entire article",
+        "evidence": [
+          "Develops universal coboundary quasi-polynomial formalism.",
+          "No identified displayed all-weight formula for (I_k | J_k-I_k) in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10838v3",
+        "material_read": "Abstract, introduction, and introductory examples including Example 1.14; keyword checks for exact spike-code matrix naming",
+        "method": "Accessible HTML source inspection with targeted term searches",
+        "title": "The Coboundary Quasi-Polynomials of Hyperplane Arrangements over Residually Finite Dedekind Domains",
+        "trigger": "Potentially dominating arithmetic coboundary formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be28c35e-446e-466b-a884-9cbd2020912f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Both integral spike-code families are motivated by a current primary paper that established distances and full-support counts but not the full ordinary Hamming spectrum. Every coefficient is an intrinsic coding invariant; a uniform formula for arbitrary k and composite q is a natural complete classification that exposes gcd-residue effects, avoids q^k enumeration, and gives an exact minimum-word count in the full k>=5 regime. This is not a small random slice or repackaging of the known top coefficient.",
+    "status": "PASS"
+  }
+}
