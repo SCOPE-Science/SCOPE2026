@@ -1,19 +1,21 @@
-# Review of A source-term compatibility condition for compact aquifer wetting fronts
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Under the stated full-line distributional interpretation, test functions supported inside a dry open cylinder eliminate every term except \(N(t)/n\). Since \(n>0\), the necessary condition is exactly \(N=0\) almost everywhere on the interval. The argument uses the equation and source definition printed in Bartlett–Porporato (2018), plus their zero extension beyond the wetting fronts. It does not infer a global statement from numerical experiments.
+PASS
 
-## Originality and overlap
+Given k,n>0 and N in L1_loc(I), test the PDE h_t=k∂x(h∂xh)+v_s ∂x h−φh+N(t)/n in any compactly supported test function in U×I. Because h=0 locally there, all distributional derivatives of h and the local nonlinear flux vanish, leaving N(t)/n=0 as a distribution on I after using a spatial test with nonzero integral; n>0 gives N(t)=0 almost everywhere. The proof is independent of contact/interface delta terms because tests are supported strictly away from the moving edge. It makes no assertion where the PDE is posed only on saturated/wet points.
 
-**PASS, narrowly scoped.** The claim is not offered as a new general porous-medium theorem. It identifies the compatibility condition for the specific Boussinesq equation with additive time-only source and the paper's compactly supported zero extension. The closest general literature inspected concerns unforced finite propagation or sources that vanish with the state; neither directly supplies this model-specific qualification. The public literature search found no directly equivalent statement for this exact aquifer formula. The nearest related published material concerns different model classes and does not imply this condition.
+## originality
 
-## Value
+PASS
 
-**PASS.** The distinction matters because the paper explicitly motivates \(N(t)\) by recharge and other time-varying source/sink fluxes. A reader using a finite wetting-front profile with nonzero uniform recharge needs to know whether the PDE applies on dry ground or only on the saturated set. The result supplies that exact boundary of validity and a concrete modeling repair: state the wet-domain convention or localize the source.
+The full Bartlett–Porporato (2018) article derives a time-only additive N(t) in its source term and assigns zero water height beyond sharp wetting fronts, but also frames the conservation law as flow *within the saturated zone*. It does not explicitly state the full-line distributional no-source compatibility of the extension. General porous-medium finite propagation and local support lemmas are standard; no originality is claimed for distributional calculus itself. The new finding is a clearly conditional, model-specific clarification of when the printed source and zero extension can be interpreted together. Priority claim is deliberately narrow.
 
-## Closest literature and residual risk
+## value
 
-The primary source is Bartlett and Porporato (2018), especially its governing equation, source/sink definition, exact profile, and wetting-front discussion. Troch et al. (2013) provides background on exact Boussinesq solutions and recharge limitations. The principal residual risk is interpretive: if the authors intended the equation only on the wet set, the issue is a missing domain/source qualification rather than a contradiction to the interior formula. This finding states that limitation explicitly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The underlying paper explicitly offers varying recharge/sink terms and sharp finite wetting fronts as a weak solution; whether its source persists in dry ground changes the mathematical validity of the advertised zero extension. The dry-cylinder test gives an exact, actionable necessary condition that distinguishes full-line weak formulations from wet-domain/localized-source formulations. It is a short local argument, but the model-specific interpretation is substantive for correct use of the source-driven aquifer profile; no broad new porous-medium theory is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
