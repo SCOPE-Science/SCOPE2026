@@ -1,15 +1,21 @@
-# Scientific review: complete split-graph cycle projections
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claimed minimum is over *all* real-linear projections onto the cycle-flow space. Signed-coordinate permutation averaging is norm nonincreasing, and representation decomposition identifies the complete one-dimensional family of equivariant corrections. Each candidate is verified to fix every cycle and have cyclic image. Its two column-orbit sums are derived exactly from the Laplacian spectral decomposition, including all absolute values and boundary cases. The global minimizer follows from the opposing slopes for independent-set sizes one through three, and from the cross-column kink for sizes at least four. An exact-rational standard-library checker passed 56 parameter pairs, 1932 columns and 1754 idempotence entries; finite instances are corroboration, not an infinite proof.
+## correctness
 
-## Originality
-**PASS under currently accessible evidence, with bibliographic risk.** The closest primary predecessor, Dilworth--Kutzarova--Ostrovskii (arXiv:2305.12582; initial submission 2023-05-21), gives the general averaging framework and works out tori and Hamming graphs, but not the graph family and exact minimax theorem here. Nearby published research records concern cactus-basis suppression projections, clustered finite-metric fluctuation projections, and distinct bipartite-family calculations; their conclusions do not logically imply the split-graph saturation law. Searches under graph joins, complete split graphs, invariant cycle projections and the plateau value did not identify covering literature, but incomplete indexing can never prove novelty. The complete-graph boundary is acknowledged as known.
+PASS
 
-## Mathematical value
-**PASS.** The invariant is the globally optimal relative projection norm in a natural two-parameter graph family, rather than the norm of a preselected operator. Its unexpectedly stable value after four independent vertices and its fixed positive separation from the canonical orthogonal norm disclose a structural optimization phenomenon. The sharp threshold and all-parameter closed formula make the result reusable as a benchmark for Banach-space graph quotients, without claiming consequences for unrelated graph classes.
+Reconstructed the real unweighted relative l1 projection problem on Z=ker incidence for K_r join independent_s, r>=2,s>=1. Signed edge permutations make symmetry averaging norm-nonincreasing even for unrestricted projections; the cut/cycle real representation overlap is a single W_r, giving precisely one free equivariant correction parameter. The explicit pseudoinverse L^+ acts by 1/(r+s) on clique contrasts and 1/r on independent contrasts; its two absolute column-sum functions F_A and F_X are convex. The crossing on [-s/r,1] for s<=3 and the cross-column cusp at -s/r for s>=4 yield respectively 3-6/(r+s)+6s(r-4)(s-1)/[r(r+s)(6s+(r-1)(4-s))] and 3(r-1)/r. Independently built the oriented incidence matrices and grounded Laplacian inverses, then the full P_t in SymPy rationals; verified P_t^2=P_t and exact optimal column norm for r,s=(2,1),(2,4),(3,2),(4,3),(5,4),(6,5), covering small symmetric-group boundaries. Infinite-family minimality follows from the symmetry/representation and convexity proof, not this finite grid.
 
-## Residual limits
-Only real, unweighted edge-\(\ell_1\) operators are treated; no general weighted or \(\ell_p\) analogue is established. A potentially equivalent unindexed minimal-projection argument cannot be excluded. The standard-library computations are not a substitute for the general proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final mathematical claim, not novelty of standard premises or algorithms: Graph-cycle spaces and transportation spaces are related by finite-dimensional duality; the present minimization is over all projections onto the cycle kernel in the full l1 edge space, unlike coordinate-basis projection constants. Checked relevant primary statements and Resultary semantic results. Failed searches alone are not novelty proof; risks explicitly retained.
+
+## value
+
+PASS
+
+The actual minimum relative projection constant is a natural Banach-space invariant of graph cycle subspaces, and a four-independent-vertex saturation threshold is a structurally unexpected exact result. Explicit formulas show canonical Euclidean-orthogonal projection generally fails to minimize l1 norm. This determines all r,s for a prominent symmetric graph family, not an arbitrary sampled graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
