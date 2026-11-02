@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof uses finite open-rectangle spectral localization, finite Borel spectral grids, and norm/quasi-norm ideal inequalities to prove matching \(n\)-th root upper and lower bounds for both conjugation directions. The nonempty compact support claim and the iff-intertwining consequence are proved without finite-dimensional assumptions. Numerical calculations are supplementary and do not certify the infinite-dimensional theorem.
+PASS
 
-## Originality — PASS (with residual bibliographic uncertainty)
+The support of nonzero spectral rectangular compressions is compact and nonempty. A finite spectral grid with aspect <=1+epsilon and the ideal p-quasi-triangle bound controls limsup by the max ratio; a nonzero compression around any support point controls liminf by its local ratio. Both directions give true root limits, independent of p. Diagonal-only spectral coupling forces every separated compression to vanish, hence intertwining by spectral projection approximation. Fresh 30 finite-matrix Schatten root comparisons and a nontrivial intertwiner example corroborate, not prove, the infinite-dimensional result.
 
-Kittaneh, Kubrusly, and Moslehian (2026) prove bounded two-sided positive conjugation orbits are exactly commutants, but not an exact orbit-dependent exponential rate. Mustafayev (2015) contains a broader Banach-space local spectral-radius framework and polynomial/subexponential orbit conditions; these important ingredients are credited. The present assertion is the explicit two-implementer spectral-coupling formula and its invariance over every Schatten quasi-ideal, even when \(0<p<1\). Prior indexed intertwined-power Schatten results and scalar expansivity-radius results have different hypotheses and do not imply this statement. An equivalent older decomposable-elementary-operator formulation remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a natural quantitative refinement of positive similarity dynamics: a sharp exponential mismatch index determined by nonvanishing spectral compressions instead of coarse global condition numbers. It includes mixed positive implementers, continuous spectra, and nonlocally convex Schatten quasi-norms, all under the same explicit formula.
+The 2026 commutant theorem gives qualitative bounded-orbit intertwining and the older 2015 growth/local-spectrum paper provides likely stronger general tools; accessible primary results do not establish the same explicit support ratio and all p>0 quasi-ideal invariance. The 2015 full text was inaccessible, a substantial documented priority risk rather than automatic rejection.
 
-## Remaining limitations
+## value
 
-The claim concerns asymptotic exponential growth, not exact finite-time norms or polynomial corrections. Positive bounded invertible implementers are essential assumptions; no general nonnormal extension is asserted. Independent priority verification and independent scientific audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural sharp quantitative refinement of two-sided similarity orbits, with continuous spectra, distinct implementing operators, and quasi-Banach Schatten ideals under one explicit coupling invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

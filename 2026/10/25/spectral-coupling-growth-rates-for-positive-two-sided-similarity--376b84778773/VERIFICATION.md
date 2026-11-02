@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The result is established analytically in `RESULT.md`, including the support-localization lemma, finite spectral-grid upper bound, localized-compression lower bound, two-sided growth formula, and intertwining characterization. In the quasi-Banach range \(0<p<1\), the proof specifically uses the \(p\)-triangle inequality and the two-sided ideal property; no convexity of the quasi-norm is assumed.
+## correctness
 
-The standalone `verify.py` uses NumPy to compare finite spectral-coupling ratios against norm-root values for \(p\in\{0.5,0.8,1,2,4,\infty\}\), both conjugation directions, and multiple positive powers. It also tests an exact nonzero intertwiner with two different spectra. Its output reports the number of finite supplementary checks actually performed.
+PASS
 
-This numerical experiment is not an exhaustive computation over operators and is not a proof of an infinite-dimensional statement. Nonpoint spectral support is addressed by the analytic proof and the explicitly calculated rank-one multiplication example in `RESULT.md`. No independent external scientific validation is represented.
+The support of nonzero spectral rectangular compressions is compact and nonempty. A finite spectral grid with aspect <=1+epsilon and the ideal p-quasi-triangle bound controls limsup by the max ratio; a nonzero compression around any support point controls liminf by its local ratio. Both directions give true root limits, independent of p. Diagonal-only spectral coupling forces every separated compression to vanish, hence intertwining by spectral projection approximation. Fresh 30 finite-matrix Schatten root comparisons and a nontrivial intertwiner example corroborate, not prove, the infinite-dimensional result.
+
+## originality
+
+PASS
+
+The 2026 commutant theorem gives qualitative bounded-orbit intertwining and the older 2015 growth/local-spectrum paper provides likely stronger general tools; accessible primary results do not establish the same explicit support ratio and all p>0 quasi-ideal invariance. The 2015 full text was inaccessible, a substantial documented priority risk rather than automatic rejection.
+
+## value
+
+PASS
+
+A natural sharp quantitative refinement of two-sided similarity orbits, with continuous spectra, distinct implementing operators, and quasi-Banach Schatten ideals under one explicit coupling invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
