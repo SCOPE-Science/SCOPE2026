@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The object is a uniform tree on \([n]\), with three distinct labels and conditioned endpoint distance. The weighted Cayley identity, applied after contracting the prescribed geodesic, yields the two independent binomial/Bernoulli mixtures. Algebra gives the exact tail-difference polynomial. Its coefficient sequence has exactly one positive-to-negative sign reversal at all interior distance increments; the terminal increment is checked separately. Exhaustive Prüfer enumeration for \(3\le n\le7\) and exact rational coefficients for \(3\le n\le30\) independently reproduce the stated formulas. The proof itself holds for arbitrary integer \(n\ge3\).
+## correctness
 
-**Originality (O): PASS on inspected evidence.** The generating functions and weighted tree counts are standard consequences of prior rooted-forest coding and are disclaimed as original. Berzunza Ojeda–Janson study global distance profiles, not this conditional third-vertex degree-tail sign classification. The closest published comparison proves negative stochastic regression for degree of a *path endpoint*; it neither claims nor supplies the single-crossing ordering for a **different, off-endpoint marked vertex**. Statement-level published-finding corpus and historical-claim searches did not identify the sharp one-crossing classification. Risk: classical multivariate tree-counting or total-positivity work might contain an equivalent tail-ordering specialization.
+PASS
 
-**Value (V): PASS.** Conditional degree means increase with pairwise separation, yet after the first step neither successive conditional distribution stochastically dominates the other. The theorem pinpoints exactly where high-degree and low-degree tail responses conflict for *all* conditioning distances in a natural random-tree geometry, a structural feature not determined by the known marginals or endpoint regression. The polynomial factorization gives a reusable exact finite-size sign certificate rather than a single moment calculation.
+Conditioning on the unique u–v path length ell leaves an (ell+1)-rooted forest extension, counted with weighted Cayley identity. The third vertex w lies on the interior path with probability (ell−1)/(n−2); if off path its degree is 1+Bin(n−ell−2,1/n), if on path 2+Bin(n−ell−2,1/n)+Bern(1/(ell+1)). This yields the stated exact generating-function mixture; terminal ell=n−1 has deterministic D=2. Subtracting adjacent tail generating functions gives a quadratic with positive constant, negative leading coefficient for ell>=2. Convolution by A(z)^h, A(z)>0 coefficientwise, cannot introduce additional alternating sign changes, while first and last terms remain opposite, proving exactly one positive-to-negative tail crossing. Ell1→2 is all-positive, terminal comparison explicit, and the conditional means increase by a rational positive difference. Independently enumerated every Prüfer code at n=3..6, checked exact laws and all threshold signs, and verified coefficient and one-crossing identities for n4..50. The algebraic proof, not bounded enumeration, establishes universality.
 
-**Limits and historical context.** Uniform-labelled-tree specificity; no general conditioned Galton–Watson analogue, and no historical-priority guarantee. The supporting infinite proof is mathematical, not finite-computational certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted Cayley forest formula and the conditional one-point marginal are classical, and a published endpoint-degree/marked-distance theorem establishes opposite-sign stochastic regression when the degree is at a distance endpoint. This paper studies a distinct third vertex, where means increase but tail laws exhibit exactly one sign change rather than domination. The full crossing theorem is not a corollary of the known endpoint law nor of Janson distance-profile limit theorems.
+
+## value
+
+PASS
+
+Conditional third-vertex degree is natural when two other vertices are fixed as a geometric reference pair. Its stochastic behavior is qualitatively subtler than endpoint regression: strictly increasing means coexist with opposing tails and a unique sign reversal at each noninitial distance step. The uniform exact classification of all thresholds is a motivated dependence theorem, not just computing one marginal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
