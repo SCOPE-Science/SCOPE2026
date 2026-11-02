@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The frame-bundle construction on the ordered stable-root locus is established by hereditary Ext vanishing and exact scalar quotients. The two-arrow Kronecker family has universal vertex lines differing by \(\mathcal O(1)\); four families split after the ordered cover, and the remaining bundle is obstructed by a hyperplane class that is not twice another Picard class. The identification of \(\operatorname{Pic}(F_k(\mathbb P^1))\) is proved universally from diagonal divisors; exact Smith forms for \(2\le k\le8\) corroborate it. The infinite theorem does not rely on that finite test.
+## correctness
 
-## Originality — PASS, with limitations
-The closest literature is Belmans–Reineke, arXiv:2610.22203v1 (general fiber theorem, framed quiver construction, and fourfold discriminant) and arXiv:2607.12895v1 (the related fourfold \(\widetilde D_4\) case). General geometric fibers and the two Kronecker del Pezzo surfaces are established prior work. The proposed addition is the uniform all-\(k\) **global** bundle presentation on the ordered cover and the four-versus-one splitting classification detected by an explicit Picard parity class. Compared indexed records have different underlying moduli objects. The July paper was not fully available for text comparison and implicit earlier derivations remain a historical-priority risk; a failed search is not a certificate of unique priority.
+PASS
 
-## Mathematical value — PASS
-For natural forgetful maps from entire infinite families of Fano varieties, the result determines whether the ordered smooth bundle is globally a product, a question not answered by the abstract isomorphism type of every geometric fiber. The exceptional framing has a persistent integral obstruction for every dimension, while the ruling permutation group is maximal in all five families. This supplies geometric information relevant to the bundle's global sections and descent. The full singular fibers and unordered Brauer classes remain outside the claim.
+Reconstructed from exact 9235-byte RESULT.md with five framings in Belmans-Reineke Theorem B. Indivisible stable isotropic δ admits universal stable family over S_t=P1 minus t exceptional regular parameters; distinct stable summands have Hom=0 and Ext1=0 (Euler form <δ,δ>=0 and simple stable Hom vanishing). Framed moduli quotient of nonzero framing components yields product_i P(pr_i^*E) over ordered U_k, not merely geometric fiber equality. For t>=1 the punctured affine P1 coordinate ring is a localization of C[z], PID, so rank-two E is trivial. For t=0 the two-arrow Kronecker universal vertex line bundles differ by O(1), giving E=L⊕L for type (a), and E=O⊕O(1) up to common twist for type (b). On U_k=F_k(P1), divisor-localization Picard presentation Z^k/<e_i+e_j> yields Pic(U2)=Z and Pic(Uk>=3)=Z/2, every e_i nondivisible by 2. Thus a trivial P(O⊕pr_i^*O(1)) would imply determinant e_i=2[L], impossible; the product cannot trivialize since Aut((P1)^k)=PGL2^k semidirect S_k and connected base fixes permutation. Connected ordered configuration cover has full S_k Galois monodromy on ruling factors. Independent exact Smith-normal-form relation-matrix calculations for k=2..10 agree, but the proof for all k is algebraic. No statement about singular fibers, unordered Brauer class, or all discriminant strata.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for uniform ordered-base all-k global bundle dichotomy and symmetric ruling monodromy, after reading the authors’ 2026 paper with same five families. Their Theorem B and Proposition 11 give abstract generic fibers and local Luna strata, whereas the inspected primary full text does not prove the global relative product nor determine unique nontrivial Picard obstruction. The older July fourfold manuscript may implicitly provide k=2 specializations; that risk is recorded without a whole-document no-coverage claim.
+
+## value
+
+PASS
+
+The generic geometric fiber type (P1)^k alone cannot tell whether the family globally trivializes. The uniform classification over all five infinite Fano series singles out one persistent nontrivial Kronecker twist using a natural integral Picard obstruction and gives full ruling monodromy. This is a meaningful geometric topological refinement of a known local-fiber theorem, not rebranding of P1^k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
