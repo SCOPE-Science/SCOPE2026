@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Every maximal-rank square-zero X admits X=[[0,I],[0,0]]. The twist forces Y=[[A,C],[0,zeta A]], and Y^2=0 iff A^2=0 and AC+zeta CA=0. For square-zero A of rank j, block multiplication gives an unrestricted h=r-2j square block C_HH, exactly q^(2j(r-j)) lifts per C_HH, and rankY=2j+rankC_HH. Counting the rank-j A and rank-t C_HH yields the Gaussian sum in all characteristics. The total X factor is also exact. Attached standard-library code directly checks seven full block enumerations over F2,F3,F4, twists 1,2,3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Wang (2018) classifies irreducible components of anti-commuting and semi-nilpotent varieties over characteristic-zero ground fields, not finite-field labelled square-zero rank coefficients.",
+        "Chen–Lu (2019) studies components and dimensions for quantum-plane representations over algebraically closed characteristic zero, with no such finite-field rank-by-rank enumeration."
+      ],
+      "reasoning": "A variety component classification over an algebraically closed field does not imply these finite-field point counts across characteristics. Huang gives total counts on much larger sets, which cannot be specialized by rank without new analysis.",
+      "searches": [
+        "matrix pairs A squared B squared zero AB=lambda BA twisted centralizer Jordan rank fixed field size and Gaussian coefficients",
+        "rank-Y distribution for fixed maximal rank square-zero X with XY=lambda YX and Y^2=0",
+        "arXiv:1910.02198; arXiv:1805.00378"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0709.3029v1",
+      "arXiv:1805.00378v1",
+      "arXiv:1910.02198v1",
+      "arXiv:2110.15570v1",
+      "https://www.numdam.org/item/10.5802/alco.230.pdf",
+      "Public mathematical research records about q-commuting square-zero rank fibers and twisted centralizers",
+      "Earlier comparable mathematical claims evaluated for implication overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huang Section 4 proves the count of all twisted-commuting partners with the first matrix nilpotent depends only on its Jordan type, while Eq. (59) sums pairs with both matrices nilpotent, with no square-zero or rank slicing.",
+        "The present square-zero condition imposes AC+zeta CA=0, a genuinely new quadratic restriction on the linear twisted centralizer.",
+        "Bergh/Erdmann Introduction and Section 2 construct resolutions and compute Hochschild invariants."
+      ],
+      "reasoning": "The special locus is contained in the broad prior set, but a total cardinality of a set is insufficient to determine the size of its nonlinear rank strata. The proof computes their additional constraints and produces a new rank distribution. A general presentation of all twisted centralizers alone does not yield the numerical formula, though possible hidden implications remain a priority risk.",
+      "searches": [
+        "arXiv:0709.3029v1",
+        "arXiv:2110.15570v1 Theorem 1.2(c) equation 51 equation 59 Remark 4.1",
+        "arXiv:1805.00378v1",
+        "quantum complete intersection square zero q commuting matrices representation rank stratification enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The labelled square-zero relation is precisely the representation variety of the quantum complete intersection with generator squares zero.",
+        "Huang Theorem 1.2(c) counts all pairs with first matrix nilpotent and second arbitrary, and Remark 4.1 extends aggregate counts to nilpotent–nilpotent; there is no second-rank variable in its stated generating functions."
+      ],
+      "reasoning": "The prior scalar coefficients of total nilpotent pair counts do not recover the finer partition by nilpotency index and two ranks. Its twisted centralizer normal form does not compute the square-zero rank strata. The present sum gives exact separately indexed fibers.",
+      "searches": [
+        "quantum exterior algebra k<x,y>/(x^2,y^2,xy-zeta yx) finite field representations rank distribution square-zero matrices XY=zeta YX, full rank X",
+        "\"square-zero\" \"rank stratified\" \"quantum plane\" \"matrix pairs\"",
+        "arXiv:2110.15570 (Huang, Section 4, Remark 4.1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located rank-indexed table was equivalent to H_{r,s} for all r,q,zeta.",
+        "Exact independent block enumerations give the rank vectors (1,9,18) at (r,q)=(2,2), (1,32,120) at (2,3), and (1,49,630,504) at (3,2)."
+      ],
+      "reasoning": "Small coincidences or a missing search hit do not establish novelty; the comparison is between exact all-parameter statements, which the inspected primary texts lack.",
+      "searches": [
+        "\"quantum complete intersection\" \"square-zero\" \"rank\" \"finite field\" \"twisted commuting\" enumeration",
+        "rank-refined enumeration square-zero q commuting matrix pairs finite fields with maximal rank first matrix, independent of q-commutation parameter",
+        "mathematical literature quantum complete intersection square-zero rank count finite fields"
+      ]
+    },
+    "rationale": "Huang (2022), Theorem 1.2(c) and Remark 4.1, already proves the aggregate nilpotent-pair twist independence; this is explicitly acknowledged. Neither that invariant nor Huang's linear twisted-centralizer parametrization gives the number with both squares zero, fixed maximal first rank, and every prescribed second rank. The proven quotient-block rank relation and Gaussian sum provide a distinct, meaningful refinement. Bergh/Erdmann (2007) studies homology, Chen/Wang (2018) and Chen/Lu (2019) geometric components, not these coefficients. Comparisons against published research statements and targeted mathematical-record searches disclosed no equivalent formula. Residual uncertainty about implicit consequences remains.",
+    "residual_risks": [
+      "An unlocated paper could already give the exact two-rank and square-zero coefficient formula.",
+      "Some of the new coefficient formula might be obtainable as an unstated nontrivial specialization of a sufficiently detailed twisted-centralizer parametrization; this is not a published equivalent statement in inspected sources.",
+      "Publication-priority verification is incomplete; no independent audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same quantum algebra family, but discusses bimodule resolutions and Hochschild (co)homology rather than finite-field rank counts",
+        "evidence": [
+          "2007-09-19 initial date",
+          "Introduction, Section 2 definition A=k<X,Y>/(X^a,Y^b,XY-qYX)"
+        ],
+        "identifier_or_url": "arXiv:0709.3029v1 | https://arxiv.org/abs/0709.3029",
+        "material_read": "Full-text Introduction and Section 2, definition of codimension-two quantum complete intersection and main homological objectives",
+        "method": "Read arXiv HTML rendition; checked model algebra and results",
+        "title": "(Co)homology of quantum complete intersections",
+        "trigger": "Earliest day-verified archival quantum-complete-intersection source and correct object"
+      },
+      {
+        "assessment": "Classifies irreducible components and dimensions in characteristic zero, does not give labelled square-zero two-rank fibers over arbitrary finite fields",
+        "evidence": [
+          "Theorems 1.1 and 1.3: component dimensions",
+          "Section 1.4 assumes complex numbers; no prescribed second-generator square-zero counts"
+        ],
+        "identifier_or_url": "arXiv:1805.00378v1 | https://arxiv.org/abs/1805.00378",
+        "material_read": "Full HTML Introduction, principal Theorems 1.1–1.3, stated ground-field assumptions, Section 2 structural purpose",
+        "method": "Read arXiv HTML full-text statement/assumptions and main geometry",
+        "title": "Anti-commuting varieties",
+        "trigger": "Strong possible broader geometric coverage for zeta=-1"
+      },
+      {
+        "assessment": "Geometric components and dimensions over algebraically closed characteristic-zero fields; no rank-refined finite-field census of the four-dimensional quotient",
+        "evidence": [
+          "Primary MSC 16G10",
+          "Section 1 explicitly works over algebraically closed characteristic-zero field"
+        ],
+        "identifier_or_url": "arXiv:1910.02198v1 | https://arxiv.org/abs/1910.02198",
+        "material_read": "Full-text introduction, Theorem 1.1, Section 2 q-layered blocks, Sections 6–7 geometric statements",
+        "method": "Read arXiv HTML full-text statements, notation, results",
+        "title": "Varieties of modules over the quantum plane",
+        "trigger": "Potential dominating classification of all q-commuting representations"
+      },
+      {
+        "assessment": "Already proves aggregate nilpotent-pair twist invariance and twisted centralizer linear normal forms; does not state or calculate simultaneous square-zero, fixed first rank and second rank fibers",
+        "evidence": [
+          "Theorem 1.2(c) counts first nilpotent and second arbitrary",
+          "Equation (59) counts all nilpotent pairs by one variable n",
+          "Remark 4.1 explicitly identifies independence of zeta whenever at least one factor is nilpotent"
+        ],
+        "identifier_or_url": "arXiv:2110.15570v1 | https://www.numdam.org/item/10.5802/alco.230.pdf",
+        "material_read": "Entire 11-page primary journal article text; inspected page images 584 and 590; detailed Section 4, Theorem 1.2, equations (51)–(59), Remark 4.1",
+        "method": "Read open-access publisher PDF text and page screenshots for mathematics and source scope",
+        "title": "Counting on the variety of modules over the quantum plane",
+        "trigger": "Highest-risk arithmetic comparison with prior q-commuting finite-field counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc9c4de8-0998-4efd-9604-a2154b54a1cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-first-generator stratum is the intrinsic maximal-rank (open dense) square-zero locus, naturally the free-module locus over k[u]/u^2 in representations of the four-dimensional quantum complete intersection. The complete rank-of-Y enumerator gives a structural arithmetic classification in every even dimension, rather than an arbitrary numerical slice. Huang's known aggregate independence under zeta does not imply invariance of each nonlinear square-zero rank fiber; the new theorem establishes it uniformly with exact Gaussian multiplicities.",
+    "status": "PASS"
+  }
+}
