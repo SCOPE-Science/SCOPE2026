@@ -1,11 +1,21 @@
-# Scientific review: sharp quartic skew-Schäffer defect
+# Independent mathematical audit
 
-**Correctness — PASS.** The real scalar quartic identity is checked coefficient-by-coefficient, including the positive parameter denominator; the integrated statement follows from Hölder. The two perpendicular null directions are explicitly the roots of one quadratic, and the two unit-norm constraints force the stated positive branch masses. The orthogonal rotation of the traceless symmetric quadratic yields a sharp fourth-power cone-distance inequality; a two-band construction attains equality in any real \(L^4\) of dimension at least two. `verify.py` checks the symbolic expansion and finite test witnesses, not the infinite-dimensional proof.
+## correctness
 
-**Originality — PASS, with documented priority risk.** The materially read Xu–Liu preprint, arXiv:2610.03050v1, already calculates the infimal numerical constant via an operator norm; the present result does not present that constant as new. The materially read public finding *Exact skew geometric mean constant of* \(\ell_4\) computes a related two-by-two norm for a supremal arithmetic-mean invariant. Neither inspected result states the nonnegative pointwise squared remainder, both compulsory extremal rays and branch masses, or optimal stability coefficient for the infimal quartic quantity. Searches for equivalent forms, broader coverage, exact tabulation and claim-versus-prior implications found no dominating indexed statement. An unindexed classical weighted quartic stability identity is a real residual priority risk.
+PASS
 
-**Value — PASS.** A complete extremizer description and a universal sharp distance-to-equality-cone coefficient turn the recent scalar lower-bound computation into a quantitative structural theorem on arbitrary real \(L^4\). The skew case \(\tau\ne1\) forces two orthogonal active profiles, while the known \(\tau=1\) boundary reduces to disjoint supports. The cone-distance bound is not misrepresented as an estimate to globally normalized minimizers.
+The real pointwise identity follows by exact quartic coefficient matching with E²=tau²(1+2tau²)(2+tau²), B=3tau²+E>0 and lambda>0. Integrating is valid by Holder in arbitrary L4. The null cone of A(f²−g²)+Bfg consists of two perpendicular rays/lines, and both fourth-norm unit equations uniquely determine the mass in each nonzero branch. At tau=1 equality is disjoint supports. Orthogonal diagonalization of the traceless 2x2 quadratic shows distance^4 to the pointwise null cone <= q(f,g)^2/(B²+4A²); the two-disjoint-band normalized eigenvector construction attains the B/(B²+4A²) coefficient in every real L4 dimension>=2. Independently checked the exact scalar identity and masses symbolically. The bound is NOT distance to globally normalized minimizers.
 
-**Limitations.** Real scalars; fourth power; local cone distance. Full absolute publication priority cannot be certified from searches; independent scientific review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xu–Liu (2026) already give the infimal skew L4 quartic constant; that is credited. The complete square-remainder identity, two compulsory orthogonal branches and their norm masses, and the universal sharp pointwise cone-distance estimate are not supplied or implied by the materially compared Xu–Liu theorem. The related published Resultary ell4 finding treats a supremal arithmetic-mean constant. Residual risk of a classical weighted Clarkson stability equivalent is explicitly retained.
+
+## value
+
+PASS
+
+For a newly studied geometric Banach-space constant, extremizer geometry and sharp stability are natural substantive questions beyond the already known value. The all-real-L4 pointwise remainder identity and universally sharp coefficient quantify the actual gap with an explicit witness; this is more than recomputing the radical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

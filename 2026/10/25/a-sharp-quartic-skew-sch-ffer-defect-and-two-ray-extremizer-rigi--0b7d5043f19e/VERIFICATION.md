@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the quartic defect and sharpness
+# Independent mathematical audit
 
-The independent audit channel is unperformed. The documented self-review consists of direct proof reconstruction, exact coefficient matching, pointwise cone geometry and the finite checks below.
+## correctness
 
-Run `python verify.py` with SymPy. The script checks that the difference between both sides of the scalar identity is identically zero, verifies positivity by an exact factorization and reproduces finite-parameter sharpness witnesses. Its finite samples are illustrative only; the proof in `RESULT.md` establishes the result for every positive parameter, every permitted measure space and all unit pairs.
+PASS
 
-The exact coefficient identities are \(E-3\tau^2=2A^2/B\) and \(12\tau^2=2B-4A^2/B\), with \(E^2=\tau^2(1+2\tau^2)(2+\tau^2)\). The cone bound uses an orthogonal eigenbasis of the quadratic form, so no approximate numerical diagonalization is needed in the analytical argument. The constant is demonstrated optimal on every allowed space by placing two rotated eigenvector coordinates on disjoint norm-one functions.
+The real pointwise identity follows by exact quartic coefficient matching with E²=tau²(1+2tau²)(2+tau²), B=3tau²+E>0 and lambda>0. Integrating is valid by Holder in arbitrary L4. The null cone of A(f²−g²)+Bfg consists of two perpendicular rays/lines, and both fourth-norm unit equations uniquely determine the mass in each nonzero branch. At tau=1 equality is disjoint supports. Orthogonal diagonalization of the traceless 2x2 quadratic shows distance^4 to the pointwise null cone <= q(f,g)^2/(B²+4A²); the two-disjoint-band normalized eigenvector construction attains the B/(B²+4A²) coefficient in every real L4 dimension>=2. Independently checked the exact scalar identity and masses symbolically. The bound is NOT distance to globally normalized minimizers.
 
-The near-equality statement controls distance to pointwise null lines, not distance to the globally mass-balanced minimizer subset. The published numerical infimum is prior work and not the claim of novelty. Potential unindexed equivalent weighted quartic remainders remain a priority risk.
+## originality
+
+PASS
+
+Xu–Liu (2026) already give the infimal skew L4 quartic constant; that is credited. The complete square-remainder identity, two compulsory orthogonal branches and their norm masses, and the universal sharp pointwise cone-distance estimate are not supplied or implied by the materially compared Xu–Liu theorem. The related published Resultary ell4 finding treats a supremal arithmetic-mean constant. Residual risk of a classical weighted Clarkson stability equivalent is explicitly retained.
+
+## value
+
+PASS
+
+For a newly studied geometric Banach-space constant, extremizer geometry and sharp stability are natural substantive questions beyond the already known value. The all-real-L4 pointwise remainder identity and universally sharp coefficient quantify the actual gap with an explicit witness; this is more than recomputing the radical constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
