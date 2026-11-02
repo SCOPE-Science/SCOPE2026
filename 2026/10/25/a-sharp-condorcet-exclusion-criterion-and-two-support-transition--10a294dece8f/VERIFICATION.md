@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof derives the attacker-copy scores by direct conditional enumeration and by the identity \(\int_0^1(r+td)^2\,dt\). It proves strict convexity, the self-play value \(1/3\), the necessary and sufficient exclusion inequality, and the piecewise symmetric formula. No external certificate is asserted.
+## correctness
 
-Run `python3 verify.py` from the folder containing this file and the script. The script uses only `fractions` and `itertools`; its actual execution produced these two outputs:
+PASS
 
-```
-PASS 10788 exact attacker-score comparisons; finite checks corroborate the algebraic proof
-PASS 1866 exact general-profile Condorcet-exclusion tests
-```
+The independent attacking-copy score is exactly Q(r,d)=r²+rd+d²/3 via two defending draws and uniform tie-breaking. Exchangeable self-play gives sum_j D_j F_j(D)=1/3 and hence the minimax threshold. Q is positive-definite quadratic, yielding strict convexity in any varying supported coordinate and uniqueness. If the strict Condorcet middle B is excluded, pure A or C fails and both extremes must be supported. Their scores, from all four rankings, force t=D_A=3(u+m)-1 and 1/3<s=u+m<2/3; the last unsaturated F_B condition is exactly m+n+u(2-3s)²+v(3s-1)²<=1/3. Conversely the same inequalities give F_A=F_C=1/3 and F_B<=1/3, enough for unique stability. Exact algebra proves three symmetric regimes and endpoints. An independently coded exact rational evaluator checked 1,130 finite four-ranking profiles plus five symmetric boundaries; this is corroboration, not proof of all weights.
 
-These bounded checks are not proofs of the universal quantifiers. The exact symbolic reductions and strict-convexity argument in `RESULT.md` supply the mathematical proof. The general exclusion criterion is restricted to profiles in which the middle alternative is the strict Condorcet winner. The already-known general uniqueness result and the implicit boundary witness in Shah's lower-bound construction are not independently rediscovered claims.
+## originality
+
+PASS
+
+Best-of-knowledge originality: For all four-type single-peaked profiles with B a strict Condorcet winner, the unique independent-draw stable two-lottery excludes B exactly on an explicit semialgebraic region; the symmetric line has support changes at p=1/3 and p=4/9. The materially compared earlier results cover only credited subclaims or different mathematical objects; no decisive prior implication was found. Priority is not exhaustively certified. The full Cai et al and Shah 2026 primary articles could contain an equivalent detailed three-alternative support region; retrieval failed, and snippets cannot justify whole-document noncoverage.
+
+## value
+
+PASS
+
+Complete sharp iff semialgebraic exclusion region for a standard two-draw stable social-choice rule is a mathematically natural classification. The majority winner can be systematically excluded; the full support phase diagram refines an earlier isolated tuned lower-bound witness. Credited uniqueness and 18-voter endpoint are not the new value. This is not an all-candidate or alternate-stable-rule theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
