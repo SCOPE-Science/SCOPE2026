@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The file `verify_cube_edge_parity.py` is standalone Python 3 and uses only the standard library. Run `python3 verify_cube_edge_parity.py` in the directory containing the file; compare its console output with `verify_cube_edge_parity_output.txt`. It independently constructs edges and line-graph neighbourhoods and performs binary row elimination and matrix products using integer bit masks.
+# Independent mathematical audit
 
-Actual checks: GF(2) ranks at four iterate levels for each \(d=2,3,4,5,6,7,8\) (28 rank comparisons); exact zero third powers on all seven tested graphs; exhaustive first-zero times over \(16+4096=4112\) initial configurations at dimensions two and three; 2560 seeded trajectory tests over dimensions four through eight; one-dimensional isolated-site boundary. The recorded output ended `CUBE_EDGE_PARITY_VERIFY_OK`.
+## correctness
 
-The program does not prove the theorem for arbitrarily large dimensions. The infinite-parameter proof is the group-algebra argument in `RESULT.md`. The relevant 2010 coding paper was located by bibliographic and abstract evidence, but not inspected completely; only the related full-text 2013 thesis treatment was read in its relevant chapter sections. Independent audit is not yet performed.
+PASS
+
+PASS: reconstructed F=B^T B for GF(2) unoriented cube incidence and L=BB^T, then identified L as multiplication by s=sum_i y_i in the square-zero group algebra. s²=0 implies F³=0. For augmentation ideal I, ker B^T=<product_i y_i>, dim sI=2^{d-1}-1 and this all-ones vector lies in sI for d>=2; hence ranks N-2 and N/2-2. Rank differences give #Jordan-3=N/2-2, #Jordan-2=2, #Jordan-1=(d-3)N/2+2 and exact nullities. Separate direct-adjacency GF(2) computation agrees for dimensions d=2..6. The d=1 exception is explicitly excluded. Finite cases are corroboration, the square-zero algebra is the universal proof.
+
+## originality
+
+PASS
+
+The published binary adjacency rank 2^d-2 is already known (Fish–Key–Mwambene 2010). Qualified originality is confined to the second-power rank, exact Jordan filtration and extinction-depth distribution; the independently located complete original article improves the comparison and removes the earlier full-text access doubt.
+
+## value
+
+PASS
+
+PASS: completely classifies transient dynamics and nilpotent Jordan type for a canonical infinite graph family, identifying a dimension-independent count of two size-two blocks and sharp 2/3-step extinction cutoffs. This is a structural refinement of a known coding rank, not a trivial restatement of that rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
