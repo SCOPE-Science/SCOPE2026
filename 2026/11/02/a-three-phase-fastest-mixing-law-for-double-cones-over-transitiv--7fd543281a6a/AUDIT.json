@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Unrestricted global optimality follows from conjugation-averaging convexity. The complete spectral decomposition gives eigenvalues 1, 1-na, 1-(n+2)a and 1-2a-b lambda for all nonzero backbone Laplacian lambda. Exact constrained Chebyshev minimax and a three-affine endpoint comparison determine the optimum. The C_n specialization uses exact sin formulas and the inequality sin t <= t; endpoints n=3,4,5 and all n>=6 are covered. In-package verify.py checks 43 full matrices, 43 LP benchmarks, 560 asymmetric feasible points, 3 rational exact spectra, and 6 holding-constraint clipped cases; the proof is independent of the tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2004 prove general convex SDP formulation for every graph, but not closed-form exact optima on this double-cone family.",
+        "Boyd et al. 2007 §2 averages graph symmetries, §5.3.2 decomposes complete multipartite graphs, and §5.3.3 gives single-wheel formula."
+      ],
+      "reasoning": "The general SDP can numerically solve each finite graph but does not logically state or yield a uniform closed-form three-phase theorem without additional spectral decomposition and minimax proof. Complete multipartite reductions cover H=K_n and the C4 endpoint; connected cycles of length at least five are not complete multipartite.",
+      "searches": [
+        "fastest mixing Markov chain exact optimal edge probabilities complete multipartite graph unequal parts self loops",
+        "wheel graph fastest mixing 2009 Boyd Diaconis Parrilo Xiao extension bipyramid",
+        "arXiv:0709.0955v1 Sections 2, 3, 5.3.2"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://arxiv.org/html/0709.0955v1",
+      "https://web.stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+      "https://arxiv.org/abs/0709.0955"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior single-wheel SLEM is (1-1/n)kappa_n, whereas the proved double-cone n>=6 SLEM is (1-2/n)kappa_n.",
+        "The 2007 complete k-partite reduction contains the complete and C4 special cases, not C5 and larger cycles.",
+        "The public record a published tetrahedral Markov-chain study concerns a tetrahedral orbit-polytope Markov chain, not a two-apex join."
+      ],
+      "reasoning": "Known general optimization methods do not imply the explicit location of the three apex regimes on a two-apex family without the new affine competition. Existing wheel formulas differ on an added apex eigenmode, and their probability support graphs are nonisomorphic for n>=5. This is best-knowledge originality, not a uniqueness certificate.",
+      "searches": [
+        "double wheel graph C_n join two isolated vertices fastest mixing markov transition hub rim edge Fourier eigenvalues",
+        "wheel graph fastest mixing 2009 Boyd Diaconis Parrilo Xiao extension bipyramid",
+        "fastest mixing Markov chain bipyramid graph double wheel graph spectral gap",
+        "Boyd et al. 2007 Sections 5.3.2-5.3.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2007 preprint §5.3.3 optimizes a single hub joined to a cycle, with no antisymmetric apex mode; §5.3.2 concerns complete multipartite blocks.",
+        "No same-statement two-unconnected-apex transitive-backbone SLEM trichotomy appeared in the inspected original full text."
+      ],
+      "reasoning": "The two-apex join is not a wheel: its anti-apex eigenvalue 1-na creates a new spectral obstruction. The single-wheel answer alone does not imply the present piecewise result. The n=3 and n=4 multipartite cases are explicitly not claimed separately.",
+      "searches": [
+        "exact fastest mixing symmetric Markov chain n-gonal bipyramid graph two nonadjacent hubs joined to cycle C_n graph K_2 independent join cycle exact SLEM",
+        "double wheel graph C_n join two isolated vertices fastest mixing markov transition hub rim edge Fourier eigenvalues",
+        "FMMC 2-apex cycle graph optimal transition probabilities rim hub probability mixing radius",
+        "arXiv:0709.0955v1 Sections 5.3.2-5.3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 graph (d) of Boyd et al. (2004) contains K5 minus an edge, yielding n=3 with SLEM 1/4.",
+        "The public record a published double-cone quantum-transfer study concerns quantum apex transfer fidelity, not reversible Markov-chain SLEM optimization."
+      ],
+      "reasoning": "The exact small-case table covers the cyclic n=3 boundary only; this is credited. No inspected table describes the n>=5 bipyramids or all transitive backbones. The quantum-transfer table or graph family does not imply the FMMC allocation.",
+      "searches": [
+        "exact fastest mixing symmetric Markov chain n-gonal bipyramid graph two nonadjacent hubs joined to cycle C_n graph K_2 independent join cycle exact SLEM",
+        "FMMC 2-apex cycle graph optimal transition probabilities rim hub probability mixing radius",
+        "Boyd-Diaconis-Xiao 2004 Table 1 graph (d)"
+      ]
+    },
+    "rationale": "The 2004 FMMC framework and prior five-vertex special case, and the 2007 single-wheel and complete-multipartite reductions, are credited. The exact three-phase all-transitive-backbone double-cone optimum, and in particular the cyclic n>=5 apex saturation and gap comparison, were not found or implied as stated in the inspected sources. The proof supplies the extra antisymmetric apex eigenmode and constrained three-affine minimax; similarity searches are only supplementary. Residual specialized historical coverage is disclosed.",
+    "residual_risks": [
+      "Specialized pre-2007 or later graph-specific results not accessible or not surfaced in the searches could imply the two-apex theorem.",
+      "The manuscript itself displays an April 2007 date and other references mention a May 2007 technical report, but no earlier precise public posting date than 2007-09-06 was verified.",
+      "The previously published complete-multipartite reduction already encompasses the H=K_n and C4 special cases; no independent novelty is claimed for those instances."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex framework and small K5-minus-edge instance already covered; no all-n double-cone theorem found",
+        "evidence": [
+          "2004 SIAM Review formulation of symmetric stochastic SLEM",
+          "Table 1 graph (d) yields n=3 double-cone special case"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full original PDF with Section 2 formulation and Table 1 graph (d) inspected",
+        "method": "Full-text search, mathematical figure/table and relevant pages inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Exact original FMMC construction and plausible small double-cone counterexample"
+      },
+      {
+        "assessment": "Covers automorphism averaging, edge-transitive optimization, complete multipartite block reduction and exact single-wheel formula, but no all-backbone double-cone three-phase solution in inspected text",
+        "evidence": [
+          "§5.3.2 complete k-partite reduction contains K_{2,2,2} and K_{2,1,...,1}",
+          "§5.3.3 single-hub wheel formula mu=(1-1/n)kappa_n",
+          "The double-cone proof requires an additional anti-apex eigenvalue 1-na"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+        "material_read": "Full arXiv HTML preprint; §§2,3,5.3.2 and 5.3.3 inspected including block formulas and single-wheel optimum",
+        "method": "Full primary preprint reading with textual section references and mathematical comparison to the two-apex modes",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Highly relevant original containing exact wheel and complete multipartite theorems"
+      },
+      {
+        "assessment": "Background on symmetry/orbit reductions, not an exact three-phase two-nonadjacent-apex fastest mixing theorem in inspected sections",
+        "evidence": [
+          "Symmetry tools explain why averaging can reduce orbit variables; no examined statement directly gives the constrained three-affine apex formula"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+        "material_read": "Introduction and symmetry/orbit reduction discussion, plus mathematical methods sections inspected",
+        "method": "Primary PDF section inspection and claims comparison",
+        "title": "Symmetry Analysis of Reversible Markov Chains",
+        "trigger": "Potential stronger general orbit-chain description for two-hub joins"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fd54328-1a6a-4967-9986-c4e1f212487f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural network architecture with two unconnected hubs, the theorem identifies three precise competing spectral bottlenecks and a sharp transition to saturated apex probabilities. It unifies cycles, triangular/rook graphs and further transitive backbones, corrects the tempting unconstrained Chebyshev allocation on clipped examples, and compares a new infinite cyclic family n>=5 with the published one-hub formula, giving twice the leading large-cycle spectral-gap gain. These are finite-step implementable optimal transition probabilities, not an arbitrary numerical table.",
+    "status": "PASS"
+  }
+}
