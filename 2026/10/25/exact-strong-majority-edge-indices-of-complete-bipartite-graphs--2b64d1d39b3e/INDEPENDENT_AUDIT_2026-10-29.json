@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:06:09.701687Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read frozen RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md, verify.py and exception_checker.cpp; exact assigned source tree SHA was confirmed via Git tree endpoint.",
+        "Independent locally compiled C++17 exception checker, K3,4: four first-row types, 931 attempts, no valid completed assignment; K4,5: five first-row types, 59228 attempts, no completed assignment.",
+        "Checked symmetry: first-row permutations of columns and colours, later row-order sorting preserve all neighbourhood counts; partial violations cannot be repaired by appending rows.",
+        "Manual parity and row/column-sum derivation plus periodic ceiling cutoff and explicit special matrix verification."
+      ],
+      "limitations": [
+        "No claim for general non-complete bipartite graphs; the degree>=5 portion is not novel.",
+        "The two computer-exhaustive steps are finite certified searches with inspected complete source, not externally formalized proofs."
+      ],
+      "rationale": "For a cell of an m-by-n colouring array, the edge-neighbour count is m+n-2. In any two-colouring equal-half forces R_i+C_j=2x_ij; differences make every row/column sum constant for m,n>=3, yielding contradiction. For m=2 parity gives exact 2/3 dichotomy. Colour i+j modulo3 satisfies the ceiling criterion except exactly (3,4),(4,4),(4,5),(4,7) for small m+n; explicit valid 4x4 and 4x7 matrices cover two, and modulo4 covers 3x4/4x5. The actual 1704-byte C++17 exception checker enumerates canonical colour/column-permuted first rows, lexicographically nondecreasing remaining rows, all 3-colour row words, with sound monotone count pruning; compiled and executed successfully for both finite obstructions, reporting no full assignment and 931 / 59228 partial extensions. This exhausts symmetry classes; no timeout or random test is used for nonexistence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pękała–Przybyło Theorem 4 supplies three colours whenever minimum degree >=5; it covers the large-minimum-degree upper-bound portion of this family.",
+          "The same preprint Observation 9 already records K_{3,4} as a three-colour obstruction; no novelty is claimed for that individual obstruction.",
+          "Its bipartite minimum-degree-four discussion makes a complete K_{4,5} witness and family phase diagram mathematically material."
+        ],
+        "reasoning": "The known general theorem implies the min>=5 upper bound but not the sharp all-part-size classification. Known K3,4 lower bound is explicitly carved out. The K4,5 exclusion was checked directly and is not implied by those positive results.",
+        "searches": [
+          "Pękała Przybyło On Strong Majority Edge Colourings with Few Colours arxiv:2608.04122v1 §3 Theorem4 §5 Observation9 Conjecture11",
+          "Kalinowski et al arxiv:2605.23828v1 complete bipartite strong majority"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2605.23828v1 accessible HTML §3",
+        "arxiv:2608.04122v1 manuscript Theorem4, Observation9, Conjecture11",
+        "Resultary 2026/9/17/SCOPE005",
+        "Resultary exact complete-graph strong majority index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known min-degree-five theorem implies only a subset of three-colour upper bounds.",
+          "Published K3,4 counterexample supplies one known 4-colour entry.",
+          "Neither inspected broader theorem proves K4,5 admits no 3-colouring or establishes the parity pattern K2,n and the remaining complete table."
+        ],
+        "reasoning": "The full claim includes new simultaneous exact minimum/maximum classification beyond covered slices. Its strongest additional contribution is K4,5 and exclusion of all other exceptions.",
+        "searches": [
+          "arxiv:2605.23828v1 §3 strong majority edge definitions and bounds",
+          "arxiv:2608.04122v1 Theorem 4 Observation 9 and low-degree examples",
+          "Resultary 2026/9/17/SCOPE005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strong-majority edge colouring of K_{m,n} is equivalent to strong-majority vertex colouring of the rook graph L(K_{m,n}); the adjacent-edge neighbourhood is row plus column minus the queried cell.",
+          "The published generalized strong 1/k-majority biclique threshold is a degree-parameter theorem, not the exact 2/3/4 index for every (m,n)."
+        ],
+        "reasoning": "Reformulated as a three-colour array satisfying at most floor((m+n-2)/2) repetitions of each colour around every cell. Published related colourings address different neighbourhoods or broad minimum degrees, so do not logically provide the four-colour K4,5 obstruction.",
+        "searches": [
+          "strong majority edge colouring line graph rook graph K_mn",
+          "arxiv:2605.23828v1, definition and graph-to-edge incidence relation",
+          "Resultary 2026/9/17/SCOPE005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed generalized k-majority bipartite threshold and complete-graph index, not the complete-bipartite exact table.",
+          "The 2026 August primary source explicitly includes one exceptional pair K3,4 but not a complete parameter-wise classification in the inspected relevant sections."
+        ],
+        "reasoning": "An exact parameter table would be relevant; none of the checked indexed results gives this table. Absence of a match alone is not a proof of historical novelty.",
+        "searches": [
+          "Resultary exact strong majority K3,4 K4,5 complete bipartite",
+          "Resultary 2026/9/17/SCOPE005",
+          "Resultary 2026/10/4/SCOPE-exact-strong-majority-index-of-complete-graphs--f0815fe7bf25",
+          "strong majority rook graph 4x5 three-colour impossibility"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full sharp K_mn classification, NOT the known K3,4 obstruction or the known minimum-degree>=5 upper bound. No inspected source implies the K4,5 exception or entire phase diagram.",
+      "residual_risks": [
+        "Earlier standalone treatment of K4,5 or whole biclique family may exist outside indexed sources.",
+        "Primary August manuscript is displayed through a third-party reproduction rather than the original arXiv full-text endpoint; page assertions were verified against actual accessible text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "General bounds for admissible/min-degree classes; no K_mn sharp all-parameter table in the read sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "Relevant accessible HTML: definition and §3 edge-colouring constructions and hypotheses",
+          "method": "Primary web HTML read",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Introduces precise edge invariant and general bounds"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Theorem 4 delta>=5 gives 3 colours; Observation 9 already recognizes K3,4 non-3-colourable. Did not locate K4,5 exhaustive classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+          "material_read": "Relevant sections of accessible preprint reproduction: introduction, Theorem 4, Observation 9 and Conjecture 11",
+          "method": "Primary manuscript sections via an accessible full-text reproduction; arXiv HTML itself unavailable",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Theorem with dominating min-degree condition and plausible exceptional K3,4 cases"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING_ON_INSPECTED_STATEMENT",
+          "evidence": "The k^2+1 threshold concerns universal bipartite min-degree assurance, not the K4,5 exact obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE005",
+          "material_read": "Indexed finding title and substantive summary examined; full proof not read",
+          "method": "Published-finding semantic index",
+          "title": "Exact bipartite threshold for generalized strong-majority edge colouring",
+          "trigger": "Published finding on the same edge invariant with a generalized k"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No general arbitrary-bipartite colouring theorem follows; priority for individual small examples remains qualified."
+      ],
+      "rationale": "A complete exact phase diagram for a recently introduced natural edge-colouring invariant; the new low-degree K4,5 obstruction is nontrivial, unlike the already-covered min-degree>=5 upper bound. The thin K2,n parity transition, constructive 3-colour families and provably unique exceptional pairs give an independently useful classification, and the K4,5 case is relevant to the published low-degree boundary discussion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2605.23828v1 accessible HTML §3",
+    "arxiv:2608.04122v1 manuscript Theorem4, Observation9, Conjecture11",
+    "Resultary 2026/9/17/SCOPE005",
+    "Resultary exact complete-graph strong majority index"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim for general non-complete bipartite graphs; the degree>=5 portion is not novel.",
+    "The two computer-exhaustive steps are finite certified searches with inspected complete source, not externally formalized proofs.",
+    "No general arbitrary-bipartite colouring theorem follows; priority for individual small examples remains qualified."
+  ],
+  "residual_risks": [
+    "Earlier standalone treatment of K4,5 or whole biclique family may exist outside indexed sources.",
+    "Primary August manuscript is displayed through a third-party reproduction rather than the original arXiv full-text endpoint; page assertions were verified against actual accessible text."
+  ],
+  "schema_version": 1
+}
