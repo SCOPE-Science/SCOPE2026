@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:51:20Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md e4069459e5d5bd04214adc75b84a2ffcd45cc83d",
+        "Pinned verify_semitotal.py 5e7e7759072f06e20efcbff46a19fed7568a9a26 inspected",
+        "Independent graph-distance BFS exact 37376 subsets for n=3,4,5; total valid 377,3477,30085, minimal-polynomial coefficients matched"
+      ],
+      "rationale": "For n>=3, G=K_n □ P3 and selected index sets A,B,C: if B≠∅, domination/semitotal iff all A,B,C are nonempty or B=[n]. If B=∅, domination forces A,C≠∅ and A∪C=[n], with precisely 2n forbidden singleton/complement disjoint pairs because their unique first-/last-layer selections are at distance three. The disjoint cases give P_n(x,y,z)=((1+x)^n−1)((1+y)^n−1)((1+z)^n−1)+y^n((1+x)^n+(1+z)^n−1)+(x+z+xz)^n−x^n−z^n−n(x z^{n-1}+x^{n-1} z). The minimal cases are one in each layer (n³); B=[n] alone (one); disjoint outer partitions for n>=4 (2^n−2n−2); 2n overlapping singleton/full outer sets (size n+1); for n=3 exactly six extra size-four outer overlapping pairs. Hence M3=28u³+12u⁴; for n>=4 M_n=n³u³+(2^n−2n−1)u^n+2n u^{n+1}, gamma_t2=3 and Gamma_t2=n+1. Independent fresh BFS-distance and deletion tests exhaustively checked all 512+4096+32768=37376 vertex subsets for n=3,4,5 and all predicted coefficients; infinite claim rests on above partition classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asplund–Davila–Krop provide general Cartesian-product lower bounds",
+          "Henning upper bound Γ_t2(G)<=|V|−δ(G) gives approximately 2n on G with 3n vertices, not n+1"
+        ],
+        "reasoning": "Generic inequalities are strictly too weak to imply exact cardinality polynomials. An exact generic characterization of all semitotal product sets might cover the result, but no such source was located in inspected primary material.",
+        "searches": [
+          "Asplund Davila Krop A Vizing-type result for semi-total domination arXiv:1803.04746",
+          "Henning 2017 upper semitotal domination bounds"
+        ]
+      },
+      "checked_sources": [
+        "Henning, Graphs and Combinatorics 33 (2017), 403–417",
+        "Asplund–Davila–Krop arXiv:1803.04746",
+        "Henning–Pandey TCS 766 (2019), algorithmic semitotal domination",
+        "Resultary semantic domination-polynomial query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work provides existence, bounds and general product inequalities",
+          "Current claim enumerates every feasible and inclusion-minimal set for n>=3"
+        ],
+        "reasoning": "A general upper bound Γ<=2n and a lower product inequality do not recover Γ=n+1, let alone n-dependent coefficients or the gap in inclusion-minimal support.",
+        "searches": [
+          "Henning Edge Weighting Functions on Semitotal Dominating Sets 2017",
+          "Asplund Davila Krop 2018 Vizing type"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semitotal requires each selected vertex to have a distinct selected vertex within graph distance <=2",
+          "Henning defines upper semitotal domination and Asplund–Davila–Krop study Cartesian products"
+        ],
+        "reasoning": "The polynomial counts *inclusion-minimal* semitotal sets, not total/secure/restrained domination or semitotal minimum alone. Searches included those potentially confusing aliases.",
+        "searches": [
+          "Resultary query: semitotal domination inclusion minimal sets upper semitotal domination Cartesian clique path K_n square P3 counting polynomial",
+          "Search: upper semitotal domination clique path Cartesian product K_n P3 upper private-neighbor enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantically nearby complete-multipartite domination-polynomial findings involve different graph products and domination variants"
+        ],
+        "reasoning": "No exact table for this infinite Cartesian clique-path family was found. Finite n=3..5 counts by themselves would not imply the formulas for every n.",
+        "searches": [
+          "Resultary query: semitotal domination inclusion minimal sets upper semitotal domination Cartesian clique path K_n square P3 counting polynomial",
+          "Search: K_n Cartesian P_3 semitotal dominating polynomial all sets minimal polynomial"
+        ]
+      },
+      "rationale": "General semitotal Cartesian-product lower bounds and upper-semitotal theory predate this calculation. The particular all-set and inclusion-minimal size polynomials of K_n□P3 and upper threshold n+1 were not found in inspected materials; a full-text access limit on Henning 2017 is expressly retained. Qualified best-of-knowledge PASS.",
+      "residual_risks": [
+        "Full Henning 2017 article inaccessible due institutional storage-limit blocker; may contain unlocated special family discussion, so no claim of complete noncoverage.",
+        "A prior Cartesian-product special-case enumeration may have escaped searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_ONLY_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "Accessible information gives general Γ upper constraints but not exact K_n□P3 enumeration; full-document conclusion withheld.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-017-1769-4",
+          "material_read": "Publisher abstract/first accessible page and cited general upper bounds; whole article inaccessible. Oxford authorized access returned storage-limit error (no bypass).",
+          "method": "Publisher page/abstract and limited first-page read; lawful institutional attempt after OA failure",
+          "title": "Edge Weighting Functions on Semitotal Dominating Sets, Henning 2017",
+          "trigger": "Direct reference for upper semitotal parameter"
+        },
+        {
+          "assessment": "GENERAL_CARTESIAN_BOUND",
+          "evidence": "General γ_t2(G□H) lower bound does not entail an all-sets polynomial or upper semitotal Γ value.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.04746",
+          "material_read": "ArXiv abstract and primary preprint identifying a Vizing-type lower bound, not complete product enumerator; entire full text not claimed read in this run",
+          "method": "ArXiv search and accessible front material",
+          "title": "A Vizing-type result for semi-total domination, Asplund–Davila–Krop",
+          "trigger": "Direct Cartesian-product overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact all-set polynomial and full inclusion-minimal classification for the natural three-layer clique Cartesian product, including an unbounded gap between upper and lower semitotal domination and a large forbidden size interval, are useful structural graph invariants not mechanically obtained from general bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Henning, Graphs and Combinatorics 33 (2017), 403–417",
+    "Asplund–Davila–Krop arXiv:1803.04746",
+    "Henning–Pandey TCS 766 (2019), algorithmic semitotal domination",
+    "Resultary semantic domination-polynomial query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Results require n>=3 and path length exactly three; no longer clique-path classification asserted.",
+    "Brute-force tests n=3..5 corroborate but do not prove all n."
+  ],
+  "residual_risks": [
+    "Full Henning 2017 article inaccessible due institutional storage-limit blocker; may contain unlocated special family discussion, so no claim of complete noncoverage.",
+    "A prior Cartesian-product special-case enumeration may have escaped searches."
+  ],
+  "schema_version": 1
+}

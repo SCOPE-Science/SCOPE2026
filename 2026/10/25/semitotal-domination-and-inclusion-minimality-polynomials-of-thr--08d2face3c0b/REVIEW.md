@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The original definition was analyzed on the actual three-layer Cartesian graph. Layer occupation determines domination, while the only distance-three obstruction lies between different-column vertices of the two outer layers. This gives disjoint complete classes and the trivariate cardinality polynomial. The inclusion-minimal cases were derived using single-vertex deletions, with the special six configurations at \(n=3\) treated separately. An independent shortest-path and domination checker enumerated all \(37{,}376\) subsets for \(n=3,4,5\), and matched the polynomial coefficients and every inclusion-minimal decision. The proof, rather than finite checks, establishes the full infinite family.
+## correctness
 
-## Originality — PASS with documented priority uncertainty
-The 2018 Cartesian-product paper of Asplund, Davila and Krop was inspected in full. Its quantitative lower bounds neither state nor imply the complete three-layer classifications or enumerators. Henning's 2017 upper-semitotal paper gives a general bound, not the present exact value as stated in its accessible abstract; its full text was unavailable, so an unrecognized particular case remains a priority risk. Related algorithms for semitotal domination concern different questions. Mathematical-record and literature searches using both product descriptions and upper/minimal/polynomial aliases did not uncover a directly equivalent statement. Lack of a match does not prove global uniqueness.
+PASS
 
-## Mathematical value — PASS
-The exact all-budget count and the full census of deletion-minimal monitoring configurations are natural refinements of well-established semitotal domination invariants. They distinguish three-vertex optimum configurations from two other irredundant sizes, exhibit a small-graph boundary, and show an unbounded \(n-2\) disparity in highly connected three-layer clique paths. This is not a parameter substitution or an isolated arbitrary slice.
+For n>=3, G=K_n □ P3 and selected index sets A,B,C: if B≠∅, domination/semitotal iff all A,B,C are nonempty or B=[n]. If B=∅, domination forces A,C≠∅ and A∪C=[n], with precisely 2n forbidden singleton/complement disjoint pairs because their unique first-/last-layer selections are at distance three. The disjoint cases give P_n(x,y,z)=((1+x)^n−1)((1+y)^n−1)((1+z)^n−1)+y^n((1+x)^n+(1+z)^n−1)+(x+z+xz)^n−x^n−z^n−n(x z^{n-1}+x^{n-1} z). The minimal cases are one in each layer (n³); B=[n] alone (one); disjoint outer partitions for n>=4 (2^n−2n−2); 2n overlapping singleton/full outer sets (size n+1); for n=3 exactly six extra size-four outer overlapping pairs. Hence M3=28u³+12u⁴; for n>=4 M_n=n³u³+(2^n−2n−1)u^n+2n u^{n+1}, gamma_t2=3 and Gamma_t2=n+1. Independent fresh BFS-distance and deletion tests exhaustively checked all 512+4096+32768=37376 vertex subsets for n=3,4,5 and all predicted coefficients; infinite claim rests on above partition classification.
 
-## Limitations
-The statements hold for \(n\ge3\) and have not been extended to longer clique paths; the finite checker covers only three sizes. Priority relative to inaccessible full-text or unindexed literature is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General semitotal Cartesian-product lower bounds and upper-semitotal theory predate this calculation. The particular all-set and inclusion-minimal size polynomials of K_n□P3 and upper threshold n+1 were not found in inspected materials; a full-text access limit on Henning 2017 is expressly retained. Qualified best-of-knowledge PASS.
+
+## value
+
+PASS
+
+A complete exact all-set polynomial and full inclusion-minimal classification for the natural three-layer clique Cartesian product, including an unbounded gap between upper and lower semitotal domination and a large forbidden size interval, are useful structural graph invariants not mechanically obtained from general bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
