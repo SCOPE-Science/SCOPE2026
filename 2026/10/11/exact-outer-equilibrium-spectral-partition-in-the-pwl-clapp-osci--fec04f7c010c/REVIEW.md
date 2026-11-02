@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The outer-equilibrium characteristic polynomial follows directly from the primary article's instruction to replace the inner PWL slope by the outer slope in its characteristic polynomial. Exact Routh-Hurwitz algebra gives \(\Delta_2=(9-11a)/10>0\) and \(\Delta_3=-(110a^2+131a-189)/100\), so the sole stability crossing in \([-10,-1]\) is \(a_H=(-131-\sqrt{100321})/220\). Exact Sturm sequences verify that the discriminant polynomial has precisely two simple roots in the interval, isolate them at \(\alpha=-4.871964811954576\ldots\) and \(\beta=-1.009024344776341\ldots\), and certify the representative real-root counts used to identify each spectral type. The checker replays these claims with exact rational arithmetic.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The primary full text explicitly gives only a coarse two-threshold description near \(-2\) and \(-1\); it does not state the discriminant polynomial, the exact Hurwitz root, or the additional collision near \(-4.872\). Focused published-finding corpus and literature searches by DOI, characteristic polynomial, discriminant coefficients, threshold values, and outer-equilibrium aliases returned no covering same-system statement. The closest same-source result concerns invariant-measure barycenters for the cubic Case I model, not Case II local spectra.
+PASS
 
-## Value
-PASS. The source uses the outer-equilibrium geometry to discuss why trajectories repeatedly entering the outer PWL regions may participate in chaos-hyperchaos transitions. A complete exact local partition is therefore directly tied to the paper's motivating mechanism. It reveals a spectral transition omitted by the source's summary, sharpens both reported approximate boundaries, and distinguishes the unique stability crossing from two node/focus-type eigenvalue collisions. This changes the correct local phase portrait across a substantial part of the investigated parameter window rather than merely adding numerical digits.
+Reconstructed from actual PWL Case II vector field (Petrzela equations (6),(8),(10),(11)): at an outer equilibrium with C1=C2=C3=L=y11=1, y12=1/10 and transconductance derivative a, Jacobian rows are (-1,-1/10,0,1),(-a,0,0,-1),(0,0,0,1),(-1,1,-1,0). Direct symbolic det(λI−J) gives q_a(λ)=λ^4+λ^3+(3−a/10)λ²+(a+21/10)λ−a/10 exactly. Independent SymPy discriminant agrees identically with P(a)/50000; Δ2=(9−11a)/10>0 and Δ3=−(110a²+131a−189)/100. Thus Routh first column (1,1,Δ2,Δ3/Δ2,−a/10) yields unstable dimension 2 below a_H and 0 above. At a_H, q factors into (λ²+ω²)(λ²+λ+c) with ω²=A3>0, c>0, proving a simple imaginary pair and stable complement. Independent exact rational polynomial root-isolation and Sturm/count_roots computed exactly two simple discriminant zeros inside [-10,-1], alpha∈(-4.871964812,-4.871964811), beta∈(-1.009024345,-1.009024344); root counts of q at -10,-4,-2,-1 respectively (positive,negative)=(2,0),(0,0),(0,0),(0,2). These and no further collisions establish all four regimes; double coalescence sign follows continuous eigenvalues and simple discriminant crossing. Endpoints -10 and -1 included; alpha/a_H/beta boundaries separately described. The polynomial and assumptions concern local linear spectra only, no nonlinear periodic or chaotic claims. Reconstructed full 8-entry Git tree identity exactly, and inspected RESULT.md/verify.py independently of VERIFY_OK log.
 
-## Closest literature and limitations
-The closest source is Petržela (2022), DOI 10.3390/math10111868, which defines the system and supplies the approximate two-threshold narrative. A same-source cubic-Clapp stationary-balance result concerns a different nonlinearity and different claim. Other retrieved equilibrium-stability partitions concern different vector fields. The present theorem is local, restricted to \(y_{11}=1\), \(y_{12}=1/10\), and does not establish any nonlinear bifurcation or chaos-transition mechanism.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS: Petrzela (Mathematics 2022, DOI 10.3390/math10111868) prints the Case II model and the outer-characteristic substitution and explicitly describes only approximate spectral transitions near a=-2 and a=-1. Its actually inspected Sections 2.1, 2.2, and 3 contain neither the computed discriminant P nor the earlier positive-real to complex collision a≈-4.871965; targeted published Resultary search returned only the audited finding as exact same-claim match. Existing Case I cubic-Clapp work proves invariant-measure moments, not this Case II quartic-root partition. This is a narrow but motivated new explicit calculation, with residual risk of unindexed self-review analysis. No claim of absolute bibliographic priority.
+
+## value
+
+PASS
+
+A piecewise-linear circuit oscillator is a motivated natural system whose local outer-equilibrium spectra were used in its defining article to discuss transitions while trajectories repeatedly visit outer regions. The exact partition gives all three algebraic boundaries, including a previously omitted positive-real to unstable-focus transition at a≈-4.872 well inside the scanned interval, and separates node-focus collisions at alpha/beta from the unique change of unstable dimension at a_H≈-2.035. This corrects/refines a concrete mathematical phase portrait rather than an arbitrary parameter slice or mere extra decimal digits. It is an exact, finite-parameter full classification, although the proof uses standard Routh/Sturm algebra and supplies no new general spectral theorem or nonlinear chaos mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
