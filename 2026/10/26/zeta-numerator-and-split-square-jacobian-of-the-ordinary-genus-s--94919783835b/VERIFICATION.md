@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification and its scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with any recent standard Python interpreter. No external modules, data downloads, services or network access are needed. A successful run prints `VERIFY_OK` with the trace-frequency vectors, the six point counts, the thirteen Weil coefficients and the Jacobian order.
+## correctness
 
-For \(\mathbb F_{27}\) and \(\mathbb F_{729}\) the verifier first proves irreducibility of the stated monic reduction polynomials using the finite-field Frobenius/GCD criterion. It then enumerates all field elements, computes the value of \(x+(x^3-x)^{-1}\) at every nonpole, and accumulates all three absolute-trace frequencies. Independently, it directly enumerates the image of \(y\mapsto y^3-y\) and checks that the same nonpole values are represented. It reproduces Newton coefficients, functional-equation coefficients, polynomial factors and the integer quadratic-factor obstruction for the surface polynomial.
+PASS
 
-The finite calculations establish the extension counts at degrees three and six; the remaining degrees up to six are derived mathematically from translation by one. The standard genus formula, Weil functional equation and Tate isogeny classification remain external mathematical inputs. No geometric simplicity, classification of twists or rational Jacobian group structure is asserted.
+Four distinct simple rational poles on P1 give genus six by the Artin–Schreier genus formula, one rational point over each pole. For 3∤r translation x→x+1 cycles the field traces of f(x)=x+1/(x³-x) through F3, forcing 3^r+1 point count. Independent exact finite-field enumeration in F27 and F729 using alternative irreducible polynomials gave trace distributions (24,0,0) and (222,252,252), with independent y³-y image counting; hence N3=76 and N6=670. Newton identities and Weil functional equation force all thirteen P_X coefficients, and direct factor multiplication plus quartic rational irreducibility and Honda–Tate give stated F3 isogeny and order.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment: A curve-automorphism theorem and a zeta polynomial are not equivalent: Frobenius traces require arithmetic point counting; unsuccessful exact-string searches are not priority certification. General algorithmic existence and identification of the curve do not imply the explicit coefficient-one zeta factor without the arithmetic count; a stronger table remains possible but was not located. The exact arithmetic output is not an immediate corollary of identified prior claims, while the standard Newton, Weil and Honda–Tate steps are credited. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+The exact zeta polynomial and ordinary split-square isogeny factors are intrinsic arithmetic invariants of an explicitly identified exceptional genus-six curve, useful for classifying Frobenius behavior over finite fields and not mechanically given by its automorphism group or genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

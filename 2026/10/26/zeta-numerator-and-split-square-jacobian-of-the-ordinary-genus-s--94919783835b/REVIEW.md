@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Four simple rational poles give genus six and four totally ramified rational points over every extension. Translation by one balances the absolute-trace fibers whenever the extension degree is prime to three. Exact exhaustive arithmetic in the explicitly certified degree-three and degree-six finite fields returns zero-trace counts \(24\) and \(222\); independent additive-image enumeration agrees. Newton identities plus the genus-six functional equation determine the claimed whole zeta numerator, which factors exactly as stated. The surface's quartic Frobenius polynomial has no rational linear or quadratic factor and is ordinary, yielding simplicity over the base field. Risks: the standard Artin–Schreier genus/trace theorems, Weil functional equation and finite-field isogeny theorem are used as established results, not re-proved; exhaustive finite enumerations do not prove the all-degree assertion, which follows from translation symmetry.
+## correctness
 
-## Originality
-PASS, subject to residual literature risk. Tafazolian's October 2026 paper gives the geometric model and full automorphism group, not its arithmetic zeta numerator or its finite-field Jacobian isogeny class. The full text of the relevant 2016 Artin–Schreier zeta classification instead treats supersingular polynomial covers, hence cannot specialize to the present ordinary four-pole curve. Generic algorithms do not report the explicit coefficient-one value. Directed source, result-index, alias, polynomial-factor and database/table searches found no statement implying this exact arithmetic classification. Residual risk: an unindexed arithmetic table or hidden alternative presentation might contain the same Weil polynomial.
+PASS
 
-## Mathematical value
-PASS. This is a canonical small-field arithmetic invariant of the new exceptional genus-six boundary model. The complete numerator controls all extension point counts; its nontrivial square factorization identifies the \(\mathbb F_3\)-Jacobian isogeny type, including a simple abelian-surface factor, and the exact rational Jacobian order. These are not dimension-only or normalization checks and are not implied by the known geometric automorphism classification.
+Four distinct simple rational poles on P1 give genus six by the Artin–Schreier genus formula, one rational point over each pole. For 3∤r translation x→x+1 cycles the field traces of f(x)=x+1/(x³-x) through F3, forcing 3^r+1 point count. Independent exact finite-field enumeration in F27 and F729 using alternative irreducible polynomials gave trace distributions (24,0,0) and (222,252,252), with independent y³-y image counting; hence N3=76 and N6=670. Newton identities and Weil functional equation force all thirteen P_X coefficients, and direct factor multiplication plus quartic rational irreducibility and Honda–Tate give stated F3 isogeny and order.
 
-## Boundaries
-The statement fixes a coefficient-one model and base field \(\mathbb F_3\), and asserts only base-field simplicity; no group-structure or twist classification is claimed. The computational proof exhausts just the two finite degrees necessary to determine the genus-six numerator; the all-degree claim is proved separately. An earlier equivalent computation remains an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge assessment: A curve-automorphism theorem and a zeta polynomial are not equivalent: Frobenius traces require arithmetic point counting; unsuccessful exact-string searches are not priority certification. General algorithmic existence and identification of the curve do not imply the explicit coefficient-one zeta factor without the arithmetic count; a stronger table remains possible but was not located. The exact arithmetic output is not an immediate corollary of identified prior claims, while the standard Newton, Weil and Honda–Tate steps are credited. Residual priority and source-access risks are explicitly retained.
+
+## value
+
+PASS
+
+The exact zeta polynomial and ordinary split-square isogeny factors are intrinsic arithmetic invariants of an explicitly identified exceptional genus-six curve, useful for classifying Frobenius behavior over finite fields and not mechanically given by its automorphism group or genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
