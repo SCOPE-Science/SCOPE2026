@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact one-update mutant-count drift gives a four-term two-step commutator. All six state cases with 2<=N<=4 are rational identities verified by symbolic expansion and a separately coded exact-rational transition matrix. The only sign-uncertain numerator has positive-coefficient substitutions when fitnesses are on one side of 1, and when a>1>b it is strictly increasing in b from negative at zero to positive at one. Thus the threshold exists uniquely and is sharp; 498 checker assertions passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ashcroft et al. 2014 sections 2–6 cover general finite birth-death chains with randomly changing environments and fixation/time/stationary outputs.",
+        "Dean et al. 2017 equation (9a) covers the same elementary transition form and examines fluctuating-selection polymorphism and fixation.",
+        "Kluth and Baake 2013 discuss fixation and ancestral representations with constant fitness."
+      ],
+      "reasoning": "General transition formulas permit computation of any finite-step observable, but the inspected statements do not classify all fitness pairs for a prescribed two-update permutation. A broad model class is not by itself a covering sign theorem; its existence is acknowledged as the main prior risk.",
+      "searches": [
+        "Fixation in finite populations evolving in fluctuating environments Ashcroft Altrock Galla 2014",
+        "Fluctuating Selection in the Moran Dean Lehman Yi 2017",
+        "The Moran model with selection fixation probabilities Kluth Baake 2013"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1306.2772v2",
+      "https://arxiv.org/abs/1306.2772",
+      "https://arxiv.org/abs/1406.5619",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5340338/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 constant-fitness continuous-time ancestral/fixation theory does not cover an opposing-fitness two-step sequence.",
+        "2014 fluctuating-environment theory gives general transition matrices and fixation formulas, not a two-step mutant-count inequality.",
+        "2017 empirical/theoretical fluctuating-selection work uses related transitions but compares different long-horizon observables."
+      ],
+      "reasoning": "The prior equations can reproduce the model premises; they do not state or formally imply the asserted sign without the additional rational commutator evaluation and complete N<=4 sign analysis. Earlier deterministic diploid selection-order results likewise do not imply the finite stochastic opposing-fitness case.",
+      "searches": [
+        "arxiv:1306.2772",
+        "arxiv:1406.5619",
+        "PMC5340338",
+        "Moran model time-dependent selection order effect expected allele frequency discrete evolutionary steps swapping two selection coefficients",
+        "Moran process alternating environments selection two steps expected mutant count order fitness reversal",
+        "evolutionary birth death Moran two consecutive periods selection reversed sequence expectation commutator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A final-count difference equals a first-row moment of the difference between two transition-matrix products; multiplying by 1/N gives an equivalent allele-frequency statement.",
+        "The source in arXiv:1406.5619 supplies general finite-state kernels, not sign inequalities for the commutator."
+      ],
+      "reasoning": "Transition-matrix noncommutation alone gives no direction. The new calculation is the precise signed expectation and unique fitness-phase boundary, not the existence of noncommuting matrices.",
+      "searches": [
+        "Moran model time-dependent selection order effect expected allele frequency discrete evolutionary steps swapping two selection coefficients",
+        "Moran process alternating environments selection two steps expected mutant count order fitness reversal",
+        "evolutionary birth death Moran two consecutive periods selection reversed sequence expectation commutator",
+        "two step Markov transition matrices commutator expected allele frequency fitness order Moran"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published four-state, two-update expected-count phase table was found in accessible sources; arXiv:1406.5619 and PMC5340338 were compared directly.",
+        "Prior finite-state frameworks did not list the exact polynomial P(a,b) or b_*(a) when searched."
+      ],
+      "reasoning": "No known table containing this exact classification was located, but absence from searchable indexes is not proof of novelty and cannot replace source comparison.",
+      "searches": [
+        "Moran model time-dependent selection order effect expected allele frequency discrete evolutionary steps swapping two selection coefficients",
+        "Moran process alternating environments selection two steps expected mutant count order fitness reversal",
+        "evolutionary birth death Moran two consecutive periods selection reversed sequence expectation commutator",
+        "Moran model selection 2013 Kluth Baake 1306.2772 original submission date arxiv pdf",
+        "fluctuating selection Moran process order environmental epochs average allele frequency 2016 2017",
+        "site:arxiv.org Moran two-step expectation order 4 individuals selection crossover"
+      ]
+    },
+    "rationale": "This is an exact classification of deterministic two-update mean allele-count response when fitness environments are swapped. The most relevant prior work establishes the Moran kernel and broad fluctuating-environment birth–death framework, but neither inspected source states the six-case commutator signs, minimal population four, or exact unique crossover. Similar-result searches and own recoverable claims showed no implication-level coverage. Historical priority remains provisional.",
+    "residual_risks": [
+      "General earlier stochastic ordering or finite-state Markov kernel comparison theory might imply this small-population case in an uninspected source.",
+      "The 2014 general fluctuating-environment framework includes the model mechanics, so mathematical priority may be narrower than the described explicit classification.",
+      "No independently performed literature or mathematical validation is represented."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines constant-fitness continuous-time Moran model, fixation and ancestry. Does not provide deterministic two discrete-step fitness-order expected-count comparison or its sharp minimal size.",
+        "evidence": [
+          "Section 2, birth/death rates and absorbing states; sections 3–4 focus on fixation and labelled ancestors; arXiv v1 submitted 2013-06-12."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1306.2772v2",
+        "material_read": "HTML full text sections 1–3, selected results in sections 4–6, and section 7 discussion; arXiv version/date history checked",
+        "method": "Read source HTML equations, theorem definitions and discussion; compared constant fitness, embedded-event scope, and objective",
+        "title": "The Moran model with selection: Fixation probabilities, ancestral lines, and an alternative particle representation",
+        "trigger": "Historically relevant exact Moran selection and finite-population fixation model"
+      },
+      {
+        "assessment": "General Markov framework encompasses the transition-matrix machinery but addresses stochastic switching fixation probabilities and fixation times, not an all-fitness sign classification of two prescribed updates or minimal four-individual reversal.",
+        "evidence": [
+          "Section 2 defines arbitrary birth–death kernels with environment switches; sections 3–4 derive fixation/time quantities; section 5 analyzes stochastic game switching; section 6 stationary laws."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.5619",
+        "material_read": "Accessible article HTML, section 2 one-step kernels, sections 3–4 fixation theory, section 5 results, section 6 equilibrium and conclusion",
+        "method": "Compared equations for environment-specific transition probabilities, fixation/time target observables, examples and conclusions to the two-update expected-count commutator; searched order/sequence/permutation",
+        "title": "Fixation in finite populations evolving in fluctuating environments",
+        "trigger": "Most relevant possible general domination: arbitrary discrete-time finite birth–death Markov dynamics in changing environments"
+      },
+      {
+        "assessment": "Equation (9a) confirms the model kernel. The paper addresses probabilistic fluctuating selection and long-horizon evolutionary observables, rather than a deterministic epoch swap or the minimal population size. Published 2017; used as supporting literature, not the archive anchor.",
+        "evidence": [
+          "Equation (9a) gives reproduction/death probabilities; study measures heterozygosity, fixation and d_n/d_s under fluctuating environments."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5340338/",
+        "material_read": "Full accessible HTML article, introduction and finite-population methods/results, exact transition equation (9a), and discussion",
+        "method": "Compared the per-update transition probabilities and target observables (polymorphism, fixation, evolutionary rate) with this deterministic two-update expected-count claim",
+        "title": "Fluctuating Selection in the Moran",
+        "trigger": "Same transition structure and fitness sign changes under temporal environmental variation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bf2884d-2455-4fef-b3fc-8c964e89fd38",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimal population size at which opposing deterministic selection environments reverse the two-step expected-mutant-count ordering is a motivated finite-population genetics boundary. The theorem solves all states for N<=4 uniformly in two fitness variables, supplies a unique continuous fitness-phase threshold, and proves both strict sides with exact positive/negative rational examples. This structural drift-versus-selection effect is not reducible to a sign or normalization check; the narrow two-step scope and absence of broader demographic claims are explicit.",
+    "status": "PASS"
+  }
+}
