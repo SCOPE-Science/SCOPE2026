@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-Correctness (C): PASS. A conditional two-subtree moment recursion is proved for every pair of birth labels and all finite tree sizes, with separately reconstructed beta-binomial diagonal variances. The cross recurrence has the exact solution \(U_t=t^2/(ij)\), so no numerical extrapolation is used. Exhaustive exact-rational parent-array checks cover all uniform recursive trees through nine vertices. Boundary vertices and full coefficient identities are checked.
+## correctness
 
-Originality (O): PASS on the inspected evidence, with residual historical risk. Janson (arXiv:1706.05487) describes the split-tree equivalence and a Pólya representation, and Acan, Frieze and Pittel (arXiv:1908.02407) identify the one-point limiting descendant proportion. Lodewijks (arXiv:2204.09032) treats other joint birth-label statistics; Benkner and Wagner (arXiv:2105.04231) treat distinct shapes. These do not directly state the complete birth-indexed covariance cancellation. A general multivariate urn identity may imply it in older literature; no universal historical-priority certification is claimed.
+PASS
 
-Value (V): PASS. The diagonal covariance is non-obvious for potentially overlapping descendant sets and supplies exact sharp variance formulae for arbitrary birth-weighted influence scores. It also decomposes total path-length fluctuations into orthogonal labeled contributions and quantifies the domination of early-born subtrees in asymptotic variance.
+The single-label beta-binomial urn gives E S_i=n/i and exact variance. For i<j, nested/disjoint conditional products yield U_(t+1)=(1+2/t)U_t+1/(ij), U_j=j/i, hence U_n=n²/(ij) and covariance zero. Summing edge contributions proves path-length identity and harmonic variance formula; fixed-k limit is dominated by summable i^-2. Independently enumerated parent assignments n=2,…,7 and matched 139 exact covariance entries.
 
-Scientific limitations: Uniform chronological attachment is essential. Uncorrelated does not mean independent. The localization result is a linear-variance statement, not distributional independence or a growing-graph universality theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected closest same-object primary sources and Resultary semantic results for uniform recursive tree descendant subtree size pairwise covariance birth labels diagonal matrix path length. Janson recursive split-tree framework and Kuba–Panholzer one-vertex distribution. Fuchs 2008 studies counts of fringe subtrees by size, not simultaneous birth-indexed subtree matrix. The precise quantified original claim and its implication are not identical to those prior statements; a general or unindexed stronger covering theorem remains a stated risk.
+
+## value
+
+PASS
+
+Subtree size indexed by birth time is a natural observable in recursive trees, and an entire exactly diagonal covariance matrix is a non-obvious structural orthogonality. It yields an exact linear-predictor variance attribution for total path length, directly meaningful in recursive-tree fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
