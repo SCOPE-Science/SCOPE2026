@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The layerwise distance-two signatures are exactly the opposite-layer selections with the vertex's own index removed. This yields both the precise support and the three feasible families. Counting the complement of the at-most-one-empty-column family requires three disjoint exclusions for \(n\ge4\) and one double-counting correction for \(n=3\). Inclusion-minimality follows by testing permitted one-element deletions in the complete classification, with the \(n=4\) two-by-two exception counted separately. The independent breadth-first-search exhaustive verifier confirms the definition, classification, and both polynomials for \(n=3\) through \(8\). The infinite result is established by the proof, not extrapolation from computations.
+## correctness
 
-## Originality: PASS, with documented priority risk
-The ordinary locating-domination formulation on the crown graph was checked explicitly, rather than assuming a new name means novelty. The closely related 2022 locating-hop paper of Canoy and Salasalan was accessible as bibliographic abstract only, not full text; it remains an unresolved priority risk. The inspected full 2022 paper of Pagcu, Malacas, and Canoy concerns joins and coronas and the weaker locating-hop predicate. The inspected 2021 regular-graph locating-domination study treats almost-complete regular graphs, not the crown graph. Indexed mathematical-record searches found the same object paired with different domination invariants, or the same locating predicate on threshold/complete-multipartite families, but no exact equivalent implication. Neither a failed search nor a partition by terminology proves priority.
+PASS
 
-## Value: PASS
-The work determines every feasible monitoring set and every irredundant such set across a natural infinite family, furnishing both complete cardinality enumerators. The five-column threshold marks a qualitative change in inclusion-minimal solutions that cannot be inferred from a single scalar optimum; the equivalence to locating domination on the crown graph gives a second established graph-theoretic interpretation.
+For H_n=K_n square K_2, exact distance-two signatures at (0,i),(1,i) are B\{i}, A\{i}. Nonempty signatures in opposite layers cannot coincide. In-layer collisions require |A union B|>=n-1, while missing witnesses force the three boundary patterns for empty and singleton layers. Multiplying (2z+z^2)^n and allowing one empty column then subtracting the three disjoint forbidden patterns yields the stated P_n, including the explicit n=3 double-count correction. Deletion minimality reduces for n>=5 to disjoint A,B partitioning n-1 columns with layer cardinalities>=2, plus the empty/full and singleton boundary classes; n=3,4 are handled individually. Independently enumerated every subset of the actual adjacency graph for n=3..7, testing exact distance-two signatures and all single-deletion minimality. Counts n=3..7: all (36,149,588,2103,7178), minimal by cardinality (14 at 3;56 at4;30 at4+42 at5;120 at5+62 at6;350 at6+86 at7), matching P,Q. Source script and verification note were read but not accepted as proof of n>7.
 
-## Limitations
-Unindexed or inaccessible earlier literature may already imply the claim, especially the unavailable original Canoy--Salasalan article. The exhaustive verifier covers six finite orders and does not constitute an unbounded proof. The precise first-public day of that earlier 2022 article was not verified; the recorded date belongs to the earliest accessible explicitly day-dated supporting primary source. No external independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original definition and operations theorems predate this result; the exact complete-prism/crown all-set and minimal enumerators do not follow from their theorems on joins or coronas. A fresh primary full-text comparison and semantic finding search support best-of-knowledge originality, with explicit risk of differently named crown-graph classification.
+
+## value
+
+PASS
+
+The complete prism/crown is a canonical symmetric graph family; not merely a new notation. The complete labeled-cardinality and inclusion-minimal enumerators refine its locating-hop domination number and exhibit the structurally meaningful five-column change, which can be used in graph-identification and locating-domination polynomial work. Both enumerators require a nontrivial boundary case and minimal-deletion classification, not a generic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
