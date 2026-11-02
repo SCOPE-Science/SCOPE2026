@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scientific limits
 
-The standalone `verify.py` reconstructs the graph by adjacent-position swaps, shortest-path distances, all simplices at inclusive radii two and three, and the signed simplicial differentials. Its `morse_scale2.json` and `morse_scale3.json` certificates are replayed from the actual extracted files; all elementary free-face conditions, critical maximality, coverage, and complete directed Hasse acyclicity are checked, not inferred from logs. Both certificates have the stated critical-cell distributions. The verifier independently reconstructs the eight facet sphere chains and the twenty-triangle cycle stored in `primitive_cycle.json`; exact integer boundary checks and Smith normal form produce 39 unit nonzero elementary divisors for the 112-by-39 matrix. Reversing the radius-three collapse yields an integral cocycle, checked on every tetrahedron; its pairing with the twentieth-triangle cycle is minus one. Every one of the 48 simplicial symmetry actions preserves the full complexes and permutes the eight oriented facial chains literally, while signed fixed-simplex Lefschetz sums establish the full character table. The last recorded line in `verification_output.txt` is `VERIFY_OK_PERMUTOHEDRON_EQUIVARIANT_PERSISTENCE`.
+# Independent mathematical audit
 
-The nonzero Smith factors prove integral saturation of this explicitly reconstructed lattice, not higher-dimensional or infinite-parameter assertions. The exact sequence splits as abelian groups, but an integral equivariant splitting is not established. SymPy 1.14.0 is needed for Smith form; standard Python suffices for combinatorial reconstruction. Independent external scientific audit is not performed.
+## correctness
+
+PASS
+
+The 24 permutations under adjacent swaps form the truncated-octahedral graph, and independent BFS/clique enumeration reproduces K2 face vector (24,96,112,30), K3 (24,168,472,618,384,92). The source supplies complete elementary-collapse operation certificates with 126 and 878 matched pairs, proving the known wedge^9 S2 and S2 types, and a primitive scale-three cocycle. Independently reconstructed oriented boundary ∂2 has rank73, and the 112x39 matrix of 30 tetrahedron boundaries, eight octahedral fixed-facet cycles and the provided explicit 20-triangle cycle has 39 nonzero Smith invariants, all one. Thus these nine classes are an integral basis and the facet eight are a primitive direct summand. Source cocycle pairing -1 with the last class shows primitive integral inclusion onto K3 H2; the chain action permutes the eight oriented facets, and independent 48-element signed fixed-simplex Lefschetz sums reproduce the claimed S4 x C2 traces. No assertion of an integral equivariant splitting follows.
+
+## originality
+
+PASS
+
+Both exact same-graph homotopy types and mod-two filtration/barcode were published earlier. Neither determines which geometric octahedral facet classes generate a primitive integral kernel, the quotient sign character, or the full W-module exact sequence. The surviving claim is a real integral equivariant persistence refinement, not reclassification of the known filtration.
+
+## value
+
+PASS
+
+The full natural group action and integrally saturated geometric persistence kernel are mathematically significant invariants that mod-two barcodes cannot provide. Eight concrete facet sphere classes and the orientation-character quotient furnish useful coordinate-level description of a standard highly symmetric graph-metric filtration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

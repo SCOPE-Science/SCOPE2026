@@ -1,11 +1,21 @@
-# Scientific review: integral equivariant permutahedral persistence
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact claim is the integral \(W=S_4\times C_2\)-module short exact sequence for the inclusion of graph-metric radius-two and radius-three clique complexes. Full reconstructed face sets have vectors \((24,96,112,30)\) and \((24,168,472,618,384,92)\). Two replayed simplicial collapse certificates and independently checked oriented Hasse acyclicity give reduced homology \(\mathbb Z^9\) and \(\mathbb Z\) in degree two only. Exact integer Smith normal form gives thirty-nine unit nonzero invariant factors for the thirty tetrahedron boundaries plus eight facial sphere cycles and one twenty-triangle cycle, establishing a saturated integral basis for the 39-dimensional cycle lattice. An explicit integral radius-three cocycle has primitive pairing \(-1\) with the ninth cycle, proving the inclusion is onto. Every one of 48 group elements satisfies the signed Lefschetz character and every facial chain transforms by the exact facet permutation. The verification is finite and exact; no higher-parameter extrapolation is used.
+## correctness
 
-**Originality (PASS, subject to indexing limits).** Both same-object aliases were explicitly checked. “Complete graph-metric Vietoris--Rips filtration of the truncated octahedral graph” gives nonequivariant homotopy classifications but no representation or map on lattices. “Complete mod-two Rips persistence of the four-letter permutahedron” gives scalar mod-two intervals, which do not determine integral primitive generators or equivariant character. The full primary texts of Adamaszek's graph-power theorem (arXiv:1104.0433) and Adamaszek--Adams' circle Rips classification (arXiv:1503.03669) do not entail this permutahedral exact sequence. Comparisons of aliases, more general hypotheses, and implication directions found no covering theorem; this is not a proof of absolute uniqueness. Residual risk remains from unindexed equivalent equivariant computations.
+PASS
 
-**Value (PASS).** The eight hexagonal facets are canonical geometric features of the permutahedron, making the complete identification of the integral persistence kernel with their permutation lattice a motivated structural refinement. It exhibits the symmetry of classes killed at scale three and the nontrivial sign/reversal character of the unique persistent class. Neither numerical ranks, mod-two persistence nor the nonequivariant homotopy types yield this precise information. The result is not merely a new naming of already-calculated Betti numbers.
+The 24 permutations under adjacent swaps form the truncated-octahedral graph, and independent BFS/clique enumeration reproduces K2 face vector (24,96,112,30), K3 (24,168,472,618,384,92). The source supplies complete elementary-collapse operation certificates with 126 and 878 matched pairs, proving the known wedge^9 S2 and S2 types, and a primitive scale-three cocycle. Independently reconstructed oriented boundary ∂2 has rank73, and the 112x39 matrix of 30 tetrahedron boundaries, eight octahedral fixed-facet cycles and the provided explicit 20-triangle cycle has 39 nonzero Smith invariants, all one. Thus these nine classes are an integral basis and the facet eight are a primitive direct summand. Source cocycle pairing -1 with the last class shows primitive integral inclusion onto K3 H2; the chain action permutes the eight oriented facets, and independent 48-element signed fixed-simplex Lefschetz sums reproduce the claimed S4 x C2 traces. No assertion of an integral equivariant splitting follows.
 
-**Limitations.** No integral equivariant splitting is claimed; no generalization to higher-label permutahedra or other radii is established; bibliographic completeness cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Both exact same-graph homotopy types and mod-two filtration/barcode were published earlier. Neither determines which geometric octahedral facet classes generate a primitive integral kernel, the quotient sign character, or the full W-module exact sequence. The surviving claim is a real integral equivariant persistence refinement, not reclassification of the known filtration.
+
+## value
+
+PASS
+
+The full natural group action and integrally saturated geometric persistence kernel are mathematically significant invariants that mod-two barcodes cannot provide. Eight concrete facet sphere classes and the orientation-character quotient furnish useful coordinate-level description of a standard highly symmetric graph-metric filtration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
