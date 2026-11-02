@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:03:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real SPD A, exact nonterminal Lanczos with H=V^TAV strictly irreducible SPD tridiagonal and beta>0, Gaussian sketch regression g=(Z^TZ)^(-1) Z^T w has multivariate Student density f_{k,ell}(g)=Gamma((ell+1)/2)/(pi^(k/2)Gamma((ell-k+1)/2))*(1+||g||²)^(-(ell+1)/2), nu=ell-k+1. Sketched Galerkin projected equation (H+beta g e_k^T)y_F=||b||e_1 leads by Sherman–Morrison to y_F=y0-c H^-1g/(1+a^Tg), a=beta H^-1e_k, c=beta||b||e_k^T H^-1e1!=0 by the off-corner cofactor of irreducible tridiagonal H. Energy orthogonality yields squared error D²+c² g^T H^-1g/(1+a^Tg)². Its strictly positive numerator along the entire affine hyperplane a^Tg=-1 causes exactly p>=1 divergent moments regardless of ell and gives a positive 1/R tail with the stated coarea integral; local transversal integration and Student radial domination prove p<1 convergence and finite tail coefficient. For sketched least squares, independent Gaussian orthogonal regression about nonzero deterministic residual yields an invertible linear image of a multivariate Student vector, giving moment cutoff p<ell-k+1 including divergence at equality. Independently verified 120 random projected systems and the exact algebraic Sherman–Morrison relationship; a separate k=ell=1 Cauchy example confirmed the hyperplane tail coefficient. All asymptotic/integrability claims depend on analytic density proofs, not Monte Carlo.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Timsit et al. prove approximation guarantees on successful embedding events and discuss instabilities, rather than unrestricted Gaussian p-th moments.",
+          "Güttel–Schweitzer set out sketched FOM/GMRES constructions but not the explicit sharp moment asymmetry in inspected sections."
+        ],
+        "reasoning": "An arbitrary-high-probability estimate on a good event leaves a small uncontrolled tail and cannot imply finiteness of unconditional moments; specific Student integration is essential.",
+        "searches": [
+          "Gaussian sketch Lanczos sketched Galerkin FOM inverse projected operator heavy-tailed infinite mean error Student distribution sketched GMRES",
+          "Timsit–Grigori–Balabanov arXiv:2302.07466 full PDF",
+          "Güttel–Schweitzer arXiv:2208.11447 full PDF",
+          "Nakatsukasa–Tropp arXiv:2111.00113"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.07466 full accessible PDF relevant sections",
+        "arXiv:2208.11447 full accessible PDF relevant sections",
+        "arXiv:2111.00113 metadata/available material",
+        "arXiv:1803.02602 cited randomized reduced Galerkin",
+        "Resultary Gaussian sketched Krylov semantic search",
+        "Frozen RESULT.md and independent regression/Cauchy-tail checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Galerkin y_F equation has nonremovable rational denominator 1+a^Tg; the Student vector itself has nu=ell-k+1 moments, but the ratio creates p=1 failure at a *finite* hyperplane.",
+          "For GMRES residual minimization the variable coefficient is an invertible linear transform of Student vector without a random affine pole."
+        ],
+        "reasoning": "The simultaneous comparison is not a consequence of condition-on-subspace-embedding error theorems. It uses a nonzero Lanczos inverse corner to rule out pole cancellation in every nonterminal instance.",
+        "searches": [
+          "arXiv:2302.07466 Section sketched projection guarantee",
+          "arXiv:2208.11447 construction of sFOM and sGMRES",
+          "Gaussian sketch Lanczos sketched Galerkin FOM inverse projected operator heavy-tailed infinite mean error Student distribution sketched GMRES"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sketched Galerkin is randomized Petrov–Galerkin/sketched FOM; the rank-one projected solve has a Student regression coefficient with a hyperplane singularity.",
+          "Sketched minimal residual is sketched GMRES/least-squares over AV, yielding a full-rank Student perturbation."
+        ],
+        "reasoning": "These aliases were searched. They identify the existing methods but not an already-stated unconditional moment frontier for all nonterminal Lanczos spaces.",
+        "searches": [
+          "Gaussian sketch Lanczos sketched Galerkin FOM inverse projected operator heavy-tailed infinite mean error Student distribution sketched GMRES",
+          "Timsit–Grigori–Balabanov arXiv:2302.07466",
+          "Güttel–Schweitzer arXiv:2208.11447"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published solver facts concern expected error factors, embedding probability, or fixed trial observations, not a table of exact moment exponents 1 and ell-k+1."
+        ],
+        "reasoning": "Numerical tables cannot certify divergence of moments; the claim is analytic. A prior general formula for Gaussian oblique projectors might imply it, but no equivalent result was materially identified.",
+        "searches": [
+          "Gaussian sketch Lanczos sketched Galerkin FOM inverse projected operator heavy-tailed infinite mean error Student distribution sketched GMRES",
+          "Resultary semantic-search Gaussian sketched Galerkin Student tails",
+          "Timsit–Grigori–Balabanov numerical figures/experiments"
+        ]
+      },
+      "rationale": "Gaussian regression Student laws and sketched projection/GMRES/FOM constructions are established. The assessed new contribution is a uniform, sharp all-nonterminal-SPD-Lanczos dichotomy of unconditional error moments and an explicit positive Galerkin 1/R tail constant. High-probability subspace-embedding bounds do not imply unconditional moments. Possible specialist papers on oblique Gaussian projectors remain a priority risk.",
+      "residual_risks": [
+        "A broad Gaussian random oblique projection or regression-ratio theorem may already imply the p=1 frontier.",
+        "The result is for unconditioned exact arithmetic Gaussian sketches; safeguarded algorithms and finite precision have different distributions.",
+        "Student density identities are classical and not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found construction and conditional/high-probability results; no exact unconditional all-p moment frontier in inspected material",
+          "evidence": [
+            "Good-event bounds and observed variations cannot control integrability of failure-tail values."
+          ],
+          "identifier_or_url": "arXiv:2302.07466",
+          "material_read": "Accessible full PDF including projected equations, theorem on sketch embedding and numerical instability discussion",
+          "method": "Direct PDF inspection",
+          "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+          "trigger": "Same randomized Galerkin/FOM projection and high-probability guarantees"
+        },
+        {
+          "assessment": "Provides methods rather than claimed exact SPD Gaussian moment laws",
+          "evidence": [
+            "Sketch projections use randomized low-dimensional normal equations and least-squares."
+          ],
+          "identifier_or_url": "arXiv:2208.11447",
+          "material_read": "Full accessible PDF relevant method definitions and sketches",
+          "method": "Direct PDF inspection",
+          "title": "Randomized Sketching for Krylov Approximations of Large-Scale Matrix Functions",
+          "trigger": "Sketched FOM and GMRES method alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Same Krylov subspace and Gaussian sketch budget yield radically different unconditional moment behavior: unsafeguarded Galerkin retains infinite mean under arbitrary oversampling, whereas minimal residual obtains finite higher moments as ell-k increases. Exact frontiers and a tail coefficient are mathematically consequential for interpreting high-probability error guarantees and designing safeguards; they are not generic restatements of the Student density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2302.07466 full accessible PDF relevant sections",
+    "arXiv:2208.11447 full accessible PDF relevant sections",
+    "arXiv:2111.00113 metadata/available material",
+    "arXiv:1803.02602 cited randomized reduced Galerkin",
+    "Resultary Gaussian sketched Krylov semantic search",
+    "Frozen RESULT.md and independent regression/Cauchy-tail checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A broad Gaussian random oblique projection or regression-ratio theorem may already imply the p=1 frontier.",
+    "The result is for unconditioned exact arithmetic Gaussian sketches; safeguarded algorithms and finite precision have different distributions.",
+    "Student density identities are classical and not claimed as novel.",
+    "Publication metadata contain operational provenance requiring guarded sanitization before public release."
+  ],
+  "schema_version": 1
+}

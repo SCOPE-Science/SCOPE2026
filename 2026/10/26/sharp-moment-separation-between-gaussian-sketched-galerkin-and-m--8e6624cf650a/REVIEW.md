@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated SPD Lanczos hypothesis implies an irreducible positive-definite tridiagonal \(H\) and nonzero next recurrence coefficient. The off-corner entry of \(H^{-1}\) is nonzero, so the Galerkin numerator cannot cancel its affine denominator on the pole hyperplane. Gaussian regression yields the exact multivariate Student density. Energy-orthogonal Galerkin error decomposition leads to a one-dimensional pole, which gives exactly the threshold \(p=1\); coarea and dominated convergence give a finite strictly positive sharp tail constant. The sketched least-squares normal equations have a full-rank Student perturbation and threshold \(p=\ell-k+1\). The bundled verifier checks exact identities and independent randomized reconstructions; the infinitary claims rely on proof, not simulation.
+PASS
 
-## Originality — PASS, with residual priority risk
+For real SPD A, exact nonterminal Lanczos with H=V^TAV strictly irreducible SPD tridiagonal and beta>0, Gaussian sketch regression g=(Z^TZ)^(-1) Z^T w has multivariate Student density f_{k,ell}(g)=Gamma((ell+1)/2)/(pi^(k/2)Gamma((ell-k+1)/2))*(1+||g||²)^(-(ell+1)/2), nu=ell-k+1. Sketched Galerkin projected equation (H+beta g e_k^T)y_F=||b||e_1 leads by Sherman–Morrison to y_F=y0-c H^-1g/(1+a^Tg), a=beta H^-1e_k, c=beta||b||e_k^T H^-1e1!=0 by the off-corner cofactor of irreducible tridiagonal H. Energy orthogonality yields squared error D²+c² g^T H^-1g/(1+a^Tg)². Its strictly positive numerator along the entire affine hyperplane a^Tg=-1 causes exactly p>=1 divergent moments regardless of ell and gives a positive 1/R tail with the stated coarea integral; local transversal integration and Student radial domination prove p<1 convergence and finite tail coefficient. For sketched least squares, independent Gaussian orthogonal regression about nonzero deterministic residual yields an invertible linear image of a multivariate Student vector, giving moment cutoff p<ell-k+1 including divergence at equality. Independently verified 120 random projected systems and the exact algebraic Sherman–Morrison relationship; a separate k=ell=1 Cauchy example confirmed the hyperplane tail coefficient. All asymptotic/integrability claims depend on analytic density proofs, not Monte Carlo.
 
-Timsit–Grigori–Balabanov (arXiv:2302.07466) study randomized orthogonal projections in Krylov solvers, including high-probability behavior and observed instabilities. Güttel–Schweitzer (arXiv:2208.11447) state the sketched FOM and GMRES constructions. Nakatsukasa–Tropp (arXiv:2111.00113) prove randomized residual-method accuracy, and Balabanov–Nouy (arXiv:1803.02602) provide sketch-based Galerkin projection for reduced modeling. Their relevant full-text descriptions provide the constructions and conditional/high-probability bounds, but in the inspected material none states the combined arbitrary-moment, all-nonterminal-Krylov-step separation or the sharp hyperplane-tail constant. The Gaussian regression density itself is a standard result and is not presented as a new distribution. A formulation in specialized Gaussian projection or numerical linear algebra literature may remain unidentified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two projected solvers use the same fixed Krylov approximation space and the same random sketch budget, but have different and exact unconditional error integrability cutoffs. This provides a rigorous structural distinction that cannot be inferred from embedding-success bounds: oversampling alone does not create a finite mean for unsafeguarded sketched Galerkin, whereas two extra rows suffice for finite second moment of sketched minimal residual. The sharp positive tail constant quantifies the mechanism; no general or downstream theorem is required for this method-specific boundary to be useful.
+Gaussian regression Student laws and sketched projection/GMRES/FOM constructions are established. The assessed new contribution is a uniform, sharp all-nonterminal-SPD-Lanczos dichotomy of unconditional error moments and an explicit positive Galerkin 1/R tail constant. High-probability subspace-embedding bounds do not imply unconditional moments. Possible specialist papers on oblique Gaussian projectors remain a priority risk.
 
-## Risks and verification limits
+## value
 
-The result is a statement about expectations over all Gaussian sketches, not an assertion of common catastrophic failures. It does not include finite-precision effects or other sampling distributions. Independent publication-priority and scientific review have not been performed. The supplied software checks finite examples only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Same Krylov subspace and Gaussian sketch budget yield radically different unconditional moment behavior: unsafeguarded Galerkin retains infinite mean under arbitrary oversampling, whereas minimal residual obtains finite higher moments as ell-k increases. Exact frontiers and a tail coefficient are mathematically consequential for interpreting high-probability error guarantees and designing safeguards; they are not generic restatements of the Student density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
