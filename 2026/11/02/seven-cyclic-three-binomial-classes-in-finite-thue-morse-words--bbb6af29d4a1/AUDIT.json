@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Every length-2m image rotation beginning at a block boundary has balanced one-deck and 01 count m²/2. The exact rotation difference formula for scattered triples, together with constant even-position two-decks, gives a two-letter block transport depending only on block type, with opposite increments for 01 and 10. The Thue–Morse paired-block identity bounds complete triple decks by seven states; 01 and 001 counts separate all seven, and a balanced lower-rank prefix gives exact multiplicities. The finite checker directly recomputes complete decks for all rotations through rank 9 and agrees. No finite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Salimov 2013 §§1,5–6: bounded factor complexity and 3-subsequence counting, not an indexed cyclic-rotation class distribution (https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf).",
+        "Lejeune–Leroy–Rigo 2018 §§2,7,8: a full-factor equivalence criterion and 21 classes for all infinite-word factors of lengths divisible by 8; no stated 7-class rotation-index partition (https://arxiv.org/abs/1812.07330)."
+      ],
+      "reasoning": "Existing works concern all infinite-word factors and provide broader decision/equivalence machinery, which is relevant. The precise seven-class indexed rotation partition, its 1:1:1:1:1:1:2 multiplicity profile, and sufficiency of the two specified scattered counts are not stated. The present structural proof determines the restriction using the paired-block prefix imbalance; a generic full-factor decision criterion alone does not supply its class-size formula.",
+      "searches": [
+        "Rigo Salimov binomial complexity Thue-Morse 2013 PDF §5",
+        "Lejeune Leroy Rigo 2018 Thue Morse 3 binomial complexity Theorem 48 §7 §8",
+        "\"Thue Morse\" \"3-binomial\" \"cyclic rotations\"",
+        "\"Thue Morse\" \"conjugates\" \"3-binomial\""
+      ]
+    },
+    "checked_sources": [
+      "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf",
+      "https://arxiv.org/abs/1812.07330",
+      "https://orbi.uliege.be/handle/2268/178703",
+      "https://oeis.org/A258585"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 Theorems 4–6 establish boundedness of full infinite-word factor complexities and demonstrate morphic subsequence counting.",
+        "2018 Theorem 48 characterizes equivalence between arbitrary Thue–Morse factors; Theorem 6 counts all-factor classes, which are 21 at 2^k for k≥3, rather than seven among rotations."
+      ],
+      "reasoning": "The older boundedness result does not imply an exact count. The later full-factor criterion is a genuine broader tool, but the restricted seven-class distribution and the index multiplicities require new evaluation of rotations; neither numerical result is directly asserted. Not an independence claim.",
+      "searches": [
+        "2013 Rigo Salimov Thue Morse 3-binomial complexity upper bound §5",
+        "2018 Lejeune Leroy Rigo Theorem 48 all factors equivalence types §7",
+        "published-finding corpus Thue Morse complete substitution iterate all cyclic rotations 3-binomial equivalence exactly seven classes sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches for seven cyclic three-binomial classes returned rotation-symmetric Boolean functions and unrelated homology results, no equivalence statement.",
+        "Web phrase searches returned Rigo–Salimov 2013 and Lejeune–Leroy–Rigo 2018 factor-complexity sources, no cyclic indexed partition."
+      ],
+      "reasoning": "Rotations/conjugates and equivalence by all scattered words of lengths ≤3 were searched; no equivalent all-rank indexed-rotation count identified.",
+      "searches": [
+        "\"Thue Morse\" \"3-binomial\" rotations conjugates seven",
+        "\"Thue–Morse\" \"cyclic rotations\" \"001\" subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A258585 enumerates 3-binomial classes of all binary words by length, not cyclic rotations of Thue–Morse iterates (https://oeis.org/A258585).",
+        "Lejeune–Leroy–Rigo 2018 tabulates/counts classes over all factors of the infinite Thue–Morse sequence, not the rotation-index multiplicities."
+      ],
+      "reasoning": "No exact published table for the seven-class cyclic rotation family or its class-size multiset identified.",
+      "searches": [
+        "OEIS Thue Morse 3-binomial equivalence circular conjugates classes",
+        "Thue Morse cyclic rotations three binomial equivalence seven classes"
+      ]
+    },
+    "rationale": "Compared claim implications with the 2013 Rigo–Salimov bounded binomial-complexity theorem and the 2018 Lejeune–Leroy–Rigo full infinite-word factor-equivalence classification. Neither inspected paper reports or directly evaluates the seven cyclic classes with exact multiplicities and two-coordinate recognition. A generic equivalence criterion can be used to derive many special enumerations but does not itself provide the present rotation-index law; possible unrecorded specialization is a residual priority risk.",
+    "residual_risks": [
+      "A very broad 2018 factor-type classification could yield the seven-class restriction through additional specialization; no exhaustive historical-priority guarantee.",
+      "2015 full journal extension was compared through its institutional record, not completely read; the accessible 2013 source and 2018 detailed source received substantive inspection.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes boundedness and morphic counting, not an exact partition of cyclic rotations",
+        "evidence": [
+          "Section 5 Theorem 4 bounded m-binomial complexity; Theorem 5 and eq. (4) count two-letter signatures; Theorem 6 bounded 3-binomial complexity."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf",
+        "material_read": "Pages 1–3 and 7–8, 10, including definitions, §5 Thue–Morse Theorems 4–6, proofs and counting formulas",
+        "method": "Original author-preprint PDF parsed text with page-image visual inspection",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+        "trigger": "Earliest verified source and direct Thue–Morse subsequence work"
+      },
+      {
+        "assessment": "Strong general equivalence criterion for factors; no stated exact restriction to indexed rotations or its multiplicity profile; this remains the main priority-risk source",
+        "evidence": [
+          "§2 Remark 5: b_{t,3}(n)=21 for n divisible by 8 from experiments; Theorem 6 rigorous full-factor complexity; §7 Theorem 48 iff criterion for factor equivalence; §8 counts all factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.07330",
+        "material_read": "Full-text HTML sections 1–2, 7 and 8; Theorems 6 and 48 and type-classification discussion",
+        "method": "Full-text HTML parsed and searched for rotations/conjugates; relevant theorem and implication comparison",
+        "title": "Computing the k-binomial complexity of the Thue–Morse word",
+        "trigger": "Strongest relevant all-factor theorem"
+      },
+      {
+        "assessment": "No claim of complete-text noncoverage; 2013 available primary treated as main text",
+        "evidence": [
+          "2015 journal TCS 601 pp.47–57 describes bounded complexity of Parikh-constant morphic words."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/handle/2268/178703",
+        "material_read": "Bibliographic page, abstract and scope compared to 2013 preprint",
+        "method": "Institutional publication record and abstract, not full expanded text",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words (long version)",
+        "trigger": "Later expanded version of 2013 core paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bbb6af29-d4a1-45ee-8e58-37c70ef2700c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies the exact reconstruction ambiguity of every cyclic starting position of a classical automatic word under its complete length-three scattered-subsequence signature. Seven classes for arbitrarily long iterates, their exact unequal multiplicities, and a two-statistic sufficient signature give more information than global boundedness or all-factor class counts. The class-size profile is an infinite-family structural law, not a finite enumeration or routine reformulation.",
+    "status": "PASS"
+  }
+}
