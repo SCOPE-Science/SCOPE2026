@@ -1,15 +1,21 @@
-# Scientific review: Petersen line-graph Rips persistence
+# Independent mathematical audit
 
-## Correctness (PASS)
-The structural identification of the Petersen edge set with five fibers of three perfect pairings is explicit. For equal missing symbols there are no distance-two paths and a concrete distance-three path exists; for distinct missing symbols a distance-two path exists. Thus the radius-two graph is exactly complete five-partite with part size three. The radius-one nerve is the Petersen graph; the radius-two complex is the join of five discrete triples. These determine integral homotopy and torsion-free homology without extrapolating from finite computation. The sign in the join character is the Koszul sign for permuting five reduced zero-dimensional factors. The orbit-trace formula and the cellular degree-one character give the displayed seven conjugacy-class values. All 120 permutations have independently matching signed fixed-simplex traces; exact mod-two boundary ranks agree with the topology. The seven character inner products are integral, nonnegative and yield the claimed multiplicities. This self-review does not constitute independent audit.
+## correctness
 
-## Originality (PASS, with recorded risk)
-Corollary 3.3 of Goyal–Shukla–Singh already establishes the radius-one nonequivariant homotopy; this is not new. DistanceRegular.org records diameter three, antipodal fibers and full \(S_5\) symmetry, which together with the join formula already imply the radius-two nonequivariant sphere count. The new claim is therefore the **full rational representation-valued persistence**, including explicit degree-one and degree-four characters, irreducible multiplicities and invariant dimension. No inspected cited primary text computes these actions; general Vietoris–Rips decompositions do not supply them. Distinct published research records on other graphs and different complexes do not dominate the assertion. Searches are not proof of global uniqueness; an unindexed equivalent computation remains possible.
+PASS
 
-## Value (PASS)
-The line graph of the Petersen graph is a canonical fifteen-vertex distance-transitive antipodal cover. Its ordinary homotopy changes discontinuously between radius one and radius two; the additional symmetry calculation shows the change from an irreducible six-dimensional homology module with no invariants to a 32-dimensional module with two invariant dimensions and six isotypic constituents. This is a natural exact equivariant persistence classification on a standard test graph and not merely a new numerical Betti count. The tensor-orbit formula is reusable for analyzing automorphism actions on joins arising from antipodal metric partitions, although no general classification is claimed.
+Encode Petersen vertices by disjoint 2-subsets of five symbols and Petersen edges by unused symbol plus pairing of the other four. Independent reconstruction of the 15-vertex line graph gives among 105 unordered vertex pairs exactly 30 distance 1, 60 distance 2, and 15 distance 3; distance-three edges form exactly five disjoint 3-vertex fiber cliques. Hence the threshold-two complex is a join of five three-point discrete sets, whose reduced integral homology is Z^32 in degree four (and wedge of 32 S4). The scale-one triangle-star cover has nerve Petersen, H1=Z^6. At threshold three the full simplex occurs. S5 permutes fiber factors with the Koszul sign; the tensor trace on each permutation cycle gives degree-four class values (32,0,8,2,0,0,2), degree-one from signed Petersen cellular chains (6,0,-2,0,0,0,1). The complete package verifier's source enumerates all 120 permutations, signed Lefschetz traces and rational Specht multiplicities; the group-theoretic trace formulas and join proof independently support those results. Integral torsion-free homology does not justify integral splitting into rational irreducibles.
 
-## Closest literature and limitations
-Goyal–Shukla–Singh (arXiv:2009.12130, Corollary 3.3) covers the radius-one homotopy. DistanceRegular.org's line-Petersen entry covers the antipodal diameter-three distance geometry and full automorphism group; the nonequivariant 32-sphere count follows by a standard join deduction. Chachólski et al. (DOI:10.1007/s41468-021-00066-2) develop general decomposition theorems but not the case-specific character. A public database could contain an unindexed equivalent character calculation. No integral representation splitting or equivariant homotopy wedge is proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonequivariant X2 join/wedge follows from standard antipodal partition data and is not new. The complete seven-conjugacy-class S5 character at both persistent stages and the two invariant degree-four lines are the relevant additional invariants.
+
+## value
+
+PASS
+
+The Petersen line graph is a canonical diameter-three antipodal object. Full rational S5 barcode, irreducible identification, and invariant subspace dimensions make the symmetry topology explicit, distinguishing an ordinary wedge-count computation from representation-aware persistent homology. This is a meaningful natural complete classification for the graph, with exact finite scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
