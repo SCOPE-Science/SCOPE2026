@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "A complete proof partitions row/column palette types and treats both positive monochromatic pairs, exactly one, and neither; forcing ap and bq monochromatic intersection blocks plus simultaneous both-row/column incidence gives the sharp lower bound. Empty row or column forces at least 2m. Constructions cover n>=m+2 and n=m,m+1, with disjoint cyclic diagonals for m>=4 and explicit small cases. Replayed standard-library verifier confirmed 114 witnesses, 308540 smaller assignments in eight boundary boards, and 44 palette-bound checks. Finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2608.14690 Theorem 3.4 characterizes equality with graph order for arbitrary Cartesian factors",
+        "https://arxiv.org/abs/2610.06906 §3 bounds regular graphs and §5 proves exact cycle, Möbius-ladder and prism values"
+      ],
+      "reasoning": "Rao et al. provide a general product theorem, but its conclusion is only that the entire vertex set is needed iff the sum of maximum degrees is at most one. Since K_m Cartesian K_n has minimum factor sizes two, their theorem merely ensures strictly fewer than mn selected vertices. The general regular-graph bounds in Lange do not force the exact min{2m,m+n-2}; its exact family theorems do not include rook graphs. No stronger covering result emerged from the cited broad searches.",
+      "searches": [
+        "arxiv:2608.14690 Theorem 3.4 Cartesian product",
+        "arxiv:2610.06906 §3 regular graph bounds and §5 exact families",
+        "\"dual-server domination\" \"Cartesian product\" \"complete graphs\" exact",
+        "\"dual-server domination number\" \"rook graph\" exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.06906",
+      "https://arxiv.org/abs/2608.14690",
+      "https://www.researchgate.net/publication/327208249_Bounds_on_proper_2-rainbow_domination_in_graphs",
+      "https://doi.org/10.1016/j.dam.2026.03.017",
+      "https://mathworld.wolfram.com/RookGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2608.14690 §3.2",
+        "https://arxiv.org/abs/2610.06906 §5",
+        "https://www.researchgate.net/publication/327208249_Bounds_on_proper_2-rainbow_domination_in_graphs pp.2-3, Corollary 2.3",
+        "https://doi.org/10.1016/j.dam.2026.03.017 publicly accessible abstract"
+      ],
+      "reasoning": "A dichotomy about when gamma_ds equals mn does not fix its value when strictly less than mn. A generic degree lower bound from regular graphs does not prove the m+n-2 near-square values and 2m long-board values. The proper rainbow parameter enforces extra adjacency restrictions and permits multi-subset labels; its bounds cannot supply this theorem by substitution. The introductory Chellali paper has only abstract-level material accessible, and thus remains a named priority risk, not a full-text exclusion.",
+      "searches": [
+        "arxiv:2608.14690 Theorem 3.4",
+        "arxiv:2610.06906 Theorems §5 and regular lower bounds",
+        "Jose Sangeetha 2018 Corollary 2.3 and §2 proper 2-rainbow K_m × K_n",
+        "Chellali Haynes Hedetniemi Dual-server domination in graphs DOI 10.1016/j.dam.2026.03.017"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.06906 §1 defines one-color-per-selected-vertex singleton rainbow domination and identifies dual-server domination for two colors",
+        "https://arxiv.org/abs/2608.14690 §1 defines dual-server sets as two nonempty vertex classes with all outside vertices adjacent to both",
+        "https://mathworld.wolfram.com/RookGraph.html rook graph is K_m Cartesian K_n and the line graph of complete bipartite graph"
+      ],
+      "reasoning": "The singleton two-rainbow and dual-server models are logically equivalent here: color classes partition a selected set and both colors must reach each nonselected cell. The rook/line-graph/2D-Hamming aliases were searched rather than treated as different results. The published results inspected under these names do not give the exact width-dependent formula.",
+      "searches": [
+        "dual-server domination number of rook graphs line graphs of complete bipartite graphs K_m square K_n exact minimum 2m versus m+n-2",
+        "singleton two rainbow domination of Cartesian products K_m K_n and two-dimensional Hamming graphs",
+        "\"dual-server domination\" \"rook graph\" \"m+n\"",
+        "\"dual-server domination\" \"Cartesian product\" \"complete graphs\" exact",
+        "\"singleton rainbow 2-domination\" \"Cartesian product\" cliques",
+        "arxiv:2610.06906 §1, model aliases",
+        "arxiv:2608.14690 §1, dual-server definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published mathematical records about two-rainbow domination of complete multipartite graphs concern a different graph class.",
+        "https://mathworld.wolfram.com/RookGraph.html summarizes ordinary domination of rook graphs but not singleton two-rainbow domination.",
+        "https://arxiv.org/abs/2608.14690 §3.2 establishes only a full-selection boundary for Cartesian products."
+      ],
+      "reasoning": "Actual searches of published mathematical records, equivalent graph aliases and accessible source texts did not identify an exact table or formula for the current parameter and graph family. This is negative evidence only; it is not a guarantee of uniqueness or comprehensive historical priority.",
+      "searches": [
+        "rainbow two domination with one color per vertex minimum row column incidence matrix 2min(m,n) m+n-2",
+        "Singleton rainbow 2-domination of rook graph K_m Cartesian K_n minimum min(2min(m,n),m+n-2) labels only singleton",
+        "Rainbow k domination of Hamming rook graphs line graphs complete bipartite exact two color value",
+        "rook graph dual-server number formula",
+        "dual server domination line graph complete bipartite rook graph"
+      ]
+    },
+    "rationale": "The source versions accessible under singleton rainbow and dual-server terminology, and published mathematical records, do not give the two-parameter rook exact formula. The closest general Cartesian theorem determines only whether all mn vertices are required, whereas this theorem gives sharp smaller minima in all m,n>=2. The 2018 proper variant differs logically. Public full-text gap for the introductory dual-server paper leaves priority provisional.",
+    "residual_risks": [
+      "Introductory Chellali et al. 2026 full text was not available for material-level comparison; possible different-terminology rook special cases are not exhaustively excluded.",
+      "Math publication and database searches are bounded, not evidence of globally certified novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same invariant; exact families include cycles, Möbius ladders and prisms and generalized Petersen algorithms. Product of two complete graphs is not one of the stated exact families. General bounds not sufficient to imply claimed sharp rook formula.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.06906 §§1,3,5,6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06906",
+        "material_read": "Accessible arXiv HTML abstract, introduction, model definitions, section-5 exact-family statements, section-6 overview, and relevant section/appendix headings; searched the full HTML for rook and complete-product terminology.",
+        "method": "Read public manuscript HTML and located text for Cartesian products, rook graphs and exact family theorems",
+        "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+        "trigger": "Identical singleton rainbow domination variant and regular graph setting"
+      },
+      {
+        "assessment": "The Cartesian theorem characterizes full-vertex optimality via degree sums, and does not imply the rook optimum under factor minimum order two. Splitting graph results are different graphs.",
+        "evidence": [
+          "https://arxiv.org/abs/2608.14690 §3.2 Theorem 3.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.14690",
+        "material_read": "Accessible arXiv HTML abstract, introduction, product definition in §3.2, Theorem 3.4 and its proof, and selected conclusions.",
+        "method": "Compared exact theorem hypotheses, conclusions and product definition",
+        "title": "The Dual-Server Domination Number of Some Graph Operations",
+        "trigger": "Identical two-color invariant under the dual-server name, with Cartesian product results"
+      },
+      {
+        "assessment": "Proper two-rainbow parameters are distinct, and the product conclusions are bounds. No implication of current exact formula.",
+        "evidence": [
+          "https://www.researchgate.net/publication/327208249_Bounds_on_proper_2-rainbow_domination_in_graphs pp.1-5"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/327208249_Bounds_on_proper_2-rainbow_domination_in_graphs",
+        "material_read": "Accessible author-uploaded full text abstract, definitions, Corollary 2.3 and product results in §2",
+        "method": "Compared permissible labels, adjacency constraints and exact versus inequality results",
+        "title": "Bounds on proper 2-rainbow domination in graphs",
+        "trigger": "Same Cartesian product of two complete graphs, related domination name"
+      },
+      {
+        "assessment": "No observed matching exact theorem, but full-text coverage unresolved. Treated as a priority risk rather than claiming NOT_COVERING.",
+        "evidence": [
+          "https://doi.org/10.1016/j.dam.2026.03.017",
+          "https://www.researchgate.net/publication/400099677_Dual-Server_Domination_in_Graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.03.017",
+        "material_read": "Public abstract and bibliographic information only; full text was not obtained from publicly accessible versions.",
+        "method": "Read public indexed abstract and searched complete-product and rook terminology; whole-document coverage was not assessed.",
+        "title": "Dual-server domination in graphs",
+        "trigger": "Introduces identical dual-server parameter and could contain unindexed examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc70fd32-c7b2-46fc-86fb-91e6848febe5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete exact classification for the canonical 2-dimensional Hamming/rook graph family under an actively studied single-facility-per-site two-service domination invariant. It gives the exact aspect-ratio threshold m+2 and explicit attaining configurations, a structurally motivated finite-resource gap not implied by generic regular bounds or the binary full-vertex Cartesian-product theorem. It does not claim a general-graph classification.",
+    "status": "PASS"
+  }
+}
