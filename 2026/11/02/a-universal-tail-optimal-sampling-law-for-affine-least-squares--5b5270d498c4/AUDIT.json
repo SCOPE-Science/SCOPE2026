@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Direct 2x2 inversion gives R_B=q_B(mean)/scatter+B11/m with no approximation. An orthogonal decomposition of m input sites has Jacobian sqrt(m) and residual dimension m-1; after rescaling the event ball, bounded continuous density and compact support justify dominated convergence to the exact tube-volume coefficient. The strictly positive coefficient and layer-cake identity give exactly the negative-moment frontier. Holder inequality with its equality characterization establishes the unique positive continuous minimizer. The package includes a standalone verifier that passed 1,528 exact-rational and numerical checks; those are corroborative, not the proof of infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2306.07435, Theorem 1.1 and Algorithms 1–2: dependent or adaptive weighted sampling and expected approximation-error bounds.",
+        "arxiv:1912.10754, Section 3 and Theorem 4: nonasymptotic generic small-ball lower-tail bounds, not exact constants.",
+        "PMLR 99 (2019), Dereziński et al., Sections 1–4: finite-pool joint volume sampling and importance sampling for expected error."
+      ],
+      "reasoning": "Although the cited works address more general spaces and dimensions, their estimates and optimization criteria do not imply the sharp small-scatter constant for this unweighted continuous iid model, nor the Holder equality optimizer. The present claim is not presented as an improvement on their global approximation guarantees.",
+      "searches": [
+        "random design linear regression small sample condition number inverse Gram distribution optimal density sampling heavy tail singularity",
+        "optimal random sampling distribution minimize tail probability inverse least squares covariance design",
+        "random design least squares 2 parameters iid design points sharp heavy tail inverse Gram trace condition number density optimal p proportional reciprocal sqrt one plus x squared arsinh"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.07435",
+      "https://arxiv.org/abs/1912.10754",
+      "https://proceedings.mlr.press/v99/derezinski19b/derezinski19b.pdf",
+      "https://proceedings.mlr.press/v99/derezinski19b.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2306.07435, introduction and Section 6 explicitly compare random-node conditioning, with no sharp fixed-two-feature tail design.",
+        "arxiv:1912.10754, Section 3 gives lower-tail bounds, not the exact dimension-(m-1) tube-volume coefficient.",
+        "PMLR 99 (2019), Definition 11 and theorems on volume-rescaled sampling: joint samples rather than independent unweighted continuous predictor sites.",
+        "A previously established beta-distributed affine slope-noise theorem contains a finite-moment threshold but not this exact B-weighted tail constant or its optimizer."
+      ],
+      "reasoning": "The known slope-moment cutoff in some distributions is treated as prior coverage, not independent novelty. The one final claim here combines the full B-dependent probability equivalent, the sharp coefficient over all continuous iid densities, and a unique optimizer independent of sample size. These statements cannot be inferred from the located approximation-error bounds, generic negative-moment estimates or fixed-radius observation formulas without a new small-scatter calculation and density optimization.",
+      "searches": [
+        "Randomized least-squares with minimal oversampling and interpolation in general spaces",
+        "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+        "Minimax experimental design: Bridging the gap between statistical and worst-case approaches to least squares regression",
+        "random Vandermonde regression inverse trace heavy tail small singular values colliding points density asymptotics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1912.10754, Section 3: lower-tail inequalities and negative moments for sample covariance matrices; no exact coefficient minimization over input densities.",
+        "Closest previously available planar unit-direction observability statement assumes fixed-length observation rows, whereas affine rows (1,t) have changing length."
+      ],
+      "reasoning": "Recasting the affine information as a two-dimensional Gramian does not make its row vectors unit-length. The scale factor sqrt(1+t^2) is input-dependent, and the target trace(BG^-1) introduces a loss-dependent quadratic. A fixed-unit-norm angular result therefore cannot be substituted to obtain the exact coefficient or its nonuniform optimal sampling density. General sample-variance lower tails imply a power-law exponent but not the exact B-dependent optimizer.",
+      "searches": [
+        "affine least-squares small sample inverse Gram trace tail optimal continuous design density 1 over sqrt quadratic",
+        "random unweighted linear regression intercept slope near-coincident predictor samples universal optimal heavy-tail constant",
+        "\"sample variance\" \"optimal density\" \"inverse moment\" regression"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches on inverse Gram traces, iid affine sampling, projective information matrices and optimal continuous densities returned neighboring regression and geometric-tail statements but no matching exact density-design table.",
+        "Closest retrieved mathematical record classes were sample-variance tail phases, inverse-positive coordinate sampling, and planar unit-vector Gramian tails; none tabulated this coefficient for all fixed positive-definite losses."
+      ],
+      "reasoning": "The records compared concern different matrices, sample measures, or conditioning objectives. No exact matching formula or stronger theorem was found; absence from an indexed collection alone is not novelty proof.",
+      "searches": [
+        "exact polynomial tail of OLS parameter risk trace inverse information two-column feature curve and sampling-density minimax",
+        "projective curve information matrix inverse trace tail diagonal collision optimal design density",
+        "Sample variance inverse negative moments near collision interpolation least squares Christoffel small sample"
+      ]
+    },
+    "rationale": "The principal comparison is to randomized least-squares point selection, generic sample covariance lower-tail theory, and mixed volume/importance sampling experimental designs. The retrieved full texts establish different guarantees rather than an exact unweighted two-parameter iid inverse-information risk tail and a unique continuous density minimizing its leading coefficient for all sample sizes. Related prior results on beta-node affine slope moment thresholds already cover some moment-existence special cases, and unit-vector random-angle observability has a matching exponent, but neither yields the present variable-norm affine loss-weighted coefficient or its universal density optimizer. This is a best-knowledge publication-priority assessment, not an assertion of global uniqueness of the claim.",
+    "residual_risks": [
+      "Specialized older sharp small-ball or optimal random-design tail literature may contain an equivalent statement not located by searches.",
+      "The result does not compare exact finite-threshold probabilities, optimized mean risk, weighted least squares, or non-iid sampling.",
+      "The same sample-size moment threshold is known for related planar observation and affine slope problems; priority is asserted only for the full sharp coefficient and optimal density combination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its weighted and adaptive sampling bounds do not give the present two-column unweighted iid asymptotic coefficient or sharp continuous density minimizer.",
+        "evidence": [
+          "Theorem 1.1 and Algorithms 1–2 use effective-resistance selection; Section 6 compares random-node condition-number histograms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07435",
+        "material_read": "Accessible full-text manuscript, with direct examination of the introduction, Theorem 1.1, least-squares formulation, sampling Algorithms 1–2, and Section 6 conditioning comparison.",
+        "method": "Read full-text web rendering, examining theorem hypotheses and algorithm definitions.",
+        "title": "Randomized least-squares with minimal oversampling and interpolation in general spaces",
+        "trigger": "The motivating June 2023 work studies random point selection, spectral conditioning and approximation stability."
+      },
+      {
+        "assessment": "Generic probabilistic upper/lower tail bounds do not yield the exact affine collision integral or the optimizing input density.",
+        "evidence": [
+          "Section 3, Proposition 4 and Theorem 4 provide nonasymptotic tail inequalities with exponents proportional to sample size."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.10754",
+        "material_read": "Full indexed manuscript sections 1–3, especially Section 3.1 and Section 3.2, Theorem 4, and negative-moment discussion.",
+        "method": "Read full-text web rendering and inspect its lower-tail statements and proof domains.",
+        "title": "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+        "trigger": "This paper analyzes the same class of inverse covariance matrices and small eigenvalue tails."
+      },
+      {
+        "assessment": "Works with a finite design pool and uses joint volume-rescaled sampling plus importance scores; no matching exact continuous iid extreme-tail optimizer is present.",
+        "evidence": [
+          "Section 1.3 and Definition 11: volume sampling mixed with iid importance sampling; Theorems 4 and 5 target expected MSE and MSPE."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v99/derezinski19b/derezinski19b.pdf",
+        "material_read": "PDF text directly inspected in its introduction, sampling setup, Sections 1.3 and 3, selected pages 2 and 5–9, and closing discussion; selected page image visually checked.",
+        "method": "Read source PDF text, inspected page image and compared theorem assumptions.",
+        "title": "Minimax experimental design: Bridging the gap between statistical and worst-case approaches to least squares regression",
+        "trigger": "Closest explicit discussion of sampling distributions designed to control least-squares regression tail risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b5270d4-98c4-45ce-9d90-c47d8c5370ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the naturally occurring inverse information risk of the smallest nontrivial unweighted iid affine least-squares model. The exact asymptotic tail quantifies catastrophic failures missed by mean or typical condition numbers, and the unique design density has a non-obvious invariance across every sample size. For four draws over [-10,10] with Euclidean coefficient loss, the uniform-design leading tail constant is 6.943939 times the optimum. This is a motivated full classification of a practical rare-event design criterion, not a routine parameter substitution or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
