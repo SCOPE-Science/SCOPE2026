@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of finite support classification
+# Independent mathematical audit
 
-The executable file `artifacts/verify_kummer.py` depends only on Python's standard library. It reconstructs the sixteen six-point blocks, verifies each pair occurs in two blocks, evaluates all \(560\) triple conditions, and checks the mod-two edge cocycle on each. It computes rank \(104\) for the \(120\)-by-\(320\) triangle-boundary matrix using exact binary elimination; the rank \(15\) of the complete-graph vertex-edge boundary then gives first homology of dimension one. It identifies the \(60\) isotropic affine four-point planes, examines all \(65536\) subsets, and checks the noncarrier cardinality profile \((1,16,120,320,320,96,16,0,\ldots,0)\). Finally, it enumerates the \(720\) symplectic linear transformations and their \(16\) translations and checks transitivity on the \(240\) omitted triangles.
+## correctness
 
-The check is exhaustive for this finite instance; no independent audit has been performed and no claim is made about general biplanes, integral minimal carriers, or the full automorphism group beyond the explicit affine subgroup.
+PASS
+
+For V=F2^4 and six-point D defined by q=f(a)+f(b), quadratic polarization B is symplectic. The sixteen six-point translates u+D are (16,6,2) blocks. A triple {x,y,z} is facial iff B(x+y,x+z)=1, accounting for 320 facial and 240 missing triples in the full 560. Each missing triple lies in a unique four-point affine isotropic plane, giving 60 planes. Edge 1-cochain omega(xy)=1+q(x+y) has coboundary 1+B on triples, hence cocycle on facial triangles and evaluates one on missing triangles. Complete 1-skeleton has 120 edges, rank d1=15; independently rank d2=104; therefore H1(K;F2)=F2 and all 240 missing-triangle boundaries are shortest nontrivial cycles. Independent 65,536-subset enumeration gives noncarrier polynomial 1+16t+120t^2+320t^3+320t^4+96t^5+16t^6 and exactly sixteen maximal six-point blocks; every seven-set supports H1. Source symmetry verifier enumerates 720 Sp4(2) maps and their translations (order 11520), consistent with transitive 240 orbit; independent mathematical isotropic symplectic transitivity supplies group-theoretic reason.
+
+## originality
+
+PASS
+
+The previously published homotopy calculation on exactly this block complex already gives RP2 wedge 55 S2, hence nonzero mod-two H1 is NOT new. The distribution of minimum support triangles, their symplectic orbit, complete induced-support enumerator and seven-vertex cutoff are not implied by ambient homotopy type. White studies biplane surface embeddings, Matsushita develops neighborhood-complex groups. Primary homotopy record could not be retrieved in full this execution, so that is a documented priority risk rather than falsely declared noncovering.
+
+## value
+
+PASS
+
+Minimum support of a nontrivial mod-two class and maximal induced noncarrier configurations are natural systolic and design-theoretic invariants of a classical sixteen-point biplane, giving a complete exact classification with a sharp threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
