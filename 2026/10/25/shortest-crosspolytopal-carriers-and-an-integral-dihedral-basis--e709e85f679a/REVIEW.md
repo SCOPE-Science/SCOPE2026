@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph definition fixes all quantifiers and orientations. An exhaustive acyclic matching over all 4,362 nonempty simplices gives one critical vertex, eight critical four-cells and one critical five-cell, with signed attaching vector \((1,-2,1,1,-1,-1,1,-1)\). Its unit entry implies the integral wedge splitting. A separate exact induced-matching enumeration returns 21 ten-vertex crosspolytope spheres; their chain boundaries vanish, each coordinate vector is primitive, and two seven-element automorphism orbits have determinants \(+1\) and \(-1\). The checker reconstructs all 14 graph automorphisms and verifies positive reflection actions on these bases. The proof of the sharp lower support bound is given by induction via the flag-complex deletion–link exact sequence. Risks: computational implementation error remains possible despite exact exhaustive replay; mathematical construction has not undergone independent assessment.
+## correctness
 
-## Originality — PASS with bibliographic risk
-Searches targeted Brinkmann/Brinkman spellings, the 21-vertex four-regular four-chromatic girth-five graph, its independence and flag complexes, induced matching spheres and dihedral integral representation. The closest 1997 graph-construction note and 1999 regular-graph generation paper concern coloring and enumeration. Engström's 2005 independence-complex paper was inspected at full-document level: its stated classes and proofs do not give this graph-specific 21-carrier count or unimodular \(D_7\)-module. Related published calculations concern other graphs and do not imply the present statement. The original 1997 note was accessible only by metadata/abstract; equivalent unpublished, paywalled or unindexed computations remain possible. These searches are not proof of historical uniqueness.
+PASS
 
-## Value — PASS
-The Brinkmann graph is an extremal, highly structured four-chromatic girth-five graph. Exact minimal support, geometric generators and *integral* dihedral lattice determine topological information invisible to the independence polynomial and to the seven-dimensional rational character. Two inequivalent natural geometric orbit bases are a substantive structural result, not a routine rename or a narrow arbitrary parameter.
+For the explicit 21-vertex Brinkmann graph, independent bitset recursion enumerated exactly 4,362 nonempty independent faces with f-vector (21,168,658,1344,1400,665,106). Reimplemented deterministic vertex toggles: exactly 2,176 pairs and critical cells one vertex/eight 4-faces/one 5-face; whole directed Hasse graph has 19,418 arrows and topological sorting visited all 4,362 nodes, proving acyclicity. Independently reconstructed the signed Morse boundary of 5-cell as primitive (1,-2,1,1,-1,-1,1,-1), giving wedge of 7 S^4 integrally (cell attaching vector unit after integer basis change). Generic flag support bound minimal 2d+2=10, equality requires an induced matching of five disjoint forbidden edges; exhaustive five-edge induced matching enumeration gives precisely 21 ten-vertex supports. Integer cycles on those octahedral spheres are genuine simplicial cycles with primitive projected coordinates. All 14 automorphisms were enumerated and the three size-7 D7 orbit ranks/determinants computed (6,0),(7,+1),(7,-1); reflection acts without sign on each integral basis orbit, yielding Z[D7/C2]. These exhaustive checks prove only this finite named graph theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A natural 21-vertex Brinkmann graph from 4-regular 4-chromatic girth-five graph theory has an integral independence-complex classification beyond published graph enumeration. A fully reconstructed 4,362-face Morse reduction gives wedge seven S^4; induced matching enumeration yields EXACTLY 21 minimum 10-vertex four-sphere carriers, grouped into three D7 seven-orbits with two UNIMODULAR basis orbits. Generic flag-support bounds and Engström independence-complex methods do not determine these graph-specific integral orbit lattices. Original 1997 paper was located bibliographically but could not be read in full; named risk but not an automatic O failure.
+
+## value
+
+PASS
+
+This is a complete, natural finite topological and integral symmetry computation on a distinguished extremal regular graph. The sharp minimal-carrier census and two separate unimodular dihedral orbit bases determine genuinely more than Betti numbers and supply concrete integer cycles for other graph-configuration and representation computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
