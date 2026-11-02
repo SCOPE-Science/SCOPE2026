@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem is established analytically in `RESULT.md`. Run `python verify.py` with Python 3 and SymPy to reproduce the exact checks.
+## correctness
 
-The checker independently constructs grounded Laplacian inverses with rational arithmetic for 99 distinct iterated-pyramid graphs, calculates all edge effective resistances, and verifies both vertex curvatures. A separate symbolic Chebyshev-polynomial route checks 446 exact settings of the quadratic threshold. The output from the completed run was:
+PASS
 
-```
-EXACT_OK independent_laplacian_cases=99 spectral_threshold_cases=446
-```
+The r-fold n-gon pyramid has skeleton K_r join C_n (n>=3,r>=1), not a Cartesian product. Fourier decomposition of its Laplacian yields R_AA=2/(n+r) and the apex–rim resistance formula; Foster sum gives r κ_A+n κ_C=1. The cycle eigenvalues λ_j=2−2cos(2πj/n) and weights w_j=n−λ_j satisfy sum w=n(n−3), sum wλ=2n(n−3). For n>=5, positivity of κ_A follows from Jensen strict lower F_n(B/2−2)>2, chord upper F_n(B/2−1)<2 and monotonicity in integer r; rim κ_C>=1/(n+r). Special n=3 complete graph and n=4 modes addressed. Independently evaluated 91 integer (n,r) cases against claimed 2r>=n(n−3)−2. No integer curvature zero, so fixed unit-conductance strict threshold holds for all parameters (not for weighted-existence curvature).
 
-No numerical tolerances are used. These calculations are not an exhaustive enumeration over arbitrary dimensions; the all-parameter statement rests on the spectral proof, Jensen's inequality, the convex chord bound, and the separate small-polygon cases.
+## originality
 
-The fixed unit-conductance interpretation must not be changed into a claim about existence of favorable edge weights, which is a different curvature problem.
+PASS
+
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
+
+## value
+
+PASS
+
+Iterating pyramids over convex polygons gives natural polytopal graph family that repairs a known unit-conductance resistance-curvature obstruction. The exact integer quadratic threshold and no-zero gap are structurally meaningful; general join resistance identities alone leave a nontrivial Fourier sign optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

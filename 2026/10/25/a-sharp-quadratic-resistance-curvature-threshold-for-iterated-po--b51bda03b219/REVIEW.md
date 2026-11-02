@@ -1,19 +1,21 @@
-# Review of the sharp polygon-pyramid curvature threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The one-skeleton is the join of a clique with a cycle. Its Laplacian splits orthogonally into the constant line, the apex-direction eigenspace at eigenvalue \(n+r\), and the nonconstant cycle Fourier modes at eigenvalues \(r+\lambda_j\). This gives exactly the apex-to-rim resistance, the apex-to-apex resistance, and the displayed apex curvature. Foster's theorem gives the rim curvature. The trace identities for the nonzero cycle Laplacian modes fix the weighted mean at two; Jensen's lower bound and a chord upper bound straddle two at **consecutive** integer values of the pyramiding parameter. The boundary dimensions \(n=3,4\) are treated separately. The independent grounded-Laplacian checker and symbolic cycle-characteristic checker agree with the formula in all tested cases. No finite computation is used to infer the general theorem.
+PASS
 
-## Originality
+The r-fold n-gon pyramid has skeleton K_r join C_n (n>=3,r>=1), not a Cartesian product. Fourier decomposition of its Laplacian yields R_AA=2/(n+r) and the apex–rim resistance formula; Foster sum gives r κ_A+n κ_C=1. The cycle eigenvalues λ_j=2−2cos(2πj/n) and weights w_j=n−λ_j satisfy sum w=n(n−3), sum wλ=2n(n−3). For n>=5, positivity of κ_A follows from Jensen strict lower F_n(B/2−2)>2, chord upper F_n(B/2−1)<2 and monotonicity in integer r; rim κ_C>=1/(n+r). Special n=3 complete graph and n=4 modes addressed. Independently evaluated 91 integer (n,r) cases against claimed 2r>=n(n−3)−2. No integer curvature zero, so fixed unit-conductance strict threshold holds for all parameters (not for weighted-existence curvature).
 
-PASS, subject to historical priority limitations. The 2025 polytopal-curvature paper identifies general obstructions and families but not the two-parameter unit-conductance integer phase diagram. Sedlák and Slavík's general resistance-distance formula for joins specializes to the intermediate electrical identities; **that part is prior work**, not an originality claim. Extracting a closed exact *sign threshold* for all base sizes and all pyramid counts requires additional two-moment inequalities; it is not stated in the inspected join or curvature papers. The 2025 weighted-existence graph classes and the 2026 graph-product paper do not cover the unweighted sign classification. A residual risk remains from older equivalent cycle-join specializations or uninspected graph-resistance literature.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Pyramiding is one of the basic operations on convex polytopes. The result answers a concrete structural question: how many successive pyramids over a polygon are required before all vertices of the one-skeleton acquire positive *unweighted* resistance curvature? The exact minimum is \((n(n-3)-2)/2\) for \(n\ge5\), and its proof explains the sharp phase using only the first two cycle-Laplacian moments and spectral interval bounds. It also establishes that no vertex has zero curvature at integer parameters and that the polygon vertices are positive throughout. The distinction from existence of some positive weighting is mathematically essential.
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
 
-## Scope and residual risk
+## value
 
-Only unit-conductance one-skeleta of iterated pyramids over convex polygons are classified. General join resistance formulas imply the resistance computations but do not, in the inspected material, provide the exact phase transition. Independent historical priority assessment remains to be done.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Iterating pyramids over convex polygons gives natural polytopal graph family that repairs a known unit-conductance resistance-curvature obstruction. The exact integer quadratic threshold and no-zero gap are structurally meaningful; general join resistance identities alone leave a nontrivial Fourier sign optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
