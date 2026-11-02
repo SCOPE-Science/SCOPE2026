@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For the displayed morphism \\(\\sigma(a)=ab,\\sigma(b)=ac,\\sigma(c)=db,\\sigma(d)=dc\\), every image alternates \\(A=\\{a,d\\}\\) and \\(B=\\{b,c\\}\\). Injectivity of the first- and last-letter maps on each parity class reconstructs source factors from aligned and shifted windows. This proves \\(P(2m)=P(m)+P(m+1)\\) for \\(m\\ge2\\), and \\(P(2m+1)=2P(m+1)\\) for \\(m\\ge1\\); the initial values \\(P(1)=4,P(2)=8\\) imply \\(P(n)=8(n-1)\\) for \\(n\\ge2\\). Every length-at-most-eight factor lies inside \\(\\sigma^3(xy)\\) for one of eight proved adjacent pairs \\(xy\\); all eight pairs occur, so this union is exhaustive in the infinite fixed point. The 56 length-eight factors have no reversed partner; the four length-seven reversible factors are palindromes. A larger reversed pair would contain a reversed length-eight pair. The exact short table and \\(R(n)=P(n)-(U_n-Q_n)/2\\) finish the proof. The standalone checker actually returned `VERIFY_OK`; it confirms the factor-certificate SHA-256 and tests additional finite cases without substituting for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche et al. 2024, generalized Golay–Shapiro theorem: no reflected factor at binary length 15; binary reflection complexity \\(8n-8\\) for \\(n\\ge15\\) (https://arxiv.org/abs/2406.09302).",
+        "Allouche et al., Palindrome complexity, §4.1: all generalized binary Rudin–Shapiro palindromes cease by length 15; no four-letter reflected-pair classification in the inspected section (https://arxiv.org/html/math/0106121v1)."
+      ],
+      "reasoning": "These are close by classical object/invariant, but apply to a projected alphabet or merely the palindromic subset. No checked theorem supplies all ordinary reversal-pair classes of the unprojected four-state source. Known high-length binary factor count is not a covering full four-letter reflection result.",
+      "searches": [
+        "\"Rudin-Shapiro\" \"four-letter\" \"factor complexity\"",
+        "\"Rudin-Shapiro\" \"four-letter\" \"palindrome\" complexity",
+        "arxiv:2406.09302 generalized Golay-Shapiro section Proposition 58 Theorem 59"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2406.09302 relevant generalized Golay–Shapiro section (preprint first posted 2024-06-13)",
+      "arxiv:math/0106121 §4.1 (preprint first posted 2001-06-14)",
+      "arxiv:math/0311121 §2 (preprint first posted 2003-11-07)",
+      "DOI:10.1016/j.exmath.2021.08.001 unprojected substitution example"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem on generalized Golay–Shapiro has binary alphabet and length-15 bound; the present theorem has alphabet {a,b,c,d} and sharp length-eight bound.",
+        "The 2001 theorem concerns binary palindrome length cutoffs; the present result counts nonpalindromic reversal pairs too.",
+        "The 2003 paper constructs other examples avoiding reversed factors, not this substitution (https://arxiv.org/abs/math/0311121)."
+      ],
+      "reasoning": "Neither binary projection, palindrome-only classification, nor existence of some reversal-avoiding words implies sharp reverse isolation of this specific four-letter fixed point, and none gives its seven exceptional values. Conversely the four-letter theorem does not imply the binary cutoff, as noninjective coding may create new reflected pairs.",
+      "searches": [
+        "arxiv:2406.09302 Theorem generalized Golay-Shapiro 8n-8 no reflection >=15",
+        "arxiv:math/0106121 Section 4.1 Rudin-Shapiro palindrome complexity",
+        "arxiv:math/0311121 Section 2 words avoiding reversed subwords"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 source defines reflection as reversal-orbit counting and treats binary generalized Golay–Shapiro, not the four-symbol source (https://arxiv.org/abs/2406.09302).",
+        "The 2022 automatic-sequence survey specifies the identical four-letter morphism as a precursor of the coded binary Rudin–Shapiro word (DOI:10.1016/j.exmath.2021.08.001)."
+      ],
+      "reasoning": "Literal reflection in {a,b,c,d} is not preserved as an equivalence by noninjective binary coding: distinct letters become indistinguishable; a reversal witnessed after coding need not lift to a reversed four-letter factor. Exact-substitution and alternate-name searches gave no equivalent full four-letter classification.",
+      "searches": [
+        "\"four-letter\" \"Rudin-Shapiro\" \"reflection complexity\"",
+        "\"Rudin Shapiro\" \"four letter\" \"reversal\" \"factor complexity\"",
+        "\"ab\" \"ac\" \"db\" \"dc\" \"palindromes\" \"factors\" Rudin Shapiro"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact 56-factor/reversal certificate, length-eight cutoff, or table (4,4,12,16,28,36,48) arose from those actual mathematical-record searches.",
+        "A separately indexed mathematical result on dyadic Rudin–Shapiro string attractors of finite prefixes concerns a different invariant and provides no reflected-factor implication."
+      ],
+      "reasoning": "A factor-complexity total or isolated palindrome count is not an exact reversal-orbit table. Absence in queried records is weak negative bibliographic evidence, not proof of novelty; the primary implication comparison is decisive.",
+      "searches": [
+        "\"four letter Rudin Shapiro substitution a ab b ac c db d dc: reflection complexity, reverse factors, palindrome cutoff at length 8\"",
+        "\"primitive four-state Rudin-Shapiro cover fixed point reverse pairs length 7 length 8\"",
+        "\"abac abacabdb Rudin Shapiro reflection factor palindrome\""
+      ]
+    },
+    "rationale": "The nearest primary result, Allouche et al. (arXiv:2406.09302, section on generalized Golay–Shapiro), concerns a binary mod-two coded sequence, with cutoff length 15 and different short-length orbit counts; it neither states nor implies literal four-state reflection cutoff eight. The 2001 palindrome-complexity survey treats binary generalized Rudin–Shapiro palindrome bounds, and the 2003 reversal-avoidance article presents generic constructions. Searches of exact substitution rules, aliases, palindrome/reflection/reversal and record claims found no equivalent four-letter full function. The 2022 automatic-sequence survey defines this morphism but not the invariant. Residual risk: an unindexed or historically differently presented identical four-letter result, or work on a conjugate substitution.",
+    "residual_risks": [
+      "A published but unindexed equivalent profile under the exact four-state substitution or its conjugate presentation could escape semantic and exact-phrase search.",
+      "1997 Allouche paper on nonpalindromic Rudin–Shapiro potentials was available only through abstract-level bibliographic evidence; no whole-document noncoverage claim is made.",
+      "Related literature on known factor or palindrome counts might contain parts of the result, even though no inspected theorem supplied the whole four-letter reflection classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING: binary two-letter sequence formed from paperfolding sums, unlike four-letter precursor",
+        "evidence": [
+          "The paper defines generalized Golay–Shapiro as a running sum modulo two and proves absence of binary reflected factors of length at least 15, with reflection complexity \\(r(n)=8n-8\\) for \\(n\\ge15\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+        "material_read": "Abstract/definitions plus generalized Golay–Shapiro Proposition and Theorem with factor/reflective values, including PDF pages 28–29 and corresponding HTML section",
+        "method": "Read relevant accessible preprint full-text section and inspected PDF page renderings",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Closest source, identical invariant and Rudin–Shapiro name"
+      },
+      {
+        "assessment": "NOT_COVERING after relevant section comparison: theorem about binary palindrome counts, not four-letter reversal-orbit complexity",
+        "evidence": [
+          "Section 4.1 defines generalized binary Rudin–Shapiro by cumulative sum modulo two and states absence of palindromes for lengths at least 15."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0106121v1",
+        "material_read": "Sections 1–2 and 4.1, including definitions and Theorem 4 for generalized binary Rudin–Shapiro and paperfolding sequences",
+        "method": "Read accessible arXiv full-text HTML at named sections",
+        "title": "Palindrome complexity",
+        "trigger": "Historic palindromicity theory in the Rudin–Shapiro family"
+      },
+      {
+        "assessment": "NOT_COVERING: generic constructions and minimal-alphabet results do not calculate four-letter Rudin–Shapiro precursor",
+        "evidence": [
+          "Section 2 proves existence and rigidity of other reversal-avoiding words, no exact profile for the given four-state morphism."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0311121",
+        "material_read": "Abstract and Section 2 with Theorems 1–5 and the concrete constructions",
+        "method": "Read arXiv-accessible article full-text in the relevant section",
+        "title": "Words avoiding reversed subwords",
+        "trigger": "Foundational paper specifically on absence of reversed factors"
+      },
+      {
+        "assessment": "OBJECT_DEFINITION_ONLY in the inspected material; does not supply reversal complexity",
+        "evidence": [
+          "Defines a->ab,b->ac,c->db,d->dc and a,b->+1,c,d->-1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.exmath.2021.08.001",
+        "material_read": "Morphic/automatic preliminaries and explicit Rudin–Shapiro morphism/coding example",
+        "method": "Read publicly available article web text at the matching passage",
+        "title": "How to prove that a sequence is not automatic",
+        "trigger": "Scholarly identification of exact unprojected Rudin–Shapiro morphism"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fce5a553-0756-4cf8-ae53-4cafcd039893",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unprojected four-state morphic cover of Rudin–Shapiro is a canonical natural automatic-sequence object, and reflection complexity is an established word invariant. The result exactly determines that invariant at every length and pins down the sharp threshold at eight with exceptional reversible palindromes; this is not an arbitrary finite slice or a restatement of the binary coding theorem. The nontrivial parity/injective-boundary mechanism also makes finite factor enumeration complete, providing a reusable structural tool for language analysis.",
+    "status": "PASS"
+  }
+}
