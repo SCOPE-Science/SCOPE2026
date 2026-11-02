@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_first_close.py` with Python 3 and no third-party packages. The program enumerates all perfect matchings with \(2n\) ordered endpoints for every \(2\le n\le7\). It computes \(T_n\) as the minimum larger endpoint, counts alternating-endpoint chord crossings, and checks each exact conditional mean, survival probability, survival-conditional crossing mean, and unconditional mean with exact rational arithmetic. The largest case has \(135{,}135\) matchings and the six cases together have \(146{,}598\). All checks passed in the reviewed run. The exact all-size proof and all asymptotic statements are mathematical, not certified by this finite test. No independent audit has been performed.
+## correctness
+
+PASS
+
+Expose first t endpoints as distinct openers under T>t, with survival product p_n,t = product_{s=2}^t 2(n-s+1)/(2n-s+1), zero at n+1. The crossing pair categories opener-opener, opener-tail, tail-tail have conditional probabilities 1/2, 1/3, 1/3, giving e_n,t=n(n-1)/6+t(t-1)/12. Subtract weighted survival means for adjacent t to derive quadratic conditional regression, including final possible t=n+1. Monotone regression proves covariance positivity; Rayleigh limit T/sqrt(n) with survival exp(-x^2/4), uniform tail bound and moment convergence yield sqrt(pi)/6; classical Var(X)=n(n-1)(n+3)/45 yields stated correlation. Independent full exact enumeration matchings n2..6 (3+15+105+945+10395) matches every 20 conditional regression values and survival tests.
+
+## originality
+
+PASS
+
+Known Velleman–Warrington first match time law and Flajolet–Noy crossing moments separately do not determine the joint conditional regression. Acan–Hitczenko relate memory game and chord growth, while Paguyo considers crossings limits; an explicit full joint regression under first closing right endpoint was not found in inspected actual statements.
+
+## value
+
+PASS
+
+A natural first-event waiting time and global interlacing count have a nontrivial exact quadratic regression and strictly positive dependence, despite vanishing scaled correlation. The joint law is not inferable from classical marginals; this is a reusable structural statistic and complete conditional first-moment result for every n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

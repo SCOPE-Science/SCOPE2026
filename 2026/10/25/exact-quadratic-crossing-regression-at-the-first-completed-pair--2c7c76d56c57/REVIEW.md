@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For uniform random pairings, survival under first completion has an exact sequential exposure product. Counting opening/opening, opening/tail, and tail/tail chord-pair crossings gives the survival-conditioned mean. Differencing adjacent survival events yields the exact conditional regression; independent-copy monotonicity proves strict covariance positivity. The Rayleigh moment argument and classical crossing variance prove the stated scales. Direct exact enumeration checks all claimed finite regression values and boundary cases through seven chords. The finite checks do not replace the proof.
+PASS
 
-## Originality — PASS (best-knowledge, with source-access limitation)
+Expose first t endpoints as distinct openers under T>t, with survival product p_n,t = product_{s=2}^t 2(n-s+1)/(2n-s+1), zero at n+1. The crossing pair categories opener-opener, opener-tail, tail-tail have conditional probabilities 1/2, 1/3, 1/3, giving e_n,t=n(n-1)/6+t(t-1)/12. Subtract weighted survival means for adjacent t to derive quadratic conditional regression, including final possible t=n+1. Monotone regression proves covariance positivity; Rayleigh limit T/sqrt(n) with survival exp(-x^2/4), uniform tail bound and moment convergence yield sqrt(pi)/6; classical Var(X)=n(n-1)(n+3)/45 yields stated correlation. Independent full exact enumeration matchings n2..6 (3+15+105+945+10395) matches every 20 conditional regression values and survival tests.
 
-Velleman--Warrington (2012) treats the position of the first matching card. Flajolet--Noy (2000) treats chord crossings; their two marginal conclusions do not determine a joint regression. Acan--Hitczenko (2014) considers random chord-diagram growth. Paguyo's more recent univariate crossing limit results are also different. Searches included first completed pair, earliest right endpoint, first matching card, crossing counts, and short-chord aliases. The closest previously recorded short-chord/crossing claim does not imply this first-completion conditional expectation. Some older or unindexed weighted-diagram work may contain an equivalent law; absence of an explicit result from inspected full-text sources is not an exhaustive priority guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This exact cross-statistic law links a natural sequential waiting time to a global interlacing observable, distinguishes order-of-growth of covariance and correlation, and supplies usable finite conditional expectations. The dependence is not deducible from separate marginal laws and remains strictly positive at every admissible finite size.
+Known Velleman–Warrington first match time law and Flajolet–Noy crossing moments separately do not determine the joint conditional regression. Acan–Hitczenko relate memory game and chord growth, while Paguyo considers crossings limits; an explicit full joint regression under first closing right endpoint was not found in inspected actual statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural first-event waiting time and global interlacing count have a nontrivial exact quadratic regression and strictly positive dependence, despite vanishing scaled correlation. The joint law is not inferable from classical marginals; this is a reusable structural statistic and complete conditional first-moment result for every n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

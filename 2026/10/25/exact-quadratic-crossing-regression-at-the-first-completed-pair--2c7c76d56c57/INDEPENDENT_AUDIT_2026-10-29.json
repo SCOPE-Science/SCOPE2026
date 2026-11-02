@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:45:13.174761Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Git blob b381b2a36418402227ca733c5266a829ae3d1cc6, survival decomposition, exact regression, Rayleigh moment argument",
+        "Independent exact enumerator n2..6 (11,463 perfect matchings; 20 conditional values) confirms polynomial regression, crossing means and survival",
+        "Flajolet–Noy (2000) published crossing variance used as a classical input."
+      ],
+      "limitations": [
+        "Only first conditional moment, not full joint distribution or stochastic order; uniform matchings on labelled ordered endpoints. Asymptotics n to infinity proved analytically not by enumeration."
+      ],
+      "rationale": "Expose first t endpoints as distinct openers under T>t, with survival product p_n,t = product_{s=2}^t 2(n-s+1)/(2n-s+1), zero at n+1. The crossing pair categories opener-opener, opener-tail, tail-tail have conditional probabilities 1/2, 1/3, 1/3, giving e_n,t=n(n-1)/6+t(t-1)/12. Subtract weighted survival means for adjacent t to derive quadratic conditional regression, including final possible t=n+1. Monotone regression proves covariance positivity; Rayleigh limit T/sqrt(n) with survival exp(-x^2/4), uniform tail bound and moment convergence yield sqrt(pi)/6; classical Var(X)=n(n-1)(n+3)/45 yields stated correlation. Independent full exact enumeration matchings n2..6 (3+15+105+945+10395) matches every 20 conditional regression values and survival tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Univariate crossing means/variance and first-match marginal moments do not determine E[X|T]. A fully bivariate GF with first-closing-time marker could dominate but was not located."
+        ],
+        "reasoning": "Reviewed scope and implications; modern chord-growth analyses are plausible but no explicit stronger conditional law in examined parts.",
+        "searches": [
+          "Acan–Hitczenko arXiv:1411.5751 chord growth",
+          "Paguyo arXiv:2104.01134 crossings limit theorems",
+          "Flajolet–Noy 2000 generating functions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1208.4854",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://arxiv.org/abs/1411.5751",
+        "https://arxiv.org/abs/2104.01134",
+        "Resultary: chord diagram first-close conditional crossing query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new joint conditional regression implies an exact mixed covariance not determined by either marginal theorem. The variance is borrowed as an explicit prior input to correlation asymptotic."
+        ],
+        "reasoning": "Distinguished the reused marginal results from the new cross-functional conditional expectation and its consequences.",
+        "searches": [
+          "Velleman–Warrington 2012 first match expectation",
+          "Flajolet–Noy 2000 crossing mean and variance",
+          "Paguyo 2021 crossings CLT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First matched card in memory-game model corresponds to min right endpoint T_n. Chord crossings are alternating endpoints. Marginal laws of each are known but not their conditional coupling."
+        ],
+        "reasoning": "Compared first matching position, first chord closing event, opening/closing process and chord-diagram crossing count; no equivalent conditional polynomial in consulted primary passages.",
+        "searches": [
+          "Velleman–Warrington arXiv:1208.4854v1 first match",
+          "Flajolet–Noy INRIA RR3914 chord crossings",
+          "Resultary: first completed pair endpoint conditional crossings expected number regression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published findings concern geometric random chords, unrelated tree degree-distance regression or generic chord model-theory; no same pairing statistic."
+        ],
+        "reasoning": "No exact cross-statistic database table was identified; absence is not novelty certification.",
+        "searches": [
+          "Resultary: uniform random chord diagram first completed pair endpoint conditional crossings expected number regression",
+          "Resultary: chord-diagram completion time crossings covariance"
+        ]
+      },
+      "rationale": "Known Velleman–Warrington first match time law and Flajolet–Noy crossing moments separately do not determine the joint conditional regression. Acan–Hitczenko relate memory game and chord growth, while Paguyo considers crossings limits; an explicit full joint regression under first closing right endpoint was not found in inspected actual statements.",
+      "residual_risks": [
+        "Earlier bivariate chord-growth generating functions could encode the regression under another statistic name.",
+        "The covariance sign does not imply global stochastic monotonicity of crossings conditionally on T."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIRST_MATCH_MARGINAL_ONLY",
+          "evidence": "First-match time expectation/Rayleigh scale, not conditional crossing count.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.4854",
+          "material_read": "Full available PDF, definition of first match, expectation theorem and supporting sections",
+          "method": "Read PDF text and visually inspected introductory page",
+          "title": "Matching Expectations",
+          "trigger": "First matching card corresponds to T_n"
+        },
+        {
+          "assessment": "CROSSING_MARGINAL_ONLY",
+          "evidence": "Var(X)=n(n-1)(n+3)/45, not mixed with first-completion time.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Full available PDF, crossing generating function, mean/variance results",
+          "method": "Read PDF text and visually inspected page of theorem/calculations",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Crossing statistic moment input, same random pairing space"
+        },
+        {
+          "assessment": "POSSIBLE_INDIRECT_OVERLAP",
+          "evidence": "No definitive full-text noncoverage conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.5751",
+          "material_read": "Available abstract and main stated objectives; complete source not reviewed",
+          "method": "ArXiv abstract and related statements",
+          "title": "On a memory game and preferential attachment graphs",
+          "trigger": "Sequential chord exposure model may entail joint statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Uniform random perfect matching of 2n ordered endpoints has E[X_n|T_n=t]=n(n-3)/6+(t-1)(t+2)/12 for n>=2, 2<=t<=n+1; the regression is increasing, Cov(T,X)>0, and Cov/n^(3/2)->sqrt(pi)/6, sqrt(n)Corr->sqrt(5pi)/(2sqrt(4-pi)).",
+        "Mathematical motivation and prior-scoped comparison in RESULT.md and this independent review."
+      ],
+      "limitations": [
+        "Only first conditional moment, not full joint distribution or stochastic order; uniform matchings on labelled ordered endpoints. Asymptotics n to infinity proved analytically not by enumeration."
+      ],
+      "rationale": "A natural first-event waiting time and global interlacing count have a nontrivial exact quadratic regression and strictly positive dependence, despite vanishing scaled correlation. The joint law is not inferable from classical marginals; this is a reusable structural statistic and complete conditional first-moment result for every n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1208.4854",
+    "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+    "https://arxiv.org/abs/1411.5751",
+    "https://arxiv.org/abs/2104.01134",
+    "Resultary: chord diagram first-close conditional crossing query"
+  ],
+  "disposition": "passed",
+  "final_claim": "Uniform random perfect matching of 2n ordered endpoints has E[X_n|T_n=t]=n(n-3)/6+(t-1)(t+2)/12 for n>=2, 2<=t<=n+1; the regression is increasing, Cov(T,X)>0, and Cov/n^(3/2)->sqrt(pi)/6, sqrt(n)Corr->sqrt(5pi)/(2sqrt(4-pi)).",
+  "limitations": [
+    "Only first conditional moment, not full joint distribution or stochastic order; uniform matchings on labelled ordered endpoints. Asymptotics n to infinity proved analytically not by enumeration."
+  ],
+  "residual_risks": [
+    "Earlier bivariate chord-growth generating functions could encode the regression under another statistic name.",
+    "The covariance sign does not imply global stochastic monotonicity of crossings conditionally on T."
+  ],
+  "schema_version": 1
+}
