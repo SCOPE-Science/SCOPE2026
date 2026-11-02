@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The entrywise polynomial is derived from the unoriented incidence-matrix block Laplacian. All off-diagonal pairs fall into six disjoint classes. Nonnegative classes are explicit monomials; two remaining quadratics have strictly negative discriminants and positive leading coefficients, and the incident original-to-edge cubic has the positive lower bound \(1-x+x^2/3\) on the required interval. The diagonal is positive because the scalar stability polynomial has an explicit sum-of-squares representation. A length-two path yields a negative distance-three entry at **every** timestep above \(2/(d+2)\). Perron–Frobenius applied to the signless Laplacian supplies the exact largest eigenvalue. The direct construction of 24 base graphs and 9,338 exact coefficient comparisons in `verify.py` corroborated the block formulas; enumeration is not used as infinite proof.
+## correctness
 
-## Originality — PASS, residual risk
-The 2001 full text by Gottlieb, Shu and Tadmor supplies general SSP theory, not the all-regular-base incidence-graph result. The accessible 2015 full text by Khalsaraei gives positivity conditions for upwind advection and Burgers discretizations, not for a graph's full edge subdivision. Steinerberger's 2018 work concerns true heat-semigroup asymptotics, not the fourth-degree RK4 polynomial. Mathematical research-record searches using “classical RK4 positivity ... full edge subdivisions”, “semiregular bipartite network ...”, and “Taylor polynomial ... regular bipartite ...” returned related methods but no covering theorem. Previously known special-family graph results include degree-at-most-two, complete multipartite, Hamming and crown graphs; those do not imply the arbitrary regular-base subdivision statement. General methods, unindexed graph-specific results, and one incompletely accessible 2003 paper remain originality risks. A failed search alone is not taken as proof of uniqueness.
+PASS
 
-## Value — PASS
-Subdivision networks model coupled original sites and edge-mediated intermediate states. A degree-only, topology-independent, **sharp** completed-step positivity threshold over all connected regular underlying networks is a meaningful classification: it holds independently of size, girth and spectrum. It also quantifies exactly when completed RK4 extends the forward-Euler positivity horizon and when spectral stability ceases to ensure a nonnegative numerical solution. The result provides an exact network diffusion benchmark, not simply a calculation for one chosen finite graph.
+For every finite connected simple d-regular graph (d>=2), with each edge once subdivided and unit weights, the exact completed classical RK4 step R_4(-hL) is entrywise nonnegative iff 0<=h<=2/(d+2). Reconstructed block incidence L=[[dI,-B],[-B^T,2I]] and all six off-diagonal pair types. Nonincident original/edge entry equals c*h^3*(1-(d+2)h/2)/6, with c>0 on an existing length-two base-graph path, giving a negative entry for EVERY h beyond the threshold. Incident pairs positive on range by F_d=1-x+x^2(a_d-b_dx), a_d-b_d=1/3, 0<=x<=1; original/original and edge/edge quadratic discriminants strictly negative, remaining off-diagonal types nonnegative. Diagonals positive because scalar R_4(-z)=(1-z/2)^2+z^2*((z-2)^2+2)/24>0. The sign-conjugate Perron eigenvector gives maximal Laplacian eigenvalue d+2; spectral contractivity extends to rho/(d+2), distinct from positivity. Independent exact rational matrix powers rechecked C4,C5,K4,K5 at threshold, before/after, row sums and witnesses. These finite examples corroborate, rather than prove, the general incidence identities.
 
-## Limits
-Only simple, connected, unweighted regular base graphs with one subdivision per edge, integer \(d\ge2\), and completed classical RK4 steps are covered. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: explicit exact graph-family positivity cutoff and nonreentrant negative witness are not shown by the inspected general SSP theory or distinct semigroup and Markov/rational schemes. Cycle and complete-bipartite specializations are not claimed as new. A structurally equivalent special-graph formula in less indexed numerical ODE literature remains plausible.
+
+## value
+
+PASS
+
+Sharp nonreentrant timestep cutoff for a natural family of heat networks, independent of size and graph geometry; separates entrywise positivity from Euclidean contractivity and improves on forward Euler at d>=3. It is a meaningful numerical stability classification, not a mere polynomial rewrite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
