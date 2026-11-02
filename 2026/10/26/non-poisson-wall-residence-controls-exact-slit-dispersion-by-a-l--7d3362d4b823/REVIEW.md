@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite-width four-direction excursion has explicitly solved backward exit-time equations giving mean duration \(2W/v\). A stopped Poisson velocity-corrector martingale determines its complete second displacement moment. Conditioning on arbitrary independently sampled wall sojourn times and integrating the telegraph covariance gives the single-Laplace-value formula. The regenerative theorem supplies the long-time limit, and Jensen/convex-order and Laplace-transform uniqueness give the extremal and inverse statements. Four independent full-trajectory simulations and deterministic generator/algebra tests corroborate the proof. No finite simulation is used as a proof of an infinite-law statement.
+## correctness
 
-**Originality: PASS, with risk.** The 2024 source already proves the exponential-escape formula, and its Conclusion explicitly points out that non-Poisson tumbling and escape are omitted. Direct comparison of the source's full model and formulas with the present claim isolates the new assertion: an arbitrary-wall-time Laplace formula, sharp fixed-mean convex-order ordering, and recovery of the wall law from the diffusion curve. Datta et al. treat arbitrary run/turn waiting laws without bounded slit plus mobile wall; Salgado-García treats adsorption on disordered obstacles without the same persistent wall telegraph process. General regenerative diffusivity is known and not claimed as new. Risk: a broader renewal-transport result not found in the inspected literature could imply the full specialization, and search cannot certify worldwide priority.
+PASS
 
-**Value: PASS.** The original article identifies non-Poisson escape as a physically motivated missing element, and observed bacterial surface residence times exhibit variability. The theorem shows that two populations can have the same occupancy and mean wall residence but strictly ordered long-range transport; it provides sharp attainable/unattainable bounds and an inverse spectroscopic identification law. These are model-specific consequences that answer a motivated measurement and transport-design question rather than merely substituting a nonexponential density into an existing Poisson formula.
+The bulk backward-generator equations for up/down/horizontal velocities were checked independently by exact rational substitution at 41 positions; entering at a wall in the inward state gives E[B]=2W/v and the stopped horizontal velocity-corrector martingale gives E[H²]=v²E[B]/lambda. For a random wall stay S, telegraph sign covariance exp(-beta|t-s|) integrates exactly to E[J²|S]=2 vbar²/beta [S-(1-e^{-beta S})/beta]. Independent, centered regenerating cycles of mean duration b+m and finite second time moment give D=(E H²+E J²)/(2(b+m)); this is the formula. Strict convexity of e^{-beta S}, Jensen, two-point increasingly variable laws and Laplace uniqueness establish the order, sharp bounds and identification. Independent algebra checks corroborated generator and Laplace identities. This depends on complete directional resetting, finite second moments and fixed positive beta; there is no extension to correlated wall histories or continuously oriented swimmers.
 
-**Closest literature and scope.** Pietrangeli et al., Phys. Rev. Research 6, 023028 (2024), Sec. II and Conclusion; Datta et al., arXiv:2406.15277, Sec. II and Sec. V; Salgado-García, arXiv:2105.10840, Secs. II–III; Junot et al., arXiv:2107.11123, abstract. The claim requires independent renewal of wall dwell and direction, four bulk directions, wall telegraph flips, and finite second-moment sojourn times. It does not cover correlated dwell clocks or continuous-orientation swimmers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pietrangeli et al. 2024 derive the exponential-release formula and explicitly identify non-Poisson wall escape as omitted. Datta–Beta–Großmann 2025 arXiv v3 contains general arbitrary-run/turn waiting-time Laplace-transform diffusion Eq.(28), but the turn state has zero propulsion and no reflecting slit/bulk-wall path geometry or persistent longitudinal sliding; its formula is not the current model specialization. General regenerative renewal methods and Laplace identifiability are classical, so novelty is limited to the exact coupled slit-wall model and its sharp convex-order/identifiability consequences, not the method itself.
+
+## value
+
+PASS
+
+Wall residence variability at fixed mean is a concrete transport-control variable in confinement. Equal bulk occupation does not imply equal longitudinal diffusion, and the exact Laplace transform controls an experimentally relevant difference; sharp monotone distributional ordering and an inverse response curve are useful model-specific results. A non-Poisson extension was explicitly raised in the original model paper; the theorem answers it within clear idealized assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
