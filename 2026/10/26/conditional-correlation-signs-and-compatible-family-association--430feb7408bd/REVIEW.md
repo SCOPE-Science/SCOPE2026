@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact local covariance follows from the classical product decomposition of polygon triangulations and strict monotonicity of the Catalan ratios \(4-6/(j+2)\). The full family inequality is proved by successive two-event conditioning, with an equality criterion obtained from independence between residual cells. All boundaries include the empty partial triangulation, complete partial triangulations (for which no pair of additional admissible diagonals exists), and two admissible diagonals in different cells. The delivered exact checker independently enumerates sizes \(4\) through \(9\). A finite enumeration alone would not prove the theorem; the algebraic argument covers all \(N\ge4\).
+PASS
 
-## Originality — PASS (limited historical priority)
+For any convex polygon N>=4, conditioning on a fixed noncrossing set S factors the uniform triangulation law into independent uniformly triangulated polygonal cells. Two admissible diagonals in different cells are independent; if they cross in the same cell the joint inclusion probability is zero and covariance strictly negative; if noncrossing in the same cell, count three subpolygons with positive triangle numbers a,b,c and obtain covariance C_a*C_c*(C_b*C_(a+b+c)-C_(a+b)*C_(b+c))/C_(a+b+c)^2. The exact ratios C_(j+1)/C_j=4-6/(j+2), strictly increasing, establish the strict sign for all a,c>=1. By successive compatible conditioning, for any compatible A,B one gets W(A union B)W(A intersection B)>=W(A)W(B), equality exactly when no cell after A intersection B gets diagonals from both set differences. For nonempty A,B, positive covariance of inclusion events follows even when one set contains the other because P(E_(A intersection B))<1. Independently checked 588 Catalan strict inequalities; the analytic proof covers all polygon sizes. This does not assert FKG for crossing or general increasing events.
 
-Classical Catalan enumeration is prior art. Eppstein–Frishberg (arXiv:2207.09972) study flip-walk mixing, graph expansion, and product decompositions of associahedron classes; their Lemma 2.14 compares edges between special flip-walk classes, not probabilities of two arbitrary prescribed compatible diagonal families. Black et al. (arXiv:2304.05318) study sampling of pairs of disjoint triangulations, including graph connectedness and a regular flip walk; their full available theorem statements do not give the present uniform-single-triangulation conditional correlation classification. Searches for polygon-diagonal positive association, conditional covariance, and Catalan face-weight log-supermodularity did not surface a direct equivalent statement. It remains possible that older Catalan inequalities or an uncatalogued source implicitly contain the theorem, and an exhaustive historical-priority judgment is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question of dependence between diagonals in random triangulations has a complete geometric answer that changes sign with crossing and becomes zero exactly across independent residual cells. More substantially, the result extends pairwise correlation to arbitrary prescribed compatible subconfigurations, providing a sharp positive-dependence inequality and equality classification for face-extension counts of the associahedron. This applies to every polygon size and every admissible conditioning pattern; it is not a recomputation of a particular Catalan number or a numerical slice. The potential usefulness is in assessing multi-diagonal inclusion events under uniform triangulation sampling; no mixing-time bound is claimed.
+Catalan counting, dissection factorization and log-convexity are classical. Eppstein–Frishberg 2023 full PDF exploits products of Catalan subproblems for flip-walk mixing; Black et al 2023 treat pairs of disjoint triangulations. The inspected pertinent results do not state the all-partial-triangulation conditional covariance sign law, compatible-family log-supermodularity with sharp cell-level equality, or strictly positive unconditional association for any two nonempty compatible sets. General FKG on all diagonal coordinates is false because crossing pairs are negatively correlated. This is best-of-knowledge originality, with potential unindexed correlation inequalities/associahedron-face results a real priority risk.
 
-## Limits and comparison risk
+## value
 
-The sampling papers exploit the same classical product decomposition, so implicit derivations are possible even without an explicit correlation statement. The theorem makes no assertion for weighted triangulations or nonconvex point sets. Its evidence is a self-contained proof and finite checker, not an independent external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem identifies the exact positive, zero, and negative dependence regime for any two diagonal indicators after arbitrary compatible conditioning, and gives an all-orders positive-association inequality with an exact independence/equality criterion. These are natural probability questions for the uniform random Catalan triangulation and for conditioning sampling algorithms. Though derived from classical log-convexity, its fully quantified signed-dependence classification is more than a renamed elementary count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:57:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any convex polygon N>=4, conditioning on a fixed noncrossing set S factors the uniform triangulation law into independent uniformly triangulated polygonal cells. Two admissible diagonals in different cells are independent; if they cross in the same cell the joint inclusion probability is zero and covariance strictly negative; if noncrossing in the same cell, count three subpolygons with positive triangle numbers a,b,c and obtain covariance C_a*C_c*(C_b*C_(a+b+c)-C_(a+b)*C_(b+c))/C_(a+b+c)^2. The exact ratios C_(j+1)/C_j=4-6/(j+2), strictly increasing, establish the strict sign for all a,c>=1. By successive compatible conditioning, for any compatible A,B one gets W(A union B)W(A intersection B)>=W(A)W(B), equality exactly when no cell after A intersection B gets diagonals from both set differences. For nonempty A,B, positive covariance of inclusion events follows even when one set contains the other because P(E_(A intersection B))<1. Independently checked 588 Catalan strict inequalities; the analytic proof covers all polygon sizes. This does not assert FKG for crossing or general increasing events.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eppstein/Frishberg full paper proves O(n^3 log^3 n) flip-walk mixing using Catalan-product face decompositions; Black et al 2023 sample disjoint pairs of triangulations."
+        ],
+        "reasoning": "Neither Markov-chain mixing nor enumeration of pairs of triangulations implies a complete sharp correlation sign law for single random triangulations. Global positive association across all diagonal indicators would be false due to crossing pairs; the theorem restricts to compatible families.",
+        "searches": [
+          "Resultary semantic: random uniform convex polygon triangulation compatible diagonal events positive association Catalan correlation inequality",
+          "Eppstein Frishberg arxiv 2207.09972 associahedron face decomposition",
+          "Black et al arxiv 2304.05318 paired triangulations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md and check.py at 68645bf4619cec1151436ccc53f5d66aab9d4541",
+        "Independent 588 Catalan ratio/three-cell checks /mnt/data/scope_checks_1546.py",
+        "https://arxiv.org/pdf/2207.09972",
+        "https://arxiv.org/abs/2304.05318",
+        "Classical Catalan triangle subdivision formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eppstein–Frishberg use Cartesian products of associahedron flip subgraphs and associated Catalan class sizes."
+        ],
+        "reasoning": "Those product facts imply independence across already separated cells, which is openly credited. The strict same-cell sign and all-compatible-family inequality further require the explicit increasing Catalan ratios and chain conditioning. Could be implicit or known elsewhere; not directly stated by the inspected primary theorems.",
+        "searches": [
+          "arxiv:2207.09972 full PDF product classes",
+          "arxiv:2304.05318 sampling paired triangulations",
+          "Resultary semantic: random uniform convex polygon triangulation compatible diagonal events positive association Catalan correlation inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-diagonal extension probability is product of Catalan numbers over residual faces. The family inequality can be expressed as log-supermodularity on mutually compatible noncrossing faces."
+        ],
+        "reasoning": "Equivalent language includes positive association of compatible events, covariance sign by cell and a log-supermodular Catalan dissection weight. The inspected prior mixing result states Catalan factorization but not this complete sign/equality theorem.",
+        "searches": [
+          "Resultary semantic: random uniform convex polygon triangulation compatible diagonal events positive association Catalan correlation inequality",
+          "Catalan triangulation inclusion event log supermodularity associahedron faces",
+          "polygon triangulation diagonal FKG compatible events"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All finite polygon triangulation counts C_(N-2) are classical and known exactly; the theorem is an all-size symbolic sign/equality criterion, not a new numerical Catalan table."
+        ],
+        "reasoning": "A database can cover finite examples but not, absent an explicit theorem, the arbitrary-S sign and iff equality classification. No full class table was found.",
+        "searches": [
+          "polygon triangulations Catalan extension counts joint diagonal covariance table",
+          "Resultary semantic: random uniform convex polygon triangulation compatible diagonal events positive association Catalan correlation inequality"
+        ]
+      },
+      "rationale": "Catalan counting, dissection factorization and log-convexity are classical. Eppstein–Frishberg 2023 full PDF exploits products of Catalan subproblems for flip-walk mixing; Black et al 2023 treat pairs of disjoint triangulations. The inspected pertinent results do not state the all-partial-triangulation conditional covariance sign law, compatible-family log-supermodularity with sharp cell-level equality, or strictly positive unconditional association for any two nonempty compatible sets. General FKG on all diagonal coordinates is false because crossing pairs are negatively correlated. This is best-of-knowledge originality, with potential unindexed correlation inequalities/associahedron-face results a real priority risk.",
+      "residual_risks": [
+        "A prior association/log-supermodularity result for compatible associahedron faces may imply this theorem even if no exact wording matched.",
+        "The proof uses classical Catalan log-convexity; value lies in the complete conditioned sign and equality formulation.",
+        "The 2023 tanglegram/disjoint-triangulation article was not assessed in full text; object distinction is based on accessible scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS PRODUCT DECOMPOSITION, not a covariance sign/equality classification",
+          "evidence": [
+            "Mixing bound O(n^3 log^3 n), Catalan decomposition into products of smaller flip graphs"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09972",
+          "material_read": "Full accessible primary PDF, especially definitions of associahedron classes, decomposition/product sections, Lemma 12 and related expansion proofs",
+          "method": "arXiv PDF text and screenshot of page nine",
+          "title": "Improved mixing for the convex polygon triangulation flip walk",
+          "trigger": "same uniform Catalan triangulation, decomposition of face subproblems"
+        },
+        {
+          "assessment": "DIFFERENT RANDOM OBJECT; no full-document negative conclusion",
+          "evidence": [
+            "Pairs of disjoint triangulations and corresponding flip graph are distinct from one uniform triangulation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.05318",
+          "material_read": "ArXiv title/abstract and described paired/disjoint triangulation objects, not full PDF compared",
+          "method": "arXiv abstract",
+          "title": "Sampling planar tanglegrams and pairs of disjoint triangulations",
+          "trigger": "same triangulation counting but pair model"
+        },
+        {
+          "assessment": "PRIOR ENUMERATION; no claim of new Catalan numbers",
+          "evidence": [
+            "C_k=(1/(k+1))*binomial(2k,k), fixed-diagonal conditioning factors independent cells"
+          ],
+          "identifier_or_url": "https://oeis.org/A000108",
+          "material_read": "Catalan formula and standard dissection product used in original source",
+          "method": "classical mathematical identity",
+          "title": "Classical Catalan enumeration of convex-polygon triangulations",
+          "trigger": "fundamental exact counting identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem identifies the exact positive, zero, and negative dependence regime for any two diagonal indicators after arbitrary compatible conditioning, and gives an all-orders positive-association inequality with an exact independence/equality criterion. These are natural probability questions for the uniform random Catalan triangulation and for conditioning sampling algorithms. Though derived from classical log-convexity, its fully quantified signed-dependence classification is more than a renamed elementary count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and check.py at 68645bf4619cec1151436ccc53f5d66aab9d4541",
+    "Independent 588 Catalan ratio/three-cell checks /mnt/data/scope_checks_1546.py",
+    "https://arxiv.org/pdf/2207.09972",
+    "https://arxiv.org/abs/2304.05318",
+    "Classical Catalan triangle subdivision formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform triangulations of strictly convex labeled polygons only.",
+    "Does not assert FKG/MTP2 or positive association of crossing/noncompatible events.",
+    "Noncrossing prescribed diagonals and their admissibility are essential."
+  ],
+  "residual_risks": [
+    "A prior association/log-supermodularity result for compatible associahedron faces may imply this theorem even if no exact wording matched.",
+    "The proof uses classical Catalan log-convexity; value lies in the complete conditioned sign and equality formulation.",
+    "The 2023 tanglegram/disjoint-triangulation article was not assessed in full text; object distinction is based on accessible scope."
+  ],
+  "schema_version": 1
+}
