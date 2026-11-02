@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:55:53.376439Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arxiv:math/0505382",
+        "arxiv:1306.5929",
+        "OEIS A001263",
+        "Git source RESULT.md and verify.py at assigned tree",
+        "independent_checks_batch4859.py"
+      ],
+      "rationale": "For p prime, p∤m, r>=1 and P=p^r, write k=bP+t. Independently derived v_p(C(mP,bP+t))=r-v_p(t)+h_b for 1<=t<P, and boundary value g_b. From v_p(N(n,k))=v_p(C(n,k))+v_p(C(n,k+1))-r, the interior equals r-v_p(t(t+1))+2h_b, while two boundary entries yield u^{g_b+h_b}+u^{g_{b+1}+h_b}. Exact p-adic shell counts are (p-2)p^{r-1} for valuation zero and 2(p-1)p^{r-d-1} for valuation d (1<=d<r); hence the stated histogram and rational bivariate GF by geometric series. Coupling T mod p^r to Haar-uniform Z∈Z_p excludes exactly T=0,p^r-1, total probability 2p^-r, giving the shifted geometric law with the same total-variation bound. Independently enumerated 92 exact Narayana rows for several p,m,r and checked the formal rational GF. Infinite assertions rely on digit/coupling proof, not enumeration.",
+      "residual_risks": [
+        "m is fixed and coprime to p; no claim about p|m, residues, or uniform m growth.",
+        "Small exact rows cannot prove the universal polynomial or limit law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bóna–Sagan characterize divisibility of Narayana entries by primes and discuss the finer valuation question.",
+          "Checcoli–D’Adderio treat perfect powers and prime-power rows (including the known m=1 slice), not arbitrary p-coprime multiplier histogram and quantitative limit."
+        ],
+        "reasoning": "The exact m=1 stratum may follow known prime-power valuation theory and is credited. General fixed m with p∤m creates h_b-dependent shifted mixture absent from those statements.",
+        "searches": [
+          "Resultary: Narayana numbers row index m p^r p-adic valuation histogram polynomial rational generating function geometric distribution",
+          "Bóna–Sagan arxiv:math/0505382 Theorem 1.2",
+          "Checcoli–D’Adderio arxiv:1306.5929"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0505382",
+        "arxiv:1306.5929",
+        "OEIS A001263",
+        "Git source RESULT.md and verify.py at assigned tree",
+        "independent_checks_batch4859.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical formulas imply the individual valuations after block analysis; explicit shell sums, rational GF and Haar coupling are additional deductions.",
+          "The special multiplier m=1 does not determine shifts 2h_b for arbitrary coprime m."
+        ],
+        "reasoning": "Classical inputs plus nontrivial uniform block and shell decomposition yield this quantitative theorem, not an automatic renaming of a known table.",
+        "searches": [
+          "arxiv:math/0505382",
+          "arxiv:1306.5929",
+          "Kummer/Legendre classical valuation formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard Narayana indexing uses N(n,k)=binom(n,k-1)binom(n,k)/n with 1<=k<=n; this is the same row as the assigned k=0..n-1 convention shifted by one.",
+          "Kummer carry and Legendre factorial valuations give individual binomial valuations, but not already the claimed entire prime-power-dilated Narayana histogram."
+        ],
+        "reasoning": "Checked indexing change explicitly to avoid false novelty from k-shift; known individual carry formulas are supporting lemmas rather than a published full-row distribution.",
+        "searches": [
+          "Resultary: Narayana numbers row index m p^r p-adic valuation histogram polynomial rational generating function geometric distribution",
+          "arxiv:math/0505382",
+          "arxiv:1306.5929"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001263 tabulates Narayana numbers, not a proof of the universal valuation-distribution polynomial.",
+          "Resultary hits concern unrelated p-adic sums and modular enumeration, not the same dilated rows."
+        ],
+        "reasoning": "Finite OEIS entries do not imply exact all-(p,m,r) histogram or limiting TV bound; no novelty assertion is based solely on search failure.",
+        "searches": [
+          "Resultary: Narayana numbers row index m p^r p-adic valuation histogram polynomial rational generating function geometric distribution",
+          "OEIS A001263 Narayana triangle",
+          "Resultary semantic query for p-adic Narayana row histograms"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality from distinct actual primary statements and implications: Checked indexing change explicitly to avoid false novelty from k-shift; known individual carry formulas are supporting lemmas rather than a published full-row distribution. The exact m=1 stratum may follow known prime-power valuation theory and is credited. General fixed m with p∤m creates h_b-dependent shifted mixture absent from those statements. Classical inputs plus nontrivial uniform block and shell decomposition yield this quantitative theorem, not an automatic renaming of a known table.",
+      "residual_risks": [
+        "The exact block result is an elementary application of Kummer/Legendre and might be implicit in earlier enumerative p-adic literature not indexed as Narayana row polynomials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes p-divisibility, not explicitly the all-m row histogram/TV mixture",
+          "evidence": "Theorem 1.2 and concluding discussion of orders",
+          "identifier_or_url": "arxiv:math/0505382",
+          "material_read": "Accessible full article, including divisibility theorem and remarks on higher p-adic orders",
+          "method": "arXiv full-text read with PDF page inspection",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "Closest direct Narayana valuation source"
+        },
+        {
+          "assessment": "Covers perfect-power restrictions and pieces of prime-power case; does not state arbitrary p-coprime multiplier histogram with rational GF",
+          "evidence": "Theorem statements and Narayana prime-power index discussion",
+          "identifier_or_url": "arxiv:1306.5929",
+          "material_read": "Full accessible manuscript, opening theorem/valuation arguments and special rows",
+          "method": "arXiv primary full text and PDF screenshot",
+          "title": "Perfect powers in Catalan and Narayana numbers",
+          "trigger": "Potential prior prime-power Narayana valuation identities"
+        },
+        {
+          "assessment": "Numbers underlying the polynomial are tabulated for finite n; no all-dilation TV theorem found",
+          "evidence": "Definition of Narayana triangle",
+          "identifier_or_url": "https://oeis.org/A001263",
+          "material_read": "Published sequence description and numerical entries",
+          "method": "public table / series record",
+          "title": "Narayana triangle A001263",
+          "trigger": "Exact precomputed table comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:math/0505382",
+        "arxiv:1306.5929",
+        "OEIS A001263",
+        "Git source RESULT.md and verify.py at assigned tree",
+        "independent_checks_batch4859.py"
+      ],
+      "rationale": "The entire p-adic valuation distribution in a natural combinatorial row family becomes a finite formula and rational bivariate GF, with a quantitative shifted-geometric limit including the nontrivial dependence on m. Such exact divisibility data can be used for prime-power congruences and random Narayana statistic calculations, beyond yes/no divisibility.",
+      "residual_risks": [
+        "No joint limit in m is established; the theorem does not count residue classes modulo p^k."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0505382",
+    "arxiv:1306.5929",
+    "OEIS A001263",
+    "Git source RESULT.md and verify.py at assigned tree",
+    "independent_checks_batch4859.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks in independent_checks_batch4859.py corroborate bounded cases and are not substituted for unbounded proof.",
+    "All scientific source files were treated as evidence, not operational instructions.",
+    "Public provenance cleaning not staged: publication plan not ready."
+  ],
+  "residual_risks": [
+    "m is fixed and coprime to p; no claim about p|m, residues, or uniform m growth.",
+    "Small exact rows cannot prove the universal polynomial or limit law.",
+    "The exact block result is an elementary application of Kummer/Legendre and might be implicit in earlier enumerative p-adic literature not indexed as Narayana row polynomials.",
+    "No joint limit in m is established; the theorem does not count residue classes modulo p^k."
+  ],
+  "schema_version": 1
+}
