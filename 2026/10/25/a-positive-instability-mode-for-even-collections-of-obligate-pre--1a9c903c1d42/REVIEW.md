@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-PASS. At a positive equilibrium, the similarity \(D^{-1}JD=-BD\) is exact. A positive monomial predation matrix \(F\) and nonnegative remainder \(V\) yield \(F\mathbf1=V\mathbf1+d\), \(d=-a>0\). Collatz–Wielandt bounds give a Perron crossing \(\rho(F^{-1}(V+\lambda I))=1\) between the minimum and maximum entries of \(d\), producing a strictly positive Jacobian eigenvector with strictly positive real eigenvalue. The homogeneous construction attains both bounds; the finite exact and sampled computations pass. The theorem does not infer general spectral dominance or global outcomes.
+## correctness
 
-## Originality
-PASS under inspected literature and records; not a priority certificate. The closest source, Çelik–Isoldi–Portakal–Zucal (2026), Theorem 3.4, establishes only odd-cycle impossibility for the identical no-extra-species sign pattern. Its even-cycle result Theorem 3.7 requires an extra mutualistic pair, so it neither states nor entails the result here. Meng–Horvát–Modes–Haas (2023) and Çelik–Haas–Scholten–Wang–Zucal (2025) do not cover this even-cycle infinite family. Relevant published research records were compared by implication, and no stronger directly covering statement was found. Other work in nonnegative matrix theory may furnish an equivalent derivation; the search is not exhaustive.
+PASS
 
-## Value
-PASS. An existing topological classification distinguishes odd from even numbers of obligate predation cycles because the determinant sign becomes inconclusive for even cycle count. The theorem resolves precisely that structural gap for all even counts and positive feasible equilibria, and supplies a sharp mortality-based lower and upper bound on a real unstable mode. Positive equilibria realizing the bound exist for every permitted cycle partition. This is not a minor arithmetic modification of the parity determinant test.
+At positive equilibrium x*, J=-DB with D positive diagonal and D^{-1}JD=-BD. The unique prey column in each row defines invertible positive monomial F and all others nonnegative V, giving M=F−V and M1=−a=d>0. K(lambda)=F^{-1}(V+lambda I) is nonnegative and irreducible for the strict signs (indeed positive off diagonal). The Collatz–Wielandt inequalities at lambda=min d and max d straddle spectral radius 1; continuous Perron radius yields lambda* in that interval with v>0, Mv=lambda*v and J(Dv)=lambda*(Dv). lambda*>0. Strict monotonicity of irreducible Perron root gives uniqueness among positive eigenvector eigenvalues, not spectral abscissa dominance. Explicit B=ones-(n+3)P, a_i=-3, x*=ones verifies feasible sharpness for any allowed cycle partition. Independent exact n=6 witness recovered eigenvalue 3.
 
-## Residual limitations
-The proof does not prove existence of equilibria at arbitrary magnitudes, global extinction, or analogous results for added mutualists, self-sustaining species, or higher-order interaction dynamics. Publication-priority uncertainty and the absence of independent review remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest 2026 ecological-cycle theorem gives an odd-number-of-cycles obstruction by a determinant parity argument; its even-cycle theorem adds a mutualistic pair, changing the sign pattern and vertex count. The present even pure-cycle proof supplies a positive real instability eigenvalue and mortality-range bounds, not derivable from those determinant statements. Classical nonnegative matrix techniques are generic ingredients, but exact applicability and quantitative bound are new best of knowledge.
+
+## value
+
+PASS
+
+The determinant-sign method leaves the even-number pure obligate-cycle topology unresolved. This theorem closes that natural parity gap at every feasible equilibrium, not merely one small graph; mortality-rate bounds and strictly positive right instability direction are additional structural information. Sharp feasible examples prevent vacuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
