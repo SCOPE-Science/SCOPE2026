@@ -1,0 +1,15 @@
+# Scientific review: fixed-content distance-two conjugates
+
+## Correctness — PASS
+The one-shift polynomial follows from the two-transition characterization on the permutation cycles of a rotation. The first-successful-shift subtraction follows from the published double-shift structure lemma, with separate proofs of unique one-error periodic templates when the shift divides the word length and when it does not. Möbius inversion gives the nonprimitive base-content polynomial; the derivative counts the two directions of a bit flip. The argument proves primitivity and thereby the exact division by the rotation orbit size. The prime result follows by specializing the two subtraction branches. `verify.py` compares independent direct brute-force enumerations for all lengths 2–17 and first-shift components for lengths 2–14, and reproduces all 42 published unweighted totals at lengths 2–43. This verifies the formulas in finite ranges but is not substituted for the infinite proof.
+
+## Originality — PASS, with limits
+Gabrić (arXiv:2110.01120, Lemmas 6–16, Theorem 17) establishes the unweighted one-shift, overlap and union enumeration, and indeed supplies essential structural premises. The new result counts those words simultaneously by their exact number of ones, including a weight-refined overlap correction expressed by a nonprimitive-word Möbius polynomial, and the prime-length fixed-weight necklace equidistribution. Shallit (arXiv:0710.1234) concerns attainable conjugate distances. OEIS A179674 records aggregate totals rather than the complete weight distribution. Comparisons with relevant indexed mathematical findings did not locate this constant-weight theorem. A different publication may already state an equivalent refined formula; the structural antecedent significantly reduces the originality margin and is explicitly credited.
+
+## Mathematical value — PASS
+Fixed-content circular word families are natural constant-weight code and necklace objects, and their exact sizes cannot be recovered from aggregate word totals. The theorem determines the entire coefficient array at all lengths and proves a weight-independent interior necklace count at prime lengths, despite unequal ambient layer sizes. It connects the periodic-error classification to exact composition-sensitive enumeration, not merely a numerical sample or a renamed pre-existing total. Its finite and infinite limitations are explicit.
+
+## Source inspections and residual risk
+Gabrić's freely accessible 12-page preprint was examined in Sections 3–5 and 7, including Lemmas 6–7, 9–16 and Theorems 17 and 19; the overlap and total counting arguments are the nearest known antecedents. Shallit's accessible Hamming-conjugate paper and OEIS A179674 were compared. An equivalent weight-refined calculation may be hidden in unindexed combinatorics-on-words material; the novelty assessment is limited to actually inspected and searched sources and is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
