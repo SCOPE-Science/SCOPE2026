@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is deductive; the accompanying checker is a finite stress test only. Reproduce with `python3 check.py`. It enumerates all color-invariant subsets and coordinate subgroups at prime/length pairs (3,2), (3,3), (5,2), (7,2), checks the nonzero deficit gap, congruences, and equality rigidity, and constructs both sharp periodic families at primes 3, 5, 7. The final success marker is `FINITE_STRESS_TESTS_OK`. No finite computation certifies the universal quantifiers of the theorem; those are established by the class-orbit proof.
+## correctness
+
+PASS
+
+The letterwise free C_p-action commutes with H and permutes its word classes. Each nontrivial fixed class has cardinality multiple p and contributes at least p-1 to the deficit, while every free class orbit contributes a multiple p. A fixed class forces equal letter multiplicities around every p-cycle and hence p|n; this yields the length congruence and equality classification. The two periodic examples realize p-1 at length p and p at n=2. Independent finite tests enumerated all invariant sets/position subgroups for (p,n)=(3,2),(3,3),(5,2),(7,2) and verified examples. These tests are not a proof of arbitrary n or H.
+
+## originality
+
+PASS
+
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. General coordinate-orbit complexity definitions and combined-action results do not mathematically give the statement that fixed classes require p|n or the exact p-1 equality criterion without a separate free-letter-action argument.
+
+## value
+
+PASS
+
+The first forbidden group-complexity values and parity-like modular restrictions are natural sharp symmetry constraints on factor complexity, with complete equality rigidity and explicit uniformly sharp witnesses. The assertion is limited to free prime-color actions, not all alphabet actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** Fixing a canonical first idempotent via conjugation is valid for uniform independent rank strata. The frame--coframe representation of the second idempotent is uniform because each idempotent has precisely the same number of presentations. On the full-row-rank lower-coframe event the two cross blocks are exactly independent uniform matrices; the complement probability is the stated product quotient, bounding total variation. The rank-one directional example is counted directly. The checker enumerates binary idempotents and verifies the bound on seven finite cases, without substituting finite tests for the general proof.
+## correctness
 
-**Originality: PASS within checked literature.** Steinberg (arXiv:2108.02166v1, Section 4) describes the full matrix monoid's rank strata and its semigroup algebra, not the joint law of ranks of opposite products. Koenig--Nguyen (arXiv:2101.00107v1, Theorem 1.16 and Section 4) analyze ranks of corners of Haar-invertible matrices, but not the joint forward/reverse rank law for one coupled idempotent. Perret-Gentil (arXiv:1810.11422v1) studies an inverse-matrix distribution with field size, not ambient dimension, growing. Checked prior research results cover idempotent annihilation-graph degrees and ranks of compositions of partial transformations, which do not imply the claimed asymptotic joint independence. Residual risk: the elementary frame--coframe coupling may have appeared in less accessible random finite-monoid literature.
+PASS
 
-**Value: PASS.** The result gives the *joint* limit for a natural pair of noncommutative semigroup statistics, not just two marginal rank counts, and quantifies its convergence uniformly in the two possible product-rank values. The persistent, explicitly positive rank-one probability of unequal opposite product ranks emphasizes that statistical independence does not mean the products themselves commute or have equal ranks. The natural invariant can serve as a baseline for products of higher-rank idempotents or growing-rank random matrix monoids.
+Conjugation normalizes E=diag(I_r,0). Uniform F=UB with BU=I_s is realized by uniform surjective coframe B followed by uniform right-inverse U. Split B=(C,B0), U=(A;U0). On event rank(B0)=s, conditional counting of solutions B0 U0=I_s-CA is constant q^{s(n-r-s)} for each (C,A), giving independent uniform A and C. The event probability is the explicit quotient of two full-row-rank products. Mixture conditioning bounds TV by its complement, which decays geometrically for fixed ranks. Rank-one cases follow from line/kernel counting and were independently exhausted for binary fields n=3,4,5.
 
-**Limitations.** The result is for fixed ranks and fixed field size as dimension tends to infinity. The TV bound is an upper bound; no growing-rank law or sharp error constant is asserted. Literature comparison is not exhaustive, and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality is joint asymptotic independence of noncommutative opposite product ranks at fixed idempotent ranks, plus a quantitative finite-n mixture bound and rank-one discrepancy; ordinary random-matrix rank laws and semigroup rank classes are prior.
+
+## value
+
+PASS
+
+Opposite products EF and FE can have different ranks at fixed n, so asymptotic independence of those two noncommutative statistics is a natural and nontrivial phenomenon. The explicit TV coupling provides quantitative control and a reusable random-frame method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

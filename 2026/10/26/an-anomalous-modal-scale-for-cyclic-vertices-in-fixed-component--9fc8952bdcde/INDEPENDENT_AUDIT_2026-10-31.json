@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:14:06.839017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/an-anomalous-modal-scale-for-cyclic-vertices-in-fixed-component--9fc8952bdcde/RESULT.md",
+        "2026/10/26/an-anomalous-modal-scale-for-cyclic-vertices-in-fixed-component--9fc8952bdcde/verify.py",
+        "/mnt/data/scope_worker10_20261031_2204_delivery/independent_checks.py"
+      ],
+      "rationale": "Exact (C=c,K=k) counting by choosing c cyclic labels, Stirling permutations with k cycles, and rooted mapping forests yields w=(n)_c n^{-c} e_{k-1}(1,...,1/(c-1)). Adding 1/c to the reciprocal alphabet gives adjacent ratios. Newton log-concavity makes e_{j-1}/e_j nonincreasing; division by c and the decreasing factor 1-c/n proves strict interior ratio decrease. For fixed j=k-1, e_j~H^j/j! and e_{j-1}/e_j~j/H; at c=alpha sqrt(n/log n) the scaled ratio difference tends to -alpha+2j/alpha, trapping every mode. Independent direct enumeration of all functions n<=5 and rational log concavity n<=48 passed.",
+      "residual_risks": [
+        "Full Pavlov text not accessible; this affects priority, not validity of the direct proof.",
+        "Finite enumeration only corroborates the unrestricted Newton-asymptotic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact conditional weight formula is a specialization of classical forest and Stirling counts.",
+          "Published half-normal local limit covers typical C/sqrt(n) behavior but not the shrinking modal window."
+        ],
+        "reasoning": "Known stronger mapping asymptotics establish typical distributions, not this mode without a separate microscopic analysis; a later uniform local limit could still cover it.",
+        "searches": [
+          "Pavlov 1986 Theorem 6 fixed components",
+          "Flajolet Odlyzko 1990 random mapping statistics",
+          "Hansen Jaworski random mapping model"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mathnet.ru/eng/tm2116",
+        "arXiv:math/0603529",
+        "Resultary query: random mappings conditioned on number of components cyclic points mode sqrt(n/log n) strict log concavity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 assumes scaled cyclic count z bounded away from zero.",
+          "The new mode has z tending to zero at logarithmic rate."
+        ],
+        "reasoning": "The antecedent does not directly imply the modal law because the new statement probes outside the uniformity range; forest weights are prior and not counted as new.",
+        "searches": [
+          "Pavlov 1986 mathnet theorem 6",
+          "Hansen Jaworski 2006 arxiv",
+          "random mappings mode fixed components search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pavlov (1986) Theorem 6 in detailed Russian abstract states a local half-normal limit for C/sqrt(n) uniform on fixed positive-z intervals.",
+          "Hansen–Jaworski arXiv:math/0603529 supplies Stirling-based mapping mixtures."
+        ],
+        "reasoning": "The typical-scale local limit is not uniform in the vanishing z~1/sqrt(log n) modal window; its statement does not imply the new mode or strict all-n log-concavity.",
+        "searches": [
+          "Pavlov 1986 random mappings constraints cycles mode cyclic vertices",
+          "Hansen Jaworski 2006 A new random mapping model",
+          "Resultary: random mappings conditioned components cyclic points mode sqrt(n/log n) strict log concavity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned no exact same modal-scale or log-concavity item in its queried ranked hits.",
+          "The published detailed abstract for Pavlov reports half-normal local limit, not a modal table."
+        ],
+        "reasoning": "No exact matching table located. An unindexed or non-English table cannot be ruled out; search absence is not proof of priority.",
+        "searches": [
+          "Resultary: random mappings conditioned on number of components cyclic points mode sqrt(n/log n) strict log concavity",
+          "search: fixed component mapping mode sqrt(n/log n)"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is confined to finite-sample strict log-concavity and anomalous modal scale. Stirling weights and half-normal typical-scale limit are explicitly existing results.",
+      "residual_risks": [
+        "Full Pavlov and Flajolet–Odlyzko papers not materially read in this run; priority of microscopic mode may be covered implicitly.",
+        "Potential alternative formulation as log-concavity of Stirling-weighted Cayley forest counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers half-normal local law on positive scaled windows, no verified shrinking-window modal theorem in material read",
+          "evidence": [
+            "Theorem 6 on mathnet.ru: z=N/sqrt(n) in compact subintervals of (0,infinity)"
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/tm2116",
+          "material_read": "Publication page and Russian detailed abstract, especially Theorems 6–7 with quantifiers and scaled-location restrictions; full Russian PDF not obtained",
+          "method": "read searchable abstract/theorem text",
+          "title": "Random mappings with constraints on the number of cycles",
+          "trigger": "Same uniform fixed-component mapping model"
+        },
+        {
+          "assessment": "Coverage of enumeration remains acknowledged; no whole-document noncoverage asserted",
+          "evidence": [
+            "Hansen and Jaworski, arXiv:math/0603529"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0603529",
+          "material_read": "Bibliographic abstract and comparison stated in source package; full primary proof not independently retrieved",
+          "method": "abstract-level comparison",
+          "title": "A new random mapping model",
+          "trigger": "Known Stirling mixture for cyclic-point counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/an-anomalous-modal-scale-for-cyclic-vertices-in-fixed-component--9fc8952bdcde/RESULT.md",
+        "https://www.mathnet.ru/eng/tm2116"
+      ],
+      "rationale": "The distinction between the typical sqrt(n)-scale and the modal sqrt(n/log n)-scale in a natural conditioned random mapping ensemble is mathematically motivated; strict log-concavity gives a new finite-sample shape theorem and makes the mode asymptotic well-defined. This is more than repeating existing forest enumerations.",
+      "residual_risks": [
+        "Novelty of the exact conditional weights alone is explicitly disclaimed; only fixed-k asymptotics are proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "k fixed for asymptotic; no uniform growing-k mode estimate.",
+    "No exact finite tie classification; prior half-normal law acknowledged.",
+    "Full Pavlov and Flajolet–Odlyzko papers not materially read in this run; priority of microscopic mode may be covered implicitly.",
+    "Potential alternative formulation as log-concavity of Stirling-weighted Cayley forest counts."
+  ],
+  "schema_version": 1
+}

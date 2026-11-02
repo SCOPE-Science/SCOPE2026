@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:22:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Carry recursion q'=floor((q+b)/2), digit d=(q+b) mod 2, trailing-one cap a and occurrence parity p tracks all output. Residual F_{q,a,p}(z)=p+s_m(z+q)+χ_m(a,ν2(z+q+1)) distinguishes equal q by parity and suitably chosen trailing-one counts. For distinct q, continuation z=2^K-q' yields oscillatory output from q versus constant from q', preventing merges. Reachable positive carry levels and zero-carry 2m states yield N_m(r)=2m+Σ_{k=0}^r A_m(k)+1_{r=m}. An independent full partition-refinement minimization checked 60 (m,r) pairs and exact direct outputs; all-size conclusion rests on residual proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ],
+        "reasoning": "Hendel provides 2m-state unshifted pattern-parity automata, and Zantema–Bosma general shifted-automatic constructions. Their frameworks imply finiteness of shifted states but not this evaluated formula and exceptional r=m correction.",
+        "searches": [
+          "Resultary semantic query: automatic sequence all-one pattern parity dyadic additive shift least significant digit automaton minimal states",
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2505.20547",
+        "doi:10.1016/j.ic.2021.104710",
+        "https://arxiv.org/abs/2512.10017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ],
+        "reasoning": "Known unshifted automaton theorem corresponds to c=0, not c=2^r. A generic shift theorem establishes existence of a finite machine but does not force all reachable arithmetic states pairwise inequivalent, an essential new claim.",
+        "searches": [
+          "Resultary semantic query: automatic sequence all-one pattern parity dyadic additive shift least significant digit automaton minimal states",
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ],
+        "reasoning": "Explicitly compared LSB-complete DFAO residuals with k-kernel, shifted sequence, and MSB machine formulations. Input direction and all finite high-order-zero padding matter; general MSB shift bounds cannot be substituted as equal-state counts.",
+        "searches": [
+          "Resultary semantic query: automatic sequence all-one pattern parity dyadic additive shift least significant digit automaton minimal states",
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ],
+        "reasoning": "The count is for all m>=3 and r>=0 with eventual linear formula, not a lookup of small-state enumerations; checked Hendel base 2m case and prior bounded sequence examples without a dominating m,r table.",
+        "searches": [
+          "Resultary semantic query: automatic sequence all-one pattern parity dyadic additive shift least significant digit automaton minimal states",
+          "https://arxiv.org/abs/2505.20547",
+          "doi:10.1016/j.ic.2021.104710",
+          "https://arxiv.org/abs/2512.10017"
+        ]
+      },
+      "rationale": "Hendel’s full primary article concerns the underlying pattern-parity family and the 2m-state unshifted machine. Zantema–Bosma and Moradi–Rampersad–Shallit discuss general shift/subsequence automaticity and state bounds. None of the inspected direct claims provides this exact least-significant-first additive dyadic-shift formula, its lone correction or arbitrary-carry no-merging criterion. An equivalent k-kernel statement remains a priority risk.",
+      "residual_risks": [
+        "Equivalent reversed-input Myhill–Nerode or k-kernel formulas under another automata convention might already be published.",
+        "Counts depend critically on least-significant-first complete DFAO and padding; do not transfer to most-significant-first automata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unshifted 2m base, no identified exact additive dyadic-shift least-significant-first count",
+          "evidence": "Theorem 3 constructs base 2m-state automatic mechanism.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.20547",
+          "material_read": "Lawful arXiv primary PDF, Theorem 3 and discussion of 2m-state parity machine; searched shift terminology",
+          "method": "Full-text PDF and page inspection",
+          "title": "Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern",
+          "trigger": "Same s_m pattern-parity family"
+        },
+        {
+          "assessment": "BROADER AUTOMATICITY SETTING, NO CONFIRMED FORMULA",
+          "evidence": "General automatic-sequence complexity background.",
+          "identifier_or_url": "doi:10.1016/j.ic.2021.104710",
+          "material_read": "Known theorem and bibliographic scope from supplied source review; full-text independent inspection not completed",
+          "method": "Bibliographic/secondary comparison",
+          "title": "Complexity of automatic sequences",
+          "trigger": "General state complexity and shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "State complexity is a canonical computational invariant for automatic sequences. The new exact family-wide growth law (and isolated carry correction) goes beyond mere automaticity, with a structural proof of why no carry/trailing-pattern states merge; natural independent use in automata implementations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent reversed-input Myhill–Nerode or k-kernel formulas under another automata convention might already be published.",
+    "Counts depend critically on least-significant-first complete DFAO and padding; do not transfer to most-significant-first automata.",
+    "No formal Lean or expert verification was performed; limited independent computations do not certify infinite proofs or historical priority."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of exact halved-cube endpoint norms
 
-Run the accompanying standard-library-only checker with:
+# Independent mathematical audit
 
-`python3 check_halved_cube.py`
+## correctness
 
-Observed successful output:
+PASS
 
-`HALVED_CUBE_ENDPOINT_EXACT_OK dimensions=9 grounded_dimensions=4 full_graph_edges=47102`
+Walsh characters on the even-parity group diagonalize Laplacian with eigenvalue 2|S|(n-|S|). Fourier inversion of an edge dipole gives signed potentials 0 on mixed distinguished bits and ±a_r on equal bits, with a_r positive integral strictly decreasing by even r. Counting three edge-flip classes gives absolute-current sum (2+4m)S_m+(m-1)U_m, S_m=1/[2(m+1)] and U_m=1/4. Edge transitivity makes every column equal; P=I-Q shifts the norm by 1-2 tr(Q)/|E|. Independently reconstructed exact-rational Laplace potentials and all edge currents for n=3..8 matched both formulas; this is finite corroboration of the analytic formula.
 
-For each integer dimension \(3\le n\le11\), the script constructs the full even-weight vertex set and all distance-two edges, evaluates the integral Green-potential with exact fractions, verifies the graph Laplacian equation at **every** vertex, sums **every** absolute electrical edge current, and checks both closed norms and the trace-diagonal identity. The total number of explicitly checked undirected edges across the nine graphs is \(47{,}102\).
+## originality
 
-For each dimension \(3\le n\le6\), the same code independently solves the grounded graph Laplacian using exact rational Gauss–Jordan elimination and checks every reconstructed potential up to its irrelevant additive constant. All tests use integers and rational numbers; there are no floating-point tolerances or external data files.
+PASS
 
-The proof for all \(n\ge6\) is the Fourier–Green integral and algebraic binomial-sum evaluation in RESULT.md. Finite verification of dimensions \(3\) through \(11\) does not constitute an exhaustive check of infinitely many dimensions. Independent mathematical auditing has not been performed.
+Dilworth–Kutzarova–Ostrovskii Theorem 45 and Corollary 60 treat canonical projections on the *ordinary Hamming cube* (distance-one full cube) and give its distinct norm (n+1)/2, not distance-two edges inside a parity class. Their method and ordinary-cube results are credited. The halved cube has a different Laplacian spectrum and current geometry; no direct specialization is known, and a specialized halved-cube projection norm may be indexed elsewhere.
+
+## value
+
+PASS
+
+Canonical projection endpoint norms are natural geometry invariants of a distance-regular graph. The exact all-dimensional values distinguish the parity-halved cube from the ordinary cube, quantify linear amplification slope 1/4, and give the complementary cycle norm with exact finite-size corrections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

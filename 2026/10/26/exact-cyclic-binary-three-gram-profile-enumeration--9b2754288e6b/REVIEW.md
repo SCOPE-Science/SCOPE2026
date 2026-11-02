@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Vertex balance yields exactly \(x_{001}=x_{100}=p\), \(x_{011}=x_{110}=q\), \(x_{101}=x_{010}+q-p\) and length \(n=a+h+p+3q+2r\). The standard Euler-circuit criterion then reduces realizability to connected positive support. Five disjoint cases account for both connected four-vertex flows and all exceptional disconnected constant-loop combinations. Geometric-series summation proves the rational function for every positive length, including wraparound factors at lengths one and two. Independent direct word enumeration, balanced-flow connectivity enumeration, and finite expansion agree. A finite checker is corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The closest work of Tesler (arXiv:1708.03654) counts cycles of *uniform* multi de Bruijn multiplicity; it does not enumerate all nonuniform cyclic three-gram count vectors. Kiah–Puleo–Milenkovic (arXiv:1502.00517) and Jacquet–Knessl–Szpankowski (DOI 10.46298/dmtcs.2768) provide the general flow / lattice-point framework, and their known leading coefficient \(1/288\) is not claimed as new. The published statements inspected do not present this closed all-length five-support generating function. General Markov-type machinery is capable of specialization, and an equivalent pre-existing specialization remains a residual novelty risk. A related published reconstruction model (arXiv:2108.11725) concerns linear/multistrand reads. No title-only absence was treated as proof of originality.
+PASS
 
-**Value — PASS.** Exact sizes of the profile alphabet determine optimal zero-error code cardinalities for cyclic three-gram multispectrum observation. The length-three binary case is the first naturally nontrivial de Bruijn graph with four overlap states, and the five-case theorem gives every finite coefficient, rather than only a leading asymptotic, along with essential support-connectivity corrections. This is a natural infinite-family classification, not a numeric census or arbitrary parameter slice.
+The order-two de Bruijn graph identifies cyclic three-gram profiles with balanced connected directed Eulerian edge multisets. Balance gives a=x000, h=x111, p=x001=x100, q=x011=x110, r=x010, s=x101=r+q-p >=0 and length n=a+h+p+3q+2r. Five disjoint connectivity cases (p,q positive; p positive q zero; q positive p zero; p=q zero r positive; only one constant loop) produce respectively z⁴(1+z³)/[(1-z⁴)(1-z³)(1-z²)(1-z)²], 2z³/[(1-z³)(1-z²)(1-z)], z²/(1-z²), 2z/(1-z). Their sum is exact for every n, has period dividing 12 and n⁴/288 leading term. Independently enumerated cyclic-word profiles through n=13 and compared coefficients; unrestricted proof is flow/Eulerian connectedness.
 
-Limits: No claims for larger alphabets, longer read windows, noisy reconstruction, or multiplicities of profile fibers. The known asymptotic constant is explicitly acknowledged. Literature equivalence and human review remain open risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact stated constrained theorem is not mathematically implied by the inspected antecedents, with identified stronger-framework and inaccessible-source risks; negative searches alone are not novelty proof.
+
+## value
+
+PASS
+
+Full rational all-n enumeration of cyclic 3-gram multispectra includes isolated-loop and disconnected-support corrections absent from leading asymptotic estimates, yielding an exact zero-error profile-code capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

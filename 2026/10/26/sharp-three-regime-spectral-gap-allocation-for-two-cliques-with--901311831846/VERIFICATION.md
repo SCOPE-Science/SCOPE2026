@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The included `VERIFY.py` assembles the entire weighted graph Laplacian for the two-clique complete-bipartite gateway network, evaluates the explicit optimal edge allocation, and checks the resulting second eigenvalue and total edge-conductance budget. It compares feasible unrestricted, asymmetric random conductance allocations against the claimed upper bound. SymPy separately verifies the characteristic polynomial of the invariant four-dimensional quotient, the active-region stationary derivative, and the involution identity that bounds the scalar minimization domain.
+# Independent mathematical audit
 
-The recorded output is in `verification_output.txt`. It reports 189 exact graph-structure numerical comparisons using eigenvalues, 2,430 asymmetric trial allocations, symbolic algebraic identities, and illustrative boundary cases. The numerical tolerance is coded explicitly; finite tests cannot certify the theorem for all integers or prove novelty. The proof for the infinite family is given directly in RESULT.md. The printed output is an execution record, not an independent certificate.
+## correctness
 
-The formula covers integers \(k\ge2\), \(u\ge1\) and real budgets \(B>0\), with all conductances nonnegative. It does not assert uniqueness of unrestricted asymmetric optima. Independent auditing is not performed.
+PASS
+
+The Rayleigh-min formula makes lambda2 concave in the weights; averaging over both gateway/nongateway permutations and layer swap reduces global optimization to a,c,d,b. Explicit invariant-subspace diagonalization yields odd-mode polynomial mu²-(nd+2kb)mu+2k²bd and gateway fluctuation eigenvalue ka+ud+kb, while mu_-<kd<nd, making nongateway-nongateway c never useful. With kd=lambda(1+t), the Schur inequality gives b0=lambda[((n/k)(1+t)-1)]/(2kt); additional b can be transferred to cheaper a. The budget equals lambda F(t) and both spectral constraints attain it. The involution t->1/(2t), convex active derivative u(1+1/k-1/(2kt²)) and H(t)=1 thresholds yield t*=1/2, t_- or tau_k exactly; averaging and nonnegativity force the claimed supports in every optimum. Independent direct Laplacian eigenvalue/budget calculations checked 110 (k,u) pairs (matrix checks up to n=16), rather than treating source VERIFY.py success as proof. No normalized/Markov Laplacian is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.
+
+## value
+
+PASS
+
+A joint intra-/interlayer resource allocation of intrinsic interest in spectral graph optimization: exact lambda2, support-regime transitions and globally forced edge deletions across a natural two-community family. The mixed optimization distinguishes what to build inside communities from the interconnection budget; not a routine substitution of fixed-layer weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

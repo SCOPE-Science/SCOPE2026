@@ -1,11 +1,21 @@
-# Review of the complete small-cardinality inverse diameter profile
+# Independent mathematical audit
 
-**Correctness — PASS.** Every integer set with the relevant bounded diameter translates uniquely into one of the enumerated normalized subsets. All \(5{,}563{,}258\) normalized candidates (seven cardinalities combined) were examined by two independent exact algorithms; the required sumset sizes all occur, and their least diameters are reproduced from the included data. Mathematical completeness follows from the displayed bijection with normalized bounded subsets, not from statistical sampling. The exact witness vectors and endpoint are covered by the certificate.
+## correctness
 
-**Originality — PASS, subject to an explicit priority risk.** The published possible-sumset-size theorem identifies which cardinalities can occur; it does not state their least integer diameters. The classical optimal eight-mark Golomb ruler already establishes the length-34 endpoint and is not a claimed discovery. The new contribution is the complete seven-profile classification and its first sharp reversal \(d_8(32)=20>d_8(33)=19\). A relevant full compression paper remained inaccessible; its possible implications and unindexed equivalent work are real residual risks rather than grounds for declaring global uniqueness.
+PASS
 
-**Mathematical value — PASS.** The source motivates optimal finite witness diameters, and the first reversal in a natural extremal profile exposes an unexpected structural boundary. Seven complete sharp tables and explicit attaining examples extend far beyond recomputing a known ruler length. The conclusion is finite, with no assertion at cardinality nine or higher.
+Translation reduces each candidate of span<=L_k to a unique increasing (k-1)-tuple in [1,L_k], where L_k=1,3,6,11,17,25,34 respectively. An independently written iterative C++ enumerator with a direct Boolean sumset marker—not the archived recursive bitset implementation—exhausted 5,563,258 normalized sets across k=2..8, including 5,379,616 for k=8, and reproduced every advertised minimum-diameter vector. Every sumset cardinality in the admissible interval had a witness within L_k; any smaller-diameter counterexample would be in the enumerated search. d_8(32)=20 and d_8(33)=19, while all earlier profiles are nondecreasing. The endpoint L_8=34 includes a previously known length-34 Golomb ruler. Convention caution: for [0,N] the endpoint is 34, but a source defining N by [0,N-1] would write N=35.
 
-**Scientific limits.** The certificate assumes ordinary integer sets with diagonal sums included, uses translation normalization, and makes no claim about optimal computational complexity. No independent review has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical 8-mark optimal Golomb ruler gives only d_8(36)=34. Published general attainability and compression results do not in inspected sections list every k<=8 inverse diameter or the 32-to-33 strict descent. The most on-point July 2026 inverse-sumset source was not accessible in full, retained as genuine residual priority risk rather than presumed negative coverage.
+
+## value
+
+PASS
+
+A complete inverse profile on the first finite cardinality with a nonmonotone t->minimum-diameter phenomenon is a natural additive-combinatorial classification. The exact first reversal is a motivated structural counterexample to an attractive monotonicity heuristic; the finite scope is explicit and exhaustively certified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python3 verify.py` (Python standard library only). The checker performs 108 direct finite cyclic character-sum comparisons for three prime bases and multiple depths and modulation parameters, testing an independently derived finite-quotient formula. It additionally tests rational threefold-phase coefficients and the exact sign of one shell difference using `fractions.Fraction`.
+# Independent mathematical audit
 
-# Analytic limits
-The finite checks are not a proof of positive definiteness on the infinite compact group. The proof in RESULT.md uses uniform shell expansion, Fourier integrals of p-adic balls, exact geometric summation, the compact-group Bochner criterion, and circle-rotation density/periodicity. Published references provide background and context, not an independent evaluation of the new claim.
+## correctness
+
+PASS
+
+Expand f in normalized nested p-adic ball indicators. A character of conductor p^m integrates 1_{p^jZ_p} to p^{-j} for j>=m and 0 otherwise. Summation gives Fourier coefficients a p^{-m}r^{m-1}[A+epsilon Re(Ce^{i(m-1)theta})], A=(1-r)/(1-r/p), C=(1-re^{i theta})/(1-re^{i theta}/p). Trivial coefficient positive because f>=0 and not zero a.e. Bochner positivity becomes sign of dense circle orbit for irrational theta and finite phase grid for rational theta. Direct finite cyclic Fourier sums reproduce the coefficients, and exact p=2 r=3/5 theta=2pi/3 example gives threshold 139/182 and a nonmonotone positive-definite shell profile.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality concerns phase-arithmetic threshold jumps and explicit nonmonotone positive-definite radial shells, not the standard p-adic ball Fourier transform.
+
+## value
+
+PASS
+
+This is an exact classification of when a natural log-periodic radial covariance is positive definite, with discontinuous rational-angle resonance thresholds and explicit counterexamples to naive shell monotonicity. Such phenomena matter for covariance design on ultrametric groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

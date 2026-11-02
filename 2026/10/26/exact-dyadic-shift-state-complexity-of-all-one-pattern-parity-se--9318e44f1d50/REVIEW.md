@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result is proved for every stated parameter by exact arithmetic invariants and a residual-function separation argument. Distinct carry values are separated by comparing two continuations around successive powers of two; equal carries are separated by prescribed trailing-one runs. Counting the reachable dyadic levels yields the displayed sum and the isolated additional state. The saved checker independently tests finite instances, but the stated universal quantifiers rest on the proof rather than on enumeration.
+## correctness
 
-## Originality
-**PASS within the examined evidence.** Hendel's all-one-pattern paper establishes the base \(2m\)-state construction and related combinatorial properties, not the shifted two-parameter optimum. Zantema and Bosma establish general complexity bounds for shift operations, not the exact formula. Moradi, Rampersad, and Shallit discuss general state-complexity transformations with a different principal focus. Previously known special cases at \(m=2\) are not sufficient to derive the explicit formula or the parity-transition mechanism for every \(m\ge3\). Searches of equivalent phrases, generalizations, records, and relevant sources did not locate a covering theorem. The main remaining risk is equivalent work not indexed or accessible in the inspected literature.
+PASS
 
-## Mathematical value
-**PASS.** This is an exact two-parameter state-complexity law for a recently studied natural generalization of the Thue–Morse and Rudin–Shapiro sequences. It identifies a nontrivial transient profile, one exceptional carry-parity transition, and the sharp eventual linear regime; minimality is proved rather than inferred from a construction. The broad no-merging lemma also permits exact state counting for arbitrary shifts. No claim about most-significant-digit-first automata or other patterns is made.
+Carry recursion q'=floor((q+b)/2), digit d=(q+b) mod 2, trailing-one cap a and occurrence parity p tracks all output. Residual F_{q,a,p}(z)=p+s_m(z+q)+χ_m(a,ν2(z+q+1)) distinguishes equal q by parity and suitably chosen trailing-one counts. For distinct q, continuation z=2^K-q' yields oscillatory output from q versus constant from q', preventing merges. Reachable positive carry levels and zero-carry 2m states yield N_m(r)=2m+Σ_{k=0}^r A_m(k)+1_{r=m}. An independent full partition-refinement minimization checked 60 (m,r) pairs and exact direct outputs; all-size conclusion rests on residual proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Hendel’s full primary article concerns the underlying pattern-parity family and the 2m-state unshifted machine. Zantema–Bosma and Moradi–Rampersad–Shallit discuss general shift/subsequence automaticity and state bounds. None of the inspected direct claims provides this exact least-significant-first additive dyadic-shift formula, its lone correction or arbitrary-carry no-merging criterion. An equivalent k-kernel statement remains a priority risk.
+
+## value
+
+PASS
+
+State complexity is a canonical computational invariant for automatic sequences. The new exact family-wide growth law (and isolated carry correction) goes beyond mere automaticity, with a structural proof of why no carry/trailing-pattern states merge; natural independent use in automata implementations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

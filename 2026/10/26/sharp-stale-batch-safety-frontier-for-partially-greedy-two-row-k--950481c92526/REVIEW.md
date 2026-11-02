@@ -1,19 +1,21 @@
-# Review of the sharp stale-batch safety frontier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is explicitly for two independent normalized rows, independent with-replacement choices, and additive correction vectors all computed from a common snapshot. Conditioning on the current error gives the exact second-moment identity in RESULT.md. The only optimization is a two-by-two symmetric generalized Rayleigh quotient; its top eigenvector respects the maximal-residual ordering, including the tie and endpoint cases. This yields both a strict universal threshold and exact witnesses for failure at and above the threshold. The positive lower bound on weighted squared residuals proves uniform geometric mean-square convergence in the open safe interval. The full-greedy two-worker obstruction is exactly an orthogonal reflection off a union-of-lines exceptional set. The standalone verifier independently enumerates the finite draw distributions for rational systems.
+PASS
 
-## Originality
+For A=E||r_I u_I||² and B=||E(r_I u_I)||², independence gives exact conditional Δ||e||²=−Kβ{2A−β[A+(K−1)B]}. After residual scaling, B/A is the Rayleigh quotient of [[p,c√(pq)],[c√(pq),q]], maximum R=(1+sqrt(θ²+(1−θ²)c²))/2. The positive top eigenvector is feasible under the greedy residual ordering, including c=0, θ=0 tie, and θ=1 boundaries. Hence the strict universal cutoff is 4/[K+1+(K−1)sqrt(θ²+(1−θ²)c²)]. A≥(1−c)||e||²/2 yields a uniform conditional contraction and geometric mean-square convergence. K=2,θ=1,β=1 yields Householder reflections and a countable union of tie lines, so generic nonconvergence. An independently written checker performed 880 exact outcome and sharp boundary checks.
 
-PASS, with acknowledged bibliographic uncertainty. Coleman's 2026 paper examines adaptive asynchronous Kaczmarz empirically, but does not give an exact shared-snapshot, two-row, mixture-dependent threshold. Moorman et al. (2020) provide parallel averaging and second-moment background, primarily for fixed distributions and probability-weight coupling; their stated bounds do not cover the optimized adaptive-mixture frontier and pure-greedy reflection trap. Gower et al. (2019) analyze one selected adaptive sketch per iteration, not several unaveraged commits from the same snapshot. Related published mathematical findings on cyclic two-row overrelaxation and greedy Kaczmarz residual spikes concern sequential iterations or different metrics. Searches checked aliases such as parallel randomized Kaczmarz, mini-batch stochastic projections, stale snapshots, max-distance sampling, collision, and coherent two-row relaxation. A more general unpublished theorem or an unnoticed implication in broader stochastic-gradient analyses remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The motivating practical issue is the competition between aggressive residual selection and worker interference. This theorem supplies a sharp and interpretable robust relaxation rule and an exact design distinction: with two simultaneous full corrections, pure greed is generically a nonconvergent norm-preserving reflection, while every positive uniform-exploration component restores mean-square convergence. Its coherence- and worker-count dependence is mathematically motivated by the collision/interference geometry, rather than an arbitrary isolated constant. The claim concerns a clean controlled synchronization model, not arbitrary real-world asynchrony.
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: Two-row cyclic Kaczmarz relaxation (Resultary: SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1) uses sequential cyclic row updates, not K independent same-snapshot additive corrections. Standard RK averaging divides corrections by worker count; the exact θ-dependent interference frontier is distinct. Coleman describes row-selection staleness empirically; this statement is exact for a shared snapshot, not a general lock-free schedule. A standard independence second-moment identity is a prerequisite, but the exact constrained Rayleigh maximum, sharp witness and generic reflection obstruction require further analysis.
 
-## Closest literature and limits
+## value
 
-Primary comparisons: Coleman (2026), arXiv:2607.08313; Moorman, Tu, Molitor, and Needell (2020), arXiv:2002.04126; Gower, Molitor, Moorman, and Needell (2019), arXiv:1909.03604; Ferreira, Acebrón, and Monteiro (2024), DOI:10.1007/s11075-024-01945-2. Main mathematical limitations: two independent unit rows, identical pre-batch read, conditional with-replacement draws, and additive unaveraged corrections. Above-threshold one-step expected amplification does not imply eventual divergence. The theorem has not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp explicit stability frontier separates stale additive concurrent updates from sequential or averaged updates. The singular θ=1 reflection trap and arbitrarily small exploration restoring convergence are meaningful methodological boundary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

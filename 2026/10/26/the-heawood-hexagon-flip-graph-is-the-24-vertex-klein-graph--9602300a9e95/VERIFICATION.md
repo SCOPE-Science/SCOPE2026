@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and checked limits
+# Independent mathematical audit
 
-Run `python3 verify_permutations.py` and `python3 verify_cycles.py` from the directory containing the scripts and `klein_reference.am`. Both are standalone Python 3 standard-library programs. Their captured actual outputs are `verify_permutations.out` and `verify_cycles.out`.
+## correctness
 
-The first program checks all 5040 permutation possibilities, identifies all 24 admissible perfect matchings, constructs every Hamming-three transition, checks connectivity and all 576 ordered-pair intersection-number conditions, enumerates eight perfect one-factorizations, and tests each of 576 adjacency-matrix entries against the published Klein matrix under an explicit vertex permutation. The second independently enumerates matching assignments, all 28 hexagons, and the alternating six-cycle flips, then reproduces the same graph fingerprint and graph invariants. The second method does not derive flip adjacency from Hamming distance.
+PASS
 
-The shared canonical SHA-256 fingerprint of the lexicographically ordered matchings and sorted flip edges is `d24c03e5de28643a1ab7271df299b66de1fc6d3e71d1ad151bfa2ce71911f04a`. The 24-line comparison matrix is reproduced from https://www.math.mun.ca/distanceregular/graphdata/klein.am ; its standalone file SHA-256 is `6302f118d7c7fe0cf6a3a8de2f56a8959c02b45c930cafebcbb596efd9a8e673`.
+Every matching of the Fano incidence graph is a permutation satisfying seven incidence tests, so all 7!=5040 permutations can be exhausted. An alternating six-cycle flip changes exactly three row assignments; conversely any two allowed permutations differing at exactly three positions differ by a single alternating hexagon (girth six rules out 4-cycles). An independent DFS matching generator and explicit six-cycle generator gave 24 matchings, 28 hexagons and 84 flips, with all 576 ordered vertex pairs satisfying the listed intersection parameters. A checked vertex permutation phi matches every one of the 576 entries of the exact 24-by-24 published Klein adjacency matrix, so identity does not rely on an unproved uniqueness of intersection arrays. The independent computation also found eight disjoint one-factorization triples, distance three within fibers, and exactly one outgoing edge to each other fiber per vertex. The finite enumeration is exhaustive for this fully specified finite graph.
 
-The finite domain is all matchings on exactly 14 vertices of the specified Fano incidence graph. No inference is made about arbitrary cubic graphs, higher-order projective planes, or longer alternating-cycle flips. Literature priority is not formally certified. No independent external audit has been performed.
+## originality
+
+PASS
+
+The 24 Heawood perfect matchings, eight factorizations, Coxeter graph from Heawood hexagons and 24-vertex Klein graph are individually established. The inspected Dejter construction passes via Coxeter cycles, not this exact matching flip graph. Exact 24x24 adjacency comparison proves a previously unlocated natural graph identification, qualified by possible historical graph equivalences.
+
+## value
+
+PASS
+
+The full configuration-space graph of local perfect-matching moves is a natural object. An explicit identification with a classical distance-regular graph, including the antipodal correspondence with all one-factorizations, is a substantive structural classification beyond the already-known number of perfect matchings, despite concerning only one canonical finite incidence graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

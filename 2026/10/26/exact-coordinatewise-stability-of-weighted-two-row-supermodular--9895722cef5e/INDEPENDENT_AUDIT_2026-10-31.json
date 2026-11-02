@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:10:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Columnwise weighted means s_j and differences d_j transform the quadratic objective exactly into independent mean squares and c_j-weighted isotonic regression of d, c_j=a_jb_j/(a_j+b_j). Inside each PAV pooling cell, output-row absolute Jacobian sums are 1+2[b_j/(a_j+b_j)](1-c_j/C_B) and 1+2[a_j/(a_j+b_j)](1-c_j/C_B). C_B<=C bounds globally; strictly decreasing d forces an interior all-pooled cell and a sign-vector perturbation attaining the maximal row sum. This proves Lip_inf=1+2 max_j alpha_j(1-c_j/C). Equality at the minimal value 2-1/m requires equal all weights; strictly positive finite weights give modulus<3 and one unbalanced column approaches 3. Independent exact-rational perturbation/Jacobian tests covered 72 instances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known isotonic risk and norm contraction results have different metrics (Euclidean statistical risk; order-cone l_p stability) or do not optimize per-column heteroscedastic weights."
+        ],
+        "reasoning": "No inspected stronger theorem simultaneously gives the heterogeneous weighted reconstructed two-row sup-norm formula and full attainable interval.",
+        "searches": [
+          "Resultary semantic query: weighted anti-Monge two row supermodular regression L infinity projection Lipschitz isotonic sensitivity",
+          "https://arxiv.org/abs/1904.03136",
+          "https://arxiv.org/abs/1311.3765",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1904.03136",
+        "https://arxiv.org/abs/1311.3765",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted PAV block averaging is classical and explicitly acknowledged as the ingredient."
+        ],
+        "reasoning": "The sharp row-sum maximization, finite sharpness and unique equal-weight optimizer require additional algebra beyond the isotonic projection definition; standard PAV alone does not encode the claimed global Lipschitz design theorem.",
+        "searches": [
+          "Resultary semantic query: weighted anti-Monge two row supermodular regression L infinity projection Lipschitz isotonic sensitivity",
+          "https://arxiv.org/abs/1904.03136",
+          "https://arxiv.org/abs/1311.3765",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hütter et al. 2019 define anti-Monge array cone and least-squares estimation; Resultary 2026 sharp finite-order isotonic l_p Lipschitz concerns unweighted isotonic output, not reconstructed weighted matrix entries."
+        ],
+        "reasoning": "The output map contains weighted column means and isotonic fitted differences; a theorem solely on d->hat d would not directly state the exact induced norm of the full 2m-by-2m projector.",
+        "searches": [
+          "Resultary semantic query: weighted anti-Monge two row supermodular regression L infinity projection Lipschitz isotonic sensitivity",
+          "https://arxiv.org/abs/1904.03136",
+          "https://arxiv.org/abs/1311.3765",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The answer is a symbolic all-m positive-weight expression, not a finite database constant; 72 independent rational cases checked for formula and finite attainment."
+        ],
+        "reasoning": "Numerical tables do not dominate this continuum statement; no exact closed-form equality found in named primary model paper.",
+        "searches": [
+          "Resultary semantic query: weighted anti-Monge two row supermodular regression L infinity projection Lipschitz isotonic sensitivity",
+          "https://arxiv.org/abs/1904.03136",
+          "https://arxiv.org/abs/1311.3765",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+        ]
+      },
+      "rationale": "Prior anti-Monge estimation articles establish the cone and statistical least-squares objectives; general isotonic and unweighted l_p sensitivity theory addresses different operator/metrics. The reconstructed weighted 2-row projector combines a coordinate change and pooling Jacobians that are not represented by a simple isotonic l_inf contraction claim.",
+      "residual_risks": [
+        "Equivalent results could appear in projection sensitivity literature under PAV or anti-Monge aliases.",
+        "The exact weight-range result is for complete two-row arrays and finite positive weights only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_CONE_NOT_OPERATOR_NORM",
+          "evidence": "The paper studies risk and computation of Monge-matrix estimation; the inspected material does not include exact worst-case unweighted coordinatewise sensitivity over arbitrary positive observation weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.03136",
+          "material_read": "Primary PDF cone definitions, algorithmic/statistical LSE statements and related mathematical sections",
+          "method": "ArXiv full-text PDF and page-image inspection",
+          "title": "Estimation of Monge Matrices",
+          "trigger": "Same two-dimensional anti-Monge/supermodular cone"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Risk rates for shape-constrained least squares do not imply the deterministic reconstructed 2-row coordinatewise projection modulus.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.3765",
+          "material_read": "Primary available PDF introduction, statistical risk and projection statements, limited targeted passages",
+          "method": "ArXiv PDF targeted reading",
+          "title": "On risk bounds in isotonic and other shape restricted regression problems",
+          "trigger": "General isotonic regression comparison"
+        },
+        {
+          "assessment": "RELATED_NOT_SAME_OPERATOR",
+          "evidence": "This item optimizes unweighted isotonic l_p projection on arbitrary orders; it does not state the weighted, reconstructed 2-row anti-Monge l_infty modulus. Full document not inspected.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62",
+          "material_read": "Resultary indexed title and complete abstract/summary only, not primary full proof",
+          "method": "Published-result semantic search",
+          "title": "Sharp ell-p isotonic regression stability on every finite partial order",
+          "trigger": "Published related SCOPE result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sup-norm error-amplification modulus and sharp weight-design range are natural worst-case robustness measures for the canonical two-row anti-Monge projection under heteroscedastic errors. The attained extremizers expose a genuine pooling-induced amplification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No guarantee for three or more rows, extra monotonic constraints or missing observation cells."
+  ],
+  "schema_version": 1
+}

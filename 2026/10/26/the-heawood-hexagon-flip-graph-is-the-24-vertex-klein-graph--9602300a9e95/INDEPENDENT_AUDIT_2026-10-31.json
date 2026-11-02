@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:11:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every matching of the Fano incidence graph is a permutation satisfying seven incidence tests, so all 7!=5040 permutations can be exhausted. An alternating six-cycle flip changes exactly three row assignments; conversely any two allowed permutations differing at exactly three positions differ by a single alternating hexagon (girth six rules out 4-cycles). An independent DFS matching generator and explicit six-cycle generator gave 24 matchings, 28 hexagons and 84 flips, with all 576 ordered vertex pairs satisfying the listed intersection parameters. A checked vertex permutation phi matches every one of the 576 entries of the exact 24-by-24 published Klein adjacency matrix, so identity does not rely on an unproved uniqueness of intersection arrays. The independent computation also found eight disjoint one-factorization triples, distance three within fibers, and exactly one outgoing edge to each other fiber per vertex. The finite enumeration is exhaustive for this fully specified finite graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General flip dynamics of perfect matchings analyzes connectivity for broader families but does not tabulate this 24-state hexagon-only graph.",
+          "Known Heawood references give 24 perfect matchings and eight one-factorizations, but not Klein adjacency for the flip relation."
+        ],
+        "reasoning": "A generic theorem on bipartite matching flip connectivity need not determine distance-regularity, antipodality, or an isomorphism to a specific 24-vertex Klein graph. The special matrix certificate supplies these stronger conclusions.",
+        "searches": [
+          "arxiv:1002.1960",
+          "arxiv:2607.16101",
+          "Heawood graph one-factorization reference"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1002.1960v9",
+        "https://www.math.mun.ca/distanceregular/graphs/klein.html",
+        "https://www.math.mun.ca/distanceregular/graphdata/klein.am",
+        "https://jaanos.github.io/tables/graphs/Heawood.html",
+        "arxiv:2607.16101",
+        "Resultary semantic query recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published 24-vertex Klein parameters and Heawood factorization numbers are individually antecedents.",
+          "Actual matching-flip edge set is computed from six-cycle symmetric differences and matched to the Klein matrix via a full explicit bijection."
+        ],
+        "reasoning": "Equal vertex counts or the same intersection array would be insufficient to infer isomorphism or a natural configuration interpretation. The exhaustive isomorphism check is the nontrivial link that goes beyond isolated known counts.",
+        "searches": [
+          "arxiv:1002.1960",
+          "https://www.math.mun.ca/distanceregular/graphdata/klein.am"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dejter identifies a 24-vertex Klein graph related to the 28-vertex Coxeter graph and Heawood hexagons.",
+          "The assessed vertices are the 24 Heawood perfect matchings; adjacency is a symmetric-difference hexagon flip, not the Coxeter graph on 28 hexagons."
+        ],
+        "reasoning": "Both constructions reach the Klein graph, so the known isomorphism class alone is not novel. What is claimed is that this specific natural hexagon-flip adjacency on the Heawood matching set realizes it, with explicit vertex map and antipodal factorization interpretation. No same-configuration adjacency theorem was found in the primary source read.",
+        "searches": [
+          "Resultary: Heawood graph perfect matchings six cycle flips Klein graph 24 vertex antipodal 3 cover K8",
+          "arxiv:1002.1960",
+          "https://www.math.mun.ca/distanceregular/graphs/klein.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The established Klein 24x24 adjacency data are in the published reference matrix and were checked against the supplied phi in all 576 positions.",
+          "Resultary hits for Heawood matching complexes and other Klein graphs involved different complexes/flip rules, not this matching transition graph."
+        ],
+        "reasoning": "The graph database supplies the comparison target; an exact adjacency matrix without a matching-state interpretation does not independently assert the flip-graph identification. Any earlier catalog entry that did identify it would be dominating, but was not found.",
+        "searches": [
+          "https://www.math.mun.ca/distanceregular/graphdata/klein.am",
+          "https://www.math.mun.ca/distanceregular/graphs/klein.html",
+          "Resultary: Heawood graph perfect matchings six cycle flips Klein graph 24 vertex antipodal 3 cover K8"
+        ]
+      },
+      "rationale": "The 24 Heawood perfect matchings, eight factorizations, Coxeter graph from Heawood hexagons and 24-vertex Klein graph are individually established. The inspected Dejter construction passes via Coxeter cycles, not this exact matching flip graph. Exact 24x24 adjacency comparison proves a previously unlocated natural graph identification, qualified by possible historical graph equivalences.",
+      "residual_risks": [
+        "Older graph-reference discussions of Heawood 1-factorization flip graphs may encode an equivalent realization without using the Klein name.",
+        "The result concerns only alternating 6-cycle moves; allowing longer alternating cycles produces a different transition graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELEVANT_CLASSICAL_GRAPH_BUT_NOT_HEXAGON_FLIP_MATCHING_REALIZATION",
+          "evidence": "The published path from Heawood six-cycles to Coxeter cycles and Klein duality differs from the 24 matching vertices with edges defined by hexagon symmetric-difference flips.",
+          "identifier_or_url": "https://arxiv.org/html/1002.1960v9",
+          "material_read": "Primary full-text HTML introduction and construction/duality sections detailing 28 Coxeter objects, the 24-vertex Klein graph and their Heawood origin",
+          "method": "Lawful arXiv full text, mathematical construction comparison",
+          "title": "From the Coxeter graph to the Klein graph",
+          "trigger": "Highly relevant same Heawood hexagon/Coxeter/Klein chain and possibly equivalent Klein model"
+        },
+        {
+          "assessment": "ESTABLISHED_REFERENCE_MATRIX_NOT_FLIP_STATE_LABELING",
+          "evidence": "The comparison permutation matches all edges/nonedges, proving the identification against the existing matrix without claiming the matrix is new.",
+          "identifier_or_url": "https://www.math.mun.ca/distanceregular/graphdata/klein.am",
+          "material_read": "Entire 24-by-24 ASCII adjacency matrix and published graph parameters",
+          "method": "Direct text matrix inspection and independently evaluated 576 pair comparisons",
+          "title": "Klein graph adjacency data",
+          "trigger": "Exact published graph database table could make numerical Klein parameters known"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full configuration-space graph of local perfect-matching moves is a natural object. An explicit identification with a classical distance-regular graph, including the antipodal correspondence with all one-factorizations, is a substantive structural classification beyond the already-known number of perfect matchings, despite concerning only one canonical finite incidence graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No theorem claimed for general cubic bipartite incidence graphs or unrestricted alternating-cycle flips.",
+    "Classical counts of Heawood matchings/factorizations and existence of Klein graph are antecedents."
+  ],
+  "schema_version": 1
+}

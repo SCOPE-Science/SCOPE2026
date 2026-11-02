@@ -1,15 +1,21 @@
-# Review of the diagonal Segre-cubic specialization
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit characteristic-two coordinate change yields a cone over a smooth cubic, whose Jacobian generators are the squares of four independent linear forms; hence the length-\(16\) vertex. The linear subspaces in the cone correspond to lines on the base; the 27-line theorem and exact characteristic-four-field enumeration fix their geometric and descent counts, and a normal-bundle syzygy computation verifies all Hilbert points are reduced. The zero-dimensional fiber-length jump then proves nonflatness. The Frobenius Gauss assertion applies to the cubic base, not to the singular cone. All these reductions and the standalone finite-field checker were examined.
+## correctness
 
-## Originality — PASS (qualified)
-Kondō's diagonal equation and 15 planes, the characteristic-zero calculations of Ren--Sam--Sturmfels and Dolgachev, and the distinct characteristic-two GIT model clarified by Dolgachev in 2024 are prior. The 27 lines on any smooth cubic are classical. The new statement is the coherent identification of this **particular flat arithmetic diagonal family** with a length-\(16\) vertex and a nonflat relative plane Hilbert scheme with exactly \(15\) surviving rational points and \(12\) further points over \(\mathbb F_4\). Searches for equivalent and stronger formulations did not locate these precise joint assertions; an overlooked modular or Hermitian-cubic formulation remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
-The special geometry distinguishes a convenient integral equation from a genuine characteristic-two moduli model. It determines a natural and deformation-sensitive geometric invariant—relative Fano schemes of planes—and gives its complete arithmetic jump, scheme lengths, singular-thickening mechanism, and dual degeneration, rather than a single isolated finite count.
+Because 3 is invertible over Z_(2), the cubic Cartier divisor has a nonzero special reduction and is flat. The substitution ui=Xi+X6 removes the vertex coordinate in characteristic two, giving sum ui^3 with sum ui=0. Its four partial derivatives are (zi+t)^2; the invertible I+J coordinate change and Euler identity give local Jacobian k[w1..w4]/(w1^2,...,w4^2), length 16. The induced nondegenerate four-dimensional Hermitian form gives a smooth cubic surface; its 27 geometric lines correspond to all planes of the cone, because a plane not through the vertex would project to a plane contained in a smooth cubic surface. Independent GF(4) line enumeration found exactly 45 projective points, 27 lines, 15 Frobenius-fixed lines and 6 nontrivial pairs, checked against all 15 specialized pair-partition planes; geometric completeness additionally uses the classical 27-lines theorem, not finite-field sampling. The normal-bundle map for each cone plane is a pair of base-point-free binary quadratics with no linear syzygy, giving reduced isolated Hilbert points. The generic 15 pairing planes are reduced. Thus different finite fiber lengths imply nonflatness. The Gauss map on the base is its projective Frobenius, degree 2^2=4, not a finite-degree Gauss map of the cone.
 
-## Limits
-The finite enumeration alone proves only the count over \(\mathbb F_4\); geometric completeness uses the classical 27-line theorem. The special cone is not the characteristic-two GIT Segre cubic with ten nodes. Independent scientific validation is not available; equivalent older descriptions remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical facts about the Segre cubic and smooth cubic lines are antecedents. Dolgachev explicitly distinguishes the characteristic-two modular model from these diagonal equations. The arithmetic specialization and Jacobian/Fano scheme interaction were not found stated in the relevant primary material. Originality is qualified by the possibility of an older diagonal-model reduction in arithmetic cubic-surface literature.
+
+## value
+
+PASS
+
+The degeneration distinguishes the naive integral diagonal model from the usual moduli/GIT integral extension and computes three natural scheme-theoretic and arithmetic invariants: vertex thickness, rational vs geometric plane distribution, and precise Hilbert-scheme length jump. The interaction of singular degeneration, Frobenius descent and Fano geometry is more than merely restating the classical 27-line count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

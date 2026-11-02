@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-## Claim and proof checks
+# Independent mathematical audit
 
-The proof reduces a dominating induced matching of \(\operatorname{GP}(n,3)\) to two families of binary vertex equations. Their Fourier determinant is checked by exact polynomial multiplication, and its non-fifth-root factor is excluded from roots of unity by irreducibility modulo two and the complete list of degree-four cyclotomic polynomials. That rules out all aperiodic solutions for arbitrary \(n\), without inferring an infinite claim from a finite scan.
+## correctness
 
-## Executed standalone files
+PASS
 
-1. `verify_polynomial.py` -> `verify_polynomial.out` confirms the exact polynomial identity and exhausts all 32 five-column patterns; five survive.
-2. `verify_edge_cover.py` -> `verify_edge_cover.out` independently enumerates dominating edge-neighbourhood exact covers for every \(7\le n\le50\), confirming the count of zero or five.
-3. `verify_coloring.py` -> `verify_coloring.out` independently enumerates admissible cyclic outer colour words and checks all inner equations for every \(7\le n\le32\), confirming the same count.
+A DIM is equivalent to black vertices inducing disjoint edges and whites independent. For cubic GP(n,3), black indicators x_i,y_i satisfy 2x_i+x_(i-1)+x_(i+1)+y_i=3 and x_i+2y_i+y_(i-3)+y_(i+3)=3. Summing gives X=Y=3n/5, so n must be divisible by5. On nonconstant Fourier frequencies the determinant times z^4 factors Phi5(z)*(z^4+z^3-z²+z+1); the second quartic reduces mod2 to irreducible Phi5 and is not among degree-4 cyclotomic polynomials, so no further root of unity. Consequently all binary solutions are 5-periodic. Exactly five cyclic words of length5 with two nonconsecutive zero outer bits, rotations of 11010, give five matchings of 3n/5 edges each. Independent SymPy factorization and direct binary-coloring checks n7..16 corroborated the all-n spectral argument, not replace it.
 
-Each script uses Python 3 standard-library facilities only. Its output is preserved separately, and its assertions reject discrepancies.
+## originality
 
-## Limits
+PASS
 
-All-order correctness rests on the mathematical argument in `RESULT.md`; finite tests are corroboration. External independent review and independent validation have not been performed. Literature comparison does not establish global publication priority and is subject to unindexed-source risk.
+Best-of-knowledge originality: the exact stated constrained theorem is not mathematically implied by the inspected antecedents, with identified stronger-framework and inaccessible-source risks; negative searches alone are not novelty proof.
+
+## value
+
+PASS
+
+A natural infinite cubic graph family admits a complete exact efficient-edge-domination classification and uniqueness up to the five rotations, including sharp divisibility obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

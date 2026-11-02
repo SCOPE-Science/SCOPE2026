@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:20:46.943502Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Global alphabet relabeling preserves all prefix Parikh equalities. Every ternary word has a unique restricted-growth representative; the examined artifacts/abelian_census.cpp runs a complete depth-first enumeration (3^n+3)/6 representatives through n=16, computes Parikh prefix counts, and packs each border length into distinct 4-bit positions (length <=16). Independently inspected artifacts/abelian_independent.cpp instead enumerates all 3^(n-1) words beginning with 0 and uses base32 prefix count differences with no borrow (all counts <=16), computing the same exact table. Our separate Python implementation exhaustively computed every first-zero ternary word for n<=11 and matched T_3(1..11), top three fiber multiplicities and specific two runner-up arrays. The all-n fiber bound follows from second-letter branch and each subsequent symbol either forced 0 if border i-1 or one of 1,2 otherwise; the all-zero branch attains 2^(n-2) restricted-growth words. The two runner-up cases follow by first repeated zero and strict split at next position, with 6 labeled permutations for every nonconstant canonical representative. The n=12..16 table rests on inspected exhaustive algorithm and its two independent implementations, not our truncated Python check; no infinite table extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parent paper shows an upper bound T_3(n)<=(3^(n-1)+1)/2 and discusses complexity of ternary equivalences.",
+          "Binary Abelian-border paper counts individual binary border lengths, not full ternary observation fibers."
+        ],
+        "reasoning": "No directly dominating theorem was identified among inspected primary material; search did not show an algorithmically identical precomputed n=16 table.",
+        "searches": [
+          "Habib–Shamil–Rahman section4 ternary upper bound",
+          "Christodoulakis et al. Abelian borders in binary words",
+          "jumbled pattern matching and Parikh vector prefix arrays"
+        ]
+      },
+      "checked_sources": [
+        "Habib, Shamil and Rahman 2021, arxiv:2111.00259",
+        "Christodoulakis et al 2014, Abelian borders in binary words",
+        "Resultary semantic query ternary Abelian border arrays"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary-count theorem and ternary upper bound cannot imply the exact table nor classify largest two ternary fibers; even the upper bound at n16 is much larger.",
+          "Other binary individual-border enumeration addresses different observables."
+        ],
+        "reasoning": "The theorem fills the ternary gap rather than repackaging a known total count, though unindexed Parikh-prefix literature could be equivalent.",
+        "searches": [
+          "Habib Shamil Rahman arxiv:2111.00259 Proposition 3.1 and Section4",
+          "Christodoulakis et al Abelian borders in binary words",
+          "Resultary jumbled border query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 paper defines the same full longest-Abelian-border prefix vector, proves binary T_2(n)=2^(n-1), and has only ternary upper bound.",
+          "Counting restricted-growth ternary words is not equivalent to counting their observations; many RGS words share one array."
+        ],
+        "reasoning": "Exact ternary observation counts and largest fibers are not a relabeling of the binary theorem; the problem has genuinely larger equivalence classes.",
+        "searches": [
+          "Resultary ternary abelian border array number distinct arrays fiber size parikh",
+          "Habib Shamil Rahman 2021 arxiv:2111.00259",
+          "\"jumbled border\" \"Parikh prefix function\" ternary arrays"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parent 2021 paper does not publish the sixteen-term exact ternary list; its binary table and ternary bound are distinct.",
+          "The exact source table ends at n=16 because 4-bit signature encoding is injective there; no unsupported extension beyond n16."
+        ],
+        "reasoning": "The finite census is an exhaustive exact arithmetic resource, not merely a guessed integer sequence; however search failure does not establish historical uniqueness.",
+        "searches": [
+          "\"1,2,4,9,20,49,119,308\" Abelian arrays",
+          "\"1151825\" ternary abelian border arrays",
+          "Resultary ternary abelian border array number distinct arrays"
+        ]
+      },
+      "rationale": "Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.",
+      "residual_risks": [
+        "No independent full n16 rerun was feasible in this run; structural completeness of both inspected C++ generators plus independent n<=11 confirms algorithm method, not every recorded long table value computationally anew.",
+        "Potential unindexed sequence tables under Parikh-prefix or jumbled border terminology may exist.",
+        "All-n top two fibers do not provide an all-n total T_3(n), explicitly not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BINARY_PLUS_TERNARY_BOUND_ONLY",
+          "evidence": "Upper bound for ternary observations does not fix table or extremal fibers; the claim is a new finite and all-n refinement.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.00259",
+          "material_read": "Definition of longest Abelian border arrays, binary Proposition 3.1 and Section 4 ternary upper-bound discussion; full primary text examined via OA/HTML/PDF during research, although fresh arxiv direct retry was disabled",
+          "method": "Primary mathematical statements and implication comparison",
+          "title": "Counting and Verifying Abelian Border Arrays of Binary Words",
+          "trigger": "Direct same-definition parent work"
+        },
+        {
+          "assessment": "BINARY_BORDER_SCOPE",
+          "evidence": "No full text read, so residual possibility of broader hidden enumeration remains.",
+          "identifier_or_url": "https://kclpure.kcl.ac.uk/portal/en/publications/abelian-borders-in-binary-words/",
+          "material_read": "Public abstract and bibliographic description about binary individual borders, not all ternary full-arrays",
+          "method": "Abstract only, not full-document exclusion",
+          "title": "Abelian borders in binary words",
+          "trigger": "Alternate terminology for same combinatorics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural reconstruction ambiguity invariant beyond the binary case: exact attainable signature counts through a substantial finite cutoff plus all-length extremal fiber geometry. The 16-term table is independently motivated by the explicitly open ternary complexity in the 2021 parent work; the infinite top-two classification remains useful without a full all-n census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No independent full n16 rerun was feasible in this run; structural completeness of both inspected C++ generators plus independent n<=11 confirms algorithm method, not every recorded long table value computationally anew.",
+    "Potential unindexed sequence tables under Parikh-prefix or jumbled border terminology may exist.",
+    "All-n top two fibers do not provide an all-n total T_3(n), explicitly not claimed.",
+    "No formal Lean proof or human expert attestation inferred from bounded independent computations."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:18:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6323fe545de95339bdcdf8c13699f85c2564122e/2026/10/26/exact-cyclic-binary-three-gram-profile-enumeration--9b2754288e6b",
+        "actual frozen RESULT.md and checked finite program sources"
+      ],
+      "rationale": "The order-two de Bruijn graph identifies cyclic three-gram profiles with balanced connected directed Eulerian edge multisets. Balance gives a=x000, h=x111, p=x001=x100, q=x011=x110, r=x010, s=x101=r+q-p >=0 and length n=a+h+p+3q+2r. Five disjoint connectivity cases (p,q positive; p positive q zero; q positive p zero; p=q zero r positive; only one constant loop) produce respectively z⁴(1+z³)/[(1-z⁴)(1-z³)(1-z²)(1-z)²], 2z³/[(1-z³)(1-z²)(1-z)], z²/(1-z²), 2z/(1-z). Their sum is exact for every n, has period dividing 12 and n⁴/288 leading term. Independently enumerated cyclic-word profiles through n=13 and compared coefficients; unrestricted proof is flow/Eulerian connectedness.",
+      "residual_risks": [
+        "Finite computations do not replace the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1502.00517, Table I: 1/288",
+          "arXiv:1708.03654 p1",
+          "Published general tools evaluated for implication, not merely title overlap."
+        ],
+        "reasoning": "Kiah–Puleo–Milenkovic supplies general flow-Ehrhart asymptotic and the SAME 1/288 leading constant; the full exact rational generating function was not found. Avoid claiming known asymptotic as novel.",
+        "searches": [
+          "cyclic binary 3-gram profile enumeration Markov type count generating function",
+          "https://arxiv.org/pdf/1502.00517",
+          "https://arxiv.org/pdf/1708.03654",
+          "https://doi.org/10.46298/dmtcs.2768",
+          "https://arxiv.org/abs/2108.11725"
+        ]
+      },
+      "checked_sources": [
+        "Kiah, Puleo and Milenkovic, Codes for DNA Sequence Profiles — https://arxiv.org/pdf/1502.00517",
+        "Tesler, Multi de Bruijn Sequences — https://arxiv.org/pdf/1708.03654",
+        "Jacquet, Knessl and Szpankowski, Counting Markov Types — https://doi.org/10.46298/dmtcs.2768",
+        "Yehezkeally, Marcovich and Yaakobi, Multi-strand Reconstruction from Substrings — https://arxiv.org/abs/2108.11725"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1502.00517, Table I: 1/288",
+          "arXiv:1708.03654 p1",
+          "The supplied exact prior-vs-claim implication argument is bounded to inspected source material."
+        ],
+        "reasoning": "General Ehrhart theory implies quasi-polynomial behavior but not specifically the five exceptional connectivity cases or coefficients for all n without additional analysis.",
+        "searches": [
+          "cyclic binary 3-gram profile enumeration Markov type count generating function",
+          "https://arxiv.org/pdf/1502.00517",
+          "https://arxiv.org/pdf/1708.03654",
+          "https://doi.org/10.46298/dmtcs.2768",
+          "https://arxiv.org/abs/2108.11725"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1502.00517, Table I: 1/288",
+          "arXiv:1708.03654 p1",
+          "Actual package proof and equation-level equivalence were independently reconstructed."
+        ],
+        "reasoning": "Cyclic Markov types, de Bruijn edge-flow vectors, and 3-mer sequence profiles are equivalent when the support is Eulerian connected; unrestricted balanced flows alone are not sufficient.",
+        "searches": [
+          "cyclic binary 3-gram profile enumeration Markov type count generating function",
+          "https://arxiv.org/pdf/1502.00517",
+          "https://arxiv.org/pdf/1708.03654",
+          "https://doi.org/10.46298/dmtcs.2768",
+          "https://arxiv.org/abs/2108.11725"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:1502.00517, Table I: 1/288",
+          "arXiv:1708.03654 p1",
+          "Compared actual target parameter/domain against known tables and independent finite checks."
+        ],
+        "reasoning": "Published Table I has 1/288 but not the entire first-18 coefficient sequence or complete rational GF. Independent n<=13 checks corroborate only the finite prefix.",
+        "searches": [
+          "cyclic binary 3-gram profile enumeration Markov type count generating function",
+          "https://arxiv.org/pdf/1502.00517",
+          "https://arxiv.org/pdf/1708.03654",
+          "https://doi.org/10.46298/dmtcs.2768",
+          "https://arxiv.org/abs/2108.11725"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the exact stated constrained theorem is not mathematically implied by the inspected antecedents, with identified stronger-framework and inaccessible-source risks; negative searches alone are not novelty proof.",
+      "residual_risks": [
+        "Possible unindexed specialization of Markov-type flow counting to the same all-n coefficients.",
+        "Known leading term 1/288 is expressly not an original contribution.",
+        "No noisy code or per-profile fiber-size classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior covers leading asymptotic and general flow polytope; does not present assessed all-n rational GF with connected-support corrections",
+          "evidence": [
+            "arXiv:1502.00517, Table I: 1/288"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.00517",
+          "material_read": "Full relevant Section 3, Ehrhart framework and Table I listing q=2, read length 3 leading constant 1/288 were read from accessible arXiv PDF",
+          "method": "arXiv PDF text and table",
+          "title": "Kiah, Puleo and Milenkovic, Codes for DNA Sequence Profiles",
+          "trigger": "Same binary 3-gram de Bruijn flow profiles"
+        },
+        {
+          "assessment": "Counts sequences for each k-mer occurring fixed common multiplicity, not all attainable arbitrary 8-count vectors",
+          "evidence": [
+            "arXiv:1708.03654 p1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.03654",
+          "material_read": "Abstract, introduction, cyclic multi-de Bruijn definition with equal multiplicity m visually inspected on p1, plus general enumeration sections parsed",
+          "method": "arXiv PDF and first-page screenshot",
+          "title": "Tesler, Multi de Bruijn Sequences",
+          "trigger": "Same cyclic k-mer combinatorics"
+        },
+        {
+          "assessment": "No exact cyclic binary 3-gram connectivity-corrected GF identified in inspected material",
+          "evidence": [
+            "DOI 10.46298/dmtcs.2768"
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "Abstract and description of general Markov-type asymptotic framework, not full technical paper",
+          "method": "published summary",
+          "title": "Jacquet, Knessl and Szpankowski, Counting Markov Types",
+          "trigger": "Broader Markov-type asymptotics"
+        },
+        {
+          "assessment": "Different channel and scope; no known exact cyclic k=3 GF established by the cited abstract",
+          "evidence": [
+            "arXiv:2108.11725"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.11725",
+          "material_read": "Abstract scope and relation to linear multi-strand substring reads",
+          "method": "arXiv abstract",
+          "title": "Yehezkeally, Marcovich and Yaakobi, Multi-strand Reconstruction from Substrings",
+          "trigger": "Other substring-multispectrum code formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kiah, Puleo and Milenkovic, Codes for DNA Sequence Profiles — https://arxiv.org/pdf/1502.00517",
+        "Tesler, Multi de Bruijn Sequences — https://arxiv.org/pdf/1708.03654"
+      ],
+      "rationale": "Full rational all-n enumeration of cyclic 3-gram multispectra includes isolated-loop and disconnected-support corrections absent from leading asymptotic estimates, yielding an exact zero-error profile-code capacity.",
+      "residual_risks": [
+        "Possible unindexed specialization of Markov-type flow counting to the same all-n coefficients.",
+        "Known leading term 1/288 is expressly not an original contribution.",
+        "No noisy code or per-profile fiber-size classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible unindexed specialization of Markov-type flow counting to the same all-n coefficients.",
+    "Known leading term 1/288 is expressly not an original contribution.",
+    "No noisy code or per-profile fiber-size classification."
+  ],
+  "schema_version": 1
+}

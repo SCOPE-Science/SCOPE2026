@@ -1,19 +1,21 @@
-# Review of the exact third-step Petersen dominating-induced-matching classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a reversible characterization of dominating induced matchings by an independent white set and a 1-regular black induced subgraph. In this cubic family, both vertex equations follow from an exact count of black neighbours. Summing shows the necessary five-divisibility. The determinant identity is checked directly; its quartic factor is irreducible modulo two and cannot be cyclotomic, leaving only primitive fifth-root frequencies and forcing five-periodicity for **every** solution. Binary five-column enumeration is completely discharged in the written proof, and three different code paths independently check finite examples. The theorem is not an extrapolation from these examples.
+PASS
 
-## Originality — PASS with explicitly bounded evidence
+A DIM is equivalent to black vertices inducing disjoint edges and whites independent. For cubic GP(n,3), black indicators x_i,y_i satisfy 2x_i+x_(i-1)+x_(i+1)+y_i=3 and x_i+2y_i+y_(i-3)+y_(i+3)=3. Summing gives X=Y=3n/5, so n must be divisible by5. On nonconstant Fourier frequencies the determinant times z^4 factors Phi5(z)*(z^4+z^3-z²+z+1); the second quartic reduces mod2 to irreducible Phi5 and is not among degree-4 cyclotomic polynomials, so no further root of unity. Consequently all binary solutions are 5-periodic. Exactly five cyclic words of length5 with two nonconsecutive zero outer bits, rotations of 11010, give five matchings of 3n/5 edges each. Independent SymPy factorization and direct binary-coloring checks n7..16 corroborated the all-n spectral argument, not replace it.
 
-The closest family-specific publication located, Mahmoodi–Behmaram–Došlić–Asadi (2024), Observation 7, supplies a construction and cardinality for \(\operatorname{GP}(n,2)\), not the complete step-three classification. Even a complete classification of all step-two solutions would not imply this new family's result: for instance, the step-three and step-two graphs at order twenty differ in bipartiteness. Earlier foundational DIM work establishes general background, not the exact formula identified here. Targeted published-record and own-history queries found no equivalent or stronger result covering \(\operatorname{GP}(n,3)\). Searches are not proof of priority; an unindexed equivalent result remains a risk, and some older full texts were not inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves existence, exact count and structure of a natural exact-edge-dominating configuration class for an entire cubic graph family. It extends known specific-step constructions to a genuinely different inner step and explains a sharp divisibility transition with a finite-difference spectral obstruction. This is more than the routine cardinality count \(3n/5\) or a small-case enumeration: uniqueness up to the five cyclic shifts holds uniformly for unbounded graph orders.
+Best-of-knowledge originality: the exact stated constrained theorem is not mathematically implied by the inspected antecedents, with identified stronger-framework and inaccessible-source risks; negative searches alone are not novelty proof.
 
-## Sources and limitations
+## value
 
-Primary comparisons: Cardoso et al., DOI 10.1016/j.dam.2008.01.021; Korpelainen et al., DOI 10.1016/j.jda.2013.11.002; Mahmoodi et al., DOI 10.1080/09728600.2024.2342310. The 2024 article's relevant sections (definitions and Observation 7) were materially inspected in HTML. Earlier general sources were inspected at abstract/introduction level where accessible; inaccessible full-text material cannot be certified as non-covering. Scope remains \(n\ge7\), step three; no classification of every step is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural infinite cubic graph family admits a complete exact efficient-edge-domination classification and uniqueness up to the five rotations, including sharp divisibility obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

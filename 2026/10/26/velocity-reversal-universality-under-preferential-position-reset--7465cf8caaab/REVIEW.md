@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition distinguishes past-position restoration from any full-state reset. The proof derives the sign correlation by independent Poisson thinning, the exact coupled moment equations by conditioning on a uniform historical time, a uniform mixed-moment bound by a first-crossing argument, and the logarithmic variance through an integrating-factor quadrature. The initial cubic coefficient is independently derived by enumerating zero or one physical event. The three-parameter inversion is algebraic and unique on the stated positive-parameter domain. The packaged `CHECK.py` passed 78 assertions, including fixed-seed path-level simulations; these numerical tests are corroboration, not substitutes for proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The closest 2023 source restores the position **and sign** from a sampled historical time and derives a different logarithmic coefficient. The closest 2018 sign-reversal source restores position to a **fixed** site and obtains stationary position laws. The broader random-recursive-tree theorem likewise restores an entire Markov state. None of the inspected definitions directly includes the current-position-memory/current-sign-mixing jump operator. Index and web searches did not disclose an equivalent result, but negative searches cannot certify novelty; an equivalent broad stochastic-process formulation may remain.
+PASS
 
-**Scientific value — PASS.** This is a motivated distinction between two experimentally interpretable reset controls. The logarithmic transport rate is invariant under the *entire* Bernoulli reversal family but differs sharply from full-state historical copying. An exact short-time cubic term simultaneously detects the reversal probability, yielding a three-observable identifiability theorem for the kinetic rates. That information is not captured by variance scaling alone. No density limit theorem, finite-sample estimator guarantees, or general nonlinear extension is claimed.
+The reset sign process flips at independent thinned Poisson rate eta*r in addition to intrinsic gamma; future sign correlations decay with beta=2(gamma+eta*r). I independently derived M=E[Xsigma] from the jump generator: M'=v-(2gamma+r)M+r(1-2eta)J/t, J'=M-beta*J, J(0)=0. The boundedness argument gives J=O(1) and M=v/(2gamma+r)+O(t^-1). For V=E[X^2], V'=2vM-rV+r H/t, H'=V. With Y=H/t the exact quadrature Y'=e^{-rt} t^{-2} integral_0^t s e^{rs}(2vM(s))ds yields Y'=2v^2/[r(2gamma+r)t]+O(t^-2), and integrating gives the log law and finite C_eta. Independent one-reset event integrals yield -7r/18 for unchanged sign, -13r/18 for reversed sign; the single intrinsic tumble gives -2gamma/3. Thus the t^3 coefficient, invertible parameter formulas and eta independence are exact. A new numerical integration of the moment equations at eta=0,.25,.5,.75,1 and exact rational one-event checks corroborated the derivation. The all-t asymptotic follows from the integral equation, not numerics.
 
-Closest sources: Evans and Majumdar, arXiv:1808.06450; Boyer and Majumdar, arXiv:2312.13439; Mailler and Uribe Bravo, arXiv:1810.02735.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact split-state history-reset kernel, eta-independent logarithmic MSD and three-parameter moment identification. Boyer–Majumdar copies position AND historical orientation, Evans–Majumdar reverses orientation at fixed-position reset, and Mailler–Uribe Bravo copies the whole Markov state. These published operators are not parameter reparametrizations of sampling historical position while retaining/flipping current velocity. The most relevant Boyer–Majumdar full manuscript remained inaccessible; only abstract and available model statements were read, so residual coverage risk is retained.
+
+## value
+
+PASS
+
+The theorem distinguishes a physically motivated reset protocol from history-state copying, showing a nontrivial universality of the dominant logarithmic spreading despite eta-dependent transient variance. It also derives exact population-moment identifiability of three kinetic parameters, supplying a concrete reason for the subleading short-time calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

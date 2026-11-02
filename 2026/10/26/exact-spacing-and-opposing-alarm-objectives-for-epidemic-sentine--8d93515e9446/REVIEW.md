@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding supplies one coherent theorem, simultaneously specifying the exact no-alarm probability, strictly convex gap statistic, equal-gap optimizer, concentrated-gap worst case, placement-invariant mean, and the exact opposite two-monitor corroboration ordering. Every quantifier is explicit: integer \(n\ge3\), integer \(1\le k<n\), and real \(0<p<1\). Uniform seeding includes monitor vertices. The two bordering gap routes are edge-disjoint, so their failure probabilities multiply. The strict second difference \((\ell+2)p^{\ell+1}(1-p)^2\) is positive for every admissible parameter. Discrete exchanges establish both extremal equality cases. Component reachability proves the mean formula independently, and \(X\in\{0,1,2\}\) supplies the two-monitor duality. The bounded enumerator agrees with the proof on all checked finite instances; the proof, not enumeration, establishes universal scope.
+PASS
 
-## Originality — PASS, subject to remaining literature risk
+For a seed between successive monitors, each of its two simple edge-disjoint routes to its bounding monitors must be blocked for non-detection, giving exactly (1-p^j)(1-p^(ell+1-j)); a seed at a monitor always detects. Summing over all n seeds derives P(X>=1). The discrete second difference of H_p is (ell+2)p^(ell+1)(1-p)^2>0, forcing strict gap balancing maximizers and gap concentration minimizers except stated degeneracies. For a fixed monitor, distinct two routes to another vertex of distances d,n-d connect if at least one is open, so reachability p^d+p^(n-d)-p^n; translation and linearity give placement-independent mean. When k=2, P(X=2)=EX-P(X>=1), proving opposite objectives. Independently enumerated every edge mask/seed and monitor combination in 447 exact rational cases (n=3..7, p=1/4,1/2,3/4, k<=3), checking both detection and mean. Boundary p=0,1 excluded from strictness; trivial gap ties correctly scoped.
 
-Closest inspected primary work is Leskovec et al. (2007), an all-network outbreak-detection framework with submodularity and near-optimal algorithms. It covers the general *objective type* and should not be described as unrelated. Its accessible 29-page report's placement sections and theorem statements do not give the exact gap-by-gap cycle probability, strict all-parameter extremal equality cases, or corroboration reversal. Kiss et al. (2005) concern contact tracing dynamics, Miller (2008) optimizes over infectivity/susceptibility distributions, and Christakis and Fowler (2010) study friendship sensors and early flu detection; none of the inspected material establishes the particular exact cycle claims. Exact placement on paths, in accessible earlier results, has different topology, source support, and monitor count; it does not imply this cyclic \(k\)-sensor theorem. The searches and full-text comparison are evidence of a literature gap, not mathematical proof of global novelty. An equivalent result under reliability coverage or cyclic facility-location language remains possible and warrants independent checking.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding provides a natural complete optimization theorem rather than a parameter-substitution calculation. It resolves *all* ring sizes, sensor budgets and interior edge-transmission parameters without numeric optimization, characterizes every optimal and worst placement, and identifies a real surveillance design tension: moving two monitors apart improves the probability of at least one detection but reduces the probability that both witness the same outbreak. Placement-invariance of expected alarm volume shows why an expectation-only monitoring metric cannot see this difference. The explicit six-site rational example makes the distinction concrete. No claim is made for broader epidemic models.
+Qualified PASS for exact all-k cycle gap placement classification and the opposed detection-vs-corroboration extremizers under this specific uniform-seed iid bond model. The close full Leskovec et al. 2007 report gives general outbreak sensor objectives, submodularity and approximate sensor placement, but no exact cycle gap/equality theorem; its model allows general cascades and it gives generic approximation rather than this closed solution. Miller 2008 addresses outbreak probabilities as transmissibility varies, and Christakis–Fowler 2010 empirical sentinels and early detection, different endpoints. Existing two-sentinel path results have different graph and seed domain. General submodularity does not entail the strict balancing/equality cases or the two-alarm polarity. Equivalent network reliability/coverage results could remain outside the searches.
 
-## Scientific limitations and closest literature
+## value
 
-The precise graph, uniform all-vertex seeding, independent undirected bond model, passive monitors, and eventual detection are essential. An unexamined equivalent result in older exact cycle-coverage theory remains a bibliographic risk, as does any uninspected result with stronger assumptions that specialize to this setting. Neither the small-instance verifier nor a database search proves novelty or independence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sensor selection on a cyclic contact network is a natural exact benchmark for stochastic network surveillance; placement trade-offs matter. The theorem is not merely an objective evaluation: it gives every optimizer and strict characterization at all k,n,p, while proving a nontrivial opposite criterion for two corroborating alarms, a mathematically useful distinction between coverage and redundancy. It is explicitly not a clinical deployment result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

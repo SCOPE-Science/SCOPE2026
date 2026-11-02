@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The ball-indicator Fourier integral and uniform shell decomposition give equation (1) for every conductor, with the strictly positive trivial coefficient in equation (2). Rational rotations are finite and irrational rotations dense, so their exact infima give the exhaustive threshold; the concrete threefold resonance is checked with rational arithmetic. The standalone checker compares 108 finite Fourier sums directly with the formula; these experiments are supplementary, not the universal proof.
+## correctness
 
-**Originality — PASS under bounded literature comparison.** The inspected primary work concerns p-adic wavelet spectra (Kozyrev, 2000), isotropic Markov semigroups and monotone ball averages (Bendikov et al., 2013), and time oscillations of heat kernels (Bendikov, Cygan and Woess, 2016). None states a rational-versus-irrational spatial covariance amplitude cutoff or the exact nonmonotone positive-definite example. General Fourier positivity principles are shared, but they do not supply the parameter sign classification. The usual risk from unindexed equivalent results remains.
+PASS
 
-**Mathematical value — PASS.** A natural log-periodic perturbation of p-adic power covariances has sharp, discontinuous arithmetic positivity islands. The explicit admitted but nonmonotone shell profile shows why nonnegative ball-mixture sufficiency is not necessary; no two-point normalization obstruction explains the cutoff. This is an infinite-level structural classification, not a bounded-enumeration curiosity.
+Expand f in normalized nested p-adic ball indicators. A character of conductor p^m integrates 1_{p^jZ_p} to p^{-j} for j>=m and 0 otherwise. Summation gives Fourier coefficients a p^{-m}r^{m-1}[A+epsilon Re(Ce^{i(m-1)theta})], A=(1-r)/(1-r/p), C=(1-re^{i theta})/(1-re^{i theta}/p). Trivial coefficient positive because f>=0 and not zero a.e. Bochner positivity becomes sign of dense circle orbit for irrational theta and finite phase grid for rational theta. Direct finite cyclic Fourier sums reproduce the coefficients, and exact p=2 r=3/5 theta=2pi/3 example gives threshold 139/182 and a nonmonotone positive-definite shell profile.
 
-The classification is confined to compact p-adic integers and the stated amplitude range; other groups and larger amplitudes are open here. The proof does not assert independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality concerns phase-arithmetic threshold jumps and explicit nonmonotone positive-definite radial shells, not the standard p-adic ball Fourier transform.
+
+## value
+
+PASS
+
+This is an exact classification of when a natural log-periodic radial covariance is positive definite, with discontinuous rational-angle resonance thresholds and explicit counterexamples to naive shell monotonicity. Such phenomena matter for covariance design on ultrametric groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

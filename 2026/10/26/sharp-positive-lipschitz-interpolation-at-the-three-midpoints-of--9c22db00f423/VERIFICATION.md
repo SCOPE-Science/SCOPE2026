@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the midpoint interpolation theorem
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` handles every real \(0<h\le1\) and does not rely on numerical experimentation. It reconstructs an unrestricted lower bound using reflection averaging and two explicit admissible vertex potentials, then verifies all fifteen pairs for the explicit positive extension. The remaining two cross-pairs are handled by a strict uniform radical inequality, using \(5\sqrt2>7\).
+## correctness
 
-Run `python3 verify_midpoint.py` with a standard Python 3 installation. The script independently evaluates all six extreme real Lipschitz potentials for the three old vertices, normalized at the first vertex, and all fifteen unordered target pairs. Using 70-digit decimal arithmetic, it verifies 124 selected rational heights and 11,160 pair inequalities, plus two equality witnesses per height and an explicit comparison with conventional midpoint averaging.
+PASS
 
-Expected success output:
+Reflection averaging reduces the unrestricted lower bound to a single midpoint coefficient q. Two explicit unit-Lipschitz source potentials force norm >=max(2L|q|/h,|L-2(L-1)q|) and its minimum lambda=L^2/[L+h(L-1)], L=sqrt(1+h^2). The explicit positive simultaneous extension using q=Lh/[2(L+h(L-1))] and ordinary averaging at the other midpoints satisfies all 15 pair inequalities, with the two cross-pairs bounded via a strict radical inequality. Independent unconstrained linear programming over the full set of extension coefficients at five different heights recovered exactly this sharp lambda (not merely optimality among positive maps). The h=0 degenerate limit is excluded.
 
-`FINITE_EXTREME_CHECK_OK heights=124 pair_checks=11160`
+## originality
 
-The finite checks do not prove assertions over the uncountable interval of heights, do not establish originality, and do not constitute independent mathematical auditing. The only proof of the continuum statement is the exact argument in `RESULT.md`.
+PASS
+
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. The fixed affine map has norm L/h, strictly larger than lambda_h for h>0; it cannot imply the optimal six-point constant without solving the separate unrestricted extension problem.
+
+## value
+
+PASS
+
+The exact six-point extension/projection constant is a natural finite-metric Lipschitz invariant, and the positive optimizer is uniformly controlled as the triangle flattens even though ordinary affine midpoint averaging diverges. This sharp finite-geometric stabilization is independently useful; no full mesh theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

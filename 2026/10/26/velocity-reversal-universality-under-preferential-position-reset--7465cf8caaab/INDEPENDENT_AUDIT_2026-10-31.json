@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reset sign process flips at independent thinned Poisson rate eta*r in addition to intrinsic gamma; future sign correlations decay with beta=2(gamma+eta*r). I independently derived M=E[Xsigma] from the jump generator: M'=v-(2gamma+r)M+r(1-2eta)J/t, J'=M-beta*J, J(0)=0. The boundedness argument gives J=O(1) and M=v/(2gamma+r)+O(t^-1). For V=E[X^2], V'=2vM-rV+r H/t, H'=V. With Y=H/t the exact quadrature Y'=e^{-rt} t^{-2} integral_0^t s e^{rs}(2vM(s))ds yields Y'=2v^2/[r(2gamma+r)t]+O(t^-2), and integrating gives the log law and finite C_eta. Independent one-reset event integrals yield -7r/18 for unchanged sign, -13r/18 for reversed sign; the single intrinsic tumble gives -2gamma/3. Thus the t^3 coefficient, invertible parameter formulas and eta independence are exact. A new numerical integration of the moment equations at eta=0,.25,.5,.75,1 and exact rational one-event checks corroborated the derivation. The all-t asymptotic follows from the integral equation, not numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General preferential relocation models restart the whole state of the underlying Markov run from a past sample.",
+          "The present process relocates one coordinate but retains a correlated internal velocity process."
+        ],
+        "reasoning": "Broad full-state relocation limit theorems do not directly cover this non-Markovian partial-coordinate reset through the telegraph model. Taking the observed position alone as an underlying Markov process would be invalid.",
+        "searches": [
+          "Mailler Uribe Bravo arXiv:1810.02735 preferential relocations and fading memory random recursive trees",
+          "Boyer Majumdar arXiv:2312.13439 2024",
+          "Evans Majumdar arXiv:1808.06450 2018"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py at tree 35ed5416539546721619683e953630686e829217",
+        "Independent symbolic one-event and numerical ODE checks independent_checks.py",
+        "arXiv:2312.13439 Boyer–Majumdar",
+        "arXiv:1808.06450 Evans–Majumdar",
+        "arXiv:1810.02735 Mailler–Uribe Bravo"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paired historical-state copying yields log coefficient v^2/(gamma*r), versus the current 2v^2/[r(2gamma+r)] for gamma,r>0.",
+          "Fixed-site resetting yields stationary position rather than unbounded logarithmic MSD."
+        ],
+        "reasoning": "Since the jump kernels and even leading coefficients differ, neither existing exact asymptotic implies the new one. The eta-dependent short-time cubic and inversion of r,gamma,eta additionally require new single-event and coupled-moment calculations.",
+        "searches": [
+          "arXiv:2312.13439 Eq. (9)–(14) model and asymptotic",
+          "arXiv:1808.06450 section 6 velocity reversal",
+          "arXiv:1810.02735 whole-state relocation definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer–Majumdar states historical position and sign are copied together and its log coefficient is v^2/(gamma*r).",
+          "Evans–Majumdar uses a fixed reset site and allows velocity reversal, leading to a different stationary position regime."
+        ],
+        "reasoning": "The same resetting vocabulary hides distinct Markov jump operators. Retaining/reversing current velocity after copying past position is not the state-copying model or fixed-site reset, and the log coefficient is not a parameter substitution of the known paired-copy formula.",
+        "searches": [
+          "Resultary: run and tumble preferential relocation historical position only velocity reversal probability logarithmic variance",
+          "Boyer Majumdar active particle resetting with memory arXiv:2312.13439",
+          "Evans Majumdar velocity reversal resetting arXiv:1808.06450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated random sampler, stochastic oscillator and stationary dynamical-system findings, not this partial-coordinate reset process.",
+          "The quantity is a continuum-time asymptotic coefficient and short-time identification law, not a finite precomputed table."
+        ],
+        "reasoning": "No matching indexed exact asymptotic was located, but unsuccessful semantic search is not novelty proof. The decisive comparison is the distinct stochastic transition operators in prior models.",
+        "searches": [
+          "Resultary: run and tumble preferential relocation historical position only velocity reversal probability logarithmic variance",
+          "preferential position-only resetting random historical time independent velocity flip probability logarithmic MSD coefficient",
+          "uniform in the past position resetting run tumble velocity reversal probability eta logarithmic variance"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact split-state history-reset kernel, eta-independent logarithmic MSD and three-parameter moment identification. Boyer–Majumdar copies position AND historical orientation, Evans–Majumdar reverses orientation at fixed-position reset, and Mailler–Uribe Bravo copies the whole Markov state. These published operators are not parameter reparametrizations of sampling historical position while retaining/flipping current velocity. The most relevant Boyer–Majumdar full manuscript remained inaccessible; only abstract and available model statements were read, so residual coverage risk is retained.",
+      "residual_risks": [
+        "Boyer–Majumdar complete primary text could not be inspected owing to unavailable OA and VPN-disconnected institutional access; possible appended protocol variants cannot be ruled out.",
+        "Equivalent split-coordinate resetting analysis may appear under telegraph-process or active-particle memory nomenclature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_MODEL_PLAUSIBLE_COVERAGE_RISK",
+          "evidence": "Known comparison coefficient v^2/(gamma*r) under copying both historical position and velocity; cannot assert full-document noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13439",
+          "material_read": "Accessible abstract, bibliographic metadata and explicitly reported model/comparison formula only; not the full paper",
+          "method": "arXiv/open-access attempts, source comparison, authorized institutional retrieval attempted but VPN disconnected",
+          "title": "Active particle in one dimension subjected to resetting with memory",
+          "trigger": "Closest historical-reset active particle model"
+        },
+        {
+          "assessment": "FIXED_SITE_RESET_DIFFERENT_OPERATOR",
+          "evidence": "Position reset to fixed site rather than uniformly sampled historical position.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.06450",
+          "material_read": "Available model definition and relevant velocity-reversal description; full-document inspection not claimed",
+          "method": "Open bibliographic and model-source comparison",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Arbitrary velocity reversal upon reset could dominate"
+        },
+        {
+          "assessment": "FULL_STATE_RELOCATION_MODEL",
+          "evidence": "Original Markov state is restored, unlike position-only relocation retaining current sign.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.02735",
+          "material_read": "Available original model definition of whole state start and theorem scope; no claim to have read every appendix",
+          "method": "Open source/theorem comparison",
+          "title": "Random walks with preferential relocations and fading memory: a study through random recursive trees",
+          "trigger": "Broad preferential-reset limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem distinguishes a physically motivated reset protocol from history-state copying, showing a nontrivial universality of the dominant logarithmic spreading despite eta-dependent transient variance. It also derives exact population-moment identifiability of three kinetic parameters, supplying a concrete reason for the subleading short-time calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact population moments, not a central limit theorem, pathwise spreading theorem, finite-data statistical guarantees or first-passage distribution.",
+    "Initial fair sign, v,gamma,r>0 and fixed parameters; the eta identification assumes ideal t-to-zero and asymptotic observations.",
+    "The reset velocity is the current velocity possibly flipped; no history-sign copying."
+  ],
+  "schema_version": 1
+}

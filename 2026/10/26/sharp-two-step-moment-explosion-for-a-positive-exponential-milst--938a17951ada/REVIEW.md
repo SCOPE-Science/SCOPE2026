@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scheme is exactly the first-order positive exponential update of Bréhier and Cohen, with \(F=-a\), \(f(x)=\sigma x/(1+x)\), and \(f'(x)g(x)=\sigma^2x^2/(1+x)^3\). The bounded derivatives and linear growth give finite moments for the original SDE. A direct normal integral establishes the conditional \(p\)-moment criterion. The unique interior maximum at \(x=2\), positive density of the first iterate at that point, and quadratic contact at the endpoint complete both halves of the sharp classification. The proof separately addresses the exact equality case and moment persistence. Symbolic and numerical checks reproduce all critical identities; they are not substituted for proofs of divergence.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+Conditional on X_n=x, the p-th moment reduces to a one-dimensional Gaussian integral with quadratic coefficient δ=1−phq(x), q=σ²x²/(1+x)³: it is finite iff δ>0. The maximum q(2)=4σ²/27 gives uniform subcritical all-iterate finiteness. The first-step log-multiplier is a strictly convex Gaussian quadratic with lower support below 2 for every x0, and yields a strictly positive density near x=2. Above critical phσ²=27/4, an open set of X1 values has infinite conditional p-moment. At criticality δ(x)=(x−2)²/12+O((x−2)³) and the finite-case conditional moment grows as exp(c/(x−2)²), nonintegrably against that density. Jensen propagates infinite moments for all n≥2. The underlying Lipschitz diffusion has finite finite-time moments. Independent symbolic identities and Gaussian quadratures passed 36 tests.
 
-The 2026 source itself derives the normal exponential-moment identity and a sufficient small-step bound (Proposition 9); those are explicitly credited. The new result is the exact necessary-and-sufficient frontier for all positive initial states after two steps in a smooth, linearly growing nonlinear example, including a subtle critical case in which almost every conditional moment is finite but the unconditional moment diverges. The same method and statement were compared with accessible literature and mathematical research records. No equivalent complete published claim was identified, but further specialized work on exponential-of-quadratic Gaussian tails may exist.
+## originality
 
-The companion 2026 bounded-domain paper controls a different construction and works on a bounded state space. The earlier GBM-based exponential integrator and log-transformed truncated Euler method do not entail this specified quadratic-exponential moment threshold. The identity underlying the proof is elementary and pre-existing, so originality rests entirely on its sharp, global, two-step consequences.
+PASS
 
-## Mathematical value — PASS
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: The one-step conditional moment Gaussian-MGF formula is classical and appears in the method paper Bréhier–Cohen arXiv:2608.25689 Proposition 9; novelty is the all-initial-state two-step critical reachability and nonintegrability, not the integrator or the one-step identity. A Gaussian integrability identity immediately gives the statewise first-step threshold but cannot alone establish universal blowup by step two at equality: this requires the exact support of first-step distributions, a quadratic vanishing deficit, and an unconditional singular integral. Distinguishes the sharp example from cited sufficient bound; inaccessible full paper may contain stronger implications.
 
-Numerical moments and positivity can be essential diagnostics in SDE approximation. The theorem pinpoints the exact timestep beyond which a strictly positive simulation of an entirely well-behaved Lipschitz SDE has infinite expected numerical values. The boundary persists even when the first step has finite moments, so a check of a single timestep or finite Monte Carlo sample can miss the pathology. This is a substantive limitation on structural reliability, not a normalization or one-instance arithmetic check.
+## value
 
-## Risks and scope
+PASS
 
-The claim addresses exact Gaussian increments, a scalar saturating diffusion, constant steps, fixed finite \(p\ge1\), and the source's first-order method. There is no theorem for alternate numerical methods, truncated increments, or the behavior of finite-sample estimators. Bibliographic searches cannot establish exhaustive uniqueness.
+Exhibits a sharp and surprising finite-step numerical moment failure in a strictly positive high-order scheme despite globally Lipschitz coefficients and all exact SDE moments. Exact boundary and universal two-step reachability make the statement substantially stronger than a sufficient small-step estimate.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

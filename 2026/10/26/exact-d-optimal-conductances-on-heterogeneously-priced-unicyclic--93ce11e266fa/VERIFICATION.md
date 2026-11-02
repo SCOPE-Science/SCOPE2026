@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-Run `python3 verify.py` using Python 3. The source has no third-party dependencies and produces the deterministic output reproduced in `checks.txt`.
+# Independent mathematical audit
 
-The independent determinant calculation uses exact rational Gaussian elimination on the grounded weighted Laplacian. It matches the weighted spanning-tree polynomial for four five-vertex examples: equal cycle prices, a positive exceptional-price interior solution, the exact deletion boundary, and strictly above the boundary. Each example has a triangular cycle and a two-edge tree attachment. All exact budget equalities are separately checked. A seeded numerical sweep checks the allocation, budget and KKT equations for 168 other randomly priced unicyclic configurations (3 to 8 cycle edges and 0 to 3 bridges) and compares 6,720 independently sampled feasible allocations.
+## correctness
 
-Sampling and determinant computations are finite correctness checks, not a proof of global optimality over all graphs and real-valued prices. The analytic matrix-tree/KKT/strict-concavity proof establishes that extension. External independent audit remains not performed.
+PASS
+
+Matrix-tree theorem gives τ=(product over bridges w_e) × sum over deleted cycle edge j of product_{i in C\j} w_i. Positive determinant and full budget hold; logdet is strictly concave since weighted reduced Laplacian is injective for simple graph. Euler homogeneity gives λ=(N-1)/B. Bridge KKT gives w_e=B/((N-1)c_e); a zero cycle edge is KKT optimal iff its cost ≥ sum others. Interior KKT gives x_i(1-x_i)=tc_i and at most one larger root; strict monotonicity of branch ratios yields unique scalar root. Independent numerical maximization and KKT checks confirmed representative symmetric and asymmetric cost cases, not a universal proof.
+
+## originality
+
+PASS
+
+The determinant/spanning-tree objective and numerical Laplacian D-optimality are known (Osting–Brune–Osher Proposition 4.2, Boyd). Bailey–Cameron’s unweighted unicyclic extremum varies topology rather than continuously priced individual conductances. The arbitrary cost/all attachments deletion frontier and explicit scalar-root optimizer are not mathematical consequences of those specific cited theorems without the new KKT reduction. Specialized optimal-design results might subsume the calculation.
+
+## value
+
+PASS
+
+The theorem gives a complete continuous resource allocation for an infinite graph topology class with arbitrary heterogeneous prices, including when exactly a cycle edge is optimally deleted. Equal per-bridge expenditure independent of fringe-tree shape and unique cycle solution provide reusable optimization benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review: quadratic two-urn exact threshold and equilibrium census
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete algebraic reduction is reversible because all denominators are positive. The sign of the scalar derivative classifies the off-anti-diagonal branch; the anti-diagonal Jacobian gives the exact stability boundary. The probabilistic conclusion uses the published stochastic-approximation theorem and does not assert any behavior at equality. The accompanying executable checks 27 exact symbolic and selected high-precision identities; those checks are not substitutes for the continuum proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Xia (arXiv:2607.22438) proved the general sharp transition and a scalar encoding of equilibria; the inspected primary text does not provide this explicit quadratic value and nine/five/three census. Qin (arXiv:2311.13480) and Launay (arXiv:1101.1410) are acknowledged foundations. Targeted searches compared alternate formulations and broader results; coverage by an uninspected specialized quadratic study remains possible. The general existence result is expressly prior art.
+PASS
 
-**Mathematical value — PASS.** The first nonlinear integer reinforcement exponent admits a complete exact equilibrium classification, the global critical interaction parameter, and an interpretable four-branch collision with the stable anti-diagonal branch. These supply an exact reference model for the general theory rather than a numerical threshold guess.
+Transform x,y to a=2x-1,b=2y-1. Anti-diagonal noncentral points have z²=1-2p and transverse Jacobian eigenvalue sign changes at p2=1-1/sqrt2. For off-anti-diagonal points elimination in s=a+b,t=ab reduces to s²=2(t²-2t-1)/(t-2), p=P(t)=t(t²-5)/(2(t-2)(t-1)). On 1-sqrt2<t<0, P is strictly decreasing from p2 to zero and signs of s and swapped coordinates give four distinct admissible points. No other boundary/diagonal points exist. Independent symbolic derivative, endpoint and original-equation substitution checks passed. Stochastic conclusion uses the explicitly cited approximation theorem, not finite experiments.
 
-**Limitations.** No stochastic claim is made at the exact critical interaction probability. Off-anti-diagonal linear stability, exponents beyond two, and larger urn systems are outside scope. Independent mathematical confirmation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality is the algebraic evaluation and exact nine/five/three equilibrium count; general stochastic threshold reduction and reinforcement model belong to antecedents.
+
+## value
+
+PASS
+
+The exact quadratic cusp and full equilibrium enumeration sharpen a natural stochastic phase transition to an explicit and checkable algebraic classification. Stability exchange and two additional equilibrium pairs have intrinsic dynamical significance, beyond routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

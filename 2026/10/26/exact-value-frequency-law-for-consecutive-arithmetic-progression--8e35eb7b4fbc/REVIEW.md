@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** For normalized step coprime to \(p\), the prime valuation of the quotient is the sum of excess counts of divisibility by \(p^j\). Exactly the exponents \(j\le\lfloor\log_p k\rfloor\) matter. Base-\(p\) addition converts these to carry indicators, whose complete frequency generating polynomial is an explicit two-state matrix product. The Chinese remainder theorem supplies joint independence across prime-power periods, yielding the exact global law. The original source's local valuation formula was inspected, while the transfer-matrix coefficients were independently derived and directly checked in 1024 parameter cases. The finite checks are not used as an infinite proof.
+## correctness
 
-**Originality: PASS subject to publication-priority risk.** Hong and Qian (arXiv:0903.0530) give the local excess-count formula and smallest period but do not present the carry-matrix value-frequency law or the complete progression-independence distribution. Ji and Ji (arXiv:0903.1162) extend periodicity to polynomial progressions and recover the smallest period for the linear case, again without the asserted complete distribution in the inspected material. Farhi and Kane (arXiv:0808.1507) determine the ordinary period; its direct full text could not be fetched for this check. Explicit searches for distribution, moments, carry matrices, and equivalent local histogram formulas found no decisive covering statement. The result is close to published methods and may be independently derivable or recorded elsewhere.
+PASS
 
-**Value: PASS.** Periodicity determines how long the value sequence repeats but does not report what values occur or their proportions. The theorem computes every value's exact natural density, all real moments, and the entire law for every integer progression from small base-\(p\) transfer matrices, without enumerating the potentially very large full period. The universal dependence only on primes dividing the reduced step gives a structural comparison across all progressions. This is a complete natural distribution invariant, not a single small parameter table.
+Scaling by d multiplies G by d^k, and p|A forces p∤B, so normalized values have no such prime factors. For active p, valuation is sum_{j<=e}(m_j-1), since p^j>k divides at most one progression term; m_j=floor((k+1)/p^j)+carry_j(n+BA^-1-1), with carry_j in {0,1} from base-p adding N=k+1. Each 2x2 transfer matrix correctly weights the outgoing carry, row sum p; the initial zero carry and final sum give the exact local PGF. If p^e divides N, all local carries vanish; otherwise the top carry is a proper nonempty residue interval and its p^e period cannot be canceled by lower carries with shorter period. Chinese remainder independence over the product of active prime-power periods yields the entire value PGF, moments and invariance under B. The k=0, noncoprime and constant-local-factor cases are explicitly consistent. Independently computed 436 complete-period direct LCM histograms for k<=12, a<=6, b<=5 and matched all probabilities; the general transfer/CRT proof handles arbitrary parameters.
 
-**Limits.** No independent audit, priority certification or novelty guarantee is asserted. The original prime-local valuation formula is a substantial known ingredient; this has been acknowledged rather than presented as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS limited to explicit full joint value frequencies, compact carry-matrix PGFs, moments and progression-offset independence. Hong–Qian 2009 Eq.(3.2) already gives the prime-local excess-divisibility formula and Proposition 3.8 the least period; Ji–Ji 2009 generalize periodicity to polynomial progressions. These are strong relevant premises fully credited. Neither inspected open primary PDF states the carry-transfer value-frequency polynomial or global exact histogram/offset-invariance. The new result is a mathematically direct extension, so originality is incremental and could be superseded by an unindexed Farhi-function distribution study.
+
+## value
+
+PASS
+
+The quotient of products by the lcm is a classical arithmetic function; its entire value law across a complete least period is a natural invariant beyond knowing the period. The transfer product is uniformly evaluable without enumerating a potentially huge period, yields exact moments and a nontrivial universality with respect to starting offsets and progression factors. This is a motivated complete distribution formula, not arbitrary parameter sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

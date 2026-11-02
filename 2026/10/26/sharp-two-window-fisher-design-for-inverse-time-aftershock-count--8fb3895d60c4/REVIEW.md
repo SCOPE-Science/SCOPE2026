@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The two Poisson means give an exact positive Fisher matrix for every admissible interior cutoff. Direct parameter differentiation yields the Schur complement. A change to log time makes the score a decreasing exponential, and its two-centroid decomposition supplies an exact global derivative-sign criterion. Strictly increasing left and right functions prove one and only one optimizing breakpoint. Endpoint analysis and the unbinned Fisher integral rigorously give the two efficiency limits. The standalone verifier checks the algebra independently for 2,200 randomized parameter choices; finite tests are not substituted for the proof.
+PASS
 
-## Originality
+Direct Poisson mean differentiation for mu1=Ku and mu2=K(L-u) gives I_KK=L/K, I_Kc=-(1-e^-L)/c and the exact nuisance-adjusted J_L(u)=L/[u(L-u)](1-e^-u-u(1-e^-L)/L)^2. Under log-time transform y=log(1+t/c), the continuous score is e^-y and the between-bin variance equals J_L. Differentiating the within-bin quadratic loss yields W'=(a-b)(a+b-2e^-u); A(u)=(e^u-1-u)/u is strictly increasing, B(L-u)=1-(1-e^-(L-u))/(L-u) is strictly decreasing with u, proving a unique global crossing, not merely Lloyd-Max stationarity. Monotone convergence gives e^uinf=1+2uinf and the two efficiency limits from full Poisson information. Independent direct roots, Schur/full-information inequalities and 1000-point cutoff scans for 8 horizons pass; small L expansion analytic, not a numerical extrapolation.
 
-Ogata (1983) provides the historical event-time likelihood and Fisher framework, not the two-count breakpoint problem. Ogata (2004) concerns space-time regional seismicity, while Lolli–Gasperini (2005/2006) studies competing decay models and incompleteness. General Lloyd–Max quantization covers the midpoint-centroid stationary condition but explicitly does not make it sufficient for a global solution; the proof here supplies global uniqueness for this particular log-uniform score density and the exact finite-horizon and limiting designs. Relevant exact-parameter work on late-window three-bin identifiability concerns a different observable, derivative Jacobian and asymptotic regime; it neither optimizes two count intervals nor supplies the Fisher efficiency. Residual risk remains from possibly broader published results on specialized binary log-uniform quantization.
+## originality
 
-## Value
+PASS
 
-Many observational summaries retain interval counts rather than all earthquake event timestamps. Estimating the early-time offset in an ideal inverse-time rate with an unknown productivity amplitude presents a natural two-parameter design problem. The finding replaces free numerical search over a breakpoint with a globally unique scalar equation, shows that the first count window stays on a finite offset scale even as the total monitoring horizon grows without bound, and quantifies the information retained. These are precise bounds and designs, not an arbitrary parameter slice. Use in actual seismicity catalogs requires model and detection validation and a pilot nominal offset.
+Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.
 
-## Limitations and closest antecedents
+## value
 
-The conclusion is specific to exponent exactly one, ideal independent Poisson events and two fixed time bins, with Fisher information evaluated at nominal parameters. It does not assert actual catalog optimality or physical truth of an offset parameter. The strongest methodological antecedent is Lloyd–Max's midpoint-of-centroids condition. Ogata (1983), Ogata (2004), and Lolli–Gasperini (2005/2006) support the seismic context but analyze different estimation questions. Exact global-priority uniqueness relative to all quantization literature is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fully specified statistically interpretable experiment-design decision: optimal time boundary for retaining exactly two counts with unknown amplitude, and exact information loss relative to retaining individual event times. Sharp uniqueness and efficiency constants make a natural design fact rather than a routine first-order condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

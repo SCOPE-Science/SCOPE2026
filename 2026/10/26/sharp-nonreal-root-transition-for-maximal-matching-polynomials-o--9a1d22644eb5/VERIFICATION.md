@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external packages. The program computes the polynomial from a matching/private-state recursion using exact integers and enumerates every possible graph on six labeled base vertices (15 potential edges, 32,768 edge masks). Its quadratic/cubic discriminants are all nonnegative. The degree histogram is \((1,191,7753,24823)\) for degrees \(0,1,2,3\); exactly 160 cases have discriminant zero, which is compatible with multiple real roots. Adding isolated base vertices only multiplies the normalized polynomial by \(3\), giving the cutoff for every base order below six.
+## correctness
 
-A second procedure directly enumerates matchings of the *full triangle corona*, checks maximality by testing whether every edge touches a matched vertex, and counts by matching size. This independent construction verifies the seven-vertex subdivided-star base and all 64 four-vertex labeled bases, besides smaller examples. For \(r=3\) it obtains normalized coefficients \([1240,1068,210,12]\) and exact cubic discriminant \(-13023936\). A further finite comparison verifies the symbolic formula for \(1\le r\le8\).
+PASS
 
-Expected last line: `VERIFY_OK`. The finite enumeration addresses only the precise bounded claim; the all-arm root count is established analytically in the proof, and no external or independent mathematical certification is asserted.
+Every maximal corona matching is indexed by a core matching and an independent set of unmatched core vertices; the three center states yield z^(2r+1)[2(z+8)^r+(z+6)^r+3rz(z+8)^(r-1)]. The nonzero-root Möbius transformation w=(z+6)/(z+8) yields Q_r=w^r+12rw+2-9r; its derivative proves exactly one real root for odd r and two for even r, all simple and negative. The separate exhaustive 2^15=32768 six-vertex base sweep verifies the claimed finite boundary, not the infinite proof. An independent implementation reproduced the exact coefficient/discriminant histogram.
+
+## originality
+
+PASS
+
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. The path-corona counting recurrence and scalar saturation formula do not imply the rational-transformed nonreal root transition without substantial new family calculations; the finite cutoff adds an independent exact universal assertion.
+
+## value
+
+PASS
+
+Maximal matching polynomials are a natural graph generating invariant. The explicit connected triangular-cactus family with a sharp onset of nonreal roots at seven core vertices gives a motivated distinction from ordinary matching-polynomial real-rootedness and a useful small-order threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

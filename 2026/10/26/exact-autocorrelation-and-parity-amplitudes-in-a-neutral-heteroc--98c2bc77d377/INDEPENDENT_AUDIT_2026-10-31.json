@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:10:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-coordinate full-branch itinerary is independent with probabilities 1/4,1/4,1/2; vertical binary digits are prepended fairly or deleted, giving a symmetric simple random walk S with minimum m_n. Tracking surviving initial digits gives C_n=(1/12)E[2^(2m_n-S_n)]. Decomposing paths by first downcrossing and nonnegative terminal segment gives G(z)=r(z)/(6z(1-r(z)/2)^2), r(z)=(1-sqrt(1-z^2))/z. The only unit-circle branch singularities are z=+1,-1 with respective singular coefficients -2sqrt(2), -2sqrt(2)/81, yielding C_n=sqrt(2/pi)(1+(-1)^n/81)n^(-3/2)+O(n^(-5/2)). Independent exact rational walk recursion and formal-power-series coefficients agree for n=0..23.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takahasi–Tsujii establish optimal order for Hölder observables near the neutral-center parameter, rather than exact constants for every observable."
+        ],
+        "reasoning": "Optimal rates cover the order but do not dominate the exact finite-time generating function and distinct even/odd leading amplitudes.",
+        "searches": [
+          "Resultary semantic query: heterochaos baker map neutral central coordinate autocorrelation generating function parity n^-3/2 Takahasi Tsujii",
+          "https://arxiv.org/abs/2408.16618",
+          "https://arxiv.org/abs/2307.08119"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2408.16618",
+        "https://arxiv.org/abs/2307.08119"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard reflection/Catalan first-passage formulas are used inside the proof and are acknowledged classical."
+        ],
+        "reasoning": "Combining those formulas with a nontrivial observable-specific surviving-digit identity yields the exact all-time covariance; prior exponent statements cannot imply a fixed 1/81 parity ratio.",
+        "searches": [
+          "Resultary semantic query: heterochaos baker map neutral central coordinate autocorrelation generating function parity n^-3/2 Takahasi Tsujii",
+          "https://arxiv.org/abs/2408.16618",
+          "https://arxiv.org/abs/2307.08119"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Takahasi–Tsujii 2024 use reflected-walk transfer operators; their published decay estimates establish the n^-3/2 exponent but not the exact y-coordinate generating function."
+        ],
+        "reasoning": "A reflected-walk bound is not automatically an equality for one observable. The binary-memory survival weights and two branchpoints produce nontrivial parity constants absent from exponent-only statements.",
+        "searches": [
+          "Resultary semantic query: heterochaos baker map neutral central coordinate autocorrelation generating function parity n^-3/2 Takahasi Tsujii",
+          "https://arxiv.org/abs/2408.16618",
+          "https://arxiv.org/abs/2307.08119"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact initial covariances: 1/12,1/24,7/192,5/192,73/3072,115/6144,859/49152; independently crosschecked."
+        ],
+        "reasoning": "This is a closed analytic correlation series, not a finite invariant indexed in a database; searches did not expose a matching exact sequence; that negative fact alone is not novelty proof.",
+        "searches": [
+          "Resultary semantic query: heterochaos baker map neutral central coordinate autocorrelation generating function parity n^-3/2 Takahasi Tsujii",
+          "https://arxiv.org/abs/2408.16618",
+          "https://arxiv.org/abs/2307.08119"
+        ]
+      },
+      "rationale": "The neutral heterochaos parent literature proves an optimal polynomial n^-3/2 decay rate using random-walk transfer-operator bounds. This theorem evaluates the exact stationary covariance of a specific natural observable and both leading parity amplitudes; exponent-only upper/lower bounds do not imply the coefficient or 1/81 oscillatory correction.",
+      "residual_risks": [
+        "An uncatalogued return-walk spectral generating function might encode the same autocorrelation after specialization.",
+        "Only the specified observable and binary critical map are covered; no arbitrary Hölder-observable amplitude is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVES_ORDER_NOT_PARITY_AMPLITUDE",
+          "evidence": "Theorem gives optimal n^-3/2 mixing order, not the displayed exact two-dimensional y-correlation generating function or distinct leading constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16618",
+          "material_read": "Primary PDF theorem statements and reflected-walk/transfer-operator proof sections 1 and 2, including rate bounds and their dependence on observables",
+          "method": "ArXiv PDF full-text reading with page-image inspection",
+          "title": "Polynomial rate of mixing for the heterochaos baker maps with mostly neutral center",
+          "trigger": "Direct parent theorem on the same neutral-center model"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_EXACT_NEUTRAL_CORRELATION",
+          "evidence": "Provides the map family and noncritical ergodic background; no exact critical observable-specific sequence identified in inspected mathematical passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.08119",
+          "material_read": "Primary PDF map definition, introduction, invariant-mixing statements, and relevant family definitions",
+          "method": "ArXiv full-text PDF comparison",
+          "title": "Exponential mixing for heterochaos baker maps and the Dyck system",
+          "trigger": "Construction and invariant-measure context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact correlation generating function and parity-resolved leading constants are natural fine dynamical invariants of the canonical critical map. They distinguish lattice-period effects invisible in the established global decay-rate estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The O(n^-5/2) bound depends on local Delta-analytic square-root singularity expansions, not finite tests.",
+    "Claims exclude other parameters and observables."
+  ],
+  "schema_version": 1
+}

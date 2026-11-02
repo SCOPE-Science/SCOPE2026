@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:10:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translation reduces each candidate of span<=L_k to a unique increasing (k-1)-tuple in [1,L_k], where L_k=1,3,6,11,17,25,34 respectively. An independently written iterative C++ enumerator with a direct Boolean sumset marker—not the archived recursive bitset implementation—exhausted 5,563,258 normalized sets across k=2..8, including 5,379,616 for k=8, and reproduced every advertised minimum-diameter vector. Every sumset cardinality in the admissible interval had a witness within L_k; any smaller-diameter counterexample would be in the enumerated search. d_8(32)=20 and d_8(33)=19, while all earlier profiles are nondecreasing. The endpoint L_8=34 includes a previously known length-34 Golomb ruler. Convention caution: for [0,N] the endpoint is 34, but a source defining N by [0,N-1] would write N=35.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nathanson 2025/2026 compression paper gives general bounded-diameter existence and a quantity N(h,k) indexed by interval [0,N-1]."
+        ],
+        "reasoning": "Its general bound does not specify the 22-entry k=8 vector or its first decrease. Endpoint normalization differs by one: interval [0,34] corresponds to count 35 in the [0,N-1] convention.",
+        "searches": [
+          "Resultary semantic query: inverse problem exact minimum diameter eight point integer sumset |A+A| spectrum k=8 first nonmonotone",
+          "https://arxiv.org/abs/2607.20571",
+          "https://arxiv.org/abs/2505.20998",
+          "https://arxiv.org/abs/2412.16154",
+          "https://arxiv.org/abs/2510.23022"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.20571",
+        "https://arxiv.org/abs/2505.20998",
+        "https://arxiv.org/abs/2412.16154",
+        "https://arxiv.org/abs/2510.23022"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General sumset size range t in [2k-1,k(k+1)/2] is prior; the compression theorem bounds existence of a finite interval."
+        ],
+        "reasoning": "Prior size attainability and upper diameter bounds do not logically determine the smallest attainable diameter for each t or first monotonicity reversal. Full July 2026 source remains inaccessible and may change this priority assessment.",
+        "searches": [
+          "Resultary semantic query: inverse problem exact minimum diameter eight point integer sumset |A+A| spectrum k=8 first nonmonotone",
+          "https://arxiv.org/abs/2607.20571",
+          "https://arxiv.org/abs/2505.20998",
+          "https://arxiv.org/abs/2412.16154",
+          "https://arxiv.org/abs/2510.23022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known optimal eight-mark Golomb ruler length 34; Nathanson general sumset interval inverse problem and compression bound."
+        ],
+        "reasoning": "Golomb rulers require all unordered two-sums different, t=k(k+1)/2, and hence determine only the extreme final entry. Interior t=32 and t=33 need separate exhaustive optimization.",
+        "searches": [
+          "Resultary semantic query: inverse problem exact minimum diameter eight point integer sumset |A+A| spectrum k=8 first nonmonotone",
+          "https://arxiv.org/abs/2607.20571",
+          "https://arxiv.org/abs/2505.20998",
+          "https://arxiv.org/abs/2412.16154",
+          "https://arxiv.org/abs/2510.23022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eight-mark optimal Golomb-ruler tables contain 34 only at maximum distinct-sum t=36; independent exhaustive enumeration generated all 22 entries for k=8."
+        ],
+        "reasoning": "An exact published database of all diameter minima could dominate, but none was identified in actual result searches; this is a documented residual risk, not a proof of nonexistence.",
+        "searches": [
+          "Resultary semantic query: inverse problem exact minimum diameter eight point integer sumset |A+A| spectrum k=8 first nonmonotone",
+          "https://arxiv.org/abs/2607.20571",
+          "https://arxiv.org/abs/2505.20998",
+          "https://arxiv.org/abs/2412.16154",
+          "https://arxiv.org/abs/2510.23022"
+        ]
+      },
+      "rationale": "The classical 8-mark optimal Golomb ruler gives only d_8(36)=34. Published general attainability and compression results do not in inspected sections list every k<=8 inverse diameter or the 32-to-33 strict descent. The most on-point July 2026 inverse-sumset source was not accessible in full, retained as genuine residual priority risk rather than presumed negative coverage.",
+      "residual_risks": [
+        "A specialized table or complete treatment in the inaccessible 2026 Nathanson work could overlap the vector.",
+        "The general symbol N(2,8) depends on interval indexing; [0,34] has 35 integer points, whereas the archived theorem uses upper endpoint 34.",
+        "A precomputed Golomb/sumset inverse table beyond the known ruler endpoint remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_FULL_SPECTRUM",
+          "evidence": "Defines interval [0,N-1]; this is a one-unit indexing distinction from the audited [0,N] endpoint. Its inspected statements do not provide k=8 entire diameter table.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.20998",
+          "material_read": "Primary full-text PDF introduction, definitions of N(h,k) and compression arguments/bounds",
+          "method": "ArXiv full-text PDF and page-image comparison",
+          "title": "Compression and complexity for sumset sizes in additive number theory",
+          "trigger": "General prior theorem on optimal interval lengths"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_PARAMETER",
+          "evidence": "Deals with inverse cardinality behavior, without identified k=8 least-diameter vector in inspected portions.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.16154",
+          "material_read": "Primary full-text PDF problem statement and theorem context",
+          "method": "ArXiv PDF full-text review and figure/page inspection",
+          "title": "Inverse problems for sumset sizes of finite sets of integers",
+          "trigger": "Same integer sumset inverse problem"
+        },
+        {
+          "assessment": "PRIORITY_RISK_NOT_COVERAGE_VERDICT",
+          "evidence": "Abstract motivates exact sumset-size interval bounds but cannot establish absence of k=8 diameter profiles in full text; risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.20571",
+          "material_read": "Abstract, bibliographic metadata only; primary PDF inaccessible through arXiv/OA attempts; institutional download blocked by disconnected VPN",
+          "method": "ArXiv abstract plus attempted lawful full-text and Oxford institutional retrieval",
+          "title": "A problem on sumset sizes of sets of lattice points",
+          "trigger": "Closest 2026 problem announcement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete inverse profile on the first finite cardinality with a nonmonotone t->minimum-diameter phenomenon is a natural additive-combinatorial classification. The exact first reversal is a motivated structural counterexample to an attractive monotonicity heuristic; the finite scope is explicit and exhaustively certified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The census is exhaustive only for k<=8, not a proof for all finite sets of arbitrary cardinality.",
+    "No assertion that all prior sumset tables or inaccessible July 2026 full source lack the data."
+  ],
+  "schema_version": 1
+}

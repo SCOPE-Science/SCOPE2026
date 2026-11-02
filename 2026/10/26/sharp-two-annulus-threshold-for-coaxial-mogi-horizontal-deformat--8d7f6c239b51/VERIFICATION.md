@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the exact two-source phase classification
+# Independent mathematical audit
 
-Run `python verify_mogi.py` from a directory containing that file, with `sympy>=1.12` installed as specified in `requirements.txt`. It checks exact symbolic derivative, discriminant, double-root and logarithmic-derivative identities, plus the stationary-point witness \((d_1,d_2,A_1,A_2)=(1,6,1,45)\), 1,800 deterministic parameter comparisons, 700 generated three-stationary-point examples, and four near-cusp checks of the strength-window constant. These finite tests are supplemental to the analytical proof.
+## correctness
 
-The exact sign reduction and the quadratic discriminant in `RESULT.md` establish the universal result for all positive parameters, not only the tested cases. At the strength-window endpoints, a stationary shoulder need not be a second maximum; the program tests nondegenerate interior examples rather than treating approximate double-root detection as a mathematical proof. Experimental field validation, finite-size source mechanics, and independent external validation have not been performed.
+PASS
+
+Normalizing radius by d1 and x=r²/d1² preserves extrema. The derivative has signs + below x=1/2 and - above x=z/2 and factors by q-Phi_z(x) within that interval. Direct symbolic differentiation yields sign Phi_z'=sign P_z, P_z=24x²-6(z+1)x+9z, with discriminant 36(z²-22z+1). For 1<z<=11+2sqrt(30), Phi is strictly increasing; above it Phi has exactly one local maximum and minimum x±, giving exactly the described 1/3 stationary roots, two maxima in the interior strength window, and nonextremal shoulders at its endpoints. At coalescence Phi-q has a cubic zero and U quartically flat; integration of the local quadratic log-derivative gives window coefficient C=.27718120856 multiplying (z-z*)^(3/2). Independent SymPy discriminant/log derivative identities and five distinct two-ring witnesses passed. Physical nonideal models not included.
+
+## originality
+
+PASS
+
+Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.
+
+## value
+
+PASS
+
+An exact detectability phase map for double-depth point-source surface deformation: sharp depth ratio 4.68556..., precise source-strength window, cusp and 3/2 opening. The nonmonotonic radial profile is a substantive structural question for a standard geophysical kernel, beyond generic mixture modality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

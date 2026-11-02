@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is proved in two independent parts: restricted-growth representatives exhaust the alphabet-permutation classes, and direct prefix-Parikh comparisons enumerate every resulting array through length sixteen. A separate all-words-first-symbol-zero implementation agrees on all sixteen totals, while the canonical histogram sums are checked against the independently established partition count. The all-length top-two fiber result is proven by a two-branch argument and a forced-branch witness for every earlier nonzero array entry. No infinite claim is inferred from a finite table.
+## correctness
 
-**Originality — PASS, subject to residual indexing uncertainty.** Habib, Shamil and Rahman, arXiv:2111.00259v1, Section 4, supply the ternary letter-relabeling upper bound, not the exact signature totals nor top-two fiber classification. The binary theorem is older and does not imply the ternary statement. Searches for ternary Abelian-border arrays, Parikh-border and jumbled-border synonyms did not locate an equivalent enumeration or stronger fiber classification; this absence is not proof of absolute novelty. A result under an unsearched synonym is a remaining risk.
+PASS
 
-**Mathematical value — PASS.** The paper explicitly identifies ternary array enumeration as the unresolved next case; the sixteen-term exact census gives finite-length reconstruction-alphabet sizes where only an upper bound was available in the inspected paper. The all-length leading and runner-up fiber theorem quantifies the worst two ambiguity levels and identifies their unique signature patterns, giving structural content beyond the computed table. This is a natural full observation invariant, not an arbitrary restricted codebook slice.
+Global alphabet relabeling preserves all prefix Parikh equalities. Every ternary word has a unique restricted-growth representative; the examined artifacts/abelian_census.cpp runs a complete depth-first enumeration (3^n+3)/6 representatives through n=16, computes Parikh prefix counts, and packs each border length into distinct 4-bit positions (length <=16). Independently inspected artifacts/abelian_independent.cpp instead enumerates all 3^(n-1) words beginning with 0 and uses base32 prefix count differences with no borrow (all counts <=16), computing the same exact table. Our separate Python implementation exhaustively computed every first-zero ternary word for n<=11 and matched T_3(1..11), top three fiber multiplicities and specific two runner-up arrays. The all-n fiber bound follows from second-letter branch and each subsequent symbol either forced 0 if border i-1 or one of 1,2 otherwise; the all-zero branch attains 2^(n-2) restricted-growth words. The two runner-up cases follow by first repeated zero and strict split at next position, with 6 labeled permutations for every nonconstant canonical representative. The n=12..16 table rests on inspected exhaustive algorithm and its two independent implementations, not our truncated Python check; no infinite table extrapolation.
 
-**Scope and limitations.** No universal formula for \(T_3(n)\) is inferred, and the signature fibers below the two leading levels are not classified for arbitrary length. The related literature may use different names for identical observations. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.
+
+## value
+
+PASS
+
+A natural reconstruction ambiguity invariant beyond the binary case: exact attainable signature counts through a substantial finite cutoff plus all-length extremal fiber geometry. The 16-term table is independently motivated by the explicitly open ternary complexity in the 2021 parent work; the infinite top-two classification remains useful without a full all-n census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
