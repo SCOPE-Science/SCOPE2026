@@ -1,15 +1,21 @@
-# Scientific review — commuting pairs in split Alexander quandle algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-field Fourier transform is invertible because the field contains all values of the finite character group and its characteristic does not divide the group order. The Fourier multiplication identity reduces the equation of two commuting elements to vanishing adjacent determinants on disjoint character-permutation cycles. The count on a length-\(m\) cycle is the trace of the explicit \(q^2\)-vertex adjacency matrix, whose spectral decomposition gives \(U_m(q)+q(q-1)^m\). Direct inspection of the linear equations proves the full commuting-centralizer dimension rule, including fixed points, all-zero and all-nonzero cycles and mixed runs. The center dimension is the cardinality of the fixed-point set of the dual action, equal by finite-abelian duality to \(|\ker(1-2\varphi)|\). All quantifiers and restrictions are in RESULT.md. The verifier checked representative transfer counts, modular centralizer ranks and direct quandle products; the unrestricted proof is algebraic.
+## correctness
 
-## Originality — PASS with bounded-literature risk
-Elhamdadi–Ta–Virgin, arXiv:2609.03799, Theorem 3.2, and Ta, arXiv:2610.20306, Proposition 5.1, already give the essential Fourier product. Zhang, arXiv:2610.08204, Theorem 2.3, determines the commutator-generated ideal; Sangare–Ta, arXiv:2608.01550, study commutator widths. Churchill et al., arXiv:2608.09149, study the distinct zero-divisor graph. Published exact information about a commutator's image or generated subalgebra does not imply the cardinality of the bilinear zero fiber or the dimensions of all elementwise centralizers. Previously described square-zero Fourier-support independence is a different quadratic equation. The proposed addition is the transfer spectral census and complete linear centralizer rule, not the prior transform or cycle decomposition. Material relevant portions of primary texts were examined. The searches were bounded, so unindexed equivalent enumerations remain a risk.
+PASS
 
-## Mathematical value — PASS
-The commuting probability and centralizer-dimension spectrum are natural invariants of finite nonassociative algebras and yield an exact count over every split finite latin Alexander quandle, rather than an isolated numerical example. The cycle decomposition provides group-theoretic computability from kernel sizes; the result distinguishes centralization, square-zero behavior and commutator image size. The explicit two-eigenvalue transfer mechanism gives a reusable finite-algebra counting technique. No applications beyond these conclusions are claimed.
+Reconstructed finite splitting Fourier transform: for every character chi, hat(uv)(chi)=hat u(chi o phi)hat v(chi o (1-phi)), so commuting is a determinant-zero condition on each edge of the T=phi^-1(1-phi) character cycles. The q^2-vertex compatibility matrix has eigenvalues 0 with multiplicity (q+1)(q-2), q-1 with multiplicity q, and the two roots lambda^2-q lambda-q(q-1)=0; trace of powers gives U_m(q)+q(q-1)^m and products over independent cycles give every ordered commuting-pair count. The fixed-vector centralizer constraints give the stated run/zero-run dimension rule, including m=1, m=2, all-zero and all-nonzero boundaries. Universal commuting center is supported precisely on T-fixed characters, counted by |ker(1-2phi)|; Möbius inversion gives cycle counts. I independently enumerated *both* vectors for (q,m)=(2,1),(2,2),(2,3),(3,2),(3,3),(5,2): exact pair totals 4,10,22,33,105,145 and matching all first-vector centralizer dimensions. These finite checks supplement rather than prove the unrestricted field/group statement.
 
-## Verification limitations
-The finite checker is not exhaustive over all groups or fields. The cited papers do not provide an independent validation of these formulas. A duplicate under different terminology may not have been located. General nonsplitting or modular fields remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published Fourier product law and finite-field splitting framework are prior. The newly assessed material is the determinant-zero transfer-matrix pair census and exact run-wise centralizer rule, not the Fourier identity itself or the abstract fact of projective dependence. Related commutator width, group-ring ideal and zero-divisor results inspected at available levels do not determine the distribution of bilinear zero fibers by logical implication.
+
+## value
+
+PASS
+
+The commuting probability, commuting center and complete element-centralizer dimensions are natural and independently useful invariants of a broad split finite latin Alexander-quandle-algebra family. The trace-polynomial factorization and kernel-computable cycle counts give closed all-size formulas rather than isolated table entries; the result distinguishes bilinear zero fibers from known commutator-image and square-zero structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
