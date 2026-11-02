@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact rank-three parity-check classification gives 30 shortened-Hamming diagonal cores; 512 exhaustive cosets per core and the weight(t)+2weight(restriction) identity show exactly 72 admissible one-dimensional extensions per core. The three polynomial distributions count 48/16/8 cosets, giving 2160 distinct codes. The standalone verifier independently exhausts every coset and labeled core. A self-contained Griesmer–MacWilliams contradiction excludes any [12,5,5] linear code; a doubled core plus (111111,000000) realizes dimension 4 and distance 6. The theorem is finite and no extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In arXiv:2610.33676 Theorem 6.7 concerns d>=3 with an even-weight diagonal core.",
+        "The paper explicitly poses the d>=5 case as a separate question and supplies an example at m=7."
+      ],
+      "reasoning": "The earlier broader-in-m d>=3 theorem has a weaker distance requirement and a different maximal diagonal subcode, so it does not imply the three d>=5 spectra for m=6.",
+      "searches": [
+        "Jon Lark Kim Extremal diagonal-coherent binary codes 2026 problem 6.30 m=6",
+        "Kim arXiv:2610.33676 Theorem 6.7 d=3 enumeration and Problem 6.30 d=5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.33676 (sections 6.1–6.3, 6.9, original text; first submitted 2026-10-24)",
+      "Huffman–Pless (classical coding identities; formulas independently reconstructed)",
+      "math.stackexchange.com/questions/4633515 (dimension-bound argument, independently reconstructed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source gives the general intersection upper bound k_2(m,ceil(d/2)), not the number of optimal codes meeting the bound.",
+        "Its higher-distance example at m=7 supplies existence, not enumeration at m=6."
+      ],
+      "reasoning": "The new claim specializes to a genuinely different unresolved exact classification: it enumerates all dimension-optimal length-12 codes satisfying the upper-bound equality, and computes full weight enumerators. The primary source does not state or logically force those counts without the new coset analysis.",
+      "searches": [
+        "arXiv:2610.33676 Proposition 6.2 diagonal intersection bound d=5",
+        "arXiv:2610.33676 Problem 6.30 m=7 d=5",
+        "[12,4,5] codes containing doubled [6,3,3] weight enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The diagonal-intersection condition is exactly C cap Delta = iota(U), with U a [6,3,3] shortened Hamming code.",
+        "The same problem can be expressed as counting cosets of its doubled core with all weights >=5."
+      ],
+      "reasoning": "This formulation was explicitly checked against the open Problem 6.30 and associated code-dimension terminology; the fixed-diagonal 2160 count is not the ordinary count of [12,4,6] codes.",
+      "searches": [
+        "d=5 diagonal-coherent code length 12 dimension 4 contains doubled [6,3,3] 2160 weight enumerators 72 per core",
+        "12,4,6 diagonal coherent codes shortened Hamming hexagrams doubled [6,3,3]",
+        "arXiv:2610.33676 Section 6.9 Problem 6.30"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical code parameter tables and nonexistence arguments constrain dimension/distance, not the labeled [6,3,3]-diagonal incidence classes.",
+        "Direct exact enumeration yields 72 cosets per fixed core, three distinct spectra, and 30 cores."
+      ],
+      "reasoning": "A numerical optimum or an existence table does not imply the count 2160 or the 1440/480/240 refined weight census.",
+      "searches": [
+        "[12,4,6] [12,5,5] binary linear codes dimension bound",
+        "12,4,6 diagonal coherent codes shortened Hamming hexagrams doubled [6,3,3]",
+        "binary linear [12,5,5] code non-existence"
+      ]
+    },
+    "rationale": "Direct comparison with the publicly accessible 2026 primary paper shows its Problem 6.30 leaves higher-distance diagonal-coherent existence and classification open beyond its one m=7 example. An explicit m=6,d=5 labeled census and its three weight enumerators do not follow from the d>=3 formulas or ordinary [12,4,d] parameter bounds. Targeted mathematical-record and web searches did not return an equivalent classification; residual unindexed priority risk is documented.",
+    "residual_risks": [
+      "An unindexed finite classification or a coding-equivalence table could encode the same numerical census, although no implication was identified.",
+      "Priority beyond the searched original paper and indexed mathematical records has not been independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides d>=3 theory and m=7,d=5 existence, but not the d=5,m=6 2160-code classification or its three enumerators",
+        "evidence": [
+          "Section 6.9 Problem 6.30 asks for optimal d-diagonal-coherence; the worked d=5 example is m=7",
+          "Section 6.3 enumeration is for d>=3 with the even-weight diagonal core, so does not imply this distinct d>=5 classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.33676",
+        "material_read": "Abstract, Sections 6.1–6.3 and 6.9 (including Proposition 6.2 and Problem 6.30), plus searches in Section 6 for weight enumerators and m=6; full accessible HTML record",
+        "method": "Read original publicly accessible text and compared definitions, hypotheses, m and d parameters and conclusions",
+        "title": "Extremal diagonal-coherent binary codes: shortened Hamming cores, deep holes, and the 64 I-Ching hexagrams",
+        "trigger": "Exact same diagonal-coherence definition; newest motivating source and named higher-distance problem"
+      },
+      {
+        "assessment": "Supplies general dimension bounds/identities, not the fixed-diagonal 2160-code census",
+        "evidence": [
+          "Full Griesmer/MacWilliams derivation is supplied in the theorem rather than inferred from a parameter table"
+        ],
+        "identifier_or_url": "Huffman and Pless (2003), textbook; Griesmer and MacWilliams identities",
+        "material_read": "Standard formulae used directly, not a book-wide full-text novelty assessment",
+        "method": "Algebraic derivation of bound and weight enumerator contradiction",
+        "title": "Fundamentals of Error-Correcting Codes",
+        "trigger": "Strong general coding bounds could imply only the optimum dimension"
+      },
+      {
+        "assessment": "Covers only impossibility of a dimension-five code, not diagonal-coherent code enumeration",
+        "evidence": [
+          "The upper-bound argument is separated from the novel intersection and weight census"
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/4633515/non-existence-of-binary-linear-12-5-5-code",
+        "material_read": "Public argument surfaced by an indexed web search; independent exclusion proof reconstructed in RESULT.md",
+        "method": "Compared claim about [12,5,5] nonexistence and derived complete proof using parity extension, residual, Griesmer, MacWilliams",
+        "title": "Non-existence of binary linear [12,5,5] code",
+        "trigger": "Relevant published proof of a dimension upper bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f21782f-e08d-4d44-9b49-8aafeecf15f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classified family is exactly the first length-12 d=5 finite instance of the higher-distance diagonal-coherence question posed as Problem 6.30 of arXiv:2610.33676. Counting all 2160 optimal labeled subspaces and distinguishing three full weight enumerators provides nontrivial structural data beyond a routine existence check or parameter-table lookup. The result answers this natural bounded case while explicitly leaving general d and m open.",
+    "status": "PASS"
+  }
+}
