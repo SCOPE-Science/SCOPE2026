@@ -1,0 +1,234 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:41:19.157483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned Git record tree 082f3dc3215ef4f2b2bd9a6941ead897b7db281e; RESULT.md Git blob 3c48c774dd9c7465204b49dec783a3fdd31abcd5",
+        "VERIFICATION.md Git blob c6e5ec18b735435171ca00b0796517e5fc20f537",
+        "Independent finite triangular singular spectra h=2,5,9; SVD of row-weighted 200/400/512 sections; beta/gamma integral check (private numerical diagnostics)"
+      ],
+      "rationale": "On complex l2(N0) with C_ij=1/(i+1) for j<=i and S e_j=e_(j+1), direct subtraction gives K_ij=-1/[i(i+1)] exactly for i>=1, j<i, zero otherwise. A=-K is Hilbert-Schmidt because sum_{i>=1} i/[i^2(i+1)^2]<infinity. For an h-by-h inclusive all-ones lower triangle L_h, the inverse first-difference Gram matrix has eigenvalues 4sin^2((2j-1)pi/(4h+2)), hence the exact displayed singular-value formula. I independently checked that formula by SVD for h=2,5,9 to <1e-15 absolute error. For p in (1/2,1), a dyadic row interval of size about 2^k J contributes a weighted strict triangle of S_p^p <=c_p(2^k J)^(1-2p) and, from earlier columns, a rank-one block of S_p^p <=c_p(2^k J)^(-p); summing gives ||P_[J,infty) A P_[J,infty)||_p^p <=C_p J^(1-2p). The columns before J add only rank one. This yields a uniform high-row counting error O(t^(-p)J^(1-2p)). Low rows have rank <=epsilon t^(-1/2)+1. On [epsilon/sqrt(t),M/sqrt(t)), finitely many geometric blocks have off-diagonal rank bounded independently of t, and diagonal singular counts bounded between constant-weight triangular spectra. The density is F(x)=(2/pi)arcsin(min(1,1/(2x^2))). The order of limits t->0, block ratio->1, epsilon->0 and M->infty is justified by the rank and Schatten tail estimates. F is integrable (tail O(x^-2)); Tonelli gives sqrt(t)N_A(t)->(2/pi)int_0^(pi/2)(2sin theta)^(-1/2)dtheta =Gamma(1/4)/(sqrt(2pi)Gamma(3/4))=A*. Monotone counting inversion yields n^2 s_n(K)->A*^2=Gamma(1/4)^2/[2pi Gamma(3/4)^2]. Then s_n(|K|^(1/2))~A*/n, so ordinary logarithmic means converge to A* and every normalized Dixmier trace has that value. Numerical beta evaluation gives A*=1.1803405990160964 and A*^2=1.3932039296856773. Independent exact-row-model finite SVDs on 200/400/512-square truncations and counting diagnostics are consistent but are not used as proof of the infinite limit.",
+      "residual_risks": [
+        "The asymptotic is a hand-checked infinite-dimensional argument, not a Lean or external expert attestation.",
+        "Finite truncation singular values converge slowly and cannot by themselves establish the claimed coefficient; their comparisons are diagnostics only.",
+        "No general weighted-terraced or arbitrary Toeplitz-commutator singular law has been established by this package."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bellavita–Stylogiannis Theorem 1.2 and 10.1 give modulo-S2 Mellin product identities and Toeplitz commutator ideal/essential spectral statements, not an s_n~constant*n^-2 law.",
+          "The 1996 Volterra theorem concerns L2(0,1) kernels x^-beta(x-t)^(alpha-1), and specifies a general order and unweighted fractional integral constant, not this discrete matrix coefficient.",
+          "Pushnitski studies absolutely continuous spectrum and spectral density for Hardy kernel matrices, as opposed to the compact strict triangular operator here.",
+          "The sharp trace-class endpoint for monotone-modulus Rhaly matrices is a membership criterion sum |eta_n|log(n+2)<infty, not this n^-2 singular-value coefficient."
+        ],
+        "reasoning": "A discrete Weyl/Birman–Solomyak theorem for power-weighted Hardy triangles might imply the claimed constant after normalization, even if its title does not mention Cesàro. No decisive covering theorem was identified in this bounded search. The relevant accessed primary theorems concern different spectral invariants or different operator classes; unread older general theory remains a material priority risk.",
+        "searches": [
+          "Resultary semantic query: Discrete weighted Volterra operator with kernel a_i indicator j<i singular value asymptotics Weyl law",
+          "Web: spectral asymptotics discrete Hardy matrices weighted summation singular values n^-2 Birman Solomyak Weyl coefficient",
+          "Web: singular values of discrete weighted Hardy operator matrix (n+1)^-2 partial sums sharp asymptotics",
+          "Web: weighted Hardy sum matrix row weights n^-2 precise singular number asymptotic Toeplitz localization",
+          "Primary: Bellavita and Stylogiannis, arXiv:2609.09453 Theorem 1.2, Theorem 10.1 (authorized extracted text pages 1-12,42-48)",
+          "Primary abstract: Vu Kim Tuan and Gorenflo (1996), DOI 10.1080/01630569608816704",
+          "Primary abstract: Pushnitski (2023), DOI 10.7900/jot.2021apr06.2320"
+        ]
+      },
+      "checked_sources": [
+        "Authorized full-text pages 1-12,42-48 of arXiv:2609.09453 (Theorems 1.2 and 10.1)",
+        "Full Resultary/2026 RESULT.md: generalized Cesàro C_t exact coefficient (10/11)",
+        "Full Resultary/2026 RESULT.md: continuous Hardy–Volterra commutator determinant (10/11)",
+        "Full Resultary/2026 RESULT.md: monotone Rhaly trace-class endpoint (10/11)",
+        "Resultary semantic queries for exact Cesàro shift commutator, weighted triangular sums, and weak Schatten boundary",
+        "Web scholarly searches for i^-2 weighted discrete Hardy singular-number laws, gamma-quarter coefficient and general Birman–Solomyak forms",
+        "arXiv:2608.25740 and arXiv:2503.21930 attempted as arXiv HTML/OA, then Oxford: VPN disconnected",
+        "1996 weighted Volterra article abstract and Pushnitski 2023 Hardy kernel matrix abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C_t=D(I-tS)^-1 with 0<=t<1 has n*s_n(C_t) convergent; the commutator A has row weights i^-2 and no geometric lag damping, so C_t theorem cannot be specialized to A.",
+          "The continuous Hardy–Volterra matrix analogue is T=x^-1 J^2 with fourth-order differential eigenproblem and singular roots; the operator is not unitarily shown to equal the discrete CS-SC.",
+          "Rhaly trace-class endpoint is a qualitative ideal criterion and does not entail pointwise n^2 s_n or Dixmier residue.",
+          "Bellavita–Stylogiannis Theorem 10.1 gives [W(kappa),W(eta)] in S2 and Calkin algebra facts; S2 inclusion does not imply the exponent, numerical coefficient or measurable weak S_(1/2) boundary."
+        ],
+        "reasoning": "Prior spectral and membership statements have been compared by mathematical implication, including parameter degenerations. None of the accessed results determines the gamma-quarter limit. This is a best-of-knowledge originality judgment, subject to an uninspected stronger weighted Hardy spectral law.",
+        "searches": [
+          "Full published finding: Resultary/2026 2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d/RESULT.md",
+          "Full published finding: Resultary/2026 2026/10/11/SCOPE-an-entire-characteristic-determinant-for-the-singular-spectrum-o--2a37cf33f373/RESULT.md",
+          "Full published finding: Resultary/2026 2026/10/11/SCOPE-the-sharp-trace-class-endpoint-for-monotone-modulus-rhaly-matric--182bfa9e0a1a/RESULT.md",
+          "Full primary: Bellavita–Stylogiannis, arXiv:2609.09453 pages 1-12 and 42-48",
+          "Web: Cesaro shift Dixmier commutator singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited operator is the strict row-weighted triangle A_ij=[i(i+1)]^-1 1_{j<i}, with a squared-rank decay and gamma-quarter coefficient.",
+          "The exact generalized Cesàro published finding is C_t,ij=t^(i-j)/(i+1) for j<=i and fixed 0<=t<1, with n*s_n limit (a different operator and decay power).",
+          "The published Hardy-Volterra commutator uses x^-1 J^2 on continuous L2(0,1), giving an entire determinant for singular roots, not this discrete matrix.",
+          "The audited package self-review references an earlier same-matrix two-sided n^-2 bound, but the older record itself was not independently retrieved this run; no originality conclusion is inferred from that secondary assertion."
+        ],
+        "reasoning": "Comparing matrix kernels, singular exponent and output: neither a one-sided exponentially damped C_t nor a continuous x^-1 J^2 commutator is the discrete CS-SC. The claimed exact coefficient and Dixmier measurability are not consequences of a mere two-sided estimate. Exact older equivalent statements remain a documented possibility, not disproved by a search miss.",
+        "searches": [
+          "Resultary semantic query: Classical Cesàro operator C and unilateral shift S commutator CS-SC singular values order n^-2 weak Schatten 1/2 exact asymptotic coefficient",
+          "Resultary semantic query: exact Weyl singular-value coefficient weighted Hardy triangular summation matrix a_i~i^-2 and Dixmier trace fractional power gamma quarter",
+          "Web: Cesàro shift commutator singular values asymptotic exact constant Gamma(1/4) Gamma(3/4) n^2",
+          "Web: Cesaro shift commutator singular values n^-2",
+          "GitHub scoped code searches: Cesàro shift commutator; singular n^-2 Cesaro unilateral shift; Schatten threshold CS-SC (no matching indexed snippets)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact Cesàro coefficient is a complete elliptic integral for the family C_t (0<=t<1) and order 1/n, not the gamma-quarter constant for CS-SC.",
+          "No matching exact table or normalized Dixmier trace for this discrete commutator appeared in the retrieved Resultary hits or web result sets."
+        ],
+        "reasoning": "The candidate is an infinite-dimensional spectral constant, not a finite combinatorial table; searching exact matrices and gamma-quarter invariant is relevant. Empty matches are merely a residual-risk statement, never an existence proof of novelty.",
+        "searches": [
+          "Web: triangular matrix a_i i^-2 sum j<i singular value exact coefficient beta gamma quarter",
+          "Web: compact weighted summation operator matrix n^-2 indicator k<n singular values Weyl formula",
+          "Resultary semantic query: exact Weyl singular-value coefficient weighted Hardy triangular summation matrix a_i~i^-2 and Dixmier trace fractional power gamma quarter",
+          "Resultary semantic query: For the classical Cesàro operator C and the forward unilateral shift S ... two-sided n^-2 weak Schatten bounds",
+          "Published Resultary: 2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d"
+        ]
+      },
+      "rationale": "The exact leading n^(-2) singular coefficient and resulting measurable square-root modulus Dixmier trace for the specific discrete CS-SC were not determined by the accessed stronger-looking results. The same-operator earlier two-sided bounds asserted in the source would not imply convergence, even if their priority is confirmed. The newest full primary text read establishes Mellin/Toeplitz and S2 commutator conclusions, not this sharper pointwise limit. Published neighboring coefficients concern n^(-1) generalized C_t; a continuous Hardy-Volterra commutator has a different kernel. Best-of-knowledge PASS, explicitly limited by unread original Sang/Rhaly and potentially dominating general discrete Weyl asymptotics.",
+      "residual_risks": [
+        "A general pre-existing discrete Hardy/terraced-matrix Weyl law or Birman–Solomyak-style theorem might imply the entire result by nontrivial reduction, even if the exact gamma constant is not indexed by name.",
+        "The original Sang 2026 and Bellavita–Dellepiane–Stylogiannis 2025 full texts were not obtained in this run because Oxford access returned VPN disconnected after public arXiv/OA retrieval attempts failed.",
+        "The Vu Kim Tuan–Gorenflo 1996 and Pushnitski 2023 papers were accessed only via abstracts, not their full proofs.",
+        "The source self-review references an earlier same-matrix two-sided n^-2 result, not independently retrieved here; these bounds are not used as proof of the new coefficient.",
+        "Search absence cannot prove universal novelty; this is a qualified, best-of-knowledge priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main results are Toeplitz-algebra membership, Mellin multiplication modulo S2 and Hilbert-Schmidt commutator properties. No sharp n^-2 coefficient or Dixmier measurable residue for [C,S] occurs in the materially read main and concluding theorems; uninspected middle pages mean whole-document negative cannot be absolutely certified.",
+          "evidence": [
+            "Theorem 1.2 pages 4-5; Theorem 10.1 pages 45-46; Corollary 9.3 page 45; conclusions page 47."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09453",
+          "material_read": "Actual extracted full-text pages 1-12 and 42-48 of 48 pages: introduction, Theorems 1.1-1.2, sampled-ratio model, sections 9-11, especially Corollary 9.3 and Theorem 10.1.",
+          "method": "Authorized institutional extracted text from full-paper PDF after arXiv HTML and lawful OA HTML retrieval attempts failed; compared theorems and consequences with the exact singular-value statement.",
+          "title": "A discrete Mellin calculus in the Toeplitz algebra",
+          "trigger": "Same classical Cesàro operator and broad commutator class; strongest immediately relevant primary paper."
+        },
+        {
+          "assessment": "Only fixed 0<=t<1 exponentially damped generalized Cesàro C_t with asymptotic n*s_n; does not cover the strict weighted triangle CS-SC with n^2*s_n.",
+          "evidence": [
+            "Finding and proof steps 1-3: C_t = D(I-tS)^-1, circular-mean constant c(t), n*s_n->c(t)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d/RESULT.md",
+          "material_read": "Entire publication RESULT.md, including finding, assumptions, proof and limits.",
+          "method": "Direct Git blob retrieval and same-object/parameter/implication comparison.",
+          "title": "Exact singular-value coefficient of generalized Cesàro operators on Hilbert space",
+          "trigger": "Nearby published SCOPE exact singular-value coefficients for Cesàro family."
+        },
+        {
+          "assessment": "Continuous operator x^-1 J^2 with an implicit entire determinant for eigenvalues; not an exact n^-2 coefficient for discrete CS-SC. Its n^-2 order alone does not imply the present limit.",
+          "evidence": [
+            "Finding, assumptions and limitations sections; continuous singular integral kernel 1-t/x for 0<t<x<1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-an-entire-characteristic-determinant-for-the-singular-spectrum-o--2a37cf33f373/RESULT.md",
+          "material_read": "Entire publication RESULT.md and proof, including operator definition and precise asymptotic limitations.",
+          "method": "Direct Git blob retrieval, comparison of integral kernel x^-1(x-t) and discrete row-constant strict triangle.",
+          "title": "An entire characteristic determinant for the singular spectrum of the Hardy–Volterra commutator",
+          "trigger": "Related n^-2 singular decay for a commutator of Hardy averaging and multiplication."
+        },
+        {
+          "assessment": "S1 endpoint equivalence involving sum a_n log(n+2), no exact n^2*s_n coefficient for a_i~i^-2. Its triangle-spectrum lemma agrees with the audited exact block identity.",
+          "evidence": [
+            "Finding and Steps 1-4; the universal finite triangular singular-value formula and endpoint criterion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-sharp-trace-class-endpoint-for-monotone-modulus-rhaly-matric--182bfa9e0a1a/RESULT.md",
+          "material_read": "Entire publication RESULT.md, including exact theorem, proof, cited Rhaly literature and limits.",
+          "method": "Direct Git blob retrieval and comparison of class criterion vs singular-number asymptotic.",
+          "title": "The sharp trace-class endpoint for monotone-modulus Rhaly matrices",
+          "trigger": "Exact same row-constant terraced matrix family, but a possibly stronger Schatten theorem."
+        },
+        {
+          "assessment": "Cannot conclude whole-document noncoverage from indirect summary; its reproduced result concerns Toeplitz membership and an operator identity, not explicitly the proposed singular-value coefficient. Residual risk retained.",
+          "evidence": [
+            "Bellavita–Stylogiannis (2026), sections 1.4 and pp. 5-6; Oxford access blocker noted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.25740",
+          "material_read": "Indirect mathematical statement as reproduced and compared by Bellavita–Stylogiannis pages 5-6; original full primary text not obtained this run.",
+          "method": "arXiv HTML and lawful alternate OA attempts failed; authorized Oxford retrieval reported VPN disconnected and required manual reconnection. No retry or bypass.",
+          "title": "The Cesàro Operator is in the Toeplitz Algebra",
+          "trigger": "The same Cesàro operator is treated and a shift appears in its representation."
+        },
+        {
+          "assessment": "Secondary descriptions place its results in S_q membership/compactness, not exact coefficient, but an uninspected full text cannot be declared not covering by itself.",
+          "evidence": [
+            "Bellavita–Stylogiannis (2026) references; Resultary Rhaly endpoint primary-science comparison referencing arXiv:2503.21930 Theorem 1.3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.21930",
+          "material_read": "Published bibliographic/theorem summary in Bellavita–Stylogiannis references and Resultary Rhaly endpoint RESULT.md; full original not obtained in this run.",
+          "method": "arXiv HTML and lawful OA attempts failed; authorized Oxford returned VPN disconnected; no retry or bypass.",
+          "title": "Boundedness, compactness and Schatten class for Rhaly matrices",
+          "trigger": "The audited operator is a row-constant triangular (Rhaly-type) matrix."
+        },
+        {
+          "assessment": "Does not itself state the exact discrete gamma-quarter coefficient in the abstract; do not infer entire-document noncoverage. General asymptotic transfer remains an explicit risk.",
+          "evidence": [
+            "Vu Kim Tuan and R. Gorenflo, Numer. Funct. Anal. Optim. 17 (1996), 453-461; abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01630569608816704",
+          "material_read": "Accessible institutional bibliographic abstract and operator-family description only; full paper not read.",
+          "method": "Search/open-access abstract via institutional portal, comparing continuous L2(0,1) kernel x^-beta(x-t)^(alpha-1) to discrete i^-2 triangular matrix.",
+          "title": "Asymptotics of singular values of Volterra integral operators",
+          "trigger": "Potential broader singular-value asymptotics for weighted Volterra integration, possibly related by discretization."
+        },
+        {
+          "assessment": "Studies essential/absolutely continuous spectral density for Hardy kernel matrices; does not obviously specialize to a compact row-weighted strict triangle, but full text was not read.",
+          "evidence": [
+            "Alexander Pushnitski, Journal of Operator Theory 89 (2023), 3-21, abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.7900/jot.2021apr06.2320",
+          "material_read": "Journal abstract, operator family and summary only.",
+          "method": "Journal of Operator Theory source comparison at abstract level.",
+          "title": "The spectral density of Hardy kernel matrices",
+          "trigger": "Hardy matrix kernel alias and possible spectral-density generalizations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Operator and approximation-number consequences in the audited RESULT.md",
+        "Bellavita–Stylogiannis Theorem 10.1 for broad S2 and Toeplitz context",
+        "Published generalized Cesàro exact coefficient and Rhaly endpoint sources as comparisons of mathematically natural invariants"
+      ],
+      "rationale": "The commutator of two canonical bounded operators is a natural compact operator, not an arbitrary parameter slice. Exact n^2*s_n fixes the leading cost of optimal rank-n approximation unavailable from mere compactness, Schatten membership or c n^-2<=s_n<=C n^-2. The associated unique Dixmier trace of |CS-SC|^(1/2) identifies a noncommutative residue at a sharp critical ideal exponent, of independent value for operator-ideal and Toeplitz commutator questions. The analytic multiscale counting proof is not a textbook renaming or a finite known-table computation. The specific coefficient can be used directly in sharp numerical approximation and spectral regularity questions, without claiming an entire new theory of all weighted matrices.",
+      "residual_risks": [
+        "No downstream generalization or unrelated application is claimed; the value rests on the exact natural operator invariant itself.",
+        "If an existing general Weyl theorem already yields the coefficient, both originality and contribution assessment would require reevaluation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git record tree 082f3dc3215ef4f2b2bd9a6941ead897b7db281e; RESULT.md Git blob 3c48c774dd9c7465204b49dec783a3fdd31abcd5",
+    "VERIFICATION.md Git blob c6e5ec18b735435171ca00b0796517e5fc20f537",
+    "Independent finite triangular singular spectra h=2,5,9; SVD of row-weighted 200/400/512 sections; beta/gamma integral check (private numerical diagnostics)",
+    "Authorized full-text pages 1-12,42-48 of arXiv:2609.09453 (Theorems 1.2 and 10.1)",
+    "Full Resultary/2026 RESULT.md: generalized Cesàro C_t exact coefficient (10/11)",
+    "Full Resultary/2026 RESULT.md: continuous Hardy–Volterra commutator determinant (10/11)",
+    "Full Resultary/2026 RESULT.md: monotone Rhaly trace-class endpoint (10/11)",
+    "Resultary semantic queries for exact Cesàro shift commutator, weighted triangular sums, and weak Schatten boundary",
+    "Web scholarly searches for i^-2 weighted discrete Hardy singular-number laws, gamma-quarter coefficient and general Birman–Solomyak forms",
+    "arXiv:2608.25740 and arXiv:2503.21930 attempted as arXiv HTML/OA, then Oxford: VPN disconnected",
+    "1996 weighted Volterra article abstract and Pushnitski 2023 Hardy kernel matrix abstract",
+    "Operator and approximation-number consequences in the audited RESULT.md",
+    "Bellavita–Stylogiannis Theorem 10.1 for broad S2 and Toeplitz context",
+    "Published generalized Cesàro exact coefficient and Rhaly endpoint sources as comparisons of mathematically natural invariants"
+  ],
+  "disposition": "passed",
+  "final_claim": "For K=CS-SC on complex l2(N0), with C the classical discrete Cesàro matrix and S the forward unilateral shift, lim_(n->infty) n^2 s_n(K) = Gamma(1/4)^2/(2 pi Gamma(3/4)^2). The positive operator |K|^(1/2) is Dixmier measurable with every normalized Dixmier trace Gamma(1/4)/(sqrt(2pi) Gamma(3/4)).",
+  "limitations": [
+    "Only the specific CS-SC matrix on complex l2(N0) is covered; no all-weighted-Hardy or all-commutator extension.",
+    "Oxford VPN disconnect blocked full text of two highly relevant primary papers; access limitation is recorded as originality risk, not treated as an automatic FAIL.",
+    "The older weighted Volterra and Hardy matrix papers were not read in full; no universal priority claim is made.",
+    "The numerical SVD diagnostics are finite; proof of the infinite limit relies on the exact dyadic and geometric localization argument.",
+    "Public AUDIT.json and METADATA.json include operational source provenance; this run does not supply guarded sanitized replacement bytes. Publication is withheld."
+  ],
+  "schema_version": 1
+}
