@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:44:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C: Every color-a class is a nonattacking partial matching. If it omits p−k rows and q−k columns, every missing-corner cell has no color-a neighbor and therefore must be occupied by the opposite independent color; thus (p−k)(q−k)<=1. For p<q this forces both colors to cover all rows. Ordered first injection (q)_p and inclusion-exclusion over same-row forbidden second placements gives the exact nonsquare monomial. On square n×n each color has n or n−1 cells and any n−1 missing corner must have opposite color; the (full,full),(full,partial),(partial,partial) cases produce the three derangement coefficients without overlap. Explicitly handle D0=1,D1=0, the small n2/n3 missing weights. Independent exhaustive ORIGINAL-definition enumeration of all ternary labels on 2x2,2x3,2x4,3x3,3x4 boards (up to 3^12 assignments) exactly reproduced coefficient dictionaries: (2,2){2:4,4:2}; (2,3){4:18}; (2,4){4:84}; (3,3){5:36,6:12}; (3,4){6:264}. Infinite p,q result rests on missing-corner lemma/inclusion-exclusion, not those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mertens ordinary domination polynomial counts any dominating rook placement, without requiring two separately nonattacking colors.",
+          "Gabrovšek et al. analyze rainbow independent minimum weights for cycle/path Cartesian products, not Kp□Kq full enumerator."
+        ],
+        "reasoning": "Broader dimension or color labels in the existing results do not dominate this exact two-color rook polynomial; exact necessary independence and zero-neighborhood conditions differ.",
+        "searches": [
+          "two rainbow independent domination polynomial rook graph K_p Cartesian K_q maximal independent sets Hamming graph",
+          "JIS:2024:24.3.7",
+          "doi:10.1007/s10100-023-00840-w"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1709.08966v1",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+        "https://link.springer.com/article/10.1007/s10100-023-00840-w",
+        "https://combinatorialpress.com/jcmcc-articles/volume-094/independent-2-rainbow-domination-in-graphs/",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/square-board-exceptional-weights-in-two-rainbow-independent-domi--10490aeb3206"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General definition, prism equivalence and minimum-weight basic bounds are prior.",
+          "The square-board 2n−2,2n−1,2n trichotomy follows from a new missing-corner constraint and three matching counts."
+        ],
+        "reasoning": "A general maximal-independent-set enumerator for three-factor Hamming graphs could imply the whole formula; no such matching theorem was present in read sources. Ordinary rook domination counts do not supply color layer constraints.",
+        "searches": [
+          "arxiv:1709.08966v1",
+          "JIS:2024:24.3.7",
+          "two rainbow independent domination polynomial rook graph K_p Cartesian K_q maximal independent sets Hamming graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2017 theorem equates 2-rainbow independent domination number of G to ordinary independent domination number of G □ K2.",
+          "Enumerating 2-RiDF of Kp □ Kq by weight is equivalent to a suitably indexed maximal independent-set polynomial on Kp □ Kq □ K2."
+        ],
+        "reasoning": "We compared the equivalent three-factor Hamming graph formulation, not just rook graph title. The 2017 equality is a minimum invariant and does not supply exact full coefficient counts.",
+        "searches": [
+          "two rainbow independent domination polynomial rook graph K_p Cartesian K_q maximal independent sets Hamming graph",
+          "arxiv:1709.08966v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS sequences referenced by Mertens are for ordinary rook domination placements.",
+          "Independent exhaustive coefficient tables for five boards agreed with the claimed derangement formula."
+        ],
+        "reasoning": "No checked two-color rook weight distribution table covering all p,q was identified; one-color tables are non-equivalent.",
+        "searches": [
+          "two rainbow independent domination polynomial rook graph K_p Cartesian K_q maximal independent sets Hamming graph",
+          "JIS:2024:24.3.7"
+        ]
+      },
+      "rationale": "O: Original 2017 2-rainbow independent domination work defines this precise coloring and its independent-set prism equivalence; later product-graph papers usually provide minimum weights for cycle products or general bounds, not a complete full-weight rook graph enumerator. Mertens 2024 calculates the ONE-COLOR ordinary domination polynomial of rook graphs, which counts different objects and does not directly imply the two-color independence/disjoint matching decomposition. Resultary search returned many rook graph invariants but not this three-term square count. A stronger maximal independent-set polynomial for K_p□K_q□K_2 could cover it; residual risk acknowledged.",
+      "residual_risks": [
+        "An unindexed enumeration of maximal independent sets in Hamming graph K_p□K_q□K_2 may imply this exact polynomial.",
+        "Full Mertens 2024 TeX/PDF was not read; precise comparison is at the invariant-definition and published abstract level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL; no Kp□Kq all-weights polynomial in read results",
+          "evidence": "2017 definition labels zero/1/2 and relates minimum γ_ri2 to i(G□K2); studied bounds, not full weights.",
+          "identifier_or_url": "https://arxiv.org/html/1709.08966v1",
+          "material_read": "Complete primary arXiv HTML mathematical sections on 2-RiDF definition, main equivalence, basic invariant bounds and graph families.",
+          "method": "Open arXiv full HTML",
+          "title": "On k-rainbow independent domination in graphs",
+          "trigger": "foundational exact same 2-RiDF definition and prism equivalence"
+        },
+        {
+          "assessment": "PLAUSIBLE SOURCE BUT DIFFERENT INVARIANT; no full-document noncoverage claim",
+          "evidence": "Mertens 2024 counts dominating arrangements of k ordinary rooks, not two distinguished nonattacking color classes.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+          "material_read": "Complete journal HTML landing page/abstract and article bibliographic framing; the linked PDF/TeX full proof was NOT read.",
+          "method": "Open Journal of Integer Sequences article page",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "same rook board and all-weight counting, possible exact cover"
+        },
+        {
+          "assessment": "DIFFERENT graph factors and primarily minimum domination parameters",
+          "evidence": "Cycle products are not complete-graph rook Cartesian products; full multivariate color-weight counts not shown in inspected sections.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10100-023-00840-w",
+          "material_read": "Accessible Springer HTML mathematical descriptions and sections on cycle-by-path/cycle-by-cycle product families, not a complete separate PDF extraction.",
+          "method": "Lawful journal HTML",
+          "title": "On the 2-rainbow independent domination numbers of some graphs",
+          "trigger": "same 2-RiDF invariant on Cartesian products"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V: The all-weights enumerator of a standard Hamming/rook graph family is a motivated combinatorial classification beyond minimum domination, with a structural square-versus-rectangle phase boundary and exact labeled derangement counts. Such formulas can support invariant comparison and extremizer enumerations; they are not arbitrary small-instance counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1709.08966v1",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+    "https://link.springer.com/article/10.1007/s10100-023-00840-w",
+    "https://combinatorialpress.com/jcmcc-articles/volume-094/independent-2-rainbow-domination-in-graphs/",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/square-board-exceptional-weights-in-two-rainbow-independent-domi--10490aeb3206"
+  ],
+  "disposition": "passed",
+  "final_claim": "For rook graphs K_p □ K_q, p>=2, p<q all labeled 2-rainbow independent dominating functions have weight 2p, with exact ordered-injection inclusion–exclusion count; p=q=n has only weights 2n−2,2n−1,2n, counted respectively by n*n!*(n−1)D_{n−2}, 2n*n!*D_{n−1}, and n!*D_n, with D_m derangements.",
+  "limitations": [
+    "Only labeled color classes 1,2 and p,q>=2; no k>=3 colors, no subset-labeled older rainbow variant.",
+    "Finite tests are not a proof of the infinite table; missing-corner matching classification is the proof."
+  ],
+  "residual_risks": [
+    "An unindexed enumeration of maximal independent sets in Hamming graph K_p□K_q□K_2 may imply this exact polynomial.",
+    "Full Mertens 2024 TeX/PDF was not read; precise comparison is at the invariant-definition and published abstract level."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "FOUNDATIONAL; no Kp□Kq all-weights polynomial in read results",
+      "evidence": "2017 definition labels zero/1/2 and relates minimum γ_ri2 to i(G□K2); studied bounds, not full weights.",
+      "identifier_or_url": "https://arxiv.org/html/1709.08966v1",
+      "material_read": "Complete primary arXiv HTML mathematical sections on 2-RiDF definition, main equivalence, basic invariant bounds and graph families.",
+      "method": "Open arXiv full HTML",
+      "title": "On k-rainbow independent domination in graphs",
+      "trigger": "foundational exact same 2-RiDF definition and prism equivalence"
+    },
+    {
+      "assessment": "PLAUSIBLE SOURCE BUT DIFFERENT INVARIANT; no full-document noncoverage claim",
+      "evidence": "Mertens 2024 counts dominating arrangements of k ordinary rooks, not two distinguished nonattacking color classes.",
+      "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+      "material_read": "Complete journal HTML landing page/abstract and article bibliographic framing; the linked PDF/TeX full proof was NOT read.",
+      "method": "Open Journal of Integer Sequences article page",
+      "title": "Domination Polynomial of the Rook Graph",
+      "trigger": "same rook board and all-weight counting, possible exact cover"
+    },
+    {
+      "assessment": "DIFFERENT graph factors and primarily minimum domination parameters",
+      "evidence": "Cycle products are not complete-graph rook Cartesian products; full multivariate color-weight counts not shown in inspected sections.",
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s10100-023-00840-w",
+      "material_read": "Accessible Springer HTML mathematical descriptions and sections on cycle-by-path/cycle-by-cycle product families, not a complete separate PDF extraction.",
+      "method": "Lawful journal HTML",
+      "title": "On the 2-rainbow independent domination numbers of some graphs",
+      "trigger": "same 2-RiDF invariant on Cartesian products"
+    }
+  ]
+}
