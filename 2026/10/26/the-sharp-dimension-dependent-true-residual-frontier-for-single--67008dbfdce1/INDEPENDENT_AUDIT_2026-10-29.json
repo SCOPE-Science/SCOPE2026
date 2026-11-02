@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:59:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real SPD A with mu I<=A<=L I in n>=2, a one-dimensional, nonoversampled, DEIM-selected GMRES step uses a largest-magnitude coordinate i and alpha=r_i/(Ar)_i for nonzero sampled denominator. For u=r/||r||, c=|u_i|>=n^-1/2, s=(1-c^2)^1/2, Au=a u+v, p=||v|| and h=w^T v, exact ratio squared=(s^2h^2+c^2p^2)/(ca+sh)^2. The matrix inequality (A-mu I)(LI-A)>=0 gives p/a<=q=(kappa-1)/(2sqrt(kappa)). Thus the maximum is sqrt(n)q/(1-sqrt(n-1)q) for q below the pole; a rank-one SPD two-direction construction attains it. At/above the pole a sequence of nonsingular sampled scalars tends to 0 and gives unbounded residual, with arbitrarily near unique pivots. Hence universal nonexpansion iff q<=sqrt(n)-sqrt(n-1). Independently evaluated the rank-one extremizer for four (n,mu,L) cases and verified ratio matches exact formula; inspected source verification code and exact n=2 rational example. q=0, ties, c=1, and singular-limit interpretation explicitly handled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Randomized sketched GMRES analysis relies on subspace embeddings, impossible for a single scalar sample on span(r,Ar) when independent.",
+          "Flexible GMRES adds outer residual minimization and is not the same update."
+        ],
+        "reasoning": "Prior general guarantees have hypotheses excluding the sharp worst-case construction; unrelated Kaczmarz residual-spike frontiers do not dominate this different selection rule.",
+        "searches": [
+          "https://arxiv.org/abs/2604.07158",
+          "https://doi.org/10.1137/23M1565413",
+          "https://arxiv.org/abs/2506.18408",
+          "Resultary Kaczmarz coherence residual spike frontier"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.07158",
+        "https://doi.org/10.1137/23M1565413",
+        "https://arxiv.org/abs/2506.18408",
+        "https://doi.org/10.1137/25M1744629"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bergermann algorithm defines DEIM pivot from largest-magnitude residual component and least-squares sample; the paper does not assert a sharp true-residual ratio depending on sqrt(n-1)q.",
+          "The spectral p/a<=q component is Kantorovich-type prior mathematics."
+        ],
+        "reasoning": "The angular estimate alone does not give the exact sampled-row pole; the proof must optimize the coupling of DEIM c>=1/sqrt(n), the perpendicular vector, and a sharp SPD rank-one extremizer. This is the newly assessed implication.",
+        "searches": [
+          "https://arxiv.org/abs/2604.07158",
+          "https://doi.org/10.1137/23M1565413",
+          "https://arxiv.org/abs/2506.18408"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is a one-dimensional oblique/interpolatory projection I-(r_i/(Ar)_i)Ar; standard SPD angular bound controls ||Ar-(u^TAu)u||/(u^TAu), not sampled denominator."
+        ],
+        "reasoning": "Searched oblique-projection and residual-spike terminology alongside GMRES. No reviewed statement supplies both the DEIM selected-coordinate constraint and sharp equality/pole.",
+        "searches": [
+          "Resultary query: DEIM selected one row sketched GMRES SPD exact true residual amplification spectral dimension threshold",
+          "https://arxiv.org/abs/2604.07158",
+          "https://doi.org/10.1137/23M1565413"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact-arithmetic rank-one SPD construction yields equality for all finite-branch (n,kappa); no published table found for the continuum exact formula."
+        ],
+        "reasoning": "The result is a sharp real-parameter supremum rather than a finite invariant in a standard numerical table; limited search cannot establish absolute priority.",
+        "searches": [
+          "https://arxiv.org/abs/2604.07158",
+          "Resultary DEIM query"
+        ]
+      },
+      "rationale": "The one-row bound arises from the classical Kantorovich angular estimate, which is correctly treated as prior work, combined with the DEIM data-dependent maximum-coordinate pivot. Bergermann Algorithms 4.1 and 5.2 specify the underlying deterministic DEIM sketch, not the exact dimension-dependent Euclidean true-residual supremum. Randomized subspace-embedding GMRES and flexible stabilization require different assumptions and do not establish this unoversampled sharp pole. Best-of-knowledge new sharp minimax formula and exact nonexpansion boundary.",
+      "residual_risks": [
+        "Related oblique projection/Kantorovich bounds might contain an equivalent sharp selected-row special case.",
+        "A single step with one row does not imply multi-step, randomized-sketch, or finite-precision behavior.",
+        "Nonsingular approach causes arbitrarily high output; exact zero sampled row with pseudoinverse is a distinct convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines algorithm but inspected sections do not derive the exact sharp one-row true-residual frontier",
+          "evidence": "For one Krylov column, the DEIM pivot is argmax |v_1|; the prescribed sampled least-squares solve uses that row.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+          "material_read": "Relevant primary PDF sections 4.1 Algorithm 4.1 DEIM pivot and 5.2 Algorithm 5.2 row-sketched GMRES, with page screenshots",
+          "method": "Primary arXiv PDF with text and page inspection",
+          "title": "Deterministic sketching for Krylov subspace methods",
+          "trigger": "Directly defines algorithm under audit"
+        },
+        {
+          "assessment": "Not treated as a whole-document negative; embedding assumptions exclude a one-row two-dimensional span",
+          "evidence": "Nakatsukasa and Tropp, SIAM J. Matrix Anal. Appl. 45 (2024).",
+          "identifier_or_url": "https://doi.org/10.1137/23M1565413",
+          "material_read": "Abstract and referenced scope on subspace embeddings; not full document",
+          "method": "Literature search and reference comparison",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Potential broader sketched-GMRES performance theorem"
+        },
+        {
+          "assessment": "Describes additional flexible outer minimization, so not this update",
+          "evidence": "arXiv 2506.18408, changes method via flexible GMRES.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.18408",
+          "material_read": "Abstract and source reference summary, not full PDF",
+          "method": "Open-access search",
+          "title": "Stabilizing randomized GMRES through flexible GMRES",
+          "trigger": "Alternative algorithm might dominate stability statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact sharp finite/unbounded instability frontier for a natural deterministic sketching algorithm even with SPD systems. It separates convergence guarantees for full GMRES from true residual spikes of one sampled row and gives a concrete dimension/conditioning design boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2604.07158",
+    "https://doi.org/10.1137/23M1565413",
+    "https://arxiv.org/abs/2506.18408",
+    "https://doi.org/10.1137/25M1744629"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic, real SPD, one-step, DEIM largest-coordinate pivot, no oversampling or preconditioning.",
+    "Four independent numerical extremizers and inspected source script corroborate rather than prove infinite dimension statement."
+  ],
+  "residual_risks": [
+    "Related oblique projection/Kantorovich bounds might contain an equivalent sharp selected-row special case.",
+    "A single step with one row does not imply multi-step, randomized-sketch, or finite-precision behavior.",
+    "Nonsingular approach causes arbitrarily high output; exact zero sampled row with pseudoinverse is a distinct convention."
+  ],
+  "schema_version": 1
+}

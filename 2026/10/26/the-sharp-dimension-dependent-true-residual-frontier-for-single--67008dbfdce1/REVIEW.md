@@ -1,15 +1,21 @@
-# Review of the exact DEIM one-row residual frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof proceeds from an exact decomposition of the sampled update, establishes \(p/a\le(\kappa-1)/(2\sqrt\kappa)\) by an SPD polynomial, and obtains the sharp finite branch using \(c\ge1/\sqrt n\). A unit rank-one perturbation attains equality. A continuously varying rank-one eigenvector makes the sampled scalar tend to zero without vanishing along the approximating sequence, proving the infinite branch. The exact two-dimensional witness and standalone finite checker were executed; finite tests support but do not replace the proof.
+PASS
 
-## Originality — PASS, with priority risk
+For real SPD A with mu I<=A<=L I in n>=2, a one-dimensional, nonoversampled, DEIM-selected GMRES step uses a largest-magnitude coordinate i and alpha=r_i/(Ar)_i for nonzero sampled denominator. For u=r/||r||, c=|u_i|>=n^-1/2, s=(1-c^2)^1/2, Au=a u+v, p=||v|| and h=w^T v, exact ratio squared=(s^2h^2+c^2p^2)/(ca+sh)^2. The matrix inequality (A-mu I)(LI-A)>=0 gives p/a<=q=(kappa-1)/(2sqrt(kappa)). Thus the maximum is sqrt(n)q/(1-sqrt(n-1)q) for q below the pole; a rank-one SPD two-direction construction attains it. At/above the pole a sequence of nonsingular sampled scalars tends to 0 and gives unbounded residual, with arbitrarily near unique pivots. Hence universal nonexpansion iff q<=sqrt(n)-sqrt(n-1). Independently evaluated the rank-one extremizer for four (n,mu,L) cases and verified ratio matches exact formula; inspected source verification code and exact n=2 rational example. q=0, ties, c=1, and singular-limit interpretation explicitly handled.
 
-The motivating full text (Bergermann, arXiv:2604.07158) defines the exact algorithm without this finite/infinite dimension-conditioned sharp true-residual formula. The random-embedding bounds of Nakatsukasa–Tropp rely on preserving a two-dimensional residual plane, impossible for one row in the nontrivial case; Güttel–Pearson stabilize by a different outer algorithm. A prior sharp sketched-GMRES true-residual result under a valid two-vector embedding is assumption-inapplicable here. Searches of related mathematical records yielded Kaczmarz, conventional GMRES and Gauss–Seidel results rather than the same theorem. A historical equivalent in interpolatory-oblique projection literature remains possible, and independent priority review has not occurred.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact, attained stability frontier separates regimes where single-row DEIM–GMRES must decrease the true residual from regimes where it can amplify it without any finite bound. The dimension dependence and the near-identity SPD blow-up furnish a concrete stability diagnostic for when oversampling or true-residual fallback is needed. The theorem is restricted to an exact-arithmetic one-step sketch without oversampling.
+The one-row bound arises from the classical Kantorovich angular estimate, which is correctly treated as prior work, combined with the DEIM data-dependent maximum-coordinate pivot. Bergermann Algorithms 4.1 and 5.2 specify the underlying deterministic DEIM sketch, not the exact dimension-dependent Euclidean true-residual supremum. Randomized subspace-embedding GMRES and flexible stabilization require different assumptions and do not establish this unoversampled sharp pole. Best-of-knowledge new sharp minimax formula and exact nonexpansion boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Provides an exact sharp finite/unbounded instability frontier for a natural deterministic sketching algorithm even with SPD systems. It separates convergence guarantees for full GMRES from true residual spikes of one sampled row and gives a concrete dimension/conditioning design boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
