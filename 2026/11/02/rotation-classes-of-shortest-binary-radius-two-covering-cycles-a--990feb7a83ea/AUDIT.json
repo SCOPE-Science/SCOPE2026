@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each order n=7,8,9 and every length L=1..10,14,20, enumerate.cpp visits every integer x in [0,2^L), and tests exact Hamming-radius-two coverage using OR of all length-n window balls; crosscheck.cpp independently tests every target directly using bitwise Hamming distances. The two programs reproduced 44 exact count rows, with no covers below L=10,14,20, counts 110,28,20 at those lengths, and 11,2,1 rotation classes of full size L. Source-level predicates are equivalent to the mathematical definition, so full finite enumeration proves the claim; logs are accompanied by sources, full census, and orbit list.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2003 paper covers exact minimum length and a general lower bound, not complete equality-case classification.",
+        "The 2025 paper supplies constructive bounds, example cycles and asymptotic studies.",
+        "The 2026 preprint abstract concerns asymptotic constant-factor constructions for large window order."
+      ],
+      "reasoning": "A bound or optimal length alone cannot imply the exact number of realizers. The asymptotic construction claims neither classification nor counting of all finite-order extremizers; coverage of the broader parameter range does not establish the sharper finite equality cases.",
+      "searches": [
+        "https://arxiv.org/abs/math/0310385",
+        "https://doi.org/10.1007/s10623-025-01726-5",
+        "https://arxiv.org/abs/2606.29236",
+        "near-optimal covering sequences 2026 radius two n=9 unique orbit"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0310385",
+      "https://doi.org/10.1007/s10623-025-01726-5",
+      "https://arxiv.org/abs/2606.29236",
+      "Indexed published mathematical-research records were searched for cyclic covering sequences, exact orbit-count classification, equivalent formulations and nearby parameters; no matching claim among returned records.",
+      "Accessible current-week research ledger (recoverable existing claims only), checked for related cyclic covering sequence classification; no matching claim."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2003 §5 item 10 gives a lower bound of L labeled solutions for a minimum of length L, attained at n=9 by the present exact count 20; no upper bound on labeled solutions is stated.",
+        "2025 Appendix A provides the twenty-bit word, but a single witness gives no uniqueness.",
+        "All shorter lengths and all length-20 binary candidates were enumerated explicitly; there are exactly 20, forming one full rotational orbit."
+      ],
+      "reasoning": "Prior length-optimality and one witness logically imply at least one orbit, not exactly one. The exhaustive upper bound on all labeled extremizers is the new, non-implied part. The adjacent cases quantify non-uniqueness of their own minimum lengths.",
+      "searches": [
+        "https://arxiv.org/abs/math/0310385",
+        "https://doi.org/10.1007/s10623-025-01726-5",
+        "Binary de Bruijn covering sequences radius two length 9 shortest length 20 unique up to cyclic rotation orbit count 1; length 8 2 orbits; length 7 11 orbits",
+        "\"00010010001110110111\" \"unique\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chung-Cooper §5, item 10: minimum-length cycles have at least L different indexed rotations; no statement of exact number of classes.",
+        "Our exact classes are 11,2,1 under rotation, not complement or reversal; the order-nine result is strictly stronger than the generic 20-labeled-sequence lower bound."
+      ],
+      "reasoning": "Equivalent phrasing includes number of inequivalent shortest covering cycles, rotation-orbit count, number of shortest binary de Bruijn covering codes, and uniqueness up to cyclic shift. All have been compared with the indexed source record and the historical papers; no equivalent explicit enumeration was found.",
+      "searches": [
+        "Binary de Bruijn covering sequences radius two length 9 shortest length 20 unique up to cyclic rotation orbit count 1; length 8 2 orbits; length 7 11 orbits",
+        "exact shortest (9,2) binary cyclic covering sequence length 20 minimum, complete optimal covering sequences",
+        "\"de Bruijn covering\" \"exactly 20\" sequences",
+        "\"covering sequence\" \"unique\" \"9\" \"2\" binary",
+        "https://arxiv.org/abs/math/0310385"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chung-Cooper Table 1 entries (7,2)=10, (8,2)=14, (9,2)=20 contain minimum cycle lengths only.",
+        "Chee et al. Appendix A lists one length-14 and one length-20 witness; no catalog of all orbits.",
+        "Targeted indexed-research searches yielded closest other covering-code shortening and radius results but not the orbit table."
+      ],
+      "reasoning": "Neither cited table gives counts 11,2,1 or a list of rotation-canonical representatives; an unindexed or private database remains possible and cannot be ruled out.",
+      "searches": [
+        "Binary de Bruijn covering sequences radius two length 9 shortest length 20 unique up to cyclic rotation orbit count 1; length 8 2 orbits; length 7 11 orbits",
+        "exact shortest (9,2) binary cyclic covering sequence length 20 minimum, complete optimal covering sequences",
+        "minimum (8,2) or (9,2) cyclic covering sequence optimal length",
+        "\"optimal covering sequence\" \"rotations\" \"9\" \"2\" 20",
+        "https://arxiv.org/abs/math/0310385",
+        "https://doi.org/10.1007/s10623-025-01726-5"
+      ]
+    },
+    "rationale": "The claimed new information is exact enumeration of rotation classes 11, 2, 1 and uniqueness at order nine; the three already published minimum lengths are explicitly excluded from novelty. Chung-Cooper give minimum lengths and a generic at-least-L count of labeled rotations, not the number of orbits. Chee et al. give one twenty-bit example, not a uniqueness proof. Targeted indexed research and primary literature searches did not surface equivalent enumeration. Unindexed historical exhaustive calculations remain a risk.",
+    "residual_risks": [
+      "Historical exhaustive enumeration underpinning the published minimum-length table may have included unreported equality cases or orbit counts.",
+      "Unindexed preprints, private code databases, or uninspected details of later papers could independently contain the same classification.",
+      "No independent scientific audit or external priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Minimum lengths already known; explicit orbit counts absent from the inspected article.",
+        "evidence": [
+          "Article §5 Table 1 gives 10,14,20.",
+          "Article §5 item 10 proves at least minimum-length many distinct rotations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0310385",
+        "material_read": "Accessible full HTML article, especially definitions, §5 numerical bounds, Table 1, §6; inspected item 10 and the relevant n=7,8,9 radius-two entries.",
+        "method": "Read arXiv full-text HTML and compared statements and implications to the exact rotation-orbit census.",
+        "title": "De Bruijn Cycles for Covering Codes",
+        "trigger": "Foundational earliest-public-source and strongest known exact minima"
+      },
+      {
+        "assessment": "Explicit attaining example and broader constructions, not complete orbit-count statement.",
+        "evidence": [
+          "Appendix A: 00010010001110110111 for order nine and radius two.",
+          "Appendix A: 00111011010010 for order eight and radius two."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-025-01726-5",
+        "material_read": "Open-access full HTML, introduction and definitions, numerical bounds and Appendix A concrete examples.",
+        "method": "Read article HTML, including the twenty-bit and fourteen-bit examples; searched for uniqueness and enumeration.",
+        "title": "Constructions of covering sequences and 2D-sequences",
+        "trigger": "2025 source publishes the identical order-nine 20-bit exemplar"
+      },
+      {
+        "assessment": "Its stated main result is a sufficiently-large-order asymptotic construction, which does not by itself imply finite optimal rotation classes; uninspected details remain residual uncertainty.",
+        "evidence": [
+          "June 28, 2026 abstract gives fixed-radius constant-factor asymptotic constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29236",
+        "material_read": "ArXiv abstract; no full-text noncoverage claim is inferred from it.",
+        "method": "Read dated 2026 preprint metadata and abstract describing asymptotic explicit constructions.",
+        "title": "Near-Optimal Covering Sequences",
+        "trigger": "Potentially stronger later theorem on covering sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "990feb7a-83ea-4c34-9813-c300dec302a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of nonequivalent shortest covering cycles is the natural equality-case invariant of an extremal covering-sequence problem. Earlier tables establish how short a sequence can be, but not whether there are alternative optimal designs. At order nine the new upper bound 20 equals the generic lower bound of 20 indexed rotations, hence establishes rigidity/uniqueness. Across consecutive orders the complete classification 11->2->1 is a substantial natural finite cutoff and supplies reproducible benchmarks for covering-sequence constructions; the result is not an arbitrary partial table.",
+    "status": "PASS"
+  }
+}
