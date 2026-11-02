@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every value is derived from the exact characteristic function for a binary majority of correct versus incorrect predictors, with uniform tie and empty-coalition zero. For \\(a,b\\ge1\\) the global sum of correct-singleton and all-incorrect inequalities forces \\(\\varepsilon\\ge (a-v(N))/(a+1)\\); when \\(a\\ge b+2\\), averaging all coalitions with b+1 correct plus all b incorrect yields \\(\\varepsilon\\ge(a-b-1)/(a-b)\\). Their crossover is exactly \\(a=2b+1\\). Explicit efficient type-symmetric credits attain the maximum of these bounds; winning, losing and tied coalitions are individually bounded, with the only low-epsilon tie exceptions \\((1,1)\\) and \\((2,1)\\) directly checked. Homogeneous types follow by singleton sum and zero allocation. Exact-rational checker verifies 1088 profiles/312544 constraints and 54 independent full unsymmetrized LPs. The algebraic proof, not finite tests, handles arbitrary counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General weighted least-core duality and balanced-collection characterizations appear in https://link.springer.com/article/10.1007/s00182-019-00689-x.",
+        "TUGLab `leastcore` numerically solves a fully specified finite game: https://mirror.linux.duke.edu/cran/web/packages/TUGLab/refman/TUGLab.html."
+      ],
+      "reasoning": "General LP descriptions apply to arbitrary games but do not imply this concrete uniform formula without game-specific identification of binding coalitions and an all-parameter proof. Standard weighted simple voting results require monotonicity, absent in the accuracy game (arXiv manuscript Lemma 3.3).",
+      "searches": [
+        "least core exact epsilon core binary majority plurality voting ensemble classifier correct incorrect Shapley pointwise game",
+        "2026 cooperative games weighted graph trust least core Shapley structure 91A",
+        "weighted nucleoli and dually essential coalitions least core duality",
+        "Sarpe Georgakopoulos Gionis plurality voting ensemble coalition stability least core exact deficit"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.17980v1",
+      "https://link.springer.com/article/10.1007/s00182-019-00689-x",
+      "https://mirror.linux.duke.edu/cran/web/packages/TUGLab/refman/TUGLab.html",
+      "https://link.springer.com/article/10.1007/s10726-025-09961-w",
+      "Research-record summary (not full-text inspected): https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-six-voters-are-the-sharp-threshold-for-banzhaf-shapley-shubik-or--071915d73aeb",
+      "Research-record summary (not full-text inspected): https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-five-player-deegan-packel-local-monotonicity-census--3bbe9281cb4f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The originating full text explicitly defines Eq. (2), then computes marginal-contribution power indices and not coalition-stability optima (https://arxiv.org/html/2610.17980v1, Sections 3–4 and 6).",
+        "The generic least-core sources supply definitions and LP duality but no quantitative phase at the number of correct classifiers equaling twice the incorrect count plus one."
+      ],
+      "reasoning": "The new bound is neither the Shapley nor Banzhaf value and is not a special parameter evaluation of those expressions; it is a global minimax coalition-excess optimization proved by different certificates. Standard results define the optimization but do not state the binding coalition transition.",
+      "searches": [
+        "least core exact epsilon core binary majority plurality voting ensemble classifier correct incorrect Shapley pointwise game",
+        "2610.17980 exact power indices plurality-voting ensembles least core epsilon attribution correct incorrect predictors",
+        "Sarpe Georgakopoulos Gionis plurality voting ensemble coalition stability least core exact deficit",
+        "site:arxiv.org/abs/2610 \"cooperative game\" \"Shapley\" \"core\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binary plurality characteristic function depends only on the counts of correct and incorrect predictors; it takes values 1, 1/2, 0 (arXiv:2610.17980v1, Eq. (2)).",
+        "Published hit 2026/10/4/SCOPE-six-voters-are-the-sharp-threshold-for-banzhaf-shapley-shubik-or--071915d73aeb compares Banzhaf and Shapley-Shubik rankings for simple voting games, not least-core deficits."
+      ],
+      "reasoning": "The nearest semantic aliases are nonmonotone binary majority accuracy game, random-tie plurality cooperative game, and two-type signed epsilon-core. The published voting-index ranking statement does not determine a minimax coalitional stability value; no equivalent expression was found.",
+      "searches": [
+        "least core exact epsilon core binary majority plurality voting ensemble classifier correct incorrect Shapley pointwise game",
+        "nucleolus of plurality accuracy cooperative game random tie breaking binary voters",
+        "two-type voting game least core nonmonotone signed efficiency classification correct classifiers 2026",
+        "2610.17980 exact power indices plurality-voting ensembles least core epsilon attribution correct incorrect predictors",
+        "binary majority voting ensemble one datum correct incorrect types epsilon core signed allocations",
+        "2026/10/4/SCOPE-six-voters-are-the-sharp-threshold-for-banzhaf-shapley-shubik-or--071915d73aeb"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source paper Theorems 4.1 and 4.2 report Banzhaf and Shapley expressions, while its conclusion lists other power indices as future work: https://arxiv.org/html/2610.17980v1.",
+        "Published hit 2026/10/4/SCOPE-exact-five-player-deegan-packel-local-monotonicity-census--3bbe9281cb4f is a five-player power-index local-monotonicity census, not this all-size least-core formula."
+      ],
+      "reasoning": "Neither a corresponding table of least-core values for this classifier game nor an exact published closed form was identified; generic computational tables or solvers can produce individual cases but are not the quantified theorem.",
+      "searches": [
+        "2610.17980 exact power indices plurality-voting ensembles least core epsilon attribution correct incorrect predictors",
+        "Sarpe Georgakopoulos Gionis plurality voting ensemble coalition stability least core exact deficit",
+        "binary majority voting ensemble one datum correct incorrect types epsilon core signed allocations",
+        "2026/10/4/SCOPE-exact-five-player-deegan-packel-local-monotonicity-census--3bbe9281cb4f"
+      ]
+    },
+    "rationale": "The same binary pointwise game is defined in arXiv:2610.17980v1, Eq. (2), but that paper computes Banzhaf and Shapley averages, not a minimax additive coalition deficit. The general least-core and voting-game literature establishes definitions and optimization methods, not the four exact rational phases or this source-specific sharp crossover. Relevant published research-record hits concern different monotone games and indices, and the accessible complete prior research records has no claim for the same game and invariant. Actual searches returned no stronger implication. Unindexed equivalents remain a genuine risk.",
+    "residual_risks": [
+      "An unindexed result on signed least cores of two-type majority-accuracy games may be equivalent.",
+      "Published research-record search hits are summaries of adjacent voting-power results; their entire corresponding texts were not inspected because their stated invariants and game classes differ.",
+      "The committee-structured games source was inspected only at abstract level and is not treated as documentary proof of noncoverage.",
+      "The game is pointwise; averaging over a dataset could change the least-core geometry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_DIFFERENT_CLAIM: computes Shapley and Banzhaf power indices; no least-core characterization located",
+        "evidence": [
+          "Eq. (2) is the same worth function, with 1/2 for a tied nonempty coalition.",
+          "Theorems 4.1–4.2 are Shapley/Banzhaf computations.",
+          "Section 6 suggests other power indices and contains no least-core result."
+        ],
+        "identifier_or_url": "arxiv:2610.17980v1 / https://arxiv.org/html/2610.17980v1",
+        "material_read": "Open-access HTML text: Section 3 game definition and Lemma 3.3; Section 4.1 and its Theorems 4.1--4.2; Section 6 conclusions; relevant appendices located and in-page searches for least core/nucleolus",
+        "method": "Open-access HTML full-text reading plus term searches",
+        "title": "Exact power indices for plurality-voting ensembles",
+        "trigger": "Identical binary pointwise game and immediate risk of direct coverage"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_SAME_MODEL",
+        "evidence": [
+          "The section defines minimum coalition surplus and gives dual transformation for weighted least cores; it does not single out classifier accuracy games."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00182-019-00689-x",
+        "material_read": "Open HTML Section 3, definitions of weighted least cores and dual characterizations",
+        "method": "OA HTML material reading",
+        "title": "Weighted nucleoli and dually essential coalitions",
+        "trigger": "Possible broader least-core duality coverage"
+      },
+      {
+        "assessment": "FINITE_GAME_SOLVER_NOT_UNIFORM_CLOSED_FORM",
+        "evidence": [
+          "The manual accepts a full characteristic-function vector and returns numeric deficit and saturated coalitions, without symbolic classifier-type phase regimes."
+        ],
+        "identifier_or_url": "https://mirror.linux.duke.edu/cran/web/packages/TUGLab/refman/TUGLab.html",
+        "material_read": "Least core description, epsilon-core definition, output and reference to generic simplex method",
+        "method": "Public technical documentation reading",
+        "title": "TUGLab reference manual (leastcore)",
+        "trigger": "Potential exact finite-game table or general solver coverage"
+      },
+      {
+        "assessment": "Different hypergraph committee representation and Shapley-type solution concepts, with no identified identical classifier game; abstract insufficient for whole-document noncoverage",
+        "evidence": [
+          "Abstract describes committee/hypergraph game, aggregated Shapley, mechanisms, not pointwise random-tie classifier values."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10726-025-09961-w",
+        "material_read": "Public abstract and article details only",
+        "method": "Abstract-level review",
+        "title": "Committee-Structured Games in a Cooperative Framework",
+        "trigger": "Broad cooperative-game literature comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0900b49-cabd-45b4-a457-e69bd5585f7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimizing worst coalition shortfall is a natural quantitative stability complement to marginal attribution in the published voting-ensemble cooperative game. The theorem is a complete infinite-family exact natural invariant with explicit sharp coalition certificates and a switch in the identity of the obstructing coalition at \\(a=2b+1\\). It avoids arbitrary numeric slices and informs feasible stability slack for a single test example; the dataset-averaged and constrained-payoff problems are explicitly not claimed.",
+    "status": "PASS"
+  }
+}
