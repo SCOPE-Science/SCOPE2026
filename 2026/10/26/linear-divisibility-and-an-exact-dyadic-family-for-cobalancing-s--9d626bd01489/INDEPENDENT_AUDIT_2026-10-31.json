@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:10:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With u=2b+1, u satisfies u_{n+2}=6u_{n+1}-u_n. Squaring produces roots 1,alpha,alpha^-1,alpha^2,alpha^-2; the constant contribution is 5/16. R(T)=(T^2-6T+1)(T^2-34T+1), R(1)=128, yields R(T)b_n^2=40. Summing across each window gives a *monic* inhomogeneous fourth-order recurrence R(T)H_k(n)=40k, so gcd of all windows equals gcd(40k, first four). Residues b_n mod 3 and 5 have periods 4 and 6 and imply every 12-block of squares divisible by 15. Mod-4 periodicity gives H_4(n)=8 mod16. Matrix M=[[6,-1,2],[1,0,0],[0,0,1]] and 2-adic squaring prove M^{2^m}=I+2^mC mod2^{m+1} for m>=2 and therefore H_{2^m}(n)=2^{m+1} mod 2^{m+2} for all n,m. Three successive dyadic blocks give exact v2(H_{12*2^r})=r+3, combined with odd factor 15 and the 40k upper divisor yields exact G(k)=120*2^r. Independent exact recurrence checks at 400 indices; gcd first-four versus 100 windows for every k=1..119 and six dyadic lengths; all pass. Finite testing is not the proof of infinite lifting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 article has a Question 30 specifically asking for cobalancing squared-sum gcd closed forms and records b²(k) ≡ 0 (mod4).",
+          "The proposed dyadic values and 40k reduction are sharper than the old mod4 observation."
+        ],
+        "reasoning": "A general recurrence-theory algorithm can compute finitely presented GCDs but does not in inspected papers state these particular uniform valuations and infinite family. The antecedent question is not erased by noting the method itself is standard.",
+        "searches": [
+          "arXiv:2301.05758 v3 Section 5, Section 6.1",
+          "arXiv:2204.12626 v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.05758v3 Section 6.1 Question 30",
+        "arXiv:2204.12626",
+        "OEIS:A053141",
+        "Resultary semantic query for cobalancing square-window gcd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published modulo-4 observation and unsquared identities cannot imply exact 2-adic valuation r+3, much less gcd=120*2^r."
+        ],
+        "reasoning": "The monic recurrence and p-adic lifting supply genuinely necessary extra steps. The claim only partially answers the old all-k closed-form question: G(k) is finitely computable for all k, with a closed infinite dyadic family.",
+        "searches": [
+          "arXiv:2301.05758 Section 6.1 Question 30",
+          "arXiv:2204.12626"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior paper separates square-sum GCDs (open) from unsquared consecutive sums (solved).",
+          "The 2022 generalized Fibonacci-square theorem assumes a different characteristic recurrence."
+        ],
+        "reasoning": "Prior Lucas-balancing, balancing and cobalancing-unsquared results involve different sequences/statistics; no direct substitution yields the same square-sum gcd identity without substantial new recurrence analysis.",
+        "searches": [
+          "Resultary semantic query: cobalancing numbers gcd consecutive square sums 40 k dyadic 12 powers of 2",
+          "arXiv:2301.05758 Section 6.1 Question 30",
+          "arXiv:2204.12626"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A053141 tabulates the underlying cobalancing numbers, not the exact GCD window family.",
+          "No exact dyadic GCD table found as earlier result."
+        ],
+        "reasoning": "Known underlying sequence is an input; computed GCD invariant and precise all-r valuation are distinct from a sequence lookup.",
+        "searches": [
+          "OEIS:A053141",
+          "Resultary semantic query: cobalancing numbers gcd consecutive square sums 40 k dyadic 12 powers of 2",
+          "web: cobalancing gcd sum squares divisibility 40k"
+        ]
+      },
+      "rationale": "PASS, qualified: Mbirika–Schrader–Spilker (2023) Section 6.1 Question 30 explicitly seeks closed forms for cobalancing-square window GCDs and offers only mod-4 divisibility in that entry. Their closed results for unsquared cobalancing sums do not imply squared sums. Mbirika–Spilker (2022) covers generalized Fibonacci squares under recurrence t^2-t-1, not this inhomogeneous cobalancing recurrence. The recurrence-gcd method is classical; original scope is the 40k universal reduction and exact infinite dyadic family. An unindexed later solution of Question 30 remains possible.",
+      "residual_risks": [
+        "A post-2023 or unindexed all-k GCD solution could cover this dyadic family.",
+        "The finite-four-window gcd expression is algorithmic rather than a conventional closed expression for each arbitrary k; claim and value should stay bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_QUESTION_PARTIAL_PRIOR_COVERAGE",
+          "evidence": "Section 6.1 asks for squared cobalancing GCD and states only divisibility by four in that case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "Full 24-page primary PDF retrieved; read introduction, Section 5 unsquared cobalancing, Section 6.1 Question 30 and observations on PDF page 22",
+          "method": "Lawful arXiv primary full-text and page-image inspection",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Exact same cobalancing square-sum GCD and explicit open question"
+        },
+        {
+          "assessment": "DIFFERENT_SEQUENCE",
+          "evidence": "Analyzes generalized Fibonacci recurrence, not cobalancing-square recurrence.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Published abstract, theorem formula and recurrence specification",
+          "method": "Open-access primary abstract and mathematical statement",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Nearby general square-sum GCD theorem"
+        },
+        {
+          "assessment": "BASE_SEQUENCE_ONLY",
+          "evidence": "Sequence naming is prior, not the gcd theorem.",
+          "identifier_or_url": "https://oeis.org/A053141",
+          "material_read": "Sequence definition and initial recurrence",
+          "method": "Public sequence table",
+          "title": "OEIS A053141: Cobalancing numbers",
+          "trigger": "Underlying sequence normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Addresses a published explicit number-theoretic question, establishes an exact finite-initial-condition universal divisor identity and an infinite sharply valued family with uniform 2-adic behavior; this is more than re-tabulating small cases. Completeness for every k is not claimed beyond the finite gcd formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Closed family k=12*2^r only; no conventional all-k closed sequence expression asserted.",
+    "Uniform valuation concerns all windows with n>=0, not just initial windows."
+  ],
+  "schema_version": 1
+}
