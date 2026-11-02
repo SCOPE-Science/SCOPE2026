@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:06:42.416535Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If x and y original vertices on the two sides are omitted, all xy intervening subdividers are forced; for x,y≥1 every dominating set has at least p+q−1+(x−1)(y−1) vertices. If x=0 or y=0 the size is at least p+q. Thus equality at p+q−1 requires x=1 or y=1 and exactly forced subdividers. Semitotal distinct distance≤2 witnesses exclude one omitted original on each side (the isolated forced subdivider lacks witness) and omitting all opposite-side originals (selected originals then lack witness). Surviving 2≤y≤q−1 and symmetric cases are disjoint and automatically independent. Binomial enumeration gives full polynomial and cardinality; p=q=2 is C8, whose length-8 four-selected-vertex cyclic gaps among (2,2,2,2), permutations (3,2,2,1), and alternating (3,1,3,1) yield 30 sets, exactly 2 independent. Independently enumerated every vertex subset for (p,q)=(2,2),(2,3),(2,4),(3,3),(3,4), matching optimizer counts 30,6,20,18,42. The proof covers all p,q≥2; tests only small cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabrera–Martínez et al, arXiv:2609.33932, §2 theorem covers every connected graph after one subdivision at the parameter level.",
+          "Tripathi–Pandey–Maheshwari arXiv:2109.02142 computes semitotal domination in strongly chordal graphs, not necessarily these subdivided bicliques with induced eight-cycles."
+        ],
+        "reasoning": "The general operator theorem dominates the *minimum number* and one independent minimum but not the optimizer classification; algorithmic semitotal domination theorems do not imply this closed three-variable census.",
+        "searches": [
+          "semitotal dominating sets subdivision complete bipartite graph enumerate minimum sets polynomial"
+        ]
+      },
+      "checked_sources": [
+        "Cabrera–Martínez et al arXiv:2609.33932 Theorem 2.1 full text",
+        "Alikhani–Zaherifar arXiv:2107.01424",
+        "Tripathi et al arXiv:2109.02142",
+        "Resultary targeted query semitotal dominating sets subdivision complete bipartite graph enumerate minimum sets polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General theorem γ_t2(S(G))=i_t2(S(G))=|V(G)|−p3(G) gives the lower numerical bound for this G.",
+          "The actual proof must classify x=1 or y=1 equality cases and semitotal witness endpoints, then count the C8 cyclic gaps."
+        ],
+        "reasoning": "Knowledge of γ and i equal does not entail all optimizers or their labeled counts; the new classification requires equality-case analysis and an exceptional cycle census.",
+        "searches": [
+          "semitotal dominating sets subdivision complete bipartite graph enumerate minimum sets polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cabrera-Martínez et al arXiv:2609.33932, Theorem 2.1 gives γ_t2(S(G))=i_t2(S(G))=|V(G)|−p3(G) for all connected G.",
+          "Alikhani–Zaherifar arXiv:2107.01424 studies semitotal dominating set polynomials, including unsubdivided bicliques."
+        ],
+        "reasoning": "The minimum-cardinality and independent-optimum existence statements are already known from the general subdivision theorem; existence of one independent optimum does not imply every minimum set is independent or give multiplicities. The full trivariate optimizer polynomial and C8 exception are separate.",
+        "searches": [
+          "semitotal dominating sets subdivision complete bipartite graph enumerate minimum sets polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary targeted query returned domination polynomials for other variants on complete multipartite and chain graphs, no semitotal full-subdivision-biclique optimizer table.",
+          "Independent full subset searches at (2,2),(2,3),(2,4),(3,3),(3,4) match total counts and profiles."
+        ],
+        "reasoning": "No exact prior table was located; finite independent enumeration confirms examples but has no bearing on global priority by itself.",
+        "searches": [
+          "semitotal dominating sets subdivision complete bipartite graph enumerate minimum sets polynomial"
+        ]
+      },
+      "rationale": "Independent best-of-knowledge comparison of exact final mathematical claim and implications against named primary literature and targeted Resultary results. Specific prior components are credited; no negative search alone establishes priority. A known general minimum formula is excluded from new claim; complete optimizer classification remains new on inspected evidence.",
+      "residual_risks": [
+        "Unindexed earlier equality-case classification on subdivided bicliques could reproduce the trivariate polynomial under another name.",
+        "General minimum number and existence of independent minimum were already published and are not part of the original contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS cardinality and existence of independent optimum, NOT the asserted all-minimizer classification in inspected text.",
+          "evidence": "Theorem 2.1 computes γ_t2(S(G)) and i_t2(S(G)) for all G using p3(G), but no statement counting all minimum semitotal dominating sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33932",
+          "material_read": "Accessible full primary text, introduction, §2 Theorem 2.1 proof and main corollaries.",
+          "method": "Read primary full text and compared result statements to exact polynomial.",
+          "title": "On the (independent) semitotal domination in subdivision, middle, and central graphs",
+          "trigger": "Directly applicable general subdivision result"
+        },
+        {
+          "assessment": "PARTIAL/DISTINCT: unmodified complete bipartite graph, not once-subdivided optimizer sets.",
+          "evidence": "The base graph K_(p,q) and its subdivision have different distance-two witness geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.01424",
+          "material_read": "Accessible abstract and identified statements; full paper not freshly examined this run.",
+          "method": "Matched object as unsubdivided graph families; no whole-document noncoverage inference.",
+          "title": "On the semitotal dominating sets of graphs",
+          "trigger": "Earlier semitotal-domination polynomial including bicliques"
+        },
+        {
+          "assessment": "NOT A DIRECT IMPLICATION: complexity algorithm is not an exact polynomial of minima for these subdivided bicliques.",
+          "evidence": "The graph class contains induced 8-cycles for p,q≥2, hence is not strongly chordal.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.02142",
+          "material_read": "Accessible paper abstract and known theorem statement; full algorithm not read here.",
+          "method": "Compared graph hypotheses and type of output.",
+          "title": "A linear-time algorithm for semitotal domination in strongly chordal graphs",
+          "trigger": "General computational semitotal result might yield enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete classification of *all* minimum semitotal dominating sets and occupancy-polynomial multiplicities for full subdivisions of a fundamental graph family. The known general minimum-number theorem does not reveal which optimal sets occur or why the 8-cycle is exceptional; the equality-case rigidity is a natural exact combinatorial problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only minimum-cardinality semitotal sets of once-subdivided K_(p,q), not all sets, other graph operators, or arbitrary subdivisions.",
+    "Unindexed earlier equality-case classification on subdivided bicliques could reproduce the trivariate polynomial under another name.",
+    "General minimum number and existence of independent minimum were already published and are not part of the original contribution."
+  ],
+  "schema_version": 1
+}
