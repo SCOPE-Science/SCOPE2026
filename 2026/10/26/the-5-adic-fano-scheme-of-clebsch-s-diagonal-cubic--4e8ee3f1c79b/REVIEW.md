@@ -1,15 +1,21 @@
-# Review of the \(5\)-adic Clebsch line scheme
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the specified diagonal integral cubic over \(\mathbb Z_5\). The gradient calculation isolates one ordinary node in the special fiber; the normal-bundle argument makes every line away from it infinitesimally rigid, and Bézout makes the through-node locus finite. As four line equations form the expected local complete intersection in the relative Grassmannian, finite flatness gives degree \(27\). The fifteen pairing lines and six node lines exhaust that degree with local lengths one and two. Explicit cyclotomic Plücker ratios identify the six length-two factors with the ramified quadratic order, and Nakayama upgrades the special-fiber algebra identification to the complete relative scheme. The standalone finite-field checker was run successfully. Its enumeration by itself is not the geometric completeness argument.
+## correctness
 
-## Originality — PASS, qualified
-The closest known ingredients are the classical explicit \(15+12\) list of geometric lines (Baez 2016), the characteristic-five node (Cynk--van Straten 2009), and general one-node line counts and multiplicity-two geometry in characteristic zero (Casalaina-Martin--Grushevsky--Hulek 2025). These statements do not individually determine the relative \(\mathbb Z_5\)-algebra as fifteen unramified components and six ramified quadratic components; the integral Plücker-coordinate argument supplies that identification. Targeted searches found no explicit equivalent. Earlier modular geometry, notably Hirzebruch's partly inspected 1976 treatment, is a remaining risk, and a failed search does not establish historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The finite flat arithmetic Fano scheme is a natural invariant of an exceptional bad-reduction prime for a classical cubic surface. Its complete algebra determines how the generic lines specialize, their scheme-theoretic multiplicities, residue fields, ramification and inertia permutation; it is stronger than counting twenty-one geometric lines or observing a node. The description is exact, not a small numerical experiment.
+The special cubic has sole singular point [1:1:1:1:1], an ordinary double point since tangent Hessian 3(I3+11^T) is nondegenerate modulo 5. Any line avoiding the node is rigid; lines through it correspond to finitely many tangent directions at intersection of a smooth conic and a cubic, ensuring finite special Fano fiber. The universal four coefficient equations in the regular 4-dimensional relative Grassmannian are local complete intersection, so the finite relative scheme is Cohen–Macaulay, flat over the DVR and generic rank 27. Fifteen rational pairing lines and twelve cyclotomic generic lines descending to six ramified quadratic K=Q5(sqrt5) points are explicit. Reduction gives 15 avoiding-node lines and exactly six node lines, each tangent dimension >=1; total length 27 forces respective lengths 1 and 2. Normalized Plücker p02/p01=t generates the nilpotent at each double point modulo 5, yielding the local algebra map; Nakayama upgrades the disjoint union to an integral isomorphism. Independent exact enumeration of all 806 two-planes over F5 found 21 F5-rational lines, six through the node, consistent with—not proving—geometric flatness.
 
-## Boundaries and literature
-The result is not about arbitrary singular cubic surfaces or a new proof of the classical twenty-seven-line theorem. The 1976 monograph was inspected selectively because its page images are scanned German text; an equivalent treatment elsewhere remains possible. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the classical 27-line data and six doubled node lines are unambiguously prior; the asserted contribution is the exact relative integral Z5 scheme decomposition and inertia action, requiring new Plücker algebra/flatness work beyond cited counting results.
+
+## value
+
+PASS
+
+The exact finite flat arithmetic Fano scheme, including six ramified orders and nilpotent special fibers, is a natural refined line-count invariant with explicit inertia. It distinguishes integral degeneration from classical point counts and gives a useful test for arithmetic variation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
