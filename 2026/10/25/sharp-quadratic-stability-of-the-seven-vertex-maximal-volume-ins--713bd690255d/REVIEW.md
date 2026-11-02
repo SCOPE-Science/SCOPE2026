@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The seven spherical vertices are explicitly specified, and the twelve tetrahedral facets follow from the strict supporting-hyperplane inequalities of the free-sum model. The exact oriented-determinant volume identity gives \(V(P_*)=\sqrt3/4\). Each Hessian entry is reconstructed from finite determinant replacement formulas and the unit-sphere normalization; symbolic arithmetic independently verifies the full degree-21 characteristic polynomial and the vanishing first derivative. Six independent infinitesimal rotations account for all six zero modes, with strict negative spectrum transverse to the rotation orbit. A normal-tubular Taylor argument supplies the sharp quadratic gap. The packaged verification program computes this from the stated geometry and checks it against direct four-dimensional hull volumes. Risk: readers must trust or rerun an exact but nontrivial finite symbolic determinant calculation; numerical checks alone do not prove the theorem.
+PASS
 
-## Originality
+The optimizer is the perpendicular free sum of a regular triangle and two antipodal pairs; all 12 tetrahedral facet determinants have magnitude sqrt(3)/2 and signs stable locally. Multilinearity of 1/24 times oriented determinants and the normalized tangent chart gives the exact diagonal and cross-coordinate Hessian formulas; first derivative vanishes. An independently rebuilt symbolic 21x21 Hessian has characteristic polynomial lambda^6(lambda+sqrt(3)/8)^6(lambda+sqrt(3)/6)^2(lambda+sqrt(3)/4)^3(lambda+7sqrt(3)/24)^4, with zero gradient and volume sqrt(3)/4. Six independent rotational infinitesimal fields span the entire nullspace. On the normal bundle to the compact SO4 orbit the least absolute negative eigenvalue is sqrt(3)/8; tubular Taylor and chord-versus-geodesic comparison give 1/2 of that =sqrt(3)/16, attained by geodesic along its eigenvector. No explicit uniform neighborhood radius or global modulus follows.
 
-**PASS within the accessible literature, with residual priority uncertainty.** The closest primary works are Medgyes's 2026 global seven-vertex optimum and Horváth–Lángi's older structural classification. They establish the maximal volume and optimizer but do not state a complete constrained Hessian spectrum, a rotational-kernel characterization, or the sharp quadratic vertex-distance coefficient. Relevant local-stability calculations for different polytopes and constrained-section problems concern mathematically different functions and cannot specialize to this result. Searches included exact configurations, aliases such as orthogonal free sums and signed facet volumes, second variation, Morse–Bott stability and numerical coefficients. Unindexed historical results remain possible; no independent novelty review was performed.
+## originality
 
-## Value
+PASS
 
-**PASS.** In dimension four with seven vertices the 2026 source resolves a natural first open global inscribed-volume optimization problem. Its uniquely characterized optimizer makes quantitative *local rigidity* mathematically motivated. The full multi-eigenspace spectrum detects anisotropic deformation stiffness; the explicit sharp constant identifies the slowest genuine instability-free mode and quantifies second-order loss under arbitrary seven-vertex spherical perturbations. This is not simply the pre-existing global optimum or a renormalization of its volume.
+Medgyes (2026) and Horváth–Lángi (2016) establish the optimizer geometry and maximal volume, fully credited. The submitted full transverse Hessian spectrum and exact local deficit constant are additional invariants not stated in the inspected Medgyes full HTML. A published Resultary result on local Hessian stability for a nine-vertex spherical 3-polytope concerns different ambient dimension/optimizer and cannot imply this exact seven-vertex 4-polytope spectrum. An unindexed Hessian in related earlier extremal-polytope work is possible.
 
-## Remaining limitations
+## value
 
-The result is local for ordered configurations and does not provide an effective neighborhood radius or global quantitative gap. Earlier inaccessible or unindexed stability work could affect priority; the finite exact calculation and argument still require independent scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global sharp maximum alone does not quantify transverse rigidity. The explicit nonrotational spectral gap and optimal quadratic modulus are natural local geometric invariants important for near-maximal spherical four-polytope stability and perturbation analysis. The result is precise yet limited to the labelled SO4-local geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
