@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:07:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact stationary Lindblad resolvent r∫exp(−rt)e^(tL)(|00><00|)dt gives positive trace-one X matrix with rational entries A,B_a,B_b,S_a,S_b. A no-reset timewise nonnegative identity (1−e^(−4at))(1−e^(−4bt))+4e^(−2(a+b)t)sin²(2Jt) and Cauchy–Schwarz rule out the competing PPT branch for the stationary mixture. The remaining branch equals −P(r) divided by positive (r+2a+2b)² d_a d_b; symbolic independent exact simplification checked this identity. For J²≤ab, polynomial coefficients nonnegative and constant positive; for J²>ab, descending coefficient signs have exactly one variation and P(0)>0>P(∞), so exactly one positive root. Expanding offdiagonal J/r and single-bit-flip populations a/r,b/r yields concurrence asymptotic. Independent symbolic checks and several four-parameter numerical root counts corroborated; mathematical argument covers all positive parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartmann–Dür–Briegel arxiv:quant-ph/0703138 analyze local single-qubit reset channels in dissipative systems and qualitative threshold effects.",
+          "Kulkarni–Majumdar arxiv:2307.07485 uses global reset with unitary rather than local-flip dissipative generator."
+        ],
+        "reasoning": "Local resetting in a dissipative setup and global resetting without local dissipators are two non-nested combinations of hypotheses; neither inspected result supplies the full-global-reset, local-X-noise quartic classification.",
+        "searches": [
+          "arxiv:quant-ph/0703138",
+          "arxiv:2307.07485",
+          "global stochastic quantum resetting interacting two qubits local bit flip noise steady state entanglement threshold concurrence geometric mean"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2307.07485 (Kulkarni/Majumdar full text)",
+        "arxiv:quant-ph/0703138 (Hartmann et al. full text)",
+        "arxiv:2112.05078 (general open-system reset renewal cited as framework)",
+        "Resultary global stochastic quantum resetting interacting two qubits local bit flip noise steady state entanglement threshold concurrence geometric mean"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renewal-resolvent equation is standard for quantum reset and is prior; two-qubit PPT/concurrence criteria are classical.",
+          "Hartmann et al. anticipate qualitative entanglement at large finite reset rate but with local rather than global reset; this qualitative behavior is credited."
+        ],
+        "reasoning": "The previously known mechanism does not imply the exact product threshold J²>ab or uniqueness of a global-reset-induced transition for independently tuned local flip rates without the new explicit resolvent algebra.",
+        "searches": [
+          "arxiv:2307.07485",
+          "arxiv:quant-ph/0703138",
+          "arxiv:2112.05078",
+          "global stochastic quantum resetting interacting two qubits local bit flip noise steady state entanglement threshold concurrence geometric mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A two-qubit X-state is entangled iff one of two PPT 2x2 blocks is negative, an established equivalence; exact quartic P<0 specializes it to a particular global-reset dissipative Liouvillian.",
+          "Kulkarni–Majumdar arxiv:2307.07485 computes global reset concurrence for coherent/unitary two-spin evolution."
+        ],
+        "reasoning": "Generic PPT/Wootters criteria and stationary resolvents are known, but obtaining the exact J²>ab phase line for the specified independently flipped global-reset pair is not a restatement of an identical published model.",
+        "searches": [
+          "global stochastic quantum resetting interacting two qubits local bit flip noise steady state entanglement threshold concurrence geometric mean",
+          "arxiv:2307.07485",
+          "arxiv:quant-ph/0703138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matching search found other thermal Werner and amplitude-damping entanglement phase results, not this exact Lindblad generator with global Poisson reset."
+        ],
+        "reasoning": "Not a database constant or finite-class graph census; no exact published concurrence table for this generator was identified. Negative search is not priority certification.",
+        "searches": [
+          "global stochastic quantum resetting interacting two qubits local bit flip noise steady state entanglement threshold concurrence geometric mean"
+        ]
+      },
+      "rationale": "Best-of-knowledge analysis compares the exact final theorem and logical implications with relevant primary full texts and published research records; known methods and special cases explicitly credited. No decisive coverage found in inspected theorem statements. Unindexed literature can still dominate; negative search is not proof of priority. See four structured comparisons and source-inspection details. A general separability theorem for this quantum channel or an overlooked quantum-reset extension might imply the quartic threshold by reduction.",
+      "residual_risks": [
+        "A general separability theorem for this quantum channel or an overlooked quantum-reset extension might imply the quartic threshold by reduction.",
+        "Assumes J,a,b,r>0 and reset state |00>; no finite-time, partial reset, correlated noise or many-body generality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS isolated coherent two-spin reset entanglement; excludes local dissipative rates a,b and does not state exact geometric-mean phase boundary.",
+          "evidence": [
+            "arxiv:2307.07485 §§II–III: coherent evolution with resets, no independent local bit-flip dissipators."
+          ],
+          "identifier_or_url": "arxiv:2307.07485",
+          "material_read": "Complete accessible arXiv article HTML: model, renewal formula, two-spin application, concurrence results and discussion.",
+          "method": "Primary arXiv full HTML.",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Closest global full-state two-spin reset entanglement paper."
+        },
+        {
+          "assessment": "COVERS local-reset qualitative onset and persistence; different reset Liouvillian, so not the global-reset exact quartic result.",
+          "evidence": [
+            "arxiv:quant-ph/0703138 local single-qubit reset operators and nonzero entanglement at high reset rates."
+          ],
+          "identifier_or_url": "arxiv:quant-ph/0703138",
+          "material_read": "Accessible arXiv full HTML, local reset master-equation constructions, qualitative entanglement phase diagrams and remarks on simultaneous versus independent reset channels.",
+          "method": "Primary arXiv full HTML.",
+          "title": "Entanglement and its dynamics in open, dissipative systems",
+          "trigger": "Closest local reset entanglement with dissipation and thresholds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This isolates the precise robustness threshold for full-system reset-generated entanglement under two independent local bit-flip baths: the geometric-mean coupling J²>ab, rather than sum of rates, is sharp. It provides a unique finite reset-rate phase boundary and a nonzero but decaying strong-reset concurrence, physically motivated beyond elementary application of a generic PPT test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual Git tree d36370e9de97fb8e97e47e976ac9c89fd2b5849b at commit 4a3a3b26f6b337c3dc5991377e63d191d9dbe285; full scientific files RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md, AUDIT.json, METADATA.json, checker.py; RESULT.md blob 99c66387afb00d3148a1cae50e1224d858f85f0f",
+    "arxiv:2307.07485 (Kulkarni/Majumdar full text)",
+    "arxiv:quant-ph/0703138 (Hartmann et al. full text)",
+    "arxiv:2112.05078 (general open-system reset renewal cited as framework)",
+    "Resultary global stochastic quantum resetting interacting two qubits local bit flip noise steady state entanglement threshold concurrence geometric mean",
+    "Independent SymPy exact polynomial-PPT identity check and root-count examples for J² below/above ab; original checker.py and stated 16x16 tests examined, but its logged PASS not treated as standalone proof."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unconditional stationary two-qubit state for H=JX1X2 and independent local X flips a,b>0 with complete Poisson resets to |00>; no trajectory-wise claim, finite-time dynamics or other noise."
+  ],
+  "residual_risks": [
+    "A general separability theorem for this quantum channel or an overlooked quantum-reset extension might imply the quartic threshold by reduction.",
+    "Assumes J,a,b,r>0 and reset state |00>; no finite-time, partial reset, correlated noise or many-body generality."
+  ],
+  "schema_version": 1
+}

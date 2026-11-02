@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the two-qubit stationary entanglement threshold
+# Independent mathematical audit
 
-## Analytic checks
+## correctness
 
-The exact resolvent of the stated linear Markovian Lindblad-plus-reset generator provides a normalized positive density matrix. Both partial-transpose branches were considered. The second branch is impossible by a nonnegative pointwise Gram-like expression and Cauchy–Schwarz averaging. The first branch reduces identically to the displayed quartic divided by a strictly positive denominator. Coefficient sign analysis and Descartes' rule prove the unique-reset-boundary statement for every positive parameter value. The strong-reset concurrence expansion is obtained by expanding the exact density matrix, not by numerical fitting.
+PASS
 
-## Reproducible computation
+Exact stationary Lindblad resolvent r∫exp(−rt)e^(tL)(|00><00|)dt gives positive trace-one X matrix with rational entries A,B_a,B_b,S_a,S_b. A no-reset timewise nonnegative identity (1−e^(−4at))(1−e^(−4bt))+4e^(−2(a+b)t)sin²(2Jt) and Cauchy–Schwarz rule out the competing PPT branch for the stationary mixture. The remaining branch equals −P(r) divided by positive (r+2a+2b)² d_a d_b; symbolic independent exact simplification checked this identity. For J²≤ab, polynomial coefficients nonnegative and constant positive; for J²>ab, descending coefficient signs have exactly one variation and P(0)>0>P(∞), so exactly one positive root. Expanding offdiagonal J/r and single-bit-flip populations a/r,b/r yields concurrence asymptotic. Independent symbolic checks and several four-parameter numerical root counts corroborated; mathematical argument covers all positive parameters.
 
-From the directory containing `checker.py`, execute `python checker.py` using Python 3 with NumPy and SymPy installed. The file is entirely self-contained apart from those packages. It performs symbolic cancellation, exact checks of the quartic coefficients, and independent \(16\times16\) Liouvillian solves of the stationary density matrix for 350 random parameter configurations. It verifies density-matrix normalization and positivity, compares direct Wootters concurrence to the \(X\)-state expression, tests both PPT branches, checks an additional 250 parameter sets against quartic-root structure, and tests 80 symmetric-rate cases and four highly asymmetric configurations. Execution returned `PASS 3646 algebraic and finite-dimensional checks`.
+## originality
 
-## Scope of evidence
+PASS
 
-Numerical checks establish reproducibility over tested finite parameter sets; they do not certify an infinite parameter domain. That domain is covered by the algebraic resolvent identity, positivity argument, and polynomial sign proof. The result does not establish finite-time entanglement, stability under arbitrary Hamiltonian perturbations, or independent priority in the literature. Independent audit remains not performed.
+Best-of-knowledge analysis compares the exact final theorem and logical implications with relevant primary full texts and published research records; known methods and special cases explicitly credited. No decisive coverage found in inspected theorem statements. Unindexed literature can still dominate; negative search is not proof of priority. See four structured comparisons and source-inspection details. A general separability theorem for this quantum channel or an overlooked quantum-reset extension might imply the quartic threshold by reduction.
+
+## value
+
+PASS
+
+This isolates the precise robustness threshold for full-system reset-generated entanglement under two independent local bit-flip baths: the geometric-mean coupling J²>ab, rather than sum of rates, is sharp. It provides a unique finite reset-rate phase boundary and a nonzero but decaying strong-reset concurrence, physically motivated beyond elementary application of a generic PPT test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
