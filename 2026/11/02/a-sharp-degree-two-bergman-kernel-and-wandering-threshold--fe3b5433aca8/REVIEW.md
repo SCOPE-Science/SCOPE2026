@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For the normalized weighted Bergman norm the even-monomial kernel is \(\mathcal K_\alpha(t)=\frac12[(1-\sqrt t)^{-\alpha-2}+(1+\sqrt t)^{-\alpha-2}]\), independent of the square-root branch. Taking the right-half-plane Cayley quotient yields all, and only, the negative simple zero parameters \(-\tan^2[(2j+1)\pi/(2(\alpha+2))]\), with \(4j<\alpha\). Division by the Möbius numerator identifies the exact one-dimensional wandering complement; Möbius polynomial density reduces cyclicity to the absence of interior zeros. A geometric-series approximation proves that a boundary zero does not obstruct cyclicity. The complete chain has been reconstructed, including \(\alpha\le0\), \(a=0\), and equality at the first threshold. The bundled checker passed 271 supplementary assertions; no finite experiment substitutes for the exhaustive analytic argument.
+
+## Originality — PASS relative to inspected sources
+The relevant 2026-09-29 weighted Bergman shift preprint establishes a global Beurling-type threshold, not an original-norm quadratic-multiplier phase law. The 2026-10-27 power-shift preprint proves broader qualitative failure and includes a degree-three example, but its inspected relevant full-text sections do not imply this exact real degree-two Möbius family classification; the October 27 text is used only for comparison. The open 2019/2020 study of finite Blaschke multipliers establishes equivalently renormed statements and restricted monomial cases, not this original-norm wandering vector. Two full public mathematical records on related kernel zeros and finite zero-based Bergman subspaces concern different weights or subspaces. Semantic mathematical-record searches and accessible preceding findings reveal no covering equivalent or stronger claim. The September primary paper was not available for full-text inspection; unseen coverage and historically unindexed results remain risks, so no claim of definitive global novelty is made.
+
+## Value — PASS
+This is an exact, natural wandering-space stability frontier for a one-parameter degree-two family: one formula controls every real weighted Bergman exponent, detects the first noncyclic phase, retains equality cyclicity, and counts later new obstructions. These sharp features are mathematically useful even without a universal Beurling theorem, since they identify a concrete boundary between cyclic and noncyclic wandering generators rather than just exhibiting a single counterexample.
+
+## Limits and closest literature
+Only the even-power invariant space, real parameter \(0\le a<1\), and the original weighted Bergman norm are covered. No assertion is made for arbitrary quadratic Blaschke products, every invariant subspace, or general analytic multipliers. Closest primary comparisons: Lin–Xu–Yu, arXiv:2609.36723v1; Xu–Yu, arXiv:2610.37035v1; Gallardo-Gutiérrez–Partington–Seco, arXiv:1904.02974v1. For reproducibility use bundled `CHECK.py`, SymPy and mpmath; exact integral/binomial/Cayley and cyclicity proofs are in `RESULT.md`.
+
+Self-review: passed. Independent audit: not yet performed.
