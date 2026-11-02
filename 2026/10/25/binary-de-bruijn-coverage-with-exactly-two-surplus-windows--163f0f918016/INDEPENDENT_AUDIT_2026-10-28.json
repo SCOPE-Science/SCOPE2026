@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In the order-(k−1) binary de Bruijn digraph, two extra arcs must themselves be balanced: two loops (00…0 and/or 11…1), or the unique alternating directed two-cycle. With a unique anchoring arc, BEST counts indistinguishable parallel edges. Three loop cases contribute B_k=2^(2^(k−1)−k) each. For alternating pair, determinant lemma on the de Bruijn Laplacian and P^(k−1)=Π give ratio 1+∑_{j=0}^{k−2}(−1/2)^j=5/3+(−1)^k/(3·2^(k−2)). Thus four exact type counts and total B_k(3+R_k) for every k≥2. Independent exhaustive cyclic-word enumeration gave 5,9,76 for k=2,3,4; independent exact reduced-Laplacian determinants k=2..7 reproduced ratios 2,3/2,7/4,13/8,27/16,53/32.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BEST theorem and matrix-tree theorem give generic route for any balanced specified multiplicity vector.",
+          "Tesler's closed counts require every k-mer to occur exactly m times, whereas +2 excess is nonuniform."
+        ],
+        "reasoning": "A generic Euler-tour formula subsumes a starting enumeration algorithm but does not by itself state the four allowable surplus types or simplify the alternating augmentation to 5/3+(-1)^k/(3·2^(k−2)).",
+        "searches": [
+          "Resultary semantic search: binary de Bruijn cycles two extra windows length 2^k+2 multiplicities alternating two-cycle exact enumeration",
+          "generalized multi de Bruijn sequences arbitrary kmer multiplicity Euler BEST counts"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1708.03654",
+        "https://doi.org/10.1016/S0166-218X(97)81456-4",
+        "https://pure.tue.nl/ws/portalfiles/portal/4442708/597473.pdf",
+        "Resultary semantic search: binary de Bruijn cycles two extra windows length 2^k+2 multiplicities alternating two-cycle exact enumeration",
+        "Frozen record RESULT.md and proof at https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/binary-de-bruijn-coverage-with-exactly-two-surplus-windows--163f0f918016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tesler's primary paper defines m-fold coverage for every k-mer and derives its counts.",
+          "Assessed classification constrains balanced excess 2 arcs to loops or alternating two-cycle, with rank-one Laplacian determinant ratio."
+        ],
+        "reasoning": "Uniform m=1 case gives baseline B_k only, m≥2 adds 2^k or more copies, so cannot imply length 2^k+2 for k≥2 as a direct substitution. General BEST framework is acknowledged, but exact rank-one evaluation still needed.",
+        "searches": [
+          "Resultary semantic search: binary de Bruijn cycles two extra windows length 2^k+2 multiplicities alternating two-cycle exact enumeration",
+          "Tesler 2017 multi de Bruijn count uniform kmer multiplicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kandel et al. 1996 abstract describes uniform shuffling/counting with fixed k-mer multiplicities; full text inaccessible.",
+          "Tesler arXiv:1708.03654 counts multi-de Bruijn m uniform multiplicities, not +2 surplus."
+        ],
+        "reasoning": "Potential equivalent formulation under genome assembly Euler-tour sequence shuffling remains plausible, explicitly a residual risk; no assertion about unread full article.",
+        "searches": [
+          "Resultary semantic search: binary de Bruijn cycles two extra windows length 2^k+2 multiplicities alternating two-cycle exact enumeration",
+          "Kandel Matias Unger Winkler shuffling biological sequences fixed kmer frequencies BEST Euler tours"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A016031 records B_k=2^(2^(k−1)−k) for exactly once; assessed k=2,3,4 counts 5,9,76 have two surplus windows."
+        ],
+        "reasoning": "Zero-surplus table does not supply these nonuniform counts; no exact two-surplus source table was located in performed searches.",
+        "searches": [
+          "Resultary semantic search: binary de Bruijn cycles two extra windows length 2^k+2 multiplicities alternating two-cycle exact enumeration",
+          "OEIS A016031 classical binary de Bruijn cycle counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge original closed count for four forced nonuniform two-surplus patterns. BEST and matrix-tree enumeration are longstanding tools; the balance classification and alternating rank-one exact ratio supply the specialized new statement.",
+      "residual_risks": [
+        "General arbitrary-frequency Euler-tour framework might imply specific counts; entire manuscript uninspected and no noncoverage conclusion",
+        "BEST/matrix-tree method is classical; uninspected Kandel et al. 1996 full text may include a directly equivalent specialized formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts uniform k-mer multiplicities, not binary +2 nonuniform surplus; BEST ingredients known",
+          "evidence": "definition and formula for multi de Bruijn sequences, early sections",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.03654",
+          "material_read": "29-page primary PDF, definition and counting formulas for all k-mers each occurring m times",
+          "method": "full-text PDF, theorem and examples including screenshot",
+          "title": "Tesler, Multi de Bruijn Sequences",
+          "trigger": "stronger apparent uniform m-multiplicity enumeration via BEST"
+        },
+        {
+          "assessment": "General arbitrary-frequency Euler-tour framework might imply specific counts; entire manuscript uninspected and no noncoverage conclusion",
+          "evidence": "abstract on shuffling sequences with fixed k-mer counts; institutional access vpn_disconnected",
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(97)81456-4",
+          "material_read": "abstract and later primary citation; full text inaccessible",
+          "method": "publisher/author abstract; arXiv/OA attempts, then authorized institutional retrieval",
+          "title": "Kandel–Matias–Unger–Winkler, Shuffling Biological Sequences",
+          "trigger": "highly relevant Euler-tour enumeration for prescribed k-mer frequencies"
+        },
+        {
+          "assessment": "Covers zero-surplus count B_k, not a directly inspected nonuniform two-surplus table",
+          "evidence": "classical B_k=2^(2^(k−1)−k)",
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/4442708/597473.pdf",
+          "material_read": "classical count as cited and crosschecked in primary modern work; original full scan not read",
+          "method": "primary bibliographic citation and modern formula",
+          "title": "de Bruijn, A Combinatorial Problem",
+          "trigger": "known B_k baseline exact de Bruijn circle count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A complete, natural first nontrivial surplus enumeration for universal cyclic words, with explicit pattern classification and closed all-order formula, is mathematically useful beyond a generic BEST counting recipe.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary alphabet, cyclic rotation equivalence (not reflection), two surplus windows k≥2.",
+    "BEST/matrix-tree method is classical; uninspected Kandel et al. 1996 full text may include a directly equivalent specialized formula."
+  ],
+  "schema_version": 1
+}
