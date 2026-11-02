@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The first-emptying time is bounded by n and the remaining draw segment is independent of the stopped history. Conditional expectations prove the exact positive-part representation for all endpoints. Its CDF forward difference and positive binomial masses prove the optimizer/tie characterization. Berry–Esseen, the standard CLT and uniform integrability prove the asymptotic claims. Independent exact-fraction dynamic programming checks 7074 identities, slopes and minimizers, including the literature example; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Correa et al., arXiv:2602.12523v2, Theorem 1 is for equal selection probabilities; Section 3 only establishes a single \\(p=5/6\\), \\(n=6\\) comparison.",
+        "Zhou, Wang and Zhang, DOI:10.1287/opre.2025.2228: available abstract states optimal balancing for the symmetric terminal-inventory model and separately discusses finite-horizon MNL; its full text was not accessible."
+      ],
+      "reasoning": "The p=1/2 all-bin balancing theorem does not imply an exact all-p two-bin quantile formula; a finite-horizon asymmetric MNL approximation is not the same terminated two-bin race. The inaccessible related source creates residual historical risk, without direct evidence of a dominating nonuniform theorem.",
+      "searches": [
+        "\"Optimal Inventory Allocation for Indifferent Goods Under Dynamic Substitution\" nonuniform choice probabilities optimal",
+        "\"Optimal Inventory Allocation for Indifferent Goods Under Dynamic Substitution\" \"pdf\" \"Zhou\" \"2025\"",
+        "two product biased sales stockout maximize total expected sales binomial quantile allocation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.12523v2 (full primary HTML, Sections 1–3)",
+      "DOI:10.1287/opre.2025.2228 (public abstract; full text unavailable)",
+      "SSRN:6039274 (bibliographic record; full text unavailable)",
+      "Classical asymmetric absolute-loss/newsvendor quantile criterion",
+      "Targeted bibliographic searches for biased two-bin terminal inventory, binomial quantile, and equivalent loss formulation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary paper arXiv:2602.12523v2, lines corresponding to Section 3: model recursion and two explicit small-inventory formulas; it explicitly distinguishes unequal from equal choice probabilities.",
+        "The new proof supplies exact \\(\\mathbb E R_{n,p}(a)\\) for all admissible \\(a,n,p\\), discrete CDF slopes, all minimizing allocations, and the Gaussian square-root correction.",
+        "The standard newsvendor critical fractile yields only the final minimizer conditional on the new exact loss identity."
+      ],
+      "reasoning": "The full primary source does not contain a theorem encompassing all \\(p,n\\), nor an implication from its symmetric result to the biased case. The new statement specializes to its example but is substantially stronger. Classical quantile results are used, not rebranded.",
+      "searches": [
+        "\"About a ball removal process on bins\" \"Section 3\"",
+        "\"last nonempty bin\" \"quantile\" removal",
+        "Correa Kiwi Livanos Solan nonuniform two bin initial inventory quantile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stopped first-emptying race has exact objective \\(\\mathbb E(a-B)_+/q+\\mathbb E(B-a)_+/p\\) with \\(B\\sim\\operatorname{Bin}(n,p)\\).",
+        "Classical asymmetric absolute-loss/newsvendor objectives are minimized by the \\(q\\)-quantile, but their application to this specific stopped deletion process requires the proved exact mapping."
+      ],
+      "reasoning": "The known quantile rule becomes applicable only after the nontrivial identification of the removal-process expectation. Searches sought the stopped-race formulation, binomial pinball loss, and quantile aliases; none of the examined sources asserted this identification.",
+      "searches": [
+        "\"last nonempty bin\" \"quantile\" removal",
+        "\"two bins\" \"binomial quantile\" inventory stockout",
+        "nonuniform two-bin random ball removal optimal initial allocation binomial quantile finite n exact difference CDF"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Correa et al. Section 3 records the single example \\(f_{5/6}(4,2)=139/81\\) and \\(f_{5/6}(5,1)=3125/1296\\); the new formula contains it as a special case.",
+        "No inspected exact table or catalog provides the optimal allocation for arbitrary integer n and real p."
+      ],
+      "reasoning": "A published pair of rational example values is not an all-parameter optimizer table. Absence from search results does not establish uniqueness, but no covering table was identified.",
+      "searches": [
+        "\"ball removal\" \"binomial\" \"optimal allocation\" nonuniform",
+        "\"About a ball removal process on bins\" non uniform \"optimal allocation\" two bins quantile",
+        "minimize expected remaining balls choose bin 1 with probability p bin 2 with 1-p terminal inventory"
+      ]
+    },
+    "rationale": "The exact stopped-sequence-to-binomial-loss identity and its resulting complete nonuniform two-bin optimizer are not implied by the inspected equal-probability allocation theorem or its isolated biased counterexample. The quantile minimization step itself is classical, explicitly credited. Multiple claim/alias and bibliographic comparisons identified no directly covering assertion; an inaccessible related full text remains a priority limitation.",
+    "residual_risks": [
+      "The related Zhou–Wang–Zhang publisher/preprint full text was not accessible; its exact scope beyond the abstract could affect priority.",
+      "Unindexed earlier inventory-control or stopped-race work may independently contain the binomial reduction.",
+      "The result is mathematical research reviewed in the present package only; independent historical and proof validation have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING all-size biased two-bin quantile law; its all-bin optimality theorem is symmetric and its unequal-p example is isolated",
+        "evidence": [
+          "arXiv:2602.12523v2, Theorem 1 and Section 3",
+          "https://arxiv.org/abs/2602.12523"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.12523v2",
+        "material_read": "Full accessible arXiv HTML article, Sections 1–3, theorem, nonuniform recursion, formulas and references",
+        "method": "Read primary HTML text and inspected model assumptions and Section 3 formulas; searched article for binomial and quantile language",
+        "title": "About a ball removal process on bins",
+        "trigger": "Same terminating ball-removal model, explicit nonuniform two-bin counterexample"
+      },
+      {
+        "assessment": "Abstract covers symmetric terminal model and other finite-horizon MNL problems; no direct nonuniform terminated two-bin claim in accessible material. Full-text priority remains uncertain.",
+        "evidence": [
+          "DOI:10.1287/opre.2025.2228",
+          "Operations Research 74(4), 2001–2012 (2026)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/opre.2025.2228",
+        "material_read": "Public abstract and bibliographic metadata; full article inaccessible",
+        "method": "Reviewed publisher and university repository abstract and attempted openly available preprint; no full-text comparison possible",
+        "title": "Optimal Inventory Allocation for Indifferent Goods Under Dynamic Substitution",
+        "trigger": "Independent solution of symmetric terminal-inventory model with related continuous-time embedding"
+      },
+      {
+        "assessment": "COVERS quantile minimization for an already known asymmetric loss; does not itself give the stopped-bin-removal loss identity",
+        "evidence": [
+          "Classical critical-fractile principle"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Newsvendor_model",
+        "material_read": "Background description of the standard single-period inventory model",
+        "method": "Compared optimization objects and explicitly treated the quantile rule as known",
+        "title": "Classical newsvendor/asymmetric absolute-loss quantile principle",
+        "trigger": "Potential equivalent optimization after mapping to pinball loss"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7a59ed5-927b-4292-b899-f58ef6da25e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A current primary paper proves symmetric balancing yet gives only a counterexample for unequal rates. This finding determines the full optimal allocation for every bias and inventory size, quantifies exact tie cases and derives the square-root shift and minimum waste constant. The mapping to a binomial loss explains why proportional allocation fails and provides a directly usable structural solution.",
+    "status": "PASS"
+  }
+}
