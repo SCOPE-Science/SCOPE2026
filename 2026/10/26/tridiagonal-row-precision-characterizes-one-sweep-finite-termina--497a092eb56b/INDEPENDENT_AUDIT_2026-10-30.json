@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:17:22.464496Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing the error update P_i=I-w_i a_i^T/(a_i^T w_i) shows each rank-(n-1) oblique projector can lower rank by at most one. Zero after n updates forces each innovation w_i to lie in the image of the preceding update product, equivalent inductively to orthogonality to all earlier a_j, j<i-1. This is precisely G_{ji}=G_{j,i-1}G_{i-1,i}/G_{i-1,i-1}. Unit lower-bidiagonal B gives BGB^T diagonal and J=B^T D^-1 B tridiagonal; SPD tridiagonal backward LDL factorization proves the converse. For n=3, P_2 P_1 is the orthogonal line projector and Schur-complement geometry yields ||T_3||²=J_13²/(J_11 J_33)<1. Independent exact rational computations show first-sweep zero propagation for AR(1) Gram matrices in dimensions 2..5 and the partial-correlation norm for two non-Markov examples. Quantification excludes positive tolerance and floating-point skips.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "KO paper convergence for consistent systems and full-history PLSS finite termination."
+        ],
+        "reasoning": "Convergence and full-history finite termination do not imply iff for this particular one-previous-row direction.",
+        "searches": [
+          "Resultary: oblique Kaczmarz one sweep termination tridiagonal inverse Gram precision partial correlation",
+          "arxiv:2106.13368 full PDF KO Algorithm 2.1 and Theorem 2.1",
+          "arxiv:2207.07615 PLSS projected linear systems solver"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: oblique Kaczmarz one sweep termination tridiagonal inverse Gram precision partial correlation",
+        "arxiv:2106.13368 full PDF KO Algorithm 2.1 and Theorem 2.1",
+        "arxiv:2207.07615 PLSS projected linear systems solver",
+        "https://arxiv.org/pdf/2106.13368"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2.1 gives w_i orthogonal to a_{i-1}; Theorem 2.1 proves asymptotic convergence."
+        ],
+        "reasoning": "Orthogonality only to immediate previous row is weaker than all previous equations; the iff requires the rank-loss and tridiagonal-precision argument not stated in that theorem.",
+        "searches": [
+          "Resultary: oblique Kaczmarz one sweep termination tridiagonal inverse Gram precision partial correlation",
+          "arxiv:2106.13368 full PDF KO Algorithm 2.1 and Theorem 2.1",
+          "arxiv:2207.07615 PLSS projected linear systems solver"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional independence of adjacent row-normal Gaussian innovations is equivalent to tridiagonal precision; all KO update directions mutually orthogonal."
+        ],
+        "reasoning": "The Markov/LDL alias is explicitly considered; no exact finite-termination claim located in inspected KO source.",
+        "searches": [
+          "Resultary: oblique Kaczmarz one sweep termination tridiagonal inverse Gram precision partial correlation",
+          "arxiv:2106.13368 full PDF KO Algorithm 2.1 and Theorem 2.1",
+          "arxiv:2207.07615 PLSS projected linear systems solver"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "KO Example 2.1 solves two-row systems in one oblique step; published Resultary two-row Kaczmarz overrelaxation studies different updates."
+        ],
+        "reasoning": "The n=2 case is prior; the all-n tridiagonal criterion and n=3 exact partial correlation are not an existing sample-table result in inspected evidence.",
+        "searches": [
+          "Resultary: oblique Kaczmarz one sweep termination tridiagonal inverse Gram precision partial correlation",
+          "arxiv:2106.13368 full PDF KO Algorithm 2.1 and Theorem 2.1",
+          "arxiv:2207.07615 PLSS projected linear systems solver"
+        ]
+      },
+      "rationale": "The original KO paper introduces the same consecutive-row oblique direction, convergence theorem and two-row exact example. It does not in the sections materially read give the all-dimensional iff or the exact three-row operator norm. A precision Markov-chain alias and backward bidiagonal LDL factorization may occur as a specialized direct-solver theorem elsewhere. A general full-memory direct projector does not automatically imply this minimal-memory criterion.",
+      "residual_risks": [
+        "A published sparse-precision/Markov interpretation of minimal-memory KO may be implicit in specialized numerical linear algebra.",
+        "Only finite exact matrices were checked independently; the universal iff rests on the reconstructed rank argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_PRIOR_NO_IDENTICAL_CLAIM_IN_RELEVANT_SECTIONS",
+          "evidence": "Algorithm 2.1 sets w=a_next-<a_prev,a_next>/<a_prev,a_prev> a_prev; Theorem 2.1 states eventual convergence, while Example 2.1 is two equations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.13368",
+          "material_read": "15-page primary PDF, especially §2.2 Algorithm 2.1, Lemma 2.3, Theorem 2.1, Example 2.1 and convergence discussion",
+          "method": "Read arXiv PDF text and visually checked page 4 showing oblique direction",
+          "title": "On Kaczmarz method with oblique projection for solving large overdetermined linear systems",
+          "trigger": "Defines exactly the audited update and its finite two-row example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact boundary identifies when one-previous-row memory is sufficient for universal direct solution, includes dense correlated AR(1) rows, and quantifies the first failure case by a partial correlation with a sharp near-one obstruction. This gives structural guidance for solver design beyond ordinary convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A published sparse-precision/Markov interpretation of minimal-memory KO may be implicit in specialized numerical linear algebra.",
+    "Only finite exact matrices were checked independently; the universal iff rests on the reconstructed rank argument.",
+    "Inspected AUDIT.json and METADATA.json contain scope_run_id operational provenance and METADATA first_public_date inherited from a cited antecedent instead of the first publication of this finding."
+  ],
+  "schema_version": 1
+}

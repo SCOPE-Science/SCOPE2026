@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof first establishes the exact rank-loss criterion for each oblique row projection; reaching rank zero in precisely \(n\) updates forces each new direction to preserve *all* previous row equations. These constraints coincide with the chained Gram identities. A backward bidiagonal factorization of a symmetric positive-definite tridiagonal precision matrix gives the converse. In three dimensions an exact Schur-complement calculation gives the Euclidean operator norm, with strict inequality proved by positive definiteness. The numerical checker uses exact rational arithmetic and is supportive, not a replacement for these arguments.
+PASS
 
-## Originality — PASS, subject to priority limits
+Writing the error update P_i=I-w_i a_i^T/(a_i^T w_i) shows each rank-(n-1) oblique projector can lower rank by at most one. Zero after n updates forces each innovation w_i to lie in the image of the preceding update product, equivalent inductively to orthogonality to all earlier a_j, j<i-1. This is precisely G_{ji}=G_{j,i-1}G_{i-1,i}/G_{i-1,i-1}. Unit lower-bidiagonal B gives BGB^T diagonal and J=B^T D^-1 B tridiagonal; SPD tridiagonal backward LDL factorization proves the converse. For n=3, P_2 P_1 is the orthogonal line projector and Schur-complement geometry yields ||T_3||²=J_13²/(J_11 J_33)<1. Independent exact rational computations show first-sweep zero propagation for AR(1) Gram matrices in dimensions 2..5 and the partial-correlation norm for two non-Markov examples. Quantification excludes positive tolerance and floating-point skips.
 
-The 2021 KO paper supplies the update and asymptotic convergence and illustrates finite solution of two-row examples; it does not establish the all-dimension first-sweep if-and-only-if in terms of tridiagonal precision or the exact three-row partial-correlation norm. The greedy oblique variants use other row selection rules. The accumulated-history PLSS solver is a more powerful direct-projection algorithm, but its general finite-termination property does not entail when **one-previous-row** KO terminates. Published-record and own-claim comparisons found no covering statement. Unindexed specialized identities and partially inaccessible prior full texts are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The exact boundary separates the matrices on which minimal one-row memory is algebraically sufficient for finite solution from matrices on which it is not. The criterion is practical to recognize through tridiagonal precision/Markov row structure, includes dense correlated systems of all orders, and quantifies the first nontrivial obstruction by a sharp conditional correlation. It is a structural characterization, not an arbitrary numerical slice.
+The original KO paper introduces the same consecutive-row oblique direction, convergence theorem and two-row exact example. It does not in the sections materially read give the all-dimensional iff or the exact three-row operator norm. A precision Markov-chain alias and backward bidiagonal LDL factorization may occur as a specialized direct-solver theorem elsewhere. A general full-memory direct projector does not automatically imply this minimal-memory criterion.
 
-## Limits
+## value
 
-The claim is limited to exact arithmetic, a single fixed ordered sweep, no skipped updates, and invertible square real systems; the three-row formula is the Euclidean operator norm, not an asymptotic rate. Unsearched and inaccessible literature may affect publication priority. Independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact boundary identifies when one-previous-row memory is sufficient for universal direct solution, includes dense correlated AR(1) rows, and quantifies the first failure case by a partial correlation with a sharp near-one obstruction. This gives structural guidance for solver design beyond ordinary convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
