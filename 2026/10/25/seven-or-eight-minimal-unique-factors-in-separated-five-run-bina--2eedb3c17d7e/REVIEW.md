@@ -1,11 +1,21 @@
-# Scientific assessment: separated five-run minimal unique factors
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof enumerates every possible run count of a factor: one-run maxima; two-run transition rectangles and their two minimal edge exits per orientation; three-run factors identified by their complete internal run; and proper-unique-factor obstructions for four or more runs. Every proposed factor is shown to occur once with both length-one deletions repeated. Run-length separation is a stated hypothesis; no exceptional composition is silently included. The exact rational generating functions follow from ordered separated compositions and permutation symmetry. The unconditional limit follows from a quantitative \(O(n^{-1})\) bound for exceptional compositions. An independent literal factor-frequency enumerator matched every predicted full set in 1,800 separated samples and checked the length-distribution coefficient identities through length 32.
+## correctness
 
-**Originality — PASS (subject to ordinary unindexed-literature risk).** Relevant original research provides MUS algorithms, structural nonnesting bounds, sliding-window updates and BWT-space enumeration. Its statements are algorithmic or general upper bounds, not the exact separated five-run factor list, its rational conditional enumerators or the two-point limiting law. A published general bound of \(2r\) in terms of BWT runs does not imply the asserted classification or 1/3-versus-2/3 law. Searches of the relevant published research archive and accessible overlapping claims found no equivalent or stronger specialization. This is evidence of no identified covering result, not a proof of priority; an unindexed specialization remains possible.
+PASS
 
-**Mathematical value — PASS.** Minimal unique substrings are a natural index and genome-marker invariant. Five alternating runs are the first case in which a central zero run is flanked by two one runs and competes with both outer zero runs; that structural competition produces the optional eighth factor. The theorem determines the full factor set on an asymptotically overwhelming family, proves a sharp finite conditional enumeration, and derives a nondegenerate unconditional probability law, not just a numerical table or a routine algorithm execution.
+For a factor occurring uniquely, minimality is equivalent to both one-symbol truncations recurring. One-run unique maxima, two-transition rectangles with single boundary exits, three-run factors crossing exactly a full distinct middle run, and a unique proper three-run factor inside any four-plus-run candidate cover every contiguous factor. Separation ensures distinct maxima/transition lengths and exactly one possible eighth pattern. Ordered separated three-zero-run compositions have series 6 t^9/[(1−t³)(1−t²)(1−t)] and two one-run lengths 2 t^4/[(1−t²)(1−t)]; c is minimum in 2/6 orderings. Exceptional run pair separations failing have O(n³) compositions versus total Theta(n⁴). An independent literal frequency table checked every one of the 1800 separated five-tuples with entries <=7 and exactly matched the full proposed factor sets; these finite cases do not prove the theorem at all lengths.
 
-**Closest research and limitations.** Mieno et al. (arXiv:1905.12854 and 1909.02804), Nishimoto–Tabei (arXiv:2004.01493) and Kimura–I (arXiv:2511.11057) were inspected in accessible full-text presentations. The new theorem does not enumerate exceptional run compositions, which account for \(O(n^{-1})\) of the uniform fixed-run model. The comparison could miss an equivalent result outside indexed sources. Finite checks complement, but do not replace, the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mieno et al. and other MUS literature provides definitions, algorithms, sliding-window change bounds and run-compressed indexing; not the same separated five-run exact factor set or rational conditional generating laws. Relevant original 2020 TCS full text unavailable by arxiv/OA and authorized institutional access returned VPN disconnected, an explicit priority risk rather than failed originality.
+
+## value
+
+PASS
+
+MUS are natural exact string markers. Five alternating runs are the first separated configuration in which the interior zero run supports an additional 1–0–1 three-run factor. A complete factor list, exact rational generating functions and nondegenerate 2/3–1/3 limit law constitute a motivated parametric classification, not merely an algorithm run.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
