@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof derives every stage rate from independent edge clocks and independence across petals; identifies slow stages through concavity; verifies each convolution prefactor and the exact telescoping product. Crucially, the new varying-rate limit uses the exact two-exponential survival formula with rate separation O(1/log m) and a uniform exponential-moment bound for interior phases. Then the triangular-array maximum limit follows from m times the tail. The finite-state checker independently tests exact rational CTMC moments, cut rates, finite CDFs and normalization calculations (1,733 checks). No infinite conclusion depends on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asimit–Jones (2007), Proposition 1, proves the Gumbel domain of attraction and a polynomial-tail log-log centering for a fixed PH distribution.",
+        "Kang–Serfozo (1999), Theorem 9, covers fixed PH maxima."
+      ],
+      "reasoning": "These theorems cover fixed gamma pieces of the finding; those are context and consistency consequences, not new abstract extreme-value laws. They hold for a fixed phase-type generator, whereas the new clause lets its two slow rates coalesce at order 1/log m. Uniform triangular-array tail control and the explicit crossover factor are not a corollary of the stated fixed-generator assertions.",
+      "searches": [
+        "\"phase-type\" \"maxima\" \"log log\" repeated dominant eigenvalue",
+        "Asimit and Jones 2007 Proposition 1 phase type",
+        "Kang Serfozo 1999 Theorem 9 maxima of phase type"
+      ]
+    },
+    "checked_sources": [
+      "Curran-Sebastian et al. arXiv:2301.07058, full arXiv manuscript, first version January 17, 2023",
+      "Ottino-Löffler, Scott and Strogatz arXiv:1702.00881, full manuscript",
+      "Asimit and Jones 2007, Section 3 and Proposition 1, full institutional OA manuscript",
+      "Kang and Serfozo 1999, accessible abstract and theorem excerpt (not entire paper)",
+      "Georgiou 2022 thesis, SI cascade and hypoexponential discussions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Curran-Sebastian et al. address a growing SIR outbreak and peak time, not SI total network infection.",
+        "Ottino-Löffler et al. use discrete-time contact rules.",
+        "Asimit–Jones directly implies fixed-rate Gumbel centering and repeated-pole correction, but assumes the same phase-type distribution for every sample size."
+      ],
+      "reasoning": "The final single claim consists of the exact rooted clique-bouquet SI law and its sharp, parameter-dependent crossover (3). Fixed-rate phases are included to identify the boundary, with their generic probabilistic shape expressly credited to prior theory. None of the inspected results logically supplies the varying-rate normalization with h(d) without the new uniform convolution argument.",
+      "searches": [
+        "Curran-Sebastian Pellis Hall House first passage peak 2023",
+        "Ottino-Löffler Scott Strogatz takeover time 2017",
+        "Asimit Jones phase type 2007 maximum proposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rate process is equivalent to a hypoexponential phase-type absorption time for one petal, whose m-fold maximum is taken.",
+        "Ottino-Löffler et al. arXiv:1702.00881 study network infection but under a different update model."
+      ],
+      "reasoning": "Checked both graph terminology (windmill, friendship, clique bouquet) and probability terminology (hypoexponential, absorption-time maxima); the specific competing-edge-rate triangular window was not found in inspected texts.",
+      "searches": [
+        "\"SI\" \"windmill\" \"first passage\" full infection",
+        "\"bouquet of cliques\" \"infection time\"",
+        "\"clique petals\" \"SI\" Gumbel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source model itself is specified by all parameters k, beta, gamma and number of petals m; exact moment/cdf identities are proved rather than imported from tables.",
+        "No exact contact-rate crossover table was located among the inspected epidemic and phase-type sources."
+      ],
+      "reasoning": "No claimed numerical value depends on an external database; the entire critical coefficient and finite formula are symbolic. Absence of a matching searchable table is evidence of search only, not a proof of priority.",
+      "searches": [
+        "\"two-rate\" \"windmill\" \"SI\" \"Gumbel\"",
+        "\"hypoexponential\" \"nearly equal\" \"maxima\" \"crossover\"",
+        "\"SI clique bouquet\" \"extreme value\""
+      ]
+    },
+    "rationale": "The claim of originality is restricted to the explicitly normalized, varying-contact-rate critical window on hub-rooted SI clique bouquets, and the exact epidemic-specific boundary and crossover coefficient. Fixed-rate phase-type Gumbel and repeated-pole loglog corrections are known, acknowledged and not independently claimed. The identified general theorem is not uniform under changing rate matrices; the proof derives this uniform regime directly. Residual priority risks remain for unlocated specialist triangular-array literature.",
+    "residual_risks": [
+      "The fixed-rate Gumbel/loglog law is covered by earlier fixed-PH extreme value theory; originality rests primarily on the network-dependent crossover for an m-varying contact rate.",
+      "Unlocated specialist results on triangular arrays with coalescing phase-type eigenvalues could imply the crossover in a more general form.",
+      "The complete 1999 publisher text was not inspected; the checked abstract and theorem plus subsequent 2007 full treatment do not remove every overlap risk.",
+      "Independent specialist priority review and independent proof audit have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Treats SIR epidemic threshold/peak timing and approximations, not complete SI infection on a hub-rooted bouquet or changing-rate extreme scaling.",
+        "evidence": "Public v1 January 17, 2023; a branching-process/ODE epidemic threshold approach instead of independently seeded SI cliques.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.07058",
+        "material_read": "Full open manuscript: model, method, first-passage analysis and discussion",
+        "method": "Read lawful arXiv PDF and abstract; compare target event and stochastic model",
+        "title": "Calculation of Epidemic First Passage and Peak Time Probability Distributions",
+        "trigger": "First public, date-qualified epidemic first-passage literature; MSC 92D30"
+      },
+      {
+        "assessment": "Uses a discrete-time random selection/neighbor mechanism, not independent continuous-time transmission per infected-susceptible edge on two-rate cliques.",
+        "evidence": "Its takeover-time limit studies different update dynamics; no explicit two-rate clique-bouquet crossover appears.",
+        "identifier_or_url": "https://arxiv.org/abs/1702.00881",
+        "material_read": "Full openly available manuscript including model definition and star/complete-graph results",
+        "method": "Read arXiv PDF; compare infection clock and network assumptions",
+        "title": "Takeover times for a simple model of network infection",
+        "trigger": "Network infection takeover and extreme-value laws with a hub/star architecture"
+      },
+      {
+        "assessment": "Subsumes fixed-distribution Gumbel limits, including the repeated-pole logarithmic correction. Its sequence assumes one fixed phase-type distribution and does not establish the triangular varying-rate crossover in the finding.",
+        "evidence": "Proposition 1 gives centering with a multiple-eigenvalue \\(\\log\\log m\\) correction for iid observations from a fixed PH law.",
+        "identifier_or_url": "https://openaccess.city.ac.uk/id/eprint/13144/1/Asimit_Jones_2006_revised.pdf",
+        "material_read": "Full lawful open manuscript, especially Section 3 and Proposition 1 and its proof",
+        "method": "Read searchable PDF and inspect page image of Proposition 1",
+        "title": "Extreme behavior of multivariate phase-type distributions",
+        "trigger": "Dominating general theorem for maxima of fixed phase-type absorbing times"
+      },
+      {
+        "assessment": "Fixed-law Gumbel normalization is prior. A statement about an m-dependent family of nearly equal rates was not established by inspected portions; uninspected sections remain a priority risk.",
+        "evidence": "Theorem 9 concerns the maximum of iid phase-type tasks with a common, fixed transient generator.",
+        "identifier_or_url": "https://doi.org/10.1239/jap/1032374241",
+        "material_read": "Publication abstract and accessible text of Theorem 9; not the complete publisher article",
+        "method": "Compare the stated phase-type maxima theorem and fixed-rate formulation; consult later full-text account",
+        "title": "Extreme values of phase-type and mixed random variables with parallel-processing examples",
+        "trigger": "Earlier Gumbel maximum theorem for independent phase-type completion times"
+      },
+      {
+        "assessment": "The hypoexponential decomposition method is prior knowledge, not novel; this source does not state the cross-petal resonance and nearcritical extremes.",
+        "evidence": "Discusses infection/cascade clocks on cliques and complete graphs rather than the maximum of an increasing number of clique-petal completion times.",
+        "identifier_or_url": "https://essay.utwente.nl/fileshare/file/91209/Georgiou_MA_EEMCS.pdf",
+        "material_read": "Lawfully accessible dissertation sections on complete-graph SI stage rates and epidemic cascades",
+        "method": "Read thesis text and inspected representative pages",
+        "title": "Analysis of the Weighted Clique Heuristic for Community Detection using Cascade Data",
+        "trigger": "Graph community infection cascades and hypoexponential holding-time representation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8bf955f-8226-4c29-8c01-724e537d041d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural epidemiological network with an infected common source and locally dense groups has two competing transmission time bottlenecks. Matching their rates causes a divergent loglog m delay; a window of width 1/log m has a nonconstant and explicitly computable crossover function. This resolves the completion-time boundary for all fixed local clique sizes k≥2 and offers a quantitative mechanism by which small contact-rate changes affect extreme epidemic finishing times. It is not an arbitrary finite slice or a mere renamed textbook extreme-value calculation, because the precise contact-rate resonance and triangular crossover are derived for the specified epidemic graph.",
+    "status": "PASS"
+  }
+}
