@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:51:10.971466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Z_j=1+nu_2(j), adjacent valuations differ, so even-length palindromes cannot occur. Every odd palindrome centered at m has radius strictly below 2^{nu_2(m)}, and every such interval is a palindrome; the claimed boundary obstruction follows by comparing valuations at the next radius. The corresponding endpoints a<b differ in exactly one bit after binary-reflected Gray transform G(x)=x xor floor(x/2). Thus any partition of the prefix induces an increasing integer Gray-hypercube path. A geodesic has precisely popcount(G(n)) flips, and the explicit backwards highest-bit step m=2^{k+1}-1-n constructs one. For an optimal cut path, selected Gray flip k is legal iff the number of previously selected larger positions is even. Deleting the last position proves f(r)=ceil(r/2)f(r-1), f(0)=1, hence f(r)=ceil(r/2)!floor(r/2)!. No index n>0 is omitted. A genuinely independent reversal-based DP, not Gray-edge recognition, checks every length 0..150 with exact integer multiplicities; it is corroboration, not the infinite proof.",
+      "residual_risks": [
+        "Historical enumerations of optimal palindrome decompositions may be unindexed; the searched literature cannot establish absolute priority.",
+        "Applies only to the infinite-alphabet Zimin/ruler word, to ordered minimum-cut decompositions; not to period-doubling binary image."
+      ],
+      "sources": [
+        "Shuo Li, arXiv:2007.08317, Theorem 1, Section 3-6",
+        "Gabriele Fici et al., arXiv:1403.2431 Lemma 12 and Zimin-prefix worst-case section",
+        "OEIS A005811 binary digit runs",
+        "Resultary 2026 search: Zimin word optimal palindromic factorizations Gray code multiplicity",
+        "RESULT.md blob 1e1b732e538fff33911e29bc4c55f8d1400d5434"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici et al. Lemma 12 counts palindromic suffixes of Z[1..n] by popcount(n); their algorithm finds minimum factor number.",
+          "Li 2020 counts optimum number of pieces but not its cut-position multiplicity.",
+          "General algorithms computing a minimum factorization do not assert this closed-form enumeration of all tied minima."
+        ],
+        "reasoning": "Generic algorithms are broader in the input words but have a different output. Their reported theorems do not dominate the exact factorial multiplicity invariant.",
+        "searches": [
+          "arXiv:1403.2431 Lemma 12 and algorithm for general minimum palindrome factorization",
+          "arXiv:2007.08317 all ruler-word prefix results",
+          "web: Palindromic k-Factorization in Pure Linear Time MFCS 2020"
+        ]
+      },
+      "checked_sources": [
+        "Shuo Li, arXiv:2007.08317, Theorem 1, Section 3-6",
+        "Gabriele Fici et al., arXiv:1403.2431 Lemma 12 and Zimin-prefix worst-case section",
+        "OEIS A005811 binary digit runs",
+        "Resultary 2026 search: Zimin word optimal palindromic factorizations Gray code multiplicity",
+        "RESULT.md blob 1e1b732e538fff33911e29bc4c55f8d1400d5434"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Optimal length alone does not determine the count of shortest decompositions in general.",
+          "Suffix palindrome counts measure terminal intervals only, not the joint choices across all cuts."
+        ],
+        "reasoning": "The new parity-constrained permutation recurrence is an additional derivation not supplied by those prior statements; no known theorem was found implying factorial T(n).",
+        "searches": [
+          "Li 2020 Theorem 1 and Proposition 1",
+          "Fici 2014 Lemma 12",
+          "Resultary 2026 semantic Zimin word query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li Theorem 1 gives palindromic length = binary-run count, the same popcount(G(n)).",
+          "The Gray-code bijection counts geodesics satisfying increasing-index condition; it is not simply a permutation of all r Gray flips."
+        ],
+        "reasoning": "Equivalent shortest-factorization count would be an enumeration of legal Gray-cube geodesic permutations. Known scalar min-length equality leaves multiplicities unconstrained, and the inspected relevant statements do not give that enumeration.",
+        "searches": [
+          "Resultary query: Zimin prefix count optimal palindrome factorizations factorial Gray code digit runs",
+          "web: \"ruler sequence\" \"number of optimal\" \"palindromic\"",
+          "arXiv:2007.08317 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A005811 tabulates the run count r(n), not T(n)=ceil(r/2)!floor(r/2)!.",
+          "No relevant published exact T(n) table was present among retrieved semantic results; only other palindrome/string objects appeared."
+        ],
+        "reasoning": "The sequence of minima is known; known run tables do not contain a multiplicity formula or a complete minimizer classification.",
+        "searches": [
+          "OEIS A005811 digit runs in binary integers",
+          "Resultary Zimin/Gray/palindromic optimal-cut multiplicity search"
+        ]
+      },
+      "rationale": "Qualified PASS: Li 2020 established the minimal number of palindromic pieces as the binary-run count, and Fici et al. 2014 counted Zimin palindromic suffixes; neither assessed result supplies the number of all optimal cut lists. New contribution is the exact factorial multiplicity obtained by monotone Gray geodesics. No equivalent result located in bounded Resultary and literature searches; absence is not proof of absolute priority.",
+      "residual_risks": [
+        "Historical enumerations of optimal palindrome decompositions may be unindexed; the searched literature cannot establish absolute priority.",
+        "Applies only to the infinite-alphabet Zimin/ruler word, to ordered minimum-cut decompositions; not to period-doubling binary image."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MINIMUM_NOT_OPTIMIZER_MULTIPLICITY",
+          "evidence": [
+            "Theorem 1 relates ruler-prefix palindromic length to digit runs; no optimal-cut factorial count in examined results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.08317",
+          "material_read": "Primary PDF Theorem 1, Proposition 1, Section 3-6 proof and relevant definitions; nine-page PDF available and pertinent sections read.",
+          "method": "arXiv lawful full-text/PDF, inspected theorem and proof",
+          "title": "Palindromic length sequence of the ruler sequence and of the period-doubling sequence",
+          "trigger": "Exact Zimin/ruler minimal factorization and masks"
+        },
+        {
+          "assessment": "COVERS_DIFFERENT_SUFFIX_STATISTIC",
+          "evidence": [
+            "Lemma 12 gives popcount(n) palindromic suffixes, not optimal complete decompositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.2431",
+          "material_read": "Primary accessible paper text, Lemma 12 and its Zimin worst-case derivation inspected.",
+          "method": "Lawful OA journal/paper text, article and lemma",
+          "title": "A Subquadratic Algorithm for Minimum Palindromic Factorization",
+          "trigger": "The original Zimin palindromic-suffix count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of distinct minimizing cut lists is the natural next invariant once ruler-word minimum palindromic length is known; its factorial dependence only on the number of binary runs, and an explicit geometric classification by increasing Gray geodesics, are substantive structural facts valid at every length rather than a tiny numerical increment. The exact answer is not obtained from the scalar palindromic length by substitution.",
+      "residual_risks": [
+        "Historical enumerations of optimal palindrome decompositions may be unindexed; the searched literature cannot establish absolute priority.",
+        "Applies only to the infinite-alphabet Zimin/ruler word, to ordered minimum-cut decompositions; not to period-doubling binary image."
+      ],
+      "sources": [
+        "Shuo Li, arXiv:2007.08317, Theorem 1, Section 3-6",
+        "Gabriele Fici et al., arXiv:1403.2431 Lemma 12 and Zimin-prefix worst-case section",
+        "OEIS A005811 binary digit runs",
+        "Resultary 2026 search: Zimin word optimal palindromic factorizations Gray code multiplicity",
+        "RESULT.md blob 1e1b732e538fff33911e29bc4c55f8d1400d5434"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Shuo Li, arXiv:2007.08317, Theorem 1, Section 3-6",
+    "Gabriele Fici et al., arXiv:1403.2431 Lemma 12 and Zimin-prefix worst-case section",
+    "OEIS A005811 binary digit runs",
+    "Resultary 2026 search: Zimin word optimal palindromic factorizations Gray code multiplicity",
+    "RESULT.md blob 1e1b732e538fff33911e29bc4c55f8d1400d5434"
+  ],
+  "disposition": "passed",
+  "limitations": "This is a best-of-knowledge mathematical evaluation with stated residual-priority risks. Independent finite experiments are not substitutes for general mathematical proofs. Operational publication blockers are not scientific rejections.",
+  "residual_risks": [
+    "Historical enumerations of optimal palindrome decompositions may be unindexed; the searched literature cannot establish absolute priority.",
+    "Applies only to the infinite-alphabet Zimin/ruler word, to ordered minimum-cut decompositions; not to period-doubling binary image."
+  ],
+  "schema_version": 1
+}
