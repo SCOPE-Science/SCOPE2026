@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the conditional stationary identity from shift invariance, derives the size-biased reciprocal balance, and then uses an exact pointwise decomposition to obtain the nonnegative equilibrium defect. The activity identity is an exact covariance/variance expansion. Equality cases are checked against complete-trajectory stationarity. The bundled algebra checker returned `ALGEBRA_OK`.
+## correctness
 
-## Originality
-PASS. The closest same-equation literature inspected concerns global attractor bounds, periodic solutions, bifurcations, bistability, chaos and Lyapunov dimension. Targeted searches did not locate the exact size-biased rational defect or the production-variance/activity budget. The closest stored comparison is the Nicholson blowflies exponential-feedback result; its statement does not imply the reciprocal Mackey–Glass defect.
+PASS
 
-## Value
-PASS. For a canonical delayed-chaos benchmark, the theorem supplies two exact invariant-statistics diagnostics: a strict non-equilibrium high-moment excess with an explicit squared remainder, and an exact conversion between marginal production variance and temporal activity. These constraints can test stationary simulations or data without reconstructing the full infinite-dimensional attractor.
+Reconstructed from actual RESULT.md for every beta,gamma,tau,n>0 and compact shift-invariant law on complete strictly positive bounded solutions. Differentiation of invariant E[G(X)] for arbitrary continuous G’ gives E[dot X|X]=0, hence E[f(B)|X]=(gamma/beta)X; shift invariance equates B and X marginals. Since E[X/(1+X^n)]=(gamma/beta) E[X] and X>0, beta>gamma. Under size bias dQ=X dP/E[X], E_Q[(1+Y)^(-1)]=q with Y=X^n, q=gamma/beta and a=(1-q)/q, yielding the stated exact pointwise decomposition and strict equality criterion. Orthogonality of dot X to X gives Cov(X,f(B))=q Var(X); expanding beta f(B)-gamma X, with matched marginals, yields E[dot X^2]=beta^2 Var(f(X))-gamma^2 Var(X). A zero remainder or zero speed forces X constant at all rational times by invariance and then all times by continuity. No ergodicity or claimed non-equilibrium existence. Exact symbolic independent checks validate the pointwise rational decomposition and covariance algebra; they are not substitutes for the analytic generator step.
 
-## Closest literature and limitations
-The 2009 unimodal-feedback attractor paper and the 2022 same-equation bifurcation study are the closest inspected mathematical sources. The historical 2020 review surveys rigorous Mackey–Glass work. The theorem does not establish existence, uniqueness, ergodicity, mixing, or chaos. A 2026 stochastic Mackey–Glass invariant-measure preprint was available only at abstract level through the accessible source path, so its inaccessible full text is recorded as a residual originality risk alongside the broader literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the exact reciprocal-feedback squared-remainder identity paired with the one-time marginal activity budget. The abstract stationarity-generator calibration and covariance decomposition are established tools and are NOT original here. Direct inspection of relevant same mathematical model sources found existence, bounds and bifurcation results rather than the exact claimed stationary identities. Published Nicholson and Thomas results demonstrate a very similar method on different nonlinearities; neither formal theorem statement contains this Mackey–Glass rational response or implies the full displayed power-moment formula by a mere parameter specialization. Residual risk is substantial because the algebra is short and an equivalent under another formulation might be unindexed.
+
+## value
+
+PASS
+
+The Mackey–Glass delay equation is a canonical nontrivial recurrent model; its one-time marginal distribution is a natural observable in invariant-statistics simulations. The inequality E[X^(n+1)]/E[X]>=x_*^n is an all-parameter sharp high-moment constraint with explicit squared non-equilibrium excess, and the second formula identifies an exact, nonnegative speed/production-variance diagnostic accessible without lagged samples. Together they give equilibrium rigidity for any invariant mixture and distinguish variability from temporal activity. The result is narrow and elementary and does not establish invariant-law existence, a new dynamical regime or a general theory; its mathematical value lies in the exact two-part stationary constraint for this nonlinear feedback, not in a new generic generator method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
