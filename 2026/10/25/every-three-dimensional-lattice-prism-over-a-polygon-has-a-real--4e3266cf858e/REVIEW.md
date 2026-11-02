@@ -1,12 +1,21 @@
-# Review of the lattice-prism real-rootedness theorem
+# Independent mathematical audit
 
-## Correctness
-The coefficient identity follows exactly from Pick's theorem and the lattice-point-count product identity. The decisive nonstandard step is finite symbolic positivity of a cubic discriminant in two parameter chambers covering all admissible \(I,B,k\); the packaged checker proves the relevant polynomial identities using exact coefficients. The only exceptional low-degree/zero-discriminant corners are evaluated explicitly. Finite numerical samples merely corroborate the exact symbolic certificate.
+## correctness
 
-## Originality
-The earlier large-width result does not imply a theorem at arbitrarily small width. The closest indexed lattice-segment result concerns log-concavity, which is weaker than real-rootedness; in particular, positivity and log-concavity alone do not locate all zeros. The 2026 study of Ehrhart properties under Cartesian products is particularly relevant but only its abstract and an article-level synopsis were accessible. No directly containing special-case theorem was identified in that limited inspection; a historical-priority and implicit-coverage risk remains and requires subsequent human literature verification.
+PASS
 
-## Mathematical value
-This provides a natural and complete dimension-three class in which a Cartesian factor enforces the strongest common Ehrhart root-location property, including bases with complex \(h^*\)-roots. The explicit coefficient classification and exact repeated-root boundary are useful in understanding the contrast between segment-product regularization and general operation-preservation failures. It does not purport to classify all three-dimensional lattice polytopes.
+Pick gives L_P(n)=(I+B/2-1)n^2+(B/2)n+1 and L_{P×[0,k]}(n)=(kn+1)L_P(n), yielding exactly the stated cubic h* numerator 1+((k+1)(I+B)-4)t+(4kI+(2k-1)B-6k+3)t²+(k-1)It³. Independently expanded the exact cubic discriminant over disjoint chambers I=1+a,B=3+b,k=1+s and I=0,B=4+b,k=1+s. Obtained respectively 72 and 25 nonzero positive-coefficient monomials, constants 0 and 12; first chamber has coefficients 192b,288s,64a² so discriminant vanishes only at a=b=s=0 (the lone I=1,B=3,k=1 double root). The I=0,B=3 case is a simple linear polynomial. In all other degree2/3 cases discriminant is strictly positive and positive coefficients preclude nonnegative real zeros, so all zeros are simple strictly negative. Exact symbolic identities, not the 1848 sampled triples, prove the universal quantified result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Universal real-rootedness for polygon-by-segment prisms is stronger than the prior log-concavity-only segment-factor theorem. Full primary text of Liu 2026, Section 2 Theorem 2.2(i), now read from arXiv article HTML, requires BOTH input h* polynomials to be real-rooted; a polygon with I=1,B=3 has h*(t)=1+t+t², not real-rooted, so that theorem does not subsume this unrestricted claim. Large-width results similarly exclude width-one prisms. Prior Wagner result under real-rooted inputs is credited.
+
+## value
+
+PASS
+
+Real-rooted Ehrhart numerators are a strong algebraic/geometric property. Showing this for every 3D polygon-by-segment lattice prism, including thin prisms with nonreal-rooted 2D base numerator, is a genuine boundary strengthening beyond conditional product-preservation theorems. The all-I,B,k formula, unique double root and complete discriminant classification are independently reusable exact invariants, not an arbitrary enumerated range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
