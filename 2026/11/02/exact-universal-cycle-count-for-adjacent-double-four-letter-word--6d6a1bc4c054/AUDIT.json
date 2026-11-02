@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For q=3 the 18-edge overlap digraph has two components, each a 9-cycle. For q>=4 the balanced graph is strongly connected because its degree-one contraction is the parity lift of the primitive non-backtracking digraph of K_q. The exact Ihara spectrum gives a single zero Laplacian eigenvalue and nonzero eigenvalue product 2d(d²-1)^(q(q-3)+1)(q d³)^(q-1), d=q-2. Matrix-tree / 2q(q-1) gives the rooted arborescence count, degree-one subdivision does not change it, and BEST with a fixed initial arc gives rotation classes without extra division. Full and reduced exact cofactors match q=3,4,5; direct cyclic windows of constructed Euler tours match q=4,5,6,7. Finite experiments do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 21 of arXiv:1711.07029 proves existence for all words with each symbol occurring once or twice, with no adjacency condition.",
+        "arXiv:0808.1309 studies non-bijections, equitable words, ranked permutations and passwords.",
+        "arXiv:1908.01116 computes probabilities after up to two removals, or binary short-alphabet cases.",
+        "arXiv:2011.09385 supplies Ihara spectral machinery, a tool not the assembled enumeration."
+      ],
+      "reasoning": "The broader augmented-onto word language strictly contains the present language, so its Eulericity does not imply Eulericity of the sublanguage; q=3 is a direct counterexample. General spectral and tree theorems are ingredients, but no examined theorem gives the evaluated universal-cycle count as an immediate instance without a new reduction and determinant calculation.",
+      "searches": [
+        "arxiv:1711.07029 Theorem 21 augmented onto",
+        "arxiv:0808.1309 Sections 3-5",
+        "arxiv:1908.01116 Theorem 4.1",
+        "arxiv:2011.09385 Theorem 2.2",
+        "restricted universal cycles enumerate exact Euler tours BEST theorem adjacency symbol repetition four-letter pattern non-backtracking walk"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1711.07029",
+      "arxiv:0808.1309",
+      "arxiv:1908.01116",
+      "arxiv:2011.09385",
+      "published-finding corpus published-record semantic searches with seven exact query strings listed above",
+      "prior published findings in universal-cycle and palindrome-cover families, including public titles for adjacent-pair three-letter universal cycles and cyclic square covers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present universal cycles do not exist at q=3, whereas unrestricted length-four augmented-onto cycles on three symbols exist.",
+        "The first published-source claim concerns existence, the present claim additionally counts every rotation class in a locally restricted family for all q>=4.",
+        "The spectral identity alone does not describe the three-stage word overlap or enforce the adjacent unique-pair constraint."
+      ],
+      "reasoning": "The earlier results do not logically imply the sharp existence threshold for the proper sublanguage. Obtaining the explicit product needs determining the reduced overlap graph, its parity period obstruction, the directed arborescence cofactor, and cyclic BEST normalization. The familiar general theorems are openly credited.",
+      "searches": [
+        "arxiv:1711.07029 Theorem 21",
+        "arxiv:1908.01116 sections 2-4",
+        "arxiv:2011.09385 Theorem 2.1 and 2.2",
+        "de Bruijn universal cycles alphabet q words with exactly two equal symbols triples counting Euler circuits",
+        "universal cycles on alphabet q one double letter two singleton letters length 4 adjacent duplicate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target language is the length-four patterns aabc, abbc, abcc with a,b,c distinct; its overlap graph contracts to the parity lift of the non-backtracking digraph of K_q.",
+        "Gardner--Godbole arXiv:1711.07029 Theorem 21: cycles of all 1-2 augmented-onto words; not restricted by adjacency.",
+        "Glover--Kempton arXiv:2011.09385 Theorem 2.2: non-backtracking eigenvalues for regular graphs, but not the BEST enumeration on this overlap graph."
+      ],
+      "reasoning": "The derived graph is an exact equivalent representation, not a previously located enumeration theorem. A generic BEST formula requires evaluating the instance-specific directed tree cofactor and connectivity; neither of the compared sources states this q-dependent cycle count. A q=3 nonexistence boundary also differs from the broader augmented-onto existence result.",
+      "searches": [
+        "universal cycles ternary patterns words length four exactly one adjacent equality equal adjacent pair all other neighboring letters distinct enumerate Euler tours",
+        "de Bruijn universal cycles alphabet q words with exactly two equal symbols triples counting Euler circuits",
+        "exact count universal cycles four letter words exactly one adjacent duplicated symbol and all other letters distinct q colors cycle exists q >=4",
+        "web: universal cycles length four words with single equal adjacent pair three distinct symbols counting",
+        "web: 1327104 Euler universal cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct alphabet-four count is 1,327,104 and alphabet-five count is 470,561,093,629,261,335,377,215,488,000.",
+        "Some indexed OEIS sequences contain the common integer 1,327,104 for unrelated objects, without a corresponding formula or alphabet-five value in the retrieved results.",
+        "Published-record searches returned coding and Eulerian graph topics but no matching source with this restricted language and all-alphabet count."
+      ],
+      "reasoning": "A single numerical coincidence does not imply a previously tabulated count. No exact table or database entry describing the target family was found; the negative result is not a proof of uniqueness and is recorded with indexing risk.",
+      "searches": [
+        "web: 1327104 Euler universal cycles",
+        "web: site:oeis.org 1327104 470561093629261335377215488000",
+        "universal cycles ternary patterns words length four exactly one adjacent equality equal adjacent pair all other neighboring letters distinct enumerate Euler tours",
+        "exact count universal cycles four letter words exactly one adjacent duplicated symbol and all other letters distinct q colors cycle exists q >=4",
+        "q-ary length 4 restricted universal cycle patterns aabc abbc abcc distinct a b c enumeration"
+      ]
+    },
+    "rationale": "The restricted target family is not the unrestricted one-or-two-copy family treated by Gardner--Godbole: its three-letter-alphabet subgraph has two components while the full augmented-onto family is Eulerian. Chen--Kitaev--Sun analyzes deleting one or two words, not this large locally defined subfamily. Glover--Kempton supplies a general non-backtracking spectral identity, but not the exact count of Euler tours of this particular parity-lift overlap graph. Published-record and precise formula searches did not reveal an equivalent or dominating count; unindexed derivations remain a residual risk.",
+    "residual_risks": [
+      "An unindexed exact Euler-tour enumeration for the bipartite lift of complete-graph non-backtracking walks could imply the same count.",
+      "A compilation of universal-cycle enumerations outside the primary papers inspected could list an equivalent specialized product.",
+      "Database exact-count searches are negative evidence only, not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies unrestricted once-or-twice letters and does not distinguish adjacent repeats or enumerate the resulting cycles.",
+        "evidence": [
+          "arXiv:1711.07029, Theorem 21, PDF pages 11-14; p. 12 proof overview and p. 13 transition examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1711.07029",
+        "material_read": "Abstract, introduction, Theorems 1-4 and the Theorems 20-22 discussion and proof on PDF pages 1-3 and 10-15, plus references.",
+        "method": "Inspected primary arXiv PDF text and page images, especially the statement and proof of Theorem 21.",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Closest 1-2 augmented-onto restriction and universal-cycle existence theorem"
+      },
+      {
+        "assessment": "Proves universal-cycle existence for different global content restrictions, not the adjacent-repeat family or its exact enumeration.",
+        "evidence": [
+          "arXiv:0808.1309, Theorem 5 and Theorem 8; p. 5 equitable-word section; p. 12 password definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0808.1309",
+        "material_read": "Abstract, Section 2, Theorems 3-8, and the definition and results on passwords from Sections 3-5, PDF pages 1-6 and 11-12.",
+        "method": "Inspected primary PDF text and page image, comparing word families and graph conditions.",
+        "title": "Universal Cycles of Classes of Restricted Words",
+        "trigger": "Early general results on restricted alphabets and almost-onto words"
+      },
+      {
+        "assessment": "Counts probabilities of cycle existence after only a few removals and special binary short alphabets, rather than exact Euler-tour counts for this proper q-ary sublanguage.",
+        "evidence": [
+          "arXiv:1908.01116, section 4, Theorems 4.1-4.3; abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.01116",
+        "material_read": "Abstract, Introduction, Sections 2 and 4 theorem statements including Theorems 4.1-4.3, PDF pages 1-5 and 10-14.",
+        "method": "Inspected primary arXiv PDF text and representative page images, and compared the numerical target families.",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Potential wider coverage for removing forbidden words from full length-four universes"
+      },
+      {
+        "assessment": "General tools directly support the spectral steps; no universal-cycle enumeration for adjacent-double four-letter patterns is supplied.",
+        "evidence": [
+          "arXiv:2011.09385, Theorems 2.1-2.2 and Proposition 2.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.09385",
+        "material_read": "Abstract, Sections 1-2, Ihara determinant equation (2), Theorem 2.2, Proposition 2.3 and corresponding proof, PDF pages 1-3.",
+        "method": "Inspected primary arXiv PDF text and page image containing spectral identities and irreducibility result.",
+        "title": "Spectral properties of the non-backtracking matrix of a graph",
+        "trigger": "Potential full spectral domination of the parity-lift tree calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d6a1bc4-c054-45fc-8fbf-956b5ed09a47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The adjacent-repeat restriction is motivated by universal cycles with prescribed symbol multiplicities and turns a known cyclable length-four three-symbol language into a disconnected sublanguage. It yields a sharp q=4 threshold, an explicit infinite-family factorial-power enumeration, and a structural parity-lift/nobacktracking explanation rather than an arbitrary finite table. It resolves a natural exact invariant of restricted de Bruijn systems; no broader downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
