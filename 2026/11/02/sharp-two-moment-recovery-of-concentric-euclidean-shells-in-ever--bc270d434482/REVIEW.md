@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness
+PASS. Rotational invariance and independent centered sampling yield the exact identity for the first two even interpoint-distance moments. Radial integration gives the two explicit shape/scale formulas. The strict convexity of \(s/(e^{st}-1)\) follows from a positive second derivative, establishing monotonicity without numerical extrapolation. A thin-layer uniform-coordinate expansion provides the universal \(1/6\) coefficient; direct differentiation and endpoint asymptotics prove sharp inverse Hölder regularity in each dimension. The included standard-library checker independently evaluates rational identities and simulates points by a distinct sampling path. Risk: numerical checks are not exhaustive and the theorem assumes known dimension and exact sampling law.
+
+## Originality
+PASS under presently accessible evidence, with provisional historical priority. Tu–Fischbach (2002) give general **forward** radial distance-density and full-ball moment formulas, including shell-layer models, but not finite two-moment inversion, its admissible interval or sharp conditioning. Bonnet et al. (2020 first posting) give convex-body first-distance bounds, not the present nonconvex inverse. Published shell visibility laws distinguish shells using a different observable, namely segment avoidance of the cavity. Closest previously recorded geometric distance-moment inversions concern solid caps, cones, cylinders and ellipsoids, none of whose claims implies the all-dimensional concentric-shell inverse. Search may miss older shell-specific inverse identities; the 2014 moments-of-inertia paper was available only in abstract in this inspection.
+
+## Mathematical value
+PASS. Distinguishing an unknown central cavity from the entire ball by **two** rotation-invariant scalar distance measurements is a natural inverse geometric question, especially when only unlabeled point-pair distances are available. The exact realizability interval, globally unique inversion in every dimension, minimal moment count and two sharp degenerating endpoint exponents characterize both information content and geometric conditioning; these are not merely a forward moment table. The dimension-dependent \(1/d\) loss is substantively motivated by vanishing hole volume. This result makes no finite-sample or general-density promise.
+
+Self-review: passed. Independent audit: not yet performed.

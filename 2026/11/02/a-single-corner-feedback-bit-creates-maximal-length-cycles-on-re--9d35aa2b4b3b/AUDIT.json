@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The path continuant identities make the unmodified grid operator nilpotent and give exact corner resolvent moments. Tensor-binomial cancellation leaves only moments at \\(t=0\\) and \\(t=2^j-2\\), \\(3\\le j\\le b\\). The matrix determinant lemma gives \\(\\det(zI-B_b)=z^{2n}p_b(z)\\) with \\(p_b(0)=1\\) and \\(p_b'(z)=z^{n-1}\\), so the nonzero factor is squarefree. Fitting decomposition gives the \\(n\\)-dimensional periodic subspace and exact fixed-iterate gcd formula. Rabin irreducibility checks for \\(b=3,5\\) and complete trial division of \\(127\\) and \\(2147483647\\) prove the two primitive-orbit cases. Independent direct state evolution corroborates the \\(3\\times7\\) case. No exhaustive \\(2^{31}-1\\)-step trajectory was simulated; the claim follows from the algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The previous square-only corner-loop record proves a one-dimensional recurrent space for (2^a-1)-by-(2^a-1) grids; a proper 3-by-(2^b-1) rectangle, b>=3, lies outside its domain.",
+        "The classical 1984 results formulate general algebraic methods, not this boundary defect formula or the dimension 2^b-1.",
+        "The 2019 rank/reversibility theorems do not classify the present characteristic polynomial or large periodic orbit."
+      ],
+      "reasoning": "Generic finite-field linear dynamical systems theory gives the mechanism, but no inspected stronger result supplies the particular \\(p_b(z)\\) or the demonstrated \\(2^{31}-1\\) attracting cycle; square-only statements cannot be substituted by changing variables.",
+      "searches": [
+        "Martin–Odlyzko–Wolfram 1984 full §4D and §4F DOI 10.1007/BF01223745",
+        "Ciandrini et al. 2008 arxiv:0809.1526 full §§I–II",
+        "Temiz–Sah–Akın 2019 RG complete uploaded text §§3–5",
+        "Earlier square-grid feedback theorem, ID 8e77cce8-731b-402d-9ab5-e77a981a9279",
+        "Literature-index query: finite 3 by (2^b minus 1) rectangular square grid binary XOR with corner self feedback characteristic polynomial stable periodic subspace 2^b-1",
+        "Literature-index query: corner loop additive cellular automata 3x7 grid primitive period 127 feedback",
+        "Literature-index query: rectangular path Cartesian products parity evolution rank-one self loop finite grid 3 by Mersenne width",
+        "Literature-index query: two-dimensional XOR automata grid with single diagonal perturbation periodic states characteristic polynomial"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF01223745",
+      "arxiv:0809.1526",
+      "2019 J. Cell. Autom. 14, 241–262",
+      "arxiv:2609.34542 (abstract only)",
+      "earlier square-grid feedback theorem (ID 8e77cce8-731b-402d-9ab5-e77a981a9279)",
+      "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+      "Boundary-controlled parity reduction in modular Laplacian dynamics",
+      "Sharp period-four census for complete multipartite parity automata",
+      "Exact odd-ring and twice-odd bijectivity for quadratic five-site cellular automata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-corner loop breaks the spatial homogeneity assumed in 1984 §4D; its periodic-boundary polynomial factorization does not determine our null-boundary return moments.",
+        "The 2019 hybrid rank statements are about distinct alternating-rule configurations and do not imply the full characteristic polynomial.",
+        "The previous square theorem has only one periodic bit and its parameters exclude all our b>=3 rectangles; the new n-dimensional recurrent sector and primitive degree-31 polynomial do not follow from that theorem."
+      ],
+      "reasoning": "Although standard determinant-lemma tools are reused, one must independently compute the path resolvents, Lucas-mod-two moment cancellation and degree-31 primitive polynomial to derive the assertion. The actual claim cannot be inferred by merely renaming parameters or taking a corollary of any source compared.",
+      "searches": [
+        "1984 paper §4D: multidimensional additive cellular automata",
+        "2008 arxiv:0809.1526: random directed XOR networks and topology",
+        "2019 Temiz–Sah–Akın hybrid diamond/cross rule matrices",
+        "Previously documented square-grid 8e77cce8-731b-402d-9ab5-e77a981a9279",
+        "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+        "Boundary-controlled parity reduction in modular Laplacian dynamics",
+        "Sharp period-four census for complete multipartite parity automata",
+        "Exact odd-ring and twice-odd bijectivity for quadratic five-site cellular automata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact target is the adjacency matrix of a 3-by-(2^b-1) zero-boundary grid plus the rank-one upper-left coordinate projector, not a uniform spatial CA.",
+        "Martin–Odlyzko–Wolfram (1984), §4D uses homogeneous bivariate dipolynomials under periodic spatial boundaries; §4F studies other boundary conditions.",
+        "Temiz–Sah–Akın (2019), §§3–5 studies alternating diamond/cross hybrid rule families, not a single corner self inclusion."
+      ],
+      "reasoning": "Equivalent language includes null-boundary hybrid XOR automata, linear finite dynamical systems with one feedback loop, and characteristic-two grid adjacency with rank-one diagonal perturbation. The specific closed characteristic polynomial and companion recurrent sector were not stated in the inspected sources.",
+      "searches": [
+        "Literature-index query: finite 3 by (2^b minus 1) rectangular square grid binary XOR with corner self feedback characteristic polynomial stable periodic subspace 2^b-1",
+        "Literature-index query: corner loop additive cellular automata 3x7 grid primitive period 127 feedback",
+        "Literature-index query: rectangular path Cartesian products parity evolution rank-one self loop finite grid 3 by Mersenne width",
+        "Literature-index query: two-dimensional XOR automata grid with single diagonal perturbation periodic states characteristic polynomial",
+        "Web search: corner self-loop rule 90 3 by 31 grid period 2147483647",
+        "Web search: 2D hybrid cellular automata rule 170 150 corner rule 90 maximal period rectangular null boundary 3x31"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit polynomial p_5(z)=\\(z^{31}+z^{30}+z^{24}+z^{16}+1\\) has no identified exact matching grid-feedback entry in queried results.",
+        "The indexed parity automata results concern distance-two hypercubes or complete multipartite graphs, not 3-by-Mersenne rectangular path products."
+      ],
+      "reasoning": "Queries found related CA polynomial/rule literature but no exact table assigning this polynomial and the 93-vertex grid rule. Failed retrieval alone is not evidence of novelty; the inspected complete primary texts and implication differences are decisive to this best-knowledge assessment.",
+      "searches": [
+        "Web search: XOR cellular automaton rectangular grid feedback self-loop primitive polynomial z^31+z^30+z^24+z^16+1",
+        "Web search: 3 by 31 hybrid cellular automata 90 150 corner maximum length 2^31-1",
+        "Literature-index query: finite 3 by (2^b minus 1) rectangular square grid binary XOR with corner self feedback characteristic polynomial stable periodic subspace 2^b-1",
+        "Literature-index query: corner loop additive cellular automata 3x7 grid primitive period 127 feedback",
+        "Literature-index query: rectangular path Cartesian products parity evolution rank-one self loop finite grid 3 by Mersenne width",
+        "Literature-index query: two-dimensional XOR automata grid with single diagonal perturbation periodic states characteristic polynomial"
+      ]
+    },
+    "rationale": "The explicit squarefree recurrence polynomial and growing recurrent dimension for one-corner-feedback \\(3\\times(2^b-1)\\) grids do not occur in the inspected 1984 multidimensional CA, 2008 random XOR-network or 2019 distinct hybrid-rule family primary results. The documented square-only corner feedback formula has a one-dimensional periodic sector and does not include these proper rectangles. Semantic scientific-literature searches retrieved mostly automata on different graphs and rules. Historical-priority risk for uncatalogued hybrid CA studies remains; the giant period \\(2^{31}-1\\) relies on a separately checked degree-31 irreducibility certificate.",
+    "residual_risks": [
+      "Unindexed or hard-to-find hybrid cellular automata studies could have derived the same 3-by-Mersenne feedback primitive polynomials under another rule numbering.",
+      "The 2026 partial-shift permutation XOR paper was inaccessible in full, although its described permutation rule differs from one-corner grid feedback.",
+      "The full 1984 PDF is too large for the page-viewing service; its relevant full extracted Sections 4D and 4F were read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general background techniques and some homogeneous periodic-grid dynamics, but not this single-corner null-boundary primitive polynomial",
+        "evidence": [
+          "DOI:10.1007/BF01223745",
+          "1984 Section 4D focuses bivariate dipolynomial multiplication and periodic boundaries; Section 4F concerns other conditions"
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sw-publications/2020/07/algebraic-properties-cellular-automata.pdf",
+        "material_read": "Abstract and introduction; full text Sections 4D (multidimensional polynomial methods), 4F (boundary conditions), general fixed-iterate material in Section 4",
+        "method": "Opened lawful freely accessible complete PDF and read relevant full extracted sections; attempted page screenshot (source blocked at 30 MB) as an additional visual check",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "General additive multidimensional CA, polynomial dynamics and boundary generalizations"
+      },
+      {
+        "assessment": "General random directed XOR interaction graphs; no exact single-corner rectangular null-boundary characteristic polynomial",
+        "evidence": [
+          "arXiv:0809.1526 first posted 2008-09-09",
+          "Section II describes fixed indegree directed networks with root nodes and random adjacency"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.1526",
+        "material_read": "Abstract, Sections I–II setting out directed random networks, Boolean XOR updating and their feedback components",
+        "method": "Opened full lawful arXiv PDF, read model and results; inspected page-2 screenshot",
+        "title": "Feedback topology and XOR-dynamics in Boolean networks with varying input structure",
+        "trigger": "Direct dynamics/topology analog and precise 2008-09-09 archive anchor"
+      },
+      {
+        "assessment": "Studies rank and reversibility of hybrid diamond/cross-rule configurations, not the one-cell self-loop primitive-sector characteristic polynomial",
+        "evidence": [
+          "Journal of Cellular Automata 14 (2019), 241–262",
+          "Conclusions concern the rank of two other hybrid rule matrices and reversible/nonreversible tests"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/332980756_Reversibility_of_a_Family_of_2D_Cellular_Automata_Hybridized_by_Diamond_and_Cross_Rules_Over_Finite_Fields_and_an_Application_to_Visual_Cryptography",
+        "material_read": "Full author-posted plaintext, abstract, Theorems 2–6 and Section 5 conclusion; separate rule-matrix families",
+        "method": "Inspected freely accessible author-shared full text and the publisher abstract",
+        "title": "Reversibility of a Family of 2D Cellular Automata Hybridized by Diamond and Cross Rules Over Finite Fields and an Application to Visual Cryptography",
+        "trigger": "Plausible hybrid two-dimensional null-boundary automata prior"
+      },
+      {
+        "assessment": "Describes partial-shift permutation connections and not a single-corner zero-boundary grid, but whole text not fully inspected",
+        "evidence": [
+          "arXiv:2609.34542 abstract describes half-primitive polynomials and partial-shift hardware; no grid or corner in abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.34542",
+        "material_read": "Title, abstract only; arXiv full PDF fetch unavailable",
+        "method": "Read search-result abstract and attempted to open full paper; failed PDF fetch",
+        "title": "Permutation XOR cellular automata: partial-shift connections and half-primitive polynomials",
+        "trigger": "Potential alternate maximal-length XOR generator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d35aa2b-4b3b-44a9-ae2f-1f9dfd0438ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single local feedback bit turns a nilpotent local grid rule into an explicitly counted invertible recurrent sector across an infinite width family. At \\(b=5\\), it converts extinction on a 93-vertex system into eventual entry with probability \\(1-2^{-31}\\) into one prime cycle of length \\(2^{31}-1\\). This is a motivated quantitative dynamical phase change rather than a routine table lookup or parameter relabelling.",
+    "status": "PASS"
+  }
+}

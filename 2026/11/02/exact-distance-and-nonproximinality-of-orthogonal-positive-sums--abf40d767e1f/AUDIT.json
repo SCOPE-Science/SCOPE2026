@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every positive norm-one f in C([0,1]) and integer k>=2, an orthogonal-summand g yields k ordered peaks equal to one separated by k-1 exact zeros; this gives a lower bound for (1). The clipping envelopes L=max(f-δ,0) and U=min(f+δ,1), together with a continuous 0/1 interpolant, construct a matching g that splits into exactly k orthogonal norm-one pieces, proving the reverse inequality and the nearest-point criterion. Compactness of peak/zero witnesses proves closedness, while f(t)=t has distance 1/2 and no attaining witnesses. Uniform continuity gives the all-k lower bound 1/2, zeroes of g give the lower bound min f, and clusterable witnesses give the upper bound max(1/2,min f). For piecewise affine f, strict δ<1/2 witnesses can be transferred to vertices, proving the exact finite formula. Explicit quantifiers and boundary cases are in RESULT.md. The bundled checker.py passed 940 rational finite checks, not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biswas–Cultrera di Montesano–Edelsbrunner–Saghafian, doi:10.1007/s41468-023-00126-9, classify critical-point pairings and total variation via persistent homology. Their main theorem is about persistence diagrams, not the norm distance to a locus of k pairwise-annihilating unit positive functions.",
+        "Taghavi arXiv:2610.15167 discusses broader C*-algebras but only qualitative closedness of I(C(X)), distance from 1, and algebraic invariants."
+      ],
+      "reasoning": "Persistent-homology diagrams offer a related interpretation of high/low excursion counts, but the inspected results do not state an implication giving the exact nonlinear uniform approximation, attained-versus-unattained boundary, and all-k limit for this constrained target. The earlier general C*-algebra theorem covers a different, weaker metric claim.",
+      "searches": [
+        "closed nonproximinal set of orthogonal positive unit functions all-k exact distance minimax positive contractions",
+        "Public web: number of connected components superlevel set edit distance L∞ persistence peaks valleys arbitrary continuous function",
+        "Biswas et al., Geometric characterization of the persistence of 1D maps, 2023, main theorem and section on persistence, PMC11639680"
+      ]
+    },
+    "checked_sources": [
+      "Ali Taghavi, arXiv:2610.15167 (first made public 2026-10-10; primary MSC 46L05): Theorems 3.1–3.3.",
+      "Ali Taghavi, arXiv:1301.3129 (first public 2013): positive zero divisors and identity distance.",
+      "Biswas et al., doi:10.1007/s41468-023-00126-9 (public 2023): 1D persistence/variation.",
+      "Published mathematical research records searched with aliases, nonlinear best-approximation language, and superlevel-persistence language.",
+      "Accessible prior claims in the existing same-slot weekly ledger checked for arXiv source ID, object names, function-space aliases, and nearest-point assertions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Taghavi 2026 states dist(1,I(A)) is 0 or 1; the input f(t)=t and its unattained distance 1/2 are distinct.",
+        "Taghavi 2026 establishes I(C([0,1])) closed for k=2; closedness does not entail proximinality, and no quantitative arbitrary-f minimax appears in the inspected theorem/proof.",
+        "The one-dimensional persistence theorem describes critical pairings and is not a best-approximation theorem."
+      ],
+      "reasoning": "The new theorem includes the previously known k=2 closedness as background but is not presented as novel. The genuinely added conclusions (exact distances for arbitrary f, k≥2, nonproximinality, limiting invariant, exact finite algorithm) do not follow as stated from the compared prior theorems without the new envelope and oscillation arguments.",
+      "searches": [
+        "orthogonal positive sums C(X) nearest point best approximation distance positive functions two disjoint supports",
+        "nonproximinal closed subset of positive unit sphere C[0,1] disjoint support peaking continuous functions",
+        "Taghavi arXiv:2610.15167, Theorems 3.1 and 3.2; arXiv:1301.3129, introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Taghavi, arXiv:2610.15167, Theorem 3.2, proves closedness of the two-summand locus and gives a zero-set connected-component criterion for membership; no exact pointwise distance or nonproximinality statement appears in the inspected full text.",
+        "A. Taghavi, arXiv:1301.3129, introduction and positive zero-divisor geometry, studies an invariant based on identity distance rather than general input distances.",
+        "Published research-record ranked matches centered on Hilbert-operator distances, Banach-space projection constants, and C(K) Δ-constants; none expresses the ordered alternating peak–valley approximation problem."
+      ],
+      "reasoning": "The closest established membership criterion corresponds to only the zero-distance case for k=2. It neither gives the exact positive-distance formula nor covers all k and the limiting law. Generic Chebyshev alternation concerns linear polynomial approximation, not this nonlinear disconnected-support norm-one target.",
+      "searches": [
+        "Taghavi 2026 arxiv 2610.15167 orthogonal positive sums C interval metric distance to I(C(X)), nearest point nonproximinal",
+        "alternating maxima minima distance norm-one orthogonal positive summands C([0,1]) with k peaks separated by zeros",
+        "Public web: \"orthogonal positive sums\" \"nearest\" C(X)",
+        "Ali Taghavi arXiv:2610.15167, section 3 and Theorem 3.2 (full accessible HTML)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact-distance database/table evaluates this nonlinear C([0,1]) target; finite rational data formula (3) follows from a new all-input interval argument and is not a report of previously tabulated values.",
+        "Rational finite examples were checked directly by the bundled checker.py against refined-grid witnesses and envelope constructions."
+      ],
+      "reasoning": "The claim concerns a universal formula and nonattainment, not a lookup table. Overlap could occur under topological persistence terminology, so absence of a table is not used as proof of novelty.",
+      "searches": [
+        "finite-level critical threshold persistent components distance to orthogonal functions",
+        "metric distance to sum of k pairwise orthogonal positive norm-one elements in C([0,1]); exact alternating peak valley minimax formula; nonproximinality"
+      ]
+    },
+    "rationale": "Best-knowledge originality after primary full-text comparison, multiple targeted literature and published research-record searches, and accessible prior research records source/claim alias checks. The motivating paper proves two-summand closedness and an identity-distance dichotomy, not the new exact arbitrary-input/all-k metric problem. Persistence literature analyzes critical pairings but not this constrained norm-one positive approximation, nearest-point failure, or the all-k limit. Potential unindexed equivalent results remain an explicit risk.",
+    "residual_risks": [
+      "An older or unindexed metric/persistence theorem for excursion counts could potentially imply the alternating formula with an appropriate change of vocabulary.",
+      "The elementary proof does not establish global publication priority; independent assessment is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers qualitative closedness and distance from the identity but not exact arbitrary-f distance, k-fold hierarchy, limiting law, or failure of nearest points.",
+        "evidence": "Theorem 3.2 supplies the zero-set connected-component membership criterion for I(C(X)); Theorem 3.1 gives distance of identity 0/1.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.15167",
+        "material_read": "Accessible source full text: abstract, introduction, central theorem statements in sections 2 and 3, Theorem 3.2 proof, and keyword searches for nearest/proximinality.",
+        "method": "Direct reading and theorem/claim implication comparison in arXiv full text.",
+        "title": "On the set of orthogonal positive sums in a C*-algebra",
+        "trigger": "Same object and recent initiating paper, exact two-summand C(X) setting"
+      },
+      {
+        "assessment": "Defines related norm-one orthogonality and identity distance; does not contain the general function-to-I_k optimization.",
+        "evidence": "The first paragraphs introduce the binary projection/identity-distance obstruction.",
+        "identifier_or_url": "https://arxiv.org/abs/1301.3129",
+        "material_read": "Accessible arXiv full text: introduction and relevant discussion of the identity distance and positive zero-divisor invariant.",
+        "method": "Direct reading and comparison of named metric quantity.",
+        "title": "A Note on Positive Zero Divisors in C* Algebras",
+        "trigger": "Earlier work introducing the orthogonal positive pair invariant"
+      },
+      {
+        "assessment": "Analyzes generic 1D critical pairings and total variation. No constrained approximation to k norm-one orthogonal positive summands, attainment theorem, or all-k distance limit in inspected sections.",
+        "evidence": "Main theorem pairs extrema in ordinary/relative/essential persistence; main corollary identifies variation with total persistence.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11639680/",
+        "material_read": "Open-access HTML abstract, introduction, stated main theorem, main corollary and background on persistence stability.",
+        "method": "Direct reading and comparison of mathematical statement and domain.",
+        "title": "Geometric characterization of the persistence of 1D maps",
+        "trigger": "Potential equivalence through critical extrema and superlevel component persistence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abf40d76-7e1f-4bee-a714-60a7b4fa2998",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a natural norm-one orthogonal-sum locus introduced in current C*-algebra geometry. The theorem supplies a complete, exact nonlinear best-approximation invariant on the canonical connected interval algebra, an explicit counterexample to proximinality of a norm-closed locus, an attainment criterion, a sharp all-k limiting law, and an exact rational finite-input computation. The k-fold behavior and nonattainment distinguish it from routine reformulation of qualitative closedness.",
+    "status": "PASS"
+  }
+}

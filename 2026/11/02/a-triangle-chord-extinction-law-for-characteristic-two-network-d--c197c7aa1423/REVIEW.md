@@ -1,0 +1,15 @@
+# Scientific assessment: triangle-chord characteristic-two dynamics
+
+## Correctness — PASS
+The object, field, update rule, and first-periodic-entry time are defined for every \(n\ge4\) and every finite characteristic-two field. Matching cancellation in characteristic two establishes \(\chi_{H_n}(X)=X^2f_{n-2}(X)\), with \(f_m\) the binary path continuant. The doubling identities for \(f_m\) establish exact zero algebraic multiplicity. The explicit kernel equations independently establish zero geometric multiplicity one for odd lengths and two for even lengths. Fitting decomposition then yields the claimed Jordan partition and all shell counts. The proof is over arbitrary characteristic-two fields. The independent finite verifier checks matrix ranks and microscopic trajectories for the stated finite ranges; its finite checks are not substituted for proof.
+
+## Originality — PASS with historical-access risk
+Relevant full text was read for Marr–Hütt (2005), Macauley–Mortveit (2008), del Rey (2013), and Brouwer–Gow–Sheekey (2014), at the sections detailed in the structured audit. Their conclusions concern other local rules, sequential update orders, homogeneous Rule 150, or general matrix enumeration. The present exact theta-graph zero-primary Jordan partition and complete first-entry census do not follow as *stated results* from those papers. General matching-polynomial and Fitting identities are acknowledged and used, not claimed as novel. Research-index and published-literature searches for aliases, spectral factorization, and the nilpotent subsequence found no equivalent specific theorem. Ganguly–Sikdar–Pal Chaudhuri (2008) was not obtained in full; its abstract concerns additive cell automata, so a historical exact-equivalence risk remains.
+
+## Mathematical value — PASS
+The invariant is intrinsically motivated: the first entry time to recurrent dynamics measures information loss in a finite network parity automaton. The result gives the *complete* stopping-time distribution for a nontrivial 2-connected graph family of maximum degree three. More strikingly, a single shortcut creates arbitrarily long nilpotent Jordan strings and complete extinction on the natural dyadic-plus-one subsequence, although an unmodified odd cycle retains nonzero periodic motion. This is a qualitative global transition caused by one local topological change, not an arbitrary finite table or a marginal numerical gain.
+
+## Closest literature and limits
+The closest source on graph shortcut effects is Marr–Hütt (2005), but its nonlinear density-threshold rules and entropy summaries differ. Del Rey (2013) addresses a homogeneous self-inclusive rule rather than an irregular graph; Brouwer–Gow–Sheekey (2014) is a general enumeration theorem. The accessible Ganguly–Sikdar–Pal Chaudhuri abstract does not settle whether its full text contains a relevant special case. The theorem does not classify nonzero orbit lengths or odd-characteristic updates. Its literature comparison is best-knowledge rather than proof of uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.

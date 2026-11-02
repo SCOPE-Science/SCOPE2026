@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each third vertex z, weighted distances to the partially exchanged endpoint values are bounded by their original weighted distances plus theta*|w_uz-w_vz|*|f(u)-f(v)|. Convexity of the sum of distances to two endpoints proves the bound, and selecting f(z) equal to the endpoint with the larger incident weight attains equality simultaneously at all z. The edge uv contributes exactly -2*min(theta,1-theta)*w_uv*|gap|. Coarea/layer-cake and constancy preservation reduce the induced variation norm to indicator cuts, whose exact changes give the signed-cut ratio and min-cut test. The simple graph-family classifications follow by counting the unequal endpoint neighborhoods. Exact-rational testing independently checked 4,200 sharp gains, 4,200 cut norm comparisons, 4,200 contractivity decisions, 16,800 direct signal inequalities, 91 star tests, and 480 exact mincut/exhaustive comparisons. The analytic proof, not finite tests, covers all sizes. Two-vertex and theta=0 boundaries are treated separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2006: mixing-time and spectral estimates for gossip; studied matrix norms concern averaging errors",
+        "Ben-Ameur et al. 2012: TV penalty applied inside a distinct distributed convex optimization scheme",
+        "Kováč and Smith, arXiv:0911.1928: graph TV as an l1 regularization penalty; only abstract materially accessible"
+      ],
+      "reasoning": "Convergence in Euclidean error, total-variation penalization, and general cut/coarea identities do not by themselves state a necessary-and-sufficient local criterion for each finite weighted graph exchange or its exact cut ratio. The paper explicitly about total-variation gossip uses a nonlinear TV penalty and treats robustness to stubborn agents, so title similarity is not stronger operator coverage.",
+      "searches": [
+        "graph total variation exact contraction criterion edge-averaging doubly stochastic projection gossip",
+        "edge gossip graph energy l1 total variation adjacent neighbor weights",
+        "coarea level-set cut norm positive linear graph averaging projection",
+        "graph total variation averaging two adjacent vertices edge operator nonexpansive neighborhoods"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0911.1928 abstract, first posted 2009-11-10",
+      "Boyd et al., IEEE TIT 52 (2006) author PDF",
+      "Ben-Ameur et al., VALUETOOLS 2012 full PDF",
+      "Boyd et al., IEEE CDC 2004 paper overview",
+      "published-finding corpus current scientific records via searches listed in the four check objects",
+      "Available earlier local claims for the same mathematical research category",
+      "Final claim-level published-finding corpus checks using the sharp weighted-neighbor formula and induced cut-norm formulation, with closest match graphical zonotope inradius but different operator and normalization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "prior claim 9fedb929-4a7c-4efe-931f-0c710ebc2528 treats weighted-tree continuous-time heat contraction, not arbitrary-graph single-edge discrete exchange",
+        "prior claim 19779f16-3091-4552-a882-4c9ee29e3f9e treats binary cyclic conditional expectations, not a graph-edge partial exchange",
+        "Boyd et al. 2006 obtains spectral mixing and defines classical averaging; Ben-Ameur et al. 2012 defines graph TV but treats its regularized optimizer"
+      ],
+      "reasoning": "The earlier heat theorem and binary coloring projection theorem involve nonidentical operators and have neither the full weighted-neighbor discrepancy condition nor the over-relaxation phase interval. The exact norm statement also requires combining a local sharp displacement lemma with a global indicator/coarea reduction and min-cut decision; none of the compared statements directly dominates that combination.",
+      "searches": [
+        "single edge pairwise averaging gossip nonexpansive graph total variation weighted neighbor discrepancy criterion",
+        "graph total variation exact contraction criterion edge-averaging doubly stochastic projection gossip",
+        "coarea level-set cut norm positive linear graph averaging projection",
+        "sharp total variation norm discrete Hardy averaging operator rooted trees paths graphs",
+        "total variation contraction conditional expectation finite graph partitions",
+        "pairwise averaging gossip graph total variation monotonically decreases variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al., Randomized Gossip Algorithms, IEEE TIT 52 (2006), formula for the pairwise gossip matrix on p.2509 and spectral averaging-time theorems",
+        "Ben-Ameur, Bianchi and Jakubowicz, VALUETOOLS 2012, Sections II and IV, distinguishes conventional linear gossip from TV-regularized nonlinear gossip"
+      ],
+      "reasoning": "Rephrased as graph-BV nonexpansivity of a rank-one edge Markov update, a partial vertex transposition, a pairwise consensus projector, and a sharp induced cut-seminorm. No equivalent iff condition involving the l1 discrepancy of the two weighted neighbor profiles or the exact over-relaxation interval was located. A general matrix description of the update does not state its exact BV operator norm.",
+      "searches": [
+        "single edge pairwise averaging gossip nonexpansive graph total variation weighted neighbor discrepancy criterion",
+        "graph total variation exact contraction criterion edge-averaging doubly stochastic projection gossip",
+        "weighted graph vertex transposition partial swap total variation induced operator norm cut",
+        "pairwise gossip edge nonexpansive graph BV seminorm exact neighborhoods",
+        "pairwise averaging gossip graph total variation monotonically decreases variation",
+        "Sharp local weighted-neighbor total variation increment for symmetric edge pair exchange theta on all finite weighted graphs, contraction exactly sum_z absolute(w_uz-w_vz) <= 2 w_uv and overrelaxation theta cutoff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search showed weighted graphical zonotope cut expansion, id 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab; its quotient is over mean-zero L2, not an exchange operator",
+        "The formulas range over all connected finite graphs and continuously varying positive edge weights, so they are not a finite census lookup"
+      ],
+      "reasoning": "No exact table or database record tabulates this family of weighted gossip BV norms. A prior result on cut ratios for a graphical zonotope does not supply the images of cuts under the selected stochastic operator.",
+      "searches": [
+        "single edge pairwise averaging gossip nonexpansive graph total variation weighted neighbor discrepancy criterion",
+        "weighted graph vertex transposition partial swap total variation induced operator norm cut",
+        "pairwise gossip edge nonexpansive graph BV seminorm exact neighborhoods",
+        "nonexpansive graph total variation gossip update neighboring nodes weights",
+        "exact graph total variation induced norm of edge gossip exchange equals maximum ratio over separating cuts, min cut threshold"
+      ]
+    },
+    "rationale": "Published gossip papers supply the pairwise averaging operator and spectral convergence, while graph-total-variation work supplies the variation functional. The materially read 2012 total-variation gossip paper concerns a nonlinear TV-regularized optimization problem, not the variation norm of a conventional pairwise exchange. The result assessed here is the weighted-neighborhood discrepancy equivalence for all graphs, the exact parameter boundary including partial swaps, and the sharp graph-cut/operator-norm formula with minimum-cut decisions. Historical graph-TV contraction and conditional averaging findings concern heat flow or different averaging operators; they do not imply the asserted sharp gossip law without additional calculation. A hidden elementary equivalent remains possible, recorded below.",
+    "residual_risks": [
+      "An equivalent local weighted-neighbor criterion could be implicit in older graph signal processing, Markov operator, or gossip papers despite the search and primary comparisons.",
+      "The 2009 graph-regression manuscript was not materially examined beyond its public abstract; it is not counted as whole-document noncoverage.",
+      "The elementary structure of the sharp displacement lemma increases the possibility of an overlooked equivalent, although the exact over-relaxation and cut-norm package was not found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the graph-edge weighted variation seminorm criterion or exact norm in the inspected material; its main bounds concern spectral mixing and averaging time.",
+        "evidence": [
+          "IEEE TIT 52 (2006) 2508-2530; update W_ij=I-(e_i-e_j)(e_i-e_j)^T/2, p.2509; Theorem 3 spectral convergence"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "material_read": "Problem formulation, pairwise update matrix on p.2509; prior-work/main-result sections pp.2510-2511, convergence framework; whole PDF text search for total variation",
+        "method": "Publisher-author-hosted full PDF pages and searchable text; visual inspection of p.2509",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Foundational source defining conventional pairwise exchange and plausible general contraction claims"
+      },
+      {
+        "assessment": "The TV term is an optimization penalty and the proposed TV gossip is a nonlinear subgradient procedure; conventional pairwise averaging is background. No exact standard-pairwise-exchange BV norm or weighted neighborhood condition found.",
+        "evidence": [
+          "Eq. (7): quadratic fidelity plus lambda*||gradient x||_1; Sec. II describes ordinary pairwise gossip; Sec. IV defines TV-regularized nonlinear procedure"
+        ],
+        "identifier_or_url": "https://eudl.eu/pdf/10.4108/valuetools.2012.250316",
+        "material_read": "Abstract and Sections I, II, and IV (including optimization problem (7), graph gradient and new update); results/conclusions on pp.5-7",
+        "method": "Lawfully accessible full eight-page PDF searchable text, with visual inspection of p.2",
+        "title": "Robust Average Consensus using Total Variation Gossip Algorithm",
+        "trigger": "Very close title explicitly combining graph TV and gossip"
+      },
+      {
+        "assessment": "Abstract concerns L2 fidelity plus edge L1 penalty and a regression algorithm; cannot assert whole-document noncoverage because full text was not read.",
+        "evidence": [
+          "First posted 2009-11-10; arXiv:0911.1928; journal version J. Comput. Graph. Stat. 20 (2011) 432-447"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0911.1928",
+        "material_read": "First-version arXiv abstract; full arXiv PDF request was inaccessible",
+        "method": "arXiv abstract and University of Bristol article description; attempted arXiv PDF",
+        "title": "Regression on a Graph",
+        "trigger": "Early exact-dated source for edge-total-variation regularization on finite graph signals"
+      },
+      {
+        "assessment": "Describes mean-consensus convergence and eigenvalue optimization, not graph TV; full-document noncoverage is not claimed.",
+        "evidence": [
+          "IEEE Conference on Decision and Control, December 2004; main subject matrix spectral convergence of gossip"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/gossip_opt.html",
+        "material_read": "Public paper overview, authors, conference reference, and linked-paper synopsis; not the full text",
+        "method": "Author-hosted publication landing page",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Preliminary 2004 publication establishing pairwise gossip setting before the later journal paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3fa8e2c-2e1a-43c3-aa85-b7aac066a9dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact stability design criterion for standard local averaging, used in distributed consensus on arbitrary connected weighted communication graphs. It specifies exactly which edges can be updated without increasing graph total variation and how far the exchange may be over-relaxed, while a global induced operator norm and a one-min-cut threshold give quantitative worst-case guarantees when contraction fails. It yields all-schedule pathwise monotonicity criteria and a complete multipartite graph classification; a star demonstrates unbounded one-step variation inflation despite averaging. This is more than an arbitrary numerical constant or routine special-case enumeration. The scientific claim does not include faster consensus rates or other unproved guarantees.",
+    "status": "PASS"
+  }
+}

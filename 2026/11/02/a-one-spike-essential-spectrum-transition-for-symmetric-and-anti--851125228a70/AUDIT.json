@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The normalization is precisely T=(S⊗S*+S*⊗S)/2 and the one-spike coefficients are a/2 at the two ends of every homogeneous block of size at least three. Reflection gives the exact symmetric/antisymmetric split. For |lambda|>1 the interior free resolvent is explicitly g=2U_(m-1)/U_m and h=2/U_m; the scalar Schur-complement equations converge uniformly to lambda−(a²/2)rho. Solving the root equation yields only ±a²/(2sqrt(a²−1)) with |rho|<1 exactly when a>sqrt(2). Disjoint interior reflected plane waves prove all of [-1,1] belongs to each essential spectrum, and reflected exponentially decaying half-line eigenvectors give Weyl sequences at both detached points. All boundaries a>0 and a=sqrt(2) are included; finitely many low-degree sections are correctly ignored for essential spectra. The delivered standalone script passed 2,371 finite algebra and matrix tests; infinite statements are proved analytically, not inferred from those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Zhang: all bounded nonnegative weights are allowed in a finite-block point-spectrum algorithm, but the paper does not identify this family's limiting essential spectral set.",
+        "Tian–Wang–Zhu: general regular-weight norm equalities, not Fredholm essential norms for this nonconstant spike.",
+        "Webb–Olver, DOI 10.1007/s00220-021-03939-w: general finite-rank perturbation Jacobi spectral machinery, as described in its published abstract."
+      ],
+      "reasoning": "The broad weighted-shift theorem covers finite characteristic polynomials, a prerequisite that the new theorem acknowledges as prior. Obtaining a two-parity essential spectrum and the explicit sharp threshold requires further nontrivial limiting spectral analysis. Classical half-line Jacobi theory supports the boundary method but does not by itself settle the infinite orthogonal sum in two symmetry sectors.",
+      "searches": [
+        "operator theory compact weighted shifts tensor spectral phase transition",
+        "symmetric antisymmetric tensor product one-spike unilateral weighted shift adjoint essential spectrum band edge phase transition isolated outlier a > sqrt2",
+        "weighted shift w0 a wn 1 symmetric tensor adjoint Fredholm essential spectrum ±a²/(2 sqrt(a²−1))",
+        "arxiv:2509.07374 Theorem 3.3 and Section 3",
+        "arxiv:2507.17181 Theorem 1.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.14807, Sections 8 and 10",
+      "arxiv:2507.17181, Theorem 1.3 and Sections 1–3",
+      "arxiv:2509.07374, Theorem 3.3, Corollary 3.5, and Section 3 proof",
+      "DOI 10.1007/s00220-021-03939-w, published abstract (not full text)",
+      "Published mathematical research-record searches for symmetric/antisymmetric weighted shift tensor essential spectral laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unweighted formula is the special parameter value a=1 and is expressly not treated as new.",
+        "Yang–Zhang Theorem 3.3 gives the full collection of finite characteristic polynomials for arbitrary weights, but no explicit essential-spectrum closure for the one-spike family.",
+        "The Jacobi Green-function equation has exterior roots only for a>sqrt(2), and independent parity Weyl sequences establish that both roots lie in the Fredholm essential spectra."
+      ],
+      "reasoning": "Prior finite-block characteristic polynomials imply each finite block's eigenvalues but not the explicit accumulation-point law without solving an asymptotic root problem. Existing Jacobi rank-one boundary tools give useful ingredients; the tensor parity and essential-spectrum conclusion are not stated in the inspected works. The contribution excludes all purely finite-block deductions claimed by those sources.",
+      "searches": [
+        "arxiv:2306.14807 §8 and Problem 7",
+        "arxiv:2507.17181 §1–3",
+        "arxiv:2509.07374 Theorem 3.3 and Corollary 3.5",
+        "symmetric antisymmetric tensor product one-spike unilateral weighted shift adjoint essential spectrum band edge phase transition isolated outlier a > sqrt2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2509.07374 (Yang and Zhang), Theorem 3.3: finite-degree point-spectrum polynomial algorithm for symmetric and antisymmetric weighted-shift/adjoint tensors.",
+        "arxiv:2306.14807 (Garcia, O'Loughlin and Yu), Theorem 8.1: unweighted tensor spectra [-1,1]; Problem 7 asks for weighted shifts.",
+        "Closest published research-record title: Exact symmetric-Fock decomposition of a binomially weighted lattice backward shift; its quadrant shift and diagonal-transfer singular spectra are different objects."
+      ],
+      "reasoning": "No inspected theorem is equivalent to the explicit one-spike Fredholm essential-spectrum law for both symmetries. A limit of finite-section roots must be analyzed separately; the current proof does so with a uniform Green-function limit and Weyl sequences.",
+      "searches": [
+        "symmetric tensor product unilateral weighted shift adjoint spectrum point spectrum operator",
+        "symmetric tensor product diagonal operator unilateral shift essential spectrum weighted shift",
+        "\"essential spectrum\" \"symmetric tensor\" \"weighted shift\" adjoint",
+        "\"S_w \\odot S_w^*\" essential spectrum weighted shift",
+        "arxiv:2509.07374 Theorem 3.3",
+        "arxiv:2306.14807 Theorem 8.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched primary articles have an explicit unweighted spectrum and general finite block polynomials, but no inspected table with the one-spike essential outlier threshold or closed-form Fredholm essential norm.",
+        "Relevant published research-record search returned a binomially weighted lattice Fock decomposition, not a matching spike tensor family."
+      ],
+      "reasoning": "A database or table of all finite block roots does not independently establish a uniform accumulation set. No exact table of the present essential set was identified. Absence of a match is a limited search observation, not proof of priority.",
+      "searches": [
+        "symmetrized S_a tensor S_a adjoint boundary Jacobi outlier sqrt2 essential norm",
+        "essential spectrum S_w odot S_w star rank-one edge weight Jacobi spectral outliers",
+        "one exceptional initial weight w0, others constant, symmetric and antisymmetric tensor product shift adjoint spectrum",
+        "finite Jacobi matrix two end bond perturbations outliers a sqrt 2 boundary spectral spectrum"
+      ]
+    },
+    "rationale": "The source-matched claim concerns Fredholm essential spectral accumulation for a positive one-spike weighted shift in both tensor-symmetry sectors. Garcia–O'Loughlin–Yu Theorem 8.1 establishes only the unweighted case and their Problem 7 asks for weighted shifts. Tian–Wang–Zhu Theorem 1.3 addresses norm identities, not this essential-spectrum transition. Yang–Zhang Theorem 3.3 gives characteristic-polynomial descriptions of each finite homogeneous-block point spectrum, which subsumes the block reduction but does not state or immediately evaluate the uniform-block essential-spectrum limit or spike threshold. The proof supplies new boundary-resolvent asymptotics and parity-separated singular Weyl sequences. Exact searches of published mathematical records and accessible earlier scientific-claim records found no dominating specific statement; this is a best-knowledge rather than independently certified novelty judgment.",
+    "residual_risks": [
+      "The general point-spectrum polynomial algorithm in arxiv:2509.07374 could encode the answer implicitly; the assessment distinguishes its unstated nontrivial asymptotic from an immediate covered corollary.",
+      "An equivalent one-spike limit could be present under Jacobi bound-state, spectral graph, or tensor operator terminology not returned by the searches.",
+      "The Webb–Olver 2021 article was not inspected in full, so no whole-document exclusion is asserted; its general Jacobi methods may overlap proof ingredients.",
+      "Definitive priority and independent correctness have not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 8.1 is the unweighted a=1 case; Problem 7 asks for weighted-shift norm and spectrum. No formula for the one-spike essential spectral transition.",
+        "evidence": [
+          "Theorem 8.1 states spectra [-1,1] for unweighted symmetric and antisymmetric shift/adjoint tensors.",
+          "Problem 7 asks about S_w tensor S_w adjoint for general weighted shifts."
+        ],
+        "identifier_or_url": "arxiv:2306.14807; https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/symmetric-and-antisymmetric-tensor-products-for-the-functiontheoretic-operator-theorist/41A55B06E1FF4A9E2F68907F31339BEF",
+        "material_read": "Accessible full article, especially definitions, Section 8 Theorem 8.1 and Section 10 Problem 7.",
+        "method": "Read full accessible HTML and compared operator definitions, weight restriction, and spectral implications.",
+        "title": "Symmetric and Antisymmetric Tensor Products for the Function-Theoretic Operator Theorist",
+        "trigger": "Introduces the tensor operators, computes the unweighted shift case, and poses the weighted-shift spectrum problem."
+      },
+      {
+        "assessment": "Addresses norm equality under regularity, not the one-spike Fredholm essential spectrum or detached points.",
+        "evidence": [
+          "Initial public arXiv version dated 2025-07-23.",
+          "2020 MSC classification lists primary 47A13.",
+          "Theorem 1.3 formulates regularity/norm equivalence."
+        ],
+        "identifier_or_url": "arxiv:2507.17181; https://arxiv.org/abs/2507.17181",
+        "material_read": "Full accessible arXiv HTML with the introduction, Theorem 1.3, definitions of regularity, and norm-focused argument sections.",
+        "method": "Compared the hypotheses and outcomes of Theorem 1.3 with the proposed essential spectral formula.",
+        "title": "The norms for symmetric and antisymmetric tensor products of the weighted shift operators",
+        "trigger": "First-date-verified recent primary motivation for shift tensor norms."
+      },
+      {
+        "assessment": "Finite-block polynomial structure already known; the explicit one-spike essential spectral points, threshold and essential norm are not supplied.",
+        "evidence": [
+          "Theorem 3.3 computes point spectrum through finite homogeneous-block characteristic polynomials.",
+          "Corollary 3.5 treats geometrically decaying weights, with compact tensor operators for parameter greater than one.",
+          "Authors explain in Section 3 that evaluating the polynomial roots remains a special-function problem."
+        ],
+        "identifier_or_url": "arxiv:2509.07374; https://arxiv.org/abs/2509.07374",
+        "material_read": "Full accessible arXiv HTML, Sections 2–4, Theorem 3.3, its block proof and Corollary 3.5.",
+        "method": "Compared the finite-degree parity polynomials and explicit special weights with the present asymptotic Fredholm spectral classification.",
+        "title": "On the spectrum of the symmetric tensor products of certain Hilbert-space operators",
+        "trigger": "Closest direct full-text primary source, general weighted shift/adjoint point-spectrum calculation."
+      },
+      {
+        "assessment": "General finite-rank Jacobi spectral computation is relevant background; abstract alone cannot establish whether specialized tensor limiting statements are contained.",
+        "evidence": [
+          "Published abstract describes spectrum of compact perturbations of free Jacobi operators via connection coefficient polynomial."
+        ],
+        "identifier_or_url": "DOI 10.1007/s00220-021-03939-w; https://research.manchester.ac.uk/en/publications/spectra-of-jacobi-operators-via-connection-coefficient-matrices/",
+        "material_read": "Published abstract and bibliographic record, not the full research text.",
+        "method": "Compared publicly described operator class and general method; retained unresolved full-text implication risk.",
+        "title": "Spectra of Jacobi operators via connection coefficient matrices",
+        "trigger": "General Jacobi boundary perturbation and connection coefficient method plausibly giving overlapping ingredients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85112522-8a70-4b56-a46c-42e4ee5586fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-spike family is a canonical compact perturbation of the unilateral shift in an open weighted-shift tensor-spectral problem. The theorem completely describes both Fredholm essential spectra and exact essential norms for the entire parameter range, with a sharp threshold and two isolated essential outliers. It reveals that rank-one perturbation of the underlying shift can create new essential spectrum after tensor construction, and that both tensor symmetries have the same limiting phase transition despite different finite sections. The closed threshold and quadratic onset are structurally motivated; these are not arbitrary finite table entries or a routine substitute for the general theory.",
+    "status": "PASS"
+  }
+}

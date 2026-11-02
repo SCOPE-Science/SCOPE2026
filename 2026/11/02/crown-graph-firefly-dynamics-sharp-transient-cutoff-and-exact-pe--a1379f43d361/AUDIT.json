@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The exact pair-count cap at two is justified by excluding at most one matched blinking neighbor. Monotonicity of occupied-type support proves that recurrence of the quotient is exactly first recurrence of the labelled dynamics, with the full period given by an induced permutation order. Standalone Python certificate exhaustively enumerates all 19683 quotient states with complete transition, 33 recurrent quotient cycles, periods and sharp first-entry bounds for every n. An independent integer-polynomial program verifies the full period-four EGF identity, and independent C++ vertex-level exhaustive enumeration for n=2..7 covers 5380830 labelled initial states; all sources and execution outputs are included. The finite quotient, not small-size sampling, is the all-n proof. For n=3 the 24 quotient templates each contribute 3! assignments, 72 recurrent phase configurations, and exactly four primitive eighteen-cycles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lyu 2014 full text: Theorems 2–4 are path/tree synchrony and recurrence criteria, and Theorem 6 adds randomized reception on connected graphs. Neither concerns the deterministic period basin census on crown graphs.",
+        "The 2016 tree result has a tree hypothesis and addresses worst-case synchrony times; crown graphs with n≥3 contain cycles.",
+        "Published complete-multipartite parity result uses a binary linear parity rule, not inhibitory firefly dynamics."
+      ],
+      "reasoning": "Broader graph coverage with a different update does not dominate a result for this rule. Conversely, broader synchrony results for trees or stochastic graph perturbations do not apply to deterministic crown graphs or count their primitive eighteen-cycles.",
+      "searches": [
+        "cyclic graph dynamical systems threshold network exact period distribution bipartite irregular graph",
+        "synchronous firefly networks 3-color matched-deleted bicliques attractor counting 4 cycles labeled states",
+        "arxiv:1407.1103",
+        "arxiv:1610.00837",
+        "published record: Sharp period-four census for complete multipartite parity automata"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.1103 (full 2015 manuscript version of initially 2014 arXiv preprint)",
+      "arxiv:1610.00837 (abstract)",
+      "arxiv:1701.00319 (abstract)",
+      "published record: Sharp period-four census for complete multipartite parity automata",
+      "published record: Neighborhood-parity odd colorings of crown graphs",
+      "Earlier exact studies of firefly dynamics on complete bipartite and complete split graphs, and of cyclic/Greenberg–Hastings dynamics on crown graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete-bipartite same-rule census counts synchrony times up to six on K_{a,b}; it cannot be restricted to Cr_n because deleting one matched edge changes the inhibition condition for a paired neighbor.",
+        "The complete split-graph same-rule classification concerns K_m joined to an independent set rather than matched-deleted bipartite neighbors.",
+        "The crown CCA and Greenberg–Hastings records have a different state-transition rule; their exact spectra do not imply inhibitory firefly spectra.",
+        "Lyu 2014 gives existence and synchronization criteria on other graph classes, not the exact period-four attraction generating polynomial or the sharp nonuniform cutoff."
+      ],
+      "reasoning": "The new statement includes a local threshold rule with a matched-neighbor exclusion that forces a nine-type quotient. None of the accessible comparison claims entails the period-eighteen exception, thirteen-step preperiod, or closed period-four basin polynomial; those require the new exact analysis.",
+      "searches": [
+        "arxiv:1407.1103 (full author manuscript, Definition 1, Theorems 2–6, concluding remarks and appendix)",
+        "previous complete-bipartite firefly study",
+        "previous complete split-graph firefly study",
+        "previous crown cyclic automaton study",
+        "previous crown Greenberg–Hastings study"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lyu, arXiv:1407.1103, Definition 1 (2014 preprint, author-uploaded full manuscript), gives a three-state phase-advance-with-inhibition rule; this is equivalent to the locally defined rule in the present result.",
+        "Lyu, arXiv:1610.00837, uses the same κ-color firefly definition but analyzes finite trees.",
+        "No matching crown graph or period-eighteen basin theorem was identified in the inspected full 2014 manuscript."
+      ],
+      "reasoning": "Aliases include FCA, discrete pulse-coupled inhibitory oscillators, firefly networks, and three-color synchronization. The exact identification of the same local update establishes the correct baseline but not the family-specific dynamics. No equivalent complete crown-graph census was located in the accessible sources.",
+      "searches": [
+        "three-color firefly inhibitory oscillator dynamics on crown graphs complete bipartite minus a perfect matching period synchronization",
+        "3-color firefly cellular automaton on crown graph K_n,n minus matching exact transient bound 13, primitive 18-cycle only n=3, periods three four",
+        "pulse coupled inhibitory oscillators 3-color crown graph cyclic period 18 exception, synchronization basin exact formulas",
+        "\"firefly\" \"crown graph\" \"synchronization\" colors",
+        "\"three-color\" \"firefly\" \"crown\" automaton",
+        "\"firefly cellular automaton\" \"crown\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published crown-graph results for cyclic cellular automata and Greenberg–Hastings excitation enumerate cycles of different three-state automata and do not tabulate inhibitory firefly dynamics.",
+        "The crown odd-coloring result concerns a chromatic invariant, not a transition map or basin table.",
+        "The original 2014 firefly manuscript contains illustrative examples but no crown-specific basin polynomial or thirteen-update table in the inspected main results and appendices."
+      ],
+      "reasoning": "Graph names and numerically similar period sets cannot establish equivalence; the exact transition map is decisive. Searches of likely tables and full main manuscript found no pre-existing table of the claimed basin distribution.",
+      "searches": [
+        "three-color firefly inhibitory oscillator dynamics on crown graphs complete bipartite minus a perfect matching period synchronization",
+        "3-color firefly cellular automaton on crown graph K_n,n minus matching exact transient bound 13, primitive 18-cycle only n=3, periods three four",
+        "pulse coupled inhibitory oscillators 3-color crown graph cyclic period 18 exception, synchronization basin exact formulas",
+        "\"firefly\" \"complete bipartite\" \"minus a perfect matching\" automata",
+        "\"firefly cellular automata\" \"18\" cycle",
+        "\"firefly network\" \"matching\" \"bipartite\" 3-state",
+        "published record: Neighborhood-parity odd colorings of crown graphs"
+      ]
+    },
+    "rationale": "Materially inspected the author-uploaded full 2014 firefly manuscript: its Definition 1 matches the update used here, but its principal theorems concern paths, trees, and stochastic edge/vertex perturbations, not exact crown-graph period basins. The 2016 work concerns trees; its abstract was available but full text not material to this graph family. Previously reported comparators on complete bipartite and complete split graphs use the same local update on different neighborhoods, so their exact formulas cannot imply those for matched-deleted graphs. Own crown-graph results use cyclic cellular automata or Greenberg–Hastings excitation, distinct transition rules. Published-record and external aliases/parameter searches did not disclose the present thirteen-step bound, three-pair eighteen-cycle exception, or exact period-four polynomial. These observations support originality to the extent of inspected evidence, not a claim of global absence.",
+    "residual_risks": [
+      "An unindexed earlier special-graph firefly orbit census or computational table could contain equivalent formulas despite the negative targeted searches.",
+      "The 2016 same-rule tree article was not material-read in full; its stated tree hypotheses make direct coverage unlikely, but the full text may contain uninspected examples.",
+      "The initial 2014 arXiv preprint may have versions different from the fully read 2015 author manuscript; public first-public-date evidence is supplied by arXiv submission metadata."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_RULE_DIFFERENT_GRAPH_RESULTS",
+        "evidence": [
+          "Definition 1 lines 221–254 defines blinking state and inhibited update.",
+          "Theorems 2–4 at lines 559–625 address paths and trees.",
+          "Theorem 6 at lines 707–711 is randomized edge/vertex reception.",
+          "Concluding remarks at lines 2611–2675 discuss trees, cycles and cliques, not crown basin formulas."
+        ],
+        "identifier_or_url": "arxiv:1407.1103; https://www.researchgate.net/publication/263699436_A_Self-stablizing_Cellular_Automata_Model_For_Pulse-coupled_Biological_Oscillators",
+        "material_read": "Author-uploaded full text, including Definition 1, introductory theorems, relevant arguments, concluding remarks and appendices",
+        "method": "Accessible full manuscript rendered as HTML text; checked named graph types, statements, rule definition and appendices",
+        "title": "Synchronization of finite-state pulse-coupled oscillators",
+        "trigger": "Primary original definition and closest possible source of a prior theorem"
+      },
+      {
+        "assessment": "TREE_FAMILY_NOT_IMPLICATING_CROWN; FULL_TEXT_ACCESS_RISK",
+        "evidence": [
+          "Abstract restricts its main necessary/sufficient and time-complexity theorems to finite trees and reports lattice simulations."
+        ],
+        "identifier_or_url": "arxiv:1610.00837",
+        "material_read": "Abstract and author-facing publication metadata only; full text not accessed",
+        "method": "arXiv bibliographic abstract and research-record metadata",
+        "title": "Time complexity of Synchronization of discrete pulse-coupled oscillators on trees",
+        "trigger": "Closest later systematic same-rule synchronization work"
+      },
+      {
+        "assessment": "INFINITE_LATTICE_PRODUCT_MEASURE_NOT_FINITE_CROWN_BASIN",
+        "evidence": [
+          "The abstract studies the automaton on the integer lattice under a product initial measure, not a finite crown orbit census."
+        ],
+        "identifier_or_url": "arxiv:1701.00319",
+        "material_read": "Abstract and bibliographic description only",
+        "method": "Research-record abstract search",
+        "title": "Synchronization of finite-state pulse-coupled oscillators on Z",
+        "trigger": "Same three-color inhibitory rule and limiting initial distributions"
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_PARITY",
+        "evidence": [
+          "Claim uses binary parity updates on complete multipartite graphs, not three-color inhibition on matching-deleted bipartite graphs."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "material_read": "Published abstract and claim summary; not a full manuscript",
+        "method": "Semantic research-record search",
+        "title": "Prior published record on complete multipartite parity automata",
+        "trigger": "Nearest published record concerning period four on dense graphs"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT",
+        "evidence": [
+          "Claim is a graph coloring number and optimum coloring census, not a dynamical orbit classification."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-neighborhood-parity-odd-colorings-of-crown-graphs--fe94e840e8ec",
+        "material_read": "Published abstract and claim summary; not a full manuscript",
+        "method": "Semantic research-record search",
+        "title": "Prior published record on crown odd-coloring",
+        "trigger": "Same graph family and possible exact classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1379f43-d361-4f1b-bfe1-348ee52558e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete dynamical classification of a natural infinite family of dense but non-complete bipartite graphs. The sharp thirteen-update uniform transient bound, the isolated n=3 primitive eighteen-cycle exception, and an exact infinite-family attraction-basin polynomial (with exponential predominance of the three-cycle class) are motivated invariants of pulse-coupled synchronization. These outcomes expose the effect of deleting a matching and are not a routine graph-size substitution or a census of a single arbitrary small graph.",
+    "status": "PASS"
+  }
+}

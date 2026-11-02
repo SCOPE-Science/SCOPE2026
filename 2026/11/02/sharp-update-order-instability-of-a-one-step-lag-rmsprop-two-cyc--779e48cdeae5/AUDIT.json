@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every primitive cycle, the two memory updates and equal/opposite normalized spatial steps force equal spatial magnitudes, opposite signs, and fixed memory. This gives the unique positive amplitude q=h/2-epsilon/a. Exact full-state differentiation gives K=S J_plus with characteristic polynomial z^2-(1+beta)z+d(h), where d=2-beta-4(1-beta)epsilon/(a h). Strict Schur inequalities reduce exactly to h<4epsilon/a on the existence branch. The discriminant crosses zero at h=16epsilon/[a(7+beta)]. For h>4epsilon/a the roots are nonreal with squared moduli d(h)>1. At equality they cross the unit circle transversely since the derivative of d is positive. Symbolic checker independently reconstructs the Jacobians and all relevant identities; no finite experiment substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Loh et al. analyze current-memory epsilon-outside RMSProp with a different denominator.",
+        "Li et al. study block-delayed preconditioning in a private SGD/adaptive hybrid and convergence under bounded stochastic assumptions, not this per-iteration deterministic lag."
+      ],
+      "reasoning": "Neither inspected theorem covers the stated full-state lagged map with all positive learning rates. A convergence theorem for stochastic blockwise delayed updates is not a stronger theorem about this autonomous period-two orbit. No reduction of its hypotheses supplies the exact model under study.",
+      "searches": [
+        "lagged RMSProp stale second-moment preconditioning symmetric two cycle Neimark Sacker stability 4 epsilon quadratic",
+        "arxiv:2212.00309 stale delayed RMSProp second moment stability exact two-cycle Lyapunov Schur",
+        "arxiv:2212.00309v2 §§3–4, Algorithm 1",
+        "arxiv:2610.30078v1 Theorems 5.1–5.7"
+      ]
+    },
+    "checked_sources": [
+      "Loh–Mireles-James–Xu–Tao, arxiv:2610.30078v1, §§3,5,8.3",
+      "Li–Zaheer–Liu–Reddi–McMahan–Smith, arxiv:2212.00309, §§3–4",
+      "Tian Li, CMU-CS-23-127, Chapter 6 §6.8",
+      "Related accessible mathematical-result summaries on scalar adaptive optimizers and two-cycles; no identical claim located"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 study specifies a current-memory update; its period-two theorem is not stated for the lagged recurrence.",
+        "The 2023 study introduces a different blockwise stochastic/SGD schedule; neither its convex nor its nonconvex rate theorem determines a deterministic full-state Floquet multiplier."
+      ],
+      "reasoning": "An implication would require equality or a proven conjugacy between update rules, or a theorem for a common superfamily that specializes to the one-step stale denominator. No inspected source provides this. The new cycle classification and Schur window are obtained from the lagged Jacobian directly.",
+      "searches": [
+        "arxiv:2610.30078 one step delayed accumulator preconditioner lagged RMSProp on scalar quadratic symmetric period two h=4 epsilon instability",
+        "arxiv:2212.00309 stale delayed RMSProp second moment stability exact two-cycle Lyapunov Schur",
+        "arxiv:2610.30078v1 equations (3)–(5), Lemma 5.1, Theorems 5.2–5.3, 5.7",
+        "arxiv:2212.00309v2 Section 3 and Algorithm 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defined lagged map uses the pre-step denominator sqrt(v)+epsilon; the Loh et al. map uses sqrt(v_next)+epsilon.",
+        "The analytic Jacobians of the two maps differ already at the common symmetric two-cycle."
+      ],
+      "reasoning": "Matching amplitudes do not yield conjugacy: the lagged map has a transverse unit-circle crossing at h=4epsilon/a, whereas the current-memory map has a different two-step characteristic polynomial and remains locally attracting on the scalar period-two branch. Search hits on other scalar optimizer cycles do not imply this map-specific polynomial.",
+      "searches": [
+        "RMSProp preconditioner uses previous second moment v_n rather than updated v_n+1 scalar quadratic period-two stability critical learning rate 4 epsilon",
+        "delayed RMSProp quadratic period 2 orbit universal local stability boundary learning rate twice gradient flip threshold",
+        "\"RMSProp\" \"lagged\" \"preconditioner\" period two",
+        "arxiv:2610.30078v1 §3, §5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical results returned related adaptive-method thresholds and ordinary current-memory stability but no identical polynomial or lagged-map threshold.",
+        "Li et al. report empirical delayed-preconditioner training curves rather than a tabulated exact scalar cycle spectrum."
+      ],
+      "reasoning": "The claim concerns a continuous, exact symbolic boundary for a specified planar recurrence, not a finite catalog entry. Failure of indexed search alone does not prove historical uniqueness; relevant primary texts were examined separately.",
+      "searches": [
+        "one-step delayed RMSProp quadratic two-cycle trace 1+beta determinant beta+4(1-beta)q/h full Floquet",
+        "sharp update-order stability window of quadratic RMSProp for stale versus current second moment",
+        "\"RMSProp\" \"two-cycle\" \"Floquet\" multiplier",
+        "\"RMSProp\" \"4 epsilon\" period two stability"
+      ]
+    },
+    "rationale": "The exact lagged denominator changes the full-state Jacobian and the all-gain stability conclusion. The 2026 current-memory RMSProp source and the 2023 block-delayed optimizer source were compared by actual update equations and their theorems; neither implies the sharp 2epsilon/a<h<4epsilon/a window, the beyond-threshold repeller, or the node-to-focus transition for this map. A prior calculation of the current-memory map cannot subsume a distinct lagged rule with different spectral stability.",
+    "residual_risks": [
+      "Mathematical priority is provisional: specialized optimizer dynamical literature not indexed in the checked searches could contain an equivalent stale-denominator stability result.",
+      "The 2025 ICLR study of scalar RMSProp central flows was only accessible through indexed passages, not its full large PDF; those passages concern continuous time-averaging rather than this exact lagged map.",
+      "No nonlinear bifurcation or local attraction is claimed at the marginal unit-circle crossing, including the possible strong resonance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed map: the denominator uses newly updated memory rather than the previous memory. Existing exact two-cycle existence and near-onset stability are acknowledged.",
+        "evidence": [
+          "arxiv:2610.30078v1, Algorithm 1, Lemma 5.1, Theorems 5.2–5.3 and 5.7, and Section 8.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.30078",
+        "material_read": "Sections 3 and 5 with equations (3)–(5), Lemma 5.1 and Theorems 5.2–5.7, plus Section 8.3 and its scalar numerical discussion",
+        "method": "Primary open-access full PDF pages 3–4, 12–17 and 27, including the equations and proofs; inspected page images",
+        "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+        "trigger": "Same optimizer family, quadratic loss, and symmetric two-cycle; highest coverage risk"
+      },
+      {
+        "assessment": "The studied private hybrid updates moment estimates after blocks of SGD, not each step with the precise one-step lag; its convergence guarantees do not imply this Floquet classification.",
+        "evidence": [
+          "arxiv:2212.00309, Section 3.1, Algorithm 1, Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.00309",
+        "material_read": "Abstract, Section 3.1 and Section 3.2, Algorithm 1, and Section 4 convergence hypotheses and principal theorem",
+        "method": "Primary open-access full PDF pages 0–5 with algorithm and proof hypotheses; inspected page image",
+        "title": "Differentially Private Adaptive Optimization with Delayed Preconditioners",
+        "trigger": "Natural delayed-preconditioner prior art and possible broader stability results"
+      },
+      {
+        "assessment": "Confirms the practical motivation for stale accumulators, but the delayed mechanism and performance analysis differ from the exact deterministic one-step autonomous recurrence.",
+        "evidence": [
+          "Tian Li, CMU-CS-23-127 (2023), Chapter 6 §§6.8.1–6.8.2"
+        ],
+        "identifier_or_url": "https://csd.cmu.edu/sites/default/files/phd-thesis/CMU-CS-23-127.pdf",
+        "material_read": "Chapter 6 Section 6.8.1 and surrounding discussion on delayed preconditioners, Sections 6.8.2 and Algorithm 11 summary",
+        "method": "Primary PhD thesis PDF pages 172–174, full relevant section, with page image",
+        "title": "Scalable and Trustworthy Learning in Heterogeneous Networks",
+        "trigger": "Independent detailed account of stale preconditioning and potentially relevant dynamical analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "779e48cd-eae5-475a-a735-e03b2f8db42d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The update-order question is intrinsic to the implementation of adaptive preconditioning and motivated by recent exact RMSProp dynamics and established delayed-preconditioner work. For a simple yet fully two-state model, a single-step lag turns a persistent attractive two-cycle into a repeller at a finite, sharp learning-rate ratio of two relative to onset, irrespective of memory-decay beta. The exact complete two-cycle classification and node-to-spiral boundary isolate a dynamical mechanism and provide a reproducible benchmark; these do not follow from merely recomputing a standard fixed point or renaming parameters.",
+    "status": "PASS"
+  }
+}

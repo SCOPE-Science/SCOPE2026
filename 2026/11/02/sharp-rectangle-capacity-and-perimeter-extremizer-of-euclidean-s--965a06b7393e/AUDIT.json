@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof covers every Euclidean stadium with a>0, r>0 and all Euclidean rectangles without orientation or translation restrictions. Central symmetry replaces each rectangle by a congruent centered one. Each centered rectangle corresponds to two equal-radius diagonal vertices, so the exact two-arc geometry of stadium-circle intersections controls all possible rotations, including the full-circle and square regimes. The unique axis-parallel maximum follows from the strictly decreasing derivative numerator r²-a u-2u², with the resulting optimizer in the strict x>y regime and all contacts on circular caps; this proves global orientation and center uniqueness. The relation st+2t²=1 reduces the perimeter and filling profiles to exact rational-algebraic functions. Symbolic derivatives show a unique normalized-perimeter maximum at t=2/π and strict monotonicity of filling. Actual standalone checker paths were run; exact symbolic identities and feasible-orientation numerical comparisons passed. Finite tests are corroboration, not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behroozi (arXiv:1905.13246), Sections 3.2 and 3.3, provides a centeredness theorem and symmetry restrictions, and Sections 4–5 provide general optimization models.",
+        "Cabello et al. (arXiv:1405.1223) and Choi–Lee–Ahn (2021) solve algorithmic rectangle problems for polygonal input."
+      ],
+      "reasoning": "An algorithm applicable by approximation or a general centeredness result does not logically assert the unrestricted orientation rigidity, the explicit one-parameter global formula, the unique optimum of the perimeter ratio, or inverse monotonicity of the stadium filling fraction. The geometric arc comparison and symbolic profile differentiation are additional critical deductions. No identified stronger theorem directly dominates all four assertions.",
+      "searches": [
+        "arxiv largest inscribed rectangle in convex body 2019 2020 2021 maximum area geometry",
+        "maximum area rectangle inscribed stadium obround shape orientation",
+        "Maximum-area and maximum-perimeter rectangles in polygons DOI:10.1016/j.comgeo.2020.101710",
+        "arXiv:1905.13246; arXiv:1405.1223"
+      ]
+    },
+    "checked_sources": [
+      "Behroozi, Largest Inscribed Rectangles in Geometric Convex Sets, initial arXiv 2019-05-30, arXiv:1905.13246; full primary text inspected for the overlap.",
+      "Choi, Lee and Ahn, Maximum-area and maximum-perimeter rectangles in polygons, 2021, DOI:10.1016/j.comgeo.2020.101710; accessible sections and their limits recorded.",
+      "Cabello, Cheong, Knauer and Schlipf, Finding Largest Rectangles in Convex Polygons, arXiv:1405.1223; primary full text inspected.",
+      "Common stadium area and perimeter references checked as background, not considered an inscribed-rectangle result."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Behroozi 2019, Theorem 7: an optimal rectangle in a centrally symmetric convex set is centered. That fact is credited and not asserted as new.",
+        "Behroozi 2019, concluding examples: circles, ellipses, polygons, and intersections of smooth convex sets; no stadium perimeter phase diagram or occupancy inversion.",
+        "Choi et al. (2021) describes a polygonal exact algorithm, which differs from a closed stadium with circular boundary arcs."
+      ],
+      "reasoning": "The new final claim is not a centeredness lemma and not mere formula evaluation for a fixed orientation: it first proves that no tilted rectangle can be better, then finds the strict interior perimeter optimum and the monotone filling invariant for all positive aspect ratios. These do not follow from the cited prior conclusions without substantial new case analysis. Specialized historical priority remains open.",
+      "searches": [
+        "arXiv:1905.13246 Section 3.2 Theorem 7 centrally symmetric convex sets maximum area rectangle",
+        "arXiv:1405.1223 Finding Largest Rectangles in Convex Polygons",
+        "\"stadium\" \"inscribed rectangle\" maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected relevant 2019 full text, arXiv:1905.13246, treats centeredness and general algorithms; it does not discuss stadiums, obrounds, capsules, or sausage bodies as a specific family.",
+        "The 2021 rectangle-in-polygon results are not a stadium classification and contain no identified matching formula."
+      ],
+      "reasoning": "Equivalent stadium synonyms and the curved-end Minkowski-sum description were searched. Centeredness is equivalent to an existing general lemma but is only a proof ingredient, not the final theorem. Neither a stadium profile nor the stated sharp constant was found in the accessible published material.",
+      "searches": [
+        "maximum area rectangle inscribed stadium obround shape orientation",
+        "largest area inscribed rectangle capsule shape stadium formula a sqrt a^2+8r^2",
+        "\"stadium\" \"maximal inscribed rectangle\" perimeter area exact a r sqrt(a^2+8r^2) obround rounded rectangle",
+        "\"sausage body\" maximal rectangle disk segment Minkowski sum rotation orientation all inscribed rectangles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Common geometric references such as MathWorld Stadium give the area and perimeter of a stadium, not maximum inscribed rectangle area.",
+        "The nearest published indexed results concern inscribed rectangles in rhombi and regular even polygons, geometrically distinct containers."
+      ],
+      "reasoning": "Exact-value and alias queries did not uncover a precomputed table, algebraic formula, or sharp perimeter constant for the stated stadium family. A negative search is weak evidence alone; the specific comparisons with relevant primary results are the substantive originality evidence.",
+      "searches": [
+        "\"sqrt(pi^2-4)\" rectangle stadium",
+        "\"discorectangle\" \"inscribed rectangle\" maximum",
+        "\"obround\" \"largest inscribed rectangle\"",
+        "largest rectangle inscribed in stadium perimeter ratio optimal geometric aspect pi/2-4/pi"
+      ]
+    },
+    "rationale": "The full 2019 Behroozi manuscript already supplies centeredness of maximum-area rectangles in centrally symmetric convex bodies, so that known fact is excluded from the novelty claim. The theorem instead proves orientation rigidity for all noncircular stadiums, the exact unrestricted rectangle-area profile, a sharp and uniquely attained perimeter-normalized bound with a noncircular extremizer, and strictly invertible filling fraction. Closest published rectangle algorithms concern general convex optimization or polygonal containers; their statements do not give these explicit stadium formulas. No verified primary source or indexed published theorem was found to imply the full statement. Historical completeness remains provisional.",
+    "residual_risks": [
+      "An earlier specialized inscribed-rectangle computation for stadia under different terminology may be absent from search indexes.",
+      "The full publisher PDF of the 2021 polygon algorithm was not retrieved; accessible portions and a close full-text 2019 predecessor were compared.",
+      "Novelty is provisional and does not imply an independently established historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_FULL_STADIUM_CLAIM; DOES_COVER_CENTEREDNESS_INGREDIENT",
+        "evidence": "Theorem 7 centers the optimal rectangle in every centrally symmetric convex container. The paper does not state the stadium-only orientation theorem, the rectangle-area profile, the exact perimeter constant, or monotone filling fraction.",
+        "identifier_or_url": "arXiv:1905.13246 | https://arxiv.org/pdf/1905.13246",
+        "material_read": "Abstract and introduction; Sections 3.1–3.3, especially Theorem 7 at PDF pages 7–8 and Corollary 12 at PDF page 11; optimization scope; conclusion and figures at pages 31–35; full-document text searched for stadium, obround, capsule, and rounded.",
+        "method": "Primary preprint PDF text and page images inspected, with relevant sections read directly.",
+        "title": "Largest Inscribed Rectangles in Geometric Convex Sets",
+        "trigger": "Closest full-text general convex-body rectangle theorem and possible stronger coverage."
+      },
+      {
+        "assessment": "AVAILABLE_MATERIAL_NOT_COVERING; INCOMPLETE_FULL_TEXT_INSPECTION_RISK",
+        "evidence": "The exposed theorem gives a finite-polygon algorithm; no stadium family, circular cap analysis, or sharp stadium perimeter constant occurs in inspected material.",
+        "identifier_or_url": "DOI:10.1016/j.comgeo.2020.101710 | https://doi.org/10.1016/j.comgeo.2020.101710",
+        "material_read": "Accessible publisher-indexed abstract, introduction, Section 9 summary, and discussion, including the convex-polygon result; complete publisher PDF was not accessible.",
+        "method": "Publisher-indexed full-text passages and bibliographic record inspected.",
+        "title": "Maximum-area and maximum-perimeter rectangles in polygons",
+        "trigger": "Closest later exact algorithm for arbitrary rectangle orientation."
+      },
+      {
+        "assessment": "NOT_COVERING_FULL_STADIUM_CLAIM",
+        "evidence": "The results solve algorithmic maximum-area and maximum-perimeter rectangle questions for given convex polygons; the stadium is a smooth-ended Minkowski sum and the sharp parameter optimization is absent.",
+        "identifier_or_url": "arXiv:1405.1223 | https://arxiv.org/pdf/1405.1223",
+        "material_read": "Full eight-page PDF, including abstract, Introduction, convex body preliminaries, and Section 3 exact polygon algorithm.",
+        "method": "Primary PDF text and first-page image inspected.",
+        "title": "Finding Largest Rectangles in Convex Polygons",
+        "trigger": "Earlier full primary polygon algorithm that might dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "965a06b7-393e-4d5f-a6e7-eb24b9a17dfc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Largest inscribed rectangle capacity of a convex body is a standard motivated approximation functional. Within the canonical one-parameter family of Minkowski segment-plus-disk shapes, unrestricted orientation might a priori change the extremizer. The result gives a complete shape-wise classification and strict rigidity; its sharp fixed-perimeter maximizer is unexpectedly a noncircular stadium instead of the disk. A distinct normalized rectangle-to-container area fraction is strictly invertible, yielding geometric shape recovery from a scalar capacity measurement. The specific parameter is intrinsic to the natural full family and both exact optimum and inverse are non-implied by known centeredness or polygon algorithms. It is more than a routine evaluation of a fixed-orientation rectangle.",
+    "status": "PASS"
+  }
+}

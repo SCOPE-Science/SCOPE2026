@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Both cubic graphs are explicitly constructed with ten labelled vertices. Each has exactly 3^10=59049 states. The exact transition for every state is stored in a 236196-byte little-endian certificate and independently recreated by Python and C++; the two different functional-graph algorithms produce identical cycle, basin, first-entry and sharp cutoff counts. Every state is classified by exhaustive traversal, not statistical sampling. Backtracking enumerates all adjacency-preserving bijections to derive the 23 and 6 symmetry classes. The certificate includes checked exceptional-cycle and sharp-transient witnesses. No infinite-family extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320v1 Theorem 3 gives synchronization iff initial 1-form is irrotational and activity as maximal circulation per cycle length; its Sections 3–4 prove these general statements.",
+        "Fisch–Gravner 1995 published abstract describes one-dimensional arrays of excitable cells and stationary wave behavior."
+      ],
+      "reasoning": "The 2016 arbitrary-graph theorem implies the qualitative synchronization criterion (and hence covers that subclaim), but provides no complete period-by-period multiplicities, first-entry time cells or spatial automorphism orbit counts on GP(5,1) or GP(5,2). The 1995 paper concerns lattice dynamics, not the present two cubic graphs; its full text was not inspected, which is an access limit.",
+      "searches": [
+        "Limiting behavior of 3-color excitable media on arbitrary graphs arXiv 1610.07320",
+        "Greenberg Hastings finite graph petersen generalized petersen GH model limit cycles",
+        "\"Petersen graph\" \"excitable media\" \"periodic\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1610.07320v1",
+      "Fisch and Gravner, Complex Systems 9 (1995), publisher abstract",
+      "A. E. Brouwer Petersen graph data page",
+      "Search-index results about generalized Petersen and recurrent dynamical systems, no matching exact table"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of arXiv:1610.07320v1 treats arbitrary finite graphs but not temporal orbit multiplicities or automorphism quotient classes.",
+        "A previously examined parity-map result on GP(n,2) studies additive binary adjacency updates, whereas the current map has three states and excitation/refractory nonlinear transitions.",
+        "The graph invariants supplied by Brouwer are vertex/edge/cycle structure, not GHM basins or temporal cycles."
+      ],
+      "reasoning": "The new claim is the exact finite temporal recurrence atlas and sharp basin/entrance counts, not the previously published general activity test. Neither a different binary linear map nor a graph-cycle inventory implies the reported nonlinear dynamical census without further nontrivial exhaustive computation.",
+      "searches": [
+        "exact Greenberg Hastings dynamics generalized Petersen G(5,1) G(5,2) 3-state primitive periods seven eight orbit basins",
+        "Petersen and pentagonal prism excitation oscillation primitive period 7 vs 8 Greenberg Hastings",
+        "GHM three color exact attractor classification 10 vertex cubic graph Petersen graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1610.07320v1, pp. 1–4: three-state GHM rule and general Theorem 3; no ten-vertex temporal orbit table.",
+        "A. E. Brouwer Petersen graph page lists 12 pentagons, 10 hexagons, 15 octagons and 20 nonagons as spatial simple graph cycles, not temporal state orbits."
+      ],
+      "reasoning": "Searched Petersen, pentagonal prism, three-color excitation, GHM and temporal-period aliases. Spatial graph cycles and excitation state-cycles are different mathematical objects. No equivalent finite-state table was identified.",
+      "searches": [
+        "Petersen graph 3-color cyclic cellular automaton activity attractors exact",
+        "Greenberg Hastings excitable dynamics Petersen graph primitive periodic orbit counts 3-state basin census",
+        "\"Petersen\" \"Greenberg-Hastings\" dynamics",
+        "\"generalized Petersen\" \"Greenberg-Hastings\" periodic orbit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Petersen graph standard cycle inventory is for graph-theoretic simple cycles.",
+        "Targeted web and OEIS site searches did not identify a Greenberg–Hastings period and basin table for either graph."
+      ],
+      "reasoning": "A simple graph cycle table, including periods seven or eight appearing as graph cycle lengths, is not a temporal orbit enumeration of 59049 ternary colorings. Lack of a matched database table is not itself proof of novelty.",
+      "searches": [
+        "site:oeis.org \"Greenberg-Hastings\" Petersen",
+        "\"Petersen\" \"Greenberg-Hastings\" \"cycles\" count",
+        "\"pentagonal prism\" \"Greenberg-Hastings\" 7 8"
+      ]
+    },
+    "rationale": "Comparison of the actual mathematical implications found no known exact orbit, basin, sharp-entry and spatial-symmetry atlas for the two order-ten generalized Petersen graphs. The 2016 arbitrary-graph theorem already characterizes synchronization and activity, so those general features are expressly not claimed as new. Published simple-cycle counts on the Petersen graph do not count temporal Greenberg–Hastings orbits. A previously inspected binary parity analysis of generalized Petersen graphs concerns a distinct linear update. Historical priority is qualified by the possibility of an unindexed finite computation.",
+    "residual_risks": [
+      "An equivalent finite-state numerical census might be present in an unindexed paper, student thesis, repository or historical simulation.",
+      "The 1995 lattice paper was checked at abstract level only; no claim of whole-document negative coverage is made.",
+      "General synchronization and activity criteria, including qualitative extinction, are prior work and are not asserted original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_PRIOR_ONLY",
+        "evidence": [
+          "Model equation (1) matches update; Theorem 3 is a circulation test for synchronization and activity, not an orbit-count or automorphism-classification theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "Original 28-page v1 PDF: title/abstract, model definition on pp. 1–2, full statements on pp. 3–4, text of Sections 3–4 including proof of the finite-graph theorem; document-wide searches for Petersen and prism returned no matches. Remaining unrelated random-graph and infinite-tree proofs not read in full.",
+        "method": "Opened original arXiv PDF, read extracted full-text sections, inspected page 4 as PDF image, and used document search.",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Exact same three-state Greenberg–Hastings update and broad arbitrary-graph hypotheses"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_CLASS_ABSTRACT_ONLY",
+        "evidence": [
+          "Published abstract explicitly concerns one-dimensional arrays, with stationary periodic objects and relaxation regimes; does not state the two ten-vertex graph census."
+        ],
+        "identifier_or_url": "https://www.complex-systems.com/abstracts/v09_i05_a01/",
+        "material_read": "Publisher-supplied abstract and bibliographic information; full article was not available/read during this check.",
+        "method": "Publisher abstract landing page",
+        "title": "One-dimensional Deterministic Greenberg–Hastings Models",
+        "trigger": "Early primary paper on the same excitation rule"
+      },
+      {
+        "assessment": "GRAPH_STRUCTURE_NOT_DYNAMICAL_COVERAGE",
+        "evidence": [
+          "Aut(P)=S5 and simple spatial cycle lengths 5,6,8,9 are listed; no color-state transition or excitation basins."
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/graphs/Petersen.html",
+        "material_read": "Graph facts, automorphisms and simple-cycle inventory on the complete page.",
+        "method": "Read web source full text",
+        "title": "Petersen graph",
+        "trigger": "Canonical graph and existing exact cycle table could be mistaken for temporal recurrence inventory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d4c1d4d-f82a-48e4-8fcd-5c7687c10e08",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pair GP(5,1), GP(5,2) comprises the two natural order-ten cases of the generalized Petersen construction: the pentagonal prism and the highly symmetric Petersen graph. Their identical order and cubic degree conceal a rigorous period-7 versus period-8 substitution and differing sharp transient cutoffs, with a substantial reversal of which attractor basin dominates. Classifying all labelled attractors and the 23 versus 6 spatial orbit types provides useful natural finite dynamical invariants, not an arbitrary slice or an extrapolation to all generalized Petersen graphs.",
+    "status": "PASS"
+  }
+}

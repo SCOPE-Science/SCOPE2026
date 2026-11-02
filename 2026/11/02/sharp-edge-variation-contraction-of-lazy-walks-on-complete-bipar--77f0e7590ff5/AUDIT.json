@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every real signal use exact coarea reduction to binary cuts. On a cut the operator gives differences alpha*d-(1-alpha)*(U-V)/(pq). The sharp integer inequality U>=pq/max(p,q) for U>V and the exhaustive two absolute-value regimes give the claimed upper envelope. A whole-part cut and a singleton in a larger part achieve both branches, giving exactness and the unique parameter optimum. The independent Fraction checker confirms direct graph computations in 31,468 exhaustive small binary cases and other exact tests. No finite enumeration is used as an all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1404.1353 Introduction and Section 1.2 main Markov square-function bounds",
+        "arXiv:1411.7414 Sec. II and IV graph TV minimization",
+        "arXiv:1807.10514 Sec. 3-5 nonlinear TV flow"
+      ],
+      "reasoning": "Existing general graph Markov Lp bounds and edge-TV regularization do not specify the same one-input graph-edge l1 seminorm of the one-step filter. A generic coarea/cut maximum still requires the all-size sharp biclique cut comparison proved here.",
+      "searches": [
+        "graph BV seminorm one step neighbor averaging, heat semigroup variation contraction",
+        "total variation diminishing Markov operator graph gradient l1 discrete diffusion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1307.0468, first public 2013-07-01",
+      "arXiv:1404.1353, first public 2014-04-04",
+      "arXiv:1411.7414, first public 2014-11-26",
+      "arXiv:1807.10514, first public 2018-07-27"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1307.0468 Def. 1 has a different norm",
+        "arXiv:1404.1353 establishes different Lp square-function estimates",
+        "arXiv:1411.7414 develops variation-regularized signal recovery",
+        "arXiv:1807.10514 develops nonlinear TV flow"
+      ],
+      "reasoning": "Even when earlier works use graph variation or Markov transition matrices, their theorems neither imply the numerical formula for the edge-BV operator norm of this step operator nor its unique parameter minimizer without a separate cut optimization. The current proof supplies that missing optimization; equivalence under unsearched historical terminology remains possible.",
+      "searches": [
+        "\"complete bipartite\" \"bounded variation\" \"random walk\"",
+        "sharp graph edge total variation norm lazy random walk on complete bipartite K_{p,q}, optimal holding probability 1/(max(p,q)+1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1307.0468 §III defines vertex shift variation; arXiv:1807.10514 Eq.(1.1) defines edge BV, but its operators are TV prox/flow",
+        "Relevant exact semantic search matches concern graph mixing, graph filtering, and other graph invariants, not the sharp one-step coefficient."
+      ],
+      "reasoning": "Equivalents considered include the BV seminorm on quotient by constants, the edge-gradient l1 norm of alpha I+(1-alpha)P, and the best contraction coefficient of a lazy graph filter. The inspected exact edge-TV source uses a nonlinear TV operator, so it does not imply the linear Markov formula.",
+      "searches": [
+        "sharp graph edge total variation norm lazy random walk on complete bipartite K_{p,q}, optimal holding probability 1/(max(p,q)+1)",
+        "complete bipartite graph Markov averaging operator total variation contraction singleton cut",
+        "graph BV seminorm one step neighbor averaging, heat semigroup variation contraction",
+        "total variation diminishing Markov operator graph gradient l1 discrete diffusion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published graph-edge BV coefficient table surfaced in the actual searches",
+        "The four inspected primary texts contain no corresponding exact biclique table"
+      ],
+      "reasoning": "The claim is an all-pair formula and sharp tuning principle, not a recomputed entry from a reported finite graph table; failure to find a table alone is not treated as proof of novelty.",
+      "searches": [
+        "\"complete bipartite\" \"variation\" \"neighbor averages\" norm",
+        "\"complete bipartite\" \"optimal laziness\" \"variation\""
+      ]
+    },
+    "rationale": "No matching or stronger prior theorem found in actual semantic corpus queries, research-history comparison and inspected relevant primary literature. The claim is not an automatic special case of Feneuil Lp square function bounds or graph TV regularization results; their mathematical operators/norms differ. The coarea indicator reduction is prior technique, while the closed two-branch graph-family norm and optimal laziness classification are the claimed contributions; historical priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "A differently titled pre-existing result on graph cut norms, ergodicity coefficients, or total-variation diminishing Markov filters could imply this formula.",
+      "The literature search is not exhaustive and cannot establish priority; no independent expert review is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The variation is ||f-A_norm f||_1, distinct from sum of absolute edge differences; no stated sharp graph-edge BV contraction for a lazy neighbor filter.",
+        "evidence": [
+          "Section III, Definition 1: vertex shift-based variation",
+          "Section V: graph filter design via frequency response"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1307.0468v2",
+        "material_read": "Sections III (variation on graphs) and V (filter design), with definitions (18) and (19)",
+        "method": "Accessible complete primary HTML text; inspected actual definitions and filter claims",
+        "title": "Discrete Signal Processing on Graphs: Frequency Analysis",
+        "trigger": "Graph filters and an earlier graph total variation notion"
+      },
+      {
+        "assessment": "Establishes Lp bounds and square-functional estimates on graphs; not a sharp edge-BV one-step averaging coefficient on finite bicliques.",
+        "evidence": [
+          "Section 1.1 introduces Markov kernel",
+          "Section 1.2 main results on Littlewood-Paley boundedness",
+          "No full-text occurrence of variation in the displayed structured text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.1353",
+        "material_read": "Complete accessible structured arXiv text: introduction, discrete framework, main theorems, Section 3 and Section 4 theorem statements; full-text term checks",
+        "method": "Accessible primary structured full text, inspected source formulas and theorem scopes",
+        "title": "Littlewood-Paley functionals on graphs",
+        "trigger": "Older Markov kernel/gradient operator results potentially covering all graphs"
+      },
+      {
+        "assessment": "Variation minimization and quadratic graph recovery algorithms do not assert the one-step sharp edge-BV operator seminorm.",
+        "evidence": [
+          "Section II emphasizes shift-based and quadratic graph variation",
+          "Section IV graph signal inpainting",
+          "No sharp biclique lazy-filter contraction formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1411.7414v3",
+        "material_read": "Introduction, Section II variation definition, recovery objectives, theoretical matrix completion comparison, inspected theorem statements",
+        "method": "Accessible full primary HTML, inspected equation definitions and objectives",
+        "title": "Signal Recovery on Graphs: Variation Minimization",
+        "trigger": "Earlier graph-variation optimization/filtering source"
+      },
+      {
+        "assessment": "This paper concerns ROF minimizers and nonlinear graph TV flow, not the linear lazy neighbor average; therefore no direct implication for the computed one-step sharp coefficient.",
+        "evidence": [
+          "Eq. (1.1) graph-edge total variation",
+          "Eq. (1.3) ROF objective",
+          "Sections 3-5 nonlinear regularization and flow"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1807.10514v3",
+        "material_read": "Full accessible article section navigation and substantive introduction, Section 2 definitions, described ROF and total-variation gradient-flow results",
+        "method": "Primary full-text HTML, compared definitions and operator being studied",
+        "title": "Invariant phi-minimal sets and total variation denoising on graphs",
+        "trigger": "Same edgewise anisotropic total variation, potential general result dominating specific Markov contraction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77f0e759-0ff5-4950-adcd-4a4c0c646a32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-size edge-variation norm and unique optimal holding probability solve a natural graph-filter stability design problem. The independence from the smaller color class and the sharp transition between a full-side and singleton obstruction are structural classifications with future use in exact BV smoothing, not an arbitrary finite parameter sample or routine scalar substitution.",
+    "status": "PASS"
+  }
+}

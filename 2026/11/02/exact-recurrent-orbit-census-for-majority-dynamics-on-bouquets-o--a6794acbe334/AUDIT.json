@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "All finite simple bouquet sizes \\(k\\ge1\\) are covered by an explicit finite symmetric-threshold Lyapunov argument, exhaustive four-pattern fixed-state blade classification, exhaustive eight-word two-step blade computation, necessary-and-sufficient strict hub inequalities and multinomial enumeration. The attached standalone program independently evaluates the entire 599184 states for \\(1\\le k\\le6\\) and exactly matches the formulas. The asymptotic is a law-of-large-numbers consequence, not a numerical extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini et al., arXiv:1405.2486, Theorem 1.1, establishes eventual period at most two on arbitrary finite graphs, without orbit multiplicities.",
+        "Kaaser et al., MFCS 2016, opening theorem statements and module-analysis discussion address bounds on voting time, not exact recurrence counts for this graph family."
+      ],
+      "reasoning": "The cited universal period-two theorem is strictly weaker for the enumerative conclusion: existence of periods one/two does not determine the number of fixed states or primitive two-orbits. General voting-time bounds likewise do not imply the multinomial count.",
+      "searches": [
+        "majority dynamics graph cactus finite synchronous periodic states enumeration friendship graphs",
+        "synchronous majority dynamics graph period two Goles Olivos original Benjamini Chan O'Donnell Tamuz Tan 2014 arxiv",
+        "majority rule dynamics windmill graph book graph bouquet cycles common vertex exact number fixed points period two"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1307.4035v1/v2",
+      "arXiv:1405.2486v1/full-text rendering",
+      "MFCS 2016 DOI:10.4230/LIPIcs.MFCS.2016.55 open-access primary PDF",
+      "MathWorld Dutch Windmill Graph",
+      "Relevant accessible historical claims: 035eb4d8-b16a-4a41-a133-bfca7fda2ed5 (triangular friendship graph), 895f11cb-8a0f-4ccd-8d00-1262221ef50b (chip-firing on clique windmills), 92dea149-6e19-451a-9197-269e19cb3c53 (majority fan and wheel)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 of Benjamini et al. establishes eventual period at most two, a component already used here; the present classification adds exact orbit multiplicity.",
+        "Tamuz–Tessler focus on information retention and general Lyapunov/convergence properties, not this blade-state coding.",
+        "Kaaser et al. prove computational and convergence-time results, not the exact fixed and periodic counts."
+      ],
+      "reasoning": "The formulas are not consequences of a mere period bound: different graph families sharing eventual period at most two can have very different orbit counts. The precise three local blade classes and strict hub inequalities are independently derived here.",
+      "searches": [
+        "On the Voting Time of the Deterministic Majority Process",
+        "Majority Dynamics and the Retention of Information",
+        "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MathWorld defines the Dutch windmill as a one-vertex union of cycles, covering the present graph family when the cycle length is four.",
+        "Tamuz–Tessler arXiv:1307.4035, Sections 1.1, 3.1 and 3.4, provides majority dynamics and potential-function material but no quadrilateral-bouquet orbit census."
+      ],
+      "reasoning": "The most direct naming equivalences are square cactus, four-cycle bouquet, and quadrilateral Dutch windmill. Searches with each naming convention produced graph-family context rather than an exact fixed-plus-two-orbit theorem under the specified update and tie convention.",
+      "searches": [
+        "majority dynamics windmill graph Dutch windmill friendship graph fixed points two cycles threshold dynamics",
+        "\"Dutch windmill\" \"majority\" \"dynamics\" periodic",
+        "\"bouquet of squares\" \"majority dynamics\" fixed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-parameter recurrence tables matching the two formulas were identified in the sources checked.",
+        "The exact sample values in the included verification output are recomputed from the graph dynamics, not drawn from an external known-value table."
+      ],
+      "reasoning": "A graph identifier, graph spectrum, or topological invariant table does not itself give a synchronous majority recurrence count. The inspected source material contains no known table from which the present two formulas follow directly.",
+      "searches": [
+        "Dutch windmill D_4(k) majority fixed configurations primitive two-cycles 4-cycle bouquet oscillation count",
+        "\"C4\" \"windmill\" \"majority\" \"two cycles\"",
+        "\"4^k\" \"binomial\" \"majority\" \"windmill\" \"square\""
+      ]
+    },
+    "rationale": "Best-knowledge claim originality: targeted equivalence searches, accessible historical ledger claim comparisons, full-text primary comparisons, and relevant broad-result implication checks found no equivalent full recurrence census for bouquets of quadrilaterals under this synchronous rule. General period-two convergence is known and expressly not claimed as novel. A hidden historical equivalent cannot be ruled out.",
+    "residual_risks": [
+      "Unindexed historical papers under equivalent square-cactus/majority terminology might contain the same count.",
+      "The 1980 original Goles–Olivos text was not fully inspected; the general period-two property is acknowledged from later full-text sources.",
+      "Some parts of the 2016 voting-time article were searched rather than read page by page; no strong coverage signal was observed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies general synchronous/asynchronous majority and geometric convergence; no enumerated quadrilateral-bouquet recurrence theorem identified in material read.",
+        "evidence": [
+          "Section 1.1 defines the dynamics and cites classical period-two behavior; Section 3.4 treats bounds on changes; Section 3.7 constructs a different graph with substituted almost-complete bipartite components."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1307.4035v2",
+        "material_read": "HTML introduction, Sections 1.1, 3.1, 3.4, 3.7 and bibliography, including full displayed proofs of the convergence-related claims in these sections",
+        "method": "primary full-text HTML reading and within-document term searches",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "2013 archived primary majority-dynamics source with combinatorial results"
+      },
+      {
+        "assessment": "Its all-finite-graph period-two theorem is acknowledged; no fixed-state or two-cycle census for four-cycle bouquets found in inspected sections.",
+        "evidence": [
+          "Theorem 1.1 attributes eventual period two to Goles–Olivos; the paper studies infinite unimodular and random-network convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Full-text HTML Introduction and Section 2 theorem/potential arguments, with term searches for relevant graph-family names",
+        "method": "primary full-text accessible rendering and named-term searches",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Universal finite period-two statement and standard identical tie convention"
+      },
+      {
+        "assessment": "Addresses convergence times and module contraction, with no exact recurrence census found in examined portions; uninspected appendices/sections remain a priority risk.",
+        "evidence": [
+          "Abstract and pages 1–3 emphasize worst-case convergence-time bounds; targeted searches returned no Dutch-windmill terminology."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol058-mfcs2016/LIPIcs.MFCS.2016.55/LIPIcs.MFCS.2016.55.pdf",
+        "material_read": "PDF page 1 and page 3 inspected visually, introduction and main-theorem descriptions, and document-wide targeted text searches for windmill, cactus, square and fixed points",
+        "method": "primary open-access PDF page inspection plus document-text searches",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Plausibly broader module and voting-time theorem on finite majority networks"
+      },
+      {
+        "assessment": "Defines one-vertex unions of cycles; no majority dynamics result.",
+        "evidence": [
+          "The page explicitly generalizes friendship graphs to common-vertex unions of cycles of arbitrary length."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/DutchWindmillGraph.html",
+        "material_read": "Graph-definition text and listed special cases",
+        "method": "reference page reading",
+        "title": "Dutch Windmill Graph",
+        "trigger": "Graph-family naming and alternative notation check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6794acb-e334-4d80-846f-81603457d142",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural cutvertex family of quadrilateral cacti has an all-size exact fixed and primitive two-cycle census. Its three-symbol recurrent encoding and two distinct exponential scales, \\(4^k\\) for fixed states and \\(3^k\\) for oscillatory orbits, expose a meaningful difference between orbit proliferation and the proportion of recurrent states that oscillate. This gap is not settled by standard period-two theorems. No basin or transient-census contribution is claimed.",
+    "status": "PASS"
+  }
+}

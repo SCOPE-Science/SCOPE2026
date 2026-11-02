@@ -1,0 +1,15 @@
+# Review of sharp polar-body affine projector norms
+
+## Correctness — PASS
+The exact domain is the real \(d\)-dimensional solid cube and polar cross-polytope, with normalized uniform volume and the \(L^2\)-orthogonal projector onto affine functions for each integer \(d\ge1\). Covariances give kernels \(1+3x\cdot y\) and \(1+((d+1)(d+2)/2)x\cdot y\), respectively. Convexity reduces the operator norm to kernel rows at corners; an explicit opposite-sign neighborhood for every pair of distinct vertices establishes the strict spatial-maximizer classification. The cross-polytope marginal beta density and cube Irwin–Hall identity integrate these rows exactly. A sign-of-kernel input attains each norm, and the negative part determines the sharp positivity defect. The central limit theorem with uniformly bounded second moments proves the cube asymptotics. A packaged checker executed 102 exact-rational and 12 noncertifying simulation checks; the proof, not the finite checks, establishes the universal assertions.
+
+## Originality — PASS (priority subject to literature limits)
+Actual semantic published-finding corpus searches covered the continuous cube, cross-polytope, affine least squares, exact kernel norms, Irwin–Hall law, and polynomial projection aliases. Closest published items include *Exact positivity defect and max norm of the affine least-squares projector on a simplex* and *Sharp isotropic-constant range of all Hanner polytopes*. Their fully read mathematical results respectively concern a different domain and covariance/isotropic constants rather than absolute projector row integrals. The published metric-projection and Minkowski-ellipse duality calculations concern different functionals. The inspected Oswald global spline projector, Hangelbroek et al. manifold kernel projector, and Migliorati–Nobile discrete least squares papers do not imply the two exact solid-body formulas and polar dimension-growth ratio. A complete historical search cannot be claimed; polynomial-projector constants on highly symmetric domains may have an equivalent older formulation.
+
+## Mathematical value — PASS
+The sharp operator norm controls worst-case \(L^\infty\) error amplification in low-degree least-squares approximation. Fixing the polynomial degree and target dimension while varying the two polar solid domains isolates a structural instability: one sharp constant is linear and the other square-root in dimension. Exact universal rational formulas, sharp sign extremizers, strict spatial vertex rigidity, and the divergence coefficient supply a motivated infinite-dimensional family classification rather than a sample numerical table or an insignificant special case.
+
+## Boundaries and risk
+The central symmetry covariance is prior work and not claimed as new. The theorem is not a general optimality claim for all projections or all convex bodies. The one-dimensional case agrees with interval/simplex results, and two-dimensional square/diamond are affinely equivalent. Independent scientific audit has not yet occurred.
+
+Self-review: passed. Independent audit: not yet performed.

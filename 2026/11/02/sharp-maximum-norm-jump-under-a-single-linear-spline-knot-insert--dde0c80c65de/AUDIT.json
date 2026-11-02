@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The two-piece residual of (x-t)_+ after affine L2 projection has zero moments against 1 and x. Orthogonal nesting reduces Pt-P0 exactly to u tensor u divided by ||u||_2^2. Its two roots, L1 area, L2 integral and three node values yield the exact operator norm, reached by sign(u). Differentiation proves the unique minimax at t=1/2, algebra yields the >3 threshold, and the quadratic moment yields (Pt-P0)x^2 at x=0 equal to (1-t)/4. The standalone exact symbolic and independently assembled three-hat finite-element kernel checker passed 905 rational comparisons. Finite checks are corroboration, not the proof of the continuum theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Oswald arXiv:math/0611573, Introduction, states the classical 1D individual projector bound 3, while Theorem 1 constructs divergent individual projector norms in dimension at least 2.",
+        "Gawlik–Lew arXiv:1408.4104, Theorem 2.1 and Sections 4-5 give regularity-dependent L2/H1 supercloseness estimates on mesh families, not the exact L-infinity difference norm in a boundary-collapsing one-cell update."
+      ],
+      "reasoning": "The 1D individual-projector bound only gives the triangle estimate 6 for the difference, while the proved difference approaches 4 and may itself exceed the universal bound 3 for an individual projector. The smooth-data estimates of Gawlik–Lew depend on varying mesh size and hypotheses not satisfied by a single sliver interval with its remaining interval fixed; their statements do not imply the claimed sharp function of t.",
+      "searches": [
+        "Web: \"refinement\" \"difference of orthogonal projections\" \"infinity norm\" spline",
+        "Web: \"inserted knot\" \"orthogonal projection\" \"norm\" \"piecewise linear\"",
+        "Web: spline one knot perturbation projection Lebesgue constants L infinity 4 linear refinement",
+        "published-finding corpus: Nested finite element space interpolation projector rank-one detail operator exact L1 and Linfinity norm and endpoint knot clustering"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1408.4104",
+      "https://arxiv.org/abs/math/0611573",
+      "https://www.global-sci.com/nmtma/article/view/14057",
+      "2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+      "Previously recorded symmetric five-knot individual projector formula (comparison by mathematical implication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1408.4104 emphasizes Hs/L2 estimates for nearby meshes and smooth input; no exact one-knot Linfinity operator-difference identity is stated in inspected sections.",
+        "arXiv:math/0611573 emphasizes per-space projector L-infinity norms and a 2D instability; it does not compare affine versus its one-knot nested refinement.",
+        "Closest own-scope claim: earlier five-node symmetric linear-spline projector sharp norm, which concerns one projector on a 5-knot space, not the difference between affine and 3-knot nested spaces. Another relevant published published-finding corpus record on 3-knot natural cubic interpolation concerns a different polynomial degree and interpolation."
+      ],
+      "reasoning": "The target is the exact L-infinity norm of Pt-P0 as t varies, plus the unique minimax knot, threshold above 3, and fixed quadratic input boundary nonconvergence. None of the compared inspected statements supplies this by specialization, duality, parameter dominance or reduction. One-dimensional boundedness of both individual projectors is logically compatible with their difference approaching 4. No claim of categorical literature uniqueness is made.",
+      "searches": [
+        "arXiv:1408.4104 introduction, Theorem 2.1, Section 4 and Section 5",
+        "arXiv:math/0611573 Introduction, Proposition 1 and Theorem 1",
+        "DOI:10.4208/nmtma.2014.1218nm abstract, Section 1, Section 2.1 and Section 3 scope",
+        "Previously recorded mathematical statement: exact maximum norm for a symmetric five-knot individual linear-spline L2 projector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact algebra shows the update is the rank-one orthogonal projector onto the nonuniform Franklin detail u_t; no returned published published-finding corpus hit stated the precise product ||u_t||_1||u_t||_infinity/||u_t||_2^2 as a function of t.",
+        "Closest published-finding corpus splines hit 2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304 concerns natural cubic interpolation and an overshoot parameter, a different operator."
+      ],
+      "reasoning": "Equivalence was checked under rank-one Franklin detail, spline-wavelet level difference, nested L2 projector difference, and one-knot finite-element refinement. A coincidence of spline objects is not implication: a bound on the absolute norm of an individual spline projector does not identify the norm of the rank-one difference or its sharp dependence on a single knot. Older unindexed Franklin-function formulas remain a priority risk.",
+      "searches": [
+        "published-finding corpus: Franklin orthonormal spline detail function with first interior knot at parameter t and sharp L∞ norm of rank-one orthogonal projector; exact 12 max(t,1-t)/((1+2t)(3-2t)), 4 limit",
+        "published-finding corpus: Nonuniform single-knot insertion in continuous piecewise-linear splines; L2 projection difference between affine and three-node spline space; exact L-infinity norm 3/2 to 4 and nonsmooth boundary layer",
+        "Web: \"Franklin function\" \"L1 norm\" piecewise linear one interior knot",
+        "Web: \"orthogonal projection\" \"knot insertion\" \"L∞\" difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned published spline interpolation, projector, finite-element and Gabor-hat-spline findings but none reporting this one-knot closed law or the smooth x^2 endpoint witness.",
+        "Dickopf–Krause DOI:10.4208/nmtma.2014.1218nm studies 3D non-nested transfer numerically, with one-dimensional results about H1 stability of nodal interpolation, rather than an exact table for rank-one L-infinity projection differences."
+      ],
+      "reasoning": "Actual targeted database and primary-document searches found no table for the exact t-dependent quantity. This is finite negative evidence rather than a proof of priority. The one-cell family is continuous in t and the result is an analytic identity, not a finite-table recomputation.",
+      "searches": [
+        "published-finding corpus: One-knot refinement linear finite element L2 orthogonal projection sup norm sharp parameter knot location endpoint",
+        "published-finding corpus: Sharp L infinity norm orthogonal rank-one spline detail projector from affine functions",
+        "Web: \"single knot\" \"L2 projection\" \"difference\" stability sharp",
+        "Web: \"one knot\" \"difference of projections\" spline norm"
+      ]
+    },
+    "rationale": "Comparison included actual published-finding corpus searches, accessible own-scope claim summaries, Gawlik–Lew 2014 preprint material, Oswald 2006 preprint and Dickopf–Krause 2014 PDF. The closest works give individual projection bounds, regularity-dependent L2/H1 supercloseness or nonnested-transfer numerics; none of the inspected claims implies the one-knot sharp Linfinity update norm or the particular minimax/boundary law. Older Franklin-detail literature remains an explicit priority uncertainty.",
+    "residual_risks": [
+      "Unindexed or older nonuniform Franklin-function projection-constant computations could contain an equivalent exact one-knot formula.",
+      "A broader spline-wavelet result might imply the norm profile in non-obvious notation; the targeted searches and relevant inspected primary sections did not establish such coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact t-dependent L-infinity one-knot operator difference; results bound function-specific L2/H1 changes under different hypotheses",
+        "evidence": [
+          "first arXiv posting 2014-08-18",
+          "Theorem 2.1 estimates Hs differences; Section 4 changes one grid node and examines smoothness; Section 5 compares L2 and H1 convergence rates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.4104",
+        "material_read": "full-text HTML introduction and related work, Theorem 2.1 statement, discussion of Corollaries 2.3/2.5, Section 4 regularity example, Section 5 one-dimensional numerical setup",
+        "method": "lawfully accessible author preprint parsed into searchable full text",
+        "title": "Supercloseness of Orthogonal Projections onto Nearby Finite Element Spaces",
+        "trigger": "same L2 orthogonal finite-element projection differences, nearby mesh question and smooth-data stability"
+      },
+      {
+        "assessment": "NOT_COVERING the exact difference norm between affine and one-knot refined nested projectors; individual projector 1D bound 3 is weaker and on another operator",
+        "evidence": [
+          "first arXiv posting 2006-11-19",
+          "Introduction cites uniform 1D norm bound 3; Theorem 1 constructs arbitrarily high individual norms via 2D triangulations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+        "material_read": "full-text HTML Introduction, one-dimensional Ciesielski/de Boor/Shadrin comparison, Section 2 matrix setup and main Theorem 1, Section 3 construction",
+        "method": "lawfully accessible public arXiv preprint full text",
+        "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+        "trigger": "sharp or uniform L-infinity bounds for individual univariate L2 linear-spline projectors"
+      },
+      {
+        "assessment": "NOT_COVERING as to inspected statements: primarily non-nested transfers and numerical L2/H1 studies, not exact nested one-knot L-infinity law",
+        "evidence": [
+          "DOI:10.4208/nmtma.2014.1218nm; public 2014",
+          "Introduction states primary focus on nonnested meshes and 3D numerical comparisons; Lemma 2.1 concerns 1D H1 nodal interpolation"
+        ],
+        "identifier_or_url": "https://www.global-sci.com/nmtma/article/view/14057",
+        "material_read": "publisher full PDF abstract, introductory pages, Section 2.1 on nodal interpolation H1 stability, and sections described for 3D numerical transfer comparisons",
+        "method": "public publisher PDF text, first-page visual screenshot, and heading/phrase search; not a full line-by-line reading",
+        "title": "Evaluating Local Approximations of the L2-Orthogonal Projection Between Non-Nested Finite Element Spaces",
+        "trigger": "transfer between spline finite element spaces; possible comparison of projection differences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dde0c80c-65de-43f3-a2e8-f7a47659150c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves the natural minimax parameter problem for the smallest nested continuous linear-spline refinement. The exact endpoint amplification reaches an unattained factor 4, exceeds the universal norm bound 3 for an individual one-dimensional spline projector in a sharply determined parameter region, and persists for a fixed quadratic datum as the knot collapses. These are structural stability and continuity boundaries for mesh refinement rather than a mere numerical instance or routine substitution.",
+    "status": "PASS"
+  }
+}

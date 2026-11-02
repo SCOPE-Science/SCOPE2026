@@ -1,0 +1,15 @@
+# Scientific review: powered-distance geometry of diameter-three Kneser graphs
+
+## Correctness
+**PASS.** The claim fixes \(n=3k-2\) and \(k\ge8\), specifies the diagonal convention at zero exponent, and uses intrinsic graph distances. The four intersection cases give the exact graph metric. The multiplicity-free Johnson orbital decomposition provides the exact powered-distance eigenvalues; the critical eigenvalue on \(V_2\) is a strictly increasing scalar function with one crossing. The uniform inequalities \(q<7/4\), \(r_2-q>39/28\), and the geometric decrease of the other orbital eigenvalue magnitudes prove that all competing harmonics remain negative through the crossing. The centered-Gram rank and central-binomial asymptotic are then justified analytically. Independent direct graph/orbital checks, exact rational comparisons, and high-precision root checks in `check_kneser.py` support these deductions but are not substituted for the infinite proof. The Euclidean rank pertains to **squared** distances and not to an unspecified graph embedding.
+
+## Originality
+**PASS under bounded literature and record comparison.** The Eberlein/Johnson spectrum and its multiplicities are established prior art (Aalipour et al., Theorem 3.9, itself citing Bannai and Ito). The general Kneser distance-spectrum formula in their Theorem 3.10 is for the ordinary unpowered distance matrix. Sánchez gives abstract finite negative-type criteria and complete-bipartite examples; Murugan gives a vertex-transitive criterion and Hamming-cube applications. Scarabotti–Tolli provide a general finite homogeneous-space harmonic-analysis framework. None of the inspected results states or directly implies without a new all-harmonic comparison the unique degree-two obstruction for **every** diameter-three \(KG(3k-2,k)\) with \(k\ge8\), its endpoint nullity, or the exponential asymptotic. Related exact facts about smaller odd graphs and the Johnson squared-exponential kernel do not cover this regime. Searches did not find a matching formula, but inability to find a result is not a uniqueness proof. Historical or differently phrased coverage remains possible.
+
+## Mathematical value
+**PASS.** The graph family is the natural first diameter-three Kneser regime; generalized roundness is a sharp metric/Hilbert-embedding invariant. Its global optimization over every Johnson harmonic is a structural theorem, not a fixed-parameter numerical calculation. Identifying the sole obstructing component, the exact critical equality-space dimension, and the exponentially collapsing threshold while the graph diameter stays three gives reusable geometric information about this highly symmetric family. The specific critical invariant is motivated by negative-type geometry, not an arbitrary parameter slice.
+
+## Scope and residual risks
+The proof does not address other Kneser diameters or \(k<8\). The literature comparison is finite and may miss historical association-scheme terminology or unpublished calculations. Full independent mathematical audit and external validation have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.

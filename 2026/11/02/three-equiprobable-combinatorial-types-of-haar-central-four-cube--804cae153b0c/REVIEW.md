@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Vertex-facet incidence is reconstructed by the explicit inequality for all 32 cube edges; the two signed-coordinate-sum boundaries partition the ordered positive cone into exactly three chambers. Rational incidence enumeration establishes their distinct inventories. The known marginal distribution is also derived from an independent Gaussian/Cauchy crossing calculation; the new equality follows from an orthogonal involution preserving both the nondominant cone and the radial density. The supporting standalone checker replays the chamber, reflection and finite incidence calculations. Exceptional normals have Haar measure zero. The 75,000 random trials are corroboration, not an infinite proof.
+
+**Originality — PASS (historical priority provisional).** Egan's generic profile list and Brandenburg–Meroni's certified type count are already known and explicitly excluded from the novelty claim. Ambrus's 2021 cube-section work treats volume-critical normals. The published two-point face-vector law gives only a \(1/3\) versus \(2/3\) marginal and does not imply the conditional distribution between the two twelve-vertex types; the present exact \(1/2\) split, hence three equal \(1/3\) probabilities, is the claim assessed. Direct record and primary-source comparisons found no statement determining this conditional Haar law. Residual risk: earlier unindexed section stereology or later literature may already contain it.
+
+**Mathematical value — PASS.** The theorem completes the natural random combinatorial-type law for the smallest hypercube dimension where a face vector fails to determine section type. The exact reflection is a structural geometric reason for a surprising probability equality and upgrades a strictly weaker previously evaluated face-vector marginal. This is a complete classification of a natural invariant, not a small numerical improvement or an arbitrary parameter slice.
+
+**Limits.** The result is specific to generic Haar central sections of the symmetric four-cube. It does not assert uniformity under non-Haar sampling or for affine sections or orthotopes. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

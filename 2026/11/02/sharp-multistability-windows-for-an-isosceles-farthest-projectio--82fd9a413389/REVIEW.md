@@ -1,0 +1,15 @@
+# Scientific review — Sharp multistability windows for an isosceles farthest-projection map
+
+## Correctness
+**PASS.** The acute isosceles triangle is parametrized with squared height \(z>1\). Six direct orthogonal-projection formulas lead to exact affine return fixed points and eight or fewer target-versus-competing squared-distance differences for each stated itinerary. The primitive three-cycle conditions are \(1<z<3+2\sqrt3\), the displayed four-cycle condition is \(1<z<(1+\sqrt5)/2\), and within the three-cycle interval the eight-cycle condition is exactly positivity of a quintic with one positive root. The return multipliers are strictly contractive and the branches remain strict in each open interval, establishing local attraction with open relative basins. The exact-fraction checker evaluates 2,145 independent geometric-branch examples; the continuum assertions rely on algebra and the root-sign proof, not finite enumeration.
+
+## Originality
+**PASS within inspected evidence.** Everett's *A Piecewise Contractive Map on Triangles* (DOI `10.1080/1726037X.2020.1847765`, online 2021-01-07; author preprint arXiv `2408.16019v1`) presents the motivating map, qualitative convergence, and a numerical isosceles bifurcation picture, but not the two exact simultaneous-period windows and eight-cycle quintic threshold. The published *Exact two-orientation classification of primitive three-cycles for the farthest-projection triangle map* already establishes the precise three-cycle interval and its two orientations; the present claim explicitly credits that component and adds non-implied four-/eight-cycle branch existence and coexistence thresholds. General theorems for increasing interval contractions do not imply these conditional three-line projection itineraries. Residual risk: a more obscure symbolic-dynamics analysis or unpublished computation could contain equivalent four- and eight-cycle thresholds. This is not an independent publication-priority assessment.
+
+## Mathematical value
+**PASS.** The source's parameter-dependent period transitions motivate asking whether different periods can attract from different starting points at a *fixed* geometry. The result resolves this question over **two open, disjoint, algebraically bounded parameter windows** with three distinct attracting cycles, rather than only exhibiting an isolated parameter or a selected-trajectory period. The new quintic threshold is the exact onset of the displayed eight-cycle in the three-cycle regime and supplies a concrete boundary for multistability. No claim of a complete period census is made.
+
+## Scientific limits
+The coexistence intervals are sharp for the explicitly named symbolic orbit families; other periods, their global basins, and all dynamics at or beyond the selected region remain unclassified. Finite rational checks cannot establish the all-real-parameter claim. The source figure is qualitative and does not substitute for exact algebraic originality comparisons.
+
+Self-review: passed. Independent audit: not yet performed.

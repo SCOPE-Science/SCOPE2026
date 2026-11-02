@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For N=2d there is precisely one angular DFT alias, at ±d, whose two radial-normalized real projections have determinant minus sin(d delta). When nonsingular the data determine both continuous circle squared magnitudes; the rational quotient is dilation-invariant and therefore a unimodular constant. When singular the explicit pair 1±i z^d collides. The exact B-transpose-B trace/determinant formula gives singular values sqrt(1±abs(cos(d delta))). A fresh standalone standard-library checker passed 9639 deterministic finite arithmetic assertions; proofs are independent of the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chalendar--Partington 2024 Theorem 2.16: phase rigidity from all intensities on distinct nested circles.",
+        "Bodmann--Hammen 2013 Theorem 2.3: 4d finite construction using intersecting circles.",
+        "Pohl--Li--Boche 2017 Theorem 7: 4d unbalanced finite circle construction."
+      ],
+      "reasoning": "The 2024 continuous theorem implies uniqueness only after both whole intensity functions have been reconstructed, and does not establish that a particular critically undersampled 2d-grid pair reconstructs them. General 4d frame existence does not imply injectivity for these explicit geometries, and the other described finite configurations are not supersets of the balanced sample pair.",
+      "searches": [
+        "Phase retrieval polynomial degree n two circles roots of unity rotated grids 4n phaseless samples finite dimensional frame",
+        "2017 Pohl Li Boche 2d+1 outer 2d-1 inner samples phase retrieval polynomial compared equal 2d 2d sampling",
+        "Bodmann Hammen 2015 stable phase retrieval low redundancy frames two circles radii equidistant sample 4N-4",
+        "2024 Chalendar Partington two concentric circles finite discrete cyclic samples Nyquist alias phase angle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.16255v1, Sections 2.1-2.4 and Theorem 2.16",
+      "DOI:10.1109/SAMPTA.2017.8024411, Lemmas 4 and 6, Theorem 7",
+      "arXiv:1302.5487v1, introductory construction and Theorem 2.3",
+      "Published scientific-record searches recorded in the four named originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 Pohl et al. Theorem 7 needs 2d+1 full interpolation samples on one circle, with 2d-1 on the other.",
+        "2024 Chalendar--Partington Theorem 2.16 requires full-circle modulus agreement.",
+        "2013 Bodmann--Hammen Theorem 2.3 assumes intersecting circles and uses irrational intersection angle."
+      ],
+      "reasoning": "The final statement is an exact universal iff over delta and every polynomial, plus the uniquely optimal angular offset for the two-real-variable alias. Neither general existence nor the other specified acquisition geometries provide this statement. The proof explicitly supplies a new nonresonance recovery step and a resonant witness.",
+      "searches": [
+        "2017 Pohl Li Boche 2d+1 outer 2d-1 inner samples phase retrieval polynomial compared equal 2d 2d sampling",
+        "balanced two circles concentric 2n sampling points equally spaced rotated by half step polynomial phase retrieval Nyquist coefficient angular aliasing full injectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Intensity is a Laurent trigonometric polynomial of degree d; a cyclic 2d-grid aliases only the ±d harmonics.",
+        "Pohl--Li--Boche 2017 Theorem 7 uses a 2d+1/2d-1 split rather than two 2d grids."
+      ],
+      "reasoning": "Equivalent Nyquist Fourier interpolation, polynomial phase retrieval and coefficient-product inversion formulations were compared. At equal 2d+2d allocation the highest harmonic is not individually recoverable, and a second rotated grid supplies the missing independent real projection; the published unequal allocations avoid this alias by a different mechanism.",
+      "searches": [
+        "Two concentric circles discrete 2d equally spaced angular samples shifted polynomial intensity phase retrieval all complex polynomials up to global phase",
+        "Phase retrieval polynomial degree d 4d balanced phaseless evaluations two concentric regular 2d-gons rotated by half a grid step",
+        "fourier intensity finite polynomial phase retrieval two radii half-step rotation equispaced angular sampling exact angular resonance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result titled Sharp determinant stability and conditioning of concentric Szegő orbit frames concerns linear frame conditioning, not polynomial intensity retrieval.",
+        "Published full-circle uniqueness theorems and linear two-circle Szegő frame geometry address different hypotheses from balanced phaseless polynomial samples."
+      ],
+      "reasoning": "Named records and earlier claims were compared by implication: linear Szegő frame Gram bounds do not recover a complex polynomial from intensities; a complete continuous boundary circle plus sparse inner probes is not two equal finite cyclic grids. Search absence does not certify global novelty.",
+      "searches": [
+        "Two concentric circles discrete 2d equally spaced angular samples shifted polynomial intensity phase retrieval all complex polynomials up to global phase",
+        "Phase retrieval polynomial degree d 4d balanced phaseless evaluations two concentric regular 2d-gons rotated by half a grid step",
+        "fourier intensity finite polynomial phase retrieval two radii half-step rotation equispaced angular sampling exact angular resonance",
+        "balanced two circles concentric 2n sampling points equally spaced rotated by half step polynomial phase retrieval Nyquist coefficient angular aliasing full injectivity"
+      ]
+    },
+    "rationale": "New statement concerns exact iff phase recovery for two balanced regular 2d-gons, including all resonant rotations and the sharp Nyquist two-real-parameter conditioning; the closest papers use full circles, unequal circle allocations, or intersecting circles and do not logically cover the balanced aligned/staggered classification. Semantic research-record searches did not identify an equivalent or stronger result; historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Possible unindexed or uninspected earlier balanced two-circle phaseless sampling result.",
+      "A general algebraic frame-theoretic theorem might subsume this exact family in a source not surfaced by the bounded searches.",
+      "The harmonic-lift conditioning statement does not imply uniform nonlinear reconstruction stability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Concentric nested circles recover phases when full continuous intensity is known; no finite balanced critical 2d-grid sampling theorem in inspected relevant sections.",
+        "evidence": [
+          "arXiv:2403.16255v1 submitted 2024-03-24 18:30:03 UTC",
+          "Theorem 2.16, Section 2.4: entire two circles rather than finite 2d-point regular polygons"
+        ],
+        "identifier_or_url": "arXiv:2403.16255, https://arxiv.org/html/2403.16255v3",
+        "material_read": "Full accessible HTML theorem statements; Section 2.4, the five-circle-configuration classification and Theorem 2.16 proof, plus earlier Section 2.1-2.2",
+        "method": "Read HTML full text and compared objects, hypotheses, data model and conclusions",
+        "title": "Phase retrieval on circles and lines",
+        "trigger": "Direct parent continuous-circle phase-retrieval theorem and focal publicly dated source"
+      },
+      {
+        "assessment": "4d samples do phase retrieval using unbalanced per-circle allocation. No direct implication for two undersampled equal 2d grids or their resonance criterion.",
+        "evidence": [
+          "Theorem 7: 2d+1 points on one circle and 2d-1 on a second",
+          "Conclusion recaps unequal allocation and does not specify balanced angular rotation"
+        ],
+        "identifier_or_url": "DOI:10.1109/SAMPTA.2017.8024411, https://www.researchgate.net/publication/319475708_Phase_retrieval_in_spaces_of_analytic_functions_on_the_unit_disk",
+        "material_read": "Author-uploaded readable full-text HTML, particularly Lemmas 4 and 6, Theorem 7, its proof and conclusion",
+        "method": "Compared explicit 2d+1 versus 2d-1 sample allocation and implied full-circle interpolation with critical balanced 2d+2d setting",
+        "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+        "trigger": "Most direct earlier finite polynomial two-concentric-circle 4d-sample result"
+      },
+      {
+        "assessment": "Its 4d measurement construction uses a special pair of intersecting circles mapped to lines with irrational angle; the explicit balanced concentric Nyquist criterion is not implied by the inspected statement.",
+        "evidence": [
+          "Theorem 2.3 gives 2D-1 samples on a nonconcentric circle plus 2D-3 on a unit circle in dimension D, for D=d+1",
+          "Proof maps intersecting circles to lines; not concentric two-ring configuration"
+        ],
+        "identifier_or_url": "arXiv:1302.5487v1, https://arxiv.org/pdf/1302.5487",
+        "material_read": "PDF abstract, introductory construction, Theorem 2.3 and its proof on pages 1-3, with page-image inspection",
+        "method": "Compared the two-circle geometric arrangement, sample allocation and use of intersecting circles versus concentric rings",
+        "title": "Stable phase retrieval with low-redundancy frames",
+        "trigger": "Potential dominating 4d-complex-polynomial phase-retrieval construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da0758db-93a1-42f9-b28e-2a297d3dfa78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed 4d phaseless point budget matches natural low-redundancy polynomial phase-retrieval constructions, while equal allocation 2d+2d has an unavoidable angular Nyquist alias. Complete classification of all relative rotations, exact resonant counterexamples and unique half-grid-step optimal linear alias conditioning solve a geometrically motivated deterministic sensor-placement question. No global stability theorem or broad algorithmic contribution is claimed.",
+    "status": "PASS"
+  }
+}

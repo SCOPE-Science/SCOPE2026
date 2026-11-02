@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+
+The claim is a mathematically complete result for the exact \(\varepsilon=0\) boundary. The cat matrix has distinct reciprocal positive eigenvalues, and the observed character has a nonzero projection onto both eigenspaces, validating the two simultaneous exponential-sum tests. Single-term-versus-multiple-term relations are impossible by a product Cauchy–Schwarz bound. Two-versus-two equalities have the same unordered eigenvalues, so they only represent cancellations. At order five a two-versus-three relation reduces exactly to the Lucas-sequence equality \(L_h-1=L_p+L_q+L_{p+q}\); the monotonicity inequalities exclude every case except \(h=2\), \(p=q=0\), which is precisely the shifted cat recurrence. Character orthogonality then proves the universal joint moment statement and the coefficient \(\sin\alpha/16\). Counting the \(20\) ordered permutations of each consecutive multiset gives the fifth moment and cumulant. The standalone exact-arithmetic checker passed on the actual packaged program. Finite enumerations are independent stress tests, not used as an infinite proof.
+
+## Originality — PASS within inspected evidence
+
+The primary model paper [1] was inspected in full via its open HTML, including the defining equations in Section II, its dynamical arguments in Sections III–VII and the Möbius appendix. It supplies the model, not the exact five-term resonance and all-horizon fifth phase cumulant. The relevant sections of the lacunary survey [2] were inspected: it provides the general Fourier/Diophantine framework rather than the explicit map-specific length-five obstruction and coefficient. The full published result on cat-driven Möbius primitive two-cycles was also inspected. It concerns identity resonances and periodic-point stability for \(\varepsilon>0\) on a symmetry slice, not Haar-distributed fifth moments at \(\varepsilon=0\). Related low-order toral-shear statistics use a different map. The 2003 perturbed-cat diffusion article [3] was compared at abstract level only; it concerns a different system and variance-focused diffusion. No equivalent exact formula was identified in the scientific searches; this is not proof of global uniqueness. The residual risk is an unindexed or unexamined earlier calculation of the same statistic.
+
+## Mathematical value — PASS
+
+The first departure from independent statistics is pinned to a *provably minimal* arithmetic relation, rather than an arbitrarily chosen high moment. The exact formula gives a natural, explicitly parameter-sensitive finite-time diffusion diagnostic for the phase variable of the published model. Pairwise independence coexists with an extensive fifth-order cumulant that is nonzero for generic phase shift; the universal coefficient is potentially useful for checking simulations and statistical approximations beyond variance. The boundary condition \(\varepsilon=0\) and lack of a CLT or higher-order classification are explicit limits and do not alter the self-contained value of the minimal-resonance result.
+
+Self-review: passed. Independent audit: not yet performed.

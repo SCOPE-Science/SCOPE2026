@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact graph distance equals ceil(cyclic distance/2). The parity decomposition, Fourier transforms of the cyclic second difference and Dirichlet sign sequence, and sign inequalities for all even and odd n reconstruct the complete claim; the n=9 zero-frequency case is exact. Gaussian universal positivity is equivalent to nonpositive nonconstant distance Fourier eigenvalues. A separate BFS and DFT checker was executed successfully for n=3..128 (CHECK_OK 732270); finite checks do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aalipour et al., arXiv:1509.01196v2, Sections 1–5: distance spectra for strongly regular, distance regular and other graphs, but not odd cycle squares.",
+        "Atik–Panigrahi (2016) Theorem 2.2 gives a previously known full even-cycle-square spectrum.",
+        "Zhou (2014) Theorems 5–6 give spectral radius and Wiener/Harary index identities for circulants."
+      ],
+      "reasoning": "General Fourier diagonalization and finite Schoenberg equivalence are ingredients, not the explicit all-order sign classification. The diameter-two adjacency identity yields individual small cases but cannot provide the unbounded odd-order family without the new distance transform. Previously published even spectral coverage is excluded from the novelty claim.",
+      "searches": [
+        "\"C_n^2\" \"distance eigenvalues\" odd",
+        "\"circulant\" \"1,2\" \"distance spectrum\" cycle",
+        "\"negative type\" \"square of cycles\" metric"
+      ]
+    },
+    "checked_sources": [
+      "Atik and Panigrahi (2016), Theorem 2.2 and proof, publisher PDF",
+      "Aalipour et al. (2015), arXiv:1509.01196, accessible full HTML",
+      "Zhou (2014), DOI:10.1155/2014/742121, HTML main results",
+      "Saha and Das (2025), limited excerpt (not full-text clearance)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Atik–Panigrahi 2016, PDF pp. 198–199, Theorem 2.2 states spectrum for n even, explicitly assuming an even cycle.",
+        "Aalipour et al. 2015 accessible full HTML describes graph families and general diameter-two identity D=2(J-I)-A; no general odd C_n^2 formula.",
+        "Saha–Das 2025 available excerpt discusses adjacency eigenvalues 2cos(2πj/n)+2cos(4πj/n), not odd-order distance Fourier spectra."
+      ],
+      "reasoning": "Even-order formulas in the new proof are directly implied by known work and not treated as new. Diameter-two algebra handles n≤9, but for odd n≥11 the diameter grows and adjacency spectral formulas no longer imply the distance spectrum by D=2(J-I)-A. The new Dirichlet transform and sign separation supply the missing unbounded parameter argument. Unknown differently titled distance-spectrum work remains a residual risk.",
+      "searches": [
+        "\"Families of graphs having few distinct distance eigenvalues with arbitrary diameter\" square even cycle theorem 2.2",
+        "\"On the distance spectra of graphs\" cycle square odd",
+        "\"The Square Graph of a Cycle Graph\" adjacency spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact metric is ceil(cyclic shortest-path distance/2) on Z/nZ; equivalently a two-step circulant Cayley metric.",
+        "The Fourier test is the conditional negative definiteness of the distance matrix, equivalent by Schoenberg to universal Gaussian positivity and squared-Euclidean embeddability.",
+        "Theorem 2.2 of Atik–Panigrahi treats even cycle squares, not the odd formula."
+      ],
+      "reasoning": "The graph-power, circulant, Gaussian and squared-Euclidean aliases were searched. The even case is already covered; the evaluated new theorem is the odd Fourier/positivity classification, including n=9. No inspected primary statement gives that odd classification.",
+      "searches": [
+        "square of cycle graph C_n^2 geodesic shortest path distance matrix negative type Fourier eigenvalues positive odd 7 9 11",
+        "power-of-cycle graph metric negative type C_n^2 Hilbert embeddings conditionally negative definite",
+        "\"negative type\" \"power of cycle\" graph distance",
+        "\"square of a cycle\" \"distance matrix\" eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published mathematical results concerned different cyclic Fourier statistics and graph invariants rather than an odd-order squared-cycle distance table.",
+        "Atik–Panigrahi displays a full spectrum only for even squared cycles, not a precomputed odd table."
+      ],
+      "reasoning": "No exact database or table for the odd squared-cycle Fourier sign pattern was located. This is a bounded negative search result, not proof of novelty.",
+      "searches": [
+        "\"square of odd cycles\" \"distance\" \"eigenvalues\" graph",
+        "\"square of cycles\" \"distance matrix\" \"odd\" spectrum"
+      ]
+    },
+    "rationale": "Atik–Panigrahi (2016), Thm. 2.2, already covers the even squared-cycle distance spectrum; it is explicitly treated as prior art, not as novelty. The new claim is the complete odd-order Fourier sign law, the sharp all-order Gaussian positivity classification, and the exceptional nine-vertex embedding. Comparison with related published mathematical findings and primary literature found no same-object odd-order theorem. The risk of a differently worded historical result remains.",
+    "residual_risks": [
+      "A differently named or unindexed result could derive the odd cycle-square distance spectrum.",
+      "The 2025 similarly titled article was only accessible as an excerpt; its full text was not cleared.",
+      "Even-order spectral results and general Schoenberg theory are already known and are not new contributions.",
+      "No independent mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EVEN_ORDER_COVERED; ODD_ORDER_NOT_STATED",
+        "evidence": "The theorem explicitly begins with an even cycle, uses a bipartition into even and odd cyclic indices, and transforms its distance spectrum. The paper says full D-spectrum of square of even cycles, not odd.",
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1493/1493/1493",
+        "material_read": "Abstract, introduction and full Theorem 2.2 statement and proof on printed pp. 198–199, with PDF page images inspected",
+        "method": "Primary publisher open-access PDF, text and rendered page inspection",
+        "title": "Families of graphs having few distinct distance eigenvalues with arbitrary diameter",
+        "trigger": "Direct same graph family, square of cycles"
+      },
+      {
+        "assessment": "GENERAL_PRINCIPLES_NOT_A_COVERING_ODD_SQUARE_THEOREM",
+        "evidence": "The covered graph families are strongly regular, distance-regular Hamming/Doob/Johnson/halved cubes, lollipops and barbells; no C_n^2 all-odd theorem is stated. General D=2(J-I)-A applies to diameter 2 only.",
+        "identifier_or_url": "https://arxiv.org/html/1509.01196v2",
+        "material_read": "Abstract, introduction, section outline, diameter-two distance-spectrum identity in §2 and searched all accessible HTML for graph powers and cycles",
+        "method": "Full accessible arXiv HTML, relevant sections and text searches",
+        "title": "On the distance spectra of graphs",
+        "trigger": "Potential stronger general distance inertia and metric hierarchy"
+      },
+      {
+        "assessment": "ONLY_TOP_EIGENVALUE_AND_INDICES",
+        "evidence": "The main results are formulas relating the Wiener/Harary indices to maximum distance or reciprocal-distance eigenvalues, not the nonconstant distance spectrum.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2014/742121",
+        "material_read": "Abstract, introduction and all of §3 main results (Theorems 5 and 6)",
+        "method": "Publisher open-access HTML",
+        "title": "The Wiener Index of Circulant Graphs",
+        "trigger": "Primary older circulant distance spectral invariants; day-verified public motivation"
+      },
+      {
+        "assessment": "UNRESOLVED_LIMITED_ACCESS_LOW_TO_MODERATE_OVERLAP_RISK",
+        "evidence": "The accessible 2025 excerpt computes adjacency eigenvalues for C_n^2; this does not decide the full odd distance spectrum at diameter above two.",
+        "identifier_or_url": "https://www.researchgate.net/publication/404196875_The_Square_Graph_of_a_Cycle_Graph",
+        "material_read": "Only discoverable excerpt surrounding the adjacency spectrum; full primary text not accessible in this review",
+        "method": "Search-result/excerpt inspection only, explicitly not a whole-document exclusion",
+        "title": "The Square Graph of a Cycle Graph",
+        "trigger": "Plausible similarly named later primary article"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad3741e3-c982-4ddd-a1db-5cf412309d3f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies a natural infinite-family classification of squared-Euclidean/negative-type graph metrics and universal Gaussian positivity, where parity and the exact isolated n=9 case are not obvious from the graph definition. The odd Fourier formula, rank of the centered embedding and explicit obstruction modes connect finite harmonic analysis to kernel stability; not a reparameterization of the known even spectrum.",
+    "status": "PASS"
+  }
+}

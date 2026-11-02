@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof supplies the exact operator and weight conventions, a layer-cake reduction to all vertex cuts, a charging map from every dilated-cut boundary edge to an original cut edge and its oriented distance wave, and attaining witnesses furnished by a single tree-edge deletion. The one-step classification follows from an incident-edge minimum-weight argument, and the maximum-degree estimate follows from a breadth-first branching count. Independently constructed exact-rational cut comparisons and additional integer signals corroborate the argument; enumeration is not treated as an infinite proof.
+
+**Originality — PASS, subject to residual risk.** Graph dilation and grayscale stacking are already established by morphological-filter literature. The complete accessible Najman–Cousty survey, the materially inspected Kolmogorov–Pock–Rolinek tree-variation preprint, and the graph-signal filtering work of Sandryhaila–Moura contain background definitions but not the claimed all-radius weighted oriented-frontier sharp constant. Relevant comparison with graph cut and previously available cyclic-filter results also does not logically imply the arbitrary weighted-tree wave formula. The complete Cousty–Najman–Dias–Serra 2013 paper could not be obtained; implicit antecedents in that work or earlier image-morphology sources remain possible. Search noncoverage is not treated as proof of novelty.
+
+**Value — PASS.** A network morphological dilation is positivity preserving and eventually maps every signal to a constant, yet can first multiply boundary variation by exponentially large factors. The result determines this full finite-scale response exactly for every weighted tree without enumerating all cuts; it specifies extremizing signals, a path-only stability classification, and optimal branching examples. These are natural and exact structural stability questions rather than isolated numerical instances.
+
+**Scientific limitations.** No two-input Lipschitz modulus is claimed; hop distance and edge variation weights are different structures. The finite checker is supplementary, and independent external verification is absent. A plausible morphology primary source remains inaccessible for full-text comparison.
+
+Self-review: passed. Independent audit: not yet performed.

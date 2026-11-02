@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Frobenius CRT decomposition and an explicit characteristic-two tensor-sum Jordan lemma prove the exact uniform nilpotent block partition; the Fitting decomposition yields every shell. A packaged stdlib verifier independently checks ranks and exact microscopic entry times across tested dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thomas–Stevens–Lettieri 2006 (DOI:10.1216/rmjm/1181069447) studies one-dimensional Rule 90 periodic dynamics; the accessible abstract does not address the 2D Kronecker sum.",
+        "Acar–Uguz–Akin 2017 (DOI:10.12693/APhysPolA.131.432), sections 2–4, treats a particular binary hybrid rule and matrix-rank algorithm."
+      ],
+      "reasoning": "General polynomial formulations of additive automata and the one-dimensional result do not explicitly settle the tensor-sum Jordan partition, which depends on characteristic-two Frobenius identities. An unknown stronger older theorem remains possible but was not evidenced by the accessible material.",
+      "searches": [
+        "two dimensional additive cellular automata finite torus periodic boundary nilpotent 2-adic Jordan rank",
+        "additive cellular automata square torus four-neighbor XOR convergence time finite field 2",
+        "Characteristic and minimal polynomials of linear cellular automata Thomas Stevens Lettieri"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0804.2346",
+      "doi:10.1016/j.ins.2003.09.024",
+      "doi:10.12693/APhysPolA.131.432",
+      "doi:10.1216/rmjm/1181069447",
+      "Siap–Akin–Uguz (2013) European Journal of Pure and Applied Mathematics 6:315–334"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dihidar–Choudhury 2004, DOI:10.1016/j.ins.2003.09.024, abstract discusses certain exceptional 2D rules but the full statement/proofs were inaccessible.",
+        "Choudhury et al. 2008 works with null boundaries; Siap et al. 2013 with GF(3); Acar et al. 2017 with hybrid GF(2) rules."
+      ],
+      "reasoning": "No inspected theorem directly implies c=2min(m,2^nu2(n)) nilpotent blocks of length max(m,2^nu2(n))/2 for the specific uniform binary four-neighbor torus rule, nor the resulting first-entry probabilities. Because full text of the 2004 plausible source is unavailable, exact coverage by it is a residual originality risk, not claimed disproved.",
+      "searches": [
+        "\"Matrix algebraic formulae concerning some exceptional rules\" pdf Dihidar Choudhury",
+        "\"von Neumann\" \"toroidal\" \"linear cellular automata\" \"nilpotent\" modulo 2",
+        "two dimensional additive cellular automata finite torus periodic boundary nilpotent 2-adic Jordan rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Choudhury et al. 2008, arXiv:0804.2346, uses null boundary rather than a torus.",
+        "Siap et al. 2013, European J. Pure Appl. Math. 6:315–334, uses a longer ternary nearest-plus-prolonged rule."
+      ],
+      "reasoning": "Comparison was made after translating the four-neighbor rule into multiplication by u+u^{-1}+v+v^{-1} and a statement about rank(F^t), nilpotent Jordan partition and entry-time populations, rather than only matching the words cellular automata.",
+      "searches": [
+        "linear cellular automata Cartesian product cycles toroidal grid adjacency over F2 nilpotence stopping time",
+        "two dimensional rule 170 xor four neighbors toroidal nilpotent 2^k exact",
+        "binary additive cellular automata 2D von Neumann neighborhood toroidal grids matrix ranks cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table or exact shell census appeared in the inspected 2008, 2013 or 2017 primary portions.",
+        "The independently generated table for 39 small tori is computational verification, not an existing published table."
+      ],
+      "reasoning": "The outcome is an exact formula for every m=2^a and every n>=3, not a recomputation of a specific finite lookup table; lack of a located table does not establish novelty.",
+      "searches": [
+        "two dimensional rule 170 xor four neighbors toroidal nilpotent 2^k exact",
+        "linear cellular automata periodic boundary two dimensions four neighbors F2 matrix characteristic polynomial",
+        "uniform nilpotent Jordan chains for characteristic two tensor sum Jordan blocks powers of two additive dynamics graph product"
+      ]
+    },
+    "rationale": "The assessed result is a closed nilpotent Jordan partition and exact first-periodic-entry law for binary four-neighbor dynamics on a dyadic-by-arbitrary torus. The accessible 2D null-boundary, ternary periodic, and binary hybrid periodic primary texts do not prove the stated claim. A 2004 exceptional-rule paper remains an explicit, unresolved access risk; comparisons are limited to obtainable material, and failed retrieval is not treated as proof of uniqueness.",
+    "residual_risks": [
+      "Full primary text of Dihidar–Choudhury (2004) could contain a related or stronger result.",
+      "Only the abstract of Thomas–Stevens–Lettieri (2006) was accessible in the used public interface.",
+      "Unindexed or differently named earlier equivalent formulations cannot be excluded by semantic searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NULL boundary model and image transforms; no periodic torus Jordan or first-entry law in reviewed content.",
+        "evidence": [
+          "Section 2 specifies null boundaries; Sections 3–6 characterize 2D rule matrices and image operations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0804.2346",
+        "material_read": "Public 17-page PDF: introduction, model and rule matrices, rule properties, applications and conclusion; page images of pages 1 and 4 visually checked.",
+        "method": "Opened original arXiv PDF with full-text extraction and page screenshots",
+        "title": "Theory and Applications of Two-dimensional, Null-boundary, Nine-Neighborhood, Cellular Automata Linear rules",
+        "trigger": "Primary archive source for binary 2D linear cellular rules"
+      },
+      {
+        "assessment": "Ternary field and extended local rule, not the binary uniform four-neighbor iterated Jordan partition.",
+        "evidence": [
+          "PDF introduction and Section 2 explicitly use Z3 and additional next-nearest neighbors; Section 4 gives rank algorithm."
+        ],
+        "identifier_or_url": "https://www.ejpam.com/index.php/ejpam/article/download/2011/305/0",
+        "material_read": "Public 20-page PDF: abstract, introduction, definition of GF(3) rule, rank procedure and examples; page images of pages 1 and 9 visually checked.",
+        "method": "Opened source PDF and extracted relevant sections with screenshots",
+        "title": "2-D Reversible Cellular Automata with Nearest and Prolonged Next Nearest Neighborhoods under Periodic Boundary",
+        "trigger": "Same periodic 2D finite CA boundary type, MSC 37B15"
+      },
+      {
+        "assessment": "Hybrid transformation and reversibility; exact uniform four-neighbor finite entry shells not stated.",
+        "evidence": [
+          "Sections 2–4 explicitly discuss hybrid rule matrices and reduction to rank of a corner submatrix."
+        ],
+        "identifier_or_url": "https://doi.org/10.12693/APhysPolA.131.432",
+        "material_read": "Accessible full five-page PDF; inspected introduction, periodic rule matrices, hybrid rank reduction, conclusion; page images of pages 1 and 4.",
+        "method": "Retrieved publisher-author full-text PDF through public source and inspected extracts and page screenshots",
+        "title": "Characterization of 2D Hybrid Cellular Automata with Periodic Boundary",
+        "trigger": "Binary GF(2) and periodic boundaries with matrix-rank characterization"
+      },
+      {
+        "assessment": "Historical context only; insufficient material to exclude an implicit 2D corollary.",
+        "evidence": [
+          "Abstract identifies closed Rule 90 minimal polynomial and periodic finite one-dimensional dynamics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1216/rmjm/1181069447",
+        "material_read": "Abstract and bibliographic descriptions only, not the full paper",
+        "method": "Public abstract retrieval",
+        "title": "Characteristic and Minimal Polynomials of Linear Cellular Automata",
+        "trigger": "Related one-dimensional Rule 90 operator and periodicity"
+      },
+      {
+        "assessment": "Unresolved historical coverage risk, not a negative comparison of its full content.",
+        "evidence": [
+          "Abstract says it characterizes some exceptional transformations using GF(2) matrix algebra, including periodic boundaries."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ins.2003.09.024",
+        "material_read": "Public abstract and bibliographic data only, not full article",
+        "method": "Tried open-access/preprint search and authorized institutional retrieval; complete text unavailable",
+        "title": "Matrix algebraic formulae concerning some exceptional rules of two-dimensional cellular automata",
+        "trigger": "Potential stronger primary source on GF(2) 2D special rules"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5383f1b-22d7-4db2-9dd5-2821588fd383",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp stopping-time distribution is a natural, complete finite-time invariant of a standard two-dimensional XOR rule, valid for every torus with one dyadic circumference. The odd-factor invariance and uniform nilpotent Jordan structure are structural, not merely isolated small-number computations. They can inform exact statistics and robustness analysis of additive torus dynamics.",
+    "status": "PASS"
+  }
+}

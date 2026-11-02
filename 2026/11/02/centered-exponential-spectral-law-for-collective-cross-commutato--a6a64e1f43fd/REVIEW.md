@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The normalizations are fixed: ordered pairs \(i\ne j\), canonical normalized monomials, diagonal weights \((d-1)/[(\ell+d-1)(\ell+d)]\), and \(2^{-d}\) spectral counting. The quotient-to-spin model follows by a simultaneous global unitary basis, not by incompatible pairwise identifications. The Johnson spectrum follows from explicit Boolean-lattice up/down commutation. The large-dimension law uses all polynomial moments with exact Wick pairing, a moment-determinate centered-exponential limit, and a uniform second-moment bound for the unbounded test \(|t|\). There are no extrapolations from finite numerical samples.
+
+**Originality — PASS (best knowledge, conditional on primary comparison).** Xu–Xiang 2026 gives individual commutator tensor factors but does not supply the spectral law for their *sum*. Classical Johnson spectra are credited rather than rebranded. A separate nontrivial large-dimension moment calculation produces the centered exponential law and sharp \(1/e\) coefficient. Searches of related quotient-module, Johnson graph, and complete-graph XY literature found no identical collective operator statement or stronger result that directly implies this asymptotic without that bridge. The closest potentially relevant 2021 Johnson-graph fermion paper was accessible as abstract/excerpts only, so indirect historical coverage remains a real risk.
+
+**Value — PASS.** The natural aggregate is the Hermitian part of the summed off-diagonal commutator matrix, quantifying all-coordinate failure of double commutativity. Whereas individual pairwise norms are identical, collective cancellation creates an unexpected non-Gaussian exponential spectral distribution and an exact constant for trace-norm growth. This gives a substantive all-dimension invariant, not an arbitrary finite cut or a restatement of a single-pair bound.
+
+**Limits.** Only quadratic inner functions are treated. The finite Johnson graph diagonalization is classical and not claimed new. The paper identifying the quotient model is the principal mathematical input. Independent priority and proof audit have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

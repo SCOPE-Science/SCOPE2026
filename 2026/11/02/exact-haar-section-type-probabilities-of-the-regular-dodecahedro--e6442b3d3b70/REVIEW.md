@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Generic central-plane vertices correspond bijectively to crossed dodecahedron edges. A complete finite arrangement classification over the exact ordered field \(\mathbb Q(\sqrt5)\) establishes the \(20,60,12\) chamber counts, section types and spherical-angle multisets; Girard's area identity converts them into the three probabilities. The actual standalone `check.py` was executed and its assertions all passed. Strictly zero-measure boundary normals are explicitly excluded. Computed decimals are not used to prove the exact expressions.
+
+**Originality — PASS (bounded search, residual historical priority risk).** The inspected full text of Brandenburg–De Loera–Meroni (2023) supplies general slicing-chamber structure and extremal dodecahedron volume sections, but does not evaluate the direction-weighted exact section-type law. MathWorld records symmetry-axis hexagonal and decagonal central sections, which do not determine positive-measure frequencies. The nearest indexed result concerns *central icosahedron* sections; polar duality associates this dodecahedron result instead with *orthogonal icosahedron projections*, not those central icosahedron sections. Several synonym, polar, spherical-arrangement and exact-coefficient searches found no stronger direct coverage. Specialized older stereological/projective tables remain a historical-priority risk.
+
+**Value — PASS.** A complete, exact Haar side-count distribution for one of the five Platonic solids is a canonical integral-geometric invariant. The result simultaneously identifies the three possible generic section types, determines their spherical measure and exposes the underlying icosahedral great-circle combinatorics. The middle-probability octagonal regime has positive measure despite being invisible from special-axis descriptions. This is a motivated complete geometric classification rather than an arbitrary numerical slice.
+
+The result concerns only regular dodecahedra under central Haar-plane sampling, not affine-offset models. Exact enumeration is a finite certificate with mathematical completeness justified in RESULT.md; numerical experiments alone would not establish the result. Priority beyond the inspected material is unresolved.
+
+Self-review: passed. Independent audit: not yet performed.

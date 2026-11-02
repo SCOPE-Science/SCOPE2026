@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For fixed 0<a<1, the exact normalized Takenaka–Malmquist basis realizes Q as the transpose of a lower triangular Toeplitz matrix divided by 1-a. Rational matrix identities give A A*+aI=(1+a)^2U with U_ij=min(i,j)+a/(1+a), and its inverse is the specified irreducible positive tridiagonal P, yielding all singular values. The scaled A/N converges in Hilbert–Schmidt norm to (1+a) times Volterra, proving each fixed-rank slope. Row reversal and phase changes make a^N A^(-1) converge in Hilbert–Schmidt norm to rank-one (1+a)a^(r+t), giving the sharp smallest singular a^N. Every quantifier and N=1 boundary is covered; standalone pure-Python rational checker passed 2796 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2501.07686v1: Jordan and Toeplitz resolvent rank-one-like behavior and qualitative small singular values.",
+        "arXiv:2410.18623v1 Theorems 2.6 and 2.8: non-sharp general upper/lower norm estimates.",
+        "Published nilpotent-shift inverse fixed-rank spectral asymptotics give the leading Volterra upper-edge coefficient for a bounded affine perturbation, but not the tridiagonal full spectrum or sharp last-singular coefficient."
+      ],
+      "reasoning": "The upper fixed-rank limit alone is a bounded-perturbation consequence of standard Volterra or published nilpotent-resolvent singular asymptotics, and is not claimed separately novel. The combined exact all-rank spectral formula and exponentially small last-singular constant are not covered by those source statements or by the primary quotient literature. Other equivalences in finite Toeplitz theory remain a residual risk.",
+      "searches": [
+        "\"Jordan block\" \"resolvent\" \"smallest singular value\" exponential",
+        "\"triangular\" \"constant\" \"off-diagonal\" singular values spectrum",
+        "arXiv:2501.07686v1 Sections 4–5",
+        "\"Spectral asymptotics of local Dirichlet embedding finite-dimensional model space Jordan block\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.18623v1 (full-text primary comparison)",
+      "arXiv:2310.03604 (full text; embedding)",
+      "arXiv:2501.07686v1 (full text; Toeplitz/Jordan comparators)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior ordinary eigenvalues a/(1-a) are a strict weaker datum than singular values of the nonnormal triangular matrix.",
+        "A qualitative local embedding criterion does not yield best finite-rank approximation numbers.",
+        "Qualitative exponential collapse in unrelated Toeplitz resolvents does not fix an asymptotic coefficient of one, nor a Volterra coefficient of 2/pi.",
+        "The upper fixed-rank limit, unlike the sharp bottom exponential and complete tridiagonal spectrum, is inferable from the Volterra limit for (I-J)^(-1) plus the affine identity A=(1+a)(I-J)^(-1)-I."
+      ],
+      "reasoning": "Ordinary eigenvalues and the upper fixed-rank leading coefficient can be deduced from stronger established tools; they are included to give a complete two-ended analysis, not presented as independent novelties. No inspected prior statement entails the full finite tridiagonal singular spectrum together with the sharp bottom coefficient a^N and consequent condition-number asymptotic.",
+      "searches": [
+        "arXiv:2410.18623v1 Theorems 2.1, 2.6, 2.8 and Section 9",
+        "arXiv:2310.03604v1 Theorems 1.1–1.4 and local Douglas formula",
+        "arXiv:2501.07686v1 Introduction, Jordan section and large Toeplitz section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2410.18623v1, Sections 2 and 4: ordinary spectrum of the boundary quotient; Section 9: local Dirichlet integral relation.",
+        "Exact present quotient matrix is the transpose of (aI+J)(I-J)^(-1)/(1-a), with J nilpotent."
+      ],
+      "reasoning": "Checked the compressed-shift-resolvent, local Dirichlet embedding and triangular Toeplitz formulations, not just matching titles. The source ordinary eigenvalue formula is implied by its Theorem 2.1 and is not claimed new; the all-rank singular matrix and sharp two-ended singular laws do not follow from that eigenvalue theorem or its operator-norm inequalities.",
+      "searches": [
+        "\"difference quotient\" \"model space\" singular values \"Blaschke\"",
+        "\"local Dirichlet\" \"finite Blaschke\" \"singular values\" embedding norm",
+        "\"model spaces\" \"Dirichlet\" \"Blaschke powers\" resolvent norm",
+        "arXiv:2410.18623v1 Sections 2, 4, 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A finite matrix can be reconstructed from the orthonormal basis, but a reconstruction is not a previously published exact singular-value table.",
+        "No parameter-matched all-rank singular-value table identified in the sources examined."
+      ],
+      "reasoning": "Checked explicit parameter dependence, rank ordering, tridiagonal spectra, and the exponential least singular. Absence of a matching indexed result is not treated as a proof of priority; possible equivalent singular-value tables hidden in older numerical-linear-algebra literature are acknowledged.",
+      "searches": [
+        "\"Exact finite tridiagonal spectral formula for boundary difference quotient on K_{((z-a)/(1-az))^n} and 2/pi norm\"",
+        "\"Smallest singular value asymptotic a^n boundary quotient operator on finite Blaschke model space\"",
+        "\"aI\" \"triangular\" ones singular values Toeplitz",
+        "\"local Dirichlet\" \"Blaschke\" \"embedding\" \"sharp\" eigenvalues"
+      ]
+    },
+    "rationale": "Full-text comparison with the boundary difference-quotient article arXiv:2410.18623v1 establishes that its ordinary-spectrum theorem and norm bounds do not state the all-rank singular-value matrix or sharp fixed-rank and least-rank coefficients for repeated Blaschke zeros. The related local Dirichlet embedding article arXiv:2310.03604v1 characterizes existence, not approximation numbers. The finite Toeplitz/Jordan resolvent analysis arXiv:2501.07686v1 considers a related numerical spectral mechanism but no exact model-space quotient law. Searches under multiple equivalent descriptions and exact parameters found no implication by a stronger inspected result; undetected classical Toeplitz results remain a residual risk.",
+    "residual_risks": [
+      "Possible alternative-normalization result for the same triangular Toeplitz matrix in classical singular-value literature that was not located.",
+      "No claim of historical novelty for the standard compressed-shift resolvent identity, Volterra spectrum, tridiagonal Green covariance, or ordinary eigenvalues.",
+      "Index and bibliographic coverage are incomplete even after relevant full-text comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.1 gives ordinary spectrum and Theorems 2.6/2.8 norm bounds. No parameter-matched complete singular spectrum or constants for power-Blaschke quotients in the inspected manuscript.",
+        "evidence": [
+          "arXiv:2410.18623v1 pp. 1–4, Theorems 2.1, 2.6, 2.8; pp. 19–20 Section 9."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.18623",
+        "material_read": "Primary preprint text: abstract, operator definition, main theorems, spectral comparison in Section 4, Section 8 example, and Section 9 Dirichlet connection; other sections searched for matching singular-spectrum statements.",
+        "method": "Read full-text PDF with visual inspection of the theorem page and Dirichlet discussion.",
+        "title": "The spectral analysis of the difference quotient operator on model spaces",
+        "trigger": "Same exact boundary difference quotient object and spectral question."
+      },
+      {
+        "assessment": "Existence and nonexistence of embedding is characterized. Exact singular values or two-edge rates for B_a^N are not stated.",
+        "evidence": [
+          "arXiv:2310.03604v3 pp. 1–3, Theorems 1.1–1.4 and 2.1. First public posting v1 was 2023-10-05."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.03604",
+        "material_read": "Manuscript text: abstract, introduction and main embedding theorems, local Douglas formula, model-space and Dirichlet applications; remaining section headings and mathematical statements searched.",
+        "method": "Read full-text PDF with visual inspection of embedding theorems and local Douglas formula.",
+        "title": "Embedding model and de Branges–Rovnyak spaces in Dirichlet spaces",
+        "trigger": "Possible direct domination of the local Dirichlet embedding spectrum."
+      },
+      {
+        "assessment": "Large Toeplitz resolvent rank-one approximations and qualitative small singular-value descriptions; no stated exact two-ended formula for the Hardy model-space boundary quotient.",
+        "evidence": [
+          "arXiv:2501.07686v1 pp. 1–2 and p. 9. First public posting 2025-01-13."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2501.07686",
+        "material_read": "Title, abstract, introduction, Jordan and Toeplitz discussions, including page 9 treatment of exponentially small singular values.",
+        "method": "Read machine-parsed full-text PDF and visually inspected first and Toeplitz spectral pages.",
+        "title": "When is the Resolvent Like a Rank One Matrix?",
+        "trigger": "Related nilpotent Jordan and Toeplitz small singular-value phenomena."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dca8fa39-b2ed-40ff-be13-1f9ce240efa8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model-space-to-local-Dirichlet inclusion motivates computing exact approximation numbers, a quantitative invariant beyond known embedding conditions and the ordinary spectrum. A complete positive tridiagonal formula and the striking coexistence of linear upper growth and exponential minimum decay reveal sharp nonnormal condition-number behavior and a universal 2/pi derivative-normalized norm limit. These are structural, parameter-uniform in N for each fixed 0<a<1, and directly usable for finite-rank approximation; they are not a routine finite table or a known eigenvalue substitution.",
+    "status": "PASS"
+  }
+}

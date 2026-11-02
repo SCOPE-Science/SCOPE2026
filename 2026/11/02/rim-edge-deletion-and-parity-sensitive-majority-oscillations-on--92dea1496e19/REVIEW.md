@@ -1,0 +1,9 @@
+# Scientific review: majority oscillations on fans and wheels
+
+**Correctness.** PASS. The proof gives the exact two-input endpoint rule, constructs the associated single auxiliary cycle, proves that no nonconsensus fixed or static-hub periodic states occur, and identifies all hub-flipping two-cycles with circular words having no isolated ones and two strict population inequalities. A run-composition argument gives each coefficient. For the wheel comparison, odd rim sizes produce one cycle while even rim sizes produce two, with two additional static-hub orbits. The bounded symmetric-threshold potential proves eventual period at most two. The embedded direct simulation agrees across every configuration at 14 fan sizes; these are only corroborating checks.
+
+**Originality.** PASS, with residual bibliographic risk. The inspected 1988 primary source counts fixed strings under a distinct local three-site majority rule; the available 2014 primary full text treats generic/unimodular and random graphs; the 2016 AND-OR paper concerns chain-network fixed points without a globally voting hub. The general period-two theorem from 1980 and classical circular run enumeration are acknowledged prior art. The new graph-specific reduction, full fan orbit formula, odd-rim comparison and two opposite edge-deletion examples are not implications of the stated primary results. Full access to the 2016 paper was unavailable, and further historical equivalents are possible.
+
+**Mathematical value.** PASS. The graph perturbation is natural and minimal: one edge separates the wheel from the fan. The sharp odd-size equivalence and even-size nonmonotone change distinguish orbit counts from graph size and degree alone. The formula classifies a natural invariant for the entire infinite fan family, not an arbitrary parameter slice or recomputation of a known table.
+
+Self-review: passed. Independent audit: not yet performed.

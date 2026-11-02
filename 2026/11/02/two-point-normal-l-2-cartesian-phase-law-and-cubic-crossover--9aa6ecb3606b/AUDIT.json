@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For nonzero mutually orthogonal projections the rotated real part is exactly a direct sum of scalar eigenvalues a*cos(theta) and b*cos(theta-beta). The squared norm is the maximum of their squares, including an optional zero block. The identity max(u,v)=(u+v+|u-v|)/2 and the exact mean absolute-sinusoid integral give equation (1). Strict differentiation in s=sin(beta) establishes uniqueness of extrema. The normalized arctan integral has a strictly decreasing ratio to s³; its endpoint values give both globally best constants. Taylor expansion and uniform epsilon-scaling establish the cubic law and crossover without relying on numerical checks. A current-attachment standard-library checker passed 909 finite assertions, including quadrature, phase bounds, sharp coefficient samples and crossover. Finiteness is never used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus:ffd07fee0727 proves a dimension-free cubic lower bound in terms of distance to all phase-self-adjoint operators. It computes the projectively orthogonal endpoint for a 4-by-4 diagonal example, but gives no formula for arbitrary unequal-modulus relative phase, best two-sided sine-cubic constants, or the double-scaling crossover.",
+        "Kittaneh–Moslehian–Yamazaki (2015), Theorem 2.1, concerns the supremum over Cartesian directions, not their squared mean."
+      ],
+      "reasoning": "The published global cubic inequality controls distance to phase-self-adjoint operators rather than the two independent spectral parameters; it does not imply the exact pointwise interior angular average, its best upper and lower phase constants, or the double scaling. The published 4-by-4 orthogonal-phase endpoint is covered and not claimed independently new.",
+      "searches": [
+        "l2 cartesian numerical radius eigenvalues different modulus normal diagonal matrix exact formula arctan ellipse",
+        "sharp two-sided cubic sine phase modulus of squared L2 Cartesian numerical radius normal diagonal with two nonzero unequal modulus eigenvalues, cubic to linear double scaling r to 1",
+        "published-finding corpus:ffd07fee0727 cubic operator-norm stability full RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04844v1 (first public 2026-10-04), v2 full HTML §2–§3",
+      "published-finding corpus:f6644dc86b39 (full RESULT.md)",
+      "published-finding corpus:ffd07fee0727 (full RESULT.md)",
+      "published-finding corpus:846b702b24b7 (full RESULT.md)",
+      "Kittaneh–Moslehian–Yamazaki, Linear Algebra Appl. 471 (2015), abstract/introduction/Theorem 2.1",
+      "Gevorgyan, arXiv:1401.4794 (abstract and bibliographic metadata)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unitary spectral-gap formula proves the fixed-beta equal-modulus limit r=1, while the unequal-modulus small-angle cubic law and joint scaling r=1-epsilon, beta=epsilon*t require an interior function of both parameters.",
+        "The global cubic stability theorem gives only a lower bound in a different distance parameter and already supplies the orthogonal endpoint r. The new theorem adds an exact interior profile, both sharp sin-cubic coefficients, strict phase monotonicity, and a joint parameter crossover.",
+        "The rank-one overlap formula is non-equivalent: its rank-one normal specialization has at most one nonzero spectral value and no nontrivial two-phase interaction."
+      ],
+      "reasoning": "No inspected prior theorem subsumes the entire new claim. Special cases are covered and disclosed. The best-knowledge originality conclusion is provisional with regard to unindexed classical trigonometric max-integral formulas.",
+      "searches": [
+        "global sharp phase stability C_minus(r) sin³ beta ≤ L2 Cartesian normal two point radius deficit ≤ C_plus(r) sin³ beta",
+        "cubic small-angle phase onset in nonunitary two point diagonal normal matrices for L2 Cartesian numerical radius, crossover r approaches 1 angle comparable to 1-r",
+        "arXiv:2610.04844v2 Theorem 18 Remark 19",
+        "published-finding corpus:f6644dc86b39; published-finding corpus:ffd07fee0727; published-finding corpus:846b702b24b7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.04844v2, §2 Remark 19 calculates only diag(1,i) with equal eigenvalue moduli; its Theorem 18 supplies a general norm comparison rather than an exact unequal-modulus angular profile.",
+        "published-finding corpus:f6644dc86b39 gives an angular projective-gap identity for unitary spectra, all lying on one circle. Its limit r=1 agrees with the boundary formula but lacks the interior unequal-modulus parameter.",
+        "published-finding corpus:846b702b24b7 gives a rank-one overlap formula for generally nonnormal operators with just one nonzero eigenvalue, not two nonzero unequal-modulus eigenvalues."
+      ],
+      "reasoning": "Projective eigenvalue angle, amplitude ratio and the angular L2 average define the same objects across aliases. Neither the one-circle gap formula nor the rank-one overlap profile determines the strict two-modulus interior law; the boundary special cases are explicitly acknowledged as prior.",
+      "searches": [
+        "for normal two spectral values of unequal moduli a,b, exact integrated L2 Cartesian numerical radius as a function of spectral phase sine beta: (r sin beta - A arctan(r sin beta/A))/pi",
+        "operator phase angular averaged maximum max{cos² theta, r² cos²(theta-beta)} arctan closed formula sharp cubic stability two spectral points",
+        "two-point nonunitary normal matrices spectrum 1 and r e^{i phi} exact L2 Cartesian numerical radius as function of angle r phase",
+        "arxiv:2610.04844v2, §2 including Theorem 18 and Remark 19"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published-finding corpus hit lists contain rank-one, unitary-spectrum, general cubic-stability and unrelated q-numerical-radius results; no exact unequal-modulus two-parameter angular entry was returned.",
+        "The focal source Remark 19 lists a single equal-modulus example; no exact continuous phase table for two unequal eigenvalue moduli was found in its inspected full-text sections."
+      ],
+      "reasoning": "This comparison is to the claims and implications of returned records, not merely their names. The searches are not an exhaustive proof of nonexistence of unindexed tables.",
+      "searches": [
+        "Cartesian radii normal two point unequal eigenvalue moduli projective phase cusp",
+        "arctan formula exact L2 Cartesian numerical radius diag(1,r exp(i theta)) 2026",
+        "integrated support function normal matrix roots of unity squared mean directional width sharp dimension bound",
+        "for normal two spectral values of unequal moduli a,b, exact integrated L2 Cartesian numerical radius as a function of spectral phase sine beta: (r sin beta - A arctan(r sin beta/A))/pi"
+      ]
+    },
+    "rationale": "Best-knowledge new claim is the complete interior unequal-modulus phase response and best two-sided sine-cubic phase modulus, together with the joint modulus/angle crossover. The original source gives definition and inequalities and an equal-modulus example. Published unitary and rank-one formulas cover different classes; general cubic stability already covers the orthogonal-phase endpoint and that special case is explicitly not claimed new. No equivalent or dominating interior formula was identified in actual published-finding corpus, published mathematical records or searched primary literature.",
+    "residual_risks": [
+      "An older trigonometric envelope or planar convex-support integral may give the same two-parameter formula under terminology unrelated to the new radius.",
+      "Bibliographic abstract alone cannot rule out a formula buried in older two-by-two literature.",
+      "The formula for orthogonal projective phases and the equal-modulus boundary are already known; only the interior profile and jointly sharp phase law are asserted as new.",
+      "Independent publication-priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general comparison bounds and the equal-modulus example are covered; no two-parameter unequal-modulus phase formula or sharp cubic sine stability appears in examined material.",
+        "evidence": [
+          "arXiv:2610.04844v2 §2 Theorem 18, Remark 19; §3 Lp extension; arXiv submission history v1 2026-10-04."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.04844v2",
+        "material_read": "Full HTML source browsed with focused examination of the definitions, Section 2 (including Theorem 18 and Remark 19), and Section 3; first public metadata separately confirmed from arXiv abstract history.",
+        "method": "Full-text HTML browser, section and exact-term navigation",
+        "title": "The L²-Cartesian Numerical Radii of Hilbert Space Operators",
+        "trigger": "Focal definition and nearest possible direct prior calculation of normal two-point operators."
+      },
+      {
+        "assessment": "Covers the projective-circle equal-modulus boundary but not nonunitary unequal-modulus two-point profiles.",
+        "evidence": [
+          "published-finding corpus:f6644dc86b39, equation (1) and scope restricting to unitary operators."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-projective-spectral-gap-formula-and-optimal-finite-spectra--f6644dc86b39",
+        "material_read": "Entire available RESULT.md: theorem, assumptions, proof, comparison and limitations.",
+        "method": "Published mathematical record full-text retrieval",
+        "title": "Exact projective spectral-gap formula and optimal finite spectra for the L²-Cartesian radius of unitaries",
+        "trigger": "Strongest relevant spectral angular-average exact formula."
+      },
+      {
+        "assessment": "The endpoint r formula is previously computed in the special 4-by-4 example and not claimed separately; the new claim is an interior two-parameter phase function and its sharp bilateral phase modulus.",
+        "evidence": [
+          "published-finding corpus:ffd07fee0727, exact example T_epsilon=diag(1,-1,i epsilon,-i epsilon) and cubic lower inequality."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-operator-norm-stability-for-the-l-2-cartesian-numerical-ra--ffd07fee0727",
+        "material_read": "Entire available RESULT.md: theorem, proof with explicit 4-by-4 example, comparisons and limitations.",
+        "method": "Published mathematical record full-text retrieval",
+        "title": "Cubic operator-norm stability for the L²-Cartesian numerical radius",
+        "trigger": "Direct overlap of cubic rate and orthogonal-phase endpoint."
+      },
+      {
+        "assessment": "Non-equivalent rank-one operator class, with a distinct overlap parameter; it does not imply the two-nonzero-eigenvalue normal class.",
+        "evidence": [
+          "published-finding corpus:846b702b24b7, rank-one Schur form and overlap formula."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-rank-one-overlap-profile-for-the-l-2-cartesian-numerical-r--846b702b24b7",
+        "material_read": "Entire available RESULT.md including explicit Schur block and its integral.",
+        "method": "Published mathematical record full-text retrieval",
+        "title": "Exact rank-one overlap profile for the L²-Cartesian numerical radius",
+        "trigger": "Nearby complete two-dimensional operator calculation."
+      },
+      {
+        "assessment": "The inspected result concerns supremal numerical radius, not the integrated L2 average.",
+        "evidence": [
+          "Kittaneh, Moslehian and Yamazaki, Linear Algebra Appl. 471 (2015), Theorem 2.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2014.12.016",
+        "material_read": "Abstract, introduction and displayed Theorem 2.1 from an accessible HTML rendition; not the complete article.",
+        "method": "Publisher HTML extraction",
+        "title": "Cartesian decomposition and numerical radius inequalities",
+        "trigger": "Older broader Cartesian-direction operator inequality."
+      },
+      {
+        "assessment": "The historical topic is standard supremal matrix numerical radius, not shown to contain the later-defined integrated invariant; access limitation remains.",
+        "evidence": [
+          "arXiv:1401.4794 abstract and bibliographic metadata."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.4794",
+        "material_read": "Bibliographic information and abstract only; full article was not examined.",
+        "method": "Public abstract and metadata",
+        "title": "On the numerical radii of 2×2 complex matrices",
+        "trigger": "Possible older two-dimensional matrix formula under a traditional numerical-radius name."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9aa6ecb3-606b-41c7-9b92-5c29dd10ca7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first genuinely two-eigenvalue unequal-modulus normal class of a newly studied angular numerical radius has two natural invariant parameters: radial contrast and projective spectral angle. An exact full profile identifies sharp angular extremizers and two globally optimal cubic stability constants; the singular double-scaling law explains the transition to the covered equal-modulus linear regime. This is a motivated complete quantitative family, not an arbitrary sample or an isolated small improvement. No all-normal-spectrum or all-operator generalization is claimed.",
+    "status": "PASS"
+  }
+}

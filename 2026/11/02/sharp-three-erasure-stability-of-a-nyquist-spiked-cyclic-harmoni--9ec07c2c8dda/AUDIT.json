@@ -1,0 +1,208 @@
+{
+  "correctness": {
+    "rationale": "Parseval orthogonality reduces the lower frame bound to an erased 3x3 Gram spectral maximum. A unitary Nyquist parity transform produces a rank-two pure-parity block with eigenvalue (9+sqrt(9+8|T|^2))/2, and a tridiagonal mixed-parity block B(t). Polygonal projection proves the exact pure-parity |T| maximum and all equality masks. Three exact Sylvester certificates (leading principal minors 2,4,12; 2,2,4; and 3,4,14) show mixed masks are strictly inferior in the cases m=3, m=4, and m>=5. Rank arguments give upper eigenvalue equality and recovery threshold; the same masks attain both extrema and the condition-number bound. A standalone checker independently enumerated 64676 erasure spectra for m=3..21; finite tests corroborate but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bodmann–Paulsen (2004) give general erasure-error frameworks and sharp results for two-uniform frames, while the present Fourier frame is not generally equiangular.",
+        "Ferreira (1994) explicitly distinguishes lowpass and bandpass worst erasures, but the full article could not be accessed to establish its quantitative scope.",
+        "Rath–Guillemot (2004) study lowpass DFT-code erasures and subframe reconstruction errors; the available abstract does not state a theorem covering the Nyquist-spiked bandpass family."
+      ],
+      "reasoning": "General erasure frameworks do not, without further configuration-specific proofs, imply the sharp strict pure-versus-mixed parity comparison or the exact constant. A plausible full-text source remains a residual risk rather than being declared unrelated on abstract evidence.",
+      "searches": [
+        "bandpass sampling alternating even odd nodes three erasures finite cyclic Fourier frame sharp spectrum",
+        "Web query: DFT codes erasures nonconsecutive bandpass contiguous worst case singular value frame optimal masks",
+        "doi:10.1109/78.324726",
+        "doi:10.1109/TSP.2003.821106",
+        "arxiv:math/0406134v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0406134v1",
+      "arxiv:1204.0992v1",
+      "arxiv:1611.07121v1",
+      "doi:10.1109/78.324726 (author synopsis and abstract)",
+      "doi:10.1109/TSP.2003.821106 (abstract only)",
+      "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+      "2026/10/4/SCOPE-a-complete-full-spark-criterion-for-every-three-row-fourier-patt--843fec171d5a",
+      "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae",
+      "2026/10/11/SCOPE-singular-three-by-three-fourier-minors-on-even-semiprime-cycles--8f025c6183d3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general two-row result can optimize erasures confined to one parity class after a reduction, but it cannot exclude mixed-parity erasures without a third-coordinate comparison.",
+        "Full spark is a statement about every three retained Fourier columns; it does not imply the nonzero spectral lower bound after retaining N−3 columns.",
+        "The original proof’s strict Sylvester tests on B(1), B(sqrt(2)), B(2) exclude every mixed-parity erasure and establish the global step-two extremizer census.",
+        "Lowpass contiguity is not equivalent to step-two parity geometry in the Nyquist-spiked bandpass model."
+      ],
+      "reasoning": "The exact pure-parity 2x2 eigenvalue is elementary once reduced; the substantive missing implication is global dominance over mixed parity and sharp equality counts. No inspected stronger source supplies this implication, but inaccessible older engineering sources impose a nonzero priority risk.",
+      "searches": [
+        "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0 complete RESULT.md",
+        "2026/10/4/SCOPE-a-complete-full-spark-criterion-for-every-three-row-fourier-patt--843fec171d5a complete RESULT.md",
+        "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae complete RESULT.md",
+        "arxiv:1204.0992v1 Proposition 7 and universal interpolation",
+        "Bodmann–Paulsen arxiv:math/0406134v1 Sections 3–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The question is equivalently the largest eigenvalue of the three-column erased Gram of the Fourier rows (0,1,m), or the smallest eigenvalue of the complementary retained Parseval operator.",
+        "2026/10/4/SCOPE-a-complete-full-spark-criterion-for-every-three-row-fourier-patt--843fec171d5a proves only full-spark tests for selected three-column minors, with the same 3-row family; it has no fixed-cardinality erasure spectrum.",
+        "Ferreira (IEEE TSP 1994, DOI:10.1109/78.324726) studies missing-sample convergence and notes potentially different bandpass worst configurations; accessible abstract/author synopsis did not provide this all-order spectral formula."
+      ],
+      "reasoning": "The full-spark criterion permits rank-deficient 3-column subsets without quantifying operator spectra or worst 3 deletions. The claim here fixes a Nyquist-separated row triple, optimizes over erased triples, gives exact endpoint spectrum and counts, and isolates parity-pure rather than arbitrary singular minor configurations. A covering old bandpass theorem is plausible but not established by accessible material.",
+      "searches": [
+        "worst three coefficient erasures harmonic Fourier frame frequencies zero one half-period N/2 parity bandpass cyclic sampled frame sharp lower eigenvalue",
+        "exact reconstruction condition number three Fourier characters 0 1 N/2 on even cyclic group erased three rows same parity worst-case",
+        "Web query: finite Fourier frame frequencies zero one Nyquist frequency three erasures worst case singular values exact",
+        "arxiv:math/0406134v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0 supplies complete all-size spectra only for **two** cyclic Fourier characters.",
+        "2026/10/4/SCOPE-a-complete-full-spark-criterion-for-every-three-row-fourier-patt--843fec171d5a gives a gcd classification of vanishing 3x3 minors, with no erasure-norm table.",
+        "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae optimizes a square consecutive-frequency three-by-three sampling condition number over selecting the three columns, not maximal eigenvalue for deleting three columns from this bandpass frame.",
+        "2026/10/11/SCOPE-singular-three-by-three-fourier-minors-on-even-semiprime-cycles--8f025c6183d3 classifies singular minors for varying three-row and column sets on order 2p, not a fixed bandpass erasure spectral extremum."
+      ],
+      "reasoning": "No accessed exact database or table contains the formula Λ_m, the global spectral comparison, or the equality-mask census for this frame. This is a searched absence, not a uniqueness proof.",
+      "searches": [
+        "bandpass sampling alternating even odd nodes three erasures finite cyclic Fourier frame sharp spectrum",
+        "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+        "2026/10/4/SCOPE-a-complete-full-spark-criterion-for-every-three-row-fourier-patt--843fec171d5a",
+        "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae",
+        "2026/10/11/SCOPE-singular-three-by-three-fourier-minors-on-even-semiprime-cycles--8f025c6183d3"
+      ]
+    },
+    "rationale": "A bounded search of published mathematical findings, the accessible historical claim ledger, and relevant primary research found no stronger statement implying the exact Nyquist-spiked three-row worst-erasure bound and equality census. The nearest identical frequency-row source classifies vanishing small minors rather than frame norms. The two-row erasure theorem does not compare mixed parity masks. Ferreira 1994 and Rath–Guillemot 2004 full texts were inaccessible, so the PASS records best-knowledge bounded originality rather than guaranteed publication priority.",
+    "residual_risks": [
+      "Ferreira (1994) full text inaccessible: may contain an implicit special-case bandpass spectral minimax statement.",
+      "Rath and Guillemot (2004) full text inaccessible: available abstract is lowpass-focused but detailed subframe calculations may bear on the present parameter family.",
+      "Other earlier alias-equivalent frame/DFT coding results may use reconstruction convergence or packetization terminology.",
+      "Finite numerical checks and bounded literature searches are not independent validation or proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the erasure framework and results for two-uniform frames, not the specific Nyquist-spiked three-frequency three-erasure sharp bounds.",
+        "evidence": [
+          "arxiv page first public timestamp 2004-06-08",
+          "Section 4 concerns equiangular two-uniform frames and Section 5 graph-based bounds"
+        ],
+        "identifier_or_url": "arxiv:math/0406134v1",
+        "material_read": "ArXiv primary HTML: introduction and definitions, selected theorem statements and related passages in Sections 4–5",
+        "method": "Primary public text review",
+        "title": "Frames, Graphs and Erasures",
+        "trigger": "General adversarial frame-erasure norm theory and earliest day-verified public source"
+      },
+      {
+        "assessment": "Describes spectral convergence and notes that lowpass contiguous worst masks need not remain worst for bandpass. An exact theorem potentially implying the present special case could remain in the unread text; recorded as priority risk.",
+        "evidence": [
+          "IEEE TSP 42 (1994), 2596–2606",
+          "Author synopsis explicitly contrasts lowpass and bandpass worst missing-sample patterns"
+        ],
+        "identifier_or_url": "doi:10.1109/78.324726",
+        "material_read": "Public abstract and detailed author synopsis; primary full text unavailable",
+        "method": "Author-authored description and public abstract; no article-body comparison",
+        "title": "Interpolation and the Discrete Papoulis-Gerchberg Algorithm",
+        "trigger": "Direct historical missing-sample worst-geometry risk for bandpass frames"
+      },
+      {
+        "assessment": "Analyzes lowpass code erasures and MSE packetization. The abstract does not establish the proposed Nyquist-bandpass three-erasure constant, but the full text remains a specific originality risk.",
+        "evidence": [
+          "IEEE TSP 52(2), 447–460 (2004)",
+          "Abstract identifies lowpass DFT codes and MSE subframe classes"
+        ],
+        "identifier_or_url": "doi:10.1109/TSP.2003.821106",
+        "material_read": "Bibliographic metadata and public abstract only; no accessible full paper obtained",
+        "method": "Journal abstract and reference-record comparison",
+        "title": "Frame-Theoretic Analysis of DFT Codes With Erasures",
+        "trigger": "Potential stronger lowpass DFT-code subframe bounds"
+      },
+      {
+        "assessment": "Addresses exact interpolation and universal patterns rather than best three-erasure spectral stability for fixed nonconsecutive rows.",
+        "evidence": [
+          "Public 2012-04-04 first version",
+          "Universal sampling rank rather than quantitative lower frame constant"
+        ],
+        "identifier_or_url": "arxiv:1204.0992v1",
+        "material_read": "ArXiv primary paper including the universal sampling definitions and relevant Proposition 7, inspected from PDF",
+        "method": "Primary PDF reading with page-image inspection",
+        "title": "Discrete Sampling and Interpolation: Universal Sampling Sets for Discrete Bandlimited Spaces",
+        "trigger": "Universal rank/nonvanishing of Fourier sampling restrictions"
+      },
+      {
+        "assessment": "Frame classification and counting do not give this worst-erasure spectral classification.",
+        "evidence": [
+          "2016-11-22 public first version",
+          "Harmonic-frame equivalence/enumeration theorem"
+        ],
+        "identifier_or_url": "arxiv:1611.07121v1",
+        "material_read": "Public arXiv abstract and open article sections concerning harmonic-frame equivalence and enumerations",
+        "method": "Primary public article reading",
+        "title": "On the number of harmonic frames",
+        "trigger": "Canonical cyclic harmonic-frame definitions and equivalences"
+      },
+      {
+        "assessment": "Precisely restricted to two Fourier rows. The additional Nyquist row and mixed parity competition are outside its scope.",
+        "evidence": [
+          "Closed two-row eigenvalue formula in terms of one complex phase sum",
+          "Stated limitation excludes three or more Fourier rows"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+        "material_read": "Complete published RESULT.md, including proof, scopes, limitations, and references",
+        "method": "Full published primary-result comparison",
+        "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+        "trigger": "Nearest all-count exact erased-spectral formula"
+      },
+      {
+        "assessment": "Classifies singular three-column minors via gcd conditions, not worst spectral loss from deleting three of N measurements.",
+        "evidence": [
+          "Full spark iff gcd(N,r), gcd(N,r−1)≤2",
+          "The theorem is a zero/nonzero minor criterion"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-a-complete-full-spark-criterion-for-every-three-row-fourier-patt--843fec171d5a",
+        "material_read": "Complete published RESULT.md including theorem, proof, and limitations",
+        "method": "Full published primary-result implication comparison",
+        "title": "A complete full-spark criterion for every three-row Fourier pattern",
+        "trigger": "Exact same three Fourier rows specialized to r=m"
+      },
+      {
+        "assessment": "Treats consecutive frequency triple {0,1,2} and optimizes a square 3x3 condition number, not deletion of three columns from the Nyquist triple {0,1,m}.",
+        "evidence": [
+          "Balanced gaps minimize the square Vandermonde condition number",
+          "Different rows and selection/deletion quantifier"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae",
+        "material_read": "Complete published RESULT.md including minimax proof and equality classes",
+        "method": "Full published primary-result implication comparison",
+        "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+        "trigger": "Closest three-row discrete Fourier spectral optimization"
+      },
+      {
+        "assessment": "Ranks variable Fourier submatrices of cyclic 2p groups; it does not imply the quantitative all-even-order worst three-erasure bound.",
+        "evidence": [
+          "Parity-pure/prime-colliding rank-two classification",
+          "Different optimization and parameter coverage"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-singular-three-by-three-fourier-minors-on-even-semiprime-cycles--8f025c6183d3",
+        "material_read": "Complete published RESULT.md including parity-fiber criteria and count",
+        "method": "Full published primary-result comparison",
+        "title": "Singular three-by-three Fourier minors on even semiprime cycles",
+        "trigger": "Potential exact table covering parity singularity in even orders"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ec07c2c-8dda-4cbb-bbe6-3abbe5767898",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Nyquist parity channel is a motivated canonical bandpass frequency in even cyclic DFT sampling. The theorem completely determines the adversarial loss from three erased measurements for an infinite family, proves a nonconsecutive step-two worst-mask rigidity with exact multiplicity, and locates a sharp recovery transition between six and eight samples. The strict mixed-versus-pure inequality is a structural theorem not supplied by general frame tautologies or by simple dependence tests; no general follow-on theorem is required for this exact reconstruction invariant.",
+    "status": "PASS"
+  }
+}

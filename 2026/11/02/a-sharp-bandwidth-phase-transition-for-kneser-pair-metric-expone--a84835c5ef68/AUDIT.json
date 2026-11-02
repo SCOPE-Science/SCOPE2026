@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For n>=5, BB^T=(n-2)I+J and A=J+I-B^T B yield exact orthogonal sectors of dimensions 1,n-1,N-n. On these, K=(1-b)I+(a-b)A+bJ has eigenvalues positive on the constants and second harmonics, with the first-harmonic eigenvalue F=1-(n-3)e^-t+(n-4)e^(-2^p t). Its derivative has a strictly increasing bracket, proving one negative interval and one positive crossing exactly when (n-4)2^p>n-3. At a positive root the derivative is positive; differentiating in the power yields strict monotonicity. The critical-window equation e^t=1+m(1-e^-ct/m) has strictly increasing RHS in m and converges to 1+ct; a uniform Taylor expansion around the positive simple root gives the claimed positive first correction. Exact incidence identities and finite independent full-kernel checks passed using the included script; finite testing alone is not used to justify general quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson-scheme spectral formulas apply to broader Kneser graph families, but do not by themselves state the exact scalar finite-bandwidth threshold for this metric.",
+        "The general kernel paper gives all-bandwidth conditions and does not identify a finite single-crossing phase diagram."
+      ],
+      "reasoning": "The most serious stronger antecedent is all-Kneser distance diagonalization. Entrywise exponential kernels are not matrix exponentials and cannot be obtained by exponentiating the distance eigenvalues. Applying the same primitive idempotents to the transformed two-distance matrix yields the present scalar equation; exact uniqueness and critical-window asymptotics require extra analysis. This is an explicitly modest consequence of known spectral machinery rather than a new association-scheme theorem.",
+      "searches": [
+        "arxiv:1509.01196, general Kneser distance spectrum",
+        "arxiv:1411.0296, geodesic exponential kernel",
+        "Exact positive definite exponential metric kernels on Kneser graph KG(n,2): unique bandwidth cutoff, rank deficit n-1, critical scaling exp(T)=1+cT"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1012.5863 Theorem 3.3",
+      "arxiv:1509.01196 Section 3.2, Theorems 3.9–3.10",
+      "arxiv:1108.0451 finite negative-type results",
+      "arxiv:1411.0296 Theorem 4",
+      "Published Kneser pair-eigenpolytope geometry record (different ellipsoid invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schoenberg plus existing raw distance spectra imply p-negative type threshold and all-bandwidth positivity; those are explicitly treated as antecedents.",
+        "An arbitrary fixed t>0 and p beyond the negative-type threshold is not decided by all-scale negative-type criteria; exact kernel eigenvalues and unique positive zero supply a new sharp time domain.",
+        "The m=n−4, x=1+c/m scaling and positive root exp(T)=1+cT with explicit 1/m term do not occur in inspected primary documents."
+      ],
+      "reasoning": "The new claim is not the already covered Kneser distance spectrum, nor the immediate p-negative-type corollary. Its separately testable assertions are the exact single finite-bandwidth crossing with inertia/rank, monotonicity in exponent, and the increasing critical-window law with an explicit correction. These follow by new scalar analysis after standard spectral reduction.",
+      "searches": [
+        "arxiv:1012.5863, stable positive definiteness",
+        "arxiv:1509.01196, Kneser spectrum",
+        "arxiv:1108.0451, finite negative type",
+        "arxiv:1411.0296, bandwidth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For two-distance pair metrics the entire kernel is an element of the three-idempotent Johnson scheme; the kernel spectrum is derived explicitly.",
+        "The prior Kneser result gives the raw distance spectrum but not the signs of exp(-t d^p) for all t, nor the boundary root scaling."
+      ],
+      "reasoning": "Equivalent formulations include fixed-bandwidth positive type, positive-semidefinite exponential similarity matrix, and finite Gram embedding of the transformed pair metric. Classical Schoenberg theory decides positivity at all bandwidths, not the one-root location for a fixed forbidden exponent. The proposed full scale-resolved theorem is not an equal-strength restatement of the all-scales theorem.",
+      "searches": [
+        "Kneser graphs KG(n,2), generalized roundness p-negative type exponent log_2((n-3)/(n-4)), critical Hilbert embedding dimension, spectral eigenvalues",
+        "sharp Gaussian radial basis kernel exp(-t graph shortest path distance^p) positive definiteness on Kneser KG(n,2), single bandwidth threshold and exact negative inertia",
+        "arxiv:1012.5863, Theorem 3.3",
+        "arxiv:1509.01196, Theorems 3.9–3.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Kneser distance-eigenvalue table in arxiv:1509.01196 is for unpowered shortest-path distances.",
+        "The relevant published record on Kneser pair-eigenpolytopes treats John and Löwner ellipsoids, not exponential-kernel definiteness."
+      ],
+      "reasoning": "No source or table found listing the full t versus p inertia transition, its rank at equality, or the finite-size critical-bandwidth crossover. The failure to locate a table is not treated as proof of originality; a possible specialized table remains a residual risk.",
+      "searches": [
+        "Kneser pair metric distance-power Schoenberg exp(-t d^p) kernel positive semidefinite iff t exceeds one root 1-(n-3)exp(-t)+(n-4)exp(-2^p t)",
+        "generalized roundness negative type of Kneser graphs and odd graphs spectral distance matrices",
+        "arxiv:1509.01196 Theorem 3.10",
+        "Kneser graph exponential graph metric kernel positive definite bandwidth"
+      ]
+    },
+    "rationale": "The strongest closely related source, Aalipour et al. (arxiv:1509.01196, Theorems 3.9–3.10), supplies Johnson/Kneser eigenspaces and the raw distance spectrum, so those ingredients are expressly not claimed as new. Meckes (arxiv:1012.5863, Theorem 3.3) and Feragen et al. (arxiv:1411.0296) provide all-bandwidth positive-definiteness theory. The inspected materials and indexed mathematical records do not state the unique finite-bandwidth kernel threshold with full inertia and the nontrivial universal c-window with first finite-size correction. Algebraic accessibility and possible unindexed equivalent derivations remain risks.",
+    "residual_risks": [
+      "A specialized two-class association-scheme positive-kernel catalogue could contain an equivalent cutoff without matching terminology.",
+      "The eigenvalue reduction is an elementary specialization of known Johnson-scheme facts; originality is confined to the complete t,p regime and n-dependent crossover, not those spectral antecedents.",
+      "A plausible classical two-distance Schoenberg-transform treatment was bibliographically located but full direct inspection was unavailable; that coverage risk warrants independent literature confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact all-scales versus negative-type equivalence, but not a KG(n,2) scale cutoff, inertia or critical n-dependent window.",
+        "evidence": [
+          "Theorem 3.3: stable positive definiteness equivalent to negative type; arxiv:1012.5863, Section 3.1."
+        ],
+        "identifier_or_url": "arxiv:1012.5863",
+        "material_read": "Abstract, introductory definitions and Section 3.1 including Theorem 3.3 and its proof",
+        "method": "Direct inspection of the public HTML full text, including theorem statement and reasoning",
+        "title": "Positive definite metric spaces",
+        "trigger": "Stable positive definiteness versus a finite bandwidth positivity threshold"
+      },
+      {
+        "assessment": "Clearly establishes general Johnson-scheme diagonalization and Kneser distance spectra. This overlaps and essentially supplies the spectral machinery; it does not evaluate the scale-dependent entrywise exponential kernel nor prove its unique root, monotonicity or fixed-c finite-size correction. The graph spectrum and bare negative-type corollary are not claimed as new.",
+        "evidence": [
+          "Theorem 3.9: common eigenspaces of Johnson scheme; Theorem 3.10: Kneser raw distance spectrum, arxiv:1509.01196, pp. 9–10."
+        ],
+        "identifier_or_url": "arxiv:1509.01196",
+        "material_read": "Original PDF pages 1, 8–10 and full relevant Section 3.2, specifically Theorems 3.9–3.10",
+        "method": "Direct PDF text and page inspection",
+        "title": "On the distance spectra of graphs",
+        "trigger": "Kneser distance-spectrum results could dominate spectral part of the claim"
+      },
+      {
+        "assessment": "Addresses finite-metric negative-type exponents, not the positive-time kernel regime or critical bandwidth scaling. Its general criteria are acknowledged.",
+        "evidence": [
+          "General finite-metric negative-type criteria and spectral examples in arxiv:1108.0451."
+        ],
+        "identifier_or_url": "arxiv:1108.0451",
+        "material_read": "Original PDF introduction, finite-metric negative-type criterion and illustrative examples",
+        "method": "Direct inspection of PDF text and rendered page",
+        "title": "On the supremal p-negative type of a finite metric space",
+        "trigger": "General p-negative-type criteria may imply the cutoff in the power parameter"
+      },
+      {
+        "assessment": "Distinguishes all-bandwidth positivity from failure at some bandwidth for geodesic metrics; does not calculate a single positive cutoff or an n-dependent critical window for Kneser pair metrics.",
+        "evidence": [
+          "Equation (1) and Theorem 4, arxiv:1411.0296; discussion of finite-bandwidth failures, p. 4."
+        ],
+        "identifier_or_url": "arxiv:1411.0296",
+        "material_read": "Original article abstract, Sections 1–3, especially Theorem 4 and the passage immediately preceding it",
+        "method": "Direct inspection of public article text and rendered original PDF page 4",
+        "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+        "trigger": "General kernel bandwidth claims could cover the family-specific phase diagram"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a84835c5-ef68-4112-a537-266f64c7117b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Kernel positive definiteness at an individual bandwidth is the precise admissibility test for finite Gram/kernel methods and is strictly finer than negative type (the all-bandwidth criterion). This family offers an exact sharp transition from an n-1 dimensional negative space, through a singular Gram matrix, to strict positivity; the critical window captures the shrinking power threshold while the nonzero bandwidth converges to the universal exp(T)=1+cT law. The strictly increasing n-law and quantified correction make the result a structural all-size classification rather than a small-graph constant or a routine restatement of a known matrix spectrum.",
+    "status": "PASS"
+  }
+}

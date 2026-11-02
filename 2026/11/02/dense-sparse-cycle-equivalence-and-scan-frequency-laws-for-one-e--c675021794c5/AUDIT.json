@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every n>=4 and arbitrary scan, cyclic rotation and label symmetry reduce the deleted edge to positions 1 and k+1. Exact polynomial row equations and unimodular elimination yield H_{k,m}; its determinant and entry gcd yield d1=gcd(x^k+1,(x^n+1)/(x+1)) and d2=(x^k+1)(x^m+1)/d1. A full two-adic exponent check gives the asserted fixed-space dimensions, minimal-polynomial order and primitive orbit census. Directly counted gap placements give n(n-2)! scans per gap. Boundary k=1 is handled separately, and the finite matrix, polynomial, orbit and scan enumerations in verify.py reproduced the exact predictions (5,910 independently checked scans in each of two graph families, 695,472 scan–states in each family; 15,438 paired matrix/polynomial checks). These finite checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Reidys arXiv:1510.04930 Theorem 3.1 provides a general linear-sequential-system matrix framework, not evaluated invariant factors for these graphs.",
+        "Macauley–Mortveit arXiv:0802.4412 Theorem 3.3 gives an update-order cycle equivalence method, not an explicit recurrence census across distinct graphs."
+      ],
+      "reasoning": "General SDS representations and Coxeter viewpoints apply as tools but are not sufficiently specialized to imply the explicit all-scan counts without a new polynomial elimination. The possibility of a stronger uninspected Coxeter theorem is retained as a residual risk.",
+      "searches": [
+        "Coxeter matrix product transvections complete graph minus edge characteristic polynomial sequential dynamical system mod 2",
+        "Coxeter transformation complete graph with one edge deleted eigenvalues product (t^k-1)(t^(n-k)-1)",
+        "sequential dynamical systems almost complete graphs missing edge exact period fixed points conjugate cyclic Rule150"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0802.4412",
+      "arXiv:1510.04930",
+      "arXiv:1511.06966",
+      "Publicly indexed semantic records for synchronous complete multipartite parity automata and modular Laplacian parity scheduling; distinct dynamics from the present claim",
+      "Accessible prior cycle-graph all-scan fixed-point classification; used for non-overlap comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cycle-equivalence theorem for fixed-graph scan rotations does not change graph edges.",
+        "General matrix formulas give a recipe, not the gcd and 2-adic order law for K_n-uv.",
+        "The published cycle rule classification addresses another graph family and cannot, without an additional dense-graph invariant-factor argument, prove the new scan frequencies."
+      ],
+      "reasoning": "The precise new assertion is a Smith reduction for each dense-graph update ordering and the n(n-2)! labelled scan multiplicity, together implying a dense–sparse match of orbit populations. The prior sources lack either the dense factorization or a theorem forcing it, so their stated conclusions do not dominate the claim.",
+      "searches": [
+        "arXiv:0802.4412",
+        "arXiv:1510.04930",
+        "arXiv:1511.06966",
+        "exact dynamical equivalence sparse cycle C_n and dense almost complete graph K_n-e sequential XOR parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Macauley–Mortveit arXiv:0802.4412 describes scan changes on the same graph; the present equivalence compares K_n-uv with C_n.",
+        "Defant arXiv:1511.06966 treats Rule 150 on cycles and, as inspected, gives no one-deleted-edge complete-graph Smith form."
+      ],
+      "reasoning": "The complete-graph-minus-edge polynomial reduction produces the same fixed-point expressions as a previously known cycle-specific scan formula, but the dense reduction is an independently required nontrivial theorem; no cross-graph implication was found.",
+      "searches": [
+        "sequential XOR parity Rule 150 dynamics complete graph with one deleted edge (almost complete graph) conjugacy to cycle graph all update schedules",
+        "Coxeter transformation over finite field 2 complete graph with one edge removed characteristic polynomial (x^k+1)(x^(n-k)+1) orbit census",
+        "sequential dynamical systems almost complete graphs missing edge exact period fixed points conjugate cyclic Rule150",
+        "sequential Rule 150 complete graph minus one edge characteristic polynomial orbit period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published semantic record “Sharp period-four census for complete multipartite parity automata” concerns synchronous updates, whereas the present theorem concerns invertible sequential sweeps.",
+        "The previous cycle-specific scan census in accessible existing records covers C_n and gives an Eulerian, rather than uniform, scan multiplicity."
+      ],
+      "reasoning": "No exact table for the K_n-uv sequential sweep populations or uniform labelled-order frequencies was identified; numerical agreement with an existing C_n table alone would not establish originality. The new claim is its dense-graph proof and distribution.",
+      "searches": [
+        "binary parity sequential updates K_n minus one edge gap k n-k cyclic fixed points 2^(gcd(k,t)+gcd(n-k,t)-epsilon)",
+        "exact dynamical equivalence sparse cycle C_n and dense almost complete graph K_n-e sequential XOR parity",
+        "scan-order distribution for complete graph with one deleted edge Rule 150 parity x_i plus neighbor bits",
+        "scan-order distribution for complete graph with one deleted edge Rule 150 parity x_i plus neighbor bits"
+      ]
+    },
+    "rationale": "The statement is an explicit invariant-factor and all-scan orbit classification for K_n minus exactly one edge, including a uniform scan-gap law and a cross-graph comparison to C_n. The known C_n census is credited and used, but it does not imply its extension to the dense deleted-edge graph. Inspected primary sources treat fixed-graph scan equivalence (Macauley–Mortveit), general sequential linear system methods (Chen–Reidys), and cycle graphs (Defant). No examined text states the deleted-edge clique result. Published semantic queries for deleted-edge clique, Coxeter synonyms, cycle equivalence, scan frequencies and exact fixed counts returned no covering statement. Historical equivalent formulations remain a residual risk.",
+    "residual_risks": [
+      "A historical Coxeter-transformation theorem for near-complete graphs might imply the invariant factors in different notation; no definitive universal literature exclusion is possible.",
+      "A directly inaccessible or unindexed document could contain a stronger equivalent statement.",
+      "Conjugacy is set-theoretic from cycle populations, not a constructive linear conjugacy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers scan equivalence on fixed graph; no cross-graph K_n-uv vs C_n periodic census found in inspected text",
+        "evidence": [
+          "arXiv:0802.4412, Theorem 3.3; first public version 2008-02-29"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+        "material_read": "Open-access full PDF, introductory formulation and the statements and argument around the main cycle-equivalence theorem including Theorem 3.3",
+        "method": "Read extracted PDF text and inspected first-page PDF rendering",
+        "title": "Cycle Equivalence of Graph Dynamical Systems",
+        "trigger": "Closest same-type sequential graph dynamics equivalence"
+      },
+      {
+        "assessment": "Provides general formula technique; no specialized deleted-edge complete graph Smith invariants or all-schedule census in the read material",
+        "evidence": [
+          "arXiv:1510.04930, Theorem 3.1; first public version 2015-10-16"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.04930",
+        "material_read": "Open-access 21-page PDF, introduction and theorem on sequential update matrix including Theorem 3.1",
+        "method": "Read PDF text and inspected relevant rendered PDF page",
+        "title": "Linear Sequential Dynamical Systems, Incidence Algebras, and Möbius Functions",
+        "trigger": "Strong general linear-SDS matrix method might imply formula"
+      },
+      {
+        "assessment": "Finite-cycle graph identity scans; no K_n-uv all-scan Smith presentation in material inspected",
+        "evidence": [
+          "arXiv:1511.06966, Theorem 4.1 and Section 5; first public version 2015-11-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.06966",
+        "material_read": "Open arXiv full-text HTML, introduction and sections on Rule 150 periodic counts including Theorem 4.1 and later open problems",
+        "method": "Read arXiv HTML full text by sections",
+        "title": "Flexible Toggles and Symmetric Invertible Asynchronous Elementary Cellular Automata",
+        "trigger": "Closest Rule 150/105 orbit counts and Coxeter framing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6750217-94c5-4e84-953f-cd45c5657ec0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem compares naturally extremal graph topologies in a finite invertible dynamical system: a one-edge-deleted complete graph and an ordinary cycle. The exact correspondence of cycle populations despite divergent scan statistics is a motivated structural invariant; uniform counts versus Eulerian counts expose a quantifiable scheduling sensitivity. The new dense-graph Smith-factor derivation and closed all-period orbit census solve a natural infinite-family problem, not a routine reparametrization or arbitrary finite lookup.",
+    "status": "PASS"
+  }
+}

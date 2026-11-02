@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The change of coordinates is algebraically exact. The monotone positive variable gives two disjoint open ballistic initial-condition sets. A finite-crossing argument proves downward escape, while a summable multiplier bootstrap proves upward escape and its openness. Connectedness supplies a critical boundary; an order-preserving ratio argument proves uniqueness. The positive tail-sum lower bound controls the second-order term in the exact difference quotient, and the resulting telescoping and Cesàro limits rigorously yield the \(2/3\)-power law. The proof covers all parameters and initial heights stated in the theorem. Numerical critical shooting is supplementary only.
+
+**Originality — PASS within inspected evidence.** The complete defining article describes the rational family, fixed-point cases and numerical attractors, but does not give this global escape separatrix or algebraic asymptotics. The closest recorded zero-offset result proves ballistic scattering for \(d=0\); it does not cover the nonzero vertical drift or the critical zero-speed orbit. Searches by the rational-map formula, the separatrix, equivalent normalized recurrence and \(2/3\) critical scaling did not locate a covering publication or recorded theorem. The remaining risk is prior unindexed equivalent dynamics.
+
+**Value — PASS.** A no-fixed-point parameter regime can still support a dynamically sharp boundary between opposite escape directions. Establishing its uniqueness for every nonnegative initial height and the exact fractional escape exponent is a substantial global dynamical classification, not a numerical bifurcation observation or a fixed-point calculation. The critical rate identifies a physically distinct, nonballistic phase that ordinary positive/negative escape diagnostics miss. The theorem is intentionally limited to a motivated sign sector.
+
+The nearest primary source is Zhang et al., *Chinese Physics B* (2022), DOI: 10.1088/1674-1056/ac4025. The exact original numerical claims are not overstated, and neither this review nor the finite diagnostics constitute an external certification.
+
+Self-review: passed. Independent audit: not yet performed.

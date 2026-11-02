@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+For \(2<\kappa<\pi\), strict monotonicity of \(2u/\sin u\) gives the unique exact orbit. Every original-map update is computed, and the two-step derivative equals the square of one explicitly block-constant symmetric Jacobian. Its full invariant-space eigenvalue decomposition proves both the stability and instability statements. The threshold integral identity, strict covariance sign, and endpoint limits establish the universal \(2/3\) and \(2/\pi\) bounds and the finite-size corollaries. The companion executable checks actual maps and Jacobians for a finite sample; the proof itself covers every integer size. Risk: the theorem is strictly local and open-parameter only; no global attractor classification is implied.
+
+## Originality — PASS under accessible primary evidence
+Zhai–Xiao–Zheng (2023) already describe discrete circle-map period doubling, the two-cluster splitting phenomenon, and two-node reduction; these are not new contributions here. Direct inspection of their accessible full text identified discussion of cluster snapshots and mean-field criteria, but not an all-partition full finite-size two-step Jacobian spectrum or the sharp \(2/3\)-to-\(2/\pi\) threshold. Gade–Gupta (2026) motivates the discrete phase-lag network and proves onset criteria in the continuum setting; only an abstract of its original paper could be inspected, so a plausible full-text priority risk remains. Published mathematical search results on quadrature-lag and repulsive-coupling networks do not imply the present positive-coupling zero-lag alternating-bipartition theorem. Searches alone cannot certify historical uniqueness. Risk: a full version of Gade–Gupta or an unindexed older circle-map calculation could contain a close theorem.
+
+## Mathematical value — PASS
+The exact classification makes a falsifiable structural prediction across all finite network sizes: three oscillators form a unique obstruction to stable bipartition-alternating motion, whereas balanced bipartitions are robustly attracting for every other size throughout an entire strong-coupling window. The sharp partition threshold is relevant to cluster synchronization and is not just rephrasing the well-known synchronization flip at coupling two. Risk: results concern a homogeneous zero-lag slice and do not quantify attraction basins or global synchronization outcomes.
+
+Self-review: passed. Independent audit: not yet performed.

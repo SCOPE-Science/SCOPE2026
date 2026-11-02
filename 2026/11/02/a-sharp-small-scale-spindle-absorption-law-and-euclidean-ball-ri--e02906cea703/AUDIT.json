@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact event is proved through possible unit-ball centers and two spherical caps. Uniform local normal-coordinate rescaling yields a spherical Euclidean-ball factor and an explicit double radial moment, valid for every centrally symmetric convex body in all dimensions d>=2. The radial integral is evaluated by a finite binomial sum. Polar volume normalization and strict Jensen prove the ball minimizer; a tangent-line convexity inequality proves the quantitative variance bound; thin rectangular boxes prove absence of an upper bound. The actual standalone standard-library checker reproduces exact d=2,3,4 constants and independent numerical limits without being used in place of proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fodor, Montenegro Pinzón, Vígh, DOI 10.1007/s00010-022-00912-3, Theorem 1.1 and Corollary 2.1: exact ball-model integral and only vanishing at small radius.",
+        "Lángi, Naszódi, Talata, arXiv:1110.4823v3, §§1–3: deterministic C-ball and C-spindle hull definitions and separation, no random small-body capture theorem.",
+        "Fodor, Papvári, Vígh, DOI 10.1112/mtk.12027, §§1–2: random L-convex polygon expected vertices and missed area as sample size grows."
+      ],
+      "reasoning": "The closest full-text paper treats d arbitrary but fixes the sampling body to a ball, then records only P tending to zero. The 2020 work allows general convex K and L but takes a different many-sample limit and studies expected face count/missed area, not center absorption at two points. Neither proves a more general statement subsuming the proposed rare-event coefficient or strict fixed-volume minimizer.",
+      "searches": [
+        "small radius asymptotic P(d,r,2) spindle convex hull containing origin centered convex body radial integral sharp ball minimizes"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.1007/s00010-022-00912-3 (primary complete readable text; earliest verified publication September 10, 2022)",
+      "arXiv:1110.4823v3 (primary full accessible HTML; first submission October 21, 2011)",
+      "DOI 10.1112/mtk.12027 (primary readable article; first publication April 9, 2020)",
+      "Classical Wendel 1962 result described in the 2022 paper (not treated as direct full-text inspection)",
+      "2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+      "2026/10/11/SCOPE-the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4",
+      "2026/10/11/SCOPE-thin-shell-convexity-moments-recover-facet-cone-volumes--5bf5ee80e1b7",
+      "2026/10/4/SCOPE-second-order-circumradius-tails-for-three-random-points-in-a-euc--a55adf18ae99",
+      "2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fodor, Montenegro Pinzón, Vígh, DOI 10.1007/s00010-022-00912-3, Theorem 1.1 and Corollary 2.1: exact ball-model integral and only vanishing at small radius.",
+        "Fodor, Papvári, Vígh, DOI 10.1112/mtk.12027, §§1–2: random L-convex polygon expected vertices and missed area as sample size grows.",
+        "Indexed difference-body beta distance bound 2026/10/11/SCOPE-a-sharp-beta-stochastic-bound-for-difference-body-distances--4609b4d88176 concerns a gauge-distance stochastic inequality whose event is not ball-spindle center capture.",
+        "Indexed three-point circumradius tail 2026/10/4/SCOPE-second-order-circumradius-tails-for-three-random-points-in-a-euc--a55adf18ae99 uses R to infinity for a distinct triangle quantity."
+      ],
+      "reasoning": "For K a ball, the new leading constant is derivable by expanding the 2022 exact integral and is not represented as independently novel. The claimed new content is the all-convex-body coefficient, its nontrivial radial dependence and sharp extremal principle. Neither the ball special case, a fixed-body many-point approximation theorem, nor pair-distance bounds imply those assertions. The shape inequality alone is elementary Jensen, but obtaining its exact stochastic functional requires the new asymptotic reduction.",
+      "searches": [
+        "Fodor Montenegro Pinzón Vígh 2022 On Wendel's equality for intersections of balls small-ball asymptotic",
+        "spindle convex hull of two random points origin containment small radius asymptotic probability",
+        "Fodor Montenegro Pinzón Vígh 2022 On Wendel's equality for intersections of balls small-ball asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fodor, Montenegro Pinzón, Vígh, DOI 10.1007/s00010-022-00912-3, Theorem 1.1 and Corollary 2.1: exact ball-model integral and only vanishing at small radius.",
+        "Lángi, Naszódi, Talata, arXiv:1110.4823v3, §§1–3: deterministic C-ball and C-spindle hull definitions and separation, no random small-body capture theorem.",
+        "No directly matching indexed mathematical statement found among specific two-point spindle-absorption search hits."
+      ],
+      "reasoning": "Equivalent descriptions include intersection of all unit balls through two points, two-cap nonintersection in the sphere of ball centers, rare antipodal pair directions, and a radial moment of the sampling body. The 2022 ball formula implies the spherical special case but does not imply the formula for general K or its shape extremum; the deterministic spindle identity alone does not imply a stochastic limit.",
+      "searches": [
+        "Fodor Montenegro Pinzón Vígh 2022 On Wendel's equality for intersections of balls small-ball asymptotic",
+        "spindle convex hull of two random points origin containment small radius asymptotic probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed short-pair-distance result 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b concerns the small Euclidean distance CDF in polygons, not spindle-origin capture.",
+        "Indexed three-point circumradius result 2026/10/11/SCOPE-the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4 concerns short circumradii of three points, not near-antipodality of two points.",
+        "Indexed thin-shell convexity result 2026/10/11/SCOPE-thin-shell-convexity-moments-recover-facet-cone-volumes--5bf5ee80e1b7 concerns hull avoidance in a thin shell, not a shrinking entire sampling body."
+      ],
+      "reasoning": "No relevant exact database or table reproduces the general radial coefficient, its dimension-dependent finite binomial constant, or the strict ball minimization. An absence of hits is not treated as a proof of novelty; comparisons use the actual event, parameters and implications.",
+      "searches": [
+        "spindle convex hull of two random points origin containment small radius asymptotic probability",
+        "small radius asymptotic P(d,r,2) spindle convex hull containing origin centered convex body radial integral sharp ball minimizes",
+        "sharp ball minimizes asymptotic two point spindle absorption among symmetric convex bodies"
+      ]
+    },
+    "rationale": "The inspected 2022 primary article covers the uniform-ball two-sample absorption probability and its vanishing limit, but neither an arbitrary symmetric-body first coefficient nor its equal-volume Jensen extremal and quantitative variance deficit. The 2011/2012 spindle paper is deterministic; the 2020 random disc-polygon paper uses n to infinity rather than two fixed points and a shrinking body. Mathematically distinct indexed claims concern Euclidean pair distances, three-point circumradii, or thin shells. Novelty is a reasoned best-knowledge conclusion, not an absolute priority certificate.",
+    "residual_risks": [
+      "Historic unindexed or differently named ball-convex stochastic results may contain an equivalent coefficient.",
+      "The ball-specific leading constant follows by expansion of prior formula; only the all-shape law and extremal comparison are claimed as genuinely additional.",
+      "No independent priority assessment was performed; search nonhits alone do not certify originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports precise ball probability and small-radius vanishing, but inspected text does not establish arbitrary symmetric-body leading coefficient or fixed-volume shape theorem.",
+        "evidence": "Theorem 1.1 gives P(d,r,2) for r B^d; Corollary 2.1 gives limit P(d,r,2)=0 as r tends to 0. The introduction explicitly restricts its uniform study to K=r B^d.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-022-00912-3",
+        "material_read": "Complete accessible HTML including introduction, Theorem 1.1, Theorem 1.2, Section 2 proof, Corollary 2.1, subsequent Gaussian model and references.",
+        "method": "Full primary article in publisher HTML, direct theorem and proof comparisons.",
+        "title": "On Wendel's equality for intersections of balls",
+        "trigger": "Same exact spindle-event model, 2022 lead source and its ball asymptotic."
+      },
+      {
+        "assessment": "Deterministic convexity and separation work; its inspected theorems do not give rare-event probability asymptotics or a fixed-volume ball minimizer.",
+        "evidence": "Definitions 1.1–1.2 and 2.1–2.2 establish ball/spindle intersections; Theorem 1 concerns a convexity-space closure, not probability.",
+        "identifier_or_url": "https://arxiv.org/html/1110.4823v3",
+        "material_read": "Full accessible HTML, especially sections 1–3 on definitions, hull properties and separation, as well as the table of contents and scope of sections 4–7.",
+        "method": "Open-access primary arXiv HTML rather than abstract alone.",
+        "title": "Ball and Spindle Convexity with respect to a Convex Body",
+        "trigger": "A general convex-body version of ball/spindle geometry could subsume the membership characterization."
+      },
+      {
+        "assessment": "Fixed smooth shapes and number of sampled points tending to infinity; no implication for the fixed-two-point shrinking-body absorption event.",
+        "evidence": "The abstract explicitly describes expected vertex numbers and missed area as n tends to infinity; the stated probability observable is different.",
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12027",
+        "material_read": "Full accessible publisher HTML, abstract, introduction, Theorems 1.1 and 1.2 and geometric cap setup.",
+        "method": "Primary journal full-text HTML with theorem-scope comparison.",
+        "title": "On Random Approximations by Generalized Disc-Polygons",
+        "trigger": "General sampling bodies and spindle random-polytopes might provide broader stochastic coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e02906ce-a703-43b5-b82c-57e94c3e695f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-two-point Wendel-type ball-spindle absorption probability is a recognized geometric-probability object, whose vanishing small-radius limit was known for uniform balls. The new asymptotic measures the exact rare antipodal direction event in every centrally symmetric convex body, exposes a nonstandard (3d-1)-st radial moment and yields sharp fixed-volume Euclidean-ball rigidity and quantitative stability. Unboundedness for thin bodies completes the meaningful extremal picture. The claim neither relies on a gimmick parameter nor on numerical enumeration.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Over F2 the XOR step equals multiplication by f=z+z^{-1}+z^n on F2[z]/(z^(2n)+1). Its only possible zero-primary factor is h=z²+z+1 when 3|n; h has exponent 2e. For n odd the multiplier vanishes on the full h² quotient, yielding four size-one binary blocks. For n even h divides its polynomial numerator simply, giving two chains of length 2e. CRT separates an invertible complementary component and gives exactly P=2^(2n-4e) recurrent states. Differences of kernel dimensions prove all entry shells. Separate gcd and (z+1)-valuation computations prove the fixed-point and primitive-orbit formulas. Direct graph-matrix rank checks passed 1115 cases; 429 independent prism comparisons and exhaustive classification of 87360 states on six graph sizes also passed. Finite cases do not constitute the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martin–Odlyzko–Wolfram give general polynomial approaches to full transition diagrams for finite linear automata.",
+        "Zaidenberg gives Fourier/convolution algebra for periodic finite-characteristic lattice functions.",
+        "Neither examined source supplied the explicit Möbius-ladder versus prism primary Jordan partitions and exact shell cardinalities."
+      ],
+      "reasoning": "General convolution and polynomial gcd machinery subsumes computational derivation in principle, but no inspected theorem specializing to this twisted ladder family directly implies its asserted partitions or first-entry census. The present proof uses standard algebra to derive a specific all-length structural classification; novelty is claimed only for that classification, not for the general method.",
+      "searches": [
+        "Martin, Odlyzko and Wolfram (1984), Algebraic Properties of Cellular Automata, DOI 10.1007/BF01223745",
+        "Zaidenberg (2006), arXiv:math-ph/0606070v1, convolution equations on lattices",
+        "Web: Möbius ladder linear cellular automaton XOR neighbor transient nilpotent"
+      ]
+    },
+    "checked_sources": [
+      "Tadaki, arXiv:cond-mat/9305012v1 (1993-05-14)",
+      "Nordahl, Formal Languages and Finite Cellular Automata (1989), Complex Systems 3, 63–78",
+      "Martin–Odlyzko–Wolfram, Communications in Mathematical Physics 93 (1984), 219–258",
+      "Zaidenberg, arXiv:math-ph/0606070v1 (2006-06-29)",
+      "published-finding corpus nearest Möbius ladder homology and Boolean cube parity automaton records (IDs in exact_database_or_table)",
+      "Exact earlier untwisted prism synchronous XOR recurrence claim in accessible prior ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known prism assertion has nilpotent J_2+J_2 for odd 3-divisible n and J_e+J_e+J_e+J_e for even 3-divisible n.",
+        "The Möbius ladder has J_1+J_1+J_1+J_1 in the odd case, and J_(2e)+J_(2e) in the even case. Both recurrent sets have 2^(2n-4e) states.",
+        "Tadaki examines Dirichlet one-dimensional finite automata, and Nordahl examines ordinary circular Rule 150, not the antipodal-coupling graph."
+      ],
+      "reasoning": "The equal periodic-set cardinality might follow heuristically from similar spectra, but does not imply sharp entry-time shells. In particular, for 3|n even, the prism bound is e but the Möbius bound is 2e, and for 3|n odd the prism bound is 2 but the Möbius bound is 1. Since the actual nilpotent blocks differ, the Möbius theorem is not a corollary of the prism theorem. The new proof independently computes the twisted factor multiplicity and the comparator.",
+      "searches": [
+        "prior claim: exact synchronous neighbor-XOR dynamics on untwisted prism C_n square K_2",
+        "Tadaki (1993) arXiv:cond-mat/9305012v1, period and relaxation of Rule 90/150",
+        "Nordahl (1989), Formal Languages and Finite Cellular Automata, ordinary Rule 150 cyclic ring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An explicit neighbor-XOR map on a Möbius ladder is the circulant multiplier z+z^{-1}+z^n, not the one-dimensional Rule 150 multiplier z+1+z^{-1}.",
+        "Nordahl (1989) treats ordinary periodic one-dimensional Rule 150 and its 3-divisibility criterion; Tadaki (1993) treats Rule 90/150 with Dirichlet boundaries.",
+        "No published-finding corpus search result identified the same Möbius-ladder first-entry shells or zero-primary Jordan block lengths."
+      ],
+      "reasoning": "Nearest equivalence is ordinary periodic Rule 150 or two-layer prism XOR; neither has the same labelled graph as the antipodally connected 2n-cycle. The Möbius nilpotent partitions are four J_1 (odd n) or two J_(2e) (even n), whereas the prism partitions differ. Similarity would preserve nilpotent Jordan partitions, so these graph systems are not equivalent in the 3-divisible cases.",
+      "searches": [
+        "published-finding corpus: Möbius ladder parity cellular automaton fixed point cycle count",
+        "published-finding corpus: GF2 adjacency Möbius ladder M2n versus circular ladder prism Jordan nilpotent blocks transient shells",
+        "Web: Möbius ladder binary adjacency matrix powers dynamics Jordan form GF2 period",
+        "Web: twisted cyclic boundary Rule 150 Möbius strip cellular automata periodic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest record 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 concerns a distance-two Boolean cube, not Möbius ladders.",
+        "published-finding corpus records 2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314 and 2026/10/11/SCOPE-rotation-has-order-two-or-four-on-m-bius-ladder-perfect-matching--3551187dd347 concern homological symmetry actions, not binary state-update dynamics.",
+        "The exact published untwisted prism transient census differs in first-entry distributions and nilpotent block structure."
+      ],
+      "reasoning": "No inspected database/table gives the all-n Möbius ladder XOR transient distributions, nor a table dominating them by a stronger same-object classification. A search cannot prove global absence, so this is evidence of no identified coverage only.",
+      "searches": [
+        "published-finding corpus: exact transient layer counts for binary neighbor parity dynamics twisted prism Möbius ladder, factor 3 and powers of 2",
+        "published-finding corpus: Möbius ladder graph neighbor parity XOR dynamics F2 adjacency invertible exactly when 3 divides half vertices transient nilpotent",
+        "Web: Möbius ladder GF2 adjacency matrix powers dynamics Jordan form"
+      ]
+    },
+    "rationale": "The literature supplies the finite-state cyclic polynomial method and ordinary Rule 90/150 spectra, and a directly related published prism case. On the new Möbius graph, however, the h-primary multiplicities give a distinct Jordan partition whose chain fusion changes sharp entry times while preserving periodic population. No inspected exact claim or stronger result implies these all-n Möbius shell counts. The literature overlap conclusion is qualified by potential differently worded graph circulant classifications.",
+    "residual_risks": [
+      "A specialized paper on characteristic-two adjacency matrices of Möbius ladders, possibly using different notation, may contain equivalent nilpotent information.",
+      "The original broad 1984 cellular automata paper was not fully readable via its publisher; no whole-document negative coverage conclusion is claimed.",
+      "Semantic database searches can miss an unindexed or differently described earlier closed form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different one-dimensional Dirichlet boundary rules; no explicit antipodally joined 2n-cycle recurrence theorem in examined material.",
+        "evidence": [
+          "Rule 90 and Rule 150 are studied with Dirichlet/open ends; the Möbius ladder adds an edge to the diametrically opposite vertex of a periodic cycle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9305012",
+        "material_read": "ArXiv HTML introduction and substantive sections on eigenvalues, period and relaxation, plus corresponding PDF figures/pages",
+        "method": "Compared actual boundary conditions, update neighborhoods and derived temporal invariants",
+        "title": "Orbits in one-dimensional finite linear cellular automata",
+        "trigger": "Closest early finite-state temporal-census predecessor for linear binary rules"
+      },
+      {
+        "assessment": "The stated cubic-root invertibility criterion belongs to one-dimensional Rule 150; no graph-antipodal rung or twist-chain comparison found in examined material.",
+        "evidence": [
+          "The periodic rule considered has three spatial taps on one ordinary ring, unlike the antipodal rung mapping."
+        ],
+        "identifier_or_url": "https://wpmedia.wolfram.com/uploads/sites/13/2018/02/03-1-5.pdf",
+        "material_read": "Full PDF with emphasis on pp. 1–9, including the ordinary periodic Rule 150 condition",
+        "method": "Inspected theorem/model statement and ordinary periodic-ring 3-divisibility relation",
+        "title": "Formal Languages and Finite Cellular Automata",
+        "trigger": "Possible stronger ordinary cyclic Rule 150 theorem with same cubic-root obstruction"
+      },
+      {
+        "assessment": "General transition-diagram and algebraic methods are closely relevant; explicit Möbius-versus-prism Jordan partitions were not found in inspected passages. Complete-text exclusion is not asserted.",
+        "evidence": [
+          "The original linear CA paper develops state-transition diagrams through polynomials and number theory; it is a method predecessor rather than verified coverage of the present graph-family result."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+        "material_read": "Article abstract and detailed text passages in an available HTML transcription; separate publisher listing. Full publisher PDF was not independently examined.",
+        "method": "Compared polynomial ring/factorization framework and concrete boundary-graph family",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Major general predecessor explicitly classifying finite linear cellular automata via polynomial algebra"
+      },
+      {
+        "assessment": "General lattice convolution spectral machinery; inspected statements do not give Möbius XOR entry shells or chain fusion with prisms.",
+        "evidence": [
+          "The object is convolution/harmonic periodic solutions in finite characteristic; the claimed result requires a specific family of finite circulants and a local repeated-root computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math-ph/0606070",
+        "material_read": "Open arXiv HTML introduction and substantive discussions of periodic convolution solutions and polynomial symbols",
+        "method": "Compared operator families, time iterates and presence of exact Jordan transient-layer counts",
+        "title": "Convolution equations on lattices: periodic solutions with values in a prime characteristic field",
+        "trigger": "General characteristic-two graph/lattice harmonic and convolution theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81244918-1a9b-4cac-aa21-982dd24d021c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural Möbius twist of a cyclic three-regular ladder leaves the binary neighbor-XOR recurrent population invariant but dramatically changes its nilpotent Jordan partition and first-entry times. Across infinitely many 3-divisible half-lengths, the even case doubles the sharp maximal transient from e to 2e while the odd case halves it from 2 to 1. The closed shell populations and exact fixed-point trichotomy answer motivated structural and dynamical questions beyond a generic algorithm or finite table.",
+    "status": "PASS"
+  }
+}

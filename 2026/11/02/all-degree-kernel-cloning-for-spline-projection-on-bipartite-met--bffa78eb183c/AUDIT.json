@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Legendre endpoint Gram calculation gives a,b for each integer degree d>=1, and the exact two-block Schur inverse gives the claimed complete-bipartite vertex kernel with factor 1/q. Summing q cloned edge kernels proves the exact L-infinity evaluation norm. The triangle inequality establishes monotonicity, the reproducing identity yields the optimal positivity excursion, and a separate rational exact checker verified 4032 cases. The finite checks support but do not replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shadrin’s general interval result is a bound uniform over one-dimensional knot partitions, not an identity between bipartite graph vertex kernels.",
+        "Arioli–Benzi sections 3 and 5 analyze linear finite-element mass and stiffness matrices on graphs, not unrestricted-degree endpoint projectors."
+      ],
+      "reasoning": "A general bound for interval spline operators or finite-element conditioning cannot imply pointwise q-cloning of the orthogonal projector kernel on K_{p,q}; that stronger identity requires the local endpoint Riesz Gram and exact inversion of a two-block graph mass matrix.",
+      "searches": [
+        "\"The L∞ norm of the L2 spline projector\" Shadrin arbitrary knots",
+        "Arioli Benzi \"mass matrix\" metric graphs \"linear\"",
+        "\"complete bipartite metric graph\" \"spline projection\" all degree"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0408418v1, full-text introduction and theorem setting",
+      "Arioli and Benzi, DOI:10.1093/imanum/drx029, open author full-text sections 3,5,9",
+      "arXiv:1308.4824 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known isolated degree-one and degree-two graph-spline evaluations do not quantify the dependence on q in every degree.",
+        "Arioli–Benzi treat graph PDE finite elements and preconditioning: the Schur complement is standard apparatus, but the general d endpoint Gram and q-independent evaluation norm are not their theorem.",
+        "The orthogonal bubble decomposition and the exact rational three-class inverse row prove the new statement for all d>=1."
+      ],
+      "reasoning": "None of the compared claims logically contains an exact all-degree vertex kernel identity; a fixed-degree instance is a special case and is not asserted to be new. The contribution is the degree-uniform clone relation, its sharp functional norm, and monotonicity.",
+      "searches": [
+        "Kayumov 2004 sections 1.1 and 1.2 spline orthoprojector",
+        "Arioli Benzi 2017 sections 3, 5, and 9 finite element mass matrices",
+        "graph spline piecewise linear quadratic vertex projection stability complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For fixed source-part size p, the theorem is equivalent to exact equality of all vertex-evaluation L-infinity norms between K_{p,q} and the p-leaf star, strengthened to a full pointwise edge-kernel scaling.",
+        "Kayumov 2004 studies interval spline projections; Chapter 1 is framed using knot partitions of a segment, not complete-bipartite metric graphs."
+      ],
+      "reasoning": "The comparison was made at the level of endpoint reproducing kernels, not only article titles. Neither the inspected interval thesis nor the accessible graph mass-matrix study gives a degree-uniform factor 1/q cloning identity.",
+      "searches": [
+        "\"orthogonal spline projection\" \"complete bipartite\" \"vertex kernel\"",
+        "\"metric graph\" \"vertex evaluation\" \"degree\" \"opposite part size\"",
+        "arXiv:math/0408418, Chapter 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Degree one reduces to the familiar rational vertex formula (7p+3)/(3(p+1)); agreement for a single degree does not cover all degrees.",
+        "The new theorem supplies a pointwise all-degree kernel identity, not a newly computed entry in an existing exact table."
+      ],
+      "reasoning": "No inspected table or database supplies this arbitrary-degree complete-bipartite vertex-kernel equivalence. Failure of a search alone is not used as proof of novelty.",
+      "searches": [
+        "\"complete bipartite\" \"L2\" \"spline\" \"vertex evaluation\" formula",
+        "\"spline\" \"K_{p,q}\" \"orthogonal projection\"",
+        "arXiv:math/0408418 endpoint projection constants"
+      ]
+    },
+    "rationale": "The pointwise 1/q edge-kernel cloning identity for every integer polynomial degree d>=1, its sharp vertex-evaluation norm reduction, and all-degree monotonicity were compared by mathematical implication with general interval spline bounds, metric-graph finite-element mass-matrix methods, and known fixed-degree vertex examples. The inspected primary results do not state or entail this all-degree identity without the present block decomposition and inverse-row cancellation. Residual risk: earlier unindexed equivalent algebra is possible.",
+    "residual_risks": [
+      "The 2017 quantum-graph finite-element paper uses Schur complements and might include an implicit related matrix observation, although its inspected statements do not imply the all-degree endpoint result.",
+      "Unindexed theses or numerical-analysis literature may have an equivalent blow-up reduction.",
+      "No claim is made concerning full L-infinity operator norms away from original vertices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for complete-bipartite metric-graph vertex-kernel cloning",
+        "evidence": "Defines L-splines on partitions of a segment and studies endpoint norms and uniform estimates; no K_{p,q} graph or all-degree cloning identity.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "Public full-text HTML: abstract, introductory sections 1.1 and 1.2, interval-spline definitions and historical bounds",
+        "method": "Inspect accessible arXiv text, not only search snippets",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Spline orthoprojector stability and possible general polynomial-order coverage"
+      },
+      {
+        "assessment": "NOT_COVERING for arbitrary-degree vertex-evaluation projection kernels",
+        "evidence": "Develops linear finite-element matrices for elliptic/parabolic quantum graph PDEs and conditions mass matrices; no arbitrary-degree K_{p,q} pointwise kernel-cloning conclusion.",
+        "identifier_or_url": "https://www.researchgate.net/publication/323541882_A_finite_element_method_for_quantum_graphs",
+        "material_read": "Open full-text transcription: introduction, section 3 mass matrices, section 5 conditioning, section 9 conclusions",
+        "method": "Read accessible author-upload scientific full text and compare definitions/theorems",
+        "title": "A finite element method for quantum graphs",
+        "trigger": "Closest metric-graph finite-element mass-matrix work"
+      },
+      {
+        "assessment": "Abstract addresses convergence for interval knot refinements, not an explicit metric-graph kernel identity; cannot rule out incidental related material inside",
+        "evidence": "Abstract describes a.e. convergence under mesh refinement on an interval for any spline order.",
+        "identifier_or_url": "https://arxiv.org/abs/1308.4824",
+        "material_read": "Title and abstract; not full text",
+        "method": "Public abstract comparison, marked limited",
+        "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+        "trigger": "Possibly stronger generic spline projection theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bffa78eb-183c-4c4c-b309-fe8ad6c9548b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-degree factor-1/q kernel cloning exactly reduces vertex sensitivity on dense bipartite metric graphs to a sparse star, revealing stability invariance under blow-up, with sharp norm and positivity-defect consequences. It covers all polynomial orders at once and provides a nontrivial structural equivalence instead of an arbitrary parameter slice or routine finite enumeration.",
+    "status": "PASS"
+  }
+}

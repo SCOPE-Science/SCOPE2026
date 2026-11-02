@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The nominal-phase quorum reduction is exact for each even complete-graph population; the trigger sets change circular difference only at two strictly specified clock phases. Non-overlap gives coasting or monotone convergence; the overlap gives only alternating triggering waves, with explicit periodic states and two indegree-zero one-step ancestors per wave. Counting complete basins yields the formulas, and the finite zeta product follows from primitive periods. The proof handles all integer C>=4 and 1<=w<C. A separate finite-state checker reproduced 2,553 full parameter graphs through C=72 and 81,330 agent-level update tests; finite computations are supplementary, not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103: inhibitory discrete clocks, with global synchrony theorems on trees; no accelerating half-quorum finite flash-entry map.",
+        "O’Keeffe, Krapivsky and Strogatz, Synchronization as Aggregation, arXiv:1501.04115: different globally coupled pulse/aggregation model, not this finite pair map.",
+        "Aust, Zhang, Reina and Hamann, Bimodal Synchronization Performance, arXiv:2605.17206v1, 17 May 2026: numerical results over general graph ensembles do not imply formulas for all integer widths and all phase pairs."
+      ],
+      "reasoning": "Neither different-rule synchronization conditions nor continuum cluster-coalescence kinetics give the full primitive-period and exact basin census here. The motivating paper’s computational experiments do not imply these all-parameter integer identities; its printed implementation is sequential and checks a different trigger phase.",
+      "searches": [
+        "Lyu 2015 synchronization finite state pulse coupled oscillators two cluster state period",
+        "equal-size two-cluster synchronous flashing threshold half complete graph flash-duration wave period C-1 exact basins",
+        "\"pulse coupled\" \"two clusters\" \"quorum\" \"exact\" discrete phase firefly oscillators"
+      ]
+    },
+    "checked_sources": [
+      "Aust, Zhang, Reina and Hamann, Bimodal Synchronization Performance, arXiv:2605.17206v1, 17 May 2026",
+      "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103",
+      "O’Keeffe, Krapivsky and Strogatz, Synchronization as Aggregation, arXiv:1501.04115",
+      "Published mathematical-record comparisons for discrete Kuramoto cluster locking and finite cellular automata; models/transition functions differ."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aust, Zhang, Reina and Hamann, Bimodal Synchronization Performance, arXiv:2605.17206v1, 17 May 2026 §3.1 describes a nominal flash-entry acceleration, while Algorithm 1 uses a sequential loop with testing at the following phase. Its §§4–5 identify subgroup locking qualitatively and empirically.",
+        "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103 explicitly uses inhibitory rather than entry-triggered accelerating coupling.",
+        "O’Keeffe, Krapivsky and Strogatz, Synchronization as Aggregation, arXiv:1501.04115 treats aggregation under a distinct global pulse rule."
+      ],
+      "reasoning": "A theorem asserting cluster trapping, or showing that noise may improve a finite-horizon amplitude score, does not determine the exact number and primitive periods of all two-clock cycles, the sizes of their full phase-pair basins, or the nonmonotone flash-width formula. Conversely the present formulas are not claimed for the motivating paper’s sequential rule.",
+      "searches": [
+        "2026 Aust Zhang Reina Hamann Bimodal Synchronization Performance Why Noise and Sparse Connectivity Can Improve Collective Timing",
+        "equal-size two-cluster synchronous flashing threshold half complete graph flash-duration wave period C-1 exact basins",
+        "\"pulse coupled\" \"two clusters\" \"quorum\" \"exact\" discrete phase firefly oscillators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aust, Zhang, Reina and Hamann, Bimodal Synchronization Performance, arXiv:2605.17206v1, 17 May 2026 §§3–5: empirical locked subgroups and flash/quorum dependence; no full phase-sector cycle/basin classification in the inspected primary text.",
+        "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103: inhibition upon another oscillator blinking, not simultaneous one-tick acceleration on one’s own flash entry."
+      ],
+      "reasoning": "The statement specifies a finite deterministic parallel after-nominal snapshot, flash-entry threshold map, not a general pulse oscillator family or a Kuramoto phase model. The closest analogous locked-cluster results concern distinct phase interactions; an equivalence would require a time- and phase-preserving conjugacy respecting the exact phase-skip rule, not identified in the searched sources.",
+      "searches": [
+        "quorum firefly cellular automaton balanced two cluster complete graph exact period phase locked wave flash duration basin counts",
+        "discrete phase pulse coupled oscillators threshold activation post tick equal clusters phase locking attractor census",
+        "\"pulse coupled\" \"two clusters\" \"quorum\" \"exact\" discrete phase firefly oscillators",
+        "discrete firefly model quorum threshold phase acceleration analytical cluster synchronized basins exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2026 main text reports statistical simulations and explanatory phase-cluster sketches, not an exact all-width phase-pair table. No matching all-clock-length cycle/basin formula appeared in queried accessible mathematical records."
+      ],
+      "reasoning": "The current statement determines infinite families of exact numbers J(C,w), K(C,w), basin sizes, and an Artin–Mazur zeta function, not a lookup of finite cases. Lack of a table hit is only negative search evidence, not independent proof of historical novelty.",
+      "searches": [
+        "synchronous pulse-coupled finite-state oscillator two-group postincrement entry acceleration nonmonotonic flash window lock census",
+        "\"Bimodal Synchronization Performance\" \"two-cluster\" parity exact phase locking 2026",
+        "discrete firefly model quorum threshold phase acceleration analytical cluster synchronized basins exact"
+      ]
+    },
+    "rationale": "The inspected motivating source studies quorum flashing and subgroup locking empirically but does not state all-parameter two-cluster exact periods, basin sizes and nonmonotone width census. Its sequential after-entry pseudocode is explicitly not claimed to be covered. Prior pulse models use distinct inhibitory or aggregation rules. Targeted mathematical-record and literature searches found no dominating equivalence, subject to the documented risks.",
+    "residual_risks": [
+      "The source’s separately hosted supplementary code and plots could not be fetched in this read; the inspected full main text already establishes a different sequential/after-entry implementation, and the new theorem is expressly scoped to a parallel entry-trigger convention.",
+      "Historical priority could exist in specialized unindexed studies of synchronous finite pulse automata, despite targeted searches.",
+      "Not an asserted consequence for the source’s printed sequential implementation; changing update order or entry timing changes the finite phase map."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact parallel flash-entry cycle-and-basin census in the inspected main text, but not identical to printed sequential/after-entry implementation.",
+        "evidence": "arXiv:2605.17206v1, §3.1 states entry acceleration, Algorithm 1 lines 11–23 sequentially checks phase (1-f)C+1; §§4–5 give empirical multi-cluster trapping, no all-parameter finite orbit classification.",
+        "identifier_or_url": "https://arxiv.org/html/2605.17206v1",
+        "material_read": "Full publicly parsed HTML abstract, §§1–6, Algorithm 1, results and references; inspected the distinction between prose timing and executable timing.",
+        "method": "Read web HTML source including dynamical definition and complete pseudocode; compared exact activation and update order against the claimed mathematical map.",
+        "title": "Bimodal Synchronization Performance: Why Noise and Sparse Connectivity Can Improve Collective Timing",
+        "trigger": "Direct source of the two-parameter flash-duration/quorum oscillator and observed locked subgroups."
+      },
+      {
+        "assessment": "Different interaction law makes its global synchronization theorem inapplicable to the present exact cycle census; limited material means no claim about all of its details.",
+        "evidence": "arXiv:1407.1103 abstract: an oscillator inhibits its phase update if a blinking neighbor has the specified relative phase.",
+        "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+        "material_read": "Original abstract and model description exposed in abstract and in the motivating article’s related work; not full paper.",
+        "method": "Compared the original publicly available abstract’s inhibitory blinking rule against the present quorum acceleration at the oscillator’s own flash entry.",
+        "title": "Synchronization of finite-state pulse-coupled oscillators",
+        "trigger": "A superficially similar finite-state pulse-network synchronization theorem explicitly cited by the motivating article."
+      },
+      {
+        "assessment": "Different pulse model and aggregation observables, no direct implication of the new exact integer counting identities shown by the available abstracts.",
+        "evidence": "arXiv:1501.04115 abstract describes time-dependent cluster-size distributions under a global pulse-coupled model.",
+        "identifier_or_url": "https://arxiv.org/abs/1501.04115",
+        "material_read": "Original arXiv abstract and publication abstract; not the full article.",
+        "method": "Compared model class and claimed kinetic aggregation result with a discrete finite-entry half-quorum transition and full functional graph.",
+        "title": "Synchronization as Aggregation: Cluster Kinetics of Pulse-Coupled Oscillators",
+        "trigger": "Known exact cluster-coalescence kinetics in globally coupled pulse networks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a7516e4-2447-4ca5-a8bd-afa2e68921b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural symmetry-sector classification of a central half-quorum model rather than a single finite instance: exact periodic orbit counts, primitive periods, full basin cardinalities, a rational zeta function and sharp nonmonotonic dependence on flash duration. It quantitatively separates coasting deadlocks from mutually reinforced locked flashing states and exhibits a narrow all-synchronizing parameter window, a motivated gap in the experimental cluster-locking literature. The equal-group sector is explicitly identified, avoiding extrapolation to unconditioned network ensembles.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** The congruence sample set and probability normalization are explicit. Root-of-unity filtering proves every required moment exactly; the Johnson line-graph identities diagonalize all invariant subspaces. The two remaining scalar eigenvalues arise from a specified two-dimensional Gram block, the positivity inequalities cover every admissible dimension, and rational bounds prove that dimension eight uniquely maximizes the condition number. The standalone exact moment and direct Gram checks passed.
+
+**Originality: PASS within stated inspection limits.** The classical symmetric Boolean-set Hilbert-function results already cover rank information, so that part is not claimed novel. The new assertion is the full modular-three quadratic Walsh Gram spectrum, sharp parity-dependent stability extrema, and exact universal maximum. Filmus supplies the single-slice harmonic basis and Johnson decomposition, while Venkitesh determines ranks of unions of layers; neither inspected full text gives this uniform probability Gram spectrum. Published related research on individual Hamming spheres, balls, and q-ary shells does not establish the cross-layer moment identities and extremal condition law. See explicit comparisons and access limitations in AUDIT.json. A potentially equivalent older spectral formula remains a residual risk.
+
+**Value: PASS.** The mod-three zero-sum condition on nonzero ternary coordinates is a natural parity-check sampling ensemble. The theorem establishes a sharp earliest recovery dimension, identifies *which* harmonics are least stable depending on parity, computes the exact optimum of the condition number across every valid ambient dimension, and quantifies rapid convergence toward tightness. It is neither a known-table recomputation nor an arbitrary finite numerical slice; the findings concern an infinite family and a natural harmonic reconstruction invariant.
+
+The criterion concerns unweighted uniform samples and the full degree-at-most-two Walsh band; it does not optimize other measures or characterize all degrees. Comparison against the complete 1999 original paper was not possible.
+
+Self-review: passed. Independent audit: not yet performed.

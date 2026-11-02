@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The projector equals the spectral positive part, giving three explicit spectral-sign regions. In the indefinite region, exact coordinate derivatives yield diagonal absolute row maximum 3/2 and off-diagonal absolute row maximum 9/8. Scalar parameter bounds are complete for every spectral orientation; line-segment integration extends them globally, with determinant-zero lines handled separately. Two explicit rank-one perturbation limits establish sharpness, and strict interior derivative bounds imply no distinct finite pair attains either value. A 407-assertion standard-library exact-rational and high-precision checker confirms formulas and examples without replacing the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Malick–Sendov (2006), full author manuscript, Section 2 and Theorem 3.7: general explicit Jacobian of semidefinite projection.",
+        "Šilhavý (2015), publisher abstract: differentiability and derivative formulas for convex-set projections, illustrated on semidefinite matrices; complete text unavailable."
+      ],
+      "reasoning": "Derivative formulae are broader analytic tools, but the exact cross-norm suprema require a separate optimization over spectral position and perturbation signs. The inspected full manuscript does not supply the optimized two-coordinate values. No conclusion of noncoverage is asserted for inaccessible portions of the 2015 paper.",
+      "searches": [
+        "\"Clarke generalized Jacobian\" \"projection onto the cone\" Malick Sendov",
+        "Differentiability of the metric projection onto a convex set with singular boundary points Silhavy 2015",
+        "Clarke generalized Jacobian PSD projector Malick Sendov; sharp Lipschitz and covariance matrix clipping sensitivity",
+        "Sharp 3/2 and 9/8 entrywise maximum norm Lipschitz moduli real symmetric 2x2 positive semidefinite Frobenius projection; diagonal versus off diagonal",
+        "Positive part of symmetric 2x2 matrix sensitivity spectral thresholding covariance nearest PSD off-diagonal 9/8",
+        "Entrywise max perturbation bound semidefinite projection scalar 3/2 sharp unattained"
+      ]
+    },
+    "checked_sources": [
+      "Higham, Linear Algebra Appl. 103 (1988), 103–118, DOI 10.1016/0024-3795(88)90223-6 (repository abstract, original full text restricted).",
+      "Malick–Sendov, Set-Valued Analysis 14 (2006), 273–293, DOI 10.1007/s11228-005-0005-1 (primary manuscript relevant sections read).",
+      "Šilhavý, J. Convex Anal. 22 (2015), 969–997, DOI 10.68381/jca22052 (publisher abstract; full text inaccessible).",
+      "Published standard-Lorentz-cone projection exact coordinate-maximum theorem, ID 2d1b9aa4-230e-4b9f-b8d5-a2457ae0da29 (comparison only, different norm)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Higham’s formula supplies P(X)=X_+ but not its entrywise maximum-norm operator Lipschitz constant.",
+        "Malick–Sendov supplies the matrix derivative but does not optimize its row absolute sums in the non-Euclidean entrywise norm.",
+        "The earlier Lorentz-cone theorem is for the standard coordinate ℓ∞ norm, not the pulled-back max(|m|+|d|,|z|)."
+      ],
+      "reasoning": "The mathematical contribution is a sharp quantitative consequence requiring a nontrivial spectral-parameter optimization, with two distinct extremizing boundary geometries and strict finite-pair nonattainment; it is not just the positive-part formula or a covered specialization of an exact max-norm theorem.",
+      "searches": [
+        "Euclidean nearest-point projection onto two by two real symmetric positive-semidefinite cone; sharp entrywise supremum Lipschitz gain three-halves, nonattainment at rank-one matrices",
+        "Clarke generalized Jacobian PSD projector Malick Sendov; sharp Lipschitz and covariance matrix clipping sensitivity",
+        "Higham Computing a nearest symmetric positive semidefinite matrix 1988",
+        "Malick Sendov Clarke generalized Jacobian positive semidefinite matrices 2006",
+        "Lorentz cone projection in rotated ℓ∞ norms, symmetric positive semidefinite 2x2 coordinate max sensitivity",
+        "Sharp 3/2 and 9/8 entrywise maximum norm Lipschitz moduli real symmetric 2x2 positive semidefinite Frobenius projection; diagonal versus off diagonal",
+        "Positive part of symmetric 2x2 matrix sensitivity spectral thresholding covariance nearest PSD off-diagonal 9/8",
+        "Entrywise max perturbation bound semidefinite projection scalar 3/2 sharp unattained"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coordinate change (m,d,z) -> [[m+d,z],[z,m-d]] is a scalar Euclidean isometry between a standard Lorentz cone and real 2x2 PSD matrices.",
+        "Under this change the entrywise maximum becomes max(|m|+|d|,|z|), not max(|m|,|d|,|z|).",
+        "The standard Lorentz-cone result gives a different spatial-dimension-two coordinate norm constant and does not optimize the pulled-back polyhedral norm."
+      ],
+      "reasoning": "Cone equivalence is not a normed-Lipschitz equivalence. The present optimized functional is different, so its two exact coordinate-sensitive values and nonattainment do not follow by mere relabeling.",
+      "searches": [
+        "Lorentz cone projection in rotated ℓ∞ norms, symmetric positive semidefinite 2x2 coordinate max sensitivity",
+        "Clarke generalized Jacobian PSD projector Malick Sendov; sharp Lipschitz and covariance matrix clipping sensitivity",
+        "Malick–Sendov full author manuscript pages 7–10 and 20",
+        "previous published result on standard real Lorentz cone coordinate maximum norm (local ID 2d1b9aa4-230e-4b9f-b8d5-a2457ae0da29)",
+        "Sharp 3/2 and 9/8 entrywise maximum norm Lipschitz moduli real symmetric 2x2 positive semidefinite Frobenius projection; diagonal versus off diagonal",
+        "Positive part of symmetric 2x2 matrix sensitivity spectral thresholding covariance nearest PSD off-diagonal 9/8",
+        "Entrywise max perturbation bound semidefinite projection scalar 3/2 sharp unattained"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual mathematical record searches returned planar ℓp cone projection, Lorentz-cone projection, and PSD-related Jacobian/semidefinite spectral results, but no identified table of the present sharp real 2x2 matrix-entry moduli.",
+        "Direct web exact-constant/alias searches found foundational PSD projection sources rather than an existing 3/2 and 9/8 paired calculation."
+      ],
+      "reasoning": "No matching published exact table was identified. Negative retrieval is not proof of novelty; the full statement and implications of nearby results were examined separately.",
+      "searches": [
+        "Euclidean nearest-point projection onto two by two real symmetric positive-semidefinite cone; sharp entrywise supremum Lipschitz gain three-halves, nonattainment at rank-one matrices",
+        "Lorentz cone projection in rotated ℓ∞ norms, symmetric positive semidefinite 2x2 coordinate max sensitivity",
+        "\"PSD projection\" \"entrywise maximum\" \"Lipschitz\" 3/2",
+        "\"positive semidefinite\" \"projection\" \"infinity norm\" nonexpansive",
+        "\"positive part\" \"matrix\" \"maximum norm\" Lipschitz",
+        "\"positive semidefinite\" projection \"3/2\" Lipschitz entrywise",
+        "\"positive semidefinite\" \"maximum-entry norm\" \"projection\" Lipschitz",
+        "Sharp 3/2 and 9/8 entrywise maximum norm Lipschitz moduli real symmetric 2x2 positive semidefinite Frobenius projection; diagonal versus off diagonal",
+        "Positive part of symmetric 2x2 matrix sensitivity spectral thresholding covariance nearest PSD off-diagonal 9/8",
+        "Entrywise max perturbation bound semidefinite projection scalar 3/2 sharp unattained"
+      ]
+    },
+    "rationale": "The closest full primary manuscript (Malick–Sendov, 2006) derives the general spectral projector Jacobian, while Higham (1988) provides its Frobenius-nearest-point formula. Neither inspected result states the optimized global matrix-entry maximum-norm constants 3/2 and 9/8 or finite-pair nonattainment. The earlier exact standard-Lorentz-cone maximum-norm profile concerns a different norm after transforming 2x2 matrices, and thus does not imply these numerical statements. The inaccessible 2015 specialist full text and unindexed work leave an explicitly bounded priority risk.",
+    "residual_risks": [
+      "The 2015 specialist full text was not accessible in this execution; the abstract is insufficient to exclude an unadvertised exact entrywise calculation.",
+      "Higham full publisher manuscript was restricted; its repository abstract and well-known projection formula were accessible.",
+      "Equivalent older calculations may be indexed using alternative matrix-gauge or cone-coordinate terminology.",
+      "Unperformed independent review and publication-priority confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General derivative machinery found; no exact global entrywise-max sensitivity pair or finite-pair nonattainment stated in inspected material.",
+        "evidence": [
+          "Page 7 projection formula by eigenvalue clipping.",
+          "Page 10 derivative block divided-difference coefficients.",
+          "Page 20 Theorem 3.7 gives the generalized Jacobian."
+        ],
+        "identifier_or_url": "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+        "material_read": "Full author-manuscript text of introduction, projection formula Section 2, nonsingular derivative Section 2.3, and generalized-Jacobian discussion/Theorem 3.7, including page-image checks of pages 1, 10, and 20.",
+        "method": "Web PDF parsed text, targeted searches, PDF screenshots of theorem pages",
+        "title": "Clarke Generalized Jacobian of the Projection onto the Cone of Positive Semidefinite Matrices",
+        "trigger": "Same projector; strongest candidate for derivative or stronger norm coverage"
+      },
+      {
+        "assessment": "Projection formula rather than sharp coordinatewise Lipschitz analysis. Full-text priority risk explicitly retained.",
+        "evidence": [
+          "Abstract: nearest Frobenius PSD matrix is symmetric-part polar averaging.",
+          "Repository deposit 05 July 2006; PDF access staff-only."
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/363/",
+        "material_read": "Repository title, abstract, bibliographic data, restriction notice and deposit date; full paper access restricted.",
+        "method": "University repository item page",
+        "title": "Computing a nearest symmetric positive semidefinite matrix",
+        "trigger": "Foundational identification of Frobenius metric projection"
+      },
+      {
+        "assessment": "Derivative-level topic, but no claim of excluding 3/2 or 9/8 from unseen full text; publication-priority uncertainty remains.",
+        "evidence": [
+          "Publisher abstract specifies Fréchet derivatives of PSD projection and geometric regularity, not endpoint entrywise norms.",
+          "Institutional download returned storage-limit error; not interpreted as a scientific negative."
+        ],
+        "identifier_or_url": "https://journalofconvexanalysis.com/articles/jca22052/",
+        "material_read": "Publisher full bibliographic abstract and references; full text retrieval from alternate open-access routes failed.",
+        "method": "Publisher abstract and OA searches; institutional download attempt returned storage limit",
+        "title": "Differentiability of the Metric Projection onto a Convex Set with Singular Boundary Points",
+        "trigger": "2015 specialist treatment of derivatives of the identical semidefinite projection"
+      },
+      {
+        "assessment": "Not dominating due to transformed unit ball not being the standard ℓ∞ unit ball.",
+        "evidence": [
+          "The prior result concerns max(|m|,|d|,|z|); present theorem concerns max(|m|+|d|,|z|)."
+        ],
+        "identifier_or_url": "2d1b9aa4-230e-4b9f-b8d5-a2457ae0da29",
+        "material_read": "Previously published mathematical claim and exact norms from accessible local reference",
+        "method": "Statement-and-implication comparison under the explicit 2x2 PSD/Lorentz linear map",
+        "title": "Sharp coordinatewise Lipschitz profile for the standard Lorentz-cone projection",
+        "trigger": "Potential cone-isomorphic exact prior result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e19c93a7-9149-444d-b44d-6347a72f9819",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the smallest genuinely matrix-valued PSD spectral repair problem, the result gives a complete and nontrivial distinction between diagonal 50% amplification and off-diagonal 12.5% amplification under entrywise bounded input noise. It also explains why the worst case occurs only infinitesimally at two different rank-one boundary geometries. This sharp robustness threshold is not implied by ordinary Frobenius nonexpansivity, and the diagonal obstruction embeds into every larger matrix order; no claim of a general high-dimensional theorem is needed.",
+    "status": "PASS"
+  }
+}

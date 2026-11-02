@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Anchoring the shared hub makes the edge-Lipschitz feasible set an exact product of blade polytopes with all vertices of type 0/1 or 0/(-1). Strict positivity of the centered variance Hessian on anchored functions forces every optimizer to such a vertex. For signed active counts, the exact numerator is NK−S²; sign-flip/fill improvements force each partial optimizer to consist of one partially positive, uniquely largest blade versus fully negative others. Its integer quadratic has center Q+N/2; rounding proves both regimes, the equality cases, and the exact floor-square gap. The uniform-blade formula follows by minimal signed discrepancy; the giant-blade limit is 1/4. Exact independently implemented labelled and active-count enumeration checks specified finite instances without substituting finite experiments for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General integral-potential theorem (Alon et al., Theorem 2.1) applies to all connected graphs but gives no exact value on the family.",
+        "Yancey studies general maximum-variance extremizers and graph hairs, rather than an optimized heterogeneous clique-bouquet special case."
+      ],
+      "reasoning": "Coverage of the same graph by broad theorems is not coverage of the exact sharp value and all optimizers unless that conclusion is actually entailed. The general theorems do not supply the arithmetic-discrepancy or dominant-blade optimization.",
+      "searches": [
+        "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf §2.1",
+        "https://arxiv.org/abs/1705.09725 §2.4–2.5",
+        "graph spread maximal variance block graphs clique bouquet vertex gluing"
+      ]
+    },
+    "checked_sources": [
+      "Alon, Boppana, Spencer (1998), author-hosted article, §§1.1,2.1, https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+      "Addario-Berry, Janson, McDiarmid (first arXiv 2009-02-06), §§1–3, https://arxiv.org/abs/0902.1156",
+      "Yancey (first arXiv 2017-05-26), motivation and §§1.1,2.4,2.5, https://arxiv.org/abs/1705.09725",
+      "Publicly indexed mathematical records on graph spread, windmill and block graphs, and sharp Lipschitz variance, compared by underlying invariant and exact implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The universal theorem guarantees at least one integer extremizer but not a formula for arbitrary positive clique sizes, nor full equality classification.",
+        "Random graph upper/lower bounds do not give the exact signed partition minimization on deterministic bouquet graphs.",
+        "A prior theorem about negative type of clique bouquets concerns powered distance quadratic forms, not centered variance over Lipschitz functions; previously logged double-broom graph spread concerns trees with different edge constraints."
+      ],
+      "reasoning": "Implication was checked at the level of exact object, invariant, graph scope, quantified profile, and equality conclusion. Related sources lack at least the exact optimization or the requisite hypotheses; none of their inspected conclusions entails the new all-parameter formula.",
+      "searches": [
+        "https://arxiv.org/abs/0902.1156 sections 1–3",
+        "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf Theorem 2.1",
+        "exact graph spread variance maximizing 1-Lipschitz function on bouquet of cliques glued at one vertex, friendship windmill graphs, signed partition discrepancy and dominant blade",
+        "sharp Poincare constant for vertex-bouquet of cliques 3 to 1 threshold variance one-Lipschitz and partition discrepancy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alon–Boppana–Spencer §1.1 defines the identical invariant as the Lipschitz variance (not spectral spread).",
+        "The inspected Alon–Boppana–Spencer Theorem 2.1 supplies integral extrema for general graphs, not the clique-bouquet value or optimizer formula.",
+        "Index queries on clique bouquets, friendship/windmill graphs, and graph-Lipschitz variance returned no directly matching claim."
+      ],
+      "reasoning": "The object was compared under synonyms graph spread, sharp Lipschitz/Poincaré variance, and vertex-one-sum or windmill/clique-bouquet graph. Spectral spread and eccentricity spread hits use inequivalent invariants. General existence of an extremizer does not imply a sharp signed-partition closed formula without the extra optimization.",
+      "searches": [
+        "exact graph spread variance maximizing 1-Lipschitz function on bouquet of cliques glued at one vertex, friendship windmill graphs, signed partition discrepancy and dominant blade",
+        "clique bouquet graph sharp Lipschitz variance Poincare spread 3:1 threshold dominant clique",
+        "block graph friendship graph 1-Lipschitz variance clique sizes partition",
+        "\"spread\" \"windmill graphs\" Lipschitz variance",
+        "\"friendship graphs\" \"spread\" Lipschitz maximum variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed results discussed graph-bouquet dissociation numbers and block-graph neighborhood complexes, and random graph spread; none gave a table for this sharp Lipschitz variance.",
+        "No matching published finite or symbolic table was identified by the actual queried aliases."
+      ],
+      "reasoning": "The candidate is a closed all-profile theorem, not a recomputation of a finite graph-invariant table. Negative search results only limit observed coverage and do not establish uniqueness.",
+      "searches": [
+        "exact graph spread variance maximizing 1-Lipschitz function on bouquet of cliques glued at one vertex, friendship windmill graphs, signed partition discrepancy and dominant blade",
+        "block graph friendship graph 1-Lipschitz variance clique sizes partition",
+        "variance maximizing Lipschitz functions on wedge of complete graphs, friendship graphs, formula for unequal clique sizes",
+        "sharp Poincare constant for vertex-bouquet of cliques 3 to 1 threshold variance one-Lipschitz and partition discrepancy"
+      ]
+    },
+    "rationale": "The original spread paper gives existence/integral structure, random graph work gives stochastic graph-family bounds, and later extremizer studies treat general questions and different examples. None of the inspected relevant source statements entails an all-tuple exact heterogeneously sized vertex-clique-bouquet spread, its partition-discrepancy regime, strict dominant-blade transition, or full optimizer classification. Existing claims on the same graph family address negative type, heat-flow contraction and transport, not this variance optimization. The possible existence of an unindexed equivalent is a stated residual risk.",
+    "residual_risks": [
+      "One-point sums may be treated under other terminology in unavailable or unindexed literature; exhaustive global originality cannot be inferred from unsuccessful queries.",
+      "The full proofs of every potential older general result in the literature were not exhaustively reviewed; any stronger directly covering result would supersede an originality assertion.",
+      "The optimal fluctuation formula is proved for uniform real-valued vertex observables only, not weighted measures or other moments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The theorem supplies the existence of an integral optimal function and general partition structure for all graphs, but the inspected theorem does not solve the signed partition optimization for arbitrary clique bouquets or its sharp partial-blade phase.",
+        "evidence": [
+          "Definition in §1.1 identifies spread as maximum Lipschitz variance; Theorem 2.1 in §2.1 asserts an integer-valued extremizer and a component-distance representation.",
+          "No formula in those statements in terms of heterogeneous clique sizes, discrepancy, or a dominant-blade threshold."
+        ],
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "material_read": "Author-hosted article: introductory spread definition and product-space significance; §2.1 Graphs, Theorem 2.1 and surrounding proof, including the optimal integral-potential construction.",
+        "method": "Direct full-text section inspection and page-image examination of §2.1.",
+        "title": "An Asymptotic Isoperimetric Inequality",
+        "trigger": "Original graph-spread constant and graph extreme-point theorem, maximally plausible general coverage."
+      },
+      {
+        "assessment": "Results give probabilistic upper/lower controls for random graph ensembles, not an exact sharp variance and optimizer classification for arbitrary deterministic unequal clique bouquets.",
+        "evidence": [
+          "ArXiv first version is dated 2009-02-06.",
+          "Introduction explicitly describes random regular graphs, supercritical Erdős–Rényi graphs and a small-world model, and cites the general integral extremizer theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+        "material_read": "Public full-text HTML version, introduction and Sections 2–3 concerning regular random graphs and supercritical random graph components; the introductory definition and cited foundational result.",
+        "method": "Read source-text sections and compare hypotheses and conclusions to the exact deterministic vertex-bouquet statement.",
+        "title": "On the Spread of Random Graphs",
+        "trigger": "Same named invariant; broad structural results could subsume special graph classes."
+      },
+      {
+        "assessment": "The inspected extremizer results and long-hair examples do not determine the present all-profile clique-bouquet formula or exact dominance threshold.",
+        "evidence": [
+          "The preprint states that it studies extremal graph-Lipschitz random variables and their relation to graph isoperimetry.",
+          "No specialized clique-bouquet signed-partition formula was found in the inspected relevant material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.09725",
+        "material_read": "Public full-text HTML version, motivation and portions of Sections 1.1, 2.4 and 2.5 on spread, maximum-variance functions, and structural/extremizer examples.",
+        "method": "Read relevant original article sections and compare the graph families and conclusions.",
+        "title": "Probabilistic and Geometrical Applications to Graph Theory",
+        "trigger": "Primary work on maximum-variance graph-Lipschitz extremizers and graph structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d698545b-27b9-433c-b202-e0d98c4f7dc6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Graph spread is a natural sharp Lipschitz variance and product-metric concentration parameter. For every tuple of positive clique sizes this theorem determines the exact answer and every optimizer, expressing balanced behavior through a nontrivial subset-sum discrepancy and the competing dominant regime through a one-blade integer quadratic. The 3Q+2 structural transition and exact floor-square gain are motivated boundaries of a complete infinite-family classification, not an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}

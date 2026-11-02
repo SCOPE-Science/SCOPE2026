@@ -1,0 +1,15 @@
+# Scientific review: generalized-quadrangle incidence Gaussian kernels
+
+## Correctness
+**PASS.** The theorem is reduced to a complete orthogonal decomposition of the powered-distance matrix: point and line incidence nullspaces, paired singular-value sectors, and one constant contrast. The point-collinearity strongly regular spectrum follows directly from the quadrangle axioms. For the paired sectors the determinant bound is strict for \(0\le p\le1\); the null sectors remain strictly negative up to the explicit bound \(p_0\). The bipartition contrast equals an explicit four-term exponential polynomial. That polynomial is proved strictly increasing, with its unique root below \(p_0\). Hence exactly one centered eigenvalue reaches zero first. The complete proof covers all existing thick orders, not only the checked examples. The dependency-free checker verifies an explicit order-\((2,2)\) instance and 4,213 supplementary finite assertions; these are not used as an infinite proof.
+
+## Originality
+**PASS, with bounded-literature uncertainty.** The closest inspected source is Sánchez (arXiv:1108.0451v1, sections 1--3), which supplies general matrix criteria and treats complete bipartite graphs. Murugan (arXiv:1112.5657v1, sections 2--4) supplies general negative-type theory and results for row-transitive metrics and Hamming cubes. Neither inspected statement gives the all-order generalized-quadrangle root formula or establishes that the point-line contrast uniformly precedes every nonconstant incidence spectral sector. A standard GQ geometry account gives graph distance shells but not the claimed powered-kernel threshold. Relevant earlier incidence-design and projective point-hyperplane metric classifications have different incidence axioms and graph diameters and do not logically contain this family. Searches of accessible scholarly material and mathematical research records produced no exact or stronger covering result. A non-indexed equivalent association-scheme calculation remains possible.
+
+## Mathematical value
+**PASS.** The result provides an exact, isomorphism-independent optimal Gaussian-kernel exponent for every existing thick generalized quadrangle, not merely one small graph. It locates the unique spectral obstruction analytically, proves that it overtakes all point and line incidence-null modes, and determines the endpoint squared-Euclidean embedding dimension. This is a motivated structural classification of a natural distance-four incidence family; it does not rely on arbitrary parameter slicing or numerical extrapolation.
+
+## Limitations and comparison
+The theorem is conditional on the existence of each order \((s,t)\), assumes both parameters at least two, and does not classify weighted incidence metrics or generalized hexagons. The reviewed literature does not exclude every older non-indexed equivalent formulation. The checker is supplementary and finite. Independent mathematical validation is unperformed.
+
+Self-review: passed. Independent audit: not yet performed.

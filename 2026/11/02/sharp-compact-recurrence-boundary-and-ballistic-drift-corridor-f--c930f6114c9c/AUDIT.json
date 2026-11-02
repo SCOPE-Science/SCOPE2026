@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For a compact invariant probability, stationarity of y gives E[x]=0, and stationary squared x yields a^2=(r^2-1)E[x^2]-r^2E[x^2 sin^2(dy)], excluding all compact invariant states at r<=1. The Krylov–Bogolyubov argument excludes every bounded forward orbit. Below gain one, normalization x/a produces a bounded affine recursion; direct finite-horizon squared telescoping and Jensen prove the sharp two-root speed corridor. Explicit phase-locked drifting trajectories attain its endpoints. The period-two zero-sum memory increments force x1=-x0 and B0+B1=-2, giving |x0|>=|a|/(r-1). A direct two-point cosine witness attains equality for each r>1. All assumptions, strict/equality boundaries and domain are explicit, and a symbolic/high-precision checker of the actual files passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Related comparison concerns a six-dimensional continuous-time memristor flow with a positive memory half-space, not this cosine difference map.",
+        "Related comparison proves a recurrence boundary for the zero-bias Chialvo map, not the cosine memristor recurrence.",
+        "Ramadoss et al. 2022 general equation (1) is broad in the choice of memristance but does not make the present gain threshold, speed corridor, or sharp two-cycle implication."
+      ],
+      "reasoning": "Broad affine-feedback architecture is not a theorem quantifying boundedness and trajectories. General stationary methods could rederive the identity, but no checked source supplies a statement whose hypotheses specialize to this exact trigonometric map and conclusions dominate all claimed parts.",
+      "searches": [
+        "cosine memristor Zhang Liu Wei Jiang 2022 exact bound b c greater than 1 no bounded solutions invariant probability",
+        "Zhang Li-Ping Liu Yang Wei Zhou-Chao Jiang Hai-Bo 2022 cosine memristor map sharp no compact invariant probability when |bc|<=1 variance identity",
+        "cosine memristor 2D map exact period two x opposite sharp amplitude r minus one square recurrence"
+      ]
+    },
+    "checked_sources": [
+      "https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_10_100503.shtml",
+      "https://doi.org/10.1088/1674-1056/ac7294",
+      "https://eacademic.ju.edu.jo/S.Momani/Lists/Published%20Research/Attachments/421/PAPER_387.pdf",
+      "https://doi.org/10.3390/math11061319"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang et al. section 2 shows absence of fixed points; sections 3–4 numerically display periodic/chaotic states and escape regions, with no proof of the unit gain boundary.",
+        "Ramadoss et al. section 2 equations (1)–(4) and Table 1 describe a general construction and a cosine-with-added-linear-term example, with no compact-orbit theorem.",
+        "A related rational fast–slow neuron-map result establishes stationary covariance and two-cycle rigidity, but does not treat the cosine map."
+      ],
+      "reasoning": "An absence of equilibria does not imply an absence of any compact invariant set, since prime-two cycles can exist. Numerical cycles for particular gains above one do not imply exclusion for every gain at or below one. The explicit two-cycle witness plus the invariant square balance provide the missing two directions of a sharp parameter-uniform dichotomy, and the optimal ballistic corridor adds phase-space information absent from the cited studies.",
+      "searches": [
+        "Two dimensional cosine memristive map x(k+1)=a+bc cos(d y(k)) x(k) y(k+1)=y(k)+e x(k) stationary variance",
+        "Zhang Li-Ping Liu Yang Wei Zhou-Chao Jiang Hai-Bo 2022 cosine memristor map sharp no compact invariant probability when |bc|<=1 variance identity",
+        "bounded orbits of cosine memristor maps a+bc cos(dy) x and y+ex explicit period two threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang et al., DOI 10.1088/1674-1056/ac7294, equation (2), establishes the exact full-plane map and its translational symmetry.",
+        "Ramadoss et al., DOI 10.1140/epjp/s13360-022-02433-z, equation (1), gives a general memristance-feedback architecture."
+      ],
+      "reasoning": "The paper’s y-translation symmetry and nonexistence of fixed points do not imply all orbits on the real plane are unbounded: periodic points could occur at higher periods. A quotient-circle periodic point is not a bounded real-plane trajectory. The exact stationary-square balance and the phase-locked ballistic speed bounds are new substantive consequences in this object; a similar general map definition alone does not cover them.",
+      "searches": [
+        "Two dimensional cosine memristive map x(k+1)=a+bc cos(d y(k)) x(k) y(k+1)=y(k)+e x(k) stationary variance",
+        "cosine memristor 2D map exact period two x opposite sharp amplitude r minus one square recurrence",
+        "memristor maps zero equilibrium constant a cosine coefficient contraction |bc| 1 no bounded orbit invariant measure square identity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted scholarly comparisons considered distinct-model results on the Rulkov neuron, zero-bias Chialvo map, and a six-dimensional continuous-time memristor flow.",
+        "The original article plots numerically estimated escape basins and hidden period-two states (Figs. 7–11), not an all-coefficient exact table of recurrence or drift."
+      ],
+      "reasoning": "No exact database/table of these sharp gain boundaries or escape rates was located. A numerical parameter sweep does not certify a sharp threshold. The earlier private prior research records contained a different 2023 fixed-point-free memristor map (claim UUID 3b64e28e-af02-499c-a981-b16347a4c676), not this trigonometric family.",
+      "searches": [
+        "Extremely hidden multi-stability in a class of two-dimensional maps with a cosine memristor 2022 sharp recurrence exclusion coefficient bc <=1",
+        "cosine memristor bounded orbit threshold modulus product b c greater than one"
+      ]
+    },
+    "rationale": "Direct full HTML examination of Zhang et al. equation (2), sections 2–4, figures and conclusions finds the model and numerical hidden attractors but not a compact invariant-measure obstruction, sharp ballistic corridor, or two-cycle amplitude law. Ramadoss et al. (2022) has a general map template containing this as a cosine specialization, yet proves only fixed-point disappearance and presents separate numerical examples. Targeted semantic-index and web searches found related results for distinct recursions without a stronger covering theorem. Priority remains conditional on unindexed literature.",
+    "residual_risks": [
+      "No exhaustive access to every indexed/unindexed later paper citing the cosine map; exact priority may change.",
+      "The 2022 predecessor PDF was read in extracted text rather than fully verified page screenshots because the hosting server rejected the screenshot request.",
+      "A generic theorem for nonautonomous affine recurrences might imply some inequalities after specialization, but no such source was identified as covering the complete sharp dichotomy and witnessed amplitude law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact model; proves absence of fixed points and reports numerical hidden attractors. No statement covering the proven sharp full-plane recurrence boundary, ballistic corridor or universal two-cycle amplitude law was found in inspected sections.",
+        "evidence": [
+          "https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_10_100503.shtml",
+          "https://doi.org/10.1088/1674-1056/ac7294",
+          "Equation (2) defines x_{k+1}=a+bc cos(dy_k)x_k and y_{k+1}=y_k+ex_k; Figs. 7–11 show numerical phase diagrams."
+        ],
+        "identifier_or_url": "https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_10_100503.shtml",
+        "material_read": "Full accessible HTML main article, especially equation (2), introduction, system model, Section 3 parameter sweeps and period-two figure captions, conclusion, and relevant bibliography.",
+        "method": "Read rendered publication HTML and raw HTML equations; searched for boundedness, threshold, proof, escape regions and period-two descriptions.",
+        "title": "Extremely hidden multi-stability in a class of two-dimensional maps with a cosine memristor",
+        "trigger": "Original model and direct possible coverage of compact recurrence and short periodic dynamics."
+      },
+      {
+        "assessment": "Generic model includes additive feedback and a memory increment, but the stated analyses concern fixed-point absence, constructions and numerical examples. NFP5 adds a linear feedback term. No universal unit-gain escape theorem or exact mean/drift certificate identified.",
+        "evidence": [
+          "https://eacademic.ju.edu.jo/S.Momani/Lists/Published%20Research/Attachments/421/PAPER_387.pdf",
+          "DOI 10.1140/epjp/s13360-022-02433-z, page 2 equation (1); page 3 Table 1; page 7 conclusion."
+        ],
+        "identifier_or_url": "https://eacademic.ju.edu.jo/S.Momani/Lists/Published%20Research/Attachments/421/PAPER_387.pdf",
+        "material_read": "Search-extracted text of article abstract, sections 2–4 and Tables 1–2, nine-page article; figures not visually reviewed due screenshot access restriction.",
+        "method": "Accessed lawful author-hosted journal PDF textual representation, including equations (1)–(4), NFP5 row and conclusion; screenshot was rejected by host.",
+        "title": "Constructing non-fixed-point maps with memristors",
+        "trigger": "Explicitly cited precursor with broad memristor construction that can specialize to cosine feedback."
+      },
+      {
+        "assessment": "Its published FPFM1 map is x′=alpha cos x+beta(y^2-1)x, y′=y+x, not the current cosine(y) feedback family; its exact period-two census would not imply this theorem.",
+        "evidence": [
+          "doi:10.3390/math11061319",
+          "Published map FPFM1 uses cosine of the first state and a quadratic feedback term in the second state."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math11061319",
+        "material_read": "Article indexed abstract and bibliographic comparison; not full text.",
+        "method": "Abstract and exact map description from checked prior-ledger claim.",
+        "title": "Building Fixed Point-Free Maps with Memristor",
+        "trigger": "Nearby prior published example also treated in the accessible same-topic historical claims; possible stronger short-period result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c930f611-4c9c-4f07-9043-b0ceced4daf6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source investigates hidden periodic and chaotic attractors in a fixed-point-free map. Its exact coefficient threshold for the possibility of any bounded real-plane recurrence, universal sharp escape-speed interval at subcritical gain, and singular minimum recurrent amplitude above it are natural global dynamical invariants needed to interpret those numerical regimes. A constructive primitive two-cycle verifies the boundary is necessary as a family-wide obstruction. This is a sharp phase separation, not a textbook fixed-point test, renaming or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

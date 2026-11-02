@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The exact stack/skeleton bijection proves a_n as a weighted random-walk maximum. The first-step strong-Markov recurrence f=pz+qzf², geometric first-passage summation, and exact algebraic-function coefficient extraction yield the OGF. Differentiating f at z=1 reconstructs both pole coefficients, and the only other nearest singularities are square-root branch points at ±(m+1)/(2√m), yielding the stated exponentially smaller remainder. Exact independently implemented finite cross-checks passed for m=2,3,4; these do not substitute for the proof. Assumptions and parameter boundaries are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2209.04905 gives conjugate Dyck coding, maximal entropy measures, and entropy log(m+1).",
+        "arxiv:2401.00836 page 17 specifies a labeled Dyck follower graph and discusses maximal entropy, periodic points, mixing, not a coefficient formula.",
+        "Closest indexed mathematical finding: Exact neutral-periodic fiber length spectrum for the heterochaos baker maps counts center-neutral periodic fibers rather than all words."
+      ],
+      "reasoning": "Known symbolic conjugacy supplies the objects and known entropy supplies only exponential growth; neither directly supplies the exact rational-radical generating function, linear factor and additive term. The new theorem evaluates a natural implication that prior work leaves quantitative.",
+      "searches": [
+        "Semantic literature search: \"generalized heterochaos baker maps two maximal entropy measures finite word complexity asymptotic linear prefactor (M-1)^2/(M(M+1))\"",
+        "Semantic literature search: \"Saiki heterochaos baker entropy 3 Dyck shift maximal entropy\"",
+        "arxiv:2209.04905 Theorem A/Section 2",
+        "arxiv:2401.00836 Sections 1, 2, 3 and Appendix contents"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1811.01009",
+      "arxiv:2209.04905",
+      "arxiv:2401.00836",
+      "doi:10.1186/s13660-015-0899-6",
+      "doi:10.3390/math9111268",
+      "Semantic literature search: Exact neutral-periodic fiber length spectrum for the heterochaos baker maps",
+      "Semantic literature search: Quantitative density and sharp center resolution of neutral periodic fibers in heterochaos baker maps",
+      "Semantic literature search: Sharp logarithmic finite-core entropy deficit for primitive Dyck excursions",
+      "Accessible research claims compared by mathematical content for prior overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 Figure 9 observes Γ(N)-3 approximately 3/N but explicitly treats it as numerical evidence.",
+        "2022 Theorem A proves the Dyck language identification; this is assumed and credited in deriving the new count.",
+        "2024 review page 17 specifies permissible finite paths, but provides no evaluated OGF or two-term word asymptotic.",
+        "2015/2021 periodic-point enumerators are not equal to finite-word complexity."
+      ],
+      "reasoning": "The proved claim is exactly the all-n word generating function and sharp two-term asymptotic. Known entropy is not called novel. The 2018 asymptotic observation is strengthened from numerics to a proof, and the 2022 source gives the coding input, not the new enumeration. Potential unindexed prior enumerations remain a specifically acknowledged risk.",
+      "searches": [
+        "arxiv:1811.01009 Appendix B Figure 9 and conclusion",
+        "arxiv:2209.04905 Sections 1.2, 2.1-2.2",
+        "arxiv:2401.00836 Section 3.1, Theorems 2.3 and 3.1",
+        "doi:10.1186/s13660-015-0899-6",
+        "doi:10.3390/math9111268"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1811.01009 Appendix B Figure 9 reports numerical growth ratio only.",
+        "arxiv:2209.04905 Theorem A identifies the symbolic language, but no evaluated word enumerator.",
+        "Closest indexed mathematical finding: Sharp logarithmic finite-core entropy deficit for primitive Dyck excursions concerns primitive positive Dyck finite cores of a different full shift."
+      ],
+      "reasoning": "Reversed time/stack conventions, bracket and parenthesis terminology, path-languages, and generating-function formulations were queried. A source giving the same exact language enumerator in any guise would subsume the claim, regardless of title. The found finite-core paper does not count all admissible Dyck-shift blocks.",
+      "searches": [
+        "Semantic literature search: \"heterochaos baker Dyck shift number admissible words growth n 3^n exact constant\"",
+        "Semantic literature search: \"Dyck shift two bracket types exact word complexity count length n growth n times three power n constant 1/6 3^n\"",
+        "Web: \"Dyck shift admissible word count generating function word complexity number blocks m letters n 3^n\"",
+        "Web: \"Dyck shift word complexity generating function algebraic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2015 Springer article Theorem 2 tabulates the number of period-n points and prime-orbit counts.",
+        "2021 Mathematics 9(11):1268 gives zeta functions and orbit counts, distinct from the all-block word-complexity coefficients.",
+        "Exact integer coefficient sequence for m=2 n=0..10 is independently reproduced by stack enumeration and generating-function extraction in verify.py."
+      ],
+      "reasoning": "No matching exact table or database entry for the claimed all-block enumerator was found. The available tables refer to periodic words and zeta functions; a periodic word must satisfy a cyclic matching condition and counts cannot replace finite admissible blocks.",
+      "searches": [
+        "Semantic literature search: \"admissible words Dyck monoid count generating function first hitting maximum random walk 1 4 14 48 160\"",
+        "Web: \"Dyck shift complexity function number of admissible words of length n 3 n 3^n\"",
+        "Web: \"Dyck shift word complexity generating function algebraic\"",
+        "2015 Estimates on the number of orbits of the Dyck shift",
+        "2021 Orbit Growth of Shift Spaces Induced by Bouquet Graphs and Dyck Shifts"
+      ]
+    },
+    "rationale": "The 2018 original Appendix B numerically suggests the ratio 3+3/n but does not prove or give the exact length enumerator. The 2022 and 2024 sources establish Dyck coding and already-known entropy, not the two-term finite-word complexity law. The 2015 and 2021 Dyck-shift studies count closed orbits/periodic points, a genuinely different statistic. Semantic literature searches found no equivalent evaluated block-complexity theorem. This is best-evidence originality, not global priority certification.",
+    "residual_risks": [
+      "The classic Dyck subshift has a long literature: an unindexed combinatorial-language enumeration may already imply the exact formula.",
+      "Not a priority-certified result, and no independent expert proof verification has occurred.",
+      "The 2024 review was checked in full text for the relevant Dyck coding and enumerative sections, not line-by-line for all unrelated measures results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives ratio plot and conjectural entropy, not exact word OGF or sharp asymptotic constants.",
+        "evidence": [
+          "Appendix B Figure 9 Γ(N)-3 versus 3/N",
+          "Appendix B last paragraph explicitly says numerical computation and entropy conjecture"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.01009",
+        "material_read": "Full rendered paper, emphasizing Section 2 and Appendix B lines 437-447 including Figure 9",
+        "method": "Primary arXiv HTML text and Appendix B comparison",
+        "title": "Piecewise-linear maps with heterogeneous chaos",
+        "trigger": "Original numerical conjecture on admissible word growth"
+      },
+      {
+        "assessment": "Provides required Dyck coding; does not explicitly enumerate finite language length counts or their asymptotic prefactors.",
+        "evidence": [
+          "Theorem A identifies Σ_HC with Σ_D",
+          "Section 2 follower-set graph, formal language L_n"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.04905",
+        "material_read": "ArXiv full HTML, Introduction Sections 1.1-1.3, Theorem A, Section 2.1-2.2 labeled-graph proof and findings",
+        "method": "Primary complete HTML document section-by-section comparison",
+        "title": "Heterochaos baker maps and the Dyck system: maximal entropy measures and a mechanism for the breakdown of entropy approachability",
+        "trigger": "Generalized map, symbolic identity, and potential full-language counting"
+      },
+      {
+        "assessment": "Reviews established language, entropy and periodic dynamics; no evaluated total finite-word generating function in inspected relevant sections.",
+        "evidence": [
+          "Page 4 defines all 2m affine branches",
+          "Pages 16-17 define allowed words and follower graph",
+          "Contents identify remainder as measures, periodic orbit distributions, mixing"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.00836",
+        "material_read": "Full 39-page PDF searchable text, contents; page 4 explicit map, Sections 2 and 3.1 Dyck language/follower graph, Appendix topics",
+        "method": "Primary arXiv PDF text inspection and visual page 4 screenshot; searched word complexity and admissible-sequence counts",
+        "title": "The dynamics of the heterochaos baker maps",
+        "trigger": "Potentially later and more comprehensive overlapping result"
+      },
+      {
+        "assessment": "Periodic-orbit/zeta enumeration, not number of arbitrary admissible length-n words.",
+        "evidence": [
+          "Section 2 presents F(n), number of period-n points",
+          "Abstract targets prime/Mertens/Meissel orbit estimates"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13660-015-0899-6",
+        "material_read": "Accessible full HTML abstract, Section 2 Dyck shift and explicit period-n fixed-point formula, stated orbit-counting theorems",
+        "method": "Primary open journal article browser text comparison",
+        "title": "Estimates on the number of orbits of the Dyck shift",
+        "trigger": "Natural known Dyck-shift enumerative analogue"
+      },
+      {
+        "assessment": "Counts periodic orbits for bouquet-Dyck shifts; does not assert finite-language OGF.",
+        "evidence": [
+          "Abstract identifies prime orbit and Mertens counting functions",
+          "Section 2 zeta expression, periodic-orbit framework"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math9111268",
+        "material_read": "Accessible HTML Introduction and Section 2, abstract, zeta/entropy expressions and definitions",
+        "method": "Primary open journal article browser text",
+        "title": "Orbit Growth of Shift Spaces Induced by Bouquet Graphs and Dyck Shifts",
+        "trigger": "Possible exact symbolic asymptotic table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95f65914-2ec7-4585-8951-4a01103ea018",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original model paper published finite-language numerics and predicted Γ(n)≈3+3/n without a proof. The theorem resolves that specific natural finite-word growth law, adds an exact algebraic OGF, determines a sharp additive term, and extends it uniformly to arbitrary numbers of bracket pairs. This is a meaningful exact symbolic invariant for a natural nonsofic chaotic family, not a restatement of its previously known entropy or a random parameter slice.",
+    "status": "PASS"
+  }
+}

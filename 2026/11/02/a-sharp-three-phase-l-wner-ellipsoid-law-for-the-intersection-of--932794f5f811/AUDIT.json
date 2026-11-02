@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the exact radius profile, verifies containment via convex endpoint quadratics (including the right-pole threshold), and constructs positive contact probability measures with mean 0 and covariance I/n in all phases. These are sufficient for the unique global Löwner ellipsoid. The standalone code checks 1,250 independent parameter samples but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Todd 2007 slides 11–13 give general optimality theory and solve related slab truncations",
+        "Yousefi et al. 2017 treats general planar ellipses approximately"
+      ],
+      "reasoning": "General minimization principles provide a possible derivation but do not themselves specify the closed-form unequal-ball contact orbit cases; the computational ellipse approximation does not yield the claimed exact formulas.",
+      "searches": [
+        "minimum volume outer ellipsoid for circular lens, radii R r, center separation d, threshold sqrt(4R^2-3r^2)",
+        "Löwner minimum volume enclosing ellipsoid of spherical cap halfspace-truncated Euclidean ball threshold at -1/d formula"
+      ]
+    },
+    "checked_sources": [
+      "https://people.orie.cornell.edu/~miketodd/ublndetz.pdf",
+      "https://arxiv.org/abs/1709.06021",
+      "2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+      "2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127",
+      "2026/10/11/SCOPE-global-planar-barker-larman-rigidity-for-arbitrary-ellipses--17ed1eab809b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Todd slide 13: “We can similarly derive the minimum-volume ellipsoid containing the intersection of two balls.”",
+        "Yousefi arXiv abstract: polygonal outer approximation followed by minimum-area ellipse for finitely many sample vertices"
+      ],
+      "reasoning": "A statement that the same problem can be derived is a genuine priority warning but does not provide the exact all-dimensional phase thresholds or imply their explicit values without new calculation. The 2017 approximation, unlike the proved exact result, does not certify the full continuum. Existing inner ellipsoid results do not imply the dual outer formula.",
+      "searches": [
+        "minimum area enclosing ellipse of lens intersection of two unequal Euclidean disks, three regimes whole smaller disk, triangle ellipse, four contact ellipse",
+        "Löwner ellipse of intersection of two circles of unequal radii two rim intersection points, center line, contact transitions",
+        "minimum volume outer ellipsoid for circular lens, radii R r, center separation d, threshold sqrt(4R^2-3r^2)",
+        "\"minimum volume ellipsoid\" \"intersection of two balls\" exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Todd 2007 slide 13 names the same optimization problem but supplies no lens formulas",
+        "Yousefi et al. 2017 arXiv:1709.06021 calls its outer region an approximation"
+      ],
+      "reasoning": "The normal forms center displacement, axial semiaxis and transverse semiaxis are equivalent descriptions of the MVEE. Todd anticipates its derivation but does not express any of the present branch thresholds; no exact equivalent formula found in inspected full text.",
+      "searches": [
+        "minimum area enclosing ellipse of lens intersection of two unequal Euclidean disks, three regimes whole smaller disk, triangle ellipse, four contact ellipse",
+        "Löwner ellipse of intersection of two circles of unequal radii two rim intersection points, center line, contact transitions",
+        "\"minimum volume ellipsoid\" \"intersection of two balls\" exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+        "2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127",
+        "2026/10/11/SCOPE-global-planar-barker-larman-rigidity-for-arbitrary-ellipses--17ed1eab809b",
+        "published-finding corpus semantic search returned no exact spherical-lens MVEE table within inspected ranked hits"
+      ],
+      "reasoning": "The related lens entry concerns mean width, the John-ellipsoid entry is for a capped hypercube and concerns an INSCRIBED ellipse, and the inverse-ellipse entry does not quantify a spherical-lens MVEE.",
+      "searches": [
+        "minimum area enclosing ellipse of lens intersection of two unequal Euclidean disks, three regimes whole smaller disk, triangle ellipse, four contact ellipse",
+        "Löwner ellipse of intersection of two circles of unequal radii two rim intersection points, center line, contact transitions",
+        "minimum volume outer ellipsoid for circular lens, radii R r, center separation d, threshold sqrt(4R^2-3r^2)"
+      ]
+    },
+    "rationale": "The directly relevant Todd 2007 slides say this optimization can be derived but do not state the unequal-radius all-dimensional explicit branch formulas, the two exact contact-switch thresholds, or the dimensional disappearance criterion. The full accessible Yousefi et al. 2017 approach approximates more general ellipsoid intersections numerically rather than implying this exact phase diagram. Actual semantic database searches retrieved related but non-covering statements. Historical-prediscovery risk remains substantive.",
+    "residual_risks": [
+      "Todd (2007) explicitly says the same two-ball problem is derivable and may have had unlocated calculations",
+      "Historical geometric optimization literature before 2007 may contain an equivalent phase classification",
+      "Database search is not exhaustive and does not certify publication priority"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same optimization explicitly contemplated; exact three-branch unequal-radius formula not displayed; substantial priority risk",
+        "evidence": "Dated July 6 2007 on title; slide 13 final sentence names the problem; surrounding slides derive general duality criterion.",
+        "identifier_or_url": "https://people.orie.cornell.edu/~miketodd/ublndetz.pdf",
+        "material_read": "Slides 1, 7–13 including full slide 13 screenshot and contact-measure derivation on slides 9–13",
+        "method": "Public PDF rendered and text inspected",
+        "title": "Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms",
+        "trigger": "Direct exact two-ball MVEE mention in early source"
+      },
+      {
+        "assessment": "Numerical planar approximation, not closed exact covering ellipse of two balls",
+        "evidence": "arXiv abstract explicitly constructs approximating polygon and then optimizes ellipse over polygon vertices; first posted 2017-09-18.",
+        "identifier_or_url": "https://arxiv.org/abs/1709.06021",
+        "material_read": "Abstract and available HTML account of polygonal approximation, convex hull and minimum-area ellipse procedure",
+        "method": "Public arXiv abstract and HTML material inspected",
+        "title": "A Novel Approach for Ellipsoidal Outer-Approximation of the Intersection Region of Ellipses in the Plane",
+        "trigger": "Exact ellipse intersection could cover disk special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "932794f5-f811-478b-8968-35ae5fbdbf39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete covering-ellipsoid contact-orbit phase diagram for an arbitrary pair of Euclidean uncertainty balls answers a natural convex-geometric optimization problem, with dimension-dependent thresholds, explicit volume and a sharp disappearance transition of the two-pole regime. It is a continuous classification, not an isolated parameter substitution.",
+    "status": "PASS"
+  }
+}

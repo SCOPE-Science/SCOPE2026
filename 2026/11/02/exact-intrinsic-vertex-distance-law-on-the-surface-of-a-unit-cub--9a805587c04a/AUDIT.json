@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "On all six faces the proposed distance function is the minimum of feasible unfolded Euclidean distances, agrees on glued edges, and is 1-Lipschitz in every face. Hence it globally lower-bounds intrinsic length while feasible two-square unfoldings attain it. The opposite-face formula and the reduction to a unit square and a precise right triangle follow. Angular bounds integrate to the three arcsine density branches and the CDF constants; the 3/2 moment follows by conditioning on near/opposite faces. One-sided derivatives give jumps -1,-1,+5/6; a triangular corner wedge gives the 5/12 sharp terminal tail. An actually executed standard-library verification program checked the CDF against separate Cartesian-area integrals, 300000 sampled surface points, and independent moments and tails. The proof, not finite sampling, certifies all radii.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:math/0312253 introduction, Example 2.5, Example 3.6, Sections II--III, general algorithms",
+        "arXiv:2003.06096 Sections 2--6 and Appendix A, opposite-face shortest paths"
+      ],
+      "reasoning": "General wavefront algorithms can generate facewise distance data but do not state the present closed radial integral or exact threshold behavior. In particular their cube examples use source points in the interior of a face. The 2020 opposite-face work is not a theorem on vertex-source distance balls. Applying generic methods plus nontrivial separate planar integration is not a quoted corollary or table.",
+      "searches": [
+        "Metric combinatorics convex polyhedra source unfolding cube distribution",
+        "Shortest Paths on Cubes corner source radial area",
+        "cube shortest path wavefront geodesic balls arbitrary polyhedron"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0312253",
+      "https://arxiv.org/html/2003.06096v1",
+      "https://rivista-statistica.unibo.it/article/view/1104",
+      "https://mathworld.wolfram.com/CubeLinePicking.html",
+      "https://mathworld.wolfram.com/HypercubePointPicking.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldstone et al. analyzes probability of 4-face paths when both endpoints are in opposite-face interiors, not the law from one vertex",
+        "Miller--Pak establishes nonoverlapping source unfoldings, not this elementary explicit CDF",
+        "Mathai et al. calculate ambient line segments, not paths restricted to the cube surface"
+      ],
+      "reasoning": "An exact distance formula for the opposite three cube faces and a planar integration of its Voronoi halves must be supplied to deduce this finding. Generic path algorithms and differing random metric variables do not logically state the exact arcsine branches, derivative jumps or 5/12 tail coefficient. Earlier unindexed equivalent calculations are a residual risk, not ruled out by partition labels or failed search.",
+      "searches": [
+        "Shortest Paths on Cubes Goldstone Roca Valli arxiv 2003.06096",
+        "cube source unfolding Miller Pak 2003 Voronoi facets",
+        "fixed corner cube surface geodesic distance law density 1 sqrt2 sqrt5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miller--Pak, arXiv:math/0312253, source unfolding/cut-locus treatment and cube examples",
+        "Goldstone--Roca--Suzzi Valli, arXiv:2003.06096, paths between interiors of opposite faces",
+        "Mathai--Moschopoulos--Pederzoli, doi:10.6092/issn.1973-2201/1104, abstract specifies ordinary Euclidean distances"
+      ],
+      "reasoning": "The possible aliases include vertex source wavefront area, geodesic ball-area profile, shortest-path radial probability, and intrinsic distance line picking. The first source gives generic source-unfolding structure; the second fixes a different source/target configuration and different probability; the third uses a different metric and sampling model. None inspected states an equivalent cube vertex-source law.",
+      "searches": [
+        "cube polyhedral surface vertex source unfolding radial geodesic ball area probability shortest paths",
+        "cube surface random point shortest distance from corner pdf geometry",
+        "cube surface shortest path from vertex uniform surface point density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed records on cube width, cubical graph distance and vertex-to-triangle point spectra measure different objects/invariants",
+        "MathWorld Cube Point Picking and Cube Line Picking--Face and Face report ambient Euclidean distances; they are not surface intrinsic distances"
+      ],
+      "reasoning": "The actual searches produced close words such as cube, vertex, distance, and probability, but no record for the intrinsic geodesic-ball area as a function of radius. The ambient metric has maximum sqrt(3), while this result has maximum sqrt(5); no point-picking table can be identified as the same distribution.",
+      "searches": [
+        "exact intrinsic geodesic distance distribution from a fixed cube vertex to a uniformly random point on the six face surface",
+        "surface of unit cube shortest path from vertex probability density arcsine wavefront geodesic balls",
+        "cube surface random point shortest distance from corner pdf geometry"
+      ]
+    },
+    "rationale": "The canonical fixed-vertex intrinsic geodesic-distance CDF is not stated in inspected source-unfolding or cube shortest-path papers. The closest ambient Euclidean point-picking formulas differ already at the opposite vertex: sqrt(3) ambient versus sqrt(5) intrinsic. No same-object, same-invariant, or dominating-parametric coverage was found in the actual public-index, source-text and literature queries. The full law, exact three transition radii and sharp tail require case-specific integration beyond the prior algorithmic existence statements; historical priority remains provisional.",
+    "residual_risks": [
+      "A pre-indexed, informal, or unindexed historical derivation of the fixed-vertex cubical intrinsic distance distribution could exist.",
+      "The original 1999 ambient-distance article was inspected at abstract level only; its stated metric and sampling domain differ decisively, but full-body inspection remains unavailable.",
+      "General polyhedral unfolding algorithms make this example approachable; originality is claimed only for the exact closed probability law and its sharp transition analysis, not for shortest-path algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides generic unfoldings and cube cut-locus illustrations for sources inside cube faces, not fixed-vertex CDF or radial density",
+        "evidence": "arXiv submission date 2003-12-12; Example 2.5 treats source point on bottom face and 12 source images on top; no distance distribution stated",
+        "identifier_or_url": "https://arxiv.org/abs/math/0312253",
+        "material_read": "Primary HTML introduction and methods, Sections II--III around Example 2.5, Proposition 2.6, Example 3.6, and source-unfolding cube passages, including searches for all cube occurrences and for distance distributions",
+        "method": "Directly read searchable HTML primary text and compared the explicit mathematical quantities",
+        "title": "Metric combinatorics of convex polyhedra: cut loci and nonoverlapping unfoldings",
+        "trigger": "Direct method for source wavefronts on cube surfaces, possible dominating theorem"
+      },
+      {
+        "assessment": "Studies two points in interiors of opposite cube faces and probability of 4-face shortest paths, not vertex-source all-surface radial CDF",
+        "evidence": "arXiv v1 2020-03-13, abstract and Section 6 endpoint distribution",
+        "identifier_or_url": "https://arxiv.org/html/2003.06096v1",
+        "material_read": "Primary HTML abstract, Sections 2 and 4--6 on unfolding roll sequences, source-to-target path candidates and the distinct four-face-path probability, plus relevant appendix excerpts and in-text searches for vertex/probability/distribution",
+        "method": "Read relevant primary HTML sections directly and searched all passages for vertex, probability, distribution, and path cases",
+        "title": "Shortest Paths on Cubes",
+        "trigger": "Same cube intrinsic geodesics and probability, plausible coverage"
+      },
+      {
+        "assessment": "Explicitly ambient Euclidean point-to-point distances in/along faces, no evidence of surface-intrinsic vertex-source law; risk retained for unread body",
+        "evidence": "1999 Statistica 59(1), abstract and publisher DOI 10.6092/issn.1973-2201/1104",
+        "identifier_or_url": "https://rivista-statistica.unibo.it/article/view/1104",
+        "material_read": "Publisher article record and complete abstract; full body not available from retrieved material",
+        "method": "Compared sampling spaces, type of metric and claimed support with the candidate",
+        "title": "Distance between random points in a cube",
+        "trigger": "Older cube distance distribution could contain equivalent random-distance law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a805587-c04a-4c13-9f0d-fc68582c56f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete intrinsic vertex-to-uniform-surface distance distribution is a canonical metric-measure invariant of a basic convex polyhedral surface. Its two nontrivial internal radii are exactly distance shells containing other cube vertices (1 and sqrt(2)), with explicit discontinuities of F double prime, plus a distinct sharp quadratic cutoff at sqrt(5). The angular cancellations reduce a six-face wavefront calculation to two closed arcsine branches. This is more informative than one isolated moment or routine distance conversion and supplies an exact calibration benchmark for discrete geodesics. The claim is the complete natural law, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

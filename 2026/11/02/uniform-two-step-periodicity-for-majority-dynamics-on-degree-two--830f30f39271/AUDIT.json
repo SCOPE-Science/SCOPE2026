@@ -1,0 +1,174 @@
+{
+  "correctness": {
+    "rationale": "For each nonisolated base vertex of degree at most two, a self-port at endpoints turns inertial ties into a three-bit median. The first two core words B and A satisfy B_v=M(X_ports,Y_v), A_v=M(B_ports,X_v). Output absorption gives A_v=M(B_ports,A_v). If B_v failed its analogous condition, both A-port bits would oppose B_v; because each port corresponds to an adjacent vertex or the self-port, the two X-port bits would be forced opposite B_v, contradicting the equation for B_v. Hence (A,B) is two-periodic. Isolated cores swap with leaves. This pointwise argument requires no finiteness. The P3 and star trajectories were explicitly checked, as was the induction for unwhiskered odd cycles. Independent Python path/cycle enumeration through eight vertices and C++ enumeration of all 2,163 labelled degree-at-most-two base graphs on at most six vertices (7,880,484 state-graph pairs) reproduce the claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos (1980) establishes a general terminal period bound, independent of the time required to enter the terminal orbit.",
+        "Benjamini et al. (2014), Theorem 1.1 and Theorem 1, treat eventual periodicity, the latter under invariant probability distributions on infinite unimodular graphs.",
+        "Nakar–Ron (2022) focuses on the unwhiskered cyclic radius-one majority rule.",
+        "Goles (1985) publisher abstract characterizes cyclic behavior of threshold networks iterated with memory; accessible full text unavailable.",
+        "Benjamini, Zakharov and Zhukovskii (2026), Theorem 1.1, concerns finite trees with all vertex degrees odd; cycle coronas contain cycles, path coronas have even-degree core endpoints, and the theorem does not treat infinite graphs."
+      ],
+      "reasoning": "A stronger scope of graphs does not dominate a different sharper quantitative assertion: eventual period at most two is consistent with arbitrarily long transients. Theorem for finite and infinite leaf coronas gives a uniform two-update pointwise identity. Old inaccessible memory-network texts remain a residual risk, not positive evidence of coverage.",
+      "searches": [
+        "synchronous majority dynamics exact recurrent two cycles attraction basins graph families complete multipartite threshold automata",
+        "sunlet graph leaf corona cycle synchronous binary majority dynamics maximum transient two rounds idempotent second iterate",
+        "Goles Olivos 1980 threshold functions full text PDF",
+        "Goles 1985 Dynamical Behaviour of Neural Networks memory threshold",
+        "arxiv:2205.08972 one-dimensional majority cellular automata",
+        "leaf corona graph majority dynamics convergence two steps"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.2486v1 full text",
+      "arxiv:2205.08972 full HTML",
+      "ICTP:IC/2005/111 displayed full text",
+      "Goles–Olivos 1980 abstract DOI:10.1016/0012-365X(80)90121-1",
+      "Goles 1985 abstract DOI:10.1137/0606073",
+      "accessible recurrence-only calculation item 8a5efe3c-e640-4df3-9ad9-3321c5208ff6",
+      "accessible majority corona calculation item 600d8192-4671-4834-a6bd-0df2539913ad",
+      "Published semantic research records from the listed queries",
+      "Benjamini-Zakharov-Zhukovskii 2026 exact finite-tree theorem full HTML DOI:10.1002/rsa.70092"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new assertion is F^4=F^2 for all states on W(H), Δ(H)≤2, even infinite; it implies immediate periodicity of the entire image after two rounds.",
+        "The 2014 source is qualitative or almost-sure eventual, with no universal finite entry bound on this graph class.",
+        "The 2022 source considers C_n without pendant leaves, a different update and graph.",
+        "The 2005 source requires palindromic lag matrices for its stated periodicity result, not the asymmetric neighbor/identity lag pair."
+      ],
+      "reasoning": "Exact logical distinction: the classical theorem yields for each finite state z the existence of some t(z) with F^{t(z)+2}(z)=F^{t(z)}(z). It does not imply the uniform choice t(z)≤2, let alone on infinite state spaces. Periodic-state counts likewise do not restrict preperiod depths. The present result also supplies a sharp degree-three obstruction and contrasts with m-step bare-cycle transients.",
+      "searches": [
+        "synchronous majority dynamics exact recurrent two cycles attraction basins graph families complete multipartite threshold automata",
+        "sunlet graph leaf corona cycle synchronous binary majority dynamics maximum transient two rounds idempotent second iterate",
+        "leaf corona of paths and cycles synchronous majority dynamics F4 F2 two round stabilization infinite",
+        "arxiv:1405.2486v1 Theorem 1.1",
+        "arxiv:2205.08972v1 Definition 7 and main result",
+        "ICTP IC/2005/111 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The degree-two leaf corona is equivalent to a binary nearest-neighbor delayed-self median recurrence with endpoint self-ports (proved in RESULT.md).",
+        "Benjamini et al., arXiv:1405.2486v1, §1 Theorem 1.1 gives eventual period at most two, not a two-round identity.",
+        "Melatagia–Ndoundam–Tchuenté, IC/2005/111, pp. 2–4 uses palindromic interaction matrices; the present first-lag neighbor matrix and second-lag identity matrix are not a palindromic pair."
+      ],
+      "reasoning": "All searched aliases of whiskered paths/cycles, delayed-self majority and majority with a one-round memory were compared against the pointwise theorem; general eventual period restrictions and unrelated parity automata do not imply a uniform entry time two.",
+      "searches": [
+        "sunlet graph leaf corona cycle synchronous binary majority dynamics maximum transient two rounds idempotent second iterate",
+        "whiskered path or cycle majority dynamics F^4 equals F^2 uniform transient bound",
+        "nearest neighbor majority with one-step delayed self exact two-step stabilization period 2",
+        "\"sunlet\" \"majority dynamics\" cycles",
+        "\"whiskered cycle\" \"majority\" dynamics transient",
+        "Find in Benjamini et al. arxiv:1405.2486v1: corona; pendant",
+        "Find in Melatagia et al. ICTP IC/2005/111 full text: corona"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier cycle-corona recurrence-only record 8a5efe3c-e640-4df3-9ad9-3321c5208ff6 provides fixed and primitive-two-cycle counts for finite C_n coronas but explicitly leaves transients undetermined.",
+        "The closest semantically retrieved publications include a complete-multipartite parity-automata theorem and a Boolean-cube distance-two parity-automata theorem; both concern linear XOR update rather than nonlinear majority on leaf coronas."
+      ],
+      "reasoning": "The accessible source and claim records were compared at the level of update rules, domains, first-entry claims and logical implications. Neither a recurrent-only table nor a different XOR dynamic determines the present universal majority identity. No database search can rule out unindexed equivalent computations.",
+      "searches": [
+        "sunlet graph leaf corona cycle synchronous binary majority dynamics maximum transient two rounds idempotent second iterate",
+        "leaf corona of paths and cycles synchronous majority dynamics F4 F2 two round stabilization infinite",
+        "binary majority with inertial ties on whiskered paths and cycles sharp transient threshold degree three",
+        "\"sunlet\" \"majority dynamics\" cycles",
+        "\"corona\" \"majority dynamics\" \"period two\"",
+        "Review accessible predecessor claims for sunlet; coronas; two-step majority; max-degree-two, including record 8a5efe3c-e640-4df3-9ad9-3321c5208ff6"
+      ]
+    },
+    "rationale": "The qualified period-at-most-two theorem for all finite symmetric threshold networks is strictly weaker than the uniform identity F^4=F^2. The 2014 primary full text has finite period-two and distributional infinite-graph conclusions but not the present pointwise global identity. An earlier sunlet recurrence-only calculation covers the periodic-state cardinality on cycles but does not imply an entrance-time bound, much less the infinite and disconnected degree-two base result or the sharp branching threshold. Published memory-network work uses different sufficient assumptions. The numerical star witness and odd-cycle contrast delimit a distinct structural statement. Search coverage is not a uniqueness proof.",
+    "residual_risks": [
+      "The 1980 and 1985 primary original full texts were not accessible; the corresponding comparison uses abstracts and independently read later papers.",
+      "A specialized historic threshold-network lemma could imply the two-round identity under a different delayed-median or graph-corona terminology.",
+      "Published database and accessible claim searches are finite, imperfect retrieval methods and cannot establish formal uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative eventual or almost-sure period-two results, not deterministic two-round leaf-corona identity",
+        "evidence": [
+          "PDF p. 2, Theorem 1.1; p. 3, Theorem 1; no matching corona/pendant terms in indexed full text",
+          "arXiv v1 timestamp 2014-05-11"
+        ],
+        "identifier_or_url": "https://www.cs.cmu.edu/~odonnell/papers/majority-dynamics.pdf ; arxiv:1405.2486v1",
+        "material_read": "19-page accessible PDF with sections on finite periodicity, infinite unimodular-graph majority and transient estimates; relevant theorems and assumptions reviewed",
+        "method": "Primary full-text PDF and page-image inspection of p. 2, plus full-text term searches",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Historical archive source; closest infinite-graph majority convergence result"
+      },
+      {
+        "assessment": "Studies ordinary unwhiskered cyclic spatial majority, not the graph corona with leaf-state memory",
+        "evidence": [
+          "Introduction and Definitions 3–7: majority on cyclic strings with radius r; sunlet search unmatched"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Primary full-text HTML: abstract, introduction, definitions of radius-one rule, temporally periodic states, and main theorem overview",
+        "method": "Read full-text HTML introductory definitions and theorem summary, searched sunlet terminology",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Spatial majority cycles and transient comparison"
+      },
+      {
+        "assessment": "The reviewed theorem concerns palindromic coupling across memory lags and does not imply the present result for neighbor/identity lag matrices",
+        "evidence": [
+          "Theorem 1: terminal period divides memory length plus one under palindromic matrices",
+          "Eq. (7): A(k+1-s)=A(s)^T; our A(1)=base adjacency and A(2)=I do not satisfy this when base has an edge"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/228620572_Dynamical_behaviour_of_neural_networks_iterated_with_memory ; ICTP:IC/2005/111",
+        "material_read": "Accessible primary full-text excerpt covering recurrence model, theorem on palindromic lag matrices and section 2 transient Lyapunov hypotheses",
+        "method": "Read publicly displayed author text, model definition, Theorem 1 and palindromic Eq. (7)",
+        "title": "Dynamical behaviour of neural networks iterated with memory",
+        "trigger": "Potentially covering threshold-network dynamics with delay"
+      },
+      {
+        "assessment": "Abstract gives eventual period one/two; full text not inspected, unresolved low-to-moderate historical-overlap risk",
+        "evidence": [
+          "Discrete Mathematics 30 (1980) 187–189 abstract states eventual fixed or period-two"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Authoritative journal metadata and abstract only",
+        "method": "Publisher/library metadata; arXiv/OA full-text attempts unsuccessful; institutional download could not proceed with disconnected authorization",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Classical broad period-two antecedent"
+      },
+      {
+        "assessment": "Could not compare full text on special degree-two delayed median; uncertainty explicitly retained",
+        "evidence": [
+          "SIAM 6(4) (1985) 749–754 abstract claims characterization of cyclic behavior for iteration with memory"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0606073",
+        "material_read": "Publisher abstract, reference list, publication information only",
+        "method": "ArXiv/OA search followed by attempted authorized institutional retrieval, which reported disconnected access",
+        "title": "Dynamical Behaviour of Neural Networks",
+        "trigger": "Possible stronger older delay-network theorem"
+      },
+      {
+        "assessment": "The formal exact tree theorem assumes all graph degrees odd; path coronas have degree-two core endpoints, and cycles and infinite graph coronas lie outside finite-tree scope. It does not dominate the stated universal leaf-corona identity.",
+        "evidence": [
+          "Theorem 1.1: finite tree T with all degrees odd and at least five vertices; exact worst-case time from admissible paths",
+          "Section 1 and Section 3.1 discuss active/balky vertices and leaf-neighbor conductivity; neither asserts a pointwise two-step identity on all leaf coronas."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70092",
+        "material_read": "Full open-access article HTML: abstract, introduction, formal Theorem 1.1, proof-strategy and section 3.1 upper-bound overview",
+        "method": "Primary full-text HTML reading and inspection of exact hypotheses and paths determining stabilization time",
+        "title": "Majority Dynamics on Finite Trees",
+        "trigger": "Most closely related recent exact finite-tree stabilization bound, possible dominating family theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "830f30f3-9271-45d5-9435-96a36ead724d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a sharp, topology-independent two-step global periodicity bound for all configurations on an infinite family of finite and infinite locally finite graphs. It identifies a genuine threshold in base graph branching (one vertex of degree three defeats the uniform guarantee). The explicit odd-cycle contrast shows why private leaf memory has a mathematically substantial dynamical effect: the original radius-one majority process can have transients of arbitrarily large length, while the corona collapses them uniformly. This is a structural rather than a narrow table recomputation.",
+    "status": "PASS"
+  }
+}

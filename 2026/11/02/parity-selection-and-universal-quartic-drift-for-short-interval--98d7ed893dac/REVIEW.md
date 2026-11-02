@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof uses finite-dimensional spectral perturbation with a simple isolated rank-one eigenvalue, exact Christoffel--Darboux peak ordering, finite ladder-recurrence summation by parts, and a quantitative implicit-function argument. The potentially omitted zero-eigenspace mixing is explicitly retained in the fourth-order coefficient. The identities for every Hermite root yield the universal displacement coefficient exactly. The standalone 195-assertion experiment is only corroboration. Restrictions to fixed rank and small windows are integral to the theorem.
+
+**Originality — PASS (self-review, historically provisional).** The classical Christoffel--Darboux formula describes the limiting diagonal kernel, and the September 2023 Fock-kernel work supplies the motivating Hermite decomposition; neither inspected source treats all-rank optimal placement of short intervals. The earlier rank-two special case is excluded from the novelty claim, which asserts the all-rank parity law and universal quartic drift. Actual database and web searches were compared by mathematical implication, not title: none returned a theorem covering these two all-rank assertions. Residual risk is incomplete coverage of older specialized Hermite-Christoffel and concentration literature.
+
+**Value — PASS.** This is a natural spectral-localization invariant for finite Hermite bands. It completely selects globally optimal centers for all sufficiently short intervals at every fixed rank, identifies a parity mechanism, and proves the surprising absence of quadratic drift with a rank-independent quartic constant. This informs the small-window optimization problem rather than simply re-evaluating an isolated finite table.
+
+Self-review: passed. Independent audit: not yet performed.

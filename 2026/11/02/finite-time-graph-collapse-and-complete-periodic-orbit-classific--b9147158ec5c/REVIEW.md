@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The homogeneous component is killed by five iterations, which rigorously sends the entire unbounded plane into an explicitly bounded square under the affine perturbation. The exact-rational polygon propagation then proves a nine-iterate image inclusion into the three-segment graph; the checker verifies all branch boundaries, the 18 final polygons/segments and their edge membership. On that graph, an explicit four-branch scalar return proves the global eventual-periodicity classification and the three-vertex invariant-measure simplex. The algebraic proof also shows settling time is not uniformly bounded. Neither a numerical orbit sample nor an incomplete enumeration is substituted for proof.
+
+**Originality: PASS within inspected evidence.** Youtuam–Thipar–Thakthuang–Tikjha (2024) establish the same fixed point and two four-cycles but restrict their analysis to second-quadrant initial conditions. The new claim has the full-plane quantifier and a uniform iterate-to-graph theorem. Aiewcharoen–Boonklurb–Konglawan (2021) treat the different parameter range \(b\ge4\); other indexed dynamics results and previously published related work do not imply the present \(b=3\) theorem. The closest same-map source was read beyond its abstract. Exhaustive publication-priority verification is not possible, and missing full text from one broader-parameter paper remains a residual access limitation.
+
+**Mathematical value: PASS.** Completely determining all forward orbits and invariant probability measures on the whole real plane resolves the concrete remaining-domain question posed by the source's quadrant-limited approach. The nilpotent-plus-translation mechanism and exact graph trapping are useful global structural facts; the nonuniform time-to-cycle phenomenon sharpens the attractor picture beyond a mere list of periodic points.
+
+**Scientific scope and limitations.** The result covers exactly one parameter value and does not assert that 14 graph-entrance steps are minimal. The attracting four-cycle and the exceptional expanding four-cycle are both counted; being a four-cycle does not imply attraction. Independent mathematical audit and an exhaustive historical priority review have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

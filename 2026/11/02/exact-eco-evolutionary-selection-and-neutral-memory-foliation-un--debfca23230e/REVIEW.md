@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Direct cancellation in the two payoff matrices gives a skew-product structure; the positive planar ecological subsystem has a coercive logarithmic Lyapunov function and strictly negative derivative away from its prey equilibrium coordinate. LaSalle gives global ecological convergence, and differentiation yields an exact logit–logarithm identity for every time. Normal attraction at neutrality follows from the two planar eigenvalues; the neutral composition limit is calculated rather than asserted from linearization. The standalone program verifies algebraic identities and illustrative finite simulations. Critical assumption: all original matrix entries are positive and the predator-persistence inequality is strict.
+
+**Originality — PASS under inspected evidence.** Braga–Wardil introduce the system and its game scenarios. Cruz–Neves give the general three-variable rewriting and independently prove global convergence only for the classical two-dimensional predator–prey subsystem; this is used as antecedent, not claimed again. The particular *composition-neutral payoff balance*, exact global first integral and initial-data-to-final-composition formula were not present in either inspected primary text. A related indexed published mathematical result concerns nondegenerate boundary stability exchange rather than this nongeneric neutral line. The latter record's complete text was not accessible, and historical priority remains qualified by other possible specialized literature.
+
+**Mathematical value — PASS.** Payoff balance is a natural structural test of whether ecological transients can permanently affect type selection despite identical aggregate ecological rates. The sharp sign threshold separates two global exclusion regimes and a normally attracting interval of coexistence; the exact power-law final selection formula measures the lasting effects of initial prey and predator totals. The statement is inherently special and is not asserted to survive arbitrary payoff perturbations.
+
+**Limits.** No stochastic-noise result, no generic full-model three-dimensional classification and no claim of global attraction at the singular zero-population point. Numerical checks cover only examples; the proof supplies the all-parameter quantifiers.
+
+Self-review: passed. Independent audit: not yet performed.

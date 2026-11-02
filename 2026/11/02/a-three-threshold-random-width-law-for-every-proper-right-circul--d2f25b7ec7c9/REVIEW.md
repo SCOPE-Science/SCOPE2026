@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The projection-length formula is the maximum of two end-disk support sums. Uniform absolute axial cosine reduces the pushforward to one scalar; monotone sublevel intervals yield the exact complete CDF. Three explicitly factored sign comparisons determine the local-shape transition and the two global support-endpoint transitions. The mean is the exact integrated support profile. The dense finite verifier corroborates the formulas, but infinite validity rests on the piecewise support proof. Equality heights and limiting-domain exclusions are explicit.
+
+**Originality — PASS (subject to historical uncertainty).** The searched full published right-cone line-width theorem covers the degenerate smaller-radius-zero boundary, not the strict frustum; its coincidence of extremum thresholds does not imply their sharp split for positive smaller radii. The full inspected Finch simplex width paper concerns a different body. The inspected Kim–Yaskin–Zvavitch paper concerns two-dimensional projection **areas**, not one-dimensional widths. prior results on right-frustum extremal ellipsoids and lateral intrinsic diameters involve different invariants. No searched result establishes the exact frustum CDF plus three strict height thresholds. Historical-priority risk persists from unindexed work and an uninspected projected-area/perimeter study.
+
+**Mathematical value — PASS.** The law solves a natural complete orientation-probability problem for a three-parameter canonical convex family, not an isolated artificial slice. The strict separation \(H_3-H_2=4Rr\) of two distinct extremal events is a structural phenomenon absent in the familiar cone degeneration and may help distinguish nearly conical shapes from random widths. It is an exact geometrically interpretable phase diagram, rather than a minor numerical improvement.
+
+Self-review: passed. Independent audit: not yet performed.

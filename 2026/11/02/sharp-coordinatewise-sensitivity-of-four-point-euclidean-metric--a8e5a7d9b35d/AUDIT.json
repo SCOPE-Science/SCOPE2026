@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact rational exhaustive analysis of all 4096 active triangle subsets in 6 coordinates establishes a global 8/5 upper bound through polyhedral projection calculus; 8 subsets give the 4/3 three-point bound. Explicit positive input pairs satisfy exact metric feasibility, KKT multipliers, and attain the ratios, and a strict cross-triangle embedding proves the n>=4 lower bound. The checked stand-alone verifier is embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2211.01245 §§2–4 develops primal-dual solution error bounds and generalized Jacobians but does not specialize to exact four-point ℓ∞ perturbation modulus",
+        "published research index 2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d concerns two-dimensional cones",
+        "published research index 2026/10/11/SCOPE-sharp-stability-of-mixed-norm-metric-projection-onto-the-euclide--b24a97231a7a concerns disks"
+      ],
+      "reasoning": "General nonexpansivity in ℓ2 implies at most √6 in ℓ∞ for four-point six-coordinate input; this does not imply the optimal 8/5. Planar cone or Euclidean disk classifications do not cover the six-dimensional metric cone. General finite polyhedral calculus reduces the problem but does not determine the highest row sum among the 4096 triangle subsets or show a realizable sharp face.",
+      "searches": [
+        "metric nearness Euclidean projection sensitivity to perturbations max norm triangle inequalities stability",
+        "\"metric nearness\" \"Lipschitz\" \"projection\" sharp",
+        "published research index semantic search: sharp Lipschitz constants and nonexpansivity for every planar ell p cone",
+        "published research index semantic search: Euclidean projection onto metric cone active triangle constraints"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1137/060653391",
+      "https://papers.nips.cc/paper_files/paper/2004/hash/4ebccfb3e317c7789f04f7a558df4537-Abstract.html",
+      "https://arxiv.org/abs/2211.01245",
+      "https://www.cs.utexas.edu/users/inderjit/public_papers/metric-simax.pdf",
+      "https://www.cs.utexas.edu/~inderjit/publications.shtml",
+      "2026/10/11/SCOPE-sharp-stability-of-mixed-norm-metric-projection-onto-the-euclide--b24a97231a7a",
+      "2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d",
+      "2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0",
+      "2026/10/11/SCOPE-exact-hilbert-distortion-along-a-one-edge-deformation-of-the-fou--f6a1d49d869f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brickell–Dhillon–Sra–Tropp (2008) formulas (2.3)–(2.4) encode the same Euclidean quadratic metric repair, while (2.8)–(2.9) are instead an ℓ∞ objective",
+        "Tang–Jiang–Wang (2022) §3.4 gives a generic active-normal projector but not its exact induced ℓ∞ norm for 4-point metrics"
+      ],
+      "reasoning": "The 2008 existence/algorithm claims and the 2022 generalized-Jacobian formula are compatible premises, not exact 8/5 bound conclusions. Deriving the asserted bound requires exhaustive face-norm comparison and exhibiting a realizable extremizing face. No observed stronger numerical or structural result implies the new theorem as an immediate corollary.",
+      "searches": [
+        "metric nearness Euclidean projection sensitivity to perturbations max norm triangle inequalities stability",
+        "four point metric cone projection nonexpansive infinity norm Jacobian active triangle constraints",
+        "https://doi.org/10.1137/060653391",
+        "https://arxiv.org/abs/2211.01245"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1137/060653391 §2 formulates unweighted Euclidean metric nearness in the same triangle cone",
+        "https://arxiv.org/abs/2211.01245 §3.4 contains formula for a polyhedral projection generalized Jacobian (different solver mapping)"
+      ],
+      "reasoning": "The target is the global sup-norm Lipschitz constant of the Euclidean projection map, equivalently the largest induced max-norm of realizable orthogonal face projectors. Neither minimizing an infinity-norm repair objective nor providing generic Jacobian formulas evaluates 4/3, 8/5, or the positive witness. The 2004 and 2008 papers treat the same metric constraints but do not state the norm profile in inspected sections.",
+      "searches": [
+        "sharp Lipschitz stability Euclidean metric nearness projection four-point distance matrices maximum coordinate norm constant 8/5 1.6",
+        "four point metric cone projection nonexpansive infinity norm Jacobian active triangle constraints",
+        "orthogonal projection onto four-point semimetric cone maximal infinity norm metric repair",
+        "metric projection onto cone of three-point metrics triangle inequalities sharp infinity Lipschitz constant",
+        "published research index semantic search: metric projection onto cone of three-point metrics triangle inequalities sharp infinity Lipschitz constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published research index returned nearest matches on disks, planar cones, crosspolytopes, and four-point metric free-space distortion, not an exact face-norm table for metric repair",
+        "https://papers.nips.cc/paper_files/paper/2004/hash/4ebccfb3e317c7789f04f7a558df4537-Abstract.html treats triangle fixing algorithms, not sharp sensitivity tables"
+      ],
+      "reasoning": "No identified published database/table reproduces the exact 12-row subset rank maxima or the 8/5 equality certificate. Lack of a database search hit is not treated as proof of novelty.",
+      "searches": [
+        "sharp Lipschitz stability Euclidean metric nearness projection four-point distance matrices maximum coordinate norm constant 8/5 1.6",
+        "orthogonal projection onto four-point semimetric cone maximal infinity norm metric repair",
+        "triangle inequality cone Euclidean projection sensitivity 4-point distance matrix",
+        "published research index query: sharp Lipschitz stability Euclidean metric nearness projection four-point distance matrices maximum coordinate norm constant 8/5 1.6"
+      ]
+    },
+    "rationale": "The earliest directly inspected metric-nearness papers define the same Euclidean projection problem but do not compute the sharp ℓ-infinity perturbation norm of its solution map at three/four points; a later algorithm paper discusses generalized Jacobians without giving this exact induced norm. Actual searches of same objects/aliases/parameters and comparison of stronger possible coverage yielded no identified implication, with residual unindexed-priority risk explicitly stated.",
+    "residual_risks": [
+      "Earlier unindexed calculations of four-point metric cone perturbations may state or dominate the 8/5 bound.",
+      "A July 2003 technical-report precursor is documented by month only, with unverified precise release date and uninspected full text.",
+      "2022 generalized-Jacobian calculations in adjacent solvers are related but not decisive prior coverage of the exact present constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same cone and quadratic objective; inspected claims concern algorithms/existence and not the exact coordinatewise Lipschitz map",
+        "evidence": "2008, pp. 375–396, §2 formulas (2.3),(2.4); PDF title page confirms online publication 2008-04-23",
+        "identifier_or_url": "https://www.cs.utexas.edu/users/inderjit/public_papers/metric-simax.pdf",
+        "material_read": "Abstract, full formulation and proofs around §§1–3, discussion and appendix; pdf text searched for sensitivity/Lipschitz terminology; visual check of page 4",
+        "method": "Author-hosted lawful OA full-text PDF, section inspection and page image",
+        "title": "The Metric Nearness Problem",
+        "trigger": "Identical Euclidean repair objective on the triangle-inequality cone"
+      },
+      {
+        "assessment": "Studies metric repair and triangle fixing, but no exact cross-norm solution-map modulus in inspected material",
+        "evidence": "NeurIPS 17 (2004), §2 problem definition and convexity",
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2004/file/4ebccfb3e317c7789f04f7a558df4537-Paper.pdf",
+        "material_read": "Full eight-page PDF text accessed, introduction and §2 plus algorithms and conclusion inspected; visual check of p. 3",
+        "method": "OA conference PDF text and page image",
+        "title": "Triangle Fixing Algorithms for the Metric Nearness Problem",
+        "trigger": "Original formulation in conference form"
+      },
+      {
+        "assessment": "Strongly related algorithmic sensitivity theory but no observed exact global 3/4-point ℓ∞ Lipschitz constants or positive equality witnesses",
+        "evidence": "arXiv:2211.01245, §3.4 displays a projection generalized Jacobian, without evaluating the 12-triangle max-row-sum problem",
+        "identifier_or_url": "https://arxiv.org/abs/2211.01245",
+        "material_read": "Full accessible arXiv HTML with targeted inspections of introduction, §§2–4 (including equations 3.13) and concluding section",
+        "method": "Public full-text arXiv HTML inspection with phrase search",
+        "title": "An efficient algorithm for the ℓ_p norm based metric nearness problem",
+        "trigger": "Same object and explicit generalized-Jacobian/perturbation language could dominate our active-face argument"
+      },
+      {
+        "assessment": "Possible earlier coverage remains uninspected; no exact public release DAY available",
+        "evidence": "Author listing documents July 2003; specific public day not verified",
+        "identifier_or_url": "https://www.cs.utexas.edu/~inderjit/publications.shtml",
+        "material_read": "Bibliographic listing showing UTCS Report TR-03-23, July 2003; full report not recovered",
+        "method": "Author bibliography only",
+        "title": "The Metric Nearness Problem with Applications",
+        "trigger": "Earlier potential 2003 precursor and chronological source risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8e5a7d9-b35d-4d71-849b-cddf860e6bc2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For Euclidean repair of measured dissimilarities, the exact coordinatewise perturbation modulus is a natural robustness invariant not equivalent to the repair objective. The sharp change from 4/3 to 8/5 at the first overlapping triangle constraints, a positive equality witness, and persistence under adding points give a meaningful finite cutoff and a structural bound; no unsupported all-n classification is claimed.",
+    "status": "PASS"
+  }
+}
