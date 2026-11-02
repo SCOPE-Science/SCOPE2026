@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 44fdbc716858d138759269b303b6a2bae51fa736",
+        "frozen odd_cycle_wl_verifier.py blob 4496a0f0263eab771c3643c52d6f4c01c6af2384",
+        "independent_checks.py ROOTED_WL full-vertex cases"
+      ],
+      "rationale": "Cartesian graph distance from the origin is D=sum_l l j_l. A radius-t unrolled neighbourhood without the individual root has identical initial color data in the regular vertex-transitive graph, so all D>t share one color. Every nonzero-distance coordinate on an odd cycle has exactly one predecessor closer to root; thus from a vertex of profile j, M=d-j0 predecessors carry profiles j-e_l+e_(l-1) with multiplicity j_l. The counts S_0=M j0+j1 and S_l=(M-1)j_l+j_(l+1) recursively recover j, ensuring layer-D profiles split at round D. This inductively proves the full intermediate partition. At round rd-1 all but the unique distance rd profile are already distinct; this last background is itself one profile and stable by automorphism orbit invariance. At rd-2 the rd-1 and rd profiles remain merged, proving sharpness. Sign reflections and coordinate permutations give transitive root stabilizer action on each profile; counting yields class sizes. Independent full-graph refinement on C5, C7, C9 powers (220 total test vertices) confirmed every intermediate partition and sizes.",
+      "residual_risks": [
+        "Odd cycles length >=5 are essential to unique downward-neighbour property; even cycles fail this at antipodes.",
+        "Finite full-graph tests are corroboration; induction proves arbitrary r and d."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiefer-McKay ICALP 2020 Theorems 1-2 concern worst-case refinement iterations for arbitrary n-vertex graphs, not root-stabilizer profile stabilization on C_(2r+1)^d.",
+          "Kluge 2022 Theorem 1 treats 2-WL on circulants, Theorem 4 treats Tinhofer property of prime-order circulants after up to two individualizations."
+        ],
+        "reasoning": "Neither result gives the specific one-root profile or sharp rd-1 time for products (which cease being cyclic Cayley graphs in general). The generic 1-WL upper bound is much weaker; a known distance-regular/wreath-product theorem might subsume some cases.",
+        "searches": [
+          "Resultary semantic search: rooted 1-dimensional Weisfeiler Leman color refinement Cartesian powers odd cycles C_2r+1 equitable partitions stabilization rounds",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.73/LIPIcs.ICALP.2020.73.pdf",
+          "https://arxiv.org/pdf/2204.01054"
+        ]
+      },
+      "checked_sources": [
+        "Kiefer-McKay 2020 ICALP primary PDF",
+        "Kluge 2022 arxiv:2204.01054v2 primary PDF",
+        "Resultary query rooted 1-dimensional Weisfeiler Leman color refinement Cartesian powers odd cycles C_2r+1 equitable partitions stabilization rounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kluge Section 4 Lemma 33 equates one refinement to an S-module operation, a general algorithmic translation.",
+          "Kiefer-McKay general n-vertex iteration extrema do not give rd-1 for this family."
+        ],
+        "reasoning": "General iterative definitions and maximal n-1 bounds cannot determine the exact layerwise color classes. The proof of unique profile recovery from predecessor multisets supplies a nontrivial extra theorem; all exact class sizes follow once recovered.",
+        "searches": [
+          "Resultary semantic search: rooted 1-dimensional Weisfeiler Leman color refinement Cartesian powers odd cycles C_2r+1 equitable partitions stabilization rounds",
+          "https://arxiv.org/pdf/2204.01054",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.73/LIPIcs.ICALP.2020.73.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kluge arxiv:2204.01054v2 Section 4 interprets 1-WL on Cayley graphs via S-modules and automorphism-invariant partitions.",
+          "Distance profiles are the root-stabilizer orbits in a Cartesian power of odd cycles; a stable equitable quotient can be studied in association-scheme language."
+        ],
+        "reasoning": "Orbit partitions and equitable partitions are related, but an orbit partition need not be fully recovered by 1-WL from a single individualized vertex. The proof establishes exact roundwise recovery by predecessor-profile inversion, a more precise statement than generic association-scheme symmetry.",
+        "searches": [
+          "Resultary semantic search: rooted 1-dimensional Weisfeiler Leman color refinement Cartesian powers odd cycles C_2r+1 equitable partitions stabilization rounds",
+          "https://arxiv.org/pdf/2204.01054"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest query hit 2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d concerns graph homology rather than WL iterations.",
+          "Independently generated orbit-size and intermediate-round data are not a preexisting published cycle-product profile table."
+        ],
+        "reasoning": "An exact general theorem is sought, not a finite catalogue. The targeted record query located no matching table, without proving bibliographic novelty.",
+        "searches": [
+          "Resultary semantic search: rooted 1-dimensional Weisfeiler Leman color refinement Cartesian powers odd cycles C_2r+1 equitable partitions stabilization rounds",
+          "Resultary id 2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d"
+        ]
+      },
+      "rationale": "Standard equitable refinement and automorphism-invariant partitions are known, as are worst-case 1-WL iteration bounds. Kluge studies circular Cayley graphs and prime-order individualization with 2-WL emphasis, but not one-root counting 1-WL on arbitrary Cartesian powers with sharp roundwise profile theorem. The structural predecessor inversion and rd-1 stabilization give additional content beyond generic bounds; originality accepted with general association-scheme/cubelike-product literature risk.",
+      "residual_risks": [
+        "Classical association-scheme and distance-partition theory may state an equivalent one-root Cartesian profile result without colour-refinement terminology.",
+        "Does not apply to even cycles or heterogeneous Cartesian factors without additional work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MAXIMUM_ITERATION_NOT_ROOTED_CARTESIAN_POWER; no precise rd-1 formula in inspected statements.",
+          "evidence": [
+            "Abstract: examples attain |G|-1; introduction defines WL_1(n) maximum over all graphs."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol168-icalp2020/LIPIcs.ICALP.2020.73/LIPIcs.ICALP.2020.73.pdf",
+          "material_read": "Original 19-page ICALP 2020 PDF: abstract, introduction, stated n-vertex worst-case theorems and construction scope.",
+          "method": "Opened and rendered source PDF first page, inspected primary theorem and proof descriptions.",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Sharp general iteration numbers might dominate exact rooted time"
+        },
+        {
+          "assessment": "1-WL results concern prime-order circulants and up to two individualizations; arbitrary powers of odd cycles and one-root exact profile not treated by inspected theorems.",
+          "evidence": [
+            "Theorem 1 2-WL cyclic graphs; Theorem 4 Tinhofer; Section 4.1 Lemma 33 generic CR/S-module correspondence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.01054",
+          "material_read": "Original 20-page arXiv PDF: abstract/introduction, Theorems 1 and 4, Section 4.1 S-module interpretation and Lemma 33.",
+          "method": "Opened full PDF in browser, rendered page 0 and read general constructions and key theorems.",
+          "title": "Combinatorial refinement on circulant graphs",
+          "trigger": "Potentially stronger result on cyclic Cayley and individualized WL"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen predecessor-profile induction",
+        "Kiefer-McKay iteration-complexity motivation",
+        "independent full-graph checks"
+      ],
+      "rationale": "A round-by-round exact characterization of counting refinement for a natural infinite product graph family identifies when local information reaches root-stabilizer orbit granularity and provides a sharp parallel refinement depth. This is a motivated structural classification rather than a small finite WL experiment.",
+      "residual_risks": [
+        "The result does not establish isomorphism distinction against arbitrary external graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only equal odd cycle factors length at least five and a single initially individualized root.",
+    "Orbit equality is proved here, not assumed from general automorphism invariance.",
+    "Five frozen source directory entries and all immediate file blobs were checked at exact commit and current main at inspection; later branch changes are not excluded.",
+    "The record remains not_ready for publication due inherited private operational metadata and unverified initial public dates; this is a transport/confidentiality hold, NOT scientific rejection.",
+    "No GitHub writes or dispatcher closeout writes."
+  ],
+  "schema_version": 1
+}
