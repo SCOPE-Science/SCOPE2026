@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact one-dimensional sketched orthogonality and least-squares normal equations yield coefficient formulae. Gaussian orthogonal invariance yields independent chi and standard-normal variables. The derived continuous density is strictly positive at the sFOM pole; integration gives the sharp q<1 threshold and leading tail constant. The affine Student law gives q<m for sGMRES. Direct quadratic expansion proves the mean-square energy formula; a standalone package checker verifies finite algebra/density identities but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel–Schweitzer, arXiv:2208.11447, Sections 2.1–2.3, 3 and 5; original sFOM equation (2.3), sGMRES definition, spectral-instability remark states a projected eigenvalue may have negative real part without a Gaussian population moment classification.",
+        "Timsit–Grigori–Balabanov, arXiv:2302.07466, Sections 2.3, 3.1–3.2, 4 and 5; ROPM definition, embedding assumptions and spikes gives quasioptimality conditional on adequate embeddings, not unconditional moments.",
+        "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03 studies deterministic/concentrating spectral CG, not Gaussian-sketch FOM poles."
+      ],
+      "reasoning": "High-probability bounds conditional on a successful subspace embedding do not imply unconditional finite moments or an exact tail constant. The new reciprocal-denominator law concerns the small positive-probability complement of success. Classical Student laws alone lack the algorithm-specific identification and paired comparison.",
+      "searches": [
+        "RFOM ROPM Krylov expectation infinite first moment no finite sketch dimension",
+        "sketched Krylov Gaussian stochastic FOM GMRES",
+        "sketched GMRES Galerkin stochastic inverse moments Student t distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.11447v1",
+      "arXiv:2302.07466v1",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03",
+      "2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "Web exact-term searches for Gaussian FOM/sketched Galerkin moments and Student pole; no covering result identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Güttel–Schweitzer, arXiv:2208.11447, Sections 2.1–2.3, 3 and 5; original sFOM equation (2.3), sGMRES definition, spectral-instability remark",
+        "Timsit–Grigori–Balabanov, arXiv:2302.07466, Sections 2.3, 3.1–3.2, 4 and 5; ROPM definition, embedding assumptions and spikes",
+        "Güttel–Schweitzer Section 2.3 specifically discusses negative projected eigenvalues and instability but does not calculate any moment integrability boundary."
+      ],
+      "reasoning": "The published sketched projection equations are premises for the new distribution derivation; a formula for an estimator does not itself assert its positive-density pole, exact unconditional error-moment spectrum, or tail constants. Negative-Ritz and occasional-spike observations are qualitatively weaker than the all-finite-Gaussian-sketch moment theorem. Conditional bounds cannot dominate an unconditional heavy-tail statement.",
+      "searches": [
+        "randomized FOM Gaussian sketch infinite expectation sketched Petrov Galerkin moments heavy tails",
+        "sketched Galerkin denominator zero Gaussian inverse moments unstable expectation",
+        "randomized GMRES sketch Gaussian student t coefficient exact distribution risk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Güttel–Schweitzer, arXiv:2208.11447, Sections 2.1–2.3, 3 and 5; original sFOM equation (2.3), sGMRES definition, spectral-instability remark",
+        "Timsit–Grigori–Balabanov, arXiv:2302.07466, Sections 2.3, 3.1–3.2, 4 and 5; ROPM definition, embedding assumptions and spikes",
+        "Indexed record 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc treats unsketched deterministic one-step GMRES error rather than a random sketch denominator."
+      ],
+      "reasoning": "The sFOM coefficient equals the reciprocal of a Gaussian-sketched Rayleigh cross quotient and can be described as inverse shifted scaled Student variable. The sGMRES coefficient is affine Student. No searched record expresses the reciprocal-law first-moment cutoff or the contrasting sketch-count threshold; matching randomized projection terminology alone would not suffice.",
+      "searches": [
+        "Gaussian sketched FOM Galerkin Krylov inverse inner product heavy tailed Cauchy infinite expected error",
+        "Gaussian sketch Petrov Galerkin versus minimum residual Student t moments oversampling dimensionality",
+        "randomized Galerkin projection indefinite sketched cross inner products pole heavy tail stability",
+        "RFOM ROPM Krylov expectation infinite first moment no finite sketch dimension",
+        "randomized FOM sketched Petrov Galerkin divergence moments Gaussian projections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-record searches returned related GMRES, CG, weak-Gauss–Newton, and Gaussian-ratio records, none tabulating this SPD sFOM-vs-sGMRES exact moment spectrum.",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af"
+      ],
+      "reasoning": "The claim is a distributional theorem for an algorithm, not a tabulated numerical invariant. Closest indexed mathematical records have different operators, sketch models or error criteria.",
+      "searches": [
+        "Gaussian sketched FOM Galerkin Krylov inverse inner product heavy tailed Cauchy infinite expected error",
+        "Timsit Grigori Balabanov ROPM Gaussian sketch infinite moment",
+        "Guttel Schweitzer randomized sketched FOM GMRES pole"
+      ]
+    },
+    "rationale": "Full relevant method/result sections of Güttel–Schweitzer (2022) and Timsit–Grigori–Balabanov (2023) were inspected. These introduce sketched projection and warn of negative projected eigenvalues/observed spikes, but neither gives the exact unconditioned Gaussian one-step moment dichotomy or constants. Actual published-record and literature queries considered aliases/stronger claims; no covering statement was found. Priority remains qualified and independent checking outstanding.",
+    "residual_risks": [
+      "An uncatalogued general result on Gaussian ratios or randomized reduced-order projection might already imply this specialization.",
+      "The moment catastrophe is unconditional; conditioning on a good subspace embedding or safeguarding the denominator can eliminate it.",
+      "Rapid decay of the tail coefficient with sketch size limits practical frequency of catastrophic events.",
+      "No independent priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact one-step unconditional Gaussian moment and tail claim; algorithmic premises and qualitative instability are acknowledged",
+        "evidence": [
+          "arXiv:2208.11447v1 first posted 2022-08-24",
+          "PDF p. 3 equation (2.3); p. 7 negative-spectrum remark; p. 8 sketched GMRES"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.11447",
+        "material_read": "Original PDF pp. 1–9, including derivations (2.3), Section 2.3 stability and Section 3 sGMRES, plus method/experiments through pp. 12–19. The text mentions negative sketched Ritz values and smoother sGMRES, but no denominator population tails or moments.",
+        "method": "Full-text PDF page reading and sectional comparisons",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Same sketched Galerkin/FOM and sketched GMRES schemes; possible stronger projected-spectrum coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the stated exact unconditional Student-reciprocal and minimal-residual moment spectra; may motivate but does not imply a quantitative threshold alone",
+        "evidence": [
+          "arXiv:2302.07466v1 first posted 2023-02-15",
+          "PDF p. 7 Definition 3.1; pp. 8–9 theorem/remarks; introduction observed spikes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.07466",
+        "material_read": "Original PDF introduction; pp. 6–9 definition, assumptions and quasioptimality; pp. 11–16 algorithms; pp. 17–19 numerical comparison. The hypotheses of embedding-conditioned results are distinguished from unconditional draws.",
+        "method": "Full-text PDF targeted sections, calculations and numerical-experiment discussion",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Exact sketched Petrov–Galerkin condition and observed large spikes, potentially the same phenomenon"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93dec8f0-3c09-420d-898e-c0f74eb7fef8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact unconditional moment threshold for two competing published projection objectives is a meaningful reliability distinction: infinitely many Gaussian rows in expectation do not help at any finite sketch dimension for sFOM, whereas sGMRES gains finite variance for m>2. The exact tail constant quantifies how rare failures evade ordinary testing, and the two-dimensional SPD benchmark provides a reproducible reference for solver choice and safeguards.",
+    "status": "PASS"
+  }
+}
