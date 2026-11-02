@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Conditional iid continuous priorities give a shared-binomial representation of the two adjacent ranks. Record-count extension by one index is independent Bernoulli with success 1/(r+1). Exchange-pairing the symmetric tail increment against the binomial monotone likelihood-ratio mass difference proves nonnegative comparisons for all test functions; explicit positive-mass witnesses establish strictness for every threshold 2..n-1 whenever i<n/2. Harmonic means and monotone optimal transport give W1. Symmetry and edge boundaries verified. Independent exact rational Python checks: 6,500 assertions, n<=24 recurrence/tails, n<=12 mixture, all permutations n<=8; no finite test is presented as a proof for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2005 depth paper proves Poisson approximations, conditional Bernoulli representations, asymptotic limits, and Wasserstein approximation bounds, none of which supplies finite-n sign of every adjacent-rank upper tail.",
+        "The 2006 profile paper concerns width and mode (global counts at each depth), rather than the fixed-key conditional rank ordering."
+      ],
+      "reasoning": "An asymptotic approximation by Poisson laws with varying means does not ensure an exact all-n, all-threshold order; global profile shape cannot determine labeled node-depth order. No directly dominating stochastic-order theorem was located among examined sources.",
+      "searches": [
+        "rank of a fixed key in a random binary search tree, depth distribution stochastic dominance, moving toward median, balancing rank",
+        "quicksort pivot selection or quickselect recursion number, probability distribution ordered by target rank distance from median",
+        "arXiv:math/0503738v1 Sections 2-3",
+        "arXiv:math/0607119v1 random BST profile"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0503738",
+      "https://arxiv.org/pdf/math/0503738",
+      "https://arxiv.org/abs/math/0607119",
+      "https://arxiv.org/pdf/math/0607119",
+      "https://doi.org/10.1017/S0963548397003325"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2005 Theorem 1 directly implies the record-sum marginal distribution; it does not state or prove the binomial-swap tail comparison.",
+        "The classical identity E[D_{n,i}]=H_i+H_{n+1-i}-2 is weaker than the sign of every upper tail; the exact W1 value is a new implication after establishing stochastic dominance.",
+        "The 1998 article is cited for variance; its complete text was unavailable and its detailed implication status cannot be ruled out."
+      ],
+      "reasoning": "Known marginal exactness does not logically provide the universal inequality without a new comparison lemma, as generic parametric mixture distributions need not preserve order. This manuscript proves a strict Monge-like binomial exchange inequality plus record-increment argument. Any undiscovered general rearrangement theorem remains a stated historical priority risk.",
+      "searches": [
+        "arXiv:math/0503738v1 Theorem 1",
+        "arXiv:math/0503738v1 Section 3.2 (AD) and Section 3.3 Wasserstein",
+        "doi:10.1017/S0963548397003325 abstract",
+        "random binary search tree depth stochastic increasing toward center exact first-order stochastic order, hypergeometric records and cycle-count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grübel–Stefanoski (2005) Theorem 1 gives an exact mixture of two conditional record-count sums for key depth. Its Theorem 3 concerns uniform Poisson approximation, not exact stochastic dominance across key ranks.",
+        "Theorem presented here is equivalent to monotonicity of every depth tail in the rank up to the midpoint; this was checked against the inspected fixed-key treatment."
+      ],
+      "reasoning": "The existing conditional mixture supplies the source distribution, but comparing two adjacent mixtures requires the additional symmetric anti-exchange comparison. Equivalence of distributions at reflected ranks was already apparent from symmetry; simultaneous strict order toward the center was not found.",
+      "searches": [
+        "random binary search tree fixed key depth rank stochastic order central rank monotonicity",
+        "random binary search tree depth stochastic increasing toward center exact first-order stochastic order, hypergeometric records and cycle-count",
+        "arXiv:math/0503738v1 Theorem 1 and Section 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The completed independent verifier checks all fixed-key depth laws from the root recurrence through n=24, all adjacent tails through n=24, and independent insertion permutation enumeration through n=8.",
+        "Published exact depth laws are acknowledged; the claim is a universal order relation, not an unreported numeric table."
+      ],
+      "reasoning": "Exact enumeration of any finite collection of rank-depth distributions does not imply the all-size stochastic ordering. An exact prior closed-form distribution is a baseline, not by itself an explicit proof of the new all-rank implication.",
+      "searches": [
+        "search cost fixed key vs key rank distribution total positivity",
+        "random binary search tree fixed key depth rank stochastic order central rank monotonicity",
+        "exact BST root recurrence / exhaustive insertion enumeration"
+      ]
+    },
+    "rationale": "The new result is a strict, all-ranks/all-threshold conditional stochastic comparison, requiring a nontrivial rearrangement lemma beyond the published exact fixed-key law. Closest full paper, Grübel–Stefanoski (2005), proves the mixture representation and marginal approximations, not an ordering of the distributions for successive key ranks; the known harmonic expected-depth formula does not imply tail ordering. A plausible inaccessible selection-algorithm source creates residual historical uncertainty, but its abstract concerns moments rather than the exact rankwise stochastic comparison.",
+    "residual_risks": [
+      "Older comparative stochastic-order and total-positivity literature may prove a more general rearrangement theorem implying this result without matching its keywords.",
+      "Kirschenhofer–Prodinger (1998) complete text could not be inspected; its known variance result does not itself imply strict all-tail ordering.",
+      "The closed-form fixed-rank depth distribution is established prior work, and originality pertains only to the new comparative implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTAINS_PRIOR_MARGINAL_LAW; DOES_NOT_STATE_TARGET_RANKWISE_STOCHASTIC_ORDER",
+        "evidence": "Theorem 1 (page 5) is the exact hypergeometric/record count law, Theorem 3 concerns Poisson approximation, Section 3.2 gives the harmonic mean, and Section 3.3 uses Wasserstein for asymptotic approximation.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0503738",
+        "material_read": "Full 19-page preprint; theorem and discussion on pages 1-8 and 15-18, including explicit law, asymptotics, and known mean/variance",
+        "method": "Lawful open-access full-text examination, theorem/section/keyword comparisons",
+        "title": "Mixed Poisson approximation of node depth distributions in random binary search trees",
+        "trigger": "Direct same-object full distribution, key rank, prior theorem and Wasserstein bounds"
+      },
+      {
+        "assessment": "DISTINCT_GLOBAL_PROFILE_QUESTION",
+        "evidence": "First posted 2006-07-05, primary MSC 60C05; addresses random-tree width and profile mode, including BSTs.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0607119",
+        "material_read": "Opening classification and statement, model coverage and overview of profile width/mode; not represented as a full-page-by-page inspection",
+        "method": "Open-access preprint inspection and explicit arXiv catalog date/MSC cross-check",
+        "title": "Width and mode of the profile for some random trees of logarithmic height",
+        "trigger": "Primary MSC 60C05 baseline involving random binary search trees"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; historical-priority risk unresolved",
+        "evidence": "The 2005 paper cites Kirschenhofer–Prodinger (1998) for the variance of fixed-key depth; no full-text comparison has been completed.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548397003325",
+        "material_read": "Publisher bibliographic description and secondary citation only; full text could not be obtained through standard open access or authorized institutional access",
+        "method": "Bibliography/abstract, OA search, institutional access request",
+        "title": "Comparisons in Hoare's Find algorithm",
+        "trigger": "1998 exact second-moment law cited in the 2005 fixed-key paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb40e5cc-246b-4f7b-8dea-006aeeec7425",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural search-cost question is rank-sensitive. Strict first-order stochastic ordering simultaneously resolves all upper-tail risk comparisons for random BST successful searches and the exact W1 gradient quantifies finite-sample sensitivity; the property is strictly stronger than previously known means or asymptotic Poisson limits and requires a substantive exchange comparison.",
+    "status": "PASS"
+  }
+}
