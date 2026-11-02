@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one condition on two classes in a three-dimensional quotient proves irreducible codimension two. The blown-up plane exact sequence forces the splitting \(\mathcal O(8)\oplus\mathcal O(4)\). The supplied Cox tuple satisfies base-point freeness; two exact, coprime immersion minors establish nonemptiness. An independent exact matrix reconstruction at that point gives rank \(14\) of the \(16\times16\) relative cohomology map.
+## correctness
 
-**Originality — PASS, with residual risk.** Iwasaki's 2026 Proposition 6.7 treats the general \(\mathcal O(6)^2\) normal bundle and first jump divisor, not this planar second-jump stratum. Cela–Lian's earlier article determines general-curve rather than special planar splitting. Current recorded claims on other normal-bundle families do not imply this result. A pre-existing implicit calculation remains a genuine risk; the classic 1981 smooth-space-curve source was not inspected in full.
+PASS
 
-**Mathematical value — PASS.** The construction gives a nonempty, irreducible higher-jump family and shows an actual structural failure of expected codimension for a natural \(16\times16\) matrix supplied by current research. The claim does not overreach to identifying all components or schemes of the second jump locus.
+For X=Bl_L(P3_C), the fixed-source Cox parameter space of degree class (4,2) is 17-dimensional. With fixed basepoint-free v2,v3 and w, the 2-plane W=w·span(v2,v3) in H0(O(4)) converts planarity to rank([u0],[u1])≤1 for a 3×2 matrix: irreducible codimension 2. Every such containing plane meets L transversely, so its proper transform S=Bl_p(P2) has O(8)=N_{f/S}, and the normal sequence 0→O(8)→N_{f/X}→O(4)→0 splits because H1(O(4))=0. The explicit Cox witness has immersion minors 4sA5 and -4t²B4 with gcd 1 and resultant 1984; independent symbolic reconstruction reproduced these polynomials, their gcd, and the source Appendix-A 16×16 cohomology matrix rank 14. This confirms depth h1(N(-7))=2 throughout the planar locus, versus generic splitting O(6)²/rank16. No claim is made that the entire second jump locus is pure or classified.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+For Codimension-two planar stratum in a second normal-bundle jump locus: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. Claim versus prior is the new sublocus-with-forced-splitting consequence of an existing rank-locus framework; if the inaccessible original already constructs the planar sublocus, originality would need reassessment. Best-of-knowledge qualified by explicitly named risks.
+
+## value
+
+PASS
+
+A geometrically natural codimension-two degeneracy locus explicitly violates the unrestricted 16×16 corank-two expected codimension 4 and identifies its normal splitting, giving a motivated boundary to applying Porteous expected-codimension formulas. This is a structural statement about the fixed class (4,2), not a routine isolated coordinate computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
