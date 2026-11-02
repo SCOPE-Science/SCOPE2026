@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The result has an all-length proof, not a finite extrapolation. The decisive lemma shows that below the first length containing all three markers, the directed cyclic spectrum is exactly encoded by the multiset of zero gaps strictly shorter than the read length minus one. One-one, two-one, and zero-one factor types are all counted, and factors containing all three ones identify their oriented gap order. Explicit same-spectrum witnesses establish each lower threshold, while a finite composition count and the uniform-simplex limit yield the distribution and moments. An independently structured brute-force checker tested 23,751 words, 1,098 necklaces, and 23,841 spectra through length 28. Boundary lengths 3 and 4 are stated separately. Main residual risk: a hidden error in the all-length inclusion-exclusion or the asymptotic lattice argument; both were reconstructed and independently checked against finite data.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The general reconstruction problem and its repeat-based necessary/sufficient conditions are established in the primary work by Bresler, Bresler, and Tse, citing Ukkonen and Pevzner. The new contribution is not the existence of those criteria, but their explicit complete evaluation for every three-marker circle together with a closed classwise distribution, exact extremizers, and a limiting law. The accessible 2013 full text was read in the Ukkonen/reconstruction and de Bruijn sections, and relevant 2013 \(k\)-Abelian literature was inspected. Neither inspected result states the enumerative or limiting theorem. Search across analogous names, exact thresholds, database/tables, and more general criteria found no identical quantitative result; absence from a search is not a proof of priority. Older Ukkonen/Pevzner full texts were not fully accessible, a concrete remaining risk.
+PASS
 
-## Value — PASS
-This resolves the entire noiseless fixed-weight-three reconstruction-length spectrum over all circle lengths, not a chosen finite cutoff. It distinguishes the orientation ambiguity that persists after individual short gaps become visible, identifies the universal sharp \(2n/3\) worst-case barrier and its two/four extremizers, and quantifies the typical required fraction as \(7/18\) with an explicit nondegenerate limit law. This classwise metric is motivated by choosing a read length for sparse circular strings and is mathematically more specific than an algorithmic uniqueness test.
+For exactly three ones in an oriented binary necklace and multiplicity-retaining directed cyclic k-spectra, reconstructed truncated-gap lemma: at k<n-c no window contains all three ones and the spectrum determines exactly the multiset of gaps <k-1, using two-one factor multiplicities and inclusion/exclusion for one-one factors. A three-one window at k=n-c fixes ordered gaps; for distinct gaps the two reversed gap cycles remain ambiguous below. Constructive competing triples yield repeated-gap thresholds a+1, a+2, b+1, with special n=3,4 and equal-gap boundaries. Counting sorted gap triples produces exact T_n(k) and floor(2n/3) worst threshold (n>=6), including 2/4 extremizer multiplicity. Uniform triangular-composition limit gives piecewise CDF 3y^2 and -9y^2+12y-3, mean 7/18 and variance 13/648. Independently implemented literal circular word k-spectrum grouping through n=18; exact K matched all necklaces. Finite enumerations support but are not all-length proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS focused on explicit three-marker threshold formula, exact distribution, all extremizers and simplex limit law. Ukkonen/Pevzner and Bresler–Bresler–Tse already provide general repeat/Eulerian uniqueness criteria; the claim does not credit generic k-mer reconstruction as new. General criteria might entail individual uniqueness after significant specialization, but inspected statements do not supply quantitative threshold census and limit law.
+
+## value
+
+PASS
+
+Exact read-length requirements for the natural sparse circular three-marker family, including worst-case extremizers and probability distribution; provides a concrete benchmark for k-mer sequencing reconstruction with exact combinatorial and asymptotic answers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
