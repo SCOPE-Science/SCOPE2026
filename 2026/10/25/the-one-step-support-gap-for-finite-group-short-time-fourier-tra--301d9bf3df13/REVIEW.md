@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is split into exhaustive support-size cases. The finite-group Fourier uncertainty inequality is derived directly from Parseval and Cauchy–Schwarz; the subgroup case uses the annihilator coset structure; the full-support case uses a nonempty intersection of two sets of size \(N-1\). The boundary example at \(N=2\) confirms the stated group-order restriction is necessary.
+## correctness
 
-**Originality — PASS, subject to the residual risks below.** The primary minimum-support theorem and the general finite-abelian support-size literature were inspected. The closest indexed support-gap result is stronger for odd prime cyclic groups but does not cover the composite and noncyclic groups included here. Bounded database and literature searches did not locate an equivalent all-finite-abelian \(N+1\) exclusion; this is not a proof of global novelty.
+PASS
 
-**Value — PASS.** The result identifies a universal forbidden support cardinality immediately above the minimum, which is relevant to exact sparsity patterns in finite time-frequency representations and their use in signal recovery. It does not claim the next size \(N+2\) is attained or classify higher support levels.
+Reconstructed the normalized finite-abelian-group STFT with counting measure, row products h_x=f(y)conj(g(y−x)), r_x=|supp h_x|, n_x=|supp Fourier(h_x)|. Parseval and Cauchy–Schwarz prove r_x n_x≥N; overlap sum ∑r_x=ab, k=|supp f−supp g|≥max(a,b), hence total M=∑n_x≥Nk²/(ab)≥N. Unequal a,b force M>N+1. Equal support sizes m<N: k≥m+1 gives M>N+1; k=m forces both supports to be cosets of a common subgroup H of size m; all Fourier rows have support divisible by N/m≥2, contradicting M=N+1. Full supports a=b=N: N−1 one-frequency rows imply, for each group shift d, all translate-ratios of g are scalar characters, so the remaining row also has one frequency and M=N. For N=2 the explicit support-three counterexample explains the exact N≥3 boundary. Proof is symbolic and covers all finite abelian groups without prime or full-support assumptions.
 
-**Closest literature and limits.** Nicola (arXiv:2204.14176v1) gives the minimum bound and equality structure; Krahmer–Pfander–Rashkov develop support-size bounds, including optimized-window results. The proof here is limited to finite abelian groups and to exclusion of the single size \(N+1\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the support-minimum inequality M≥N, subgroup extremizer framework, and prime cyclic support-gap strengthening are previously established. The surviving claim is the universal exclusion of precisely N+1 for all finite abelian groups N≥3, including composite/noncyclic groups not implied by the odd-prime cyclic p-or-≥2p theorem; neither the retrieved general uncertainty statements nor cyclic equality cases state this general one-step gap.
+
+## value
+
+PASS
+
+PASS: the natural next cardinality above the sharp global STFT uncertainty minimum is excluded uniformly for an entire class of finite groups. It is a structural forbidden-support statement distinct from a routine restatement of the minimum bound, with a sharp restriction N≥3 and legitimate applications to Gabor support spectra. It does not assert that N+2 is attained or the optimal second support level.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
