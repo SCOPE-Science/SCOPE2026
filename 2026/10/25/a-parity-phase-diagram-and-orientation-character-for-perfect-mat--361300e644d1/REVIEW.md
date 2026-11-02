@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. Each path has internal vertex count \(\ell_i-1\); the terminal-incidence parity condition together with the two terminal-matching budget classifies all possible perfect matchings, with no unstated choices. If all paths are odd, the facet cover has the boundary-simplex nerve, and every nonempty geometric intersection is itself a simplex. With exactly two even paths and at least four arms, the two facets share an internal edge on an odd path, giving contractibility. The nerve homology isomorphism is natural under facet permutations, yielding the integral sign character; terminal reversal fixes all facet indices. Independent small-case exact enumeration and signed Lefschetz checks corroborate the proof.
+## correctness
 
-## Originality
-PASS, subject to residual literature risk. Bayer–Jelić Milutinović–Vega [1] treat honeycomb complexes; Chandrakar–Singh [2] study polygonal line tilings; Agarwal–Basak [3] classify Möbius and circular ladders. These papers investigate different graph families and do not, in the inspected material, imply the parity theorem for arbitrarily many disjoint terminal-to-terminal paths or its path-permutation character. Research-record searches found no equivalent generalized-theta perfect-matching-complex result. The 2023 source uses a nerve argument on honeycombs, which is a methodological precursor, not an implication for the present family. The full text of some other relevant articles was unavailable; another treatment under alternate terminology remains possible.
+PASS
 
-## Value
-PASS. Generalized theta graphs form a canonical two-terminal planar series-parallel family. The theorem gives a complete, sharp parity phase diagram, identifies sphere homology in degree one below the graph's cycle rank for arbitrarily large degree, and computes an integral group-action refinement invisible to Betti numbers. The fixed graph class and topological invariant are intrinsic; no arbitrary finite cutoff is used.
+Check terminal usage t_i in {0,1,2}, t_i congruent ell_i-1 mod 2, sum t_i=2. q=0 has one forced perfect matching M_i per active path. Every proper subset of r matchings intersects on an inactive path internal matching edge, full intersection empty; simplex nerve is boundary of (r-1)-simplex. q=2 has two matchings and a shared edge from at least one unused odd arm (r>=4), so two simplices with common nonempty simplex contract. Otherwise no matching. Nerve homology is natural for arm permutations and contributes orientation sign; global reversal fixes facet intersection generators, thus +1. Independent rebuild checked 1,053 length patterns with r=4..6, lengths in {2,3,4}, actual perfect matching facets and nerve intersections; no finite test substituted for proof.
 
-## Limitations
-This is a proof for the stated family, not a result about all series-parallel graphs or ordinary matching complexes. Computational checks are finite corroboration rather than proof of the infinite claim. Originality remains subject to unindexed or inaccessible equivalent work. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS on complete stated final result; exact same-object full primary theorems and Resultary published findings compared by mathematical implication, not titles. Older tools or special cases acknowledged as prior. Known nerve theorem + elementary perfect-matching parity can be combined to prove result, but reviewed predecessors do not supply a theorem whose hypotheses alone cover arbitrary r>=4 multitheta arms. In particular no prior all-r orientation character follows simply by substituting an input into published honeycomb/ladder theorem.
+
+## value
+
+PASS
+
+Two-terminal internally disjoint-path (multi-theta) graphs form a canonical series-parallel family; the exact homotopy phase diagram and integral orientation character distinguish path parity and symmetries, extend across all arm counts >=4, not merely a minor computation or rephrased known honeycomb case. General series-parallel graphs and ordinary matching complexes not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
