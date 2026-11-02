@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:13:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The local variation equals |y_i-y_{i-1}|+2dist(m_i,[ell_i,u_i]); compact convex LP duality gives max_{p_i in [-1,1]} sum_i[p_i a_i-u_i p_i^+ +ell_i p_i^-]-lambda d sum_i|p_{i+1}-p_i|. For each real p coordinate, ternary threshold layers over h in (0,1) satisfy exact coarea |p_i-p_{i+1}|=int |s_i(h)-s_{i+1}(h)|dh, so max attained on ternary labels and solved by 3 fixed starting labels with 3-state cyclic DP in O(n). The constant labels force total average A in [L,U] for zero extra variation. For nonconstant ternary labels, splitting positive and negative indicator runs into proper cyclic intervals gives exactly two cut edges per interval; maximizing interval deficits yields d_*=max(0,max_I sum_I(ell_i-a_i),max_I sum_I(a_i-u_i))/(2lambda). The arbitrary-budget formula follows by taking maximum of (R_s-t)_+/(lambda C_s) among labels with nonzero boundary; unbounded fluxes realize all corrected mean vectors with total A, giving dist(A,[L,U]). A new independent checker compared the ternary dual with a primal LP in 110 deterministic bounded cases n=2..6. These numerical checks support, not prove, the universal coarea/minimax theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barsukow Definition 1 formula (5) matches the variation; his Theorem 2 and Section 5 derive sufficient TVD conditions for a particular numerical method, not the signed flux cap optimum.",
+          "Lu–Hochbaum Eq (1) minimizes convex fidelity plus difference penalties on a path, with O(n^2 log^2(U/epsilon)) worst-case for convex-convex class, rather than an exact O(n) cyclic 3-state identity."
+        ],
+        "reasoning": "The mathematical ingredients are general but the claimed cap/TV value is a sharper explicit algebraic characterization not directly quoted in prior inspected theorems.",
+        "searches": [
+          "Resultary query: Active Flux total variation conservative flux corrections cyclic max flow min cut interval feasibility 3 label optimization",
+          "Barsukow arXiv:2610.05920v1 original PDF §§1,3,5,7",
+          "Lu Hochbaum DOI:10.1007/s10107-021-01633-2 sections 1 and 8",
+          "Ford Fulkerson 1956 max-flow min-cut"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 9005d3fd67578008dcda3f9d92bd3ca95df23e96 and verify.py SHA c5c7c78c7472eb691a087839343c7cb14b97ae3c",
+        "Barsukow original arXiv PDF including screenshot",
+        "Lu–Hochbaum full open Springer article",
+        "Resultary semantic query 5 with unrelated control problems",
+        "Independent C5_OK 110 primal-vs-ternary dual LP comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barsukow specifically says Harten conditions are sufficient, and its flux choices use physical quadrature data with extra parameters.",
+          "The abstractly independent signed f_i here are broader controls and require no numerical quadrature consistency.",
+          "Generic max-flow/min-cut yields necessity and sufficiency of cut feasibility but not automatically the full finite-d variation optimum with a concrete O(n) three-label dynamic program. The present statement is mathematically narrower than physical TVD and stronger as a one-step algebraic feasibility characterization."
+        ],
+        "reasoning": "The abstract physically unconstrained optimization is not implied by the specific sufficient TVD hypotheses; mathematical duality supplies ingredients but the exact 3-state reduction and threshold are additional.",
+        "searches": [
+          "Barsukow arXiv:2610.05920v1 Definition 1 Eq (5), Section 3 Harten-type sufficient conditions, §5 flux parameter selection",
+          "Lu–Hochbaum Eq (1), abstract and §8",
+          "classical flow-cut duality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is a convex min-cost circulation on a cycle with piecewise linear node costs; its LP dual is a Potts-like three-label chain score.",
+          "The zero-extra-variation condition is equivalently a circulation with interval capacities obeying all proper cyclic cut inequalities."
+        ],
+        "reasoning": "Generic LP duality and network flow apply, but the exact objective value for all d,B and explicit three-state formula require specialization; the conservation-only feasibility is not a flux quadrature theorem.",
+        "searches": [
+          "Resultary query: Active Flux total variation conservative flux corrections cyclic max flow min cut interval feasibility 3 label optimization",
+          "minimum cyclic sum distance to intervals under bounded divergence flow",
+          "three-label cut coarea dual interval constraints graph total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The package gives a parametric example n=2m with d_*=m/(2lambda), independently corroborated by the exact cut inequalities.",
+          "No exact published table with this family was located; the claim is a universal formula, not a numerical lookup."
+        ],
+        "reasoning": "The unbounded family demonstrates a collective bottleneck, so a tiny example or benchmark table is not the mathematical claim.",
+        "searches": [
+          "Resultary query: Active Flux total variation conservative flux corrections cyclic max flow min cut interval feasibility 3 label optimization",
+          "Active Flux fixed endpoints flux cap feasibility cyclic interval examples table",
+          "max flow cycle inventory interval demand exact cut threshold"
+        ]
+      },
+      "rationale": "PASS (qualified): Barsukow 2026 defines precisely this Active Flux variation and proves Harten-type sufficient TVD conditions for physically parametrized flux updates; its PDF does not present the same unconstrained signed-correction minimization, global necessary-and-sufficient cap or three-state cyclic exact value formula in the inspected sections. Lu–Hochbaum 2021/2022 solve general one-dimensional convex fidelity/difference-penalty denoising but have a path and approximation-oriented methods, not the explicit endpoint-conditioned Active Flux feasibility identity. Classical LP duality, graph cuts and coarea supply essential prior ingredients, explicitly credited. Whether a generic graph-cut theorem has previously stated this specific 3-label interval-distance dual as a corollary remains a priority risk.",
+      "residual_risks": [
+        "General graph min-cut/total variation duality could imply the specialized ternary identity under a broader theorem not exhaustively checked.",
+        "Exact linear time assumes constant-cost arithmetic; no floating-point robustness or finite-bit complexity proof.",
+        "Abstract flux corrections need not correspond to physically allowable high-order quadrature updates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines prior observable and sufficient construction, but exact global signed correction-cap criterion differs; unexamined portions could still contain a special equivalent.",
+          "evidence": [
+            "Definition 1 Eq (5); Section 3 sufficient rather than necessary conditions; §7 conclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.05920",
+          "material_read": "Complete 30-page PDF accessible; inspected title/abstract, Definition 1 Eq (5) on displayed page 3, general Harten sufficient-condition discussion page 4, Section 5 formulas around pages 15–20, and conclusion page 28.",
+          "method": "Read original PDF text and viewed screenshot of page 3.",
+          "title": "A TVD Active Flux method for scalar conservation laws",
+          "trigger": "Exactly the same variation observable and conservative average-update context"
+        },
+        {
+          "assessment": "The general convex path solver does not explicitly determine the exact cyclic three-state cap formula or necessary-and-sufficient interval threshold.",
+          "evidence": [
+            "Eq (1) path TV denoising, §8 general convex solver complexity O(n^2 log^2(U/epsilon))."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10107-021-01633-2",
+          "material_read": "Full openly accessible article text reviewed at abstract, Eq (1), algorithm complexity summary and §8 conclusion.",
+          "method": "Read Springer HTML full-article sections.",
+          "title": "A unified approach for a 1D generalized total variation problem",
+          "trigger": "Potential dominating generic convex difference-penalty theorem"
+        },
+        {
+          "assessment": "Cut inequalities are classical; novelty is the specialized Active Flux objective value and explicit algorithm.",
+          "evidence": [
+            "Generic max-flow/min-cut theorem is credited as premise."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1956-045-5",
+          "material_read": "Mathematical theorem used as classical prior background; original 1956 full article not retrieved.",
+          "method": "Referenced standard theorem, no claim of reading original full text.",
+          "title": "Maximal Flow Through a Network",
+          "trigger": "Classical prior cut-capacity duality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The least globally reachable variation subject to a conservative uniform flux cap is a natural feasibility quantity for frozen scalar Active Flux endpoint data. Its exact linear-time characterization and the sharp proper-cyclic-interval obstruction (which can exceed every local cell obstruction linearly in n) are substantive precise results, while explicit scope disclaims physical flux realizability and multistep TVD.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not a multistep TVD guarantee for physical conservation law solver.",
+    "No CFL, consistency, positivity, accuracy or quadrature-realizability assertions."
+  ],
+  "schema_version": 1
+}
