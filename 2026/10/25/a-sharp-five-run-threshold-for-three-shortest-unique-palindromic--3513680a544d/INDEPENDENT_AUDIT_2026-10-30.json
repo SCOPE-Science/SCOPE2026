@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:04:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every binary palindrome is centered within a maximal letter run; a unique monochromatic palindrome must occupy an entire maximally long run, and a mixed unique palindrome is centered at the whole middle run. At most one candidate per run center for a fixed length. Disjoint center restrictions imply <=2 SUPSs when <=4 runs; with five runs <=3. The two separated centers 2,4 cannot simultaneously contribute shortest answers because the uniquely occurring 1 0^c 1 around run 3 is shorter. Three-answer words must use centers 1,2,3 up to symmetry; run inequalities force n>=14 with equality precisely 0^7 1 0^3 1 0^2 and its reversal/complement. The infinite W_{b,e} family has exactly three length-a answers with all shorter possibilities ruled out structurally. Independent exhaustive brute-force evaluated all intervals for all 1274 binary <=5-run words of lengths <=10 and the n14 canonical witness; source verifier also enumerates 6944 words up to14 but its logs alone are not a proof. All positions and factor multiplicities are understood occurrence-wise, one-based in theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2204.07327",
+          "https://arxiv.org/pdf/1903.06290"
+        ],
+        "reasoning": "The all-string alpha<=4 bound is weaker than alpha<=2/3 for restricted run counts and does not determine a minimal 3-answer length. Run-length algorithmic bounds parameterize m but do not show the exact three-answer threshold.",
+        "searches": [
+          "Mieno Funakoshi Theorem 1 at most four SUPSs arbitrary alphabet binary",
+          "Watanabe Nakashima Inenaga Bannai Takeda run-length SUPS structural theorem"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_sups.py at tree f0bcb2a1709a01c32ba91cf5c9425f3a171832f7",
+        "Mieno–Funakoshi arXiv:2204.07327 relevant full text",
+        "Watanabe et al. arXiv:1903.06290 relevant full text",
+        "Nakashima et al. arXiv:1608.05550 referenced in source",
+        "Resultary semantic search on binary SUPS thresholds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2204.07327",
+          "https://arxiv.org/pdf/1903.06290"
+        ],
+        "reasoning": "General alpha<=4 and run-centered MUPS O(m) do not logically imply alpha<=2 for <=4 runs or alpha<=3 for <=5 runs. The simultaneous center obstruction and exact lower bound require additional arguments.",
+        "searches": [
+          "Mieno Funakoshi at most 4 SUPSs Theorem 1 exact implication run bound",
+          "Watanabe run centered MUPS count 2m+1 Lemma 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1903.06290",
+          "https://arxiv.org/pdf/2204.07327"
+        ],
+        "reasoning": "The query semantics agree with Watanabe et al. and Mieno–Funakoshi. Run-centered structure and general at-most-four output bound are related but neither provides the sharp restrictions by <=4 and <=5 runs.",
+        "searches": [
+          "shortest unique palindromic substring SUPS binary words number runs five three answers shortest length fourteen",
+          "shortest unique palindromic substring query run-length encoded MUPS theorem",
+          "binary SUPS 3 answers five runs minimum length 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mieno–Funakoshi Section 4.1 provides a length-87 four-answer example and says its minimality is unknown; this is a different extremal.",
+          "Independent n<=10 exhaustive interval enumeration plus direct n=14 witness and complete source proof."
+        ],
+        "reasoning": "No prior exact table for the <=5-run minimum length14 was found. Finite n<=14 package enumerator is corroboration; analytical inequalities in RESULT Step3 are an actual proof.",
+        "searches": [
+          "smallest binary word with three SUPSs 00000001000100",
+          "Resultary: shortest unique palindromic substring SUPS binary words number runs five three answers shortest length fourteen"
+        ]
+      },
+      "rationale": "General SUPS literature gives at most four answers for arbitrary strings and efficient run-length-encoded indexing, but inspected theorems do not imply the exact two/three sharp run restrictions or the minimal length fourteen binary witness and infinite family. Best-of-knowledge PASS with explicit unindexed-specialization residual risk.",
+      "residual_risks": [
+        "Unindexed or differently formulated specialized SUPS count classification could cover same bound.",
+        "This result does not settle four SUPSs in arbitrary binary strings or classify all five-run longer witnesses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General upper bound four and length-87 four-answer example; different from sharp restricted run-threshold and length14 triple",
+          "evidence": [
+            "Theorem 1; Section 4.1, PDF pp. 6-9; https://arxiv.org/pdf/2204.07327"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.07327",
+          "material_read": "Theorem 1 and Sections 4.1, 4.2, example of four SUPSs and proof discussion; PDF page screenshot",
+          "method": "Primary arXiv full text, relevant sections and figure",
+          "title": "Data structures for computing unique palindromes in static and non-static strings",
+          "trigger": "Exact bound on number of SUPS answers; nearest stronger global theorem"
+        },
+        {
+          "assessment": "Establishes linear-in-runs query data structures and run-centered MUPS machinery; no exact low-run 3-answer length threshold in inspected sections",
+          "evidence": [
+            "Lemma 5, Lemma 11, Theorem 3; https://arxiv.org/pdf/1903.06290"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.06290",
+          "material_read": "Full abstract/introduction, Lemmas 1,5,11, algorithm theorem and run-centered argument; PDF pages 1,5-10,13",
+          "method": "Direct primary arXiv PDF with page visual inspection",
+          "title": "Fast Algorithms for the Shortest Unique Palindromic Substring Problem on Run-Length Encoded Strings",
+          "trigger": "Same run-length representation and run-centered palindrome invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of answers to a SUPS interval is a natural output complexity and the run count is a standard compressed-string complexity. Exact boundary at five runs and length fourteen, together with unbounded witness family, gives a precise structural guarantee for compressed-string queries, not an arbitrary isolated enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify_sups.py at tree f0bcb2a1709a01c32ba91cf5c9425f3a171832f7",
+    "Mieno–Funakoshi arXiv:2204.07327 relevant full text",
+    "Watanabe et al. arXiv:1903.06290 relevant full text",
+    "Nakashima et al. arXiv:1608.05550 referenced in source",
+    "Resultary semantic search on binary SUPS thresholds"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed or differently formulated specialized SUPS count classification could cover same bound.",
+    "This result does not settle four SUPSs in arbitrary binary strings or classify all five-run longer witnesses."
+  ],
+  "schema_version": 1
+}

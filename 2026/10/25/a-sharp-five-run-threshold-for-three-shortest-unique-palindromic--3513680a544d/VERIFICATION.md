@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytic bounds and the length-fourteen classification are proved by run-center constraints and a shorter-unique-palindrome contradiction in `RESULT.md`. The executable `verify_sups.py` directly constructs a frequency table of all contiguous substrings, finds unique palindromes and tests every query interval in each finite target word. All \(6944\) words with at most five runs and lengths \(1\) through \(14\) were covered. Exactly four distinct words of length \(14\) had a query with three shortest unique palindromes; the unique query interval for each is a singleton. The verifier also checks all three predicted factor positions for \(48\) members of the infinite family and samples \(2400\) additional interval queries on larger low-run words.
+# Independent mathematical audit
 
-Run `python3 verify_sups.py` with a standard Python 3 installation; no third-party package is required. The finite computation cannot prove the unbounded family or general upper bounds and must be read alongside the full mathematical argument. The literature comparison was made against accessible general SUPS results; historical originality beyond that scope remains unverified. No external independent validation has been performed.
+## correctness
+
+PASS
+
+Every binary palindrome is centered within a maximal letter run; a unique monochromatic palindrome must occupy an entire maximally long run, and a mixed unique palindrome is centered at the whole middle run. At most one candidate per run center for a fixed length. Disjoint center restrictions imply <=2 SUPSs when <=4 runs; with five runs <=3. The two separated centers 2,4 cannot simultaneously contribute shortest answers because the uniquely occurring 1 0^c 1 around run 3 is shorter. Three-answer words must use centers 1,2,3 up to symmetry; run inequalities force n>=14 with equality precisely 0^7 1 0^3 1 0^2 and its reversal/complement. The infinite W_{b,e} family has exactly three length-a answers with all shorter possibilities ruled out structurally. Independent exhaustive brute-force evaluated all intervals for all 1274 binary <=5-run words of lengths <=10 and the n14 canonical witness; source verifier also enumerates 6944 words up to14 but its logs alone are not a proof. All positions and factor multiplicities are understood occurrence-wise, one-based in theorem.
+
+## originality
+
+PASS
+
+General SUPS literature gives at most four answers for arbitrary strings and efficient run-length-encoded indexing, but inspected theorems do not imply the exact two/three sharp run restrictions or the minimal length fourteen binary witness and infinite family. Best-of-knowledge PASS with explicit unindexed-specialization residual risk.
+
+## value
+
+PASS
+
+The number of answers to a SUPS interval is a natural output complexity and the run count is a standard compressed-string complexity. Exact boundary at five runs and length fourteen, together with unbounded witness family, gives a precise structural guarantee for compressed-string queries, not an arbitrary isolated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
