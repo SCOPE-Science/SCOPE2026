@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:14:41.895335Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 8e3319ceba5b82c18699abe137fefd516ddea51a",
+        "Assigned verify_permutohedron.py Git blob 6074bbd347abe4423380887ba50ced220c71e7a7",
+        "Private independent_checks_private.py complete matching/DP/orbit table 169 matchings",
+        "Lei--Yeh--Zhang alternating-cycle equivalence"
+      ],
+      "rationale": "The 24 vertices, 36 edges and even/odd inversion bipartition are explicit. Every matching is enumerated uniquely by branching on the least uncovered vertex, yielding 169. Alternating cycles after contracting matching edges correspond exactly to directed cycles, and deleting nonmatching edges that hit every alternating cycle equals minimum feedback arc deletion. The subset dynamic program minimizes backward arcs over every topological order, so its 4096-state answer is an exact optimum. Independent private code rebuilt all 169 matchings from scratch, recomputed the complete coefficient table, generated all 48 group maps, 17 symmetry orbits, and checked the entire orbit-size/anti-forcing/two-factor-type table term by term against the claim. The source also supplies an independent hitting-set method for 17 orbit representatives; its code was read but the latter method was not independently reimplemented this execution. Exhaustion is genuinely finite here.",
+      "residual_risks": [
+        "The table is tied to the explicitly defined 48-element subgroup and exact 24-vertex graph; it is not a classification of all truncated-octahedral graph variants or all (4,6)-fullerenes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The established 24-vertex fullerene bound implies the maximum anti-forcing number 10, explicitly acknowledged as prior.",
+          "The 2022 abstract discusses anti-forcing spectra in (4,6)-fullerenes, which might include the support but does not provide accessible coefficient multiplicities or the natural 48-group orbit classification."
+        ],
+        "reasoning": "A spectrum records attainable values, not necessarily multiplicities or symmetry orbits. Full-text inaccessibility is not construed as proof of noncoverage.",
+        "searches": [
+          "Shi--Wang--Zhang 2017 DOI:10.1016/j.dam.2017.07.009",
+          "Shi--Zhang--Zhao 2022 DOI:10.1016/j.amc.2022.127090",
+          "Lei--Yeh--Zhang arXiv:1406.3796"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.3796 definition and alternating cycles",
+        "Shi--Wang--Zhang 2017 fullerene maximum bound",
+        "Shi--Zhang--Zhao 2022 indexed abstract",
+        "Resultary anti-forcing/truncated octahedron semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An a priori maximum of 10 does not determine the coefficient counts (4,16,44,48,39,16,2).",
+          "Alternating-cycle characterization provides a method but not the exact computation or 17 orbit two-factor invariants."
+        ],
+        "reasoning": "The full refined polynomial and group orbit result are not implied by prior maximum alone; potential full specialized tables remain the main unresolved bibliographic risk.",
+        "searches": [
+          "Lei--Yeh--Zhang 2014 alternating-cycle characterization",
+          "Shi--Wang--Zhang 2017 maximum anti-forcing number of (4,6)-fullerenes",
+          "Shi--Zhang--Zhao 2022 spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is also the skeleton of the truncated octahedron and a particular (4,6)-fullerene; anti-forcing sets are alternating-cycle transversals or feedback-arc sets after contracting matching edges.",
+          "Foundational anti-forcing paper gives the alternating-cycle criterion, but not the table for this specific graph."
+        ],
+        "reasoning": "Aliases and algorithmic reductions were compared; a general feedback-arc formulation does not itself compute the 17 orbit values.",
+        "searches": [
+          "Resultary: permutohedron truncated octahedron 24 vertex graph anti-forcing number polynomial perfect matchings",
+          "Lei--Yeh--Zhang arXiv:1406.3796 alternating cycles and anti-forcing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search returned other matching/independence complexes on truncated solids, not the requested anti-forcing coefficient polynomial.",
+          "The accessible specialized fullerene abstract does not display an equivalent 169-matchings multiplicity table."
+        ],
+        "reasoning": "This is a finite exact invariant, so a previously published table would cover it; available records did not supply one, with explicit risk retained.",
+        "searches": [
+          "Resultary: 24 vertex truncated octahedral anti-forcing generating polynomial 169 perfect matchings",
+          "Shi--Zhang--Zhao 2022 anti-forcing spectra (4,6) fullerene polynomial",
+          "GitHub published SCOPE truncated octahedron matching complexes"
+        ]
+      },
+      "rationale": "The alternating-cycle anti-forcing definition and computational reduction are established; the known general (4,6)-fullerene bound already gives maximum 10. No accessed primary theorem supplies the complete 169-matchings multiplicity polynomial plus 17-class orbit/2-factor profile. The full 2017 and 2022 fullerene papers remain a material priority risk; inaccessible literature alone does not negate the otherwise best-of-knowledge positive assessment.",
+      "residual_risks": [
+        "The relevant 2017/2022 (4,6)-fullerene primary full texts were unavailable; 2022 article could contain exact multiplicities or specialized tables under a different description.",
+        "Institutional downloader for 2022 paper returned a storage-limit operational error; no full-text noncoverage assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the definition/reduction, not this graph-specific polynomial",
+          "evidence": [
+            "Opening definitions and Lemma 2.1 and proof context"
+          ],
+          "identifier_or_url": "arXiv:1406.3796 (2014)",
+          "material_read": "Primary accessible mathematical paper: definition, alternating cycle criterion and related minimax arguments",
+          "method": "arXiv primary PDF page/text inspection",
+          "title": "Anti-forcing numbers of perfect matchings of graphs",
+          "trigger": "Foundational alternating-cycle characterization for the same invariant"
+        },
+        {
+          "assessment": "Spectrum may give same set of anti-forcing values; full coefficient/orbit coverage unresolved, not asserted absent",
+          "evidence": [
+            "The authorized downloader returned storage-limit error; no authentication bypass or fabricated full-text reading."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.amc.2022.127090 (2022)",
+          "material_read": "Accessible indexed abstract and bibliographic record only; full article not obtained",
+          "method": "Open-access/preprint search followed by authorized institutional downloader",
+          "title": "The anti-forcing spectra of (4,6)-fullerenes",
+          "trigger": "Highly relevant graph class and anti-forcing spectrum potentially covering special graph"
+        },
+        {
+          "assessment": "Provides a general maximum bound; cannot establish all multiplicities or orbit refinement from abstract",
+          "evidence": [
+            "Maximum 10 for 24-vertex (4,6)-fullerene accepted as prior result"
+          ],
+          "identifier_or_url": "DOI:10.1016/j.dam.2017.07.009 (2017)",
+          "material_read": "Accessible publisher/index abstract and citation record, no complete mathematical paper",
+          "method": "Bibliographic/abstract comparison",
+          "title": "On the maximum forcing and anti-forcing numbers of (4,6)-fullerenes",
+          "trigger": "Same graph class; known maximum 10"
+        },
+        {
+          "assessment": "Permutohedron background rather than same anti-forcing polynomial",
+          "evidence": [
+            "Graph is one-skeleton of classical three-dimensional permutohedron"
+          ],
+          "identifier_or_url": "arXiv:1501.00714",
+          "material_read": "Accessible arXiv bibliographic/title information and mathematical background, not complete text",
+          "method": "Preprint context inspection",
+          "title": "A positive Grassmannian analogue of the permutohedron",
+          "trigger": "Permutation-adjacent graph and polytope naming"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact complete polynomial and 17-class table",
+        "Specialized (4,6)-fullerene literature on anti-forcing spectra"
+      ],
+      "rationale": "Exact anti-forcing multiplicities and 17 symmetry classes distinguish perfect matchings of a canonical Archimedean 24-vertex graph. Demonstrating that the complementary 2-factor type does not determine anti-forcing number is a nontrivial structural observation potentially useful in anti-forcing enumeration; the result is not merely re-computing the already known maximum. The exhaustive recurrence gives an independently reproducible finite classification.",
+      "residual_risks": [
+        "It concerns one natural but finite graph, not an asymptotic family; priority of full table is qualified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the 24-vertex adjacent-swap graph and specified 48-element natural automorphism action.",
+    "Exact exhaustive finite proof; does not extend to other permutohedra or all fullerenes."
+  ],
+  "schema_version": 1
+}

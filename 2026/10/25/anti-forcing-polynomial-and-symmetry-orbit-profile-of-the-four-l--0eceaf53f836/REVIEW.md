@@ -1,15 +1,21 @@
-# Review of the anti-forcing polynomial and symmetry classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The adjacency-transposition graph, perfect-matching recursion, and Ryser permanent agree on exactly \(169\) matchings. The matching-contraction and directed feedback-arc reduction is proved, as is the exact subset dynamic program for minimal backward arcs. The complete coefficient distribution sums to \(169\). Exhaustive construction of \(48\) natural automorphisms partitions the matchings into \(17\) invariant classes with the claimed orbit sizes and two-factor cycle lengths. An independently coded exact transversal search over alternative perfect matchings agrees with the directed algorithm on every orbit representative. The standalone checker ran successfully and returned `VERIFY_OK`.
+## correctness
 
-## Originality
-**PASS, with material access caveat.** The foundational anti-forcing papers establish the definition and general minimax facts rather than these specific coefficients. A separate source gives the general maximum anti-forcing formula for \((4,6)\)-fullerenes, so the value \(10\) alone is acknowledged as covered. The later spectrum study concerns which values occur, whereas this result provides their full multiplicities and \(17\) orbit types. Accessible texts and targeted searches revealed no exact polynomial or orbit table for the four-letter permutohedron. The 2017 and 2022 full texts were unavailable, and possible hidden tables remain a real originality risk.
+PASS
 
-## Mathematical value
-**PASS.** The graph is the canonical smallest nontrivial three-dimensional permutohedron and a polyhedral \((4,6)\)-face cubic graph, connecting permutation geometry, perfect matchings, and anti-forcing. The count of every anti-forcing value and the \(17\)-orbit refinement are non-obvious, natural finite invariants. Distinct anti-forcing numbers at identical complementary two-factor types show that a coarse structural classification by complement cycle partition fails, motivating orbit-sensitive analysis beyond the known extremal number and value set.
+The 24 vertices, 36 edges and even/odd inversion bipartition are explicit. Every matching is enumerated uniquely by branching on the least uncovered vertex, yielding 169. Alternating cycles after contracting matching edges correspond exactly to directed cycles, and deleting nonmatching edges that hit every alternating cycle equals minimum feedback arc deletion. The subset dynamic program minimizes backward arcs over every topological order, so its 4096-state answer is an exact optimum. Independent private code rebuilt all 169 matchings from scratch, recomputed the complete coefficient table, generated all 48 group maps, 17 symmetry orbits, and checked the entire orbit-size/anti-forcing/two-factor-type table term by term against the claim. The source also supplies an independent hitting-set method for 17 orbit representatives; its code was read but the latter method was not independently reimplemented this execution. Exhaustion is genuinely finite here.
 
-## Limits
-All statements are about one finite graph and the explicitly defined symmetry group; they do not imply an infinite-family assertion. The unavailable full texts and potential unindexed tables are not excluded by searches. The proof is computationally exhaustive with two distinct optimum algorithms, but requires independent audit before external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The alternating-cycle anti-forcing definition and computational reduction are established; the known general (4,6)-fullerene bound already gives maximum 10. No accessed primary theorem supplies the complete 169-matchings multiplicity polynomial plus 17-class orbit/2-factor profile. The full 2017 and 2022 fullerene papers remain a material priority risk; inaccessible literature alone does not negate the otherwise best-of-knowledge positive assessment.
+
+## value
+
+PASS
+
+Exact anti-forcing multiplicities and 17 symmetry classes distinguish perfect matchings of a canonical Archimedean 24-vertex graph. Demonstrating that the complementary 2-factor type does not determine anti-forcing number is a nontrivial structural observation potentially useful in anti-forcing enumeration; the result is not merely re-computing the already known maximum. The exhaustive recurrence gives an independently reproducible finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
