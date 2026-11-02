@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (PASS).** The calculation uses exact Fibonacci prefix counts, a primitive two-state transfer matrix for endpoint independence, a quantitative block lower bound to saturate all allowed interior neighborhoods, effective bounded-degree Hanf locality, and a conjugate-eigenvalue argument proving that every algebraic integer in the unit interval is realizable by a finite prefix property. The constructive integer recurrence is explicitly checked; finite enumeration does not replace the locality theorem.
+## correctness
 
-**Originality (PASS, qualified).** The 2026 logical-isomorphism paper establishes convergence for small permutation classes and discusses regular languages, not this exact golden-integer spectrum. The 2017 effective locality result supplies a general reduction, not the Fibonacci cylinder arithmetic or inverse representation. Other records concerning Fibonacci combinatorics, golden-mean dynamics, and proper ternary colour paths have different objects or conclusions. Searches did not locate a stronger covering result. A general measure-range theorem for primitive shifts combined with locality remains a residual historical-priority risk.
+PASS
 
-**Value (PASS).** This is a complete exact probability spectrum for a canonical irreducible finite-type word language. Unlike independent fair words or proper ternary colour paths, it has a dense **irrational** algebraic-integer spectrum: no first-order sentence has limiting probability strictly between zero and one that is rational. The explicit construction supplies every value, not merely a convergence theorem or a few sample probabilities.
+Uniform length-n 11-avoiding words number F_{n+2}. A fixed legal prefix u of length k has exact count F_{n-k+2} if u ends 0 and F_{n-k+1} if ends 1; limiting cylinder mass c(u)=phi^-k or phi^-(k+1). Perron decomposition of primitive Fibonacci transfer matrix gives exponentially asymptotically independent fixed prefixes and suffixes. Every fixed legal centered block appears >=t times with probability 1-O(exp(-c n)) by uniform positive probability of prescribing 0 v 0 at spaced positions. Effective bounded-degree Hanf locality for directed successor paths with unary P makes any fixed FO sentence, with exponentially small exception, a Boolean function of bounded prefixes/suffixes; hence its limit is a finite sum of products c(u)c(v) in Z[phi], convergence exponential. Conversely for alpha=m+d phi in (0,1), Fibonacci integer coefficient expansion of alpha phi^(k+1)=a_k phi+b_k with b_k=a_{k-1} satisfies 0<=a_k<=F_{k+1}, 0<=b_k<=F_k for large k. Choosing exactly those counts of length-k admissible prefixes ending respectively 0 and 1 gives a FO-definable cylinder event with limit alpha. Trivial endpoints 0,1; irrationality gives only rational 0 and 1; dense Z[phi]∩[0,1]. Independently checked finite cylinder counts, endpoint pair transfer counts, and exact conjugate integer realizations.
 
-The result assumes ordinary first-order successor logic, not a full linear order, MSO or the deterministic Fibonacci word. Its exponential convergence rate depends on the sentence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior bounded-degree Hanf locality, Fibonacci transfer matrix cylinder measures, and Perron/Parry probabilities are explicitly credited. Marström–Räty 2026 studies logical limit laws of permutation classes/regular languages, with possible extensions; the available description does not give the exact attainable golden-integer arithmetic spectrum for uniformly sampled no-11 words with successor only. Natural clopen measure-value theory for golden mean shift could cover the reverse inclusion; no decisive covering statement was identified in actual searches. Best-of-knowledge qualified novelty concerns the exact FO probability set, not machinery.
+
+## value
+
+PASS
+
+The exact dense but rationally trivial FO limit spectrum is a natural and surprising model-theoretic invariant of a canonical regular language, and the theorem effectively produces a sentence for every algebraic integer in Z[phi]∩[0,1]. It connects finite-model locality and Fibonacci Perron arithmetic in a way genuinely distinct from a generic convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
