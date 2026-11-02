@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each off-diagonal abba, its unique exact-two central b-run costs +1 and the q diagonal aaaa require +3 each. For q≥3 both aba and bab force \\(m_{ab}\\ge3\\) in a closed proper run skeleton; Euler parity forces at least \\(q/2\\) extra edges for even q. \\(q=2\\) uses four distinct required runs. Thus \\(L\\ge(5q^2+q)/2\\) for odd q and \\(L\\ge(5q^2+2q)/2\\) for even q. A connected Euler circuit of K_q (plus a matching if q even) expanded into alternating 3-edge segments on first pair uses realizes all q² targets with equality. Equality makes every run count and adjacency multiplicity sharp. Independent finite BFS exactly confirms \\(q=2\\),3; the all-q result rests on the proof, not the test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gardner–Godbole 2017 studies monotone, Lipschitz, augmented-onto and lattice-path u-cycles.",
+        "Chen–Kitaev–Sun 2019 studies probabilistic existence of exact-once u-cycles and u-words."
+      ],
+      "reasoning": "Their more general-looking universal-cycle language does not imply this shortest repeated-factor q-ary palindrome cover: exact-once coverage is a different constraint and neither provides a formula for abba for all q.",
+      "searches": [
+        "https://arxiv.org/abs/1711.07029",
+        "https://arxiv.org/abs/1908.01116",
+        "cyclic shortest superstring of all length-four palindromes q-ary K_q matching Eulerian tours"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1711.07029",
+      "https://arxiv.org/abs/1908.01116",
+      "https://oeis.org/A330022",
+      "Prior mathematical length-three cyclic-cover claim (comparison of statement only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A pre-existing length-three cover theorem has the same baseline m_ab=3 and even-q matching excess.",
+        "The new length-four factor abba requires each specific middle run to have length exactly two; the constant factor aaaa requires runs of length at least four, neither featured as a length-four condition in the earlier theorem."
+      ],
+      "reasoning": "The unordered-edge parity lemma is covered in the earlier length-three statement. This finding instead optimizes the weighted lengths of a run skeleton and proves equality-case run rigidity. The construction borrows the same Euler zigzag mechanism; the new mathematical assertion is the exact all-q length-four minimum and run signature, not the shared edge bound.",
+      "searches": [
+        "exact minimum cyclic word containing all q² three-letter palindromes aba",
+        "q-ary four-letter palindromes abba covering cyclic word length 2q²+ parity",
+        "Earlier length-three cyclic-palindrome-cover theorem (scientific statement comparison)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A palindrome abba for a≠b corresponds to an exact-two run b with matching a neighbors; aaaa corresponds to a long constant run.",
+        "Chen–Kitaev–Sun 2019 Theorem 1.1 and sections 2–4 concern exact-once Eulerian cycles after deleting words."
+      ],
+      "reasoning": "Checked cyclic shortest superstrings, q-ary palindrome coverings, ordinary factor u-cycles, and the run-skeleton translation. Neither the named inspected source nor the semantic search returned an equivalent shortest all-palindrome cover theorem.",
+      "searches": [
+        "q-ary four-letter palindrome cyclic cover abba shortest word even length four run-length rigidity",
+        "cyclic shortest superstring of all length-four palindromes q-ary K_q matching Eulerian tours",
+        "palindromic superstring abba repeated letters shortest circular universal word",
+        "https://arxiv.org/abs/1908.01116"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A330022: the shortest linear binary superstring containing all length-four palindromes has length 12; author date 2019-11-27.",
+        "Exact BFS in accompanying verifier also gives cyclic minima 12 at q=2 and 24 at q=3."
+      ],
+      "reasoning": "The q=2 numerical value is known and is not a novelty component. The identified OEIS sequence varies palindrome length over a binary alphabet, whereas the new statement varies alphabet cardinality at fixed factor length four and proves all optimal run profiles.",
+      "searches": [
+        "https://oeis.org/A330022",
+        "q-ary four-letter palindrome cyclic cover abba shortest word even length four run-length rigidity"
+      ]
+    },
+    "rationale": "The new claim is an all-alphabet exact cyclic cover bound and a rigid run-length classification for ordinary length-four palindromes. It is not the known binary length-12 datum and not a verbatim corollary stated by the length-three cover theorem. The three-edge parity skeleton is shared and explicitly credited as prior context. Inspected primary full texts address distinct exact-once/restricted universal-cycle questions; a matching unindexed prior result remains possible.",
+    "residual_risks": [
+      "Priority risk from an unindexed shortest-superstring, postman-walk, or even-palindrome covering treatment of this exact target set.",
+      "The earlier length-three palindrome cover shares the three-traversal and parity-matching core; the new weighted-run refinement is related rather than methodologically independent.",
+      "Full exhaustive human bibliographic search and independent audit have not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No stated exact minimum cyclic cover for the set of all abba factors",
+        "evidence": "First public 2017-11-19; Eulerian constructions for monotone, onto, Lipschitz and path classes; no palindrom occurrence in HTML text.",
+        "identifier_or_url": "https://arxiv.org/html/1711.07029v1",
+        "material_read": "Abstract, introduction, theorem summaries and sections on monotone and restricted words; full text searched for palindrom",
+        "method": "Primary arXiv HTML full-text examination",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Broad published restricted-universal-cycle result could dominate a palindrome subfamily"
+      },
+      {
+        "assessment": "Its exact-once deletion-subset existence and probability results do not provide the shortest repeated-factor palindrome cover or run equality cases",
+        "evidence": "First public 2019-08-03; uses Euler/Hamiltonian criteria after removing words from complete de Bruijn system, including binary order four.",
+        "identifier_or_url": "https://arxiv.org/html/1908.01116v1",
+        "material_read": "Abstract, introduction, sections 2–4 theorem statements and graph criteria, full text searched for palindrom",
+        "method": "Primary arXiv HTML full-text examination",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+        "trigger": "Universal words and cycles restricted to prescribed factors could cover this special palindrome set"
+      },
+      {
+        "assessment": "Directly covers q=2 length-four value 12 in the linear problem; not claimed novel. Does not address q-ary cyclic families or forced run profiles.",
+        "evidence": "At n=4 the entry records 12 and example 000011001111; originally authored 2019-11-27; later edits do not change original public date.",
+        "identifier_or_url": "https://oeis.org/A330022",
+        "material_read": "Full sequence entry, examples, comments, author and extension dates",
+        "method": "OEIS entry inspection",
+        "title": "Length of shortest binary string containing all palindromes of length n as substrings",
+        "trigger": "Direct numerical table may already include the q=2 length-four answer"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd1a1e6e-c094-4c1c-b95b-6174c881aabf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shortest repeated-factor coverage of all \\(q^2\\) four-symbol palindromes is a natural constrained circular superstring invariant. An exact all-q optimum and forced optimum run and parity profiles are mathematically informative beyond the single known binary linear case; the even-alphabet jump is an explicit structural obstruction. This is a modest but complete family classification, not a claim of a new universal-cycle principle or a general even-palindrome theorem.",
+    "status": "PASS"
+  }
+}
