@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The nine-edge graph, six matrices and 10-state transitions define a complete finite integer proof. Each of six payoff tables passes min(R,P)>max(S,T); four BR moves strictly increase utility, six I moves copy a unique highest-payoff neighbor, and all ten effective transitions close a cycle. The sixth vertex is idle at the cycle start, permitting an 11-activation uniformly persistent schedule. An independent implementation of the exact update equations in verify_cycle.py rechecks every computation and three schedule periods. There is no numerical extrapolation, hidden parameter range, normalization or infinitary assumption.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sakhaei–Maleki–Ramazi arXiv:2201.04185: probability-one eventual equilibration under random updates, not an every-schedule statement.",
+        "Hasheminejad–Ramazi arXiv:2306.03243: listed convergence guarantees on specific graph classes, not all connected simple graphs.",
+        "Ramazi–Riehl–Cao, Automatica 139 (2022) 110185: pure-imitation convergence, not a mixed 2-BR plus 4-I network."
+      ],
+      "reasoning": "A guarantee holding with probability one under stochastic activation allows measure-zero infinite fair periodic schedules. A result for pure imitators has a different hypothesis from this mixed system. The counterexample graph is connected with triangles, so sparse-tree and other named source classes do not cover it.",
+      "searches": [
+        "coordinating imitation best response mixed population fails converge counterexample graph",
+        "finite heterogeneous coordination game all coordinating agents almost surely equilibrate but deterministic fair asynchronous schedule cycles",
+        "arxiv:2201.04185 coordinating population almost sure equilibration imitation best response",
+        "arxiv:2306.03243 sparse trees ring starlike mixed imitation best-response equilibration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.03243, complete preprint relevant definitions/open problem/graph-class results",
+      "arXiv:2201.04185, primary HTML abstract and theorem",
+      "Automatica 139 (2022), 110185, abstract-level only",
+      "Semantic mathematical-research record searches under mixed imitation, coordination, periodic cycles and exact six-agent witness aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2306.03243 §2 Eq. (2): imitate a highest-earning adjacent vertex, not necessarily more successful than the updater.",
+        "arXiv:2306.03243 introduction explicitly identifies the non-equilibrating activation sequence problem.",
+        "arXiv:2201.04185 abstract and theorem: mixed coordinating decision populations equilibrate almost surely under random selection."
+      ],
+      "reasoning": "The 2023 graph-class theorem does not imply an all-graph convergence theorem, and the present example has overlapping cycles. The 2022 stochastic theorem does not imply that every deterministic fair activation word converges. The strict coordination inequalities are satisfied, so the example is not excluded by a payoff hypothesis. No stronger inspected result dominates the existential cycle claim.",
+      "searches": [
+        "Equilibration of Coordinating Imitation and Best-Response Dynamics paper theorem sparse tree neighbor utility argmax",
+        "Equilibration Analysis and Control of Coordinating Decision-Making Populations almost surely theorem",
+        "The lower convergence tendency of imitators compared to best responders 2022 convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hasheminejad–Ramazi arXiv:2306.03243, equations (1)–(3), introduction and discussion: exact neighbor-only imitation formalism and explicit general-graph question.",
+        "The finite 11-update repeating activation word revisits one complete state, a statement equivalent to failure of universal fair deterministic convergence and incompatible with a strict potential on effective transitions."
+      ],
+      "reasoning": "Searched under oscillation, cycle, periodic update, persistent/fair schedule, coordination and opponent-coordination aliases. The exact statement is about a deterministic orbit with mixed update rules, not a synchronous replicator, homogeneous imitative network or probabilistic outcome. Searched results included nonfreezing opinion systems and cyclic replicators; those do not logically imply this finite payoff-game witness.",
+      "searches": [
+        "mixed imitation best response coordination game dense trees persistent activation oscillation counterexample cycles",
+        "mixed imitation and best response 2023 Hasheminejad Ramazi counterexample to convergence arbitrary persistent activation",
+        "connected six vertex mixed opponent-coordinating imitative best-response network non-equilibration fair asynchronous periodic activation counterexample 10-switch"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exact 6-vertex, 9-edge, 6-matrix, 10-transition integer certificate given in RESULT.md and verify_cycle.py.",
+        "Closest searched research-record topics included nonfreezing bounded-confidence models and parity automata, not this payoff-network certificate."
+      ],
+      "reasoning": "Searched for finite orbit length, graph order, heterogeneous payoffs and periodic activation. No returned relevant exact enumeration or table contains the specific payoff arrays or this deterministic mixed-game witness. A negative record search is a limit on inspected coverage, not proof of uniqueness.",
+      "searches": [
+        "explicit periodic asynchronous improvement cycle heterogeneous coordinating imitators myopic best-responders finite network 6 vertex 10 states",
+        "six agent imitation best response opponent coordination periodic activation numerical counterexample",
+        "mixed imitation best response coordination game dense trees persistent activation oscillation counterexample cycles"
+      ]
+    },
+    "rationale": "The originating 2023 paper explicitly asks whether non-equilibration occurs under some persistent activation sequence in arbitrary mixed imitation/BR opponent-coordinating networks, while its convergence theorems cover paths, cycles, stars and sparse trees. Its formal Eq. (2) is neighbor-only payoff-maximizing imitation. The six-agent connected graph with triangles and its ten-switch exact fair orbit are outside the earlier classes and answer the existential question. The 2022 Sakhaei–Maleki–Ramazi almost-sure equilibration theorem does not imply equilibration for all deterministic fair schedules; the 2022 pure-imitation theorem excludes BR nodes. No searched record establishes this particular construction or a dominating general theorem. Unindexed and more recent equivalent examples cannot be ruled out.",
+    "residual_risks": [
+      "More recent, unindexed, or inaccessible literature could contain an equivalent deterministic cycle.",
+      "The cited 2022 Automatica article was inspected at abstract rather than whole-document level; its stated scope is nevertheless pure imitation.",
+      "The neighbor-only formal imitation rule differs from the stricter variant requiring a higher payoff than the imitator itself; no conclusion is asserted for the stricter variant.",
+      "No smallest-order or minimal-period claim has been tested or made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its positive theorems do not cover this connected triangle-bearing graph; exact counterexample is not presented in inspected results.",
+        "evidence": "Preprint v1 first posted 2023-06-05; equation (2) explicitly maximizes over j in N_i, with no own-payoff criterion.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.03243",
+        "material_read": "Introduction, §2 model equations (1)–(3), stated graph-class theorems and relevant proof/appendix passages of accessible complete preprint.",
+        "method": "Primary open preprint text and PDF reading; checked payoff convention and exact imitation argmax.",
+        "title": "Equilibration of Coordinating Imitation and Best-Response Dynamics",
+        "trigger": "Same mixed opponent-coordinating network model, explicit open counterexample question and convergence theorems."
+      },
+      {
+        "assessment": "Almost-sure convergence does not forbid an exceptional persistent deterministic periodic activation word.",
+        "evidence": "Source explicitly frames convergence as almost surely; no universal deterministic every-fair-sequence implication.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.04185",
+        "material_read": "Abstract, coordinating-process definitions and almost-sure equilibration theorem with explanation of random-activation scope in accessible primary text.",
+        "method": "Primary accessible arXiv HTML full text and relevant result section.",
+        "title": "Equilibration Analysis and Control of Coordinating Decision-Making Populations",
+        "trigger": "Potential stronger convergence theorem for mixed coordinating populations."
+      },
+      {
+        "assessment": "Result concerns all-imitation networks and cannot by itself rule out cycles with two exact BR agents; residual risk remains from uninspected full text.",
+        "evidence": "Published 2022 abstract states every opponent-coordinating network of imitators converges.",
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2022.110185",
+        "material_read": "Accessible bibliographic abstract and description of pure-imitation result; full text not inspected.",
+        "method": "Abstract-level external bibliographic record.",
+        "title": "The lower convergence tendency of imitators compared to best responders",
+        "trigger": "Potential pure imitation convergence theorem that could rule out cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5cd3dd9-6970-498b-b233-ab9ed0cf376e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating primary source explicitly identifies existence of nonconvergent mixed dynamics on arbitrary networks as an open structural question. An explicit connected counterexample with strict opponent coordination and a genuinely fair schedule closes this existential gap, forbids the proposed universal strict potential, and separates deterministic every-schedule convergence from almost-sure results. It uses small integer data and a fully auditable orbit, not an arbitrary invariant or an incremental numerical bound.",
+    "status": "PASS"
+  }
+}

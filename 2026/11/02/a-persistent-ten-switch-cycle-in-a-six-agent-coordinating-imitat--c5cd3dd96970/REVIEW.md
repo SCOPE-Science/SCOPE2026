@@ -1,0 +1,11 @@
+# Scientific review of the mixed coordinating-network cycle
+
+**Correctness — PASS.** The ten recorded state switches are direct consequences of six explicit integer payoff matrices and nine undirected edges. Every best responder's alternative payoff increases strictly, and every imitator has exactly one highest-payoff neighbor playing the new action. Repeating the orbit with an idle activation of the otherwise unused sixth vertex is an explicit persistent activation schedule. The complete mathematical certificate is finite; the independent reconstruction in `verify_cycle.py` replays every update using the published update definitions. The graph is connected and all six strict opponent-coordination inequalities hold.
+
+**Originality — PASS, with residual risk.** Hasheminejad–Ramazi (arXiv:2306.03243, §2, opening discussion and main convergence results) explicitly leaves arbitrary mixed-network counterexamples open while proving convergence on specified graph families. The construction is on a connected graph with overlapping triangles, beyond those families. Sakhaei–Maleki–Ramazi (arXiv:2201.04185) address almost-sure rather than *every-schedule* convergence; the pure-imitation theorem of Ramazi–Riehl–Cao does not cover BR nodes. No implication from those earlier results covers this deterministic fair cycle. Focused bibliographic and mathematical-result searches did not locate its exact configuration or a general theorem excluding it. A later or unindexed counterexample may still exist. Importantly, the proof follows neighbor-only highest-payoff imitation, not a strict-profitability-gated imitation variant.
+
+**Value — PASS.** The source paper asks whether the general mixed model can fail to equilibrate despite strict opponent coordination. An exact fair periodic counterexample directly resolves that existential gap, rules out a universal strict ordinal potential, and isolates the essential limitation of the known positive convergence graph classes. All payoffs and states are small integers, giving a reproducible structural boundary rather than a simulation-only observation. No claim of minimum size or stochastic prevalence is made.
+
+No independent external mathematical validation has been performed. The statement is limited to the stated deterministic asynchronous model.
+
+Self-review: passed. Independent audit: not yet performed.
