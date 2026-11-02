@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The claimed recursion gives W Delta q+tKq=0 exactly. Its determinant has positive constant term, positive sum, and an explicit nonnegative discriminant decomposition, implying two real positive x roots and x_minus<2. The time multipliers are distinct unit-modulus precisely for 0<x<4; P(4) is a concave quadratic with one positive zero T_star. A root at four gives n(-1)^n growth and larger t gives a negative multiplier of modulus greater than one. Exact symbolic identities and 880 finite cross-checks pass, with the proof covering all admissible parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.researchgate.net/publication/349682557_Contrast-independent_partially_explicit_time_discretizations_for_multiscale_wave_problems : Section 3.2 Theorem 3.1 provides sufficient wave stability under a slow-mode bound; Appendix A Theorem A.1 treats the other endpoint by energy estimates",
+        "https://www.alphaxiv.org/abs/2102.13198 : author/title/date and subject context"
+      ],
+      "reasoning": "The full motivating source has broader PDE/multiscale scope but gives sufficient time-step conditions, not the sharper if-and-only-if parameter transition. Generic high-dimensional wave stability can include this system but was not found with a theorem that implies the exact weight-sign law.",
+      "searches": [
+        "\"partially explicit\" wave sharp stability \"Schur\" \"CFL\"",
+        "Chung Efendiev Leung Vabishchevich wave partial explicit ω=0 ω=1 stability coupling phase difference exact",
+        "sharp CFL stability omega parameter Chung Efendiev Leung Vabishchevich partially explicit wave two stiffness modes scalar coupled critical timestep"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.13198",
+      "https://www.researchgate.net/publication/349682557_Contrast-independent_partially_explicit_time_discretizations_for_multiscale_wave_problems",
+      "https://2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/theory_dynamic_analysis_explicit_scheme_stability_r.htm",
+      "https://www.alphaxiv.org/abs/2102.13198"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.researchgate.net/publication/349682557_Contrast-independent_partially_explicit_time_discretizations_for_multiscale_wave_problems : Eq. (3.1) includes precisely omega, Sec. 3 and App. A give endpoint sufficient estimates only",
+        "https://2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/theory_dynamic_analysis_explicit_scheme_stability_r.htm : scalar central-difference condition depends on modal eigenvalues"
+      ],
+      "reasoning": "Applying the source sufficient bound with unit masses gives tB<=2 as a safe region and cannot imply the sharp omega-dependent limit (at omega=0 it can exceed tB=4). The scalar central-difference condition requires the two generalized spatial roots, supplied by the present determinant calculation. Thus neither examined statement already asserts the final stronger and more specialized conclusion.",
+      "searches": [
+        "\"2102.13198\" sharp stability CFL omega 0 omega 1 wave",
+        "\"partially explicit\" wave scheme \"omega\" stability \"coupling\" critical time step sharp",
+        "two component wave finite difference critical timestep interaction eigenvalues offdiagonal stiffness exact stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.researchgate.net/publication/349682557_Contrast-independent_partially_explicit_time_discretizations_for_multiscale_wave_problems : Eq. (3.1), Sec. 3, Appendix A checked in complete author-posted text",
+        "https://2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/theory_dynamic_analysis_explicit_scheme_stability_r.htm : central-difference amplification/eigenvalue criterion, undamped scalar case"
+      ],
+      "reasoning": "A reformulation as a central-difference method with nonsymmetric modified mass W is possible but still requires the real-root discriminant and critical weight-dependent P(4) calculation. The source endpoint energy inequalities do not assert necessity, the intermediate-weight transition, or the divergence result. General scalar CFL is a tool, not an identical statement.",
+      "searches": [
+        "\"partially explicit\" wave scheme \"omega\" stability \"coupling\" critical time step sharp",
+        "\"partitioned leapfrog\" \"coupling\" stabilizing time step explicit implicit off diagonal stiffness",
+        "partially explicit wave contrast-independent two-by-two oscillator weighted cross time interpolation ω 0 1 spectrum stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding \"Isospectral factor order produces a square-root separation of optimal periodic oscillator stability constants\" concerns continuous oscillator factor ordering, not weighted numerical wave splitting.",
+        "The published finding \"Sharp energy-norm stability for two-periodic recurrences\" concerns first-order recurrence residual constants, not this wave integrator."
+      ],
+      "reasoning": "The retrieved mathematical results and prior records did not give a tabulated or exact equality for T_star(A,B,C,omega). The comparison is of their statements: first-order or continuous oscillator stability does not imply the weighted second-order wave CFL formula. A failed query alone is not claimed as a uniqueness proof.",
+      "searches": [
+        "coupling sign reversal implicit explicit leapfrog frequency eigenvalue sharp stability 1/2 weight",
+        "two component wave finite difference critical timestep interaction eigenvalues offdiagonal stiffness exact stability",
+        "\"partially explicit\" \"wave\" \"ω\" \"threshold\" stiffness coupling"
+      ]
+    },
+    "rationale": "The 2021 source explicitly defines the weighted omega family (Eq. 3.1), proves energy-based sufficient bounds at omega=1 (Sec. 3) and omega=0 (App. A), but the inspected full text does not state the necessary-and-sufficient two-mode ceiling for all weights, its coupling neutral point omega=1/2, or the unbounded limit of the omega=0/omega=1/2 threshold ratio. The classical modal central-difference criterion is credited and does not alone contain the particular coupled nonsymmetric mass calculation. Independent priority verification is outstanding.",
+    "residual_risks": [
+      "Other versions of the 2021/2022 primary paper or specialized partitioned wave stability texts could contain an equivalent result; publication priority not independently established.",
+      "A prior generalized non-selfadjoint Newmark/multirate amplification theorem could imply the exact specialization without matching its title or parameters.",
+      "Only the two-mode mass-orthogonal setting is proved; no broader finite-element inference follows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scheme identical as a specialization. The inspected sufficient bounds and energy constructions do not give the claimed all-weight sharp two-mode classification.",
+        "evidence": [
+          "arXiv v1 first dated 2021-02-25",
+          "Eq. (3.1) omega family; Section 3.2 sufficient condition (3.11); Appendix A Theorem A.1 and conditions"
+        ],
+        "identifier_or_url": "arxiv:2102.13198; https://www.researchgate.net/publication/349682557_Contrast-independent_partially_explicit_time_discretizations_for_multiscale_wave_problems",
+        "material_read": "Eq. (3.1), Section 3.2 including Theorem 3.1, Section 3.3, Appendix A including Theorem A.1 and the accompanying energy construction, from an accessible complete author-posted arXiv v1 text.",
+        "method": "Inspect material sections of the accessible author-posted arXiv text using targeted open/find around the source formulas and stability arguments; independently specialize Eq. (3.1) to scalar coordinates.",
+        "title": "Contrast-independent partially explicit time discretizations for multiscale wave problems",
+        "trigger": "Exact motivating weighted scheme, likely dominating specialized literature"
+      },
+      {
+        "assessment": "Provides the standard scalar modal root criterion, not the nonsymmetric weighted two-mode root polynomial or coupling threshold.",
+        "evidence": [
+          "General amplification-spectrum conditions and undamped central-difference recurrence"
+        ],
+        "identifier_or_url": "https://2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/theory_dynamic_analysis_explicit_scheme_stability_r.htm",
+        "material_read": "Detailed online stability domain and one-degree-of-freedom undamped central-difference derivation.",
+        "method": "Open accessible complete web article; read the amplification and scalar undamped stability sections.",
+        "title": "Explicit Scheme Stability",
+        "trigger": "Classical eigenvalue CFL criterion potentially subsuming the mode calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa8b17b8-620d-4711-a404-999646caa65e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The reference uses a genuine design freedom in temporal weighting of fast-mode coupling, while its sufficient CFL restrictions give no exact frontier or comparison of weights. The theorem detects a sharp coupling-neutral weight, opposite stabilizing effects on its two sides, and a diverging contrast gain close to rank-one positive stiffness. These affect admissible numerical time steps and are not merely a numerical check or trivial scalar recasting. The accuracy-versus-stability limitation is explicit.",
+    "status": "PASS"
+  }
+}
