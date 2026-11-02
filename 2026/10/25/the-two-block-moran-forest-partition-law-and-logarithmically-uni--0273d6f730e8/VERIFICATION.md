@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the two-component Moran-forest law
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3. The script uses only standard-library integer arithmetic, `fractions.Fraction`, and exhaustive enumeration of each independent mother-choice vector. It checks the full two-component size-frequency law for \(n=3,4,5,6,7\), meaning respectively \(8,81,1024,15625,279936\) equiprobable vectors, and verifies the closed normalization in exact rational arithmetic through \(n=100\).
+## correctness
 
-Expected successful ending: `EXACT_NORMALIZATION_PASS n=3..100` followed by `VERIFY_OK`.
+PASS
 
-Analytical boundaries: Enumeration through order seven does not prove unrestricted correctness; the all-order identity follows from blockwise parent counting and averaging interleavings. The conditional weak limit follows from the uniform asymptotic comparison of the exact weights with harmonic weights. No external independent audit has been performed.
+The original Bienvenu–Duchamps–Foutel-Rodier independent-parent construction gives n independent uniform U_j∈[n]\{j}, an edge for U_j<j, and independent relabeling. Conditional on a size-(a,b) randomized birth interleaving, nonroot internal parent choices are (a−1)!(b−1)!, while the two roots contribute E[(n−r_A)(n−r_B)]=(n²−1)(ab−1)/((a+1)(b+1)); dividing by (n−1)^n proves the exact prescribed unordered two-block probability. Counting labeled bipartitions with the equal-size factor 1/2 gives P(S_n=s|K_n=2)=c_n(s)w_n(s)/Z_n. The independent root-event count gives Z_n=((n−1)H_{n−2}−(n−2))/n. On 1≤s≤n/2, w_n(s)=1/(s+1)+O(1/n) uniformly and Z_n=log n+O(1), yielding P(S_n≤n^x|K_n=2)→x for 0<x<1 and endpoint convergence. Independent complete parent-vector enumeration n=3..6 matches the exact law.
+
+## originality
+
+PASS
+
+Qualified PASS: the cited original paper supplies the independent-parent representation, total number-of-components distribution and unconditioned component sizes, and explicitly says it lacks a closed full exchangeable partition probability function. The two-block EPPF and conditional logarithmically uniform component-size law are new consequences requiring an additional interleaving calculation; they are not asserted to solve the full EPPF.
+
+## value
+
+PASS
+
+PASS: gives a natural exact nontrivial sector of an open distributional description and a surprising scale-invariant size law under the rare two-component condition. The result is independently useful in sampling, exchangeability and random forest asymptotics despite not covering every component count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
