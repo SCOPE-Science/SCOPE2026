@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:45:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive m1,m2,k,γ, after quotienting the common translation zero mode the 3D state has exact cubic P(s)=s³+gs²+s+θg with θ=m1/(m1+m2)∈(0,1), ω²=k(1/m1+1/m2), g=γ/(m1ω)>0. Routh–Hurwitz holds since g>θg. A real root -r uniquely induces g=G(r)=r(1+r²)/(r²+θ); other pair mean decay α=r(1-θ)/(2(r²+θ)). The derivative numerator r⁴+(3θ-1)r²+θ and discriminant -4θg⁴+(1+18θ-27θ²)g²-4 have real-branch phase separation at θ=1/9 (discriminant of quadratic in g²=(1-θ)(1-9θ)^3). In one-complex-pair regimes the slow exponent is min(r,α), with α peaking at r=√θ and crossing r at r_c²=(1-3θ)/2; transition of maximizing bottleneck at θ=1/5. Below θ=1/9 the three-real-root interval ends at the slow-pair double collision r²=u_-=(1-3θ-√((1-θ)(1-9θ)))/2; monotonic root-branch analysis puts unique global optimum there. Consequently g*=(1+3u_-)/(2√u_-), R*=√u_- for θ<1/9; g*=3√((1-3θ)/2), R*=√((1-3θ)/2) for 1/9<=θ<=1/5; g*=(1+θ)/(2√θ), R*=(1-θ)/(4√θ) above. Triple defective root at θ=1/9 and continuous phase boundary at 1/5 are correctly normalized. Defects allow polynomial transients, so R is spectral exponential supremal rate, not a uniform finite-time estimate at exact R. Fresh symbolic discriminant/derivative derivation and 663 numerical eigen-spectrum comparisons for candidate vs neighboring damping parameters corroborate branch formulas; uniqueness for the continuum follows from the proof, not samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freitas–Lancaster optimize spectral abscissa over unrestricted damping matrices, with different feasibility conditions.",
+          "Dolfo–Vigué explicitly set anelastic damping and different coupled-oscillator geometry; its eigenvalue formulas do not give the free dimer optimal g.",
+          "Main–Krenk potentially contains a specialized discrete damper tuning problem but full mathematical statements were not accessible."
+        ],
+        "reasoning": "An unrestricted optimal damping design theorem cannot automatically dominate an exact optimum within a much smaller rank-one grounded dashpot feasibility set. The unread relevant 1996/1999/2005 primary analyses remain genuine potential exact-prior coverage; no whole-text negative is asserted.",
+        "searches": [
+          "Freitas–Lancaster SIAM J Matrix Anal Appl 1999 abstract and title",
+          "Arnold–Gendelman–Zharnitsky arXiv:2608.08656 metadata/abstract",
+          "Main–Krenk Journal of Sound and Vibration 2005 abstract",
+          "Dolfo–Vigué full manuscript"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "NOT_COVERING exact constrained viscous free-dimer rate phase diagram: analyzes anelastic damping and a different oscillator setup.",
+          "identifier_or_url": "https://doi.org/10.1088/1361-6404/aa9ec6",
+          "title": "Damping of coupled harmonic oscillators"
+        },
+        {
+          "assessment": "General damping matrix optimization is different admissible control; full-text implications not excluded.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479897331850",
+          "title": "On the Optimal Value of the Spectral Abscissa for a System of Linear Oscillators"
+        },
+        {
+          "assessment": "Plausible specialized precedent, retained explicitly as priority risk; no NOT_COVERING conclusion for whole article.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jsv.2004.09.022",
+          "title": "Efficiency and tuning of viscous dampers on discrete systems"
+        },
+        {
+          "assessment": "Abstract concerns general two-DOF critical damping and unrestricted matrices, not explicitly this single grounded dashpot; full-text coverage undetermined.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.08656",
+          "title": "Critical damping in linear system with two degrees of freedom: surprises and pitfalls"
+        },
+        {
+          "assessment": "Possible conceptual precedent on critical damping; full-text exact dimer absence is not claimed.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036139994277403",
+          "title": "Perturbing the Critically Damped Wave Equation"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Anelastic coupled-oscillator spectra are not characteristic cubic s³+g s²+s+θg with one neutral mode.",
+          "General multiple-eigenvalue optimization may explain critical damping intuition but not prove exact three-regime transitions for the constrained feasible family."
+        ],
+        "reasoning": "The prior inspected statements do not entail the displayed g*(θ), R*(θ) and uniqueness, particularly the interior equal-real-part but nondefective regime. Because several historic sources were abstract-only, this is a limited positive novelty judgment with named residual risks.",
+        "searches": [
+          "Freitas–Lancaster 1999 abstract damping matrix optimal spectral abscissa",
+          "Main–Krenk 2005 abstract discrete viscous damper tuning",
+          "Dolfo–Vigué 2018 full text",
+          "Arnold–Gendelman–Zharnitsky 2026 abstract",
+          "Resultary dimer phase diagram query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source translates thresholds θ=1/9 and 1/5 to m1/m2=1/8 and 1/4; this is one physical classification, not inconsistent formulas.",
+          "Eigenvalue multiplicity/exceptional-point literature uses different damping controls and possible fixed-ground stiffnesses."
+        ],
+        "reasoning": "Compare a free-translation neutral mode plus one grounded *velocity* dashpot with general SPD oscillator damping matrices, anelastic couplings, and forced/grounded topologies; matching critical damping vocabulary alone does not transfer their optima.",
+        "searches": [
+          "Resultary query: Two masses spring with one grounded viscous damper optimum spectral abscissa mass fraction critical 1/9 1/5 triple eigenvalue",
+          "Dolfo & Vigué DOI:10.1088/1361-6404/aa9ec6 full text",
+          "Freitas & Lancaster DOI:10.1137/S0895479897331850",
+          "Arnold, Gendelman, Zharnitsky arXiv:2608.08656"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Thresholds arise from discriminant (1-θ)(1-9θ)^3 and α(√θ)=√θ at θ=1/5, rather than retrieval of tabulated damping values.",
+          "Numerical sample grids neither establish continuum global uniqueness nor a previously known table."
+        ],
+        "reasoning": "An exact natural invariant (globally optimal decay exponent) of a one-dashpot physical model is not a standard lookup table; no directly matching table was found in accessible sources, with unindexed older dynamics tables an explicit risk.",
+        "searches": [
+          "Resultary exact dimer mass-fraction thresholds 1/9 1/5",
+          "Primary arXiv:2608.08656 abstract and arXiv:2609.25736 abstract",
+          "Independent exact symbolic cubic discriminant and root branch identities"
+        ]
+      },
+      "rationale": "Classical spectral abscissa minimization, defectivity and damping design are prior knowledge. Freitas–Lancaster 1999 study less constrained damping-matrix optimization, not one grounded dashpot of a translational dimer; Dolfo–Vigué 2018 full text treats anelastic damping/topology rather than the strictly viscous dashpot free dimer; Arnold–Gendelman–Zharnitsky 2026 abstract concerns more general two-degree-of-freedom damping matrix and multiple eigenvalues, not the exact θ=1/9,1/5 unique line of constrained global optima. Main–Krenk 2005 and Cox–Overton 1996 likely relevant but only metadata/abstracts available, so no full-text NOT_COVERING claimed and prior specialized solutions remain a material risk. Targeted Resultary and published searches did not locate both exact mass-fraction thresholds. Best-of-knowledge PASS for the constrained three-regime law and global uniqueness; not a priority certificate.",
+      "residual_risks": [
+        "Primary Freitas–Lancaster 1999, Main–Krenk 2005 and Cox–Overton 1996 full mathematical texts not retrieved; an exact rank-one damper corollary might be present.",
+        "Arnold–Gendelman–Zharnitsky 2026 arXiv:2608.08656 abstract is highly relevant but primary full text inaccessible via arXiv/OA and authorized institution reported disconnected VPN; unresolved stronger-coverage risk.",
+        "Spectral exponential rate at defective optima is a supremal asymptotic exponent; do not infer a finite-time C e^{-ωR*t} inequality with a time-independent C."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact constrained viscous free-dimer rate phase diagram: analyzes anelastic damping and a different oscillator setup.",
+          "evidence": [
+            "Authors explicitly use anelastic rather than velocity-proportional damping; their model has no identical one-dashpot free translation mode."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1361-6404/aa9ec6",
+          "material_read": "Entire accessible full-text manuscript, notably oscillator equations, damping law, §3 and conclusions",
+          "method": "Full text publicly available author copy via web",
+          "title": "Damping of coupled harmonic oscillators",
+          "trigger": "Same number of masses and damping terminology; plausible direct specialized predecessor"
+        },
+        {
+          "assessment": "General damping matrix optimization is different admissible control; full-text implications not excluded.",
+          "evidence": [
+            "Freitas–Lancaster SIAM J. Matrix Anal. Appl. 1999, damping matrix optimization and spectral abscissa."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895479897331850",
+          "material_read": "Primary journal abstract, bibliographic statement and accessible index text; full article not obtained",
+          "method": "Publisher and scholarly metadata/abstract via web",
+          "title": "On the Optimal Value of the Spectral Abscissa for a System of Linear Oscillators",
+          "trigger": "General spectral-abscissa optimization may dominate specialized mass/damper theorem"
+        },
+        {
+          "assessment": "Plausible specialized precedent, retained explicitly as priority risk; no NOT_COVERING conclusion for whole article.",
+          "evidence": [
+            "2005 paper on tuning discrete viscous damper arrangements and efficiency."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jsv.2004.09.022",
+          "material_read": "Original publisher abstract and metadata, not full mathematical article",
+          "method": "Scholarly publisher/OA discovery; full text unavailable",
+          "title": "Efficiency and tuning of viscous dampers on discrete systems",
+          "trigger": "Closest historical engineering tuning terminology for small discrete structures"
+        },
+        {
+          "assessment": "Abstract concerns general two-DOF critical damping and unrestricted matrices, not explicitly this single grounded dashpot; full-text coverage undetermined.",
+          "evidence": [
+            "arXiv:2608.08656 abstract; model and admissible damping controls differ in stated scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.08656",
+          "material_read": "arXiv abstract and bibliographic record only; full PDF/HTML unavailable after arXiv/OA trials and authorized institutional request unsuccessful",
+          "method": "arXiv/OA web and authorized library access attempt",
+          "title": "Critical damping in linear system with two degrees of freedom: surprises and pitfalls",
+          "trigger": "2026 exact two-degree-of-freedom multiple-eigenvalue optimizer, potentially strongest equivalent result"
+        },
+        {
+          "assessment": "Possible conceptual precedent on critical damping; full-text exact dimer absence is not claimed.",
+          "evidence": [
+            "Cox–Overton (1996) wave-operator damping, different named object."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036139994277403",
+          "material_read": "Primary citation and accessible abstract/metadata, not complete manuscript",
+          "method": "Publisher bibliographic discovery",
+          "title": "Perturbing the Critically Damped Wave Equation",
+          "trigger": "Historical critical-damping defective spectra and optimizer boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a physically natural free translating spring-linked dimer, a damper can attach to one body but not the center of mass; tuning this single grounded dashpot is a genuine constrained engineering/mathematical optimum distinct from arbitrary matrix damping. Exact sharp universal mass thresholds 1/9 and 1/5, triple/double exceptional-point transitions, and unique global decay optimizer give structurally meaningful information, including that an equal-real-part optimum need not be defective. No claim for transient energy envelope, general damping matrices, forced or nonlinear oscillators.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Unique optimal grounded viscous damping for a two-mass one-spring free dimer modulo translation, with sharp mass-fraction transitions 1/9 and 1/5 between double-root, equal-real-part, and slow-pair regimes.",
+  "limitations": [
+    "Only linear autonomous two-mass one-spring free system with one grounded velocity-proportional damper; all physical parameters strictly positive.",
+    "Unique optimum of nontranslation spectral abscissa, not energy overshoot, transient amplification or optimal unrestricted damping matrices.",
+    "Historical damping-design literature incompletely inspected; best-of-knowledge priority only."
+  ],
+  "schema_version": 1
+}
