@@ -1,11 +1,21 @@
-# Assessment of the two-connected Specht comparison obstruction
+# Independent mathematical audit
 
-**Correctness — PASS.** The Laplacian normalization is the unit-rate edge sum of identity minus transposition. The central transposition content eigenvalues and Littlewood–Richardson/Pieri branching reduce both minimum eigenvalues to a finite list of legal two-box removals, which the proof enumerates for all integers \(n\ge6\). Dominance, connectivity and limits follow algebraically. Exact finite-case and separately constructed seminormal-matrix checks support the proof; no finite experiment is asserted as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Alon's arXiv:2610.22151v1 Conjecture 1.5 posits a universal \(2/3\) bound; Theorem 4.5 gives sharpness using stars, and Theorem 4.4 treats quasi-complete graphs. These do not state or imply sharpness *after* excluding cut vertices. The full primary manuscript and Alon–Kozma's earlier interchange representation-order paper were compared, along with targeted mathematical research-record and literature searches. The precise 2-connected boundary was not found. The unresolved priority risk is a more general published complete-bipartite Specht spectrum table or graph-class theorem.
+PASS
 
-**Value — PASS.** The result tests a natural strengthening of the central conjecture motivated by the fact that its existing sharpness witnesses are stars. It proves the full 2-connected class cannot have any larger size-independent comparison constant, with exact formulas and a natural bipartite family. It does not assert the conjectural lower bound is proved.
+For n>=6 the crossing-transposition sum of K_{2,n-2} is C(S_n)-C(S_2)-C(S_{n-2}); on each S_2×S_{n-2} branch of Specht lambda it has scalar equal to sum of the removed two Young-diagram contents minus c(alpha), with alpha=(2) horizontal strip or (1,1) vertical strip. Optimizing two-box Pieri scores yields 2 for tau=(2,2,1^{n-4}), 6-n for sigma=(2^{n/2}) when n even and 7-n for sigma=(2^{(n-1)/2},1) when n odd. Consequently lambda_min(tau)=2n-6, lambda_min(sigma)=3n-10 even or 3n-11 odd, with ratio 2/3+positive O(1/n). Independently enumerated all valid two-box Pieri removals for n=6..30 and confirmed scores; no full group representation construction needed to reconstruct the general content proof. K_{2,n-2} remains connected after any one vertex deletion, hence is genuinely 2-vertex-connected. The result is an upper obstruction on any uniform constant, not proof of Alon lower conjecture.
 
-**Limitations.** Finite-ratio equality at \(2/3\) is not established within the 2-connected class; only asymptotic approach is proved. No 3-connected graph implication follows. Priority still needs independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alon proves conjectural comparison in selected graph classes and demonstrates 2/3 optimality via star graphs, which have cut vertices. The present witness family K_{2,n-2} stays two-vertex-connected while ratios approach 2/3, so the obstruction has strictly stronger graph-class scope than the star example. Exact K_{2,n-2} Specht minima may exist in older complete-bipartite interchange literature and remain the main risk.
+
+## value
+
+PASS
+
+A natural strengthening of a sharp spectral comparison conjecture is to impose 2-vertex-connectivity to remove star-type bottlenecks. This explicit infinite 2-connected bipartite family rules out such an improved size-independent constant, a motivated negative boundary theorem. It is not a proof of the conjectured bound itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
