@@ -1,15 +1,21 @@
-# Scientific review: pendant-book spectral-gap threshold
+# Independent mathematical audit
 
-## Correctness
-The argument supplies both sides of the unrestricted optimization: a concrete feasible Euclidean embedding gives an upper bound valid for arbitrary (including asymmetric) edge allocations, and a rational weighted-Laplacian construction attains that bound. The page-standard and axial eigenspaces have eigenvalue one. The final two eigenvalues are proven strictly above one using their sum and shifted product. The slack spine edge of the embedding then forces zero weight in all optima when there are at least five pages. Symbolic identities and finite assembled-matrix tests completed successfully.
+## correctness
 
-## Originality
-Sun–Boyd–Xiao–Diaconis (2006) gives the general continuous-time semidefinite formulation and several examples but not the evaluated pendant-book family or its five-page edge-deletion threshold. Berman–Förster (2005) addresses pendant-edge weight monotonicity and infinite limits rather than a joint total-budget design problem. Fiedler (1993) is close at the level of absolute algebraic connectivity, but accessible summaries emphasize trees; its complete text was unavailable. Published findings on the book graph's Löwner ellipsoid concern a different optimization/invariant and do not imply this graph's Laplacian design. The literature search is not an exhaustive mathematical novelty certificate; the Fiedler text is a residual source risk.
+PASS
 
-## Value
-The exact phase transition is a structural design rule, not just a small numerical gain: the ostensibly useful central edge is strictly positive in the exhibited small-book optima but becomes forbidden in every optimal large-book solution, despite no edge-specific price. The piecewise rational gap, explicit conductances and spectral certificate are independently usable in finite-dimensional network design and spectral mixing benchmarks.
+Scale weights to lambda2=1 and dualize via the geometric maximum-variance unfolding with unit distance constraints. A feasible symmetric m-page simplex embedding has hub distance s<=1 and centered variance V(s)=m+1+s^2-[((m+2)s/2)-1]^2/(m+3). Maximizing this concave quadratic yields s=1 for m=2,3,4 and s=2(m+2)/(m^2-8)<1 for m>=5, giving D_m. Explicit primal conductances x,a,b,c are nonnegative, have total D_m and yield an m-1 dimensional page-standard eigenvalue 1 and one additional axial eigenvalue 1. The quotient characteristic polynomial factors t(t-1) times a quadratic with its remaining eigenvalues strictly larger than 1, by positive shifted product and their sum >2. This matches the dual bound and proves the full optimal gap. For m>=5 the dual hub-spine edge is strictly slack (distance s<1), and complementary slackness forces x=0 in every optimizer, not merely the symmetric candidate. Independent SymPy exact quotient/weight identities and full Laplacian eigenvalues for m=2,3,4,5,6,10,20 corroborate the proof.
 
-## Scope and risks
-Only triangular books with at least two pages, a single leaf at one hub, and a uniform linear conductance budget are covered. No conclusion about all optimal weights beyond the spine is claimed. Full comparison against Fiedler's 1993 article was not possible; no external or independent scientific review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original contribution: A five-page spine-deletion threshold for fastest diffusion on pendant book graphs. Closest prior work and limits are compared by implication, not title; priority risk retained.
+
+## value
+
+PASS
+
+A uniform budgeted spectral-gap optimization on a natural graph family with redundant hub edge is structurally motivated. The exact all-size rational optimum, constructive optimal weights and mandatory deletion of an apparently useful central edge at precisely five pages form a nontrivial network-design phase transition with a tight spectral/Euclidean dual certificate, not an arbitrary tiny numeric improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
