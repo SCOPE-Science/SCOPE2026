@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Run `python verify_example.py` using a standard Python 3 interpreter. The script enumerates all chains in the two four-element posets, builds the simplicial boundary matrices over the rationals, and checks the face counts, first Betti numbers, and minimal-open difference. It also verifies the normalized formula for several values of \(N\).
+## correctness
 
-Expected output:
+PASS
 
-- `PASS: P has f-vector (4, 4, 0) and beta_1=1.`
-- `PASS: P+ has f-vector (4, 5, 2) and beta_1=0.`
-- `PASS: exactly one minimal open changes by one point.`
-- `PASS: normalized discrepancy equals 1/N^2 for N=4,5,10,100.`
+PASS. Inspected explicit posets P=K2,2 and P plus relation a<b, with N-4 isolated points, discrete stages for t<0 and indiscrete t>=2. Only U(b) adds a, causing exactly one normalized membership difference. Independent combinatorial order-complex face census confirms P has four 1-simplices and no triangles (S1), while P prime adds edge ab and triangles abc,abd (two glued triangles, contractible); exact rational boundary ranks give H1 1 versus 0. The persistence interval (0,2) matches diagonal at cost1, yielding ratio N² for every N.
 
-The integral homology is verified by the explicit descriptions: a four-cycle has integral first homology \(\mathbb Z\), and two triangles glued along a common edge form a disk. The persistence diagram follows exactly from the discrete, middle, and indiscrete stages. No numerical approximation or external data is used.
+## originality
 
-## Limits
+PASS
 
-The example establishes failure of a dimension-independent bound for the stated discrepancy over abstract finite-topology filtrations. It does not assess metric-generated subclasses or stronger hypotheses. Independent audit and independent validation remain unperformed.
+PASS best of knowledge, with material access risk. Kayacan arXiv:2512.23348 v4 publicly introduces the normalized per-minimal-open discrepancy and notes it is not an interleaving metric; this does not by itself establish a quantitative N-independent bottleneck obstruction. This construction gives an explicit all-N sharp lower-bound growth counterexample. The highly relevant v4 full PDF was too large for the web source and its HTML was inaccessible; authorized institutional download reported disconnected VPN, so its detailed Section 5.4 cannot be ruled out as prior coverage.
+
+## value
+
+PASS
+
+PASS. The negative theorem answers a well-motivated stability question for a newly proposed finite-topology discrepancy, showing a single poset comparability can kill a persistent one-cycle while the N^-2 normalized signal vanishes. The padded family tests exactly the normalization, not an arbitrary unrelated parameter slice; it separates practical dissimilarity from interleaving-stability claims, while not asserting failure for metric-generated subclasses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
