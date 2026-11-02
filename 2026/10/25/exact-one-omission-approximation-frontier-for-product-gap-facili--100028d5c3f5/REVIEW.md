@@ -1,12 +1,21 @@
-# Scientific review: one-omission product-gap frontier
+# Independent mathematical audit
 
-## Correctness
-PASS. Positive-gap sampling weights and omitted-agent costs yield an exact expectation identity. Pigeonhole plus the line metric gives the unrestricted optimum as the minimum adjacent gap. An adjacent pair containing the minimum gap supplies a strict universal upper bound, while the endpoint-short-gap construction converges to the claimed supremum. Every sampled omission has positive weight, proving the precise characterization of welfare-optimal gap patterns. `VERIFY.py` independently enumerates subsets with exact rational arithmetic. Boundary cases with repeated locations have zero optimum and are excluded from the ratio.
+## correctness
 
-## Originality
-PASS, subject to a specific priority risk. The mechanism is known from Jia (arXiv:2608.19633) under Product-Gap and Chan–Lin–Wang (arXiv:2608.22484) under Gap-Product; no novelty is claimed for it. Both give unrestricted \(2k\) bounds. The inspected Section 5 main theorem and proof of Chan–Lin–Wang do not state the sharp finite-population \(k-\tfrac12\) frontier, the exact one-omission expected-cost identity, or the welfare-optimality pattern classification; its displayed intermediate inequality yields only \(k\) in this regime. A full-text inspection of Jia's earlier preprint was not possible, though its accessible abstract and technical summaries report only the unrestricted \(2k\) bound. Accordingly the remaining risk is unindexed or uninspected equivalent specialization, not a proven priority date.
+PASS
 
-## Value
-PASS. The minimal-overcapacity case \(n=k+1\) is the first population where any facility can be omitted. Its exact bound quantifies the finite-population gap from the known unrestricted asymptotic ratio, for every facility count, and the independent-set condition on long gaps explains when randomization has no welfare cost despite nonuniform locations. For the strategyproof three-facility case it sharpens the general bound of six to a sharp \(5/2\) at four agents. The scope is finite-population welfare only and does not assert strategyproofness for four or more facilities.
+Omitting one of the k+1 agents yields exact weights P/g1 and P/gk for end omissions and P(1/g_j+1/g_{j+1}) for an interior omission, where P=product g_i, and realized omitted distances are g1, gk, or min(g_j,g_{j+1}). Sum weights 2P sum g_i^-1 and costs P[k+1+sum adjacent min/max]. At least two of k+1 agents share one of k arbitrary facility locations, so triangle inequality gives OPT>=minimum gap; placing one facility at each remaining report attains that bound. Every omitted agent has positive selection probability, so C=OPT iff every omission is cost-minimal. For an index with minimal gap m, any neighboring ratio u=m/g_neighbor>0 yields C/m<= (2k-1+u)/(2(1+u))<k-1/2. Family (1,T,...,T) tends to k-1/2. Independently enumerated every omission with exact Fraction arithmetic for k=2..5 and gaps in {1,2,3,4}^k (1360 profiles), reproducing the identities and boundaries. Coincident sites have OPT=0 and ratio undefined; not part of the ratio statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The product-gap selection rule itself and its unrestricted 2k approximation guarantee are known from Jia and Chan–Lin–Wang. The exact n=k+1 closed expectation, sharp k-1/2 frontier, and optimality iff gap pattern are not in accessible abstracts; prior papers’ full texts were inaccessible in this run and could conceal a specialization. A best-of-knowledge qualified PASS, with explicit remaining primary-literature risk.
+
+## value
+
+PASS
+
+Exactly k+1 agents is the smallest population with a nontrivial randomized omission, and the fixed-population welfare frontier materially refines the unrestricted 2k guarantee. The formula describes all profiles, sharp degeneration and exact equality structures; for k=3 it reduces the worst case from published global bound 6 to 5/2 for the four-agent subfamily. No claim for strategyproofness at k>=4 or larger n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

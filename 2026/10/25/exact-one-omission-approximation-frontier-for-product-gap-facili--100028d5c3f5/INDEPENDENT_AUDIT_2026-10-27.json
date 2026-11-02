@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:46:55.479493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5/VERIFY.py",
+        "independent audit script /mnt/data/audit_independent_checks.py (private, generated in current run)"
+      ],
+      "rationale": "Omitting one of the k+1 agents yields exact weights P/g1 and P/gk for end omissions and P(1/g_j+1/g_{j+1}) for an interior omission, where P=product g_i, and realized omitted distances are g1, gk, or min(g_j,g_{j+1}). Sum weights 2P sum g_i^-1 and costs P[k+1+sum adjacent min/max]. At least two of k+1 agents share one of k arbitrary facility locations, so triangle inequality gives OPT>=minimum gap; placing one facility at each remaining report attains that bound. Every omitted agent has positive selection probability, so C=OPT iff every omission is cost-minimal. For an index with minimal gap m, any neighboring ratio u=m/g_neighbor>0 yields C/m<= (2k-1+u)/(2(1+u))<k-1/2. Family (1,T,...,T) tends to k-1/2. Independently enumerated every omission with exact Fraction arithmetic for k=2..5 and gaps in {1,2,3,4}^k (1360 profiles), reproducing the identities and boundaries. Coincident sites have OPT=0 and ratio undefined; not part of the ratio statement.",
+      "residual_risks": [
+        "Finite independent enumerations/numerical examples only corroborate explicitly identified analytic or exhaustive-finite arguments; they do not prove unbounded statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both preprints state global worst-case 2k ratio across arbitrary populations; this does not by itself give k-1/2 when n=k+1.",
+          "Chan–Lin–Wang also study a different inverse-square selection rule in k=n-1 regime."
+        ],
+        "reasoning": "Broader bounds are weaker on the special size; full text inaccessible, so residual risk that a stronger intermediate lemma implies the exact frontier.",
+        "searches": [
+          "gap product probability facility location k facilities k plus one agents sharp approximation",
+          "arXiv:2608.19633",
+          "arXiv:2608.22484"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.19633",
+        "https://arxiv.org/abs/2608.22484",
+        "Resultary query: gap product probability facility location k facilities k plus one agents sharp approximation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A universal 2k guarantee alone permits ratios as large as 2k for n=k+1 and cannot imply k-1/2; the submitted boundary uses an adjacent-minimum-gap argument.",
+          "If existing original proofs have a sharper n-dependent intermediate inequality, the claim might be covered; this remains unverified."
+        ],
+        "reasoning": "No decisive dominating implication established from accessible scientific material; acceptance is qualified best knowledge, not certification.",
+        "searches": [
+          "gap product probability facility location k facilities k plus one agents sharp approximation",
+          "arXiv:2608.19633",
+          "arXiv:2608.22484"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jia uses Product-Gap, Chan–Lin–Wang calls same sampling rule Gap-Product; for k=2 also Global Pair/Pairwise-Distance.",
+          "Exact one-omission welfare numerator follows a product-gap weight identity."
+        ],
+        "reasoning": "Equivalent mechanism terminology clearly overlaps; originality is the sharp n=k+1 analysis, not the selection algorithm.",
+        "searches": [
+          "gap product probability facility location k facilities k plus one agents sharp approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No accessible exact n=k+1 approximation-ratio or welfare-optimality profile table found; explicit closed formula newly reconstructed from omitted-agent weights."
+        ],
+        "reasoning": "Novelty is not inferred from a failed search: both direct same-mechanism papers remain unread in full.",
+        "searches": [
+          "gap product probability facility location k facilities k plus one agents sharp approximation",
+          "arXiv:2608.22484",
+          "arXiv:2608.19633"
+        ]
+      },
+      "rationale": "The product-gap selection rule itself and its unrestricted 2k approximation guarantee are known from Jia and Chan–Lin–Wang. The exact n=k+1 closed expectation, sharp k-1/2 frontier, and optimality iff gap pattern are not in accessible abstracts; prior papers’ full texts were inaccessible in this run and could conceal a specialization. A best-of-knowledge qualified PASS, with explicit remaining primary-literature risk.",
+      "residual_risks": [
+        "Most relevant two original 2026 preprints were inaccessible in full: institutional VPN disconnected for Jia, download storage limit for Chan–Lin–Wang; direct Section 5 implication comparison is incomplete.",
+        "The k=2 alias Global Pair may have older exact three-agent bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mechanism and global 2k statement; cannot certify absence of sharp n=k+1 specialization from unread full text.",
+          "evidence": "Jia, 2026-08-20, arXiv:2608.19633",
+          "identifier_or_url": "https://arxiv.org/abs/2608.19633",
+          "material_read": "Accessible abstract/bibliographic result, plus primary citation in the submitted package; complete original body could not be retrieved via accessible arXiv/OA routes; authorized institutional retrieval returned vpn_disconnected (job 3c902e44822530cbb9ae14bbc1fc347f).",
+          "method": "abstract + source evidence; authorized full-text attempt failed, no bypass",
+          "title": "Product Gap Mechanisms for Multi-Facility Location",
+          "trigger": "same sampling mechanism and potentially same finite population analysis"
+        },
+        {
+          "assessment": "Global 2k bound and separate inverse-square method for k=n-1 case are known; no verified original-body absence claim.",
+          "evidence": "Chan–Lin–Wang, 2026-08-23, arXiv:2608.22484",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22484",
+          "material_read": "Accessible published abstract, submitted source’s Section-5 formula discussion; direct primary full text inaccessible and authorized retrieval returned storage-limit error.",
+          "method": "abstract plus source-package comparison; institution request failed",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "same rule under Gap-Product alias, could imply finite specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5/RESULT.md",
+        "https://arxiv.org/abs/2608.19633",
+        "https://arxiv.org/abs/2608.22484"
+      ],
+      "rationale": "Exactly k+1 agents is the smallest population with a nontrivial randomized omission, and the fixed-population welfare frontier materially refines the unrestricted 2k guarantee. The formula describes all profiles, sharp degeneration and exact equality structures; for k=3 it reduces the worst case from published global bound 6 to 5/2 for the four-agent subfamily. No claim for strategyproofness at k>=4 or larger n.",
+      "residual_risks": [
+        "Relevance is to the precisely stated natural invariant and family; no assertion of broader applications, robustness or generalization beyond this source claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exactly n=k+1 strictly ordered agents and k>=2 facilities sampled from reports with probability proportional to the product of successive selected gaps, C_k(g)=[k+1+sum_i min(g_i,g_{i+1})/max(g_i,g_{i+1})]/[2 sum_i 1/g_i], OPT_k=min_i g_i, 1<=C/OPT<k-1/2 with unattained sharp supremum k-1/2; equality C=OPT iff both endpoint gaps minimal and every consecutive pair contains a minimal gap.",
+  "limitations": [
+    "Most relevant two original 2026 preprints were inaccessible in full: institutional VPN disconnected for Jia, download storage limit for Chan–Lin–Wang; direct Section 5 implication comparison is incomplete.",
+    "The k=2 alias Global Pair may have older exact three-agent bounds.",
+    "Public-facing source METADATA.json contains an internal scope_run_id; coordinated safe metadata and audit provenance sanitization was not supplied as complete hash-guarded UTF-8 operations. Publication must remain withheld; no executable operation supplied."
+  ],
+  "schema_version": 1
+}
