@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification of the Hamiltonian-cycle closure formulas
 
-Execute `python verify.py` with a standard Python 3 installation. The program independently generates every undirected Hamiltonian cycle, computes premise closure by intersecting all cycles containing a premise, and compares this direct semantics with both the component-structure prediction and the separate one-round Horn-rule construction. It exhausts every subset of the edge sets of complete graphs with four, five, and six vertices, and checks 4,211 reproducibly selected inputs at order seven (including all proposed critical antecedents). It tests one-round indispensability of every critical antecedent at orders five and six, and the complete closed-set census through order six.
+# Independent mathematical audit
 
-Recorded execution:
-```
-EXHAUSTIVE n=4 subsets=64 hamilton_cycles=3 closed=8 direct_rules=6 PASS
-EXHAUSTIVE n=5 subsets=1024 hamilton_cycles=12 closed=69 direct_rules=75 PASS
-EXHAUSTIVE n=6 subsets=32768 hamilton_cycles=60 closed=647 direct_rules=377 PASS
-SAMPLED n=7 subsets=4211 hamilton_cycles=360 direct_rules=2212 PASS
-VERIFY_OK checked_inputs=38067 exact_closure=PASS closed_count=PASS one_round=PASS sharp_direct_premises=PASS
-```
+## correctness
 
-The case \(n=7\) is not exhausted, and no computation establishes an infinite theorem. The general proofs appear in `RESULT.md`. This check does not independently establish publication priority or mathematical significance. The checker does not depend on external services or data.
+PASS
+
+Every consistent S lies in a Hamiltonian cycle and is either a Hamiltonian cycle or a spanning path forest. Enumerating cyclic orders and path endpoint orientations proves all compulsory links: spanning path closure, singleton-plus-path closure, three components with two singletons; other forests force no edges. Any inconsistent S contains a 3-edge star or a proper cycle; direct rules on these and n-2-vertex path premises give closure in one round. At each listed critical premise an edge is not provided by closures of any proper subpremise, forcing a distinct rule in any direct basis. Summing counts gives b_n, and the labeled exponential formula gives the closed lattice count. Independent brute intersection tested every edge subset for n=4,5,6 (64+1024+32768); exact lattice counts 8,69,647 and critical premise counts 6,75,377 matched, with all n=4,5 one-round cases checked. No finite enumeration used as infinite proof.
+
+## originality
+
+PASS
+
+Generic hypergraph concept-lattice and direct-basis literature sets up the formal context, but does not classify edge intersections among all Hamiltonian cycles or give this exact factorial critical-premise count. The closure differs from graphic-matroid closure: a path on n-2 vertices can force the complementary edge even though neither complementary vertex lies in the original graph support. Relevant primary Section 2–4 material of Rawson et al. and Baixeries–Napoli inspected; no exact published all-n formula found.
+
+## value
+
+PASS
+
+A natural exponentially large incidence context formed by all Hamiltonian cycles has global nonmatroidal forced-edge closure. The exact closed lattice and sharp direct inference complexity for all n reveal structural and algorithmic behavior, including a proper distinction between simultaneous one-round and iterative bases. The result is not merely textbook extendibility or finite output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

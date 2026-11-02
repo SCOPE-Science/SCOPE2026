@@ -1,15 +1,21 @@
-# Scientific review: Hamiltonian-cycle incidence closure
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every consistent premise is a subgraph of a Hamiltonian cycle, hence a path forest or a complete Hamiltonian cycle. The cyclic-order and endpoint-orientation argument determines every forced edge, with the two-component singleton and three-component double-singleton boundaries handled explicitly. The proposed Horn system is direct; its optimal one-round cardinality follows from compulsory antecedents that possess consequences unobtainable from all smaller antecedents. Labeled path-component counting yields the exact lattice count. Independent enumeration of actual Hamiltonian-cycle extensions matches the formulas for all edge subsets in orders four through six, with additional order-seven tests. The proof, not the finite samples, supports all integer orders.
+## correctness
 
-## Originality
-**PASS, qualified.** Rawson et al. (arXiv:2307.11681, sections 2–4) describe general hypergraph concept lattices through intersection closures, not the edge-intersection system of all Hamiltonian cycles of a complete graph. Adaricheva–Nation–Rand (arXiv:1110.5805, sections 2–3) and Baixeries–Napoli (arXiv:2404.12229, sections 2–4) develop direct bases of abstract closure systems and comparisons with other bases; neither inspected treatment supplies the specific block-closure classification or closed counts and compulsory direct-premise formula. Ordinary graphic-matroid closure behaves differently: a proper path can already force an edge between vertices wholly outside its support in the present context, whereas it cannot in the graphic matroid. A semantically close record on longest cycles in complete multipartite graphs concerns a different, non-Hamiltonian parameter regime and cannot imply the displayed complete-graph basis formula. No exact theorem/table was located under the searched aliases. Unindexed work on Hamiltonian-tour forced-edge propagation could overlap, so publication priority is not independently established.
+PASS
 
-## Mathematical value
-**PASS.** The family of all Hamiltonian cycles is a fundamental, exponentially large relation giving a natural, nontrivial formal context. Its exact closure classes capture global forced-edge phenomena not visible in graphic-matroid closure. The sharp factorial-size optimal one-round implication basis and exact labeled forest enumeration distinguish explicit logical inference complexity from mere Hamiltonian extendibility; the result is an all-parameter structural description, not a small computed instance or a nominal change of variables.
+Every consistent S lies in a Hamiltonian cycle and is either a Hamiltonian cycle or a spanning path forest. Enumerating cyclic orders and path endpoint orientations proves all compulsory links: spanning path closure, singleton-plus-path closure, three components with two singletons; other forests force no edges. Any inconsistent S contains a 3-edge star or a proper cycle; direct rules on these and n-2-vertex path premises give closure in one round. At each listed critical premise an edge is not provided by closures of any proper subpremise, forcing a distinct rule in any direct basis. Summing counts gives b_n, and the labeled exponential formula gives the closed lattice count. Independent brute intersection tested every edge subset for n=4,5,6 (64+1024+32768); exact lattice counts 8,69,647 and critical premise counts 6,75,377 matched, with all n=4,5 one-round cases checked. No finite enumeration used as infinite proof.
 
-## Limitations
-Optimality is only for the number of aggregated rules in simultaneous one-round systems. Iterative-basis optimality and minimization of consequent size are not addressed. Literature inspection was targeted rather than an exhaustive priority certification, and no external scientific audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic hypergraph concept-lattice and direct-basis literature sets up the formal context, but does not classify edge intersections among all Hamiltonian cycles or give this exact factorial critical-premise count. The closure differs from graphic-matroid closure: a path on n-2 vertices can force the complementary edge even though neither complementary vertex lies in the original graph support. Relevant primary Section 2–4 material of Rawson et al. and Baixeries–Napoli inspected; no exact published all-n formula found.
+
+## value
+
+PASS
+
+A natural exponentially large incidence context formed by all Hamiltonian cycles has global nonmatroidal forced-edge closure. The exact closed lattice and sharp direct inference complexity for all n reveal structural and algorithmic behavior, including a proper distinction between simultaneous one-round and iterative bases. The result is not merely textbook extendibility or finite output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
