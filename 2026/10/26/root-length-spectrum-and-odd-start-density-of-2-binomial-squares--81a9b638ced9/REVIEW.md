@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Binary \(2\)-binomial equivalence is exactly equality of one-count and positional first moment. The complementary-pair desubstitution separates even and odd root lengths. For an odd root, the exact moment equations force a long constant run in the source, impossible beyond root three. The witnesses for every even root follow from an exact binary digit-sum identity; the density follows from standard primitive-substitution factor frequencies and explicitly solved pair-frequency equations. The independently implemented finite verifier agrees with the proof in every checked range. Critical limitations: finite checks alone do not prove the all-length statements; the symbolic arguments do.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The 2013 Rigo–Salimov preprint treats binomial equivalence, factor-class complexity, and square avoidability but not which root lengths give consecutive equivalent factors in the binary Thue–Morse word. Rao–Rigo–Salimov (2015) solve ternary avoidance and mention a Thue–Morse binomial cube, not this spectrum. Fici–Mignosi–Shallit (2017) concern abelian squares (a coarser relation); Lejeune–Leroy–Rigo (2018/2020) count equivalence classes of single factors rather than adjacent compatible factors. The closest mathematical-record hits concern adjacent **contiguous** pair multispectra, which cannot imply equal **scattered** two-binomial signatures. Accessible prior records contain ordinary square counts in finite Thue–Morse blocks, not the arbitrary-length \(2\)-binomial spectrum. No searched source directly covers this exact theorem. Historical catalogues and unpublished results remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-An established repetition notion is studied in a canonical automatic word. Unlike ordinary Thue–Morse squares, whose root lengths are sparse, the stronger-than-abelian but weaker-than-literal \(2\)-binomial relation admits *every even root length* and only two odd lengths. The exact odd-location criterion and density quantify the sharp rigidity boundary. This is a natural complete classification, not an arbitrary finite slice. No claim is made about counts at every even length or other words.
+For equal-length binary factors, all scattered subsequence counts of length≤2 are determined by number K of ones and first weighted moment M=Σj w_j. For odd m=2h+1 an even start has odd total one-count, preventing equal halves; at odd i=2a+1, exact K and M equations force source factor 0^(h+1)1^(h+1) or complement, and the Thue–Morse fixed point has no 000/111, so h≤1. Explicit literal squares witness m=1,3. For even m=2h, substitution images of length-h source factors have equal 2-binomial signature precisely when source counts match; h even works at 0, h odd works at a=2(2^k−h)+1 using popcount(2^k−h)=k−popcount(h−1), with chosen parity k. Primitive substitution pair/triple factor-frequency equations give frequency 1/12 for the two m=3 source patterns and the odd-index factor. Independently tested exact compact signatures, all even roots 2..512, no odd roots 5..65 in the first 32768 letters, and 6000 odd start positions, observing 2730/32763 ≈1/12. The all-length result rests on the symbolic proof, not bounded sampling.
 
-## Principal sources and limits
-Rigo–Salimov (2013), Rao–Rigo–Salimov (2015), Fici–Mignosi–Shallit (2017), and Lejeune–Leroy–Rigo (2018/2020), identified and compared in `RESULT.md`; novelty is best-knowledge, not certified historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established k-binomial-complexity literature concerns scattered subsequence classes, and abelian-square literature concerns a coarser repetition notion; neither inspected full result resolves consecutive factor equality and the precise even/odd spectrum. The claim makes a genuine new adjacency/position classification.
+
+## value
+
+PASS
+
+Determining which 2-binomial repetition lengths actually occur in a canonical automatic word is a natural complete combinatorics-on-words classification, distinct from class complexity and ordinary/abelian squares. The sharp parity split, constructive all-even witnesses, and exact odd-root location density provide structural information reusable in binomial-repetition research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

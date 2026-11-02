@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:45:36.286863Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal-length binary factors, all scattered subsequence counts of length≤2 are determined by number K of ones and first weighted moment M=Σj w_j. For odd m=2h+1 an even start has odd total one-count, preventing equal halves; at odd i=2a+1, exact K and M equations force source factor 0^(h+1)1^(h+1) or complement, and the Thue–Morse fixed point has no 000/111, so h≤1. Explicit literal squares witness m=1,3. For even m=2h, substitution images of length-h source factors have equal 2-binomial signature precisely when source counts match; h even works at 0, h odd works at a=2(2^k−h)+1 using popcount(2^k−h)=k−popcount(h−1), with chosen parity k. Primitive substitution pair/triple factor-frequency equations give frequency 1/12 for the two m=3 source patterns and the odd-index factor. Independently tested exact compact signatures, all even roots 2..512, no odd roots 5..65 in the first 32768 letters, and 6000 odd start positions, observing 2730/32763 ≈1/12. The all-length result rests on the symbolic proof, not bounded sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abelian-square-richness in Thue–Morse is for equal letter counts only, a weaker equivalence. Rigo–Salimov/Rao–Rigo–Salimov explore k-binomial equivalence and avoiding 2-binomial squares/cubes in different contexts."
+        ],
+        "reasoning": "Existence of abelian squares and class-count formulas do not entail that all even but no odd ≥5 root lengths admit scattered-subsequence equality. A theorem for a ternary avoiding word is not a covering binary Thue–Morse classification.",
+        "searches": [
+          "Resultary semantic: Thue Morse word 2 binomial squares possible root lengths odd starting positions frequency",
+          "Rigo–Salimov 2013 https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+          "Rao–Rigo–Salimov 2015 https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+          "Fici–Mignosi–Shallit 2017 arXiv:1701.00948",
+          "Lejeune–Leroy–Rigo arXiv:1812.07330 (2018/2020)",
+          "Resultary: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+        ]
+      },
+      "checked_sources": [
+        "https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+        "https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+        "https://orbi.uliege.be/bitstream/2268/234006/1/binomial-TM-lastVersion.pdf",
+        "https://arxiv.org/abs/1701.00948",
+        "Rigo–Salimov 2013 https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+        "Rao–Rigo–Salimov 2015 https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+        "Fici–Mignosi–Shallit 2017 arXiv:1701.00948",
+        "Lejeune–Leroy–Rigo arXiv:1812.07330 (2018/2020)",
+        "Resultary: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lejeune–Leroy–Rigo Theorem 34 gives counts of distinct 2-binomial-equivalence classes of Thue–Morse length-n factors; Rigo–Salimov supply the general equivalence notions."
+        ],
+        "reasoning": "The length spectrum requires new alignment constraints and a prohibition of long constant source runs. The source literature results do not immediately imply consecutive equality or density among starting positions.",
+        "searches": [
+          "Resultary semantic: Thue Morse word 2 binomial squares possible root lengths odd starting positions frequency",
+          "Rigo–Salimov 2013 https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+          "Rao–Rigo–Salimov 2015 https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+          "Fici–Mignosi–Shallit 2017 arXiv:1701.00948",
+          "Lejeune–Leroy–Rigo arXiv:1812.07330 (2018/2020)",
+          "Resultary: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary 2-binomial equivalence of equal-length factors is equality of the one-count and weighted positional moment, whereas literature counts binomial classes of individual Thue–Morse factors."
+        ],
+        "reasoning": "Equivalence-class complexity is not equivalent to a square/repetition classification: one must require two *consecutive* length-m factors to lie in the same class, including exact starting position and frequency.",
+        "searches": [
+          "Resultary semantic: Thue Morse word 2 binomial squares possible root lengths odd starting positions frequency",
+          "Rigo–Salimov 2013 https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+          "Rao–Rigo–Salimov 2015 https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+          "Fici–Mignosi–Shallit 2017 arXiv:1701.00948",
+          "Lejeune–Leroy–Rigo arXiv:1812.07330 (2018/2020)",
+          "Resultary: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published finite class-count tables, string-attractor and binary contiguous pair-multispectrum records concern different statistics; no inspected exact table lists the all-length m root spectrum and m=3 density 1/12."
+        ],
+        "reasoning": "The equivalence to equality of first moments is tested explicitly; contiguous bigram spectra are different from scattered subsequence counts and cannot be substituted. A finite ordinary square table would not imply every-even-length existence.",
+        "searches": [
+          "Resultary semantic: Thue Morse word 2 binomial squares possible root lengths odd starting positions frequency",
+          "Rigo–Salimov 2013 https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+          "Rao–Rigo–Salimov 2015 https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+          "Fici–Mignosi–Shallit 2017 arXiv:1701.00948",
+          "Lejeune–Leroy–Rigo arXiv:1812.07330 (2018/2020)",
+          "Resultary: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+        ]
+      },
+      "rationale": "The established k-binomial-complexity literature concerns scattered subsequence classes, and abelian-square literature concerns a coarser repetition notion; neither inspected full result resolves consecutive factor equality and the precise even/odd spectrum. The claim makes a genuine new adjacency/position classification.",
+      "residual_risks": [
+        "The theorem does not enumerate occurrences at every even root length and concerns only binary Thue–Morse, not general automatic words.",
+        "Unindexed earlier binomial-square root-length calculations or database entries could contain part of this spectrum; no exhaustive priority certificate.",
+        "Finite searches for missing odd roots are corroborations only; the no-000/111 desubstitution argument is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines binomial equivalence and class counts but not a full binary Thue–Morse consecutive 2-binomial-square root-length spectrum.",
+          "evidence": [
+            "Definitions and Thue–Morse complexity examine individual factors, not adjacent matching pairs of all lengths."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+          "material_read": "Full 24-page author PDF inspected; definitions, Thue–Morse factor complexity and discussion of square avoidance in relevant sections; page screenshots inspected.",
+          "method": "Full primary PDF and screenshot",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "First binomial equivalence definition and Thue–Morse complexity comparison"
+        },
+        {
+          "assessment": "Avoidance constructions and one cube example do not give the present root-length/density theorem for the full binary Thue–Morse infinite word.",
+          "evidence": [
+            "The Thue–Morse example concerns a 2-binomial cube of a short prefix; other main results construct ternary avoiders."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+          "material_read": "Full primary PDF material on ternary square avoidance and binary Thue–Morse cube example read, screenshots inspected.",
+          "method": "Full PDF and screenshot",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "Exact 2-binomial-square avoidance paper, potential stronger coverage"
+        },
+        {
+          "assessment": "Theorem 34 counts factor classes, not consecutive pairs nor their exact permissible root lengths; no established implication found.",
+          "evidence": [
+            "Theorem 34 gives class-count cases 9 for lengths divisible by 4, 8 otherwise, distinct from square incidence."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/234006/1/binomial-TM-lastVersion.pdf",
+          "material_read": "Full primary PDF inspected around definitions and Theorem 34 on equivalence-class counts of factors, with page screenshot.",
+          "method": "Full-text PDF and screenshot",
+          "title": "Computing the k-binomial complexity of the Thue–Morse word",
+          "trigger": "Same word and same 2-binomial equivalence"
+        },
+        {
+          "assessment": "Abelian equivalence uses only Parikh vectors and is strictly weaker than 2-binomial; abelian-square existence cannot imply 2-binomial-square spectrum.",
+          "evidence": [
+            "Thue–Morse abelian-square-richness supplies motivation but not first-moment equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.00948",
+          "material_read": "Full published author PDF read including Thue–Morse abelian-square-rich discussion and relevant source sections, screenshot inspected.",
+          "method": "Full primary PDF and screenshot",
+          "title": "Abelian-Square-Rich Words",
+          "trigger": "Possible stronger statement for square abundance in Thue–Morse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining which 2-binomial repetition lengths actually occur in a canonical automatic word is a natural complete combinatorics-on-words classification, distinct from class complexity and ordinary/abelian squares. The sharp parity split, constructive all-even witnesses, and exact odd-root location density provide structural information reusable in binomial-repetition research.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the one-sided Thue–Morse word, 2-binomial square root lengths are exactly all positive even m plus m=1,3; m=3 starts exactly at odd i=2a+1 with source t[a:a+4]∈{0011,1100}, with natural density 1/12. Every odd-root example is a literal square.",
+  "limitations": [
+    "The theorem does not enumerate occurrences at every even root length and concerns only binary Thue–Morse, not general automatic words.",
+    "Unindexed earlier binomial-square root-length calculations or database entries could contain part of this spectrum; no exhaustive priority certificate.",
+    "Finite searches for missing odd roots are corroborations only; the no-000/111 desubstitution argument is essential."
+  ],
+  "schema_version": 1
+}
