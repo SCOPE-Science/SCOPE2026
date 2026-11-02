@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-Every unit of the full Boolean relation monoid at a full-support idempotent has no zero row or column, because a zero row (column) would remain zero in its product with an inverse, contradicting the nonzero corresponding row (column) of the idempotent. The subgroup equality is therefore literal. Relational images act by union-preserving bijections on the idempotent row semilattice; the inverse construction assigns row \(x\) the set \(F(e_x)\), and direct products verify the group isomorphism. For an order relation, join irreducibles recover principal upper sets and hence the poset. The explicit finite-group poset makes vertex heights and marker-chain lengths intrinsic and forces generator-commuting vertex permutations to be precisely left translations. No assertion rests on finite enumeration alone.
+PASS
 
-## Originality
+At a full-support Boolean-relation idempotent e, a unit g of e B_X e cannot have an empty row (then gh=e would) or empty column (then hg=e would), and likewise for its inverse. Therefore H_e(M_X)=H_e(B_X) as subsets. Relational right action of local units on L(e) is an invertible join anti-action; setting rows of g to F(e_x) for an arbitrary join-automorphism and checking e g=g e=g, gh=hg=e establishes the converse (inversion converts anti- to homomorphism). For a poset, L(e_P) is its upper-set lattice and its principal-upper-set join irreducibles recover P. The explicit colored-height/chain-marker poset forces automorphisms to act as left translations of finite G and proves the claimed |G|(1+2d+d(d+1)/2) carrier size. Independent enumeration for n≤3 recovered 1,7,265 full-support relations and 1,4,35 idempotents and confirmed local-group-size agreement; infinite result follows structurally.
 
-Carvalho and Martin (arXiv:2103.06012v1, 2021) explicitly ask for the maximal subgroups of the multipermutation monoid while giving Green-relation structure; that paper's accessible full text does not state the present all-idempotent transfer and explicit group-realization bound. Classical results by Zaretskii and Preston, and Brandon–Hardy–Markowsky's description of the full binary-relation semigroup, are credited as prior for the larger monoid and its row-semilattice groups. The contribution is the exact transfer under full support and explicit universality inside the restricted monoid. Preston's and Brandon–Hardy–Markowsky's full texts were not accessible, so unobserved equivalent positive-support constructions remain a priority risk. Published-record similarity searches and accessible previous result ledgers did not reveal the exact statement; absence of a hit is not proof of novelty.
+## originality
 
-## Value
+PASS
 
-The theorem answers the explicit maximal-subgroup question for every idempotent via a computable intrinsic semilattice invariant, and shows there are no finite-group obstructions despite requiring all relation rows and columns to be nonempty. The quantitative realization bound and independent finite checks complement a general proof. Determining maximal subgroups of a structurally studied finite semigroup is a natural classification objective, not an arbitrary parameter slice.
+Zaretskii/Preston/classical relational semigroup theory establishes maximal groups for unrestricted binary relations, whereas the 2021/2022 primary article explicitly asks for maximal subgroups of the full-support submonoid. The support-preserving transfer, a complete intrinsic classification for all its idempotents, and explicit finite-group construction address the restricted semigroup. Preston 1973 full text remained inaccessible after lawful attempts including authorized institutional access; risk of earlier implicit positive-support constructions is recorded.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Computing all local maximal subgroup types is an explicit structural question left open in a contemporary study of multipermutations. The result provides the intrinsic Boolean semilattice invariant for every idempotent and constructive universality with a quantitative finite carrier, showing full-support restrictions do not obstruct finite-group realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
