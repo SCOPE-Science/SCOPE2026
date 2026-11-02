@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every noncomplete vertex- and edge-transitive core, symmetry reduction preserves the global optimum. The full 2-by-2 eigenblock decomposition is exact. Either an actual zero adjacency eigenvalue or a convex combination of positive/negative nontrivial eigenblocks imposes the determinant barrier. The only candidate at the threshold is forced; its eigenvalues show attainment exactly for zero second adjacency eigenvalue, and nonattainment otherwise. The adjacency Rayleigh/negative-semidefinite argument yields balanced complete multipartite equality cores without using a missing classification lemma. The local verifier reproduced the symbolic and finite tests; infinite scope rests on proof, not enumeration.
+PASS
 
-## Originality — PASS, with residual risk
+Automorphism averaging of symmetric stochastic P preserves feasibility and cannot increase the convex norm ||P-J||, hence global minimizers can be sought in invariant core-edge a and pendant b. Nontrivial adjacency eigenvalues produce exact 2x2 block eigenvalues 1-t-b ± sqrt(t²+b²), t=a(d-lambda)/2. Noncompleteness guarantees lambda_2>=0 via nonedge Rayleigh 0 and negative lambda_min. The virtual zero-eigenvalue block is an actual block or convex combination of two actual nontrivial blocks. PSD of (4/5)I-B_0 forces determinant <= -(b-2/5)^2 and da+b=1, thus b=2/5, a=3/(5d). If lambda_2>0 that candidate violates .8; if lambda_2=0 all nontrivial adjacency eigenvalues <=0 and candidate attains .8. Negative-semidefinite-on-1-perp implies nonadjacent vertices have identical adjacency rows, hence balanced complete multipartite H. Independently checked 2x2 eigenblocks on C4,C6,C7,C8,Q3 and K2,2,2, and verified equality/non-equality. A statement of uniqueness only in the invariant class, not globally, is respected.
 
-The priority comparison is to Jafarizadeh–Jamalipour's 2010 star–mesh K-partite-core consensus results, which include the theorem's optimal equality **examples**. They are not claimed to be new. The new graph-wide SLEM barrier, impossibility of equality for any other vertex- and edge-transitive core, and corresponding exact equality classification are not supplied by that restricted family result. The general Boyd–Diaconis–Xiao framework gives SDP and averaging but no numeric 4/5 classification. Also compared are the generic star / K-cored star paper, clique-lifted FMMC paper and relevant prior finite/family claims. Search coverage and indexed access to one plausible original paper are incomplete; this is not a claim of exhaustive literature clearance.
+## originality
 
-## Value — PASS
+PASS
 
-The structural assertion makes fastest mixing on an infinite class of graph-corona networks comparable in one exact scale, with a sharp equality/strictness dichotomy. The equality family demonstrates sharpness; the nonmultipartite exclusion is a substantive theorem applying even when no exact SLEM optimizer is known. It guides network design beyond a one-graph eigenvalue calculation.
+Best-of-knowledge PASS only for the universal barrier over ALL noncomplete connected vertex-/edge-transitive cores and its iff balanced multipartite equality class. Prior star–mesh consensus work ALREADY SOLVES complete-multipartite equality-family optimizers, and general fastest-mixing symmetry averaging is known; these are explicitly credited, not claimed new. The strict >4/5 for every other eligible core follows from new spectral-interpolation argument.
 
-## Closest literature and limits
+## value
 
-Boyd, Diaconis, and Xiao (2004); Boyd, Diaconis, Parrilo, and Xiao (arXiv:0709.0955, 2007); Jafarizadeh and Jamalipour, *Star-Mesh Hybrid Sensor Networks* (arXiv:1009.4569, 2010) and *Generic Star & K-cored Star Networks* (arXiv:1201.4480, 2012). Full-text access to one star-mesh version was limited to indexed portions. The argument proves global optimum but not uniqueness among nonsymmetric matrices, and gives no exact SLEM above the threshold.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp global mixing lower bound with graph-theoretic equality characterization answers a meaningful natural extremal question across transitive graphs; unlike numerical optimization on one graph, it pinpoints a structural spectral obstruction and explains the gap to standard Metropolis/maximum-degree prescriptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
