@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The valuation identity follows from the fixed point, forbids four consecutive zeros, and makes all length-ten factors representative in the finite 42-digit prefix via one exceptional multiple of 16. The full 16-input/output table has distinct outputs, with every shorter factor a prefix of a length-ten factor. The prefix-inheritance lemma carries n=10 injectivity to every n>=10; exact n<=9 terms and unique collision at n=9 were exhaustively checked by a standalone program. The standard factor p(n) recurrence is cited, not newly asserted without source.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Campbell–Rampersad Theorem 1 states a bounded (not zero) deficit for linearly complex bounded-gap binary words.",
+        "Campbell–Rampersad Theorems 2/3 prove eventual injectivity for paperfolding, not period-doubling."
+      ],
+      "reasoning": "The general bounded-deficit theorem does not imply eventual injectivity. The analogous paperfolding theorem has a different underlying factor language and cannot imply this precise period-doubling cylinder check.",
+      "searches": [
+        "arxiv:2604.25811 v2 Theorem 1 bounded deficit under bounded gaps",
+        "Defant Kravitz tortoise operator period doubling word n>=10 k-tortoise"
+      ]
+    },
+    "checked_sources": [
+      "Campbell and Rampersad arXiv:2604.25811 (first public Apr 28, 2026; full HTML)",
+      "Defant and Kravitz 2020 Stack-sorting for words (definition material)",
+      "OEIS A275202 (factor complexity known, full entry)",
+      "Exact greedy string attractor of the period-doubling word (published mathematical-record summary; different invariant)",
+      "Exact component and fibre-rank law for the three-block period-doubling lift (published mathematical-record summary; different invariant)",
+      "Published source-paper full text and related public mathematical abstracts compared for stronger and equivalent coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 gives p(n)-C<=rho_t(n)<=p(n); this admits a positive deficit at infinitely many n.",
+        "Theorems 2/3 concern paperfolding and Theorems 4–6 concern Thue–Morse."
+      ],
+      "reasoning": "The new result proves C=0 for PD above the sharp n=10 and provides nine initial exact terms using a word-specific mod-16 certificate; no located theorem implies those exact conclusions.",
+      "searches": [
+        "arxiv:2604.25811 v2 §§3–6 Theorems 1–6",
+        "period-doubling word tortoise one-step factor complexity injectivity length 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campbell–Rampersad arXiv:2604.25811 §§3–6: equivalence by one binary tortoise image defined, examples on paperfolding/Thue–Morse.",
+        "No exact period-doubling tortoise counterpart identified among the searched published mathematical records and web comparisons."
+      ],
+      "reasoning": "Equivalent claims would say distinct period-doubling n-factors have unequal one-step binary tortoise images for n>=10, or have zero defect for those n; searches compared these formulations, not only titles.",
+      "searches": [
+        "period-doubling word tortoise one-step factor complexity injectivity length 10",
+        "\"period doubling\" \"tortoise complexity\"",
+        "\"period-doubling\" \"tortoise\" \"stack-sorting\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A275202 gives the ordinary factor complexity p(n), including p(2j)=2p(j) and p(2j-1)=p(j-1)+p(j), without one-step tortoise image counts.",
+        "No directly matching exact one-step tortoise table identified in the searched published mathematical records."
+      ],
+      "reasoning": "Ordinary factor counts are explicitly prior, while the full image-class profile and first injectivity cutoff are the distinct claim. No novelty is attributed to A275202.",
+      "searches": [
+        "oeis:A275202 period doubling subword complexity",
+        "period doubling stack sorting equivalence 2026"
+      ]
+    },
+    "rationale": "The primary April 2026 paper fully read treats paperfolding and Thue-Morse, not the period-doubling fixed point; its generic bounded-deficit theorem cannot yield the sharp all-length injectivity result. The exact known ordinary factor counts and the operator itself are credited to prior work. Checked published records and own claims concern distinct objects or invariants. Residual risk of an unindexed duplicate remains.",
+    "residual_risks": [
+      "An unindexed earlier calculation of period-doubling tortoise complexity could exist.",
+      "The transfer of general earlier tortoise methods is closely analogous, although their published conclusions do not cover this exact fixed point and sharp threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The only period-doubling reference is to periodic complexity; direct tortoise evaluations are for paperfolding and Thue–Morse.",
+        "evidence": [
+          "Section 3 Lemma 1 and Theorem 1; Section 5 Theorems 2/3; Section 6 Theorems 4–6; Section 2.2 period-doubling mention."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.25811v2",
+        "material_read": "Definitions, Lemma 1, Theorem 1, Sections 5 and 6, theorem statements/proofs and references",
+        "method": "Accessible full-text HTML inspected by sections and searched for period-doubling mentions",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Original recent introduction of tortoise factor complexity and potential stronger overlap"
+      },
+      {
+        "assessment": "Supplies ordinary factor recurrence but does not evaluate tortoise image equivalence classes.",
+        "evidence": [
+          "A275202 formula and proof: a(2n)=2a(n), a(2n-1)=a(n-1)+a(n)."
+        ],
+        "identifier_or_url": "https://oeis.org/A275202",
+        "material_read": "Sequence definition, formula, proof, examples and references",
+        "method": "Read the accessible complete OEIS entry",
+        "title": "Subword complexity of the period doubling sequence",
+        "trigger": "Pre-existing exact ordinary period-doubling factor counts"
+      },
+      {
+        "assessment": "Foundational map reference, not a source asserting the period-doubling factor complexity identity.",
+        "evidence": [
+          "Defant–Kravitz (2020), Austral. J. Combin. 77, 51–68."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf",
+        "material_read": "Definition and examples of tortoise/hare operations, including visible PDF pages; not a comprehensive word-family census",
+        "method": "Read accessible PDF text and inspected an original page rendering",
+        "title": "Stack-sorting for words",
+        "trigger": "Foundational sorting definitions and possible prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24aa7024-dc27-4a17-ac70-72a513afbae4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This settles all lengths for a natural third canonical automatic sequence under an emerging stack-sorting complexity invariant, with a sharp transition and a transferable finite-to-infinite prefix lemma. The n>=10 zero deficit is not a textbook consequence of the source bounded-deficit theorem; it requires a word-specific exact 16-factor cylinder verification. The work is a motivated complete classification, not a general theorem about all automatic words.",
+    "status": "PASS"
+  }
+}
