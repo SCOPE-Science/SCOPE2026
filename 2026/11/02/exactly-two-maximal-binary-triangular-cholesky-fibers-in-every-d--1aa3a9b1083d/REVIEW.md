@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The statement quantifies over all symmetric targets and all dimensions \(n\ge1\). The proof first writes a triangular Gram matrix as the sum of independent nested-row rank-one forms and therefore factors each exact additive Fourier coefficient into suffix quadratic Gauss sums. The nonstandard step is justified explicitly: the squared Walsh sum of a Boolean quadratic is \(2^m\) times a radical character sum, giving flat nonzero Walsh magnitudes. The first nonzero suffix Gauss sum is positive and every earlier nonzero sum stays positive; hence every full Fourier coefficient is nonnegative. Explicit off-diagonal and diagonal-plus-off-diagonal quadratic characters span the entire hyperplane excluding the final diagonal dual coordinate, proving that the global maximum is tied **only** by \(0\) and \(E_{nn}\). The last diagonal toggle directly proves the exact paired-fiber symmetry. No finite enumeration is promoted into an infinite proof. Two standard-library exact checkers enumerate all matrices and targets through \(n=5\), calculate independently via Walsh products or a source recurrence, and reproduce the expected equality cases. Their observed outputs are included verbatim.
+
+## Originality — PASS, with explicit priority risk
+
+The motivating September 2026 article by Wu and Zhou provides a fixed-target recursive algorithm, special regular fibers, and the zero-fiber rank distribution, not the all-target maximum theorem or positivity/support-span description. The December 2025 paper of Cooper and Whitlatch provides zero-fiber counts and leading-principal-nonsingular special cases. A 2021 zero-fiber paper is a more distant antecedent. Exact-target table or numerical recurrence values are not claimed as new. The result here gives a **uniform theorem with sharp equality cases** and a structural harmonic-analysis mechanism, not another finite evaluation of the recursion. Actual public research-record queries for the object, aliases, Fourier formulation and maximal-fiber statement did not return an equivalent published claim; a related finite-field rank-one Fourier-cone study concerns another operator/invariant and does not dominate this result. The repository search is not proof of exhaustive priority. Classical quadratic Gauss-sum literature may contain a more general positivity result that yields the theorem implicitly; this remains a declared historical-risk boundary.
+
+## Mathematical value — PASS
+
+When the fixed-target singular Cholesky recursion is known, a natural unresolved *global* question is which target is hardest to factorize in the counting sense, among all \(2^{n(n+1)/2}\) symmetric matrices, uniformly in dimension. The result gives the sharp exact answer, including exactly two equality targets and an all-target involution. The stronger positive-definite Fourier law is a reusable structural property of a nonlinear Gram-fiber distribution, not a restatement of the zero-fiber count; it explains the extremum and distinguishes all other targets. The result is limited to binary matrices, and the known zero-target cardinalities are acknowledged; no unproved extension to other finite fields is implied.
+
+## Closest literature and residual risks
+
+Theorem 3.1, Section 7, and the conclusions of Wu–Zhou, arXiv:2609.00533v1, were inspected. Corollary 2 and the relevant discussions of Cooper–Whitlatch, arXiv:2512.12496v1, were inspected from the nine-page full PDF. The 2021 predecessor was identified from the available abstract, not a fully read paper. The significant residual uncertainty is historical implicit derivability from broader positive-definite-function or quadratic-form literature; independent auditing is not represented as complete.
+
+Self-review: passed. Independent audit: not yet performed.
