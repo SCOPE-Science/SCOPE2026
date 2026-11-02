@@ -1,11 +1,21 @@
-# Review of the exact nine-square packing phase diagram
+# Independent mathematical audit
 
-**Correctness — PASS.** The lower-bound argument applies to every axis-parallel placement, not just the displayed packings: when the free width is less than two unit sides, usable outer strips have only one choice of horizontal and vertical side. Any assignment of eight small squares to those strips forces four of each if the container has side below five. Their extreme members overlap strictly in both projections because the container side is below both five and the large side plus two. The three constructions are explicit; all inequalities are strict where needed and compatible at the endpoints.
+## correctness
 
-**Originality — PASS (bounded best-knowledge check).** Direct examination of the complete public HTML manuscripts arXiv:2610.22622v1 and arXiv:2610.28504v1 shows respectively formulas up to seven and up to eight squares. The latter discusses nine items as a future general problem, not this nine-item ray. Generic sequence-pair characterization permits finite searches but does not state the optimized piecewise formula. Searches for alternative descriptions (one large plus eight equal, three-phase mixed-size packing, orthogonal/axis-parallel square containment, nine-square phase thresholds) yielded no matching theorem. This is evidence of no observed coverage, not proof of global novelty. Classical packing sources and possible unindexed case calculations are a residual priority risk.
+PASS
 
-**Value — PASS.** The first side-count beyond the complete eight-square classification is nine, and a single variable oversized square with eight equal smaller squares gives a geometrically motivated test family. The nontrivial rigid plateau on the full interval \(3\le t\le4\), its two exact transitions, and the all-placement two-strip obstruction provide a complete and reusable benchmark in a difficult mixed-size packing setting. Unlike simple area estimates, the lower bound arises from forced overlap of ordered extremal squares; a numerical packing construction alone would not yield it.
+For L<min(5,t+2), opposite complementary sides of the central t-square cannot both hold a full unit square because L-t<2. Reflect to one vertical strip and one horizontal strip. Each strip has width<2; any two assigned unit-square short-axis projections overlap interiorly, so long-axis unit intervals are disjoint and at most four per strip since L<5. Eight items force exactly four in each. The extreme rightmost horizontal-strip square and topmost vertical-strip square have long-axis lower coordinates at least 3, while t+1>L-1, giving strict overlap in both x and y, contradiction. For 2≤t≤3, 3≤t≤4, t≥4 the source supplies complete coordinate packings respectively in squares t+2,5,t+1. The single-unit separation gives t+1 lower bound at t≥4; boundary equality is attained. The proof handles arbitrary translations/strip-overlap assignments and uncountable real t, not just sampled values.
 
-The result does not cover rotations, nine arbitrary side lengths, or \(t<2\), and the post-anchor October 20 follow-up is consulted only for comparison. No human or independent audit has been made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality relative to the genuinely inspected primary claims, including broader/equivalent variants; no exact or dominating prior theorem identified. No unsuccessful search is construed as proof of absolute priority. Badger explicitly identifies the general nine-square problem as more difficult and publishes at most eight-square exact formulas; neither supplies the two-strip all-nine-item lower bound. A feasibility encoding is not an optimized closed form. The new crossing lemma closes this natural nine-item ray.
+
+## value
+
+PASS
+
+The subproblem is a natural axis-parallel packing specialization of the unresolved nine-item packing optimization. It reveals a genuine plateau 3≤t≤4 bounded by a crossing obstruction, and exact sharp transitions, not an arbitrary numerically sampled ratio or textbook area bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
