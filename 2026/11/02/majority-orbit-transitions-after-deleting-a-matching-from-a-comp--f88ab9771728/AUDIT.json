@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The vertexwise update follows exactly from neighborhood sums S-s_v-s_partner and S-s_u. The proof treats even S=0, even |S|>=2, odd |S|=1, and odd |S|>=3 exhaustively, including ties. Its odd-periodic conditions 4a-2m+2u-r=1 and S_prime=2u-1 give all binomial cases. Complete enumeration of 961184 states over 62 graphs n<=16 confirms counts and a sharp m=5,r=3 transient of 3. Finite checks supplement, rather than replace, the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini et al. (2014), Introduction and Section 2, recall general eventual period two; no deleted-matching exact census in inspected article.",
+        "Goles–Olivos (1980) provides finite-system eventual periodicity at most two; the original article full text was not available.",
+        "Voutsadakis (2004), Sections 1–4, studies complete-digraph threshold/symmetric Boolean networks with different local inputs."
+      ],
+      "reasoning": "General period-two theorems imply an upper bound on eventual period, not exact orbit number or the sharp transient cutoff. Even broad finite Boolean-network algorithms with different input graphs do not supply the closed two-parameter formulas or automatically imply their modulo-four transition.",
+      "searches": [
+        "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs arxiv 1405.2486",
+        "On the Limit Cycle Structure of Threshold Boolean Networks over Complete Graphs Voutsadakis PDF",
+        "majority dynamics complete multipartite graphs two cycles count period"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.2486v1",
+      "arxiv:1102.5361",
+      "https://www.voutsadakis.com/RESEARCH/PUBLISHED/limcyc.pdf",
+      "doi:10.1016/0012-365X(80)90121-1",
+      "Published indexed result concerning complete multipartite parity automata, which uses a different update rule",
+      "Published indexed result concerning acyclic signatures for complete graphs minus a matching, a different graph invariant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adams et al. (2011), abstract and introduction, permanently convert black states and do not count reversible temporal two-cycles.",
+        "Previously established complete-tripartite and split-graph majority classifications contain low-part-count cases, not arbitrarily many size-two parts.",
+        "A previous one-edge-deleted complete bipartite majority census has distinct graph adjacency and is not an implication of this theorem."
+      ],
+      "reasoning": "Restricting to at least four removed disjoint edges avoids relabelling already covered one-, two-, or three-part classifications as new. A general irreversible conversion result cannot imply reversible two-cycle counts; nor does a parity-automata theorem imply majority recurrence.",
+      "searches": [
+        "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products arxiv 1102.5361",
+        "majority dynamics on complete bipartite graph one edge deleted fixed points two cycles",
+        "number of two-cycles of synchronous strict-majority dynamics on cocktail-party graphs complete graphs with a perfect matching removed; balanced states fixed and oscillating"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Graph alias: complete multipartite graph with m parts of order two and r singleton parts.",
+        "Indexed complete-multipartite parity automata result concerns XOR, not threshold majority.",
+        "Voutsadakis (2004), Section 4, works with symmetric local functions on complete digraphs, unlike the pair-excluded neighborhood sums here."
+      ],
+      "reasoning": "The identical family is sometimes called a cocktail-party graph with universal vertices or a clique minus a matching. Under these aliases no inspected source gives the displayed majority fixed-state and two-cycle counts. Parity rules do not become majority rules under an orbit-preserving change of variables, and the complete-digraph method cannot directly encode partner-dependent neighborhoods.",
+      "searches": [
+        "synchronous binary majority dynamics on complete graph minus matching edge deleted matching cocktail party graphs exact fixed configurations and primitive two cycles",
+        "majority automata on complete graph missing matching the balanced configurations oscillate odd order unmatched vertices",
+        "majority dynamics cocktail party graph fixed points two cycles complete multipartite graph deleted matching synchronous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed result on factorial acyclic signatures for complete graphs minus a matching measures orientations, not dynamical recurrence.",
+        "No inspected indexed exact-cycle table records the formulas for all m>=4 and r>=0."
+      ],
+      "reasoning": "Exact finite tables for small complete tripartite or matching-deleted graphs would not imply the two-parameter symbolic formula without additional proof. Negative search results do not establish exhaustive absence; this is explicitly a residual risk.",
+      "searches": [
+        "exact orbit counts for synchronous majority dynamics on K_n minus a matching, near-perfect matching creating central-binomial many 2-cycles",
+        "recurrent cycles majority updating cocktail party graph perfect matching removed",
+        "majority dynamics deleted disjoint edge matching cliques parity r unmatched vertex count mod four phase transition"
+      ]
+    },
+    "rationale": "Actual indexed-result, prior-claim, and primary-paper comparisons found no direct or stronger coverage of the m>=4,r>=0 missing-matching reversible majority orbit census; the most plausible published works concern period-two existence, complete-input threshold networks, and irreversible dynamics. Historical equivalence remains possible.",
+    "residual_risks": [
+      "An older article or handbook could state the same matching-deleted majority census under a different graph alias and have escaped indexing.",
+      "The original Goles–Olivos (1980) article was not available for full-text inspection, although its commonly cited period-two theorem is different in strength from an exact census.",
+      "Indexed-result retrieval is incomplete and absence of a query hit is not proof of historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general eventual period at most two, without an exact missing-matching clique orbit census in the inspected paper",
+        "evidence": "arXiv:1405.2486v1, first public 2014-05-11; Introduction, Theorem 1.1, Sections 2–4.",
+        "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+        "material_read": "Abstract; Introduction including the update convention and finite theorem; section and theorem structure for random and unimodular graph results",
+        "method": "Full open-access arXiv HTML text inspection",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Lead pre-2016 majority-dynamics paper and finite-period theorem"
+      },
+      {
+        "assessment": "Counts cycle structures for complete-digraph threshold and symmetric Boolean networks; partner-exclusion neighborhoods are outside the complete-input setting and the claimed closed formulas do not appear",
+        "evidence": "2004, International Journal of Neural Systems 14, 209–215; Sections 1–4, especially Section 4.",
+        "identifier_or_url": "https://www.voutsadakis.com/RESEARCH/PUBLISHED/limcyc.pdf",
+        "material_read": "Complete seven-page author-hosted PDF, including Section 4 and local-input definitions in Section 1",
+        "method": "PDF page/text and page-image inspection",
+        "title": "On the Limit Cycle Structure of Threshold Boolean Networks over Complete Graphs",
+        "trigger": "Potentially dominating complete-graph Boolean threshold cycle-count theorem"
+      },
+      {
+        "assessment": "Rules are irreversible black conversions, so the theorem does not classify reversible two-cycles",
+        "evidence": "arXiv:1102.5361, posted 2011-02-25, Introduction, definition of irreversible majority conversion.",
+        "identifier_or_url": "https://arxiv.org/abs/1102.5361",
+        "material_read": "Open-access arXiv HTML abstract, Introduction, definitions of irreversible conversion and monotone dynamic monopolies",
+        "method": "Primary arXiv HTML full-text section inspection",
+        "title": "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products",
+        "trigger": "Same broad multipartite graph class and majority terminology"
+      },
+      {
+        "assessment": "Known general eventual-period-two result; not asserted to prove an exact orbit census; residual uninspected-full-text priority risk",
+        "evidence": "Goles and Olivos, Discrete Mathematics 30 (1980), 187–189; Benjamini et al., Theorem 1.1.",
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic and abstract-level material only; precise finite-graph consequence independently quoted in Benjamini et al.",
+        "method": "Bibliographic and later primary-paper theorem comparison; original full text not obtained",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Foundational finite-system period-two theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f88ab977-1728-4bbc-90cd-dcbf74586004",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the natural infinite two-parameter class of cliques with a matching removed, the theorem gives complete fixed-point/two-cycle counts and a sharp bounded transient. It shows invariant periodic populations yet exponentially many new fixed points at even perfect deletion, and central-binomial oscillation creation plus a sharp mod-four extinction boundary in odd-order instances. The exact quantities are meaningful to structural robustness of majority recurrence and are not determined by a general period-two convergence theorem.",
+    "status": "PASS"
+  }
+}
