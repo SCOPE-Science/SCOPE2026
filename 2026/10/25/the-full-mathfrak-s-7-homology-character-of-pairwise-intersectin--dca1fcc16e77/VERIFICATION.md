@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-The accompanying `verify.py` runs with Python 3 standard-library facilities only. To check the finite part of the proof, place it in the same directory and run `python3 verify.py`. It enumerates the 35 three-subsets, one representative of each of the fifteen cycle types of \(\mathfrak S_7\), and the admissible triple-orbits; it forms the orbit-disjointness graphs and computes their independence-polynomial values at \(-1\) by an exact deletion-and-closed-neighborhood recurrence.
+## correctness
 
-For the eleven orbit graphs having at most fifteen vertices, it independently enumerates every vertex subset to cross-check the recurrence. It checks the orientation sign of a transposition on the ten antipodal triple-pairs of six points, calculates all Specht characters by Murnaghan–Nakayama, verifies both row and column character orthogonality, and checks all hook-length dimensions and multiplicities. In particular the reproducible 15-class outputs give degrees six and nine with dimensions 29 and 7 and their claimed constituents.
+PASS
 
-The homological concentration and top-sphere independence used to infer the two graded characters are published theorems [1,2], not re-derived by this finite checker. The calculation is exact for seven ground points and provides no conclusion about integral torsion or all larger cases. No independent audit has been performed.
+For exactly the 35 triples of [7], adjacency in the Kneser disjointness graph means disjointness, so independent faces are pairwise-intersecting families. Published rational homology concentration in degrees 6 and 9 and ranks (29,7) is an explicit external premise. Each six-ground-set cross-polytope is the join of ten S^0 factors; seven top classes form a basis by the cited independent-sphere theorem. A six-point transposition has orientation -1, so the degree-9 module is sgn_7 tensor the seven-point permutation module, with character sgn(g)*number of fixed ground points. For each of 15 conjugacy classes, partition the 35 triples into g-orbits, retain internally intersecting orbits, make quotient disjointness graph Q_g; g-invariant simplices biject to its independent sets. The orientation and Euler signs combine to the exact reduced Lefschetz number -I(Q_g;-1), yielding chi_6=-I(Q_g;-1)+chi_9. Independent reconstruction matched all 15 class values (identity chi6=29, chi9=7; transposition chi6=1, chi9=-5), transposition orientation, and the finite signed-Lefschetz recurrence. Orthogonal rational S7 irreducible characters then produce degree-6 Specht (7)+(4,3)+(2,2,2,1), dimensions 1+14+14; degree-9 (1^7)+(2,1^5), dimensions 1+6. No integral or larger-ground-set claim is made.
 
-[1] Z. Feng, arXiv:2610.17394v1 (Theorem 18).  [2] Z. Feng and G. Wang, arXiv:2404.10566v1 (Theorem 10).
+## originality
+
+PASS
+
+The new invariant is the complete graded *equivariant* Q[S7]-module, not the previously proved Betti numbers. The closely matching 20-page Feng 2026 primary paper was read through its main Theorem 18, induction, Section 7 and appendix; it gives dimensions only, not the 15 character values or Specht decomposition. Feng–Wang 2024 supplies seven embedded degree-nine spherical classes and Fano-based degree-six classes, not their full S7 action. Published records about stable Kneser and Kneser neighborhood complexes concern different ground sets or simplicial complexes. No equivalent S7 character was located in searches; this is best-of-knowledge, not a proof of historical absence.
+
+## value
+
+PASS
+
+The S7 action is intrinsic to the ground-set relabeling, so full characters determine invariant classes, odd/even traces and representation structure that cannot be inferred from Betti ranks. The multiplicity-one two different 14-dimensional summands and the unique invariant line are a natural finite equivariant-homology classification, rather than a reformatting of the already known 29 and 7.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
