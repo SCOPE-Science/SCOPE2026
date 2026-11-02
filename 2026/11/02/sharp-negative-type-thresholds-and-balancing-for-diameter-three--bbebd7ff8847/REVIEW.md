@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** A complete zero-sum coefficient parametrization yields the displayed exact quadratic decomposition, not a bound; the remaining indefinite part is a two-by-two symmetric matrix. Monotonicity of its crossing functions, negative-type exponent nesting, and a rank count establish the threshold, strictness, endpoint Hilbert dimension, and special four-point path. The product identity and convexity midpoint argument prove the balancing law; the implicit-function theorem proves the asymptotic. The standalone checker passed 1845 finite supplementary assertions. Risk: the critical derivative and determinant comparisons require the precise unweighted graph and integer leaf assumptions.
+
+**Originality — PASS, qualified.** The nearest directly relevant published accounts are Sánchez (2011), which gives a general finite distance-matrix characterization and works out complete bipartite graphs; Caffarelli–Doust–Weston (2010), which proves bounds for finite metric trees and analyzes spherically symmetric/infinite trees; and Robertson (2023), which handles distorted negative type and gives complete bipartite and Hamming examples. The inspected relevant theorem statements and examples do not provide a parameter-uniform negative-type threshold and balancing classification for all double stars. Generic finite-metric algorithms could be specialized but do not directly state the claimed result. Residual risk: an equivalent double-star computation may exist under the aliases generalized roundness, bistar, or bicentered-tree metric in older literature; no exhaustive historical priority certification is claimed.
+
+**Mathematical value — PASS.** Diameter-three trees are the smallest natural nonstar tree family with two independently variable branching degrees. The exact transcendental threshold classifies Hilbert snowflake embedding across every such tree, locates the precise rank defect, and shows balancing the two hubs improves the permissible snowflake exponent, a structural comparison not implied by generic existence bounds.
+
+**Scope and limits.** Only unweighted finite diameter-three trees are classified. Tests do not certify infinite cases; the proof does. This is a self-review, not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
