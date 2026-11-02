@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof was checked against the original arXiv HTML statements and their exact quantified hypotheses. The following deterministic identities were explicitly reconstructed:
+## correctness
 
-1. For Bernoulli selectors of probability \(\pi\), \(\mathbb E B_N=\pi A_N\) and \(\mathbb E B_N^2\le\pi A_N^2\), giving a uniform Paley--Zygmund survival probability \(\pi/4\).
-2. With \(c=(\pi/4)(\pi/2)^{q/2}\), the integrated selector norm satisfies \(0\le V_N\le U_N\) and \(\mathbb E V_N\ge cU_N\); therefore \(\mathbb P(V_N\ge(c/2)U_N)\ge c/2\), independently of degree.
-3. For \(0<q<2\), the block weights satisfy the exact deterministic budget \(\sum_{j\ge1}2^{-j}=1\), while the chosen random event forces the block contribution to be at least \(2^{-j}(2^{2j/(q/2)})^{q/2}=2^j\). Summability of failure probabilities permits Borel--Cantelli.
-4. The selected blocks contain finite index sets from \(I_{k_j}\) with \(\#I_{k_j}\ge N_j\), and the resulting coefficients yield a Dirichlet series converging absolutely for all \(\operatorname{Re}s>1\).
-5. The independent-copy difference retains symmetry and nondegeneracy, including when the original variable is not centered; if \(\mathbb E|X|^2=\infty\), it also has infinite second moment.
+PASS
 
-The analytic proof covers all parameter values in the theorem; no truncated experiment is used as an infinite certificate. The cited supporting statements are arXiv:2610.17876v1, Theorems 3.1, 3.4, 3.5 and Lemma 3.3, and arXiv:2402.00314v1, Theorem 1.6. The full text of the related ordinary Taylor-series 2026 work was not available; only its abstract was compared. No independent audit or independent validation has occurred.
+The moment-free reverse inclusion is obtained by symmetrizing X-X′ and applying the cited symmetric-randomization transfer lemma. Independently checked its probabilistic core: Bernoulli thinning yields E B_N=pi A_N and E B_N^2<=pi A_N^2, hence Paley–Zygmund P(B_N>=pi A_N/2)>=pi/4. Integrating a positive power yields a uniform P(V_N>=c U_N/2)>=c/2; monotone divergence and Kolmogorov 0-1 show a.s. divergence of the thinned quadratic norm. For q<2, infinite L2 gives block sample averages diverging in probability; the dyadic construction has deterministic mass sum 2^-j and randomized lower contributions 2^j eventually a.s. (Borel–Cantelli). Sufficiency and some necessity/strict embedding invoke precisely numbered published supporting lemmas, whose full text could not be independently retrieved; this is a stated external dependency, not a formal certificate.
+
+## originality
+
+PASS
+
+Chen–He–Wang 2026 explicitly describes only partial q<4 necessity/sufficiency and L4-assumed reverse inclusion, whereas the new claim asserts a complete 0<q<4 threshold and removes all reverse moment hypotheses. Its exact published theorem text was not accessible (authorized institutional request blocked), leaving a nontrivial implication/priority risk.
+
+## value
+
+PASS
+
+Completing a partially characterized parameter regime and removing a fourth-moment hypothesis are mathematically motivated functional-space randomization results; the unbounded-moment counterexample mechanism and exact centering boundary are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
