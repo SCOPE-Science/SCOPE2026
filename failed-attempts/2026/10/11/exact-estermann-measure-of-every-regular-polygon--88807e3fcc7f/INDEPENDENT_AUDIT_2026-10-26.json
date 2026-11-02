@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T05:03:18.518479Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (Git blob ed4b0c6b37824954ee3b2b81e40e8472689d0998)",
+        "Frozen VERIFICATION.md (Git blob 2c4e45c7455cb34996a6b800339c944a6939f4d8)",
+        "Original verify.py byte-exact Git blob 5b0f8da9e16a05542f29882382176b34fe755fe4; VERIFY_OK",
+        "Independently reconstructed seven-blob tree daadbeec44206cf0724902be8859e2173f9a356b and current main blob identities"
+      ],
+      "rationale": "For a centrally symmetric planar Q with center (a,b), its vertical slice length function obeys λ(2a−x)=λ(x), so Steiner symmetrization about the x-axis is centrally symmetric about (a,0). If K is symmetric about the same line and K⊂Q, each centered K slice remains contained after recentering Q slices. Area, convexity and containment persist. Alternating two nonparallel axis projections sends center coordinates to their intersection; monotonicity relative to a centered disk gives uniform boundedness; Blaschke selection and area continuity yield a centered limiting competitor with equal area. The minimal centered symmetric envelope is conv(K∪(2o−K)). For even n this equals P_n; for odd n the old and antipodal vertices alternate into a regular 2n-gon. Their area quotient is sin(2π/n)/(2 sin(π/n))=cos(π/n). Independently reconstructed the assigned seven-blob Git tree and matched SHA daadbeec44206cf0724902be8859e2173f9a356b. Executed the exact verify.py blob after verifying its 1,230-byte SHA, obtaining VERIFY_OK through n=101, and independent polygon area checks through n=200. Neither finite test proves the universal statement.",
+      "residual_risks": [
+        "Uses classical area continuity and Blaschke selection without a reproduced proof of those standard theorems.",
+        "Numeric and geometric tests confirm bookkeeping only and cannot establish arbitrary-n or arbitrary-body statements.",
+        "Correctness is logically distinct from novelty: a correct theorem can be a corollary of existing stronger results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "I. Fáry and L. Rédei, Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern, Math. Ann. 122 (1950), 205–220, Satz 4; theorem described in Horváth–Lángi (2022), §1, as convexity of volume for two moving convex bodies.",
+          "The Fáry–Rédei theorem is dimension-general and permits arbitrary convex pairs; K and −K are a direct specialization.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474/RESULT.md"
+        ],
+        "reasoning": "This is stronger coverage of the optimization mechanism: any planar convex body with rotational symmetry of order ≥2 has F(o)≤F(c). It strictly contains the proposed two-reflection-axes class; no matching theorem title or parameter is required.",
+        "searches": [
+          "Web: Fáry Rédei Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern Math Annalen 1950",
+          "Web: On the convex hull and homothetic convex hull functions of a convex body Horváth Lángi 2022",
+          "https://link.springer.com/article/10.1007/s10711-022-00673-y",
+          "Resultary semantic: centrally symmetric outer hull minimal volume convex body with two lines of reflection symmetry centre at intersection"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s10711-022-00673-y",
+        "I. Fáry and L. Rédei, Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern, Math. Ann. 122 (1950), 205–220, Satz 4",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474/RESULT.md",
+        "https://www.researchwithrutgers.org/en/publications/measures-of-symmetry-for-convex-sets-and-stability/",
+        "https://en.wikipedia.org/wiki/Estermann_measure",
+        "Resultary searches: Estermann measure of regular odd n-gon; two-reflection-axis optimal central symmetric hull; exact regular polygon Estermann"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horváth–Lángi (2022) §1 expressly attributes Fáry–Rédei Satz 4 convexity, and §3 again states G_{K,λ} is convex in its translation vector.",
+          "The separate published Reuleaux finding uses the same two-reflection-axis Steiner argument for a different object, with entire RESULT.md inspected.",
+          "For n odd, vert(P_n)∪−vert(P_n) is exactly the 2n evenly spaced points; for even n, P_n=−P_n."
+        ],
+        "reasoning": "The implication is formal: convex F plus nonidentity rotational invariance yields F(0)≤F(c) by Jensen/Cesàro; then the inclusion-minimal centered hull is conv(K∪−K), yielding the even/odd formula. No unproved new lemma separates the claimed theorem from stronger pre-2026 mathematics.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s10711-022-00673-y",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474/RESULT.md",
+          "Web: smallest centrally symmetric superset regular odd polygon area ratio cos pi n",
+          "Web: “Der zentralsymmetrische Kern” symmetrical hull area convex polygon Steiner"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horváth–Lángi, Geom. Dedicata 216:10 (2022), introduction and §3: Fáry–Rédei convex-hull volume is convex under linear translation of any two bodies.",
+          "Estermann denominator at candidate center c equals F(c)=area(conv(K∪(2c−K))); its convexity follows by selecting bodies K and −K+2c.",
+          "Resultary separate regular-Reuleaux record explicitly proves centering using alternating Steiner symmetrizations of two axes."
+        ],
+        "reasoning": "The centering minimization is equivalent to minimizing the convex F over the translation vector c. Its symmetry plus convexity forces a minimizer at the dihedral fixed point, with no new Steiner lemma needed. The other published record independently gives the same general two-axis argument.",
+        "searches": [
+          "Resultary semantic: Estermann measure of regular odd n-gon area minimal centrally symmetric containing polygon cosine pi/n Steiner symmetrization two reflection axes",
+          "Web: Estermann measure regular n-gon cos pi/n odd centrally symmetric circumscribed polygon",
+          "https://link.springer.com/article/10.1007/s10711-022-00673-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched exact cosine formula, Estermann regular pentagon, outer centrally symmetric polygon enclosure, and Resultary related records; no independently inspected canonical numeric table carrying all n was found.",
+          "Standard regular n-gon area identity: A_n=(n/2)R² sin(2π/n); for odd n, A_2n=nR²sin(π/n)."
+        ],
+        "reasoning": "A table lookup is unnecessary for coverage. The exact claimed invariant is a one-line area quotient once the pre-existing global minimizer implication is applied; no new unknown exact value survives.",
+        "searches": [
+          "Web: Estermann measure regular pentagon cos pi 5",
+          "Web: outer measure of symmetry regular polygons convex hull K -K area",
+          "Resultary semantic: Estermann measure regular polygon precise invariant triangle square pentagon outer symmetry Grünbaum"
+        ]
+      },
+      "rationale": "A mathematically dominating pre-2026 theorem was missed by the original review. Fáry–Rédei (1950), Satz 4, as stated unambiguously in the materially read 2022 open-access Horváth–Lángi paper, proves convexity of the volume of the convex hull of two convex bodies translated linearly in time. Apply it to the fixed K and moving -K+2c: F(c)=area(conv(K∪(2c-K))) is a convex function of c. For any orthogonal symmetry g of K fixing the axes intersection o, F(gc)=F(c). The composition of two distinct reflection axes is a nonidentity planar rotation R; Jensen averaging over {c,Rc,...,R^(N-1)c} and the convergent Cesàro mean to o gives F(o)≤F(c), proving the entire proposed two-axis centering theorem as an immediate corollary. For regular odd n the antipodal vertices form the regular 2n-gon, so the ratio cos(pi/n) follows by the standard polygon area formula. Even n are already centrally symmetric. Separately, an existing 2026 published regular-Reuleaux Estermann result contains the same general two-axis Steiner centering argument verbatim in its complete proof, although same-day relative chronology is unresolved. Thus the claimed new structural result and numeric corollary are already mathematically covered; a failure to find the exact formula in a table would not restore originality.",
+      "residual_risks": [
+        "The original Fáry–Rédei 1950 sixteen-page full text was inaccessible, so the audit relies on the precise published 2022 quotation of its general convexity theorem.",
+        "The separate same-day Reuleaux finding and assessed polygon finding share the 2026-10-11 publication date; no relative within-day priority is asserted.",
+        "The exact cosine expression was not located in an independently read historical table, but pre-2026 general convexity and elementary regular polygon area already force it.",
+        "The 1928 Estermann bibliographic references in the reviewed package differ from a widely indexed original article title; historical-source identification should be checked before publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_STRONGER_IMPLICATION: 2022 full text reports the relevant pre-2026 convexity theorem explicitly; applying it to moving reflected K proves the center claim.",
+          "evidence": "Introduction: volume of convex hull of two moving convex bodies is convex in time, citing Fáry–Rédei (1950), Satz 4; §3: G_{K,λ} convex in t.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10711-022-00673-y",
+          "material_read": "Complete available HTML: abstract, Introduction §1 and Fáry–Rédei statement, §2 Lemma 1, Theorems 1–2 and relevant proofs, §3 convexity statement and references.",
+          "method": "Full-text online mathematical reading with exact-text navigation.",
+          "title": "On the convex hull and homothetic convex hull functions of a convex body",
+          "trigger": "Direct OA primary paper stating the 1950 convex-hull-volume theorem that dominates the proposed centering theorem."
+        },
+        {
+          "assessment": "SAME-DATE_INDEPENDENT_COVERAGE: its proof directly supplies the general two-axis centering argument; does not itself state the regular polygon cosine value, which is elementary from the shared lemma.",
+          "evidence": "Its proof starts with arbitrary convex K symmetric about a line and Steiner-averages two distinct reflection axes, obtaining a centered optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474/RESULT.md",
+          "material_read": "Complete RESULT.md, including statement, full proof of two-axis centering, strip containment, exact formula, comparison and references.",
+          "method": "Read entire GitHub research result through connected repository reader.",
+          "title": "Exact Estermann measure of regular Reuleaux polygons",
+          "trigger": "Same Estermann invariant and two-axis Steiner method in a distinct published finding."
+        },
+        {
+          "assessment": "HISTORICAL_PRIMARY_ACCESS_LIMIT: no unsupported whole-text claim; the 2022 primary full text independently records the theorem precisely enough for the mathematical implication.",
+          "evidence": "Horváth–Lángi (2022), introduction, references and section 3; Fáry–Rédei 1950 Math. Ann. 122 pp.205–220.",
+          "identifier_or_url": "I. Fáry and L. Rédei, Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern, Math. Ann. 122 (1950), 205–220, Satz 4",
+          "material_read": "Bibliographic record and exact Satz 4 attribution in the 2022 full-text paper; the original 1950 article was not read in full.",
+          "method": "Tried arXiv/OA full text and DigiZeitschriften PDF (404); authorized institutional Oxford retrieval returned worker unavailable/invalid.",
+          "title": "Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern",
+          "trigger": "Original 1950 source of the decisive linear-shadow convexity theorem."
+        },
+        {
+          "assessment": "BACKGROUND_ONLY: not needed for decision after decisive 1950 theorem as independently described in accessible 2022 primary source.",
+          "evidence": "Book overview reports focus on Grünbaum symmetry measures, Winternitz, Rogers–Shephard and related constructions.",
+          "identifier_or_url": "G. Tóth (2015), DOI:10.1007/978-3-319-23733-6",
+          "material_read": "Public publisher/bibliographic overview and chapter scope, not the complete book.",
+          "method": "Bibliographic and publisher-summary reading; no claim of whole-book noncoverage.",
+          "title": "Measures of Symmetry for Convex Sets and Stability",
+          "trigger": "Book-length classical measures-of-symmetry survey including Estermann context."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s10711-022-00673-y",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-estermann-measure-of-regular-reuleaux-polygons--6e48f964d474/RESULT.md",
+        "Frozen RESULT.md, §§ Finding/Proof/Relationship to prior work",
+        "I. Fáry and L. Rédei, Der zentralsymmetrische Kern und die zentralsymmetrische Hülle von konvexen Körpern, Math. Ann. 122 (1950), 205–220, Satz 4"
+      ],
+      "rationale": "The Estermann measure and regular polygons are natural mathematical objects, and the formula can be useful as an educational reference. But the claimed structural centering insight is a routine Jensen/dihedral-symmetry consequence of the established 1950 convex-hull-volume convexity theorem, also explicitly reprised in another published Estermann result. Once a centered minimizer is known, the even/odd cosine area quotient is an immediate elementary regular-polygon calculation; it is not a non-implied unknown natural invariant, a new boundary phenomenon, or an independently substantive structural contribution. The submission therefore does not meet the specified research-value bar, independent of the validity of its proof.",
+      "residual_risks": [
+        "An accessible exposition could still be pedagogically valuable, despite failure as an original research contribution.",
+        "Historical exact-tabling uncertainty does not restore value because the formula is an immediate corollary of broad prior theory."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is due to rigorous domination by the 1950 convex-hull-volume theorem, not a failure of the submitted proof.",
+    "Same-day relative chronology of the separate 2026 Estermann Reuleaux finding is not inferred.",
+    "Fáry–Rédei full text could not be retrieved, but its precise theorem is documented in a fully examined 2022 primary paper.",
+    "Confidentiality sanitization remains an operational transport/publication blocker, not an unresolved scientific verdict."
+  ],
+  "schema_version": 1
+}
