@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For any selected t-halfgraph, a rectangle restricts to a subset of a canonical cut C_c because max of its selected row indices is no larger than min of its selected column indices. k<=r cuts leave k+1 gaps; the first row of each gap has all its g edges outside all rectangles, forcing g<=s. Thus t<=k+(k+1)s<=r+(r+1)s. The explicit cut/affine-graph construction realizes equality in a stable semilinear relation. Reversing the inequality and placing cuts every s+1 indices gives the exact inverse cover number. Equality forces k=r, all gaps of length s, and unique cuts; any alternative cut interval would also have to produce this unique optimum, so each actual rectangle has a=b=c. The finite checker independently confirms small cases but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Girón, arXiv:2610.26335v2, Theorem 4.8: a stable semilinear relation is a finite union of special stable sets.",
+        "Hoffmann–Tran–Ye, arXiv:2004.10953, section 2: rectangles and order-free relations are stable; stability is preserved under Boolean operations."
+      ],
+      "reasoning": "Qualitative finite-union stability ensures some finite ladder bound but gives no universal exact dependence on r and s. A special stable set need not split into r rectangles plus a uniformly s-left-sparse remainder, so neither decomposition contains the proposed statement as a numerical corollary.",
+      "searches": [
+        "\"ladder index\" \"union\" \"rectangles\" \"graph\"",
+        "stable formulas disjunction rectangles functional graphs exact ladder index bound bipartite",
+        "\"Boolean rank\" \"ladder index\" stable relation"
+      ]
+    },
+    "checked_sources": [
+      "Girón, arXiv:2610.26335v2 (2026), Abstract/Introduction/Theorem 4.8",
+      "Hoffmann, Tran and Ye, arXiv:2004.10953, Introduction/section 2",
+      "Pinto, Electronic Journal of Combinatorics 21(1) #P1.19 (2014), DOI 10.37236/3595, sections 1–5",
+      "Half graph/Ferrers matrix alternative formulation; comparative searches for mixed biclique/residual degree parameter"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Girón (2026), Theorem 4.8, arXiv:2610.26335, is an iff classification by special stable sets.",
+        "Hoffmann–Tran–Ye (2020), arXiv:2004.10953, Lemma 2.2, is qualitative closure under finite Boolean combination.",
+        "Pinto (2014), Theorems 7 and 10, DOI 10.37236/3595, bound local biclique partitions given local covers, not heights of half-graphs under bounded residual left degree."
+      ],
+      "reasoning": "A relation that is a union of r rectangles and s affine graphs is stable by each qualitative closure theorem; no inspected implication specifies the exact maximal height (r+1)(s+1)-1 or forces equality cuts. Pinto supplies an established combinatorial-cover perspective including the s=0 endpoint, but its local cover bound is a different optimization problem. The fully mixed equality-and-rigidity result is not an immediate corollary of these inspected conclusions.",
+      "searches": [
+        "On stable semilinear sets in ordered vector spaces Theorem 4.8",
+        "Stable formulas in ordered structures Lemma 2.2",
+        "Biclique Covers and Partitions Trevor Pinto Theorem 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The half-graph matrix has ones on and above the diagonal, so the claim is equivalently a Ferrers/staircase matrix cover by rectangles with residual row degree at most s.",
+        "Pinto (2014), DOI 10.37236/3595, sections 1–5, considers biclique covers/partitions and local cover parameters, rather than this specified residual bound."
+      ],
+      "reasoning": "The exact inverse cost floor(t/(s+1)) is compared as a statement about the Ferrers incidence matrix, not merely by matching titles. No equivalent explicit mixed row-residual formula was found in inspected sections; this does not exclude older specialized matrix-cover literature.",
+      "searches": [
+        "\"Ferrers\" \"bicliques\" \"maximum row\" uncovered staircase",
+        "\"half graph\" biclique cover bounded degree residue",
+        "rectangle cover Ferrers staircase matrix after deleting at most s ones per row sharp bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant standard Ferrers/half-graph configuration has a triangular incidence matrix.",
+        "Pinto (2014), sections 1–5, gives different global/local biclique-cover parameters, not this claimed table."
+      ],
+      "reasoning": "A search for an exact row-sparse residual matrix-cover parameter did not identify the formula. The supplied checker computes only bounded instances (not a previously published database). Failure to retrieve an exact table is not by itself a novelty proof.",
+      "searches": [
+        "mixed biclique covering of staircase Ferrers half-graph plus bounded degree row exceptions exact threshold",
+        "half graph biclique cover bounded degree residue",
+        "rectangle cover Ferrers staircase matrix after deleting at most s ones per row sharp bound"
+      ]
+    },
+    "rationale": "The inspected 2026 qualitative semilinear-stability theorem and earlier ordered-structure classification prove finite stable decomposition but do not bound half-graph height from explicit rectangle and sparse-left-fiber clause budgets. The closest cover-theoretic primary work studies global/local biclique cover numbers rather than the sharp mixed half-graph budget; its s=0 endpoint is acknowledged. The new scientific content is the sharp mixed r,s bound, exact inverse covering cost, and rigidity of optimal cut locations. An older equivalent mixed-cover theorem remains a substantive historical-priority risk.",
+    "residual_risks": [
+      "The historical priority of the sharp mixed rectangular-cover/row-sparse residual bound is not independently certified; an equivalent Ferrers-matrix result may occur in older specialized literature.",
+      "No claim is made that arbitrary special stable sets admit a representation with controlled rectangle count or finite left-fiber degree.",
+      "The finite checker does not establish the universal assertion; its independent mathematical proof is given in RESULT.md."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for explicit rectangular/sparse-fiber quantitative theorem; its finite-union stable classification is relevant qualitative background.",
+        "evidence": [
+          "Theorem 4.8 classifies stable semilinear sets as finite unions of special stable sets; no numeric r,s ladder statement appears in the inspected theorem/proof.",
+          "arXiv version history establishes first public posting 2026-10-19."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.26335v2",
+        "material_read": "Abstract, Introduction, preliminary definitions, section 4 Definition 4.5, Remark 4.6, Theorem 4.8 and its proof (especially qualitative special-stable decomposition).",
+        "method": "Primary open-access full-text inspection",
+        "title": "On stable semilinear sets in ordered vector spaces",
+        "trigger": "Fresh 2026 primary-MSC03C45 source, same objects and stability decomposition"
+      },
+      {
+        "assessment": "NOT_COVERING for sharp mixed normal-form ladder height; covers qualitative stability and Boolean-combination closure.",
+        "evidence": [
+          "Definitions and Lemma 2.2 concern rectangular/order-free formula classes and finite-union closure, not exact optimal numerical ladder indices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2004.10953",
+        "material_read": "Original PDF Introduction, definitions 2.1–2.3 and Lemma 2.2 with supporting argument, plus related theory overview.",
+        "method": "Primary open-access PDF examination",
+        "title": "Stable formulas in ordered structures",
+        "trigger": "Original work on stability of rectangles and order-free relations in ordered structures"
+      },
+      {
+        "assessment": "NOT_COVERING for row-sparse residual half-graph exact threshold; local biclique-cover and partition objectives differ.",
+        "evidence": [
+          "Local cover/partition numbers count bicliques incident to vertices rather than allowing s residual uncovered incident edges in a specified half-graph.",
+          "Strong independence and local cover examples do not give the proposed optimal rectangle count floor(t/(s+1))."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i1p19/pdf/",
+        "material_read": "Twelve-page primary PDF: abstract, Sections 1–5 including Theorem 7, Lemma 9, Theorem 10 and end discussion on biclique parameters.",
+        "method": "Open-access publisher PDF inspection",
+        "title": "Biclique Covers and Partitions",
+        "trigger": "Plausible equivalent formulation via complete-bipartite rectangles with sparse exceptions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ffb4cf28-f251-474c-91f9-2eb682febf4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The half-graph (ladder) index is a central finite quantitative measure of model-theoretic stability. Rectangular clauses and affine functional exceptional clauses are natural components of stable semilinear relations. The result gives the sharp optimal tradeoff between syntactic rectangle budget r and left-fiber sparsity s, plus its inverse exact matrix covering number and rigidity of extremal decompositions. These interaction and structure results are not supplied by qualitative closure, cannot be obtained merely by relabeling one endpoint bound, and apply to all sets and all nonnegative budgets. The result makes no implausible claim of a general quantitative algorithm for arbitrary stable formulas.",
+    "status": "PASS"
+  }
+}
