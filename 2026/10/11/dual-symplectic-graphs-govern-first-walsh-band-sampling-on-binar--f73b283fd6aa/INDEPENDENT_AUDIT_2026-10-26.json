@@ -1,0 +1,205 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T02:49:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, blob b3ddb1f873d20db303362afba6a946c8101771c7, all theorem/proof sections",
+        "Assigned artifacts/verify.py, blob 7bdba03582bfcbb6ac909f59897e30b44c9f51ac, inspected independently rather than treated as proof",
+        "Independent SymPy and GF(2) exhaustive n=4 calculations: 28 matrices, 448 refinements, 3 characteristic polynomials, 4 n=2 boundary refinements",
+        "Independent GF(2) checks in n=6 for three nonsingular matrices with three refinements each and paired graph symbolic characteristic polynomials for m=1..5",
+        "Canan Kaşıkcı, On the spectra of quadratic functions, PhD thesis (2015), Sections 1.1–1.3, Chapters 2–3; https://research.sabanciuniv.edu/id/eprint/32335/1/CananKasikci_10062532.pdf",
+        "Paul C. Leopardi, Classifying bent functions by their Cayley graphs, arXiv:1705.04507v6 (2018), Section 4 Theorem 4 and Appendix A; https://arxiv.org/pdf/1705.04507"
+      ],
+      "rationale": "For n=2m and nondegenerate alternating polar matrix B, the nontrivial quadratic Gauss sum has magnitude 2^m, and the complete normalized Fourier coefficient at u is ε2^-m(-1)^{Q(B^-1 u)}. Character orthogonality therefore gives K_Q(u,v)=δ_uv/2+ε2^(-m-1)(-1)^{Q^*(u+v)}. Factoring the dual quadratic through its polar form A=B^-1 gives the diagonal congruence K_Q=D[ I/2+ε 2^(-m-1)(J_(n+1)-2 diag(0,A)) ]D, proving the full real spectrum with multiplicity and the stated ambient probability normalization. The inverse of any invertible binary alternating matrix is alternating; its Pfaffian modulo two counts perfect matchings, so precisely the graphs with odd matching count occur and each Gauss sign is realized by a linear refinement. The difference-set identity |X_Q∩(X_Q+h)|=2^(2m-2)+ε2^(m-1) for all h≠0 gives a common pair for each coordinate increment when m≥2, hence all first-band coordinate coefficients vanish if their polynomial vanishes on X_Q; the m=1 signs yield rank 3 or rank 1. Independent exact computations (not the submitted checker) enumerated all 64 labelled simple graphs of order four, verified all 28 invertible adjacency matrices, all 448 linear refinements, the complete signed Gram entries, pair-intersection formula and rank, and found characteristic polynomials with counts 15,12,1 exactly as stated. Independent six-variable examples and symbolic paired-matching spectra m=1..5 corroborate the general proof; the symbolic character-sum, Pfaffian and difference arguments establish unbounded m.",
+      "residual_risks": [
+        "Finite dimension-four enumeration is exhaustive only for the 28 labelled four-vertex graphs; it does not certify the all-dimensional statement without the accompanying algebra.",
+        "Restriction singular values use the induced unrenormalized ambient measure, and must be rescaled for conditional measure on the quadratic set.",
+        "No higher-Walsh-band, degenerate-quadric or arbitrary-coordinate-change statement is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leopardi 2015 focuses on full strongly regular Cayley graphs from particular bent functions and Hurwitz–Radon isomorphism obstructions.",
+          "Leopardi 2018 supplies global extended Cayley/affine classification of all binary quadratic bent functions and full-graph parameters, but fixes no (2m+1)-dimensional coordinate frequency band.",
+          "The odd-q split-cone theorem assumes q odd and the specific split form; the current claim is q=2 with arbitrary nondegenerate polar B and graph A.",
+          "The symplectic-group Walsh-frame theorem averages degree-one coordinate characters on a finite matrix group, not on a quadratic level set in F2^(2m)."
+        ],
+        "reasoning": "Compared objects, parameters and implications, not merely titles. Known Gauss flatness and Hadamard-design identities supply input Fourier coefficients and some rank/size corollaries, but no inspected stronger theorem yields the exact coordinate graph spectrum or 28-graph spectral census.",
+        "searches": [
+          "binary quadratic bent functions first order Reed Muller restriction puncturing eigenvalues Gram matrix Walsh",
+          "quadratic forms over F2 zero set Reed Muller degree one restriction injective design",
+          "nondegenerate quadratic Boolean function zero set restriction matrix linear functions eigenvalues coding theory",
+          "binary quadratic form level set degree one polynomial vanishing quadratic orthogonal array strength 2",
+          "Published finding: Exact first-band Fourier concentration on split quadratic cones over odd finite fields; Resultary/2026, 2026/10/11/SCOPE-exact-first-band-fourier-concentration-on-split-quadratic-cones--dbf8fa8aec40/RESULT.md, Git blob c909c0502580871d03e104a36433a8a8878bab72",
+          "Published finding: Complete coordinate Walsh-frame spectrum on binary symplectic groups; Resultary/2026, 2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db/RESULT.md, Git blob 2d2d234adc06cd6b0ba2c06d6d02c394053cce80",
+          "Paul C. Leopardi, Twin bent functions, strongly regular Cayley graphs, and Hurwitz–Radon theory, arXiv:1504.02827v5 (2017), Theorems 1–3 / Section 4; https://arxiv.org/pdf/1504.02827",
+          "Paul C. Leopardi, Classifying bent functions by their Cayley graphs, arXiv:1705.04507v6 (2018), Section 4 Theorem 4 and Appendix A; https://arxiv.org/pdf/1705.04507"
+        ]
+      },
+      "checked_sources": [
+        "Paul C. Leopardi, Twin bent functions, strongly regular Cayley graphs, and Hurwitz–Radon theory, arXiv:1504.02827v5 (2017), Theorems 1–3 / Section 4; https://arxiv.org/pdf/1504.02827",
+        "Paul C. Leopardi, Classifying bent functions by their Cayley graphs, arXiv:1705.04507v6 (2018), Section 4 Theorem 4 and Appendix A; https://arxiv.org/pdf/1705.04507",
+        "Canan Kaşıkcı, On the spectra of quadratic functions, PhD thesis (2015), Sections 1.1–1.3, Chapters 2–3; https://research.sabanciuniv.edu/id/eprint/32335/1/CananKasikci_10062532.pdf",
+        "Linear codes and incidence structures of bent functions and their generalizations, arXiv:2012.06866v2 (2023), Section 2.1, Theorem 2.3 and Result 2.2; https://arxiv.org/html/2012.06866v2",
+        "Published finding: Exact first-band Fourier concentration on split quadratic cones over odd finite fields; Resultary/2026, 2026/10/11/SCOPE-exact-first-band-fourier-concentration-on-split-quadratic-cones--dbf8fa8aec40/RESULT.md, Git blob c909c0502580871d03e104a36433a8a8878bab72",
+        "Published finding: Complete coordinate Walsh-frame spectrum on binary symplectic groups; Resultary/2026, 2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db/RESULT.md, Git blob 2d2d234adc06cd6b0ba2c06d6d02c394053cce80",
+        "Claude Carlet and Darrion Thornburgh, Determining those Boolean functions whose restrictions to affine spaces are plateaued, IACR ePrint 2026/386 (2026), author-site abstract https://darrion.net/",
+        "Resultary search exact duplicate assigned title was found and excluded as independent priority source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gauss flatness directly implies the Fourier coefficient and, with the classical difference-set property, essentially the universal coordinate-sampling injectivity: these ingredients must not be claimed entirely new.",
+          "Leopardi 2018 Theorem 4 yields two global quadratic Cayley classes, but does not recover all eigenvalues of K_Q indexed by 0,e1,...,en.",
+          "A code-supported 2-design determines intersection counts, not every eigenvalue of a restricted Gram matrix on the specified frequency set.",
+          "Independent exact finite result shows 3 compression spectral types for each sign even though the global Cayley classification has only 2 types across signs."
+        ],
+        "reasoning": "Known results cover constituent Fourier and design premises and can imply an injectivity consequence, but their statements do not dominate the full graph transfer plus all m=2 spectral classes. Not all components are novel in isolation; the assessed final conjunction contains a mathematically distinguished residual.",
+        "searches": [
+          "punctured first order Reed Muller code quadratic forms difference sets harmonic frame Gram eigenvalues coordinate linear characters",
+          "binary quadratic bent functions first order Reed Muller restriction puncturing eigenvalues Gram matrix Walsh",
+          "nondegenerate quadratic Boolean function zero set restriction matrix linear functions eigenvalues coding theory",
+          "Paul C. Leopardi, Twin bent functions, strongly regular Cayley graphs, and Hurwitz–Radon theory, arXiv:1504.02827v5 (2017), Theorems 1–3 / Section 4; https://arxiv.org/pdf/1504.02827",
+          "Paul C. Leopardi, Classifying bent functions by their Cayley graphs, arXiv:1705.04507v6 (2018), Section 4 Theorem 4 and Appendix A; https://arxiv.org/pdf/1705.04507",
+          "Linear codes and incidence structures of bent functions and their generalizations, arXiv:2012.06866v2 (2023), Section 2.1, Theorem 2.3 and Result 2.2; https://arxiv.org/html/2012.06866v2",
+          "Published finding: Exact first-band Fourier concentration on split quadratic cones over odd finite fields; Resultary/2026, 2026/10/11/SCOPE-exact-first-band-fourier-concentration-on-split-quadratic-cones--dbf8fa8aec40/RESULT.md, Git blob c909c0502580871d03e104a36433a8a8878bab72",
+          "Published finding: Complete coordinate Walsh-frame spectrum on binary symplectic groups; Resultary/2026, 2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db/RESULT.md, Git blob 2d2d234adc06cd6b0ba2c06d6d02c394053cce80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Character Gram of restricted first-order Walsh functions is equivalent to a real punctured first-order Reed–Muller sampling frame, and Q^* polar form yields a diagonal sign conjugate of J-2A.",
+          "Leopardi 2018 Theorem 4 classifies the two global extended Cayley equivalence classes of quadratic bent functions, not fixed coordinate-band compression eigenvalues.",
+          "The code/design paper Theorem 2.3 characterizes 2-transitivity and 2-designs associated with quadratic bent functions, not spectrum of a prescribed first-band principal Gram matrix."
+        ],
+        "reasoning": "Reviewed direct Gram, coding puncturing, Seidel switching, and bent/Cayley equivalence formulations. Global equivalence can change the selected coordinate-Walsh subspace, so the two full-Cayley classes cannot imply the three coordinate spectral types. A possible historical recasting remains a named risk.",
+        "searches": [
+          "nondegenerate binary quadratic form zero locus Fourier degree one Walsh restriction Gram spectrum inverse symplectic adjacency Seidel matrix odd perfect matchings",
+          "punctured first order Reed Muller code quadratic forms difference sets harmonic frame Gram eigenvalues coordinate linear characters",
+          "principal submatrices Hadamard bent quadratic functions Walsh Gram matrix first order RM subcodes sampling condition number",
+          "quadratic bent functions Seidel matrix principal submatrix polar inverse graph Walsh spectrum",
+          "quadratic bent functions Walsh transform inverse polar matrix Seidel principal submatrix Reed Muller code",
+          "arxiv:1705.04507 Section 4 Theorem 4 Appendix A",
+          "Linear codes and incidence structures of bent functions and their generalizations, arXiv:2012.06866v2 (2023), Section 2.1, Theorem 2.3 and Result 2.2; https://arxiv.org/html/2012.06866v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 28 invertible binary adjacency matrices on four labelled vertices have type counts 3 copies of 2K2, 12 of P4, 12 of paw, 1 of K4; their observed charpolynomial counts are 15,12,1.",
+          "Kaşıkcı thesis Table of Contents and Chs 1–3 treat Walsh-transform magnitude and plateaued parameter distributions, rather than 5x5 coordinate compression spectra.",
+          "The retrieved related published findings concern distinct Fourier-frame supports and settings; no exact matching five-by-five characteristic-polynomial table was identified."
+        ],
+        "reasoning": "An actual exhaustive fresh finite enumeration was compared with published transform-spectra work. This establishes the count mathematically but absence of a database match is not a priority certificate; an old Seidel-spectral graph table is a residual risk.",
+        "searches": [
+          "nondegenerate binary quadratic form zero locus Fourier degree one Walsh restriction Gram spectrum inverse symplectic adjacency Seidel matrix odd perfect matchings",
+          "principal submatrices Hadamard bent quadratic functions Walsh Gram matrix first order RM subcodes sampling condition number",
+          "quadratic bent functions Seidel matrix principal submatrix polar inverse graph Walsh spectrum",
+          "quadratic bent functions Walsh transform inverse polar matrix Seidel principal submatrix Reed Muller code",
+          "Resultary published records searched for Walsh-frame, bent spectral matrix, four-vertex Seidel, quadratic sampling",
+          "Canan Kaşıkcı, On the spectra of quadratic functions, PhD thesis (2015), Sections 1.1–1.3, Chapters 2–3; https://research.sabanciuniv.edu/id/eprint/32335/1/CananKasikci_10062532.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty attaches to the exact inverse-polar-graph spectral transfer for the coordinate first-Walsh restriction, realization of every odd-perfect-matching graph, and the three-class dimension-four compressed-spectrum census. Classical quadratic bent Gauss flatness, translation-design intersection counts and affine/Cayley equivalence cover important premises (including much of sampling injectivity), but the primary statements inspected do not determine this coordinate-compressed operator: a full Cayley graph spectrum and binary-code 2-design parameters are too coarse to determine principal finite-Walsh-band Gram eigenvalues. A published first-band result over odd characteristic handles a fixed split quadratic cone and a larger q-ary frequency set, not all binary alternating polar graphs; the binary symplectic-group Walsh result samples a different object. The exact indexed duplicate of this assigned work was excluded as independent prior art. Legacy Reed–Muller puncturing, Seidel matrix literature and earlier unindexed principal-frame computations remain real historical risks; search nonmatches are not novelty proofs.",
+      "residual_risks": [
+        "An earlier implicit representation via punctured first-order Reed–Muller codes on quadratic difference sets may already imply all the compressed eigenvalues.",
+        "Classic Seidel/switching tables might already list the three five-by-five spectral polynomials under different terminology.",
+        "2026 Carlet–Thornburgh affine-subspace restriction work accessible here only at abstract level; its different restriction notion (functions restricted to affine subspaces) appears inapplicable but full text was not inspected.",
+        "Neither failed bibliographic searches nor a duplicate published index record certify complete historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies/isomorphism-obstructs full Cayley graphs of special bent functions, not coordinate principal Walsh compression or arbitrary polar inverse graph realization.",
+          "evidence": [
+            "Theorem 1: two Clifford-derived Cayley graphs are isomorphic only for m=1,2,3; Theorem 2: both are strongly regular; Section 4 compares clique numbers."
+          ],
+          "identifier_or_url": "arXiv:1504.02827v5, https://arxiv.org/pdf/1504.02827",
+          "material_read": "Original 13-page PDF: abstract and introduction, full-Cayley setup, Theorem 1 and Sections 3–4 main lemmas and arguments, Section 5 discussion excerpts.",
+          "method": "Read primary PDF text and inspected page images at p1; compared theorem hypotheses and operators.",
+          "title": "Twin bent functions, strongly regular Cayley graphs, and Hurwitz–Radon theory",
+          "trigger": "Full Cayley-graph eigenvalue and bent-difference-set theory could imply a stronger spectrum."
+        },
+        {
+          "assessment": "Two extended Cayley equivalence classes determined by weight, but not the coordinate first-band K_Q spectrum.",
+          "evidence": [
+            "Theorem 4 gives two extended Cayley classes within the quadratic bent EA class; Section B.2 table uses 16-vertex full Cayley graph invariants, not five-by-five first-band Gram charpolynomials."
+          ],
+          "identifier_or_url": "arXiv:1705.04507v6, https://arxiv.org/pdf/1705.04507",
+          "material_read": "Original 69-page PDF: introduction, Sections 3–4 equivalence definitions and Theorem 4 (p18); Appendix A lemmas/proof (pp25–30); computational section and dimension-four global Cayley table (pp32–33).",
+          "method": "Read PDF mathematical text, inspected page images of Theorem 4 and Appendix A and compared class invariants.",
+          "title": "Classifying bent functions by their Cayley graphs",
+          "trigger": "Possible all-dimensional dominance through classification of every quadratic bent form."
+        },
+        {
+          "assessment": "Here “spectra” concern Walsh amplitudes and plateaued distributions, not eigenvalues of coordinate-restriction Gram operators.",
+          "evidence": [
+            "Contents: Chapter 2 Construction of s-plateaued functions and Chapter 3 Expected Value; abstract studies expected value for plateaued rank parameter s."
+          ],
+          "identifier_or_url": "2015 Sabancı University PhD thesis, https://research.sabanciuniv.edu/id/eprint/32335/1/CananKasikci_10062532.pdf",
+          "material_read": "57-page original thesis: abstract, table of contents, Chapter 1 definitions of Walsh transform and bent/plateaued functions; sections of Chapters 2–3, especially distribution/expected value of plateaued parameter.",
+          "method": "Read original PDF text, inspected table-of-contents page image and relevant Chapter 1 text.",
+          "title": "On the spectra of quadratic functions",
+          "trigger": "Title could appear to contain the exact spectral theorem, so inspect the actual invariant."
+        },
+        {
+          "assessment": "Covers quadratic bent functions as 2-transitive code/design objects and classical difference-set counts; does not supply the fixed first-order Walsh Gram spectral decomposition.",
+          "evidence": [
+            "Result 2.2 gives 2-design parameters; Theorem 2.3 characterizes 2-transitive code automorphism groups."
+          ],
+          "identifier_or_url": "arXiv:2012.06866v2, https://arxiv.org/html/2012.06866v2",
+          "material_read": "Primary HTML: abstract, Introduction, Section 2.1, Result 2.2, Theorem 2.3 and proof, addition/translation-design discussion, Section 5 coding formulation excerpts.",
+          "method": "Inspected actual theorems and their code/design objects in full-text HTML.",
+          "title": "Linear codes and incidence structures of bent functions and their generalizations",
+          "trigger": "Punctured RM code and quadratic bent design formulations could imply the sampling rank or matrix spectrum."
+        },
+        {
+          "assessment": "Requires odd q and split form, with 2m(q−1)+1 frequencies; not q=2 arbitrary nonsingular B, so no direct implication of 28 binary graph spectral classes.",
+          "evidence": [
+            "Fourier matrix aI+bJ-cA has m K_(q−1,q−1) blocks; cannot specialize its odd-field character-sum at q=2."
+          ],
+          "identifier_or_url": "Resultary/2026 published RESULT.md blob c909c0502580871d03e104a36433a8a8878bab72",
+          "material_read": "Complete original RESULT.md including theorem, assumptions, character-sum proof, spectral decomposition, and limitations.",
+          "method": "Read original published source blob; compared characteristic, forms, and frequency family.",
+          "title": "Exact first-band Fourier concentration on split quadratic cones over odd finite fields",
+          "trigger": "Highly similar first-Hamming-band quadratic-zero-locus concentration theorem."
+        },
+        {
+          "assessment": "Samples coordinate functions on Sp(2m,2) matrices; not the zero locus of a quadratic function on F2^(2m), hence no implication.",
+          "evidence": [
+            "Its 1+(2m)^2 coefficient vectors index matrix entries A_ij on group elements; this work uses 1+2m characters on ambient points x."
+          ],
+          "identifier_or_url": "Resultary/2026 published RESULT.md blob 2d2d234adc06cd6b0ba2c06d6d02c394053cce80",
+          "material_read": "Complete original RESULT.md, theorem, sample space, Gram proof and limitations.",
+          "method": "Read published source blob and compared sample spaces and frequency indices.",
+          "title": "Complete coordinate Walsh-frame spectrum on binary symplectic groups",
+          "trigger": "Potentially dominating binary symplectic Walsh-frame spectrum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Published finding: Exact first-band Fourier concentration on split quadratic cones over odd finite fields; Resultary/2026, 2026/10/11/SCOPE-exact-first-band-fourier-concentration-on-split-quadratic-cones--dbf8fa8aec40/RESULT.md, Git blob c909c0502580871d03e104a36433a8a8878bab72",
+        "Published finding: Complete coordinate Walsh-frame spectrum on binary symplectic groups; Resultary/2026, 2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db/RESULT.md, Git blob 2d2d234adc06cd6b0ba2c06d6d02c394053cce80",
+        "Paul C. Leopardi, Classifying bent functions by their Cayley graphs, arXiv:1705.04507v6 (2018), Section 4 Theorem 4 and Appendix A; https://arxiv.org/pdf/1705.04507",
+        "Linear codes and incidence structures of bent functions and their generalizations, arXiv:2012.06866v2 (2023), Section 2.1, Theorem 2.3 and Result 2.2; https://arxiv.org/html/2012.06866v2",
+        "Assigned RESULT.md proof and exact four-vertex classification"
+      ],
+      "rationale": "A natural and mathematically motivated operator is the restriction Gram matrix of constant-plus-coordinate Walsh characters on the zero locus of a nonsingular binary quadratic. Its full spectrum is an exact coordinate-dependent sampling/conditioning invariant, not determined by global Arf or Cayley equivalence class. The transfer to arbitrary invertible binary polar inverse graphs with odd perfect-matching parity is a complete structural parameterization, the rank theorem excludes all sampling degeneracy from dimension four, the sharp matched-pair spectra form an infinite solvable family, and the 28-labelled-graph census is a natural complete first nontrivial case with three distinct spectrum types. Independent reconstruction and coding/graph comparisons indicate this precise combined invariant is not a mere known-table recomputation. Much of its Fourier-flatness and injectivity proof is standard and mathematical depth modest, but the exact graph-realization/census classification has plausible stand-alone use for quadratic sampling frames and coordinate sensitivity.",
+      "residual_risks": [
+        "The graph transfer gives spectra implicitly through eigenvalues of J-2A; it is not a universal closed radical formula for every graph.",
+        "The four-vertex table and matched-family condition numbers are exact but by themselves are modest; value attaches to their role in the all-dimensional natural sampling problem.",
+        "No claimed extension to higher Walsh degrees, degenerate forms or general affine frequency supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific originality does not constitute exhaustive priority certification; classical coding/Seidel-equivalent identity remains possible.",
+    "Finite computations do not establish infinite-dimensional conclusions, which are supported by the independent algebraic derivation.",
+    "The existing package cannot be safely published with unsanitized operational metadata; publication_plan status not_ready is transport/privacy, not a rejection of the science."
+  ],
+  "schema_version": 1
+}

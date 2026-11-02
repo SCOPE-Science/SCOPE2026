@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the quadratic first-Walsh-band sampling theorem
+# Independent mathematical audit
 
-The proof reconstructs the Walsh transform of a nonsingular quadratic, the exact dual-polar signed Gram matrix, the Pfaffian parity realization criterion, and a positive two-point intersection count that forces sampling injectivity. The four-coordinate spectral census is also exhaustively derived by perfect-matching classification and checked by exact characteristic polynomials.
+## correctness
 
-`artifacts/verify.py` is a standalone Python 3 program using only the standard library. Run it with `python3 artifacts/verify.py` from the package directory. A successful check reports:
+PASS
 
-`VERIFY_OK exact_quadrics=476 four_vertex_graphs=28 three_Seidel_polynomials=15,12,1 difference_set_and_rank=PASS signed_Gram_identity=PASS`
+For n=2m and nondegenerate alternating polar matrix B, the nontrivial quadratic Gauss sum has magnitude 2^m, and the complete normalized Fourier coefficient at u is ε2^-m(-1)^{Q(B^-1 u)}. Character orthogonality therefore gives K_Q(u,v)=δ_uv/2+ε2^(-m-1)(-1)^{Q^*(u+v)}. Factoring the dual quadratic through its polar form A=B^-1 gives the diagonal congruence K_Q=D[ I/2+ε 2^(-m-1)(J_(n+1)-2 diag(0,A)) ]D, proving the full real spectrum with multiplicity and the stated ambient probability normalization. The inverse of any invertible binary alternating matrix is alternating; its Pfaffian modulo two counts perfect matchings, so precisely the graphs with odd matching count occur and each Gauss sign is realized by a linear refinement. The difference-set identity |X_Q∩(X_Q+h)|=2^(2m-2)+ε2^(m-1) for all h≠0 gives a common pair for each coordinate increment when m≥2, hence all first-band coordinate coefficients vanish if their polynomial vanishes on X_Q; the m=1 signs yield rank 3 or rank 1. Independent exact computations (not the submitted checker) enumerated all 64 labelled simple graphs of order four, verified all 28 invertible adjacency matrices, all 448 linear refinements, the complete signed Gram entries, pair-intersection formula and rank, and found characteristic polynomials with counts 15,12,1 exactly as stated. Independent six-variable examples and symbolic paired-matching spectra m=1..5 corroborate the general proof; the symbolic character-sum, Pfaffian and difference arguments establish unbounded m.
 
-The checker constructs every four-vertex graph, tests adjacency invertibility over the binary field, enumerates all its quadratic linear refinements, and evaluates restriction Gram entries by direct integer summation over the quadratic zero set. It compares the complete matrix with the dual-polar formula, recomputes the two-point intersection cardinality and exact rational rank, and checks the full characteristic-polynomial multiset by integral Newton identities. Two-variable boundary cases and a selection of six-variable examples are independently checked. These computations completely certify the finite four-vertex census but **do not** constitute exhaustive evidence in unbounded dimension; the stated general theorem relies on the algebraic proof.
+## originality
 
-The diagonal similarity and Fourier normalization should not be suppressed when applying the eigenvalue formula: unrenormalized ambient probability measure is used on the quadratic set. A normalized conditional measure rescales every sampling eigenvalue. Possible earlier equivalent representations in coding theory or finite-Hadamard frame theory have not been ruled out by a formal bibliographic priority certificate.
+PASS
+
+Best-of-knowledge novelty attaches to the exact inverse-polar-graph spectral transfer for the coordinate first-Walsh restriction, realization of every odd-perfect-matching graph, and the three-class dimension-four compressed-spectrum census. Classical quadratic bent Gauss flatness, translation-design intersection counts and affine/Cayley equivalence cover important premises (including much of sampling injectivity), but the primary statements inspected do not determine this coordinate-compressed operator: a full Cayley graph spectrum and binary-code 2-design parameters are too coarse to determine principal finite-Walsh-band Gram eigenvalues. A published first-band result over odd characteristic handles a fixed split quadratic cone and a larger q-ary frequency set, not all binary alternating polar graphs; the binary symplectic-group Walsh result samples a different object. The exact indexed duplicate of this assigned work was excluded as independent prior art. Legacy Reed–Muller puncturing, Seidel matrix literature and earlier unindexed principal-frame computations remain real historical risks; search nonmatches are not novelty proofs.
+
+## value
+
+PASS
+
+A natural and mathematically motivated operator is the restriction Gram matrix of constant-plus-coordinate Walsh characters on the zero locus of a nonsingular binary quadratic. Its full spectrum is an exact coordinate-dependent sampling/conditioning invariant, not determined by global Arf or Cayley equivalence class. The transfer to arbitrary invertible binary polar inverse graphs with odd perfect-matching parity is a complete structural parameterization, the rank theorem excludes all sampling degeneracy from dimension four, the sharp matched-pair spectra form an infinite solvable family, and the 28-labelled-graph census is a natural complete first nontrivial case with three distinct spectrum types. Independent reconstruction and coding/graph comparisons indicate this precise combined invariant is not a mere known-table recomputation. Much of its Fourier-flatness and injectivity proof is standard and mathematical depth modest, but the exact graph-realization/census classification has plausible stand-alone use for quadratic sampling frames and coordinate sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
