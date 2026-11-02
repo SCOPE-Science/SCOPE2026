@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The graph-2-packing criterion follows exactly from Kneser adjacency and common-neighbor cardinality n-2r+|A cap B|. For r>=11, a hypothetical four-block family needs at least 4r-12 > n coordinates, so degree at most three, with a concrete three-block witness. One/two coefficients are exact binomial counts. For each ordered admissible triple the eight disjoint Venn atoms have the stated nonnegative sizes, and the multinomial labeling count divided by six correctly counts unordered triples. The eight (k,t) profiles are distinct and exhaustive under coordinate permutations. The independent anchored-pair enumerator agrees for r=4..25; fully direct enumeration on K(9,4) agrees for all 2-/3-block families and orbit profiles. Infinite claims are proved symbolically, not inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar et al., arXiv:2312.15464, Proposition 4.2 proves rho_2(K(3r-3,r))=3 for r>=10; Theorem 4.8 has broader scalar maximum-3 regimes.",
+        "Östergård, DOI 10.1109/TIT.2010.2050922, abstract reports classified optimal code families only in specified finite ranges including n<=28 for d=18."
+      ],
+      "reasoning": "The scalar maximum result is a necessary ingredient and is expressly credited. Neither it nor its broader n,r extension produces the eight orbit multiplicities or the complete polynomial. The chosen r>=11 gives n>=30 and d>=18, outside the stated finite 2010 classification range.",
+      "searches": [
+        "Web: K(3r-3,r) 3 2-packing",
+        "arXiv:2312.15464 Section 4 Proposition 4.2 and Theorem 4.8",
+        "Web: Classification of Binary Constant Weight Codes Östergård 2010 coverage"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.15464, 2023-12-24, full relevant graph-packing discussion",
+      "doi:10.37236/1162, 2006, original open PDF inspected",
+      "doi:10.1109/TIT.2010.2050922, 2010, publication abstracts, NOT full text",
+      "https://aeb.win.tue.nl/codes/Andw.html, code-size tables",
+      "published-finding corpus semantic search for Kneser packings, binary-code enumerators and eight orbit equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Kneser paper states only maximum size 3 on this diagonal, and gives witnesses for smaller r, with no formula for the total number of admissible triples.",
+        "The 2006 coding paper counts maximum codeword cardinalities, not all choices of code families; 2010 parameter classification explicitly stops below n=30 in the relevant distances."
+      ],
+      "reasoning": "A graph permitting exactly three vertices in any packing may have dramatically different numbers of such packings. The prior scalar statements are insufficient to recover the coefficients B_r, C_r or their decomposition into eight positive orbit sizes. Direct Venn enumeration is required. No equivalent enumeration was identified, but unindexed or unpublished priority remains possible.",
+      "searches": [
+        "arXiv:2312.15464 full Section 4",
+        "Smith, Hughes, Perkins 2006 PDF https://emis.de/ft/5395",
+        "Östergård 2010 publisher/author abstract",
+        "published-finding corpus: Kneser 2-packing polynomial K(3r-3,r) for r at least 10, exact enumeration of pairs and triples, eight optimizer orbits under S_{3r-3}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar et al., arXiv:2312.15464, Observation 4.1 equates Kneser packings with pair-intersection constraints.",
+        "Smith--Hughes--Perkins, doi:10.37236/1162, Introduction defines A(n,d,w) as extremal size, not numbers of code families."
+      ],
+      "reasoning": "Viewing selected r-subsets as binary weight-r codewords translates the upper intersection bound into Hamming distance >=2r-4; the Kneser restriction also excludes disjoint codewords. The claimed polynomial counts entire code families of sizes zero through three, whereas A(n,d,w) gives only a maximum number of codewords. Venn triple atom patterns give a stronger orbit-count invariant than a maximum cardinality.",
+      "searches": [
+        "published-finding corpus: Kneser constant weight intersecting code 3-word families with intersection sizes one or two, Venn overlap classification enumerator eight isomorphism types",
+        "Web: Kneser 2-packing polynomial enumeration",
+        "Web: constant weight codes number of codes three codewords orbit classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The coding bounds tables report values/bounds of A(n,d,w), a maximum code size; earlier small-case Kneser values also correspond to known coding data.",
+        "Smith--Hughes--Perkins (2006) PDF, pp. 1-3 and selected tables, states that it tabulates lower and upper code-size bounds for n>=29 rather than counting all codes by size."
+      ],
+      "reasoning": "A(n,d,w) and Kneser rho_2 values do not determine the number of labeled optimal three-word families. The eight Venn orbits and their factorial sizes, not a numeric scalar maximum, are the assessed claim. No exact database/table value for these packing counts was found in actual searches.",
+      "searches": [
+        "Web: A(18,10,7) constant weight code exactly 6",
+        "Web: A(21,12,8) constant weight code exactly 5",
+        "Web: Kneser 2-packing polynomial",
+        "A. E. Brouwer, Bounds for binary constant weight codes, https://aeb.win.tue.nl/codes/Andw.html"
+      ]
+    },
+    "rationale": "The new result is the all-cardinality enumerator and eight labeled-ground-set orbit sizes, not the previously known 2-packing maximum three. The 2023 Kneser paper explicitly gives the pairwise intersection criterion and scalar maximum; comparison with its detailed Section 4 shows no count of all 2-packings. Binary constant-weight code extremal bounds are an equivalent-language risk, but published general size tables do not determine the number of configurations. The 2010 classified codes have explicitly shorter parameter ranges; our n>=30 range starts beyond them. The 2006 length>=29 tables report code cardinality bounds and constructions rather than all packing-family counts. Bounded published-finding corpus searches returned no directly equivalent enumerator, though this is not proof of global novelty.",
+    "residual_risks": [
+      "An earlier unindexed Venn-atom formula or full code-family enumeration may imply the present factorial counts.",
+      "Full text of the 2010 code-classification paper was unavailable in current accessible checks; its explicitly stated parameter ranges do not overlap the claimed n>=30 interval.",
+      "Search nonappearance is not novelty proof; assessment is scoped to inspected claims and implication comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COV source of known intersection criterion and scalar threshold; does not give complete cardinality enumerator or eight orbit multiplicities.",
+        "evidence": "Observation 4.1; Proposition 4.2; Table 2; arXiv v1 2023-12-24.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.15464",
+        "material_read": "Preprint Section 4 pair-intersection characterization, Table 2 and Proposition 4.2, Theorem 4.8 and related constructions; abstract and arXiv metadata for first-public date and MSC.",
+        "method": "Accessible preprint full-text examination and targeted lines/figures",
+        "title": "k-Domination invariants on Kneser graphs",
+        "trigger": "Direct same graph family and parameter"
+      },
+      {
+        "assessment": "Tabulates best code sizes and constructions; does not count all eligible three-word code families or their orbit sizes.",
+        "evidence": "PDF introduction defines A(n,d,w), pages 1-3; pages 13-16 are bounds tables.",
+        "identifier_or_url": "https://doi.org/10.37236/1162",
+        "material_read": "Original open full text PDF introduction, Section 2 methods and selected lower/upper bound tables and reference descriptions, including pages 1,2,3,5 and tables 9-11.",
+        "method": "Publisher-authorized open PDF https://emis.de/ft/5395, textual inspection with page-image checks",
+        "title": "A New Table of Constant Weight Codes of Length Greater than 28",
+        "trigger": "Potential stronger coding-theoretic coverage of selected r-subsets"
+      },
+      {
+        "assessment": "Potentially subsumes individual short parameters, particularly r=10; explicit classification range for d=18 stops at n<=28 and does not cover the claim r>=11, n>=30.",
+        "evidence": "Abstract lists classification ranges d=16,n<=28 and d=18,n<=28.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2010.2050922",
+        "material_read": "Publisher and university repository abstracts with exact n/d classification domains; full text not obtained.",
+        "method": "Accessible author/institutional bibliographic abstracts",
+        "title": "Classification of Binary Constant Weight Codes",
+        "trigger": "Possible earlier classification of all optimal code configurations"
+      },
+      {
+        "assessment": "Provides scalar code cardinality bounds, not all-subfamily counts or eight orbit sizes.",
+        "evidence": "Definition of A(n,d,w) and table metadata.",
+        "identifier_or_url": "https://aeb.win.tue.nl/codes/Andw.html",
+        "material_read": "Web table definition, entries and documentation of upper/lower bounds and cited source papers.",
+        "method": "Online table inspection and targeted searches",
+        "title": "Bounds for binary constant weight codes",
+        "trigger": "Exact database or table check for equivalent code parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80ff837d-1994-4445-a689-383491aba840",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem determines the complete independence/2-packing polynomial of the square of an infinite Kneser diagonal, and partitions all optimal configurations into exactly eight natural orbit types with explicit labeled multiplicities. These data are absent from the established scalar maximum-3 result and the coding-theoretic size tables; they quantify the full placement space of feasible mutually separated subsets. The formulas cover an unbounded range beyond the stated parameters of earlier finite code classifications. This is a natural complete family classification rather than an arbitrary finite slice or mere recomputation of the known scalar optimum.",
+    "status": "PASS"
+  }
+}
