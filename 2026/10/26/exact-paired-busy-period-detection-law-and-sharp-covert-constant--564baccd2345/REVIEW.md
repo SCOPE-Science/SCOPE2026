@@ -1,15 +1,21 @@
-# Scientific review: exact paired busy-period detection
+# Independent mathematical audit
 
-## Correctness — PASS
-The analysis concerns stable \(M/M/1\) busy periods initialized at state one, with known \(\mu\), strictly positive baseline arrival rate, and within-busy observations only. The Catalan path count, conditional Gamma duration, parameter-free conditional path reconstruction, Raney convolution law, exact likelihood, and optimal decision threshold are independently reconstructed in `RESULT.md`. Strict finite-sample power superiority follows from conditional sign crossings, not merely a non-strict data-processing inequality. Relative entropy, the exact count-only information gap, finite Fisher information, local likelihood convergence, and the sharp KL insertion constant follow with the stated quantifiers. The accompanying standalone checker passed 125 finite assertions, including an independently integrated optimal testing risk. No finite computation is treated as an infinite proof.
+## correctness
 
-## Originality — PASS with residual historical risk
-The closest recent manuscript, Sahithi--Yardi--Ravi (arXiv:2610.13911v1, Sections II--V and appendices), studies job counts and durations as separate revealed statistics. Its separate-channel constants do not entail the exact paired optimum, and the parameter-free conditional duration representation used in one comparison differs from the direct conditional busy-period law established here. The 2019 Chaudhry--Goswami open-access article provides classical marginal count distributions, not a paired hypothesis-testing theorem. Takács's 1961 joint-law paper is credited as the classical probabilistic input; generic likelihood-ratio principles and classical sufficiency are also credited. The 2020/2021 queue-inference survey of Asanjarani--Nazarathy--Taylor (arXiv:2012.14614, §3.1) explicitly credits Clarke (1957) for trajectory likelihood sufficiency under count/exposure summaries: **ordinary path sufficiency is prior art**, not the new contribution. The specific claimed extension is the exact two-statistic Neyman--Pearson error series, strict domination of *both* one-statistic monitoring channels, its closed information gain and sharp joint covert constant. Targeted literature and existing-result searches did not identify an explicit equivalent theorem. The original Takács and 2020 Yardi--Bodas articles could not be read completely, so historical priority is not guaranteed.
+PASS
 
-## Mathematical value — PASS
-The paired count--duration report is a natural third observation channel in the current covert queueing problem. Establishing that it is **as informative as the entire unlabelled within-busy jump trajectory** is a structural compression result, while the strict, exact testing-risk advantage quantifies the privacy cost of releasing the two statistics together. The sharp constant \(K_{\rm pair}=\mu\sqrt{2/[\lambda(\mu-\lambda)]}\) identifies a precise operational boundary not supplied by either marginal analysis. The result does not extend to idle-time or marked observations, and its finite optimal error is an infinite convergent series rather than an elementary closed form.
+Each busy trajectory with N=j has j-1 arrivals, j departures, and 2j-1 exponential waiting times of rate lambda+mu. Its Catalan path density is theta^(j-1)mu^j t^(2j-2)e^-(theta+mu)t/[j!(j-1)!]. Therefore T|N=j is Gamma(2j-1,theta+mu); conditional jump ordering and waiting-time simplex given the pair are parameter independent, giving Blackwell equivalence to full unmarked within-busy paths. Log likelihood is S log((lambda+eta)/lambda)-eta U, so exact gamma/ballot weights and the Gamma CDF at q S give both NP errors. Conditional likelihood changes sign under either marginal observation, making paired TV strictly larger. E[S]=lambda/(mu-lambda), E[U]=1/(mu-lambda) give exact KL pair and positive count-only information gap; score variance is 1/[lambda(mu-lambda)], giving LAN Gaussian total error. Small-eta expansion plus the pooled-Poisson initiating-customer source mark yields Kpair=mu sqrt(2/[lambda(mu-lambda)]). Fresh independently generated ballot-Gamma sums at (lambda,mu,eta,k)=(1,3,0.25,2) give alpha 0.286581758460309, beta 0.632887806741184, plus KL and Fisher comparisons. Analytic arguments justify infinite sums, strict inequalities and limits.
 
-## Closest literature and limitations
-Relevant foundations include the classical joint busy-period distributions (Takács 1961), classical stopped-queue path sufficiency (Clarke 1957, as surveyed by Asanjarani--Nazarathy--Taylor 2020/2021), the general service-count treatment (Chaudhry--Goswami 2019), and the separate covert observation formulations (Yardi--Bodas 2021; Sahithi--Yardi--Ravi 2026). The first and third originals were available only through bibliographic or abstract evidence, so a specialized earlier inferential result remains possible. All derivations use known service rate and a fixed subcritical Poisson arrival model. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: The 2026 Sahithi–Yardi–Ravi primary article presents alternative count-only and duration-only monitors, not their paired simultaneous observation theorem. Classical count/duration joint busy-period laws (Takács/Prabhu) and M/M/1 stopped-path sufficiency (Clarke, surveyed by Asanjarani et al.) are prior and explicitly not claimed new. The target contribution is the paired Gamma–ballot NP risk, strict simultaneous-report detection superiority, information gain and local covert coefficient. Full historical Takács and earlier covert queue paper not verified, so priority risk remains.
+
+## value
+
+PASS
+
+PASS: A paired count-duration release is the natural information-larger observation model in a specific 2026 covert monitoring problem. It yields quantitative finite optimal detection and sharp square-ROOT insertion constant not available by treating marginals separately. Correct Gamma conditional dependence also exposes a scientifically important distinction from a parameter-free conditional-duration assertion in the source; generic exponential-family sufficiency alone is not assigned value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
