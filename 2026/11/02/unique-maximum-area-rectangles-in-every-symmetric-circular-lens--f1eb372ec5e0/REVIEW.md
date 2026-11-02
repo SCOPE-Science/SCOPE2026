@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The candidate is quantified over all translations and rotations of Euclidean rectangles contained in the two-disk lens for every separation parameter \(0<c<1\). Central symmetry and convexity reduce translations without changing area. The four corner inequalities give the exact necessary-and-sufficient relation \(a^2+b^2+2c(a|\cos\theta|+b|\sin\theta|)+c^2\le1\). Orientation minimization forces axis alignment, then the unique stationary root \(2b^2+3bc+c^2=1\) is the global maximum. An averaging argument at the two active pairs of circle contacts proves that no noncentral translation ties. Direct differentiation, radical substitution and elementary asymptotics prove the inverse parameter and both endpoint regimes. The independent self-contained script verifies algebraic equalities, constraint feasibility, selected global comparisons and limiting constants numerically; these tests support, but cannot replace, the analytic proof.
+
+## Originality: PASS, subject to historical search limitations
+The full accessible 2019 Behroozi treatment studies maximum-area rectangles in arbitrary convex bodies and gives general centering and optimization machinery, but its theorems and illustrated examples do not state the complete all-separation lens formula, unique axis alignment, inverse aspect ratio, or sharp rectangle-versus-square thin-lens divergence. The full accessible 2023 Basit--Lángi work studies disk-polygons and area/perimeter sequences, not Euclidean rectangles inscribed in a two-disk intersection. Closest indexed records discuss maximum rectangles in rhombi and regular polygons or lens mean width, not this exact lens classification. These statements were compared by mathematical implication, not solely terminology. Any previously published special lens calculation could reduce or remove originality; priority is not independently certified.
+
+## Value: PASS
+The symmetric circular lens is the canonical intersection of two congruent disk constraints, a natural test geometry for inscribed-box optimization. A complete global exact optimizer, including its equality/center/orientation classification, provides an analytic benchmark for general convex-set algorithms. The shape is provably nonsquare for every nonzero center offset, and near tangency the optimal rectangle wins over the optimal square by an unbounded factor, revealing distinct geometric scaling exponents. Its aspect ratio also exactly reconstructs the lens parameter, so the result is not simply a value substituted into a generic convex optimization inequality.
+
+## Closest literature and limits
+Behroozi, arXiv:1905.13246 (2019-05-30), general maximum-area inscribed rectangles in convex sets, Sections 3--6; Basit--Lángi, arXiv:2307.04026 (2023-07-08), disk-polygon extremal area/perimeter. The result does not address unequal disks, three or more disks, or other convex bodies. Independent audit and exhaustive historical priority search are unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
