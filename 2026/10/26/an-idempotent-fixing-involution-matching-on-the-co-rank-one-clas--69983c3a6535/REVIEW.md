@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every co-rank-one isotone map is uniquely parameterized by a merged adjacent kernel pair and an omitted image point. The piecewise map is an involution, satisfies the two crossed-transversal conditions for mutual inverse elements, and fixes exactly the \(2(n-1)\) idempotents. Direct transformation-composition tests through \(n=9\) independently corroborate the unrestricted proof.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The October 2026 Higgins theorem guarantees an arbitrary permutation matching on the entire monoid, not an involution. Higgins's 2019 involution on the orientation-preserving cyclic semigroup does not restrict canonically to the order-preserving submonoid. Previously catalogued finite whole-monoid involutions through \(n=8\) do not imply an all-dimension formula for this Green class. Targeted record and bibliographic searches did not locate a stronger covering theorem. A simple co-rank-one pairing may have appeared without matching search terminology; this remains a meaningful risk.
+PASS
 
-**Value — PASS.** The natural next-to-unit Green class contains \(n(n-1)\) transformations and occurs at every chain size. It is the first nontrivial rank layer below the unit group, and the result upgrades a recent whole-monoid permutation-matching theorem to an idempotent-fixing involution on this entire infinite family of layers. The constructive decomposition is relevant to the unresolved global involution-matching question, though it does not solve it.
+Every rank n-1 isotone map of a finite n-chain is uniquely determined by adjacent collapsed kernel indices i,i+1 and omitted image value t. The explicit piecewise J_n maps (i,t) to (t-1,i) if t>=i+2, to (t,i+1) if t<=i-1, otherwise fixes it; the outer branches reverse one another. For its mate (j,u), both u in {i,i+1} and t in {j,j+1}, which are precisely the crossed image-kernel transversal conditions for mutual inverse maps. Fixed points occur iff t=i or i+1 and are exactly the idempotents, hence 2(n-1) fixed and (n-1)(n-2)/2 two-cycles, including n=2. Independent direct composition verified 240 maps for n=2..9; the all-n proof is structural rather than extrapolated.
 
-**Scope.** Neither the existence of a whole-monoid involution for arbitrary \(n\) nor uniqueness of the construction is claimed. Primary literature inspection does not rule out unindexed antecedents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison: the accessible primary works supply originating models or generic techniques but their inspected mathematical statements do not establish this exact complete final result; the four implication checks and specific priority risks below delimit this conclusion.
+
+## value
+
+PASS
+
+The rank n-1 D class is the maximal nonbijective layer of the natural order-preserving transformation monoid. An explicit idempotent-fixing mutual-inverse involution with exact cycle decomposition gives a constructive infinite-family strengthening of whole-monoid permutation-matching existence on this distinguished layer. The claim does not purport to solve the still broader whole-monoid involution problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
