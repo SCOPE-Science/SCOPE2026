@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python deranged_matching_edge_covariance_check.py` with Python 3.9 or newer. It uses only the standard library and prints per-order counts and assertion totals. The expected total is **19,267 exact assertions**, with counts of deranged matchings \(D_2=2,D_3=8,D_4=60,D_5=544,D_6=6040,D_7=79008\).
+## correctness
 
-The enumerator independently lists all pairings of \(2n\) vertices for \(2\le n\le7\), rejects forbidden original pairs, and compares exact rational covariances for every pair of distinct allowed edges with the symbolic predictions. It separately checks the count recurrence and exact sign relations through \(n=300\). Verification is finite; the full parameter theorem follows from the conditional counting argument and recurrence proof in RESULT.md, not from extrapolation. Asymptotic constants rely on the previously established deranged-matching count asymptotic. Historical priority and independent review have not been conclusively resolved.
+PASS
+
+Independent enumeration of every perfect matching and distinct allowed edge pair for n=2..6 verifies D_n and all four edge-incidence orbits. Inclusion-exclusion gives D_m=2(m-1)(D_{m-1}+D_{m-2}); transitivity p=1/[2(n-1)]; conditioning on an edge gives c=2(n-1)D_{n-2}/D_n and exact gamma_2, gamma_3, gamma_4. The recurrence proves gamma_3,gamma_4>0, gamma_2 positive n=2,4 and negative n=3 or n>=5; asymptotics use known D_n count. At n=4 gamma_2=1/180, exactly confirmed.
+
+## originality
+
+PASS
+
+Statement-level search and implication audit, not a novelty proof from a failed search. Conditioned matchings and associated random-permutation derangements differ as probability spaces. Uniform matching results on broader regular expanders imply marginals but not exact n^-4 covariance signs. Poisson overlap distribution does not logically force a fine signed covariance coefficient without controlled higher-order error; earlier work is explicitly credited. Best-of-knowledge originality survives with the stated residual risk.
+
+## value
+
+PASS
+
+The excluded-perfect-matching cocktail-party graph is a canonical deranged matching model. Sharp finite-size pair-correlation signs unexpectedly mix dependence, with an exceptional n=4 sign and delicate n^-4 anti-correlation; those precise facts cannot be inferred from Poisson overlap asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
