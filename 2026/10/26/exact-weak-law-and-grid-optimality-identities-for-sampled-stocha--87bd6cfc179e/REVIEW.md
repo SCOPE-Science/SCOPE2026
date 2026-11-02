@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Conditional on the sampled actions, the terminal state is centered Gaussian with variance \(V_\pi=\sum_i h_iA_i^2\). Jensen's inequality yields the exact characteristic-function comparison; strict convexity of the log-Laplace transform gives the uniform-grid minimizer. Conditioning also gives the fourth-moment identity. The weak-bias coefficient follows from Taylor expansion of \(v\mapsto\mathbb E[f(\sqrt vG)]\), with the displayed third-moment remainder bound. The scope and moment assumptions are stated explicitly.
+PASS
 
-## Originality
+Conditional on iid actions, terminal law is Gaussian with variance V=sum h_i A_i²; product Laplace transform exact for EA² finite. Strict convexity of e^-sZ and of log E e^-sZ under exponential tilt gives strict equality/unique grid statements for nonconstant Z. Fourth gap follows E V² and independence; higher even moments are symmetric convex functions of h and hence Schur-convex. For smooth bounded f, H(v)=E f(sqrt(v)G) has Hsecond=E f4/4 and Hthird=E f6/8; Taylor with centered V-qT yields displayed coefficient/48 bound. E Z³ controls uniform O(N^-3/2). Fresh independent rational 27-action mixture matched fourth gap and grid ordering, including strict CF comparisons at three frequencies.
 
-**PASS, scoped to the exact control-execution claim.** The closest source, Jia–Ouyang–Zhang (arXiv:2503.09981v1), proves general weak-rate bounds and gives a controlled-volatility strong-error example; its numerical illustration estimates a fourth-moment difference for Gaussian actions. The inspected sections do not state the exact finite-grid characteristic function, the weak-law equality criterion, or the explicit partition-dependent fourth-moment coefficient. Bender–Tran Thuan (arXiv:2409.17200v1) treat a broader grid-sampling limit framework, while Szpruch–Treetanthiploet–Zhang (arXiv:2208.04466v3) focus on LQ execution with uncontrolled diffusion. Classical Gaussian-mixture and majorization principles are acknowledged as equivalent tools, not claimed as new abstract results. Targeted semantic searches did not surface an exact matching finding; this is not treated as proof of global novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result turns a recent Monte Carlo illustration of controlled-volatility weak error into an exact benchmark, gives a precise test-function-dependent first weak-bias coefficient, identifies when randomized actions are distributionally invisible, and provides a grid-design rule for all Fourier modes and even moments. These facts are useful for validating policy-execution simulations without asserting a general theorem for arbitrary controls.
+Jia–Ouyang–Zhang, especially Example 4.7 and §4.4, already set the exact controlled-volatility model and identify failure of strong convergence, weak convergence order, and Monte Carlo fourth moment error; they do NOT give its all-grid characteristic function, nonconstant-A² equality criterion, exact fourth error constant, Schur-convex grid optimum or explicit C_b^6 weak coefficient in the inspected text. Bender–Tran Thuan gives a broader weak grid-sampling limit SDE framework but not the finite-grid law. Many proof ingredients are classical Gaussian-mixture, Jensen, majorization and heat semigroup results; possible elementary prior exact specializations remain risk.
 
-## Closest literature and limitations
+## value
 
-The theorem is restricted to state-independent IID scalar actions, zero drift, and \(\sigma(a)=a\). It does not rank arbitrary payoffs or establish pathwise convergence. The literature comparison is bounded and cannot exclude equivalent calculations in uninspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite-grid law and payoff-specific leading bias solve a specifically posed stochastic-policy accuracy diagnostic and justify the optimal sampling grid quantitatively, including law-equality but strong-error separation; despite elementary tools it is motivated by a published numerical fourth-moment benchmark rather than an arbitrary restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

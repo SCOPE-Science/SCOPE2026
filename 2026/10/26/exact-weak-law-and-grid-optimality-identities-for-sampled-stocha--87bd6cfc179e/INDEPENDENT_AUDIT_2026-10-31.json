@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:46:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on iid actions, terminal law is Gaussian with variance V=sum h_i A_i²; product Laplace transform exact for EA² finite. Strict convexity of e^-sZ and of log E e^-sZ under exponential tilt gives strict equality/unique grid statements for nonconstant Z. Fourth gap follows E V² and independence; higher even moments are symmetric convex functions of h and hence Schur-convex. For smooth bounded f, H(v)=E f(sqrt(v)G) has Hsecond=E f4/4 and Hthird=E f6/8; Taylor with centered V-qT yields displayed coefficient/48 bound. E Z³ controls uniform O(N^-3/2). Fresh independent rational 27-action mixture matched fourth gap and grid ordering, including strict CF comparisons at three frequencies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior works give general weak order and limiting SDE under controlled diffusion; neither gives exact finite-grid optimization or payoff coefficient in this iid model."
+        ],
+        "reasoning": "General O(mesh) error rates are weaker than exact coefficient and uniform-grid minimization; the latter are not logical direct substitutions from those theorems.",
+        "searches": [
+          "arXiv:2503.09981 Thm. 4.1",
+          "arXiv:2409.17200 Thm. 2.7"
+        ]
+      },
+      "checked_sources": [
+        "Jia, Ouyang, Zhang, Accuracy of Discretely Sampled Stochastic Policies in Continuous-time Reinforcement Learning, arXiv:2503.09981, Example 4.7, §4.4 and Thm. 4.1.",
+        "Bender & Nguyen Tran Thuan, A random measure approach to reinforcement learning in continuous time, arXiv:2409.17200v1, §2 and Thm. 2.7.",
+        "Classical Gaussian scale mixtures, strict Jensen, Schur-convexity, heat semigroup identities (methods, not claimed novel)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strong error nonconvergence in Example 4.7 does not determine the entire weak law; an O(mesh) bound does not determine its leading constant."
+        ],
+        "reasoning": "Claim adds specialized all-grid law, scalar equality classification and explicit leading weak-bias; classical Jensen/Taylor tools are prior methods, and an implicit derivation remains possible.",
+        "searches": [
+          "arXiv:2503.09981 Example 4.7, §4.4",
+          "arXiv:2409.17200 §§2.1–2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Terminal sampled law is Gaussian scale mixture with random variance V_pi; its characteristic function is a product Laplace transform."
+        ],
+        "reasoning": "Recognizes classical mixture/convex order aliases explicitly; the multi-part evaluated finite-grid result is not presented as a new abstract Gaussian identity.",
+        "searches": [
+          "random sampled volatility Brownian motion independent Gaussian mixture characteristic functions optimal uniform sampling grid weak bias",
+          "arXiv:2503.09981 Example 4.7",
+          "arXiv:2409.17200"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Paper estimates sampled fourth moments via 50,000 Monte Carlo trials; no exact constant/optimal-grid table."
+        ],
+        "reasoning": "Motivating numerical table is quantitatively sharpened but not simply recomputed; exact identities add information and general iid action laws.",
+        "searches": [
+          "random sampled volatility Brownian motion independent Gaussian mixture characteristic functions optimal uniform sampling grid weak bias",
+          "arXiv:2503.09981 Fig. 2 & §4.4"
+        ]
+      },
+      "rationale": "Jia–Ouyang–Zhang, especially Example 4.7 and §4.4, already set the exact controlled-volatility model and identify failure of strong convergence, weak convergence order, and Monte Carlo fourth moment error; they do NOT give its all-grid characteristic function, nonconstant-A² equality criterion, exact fourth error constant, Schur-convex grid optimum or explicit C_b^6 weak coefficient in the inspected text. Bender–Tran Thuan gives a broader weak grid-sampling limit SDE framework but not the finite-grid law. Many proof ingredients are classical Gaussian-mixture, Jensen, majorization and heat semigroup results; possible elementary prior exact specializations remain risk.",
+      "residual_risks": [
+        "Classical mixture-model or stochastic quadrature literature may contain this exact uniform-grid optimization and weak coefficient; elementary derivation gives heightened priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PARTIAL_PRIOR",
+          "evidence": "Original has nonvanishing strong error, convergence order and simulated x^4 weak error, but not exact 6T²/N formula or full nonuniform-grid optimization / leading general payoff constant.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.09981",
+          "material_read": "Full accessible primary arXiv HTML, §4.1 general weak theorem, Example 4.7 lines 462–470 controlled Gaussian action, §4.4 lines 471–483 Monte Carlo fourth moment, main proof sections.",
+          "method": "Read exact model and numerical methodology versus submitted exact formulas.",
+          "title": "Accuracy of Discretely Sampled Stochastic Policies in Continuous-time Reinforcement Learning",
+          "trigger": "Same original model and exact motivating numerical experiment"
+        },
+        {
+          "assessment": "BROADER_MODEL_DIFFERENT_CONCLUSION",
+          "evidence": "Establishes weak limit and random measure machinery, not exact finite-grid iid scalar mixture law or weak-error coefficient.",
+          "identifier_or_url": "https://arxiv.org/html/2409.17200v1",
+          "material_read": "Full open-access HTML paper, especially §§1–2.5 and main Theorem 2.7 scope, plus proof roadmap.",
+          "method": "Read statements and grid-sampling model; compare finite-grid identities against limiting SDE theorem.",
+          "title": "A random measure approach to reinforcement learning in continuous time",
+          "trigger": "Broader diffusion-control grid limit covering sampled actions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-grid law and payoff-specific leading bias solve a specifically posed stochastic-policy accuracy diagnostic and justify the optimal sampling grid quantitatively, including law-equality but strong-error separation; despite elementary tools it is motivated by a published numerical fourth-moment benchmark rather than an arbitrary restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite iid actions in state-independent sampled volatility dX=A_i dW and aggregate dXt=sqrt(EA²)dW, exact terminal characteristic functions, weak-law equality iff A² is constant, unique uniform-grid minimizing characteristic-function excess when nonconstant, all even moments minimized by uniform grid, exact fourth gap 3 Var(A²)sum h_i², and C_b^6 payoff expansion with Var(A²)/8 coefficient and explicit third-moment remainder.",
+  "limitations": [
+    "State-independent iid volatility-only control; cannot claim general diffusion policy convergence, all payoff orderings, feedback or pathwise error.",
+    "Classical mixture-model or stochastic quadrature literature may contain this exact uniform-grid optimization and weak coefficient; elementary derivation gives heightened priority risk.",
+    "This is a qualified best-of-knowledge originality assessment. Originality search included Resultary query: 'random sampled volatility Brownian motion independent Gaussian mixture characteristic functions optimal uniform sampling grid weak bias'.",
+    "No publication or independent external/formal attestation is asserted."
+  ],
+  "schema_version": 1
+}
