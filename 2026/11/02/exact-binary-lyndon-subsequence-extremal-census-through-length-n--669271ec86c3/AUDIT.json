@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact sentinel encoding and two-case last-letter recurrence prove the hostwise set construction by induction. A standalone C11 exhaustive loop covers every word for all n=1,...,19; direct rotation comparison independently defines Lyndon membership. A different Python set enumeration reproduces maxima, multiplicities, witnesses and score totals for n=1,...,16. Only the finite census is claimed, with no infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bannai et al., Algorithmica open article, introduction and algorithm sections, analyzes length of longest Lyndon subsequence rather than the number of distinct Lyndon-patterns.",
+        "Hirakawa et al. discuss exact total maximum and expectation of distinct counts, rather than the per-host distinct extremal profile through 19."
+      ],
+      "reasoning": "Even universal exact positional-count formulas cannot dominate the distinct maximum by specializing parameters; a single pattern may have many embeddings. None of the inspected broader algorithms supplies the exact maximum/tie profile as an immediate corollary.",
+      "searches": [
+        "Counting Lyndon Subsequences Hirakawa Nakashima Inenaga Takeda full text",
+        "https://link.springer.com/article/10.1007/s00453-023-01125-z",
+        "binary words maximizing distinct Lyndon subsequences extremal count length 14"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.01190",
+      "arXiv:2201.06773",
+      "OEIS:A290743",
+      "published-finding corpus:1a6556f14d28",
+      "published-finding corpus:e77c4e8d9f37"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known positional maximum has a different unit of counting (embeddings), and the Lyndon-factor maximum requires contiguous matches.",
+        "The present result supplies the first-maximizer word and complete tie count for every binary host length through 19, a stronger finite discrete invariant than an average expectation."
+      ],
+      "reasoning": "No identified prior theorem implies the enumerated values and tie multiplicities. Contiguous factors are a subset of scattered subsequences, but maximizing either number over words does not determine the other. The expected number over random hosts cannot determine the maximum or optimizer multiplicities.",
+      "searches": [
+        "maximum number of distinct Lyndon subsequences for binary words exact small n 1 3 4 6 8 13 18 28 41 63",
+        "https://arxiv.org/abs/2106.01190",
+        "https://oeis.org/A290743",
+        "https://link.springer.com/article/10.1007/s00453-023-01125-z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hirakawa et al., arXiv:2106.01190 abstract separates total positional maximum from expected distinct subsequences; it does not provide binary finite distinct maxima.",
+        "published-finding corpus scientific record 1a6556f14d28 is about absent subsequences, not distinct Lyndon patterns."
+      ],
+      "reasoning": "The exact invariant is the supremum over binary hosts of the number of distinct Lyndon scattered-pattern strings, with tie multiplicity and lexicographically first maximizer. A positional-embedding maximum or a longest-pattern maximum is not logically equivalent to a distinct-pattern maximum.",
+      "searches": [
+        "maximum number of distinct Lyndon subsequences for binary words exact small n 1 3 4 6 8 13 18 28 41 63",
+        "binary words maximizing distinct Lyndon subsequences extremal count length 14",
+        "\"maximum number of distinct Lyndon subsequences\" binary length",
+        "https://arxiv.org/abs/2106.01190"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A290743 explicitly records the maximum number of distinct Lyndon FACTORS, with binary terms 2,3,4,6,8,11,..., not the scattered-subsequence terms of the present finite computation.",
+        "Numerical-sequence and targeted mathematical-record searches yielded no exact matching distinct-subsequence table."
+      ],
+      "reasoning": "The checked known table enumerates contiguous substrings and differs numerically; it does not tabulate the requested distinct scattered-pattern maxima. Absence of a database match is not proof that no inaccessible table exists.",
+      "searches": [
+        "\"1, 3, 4, 6, 8, 13, 18, 28, 41, 63, 96\" Lyndon",
+        "\"13, 18, 28, 41, 63, 96, 141, 225, 335\" words",
+        "https://oeis.org/A290743",
+        "maximum number of distinct Lyndon subsequences for binary words exact small n 1 3 4 6 8 13 18 28 41 63"
+      ]
+    },
+    "rationale": "Published Lyndon-subsequence work distinguishes maxima of positional occurrences from expected distinct pattern counts. An exact hostwise binary distinct maximum/tie census through 19 is a separate open-type invariant. Primary works, the closest contiguous Lyndon factor table, prior claims, and targeted published-finding corpus searches were compared by logical implication, not title alone; no actual coverage located. Residual risk of an unindexed finite table is explicitly retained.",
+    "residual_risks": [
+      "Unindexed or offline tables of binary distinct Lyndon subsequences may exist.",
+      "The finite result cannot settle the unrestricted infinite maximum problem.",
+      "Second independent exhaustive implementation covers lengths 1 through 16 only, while the standalone exact C code covers 1 through 19."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not contain the exact maximum number of distinct Lyndon subsequence strings across binary hosts for lengths 1 through 19 or its optimizer multiplicities.",
+        "evidence": [
+          "First public 2021-06-02; abstract explicitly lists maximum total, expected total, and expected distinct counts, not maximum distinct counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.01190",
+        "material_read": "Accessible arXiv full-text methods and results on maximum positional counts and expected distinct counts, together with dated abstract and bibliographic front matter.",
+        "method": "Open-access arXiv paper reading and comparisons of theorem quantifiers and counted units",
+        "title": "Counting Lyndon Subsequences",
+        "trigger": "Same object and distinction between positional and distinct subsequences"
+      },
+      {
+        "assessment": "Optimizes the maximum LENGTH of one selected Lyndon subsequence; it does not count distinct Lyndon subsequences or tabulate hostwise extrema.",
+        "evidence": [
+          "Open access article first online 2023-05-06; abstract gives cubic-time longest subsequence algorithms."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-023-01125-z",
+        "material_read": "Complete accessible open-access HTML article, introduction, preliminaries, algorithms for longest and common subsequences, and conclusions.",
+        "method": "Read web full text and compare the optimized statistic",
+        "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+        "trigger": "Same Lyndon scattered subsequences, potential broader algorithmic coverage"
+      },
+      {
+        "assessment": "Counts distinct contiguous factors; numerical values differ from the scattered subsequence maximum, so this is not a duplicate table.",
+        "evidence": [
+          "OEIS wording explicitly says distinct Lyndon factors, and initial terms 2,3,4,6,8,11,... contrast with scattered-subsequence maxima 1,3,4,6,8,13,... ."
+        ],
+        "identifier_or_url": "https://oeis.org/A290743",
+        "material_read": "Sequence description, listed values, formula, and linked 2017 Glen–Simpson–Smyth reference",
+        "method": "Full sequence-entry inspection and direct first-values comparison",
+        "title": "Maximum distinct binary Lyndon factors, OEIS A290743",
+        "trigger": "Plausible exact existing table with same Lyndon name"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "669271ec-86c3-42de-9dd1-ba7aa325f2ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete 19-length exact benchmark for the maximum number of distinct Lyndon subsequence patterns, a natural fixed-alphabet variant of a published distinct-subsequence counting problem. It includes a nontrivial exceptional two-way tie at n=12 and exact optimizer multiplicities, giving concrete structure and boundary evidence for the unclassified unrestricted maximum. It is not a tiny routine extension of a known distinct-count table.",
+    "status": "PASS"
+  }
+}
