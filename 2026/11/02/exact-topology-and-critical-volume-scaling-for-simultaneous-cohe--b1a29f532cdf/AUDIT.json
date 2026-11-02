@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Direct Gaussian kernel normalization; reflection saturates the bathtub upper bound for the worst of two intensities; uniqueness follows from analytic nonconstant level sets. Derivative shape produces an exact one-to-two component criterion. The exact transverse-ball cross-section integral gives A_c; its derivative is strictly positive pointwise in a; a controlled μ expansion and beta integral yield the sharp Γ coefficient; dominated convergence under scaling gives 2/q!. A standalone pure-Python checker passed 44 deterministic sampled checks. Null-set topology caveat explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "F. Nicola and P. Tilli, arXiv:2106.03423, Theorems 1.1 and 1.2 optimize the observation region and an arbitrary one signal jointly; extrema are balls.",
+        "A. Galbis, arXiv:2102.02031, Theorem 1 bounds radial Toeplitz symbols and Corollary 8 bounds individual Hermite energy."
+      ],
+      "reasoning": "A general all-signal upper bound is not an optimizer for a prescribed worst-of-two target signal objective. The Nicola--Tilli disk equality theorem cannot produce the two-lobed minimax regions; Galbis is radial and scalar. Neither prior statement implies the new exact area transition, as the outer optimization order and feasible maximizers differ.",
+      "searches": [
+        "Faber Krahn inequality short time Fourier transform Nicola Tilli coherent state 2022",
+        "Norm estimates for selfadjoint Toeplitz operators on Fock space Galbis 2102.02031",
+        "coherent states Bargmann Fock simultaneous concentration optimal observation region Gaussian mixture disk disconnected threshold area"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.03423",
+      "arxiv:2102.02031",
+      "arxiv:1702.05066",
+      "https://www.cs.toronto.edu/~miguel/research/GMmodes.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 of Nicola--Tilli treats sup over all signals f of a single localization energy, while the new claim takes min over two fixed coherent states before optimizing area.",
+        "Améndola--Engström--Haase studies bounds for numbers of mixture modes; its accessible abstract does not state the exact level-set volume threshold.",
+        "The new conclusion includes the explicit integral, monotone threshold, onset coefficient involving Γ(2q+1/2), and large-separation 2/q! constant."
+      ],
+      "reasoning": "The scalar Faber--Krahn and radial norm results have neither the target-specific optimization nor two-component geometry. Standard Gaussian-mode classification supplies the one-variable derivative shape but not the sharp critical-volume integral/asymptotics without substantial further analysis. Priority risk for earlier Gaussian-mixture highest-density-set work is explicitly retained.",
+      "searches": [
+        "The Faber Krahn inequality for the Short-time Fourier transform Nicola Tilli",
+        "Maximum Number of Modes of Gaussian Mixtures Amendola Engstrom Haase",
+        "two equal isotropic Gaussian mixture highest density regions disconnected connected topology volume threshold formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two coherent-state intensities are isotropic translated Gaussians; their symmetric maximin region is a Gaussian-mixture high-density superlevel, as follows from the two-term averaging and reflection equality.",
+        "C. Améndola, A. Engström, C. Haase, arXiv:1702.05066, abstract concerns the number of Gaussian-mixture modes, not superlevel critical-volume asymptotics."
+      ],
+      "reasoning": "These aliases connect the problem to classical Gaussian-mixture modes. The mode bifurcation at separation threshold is classical background; the new claim is an exactly quantified robust observation area together with the all-dimension topology and two endpoint scaling constants.",
+      "searches": [
+        "two equal Gaussian mixtures superlevel set connectivity threshold bifurcation high density region exact area phase transition",
+        "Bargmann Fock coherent state two-point maximin phase space localization equal Gaussian wavepacket overlap observation set topological transition disconnected two lobes",
+        "equal-weight two-Gaussian mixture high density region volume connectivity bifurcation exponent separation dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic search returned operator-theoretic Fock Schatten zero divisors, cyclic Gabor projector rank calculations, and general Gaussian mixture applications but no same-object critical observation-volume entry.",
+        "Published references arXiv:2106.03423, arXiv:2102.02031, arXiv:1702.05066 concern different optimized quantities."
+      ],
+      "reasoning": "No exact critical-volume expression for the two-target fixed-signal Fock optimization was found in the actual comparison results. Absence of a hit is not treated as a uniqueness theorem; only the concrete implication comparisons support this PASS.",
+      "searches": [
+        "two coherent states Gaussian Bargmann Fock simultaneous concentration prescribed observation area mixture bimodal topology critical separation optimal symmetric set",
+        "two equal Gaussian mixtures superlevel set connectivity threshold bifurcation high density region exact area phase transition",
+        "Bargmann Fock coherent state two-point maximin phase space localization equal Gaussian wavepacket overlap observation set topological transition disconnected two lobes"
+      ]
+    },
+    "rationale": "Relevant Gaussian modes and single-state Fock concentration are acknowledged background. The exact *two fixed coherent states* minimax topology threshold at all volumes, the dimension-dependent near-bifurcation area law, and the large-separation threshold law are not consequences of the inspected radial-symbol norm or freely optimized STFT theorems. Explicit mathematical comparison was made to those stronger-looking results; residual absolute-priority uncertainty remains.",
+    "residual_risks": [
+      "The arXiv/OA text of arXiv:1702.05066 could not be inspected beyond abstract despite arXiv, OA, and other lawful-source attempts; a related full-text result could narrow novelty.",
+      "Other literature on highest-density regions of equal Gaussian mixtures may contain an equivalent area formula not surfaced by the searches.",
+      "No independent human mathematical verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: unrestricted single-signal optimization with ball extremizers, not two-fixed-signal minimax regions",
+        "evidence": [
+          "Theorem 1.1: simultaneous free selection of f and Ω; Ω a ball and f a translated Gaussian.",
+          "Section 2 uses the Fock transform; no two-target maximin topology classified in inspected material."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00222-022-01119-8",
+        "material_read": "Open full-text HTML: Theorems 1.1–1.2, equality conditions, Fock reformulation in Section 2, dimensional extension, and concluding concentration statements",
+        "method": "Direct reading of accessible open-access article and comparison of the order of suprema/target signal constraints",
+        "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+        "trigger": "Potential dominating theorem for Gaussian localization over all measurable sets"
+      },
+      {
+        "assessment": "NOT_COVERING: bounds for radial symbols and single-state quantities, not fixed two coherent-state intensity minimax geometry",
+        "evidence": [
+          "Theorem 1 radial Fock Toeplitz bound.",
+          "Corollary 8 individual Hermite localization energy bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.02031",
+        "material_read": "PDF title/abstract, pp.1–3 Theorem 1 and radial hypotheses, pp.10–11 localization transformation and corollaries",
+        "method": "Primary PDF inspection and hypothesis/conclusion comparison",
+        "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+        "trigger": "Direct Fock energy localization theorem and Hermite coherent-state normalization"
+      },
+      {
+        "assessment": "ACCESS_LIMITED: mode-counting work is related, but full-text priority for exact critical-volume formula remains unresolved",
+        "evidence": [
+          "Abstract states mode-count bounds, not prescribed-volume simultaneous localization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.05066",
+        "material_read": "Title, dated arXiv submission and abstract only; arXiv full PDF and other lawful full-text versions inaccessible",
+        "method": "Abstract-level comparison only; no claim of full-text coverage",
+        "title": "Maximum Number of Modes of Gaussian Mixtures",
+        "trigger": "The symmetric density is a two-component homoscedastic Gaussian mixture"
+      },
+      {
+        "assessment": "BACKGROUND: traditional mixture modality not identical to an optimal fixed-volume observation-set topology law",
+        "evidence": [
+          "Explains relationship between component count and mode count in Gaussian mixtures."
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/~miguel/research/GMmodes.html",
+        "material_read": "Public research overview and description of isotropic Gaussian mixture modes",
+        "method": "Read background exposition and applications",
+        "title": "How many modes can a Gaussian mixture have?",
+        "trigger": "Independent Gaussian mixture background and earlier mode-count results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1a29f53-2cdf-42df-a6fa-80cedd24e369",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete, naturally formulated fixed-volume two-state minimax observation design problem. Its optimal geometry exhibits an exact separation/volume phase boundary and a nontrivial dimension-dependent onset exponent 2q−1/2. Critical area monotonicity and the large-separation 2/q! regime enable exact detector-topology decisions in any complex dimension, going beyond a mere mode count or isolated computation.",
+    "status": "PASS"
+  }
+}
