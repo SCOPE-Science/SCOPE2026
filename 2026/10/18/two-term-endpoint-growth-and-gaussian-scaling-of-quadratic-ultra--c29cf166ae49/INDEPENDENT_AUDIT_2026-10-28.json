@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:45:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md complete four-step proof; frozen check.py examined, but no opaque untrusted script executed",
+        "Independent rational beta-moment/kernel checks and arbitrary precision endpoint integrals, current run",
+        "DLMF 18.15(vi) for classical Gaussian/Hermite context"
+      ],
+      "rationale": "The Beta moments E Y²=1/(2a+1), E Y⁴=3/((2a+1)(2a+3)) yield variance 4a/((2a+1)^2(2a+3)) and exactly reproduce 1,y,y² with the normalized symmetric kernel. Rescaling z=sqrt(2a+1)y gives K=1+sqrt(2a+1)xz+((2a+3)/(4a))((2a+1)x²-1)(z²-1). Uniform finite moments imply Lambda_a(x)/a -> 4phi(1)x²; the uniform differentiated sign limit on [delta,1] and a strict gap on |x|<=1/2 show only +/-1 maximize for sufficiently large real a. The central x=z/sqrt(2a+1) Hermite limit is locally uniform. At x=1 the exact kernel is a(z²-1)+sqrt(2a+1)z+(3z²-1)/2, and weighted standardized-beta expansion phi(z)(1-H4(z)/(8a))+o(a^-1) plus moving-simple-root expansion at +/-1 gives Gaussian parts (6phi(1)+4Q-1)+2phi(1)-phi(1)=7phi(1)+4Q-1. Independent exact-rational beta reproduction and 55-digit numerical integration confirm component identities and limiting errors at seven a values; finite checks do not prove any infinite statement.",
+      "residual_risks": [
+        "Endpoint optimizer threshold a0 is asserted to exist but not bounded numerically; no small-a classification.",
+        "Differentiated sign convergence requires uniform integrability and control near moving zeros, argued analytically via truncation; not formally verified.",
+        "Parameter a is real positive and the asymptotics concern a->infinity at fixed quadratic degree only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wade: varying polynomial-degree hyperinterpolation bounds with cubature, not a-sharp fixed-degree continuous projection.",
+          "Sobrino/Dehesa: asymptotics of Lq norms of individual polynomials, no Lebesgue-function maximization.",
+          "Older Fourier--Gegenbauer sources are strongly relevant by title but only abstract-level results were accessible."
+        ],
+        "reasoning": "Neither an asymptotic for an individual ultraspherical mode nor generic degree-dependent upper bounds (with parameter-dependent constants) logically determines the exact asymptotic plus constant correction of the absolute three-mode reproducing kernel and location of its supremum. The incomplete 1999 full-text comparisons constrain confidence, without themselves constituting known coverage.",
+        "searches": [
+          "Resultary: quadratic ultrametric endpoint growth Gaussian scaling two term asymptotic",
+          "Resultary: Gegenbauer ultraspherical fixed-degree orthogonal projection L infinity Lebesgue constant large parameter endpoint Gaussian Hermite",
+          "Wade 2012 arXiv:1209.4328, Thm 3.1",
+          "Levesley-Kushpel 1999 DOI:10.1007/s003659900113",
+          "Luther-Mastroianni 1999 Chemnitz preprint 99-10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.4328 (Wade, full technical text)",
+        "arXiv:2204.11242 / DOI:10.1002/qua.27013 (Sobrino/Dehesa, full OA technical text)",
+        "DLMF §18.15(vi) (entire online section)",
+        "Resultary 2026-10-11 Exact endpoint norm of the second Johnson spherical projector (full RESULT.md)",
+        "DOI:10.1007/s003659900113 (Levesley/Kushpel abstract only; Oxford access unavailable)",
+        "Chemnitz Preprint 99-10 (Luther/Mastroianni abstract only; Oxford access unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Johnson projector norm/n tends to sqrt(2/(pi e)) for n large and fixed slice density, a discrete degree-two primitive projector; beta ultraspherical norm/a tends to 4 phi(1)=sqrt(8/(pi e)) with a different signed three-mode kernel and extra constant.",
+          "Wade concerns hyperinterpolation cubature and degree growth; Sobrino/Dehesa concerns single polynomial Lq norms, not sup-integral of the sum kernel.",
+          "DLMF supplies Gaussian limit input without the moving-two-zero absolute-value perturbation and location-rigidity argument."
+        ],
+        "reasoning": "For a prior theorem to cover the final finding it would need to identify the same beta-weighted continuous projector (including the constant and both nontrivial low-degree modes), control the global maximizing x for a large, and supply the first correction after 4phi(1)a; inspected full-text results do not do this. The closely related uninspected 1999 articles remain explicit unresolved priority risks, not falsely excluded.",
+        "searches": [
+          "Resultary published Exact endpoint norm of the second Johnson spherical projector, 2026-10-11, full RESULT.md",
+          "Wade 2012 arXiv:1209.4328, full technical text",
+          "Sobrino and Dehesa DOI:10.1002/qua.27013, full OA text",
+          "DLMF §18.15(vi)",
+          "Levesley-Kushpel 1999 DOI:10.1007/s003659900113, abstract",
+          "Luther-Mastroianni 1999 preprint abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent names are Jacobi/Gegenbauer Fourier partial sum of degree two, symmetric-beta least-squares orthogonal projector, and Lebesgue function of its reproducing kernel.",
+          "Wade arXiv:1209.4328 discusses projection kernels but uses cubature, not this continuous fixed-degree parameter limit.",
+          "DLMF §18.15(vi) records underlying ultraspherical/Hermite polynomial asymptotics, not the operator norm and endpoint rigidity."
+        ],
+        "reasoning": "The precise invariant is sup_{x in [-1,1]} int |sum_{j=0}^{2} p_j(x)p_j(y)| dmu_a(y), with varying a and fixed degree. Matching generic Hermite or polynomial-norm language does not imply the order-one constant or optimizer; no verified same-result statement appeared in the material actually read.",
+        "searches": [
+          "Resultary: Gegenbauer ultraspherical fixed-degree orthogonal projection L infinity Lebesgue constant large parameter endpoint Gaussian Hermite",
+          "Resultary: Jacobi beta measure reproducing kernel degree two exact norm asymptotic endpoint ultraspherical",
+          "Public literature: quadratic Gegenbauer projection Lebesgue function large lambda norm fixed degree endpoint Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact Johnson second-idempotent norms reduce discrete hypergeometric masses, but concern a different family.",
+          "DLMF tables contain Hermite comparisons for ultraspherical polynomials; Sobrino/Dehesa gives single-polynomial norms. Neither tabulates the absolute full degree-2 kernel supremum or its order-one coefficient."
+        ],
+        "reasoning": "The continuous sharp norm is a supremum over x of a signed sum under a varying beta density; it is not a tabulated one-polynomial beta moment or an Eberlein/hypergeometric finite scheme norm. No matching exact table was identified, but absence from searched tables is not a proof of priority.",
+        "searches": [
+          "Resultary: Jacobi beta measure reproducing kernel degree two exact norm asymptotic endpoint ultraspherical",
+          "Resultary: Gegenbauer ultraspherical fixed-degree orthogonal projection L infinity Lebesgue constant large parameter endpoint Gaussian Hermite",
+          "Sobrino/Dehesa 2022 Gegenbauer parameter-asymptotic formulas",
+          "DLMF §18.15(vi)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the fixed-degree-two, continuously weighted ultraspherical projector: an exact order-one correction and eventual unique maximizing endpoints accompany the uniform spatial limit and the central Hermite profile. Classical beta moments, Hermite limits, absolute normal first moment and general projection kernels are not independently novel. Published discrete Johnson analogues and inspected continuous-operator literature do not state or imply the full claim. Two closely titled 1999 papers remain uninspected beyond abstracts and are recorded as priority risks, not classified as wholly noncovering.",
+      "residual_risks": [
+        "Earlier Fourier--Gegenbauer projection norm articles (Levesley--Kushpel 1999 and Luther--Mastroianni 1999) were not accessible in full; theorem-level equivalent historical coverage may be missed.",
+        "The Hermite limiting kernel and Gaussian quadratic absolute moment are classical; novelty is confined to the optimized continuous norm, order-one correction and endpoint uniqueness.",
+        "Undiscovered equivalent representations in Jacobi/Gegenbauer Lebesgue-constant literature cannot be ruled out by any finite search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hyperinterpolation uses cubature, with growth estimates as the polynomial degree changes; its quantitative bounds are not the fixed-degree-two continuous orthogonal projection norm for a tending to infinity. Classical kernel preliminaries are prior art.",
+          "evidence": [
+            "Wade (2012), arXiv:1209.4328, sections 1-3 and Theorem 3.1: discrete cubature hyperinterpolation versus exact integration in the present P_a."
+          ],
+          "identifier_or_url": "arXiv:1209.4328",
+          "material_read": "Open full-text article: introduction, definitions and reproducing-kernel/cubature construction, Theorem 3.1 and its proof, and the conclusion.",
+          "method": "Read original publicly accessible article and compare precise operator and limiting parameters.",
+          "title": "On hyperinterpolation on the unit ball",
+          "trigger": "Orthogonal polynomial reproducing kernels, Gegenbauer/Jacobi parameters and Lebesgue constants could encompass a sharp norm result."
+        },
+        {
+          "assessment": "Single-polynomial norm/entropy limits do not evaluate the absolute sum of the three modes in the reproducing kernel and then maximize over evaluation x. Does not imply the constant-order endpoint correction or endpoint rigidity.",
+          "evidence": [
+            "Sobrino and Dehesa (2022), sections 5.2.1 and 6.2: Gegenbauer single-polynomial Lq parameter asymptotics, different functional."
+          ],
+          "identifier_or_url": "arXiv:2204.11242; DOI:10.1002/qua.27013",
+          "material_read": "Full open Wiley technical article, introduction, Gegenbauer subsections 5.2.1 and 6.2 and results/conclusion.",
+          "method": "Direct reading of formulas for single polynomial L^q norms and parameter limits; compared quantity under absolute value and optimization variable.",
+          "title": "Parameter and q asymptotics of Lq-norms of hypergeometric orthogonal polynomials",
+          "trigger": "Large-parameter asymptotics for Gegenbauer polynomials, including Hermite scaling, might imply the claimed growth."
+        },
+        {
+          "assessment": "The polynomial-to-Hermite limit is prior knowledge; no exact two-term global projection norm or unique endpoint maximizer statement follows without extra absolute-integral and extremum analysis.",
+          "evidence": [
+            "DLMF 18.15(vi), parameter-asymptotic comparisons of ultraspherical polynomials; no Lebesgue-constant extremum theorem."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.15.vi",
+          "material_read": "Complete online §18.15(vi), equations and bibliography context.",
+          "method": "Compared limiting polynomial functions with full sharp signed-kernel integral and maximization.",
+          "title": "DLMF, Chapter 18, asymptotic approximations, ultraspherical subsection",
+          "trigger": "Gaussian/Hermite limit of ultraspherical polynomials is classical, possibly explaining the claimed limit."
+        },
+        {
+          "assessment": "Discrete Johnson second-harmonic projector has bulk norm asymptotic n*sqrt(2/(pi e)); it is not the continuous span{1,y,y^2} projector under beta concentration, and does not imply a-dependent second-order constant or eventual unique endpoint location. Its Gaussian |Z^2-1| motif is acknowledged as related, not independently novel.",
+          "evidence": [
+            "Resultary 2026-10-11 RESULT.md: ℓ1/ℓ∞ norm of P^{(2)}_{n,k}, n→∞ bulk with k/n→ρ; no continuous beta a→∞ correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+          "material_read": "Full published RESULT.md from the GitHub tree: finding, proof, exact finite formula, Gaussian limit, limitations and references.",
+          "method": "Compared discrete Johnson primitive-idempotent kernel, hypergeometric normalization and varying slice-size limit with continuous beta projector and varying a.",
+          "title": "Exact endpoint norm of the second Johnson spherical projector",
+          "trigger": "Resultary search retrieves a highly relevant degree-two projection endpoint-norm theorem with the same Gaussian quadratic first moment constant."
+        },
+        {
+          "assessment": "Accessible abstract focuses on weighted L^p boundedness/critical exponents and asymptotic degree. It does not itself demonstrate the exact fixed-degree a->infinity two-term L1/Linfinity norm. The uninspected full text remains a real priority risk, not declared noncovering.",
+          "evidence": [
+            "Levesley and Kushpel (1999), Constructive Approximation 15, 369-379, DOI abstract: weighted Lp projection bounds; full technical content unavailable."
+          ],
+          "identifier_or_url": "DOI:10.1007/s003659900113",
+          "material_read": "Publisher/indexed abstract and bibliographic information only; complete article not accessible.",
+          "method": "Searched lawful open/preprint versions and examined accessible abstract; requested authorized institutional full text, but VPN connection was unavailable. Did not bypass authentication.",
+          "title": "On the Norm of the Fourier--Gegenbauer Projection in Weighted Lp Spaces",
+          "trigger": "Title directly names Fourier--Gegenbauer projection norm; high-priority potential earlier coverage."
+        },
+        {
+          "assessment": "Abstract emphasizes growth in projection degree (logarithmic and polynomial regimes) and weighted norm context, distinct from the exact continuous quadratic a->infinity norm. Cannot infer lack of coverage in full paper.",
+          "evidence": [
+            "Luther and Mastroianni, Chemnitz Preprint 99-10 (1999), university abstract on degree-dependent weighted Fourier-projection norms."
+          ],
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/1999/PREPRINT_10.php",
+          "material_read": "University preprint abstract and descriptive listing only; full text not obtained.",
+          "method": "Searched open sources and inspected university-hosted summary; institutional full text request returned disconnected VPN.",
+          "title": "Fourier Projections in Weighted L-infinity Spaces",
+          "trigger": "Earlier operator-norm study in weighted L∞ spaces could contain hidden fixed-degree parameter asymptotics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md full kernel and norm derivation",
+        "Independent reproduction and high precision endpoint calculations",
+        "Wade arXiv:1209.4328 approximation/stability setting",
+        "DLMF 18.15(vi) Gaussian parameter background"
+      ],
+      "rationale": "The quadratic continuous Jacobi/Gegenbauer orthogonal projector is a canonical approximation operator. The exact first two coefficients of its large-weight sharp L1/Linfinity norm measure endpoint amplification and norm instability in high concentration, while its central Gaussian scaled profile stays bounded. The uniform spatial law and eventual uniqueness of the two endpoint worst evaluations supply a meaningful structural location result. These exact invariants are not a mere known-table restatement or trivial normalization of a polynomial moment; researchers investigating endpoint least-squares stability, Jacobi parameters and Hermite crossover can use both coefficients and location behavior. The familiar Gaussian limit alone would not meet this claim of value.",
+      "residual_risks": [
+        "No higher-degree or asymmetric Jacobi theory follows from this fixed-degree proof.",
+        "A future user would still need quantitative a0 and finite-a phase behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a>0, mu_a(dy) proportional to (1-y^2)^(a-1)dy on [-1,1] and P_a the exact continuous L2(mu_a) projector onto span{1,y,y²}, as a->infinity at fixed degree two, both L1 and Linfinity endpoint norms equal 4phi(1)a+7phi(1)+4Q-1+o(1) with Q=Pr(Z>1), and the only pointwise Lebesgue-function maximizers for every sufficiently large real a are x=+/-1. Uniformly for x in [-1,1], Lambda_a(x)/a -> 4phi(1)x². At x=z/sqrt(2a+1), the profile tends locally uniformly to E|1+zZ+(z²-1)(Z²-1)/2|.",
+  "limitations": [
+    "Only degree two, large a; no explicit unique-maximizer threshold a0, no small-a phase diagram or higher-degree extension.",
+    "Two relevant older projection articles inaccessible beyond abstracts, preserving nonzero historical priority risk.",
+    "Formal proof assistant and external expert verification not performed; numerical calculations are finite consistency checks.",
+    "Publication plan ready for later guarded intake only; not already published and not an external certificate."
+  ],
+  "schema_version": 1
+}
