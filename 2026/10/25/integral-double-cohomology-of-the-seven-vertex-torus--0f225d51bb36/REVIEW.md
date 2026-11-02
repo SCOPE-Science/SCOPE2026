@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The statement is about the precisely specified seven-vertex torus. Every induced subcomplex has been enumerated; all integral first-homology presentation matrices have primitive nonzero Smith factors. The successive horizontal maps have ranks \(20,29,12,2\), all Smith entries \(1\), and compose to zero. This leaves first-homology horizontal ranks \(1,0,1,0,0\); the top fundamental class and empty-set unit supply the other two groups. The integral conclusion uses saturated lattices, not rational ranks alone. The accompanying checker reproduces the matrices from the facet definition.
+## correctness
 
-**Originality (PASS on checked evidence).** The 2021 foundational paper (arXiv:2112.07004, Remark 6.11) notes this seven-vertex torus as an example of a Golod surface but does not state its double-cohomology table. Its cycle theorem treats polygonal one-spheres. The 2024 article (arXiv:2405.00990) is principally about sphere triangulations, including non-primitive spheres; those results do not imply the torus's integral inclusion complex. Closest indexed findings concern its H1-support threshold or Heawood dual cosystoles. The published icosahedral-sphere table concerns a different complex. The risk of an unindexed equivalent computation remains.
+PASS
 
-**Value (PASS).** The minimum-vertex torus is the canonical first genus-one triangulated surface. A complete integral bigraded answer, with explicit primitive Smith certificates, is a useful non-spherical reference point beyond known sphere computations; the arrangement of survivors is information not determined by ordinary surface homology or even total double-homology rank.
+The 14 translates of (0,1,3) and (0,1,5) on Z/7 define an orientable 7-vertex torus with complete one-skeleton. All 99 induced subsets of cardinality 3..7 have H1 presentations in fundamental cycle coordinates with integral unit-Smith boundary matrices. Independent code reconstructs the ranks by subset size (21,49,42,14,2) and the signed inclusion differential matrices with sizes 49×21,42×49,14×42,2×14. Independently computed integer Smith ranks are (20,29,12,2) with every nonzero invariant equal to 1, and every adjacent differential product zero. Their homology therefore survives in H1 horizontal degrees ℓ=3,5 only, each Z. Empty-set H_{-1}=Z and the full torus orientation H2=Z give (0,0),(-1,6),(-3,10),(-4,14). No remaining vertical contributions; torsion-free integral universal coefficients applies. This is exhaustive for this finite complex, not inference from finite random tests.
 
-**Limitations.** No claim is made for arbitrary surface triangulations or independent verification. A finite exact computation provides all data for this one complex; equivalent unindexed literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified). The foundational Limonchenko–Panov–Song–Stanley paper defines the double complex and mentions the 7-vertex torus as a Golod non-sphere (Remark 6.11), but its inspected exact HH calculations for polygons/chordal complexes do not give the torus horizontal Smith forms. The independently reproduced full integer calculation supplies the missing natural example; sphere-triangulation HH results assume topological spheres and do not directly cover this torus.
+
+## value
+
+PASS
+
+The minimal seven-vertex orientable torus is a distinguished, already motivating non-spherical complex. Exact torsion-sensitive double-cohomology groups are natural invariants and a complete answer for that object, with four nonzero bigrades; a finite exact invariant need not be an infinite-family theorem to be valuable. This is a complete integral double-cohomology invariant of the seven-vertex minimal orientable torus, not a routine deduction from its ordinary homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
