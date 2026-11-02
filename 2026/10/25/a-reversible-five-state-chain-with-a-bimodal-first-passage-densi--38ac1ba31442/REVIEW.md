@@ -1,13 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The killed generator is symmetric, the target-rate vector is explicit, and the density is \(f(t)=e_0^\top e^{Qt}r\). The zero-count argument gives the five-state lower bound. Exact rational Taylor sums at four rational times, together with the stated matrix-exponential remainder bound, establish derivative signs \(+,-,+,-\), hence two interior local maxima.
+## correctness
 
-## Originality — PASS, with a bounded access risk
+PASS
 
-The closest accessible prior results establish unimodality or independent-exponential representations for birth-death passage times, whose graph is a path. The displayed chain is reversible but contains a triangle, and the claim additionally proves the minimal number of total states. The checked literature revealed no matching claim. Kijima (1987) is a plausible nearby source; only its abstract was accessible, so that comparison remains a residual risk.
+For an irreducible symmetric-rate five-state generator, killing the target gives the displayed real-symmetric 4x4 Q. The passage density f=e_0^T exp(Qt)r has derivative e_0^T exp(Qt)Qr. Four sign samples at t=0.01,0.03,0.10,0.30 are +,-,+,-, with certified rational 400th-order Taylor intervals and spectral-norm tail <2e-107; independent expm checks give ~11.15970,-0.67305,0.02506,-0.13653. They force two interior maxima. For <=4 total states there are <=3 real exponential eigenmodes; the derivative of a nonzero sum of at most m distinct real exponentials has at most m-1 zeros, hence two maxima requiring three zeros need >=4 transient states. Repeated eigenvalues combine because reversibility diagonalizes Q. Initial state, target, full-chain irreducibility and uniform detailed balance checked.
 
-## Value — PASS
+## originality
 
-The result gives a state-minimal structural boundary for a widely used first-passage model: reversibility alone does not preserve the birth-death unimodality phenomenon. The example is fully specified with rational rates and a reproducible exact-arithmetic certificate; it is not merely a numerical plot.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact minimal five total states for a bimodal first-passage density in an irreducible finite reversible CTMC with one fixed start and one target was not located in inspected primary sources. Spectral expansions and birth-death unimodality are established antecedents, but a general spectral representation alone does not imply the specific minimal bimodal witness. A particularly close 1987 reversible-chain paper was inaccessible in full; best-of-knowledge PASS with explicit priority risk.
+
+## value
+
+PASS
+
+First-passage modality is natural in stochastic kinetics; showing that reversibility alone permits two density peaks, with a sharp state-minimal counterexample, identifies a meaningful boundary beyond the birth-death unimodality class. The claim does not classify all graphs/rate matrices or higher multimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

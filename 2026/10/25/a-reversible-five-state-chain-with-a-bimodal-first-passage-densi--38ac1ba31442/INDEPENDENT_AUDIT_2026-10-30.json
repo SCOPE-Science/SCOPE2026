@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:04:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an irreducible symmetric-rate five-state generator, killing the target gives the displayed real-symmetric 4x4 Q. The passage density f=e_0^T exp(Qt)r has derivative e_0^T exp(Qt)Qr. Four sign samples at t=0.01,0.03,0.10,0.30 are +,-,+,-, with certified rational 400th-order Taylor intervals and spectral-norm tail <2e-107; independent expm checks give ~11.15970,-0.67305,0.02506,-0.13653. They force two interior maxima. For <=4 total states there are <=3 real exponential eigenmodes; the derivative of a nonzero sum of at most m distinct real exponentials has at most m-1 zeros, hence two maxima requiring three zeros need >=4 transient states. Repeated eigenvalues combine because reversibility diagonalizes Q. Initial state, target, full-chain irreducibility and uniform detailed balance checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/spectral-structure-of-the-firstpassagetime-densities-for-classes-of-markov-chains/4D9BF9D01C339DB8616BE836BFAF17E1",
+          "https://arxiv.org/pdf/1802.10049"
+        ],
+        "reasoning": "Keilson and Kijima study passage-density structures and special process classes. A birth-death unimodality theorem does not dominate the present non-path graph. Kijima full text remains an unexcluded possible broader formulation, recorded as risk instead of falsely declaring complete noncoverage.",
+        "searches": [
+          "Keilson unimodality birth death passage time densities",
+          "Kijima 1987 spectral structure time reversible Markov"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verification/check_derivative_signs.py at source tree fcfdd318b23af5bcebeda219fee29eb701cbf0b9",
+        "Hartich–Godec arXiv:1802.10049 full accessible PDF, key Sections 2–3",
+        "Kijima 1987 DOI:10.2307/3214095 abstract only",
+        "Kijima 1988 DOI:10.2307/3214436 abstract",
+        "Resultary semantic query on first-passage bimodality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1802.10049",
+          "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/on-passage-and-conditional-passage-times-for-markov-chains-in-continuous-time/A55931A81E91A10D528CFD172640EEE4"
+        ],
+        "reasoning": "Interlacing supplies eigenvalue order, not a bound of one peak for arbitrary start-target reversible chains. Kijima 1988 abstract states unimodality for birth-death conditional passage densities, with other reversible-chain distribution properties; this cannot be read as an all-reversible unimodality claim.",
+        "searches": [
+          "Hartich Godec interlacing time scales reversible Markov first passage 2019",
+          "Kijima 1988 conditional first passage unimodality time reversible"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://doi.org/10.2307/3214095",
+          "https://arxiv.org/pdf/1802.10049"
+        ],
+        "reasoning": "Reversible passage distributions are real-exponential spectral mixtures (Hartich–Godec, Sections 2–3). That representation is compatible with mixed spectral coefficients and does not by itself give two sign changes or a sharp minimal state count.",
+        "searches": [
+          "reversible continuous time Markov chain first passage time density multimodal bimodal minimum states five state counterexample sum of exponentials phase type",
+          "Kijima 1987 spectral structure first passage reversible time-reversible Markov chains",
+          "Hartich Godec 2019 interlacing first passage spectral expansion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest markov records cover stationary alternating renewal and transition positivity, not five-state passage-density modes.",
+          "Source exact Q and signed Taylor intervals in assigned RESULT.md."
+        ],
+        "reasoning": "Searched for exact small-state instances and numerical tables; no earlier exact 5-state witness located. The assigned numerical matrix is independently computed rather than assuming a table is new.",
+        "searches": [
+          "reversible continuous-time Markov five-state bimodal hitting-time density numerical example",
+          "Resultary: reversible continuous time Markov chain first passage time density multimodal bimodal minimum states five state counterexample sum of exponentials phase type"
+        ]
+      },
+      "rationale": "The exact minimal five total states for a bimodal first-passage density in an irreducible finite reversible CTMC with one fixed start and one target was not located in inspected primary sources. Spectral expansions and birth-death unimodality are established antecedents, but a general spectral representation alone does not imply the specific minimal bimodal witness. A particularly close 1987 reversible-chain paper was inaccessible in full; best-of-knowledge PASS with explicit priority risk.",
+      "residual_risks": [
+        "Kijima 1987 complete text could contain equivalent modality or minimality information; institutional VPN disconnected.",
+        "The evidence does not classify beyond two maxima or extend to irreversible CTMCs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full spectral/relaxation interlacing and first-passage formula, not a stated sharp five-state bimodality construction in inspected sections",
+          "evidence": [
+            "Section 3 spectral interlacing and Eq. (14); pp. 7-9; https://arxiv.org/pdf/1802.10049"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.10049",
+          "material_read": "Abstract, introduction, Section 3 eigenvalue interlacing and conclusions, with PDF page 1 visual inspection",
+          "method": "Direct primary PDF text and page screenshot",
+          "title": "Interlacing Relaxation and First-Passage Phenomena in Reversible Discrete and Continuous Space Markovian Dynamics",
+          "trigger": "Same reversible first-passage spectral representation"
+        },
+        {
+          "assessment": "High-priority inaccessible source: cannot conclude its whole-document noncoverage",
+          "evidence": [
+            "Journal of Applied Probability 24 (1987), 631-643; https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/spectral-structure-of-the-firstpassagetime-densities-for-classes-of-markov-chains/4D9BF9D01C339DB8616BE836BFAF17E1"
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3214095",
+          "material_read": "Published abstract and bibliographic details only; full paper not obtained",
+          "method": "Cambridge abstract; authorized institutional request returned vpn_disconnected",
+          "title": "Spectral structure of the first-passage-time densities for classes of Markov chains",
+          "trigger": "Very close published study explicitly including reversible chains"
+        },
+        {
+          "assessment": "Unimodality described for birth-death conditional passages; reversible passage-time properties also treated, so full-text priority comparison remains qualified",
+          "evidence": [
+            "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/on-passage-and-conditional-passage-times-for-markov-chains-in-continuous-time/A55931A81E91A10D528CFD172640EEE4"
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3214436",
+          "material_read": "Published abstract; not complete text",
+          "method": "Cambridge abstract",
+          "title": "On passage and conditional passage times for Markov chains in continuous time",
+          "trigger": "Same reversible and unimodality terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First-passage modality is natural in stochastic kinetics; showing that reversibility alone permits two density peaks, with a sharp state-minimal counterexample, identifies a meaningful boundary beyond the birth-death unimodality class. The claim does not classify all graphs/rate matrices or higher multimodality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verification/check_derivative_signs.py at source tree fcfdd318b23af5bcebeda219fee29eb701cbf0b9",
+    "Hartich–Godec arXiv:1802.10049 full accessible PDF, key Sections 2–3",
+    "Kijima 1987 DOI:10.2307/3214095 abstract only",
+    "Kijima 1988 DOI:10.2307/3214436 abstract",
+    "Resultary semantic query on first-passage bimodality"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Kijima 1987 complete text could contain equivalent modality or minimality information; institutional VPN disconnected.",
+    "The evidence does not classify beyond two maxima or extend to irreversible CTMCs."
+  ],
+  "schema_version": 1
+}
