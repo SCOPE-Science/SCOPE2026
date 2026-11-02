@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Gaussian orthogonality implies independent normalized chi-squared column norms. Conditional gamma integration gives the exact full pivot probability; an integer-gamma CDF expansion gives the even-row finite sum. Beta endpoint Laplace asymptotics give the individual exponential rate and prefactor; a strict two-runner Chernoff-rate comparison and non-runner beta-rate separation prove the exact runner-up multiplicity. The O(loglog) row-count correction follows by asymptotic inversion. The embedded verifier passed 80 finite checks; the proof does not rely on stochastic experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Melnichenko et al. give rank-revealing and subspace-embedding conditions plus pivot-quality experiments; Xiao–Gu–Langou Theorem 2 supplies a Johnson–Lindenstrauss high-probability pseudo-diagonal-dominance guarantee."
+      ],
+      "reasoning": "A general upper bound on all pivot qualities does not determine the exact first-pivot probability, its finite even-row sum, or its leading constant when runners-up tie. Those general results do not logically give the stated sharp law.",
+      "searches": [
+        "arxiv:2311.08316v1, Sections 2.2–2.3 and 4",
+        "arxiv:1804.05138v1, Section III-C",
+        "rank revealing QR randomized pivot top competitor second largest column asymptotically dominant sketch failure probability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.08316v1 (2023-11-14), full HTML Sections 1.4, 2.1–2.3, 4",
+      "arxiv:1509.06820v2 (2017), full HTML Section 3",
+      "arxiv:1804.05138v1 (2018), full HTML Section III-C"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duersch–Gu provide sampled marginal chi-squared distributions and conditional truncation; Xiao–Gu–Langou use JL union bounds; CQRRPT develops structural pivot and factorization results. The new calculation needs a joint two-runner rare-event comparison with a common first-column norm."
+      ],
+      "reasoning": "Single-column chi-squared laws and pairwise beta probabilities are not claimed as new. A pairwise tail upper bound alone cannot establish the asymptotically exact number of tied runners-up because all pairwise events share one random denominator; the supplied strict two-event exponent resolves this dependence. The inspected primary claims do not subsume that leading constant or the full finite sum.",
+      "searches": [
+        "arxiv:1509.06820v2, Section 3",
+        "arxiv:1804.05138v1, Section III-C",
+        "arxiv:2311.08316v1, Sections 1.4, 2.2–2.3, 4",
+        "randomized QRCP Gaussian sketch misordering two column norms beta tail pairwise pivot error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In an orthogonal-column Gaussian sketch, normalized sketched squared norms are independent chi-squared random variables; their common-maximum event is an independent-gamma ordering event. Duersch–Gu Section 3 computes marginal and post-pivot truncated chi-squared laws."
+      ],
+      "reasoning": "The gamma order-statistic integral is equivalent to the pivot event, but the inspected QRCP paper does not state the full multi-column finite sum or the sharp runner-up-multiplicity large-sketch equivalent. The classical gamma and beta identities are prior mathematical tools, not asserted as new.",
+      "searches": [
+        "Gaussian randomized QR column pivoting first maximum norm among orthogonal matrix columns exact gamma order statistics finite sum and runner up asymptotics",
+        "joint chi-square exceedance pairwise union asymptotic shared baseline winner among gamma random variables",
+        "arxiv:1509.06820v2, Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected CQRRPT examples compare QR pivot-quality metrics across test matrices; no exact multi-candidate Gaussian gamma rank table was encountered. The probability is derived directly from the stated integral and subset expansion rather than copied from a pre-existing table."
+      ],
+      "reasoning": "No exact database or table for this specific finite-sketch, full-first-pivot event was identified in the inspected sources. Absence from the search results is not a proof of priority, and specialized order-statistics tabulations remain a risk.",
+      "searches": [
+        "Gaussian randomized QR column pivoting first maximum norm among orthogonal matrix columns exact gamma order statistics finite sum and runner up asymptotics",
+        "rank revealing QR randomized pivot top competitor second largest column asymptotically dominant sketch failure probability",
+        "joint chi-square exceedance pairwise union asymptotic shared baseline winner among gamma random variables",
+        "arxiv:2311.08316v1, Section 4"
+      ]
+    },
+    "rationale": "Compared exact statements, not just titles: original QRCP papers establish marginal/conditional sampled-column laws, JL pivot guarantees, and rank-quality bounds, but not this multi-candidate exact probability plus sharp tied-runner constant and row-count expansion. Mathematical beta and gamma laws remain acknowledged as classical. Specific gamma-order-statistics priority uncertainty is retained.",
+    "residual_risks": [
+      "The sharp gamma-order-statistic runner-up asymptotic might be implicit or explicitly proved in specialized probability literature not found by targeted searches.",
+      "The theorem is for the idealized first pivot only; general QRCP subspace embedding guarantees do not transfer the result automatically to later pivots.",
+      "Primary literature and exact classical chi-squared/beta law overlap are acknowledged; independent publication-priority evaluation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact canonical orthogonal-column joint first-pivot gamma-order formula or runner-up asymptotic in inspected sections",
+        "evidence": "Sections 1.4, 2.2–2.3 and 4 concern randomized pivots, subspace embeddings, rank revelation and practical pivot-quality metrics.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+        "material_read": "arXiv full-text HTML: introduction 1.4, algorithm and pivot quality in 2.1–2.3, pivot-quality experiments in Section 4",
+        "method": "Read the searchable arXiv HTML rendering including theorem context and pivot-experiment discussion",
+        "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices (CQRRPT)",
+        "trigger": "Primary 2023 motivation: first pivot chosen through a common randomly sketched matrix"
+      },
+      {
+        "assessment": "Provides dimension-reduction-dependent reliability inequalities via JL and a union bound, not the exact first-pivot probability or runner-up constant",
+        "evidence": "Section III-C Theorem 2 and Lemma 3 use an exponential probability bound in the oversampling dimension.",
+        "identifier_or_url": "https://arxiv.org/html/1804.05138v1",
+        "material_read": "Full-text HTML Section III-C, especially Theorem 2 and Lemma 3 with proofs",
+        "method": "Read original arXiv HTML theorem statements, proofs and assumptions",
+        "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-rank Matrix Approximations",
+        "trigger": "Potential dominating randomized-QRCP pivot reliability probability theorem"
+      },
+      {
+        "assessment": "Classical chi-squared ingredients and conditional post-pivot distribution, but not the multi-competitor first-pivot formula and sharp runner-up asymptotic",
+        "evidence": "Section 3 derives single-column chi-squared laws, then a conditional truncated chi-squared model for remaining sample norms.",
+        "identifier_or_url": "https://arxiv.org/html/1509.06820v2",
+        "material_read": "Full-text HTML Section 3, including sampled norm distributions, sample bias and truncated chi-squared Theorem 1",
+        "method": "Read original arXiv HTML formulas and conditional distribution argument",
+        "title": "Randomized QR with Column Pivoting",
+        "trigger": "Earlier Gaussian QR pivot analysis possibly expressing order-statistic laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e3b8274-18f2-472a-865c-a7802aad40cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The benchmark isolates sketch-induced pivot errors on a natural orthogonal-column matrix family, yields an exact computable finite-sketch calibration for multiple candidates, and proves that the sharp failure rate depends only on the strongest runner-up squared norm and its multiplicity despite shared-denominator dependence. It quantifies sketch dimension for a target risk down to the logarithmic correction, materially refining generic all-column union-bound calibration without claiming a new general QR factorization error theorem.",
+    "status": "PASS"
+  }
+}
