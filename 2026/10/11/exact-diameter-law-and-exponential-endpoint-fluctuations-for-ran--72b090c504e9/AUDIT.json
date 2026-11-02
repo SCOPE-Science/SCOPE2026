@@ -1,128 +1,207 @@
 {
   "correctness": {
-    "rationale": "All section vertices from crossed cross-polytope edges are enumerated; symmetry makes diameter twice the maximum vertex norm, and the monotone ratio function selects extreme absolute normal coordinates. The conditioned Gaussian maximum gives the exact integral. Half-normal minima and Gaussian maxima, followed by Slutsky, give exponential rate 1/sqrt(pi); uniform exponential tails for n times the minimum plus a superpolynomially rare low-maximum event prove all fixed moment limits. Standalone code independently enumerates vertices and checks integral/Monte Carlo finite cases.",
+    "rationale": "All generic section vertices are precisely crossed signed edges of the ℓ1 unit ball; central symmetry makes diameter twice the maximum Euclidean vertex norm. Pairwise norms are sqrt(a²+b²)/(a+b), maximized by the most unequal normal-coordinate moduli since f′(q)=(q−1)/((1+q)²sqrt(1+q²))≤0. Haar normal Gaussianization and conditioning on the maximum half-normal coordinate give the full finite-n CDF for n≥2. The minimum has n m_n⇒Exp(sqrt(2/pi)), the maximum satisfies M_n/sqrt(2log n)→1 in probability, giving n sqrt(log n)(2−D_n)⇒Exp(1/sqrt(pi)). For all fixed k, on M_n≥sqrt(log n) the scaled deficit is ≤2n m_n, whose moments are uniformly bounded by concavity of H near zero and Gaussian tails; the complement has superpolynomially small probability, so uniform integrability establishes k!pi^(k/2), mean and variance. n=2 is included; the CDF endpoints r=0,1 and support [sqrt(2),2] are correct. Finite independent brute-force checks cannot prove n→∞, which is analytically established.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "The all-dimensional theorem concerns central Haar hyperplanes of the standard ℓ1 unit ball, not other codimensions or normal distributions.",
+    "The original mathematics is independently evaluated but no formal proof or external expert attestation is asserted.",
+    "Original historical scientific-review detail is retained in the frozen Git blob referenced by SHA and summarized here; it is not represented as a new proof."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Guedon et al., arXiv:2609.24131v1, original abstract: high-probability upper and lower bounds and sharp estimates for ellipsoids, with no full-distribution assertion in accessible material.",
-        "König, arXiv:2002.10743, original abstract: extremal volumes and boundary volumes of cross-polytope, cube and simplex sections.",
-        "Brazitikos–Pandis, arXiv:2606.07163, titled restricted hyperplane section volume study."
+        "Guédon et al., On random diameters of convex bodies, 2026, full 38-page paper: Theorems 1.1, 1.5, 1.8 and main later bounds address high-probability diameter estimates and ellipsoid-specific regimes; no all-dimensional exact min/max Gaussian formula, half-normal CDF, or fixed-moment exponential deficit theorem was located on examining main theorems, relevant sections, and references.",
+        "Hmadi–Liakopoulos, Theorems 1.2–1.4 and Corollary 5.8, projective inradii bounded up to constants, not distributional identities.",
+        "König arXiv:2002.10743 treats maximal volumes/surface measures of cross-polytope sections; Gluskin–Ostrover arXiv:1604.04927 treats complex-line/random rotated cube projections and other codimensions."
       ],
-      "reasoning": "Bounds on random diameter or section volume do not logically imply a full CDF, exact exponential endpoint law, and all moments. The 2026 related full text was inaccessible and therefore cannot be claimed noncovering; its potential undisclosed stronger content is recorded as the principal originality risk.",
+      "reasoning": "General nonasymptotic probability bounds do not imply a full CDF and its exact exponential rate and convergence of all moments. In particular prior two-sided estimates for other codimensions cannot be specialized to equality for a fixed codimension-one Haar hyperplane without an additional exact argument. Neither section volume, shadow width, nor complex-line projections determine this specific Euclidean section diameter law.",
       "searches": [
-        "\"On random diameters of convex bodies\" Guedon Litvak Tatarko Vritsiou",
-        "arXiv:2609.24131",
-        "asymptotic diameter random sections cross-polytope high dimension min maximum Gaussian coordinates order statistics"
+        "Haar random central hyperplane sections of cross polytopes ℓ1 unit balls Euclidean diameter exact Gaussian coordinate minimum maximum order statistic distribution exponential endpoint n sqrt log n",
+        "random hyperplane section diameter cross-polytope geometric probability",
+        "Guédon–Litvak–Tatarko–Vritsiou full primary: https://arxiv.org/pdf/2609.24131",
+        "Hmadi–Liakopoulos full arXiv HTML: https://arxiv.org/abs/2609.27757",
+        "König: https://arxiv.org/abs/2002.10743",
+        "Gluskin–Ostrover: https://arxiv.org/abs/1604.04927"
       ]
     },
     "checked_sources": [
-      "arXiv:2609.24131v1 abstract",
-      "arXiv:2002.10743 abstract",
-      "arXiv:2606.07163 metadata",
-      "Kabluchko–Litvak–Zaporozhets 2017 journal abstract",
-      "Indexed record: exact 3D Haar octahedron central-section diameter",
-      "Indexed record: local cross-polytope section-volume Hessian",
-      "Indexed record: cube–cross-polytope one-skeleton graph distance"
+      "https://arxiv.org/pdf/2609.24131",
+      "https://arxiv.org/abs/2609.27757",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+      "https://arxiv.org/abs/2002.10743",
+      "https://arxiv.org/abs/1604.04927",
+      "https://doi.org/10.1007/s10958-017-3492-3",
+      "https://arxiv.org/abs/2606.07163",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Kabluchko–Litvak–Zaporozhets (2017), journal abstract, establishes formulas and Gaussian-related distribution limits for one-dimensional projection lengths.",
-        "Related 2026 random-section paper's original abstract asserts high-probability estimates rather than exact half-normal extrema CDF.",
-        "A previously studied dimension-three Haar octahedron-section formula is a literal n=3 special case."
+        "In the n=3 published theorem, the independent CDF identity 3∫h(y)[H(y)-H(ry)]²dy is the present family at n=3, and its deterministic reduction is verbatim the extreme-coordinate geometry for dimension 3.",
+        "Guédon et al. prove upper/lower random-section diameter bounds; exact probabilistic equality and the extreme-value exponential normalization are separate claims.",
+        "Hmadi–Liakopoulos prove cube-projection inradius lower-tail and median bounds via support-function moments, including a weak projection profile, rather than the full exact diameter (equivalently cube projection inradius) CDF."
       ],
-      "reasoning": "The new n≥2 formula implies the old n=3 special case, not conversely; projection width and central intersection diameter are different functionals, and an inequality for diameter is not equivalent to its full distribution. Stronger unnoticed results in the unavailable full 2026 paper remain possible.",
+      "reasoning": "The audited n≥2 result implies the existing n=3 special case. Conversely, an n=3 formula cannot imply the higher-dimensional Gaussian sample extreme laws and all-moment endpoint limit without fresh dimension-variable arguments. The published broad bounds are logically weaker than the full exact law; their constants do not determine the exponential limit rate. This is a best-of-knowledge implication comparison, not an exhaustive priority certificate.",
       "searches": [
-        "\"cross-polytope\" \"diameter\" \"random hyperplane\" asymptotic distribution",
-        "\"random diameters\" \"cross-polytope\" \"codimension one\" diameter",
-        "\"cross-polytope\" \"diameter\" \"random hyperplane\" asymptotic distribution"
+        "Full primary https://arxiv.org/pdf/2609.24131",
+        "Full dual primary https://arxiv.org/abs/2609.27757",
+        "Entire published 3D proof https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+        "cross-polytope Haar random hyperplane section diameter exact Gaussian min max ratio distribution exponential endpoint"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arXiv:2609.24131v1 abstract describes random-section diameter concentration bounds and p-ellipsoids, but does not state a full CDF or an endpoint law.",
-        "An earlier dimension-three Euclidean octahedron-section CDF is a special case, not an implication of the all-dimensional formula or n-asymptotic theorem."
+        "Published n=3 octahedron theorem (https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md) gives D_3=2 sqrt(a²+c²)/(a+c), with a=min(|u_i|) and c=max(|u_i|), and P(D_3≤2 f(r))=3 integral h(y)[H(y)-H(ry)]²dy.",
+        "For any n≥2, the dual cube projection inradius equals 2/D_n under the unit cube and l1-ball polarity normalization; it is a different expression for the same observable.",
+        "Hmadi–Liakopoulos (arXiv:2609.27757) Theorems 1.2–1.4 and Proposition 5.7 supply quantitative probability/inradius or negative-moment inequalities for cube projections, not an exact codimension-one distribution or this endpoint limit."
       ],
-      "reasoning": "The order-statistic ratio formulation can also be written as a diameter-deficit law or a min/max Gaussian extreme-ratio law. Searches targeting all three wordings did not reveal a covering indexed theorem. The known finite dimension three is explicitly excluded as a standalone new contribution; higher dimensions and exponential asymptotics are logically stronger.",
+      "reasoning": "The n=3 spherical-octant CDF is an exact special case and establishes the shared min/max extremal geometry. A three-variable ratio formula does not itself state or logically imply the n≥2 CDF or an n→∞ moment limit. Polarity is an exact equivalence of observables (section circumradius versus dual projection inradius), so relevant projection theorems were checked; the inspected dual result yields only estimates, not an exact law.",
       "searches": [
-        "random central hyperplane section ℓ1 unit ball cross-polytope Euclidean diameter exact min max coordinate Gaussian extreme value exponential limit n sqrt log n",
-        "Gaussian half-normal minimum-to-maximum ratio and cross-polytope hyperplane section diameter asymptotic n sqrt(log n)",
-        "\"crosspolytope\" \"diameter\" \"Gaussian\" \"minimum\" \"maximum\" section"
+        "Haar random central hyperplane sections of cross polytopes ℓ1 unit balls Euclidean diameter exact Gaussian coordinate minimum maximum order statistic distribution exponential endpoint n sqrt log n",
+        "cross-polytope Haar random hyperplane section diameter exact Gaussian min max ratio distribution exponential endpoint",
+        "random diameters convex bodies crosspolytope codimension one hyperplane section Gaussian ℓ1 polytope min max ratio",
+        "Resultary published full text: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+        "Primary polar-dual projection manuscript: https://arxiv.org/abs/2609.27757"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Indexed results included a finite-dimensional octahedron diameter CDF, cross-polytope section-volume Hessians, and a cube-cross-polytope graph-distance calculation; none stated arbitrary-dimensional Haar Euclidean diameter fluctuations."
+        "The precise registered n=3 regular-octahedron CDF is previously present and matches the n=3 instance of the current order-statistic integral, including the common [sqrt(2),2] support.",
+        "Semantic mathematical-record searches returned the assigned all-n item itself and mathematically different tables (random simplex face vectors, random ellipsoid radii, three-dimensional octahedron, cross-polytope volume), not a distinct arbitrary-n CDF or n-asymptotic classification."
       ],
-      "reasoning": "A fixed dimension-three CDF can be recovered from the present formula at n=3; it does not tabulate or dominate the arbitrary-dimensional theorem or the limit n→∞. Cross-polytope graph diameter is not Euclidean section diameter.",
+      "reasoning": "A database hit for the very same assigned record is not independent prior evidence; the exact n=3 table is already covered and receives no standalone novelty credit. Its fixed-dimension distribution and spherical triangle method provide useful antecedents but not this family-wide asymptotic theorem. Semantic-index absence by itself does not establish novelty.",
       "searches": [
-        "regular octahedron random plane section diameter distribution 3D formula 24/pi arctan",
-        "random section diameter regular octahedron crosspolytope all dimensions law"
+        "Haar random central hyperplane sections of cross polytopes ℓ1 unit balls Euclidean diameter exact Gaussian coordinate minimum maximum order statistic distribution exponential endpoint n sqrt log n",
+        "random central section of regular octahedron diameter",
+        "random hyperplane section diameter cross-polytope geometric probability",
+        "Resultary nearest exact 3D table https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+        "Resultary identical assigned entry (not prior evidence): https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9/RESULT.md"
       ]
     },
-    "rationale": "The all-dimensional Haar Euclidean diameter CDF and exponential upper-endpoint limit are stronger than an indexed three-dimensional octahedron section-diameter CDF and distinct from cross-polytope section volume, regular-polytope projection length, and graph diameter. The closest motivating 2026 preprint accessible abstract announces concentration estimates rather than full laws; its inaccessible full text creates a disclosed unresolved literature risk.",
+    "rationale": "The arbitrary-dimensional Euclidean Haar section diameter CDF and the n sqrt(log n) exponential deficit limit, including every fixed positive integral moment, are not implied by the inspected prior mathematical statements. A separately published regular-octahedron theorem already gives precisely the dimension-three case and the same extremal-normal-coordinate mechanism; no novelty is claimed for n=3. The closest 2026 random diameter manuscript was materially inspected in full rather than judged from its abstract. Its universal/random-ellipsoid estimates do not include this entire fixed-codimension-one distributional classification. Priority remains best-of-knowledge.",
     "residual_risks": [
-      "Full manuscript of arXiv:2609.24131v1 could not be inspected; it may contain an equivalent special-family calculation not visible in abstract.",
-      "Indexed and search-visible literature is not exhaustive and cannot certify global novelty.",
-      "Other special-dimension formulas do not settle possible broader unpublished or unindexed work."
+      "Same-day exact n=3 octahedron theorem provides prior special-case geometry; no chronological priority of overlapping mathematical records asserted.",
+      "An equivalent unrestricted-n limit could exist under extreme-order Gaussian ratios, polar cube projection inradii, or unpublished/poorly indexed high-dimensional random section terminology.",
+      "Kabluchko–Litvak–Zaporozhets and Brazitikos–Pandis were inspected only at abstract/metadata level; whole-document exclusion for them is not claimed."
     ],
     "source_inspections": [
       {
-        "assessment": "Abstract-level evidence establishes broad related estimates but cannot justify a full-document NOT_COVERING assessment; detailed novelty risk explicitly unresolved.",
+        "assessment": "The actual broad theorems give high-probability estimates and structural bounds, not the exact Haar codimension-one half-normal CDF or n sqrt(log n) exponential endpoint moment law.",
         "evidence": [
-          "arXiv:2609.24131v1, first posted 2026-09-21; abstract discusses high-probability two-sided bounds and applications to p-ellipsoids."
+          "arXiv:2609.24131, Theorems 1.1, 1.5, 1.8; comparison of codimension/ambient dimension and hypotheses; related p-ellipsoid sections and references."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2609.24131",
-        "material_read": "Original arXiv abstract, initial date and authors; full PDF, alternate accessible preprint and institutional full-text attempts did not provide a readable manuscript.",
-        "method": "Original abstract and arXiv metadata; accessible abstract mirrors; attempted preprint full text and authorized institutional access, unavailable",
+        "identifier_or_url": "https://arxiv.org/pdf/2609.24131",
+        "material_read": "Entire accessible 38-page PDF consulted: abstract and introduction; main theorem statements, concentration/ellipsoid estimates and proofs in middle sections, and later applications/references checked; not every displayed bound line-by-line.",
+        "method": "Original arXiv full PDF opened; page-image screenshot of page zero; subsequent complete-document text examined across introduction, proof sections, applications and references.",
         "title": "On random diameters of convex bodies",
-        "trigger": "Same random-section diameter observable and p-ellipsoid applications; plausible stronger source"
+        "trigger": "Closest same diameter observable and cross-polytope high-dimensional sections; strong potential coverage"
       },
       {
-        "assessment": "Its inspected claims concern extrema of volume and perimeter; these alone do not imply the full Euclidean diameter distribution. Full paper sections were not read.",
+        "assessment": "Proves sharp-order and polynomial-tail inequalities, negative moments and cube projection profile, not an exact one-dimensional-complement Haar CDF or exponential deficit moment theorem.",
         "evidence": [
-          "arXiv:2002.10743 abstract explicitly describes maximal non-central hyperplane sections and boundary volumes."
+          "Theorems 1.2–1.4; Proposition 5.7; Corollary 5.8; cube projection formulas and Appendix A."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.27757",
+        "material_read": "Full original accessible arXiv HTML: introduction and Theorems 1.1–1.8; sections 3–7 comparisons and appendix A cube probability/moment passages.",
+        "method": "Opened original arXiv HTML and inspected full-document text/heading searches for cube, cross-polytope, diameter, and all major relevant theorem statements.",
+        "title": "Negative moments of the support function and applications to isotropic convex bodies",
+        "trigger": "Polarity equates cube projection inradius and cross-polytope section diameter; cube-extremal random-projection theorems"
+      },
+      {
+        "assessment": "Exact n=3 case already covered. It does not assert nor imply all-dimensional Gaussian extrema distribution and the non-Gaussian limit with all moments; no claim to n=3 originality.",
+        "evidence": [
+          "D(E)=2 sqrt(a²+c²)/(a+c), r=a/c, exact arctangent CDF, three-variable order-statistic integral."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+        "material_read": "Entire published RESULT.md, including theorem, deterministic reduction, solid-angle CDF, verification and limitations.",
+        "method": "Full frozen public mathematical record read from primary GitHub source.",
+        "title": "Exact Haar diameter law for central sections of the regular octahedron",
+        "trigger": "Same Euclidean diameter, exact CDF and min/max normal coordinates at dimension three"
+      },
+      {
+        "assessment": "Extremal volumes/boundary measures are different functionals; no all-dimensional random Euclidean diameter law in inspected claims.",
+        "evidence": [
+          "arXiv:2002.10743, introductory principal statements on section volume and perimeter."
         ],
         "identifier_or_url": "https://arxiv.org/abs/2002.10743",
-        "material_read": "Author abstract describing extremal section volumes, perimeter/boundary intersections and normal directions.",
-        "method": "Original arXiv landing abstract",
+        "material_read": "Original full PDF abstract, introduction, principal statements and relevant section-extremal results examined.",
+        "method": "arXiv full PDF and page-image inspection.",
         "title": "Non-central sections of the simplex, the cross-polytope and the cube",
-        "trigger": "Sections of the same cross-polytope"
+        "trigger": "Cross-polytope hyperplane sections and possible exact distribution of section invariants"
       },
       {
-        "assessment": "The studied random one-dimensional projection length is not Euclidean diameter of an intersected random hyperplane; no implication of the latter is evidenced.",
+        "assessment": "Addresses complex-line projection and distinct random subspace dimension regimes, not exact Haar real codimension-one cross-polytope section diameter distribution.",
         "evidence": [
-          "Journal of Mathematical Sciences 225 (2017) 770–787; abstract on Gaussian maxima and random projection lengths."
+          "arXiv:1604.04927, main theorem and introductory scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.04927",
+        "material_read": "Full PDF introductory discussion, Theorem 1.1 and relevant comparison of ambient/codimension and geometry.",
+        "method": "arXiv full PDF, page-image inspection.",
+        "title": "A remark on projections of the rotated cube to complex lines",
+        "trigger": "Possible polar-dual and octahedron random-subspace diameter coverage"
+      },
+      {
+        "assessment": "Observable is a random projection/width rather than an intersection diameter; only abstract-level non-implication established; whole-document exclusion not claimed.",
+        "evidence": [
+          "Journal of Mathematical Sciences 225 (2017) 770–787, abstract."
         ],
         "identifier_or_url": "https://doi.org/10.1007/s10958-017-3492-3",
-        "material_read": "Journal abstract describing mean widths, random projection lengths and limit theorems for projection widths.",
-        "method": "Journal landing abstract",
+        "material_read": "Publication abstract with projection mean width and Gaussian maximum topics; full paper not obtained.",
+        "method": "Original journal listing/abstract and publication metadata.",
         "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
-        "trigger": "Gaussian maxima and regular cross-polytope distributional limits could overlap"
+        "trigger": "Gaussian maxima and regular-polytope random projection laws could disguise the same observable"
       },
       {
-        "assessment": "Section volume maximization is a different functional; no exact random diameter distribution asserted in inspected material.",
+        "assessment": "Inspected statements concern extrema and restricted section volumes; cannot rule out uninspected appendix by abstract alone, remaining as residual priority risk.",
         "evidence": [
-          "arXiv:2606.07163, titled restricted hyperplane sections; volume extrema focus."
+          "arXiv:2606.07163, title and abstract focus."
         ],
         "identifier_or_url": "https://arxiv.org/abs/2606.07163",
-        "material_read": "Bibliographic title/abstract concerning restricted central section volumes and extremizers.",
-        "method": "arXiv metadata and accessible search snippet",
+        "material_read": "arXiv bibliographic title and abstract/metadata; complete paper not inspected.",
+        "method": "Original preprint abstract and bibliographic search.",
         "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
-        "trigger": "2026 source on central cross-polytope sections"
+        "trigger": "Recent source about same cross-polytope section family"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "rationale": "Earlier assessment independently of the current evaluation enumerated crossed cross-polytope edges, reduced Euclidean diameter to extreme absolute normal coordinates, conditioned the half-normal maximum to derive the CDF and used Gaussian order statistics plus uniformly bounded moments to prove the exponential endpoint limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "original_queries_retained": [
+        "random central hyperplane section ℓ1 unit ball cross-polytope Euclidean diameter exact min max Gaussian extremes",
+        "Gaussian half-normal minimum-to-maximum ratio and cross-polytope hyperplane section diameter asymptotic n sqrt(log n)",
+        "random diameters cross-polytope codimension one",
+        "regular octahedron random plane section diameter distribution",
+        "cross-polytope random section geometry"
+      ],
+      "original_source_topics_retained": [
+        "Guédon–Litvak–Tatarko–Vritsiou 2026 general random diameters",
+        "König 2020 noncentral cross-polytope section volumes",
+        "Kabluchko–Litvak–Zaporozhets 2017 regular-polytope projection lengths",
+        "Brazitikos–Pandis 2026 restricted sections",
+        "published exact three-dimensional regular octahedron diameter CDF"
+      ],
+      "rationale": "Earlier literature comparison distinguished arbitrary-n Gaussian extrema and the non-Gaussian endpoint from published n=3 octahedron CDF, cross-polytope volume extrema, projection widths and general random-section bounds; unresolved access to the 2026 diameter preprint was expressly identified then. The complete Guédon manuscript has now been read in the current assessment.",
+      "source_blob_sha_for_unabridged_historical_evidence": "23c7adf5c53a13b69a30bbc1bf2989501f02c3a8",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Earlier assessment highlighted a complete canonical all-dimensional CDF, a non-Gaussian endpoint and convergent positive integral moments, not supplied by concentration bounds or dimension-three tables.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "72b090c5-04e9-41c4-9d67-22c30d138a9b",
   "value": {
-    "rationale": "A complete CDF for a canonical high-dimensional convex-body random section has natural geometric meaning. The upper-edge deficit has sharp n sqrt(log n) scale, non-Gaussian exponential limit with explicit rate, and converging all positive integer moments; these quantify geometry unavailable from mere concentration bounds or one fixed-dimensional section table.",
+    "rationale": "For the canonical ℓ1 cross-polytope, Euclidean diameter of a Haar central hyperplane section is a natural geometric-probability invariant closely tied by polarity to cube projection inradii. The theorem gives the entire finite-n law for the natural unbounded dimension family and an exact non-Gaussian endpoint scaling, rate and convergence of all fixed moments, information not determined by available concentration bounds or the n=3 spherical table. The min/max Gaussian coordinate reduction is a reusable structural mechanism; future researchers comparing random section inequalities can use its exact calibration of distributional tails. There is no claim of arbitrary codimension, arbitrary bodies, or a novel n=3 CDF.",
     "status": "PASS"
   }
 }
