@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:46:05.155614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read exact RESULT.md and carry-automaton verify.py. The digit sum identity s2(n+t)−s2(n)=h−K(n,t) is exact for carries K. In any accepted configuration K≤h, a carry launched at one occupied bit cannot reach the next occupied position at distance at least h+1. Hence separate bit windows e_j..e_j+h produce independent geometric isolated chains L_j with P(L=ℓ)=2^{-ℓ-1}, and {K≤h} equals {∑_j min(L_j,h+1)≤h}. The sum of h independent geometric variables is negative-binomial, with P(sum≤h)=P(Bin(2h,1/2)≥h), giving the central-binomial formula. Uniform fixed-length binary prefixes and exponentially vanishing carry tails establish natural density for fixed t. Independent exact rational carry DP including tail verified 15 isolated examples h=1..5. The finite tests do not prove all h or gaps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng 2606.23398 proves c_t>1/2 and c_t≥1/2+2^{-2s2(t)-1} for ALL t; it does not, from accessible main statement, determine exact c_t for arbitrary separated h-bit patterns.",
+          "Cheng 2608.25899 gives the minimal asymptotic fixed-weight bias, different from this ~h^-1/2 separated-family profile."
+        ],
+        "reasoning": "The positivity theorem is strictly broader in shift scope but weaker in evaluated precision. An exact h-dependent equality does not follow from a one-sided bound or a minimum asymptotic. Full Cheng manuscripts were inaccessible; no whole-document NOT_COVERING assertion.",
+        "searches": [
+          "Cusick binary sum digits c_t separated one bits central binomial bias carry chains",
+          "arxiv:2606.23398",
+          "arxiv:2608.25899",
+          "Cusick universal lower bound fixed weight extremal bias"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2411.07779",
+        "https://arxiv.org/abs/2606.23398",
+        "https://arxiv.org/abs/2608.25899",
+        "Resultary mathematical findings search: Cusick binary sum digits c_t separated one bits central binomial bias carry chains"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General sum-of-digits measure decompositions and even the exact inequality for all shifts do not imply equality across a gap-defined infinite family without independence.",
+          "The proof requires observing that a bridging carry needs at least h+1 carries and so is excluded by K≤h."
+        ],
+        "reasoning": "The independent truncated geometric blocks and binomial symmetry produce the closed value; no such direct conclusion follows from merely having a universal positivity bound or asymptotic minimum.",
+        "searches": [
+          "Cusick binary sum digits c_t separated one bits central binomial bias carry chains",
+          "binary digit sum carry separation independent geometric chains",
+          "arxiv:2411.07779"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sobolewski–Spiegelhofer develop exact digit-sum correlation-measure decomposition, emphasizing shifts with up to two blocks of ones.",
+          "The h≥3 separated singleton-bit regime has an independent window factorization and central-binomial exact density."
+        ],
+        "reasoning": "Decomposition techniques can compute shifts individually, but an all-weight uniform finite-gap stabilization formula was not identified in the inspected source. Earlier recurrences are explicitly credited.",
+        "searches": [
+          "Cusick binary sum digits c_t separated one bits central binomial bias carry chains",
+          "Cusick density widely spaced binary digits negative binomial isolated carry",
+          "arxiv:2411.07779"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-h finite-gap stabilization table appeared in retrieved scholarly/indexed hits.",
+          "Isolated finite h values are computable by prior correlation recurrences, but they do not certify universal h or gap independence."
+        ],
+        "reasoning": "Comparison distinguishes a uniform theorem from isolated numerical row recomputation; lack of table hits is not positive novelty proof.",
+        "searches": [
+          "Cusick binary sum digits c_t separated one bits central binomial bias carry chains",
+          "Cusick density sequence shifts powers of 2 separated onebits table",
+          "published Resultary semantic index: Cusick binary sum digits c_t separated one bits central binomial bias carry chains"
+        ]
+      },
+      "rationale": "Relevant published research-index and primary literature comparisons found no directly covering exact claim, subject to the explicit priority limitations. The novel result is the exact claim stated, not its previously known foundational object or general theory.",
+      "residual_risks": [
+        "Full Cheng 2026 manuscripts could hide a special-case exact formula even though accessible abstracts concern positivity and extremal lower envelopes.",
+        "Existing general correlation recurrences may simplify to the same central-binomial identity in unindexed historical material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: supplies general recurrences and two-block cases, not the identified multi-block exact plateau statement.",
+          "evidence": "The h≥3 one-bit supports have h separated blocks, so published detailed ≤2-block formulas do not directly cover the family.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.07779",
+          "material_read": "Accessible full primary PDF, including measure recurrences, focus on shifts having up to two one-blocks, and discussion of positive bias; PDF screenshot inspected.",
+          "method": "Full article PDF mathematical comparison.",
+          "title": "Decomposing the sum-of-digits correlation measure",
+          "trigger": "Exact correlation measure decomposition is the most relevant prior method for fixed binary shifts."
+        },
+        {
+          "assessment": "PRIORITY_RISK: full proof and appendices unread, no NOT_COVERING claim.",
+          "evidence": "Stated theorem gives strict positivity and a universal exponential-in-weight lower bound, not exact central-binomial separated-family law.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+          "material_read": "Abstract, exact main positivity statement and searchable secondary mathematical summary; full arXiv PDF unavailable.",
+          "method": "Tried arXiv and lawful OA then authorized institutional download, which reported vpn_disconnected.",
+          "title": "A first-exit proof of Cusick’s sum-of-digits conjecture",
+          "trigger": "Universal all-shift positivity and deconvolution could imply a specialized equality."
+        },
+        {
+          "assessment": "PRIORITY_RISK: full text unread; published abstract addresses minimum bias at fixed weight.",
+          "evidence": "Extremal scale (log_2 h/h)^{3/2} differs from the separated-pattern value of order h^{-1/2}.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.25899",
+          "material_read": "Abstract and contextual summary of optimal bias scale; full manuscript unavailable.",
+          "method": "Tried arXiv and lawful OA then authorized institutional download, vpn_disconnected.",
+          "title": "Sharp extremal asymptotics for Cusick’s sum-of-digits bias at fixed Hamming weight",
+          "trigger": "Same Hamming-weight variable, possible stronger separation characterization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cusick digit-sum correlations are natural arithmetic densities. A universal finite separation condition causes exact stabilization of a density across every support pattern of a specified weight; the closed central-binomial law and asymptotic furnish a structural family, not a one-off computation. It is not the known universal positivity bound or the large-weight minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For h≥3, t=∑_{j=1}^h 2^{e_j} with e_{j+1}−e_j≥h+1, the natural density of s2(n+t)≥s2(n) exists and equals 1/2+binom(2h,h)/(2·4^h), independent of occupied positions; bias asymptotic is 1/(2√(πh)).",
+  "limitations": "Sufficient separation threshold only; no claim it is necessary or minimal for every weight; t is fixed before density limit.",
+  "schema_version": 1
+}
