@@ -1,0 +1,11 @@
+# Scientific review: genus-five odd hyperelliptic Frobenius strata
+
+**Correctness (C): PASS.** For every algebraically closed field of characteristic three and every point in the separable quintic parameter open, direct Cartier–Manin coefficient extraction yields a rank-four matrix. Its odd/even block decomposition reduces stable Frobenius rank to the nine-semilinear two-by-two matrix from the transpose Hasse–Witt Frobenius, with determinant \(T\); on that divisor, its rank-one second-iterate scalar is \(E\). The proof supplies the required quantifiers and the differential criteria making the first locus a smooth irreducible surface and the deeper locus a smooth nonempty transverse curve. The symbolic and distinct exact field verifiers execute successfully; finite checks are corroboration only.
+
+**Originality (O): PASS with residual risk.** Novoselov's 2017/2019 work develops a different genus-five monomial support (degrees 11, 6, 1), not the full odd five-term support (11, 7, 5, 3, 1). Frei's large-\(a\) bound cannot imply the constant-\(a=1\) Frobenius stratification; Nourozi–Rahmati–Tafazolian concern monomial/binomial specializations. Exact own-history comparisons found different characteristic, genus, or objects. Relevant mathematical-result searches returned no statement of the determinant \(T\), deeper condition \(E\), and smooth rank-zero complete intersection. The original 2017 text was not fully inspected; unindexed coverage remains a genuine priority risk.
+
+**Mathematical value (V): PASS.** The simultaneous constancy of \(a=1\), nonordinary rank four generically, rank two on a smooth irreducible divisor, and rank zero along a smooth transverse curve identifies a structural stratification of a natural entire family. The result distinguishes one-step Cartier rank from asymptotic Frobenius behavior. The precise geometry and complete rank enumeration are useful even without a Newton-polygon classification.
+
+**Limitations.** Parameters are marked coefficients, not geometric isomorphism classes. The rank-zero curve is not asserted irreducible. No characteristic other than three, Newton-polygon, or full moduli statement is proved. Independent external mathematical audit and validation have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
