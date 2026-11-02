@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each fixed i the observed younger-parent forest fixes internal edges and the separate events P_r<=i for its component roots; remaining root-parent choices are independently uniform over i old labels. Thus the independent Bernoulli component law and conditional product are exact for every n and boundary. This implies conditional mean n/i for any younger-size statistic. Standard two-color Polya urn moments give each marginal variance, with vanishing off-diagonal covariance by tower property. Double counting ancestors proves weighted total path variance for every real deterministic weight vector. Exact replay of all 5913 trees for n=2..8 passed 9326 conditional coefficient/moment assertions; finitary checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holmgren–Janson 2014 Theorem 1.4 and subsequent main results concern aggregated counts of fringe trees with a given size/type, not particular birth indices, and do not directly determine the law conditional on the entire labeled forest.",
+        "Dobrow–Fill 1999 derives total path length moments from a label2 splitting; the classical unweighted variance is subsumed as a known specialization, but not a proof of arbitrary deterministic label-weight diagonal variance."
+      ],
+      "reasoning": "The new all-forest conditional law implies a simultaneous family of cross-covariance vanishings and weighted path identities. Existing marginal and aggregated-fringe results lack the jointly conditioned birth-index structure necessary to imply those statements without an additional argument.",
+      "searches": [
+        "random recursive trees birth-time descendant subtree size of vertex i mean independent of entire vector of younger descendant sizes j>i",
+        "random recursive trees arbitrary weighted sum of descendant subtree sizes diagonal variance formula no cross terms",
+        "arxiv:1406.6883",
+        "doi:10.1017/S0963548399003855"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1406.6883 full HTML",
+      "arxiv:1406.7614 full HTML",
+      "doi:10.1017/S0963548399003855 17-page full article",
+      "doi:10.1017/S0963548308009243 author-hosted text",
+      "Published research records: 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba, 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f, 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9",
+      "Earlier mathematical claims on birth-indexed size-two fringe events, root-degree/leaf covariance, and path-length dependence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier mathematical finding on birth-ranked size-two fringe events concerns indicator of a size-two fringe subtree at a birth label and covariance with total path length. It does not give a conditional law for all subtree sizes and the entire young forest.",
+        "Published research record 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba conditions on individual root attachments and yields negative path-length covariances, not the labeled forest product law.",
+        "Dobrow–Fill gives the classical total path length special-case variance; this is not counted as the novelty claim."
+      ],
+      "reasoning": "The overlap assessment is statement-level: birth-ranked size-two event/path length covariance and root-indicator/path length covariance are different statistics, and neither is an implication of the requested conditional distribution of older mass given all young-parent edges. A different known decomposition may nevertheless shorten the proof; no absolute uniqueness is asserted.",
+      "searches": [
+        "The sizes of fringe subtrees rooted at specific birth ranks in a uniform random recursive tree are pairwise uncorrelated despite not independent, and an older subtree size has conditional mean n/i given the entire younger-parent forest, with independent Bernoulli attachment to old labels.",
+        "arxiv:1406.6883",
+        "arxiv:1406.7614",
+        "doi:10.1017/S0963548399003855"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The independence of younger-component roots after deleting the first i birth labels gives an exact finite conditional product, unlike the full-text Holmgren–Janson global fringe-count laws (arxiv:1406.6883), and unlike Grübel–Michailow Harris-coordinate boundary-mass limits (arxiv:1406.7614).",
+        "Closest published root-attachment/path-length result: 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+      ],
+      "reasoning": "A general Pólya-urn marginal, or a subtree2 decomposition, is not equivalent to a full conditional generating polynomial for each labeled young forest. Checked close statements do not imply the polynomial, its arbitrary later-statistic mean independence, or the arbitrary-weight orthogonality conclusion. An unrecognized equivalence remains a residual risk.",
+      "searches": [
+        "random recursive tree delete first i vertices components independent uniform attachment root parent; conditional Bernoulli weighted sum",
+        "The sizes of fringe subtrees rooted at specific birth ranks in a uniform random recursive tree are pairwise uncorrelated despite not independent, and an older subtree size has conditional mean n/i given the entire younger-parent forest, with independent Bernoulli attachment to old labels.",
+        "arxiv:1406.6883",
+        "arxiv:1406.7614"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Fuchs paper treats global subtree-size counts and normal/Poisson approximations, rather than a table of birth-indexed covariance zeros.",
+        "Searches returned no exact source or table for the conditional component-root polynomial; Closest published research-record identifiers: 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba, 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f, 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9"
+      ],
+      "reasoning": "Exact finite brute-force moments are used only to verify the independently proved infinite structural law; no pre-existing finite table identified by searches covers all n, weights, or labeled forests. A negative search result is not a certificate of novelty.",
+      "searches": [
+        "labelled random recursive tree descendant counts S_i(n) pairwise orthogonal centered for all distinct birth labels; zero covariance exact",
+        "random recursive trees arbitrary weighted sum of descendant subtree sizes diagonal variance formula no cross terms",
+        "doi:10.1017/S0963548308009243"
+      ]
+    },
+    "rationale": "Available primary full texts by Holmgren–Janson, Grübel–Michailow, Dobrow–Fill, and Fuchs, published-record alias/parameter searches and earlier mathematical-claim comparisons reveal no statement of the finite conditional labeled young-forest product law and its full later-vector mean-independence consequence. Earlier unweighted path moments and beta-binomial marginals are acknowledged. Historical implicit equivalence remains a stated risk.",
+    "residual_risks": [
+      "A potentially equivalent conditional decomposition could be implicit in older Pólya urn, reinforced branching or recursive-tree martingale literature despite no identified directly dominating statement.",
+      "An inaccessible further historical source might establish the same result; searched literature and inspected primary texts limit but do not eliminate priority uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert the whole labeled young-forest conditioned Bernoulli PGF or the diagonal covariance of all birth-ranked sizes.",
+        "evidence": "Theorem 1.4 identifies counts of fringe trees of size k, with mean n/(k(k+1)), and distributional approximations; explicitly says labels correspond to time stamps, but counts are aggregated by tree size/type.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+        "material_read": "Available full HTML main text including introduction, Theorems 1.4 and 1.5 and later fringe-functional results.",
+        "method": "Read theorem statements, model definitions, labels-versus-aggregates distinction and relevant main sections.",
+        "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+        "trigger": "Selected older primary-MSC60C05 fringe-tree baseline; potential domination by aggregate subtree theorems."
+      },
+      {
+        "assessment": "Conditional mass splitting in limiting Harris-tree coordinates is related but does not state the finite conditional law for fixed birth labels given all younger parent edges.",
+        "evidence": "Section on fringe subtree masses and path-length representation uses rooted coordinate strings, not the finite young-forest root assignment in the theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.7614",
+        "material_read": "Available full HTML including subtree mass, GEM representation and path-length functional sections.",
+        "method": "Inspected definitions and mathematical claims about limits and Harris-tree coordinates.",
+        "title": "Random Recursive Trees: A Boundary Theory Approach",
+        "trigger": "Potential stronger subtree-mass and total path-length boundary representation."
+      },
+      {
+        "assessment": "Already covers unweighted total path-length variance and subtree2 decomposition, but no all-label conditional young-forest PGF or general deterministic birth-weight diagonal variance.",
+        "evidence": "Lemma 2.1 treats the size of subtree rooted at node 2 and an independent recursive-tree decomposition; Section 3 studies total path length moments.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+        "material_read": "Full 17-page legally accessible scholarly article; inspected initial pages and remaining pages on moments and recurrences.",
+        "method": "Read definition, basic subtree2 decomposition, moment and total path length variance discussion, then remaining sections on limit moments and distributions.",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Classical variance of unweighted path total might be stronger prior coverage of weighted variance."
+      },
+      {
+        "assessment": "Not a covering claim for the specific birth-indexed conditional PGF or arbitrary-weight diagonal covariance.",
+        "evidence": "The paper studies the number of fringe subtrees with size k, including normal and Poisson approximations for the counts.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548308009243",
+        "material_read": "Author-hosted complete available text, including definitions and relevant theorem sections.",
+        "method": "Compared the random variable being studied, global count of subtrees of each size, with birth-labeled sizes and conditional young forest.",
+        "title": "Subtree Sizes in Recursive Trees and Binary Search Trees: Berry–Esseen Bounds and Poisson Approximations",
+        "trigger": "Possible exact subtree-size covariance results in older fringe literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2bd1e13-fab5-41f5-8974-4685d5321e32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full conditional probability-generating polynomial for a fixed birth-ranked subtree, conditional on all newer-to-newer parent edges, is an all-size structural law. It implies one-way conditional mean independence with respect to arbitrary later-subtree-size observables while disproving ordinary independence. Its exact diagonal covariance matrix yields variances for arbitrary birth-weighted ancestor path costs, a natural generalization of standard total path length, without computing any mixed correlations. This is stronger than a routine marginal moment identity and not a tiny parameter-specific gain.",
+    "status": "PASS"
+  }
+}
