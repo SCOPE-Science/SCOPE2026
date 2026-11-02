@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For binary words, rank-two signatures are exactly 32-bit sets of left-colour-set/colour/right-colour-set triples; the first-move EF recurrence makes the corresponding rank-three character set an exact equivalence invariant. The verified 70-letter baseline realizes 70 different rank-three characters, forcing all equivalent words to have at least 70 positions. The new 73-letter word has the identical set. Exact exhaustive C++ enumeration of all C(73,3)=62196 length-70 induced subwords finds at most 68 of the baseline 70 characters in any such subword, and none equivalent. The source code itself enumerates all triples and compares exact sets, so the evidence is a full finite computation rather than a log, sample or heuristic. A separate Python implementation confirms fingerprint equality, 961 small EF-game comparisons and 1203 sampled deletions; external independent audit is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mwesigye–Truss, On optimal representatives of finite coloured linear orders, arXiv:1705.04632 (first public 2017-05-12), Theorem 1.1, Sections 2–3 and Future Work; Order 36 (2019), 107–117, DOI 10.1007/s11083-018-9458-3.",
+        "The 2011 paper Classification of finite coloured linear orderings provides general bounds and a lower-rank framework; the later paper proves only the rank-two induced-optimum property and gives rank-three optimal examples, not the absence-of-suborder assertion."
+      ],
+      "reasoning": "Bounds for the length of a shortest representative do not imply that such a representative embeds in every equivalent structure. The rank-two positive theorem does not extend to rank three. The 70- and 74-letter constructions prove optimality of particular words, not nonexistence of an equivalent optimal subword in a longer word. An accessible earlier exact rank-three classification with precisely two occurrences of a distinguished colour also cannot imply a counterexample whose binary word contains many occurrences of each colour.",
+      "searches": [
+        "finite coloured linear orders suborder optimal n equivalent 2022",
+        "Mwesigye Truss finite coloured linear orders rank three optimal subsequence 2024",
+        "On Optimal Representatives of Finite Coloured Linear Orders MSC classification"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1705.04632 full-text HTML and journal DOI full-text targeted sections",
+      "Mwesigye–Truss 2011 repository abstract",
+      "published-finding corpus closest one-red coloured-order record eec9053b6af5 (summary only)",
+      "MSC2020 03C13: model theory of finite structures",
+      "Accessible earlier exact rank-three two-red finite-word classification (claim-level comparison only; restricted to words with exactly two red elements)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mwesigye–Truss, On optimal representatives of finite coloured linear orders, arXiv:1705.04632 (first public 2017-05-12), Theorem 1.1, Sections 2–3 and Future Work; Order 36 (2019), 107–117, DOI 10.1007/s11083-018-9458-3.",
+        "Published Theorem 1.1 gives a rank-three equivalence test via rank-two characters and is explicitly used as an ingredient; Future Work says the authors believe a non-embedding word can be constructed."
+      ],
+      "reasoning": "The exact rank-three fingerprint criterion and 70-character optimum are prior facts. The new conclusion requires establishing a different 73-character word with the same fingerprint AND excluding all 70-character induced subwords, not entailed by either prior component. In the source this was left as an expectation rather than a proved example. The exact two-red class result does not extend its statements to this different many-red binary word, and does not assert a failure of optimal induced subword reduction.",
+      "searches": [
+        "de Bruijn graph Eulerian paths 3-equivalence optimal subword failure",
+        "Mwesigye Truss optimal substring 3-equivalence counterexample",
+        "3-equivalence coloured strings no equivalent optimal subordering 2018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mwesigye–Truss, On optimal representatives of finite coloured linear orders, arXiv:1705.04632 (first public 2017-05-12), Theorem 1.1, Sections 2–3 and Future Work; Order 36 (2019), 107–117, DOI 10.1007/s11083-018-9458-3.",
+        "The journal Future Work explicitly asks for a word without an optimal three-equivalent suborder; induced suborder is arbitrary deletion, not necessarily contiguous."
+      ],
+      "reasoning": "The statement is invariant under identifying a coloured linear order with its finite word, changing r/b symbols, or describing rank-three equivalence by sets of rank-two characters. The actual pair demonstrates the nonexistence of an optimal induced subword, not merely non-uniqueness of optimal representations.",
+      "searches": [
+        "Mwesigye Truss finite coloured linear orders 3-equivalence optimal representative subword subsequence 2017 2018 rank 3",
+        "Ehrenfeucht Fraisse binary words optimal subsequence finite colored linear order 70 74 3-round counterexample",
+        "coloured linear order optimal substring rank three counterexample",
+        "Ehrenfeucht Fraisse rank three colored word optimal subsequence not embedded Mwesigye"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record: 2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5; summary gives ranks of words containing exactly one red letter.",
+        "No matching finite 73-letter non-embedding witness or corresponding 62196-subsequence certificate was located in the searchable literature/results.",
+        "Mwesigye–Truss, On optimal representatives of finite coloured linear orders, arXiv:1705.04632 (first public 2017-05-12), Theorem 1.1, Sections 2–3 and Future Work; Order 36 (2019), 107–117, DOI 10.1007/s11083-018-9458-3."
+      ],
+      "reasoning": "The one-red class cannot contain either displayed long two-colour word, which has many occurrences of both letters. The source does have a length-70 word, reused here with attribution, and a length-74 optimal example; neither is the new 73-letter witness with no rank-three-optimal induced subword. A database search is evidence of no located coverage, not a proof of uniqueness.",
+      "searches": [
+        "Mwesigye Truss finite coloured linear orders 3-equivalence optimal representative subword subsequence 2017 2018 rank 3",
+        "Ehrenfeucht Fraisse binary words optimal subsequence finite colored linear order 70 74 3-round counterexample",
+        "Mwesigye Truss optimal substring 3-equivalence counterexample",
+        "On optimal representatives finite coloured linear orders rank three optimal subsequence counterexample"
+      ]
+    },
+    "rationale": "The main preprint and published full text were inspected in the sections stating the exact rank-equivalence criterion, the two-round positive induced-suborder result, the 70- and 74-letter optimal words, and Future Work. The authors explicitly expect, but do not prove, failure of an optimal induced suborder at rank three. The present concrete 73-letter obstruction is new relative to those statements. Actual broad and claim-specific published-finding corpus searches returned no covering item; the closest finite one-red rank-profile finding is restricted to a disjoint structural family and has no implication for a heavily alternating binary word. Historical-priority risk from unindexed work remains.",
+    "residual_risks": [
+      "An unindexed later treatment might already construct such a word under another terminology.",
+      "Full text of the closest one-red published-finding corpus record was not accessible, though its stated one-red scope cannot imply the displayed two-colour alternating witness.",
+      "The source work also lists order-theoretic MSC codes, but the new claim is centrally finite-model-theoretic: exact three-round EF equivalence and optimal induced substructures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit speculation, not a constructed non-embedding example; positive two-round theorem and rank-three optimal words only",
+        "evidence": "arXiv:1705.04632, first posted 2017-05-12, sections 1–3 and Future Work.",
+        "identifier_or_url": "https://arxiv.org/abs/1705.04632",
+        "material_read": "ArXiv full-text HTML: initial definitions, Theorem 1.1, discussion of rank-two versus rank-three, and original 70-word construction references",
+        "method": "Full-text HTML inspection with cross-check against journal text",
+        "title": "On optimal representatives of finite coloured linear orders",
+        "trigger": "Direct source proposing rank-three non-embedding and supplying the 70-word reference"
+      },
+      {
+        "assessment": "The explicit 73-letter word and non-embedding certificate are not in the inspected journal text; authors state the desired failure as expected future work",
+        "evidence": "Order 36 (2019) 107–117, especially pp. 109, 114–117; DOI 10.1007/s11083-018-9458-3.",
+        "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s11083-018-9458-3.pdf",
+        "material_read": "Eleven-page journal PDF textual sections: Theorem 1.1, Theorem 2.4, Section 3 70- and 74-character examples, final Future Work on page 117; page 109 also visually inspected",
+        "method": "Primary PDF full-text targeted section inspection and visual screenshot",
+        "title": "On Optimal Representatives of Finite Coloured Linear Orders",
+        "trigger": "Compare journal statement, original 70-string, and final open direction"
+      },
+      {
+        "assessment": "General bounds and earlier optimal representative questions; no accessible claim covering this rank-three counterexample",
+        "evidence": "Order 28 (2011), 387–397; abstract states general size bounds and rank-one/rank-two exact results.",
+        "identifier_or_url": "https://ir.must.ac.ug/items/46b75340-7a99-4e7e-b941-455f6e9dd938/full",
+        "material_read": "Repository metadata and abstract only; no claim of full article inspection",
+        "method": "Public repository abstract inspection",
+        "title": "Classification of finite coloured linear orderings",
+        "trigger": "Older framework cited in the target source"
+      },
+      {
+        "assessment": "Restricts to one-red words and quantifier-rank profiles; cannot subsume the many-red word pair or its 73-letter embedding obstruction",
+        "evidence": "published-finding corpus record eec9053b6af5, retrieved summary: words B^a R B^b.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5",
+        "material_read": "Search-result title and summary only; full GitHub path could not be fetched",
+        "method": "published-finding corpus semantic search; bounded external URL retrieval attempt",
+        "title": "Exact quantifier-rank profiles for finite one-red linear orders",
+        "trigger": "Closest semantically relevant published-finding corpus search result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eda07ae3-5943-4f36-89ab-cf179d50a652",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2017/2018 primary paper explicitly anticipated a failure of its rank-two optimal-induced-suborder theorem at rank three but did not construct one. This 73-letter example resolves that specific natural finite-model-theoretic question. The phenomenon distinguishes logical equivalence under three moves from the previously proved two-move reduction and is not a routine numerical extension. It supplies a small, fully reproducible, conceptually motivated counterexample.",
+    "status": "PASS"
+  }
+}
