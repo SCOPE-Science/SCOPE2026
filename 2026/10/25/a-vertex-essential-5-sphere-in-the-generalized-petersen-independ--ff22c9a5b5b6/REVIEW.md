@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ordinary independence complex is defined with explicit modular edges; all faces and Hasse relations are reconstructed exhaustively from those edges. An acyclic augmented matching on 2461 faces has exactly one unmatched five-face and a matched empty face; removing the latter pair produces a two-critical-cell discrete-Morse model \(S^5\). Two further acyclic matchings produce 938 and 936 actual simplicial collapses of the two representative vertex deletions. The outer and inner rotational orbits exhaust all eighteen deletions. The reduced Lefschetz calculations give \(+1\) for the dihedral rotation and \(-1\) for reflection on integral fifth homology. The packaged script checks every count and directed-cycle condition, not merely sampled faces.
+## correctness
 
-**Originality — PASS, with residual risk.** Barmak's arXiv:1007.0418, read in relevant original sections, gives the broader suspension theorem for triangle-free graphs, but does not fix the homotopy type or vertex-deletion profile here. Fox–Gera–Stănică's thirteen-page 2012 original paper was inspected and covers independence numbers, including \(\alpha(GP(9,2))=7\), but not homotopy, deletion collapses or the dihedral homology action. Searches for the exact graph and equivalent formulations across accessible mathematical records did not identify a covering result. A priori equivalent unpublished or unindexed calculations remain possible.
+PASS
 
-**Mathematical value — PASS.** The result identifies a natural eighteen-vertex member of a classical cubic graph family whose global sphere homology vanishes after deleting any single graph vertex, a sharp support-rigidity property not determined by the prior maximum-independent-set formula. The full sign-versus-trivial dihedral orientation action gives an additional structural invariant. It makes no unsupported claim of family-wide generality.
+Independently reconstructed GP(9,2) using outer cycle edges, spokes and inner step-2 edges on 18 labeled vertices. Exhaustive 2^18 mask enumeration gives 2461 independent faces including empty, nonempty face vector (18,126,438,801,747,303,27). Independently constructed the sequential toggle acyclic matching: on full complex 1230 pairs plus one unmatched cardinality-six face; direct Hasse orientation topological sort confirms no closed V-path and the matched empty face leaves critical cells in dimensions 0 and 5, giving S5. On deletion u0, 1878 augmented faces and 939 pairs; on deletion v0, 1874 augmented faces and 937 pairs; in each acyclic and empty paired with a vertex, so 938 or 936 actual elementary collapse pairs to one vertex, verified by free-face elimination. Rotational symmetry covers all 18 vertex deletions. Every proper induced inclusion factors through a contractible deletion. Full signed chain Lefschetz trace on all 18 dihedral elements gives H5 character +1 under rotations and −1 under reflections. All these calculations exhaust a fixed finite graph, not a sampled infinite family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS, not certified historical priority: Vertex-essential 5-sphere in generalized Petersen independence complex GP(9,2). Prior claims cannot produce complete 18-vertex deletion acyclicity or sign character by a direct inference; explicit Morse matching and Lefschetz calculation supply substantive independent information.
+
+## value
+
+PASS
+
+The finite graph GP(9,2) is canonical, and the conjunction of a pure homotopy sphere, collapsibility of all vertex deletions, and a nontrivial dihedral homology orientation character is a strong vertex-support rigidity result. It identifies a natural combinatorial instance and its complete support obstruction, beyond a routinely computed independence number or Betti vector. A finite complete exact invariant is independently useful even without a full GP(n,k) census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
