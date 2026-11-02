@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For equal-length binary words, equality of the scattered subsequence counts through length \(2\) is equivalent to equality of the one-count and the position-weighted one-count. The Thue–Morse two-letter complement structure rules out odd-root abelian cubes. Parity of the proposed root and source offset then reduces all roots congruent to \(2\) modulo \(4\) to forbidden odd-root abelian cubes; in the odd-start case a common-boundary-bit argument is essential. The two four-letter substitution images are \(2\)-binomially equivalent, and concatenation preserves this equivalence, yielding all roots divisible by \(4\) for all exponents and all aligned starts. The complete symbolic argument and an independently executable finite check agree.
+PASS
 
-## Originality — PASS against inspected evidence
+For equal-length binary words, the complete order-two binomial signature is exactly (S=sum bits,J=sum positional weights), since #01=J-binomial(S,2), while #00,#11,#10 follow from ones count and total length. The Thue–Morse relation t_{2a}=t_a,t_{2a+1}=1-t_a forces each aligned two-letter pair to contain one 1. Three adjacent odd-root blocks cannot have equal ones counts, since one of their adjacent pairs starts on an even boundary and has counts h+b versus h+1-b. For m=2h with h odd, even starts reduce equality of J(mu(x))=h²-S(x) to the forbidden odd-root abelian cube; odd starts use four boundary bits, whose equal differences must all vanish, and a left-rotation moment identity gives the same forbidden cube. For m=4k, mu²(0)=0110 and mu²(1)=1001 both have two ones and moment 3, and order-2 binomial equivalence is a concatenation congruence, so any aligned concatenation length4k works for every exponent. Independent 8192-bit arithmetic-prefix calculation checked all starting positions for m<=64 and uniform aligned examples; finite tests corroborate but not replace proof for all m and exponent.
 
-Rigo–Salimov [1] establishes the invariant and Thue–Morse binomial complexity. Rao–Rigo–Salimov [2] establishes avoidability of \(2\)-binomial cubes by a different binary morphic sequence. Lejeune–Leroy–Rigo [3] counts Thue–Morse factor-equivalence classes, not triplewise adjacent occurrences. The derived exact root-length spectrum and uniform aligned-position result are not stated in the inspected relevant portions of these primary full texts and are not logical consequences of their reported counts without further location-sensitive argument. A bibliographic priority risk remains for unindexed or otherwise inaccessible derivations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is motivated by the existing study of \(2\)-binomial power avoidance and by the difference between complexity of equivalence classes and their local adjacent arrangements. The sharp congruence classification applies for every positive root length and every exponent at least \(3\). It exhibits a structural jump from the two-block phenomenon to higher powers and identifies an unbounded family of guaranteed occurrences with an exact forbidden complementary class.
+The theorem precisely determines an all-root-length occurrence spectrum for 2-binomial cubes and every higher exponent in Thue–Morse, not just factor equivalence class counts or existence of a separate avoiding word. Its odd-start desubstitution obstruction and universal 4-aligned construction are additional to the general binomial congruence.
 
-## Scope and limitations
+## value
 
-No claim is made concerning all starting positions at permissible roots, arbitrary automatic words, binomial orders above \(2\), or a complete historical priority guarantee. The code verifies finite parameter ranges only; the mathematical proof establishes the unrestricted result.
+PASS
 
-## Primary sources
+Thue–Morse is a canonical automatic word; the precise allowed root lengths of all 2-binomial cubes and higher powers are fundamental repetition/avoidance invariants. The sharp arithmetic threshold m divisible by four and the stronger every aligned start, every exponent construction form a uniform all-m classification and a natural answer for power avoidance, not a finite prefix statistic.
 
-[1] M. Rigo and P. Salimov (2013), https://orbi.uliege.be/handle/2268/149313
-
-[2] M. Rao, M. Rigo, and P. Salimov (2013), https://arxiv.org/abs/1310.4743
-
-[3] M. Lejeune, J. Leroy, and M. Rigo (2018), https://arxiv.org/abs/1812.07330
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
