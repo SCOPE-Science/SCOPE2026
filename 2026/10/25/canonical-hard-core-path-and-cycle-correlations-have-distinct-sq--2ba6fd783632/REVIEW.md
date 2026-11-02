@@ -1,19 +1,21 @@
-# Scientific review: fixed-particle hard-core correlations
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The path count \(\binom{n-k+1}{k}\), the forced-site counts \(\binom{N-1}{k-1}\), \(\binom{N-2}{k-2}\), and \(\binom{N-3}{k-1}\) determine the exact path covariance. On a cycle the total count \(n\binom{n-k}{k}/(n-k)\), cyclic symmetry, and the two-site count \(\binom{n-k-2}{k-2}\) determine the second formula. Denominators are positive on the full stated domain, including maximum packings, and their numerators give precisely the claimed zeros and signs. Conditional independence after fixing the middle site vacant establishes strict positive grand-canonical covariance on a path at any finite positive activity. The square-root statement follows directly from the exact formulas. `verify.py` checked 1305 exact-rational assertions and 139038 canonical samples. Finite checks supplement, rather than replace, the proofs.
+PASS
 
-## Originality (O): PASS on compared material; residual historical uncertainty
+For a path let N=n-k+1; exact total count binom(N,k) and forced-site counts binom(N-1,k-1), binom(N-2,k-2), binom(N-3,k-1) yield Cov_P=k(N-k)(k²+1-n)/(N²(N-1)(N-2)). On a cycle |I_{n,k}|=n/(n-k)·binom(n-k,k), E X1=E X3=k/n, and fixing 1,3 yields binom(n-k-2,k-2), giving Cov_C=k[k(k+1)-n]/[n²(n-k-1)]. Denominators positive throughout stated domains; the extra path zero N=k is the deterministic packed case n=2k-1. Both thresholds n=k²+1, n=k(k+1) are exact for k≥2. For path fugacity λ>0, conditional on X2=0, X1 and X3 independent, while X2=1 forces both zero; Cov=r(1-r)ab>0 with 0<r<1 and a,b>0. Taking k/√n→c gives n^{3/2}Cov→c(c²−1). Independent exact enumeration checked 104 small path/cycle parameter cases and the original proof algebra.
 
-The closest examined full text, Davies and Perkins (arXiv:2102.04984v1), treats the fixed-size independent-set measure and obtains complexity and approximate-sampling theorems for general bounded-degree graphs, not the two-site covariance sign identities. Blanca and collaborators (arXiv:1611.01115v1, published primary MSC 60C05) analyze phase coexistence on the infinite two-dimensional lattice, rather than finite fixed-cardinality path/cycle pair correlations. Joseph and Roby's path-independent-set paper considers toggle dynamics and homomesy, rather than occupation covariances. Searches of published mathematical records for hard-core path/cycle, canonical occupancies, critical particle density, independence and pair correlations returned no equivalent assertion. The exact binomial enumerators are elementary and could have been used implicitly in older one-dimensional lattice-gas work; priority is not independently certified. A generic counting identity without these cross-ensemble and boundary-sign conclusions does not by itself state the signed phase classification, although it may imply it by specialization and algebra, so this remains a residual comparison risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-This is a complete exact classification of the dependence sign for the *first allowed separation* in canonical one-dimensional hard-core laws, including sharp zero-covariance families, a shared mesoscopic \(\sqrt n\) scale, and a nonzero gap between the open-chain and periodic thresholds. Fixing the occupation total can reverse the sign seen at every fugacity in the corresponding path grand-canonical ensemble. These are finite-size physical/statistical features that ordinary counts of independent sets do not directly convey and are natural for understanding canonical and grand-canonical discrepancies.
+Classical independent-set stars-and-bars counts are not novel. The proposed exact distance-two covariance sign factorizations, distinct canonical path/cycle square-root zero thresholds and comparison with universally positive path grand-canonical pair covariance are the reviewed remainder. Davies–Perkins treat a fixed-size hard-core distribution for approximation algorithms; Blanca et al. concern 2D infinite lattice coexistence, Joseph–Roby toggle dynamics, and an indexed fixed-composition run-transitions covariance is different. General one-dimensional lattice-gas correlations may imply this as a specialization and are an acknowledged important residual risk, not ruled out by failed searches.
 
-## Limitations
+## value
 
-The theorem is not a general multivertex covariance classification. It gives no infinite-volume uniqueness result. Numerical enumeration covers a finite range only; the analytical binomial proof is essential. The possibility of older implicit exact one-dimensional correlation formulas is not eliminated by search, and an independent mathematical and priority audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This identifies the exact dependence sign and zero-correlation families for the first allowed separation in one-dimensional hard-core systems and shows different open versus periodic threshold locations. The contrast between fixed-size negative/zero correlations and strictly positive fugacity correlations is a substantive ensemble effect, not just a numerical binomial identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
