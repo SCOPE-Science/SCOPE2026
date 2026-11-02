@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact alternating-sojourn simplex volume and exponential holding density give p_k(u) proportional to u^k(1-u)^(k-1) exp(-delta u); folding gives decreasing LR of A; conditional sign g_delta(a) strictly rises in a for delta<=2; beta-tilt asymptotics m_k=1/2+(2-delta)/(8k)+O(k^-2) force nonmonotonicity for delta>2. Numerical standard-library checker provides independent finite corroboration, not an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Colwell 2023 abstract mentions MGFs for jump counts and occupation times; exact conditional monotonicity threshold not found in inspected material.",
+        "Roldán–Vivo 2019 addresses discrete-time bridge additive functionals, a different time model."
+      ],
+      "reasoning": "General Markov occupation formulas may encode moments from which some specialized statements could be derived. A phase threshold about the entire infinite sequence of fixed-cycle conditional expectations requires an additional strict-order and asymptotic argument; broad coverage was not demonstrated. Full Colwell text remains a priority risk.",
+      "searches": [
+        "web: Markov bridge occupation fraction count transitions reversal of monotonicity rate imbalance two state",
+        "web: occupation time number of transitions monotonic Markov bridge",
+        "web: Hitting times number of jumps occupation times for continuous-time finite state Markov chains Colwell 2023",
+        "published-finding corpus: telegraph process markov bridge occupation time signed regression switch count rate imbalance 2",
+        "published-finding corpus: two state continuous time Markov occupation time number transitions monotonic expectation in jump count"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0812.1775",
+      "https://arxiv.org/abs/1007.3139",
+      "https://doi.org/10.1103/PhysRevE.100.042108",
+      "https://ideas.repec.org/a/eee/stapro/v195y2023ics016771522300010x.html",
+      "https://arivero.github.io/navstokgap/notes/telegraph-return-bridge.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The read return-bridge note yields an equal-rate Beta(k+1,k) law for midpoint displacement and hence cannot supply conclusions at arbitrarily asymmetric transition rates.",
+        "Older occupation-time distribution papers are relevant, but read abstracts do not establish a monotonicity iff condition at (alpha-beta)t=2."
+      ],
+      "reasoning": "A full joint law could theoretically imply the new result, so there is residual historical-priority uncertainty. On inspected materials, no result explicitly supplies either the sharp boundary or the signed-versus-absolute-imbalance contrast for the specified returning chain.",
+      "searches": [
+        "published-finding corpus: telegraph process occupation time conditional number switches even beta distribution bridge",
+        "published-finding corpus: two state continuous time Markov chain bridge absolute occupation imbalance beta conditional jump count stochastic ordering",
+        "published-finding corpus: two state Markov bridge conditional occupation fraction switching count rate asymmetry threshold monotonicity",
+        "published-finding corpus: telegraph process markov bridge occupation time signed regression switch count rate imbalance 2",
+        "published-finding corpus: two state continuous time Markov occupation time number transitions monotonic expectation in jump count",
+        "web: telegraph bridge conditional number jumps occupation time nonmonotone switching rate difference threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Relevant full note (arivero.github.io/navstokgap/notes/telegraph-return-bridge.html) has a superficially identical Beta(k+1,k) law but for conditioned midpoint displacement rather than an asymmetric occupation fraction.",
+        "The present threshold is equivalent to a full-parameter statement about adjacent conditional mean differences."
+      ],
+      "reasoning": "Changing from displacement under spatial endpoint conditioning to time spent in a state under velocity endpoint conditioning is not merely notation; rate-asymmetry produces an exponential tilt, and the delta=2 sign transition is not asserted by the inspected beta-law note.",
+      "searches": [
+        "published-finding corpus: telegraph process occupation time conditional number switches even beta distribution bridge",
+        "published-finding corpus: two state continuous time Markov chain bridge absolute occupation imbalance beta conditional jump count stochastic ordering",
+        "published-finding corpus: two state Markov bridge conditional occupation fraction switching count rate asymmetry threshold monotonicity",
+        "web: telegraph process occupation time conditional number of switches beta distribution bridge",
+        "web: telegraph bridge conditional number jumps occupation time nonmonotone switching rate difference threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact threshold database entry was returned by the published records searches.",
+        "Kovchegov–Meredith–Nir 2008 is occupation-time density research, not an observed indexed threshold table."
+      ],
+      "reasoning": "No exact database or tabulation of the dimensionless sharp threshold was found; a negative search is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: occupation time number transitions continuous time Markov chain bridge",
+        "web: asymmetric telegraph bridge occupation time fixed number of switches beta tilted likelihood ratio"
+      ]
+    },
+    "rationale": "Public and published-finding corpus searches found occupation and bridge distribution laws, but among the inspected full relevant note and source abstracts no sharp iff monotonicity transition in the asymmetric returning CTMC is shown. An accessible equal-rate beta statement concerns midpoint displacement of a different spatial bridge. Historic priority remains subject to a material-read gap for general CTMC occupation literature.",
+    "residual_risks": [
+      "The complete Colwell 2023 article was not inspected; it may provide a joint law from which this result follows after analysis.",
+      "Older occupation-time literature could encode an equivalent conditional likelihood-ratio statement not discoverable from abstracts.",
+      "The accessible telegraph bridge note is undated; it is included for scientific comparison but not to establish the archive publication date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: conditional beta law is for midpoint displacement of a position-return telegraph process with equal reversal rates, not signed occupation under asymmetric velocity-return Markov bridge; no sharp delta=2 monotonicity threshold.",
+        "evidence": [
+          "Sections 1–2 position bridge with odd switches; sections 7–8 midpoint beta(k+1,k), not occupation time given an even return count."
+        ],
+        "identifier_or_url": "https://arivero.github.io/navstokgap/notes/telegraph-return-bridge.html",
+        "material_read": "Full HTML sections 1–8, including exact conditional path law, beta-law derivation, and definitions of midpoint position and endpoint conditioning",
+        "method": "Opened HTML and examined complete argument including count conditioned beta density",
+        "title": "A finite-speed return bridge: cuts and midpoint crossover",
+        "trigger": "Explicit equal-rate conditional beta law and a plausible same-law comparison"
+      },
+      {
+        "assessment": "Plausible general occupation formula; no accessible text demonstrates the sharp conditional regression threshold.",
+        "evidence": [
+          "arXiv:0812.1775 posted 2008-12-09; public abstract studies occupation-time densities via transforms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0812.1775",
+        "material_read": "Public preprint title, dated abstract and scope",
+        "method": "Searched arXiv public listing; full-text HTML access attempt failed",
+        "title": "Occupation times via Bessel functions",
+        "trigger": "Classical CTMC occupation-time distributions"
+      },
+      {
+        "assessment": "Analyzes time on positive spatial half-line, distinct from time in + state conditional on even switching count.",
+        "evidence": [
+          "arXiv:1007.3139 first posted 2010-07-19; White Rose repository lists 2011 article."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1007.3139",
+        "material_read": "ArXiv abstract and institutional repository abstract",
+        "method": "Read public abstract and metadata",
+        "title": "Occupation time distributions for the telegraph process",
+        "trigger": "Foundational occupation-time telegraph research"
+      },
+      {
+        "assessment": "Discrete-time Markov bridges, without inspected statement of continuous-time two-rate signed-occupation regression threshold.",
+        "evidence": [
+          "Physical Review E 100, 042108 (2019), published 2019-10-07."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.100.042108",
+        "material_read": "Publisher abstract and bibliographic metadata",
+        "method": "Read journal public summary",
+        "title": "Exact distributions of currents and frenesy for Markov bridges",
+        "trigger": "Joint additive functional laws on Markov bridges"
+      },
+      {
+        "assessment": "Residual-risk source: standard moment-generating formulas could imply the present phase distinction indirectly; full-text comparison not achieved.",
+        "evidence": [
+          "Statistics & Probability Letters 195 (2023), abstract discusses jump counts and occupation times and MGFs, not a sharp cycle-index threshold."
+        ],
+        "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v195y2023ics016771522300010x.html",
+        "material_read": "Public abstract and bibliographic metadata only",
+        "method": "Read abstract; accessible complete paper not confirmed",
+        "title": "Hitting times, number of jumps, and occupation times for continuous-time finite state Markov chains",
+        "trigger": "Potentially dominating joint count/occupation theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa3b2d29-7a3e-4419-8960-5ed97aa99aed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Transition-rate asymmetry creates a sharp dimensionless threshold between decreasing and nonmonotone occupation regression by complete return cycles, despite universal concentration of absolute occupation imbalance. The contrast is a structural property of a natural CTMC bridge observable and is not a normalization trick, small numerical improvement, or arbitrary slice.",
+    "status": "PASS"
+  }
+}
