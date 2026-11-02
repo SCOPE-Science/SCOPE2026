@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The claim's quantifiers, Lindblad normalization, zero-real-part spectral characterization, exceptional fluxes, Fourier pair involution, congruence counting, and site-weight character sums were checked against the complete proof in `RESULT.md`. For the finite-dimensional contraction generator, spectral decay on the dark subspace's orthogonal complement follows from strict negativity of all complementary eigenvalue real parts, not from numerical evidence.
+## correctness
 
-Reproduce finite calculations by running `python verify.py` with Python, NumPy, and SciPy in the same directory as the supplied files. Execution completed successfully: 1,151,916 exact modular pair and numerical Fourier-weight comparisons for all \(3\le N\le120\) and all listed locations and flux classes; 9,471 direct Hermitian spectral projector comparisons across \(3\le N\le24\) and generic-flux cases; maximum recorded projector-weight difference \(9.992007221626409\times10^{-16}\); and 24 direct dissipative propagations with unequal positive sink rates. These are finite checks and cannot by themselves establish the theorem for all sizes or all parameters.
+PASS
 
-The source comparison covers primary arXiv:2605.08056v1, arXiv:1906.08112, arXiv:2011.13794, and arXiv:0812.3452, with attention to the distinction between single-versus-double sinks and continuous Lindblad absorption versus repeated projective detection. Some general graph-observability literature may be stronger than the inspected materials. Independent audit has not been performed.
+PASS. In the finite one-excitation sector with J>0 and both point-loss rates strictly positive, the dissipative generator B=-iH-Gamma/2 is contractive. Its imaginary-axis eigenspace equals the joint dark subspace of H-eigenvectors vanishing at sites 0 and a, and is reducing; the complement decays. Fourier energies -2J cos((2pi*m+Phi)/N) are degenerate only at Phi=0 or pi modulo 2pi. At exceptional class s in {0,1}, paired indices m and -m-s admit a dark difference exactly when Q=N/gcd(N,a) divides 2m+s; fixed-point indices do not contribute. Counting qualifying two-cycles recovers every parity branch of d_0,d_pi and the roots-of-unity sum gives every site weight S_0(x),S_pi(x), including g=1, Q even, g even, and the flux-switched x=g/2 class. An independent fresh Fourier-pair generator with 56,756 (N,a,s,x) cases through N=44 checked the exact predicted multiplicities and projector diagonals; it is finite corroboration, not the unrestricted proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. The standard dark-state projector and Fourier degeneracy are prior methods; the assessed contribution is the uniform two-positive-Lindblad-absorber arithmetic classification in N,a,flux, and initial vertex, especially exact site-resolved switches. Inspected one-detector protocols or semi-infinite single-boundary Lindblad models do not imply that two-site congruence and its local probabilities without further analysis.
+
+## value
+
+PASS
+
+PASS. Exact all-size, all-separation, all-flux local survival probabilities are a natural quantum-transport invariant; gcd/parity thresholds and a flux-controlled dark-to-bright transition provide nontrivial structural information beyond standard one-sink projection. Full finite classification stands independently without a general transport theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
