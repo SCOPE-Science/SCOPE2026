@@ -1,24 +1,21 @@
-# Scientific review: symmetric-design incidence projection norms
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The incidence equations are explicitly solved using the symmetric-design identity \(MM^{\mathsf T}=(k-\lambda)I+\lambda J\). All seven edge types have independently checkable multiplicities and voltage differences. The assumptions give a strict sign for each class, so the absolute-sum formula is exact. The complementary projection is obtained from the diagonal effective resistance rather than by assuming that the two projections have equal norms. A standalone exact-rational grounded-Laplacian calculation recomputes every edge column on four nontrivial designs (\(346\) columns total). The proof applies to every existing design in the stated parameter range; the finite tests are corroboration, not an infinite proof.
+PASS
 
-## Originality
+For every existing symmetric 2-(v,k,lambda) design, 2<=lambda<=k-2, the incidence M satisfies MM^T=(k-lambda)I+lambda J and M^TM the same. Connected bipartite graph Laplacian gives explicit dipole potentials for any incidence edge, with seven edge classes of fixed sizes and current signs. Summing magnitudes gives ||Q||_1=||Q||_infty=1+2(k-1)A/(k lambda v). The diagonal effective resistance is R=(2k(k-1)+lambda)/(k lambda v) in (0,1), so P=I-Q has norm ||Q||+1-2R; difference=(k(k-1)(k-4)+(k-2)lambda)/(k lambda v)>0. Exact symbolic seven-class sums were recomputed; independent biplane rational grounded-Laplacian inversion reproduced all 55 columns. Conditional existence and real unit edge norms only.
 
-**PASS, with residual bibliographic risk.** The closest inspected operator-theory source is Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582, whose targeted sections treat Hamming graphs and discrete tori rather than symmetric-design incidence graphs. Shramchenko–Shramchenko, arXiv:2312.03937, gives incidence-matrix spectral tools but no identified absolute-current endpoint norm theorem. General electrical localization bounds do not determine the rational equalities here. The symmetric-design formula is not obtained merely by specializing the known formulas for projective-plane incidence graphs, crown graphs, or general \(3\)-designs: the central range has \(\lambda\ge2\), \(\lambda\le k-2\), and includes a \(2\)-\((11,5,2)\) design that cannot be a \(3\)-design (its required triple multiplicity would be \(2/3\)). The possibility of an equivalent result in specialized graph-resistance literature cannot be eliminated by searching.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The incidence graphs of symmetric \(2\)-designs form a natural, potentially non-flag-transitive class of bipartite distance-regular graphs. Exact endpoint projection norms are legitimate Banach operator invariants and measure total absolute electrical-current response; neither their values nor constancy of every column follows from the effective-resistance diagonal alone. A complete parameter-only classification covers biplanes, point–hyperplane designs, their complements and nonisomorphic designs with the same parameters, while resolving the ordering of the two complementary norms. The exact self-contained result remains useful without any claim of optimality among nonorthogonal projections.
+Classical symmetric-design incidence spectrum supplies a necessary matrix identity and 2023 cycle-projection paper addresses Hamming graphs and tori; neither states the seven-class absolute electrical currents and exact endpoint norms on all symmetric designs, including nonflag-transitive ones. A general pseudoinverse/block-incidence formula might imply the result implicitly, which remains a priority risk.
 
-## Closest literature and limitations
+## value
 
-- Dilworth, Kutzarova and Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost*, arXiv:2305.12582: motivating projection theory, different enumerated graph families.
-- Shramchenko and Shramchenko, *Mutual incidence matrix of two balanced incomplete block designs*, arXiv:2312.03937: matrix spectra, no matching absolute-current statement in the inspected material.
-- Bailey, *On the metric dimension of incidence graphs*, arXiv:1707.02899: same graph objects but a distinct invariant.
-- Schild, Rao and Srivastava, *Localization of Electrical Flows*, arXiv:1708.01632: general bounds rather than the exact rational formulas.
+PASS
 
-The formulas are for real, unweighted graphs and canonical Euclidean-orthogonal projections; the existence of designs with arbitrary formally admissible parameters is not claimed. Residual bibliographic uncertainty and lack of independent mathematical review remain.
+Sharp exact operator norms of canonical orthogonal graph cut and cycle projections for an entire natural design family, proved independent of incidence realization and without graph transitivity, with a strict universal cycle/cut norm comparison. These quantities matter to electrical flows and transportation-cost cycle spaces.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

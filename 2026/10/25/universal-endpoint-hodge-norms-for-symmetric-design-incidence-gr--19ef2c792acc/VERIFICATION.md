@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-Run `python3 check.py` in the directory containing the included standalone script. No external packages, internet access or downloaded datasets are needed. The script constructs the difference-set design on \(11\) points using quadratic residues modulo \(11\), the point–hyperplane design on the \(15\) nonzero vectors of \(\mathbb F_2^4\), and the complementary designs.
+## correctness
 
-For each design, it independently checks the symmetric \(2\)-design axioms, builds its incidence graph, grounds one graph vertex, inverts the grounded Laplacian using exact `fractions.Fraction` Gaussian elimination, computes every dipole current column, and compares the resulting cut and cycle absolute-current sums to the two rational formulas. It makes no appeal to the explicit seven-class potential formulas in the proof.
+PASS
 
-The four independently constructed design parameters and norm pairs are \((11,5,2):(159/55,172/55)\), \((11,6,3):(31/11,35/11)\), \((15,7,3):(107/35,368/105)\), and \((15,8,4):(179/60,7/2)\). The checker covers \(55+66+105+120=346\) complete edge columns. Its final line must be:
+For every existing symmetric 2-(v,k,lambda) design, 2<=lambda<=k-2, the incidence M satisfies MM^T=(k-lambda)I+lambda J and M^TM the same. Connected bipartite graph Laplacian gives explicit dipole potentials for any incidence edge, with seven edge classes of fixed sizes and current signs. Summing magnitudes gives ||Q||_1=||Q||_infty=1+2(k-1)A/(k lambda v). The diagonal effective resistance is R=(2k(k-1)+lambda)/(k lambda v) in (0,1), so P=I-Q has norm ||Q||+1-2R; difference=(k(k-1)(k-4)+(k-2)lambda)/(k lambda v)>0. Exact symbolic seven-class sums were recomputed; independent biplane rational grounded-Laplacian inversion reproduced all 55 columns. Conditional existence and real unit edge norms only.
 
-`SYMMETRIC_DESIGN_ENDPOINT_EXACT_OK designs=4 columns=346`
+## originality
 
-The unrestricted mathematical claim is proven analytically from the incidence-matrix identity, the exact Laplacian dipole solution, the seven signed edge classes and the complementary-projection identity. Finite numerical or rational tests are not used to infer universal existence, uniqueness or the operator-norm formulas for untested designs. The verification is not an independent audit or external certification.
+PASS
+
+Classical symmetric-design incidence spectrum supplies a necessary matrix identity and 2023 cycle-projection paper addresses Hamming graphs and tori; neither states the seven-class absolute electrical currents and exact endpoint norms on all symmetric designs, including nonflag-transitive ones. A general pseudoinverse/block-incidence formula might imply the result implicitly, which remains a priority risk.
+
+## value
+
+PASS
+
+Sharp exact operator norms of canonical orthogonal graph cut and cycle projections for an entire natural design family, proved independent of incidence realization and without graph transitivity, with a strict universal cycle/cut norm comparison. These quantities matter to electrical flows and transportation-cost cycle spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
