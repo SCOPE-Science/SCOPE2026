@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-Execute `python3 verify_pentagon_preconditionals.py` with Python 3 standard library. The program constructs the long-pentagon meet and order operations directly and checks all original five preconditional axioms, conditional identity, semicomplementation, and double-negation inflation. Independently, for arm lengths \(1\le m\le4\), it enumerates all row operations compatible with the necessary local constraints and filters by the entire axiom system; the resulting set of full operation tables equals the set built from the threshold–activation normal form, not just its cardinality. For arm length five the normal-form generator checks all 407 canonical tables but does not exhaust the unrestricted space of binary operation tables.
+# Independent mathematical audit
 
-Recorded output:
+## correctness
 
-```
-m=1 F=2 by_negation={0: 1, 1: 1} exhaustive=True
-m=2 F=5 by_negation={0: 2, 1: 2, 2: 1} exhaustive=True
-m=3 F=17 by_negation={0: 6, 1: 6, 2: 4, 3: 1} exhaustive=True
-m=4 F=75 by_negation={0: 24, 1: 24, 2: 18, 3: 8, 4: 1} exhaustive=True
-m=5 F=407 by_negation={0: 120, 1: 120, 2: 96, 3: 54, 4: 16, 5: 1} exhaustive=False
-LONG_PENTAGON_PRECONDITIONAL_VERIFY_OK
-```
+PASS
 
-The general theorem is established by the four-step mathematical proof in `RESULT.md`; the executable verifies concrete instances and does not by itself prove statements for unbounded \(m\).
+For every m>=2, P3/P4 and P2 give meet-dependence and consequent monotonicity; P1/P2 and conditional identity force 1→b=b and 0→b=1. Holliday Prop.1 antitone negation, semicomplementation and a<=¬¬a force exactly j=0,...,m, with ¬u=c_j (j>0) and ¬c_i=u iff i<=j. For i<=j, P2 plus the u lower bound forces all positive lower chain consequences to 1. For i>j, the row is an extensive monotone idempotent ceiling map on its chain interval, fixing 0 and top, and P5 enforces nested lower fixed-point sets F_i. Conversely, for any nested such sets, P5 is checked on d=a∧b=0,u,c_k(k<=j),c_k(k>j), with all other axioms immediate. Each c_s has independent first-activation index in max(s+1,j+1)..m or never, yielding m! for j=0 and (m-j+1)^j(m-j)! for j>0, with injectivity and no nontrivial L_m automorphisms. Independent from the bundled code, complete row-candidate enumeration (all meet-dependent monotone extensive semicomplementary rows then the literal P5/DNI) counted m=1..4: 2,5,17,75 and a pairwise-P5 backtracking enumeration counted ALL m=5 tables: 407 with j-fibers 120,120,96,54,16,1. The universal theorem rests on the proof, not these finite runs.
+
+## originality
+
+PASS
+
+The complete L_m F-preconditional classification is not obtained by the inspected general F-algebra axioms/representation theorem, nor by the published finite-chain normal form because L_m has an incomparable atom. Crucially, the numerical sequence is already OEIS A129591: the new assertion is an interpretation and a structural normal form for nonmodular lattices, NOT discovery of these integers. No demonstrated prior implication settles this L_m classification. Best-of-knowledge PASS with explicit priority risks.
+
+## value
+
+PASS
+
+L_2=N5 is the standard minimal nonmodular pentagon and lengthening its chain arm yields a natural infinite family of nondistributive bounded lattices. The theorem is a complete structural classification of F-preconditional expansions on this family, identifying the interaction of forced negation thresholds and independent consequent fixed-point activations; it is not a tiny parameter slice or mere recurrence fitting. The exact cardinality coincides with the already-known OEIS A129591 permutation sequence, so the numerical sequence alone has no new value; the motivated contribution is a new algebraic interpretation plus normal form on natural nonchain objects, extending the previously known finite-chain case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
