@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional factorial-moment identity from uniform multiset shuffling; circular occupation pair count controls sum of squared frequencies as O_P(n); union bound for collision of weighted independent indices yields all conditional Poisson factorial moments; moment determinacy and bounded convergence give expected conditional total variation. The delivered finite checker passed 976 assertions and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stark, arXiv:2608.00710 Secs. 1–2 defines matches against sorted target multiset with expected count sum of squared multiplicities divided by size.",
+        "Paguyo 2022 gives cycles marginal in uniform parking function."
+      ],
+      "reasoning": "A general conditional match theorem for arbitrary target placements could imply the present result, but the inspected Stark theorem concerns the sorted-multiset target and not the one-per-index target with mean exactly one. Broader historical coverage remains a residual risk.",
+      "searches": [
+        "random permutation of multiset matches fixed points Poisson approximation conditioned letter counts occupancy profile",
+        "uniform random parking function fixed points asymptotically independent of empirical occupancy multiplicity frequency histogram conditional Poisson"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.08829",
+      "arxiv:1611.09821",
+      "doi:10.54550/ECA2025V5S2R10 (partial only)",
+      "arxiv:2608.00710",
+      "published-finding corpus occupancy-precision and richness-frequency rows"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diaconis–Hicks 2016 occupancy asymptotics do not analyze fixed-index matches given the full preference histogram.",
+        "Rubey–Yin 2025 supplies a finite marginal distribution of fixed points.",
+        "Paguyo 2022 Thm. 1.2 supplies marginal Poisson cycle limits."
+      ],
+      "reasoning": "Marginal laws for the two component statistics do not determine conditional dependence. The extra conditional factorial-moment calculation and control by sum of squared multiplicities establish the new uniform conditional assertion.",
+      "searches": [
+        "uniform random parking function fixed points asymptotically independent of empirical occupancy multiplicity frequency histogram conditional Poisson",
+        "random permutation of multiset matches fixed points Poisson approximation conditioned letter counts occupancy profile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Hicks 2016 Sec. 4: species occupancy equivalence; Paguyo 2022 Thm. 1.2: joint short-cycle marginal Poisson; Rubey–Yin 2025 Thm. 2.1: finite marginal fixed-point law."
+      ],
+      "reasoning": "Convergence of conditional law given the entire labelled frequency vector uniformly in expected total variation is much stronger than independent marginal convergence; no equivalent full conditional statement was identified.",
+      "searches": [
+        "random parking functions fixed point and repeated values collisions asymptotic joint independence stable convergence",
+        "uniform random parking function fixed points asymptotically independent of empirical occupancy multiplicity frequency histogram conditional Poisson",
+        "parking preference fixed point count condition on histogram counts convergence conditional law to poisson one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813, a covariance-sign theorem for multinomial richness, not conditional fixed points.",
+        "published-finding corpus: 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166, precision matrix for occupancy indicators."
+      ],
+      "reasoning": "Existing data and exact occupancy/covariance rows concern marginal frequency counts and not their conditional joint law with fixed-index preference matches. No direct exact conditional parking fixed-point table was identified.",
+      "searches": [
+        "random parking functions distinct preferences frequency histogram joint distribution occupancy doubletons",
+        "parking preference fixed point count condition on histogram counts convergence conditional law to poisson one"
+      ]
+    },
+    "rationale": "The asserted expected conditional total-variation decoupling against the entire labelled histogram is not a formal consequence of the published finite marginal law or occupancy CLT alone. Checked original 2016 text and 2022 full HTML; compared published 2025 finite marginal distribution and distinct 2026 multiset target-match theorem. Priority risk recorded for inaccessible 2025 full text and unlocated generalized exchangeable-word formulations.",
+    "residual_risks": [
+      "Complete text of the 2025 Rubey–Yin article could not be fully inspected due to access timeout; the visible theorem concerns the fixed-point marginal, not the conditional assertion.",
+      "General published exchangeable-multiset matching approximations may already imply the conditional theorem under different terminology; historical uniqueness not certified.",
+      "No independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Pollak and occupancy laws but does not state complete histogram-conditioned fixed-point Poisson theorem",
+        "evidence": [
+          "Sections 1, 4; paragraph on occupancy species and multinomial limit (arXiv:1611.09821)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.09821",
+        "material_read": "Introduction; circular sampling construction; Sections 3–4 and species CLT discussion",
+        "method": "Read freely available complete HTML/text sections",
+        "title": "Probabilizing Parking Functions",
+        "trigger": "Classical Pollak representation, occupancy species and distributional implications"
+      },
+      {
+        "assessment": "Covers marginal cycle-count Poisson convergence; does not state histogram-conditional Poisson independence",
+        "evidence": [
+          "Theorems 1.1–1.2; Sections 3–5 (arXiv:2202.08829)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.08829v2",
+        "material_read": "Introduction, theorem 1.2, parking completions, cycle approximations, conclusion/open questions",
+        "method": "Read arXiv full-text HTML including original theorem statements",
+        "title": "Cycle structure of random parking functions",
+        "trigger": "Closest source with verified primary 60C05 and fixed-point Poisson law"
+      },
+      {
+        "assessment": "Finite marginal law identified. Whole-document coverage not excluded; material residual historical risk acknowledged.",
+        "evidence": [
+          "Indexed Theorem 2.1 excerpt in ECA 2025 S2R10"
+        ],
+        "identifier_or_url": "https://doi.org/10.54550/ECA2025V5S2R10",
+        "material_read": "Accessible search-index text containing Theorem 2.1, describing full finite marginal fixed-point distribution and its proof introduction; full PDF timed out",
+        "method": "Read available indexed excerpts; attempted complete primary PDF; access timed out",
+        "title": "Fixed points and cycles of parking functions",
+        "trigger": "Explicit finite marginal fixed-point distribution could dominate proposed statement"
+      },
+      {
+        "assessment": "Its fixed-point target repeats according to source multiset, different from each parking position having unique index target. Does not directly establish the parking conditional law.",
+        "evidence": [
+          "Definition and mean lambda=sum a_i^2/n, Secs.1–2 (arXiv:2608.00710)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.00710",
+        "material_read": "Introduction, definition of sorted-multiset fixed points, mean and covariance statements in Sections 1–2",
+        "method": "Read public arXiv HTML/text",
+        "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+        "trigger": "Broader possible multiset permutation Poisson limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25955cde-036a-4cfc-98ab-7116d933705c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An entire increasing-dimensional, labelled preference histogram could change the local fixed-point statistics. Proving expected conditional TV vanishes is a useful uniform decoupling principle for arbitrary frequency-based filters and events, stronger than marginal Poisson and any fixed-dimension joint limit; exact finite conditional moments demonstrate residual finite-sample coupling.",
+    "status": "PASS"
+  }
+}
