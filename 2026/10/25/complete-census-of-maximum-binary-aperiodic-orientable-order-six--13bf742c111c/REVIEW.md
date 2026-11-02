@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reversal-orbit graph recurrence is an exhaustive finite characterization: each admissible length-\(6\) window consumes exactly one of the \(28\) nonpalindromic reversal classes, and every admissible word corresponds uniquely to a legal path after fixing its initial five bits. The recurrence is justified by induction on the unused orbit count; both independent implementations enumerate the same \(22\) length-\(26\) words. A separate explicit six-orbit reduction and endpoint check establishes the remaining statements. The upper bound \(26\) is derived from the recurrence and is also independently published; the claim of new work excludes that known bound.
+## correctness
 
-## Originality — PASS with residual risk
-Burns–Mitchell's 1992 technical report, Section 5.2.2, Figure 7, supplies the *length* \(26\) and says an exhaustive search established it, not a full classification or symmetry census. Mitchell–Wild (2022), Section 5.3, construct *ideal* examples, but construction/existence does not imply that **every** longest admissible sequence is ideal. Gabric–Sawada (2024) study constructions and known length maxima rather than exhaustively classify linear order-\(6\) maxima. Distinct reversal-orbit paths are compared, not merely paper titles. The original 1993 printed expansion of the 1992 report was not available in full, so the possibility of an unindexed enumeration is a remaining literature risk. Search absence alone is not taken as novelty proof.
+PASS
 
-## Mathematical value — PASS
-Complete extremal-object classification refines a longstanding, naturally motivated position-sensing bound: there are six genuinely different maximum designs, and every maximum design has a rigid endpoint form rather than merely admitting an ideal construction. This information is not implied by the previously tabulated optimal length and is relevant to exact finite design choice and testing. The value is deliberately finite, not claimed as a new asymptotic coding theorem.
+PASS: Each nonpalindromic 6-bit factor belongs to one of exactly 28 reversal pairs; a legal word is a walk in the order-five de Bruijn digraph using each permitted reversal orbit at most once. The exact recurrence F(v,S), evaluated over all 32 five-bit starts, has maximal 21 edges, hence word length 26. An independently coded exhaustive memoized recurrence of 6,824 states recovered exactly 22 maximizing linear words, partitioned into six reversal/complement orbits of sizes 2,4,4,4,4,4. Every maximum begins with 00000 and ends 11111 or the complement arrangement, 11 in each orientation. The source supplies a second independent literal-string search and a full 22-word list. Finite classification is exhaustive by the state recurrence, not an extrapolation.
 
-## Limits
-Binary, linear, order \(6\) only. The recurrence and code are the finite proof certificate; no external formal or independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete finite census and orbit/endpoint classification at previously known binary order-six optimum; prior optimal LENGTH and individual ideal constructions explicitly credited.
+
+## value
+
+PASS
+
+PASS: Knowing all maxima at the first nontrivial published aperiodic orientability optimum, their symmetry classes, and that all are ideal up to complement is a motivated complete classification. The exact count and endpoint rigidity are not implied by previously known optimal length or example construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Each nonpalindromic 6-bit factor belongs to one of exactly 28 reversal pairs; a legal word is a walk in the order-five de Bruijn digraph using each permitted reversal orbit at most once. The exact recurrence F(v,S), evaluated over all 32 five-bit starts, has maximal 21 edges, hence word length 26. An independently coded exhaustive memoized recurrence of 6,824 states recovered exactly 22 maximizing linear words, partitioned into six reversal/complement orbits of sizes 2,4,4,4,4,4. Every maximum begins with 00000 and ends 11111 or the complement arrangement, 11 in each orientation. The source supplies a second independent literal-string search and a full 22-word list. Finite classification is exhaustive by the state recurrence, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1992 report Section 5.2.2 explicitly says exhaustive searches found optimal LENGTH for orders 4..7.",
+          "2022 paper Example 5.6 constructs an ideal order-6 word, Table 3 gives length 26."
+        ],
+        "reasoning": "Published exhaustive optimization over all words implies no longer word, but does not logically imply count 22, six symmetry classes or universal ideal endpoints; no broader classification statement found in inspected full primary passages.",
+        "searches": [
+          "Resultary semantic search: binary aperiodic orientable sequences order 6 maximum length 26 complete census 22 six complement reversal orbits ideal endpoints",
+          "Mitchell Wild 2022 all maximal aperiodic orientable binary sequences classification"
+        ]
+      },
+      "checked_sources": [
+        "https://www.chrismitchell.net/HPL-92-19.pdf",
+        "https://arxiv.org/pdf/2108.03069",
+        "Resultary semantic search: binary aperiodic orientable sequences order 6 maximum length 26 complete census 22 six complement reversal orbits ideal endpoints",
+        "Frozen record RESULT.md and proof at https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/complete-census-of-maximum-binary-aperiodic-orientable-order-six--13bf742c111c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mitchell–Wild define ideal endpoint configurations and give at least one order-six construction.",
+          "Assessed recurrence covers all 32 starting vertices, 28 reversal-orbit constraints, and exhausts all legal 21-edge paths yielding 22 words."
+        ],
+        "reasoning": "Existence of an ideal maximum and optimum length26 does not force all maxima to have opposing constant endpoints, so the universal rigidity and six-orbit classification add a distinct statement.",
+        "searches": [
+          "Resultary semantic search: binary aperiodic orientable sequences order 6 maximum length 26 complete census 22 six complement reversal orbits ideal endpoints",
+          "Mitchell Wild Definition 5.2 ideal order6 maximal 26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burns–Mitchell 1992 terminology 'aperiodic 2-orientable window sequences' is the same reversal-distinguishing condition.",
+          "Mitchell–Wild 2022 §5 defines ideal orientable sequences."
+        ],
+        "reasoning": "This alias is recognized; inspected original papers state max length and constructions, not all 22 maximizers and orbit classes.",
+        "searches": [
+          "Resultary semantic search: binary aperiodic orientable sequences order 6 maximum length 26 complete census 22 six complement reversal orbits ideal endpoints",
+          "orientable sequences aperiodic order six reversal classes binary maximal words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Burns–Mitchell Figure 7 is a two-column table window size and longest sequence length, showing 6→26; no maximizing-string multiplicity column.",
+          "Assessed maximizers.txt lists 22 words; independent exhaustive DP recovered the same total and orbit sizes."
+        ],
+        "reasoning": "Known table accounts only for optimal length, not this complete solution census. An unindexed original computer-search file could still contain the list.",
+        "searches": [
+          "Resultary semantic search: binary aperiodic orientable sequences order 6 maximum length 26 complete census 22 six complement reversal orbits ideal endpoints",
+          "Burns Mitchell 1992 Figure 7 order6 length26 count max strings"
+        ]
+      },
+      "rationale": "Best-of-knowledge original complete finite census and orbit/endpoint classification at previously known binary order-six optimum; prior optimal LENGTH and individual ideal constructions explicitly credited.",
+      "residual_risks": [
+        "A 1992 unpublished exhaustive-search table could include the same 22 solutions; this cannot be ruled out conclusively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves via claimed exhaustive search the maximum length 26; Figure 7 lists optimal LENGTH only, not all maximizing words, orbit count or ideality of all",
+          "evidence": "§5.2.2, Figure 7: v=6, n=26",
+          "identifier_or_url": "https://www.chrismitchell.net/HPL-92-19.pdf",
+          "material_read": "relevant §5.2.2 and Figure 7 on PDF p.25 inspected visually; other portions of the 32-page report not fully read",
+          "method": "original PDF text-image screenshot",
+          "title": "Burns–Mitchell, Coding Schemes for Two-Dimensional Position Sensing",
+          "trigger": "historical exhaustive search of exactly order-6 optimum"
+        },
+        {
+          "assessment": "Defines ideal words and gives optimum length/individual constructions, not a complete 22-word census or all-maximizers endpoint claim in inspected passages",
+          "evidence": "§5, Table 3 and Example 5.6",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.03069",
+          "material_read": "relevant §5 on aperiodic case, Definition 5.2, Table 3 and Example 5.6 in accessible 20-page primary PDF",
+          "method": "full text sections and page screenshots",
+          "title": "Mitchell–Wild, Constructing orientable sequences",
+          "trigger": "same finite aperiodic orientable binary words and ideal endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Knowing all maxima at the first nontrivial published aperiodic orientability optimum, their symmetry classes, and that all are ideal up to complement is a motivated complete classification. The exact count and endpoint rigidity are not implied by previously known optimal length or example construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Linear binary windows length six only, 26 is a previously known optimum; no claim for other orders/alphabet sizes or necklace classes.",
+    "The finite proof relies on correctness of the exhaustive finite-state recurrence and the verified code/data; independent reconstruction corroborates it.",
+    "A 1992 unpublished exhaustive-search table could include the same 22 solutions; this cannot be ruled out conclusively."
+  ],
+  "schema_version": 1
+}
