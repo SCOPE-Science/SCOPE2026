@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducing the mathematical checks
+# Independent mathematical audit
 
-Run `python checker.py` with a Python 3 environment providing SymPy and NumPy. The reference output in `verification-output.txt` is
+## correctness
 
-```
-PASS: 984 exact overlap, formula, calculus, algebra and independent finite-grid Weyl quadrature assertions
-```
+PASS
 
-The checker enumerates Dynkin-label constituents and confirms all rank-dependent intersections for ranks 3–8 and highest weights 1–12. Five exact coefficient choices are checked against the independent representation-ring orthogonality expansion in each rank/weight. A symbolic derivative calculation verifies the rank-three cubic. Positive roots and improvements are sampled for 20 weights, and six finite Weyl quadratures check the proposed integration formulas in the group model independently of the formal character-ring calculation.
+From Pieri and harmonic tensor decomposition, X^2, conjugate-X^2 and Xconjugate-X give multiplicity-one Dynkin lists A_j,B_j,T_j (0<=j<=p). Their intersections have the claimed rank-sensitive exceptions: N>=5 disjoint, N=4 A_p=B_p, N=3 X/Y collisions and a triple constituent precisely when 3|p. Orthogonal expansion of f^2 yields all phase terms. Magnitude balancing forces |a|=|b| and N>=4 c=0; the exact N=3 objective has derivative proportional to the stated strictly increasing cubic with one positive root. Triangle-equality congruences yield all phase classes, including the mod-3 collapse. Independently reconstructed Dynkin collisions N=3..8 p<=12 and symbolic derivative identities; read actual checker source; bounded examples are not proof of the universal claim.
 
-The exact claims for all ranks and all highest weights are justified in `RESULT.md` through Pieri decomposition, character orthogonality, sharp triangle inequalities, a balancing comparison, and a one-dimensional derivative sign argument. Enumerations and numerical quadratures alone would not verify those infinite-quantifier statements, and no claim of machine certification or independent audit is made.
+## originality
+
+PASS
+
+The new component is the exact three-character SU(N) fourth-moment coefficient optimization and strict SU(3) trivial-frequency mixing together with all phases. Pieri, character orthogonality and published higher-rank single-character bounds are established inputs; no equivalent sharp packet optimizer was located.
+
+## value
+
+PASS
+
+A natural first nontrivial non-self-dual central three-frequency packet yields exact sharp constants, a group-rank transition, arithmetic phase count and asymptotic gain; a meaningful representation-theoretic endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

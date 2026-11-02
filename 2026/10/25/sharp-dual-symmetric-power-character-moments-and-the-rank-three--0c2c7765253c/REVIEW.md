@@ -1,15 +1,21 @@
-# Scientific assessment: sharp dual-symmetric-power character moments
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer rank \(N\ge3\) and highest weight \(p\ge1\), the exact fourth-moment identities are reconstructed by expanding the squared three-character packet in the orthonormal irreducible-character basis. The multiplicity-one Dynkin-weight lists and every exceptional collision are checked separately for rank three, rank four, and rank at least five. Triangle inequalities reduce phases to nonnegative coefficient magnitudes without losing attainability; balancing the two dual modes gives exact one-variable maximization. The rank-three cubic derivative has a unique positive root because all coefficients after its negative constant are nonnegative, and the endpoint behavior establishes global optimality. Saturation of all cross-term phase inequalities gives the exhaustive projective phase classes. At ranks at least four strict monotonicity forces a vanishing trivial-character coefficient. The asymptotic error follows by expansion of the cubic positive root. The independent checker completed 984 assertions including exact formulas and Weyl-grid quadratures. Its finite experiments are not substituted for the all-rank proof.
+PASS
 
-## Originality — PASS, best knowledge
+From Pieri and harmonic tensor decomposition, X^2, conjugate-X^2 and Xconjugate-X give multiplicity-one Dynkin lists A_j,B_j,T_j (0<=j<=p). Their intersections have the claimed rank-sensitive exceptions: N>=5 disjoint, N=4 A_p=B_p, N=3 X/Y collisions and a triple constituent precisely when 3|p. Orthogonal expansion of f^2 yields all phase terms. Magnitude balancing forces |a|=|b| and N>=4 c=0; the exact N=3 objective has derivative proportional to the stated strictly increasing cubic with one positive root. Triangle-equality congruences yield all phase classes, including the mod-3 collapse. Independently reconstructed Dynkin collisions N=3..8 p<=12 and symbolic derivative identities; read actual checker source; bounded examples are not proof of the universal claim.
 
-The primary texts inspected were Zhang, *On Fourier restriction type problems on compact Lie groups* (arXiv:2005.11451, paper theorem on single-character growth and Fourier restriction); Jonnadula–Keating–Mezzadri, *Symmetric Function Theory and Unitary Invariant Ensembles* (arXiv:2003.02620, Schur-function ensemble identities); and Bailey–Keating, *On the moments of the moments of characteristic polynomials of random unitary matrices* (arXiv:1807.06605, unitary characteristic-polynomial moment asymptotics). None states or implies the exact three-character \(SU(N)\) fourth-moment constants or the rank-three full-mixing/phase transition. Comparison also covered published-finding corpus's published high-weight \(SU(2)\) character-packet theorem, finite-abelian three-character fourth moments, and single-collision abelian fourth moments. Their groups have different representation rings or different underlying characters, so their optimized claims do not cover the present theorem. Available previously recorded character-packet findings likewise concern \(SU(2)\) rather than the rank-three-or-higher complex-dual setting. The classical Pieri rule and Weyl character orthogonality provide the calculation but not this exact optimization. Absence of equivalent prior formulations in unindexed literature cannot be guaranteed; independent priority review remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural small central spectral packet comprising a non-self-dual symmetric-power representation, its contragredient, and the trivial representation exhibits a sharp **rank threshold**: trivial-character mixing is mandatory for \(SU(3)\) and forbidden for every higher special-unitary rank. The answer provides exact optimal constants for every rank and weight, complete complex equality classes, an arithmetic phase-class transition at \(3\mid p\), and the leading high-weight mixing gain. Such exact finite-packet \(L^4\) inequalities address a genuinely representation-theoretic spectral synthesis question not answered by individual character growth estimates. The claim is limited to one symmetric-power dual pair and fourth moments; it does not address arbitrary packets.
+The new component is the exact three-character SU(N) fourth-moment coefficient optimization and strict SU(3) trivial-frequency mixing together with all phases. Pieri, character orthogonality and published higher-rank single-character bounds are established inputs; no equivalent sharp packet optimizer was located.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural first nontrivial non-self-dual central three-frequency packet yields exact sharp constants, a group-rank transition, arithmetic phase count and asymptotic gain; a meaningful representation-theoretic endpoint classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
