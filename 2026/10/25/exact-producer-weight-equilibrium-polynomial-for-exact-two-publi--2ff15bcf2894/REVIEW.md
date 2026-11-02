@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The trace representation directly enforces the three-neighbor exact-two response at every vertex, and the closed-walk-to-labeled-rung-profile bijection is exact for all \(n\ge3\). A standalone 561-point exact-integer determinant grid certifies the required bivariate polynomial identity through degree bounds; the formal log-derivative derives the claimed binomial coefficient for every rung size. Separately, direct exhaustive best-response checks cover 349,504 profiles across the sizes 3–9. Finite enumeration supports but does not substitute for the all-size proof.
+## correctness
 
-## Originality — PASS, residual risk
-The closest primary study is Klimm and Stahlberg (2023), arXiv:2301.11849, which develops general best-response-pattern public-goods games and complexity results but does not give this prism producer-count polynomial. The even-neighbor parity game on prisms has a different algebraic rule and yields bounded counts; that result cannot cover the exact-two model whose counts grow exponentially. Searches also included exact-two and prism/cylindrical-ladder aliases. The matrix-transfer method is classical; novelty is assessed only for the particular exact factorization, resulting all-size polynomial, and differential equilibrium-growth behavior. Unindexed equivalent enumerations remain a genuine bibliographic risk, so an independent literature audit is appropriate.
+PASS
 
-## Mathematical value — PASS
-The theorem is a complete, labeled equilibrium census refined by endogenous total production on an infinite, natural family of three-regular interaction networks. It exposes a structural contrast between two binary best-response models on the same topology and establishes exponential multiplicity with an explicit generating function. This supplies an exact benchmark rather than a numerical special case or a cosmetic parameter substitution.
+Inspected the 16-state transfer matrix enforcing both local best-response equations per rung; trace(T(z)^n) bijects with labeled cyclic equilibrium profiles n>=3, including n=3 simple triangle. The source Bareiss code establishes det(I-tT)=(1-tz)^2(1-z^6t^4)(1-t-z^4t^4) by exact 17-by-33 interpolation grid with rigorous degree caps 16,32. Independently constructed its 16-state matrix and computed exact SymPy characteristic polynomials at z=0,1,2,3, matching all factors; independently enumerated every 2^(2n) action profile for n=3..8 and matched full producer histograms. Formal trace/log-derivative gives every binomial coefficient; primitive quartic companion controls exponential growth. Finite n enumeration and four specializations do not alone prove infinite formula; interpolated determinant and algebraic proof do.
 
-## Limitations
-No analysis of update dynamics, mixed strategies, or arbitrary graphs. Reproducible integer-polynomial interpolation proves the finite determinant identity, while any external validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge after current primary-source reading and searches: Parity response is an affine GF(2) condition and has bounded equilibrium counts, while exact-two response is nonlinear and has exponential counts. Factorization of the precise 16-state matrix yields quartic recurrence, not a generic consequence of equilibrium existence hardness.
+
+## value
+
+PASS
+
+Natural exhaustive census of pure equilibria by endogenous aggregate production on infinite cubic prism networks; explicit binomial law and Perron growth distinguish nonlinear exact-two response from affine parity response on the same graph. Producer-count refinement can be used for welfare/combinatorial benchmarks without requiring a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
