@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hypothesis \(n\ge6\), the exact open-neighborhood face criterion, the augmented orientation convention, and the degenerate degree-zero boundary \(n=6\) are explicit. Boolean Möbius inversion on the disjoint cycles of an arbitrary permutation computes the reduced Lefschetz trace exactly. Nilakantan–Singh's previously proved one-degree homology concentration then identifies it with the actual rational homology character. The binomial-character calculation establishes two absent irreducible types and rational quotient acyclicity. The standalone exact checker independently confirms the character for all 253 cycle types through \(n=12\), while the written proof covers every \(n\ge6\).
+## correctness
 
-**Originality — PASS, with residual priority risk.** The original 20-page arXiv:1807.11732v1 was inspected in relevant definitions, Theorems 1.1 and 1.3 and the final Section 4.2 proof: its result is the nonequivariant sphere wedge, not the complete permutation-group homology character. The original two-subset article arXiv:1802.05848v1 treats a distinct graph family and does not imply the three-subset character. Targeted literature and mathematical-record comparisons did not identify a dominating calculation of the same \(S_n\)-representation. Such searches do not establish absolute novelty; unindexed work remains possible.
+PASS
 
-**Value — PASS.** The three-subset family is a canonical next step beyond the previously studied two-subset case. A uniform quartic cycle-statistics formula supplies the complete rational representation of an exponentially large chain complex, as well as rational acyclicity for two natural group quotients. These symmetry-sensitive conclusions are not encoded by the existing homotopy type or Betti ranks. The calculation is a substantive all-parameter invariant, not a small experimental rank increment.
+For a face of the ordinary open-neighborhood complex, the union of its three-subset vertices omits at least three labels. An invariant face is a union of triple-orbits; alternating orientation contribution equals (-1)^{number of selected orbits+1}. Boolean Möbius inversion over the label cycles gives exact-support contribution (-1)^{cycle_count}(1-a-b+binom(a,2)). Removing supports missing <=2 labels yields Q(a,b), and degree n-6 concentration by Nilakantan–Singh converts the reduced Lefschetz trace to the claimed character. The character-binomial basis has zero signed/unsigned average when n>=6, giving both quotients rational acyclicity. Independently implemented a distinct orbit-mask dynamic program over all 48 cycle-type cases for n=6..8, agreeing exactly. Finite checks do not prove the all-n assertion.
 
-**Limitations.** The proof relies on a correctly identified published nonequivariant homotopy theorem; it does not classify integral representation lattices, quotient torsion, or an explicit basis. Unindexed equivalent work and errors in any externally supplied premise remain residual risks, and independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nilakantan and Singh establish the same open-neighborhood graph family and sphere-wedge ranks but not the full coordinate-permutation homology character. The actual trace polynomial and absence of both one-dimensional constituents refine those theorems. Published six-point two-subset KG(6,2) symmetry work concerns k=2, not k=3. Priority is qualified by possible unindexed equivariant formulations.
+
+## value
+
+PASS
+
+The full rational S_n-module character is a natural symmetry invariant of a standard Kneser-neighborhood family, determines every conjugacy-class trace and two meaningful quotient homology consequences, and is not determined by the prior rank. No integral module or new nonequivariant homotopy is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

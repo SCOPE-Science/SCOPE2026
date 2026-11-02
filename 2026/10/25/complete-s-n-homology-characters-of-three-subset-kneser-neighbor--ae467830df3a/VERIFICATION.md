@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The executable `check_kg3.py` uses exact integer arithmetic and the Python standard library. In the checked execution it returned:
+## correctness
 
-```text
-KG3_FULL_AND_ALTERNATING_SYMMETRY_QUOTIENT_RATIONAL_ACYCLICITY_CHECKED
-KG3_COMPLETE_CONJUGACY_CLASS_CHARACTER_VERIFIED 253
-KG3_KNOWN_WEDGE_RANKS_VERIFIED n=6..12
-```
+PASS
 
-The computation exhausts conjugacy classes for \(6\le n\le12\), not all permutations and not infinitely many values of \(n\). The written support-inclusion–exclusion proof is the infinite-parameter argument. The imported sphere-wedge concentration is from arXiv:1807.11732v1, Theorem 1.3. No integral representation or independent external mathematical audit is claimed.
+For a face of the ordinary open-neighborhood complex, the union of its three-subset vertices omits at least three labels. An invariant face is a union of triple-orbits; alternating orientation contribution equals (-1)^{number of selected orbits+1}. Boolean Möbius inversion over the label cycles gives exact-support contribution (-1)^{cycle_count}(1-a-b+binom(a,2)). Removing supports missing <=2 labels yields Q(a,b), and degree n-6 concentration by Nilakantan–Singh converts the reduced Lefschetz trace to the claimed character. The character-binomial basis has zero signed/unsigned average when n>=6, giving both quotients rational acyclicity. Independently implemented a distinct orbit-mask dynamic program over all 48 cycle-type cases for n=6..8, agreeing exactly. Finite checks do not prove the all-n assertion.
+
+## originality
+
+PASS
+
+Nilakantan and Singh establish the same open-neighborhood graph family and sphere-wedge ranks but not the full coordinate-permutation homology character. The actual trace polynomial and absence of both one-dimensional constituents refine those theorems. Published six-point two-subset KG(6,2) symmetry work concerns k=2, not k=3. Priority is qualified by possible unindexed equivariant formulations.
+
+## value
+
+PASS
+
+The full rational S_n-module character is a natural symmetry invariant of a standard Kneser-neighborhood family, determines every conjugacy-class trace and two meaningful quotient homology consequences, and is not determined by the prior rank. No integral module or new nonequivariant homotopy is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
