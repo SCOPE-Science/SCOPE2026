@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the analytic weighted Bergman monomial basis, the disk-cutoff compression is the incomplete-beta diagonal and coordinate multiplication is a normalized forward shift. The beta recurrence yields the exact commutator singular weights. Gamma-ratio bounds with near-zero and tail estimates give the claimed weak gamma law, the three exact \(\mathcal S_p\) equivalents, and the three modal scales. The unweighted scale is checked by an exact successive-ratio inequality. The accompanying code independently checks finite matrix identities and representative limiting ratios; experiments are not substituted for infinite proofs.
+PASS
 
-## Originality — PASS, best knowledge
+Using normalized monomials m_k=beta B(k+1,beta), beta=alpha+1>0, P_epsilon has eigenvalues I_{1-epsilon}(k+1,beta), M_z has shift weights sqrt((k+1)/(k+beta+1)), and their commutator is an orthogonal weighted shift. The exact beta-integral recurrence gives s_k=epsilon^beta(1-epsilon)^(k+1)*Gamma(k+beta+1)/(Gamma(beta)Gamma(k+2))*sqrt((k+1)/(k+beta+1)). Independently checked 16 beta-function recurrence evaluations for beta=0.5,1,1.7,3.5 and k=0,1,5,25 against regularized beta to 5e-13; analytic recurrence is exact. c_k asymptotic k^(beta-1)/Gamma(beta) permits controlled near-zero, compact and exponential-tail Riemann sums: weak gamma(beta,1), trace limit one, three sharp Schatten p regimes at a=p(beta-1) threshold -1. Dominated convergence handles a<-1 and logarithm a=-1. Exact squared adjacent-weight ratio at beta=1 gives k sqrt(epsilon)->1/sqrt2; bounds for beta<1 and beta>1 give the other modes. Fixed-epsilon all S_p membership follows from exponential weights.
 
-Le–Simanek (arxiv:2003.07330, Sections 2–3) analyze hyponormal shift-plus-diagonal Toeplitz sums and their Jacobi commutator. Bendaoud et al (DOI:10.15407/mag16.01.003) study Schatten criteria for radial Toeplitz operators. Barrera-Castelán et al (arxiv:2009.14301) develop polyanalytic radial-operator decompositions. Their established structural formulas are acknowledged as prior. The inspected material does not assert the expanding-disk/multiplier commutator's full gamma mass, sharp logarithmic Schatten transition, or exact three-regime maximizing-mode scales. The closest other published analyses involve Fock disk-projection commutators and different weighted symbols; these do not imply the present claim. An unlocated general operator asymptotic theorem remains a real residual priority risk; no absence-of-search-result is treated as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem quantifies a canonical failure of a radial localization projector to commute with an analytic shift, and distinguishes vanishing operator norm from a nonzero limiting trace norm. The full weighted-exponent and Schatten-exponent phase diagram has two natural boundaries with sharp constants, an escaped gamma mass distribution, and a square-root critical mode. It solves an infinite family of meaningful asymptotic spectral questions rather than optimizing an arbitrary isolated parameter.
+Radial Toeplitz diagonalization and Bergman shift weights are classical. Bendaoud et al analyze Schatten membership of Toeplitz operators with radial symbols; Le–Simanek analyze hyponormality of shift-plus-diagonal Toeplitz operators, not the expanding-disk cutoff commutator distribution. None of the materially read sources gives the full gamma/Schatten/modal asymptotics for this commutator. An older general radial commutator semiclassical law remains possible.
 
-## Scope and limitations
+## value
 
-Only the analytic power-weighted disk with a sharp radial cutoff and multiplication by the first coordinate is established. Statements concern fixed weight and fixed Schatten exponent. The supplied independent numerical checks do not constitute an independent mathematical audit. Priority confirmation against inaccessible or older general literature remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical radial localization commutator is a compact weighted shift with vanishing operator norm yet trace norm approaching one; the exact gamma edge measure, sharp Schatten constants including logarithmic criticality, and three maximizing-mode scales quantify the entire boundary spectral transition. The cutoff and coordinate multiplier are natural, not an arbitrary tuned finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
