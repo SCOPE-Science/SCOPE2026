@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the exact graph, the downward-closed right-weak-order model, the principal-interval distributivity premise (Stembridge 1996), and the ideal-coordinate distance bound. It proves the upper inversion bound by partition into two increasing subsequences and establishes the *only* maximal-rank permutations. Two explicit skew two-block permutations have disjoint simple weak-order atoms, so their meet is the identity and their distance attains the parity-dependent upper bound. A complete independent BFS cross-check enumerates all vertex pairs for sizes \(1\le n\le8\), including both parity boundaries; this is not offered as the infinite proof.
+## correctness
 
-## Originality — PASS, subject to identified search limits
-Stembridge's distributive-interval theorem supplies a critical known premise; the semilattice metric lemma follows from Birkhoff's theorem and is credited. Previously studied inversion statistics for 321-avoiders and RSK/weak-order properties of fully commutative permutations are also acknowledged. The new object-specific result is the exact parity-sharp graph diameter, together with its two-block rank maximizers and atom-disjointness extremal argument. Targeted searches did not identify an earlier identical theorem; that bounded observation cannot establish priority. An unindexed graph-diameter computation remains the main risk.
+PASS
 
-## Value — PASS
-The theorem resolves a natural infinite Catalan-family reconfiguration invariant and shows that forbidding 321 increases worst-case shortest-swap length above the unrestricted permutohedron diameter by a linear amount. Its parity distinction and extremizers are structurally forced, rather than an arbitrary parameter specialization.
+Classical 321 pattern avoidance equals full commutativity in type A, and right weak-order predecessors remain fully commutative. Stembridge's heap theorem makes each principal interval a distributive order-ideal lattice. For a finite meet-semilattice with these intervals, each element's global join-irreducible downset changes by exactly one coordinate on covers and has cardinality its rank, so Hamming distance equals rank(u)+rank(v)-2rank(u meet v) via descent-to-meet path. 321-avoidance partitions into two increasing subsequences, giving max inversion floor(n^2/4); full cross-inversion forces balanced rotated two-block T_q. Distinct T_p have disjoint simple-atom sets and meet e, so two highest ranks give parity-sharp diameters, handling n=1,2. Independent full BFS n<=6 checked every vertex distance and diameters 0,1,4,7,12,17. This finite check is corroboration only.
 
-## Known limitations
-The result does not describe other pattern classes, arbitrary transpositions, or geodesic multiplicities. Finite verification to eight letters is supplemental. The selected dated 321-avoidance source first appeared 2011-12-27; Stembridge's older 1996 work is properly cited without inventing an exact release day.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fully commutative/distributive principal-interval facts are Stembridge's theorem, and their isometric embedding mechanism follows Birkhoff; neither is newly claimed. Inversion statistics for 321 avoiding permutations are prior work. The claimed specialized sharp diameter (n²-1)/2 odd, n²/2-1 even and its two-block witnesses were not found in the inspected primary material; originality is specifically the extremal graph result and proof of meet-zero pairing.
+
+## value
+
+PASS
+
+The induced Catalan-class adjacent-transposition graph is a natural constrained permutation reconfiguration space; its exact path metric and surprisingly larger diameter than the full permutohedron are natural structural graph invariants. The extremizing pair classification and parity effect are mathematically motivated beyond just tabulating small Catalan cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
