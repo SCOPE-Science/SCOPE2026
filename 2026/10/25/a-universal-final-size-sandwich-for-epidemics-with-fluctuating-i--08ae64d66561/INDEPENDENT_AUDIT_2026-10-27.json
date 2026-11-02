@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:52:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned pinned RESULT.md Git blob 28a2352f3b2d04ef7e771ce844bb514b7b06f4cf",
+        "Independent source-free bounded verifier: independent_check_results.json"
+      ],
+      "rationale": "For closed deterministic mean-field SIR with exogenous bounded measurable susceptibility paths b(t), shared stationary one-time marginal nu, S0,I0,gamma>0, solve the Volterra survival S(t)=S0 E exp(-int_0^t b(u)I(u)du). The integral pressure z=int_0^infty I(t)dt is positive finite, and mass balance gamma z=I0+S0-S_infty. The density w(t)=I(t)/z defines risk-path weighted mean C=int b(t)w(t)dt. Conditional Jensen over an independent w-distributed time U and ordinary Jensen give exp(-mean(nu)z)<=E exp(-zC)<=E_nu exp(-bz), since b(U) has law nu. The strictly convex final-size residual functions F_q(v)=gamma v-I0-S0+S0q(v) each have one positive root. Their signs at actual z force frozen z_nu<=z<=homogeneous z_hom, hence same inequalities for Z=gamma z. No Markov or time-independence assumed. Independently solved benchmark scalar roots 0.5032405991518699 and 0.715565435681715 for source sample parameters; this bounded check cannot replace Jensen argument.",
+      "residual_risks": [
+        "Finite numerical comparisons show examples, not arbitrary-path proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berestycki et al Proposition 5 examines Gaussian stationary heterogeneity at zero diffusion, compares specific mean/minimum risk values, not arbitrary stationary-marginal exogenous processes.",
+          "Katriel addresses fixed susceptibility distributions (the frozen benchmark), not turnover.",
+          "Tkachenko concerns activity dynamics and epidemic feedback with a specific temporal model, not general same-marginal ordering."
+        ],
+        "reasoning": "These models are neither a general theorem dominating all path laws with same marginals nor an implication of the two-sided bounds.",
+        "searches": [
+          "DOI:10.1007/s00285-022-01861-w (Berestycki et al full primary paper)",
+          "DOI:10.1007/s00285-011-0460-2 (Katriel static risk)",
+          "DOI:10.7554/eLife.68341 (Tkachenko et al risk activity)"
+        ]
+      },
+      "checked_sources": [
+        "Berestycki et al 2023 primary full article",
+        "Katriel 2012 DOI:10.1007/s00285-011-0460-2",
+        "Tkachenko et al 2021 eLife primary abstract",
+        "Resultary query Resultary semantic query: SIR final size stationary susceptibility risk processes Jensen frozen heterogeneous homogeneous switching epidemic",
+        "Butler 1994 large heterogeneous epidemic asymptotic abstract DOI:10.1017/S0001867800026471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited proof conditions on exogenous path b(t), picks random w(t)=I(t)/z and uses both conditional and ordinary Jensen before comparing roots.",
+          "A benchmark frozen heterogeneous equation determines only Z_frozen, not the location of an arbitrary fluctuating-path z without conditional Jensen."
+        ],
+        "reasoning": "Neither a special risk-diffusion result nor the frozen benchmark alone implies the all-path, no-correlation hypothesis theorem; the specific Jensen composition is the scientific content.",
+        "searches": [
+          "Berestycki et al 2023 Proposition 5 material read",
+          "Katriel 2012 final-size equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source survival is a Laplace transform of path-integrated susceptibility at self-consistent pressure z; in Feynman–Kac language C is a conditional expectation of risk at a random pressure-weighted time.",
+          "Static frozen and homogeneous final-size equations are q_nu(z)=E exp(-bz) and q_hom(z)=exp(-mean b z)."
+        ],
+        "reasoning": "This equivalent Laplace/Feynman–Kac formulation was explicitly checked: generic Laplace convex ordering gives probability bounds at fixed z but combining with self-consistent root comparison is required. No prior record establishing that precise universal implication identified.",
+        "searches": [
+          "Resultary semantic query: SIR final size stationary susceptibility risk processes Jensen frozen heterogeneous homogeneous switching epidemic",
+          "query: stationary risk Feynman Kac epidemic final size Jensen comparison",
+          "Berestycki et al 2023 primary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concern other SIRS thresholds, transient and feedback models, not distribution-free final size sandwich.",
+          "Specific 2023 diffusion-risk article has one special comparison, not a table of all exogenous stationary marginals."
+        ],
+        "reasoning": "No exact formula/table already fixes this universal law; negative search alone would not prove originality.",
+        "searches": [
+          "Resultary semantic query: SIR final size stationary susceptibility risk processes Jensen frozen heterogeneous homogeneous switching epidemic",
+          "web searches: stationary susceptibility process SIR final attack rate heterogeneous frozen homogeneous"
+        ]
+      },
+      "rationale": "The relevant 2023 primary diffusion-risk epidemic article establishes a restricted comparison of its Gaussian risk model in a no-diffusion setting; this does not quantify over arbitrary bounded stationary-marginal exogenous path laws or give the exact frozen-risk lower and homogeneous upper bound for one shared marginal. Classical permanent heterogeneity gives a benchmark, not arbitrary dynamic turnover ordering. Could be an implicit known Feynman–Kac Jensen theorem, retained as explicit risk.",
+      "residual_risks": [
+        "An equivalent general conditional-Jensen epidemic comparison might appear in Feynman–Kac stochastic susceptibility literature outside indexed terminology.",
+        "The theorem assumes exogenous risk unaffected by infection; actual behavioral feedback violates this.",
+        "Finite numerical comparisons show examples, not arbitrary-path proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related dynamic diffusion model; does not state all-stationary-marginal frozen/homogeneous sandwich in relevant inspected argument",
+          "evidence": [
+            "Proposition 5 compares a zero-diffusion Gaussian submodel to mean/minimum-risk classical SIR rates."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00285-022-01861-w",
+          "material_read": "Primary full open paper, including Proposition 5 and its fixed/no-diffusion risk comparisons",
+          "method": "Read full web primary text and relevant proposition paragraphs",
+          "title": "Epidemic modeling with heterogeneity and social diffusion",
+          "trigger": "Same susceptibility-fluctuation epidemic context"
+        },
+        {
+          "assessment": "Specific activity feedback/time variation; no whole-text NOT_COVERING judgment",
+          "evidence": [
+            "Abstract concerns coupled stochastic social behavior, waves and plateaus."
+          ],
+          "identifier_or_url": "DOI:10.7554/eLife.68341",
+          "material_read": "Accessible primary summary/abstract; full paper not claimed read",
+          "method": "Web bibliographic abstract",
+          "title": "Stochastic social behavior coupled to COVID-19 dynamics leads to waves, plateaus, and an endemic state",
+          "trigger": "Temporal individual risk heterogeneity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Berestycki et al 2023 primary full article",
+        "Katriel 2012 DOI:10.1007/s00285-011-0460-2",
+        "Tkachenko et al 2021 eLife primary abstract",
+        "Resultary query Resultary semantic query: SIR final size stationary susceptibility risk processes Jensen frozen heterogeneous homogeneous switching epidemic",
+        "Butler 1994 large heterogeneous epidemic asymptotic abstract DOI:10.1017/S0001867800026471"
+      ],
+      "rationale": "A distribution-free final-attack-size ordering isolating persistence versus temporal turnover of individual susceptibility is a mathematically motivated epidemiological principle. It handles all temporal correlations in one argument while preserving endogenous infection pressure, and supplies a useful sharp bracket without solving stochastic dynamics.",
+      "residual_risks": [
+        "Finite numerical comparisons show examples, not arbitrary-path proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent general conditional-Jensen epidemic comparison might appear in Feynman–Kac stochastic susceptibility literature outside indexed terminology.",
+    "The theorem assumes exogenous risk unaffected by infection; actual behavioral feedback violates this.",
+    "Finite numerical comparisons show examples, not arbitrary-path proof."
+  ],
+  "schema_version": 1
+}
