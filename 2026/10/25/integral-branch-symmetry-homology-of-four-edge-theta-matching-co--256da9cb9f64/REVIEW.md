@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(m\ge2\), the domain is a simple length-four multitheta graph, with arms indexed by \(\{1,\ldots,m\}\). The matching subcomplex on middle edges is an actual join of \(m\) two-point complexes. Each of the \(m\) contractible subcomplexes adds only the two end-edge vertices of one arm and intersects any other precisely in that core. Every face outside their union has a unique cross-arm end-edge pair. The explicit \(C_i\)-pairing, processed in descending dimension, is a finite free-face collapse for every \(m\). The relative homology direct sum and connecting-map calculation identify the kernel of the integral augmentation map, naturally for the action of \(S_m\times C_2\). The orientation of a join of zero-cycles produces the claimed sign twists. There is no inference from finite experiments to the infinite theorem. Standalone finite enumeration through seven arms confirms the collapse, Betti predictions, and 320 signed-character instances.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The most relevant published full text, Bayer–Jelić Milutinović–Vega, arXiv:2411.04601, Proposition 7, already implies the nonequivariant homotopy type and explicitly dominates that numerical/sphere-wedge component. Therefore the **only** accepted new claim is the integral equivariant homology lattice and its full \(S_m\times C_2\) character. The published contraction theorem lacks a compatible equivariant representation formula; the present equivariant relative calculation supplies the missing naturality and orientation signs. Bate–Everitt–Ford–Ramos compute modules for complete hypergraph matching complexes, not these multitheta graphs. Closest indexed alternate symmetry results concern different graph families or nonmatching configuration spaces. Residual uncertainty: incomplete indexing and potentially inaccessible prior computations.
+PASS
 
-## Mathematical value — PASS
-Automorphism-equivariant integral homology is a natural refinement of an already known homotopy type: its augmentation lattice, arm-sign twist, and odd/even pole-reversal distinction are not determined by sphere counts. The formula determines every symmetry trace and invariant quotient rank; over the full arm-permutation group it detects the absence of invariant top classes for \(m\ge3\). The proof supplies a new structural use of natural relative homology, not an isolated arithmetic recomputation. Its finite cases are not substituted for the all-size structural statement.
+For each m>=2 the actual length-four m-arm graph has middle matching subcomplex K0=(S^0)^{*m}. Each Xi obtained by adjoining Ai,Di to K0 is the join of a contractible Ind(P4) with m-1 zero-spheres; Xi∩Xj=K0. Every face outside Y=∪Xi is paired by insertion/deletion of Ci where Ai and Dj with i≠j occur, in decreasing face-size order; no second endpoint edge can be added. This is an elementary collapse onto G-invariant Y (not an equivariant matching). Relative LES for (Y,K0) gives H_m as kernel of Z^m -> Z. Its natural group action twists the augmentation lattice by the orientation character on the join: sign(σ)*(-1)^{m e}. Thus the integral S_m×C2 module, not merely rational dimension, and trace sign(σ)(-1)^{me}(fixed_arms-1) follow. Boundaries m=2 and pole parity checked; finite checks m=2,3,4 generated faces and corresponding removal pair counts.
 
-## Closest literature and limitations
-The four-edge-path contraction/suspension of arXiv:2411.04601 is the strongest relevant coverage and is explicitly acknowledged. The result is confined to equal four-edge branches and the natural arm/pole group; it neither establishes arbitrary arm lengths nor an equivariant wedge decomposition. Indexed-source absence does not establish absolute novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified). Bayer–Jelić Milutinović–Vega Proposition 7 gives the nonequivariant four-edge-path suspension and m−1 sphere wedge but no integral arm/pole action in the inspected proof. The natural relative LES supplies a new module structure relative to that earlier homotopy invariant; analogous sign-twisted augmentation for a different extended-star Morse complex does not imply the theta-graph matching-complex representation.
+
+## value
+
+PASS
+
+The full integral graph-symmetry homology representation is a natural refinement of an established nonequivariant family; it resolves orientation and fixed-character data needed for quotients and equivariant topology, without claiming a new sphere count. This theorem establishes a natural equivariant integral refinement, not a restatement of the nonequivariant wedge count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
