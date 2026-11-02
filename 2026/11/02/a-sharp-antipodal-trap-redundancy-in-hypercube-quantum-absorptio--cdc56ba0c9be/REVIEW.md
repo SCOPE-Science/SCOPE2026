@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The full proof decomposes the two-sink bright space into Walsh spectral eigenspaces of the hypercube adjacency. Each of the two terminal sectors contributes rank one, and the remaining sectors contribute rank two for non-antipodal sinks but rank one for an antipodal pair. A spectral argument shows that the asymptotic total absorption of the uniform incoherent mixture is exactly the bright-space dimension divided by the number of vertices. The explicit checker independently evaluated every dimension from two through six and every possible pair separation, passing all 20 rank comparisons. Numerics are not used to infer validity for higher dimensions.
+
+**Originality — PASS on examined evidence, with a specific priority risk.** The 2015 Scientific Reports source evaluates hypercube transport with one sink and the corresponding radial invariant space, but the examined sections do not state the distinct all-dimension two-sink rank outcomes. The 2021 Entropy paper develops the single-trap spectral-subspace method, not the evaluated two-trap distance classification. Targeted current research-index searches gave no matching statement. The broad spectral-subspace mechanism is prior art; the new contribution is the exact two-sink result. An equivalent two-sink theorem under another language remains possible.
+
+**Value — PASS.** The natural design question is whether adding a second trapping site increases overall quantum capture on the hypercube. The result gives a complete classification of every pair geometry and a sharp asymptotic design contrast. In particular, the farthest-possible location is exactly redundant, whereas all other locations are optimally effective; classical intuition based solely on distance or coverage would miss this bright-space degeneracy. The closed expression is an exact, natural graph-invariant transport benchmark, not an arbitrary special-case computation.
+
+Independent verification and experimental relevance have not been established. The source comparisons are limited to explicitly described material and cannot guarantee global historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
