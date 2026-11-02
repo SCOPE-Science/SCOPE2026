@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:02:08.567256Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let M be point-block incidence for any existing AD(n,mu). The design identities MM^T=kI+lambda J and M^T M=kI+mu(J_r-I_r) tensor J_n split real point and block spaces into v-1 corresponding singular directions with 2x2 B1, r-1 uncoupled parallel-class contrasts with scalar L=f0-n f2+(n-1)f4, and two constant directions with 2x2 B0. Total 2(v-1)+(r-1)+2=v+b dimensions, so PSD iff L>=0, B1>=0, B0>=0, including singular cases and arbitrary automorphism groups. For exponential f_j=z^j with w=z² and 0<w<1, direct determinant identities give L=(1-w)(1-(n-1)w), det B1=(1-w)^2(1-(k-1)w), and det B0=(1-w)/(n-1)*[(n-1)+beta w+gamma w²]. Positive diagonal pivots reduce PSD to w<=1/(k-1) and the quadratic inequality; a=0 separately yields the all-ones rank-one kernel. In AG(3,3), n=3,k=9,r=13, determinant factor 1-54w+416w² has roots (27±sqrt313)/416 both below 1/8, yielding exactly two positive-a disconnected PSD bands, with rank 40 at w=1/8 and 65 at the two quadratic boundaries. Independent symbolic algebra checked all determinant factors, inequalities, and root ordering; the singular-value proof handles all actual designs. The design's existence assumption is explicit, no universal (n,mu) existence assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeVille Theorems2.1 and2.14 treat distance-regular graphs and products; incidence graph point and block degrees r,k differ in AG(3,3).",
+          "Distance-one and distance-two class matrices restrict to noncommuting symmetric 2x2 matrices on each B1 channel."
+        ],
+        "reasoning": "The general distance-regular theorem is inapplicable to the essential biregular example; Ma gives only one f. A more general coherent-configuration positivity theorem might subsume the algebraic cone but no such explicit statement was found in inspected sources.",
+        "searches": [
+          "affine resolvable design incidence graph exponential distance matrix positive semidefinite reentrant kernel",
+          "https://arxiv.org/abs/1604.08922",
+          "https://arxiv.org/html/1708.02294v2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1604.08922",
+        "https://arxiv.org/html/1708.02294v2",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma Theorem3 specializes the characteristic polynomial of a single distance matrix.",
+          "DeVille Theorem2.1 requires distance regularity and linearly parameterized commuting distance matrices."
+        ],
+        "reasoning": "One distance-matrix spectrum cannot alone imply the five-parameter semidefinite cone. DeVille hypotheses do not hold since point and block degrees are unequal and the distance-shell matrices fail to commute.",
+        "searches": [
+          "affine resolvable design incidence graph exponential distance matrix positive semidefinite reentrant kernel",
+          "https://arxiv.org/abs/1604.08922",
+          "https://arxiv.org/html/1708.02294v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radial matrix f(d) can be phrased as a positive definite function on the graph metric or a generalized distance matrix.",
+          "Ma computes f(d)=d; DeVille computes generalized distance spectrum when distance shells commute."
+        ],
+        "reasoning": "Aliases searched are generalized distance kernel, exponential graph distance covariance, Schoenberg negative type, positive-type distance radial kernels, and affine design incidence spectra. The computed 2x2 blocks differ from distance-regular scalar eigenvalue criteria.",
+        "searches": [
+          "affine resolvable design incidence graph exponential distance matrix positive semidefinite reentrant kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 66-vertex affine hyperplane graph has exact algebraic reentrant boundaries (27±sqrt313)/416, not a numerical transition.",
+          "Ma lists distance signature, not exponential PSD intervals."
+        ],
+        "reasoning": "No exact database/table with these intervals or boundary ranks located among assessed sources, but absence is not proof of historical priority.",
+        "searches": [
+          "affine resolvable design incidence graph exponential distance matrix positive semidefinite reentrant kernel"
+        ]
+      },
+      "rationale": "Ma 2016 explicitly derives spectral factorization and distance signature for affine-resolvable incidence graphs at the one specific radial weight f_d=d, supplying the essential design identities and singular-space structure. DeVille 2017/2020 treats arbitrary radial weights on distance-regular graphs and Cartesian products, where distance-class matrices commute, whereas these incidence graphs are biregular for r != k and their B1 distance-one and distance-two restrictions do not commute. This structural nonapplicability prevents a direct theorem specialization. The present exact all-parameter 5-weight PSD cone plus disconnected AG(3,3) exponential kernel interval is a motivated extension; the possibility of equivalent older coherent-config/block-matrix spectral computations remains explicit.",
+      "residual_risks": [
+        "An older treatment via coherent configurations, incidence singular values or association schemes could imply the same 2x2 PSD test implicitly.",
+        "The cone is for distance-radial real symmetric kernels on existing affine designs, not all weighted kernels and not all hypothetical pairs (n,mu)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines distance signature at f_d=d, not positivity cone for arbitrary f0..f4 or exponential disjoint bands.",
+          "evidence": [
+            "Theorem1 distance signature; Theorem3 characteristic polynomial factoring."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.08922",
+          "material_read": "Complete short arXiv text including Theorem1, Theorem3 characteristic polynomial, incidence identities and proof; relevant PDF page inspected",
+          "method": "Primary arXiv full text and screenshot",
+          "title": "The distance signatures of the incidence graphs of affine resolvable designs",
+          "trigger": "Exact same incidence graphs and design parameters"
+        },
+        {
+          "assessment": "Its linear eigenvalue/PSD framework applies to distance-regular or commuting-shell graphs, structurally excluding AG(3,3) biregular incidence graph.",
+          "evidence": [
+            "Theorem2.1 distance-regular; §2.3 commutativity; positive-definiteness §2.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1708.02294v2",
+          "material_read": "Primary arXiv HTML Introduction, Theorems2.1/2.14, §§2.3-2.4 on commuting distance shells; relevant proofs accessible",
+          "method": "Primary arXiv full HTML text targeted mathematical sections",
+          "title": "The generalized distance spectrum of a graph and applications",
+          "trigger": "General radial weights and positive-definite kernel theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete radial positive cone and its exact rank multiplicities are natural stability and covariance-kernel invariants of incidence geometries; disconnected admissible exponential bandwidths provide a structural counterexample to naïve monotonicity, with sharp radical endpoints and boundary rank changes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1604.08922",
+    "https://arxiv.org/html/1708.02294v2",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Existence of AD(n,mu) is an explicit hypothesis; no new design existence result.",
+    "a=0 treated separately, w=0 only as limit a→infinity."
+  ],
+  "schema_version": 1
+}
