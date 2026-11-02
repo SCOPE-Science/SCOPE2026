@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For any two distinct rows/columns of an order-five Latin square the relative permutation is a derangement of type (2,3) or (5). The normalized backtracking exhausts 1,344 first-row-normalized squares, and the 120 symbol images are proven distinct and exhaustive. Direct subset testing with inclusion-minimality and independent permutation-cycle generation agree on all 161,280 states, length-wise undirected edges (288,000;576,000;1,036,800), the connected-component partitions and the intercalate by component cross-tab. Each union-find edge set lists all legal moves, so the component sizes prove a finite exact result. No infinite-case inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wanless, Graphs Combin. 20 (2004) 545–570: available abstract states vertices are isotopy or main classes, rather than all labelled squares.",
+        "Aryapoor–Mahmoodian, arXiv:1005.0121v2, §§1–2: connectedness uses a state space including improper Latin squares.",
+        "Cavenagh–Wanless, arXiv:1610.06262v1, §§1–2: studies parity changes and an asymptotic equinumerosity result."
+      ],
+      "reasoning": "None of these accessible conclusions provides the connected-component partition among 161,280 distinct proper Latin squares under cycle sizes 2,3,5. Improper-state connectivity cannot imply proper-only connectivity. The complete Wanless 2004 body was unavailable, so any uninspected stronger result remains a substantial risk.",
+      "searches": [
+        "\"Cycle Switches in Latin Squares\" Wanless 2004 order 5 classes connected components",
+        "\"On uniformly generating Latin squares\" Aryapoor Mahmoodian full html 1005.0121",
+        "\"There are asymptotically the same number of Latin squares of each parity\" row cycle full html 1610.06262"
+      ]
+    },
+    "checked_sources": [
+      "Wanless 2004 abstract and indexed p.551 (partial)",
+      "Aryapoor–Mahmoodian arXiv:1005.0121v2 full HTML",
+      "Cavenagh–Wanless arXiv:1610.06262v1 full HTML",
+      "McKay catalogue of Latin squares (public web table)",
+      "Earlier labelled intercalate-only exact census (scientific statement only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior intercalate-only graph has 8 components of 18,000 noncyclic squares; the new length-three moves join these into two components of 72,000.",
+        "A length-five single-cycle swap cannot be performed as a length-two or length-three single step on the cyclic-table isotopes; the new six 2,880-vertex chambers concern a disjoint previously isolated class.",
+        "The 2004 quotient theorem establishes only class-level nonconnectivity, compatible with many different partitions within each class."
+      ],
+      "reasoning": "Neither previous intercalate-only reachability nor the two-vertex isotopy quotient determines exactly which chambers merge, the 2+3 move degree edges, or the six 2,880-state cyclic-class components. The theorem remains separate from those antecedents, though an undiscovered strong statement could still cover it.",
+      "searches": [
+        "\"Latin squares of order 5\" \"intercalate\" \"switch\" connected graph",
+        "\"Cycle Switches in Latin Squares\" \"order 5\" two vertices disconnected",
+        "\"Latin squares\" \"72000\" \"2880\" trade"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wanless 2004 abstract identifies the cyclic-switch operation and an isotopy/main-class quotient; indexed p. 551 excerpt describes the order-five two-class quotient as disconnected.",
+        "Cavenagh–Wanless 2016, arXiv:1610.06262v1, §2 defines a row cycle as a minimal nonempty two-row submatrix with the same symbol sets.",
+        "Direct certification enumerates the complete labelled vertices and all minimal row/column cycles."
+      ],
+      "reasoning": "The object is invariantly the proper-square single-cycle-switch graph with labelled rows, columns and symbols. Quotienting by isotopy loses fibre components. Column moves are row moves after transposition. Swapping all five positions of a decomposable (2,3) relative permutation is not a single cycle and is excluded.",
+      "searches": [
+        "\"Latin squares\" \"72000\" \"2880\" \"cycle\"",
+        "\"order 5\" \"cycle switches\" \"components\" parity",
+        "\"Latin squares\" \"17280\" \"cycle switches\" connected",
+        "Wanless 2004 row-cycle switch; minimal two-row Latin-bitrade; row and column conjugation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "McKay enumeration catalogue reports 56 reduced squares of order five, corresponding to 1,344 first-row-normalized and 161,280 labelled squares.",
+        "An earlier exact labelled intercalate-only census records 17,280 isolated states and eight 18,000-vertex components; it does not include length-three or length-five switches."
+      ],
+      "reasoning": "Known Latin-square catalogues count states and isotopy classes; the known intercalate graph has a strictly smaller edge relation. They do not tabulate the new all-cycle component sizes or the merger pattern.",
+      "searches": [
+        "McKay catalogue small Latin squares order 5 56 reduced two isotopy classes",
+        "\"Labeled 5x5 Latin-square intercalate graph\" eight components 18000",
+        "\"order-five Latin-square\" trade reconfiguration 72000 2880"
+      ]
+    },
+    "rationale": "No covering labelled-state theorem was identified in accessible mathematical-record searches, archival literature or prior published claims. The earlier labelled intercalate-only 18,000-state partition is acknowledged and not claimed new. The new 3-cycle and 5-cycle merger/fission partitions are not entailed by the prior intercalate-only graph, the two-vertex isotopy quotient, the proper-plus-improper reachability theorem or parity asymptotics. The inaccessible full Wanless 2004 paper is a substantial unremoved priority risk.",
+    "residual_risks": [
+      "Wanless 2004 complete PDF inaccessible; unseen sections might contain a component classification or strong general argument.",
+      "Unindexed literature on labelled Latin-square trades might contain equivalent numerical results.",
+      "Literature searches are not a proof of historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the connected graph includes improper Latin-square states, unlike the proper-only single-cycle graph studied here",
+        "evidence": [
+          "§1 defines improper squares and ±1 moves; §2 Lemma 2 decomposes cycle switches into moves via improper states."
+        ],
+        "identifier_or_url": "arXiv:1005.0121v2 https://arxiv.org/html/1005.0121v2",
+        "material_read": "Accessible complete HTML: abstract, introduction/definitions of bitrades and improper moves, and section 2 with cycle-switch lemma and connectivity proof",
+        "method": "Read arXiv full HTML sections and compared exact state spaces",
+        "title": "On uniformly generating Latin squares",
+        "trigger": "Foundational connectivity methods and a purported broader connectivity theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: gives parity transformations and asymptotic counts, not a 161,280-state exact connectivity partition",
+        "evidence": [
+          "§2 defines minimal two-row cycles and the parity effects of odd cycles; introduction states 05B15 and four possible parity types."
+        ],
+        "identifier_or_url": "arXiv:1610.06262v1 https://arxiv.org/html/1610.06262v1",
+        "material_read": "Accessible complete HTML, introduction, parity definitions and the cycle-switch argument in section 2",
+        "method": "Read full HTML and checked row-cycle/parity propositions against claimed labelled connectivity",
+        "title": "There are asymptotically the same number of Latin squares of each parity",
+        "trigger": "Parity obstructions may impose stronger component partitions"
+      },
+      {
+        "assessment": "INACCESSIBLE_FULL_TEXT_RISK: known comparison is on isotopy and main classes; unseen tables or remarks might imply additional labelled-state information",
+        "evidence": [
+          "Abstract describes graph vertices as classes of squares; page 551 explicitly states order-five quotient has two disconnected vertices."
+        ],
+        "identifier_or_url": "doi:10.1007/s00373-004-0567-7 https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+        "material_read": "Springer article abstract plus indexed excerpt of page 551 from an online author-hosted PDF; complete PDF not read (web host returned HTTP 403; authorized institutional download required additional interactive input)",
+        "method": "Inspected article abstract and the indexed page-551 scientific passage, checked explicit quotient definition",
+        "title": "Cycle Switches in Latin Squares",
+        "trigger": "Most plausible directly covering source, with switches and order-five graphs"
+      },
+      {
+        "assessment": "NOT_COVERING: tabulates Latin-square counts and classes, not labelled switch components",
+        "evidence": [
+          "Order-five catalogue count 56 reduced."
+        ],
+        "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/latin.html",
+        "material_read": "Public catalogue listing 56 reduced order-five Latin squares and class data",
+        "method": "Read web catalogue summary",
+        "title": "Combinatorial data: Latin squares",
+        "trigger": "Check known exact small-square tables and normalize universe"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbe31f8b-4eec-45dc-b1eb-93c001d24502",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Connectivity of labelled Latin squares under legitimate proper-state trades determines irreducibility of natural sampling chains. This complete case separates a formerly isolated 17,280-state class from the 144,000-state noncyclic class and shows that allowing 3-cycles and 5-cycles still leaves exactly eight nontrivial chambers, unlike the known connectivity with improper intermediate states. The exact two-scale merge is a motivated boundary result, not merely a table of small counts.",
+    "status": "PASS"
+  }
+}
