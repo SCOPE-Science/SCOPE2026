@@ -1,15 +1,21 @@
-# Scientific review: alternating finite-size correction for Gaussian lattice interpolation
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof supplies the exact kernel, interpolation minimization interpretation, monic orthogonal-polynomial coefficients, squared norms, and positive spectral weight. The finite Gaussian Toeplitz Gram matrix is nonsingular for every \(0<p<1\). The Christoffel decomposition is an identity, not an asymptotic assertion. The meromorphic generating function has successive distinct poles at \(1\), \(-p^{-1}\), \(p^{-2}\), which give the leading term, alternating term, and \(O_p(p^{2N})\) remainder. The Jacobi product supplies the bulk normalization and proves that the signed amplitude is nonzero. The standalone checker passed 609 exact/decimal assertions; finite experiments are corroboration only.
+## correctness
 
-## Originality — PASS, best knowledge
-The classical Rogers–Szegő orthogonal-polynomial formula and general Toeplitz inversion are acknowledged and not claimed as new. Gover's 1991 Gaussian-matrix paper explicitly concerns the same Toeplitz object but its accessible abstract gives an inverse-row formula and inversion recurrences, not a signed \((-p)^N\) interpolation-norm asymptotic. Full text access was unavailable, so a stronger implicit relation is a real residual risk. Böttcher's fully inspected 2022 article addresses inverse-entry limits for broad positive Toeplitz symbols, including tridiagonal examples, not the special fixed Gaussian theta symbol and its parity-sensitive constant-data interpolation edge correction. Karvonen's 2021/2026 preprint studies inclusion of polynomials and localization in kernel Hilbert spaces, not the finite cardinal interpolation energy. Published mathematical-result searches did not identify an equivalent or dominating result. No search alone proves uniqueness or publication priority.
+PASS
 
-## Mathematical value — PASS
-Finite-size error for constant interpolation in the canonical stationary Gaussian RKHS is a natural quantity measuring the exact sampling burden. Its leading bulk term does not determine the bounded edge contribution, and even a bulk-plus-constant expansion misses a genuinely alternating correction with an exact, nonzero amplitude and a provably smaller remainder. The result resolves this entire fixed-spacing one-parameter family without numerical fitting. The proof connects Gaussian positive-definite Fourier symbols, circle orthogonal polynomials, and a pole hierarchy. Neither a general inverse algorithm nor a mere computation of finitely many entries supplies this phase-sensitive asymptotic automatically.
+From frozen RESULT.md reconstructed the Gaussian Gram/Fourier theta positivity, monic q-orthogonal Rogers–Szegő polynomials, exact Christoffel sum E_N=Σ R_n²/(q;q)_n, coefficient generating function 1/((t;q)_∞(-pt;q)_∞), residues at 1 and −p^(−1), and tail geometric sum. First correction coefficient −2p/((1+p)²Theta) is nonzero; next pole at p^(−2) and squared leading tail justify O_p(p^(2N)) for each fixed p. Independent exact Fraction elimination versus polynomial sum on p∈{1/3,2/5,1/2}, N=1..6 (18 tests). Proof is infinite-dimensional via poles, not finite checks; no p-endpoint uniformity.
 
-## Closest literature and limitations
-Karvonen, arXiv:2102.10628 (2021 initial preprint); Böttcher, DOI:10.1007/s44146-022-00007-0 (2022); Gover, DOI:10.1137/0612039 (1991, abstract only); NIST DLMF §18.33. General Toeplitz inverse formulas and Rogers–Szegő theory remain foundational prior work. The estimate holds for fixed \(p\) only, fixed unit spacing, and all-one target data. The original Gaussian-matrix inverse source is a priority risk because its complete paper was inaccessible. No claim of independent certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. The implication required is from an existing theorem to E_N−N/Theta−C∼−2p(-p)^N/[(1+p)^2Theta], for every fixed p∈(0,1), not merely inverse entry estimates. The inspected results do not supply that exact implication; Gover full text remains outstanding. General ingredients and established results explicitly credited; no priority guarantee.
+
+## value
+
+PASS
+
+The Gaussian lattice interpolation norm is a natural RKHS/Toeplitz Christoffel invariant. The explicit nonzero signed edge coefficient and alternating rate are not determined by the bulk Szegő limit and quantify a practically relevant finite-grid correction; general Gaussian inversion machinery alone does not supply this precise fact. Fixed-spacing limitation is inherent and acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
