@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:47:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 70702ebe6bd2cec5f75a81f6f1efc552f82579c8",
+        "Independent networkx maximal-clique census n=1..5 and explicit witnesses n=4,6 in independent_checks_1434.py",
+        "Canonical Git tree 018a1b3867620e22bc44110179e32180c908b6ab"
+      ],
+      "rationale": "Encode each multiplicity s by nested binary indicators (1_{s>=1},1_{s=2}), so min intersection parity equals binary inner product; for k valid vectors RR^T=I_k. The strict k<2n follows from U_i dot V_i = V_i dot V_i, contradicting both columns being orthonormal in a square inverse. For k=2n-1, nondegenerate row subspace complement has z dot z=1 and projection R^TR=I+zz^T; the same nested column condition forces z=(0^n,1^n), hence n odd. Thus even n max 2n-2. Explicit families of 6 (n=4) and 10 (n=6) independently verified pairwise. For n<=5 independently enumerate ALL maximal cliques in the complete compatibility graph on eligible odd-parity vectors; counts 1,2,14,266,21574 and maxima 1,2,3,6,7. n=6 exact from bound+witness. Disjoint-coordinate union gives 10q+b_r. Finite exhaustive enumeration is only for n<=5, not infinite.",
+      "residual_risks": [
+        "No exact O_2(n) asserted beyond n=6; only lower/upper bounds and asymptotic liminf."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bukh, Chao and Zheng, The Oddtown problem modulo a composite number, arxiv:2509.00586 (set intersections modulo composite moduli)",
+          "Shankar, Oddtown and eventown theorems for lattice paths, arxiv:2607.23117 (common path-edge intersection)"
+        ],
+        "reasoning": "These broaden classical Oddtown in modulus and geometric object but cannot be directly specialized to binary-layer nested two-bounded multiset minima with odd diagonal; their published statements do not provide the precise rank-parity correction.",
+        "searches": [
+          "multiset Oddtown 2 bounded multiplicity min intersection even pairwise odd diagonal rank 2n",
+          "two-bounded multiset Oddtown n=4 n=5 n=6 maximum 6 7 10",
+          "nested-pair binary Oddtown support inclusion code rank 2n-2 parity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.21636v1",
+        "https://arxiv.org/abs/2509.00586",
+        "https://arxiv.org/abs/2607.23117",
+        "Classical Berlekamp 1969 Oddtown",
+        "Resultary multiset Oddtown semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 of arxiv:2610.21636v1 solves different even-self intersection problem",
+          "Berlekamp classical binary rank bound gives only k<=2n",
+          "Bukh-Chao-Zheng arxiv:2509.00586 modular set results require different intersection operator"
+        ],
+        "reasoning": "The exact new upper bound exploits U_i dot V_i=V_i dot V_i, which is extra nesting information absent from general set Oddtown. The even-self theorem is not a duality giving these odd-self maxima. Earlier direct implication not identified.",
+        "searches": [
+          "multiset Oddtown 2 bounded multiplicity min intersection even pairwise odd diagonal rank 2n",
+          "two-bounded multiset Oddtown n=4 n=5 n=6 maximum 6 7 10",
+          "nested-pair binary Oddtown support inclusion code rank 2n-2 parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banerjee and Dewan, An Eventown Result for Multisets, arxiv:2610.21636v1 Theorem 1 defines and solves even-self-intersection Eventown",
+          "Classical Berlekamp Oddtown applies to unconstrained binary sets on 2n layers"
+        ],
+        "reasoning": "Expanded nested layers are ordinary binary vectors but constrained to pairs (0,0),(1,0),(1,1); the classical full binary family is strictly larger and its 2n rank limit is weaker. Eventown changes self-parity to even, so its extremal result is not the odd self-parity theorem.",
+        "searches": [
+          "multiset Oddtown 2 bounded multiplicity min intersection even pairwise odd diagonal rank 2n",
+          "two-bounded multiset Oddtown n=4 n=5 n=6 maximum 6 7 10",
+          "nested-pair binary Oddtown support inclusion code rank 2n-2 parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Banerjee-Dewan 2026 Eventown extremal formulas are for even diagonal, not the first six Oddtown maxima",
+          "Resultary search returned unrelated 2-bounded multispectrum code and binary-matrix rank findings but no exact multiset Oddtown table"
+        ],
+        "reasoning": "The first six values were independently computed and backed by the all-n parity rank obstruction, so they are not a recomputation of an identified known table. Search silence alone is not novelty certification.",
+        "searches": [
+          "multiset Oddtown 2 bounded multiplicity min intersection even pairwise odd diagonal rank 2n",
+          "two-bounded multiset Oddtown n=4 n=5 n=6 maximum 6 7 10",
+          "nested-pair binary Oddtown support inclusion code rank 2n-2 parity"
+        ]
+      },
+      "rationale": "Banerjee and Dewan introduce precisely this bounded multiset minimum-intersection definition but their main theorem solves Eventown (even diagonal), not the odd-diagonal family. Standard binary Oddtown on the nested 2n layers only yields 2n, not the stronger even-n correction. Set modulo composite integer and lattice-path Oddtown results have different objects. No matching original 2-bounded Oddtown rank improvement and n=4,5,6 extrema found in targeted published searches. Best-of-knowledge PASS with possible unindexed older coding equivalence.",
+      "residual_risks": [
+        "Older unindexed multiset-intersection or coding-theoretic equivalent may exist.",
+        "The lattice-path full text and broader equivalence search were not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_MODEL_OVERLAP_BUT_EVEN_DIAGONAL_NOT_ODDTOWN",
+          "evidence": [
+            "The central extremal family is Eventown with even self-intersection; target assumes every member has odd diagonal and provides a different rank obstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21636v1",
+          "material_read": "Primary full HTML introduction, definitions, Theorem 1 and main proof sections on even-diagonal families",
+          "method": "lawful arxiv full HTML, theorem/assumption comparison",
+          "title": "Banerjee and Dewan, An Eventown Result for Multisets, arxiv:2610.21636v1",
+          "trigger": "exact same multiset definition and parity family"
+        },
+        {
+          "assessment": "DIFFERENT_SET_MODULUS_OBJECT",
+          "evidence": [
+            "Ordinary subsets modulo composite modulus, not coordinatewise minimum for bounded multisets with nested parity layers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.00586",
+          "material_read": "Public arxiv abstract and theorem statements inspected; no claim of complete appendix examination",
+          "method": "public arxiv text and main-theorem comparison",
+          "title": "The Oddtown problem modulo a composite number (Bukh, Chao and Zheng)",
+          "trigger": "related stronger modular Oddtown theorem"
+        },
+        {
+          "assessment": "DIFFERENT_PATH_EDGE_INTERSECTION_RESIDUAL_RISK",
+          "evidence": [
+            "Objects are lattice paths and intersections of common edges rather than arbitrary coordinatewise minimum vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23117",
+          "material_read": "Public abstract; whole article not read",
+          "method": "arxiv abstract",
+          "title": "Oddtown and eventown theorems for lattice paths (Shankar)",
+          "trigger": "alternative combinatorial Oddtown representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md algebraic obstruction and concrete sharp certificates",
+        "Banerjee and Dewan, An Eventown Result for Multisets, arxiv:2610.21636v1"
+      ],
+      "rationale": "This is the smallest nontrivial multiplicity extension of Oddtown and asks a natural parity-extremal question left by bounded-multiset Eventown. The even-n codimension-one obstruction is genuinely structural; explicit first counterexample n=4, sharp n=6, and amplification to super-unit density 5/3 give meaningful boundary and asymptotic information, not an arbitrary small table.",
+      "residual_risks": [
+        "Exact maximum still open n>=7; the asymptotic bound is a lower bound only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two-bounded multiset Oddtown families in {0,1,2}^n with sum min(x_i,y_i) odd on the diagonal and even for distinct pairs, O_2(n)<=2n-2 when n even and <=2n-1 when n odd, first six exact values (1,2,3,6,7,10), and block amplification gives O_2(6q+r)>=10q+b_r and liminf O_2(n)/n>=5/3.",
+  "limitations": [
+    "At multiplicity cap 2 and minimum-intersection parity; no exact larger-n O_2 formula claimed.",
+    "Deterministic exhaustive clique checks cover only n<=5; n=6 uses proof plus witness."
+  ],
+  "schema_version": 1
+}
