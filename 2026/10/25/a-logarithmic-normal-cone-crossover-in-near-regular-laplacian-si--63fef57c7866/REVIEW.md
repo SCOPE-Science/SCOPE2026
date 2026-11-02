@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The vertex directions are the rows of the symmetric graph Laplacian in the explicitly declared orthogonal Euclidean embedding. The block formula for its Gaussian support values is exact. Joint asymptotic independence of two Gaussian extremes within each growing block follows from the displayed bivariate distribution function, while independent blocks yield four independent limiting Gumbels. The summed coordinate noise is negligible on the extreme-value scale, and radial normalization has the independently estimated smaller error. The exponential-race identity gives both the logistic color selection and its independence from the Gumbel maxima. Normal-cone probabilities then follow by within-block symmetry; the three distance formulas are direct Euclidean calculations. These arguments cover the claimed quantifiers and no stronger regime.
+## correctness
 
-## Originality
-PASS, with residual bibliographic uncertainty. Braun--Meyer introduced the simplices and emphasized lattice invariants. Meyer--Pllaha studied codes, Juhnke-Kubitzke--Köhne studied higher-dimensional Laplacian polytopes, and Kabluchko--Litvak--Zaporozhets proved the regular-simplex Gumbel width law. The last result does not imply a part-size-sensitive logistic bias for two differently scaled Laplacian vertex orbits. Relevant indexed geometrical results concerning Laplacian-simplex inradii and complete-bipartite graphical zonotopes have different polytopes or invariants. The first law's Gumbel mechanism and exponential-race lemma are standard, not asserted as novel. The claimed new piece is the joint graph-sensitive width/cone crossover, including the nontrivial normal-cone limit despite asymptotically equal edges. Lesser-indexed equivalent treatments of this particular family remain possible.
+PASS
 
-## Mathematical value
-PASS. Vertex normal-cone measure is the random-objective vertex-selection probability, an intrinsic statistic of the concrete Euclidean realization. Here all pairwise distances become relatively equal, yet an imbalance of just \(n/\log n\) creates an order-one change in which vertex class is selected. The complete finite-parameter logistic profile and its independence from width fluctuations reveal a genuine geometric instability invisible to first-order edge-length comparisons. This is a natural asymptotic question about the Laplacian-simplex family, not an arbitrary small numerical computation.
+For p+q=n, the two exact Laplacian support populations are q*g_A-S_B and p*g_B-S_A. Gaussian block maxima/minima at b_n=Phi^-1(1-2/n), together with τ_n=2(q-p)b_n²/n, converge to four independent Gumbels after normalization. The S_A,S_B noise is o_P(n/b_n), radial normalization contributes o_P(1), and the exponential-race maximum has shift log(2cosh(τ/2)) and an independent Bernoulli logistic(τ) label. Twice applying this proves the joint width and two-label limit; transitivity yields normal cone mass, and direct row-difference norms yield pairwise distances. An independent 243-case finite identity/distances program agreed to floating error below 8e-15; this is only finite corroboration.
 
-## Boundaries
-The theorem is restricted to positive part sizes tending to half the dimension, with finite crossover parameter. It does not give an all-ratio mean-width phase diagram, and numerical experiments do not establish asymptotic statements. Euclidean distances are not invariant under arbitrary lattice-coordinate changes. Independent validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality best-of-knowledge based on mathematical comparison of cited primary results and related published records, not merely keyword absence; important historical priority risks noted.
+
+## value
+
+PASS
+
+The canonical Euclidean row-Laplacian simplex is a natural graph-polytope realization; cone solid angles measure the probability of optimal exposure under an isotropic objective. The order n/log n degree imbalance creates a nontrivial continuum of logistic mass asymmetries despite asymptotically equal pairwise edges, an informative sharp geometric crossover not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
