@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:44:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual snapshot RESULT.md blob 60ef42afe0d1d884d91ab79e5c8a10af4fb0081d; inspected verify.py and VERIFICATION.md",
+        "Independent scipy.linalg.expm tilted-generator comparisons and lobe search /mnt/data/scope06_independent_checks_20261028.py",
+        "Feng et al 2026, DOI:10.1088/1674-1056/ae0398, known exact asymmetric amplitude input"
+      ],
+      "rationale": "The stationary initial distribution P(+)= (a+epsilon)/(2a) is explicitly matched to the two-by-two Feynman-Kac tilted generator. Diagonalizing gives F=e^(-at)[cosh(zt)+(b/z)sinh(zt)], z²=a²-v²+2iv epsilon, b=a+iv epsilon/a. With epsilon≠0 and z=u+iw, u>0, the identity Re(b conjugate z)=u(a+w²/a)>0 yields |b-z|<|b+z|; any positive-time root would require e^(2zt)=(b-z)/(b+z), impossible by modulus. For epsilon=0, the overdamped/critical formulas stay positive, and the v>a sinusoid gives all listed simple zero times. The squared modulus derivative is a positive scalar times R cos(2wt+theta)-A(t), where A(t)=(a-u)P e^(2ut)+(a+u)Q e^(-2ut)>0 is strictly convex and tends to infinity. On each positive cosine lobe the sign function is strictly concave, so at most one increasing-modulus component. For v>a as epsilon→0, u~(v/omega)|epsilon|, w→omega, and A(t)/R→(a/v)cosh(2ut) uniformly for bounded scaled times. The unique envelope threshold gives a lobe count asymptotic and coefficient omega² arcosh(v/a)/(2 pi v). Analytic parity of |F|² and the simple symmetric zeros give minimum time shifts O_j(epsilon²) and depth O_j(|epsilon|³) after its exact linear coefficient. Independent scipy matrix exponential vs closed form agreed to <3e-12 for four cases; independent concave-lobe counts at a=1,v=2 checked representative asymmetries (epsilon=0.1 ->3 and 0.01 ->31). These finite numerics do not prove the zero-free or asymptotic statements.",
+      "residual_risks": [
+        "The asymptotic is at fixed v>a and stationary initialization, not uniform near v=a or for other noise channels.",
+        "The nonzero asymmetry all-time zero classification uses the exact Markov generator; independent numerical propagation corroborates but cannot certify all t.",
+        "The independent floating-point lobe exploration had a roundoff-sized apparent first-lobe positivity at epsilon=.002; no exact count is inferred from this artifact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng et al derives exact amplitude for asymmetric switching and short-time qualitative decoherence; the exact amplitude is prior coverage, explicitly not claimed.",
+          "Wold et al describes rate asymmetry but not the claimed global revival count; Hadipour varies initial distribution rather than stationary switching rates."
+        ],
+        "reasoning": "The strongest broader expression covers the raw dephasing factor, but its stated results do not themselves count all positive-slope intervals across unbounded time or give singular 1/epsilon coefficient. Ordinary parameter breadth is not logical theorem coverage.",
+        "searches": [
+          "Feng et al 2026 asymmetric random telegraph noise all rates coherence time dependence DOI:10.1088/1674-1056/ae0398",
+          "Wold et al arXiv:1206.2174 stationary asymmetric telegraph switching",
+          "Hadipour arXiv:2504.15808 symmetric switching nonstationary initialization"
+        ]
+      },
+      "checked_sources": [
+        "Feng et al (2026), DOI:10.1088/1674-1056/ae0398 primary full-text relevant sections",
+        "Wold et al arXiv:1206.2174 primary PDF Sec.II",
+        "Hadipour arXiv:2504.15808 primary PDF model section",
+        "Resultary published exact transition staircase for frozen discord under random-telegraph dephasing, distinct observable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feng Eq26 can be used as a starting formula; the nontrivial additional uniform scaled-time envelope comparison and the one-component-per-lobe concavity argument are not provided in the inspected claimed prior conclusions.",
+          "Hadipour changes stationary assumptions, and Wold reports the symmetric amplitude without asymmetric N(epsilon) classification."
+        ],
+        "reasoning": "There is no identified prior implication of the full N(epsilon)~C/|epsilon| assertion with the specified observable, even though exact F_epsilon(t) is known. The claim does not attempt to claim F itself as new.",
+        "searches": [
+          "DOI 10.1088/1674-1056/ae0398 exact asymmetric amplitude and discussion of figures",
+          "arXiv:1206.2174 symmetric and asymmetric model",
+          "arXiv:2504.15808 perturbation of initial populations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feng et al Eq.26 gives an algebraically equivalent expression for the same function F_epsilon, and describes numerical transient recovery, but no all-time N(epsilon) or 1/|epsilon| coefficient was read.",
+          "Symmetric noise plus depolarization/frozen discord counts a different coherence or correlation observable and a different perturbation."
+        ],
+        "reasoning": "Equivalent closed form of the input is ACKNOWLEDGED, but equivalence of formulas does not itself state the nontrivial global interval-count asymptotic or zero-rounding law. No inspected full-text theorem matched the claimed asymptotic.",
+        "searches": [
+          "\"stationary asymmetric random telegraph noise dephasing qubit zero-free coherence revivals count asymmetry rate revival intervals inverse epsilon\" (Resultary, 2026-10-28)",
+          "\"asymmetric random telegraph noise\" \"zeros\" decoherence function",
+          "DOI:10.1088/1674-1056/ae0398 equation (26)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact transition staircase concerns sudden discord-correlation switches, not coherence-modulus derivative-positive intervals.",
+          "Feng figures describe observed finite transient recovery but do not tabulate or derive total N(epsilon) for every nonzero asymmetry."
+        ],
+        "reasoning": "No matching table or database for the claimed unbounded-time exact revival count or asymptotic coefficient was located; such a negative search is not a novelty proof.",
+        "searches": [
+          "Resultary 2026-10-28 telegraph noise query; returned Exact transition staircase for frozen discord under random-telegraph dephasing",
+          "\"asymmetric telegraph noise\" \"coherence revivals\" \"count\"",
+          "Feng et al 2026 figures comparing rate asymmetry"
+        ]
+      },
+      "rationale": "Exact stationary asymmetric telegraph dephasing amplitude and qualitative suppression of transient recoherence are prior work, especially Feng et al (2026) Eq.26. Originality is assessed only for the all-time complex zero exclusion, exact inverse-rate-asymmetry growth in the number of strictly increasing coherence-modulus intervals, and fixed-zero rounding coefficient. Compared the observable and parameter perturbation with symmetric-rate nonstationary initialization (Hadipour) and a symmetric-noise frozen-discord transition-count theorem from the published corpus. Those do not entail this all-time counting formula. A further analysis of existing exact amplitude in unindexed work remains a material priority risk.",
+      "residual_risks": [
+        "Global complex-zero/revival counting under an algebraically equivalent existing dephasing expression might be in unlocated Markov-additive-process or decoherence literature.",
+        "Exact count for finite epsilon is not given by a single simple formula; the new theorem states an asymptotic count at fixed strong coupling, and source finite numerical examples alone would not prove it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_AMPLITUDE_NOT_GLOBAL_COUNT",
+          "evidence": [
+            "Equation (26) covers F_epsilon(t) already; its displayed analysis emphasizes short-time recovery and rate-asymmetry damping without a count of all strict modulus revivals or 1/epsilon asymptotic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/ae0398",
+          "material_read": "Accessible full-text indexed article material including the model, Eq.26 and discussion of transient recovery figures",
+          "method": "Read and compared explicit amplitude formula and asserted conclusions, checking counted observable and asymptotic window",
+          "title": "Quantum dephasing dynamics in the presence of asymmetric random telegraph noise",
+          "trigger": "Closest exact asymmetric model and amplitude"
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_SINGULAR_COUNT",
+          "evidence": [
+            "Thermal rate imbalance and symmetric classical telegraph coherence known; no inspected global inverse-asymmetry revival-interval theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.2174",
+          "material_read": "ArXiv PDF abstract, signal model and relevant dephasing expressions around Sec. II",
+          "method": "Compared jump rates, stationary occupations, symmetric expression and target observable",
+          "title": "Decoherence of a qubit due to a quantum fluctuator or to a classical telegraph noise",
+          "trigger": "Early asymmetric switching and stationary model"
+        },
+        {
+          "assessment": "DIFFERENT_PERTURBATION",
+          "evidence": [
+            "Takes symmetric switching with an initially nonstationary mixture; not stationary unequal jump rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.15808",
+          "material_read": "ArXiv PDF abstract and model section through its initial-distribution equation",
+          "method": "Checked whether asymmetry denotes switching rates or initial populations",
+          "title": "Quantum Speed Limits in Qubit Dynamics Driven by Bistable Random Telegraph Noise: From Markovian to Non-Markovian Regimes",
+          "trigger": "Nearby telegraph-noise memory and initial-imbalance parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md all-time lobe and local minimum arguments",
+        "Feng et al 2026 prior input amplitude and qualitative recovery",
+        "Independent tilted-generator check for representative parameters"
+      ],
+      "rationale": "Counting connected strict modulus-recovery intervals over all future times is a mathematically natural observable of a physically standard non-Gaussian dephasing model. Arbitrarily small stationary switching-rate asymmetry changes infinitely many exact zeros and revivals to a finite number without zeros; the theorem quantifies that singular crossover with a sharp nonzero rate-dependent 1/|epsilon| coefficient and resolves the local rounding of each formerly dark time. The precise global cutoff and singular count add information not provided by the already-known exact amplitude or qualitative short-time recovery figures.",
+      "residual_risks": [
+        "The result addresses one stationary classical two-state fluctuator, not general noise ensembles, quantum backflow criteria, or critical coupling scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For stationary two-state Markov switching +1->-1 at rate a-epsilon, -1->+1 at a+epsilon, a>0, |epsilon|<a and phase strength v>0, the dephasing amplitude F_epsilon(t) has no finite-time zero when epsilon!=0; for epsilon=0 it has positive zeros iff v>a, at the stated t_j. For v>a fixed, the finite number N(epsilon) of increasing-modulus time intervals obeys |epsilon|N(epsilon)->(v^2-a^2) arcosh(v/a)/(2 pi v); each symmetric zero rounds to a unique local minimum of depth [v^2(1+a t_j)e^(-a t_j)/(a(v^2-a^2))]|epsilon|+O_j(|epsilon|^3).",
+  "limitations": [
+    "The exact dephasing amplitude and qualitative asymmetry suppression were already published; these are not claimed original.",
+    "Numeric lobe exploration is finite and susceptible to machine-roundoff near t=0; claim proof is analytic.",
+    "No uniform simultaneous epsilon→0 and v→a limit, nonstationary initial mixture, or channel-capacity theorem.",
+    "Publication blocked by existing operational metadata in two publicly facing JSON files."
+  ],
+  "schema_version": 1
+}
