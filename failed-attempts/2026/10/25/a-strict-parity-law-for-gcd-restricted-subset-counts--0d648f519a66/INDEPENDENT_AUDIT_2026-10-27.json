@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:44:51.436068Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bijection by exact set gcd g yields D(n)-Phi(n)=sum_{g=2}^n (1_{g|n}-1_{gcd(g,n)=1})f(floor(n/g)). Upper/lower bounds 2^(m-1)<=f(m)<=2^m-1 make g=2 dominate all remaining strata for odd n>=11 and even n>=16; direct finite checking covers n=4,6,8,10,12,14 and 5,7,9. Expanding f(m)=2^m+O(2^floor(m/2)) and collecting g=2,3, bounding g>=4 by O(2^floor(n/4)), proves the two leading terms with absolute implied constant. Fresh independent Mobius arithmetic checked every n=4..160, including sign and the asymptotic remainder, but this finite check is not substituted for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2016 Theorem 9 includes stronger explicit inequalities on (D-f)/(Phi-f), in addition to both strict signs."
+        ],
+        "reasoning": "Theorem 9 dominates the central new strict-parity claim and settles the cited open question. The separately appended two-term pointwise expansion was not located there in the material inspected, but does not make the headline unproved or original.",
+        "searches": [
+          "Pongsriiam 2016 full Section 3.1 and Corollary 10",
+          "Pongsriiam 2013 Questions 3.1–3.3"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+        "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+        "https://arxiv.org/abs/1910.02418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both use Φ(n)=∑_{gcd(d,n)=1}f(floor n/d) and D(n)=∑_{d|n}f(n/d), then compare g=2 versus g≥3."
+        ],
+        "reasoning": "Direct substitution m=floor(n/2) into the 2016 statements produces the assigned strict inequality exactly. The new pointwise asymptotic is a simple refinement of the same first few gcd strata, and no separate revised full final claim/proof was supplied. Reject the unchanged package.",
+        "searches": [
+          "Pongsriiam Local behaviors Theorem 9 and proof equations (9)–(15)",
+          "Assigned RESULT.md step 1 exact gcd stratification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2016 Theorem 9 explicitly proves D(2m)>Phi(2m), D(2m+1)<Phi(2m+1) for all m>=2."
+        ],
+        "reasoning": "Under the assigned definitions, this is literally equivalent to (-1)^n(D(n)-Phi(n))>0 for all n>=4. Not a naming similarity or limiting heuristic: identical functions, range and strict signs.",
+        "searches": [
+          "Pongsriiam 2013, Questions 3.1 and 3.2, PDF page 9",
+          "Pongsriiam 2016 Local behaviors, Section 3.1 Theorem 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2016 Table 1 lists f,Phi,D for n≤20, but more decisively Theorem 9 proves every n≥4."
+        ],
+        "reasoning": "The coverage is a published infinite theorem, not merely previously tabulated small integers; the OEIS values alone would not have sufficed to reject originality.",
+        "searches": [
+          "Pongsriiam 2016 Table 1 and Theorem 9",
+          "OEIS A224840 as referenced in 2013 and 2016"
+        ]
+      },
+      "rationale": "Failed on decisive published prior theorem: Pongsriiam 2016 Theorem 9 proves the identical all-n strict alternation under identical f,Phi,D definitions, with a quantitative stronger comparison. The remaining pointwise two-term expansion is not enough to restore originality of the original prominently claimed resolution.",
+      "residual_risks": [
+        "Pongsriiam 2016 is decisive earlier strict-sign coverage, not a residual risk. The submitted new two-scale pointwise term is not shown to appear verbatim in 2016; a separately prepared substantial new theorem would need fresh scientific and priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERS the main universal strict-parity theorem: Theorem 9 explicitly states D(2n)>Phi(2n) and D(2n+1)<Phi(2n+1) for every n>=2. Earlier than the assigned 2026 claim.",
+          "evidence": [
+            "Theorem 9 and proof in Section 3.1, 2016 Int. J. Number Theory 12(6):1575–1593, DOI:10.1142/S1793042116500962; author uploaded full text Aug 4, 2016."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+          "material_read": "Author-provided complete article text; introduction, Section 3.1, Theorem 9 and all its stratum-comparison proof through Corollary 10; source identifies 2016 journal volume",
+          "method": "Read original definitions f,Phi,D and precise quantified theorem, not merely a snippet/title",
+          "title": "Local behaviors of the number of relatively prime sets",
+          "trigger": "Direct earlier source on D(n)-Phi(n) alternation missing from assigned bibliography"
+        },
+        {
+          "assessment": "The 2013 question was real then but the later 2016 paper by the same author answered it; citing only 2013 creates incorrect priority narrative.",
+          "evidence": [
+            "Question 3.1 asks whether the sign alternates for all n>=4; 2016 Theorem 9 answers affirmatively."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+          "material_read": "Original PDF definitions, divisor-count identities, page 9 Questions 3.1–3.2, screenshot of page 9",
+          "method": "Read PDF text and image to distinguish original open question from its 2016 solution",
+          "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+          "trigger": "2013 motivating question explicitly claimed to be answered"
+        },
+        {
+          "assessment": "Independent bibliographic cross-check corroborates 2016 paper presence; no full-document noncoverage claim.",
+          "evidence": [
+            "2019 reference [4] explicitly cites Local behaviors..., Int. J. Number Theory 12(6), 2016, 1575–1593."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.02418",
+          "material_read": "Accessible abstract and reference list naming Pongsriiam 2016; not complete primary body",
+          "method": "Bibliographic verification of already-published solved sign question",
+          "title": "On Some Properties of the Function of the Number of Relatively Prime Subsets",
+          "trigger": "Follow-up arithmetical inequalities related to f(n)"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The main motivating strict-sign question had already been settled by the same author in 2016. The residual two-scale asymptotic is a correct arithmetic refinement, but it follows by isolating two small-gcd strata of a previously known exact formula and does not by itself sustain the submission’s claimed resolution of an open parity problem or a separately developed new invariant. This is a value rejection for the unchanged combined claim, not a claim that all asymptotics are worthless.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+    "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+    "https://arxiv.org/abs/1910.02418"
+  ],
+  "disposition": "failed",
+  "final_claim": "For f(n) counting gcd-one nonempty subsets, D(n)=sum_{d|n}f(d), Phi(n) counting subsets coprime to n, claim strict (-1)^n(D(n)-Phi(n))>0 for every n>=4 together with a two-scale pointwise expansion led by 2^floor(n/2) and a 2^floor(n/3) correction.",
+  "limitations": "Definitions are nonempty subsets of [1,n] and exact gcd criteria. Rejection on originality uses published 2016 Theorem 9, not failure of mathematics. Two-term remainder is not shown covered by that source and could be evaluated separately only under a new substantive full final claim. No repair was undertaken because the principal original claim was already covered. Raw blobs not separately SHA1 rehashed. Publication withheld.",
+  "residual_risks": [
+    "Pongsriiam 2016 is decisive earlier strict-sign coverage, not a residual risk. The submitted new two-scale pointwise term is not shown to appear verbatim in 2016; a separately prepared substantial new theorem would need fresh scientific and priority assessment."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVELY COVERS the main universal strict-parity theorem: Theorem 9 explicitly states D(2n)>Phi(2n) and D(2n+1)<Phi(2n+1) for every n>=2. Earlier than the assigned 2026 claim.",
+      "evidence": [
+        "Theorem 9 and proof in Section 3.1, 2016 Int. J. Number Theory 12(6):1575–1593, DOI:10.1142/S1793042116500962; author uploaded full text Aug 4, 2016."
+      ],
+      "identifier_or_url": "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+      "material_read": "Author-provided complete article text; introduction, Section 3.1, Theorem 9 and all its stratum-comparison proof through Corollary 10; source identifies 2016 journal volume",
+      "method": "Read original definitions f,Phi,D and precise quantified theorem, not merely a snippet/title",
+      "title": "Local behaviors of the number of relatively prime sets",
+      "trigger": "Direct earlier source on D(n)-Phi(n) alternation missing from assigned bibliography"
+    },
+    {
+      "assessment": "The 2013 question was real then but the later 2016 paper by the same author answered it; citing only 2013 creates incorrect priority narrative.",
+      "evidence": [
+        "Question 3.1 asks whether the sign alternates for all n>=4; 2016 Theorem 9 answers affirmatively."
+      ],
+      "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+      "material_read": "Original PDF definitions, divisor-count identities, page 9 Questions 3.1–3.2, screenshot of page 9",
+      "method": "Read PDF text and image to distinguish original open question from its 2016 solution",
+      "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+      "trigger": "2013 motivating question explicitly claimed to be answered"
+    },
+    {
+      "assessment": "Independent bibliographic cross-check corroborates 2016 paper presence; no full-document noncoverage claim.",
+      "evidence": [
+        "2019 reference [4] explicitly cites Local behaviors..., Int. J. Number Theory 12(6), 2016, 1575–1593."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1910.02418",
+      "material_read": "Accessible abstract and reference list naming Pongsriiam 2016; not complete primary body",
+      "method": "Bibliographic verification of already-published solved sign question",
+      "title": "On Some Properties of the Function of the Number of Relatively Prime Subsets",
+      "trigger": "Follow-up arithmetical inequalities related to f(n)"
+    }
+  ]
+}
