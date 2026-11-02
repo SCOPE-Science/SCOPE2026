@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For a nonempty digram set E, realizability is a directed covering walk on the looped simple digraph. Its SCC condensation is necessarily a path with precisely one inter-component arc on each transition, and this condition is sufficient. On at most three active vertices every strong component has balanced internal edges, except a 3-vertex strong component whose imbalances are in {-1,0,1} and sum to zero. Hence a directed Euler trail traverses all distinct arcs exactly once, yielding shortest length |E|+1. Classification by active vertices and SCC block sizes yields the explicit generating polynomial with coefficients 1,9,21,44,72,81,60,30,9,1 and total 328. The sole acyclic feasible digraphs are one empty, six single arcs, six oriented three-vertex paths; all other 315 supports admit an arbitrary-length extension from a cyclic terminal SCC or loop. Every n>=10 realizes all 315; no n<10 realizes the full 9-arc set. The four-letter word 02103101 gives six arcs with imbalance +2,-2 and exact minimum length 8. Standard-library independent word enumeration through length 10 and finite-state support-last-letter closure, executed from the included verify.py, reproduce all counts and witness claims. All-length statements are proved structurally, not extrapolated from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al. give a general shortest walk algorithm and an O(k+n^2) output length bound, including cases that repeat arcs. Lemma 8 concerns strong graphs without sources/sinks and multiple distinct walks, not alphabet-three edge uniqueness."
+      ],
+      "reasoning": "A general algorithm for any alphabet solves each instance but does not assert that no repetition is necessary at exactly three symbols, nor give the 328-count and exact-length persistence. These require the explicit small-component combinatorial analysis; there is no literal stronger theorem in the inspected primary text that implies the numerical claims without new evaluation.",
+      "searches": [
+        "three-letter directed support graphs Euler trail any walk edge-disjoint compression 3 and 4 letters threshold",
+        "k-mer set support feasibility directed graph strongly connected component path",
+        "minimal length of ternary words realizing all feasible digram support patterns",
+        "On Strings Having the Same Length-k Substrings Lemmas 1-9"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+      "https://arxiv.org/abs/2411.02125",
+      "https://arxiv.org/abs/1804.04548",
+      "Indexed finding: Exact binary two-multispectrum code size and singleton classification",
+      "published-finding corpus semantic searches presence-only two-gram support of ternary words exact 328 realizable 315 persistent",
+      "published-finding corpus semantic searches three-letter directed support graphs Euler trail any walk edge-disjoint compression 3 and 4 letters threshold",
+      "Web searches: \"328\" \"315\" digram support ternary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabrys–Milenkovic treats counted substring spectra and uniqueness under multiset observations. Celikkanat–Masegosa–Nielsen uses k-mer profiles for genome representations. Bernardini et al. shortest set-equivalent string computes a shortest covering walk for arbitrary input."
+      ],
+      "reasoning": "Counted multispectra are a strictly finer equivalence relation and do not supply the exact presence-only count. General graph-walk algorithms can be applied to derive each minimum, but without the small-alphabet degree argument and combinatorial case count they do not imply the closed enumerator or universal one-edge-per-factor theorem. The 2026 shortest-walk algorithm is credited as a broader method.",
+      "searches": [
+        "k-mer set support feasibility directed graph strongly connected component path",
+        "minimal length of ternary words realizing all feasible digram support patterns",
+        "\"bigram\" \"presence\" \"3\" \"Euler\" shortest word",
+        "2018 multiset spectra https://arxiv.org/abs/1804.04548",
+        "2024 k-mer representation https://arxiv.org/abs/2411.02125"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new observation is equality of the sets of adjacent length-two substrings, represented by unlabeled-edge-presence digraphs on three labeled vertices. Bernardini et al. Section 3 and 4 identifies set-valued k-spectrum shortest realizations with Eulerian covering walks."
+      ],
+      "reasoning": "The same-object reduction and synonymous queries for 2-spectrum, digram sets, k-mer support, and directed Eulerian walks were checked. The general correspondence is prior art; the special ternary Euler-*trail* result and counts were not stated in inspected material.",
+      "searches": [
+        "presence-only two-gram support of ternary words exact 328 realizable 315 persistent",
+        "ternary digram support sets binary occurrence presence length exactly classification",
+        "ternary length 2 substring support possible 3 letter words supports Euler trail bound",
+        "\"ternary\" \"Eulerian\" \"shortest\" \"digram\"",
+        "arxiv/doi source https://link.springer.com/article/10.1007/s00224-025-10240-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted publication and research-index searches for the constants 328,315, and full profile returned no equivalent table. Nearest indexed result is a binary length-two *multispectrum* count, which records multiplicities."
+      ],
+      "reasoning": "The exact 328-support table and 13/315 split were neither found as a table nor read in a primary source. This is a limited priority search, not a proof that no such table exists.",
+      "searches": [
+        "presence-only two-gram support of ternary words exact 328 realizable 315 persistent",
+        "binary ternary bigram presence support count all 512 directed graphs",
+        "\"328\" \"315\" digram support ternary",
+        "\"328\" \"substring sets\" ternary words",
+        "published-finding corpus nearest Exact binary two-multispectrum code size and singleton classification"
+      ]
+    },
+    "rationale": "General set-valued k-substring shortest-string reconstruction via Eulerian covering walks and min-cost flow was already established by Bernardini et al. (preliminary CPM 2022), and is fully acknowledged. Their inspected accessible full text has no alphabet-three lossless-edge theorem, 328 support enumerator, fixed-length 315/13 persistence classification, or four-letter sharp obstruction. Recent genome k-mer representations are generally frequency-aware and provide motivation rather than this enumeration. The recovered nearest historical exact binary two-multispectrum result counts digram frequencies, which is not the binary digram presence set and does not imply the ternary classification. Actual targeted published-finding corpus queries and primary literature/search-engine searches found no equivalent or stronger claim. Limited coverage of unindexed results and an implicit special case of the general algorithm remain disclosed risks.",
+    "residual_risks": [
+      "Unindexed or older exact enumeration of labeled three-vertex digraphs admitting a covering walk may already list 328 or equivalent counts.",
+      "The general graph-walk framework may make this special case accessible to existing software or an implicit consequence; the exact statements were not encountered in the inspected primary paper.",
+      "No independent third-party mathematical audit or complete bibliographic priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General covering-walk framework and shortest algorithms already known; no explicit q=3 exact 328 table or lossless Euler-trail/compression statement identified",
+        "evidence": [
+          "Sections 3.1 and 4.1, Lemmas 1,3,5,8,9; abstract states shortest S_k equivalent strings and directed Chinese Postman reduction",
+          "Preliminary CPM 2022 version explicitly acknowledged"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+        "material_read": "Abstract; introduction; preliminaries and directed-graph correspondence; shortest Eulerian walk reduction; lemmas 1-9, discussion of cycles and append/prepend extensions, and searches for ternary and SCC special cases",
+        "method": "Full openly accessible HTML scientific text, section and lemma inspection, targeted in-document search",
+        "title": "On Strings Having the Same Length-k Substrings",
+        "trigger": "Exact set-valued substring reconstruction object and shortest realizing strings"
+      },
+      {
+        "assessment": "Genome profile representation and information loss are motivating context; no enumerative ternary presence-only result",
+        "evidence": [
+          "arXiv v1 submission 2024-11-04 14:36:51 UTC",
+          "Methods use k-mer compositions; the theorem here uses support-only observations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.02125",
+        "material_read": "Original v1 arXiv abstract and experimental HTML methodological introduction and profile definitions",
+        "method": "arXiv original upload metadata and public full-text HTML",
+        "title": "Revisiting K-mer Profile for Effective and Scalable Genome Representation Learning",
+        "trigger": "A post-2024 public k-mer representation source motivating the recent problem"
+      },
+      {
+        "assessment": "Counted multisets rather than pure presence supports; does not imply the ternary exact count",
+        "evidence": [
+          "Distinct substring multiplicities are retained in the multiset observation",
+          "2018 first publication, used as background only"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.04548",
+        "material_read": "Abstract and introductory reconstruction model defining multiset substring observation",
+        "method": "arXiv accessible research text",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Plausible alternate multispectrum reconstruction terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9ae7ba8-d421-4a5b-bf34-9f4e014fb264",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The alphabet-three versus alphabet-four threshold is a natural structural boundary of a standard reconstruction observable; all feasible ternary digram presence profiles admit lossless single-visit realizations, a property false for the next alphabet. The exact labeled classification and sharp fixed-length 315-class stabilization give motivated values for both minimal strings and finite-alphabet support-only reconstruction, and are not merely a reformulation of generic Eulerian-walk computability.",
+    "status": "PASS"
+  }
+}
