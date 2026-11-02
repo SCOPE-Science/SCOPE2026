@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The labelled idempotent-map decomposition is exact, with finite factorial moments proved by marked-component selection. The exact adjacent root-count ratio, strict log-concavity, and explicit exponentially suppressed tails establish concentration of the root count. Conditional balls-into-bins first and second moments prove the sharp normalizer \((\log n)^{s+1}/s!\) for every fixed \(s\). A finite-round EF strategy proves the specified complete first-order limit theory, and compactness transfers the high-probability multiplicity statements to every sentence. The source checker enumerates all labelled maps up to six points and confirms the first two exact factorial moments independently; finite checks alone do not establish the asymptotic statements.
+## correctness
 
-**Originality (PASS, with explicit priority risk).** Koponen's October 2026 primary text treats bounded-parent, bounded-height DAGs in a deterministic framework for \(\omega\)-categorical finite-model properties, rather than the uniform labelled star measure with polylogarithmic component counts and a non-\(\omega\)-categorical almost-sure theory. Harris–Schoenfeld's classical idempotent counts, Compton's general component and zero–one-law research, and unrestricted random-mapping distributions were considered by mathematical implication, not title. None of the accessible inspected primary material contains the complete combined theorem. Compton and Harris–Schoenfeld full texts could not be inspected; a general known assembly theorem might imply all or some probabilistic statements, so historical priority is conditional on more complete literature access.
+PASS
 
-**Value (PASS).** The uniform finite height-one, one-parent DAG class is a natural model-theoretic test case, not an arbitrary restricted parameter choice. The exact polylogarithmic frequency profile controls every finite component type and determines the complete first-order almost-sure theory. The explicit theory has FMP but is not \(\omega\)-categorical, distinguishing random typicality from the deterministic \(\omega\)-categorical setting of recent work. No claim of a broader structural theorem or publication-scale significance is needed.
+For a uniformly labelled idempotent map f:[n]->[n], k roots yield exactly binom(n,k)k^(n-k) maps and the labelled species exp(z exp(z)). Choosing ordered disjoint (s+1)-element stars yields the exact factorial-moment identity (n)_(j(s+1)) I_(n-j(s+1))/(s!)^j. The adjacent k-weight ratio is strictly decreasing; log ratio expansion near r+2log r=log n+1 places k at n/r with n/K_n=r+o_P(1). Conditional multinomial allocation of n-k leaves among k roots gives mean ~r^(s+1)/s! and vanishing relative variance for fixed s; the explicit second factorial moment validates the concentration. The displayed ratio and log-concavity control the tails by a decaying geometric series (n/r^3 -> infinity), not merely a local saddle heuristic. A q-round component-matching Ehrenfeucht-Fraisse argument for each fixed q proves completeness of the limit theory; finite subsets of star-multiplicity axioms hold w.h.p., implying the FO zero-one law by compactness. Finite model property follows from finite unions of required stars; infinitely many finite star-size 1-types preclude omega-categoricity. Boundaries n>=1, s fixed, no uniform s(n) claim. Proof is coherent on all quantifiers and boundaries.
 
-**Closely related work and limits.** Koponen (2026), Example 2.2, supplies the natural DAG context. Harris–Schoenfeld (1967) supplies historical enumeration context, not a newly attributed result. Compton's distribution techniques are a possible general dominating approach. The proved concentration is for fixed component sizes, and the quantitative first-order convergence rate is not given.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Harris-Schoenfeld already count labelled idempotent transformations, and Sachkov analyzes the number of fixed points: neither accessible statement gives the fixed-s small-component asymptotic, specified limit theory, and non-omega-categoricity as a combined classification. Koponen Example 2.2 provides deterministic bounded-parent height-one structures and FMP background, not this uniform labelled random limit. Compton's component-method literature may imply the logical zero-one consequence abstractly, but this does not by itself supply the exact (log n)^(s+1)/s! normalization. Claiming independently novel species enumeration or the general EF technique would be inappropriate; novelty is the model-specific combined sharp small-star law and logical classification, subject to the inaccessible historic primary literature.
+
+## value
+
+PASS
+
+The natural random idempotent map class has a sharp vector of logarithmic-size star multiplicities and an explicitly identified first-order almost-sure theory. The constants 1/s! and non-omega-categoricity distinguish it from mere total enumeration or a formal textbook example; this provides asymptotic counts of genuinely definable finite components plus a complete logical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
