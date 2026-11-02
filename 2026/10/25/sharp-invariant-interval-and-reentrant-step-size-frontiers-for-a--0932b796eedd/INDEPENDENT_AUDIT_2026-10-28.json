@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:50:10.976645Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 85f7fbdd54e323f11e24a3e6e3a509a025fd39f2",
+        "Independently verified Git tree e37f5b83a936968fd5b37b65f9f9c5d1287fc339",
+        "independent_checks.py and independent_check_results.json"
+      ],
+      "rationale": "From homogeneous BDF1 half-step and doubly stabilized CN endpoint, m=u+h u(1-u²)/(2+sh) and Phi=[(1/h+vh-s/2)u+(s+1)m-m³]/(1/h+vh+s/2). For s>=2, delta<1/2, e=delta u(1+u), m=u+(1-u)e, and R(u)=s e+m(1+m)(1-e) is strictly increasing on [0,1], since R'= (s-m(1+m))e'+(1-e)(1+2m)m'>0. Thus Phi([0,1]) subset [0,1] iff a+s/2>=R(1), algebraically Q>=0; Q<0 yields open overshoot near 1. For s<s_c, replacing h by inverse t shows the positive threshold F_s has one maximum (strict decreasing cubic derivative); reentrance has exactly two roots below v_*(s). Boundary s=2 gives v*=1/4 and s>=s_c all steps safe. With interval invariance, strict inward motion guarantees convergence by monotone bounded iteration. Independently checked derivative identity symbolically and exact offending u=9/10,s=4,v=0,h=2 giving Phi=313211996289/312500000000>1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CN/AB reversal model extrapolates a different preceding state and is two-step.",
+          "Full spatial-grid MBP theorem has stronger spatial scope but only restricted sufficient parameters, so it does not dominate the sharp scalar iff frontier."
+        ],
+        "reasoning": "Neither general domain nor broader terminology implies the new necessity or two positive h roots.",
+        "searches": [
+          "Resultary CN/AB reversal threshold 2026/9/18; BE-filtered CN lattice positivity 2026/9/20",
+          "Hou–Ju–Qiao Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 85f7fbdd54e323f11e24a3e6e3a509a025fd39f2",
+        "Pinned verify.py 0b049a1451514d89a00123fa4d4017c5c20a2e09",
+        "Hou–Ju–Qiao arXiv:2310.19663 eq(2.11),Thm2.1",
+        "Resultary CNAB reversal and CN positivity analogues",
+        "Independent symbolic assertions and exact rational witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1: when S2=0, τ<=2/(S1+4L eps²/h_grid²); unconditional if S2>=(S1/4+L eps²/h_grid²)².",
+          "Homogeneous scalar inequality Q>=0 permits S2=0 for S1>=4+2sqrt2 and can lose and regain safety when S2>0."
+        ],
+        "reasoning": "A one-sided sufficient bound cannot logically yield the exact necessary limit, especially large-step reentrance; the result has a genuinely distinct implication.",
+        "searches": [
+          "Hou–Ju–Qiao equations (2.11) / Theorem 2.1",
+          "CN/AB separate scheme literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source equations (2.11a,b) match after homogeneous reduction.",
+          "Original Theorem 2.1 supplies only sufficient bounds on S1,S2 and h."
+        ],
+        "reasoning": "Numerical maximum-bound/positivity is related vocabulary, but no source with the exact scalar Q polynomial or necessary/sufficient reentrant frontier appeared.",
+        "searches": [
+          "Resultary query: Allen Cahn doubly stabilized Crank Nicolson scalar homogeneous invariant interval reentrant time step necessary sufficient maximum bound",
+          "arXiv:2310.19663 (original source)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original paper table and formulas concern sufficient S1,S2 and grid spacing; do not state threshold v_*(s) or reentrant interval."
+        ],
+        "reasoning": "No actual known table of exact homogeneous safe-step sets found in examined material; no global search completeness claim.",
+        "searches": [
+          "Resultary semantic Allen-Cahn CN stabilization and step safety",
+          "arXiv:2310.19663 Theorem 2.1 and numerical section"
+        ]
+      },
+      "rationale": "Hou–Ju–Qiao 2023 original equations (2.11a,b) and Theorem 2.1 establish a sufficient full-grid maximum-bound condition, not necessary/sufficient homogeneous scalar conditions. Their unconditional sufficient bound in second stabilization includes mesh dependence. The current statement exactly restricts to spatially homogeneous solutions and adds necessity plus a reentrant safe-unsafe-safe step interval. Prior CN/AB two-level results use different extrapolation and cannot be substituted. Qualified best-of-knowledge assessment.",
+      "residual_risks": [
+        "Scalar necessity does not imply full spatial-grid sufficiency, even for periodic/Neumann conditions.",
+        "Published equivalent scalar phase analysis may exist with alternative S1/S2 conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary method matches; source proves parameter sufficiency on full grid, not sharp iff homogeneous scalar step set.",
+          "evidence": [
+            "web ; screenshots  and "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.19663",
+          "material_read": "PDF pp. 5–7; Eq. (2.11a,b), Theorem 2.1, its proof and matrix arguments",
+          "method": "web PDF text plus mandatory page screenshots pp.6–7",
+          "title": "A linear doubly stabilized Crank–Nicolson scheme for the Allen–Cahn equation with a general mobility",
+          "trigger": "Identical time integrator and possible domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Mathematical motivation and non-implication reasoning in originality comparisons",
+        "Reviewed exact theorem / scope / boundaries in RESULT.md"
+      ],
+      "rationale": "A sharp invariant-region threshold for the actual published integrator is structurally meaningful: it distinguishes necessary homogeneous restrictions from conservative sufficient gridwise conditions, gives explicit unsafe data, and discovers nonmonotone step-size safety. This is a natural numerical-analysis phase diagram with practical diagnostic use.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 85f7fbdd54e323f11e24a3e6e3a509a025fd39f2",
+    "Pinned verify.py 0b049a1451514d89a00123fa4d4017c5c20a2e09",
+    "Hou–Ju–Qiao arXiv:2310.19663 eq(2.11),Thm2.1",
+    "Resultary CNAB reversal and CN positivity analogues",
+    "Independent symbolic assertions and exact rational witness"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is conditional, not a priority certification.",
+    "Bounded independent computational checks corroborate, not replace, all-parameter mathematical proofs.",
+    "Scalar necessity does not imply full spatial-grid sufficiency, even for periodic/Neumann conditions.",
+    "Published equivalent scalar phase analysis may exist with alternative S1/S2 conventions."
+  ],
+  "residual_risks": [
+    "Scalar necessity does not imply full spatial-grid sufficiency, even for periodic/Neumann conditions.",
+    "Published equivalent scalar phase analysis may exist with alternative S1/S2 conventions."
+  ],
+  "schema_version": 1
+}
