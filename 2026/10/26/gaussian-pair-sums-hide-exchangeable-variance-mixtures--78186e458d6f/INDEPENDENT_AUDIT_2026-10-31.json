@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:41:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on (V,Z), the Xi are iid N(sqrt(1-2V) Z/2,V). Conditional on V, Xi+Xj is centered Gaussian of variance (1-2V)+2V=1 for every distinct i,j. Direct conditional covariances give diagonal 1/4+EV/2 and off-diagonal 1/4-EV/2. A centered normal variance mixture has fourth cumulant 3 Var((1+2V)/4)=3 Var(V)/4, strictly positive if rho is not a point mass. The difference cancels Z and has conditional char fn exp(-V t^2), the Laplace transform uniquely determines the finite mixing law. Independent Fraction arithmetic checked both explicit examples, including cumulants 0 and 3/256. These are exact algebraic calculations, not a finite experiment in place of a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zheng–Zhou explicitly assumes joint Gaussianity of one pair; the constructed pair has non-Gaussian marginals for nondegenerate rho.",
+          "Evans–Zhou only proves general partial-sum nonidentifiability via a different nonnormal law."
+        ],
+        "reasoning": "Neither theorem entails that a Gaussian marginal PAIR SUM together with the covariance matrix admits this continuously parametrized non-Gaussian realization and difference-law inversion.",
+        "searches": [
+          "arXiv:2606.25976 theorem abstract",
+          "arXiv:2610.18992 abstract",
+          "Evans–Zhou 1999 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Identifiability of exchangeable sequences with identically distributed partial sums: https://www.maths.tcd.ie/EMIS/journals/EJP-ECP/article/download/1000/1000-3365-1-PB.pdf",
+        "Gaussian rigidity for infinite exchangeable sequences: arXiv:2606.25976",
+        "On rigidity of infinite exchangeable sequences: arXiv:2610.18992"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constructed non-Gaussian pair law violates the joint-Gaussian premise of Zheng–Zhou.",
+          "The 1999 examples establish existence of distinct exchangeable laws with equal all-n partial sums but do not imply this particular exact normal-sum law or its identifying difference transform."
+        ],
+        "reasoning": "A general negative answer to a broader IDENTIFIABILITY QUESTION is not the same as a stronger theorem furnishing these precise analytic covariance-matched Gaussian-sum examples.",
+        "searches": [
+          "Zheng Zhou Gaussian rigidity arXiv:2606.25976",
+          "Evans Zhou DOI:10.1214/ECP.v4-1000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1999 counterexample uses piecewise-linear characteristic functions to hide full partial-sum laws, not normal pair sums.",
+          "Our conditional variance compensation fixes N(0,1) for pair sums while differences give a Laplace transform."
+        ],
+        "reasoning": "Aldous-style sum identifiability and finite-coordinate Gaussian rigidity are closest aliases. Neither inspected statement is equivalent to the exact conditional-Gaussian one-parameter kernel family.",
+        "searches": [
+          "Infinitely exchangeable non-Gaussian sequences with all pair sums Gaussian N(0,1), scale mixtures covariance matched, pair differences Laplace identifiability.",
+          "Gaussian pair projection vs jointly Gaussian exchangeable pair",
+          "Evans and Zhou 1999 section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest results were different exchangeable Bernoulli exact-count envelopes and nonidentifiability problems; no matching Gaussian sum/covariance/difference entry."
+        ],
+        "reasoning": "No natural finite lookup table controls arbitrary Borel mixing laws. Failure of the database search does not establish publication priority.",
+        "searches": [
+          "Infinitely exchangeable non-Gaussian sequences with all pair sums Gaussian N(0,1), scale mixtures covariance matched, pair differences Laplace identifiability.",
+          "Resultary semantic query Infinitely exchangeable non-Gaussian sequences with all pair sums Gaussian N(0,1), scale mixtures covariance matched, pair differences Laplace identifiability."
+        ]
+      },
+      "rationale": "Zheng–Zhou prove rigidity from JOINT bivariate Gaussianity, which does not follow from a single Gaussian sum and second moments. Evans–Zhou (1999) construct different exchangeable laws sharing EVERY partial-sum distribution, using piecewise-linear characteristic functions, but do not provide Gaussian pair sums or the same-mean covariance match and Laplace-identifying difference family. Newman 2026 addresses finite-coordinate joint marginals and directing-law recovery, not this one-dimensional projection. No exact construction located by targeted semantic searches. Best-of-knowledge novelty limited to this specific natural Gaussian-projection counterfamily, not general nonidentifiability.",
+      "residual_risks": [
+        "Elementary normal variance-compensation construction might appear in classical probability or unpublished notes under different terminology.",
+        "Newman (2026) full text not inspected; comparisons to that work are abstract-scoped.",
+        "No classification of arbitrary exchangeable laws with normal pair sums; only this constructed family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different non-Gaussian piecewise-linear characteristic-function construction; does not state the Gaussian pair-sum family",
+          "evidence": "Sections 1–2 define four piecewise-linear characteristic functions and two mixture laws with identical all-order partial sums.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/EJP-ECP/article/download/1000/1000-3365-1-PB.pdf",
+          "material_read": "Complete five-page primary article, introduction, Section 2 example, and Section 3 identification conditions",
+          "method": "Public lawful PDF extracted text; inspected primary construction",
+          "title": "Identifiability of exchangeable sequences with identically distributed partial sums",
+          "trigger": "Exact same exchangeable partial-sum observation problem"
+        },
+        {
+          "assessment": "Requires jointly Gaussian pair; no all-pairs scalar-sum sufficiency",
+          "evidence": "Abstract: joint Gaussianity of a single pair forces the whole infinite exchangeable process Gaussian.",
+          "identifier_or_url": "arXiv:2606.25976",
+          "material_read": "Published abstract and theorem description; PDF inaccessible",
+          "method": "arXiv abstract and bibliographic page",
+          "title": "Gaussian rigidity for infinite exchangeable sequences",
+          "trigger": "Joint-vs-projection Gaussian rigidity boundary"
+        },
+        {
+          "assessment": "Finite-coordinate joint-marginal identifiability; possible uninspected overlap preserved",
+          "evidence": "Abstract: three/four-coordinate uniqueness under kernel hypotheses; no scalar Gaussian pair-sum formula.",
+          "identifier_or_url": "arXiv:2610.18992",
+          "material_read": "Published abstract, not full 45-page paper",
+          "method": "arXiv abstract and bibliographic page",
+          "title": "On rigidity of infinite exchangeable sequences",
+          "trigger": "Potential stronger identifiability of directing mixtures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit infinite exchangeable counterfamily locates a sharp observational weakness immediately adjacent to published Gaussian rigidity: scalar Gaussianity of every pair sum plus the whole covariance matrix cannot force Gaussian process structure. The opposing difference law exactly identifies the hidden variance mixing measure. A continuum of laws and explicit Gaussian/non-Gaussian pair give a meaningful testable distinction rather than a routine normalization check; nonidentifiability in general is not newly claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For arbitrary Borel law rho on (0,1/2), the indicated infinite exchangeable conditional-Gaussian sequence has all pair sums N(0,1), covariance determined by E V alone, marginal fourth cumulant 3 Var(V)/4, and pair-difference characteristic transform int exp(-v t^2)rho(dv) identifying rho. Gaussian and non-Gaussian covariance-matched examples exist.",
+  "limitations": [
+    "Elementary normal variance-compensation construction might appear in classical probability or unpublished notes under different terminology.",
+    "Newman (2026) full text not inspected; comparisons to that work are abstract-scoped.",
+    "No classification of arbitrary exchangeable laws with normal pair sums; only this constructed family."
+  ],
+  "schema_version": 1
+}

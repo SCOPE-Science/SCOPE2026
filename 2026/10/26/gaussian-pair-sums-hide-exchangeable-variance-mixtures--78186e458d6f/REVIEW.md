@@ -1,19 +1,21 @@
-# Scientific review: Gaussian pair sums hide exchangeable variance mixtures
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-Conditioning on \(V\) makes the pair sum a centered normal with variance \(1-2V+2V=1\). Conditional iid sampling given \((V,Z)\) establishes infinite exchangeability. The marginal variance and pair covariance depend only on \(\mathbb EV\); the fourth-cumulant identity \(3\operatorname{Var}(V)/4\) proves non-Gaussianity for every non-point mixing law. The pair-difference characteristic function is the Laplace transform of \(\rho\), which is unique on bounded support. The explicit rational example is checked by the included standard-library script.
+PASS
 
-## Originality (O): PASS, with residual priority risk
+Conditional on (V,Z), the Xi are iid N(sqrt(1-2V) Z/2,V). Conditional on V, Xi+Xj is centered Gaussian of variance (1-2V)+2V=1 for every distinct i,j. Direct conditional covariances give diagonal 1/4+EV/2 and off-diagonal 1/4-EV/2. A centered normal variance mixture has fourth cumulant 3 Var((1+2V)/4)=3 Var(V)/4, strictly positive if rho is not a point mass. The difference cancels Z and has conditional char fn exp(-V t^2), the Laplace transform uniquely determines the finite mixing law. Independent Fraction arithmetic checked both explicit examples, including cumulants 0 and 3/256. These are exact algebraic calculations, not a finite experiment in place of a general proof.
 
-The closest primary result is Zheng–Zhou’s theorem that joint Gaussianity of one pair forces an infinite exchangeable sequence to be Gaussian. That theorem assumes the full pair is jointly Gaussian; it does not imply that a single Gaussian linear projection plus second-order covariance data identifies the pair law. Evans–Zhou establish the broader, classical failure of identifying exchangeable sequences from all partial-sum laws in general, but their inspected counterexample does not provide this exact Gaussian pair-sum family or the difference-Laplace recovery. Targeted semantic and literature searches found no direct match. A similar construction under another name may exist; the novelty claim is restricted to the explicit Gaussian sum/covariance-matched family and its identifying difference law.
+## originality
 
-## Value (V): PASS
+PASS
 
-The construction gives an exact diagnostic boundary for Gaussian rigidity: the pair-sum law and the entire covariance matrix can coincide for a Gaussian process and a non-Gaussian infinite exchangeable process. It also gives a natural identifying contrast within the family, since pair differences recover the latent mixing law by a Laplace transform. The result is a reusable all-parameter family, not a finite simulation or a claim that one example settles arbitrary exchangeable models.
+Zheng–Zhou prove rigidity from JOINT bivariate Gaussianity, which does not follow from a single Gaussian sum and second moments. Evans–Zhou (1999) construct different exchangeable laws sharing EVERY partial-sum distribution, using piecewise-linear characteristic functions, but do not provide Gaussian pair sums or the same-mean covariance match and Laplace-identifying difference family. Newman 2026 addresses finite-coordinate joint marginals and directing-law recovery, not this one-dimensional projection. No exact construction located by targeted semantic searches. Best-of-knowledge novelty limited to this specific natural Gaussian-projection counterfamily, not general nonidentifiability.
 
-## Closest literature and limitations
+## value
 
-The result does not classify all exchangeable processes with Gaussian pair sums and does not produce a non-Gaussian process with Gaussian one-dimensional marginals. The full joint law of overlapping pair sums is not asserted to be the same across mixing laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit infinite exchangeable counterfamily locates a sharp observational weakness immediately adjacent to published Gaussian rigidity: scalar Gaussianity of every pair sum plus the whole covariance matrix cannot force Gaussian process structure. The opposing difference law exactly identifies the hidden variance mixing measure. A continuum of laws and explicit Gaussian/non-Gaussian pair give a meaningful testable distinction rather than a routine normalization check; nonidentifiability in general is not newly claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
