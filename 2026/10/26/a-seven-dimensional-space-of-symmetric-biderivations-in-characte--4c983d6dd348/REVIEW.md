@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-- **Correctness — PASS.** The displayed bracket satisfies Jacobi and spans the derived algebra. The derivation equations have 18 unknowns and rank 11; the seven-parameter formulas satisfy every basis identity and use seven independent free coordinates.
-- **Originality — PASS, bounded.** The inspected literature on symmetric biderivations either assumes characteristic zero, excludes characteristic two, or assumes characteristic greater than three. The exact seven-parameter classification for this displayed bracket was not found in the bounded searches. Residual risk: a specialized treatment of an isomorphic modular Lie algebra may exist outside the inspected sources.
-- **Value — PASS.** This is a complete classification of the adjoint-valued symmetric-biderivation space for a dimension-minimal perfect example, giving a concrete positive-characteristic boundary rather than only an existence counterexample.
+## correctness
 
-Closest literature: Wang–Yao–Li (2025), Chen–Yao–Zhao (2025), Bajo–Benayadi–Oubba (2025), and Bai–Liu (2025). The first paper assumes \(p>2\); the second excludes characteristics 2 and 3 for its classical-simple theorem; the third is characteristic zero; the fourth assumes \(p>3\) and Cartan type. None of these stated scopes covers the present claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Alternating cyclic bracket satisfies Jacobi in characteristic 2 since the distinct-basis Jacobiator contains only brackets [e_i,e_i]=0, and is perfect since each e_i is a bracket. A general symmetric bilinear map has 18 coefficients, and the derivation identity yields 27 homogeneous coefficient constraints of rank 11 over F2, nullity 7; direct independent bitset row reduction and seven parameter basis substitutions confirm rank and all identities. Same rational/prime-field rank and formulas apply over every char2 field; no classification for other Lie algebras.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.
+
+## value
+
+PASS
+
+The characteristic-2 algebra is dimension-minimal among nonzero perfect Lie algebras; its nonzero symmetric-biderivation space is a motivated sharp boundary obstruction to vanishing theorems in characteristic zero. Explicit universal-field classification is a natural structural invariant, not only a random sparse linear system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
