@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "All 2024 candidate vertex triples are evaluated exactly in the cubic field to reconstruct 32 triangular and 6 square facets and 60 edges; exhaustive great-circle intersection and local wedge enumeration establishes 482 chambers with side counts 12–18. All 1824 corner incidences are assigned by exact determinant signs, and Girard’s formula yields the displayed seven Haar probability expressions. Rational isolating interval makes each algebraic sign rigorous; exact source code replayed. Independent Gaussian-normal diagnostics agree and are not relied upon as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.14239, Theorem 1.1 gives stability and constructive algorithms for arbitrary polytopes",
+        "arXiv:2110.05996, Lemma 2.4 gives chamber stability for central sections"
+      ],
+      "reasoning": "The general existence/algorithm results apply to the snub cube, but they do not state or give direct closed forms for its seven probabilities; explicit algebraic angle evaluation, corner-count certificate, and full seven-class law require new object-specific work.",
+      "searches": [
+        "arXiv:2304.14239 exact general slicing chamber algorithms",
+        "arXiv:2110.05996 polytope intersection body central hyperplane chambers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.05996v1 (2021-10-12)",
+      "arXiv:2304.14239v1 (2023-04-27)",
+      "SageMath exact snub cube documentation",
+      "Closest published geometry records on icosahedron, cube, and rhombicuboctahedron section laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The icosahedron result gives decagon/dodecagon law for a distinct centrally symmetric 12-vertex polyhedron",
+        "Known rhombicuboctahedron result treats a different, nonchiral 24-vertex Archimedean solid with two types",
+        "The present exact computation gives seven positive types and 482 spherical chambers for a chiral 24-vertex solid"
+      ],
+      "reasoning": "The prior distributions are not equivalent under congruence, polarity, central symmetry, or coordinate substitution; their parameter objects and edge-sign oriented matroids differ. The exact seven-outcome statement is not a corollary of their two-outcome calculations.",
+      "searches": [
+        "Exact Haar polygon-type law for central icosahedron sections",
+        "exact octagon dodecagon law for central rhombicuboctahedron",
+        "snub cube normal arrangement 482 chambers seven side counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2110.05996, Lemma 2.4: normal chambers determined by vertex hyperplanes; snub cube not treated",
+        "arXiv:2304.14239, Sections 2 and 5: general decomposition and examples, no snub cube probability table"
+      ],
+      "reasoning": "Equivalent formulations checked include oriented-normal sphere chambers, central intersection polygon vertex count, and edge-sign cut cardinality. They are equivalent definitions here, but no inspected source evaluates the snub-cube instance.",
+      "searches": [
+        "snub cube central hyperplane section 12 13 14 15 16 17 18",
+        "random plane snub cube section polygon probability",
+        "arXiv:2110.05996 central chambers and snub cube"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SageMath polytope library states 24 vertices and 38 faces with exact algebraic coordinates, not random central-section measures",
+        "Closest retrieved mathematical record: Exact Haar polygon-type law for central icosahedron sections (different icosahedron, two outcomes)"
+      ],
+      "reasoning": "Specific tables of snub-cube full central-section probabilities were not found; the identifiable existing tables concern other polytopes or static snub-cube face vectors. Absence in a database is not a uniqueness proof.",
+      "searches": [
+        "snub cube section counts 12 13 14 15 16 17 18",
+        "snub cube exact central section sidedness Haar probabilities",
+        "SageMath snub_cube exact face vector"
+      ]
+    },
+    "rationale": "Searches against the named primary arXiv texts, their full relevant sections and directly related mathematical records found no snub-cube section probability law. The source general algorithms explain how chambers can be computed but neither imply explicit seven-type probabilities nor furnish these chamber/angle sums. Closest results treat centrally symmetric and nonchiral solids, which are not congruent or equivalent under a reduction. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "A historical mathematical or crystallographic catalog may have a numerical or exact snub-cube section table not indexed in the inspected sources.",
+      "General-purpose slicing algorithms might have been independently specialized to the snub cube in sources not retrieved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_ONLY; no snub cube probability distribution found",
+        "evidence": "Lemma 2.4 fixes crossed edges on open normal chambers; examples concern cube and icosahedron, with Section 6 dedicated to cubes.",
+        "identifier_or_url": "https://arxiv.org/pdf/2110.05996",
+        "material_read": "Introduction, Section 2/Lemma 2.4 and examples, Section 6 cube analysis; full-document snub-text search",
+        "method": "Inspected primary PDF pages and extracted section text",
+        "title": "Intersection Bodies of Polytopes",
+        "trigger": "Direct primary source for central arrangement sections and possible prior tabulations"
+      },
+      {
+        "assessment": "GENERAL_ALGORITHM_NOT_SPECIFIC_LAW",
+        "evidence": "Section 5 enumerates examples on Platonic solids, 3-permutahedron and cross-polytopes, not the snub cube. Theorems cover arrangements, not exact Haar probabilities.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.14239",
+        "material_read": "Introduction and Theorems 1.1–1.3; Section 2 central chambers; Section 5 named-polytopes experiments; full-document snub-text search",
+        "method": "Inspected primary PDF page and textual sections",
+        "title": "The Best Ways to Slice a Polytope",
+        "trigger": "Broadest plausible domination by a general slice enumeration"
+      },
+      {
+        "assessment": "STANDARD_GEOMETRIC_DATA_ONLY",
+        "evidence": "Documents 24 vertices, 38 faces and the reciprocal tribonacci root; does not state this distribution.",
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/discrete_geometry/sage/geometry/polyhedron/library.html",
+        "material_read": "snub_cube entry and exact-coordinate construction description",
+        "method": "Inspected online documentation text",
+        "title": "SageMath Polytope Library, snub_cube",
+        "trigger": "Verify standard object coordinates and possible existing exact tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fbf66dd7-d2f4-4ed3-b739-05dd8676d246",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete exact seven-point probability law for a classical chiral Archimedean solid, including three odd-sided polygon types missing in centrally symmetric examples; it also exhibits the unusual 482-chamber arrangement and independent closed-form mean. It is a natural full classification, not a narrow unmotivated parameter choice, and its exact coefficients are not supplied by the general arrangements literature.",
+    "status": "PASS"
+  }
+}
