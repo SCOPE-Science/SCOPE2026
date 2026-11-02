@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The deletion condition is exactly pairwise multiset intersection at most one, because a common two-symbol descendant exists iff at least two symbols (with multiplicity) can survive from both. For each heavy word choose a twice-occurring symbol; the chosen symbols are injective across codewords or else their overlap is at least two. Replacing all heavy words by corresponding constant multisets preserves every pairwise intersection bound, and the remaining light words are distinct-symbol n-subsets. These subsets form a 2-(q,n,1) packing, yielding the upper bound q+P. The q constants together with a maximum packing meet the bound exactly. The proof handles n>q, n=q and n=2; the n=3 modular values use independently known maximum partial triple-system leave theorems. Sixteen exact finite ILP comparisons using two different formulations corroborate the theorem without being presented as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.05636, Theorem 6 and Theorem 7, §3.4: special alphabet q=2,3 and a Reiman inequality for n>q; the section states n<=q for larger q remains open.",
+        "arxiv:2603.18322, contributions and §§4-5: exact ball-volume and average-distance enumerators, not all-parameter optimal code sizes.",
+        "arxiv:1612.08837, §IV: Sidon/lattice constructions and asymptotic coding bounds, rather than pair-packing normalization."
+      ],
+      "reasoning": "Neither small-q exact capacities nor an incidence-based upper bound implies q+P(q,n,2) for every q,n: the stated published n<=q gap includes the explicit n=3 q>=5 evaluation. Ball geometry gives quantities for packing inequalities but not the universal sharp extremal construction.",
+      "searches": [
+        "Multiset deletion-correcting codes t=n-2 optimal q 2026 2025",
+        "multiset deletion correcting two surviving elements equals alphabet size plus maximum packing D(q,n,2) any q and n"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05636 §3.4",
+      "arxiv:2603.18322 §§2,4,5",
+      "arxiv:1612.08837 introductory and construction sections",
+      "arxiv:1708.07646 §1",
+      "Relevant published-record descriptions concerning three-survivor multiset coding and 3-uniform cover-free families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2601.05636 §3.4: q=4,n=3 gives five codewords, whereas the all-q formula yields the same 5 and additionally q=5,n=3 gives 7, q=6,n=3 gives 10, and the general q,n reduction.",
+        "arxiv:1708.07646: established maximum partial triple systems imply the modular P(q,3,2) formula, but contain no theorem identifying arbitrary repeated-symbol multiset-code capacity with q+P(q,n,2)."
+      ],
+      "reasoning": "The new theorem strictly extends the isolated source construction and q<=3 cases; their implication does not reach q>=5,n=3, let alone arbitrary n<=q. The old design theorem supplies a consequent combinatorial number, not a coding equivalence, so the combination requires the independent heavy-symbol injection and replacement proof. One caveat is the January source abstract uses broader language than its detailed §3.4 theorems; scientific priority is assessed against the actual statements and arguments.",
+      "searches": [
+        "arxiv:2601.05636 §3.4 Theorems 6–7",
+        "arxiv:1708.07646 §1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2601.05636 §3.4 writes the exact pairwise multiset-intersection-at-most-one condition and establishes selected bounds but not the constant-word replacement equivalence.",
+        "arxiv:1708.07646 §1 defines maximum partial triple systems as optimal 2-(q,3,1) packings, without a multiset-code interpretation."
+      ],
+      "reasoning": "Replacing the word ``multiset by its multiplicity vector gives an intersection packing in a simplex, but this alone does not prove equivalence to ordinary set packings: eliminating repeated symbols without losing codewords is the new logical step. The searched coding/Steiner/pair-packing formulations did not supply that step.",
+      "searches": [
+        "multiset deletion code two survivors partial Steiner n symbol alphabet maximum",
+        "two-survivor deletion codes canonical constant multisets and Steiner packings q + packing exact",
+        "multiset deletion code support pair packing 2-(q,n,1) constant words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1708.07646 §1 supplies the established q-modulo-six maximum partial Steiner triple-system leave types and therefore the P(q,3,2) sequence.",
+        "The closest indexed related scientific claims concern three-survivor multiset deletion capacities and independent 3-uniform cover-free-family packings, rather than the two-survivor capacity identity."
+      ],
+      "reasoning": "Known design enumerations determine P(q,3,2) but cannot alone determine the optimum of the larger multiset-code universe; no exact two-survivor multiset-capacity table or general normalization theorem was found in the queried records. Numeric coincidences with known packing tables are not treated as sufficient evidence of novelty.",
+      "searches": [
+        "S_q(n,n-2)=q+D(q,n,2) design packing",
+        "q+ D(v,3,2) multiset code length 3 single deletion",
+        "two-survivor multiset codes exact equivalence to maximum partial Steiner systems block size n"
+      ]
+    },
+    "rationale": "The all-parameter reduction from arbitrary repeated-symbol multiset codes to all constants plus maximum linear uniform block packings is absent from the accessible primary texts. The January 2026 paper Section 3.4 uses the same two-survivor model, proves only special cases q=2,3 and a nonsharp Reiman bound elsewhere, and explicitly leaves n<=q at larger alphabet open. The March companion addresses Sidon constructions and ball geometry. The classical partial Steiner triple-system leave table supplies only an already-known design component, not the coding equivalence. A current mathematical-record search found distinct three-survivor and cover-free-family results without an implication of the normalization theorem; priority remains provisional against unindexed literature.",
+    "residual_risks": [
+      "An unpublished, unindexed or differently named code-design reduction could predate this claim despite the targeted searches.",
+      "The January 2026 source abstract asserts broader exactness for the n-2 regime than Section 3.4 actually demonstrates; comparison is based on the detailed primary theorem and explicit open statement.",
+      "General P(q,n,2) is not a closed known formula for every block size; the exact reduction must not be misrepresented as a universal numerical table."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model and intersection criterion; special cases, nonsharp bound, and explicit open regime, no general pair-packing normalization",
+        "evidence": [
+          "Section 3.4 identifies n-2 deletions with intersections <=1",
+          "Theorem 6 handles q=2,3 n>=4",
+          "Theorem 7 provides a Reiman-type bound for n>q and Section 3.4 says n<=q, q>=4 remains open"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+        "material_read": "Introduction and Section 3.4, including Theorems 6 and 7 and the q=4,n=3 example",
+        "method": "Read accessible full HTML mathematical-text rendering and compare hypotheses and stated implications",
+        "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+        "trigger": "Direct primary 2026 two-survivor multiset deletion-coding work"
+      },
+      {
+        "assessment": "Distinct Sidon-code and ball-volume results, no all-q capacity reduction for the two-survivor regime",
+        "evidence": [
+          "Contributions emphasize polynomial Sidon constructions and ball enumerations",
+          "Section 5 derives general volume bounds rather than a two-survivor packing equality"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+        "material_read": "Abstract, Introduction, Preliminary Definitions, Section 4 ball geometry and Section 5 code-size bounds",
+        "method": "Read accessible full HTML text and locate sections/terms involving t=n-2, Steiner, and packings",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Same authors follow-up with plausible stronger coverage"
+      },
+      {
+        "assessment": "Provides general model, Sidon/lattice and asymptotic results but not the candidate exact normalization theorem",
+        "evidence": [
+          "Describes multiset deletion and other impairment channels",
+          "Principal code constructions arise from Sidon sets and lattice structure"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Introduction, channel model, linear-code/construction and coding-bound discussions",
+        "method": "Read accessible full HTML text and check for the exact pair-packing and heavy-symbol statements",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Foundational general multiset-channel coding paper"
+      },
+      {
+        "assessment": "Classical design capacity/leave facts substantiate the length-three corollary but do not cover the multiset-to-design reduction",
+        "evidence": [
+          "Section 1 identifies MMPTS(q) as optimal 2-(q,3,1) packings",
+          "Section 1 provides all four q-modulo-six leave regimes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.07646",
+        "material_read": "Introduction, definitions of maximum partial triple systems, classical congruence-dependent leave structures",
+        "method": "Read accessible full HTML text and compare results with the code-normalization statement",
+        "title": "Enumerations of maximum partial triple systems on 16 and 17 points",
+        "trigger": "Needed precise known design leave formulas and potential dominating design result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a459c05b-4622-473d-ac78-9f149336d435",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-survivor channel is the first nontrivial high-deletion multiset coding problem; exact q>=4 behavior when n<=q was left unresolved by the directly relevant 2026 paper. The result is an exact structural equivalence for all alphabets and block lengths, proving that repeated multiplicities never improve capacity over a canonical code made of constants plus classical block packings. It transfers established packing designs and sharp minimum-leave enumerations into all-q exact n=3 coding values, and gives sharp thresholds n>=q. Its content is the non-obvious elimination of repeated-symbol codewords rather than a recomputation of a known table, while no general design-packing solution or encoder is claimed.",
+    "status": "PASS"
+  }
+}
