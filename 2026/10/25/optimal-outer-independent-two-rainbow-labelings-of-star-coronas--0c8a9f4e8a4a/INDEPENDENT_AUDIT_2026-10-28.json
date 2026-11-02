@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:15:12.812590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each original vertex and its k private leaves forms a disjoint block of weight at least two: empty center forces all k leaves positive, singleton center forces all k leaves positive, double center allows empty leaves. Equality for k>=3 forces double center and empty leaves globally. For k=2 an empty center with two singleton leaves is also possible. Empty centers form an independent set J of G; a nonisolated empty center has four ordered singleton-pair choices (neighbor double centers see both colors), while an isolated empty center has two opposite-color choices. This gives Q_{G,2}(t)=(1+2t)^i I_{G-Z}(4t), and unique Q_{G,k}=1 for k>=3. Exact counting #P-hardness on bipartite 2-leaf coronas uses clone blow-ups G^(r) and I_{G^(r)}(4)=I_G(5^r-1), followed by polynomial interpolation of degree <=n; verifier for oracle witnesses is polynomial. All labels on private leaves are distinguished. Independent check: Independently enumerated all possible local weight-2 block labelings, then tested global OI-rainbow adjacency and independence directly on all base graphs of size <=3 and six representative four-vertex bases for k=2, and small k=3 cases. Observed optimum weight-2n profiles equal the claimed polynomial, including isolated vertices, and k>=3 uniqueness. The logical necessity of the local weight bound proves no lighter function exists for arbitrary G.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Samadi–Soltankhah Theorem 3.4 gives an exact gamma_oir2 for G odot H under base degree hypotheses, but no full optimizer distribution. Cabrera-Martínez 2022 requires both corona factors without isolated vertices, excluding H=Kbar_2; neither covers this stated all-base counting theorem."
+        ],
+        "reasoning": "Samadi–Soltankhah Theorem 3.4 gives an exact gamma_oir2 for G odot H under base degree hypotheses, but no full optimizer distribution. Cabrera-Martínez 2022 requires both corona factors without isolated vertices, excluding H=Kbar_2; neither covers this stated all-base counting theorem.",
+        "searches": [
+          "outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "Resultary semantic record search: outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "https://arxiv.org/abs/2208.02340",
+          "https://doi.org/10.3390/math10132287"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2208.02340",
+        "https://doi.org/10.3390/math10132287",
+        "https://doi.org/10.1137/0212053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known gamma_oir2(W_2(G))=2n loses all information on optimal color placements: G=P_3 and K_3 each have weight six yet counts 29 and 13. The exact bijection to weighted independent sets is additional and its #P-hardness consequence cannot follow from an optimum-weight formula alone."
+        ],
+        "reasoning": "Known gamma_oir2(W_2(G))=2n loses all information on optimal color placements: G=P_3 and K_3 each have weight six yet counts 29 and 13. The exact bijection to weighted independent sets is additional and its #P-hardness consequence cannot follow from an optimum-weight formula alone.",
+        "searches": [
+          "outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "Resultary semantic record search: outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "https://arxiv.org/abs/2208.02340",
+          "https://doi.org/10.3390/math10132287"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Checked outer-independent (empty class independent) against independent-rainbow (positive class independent), and dominating-function enumeration against the scalar domination number. Earlier corona scalar theorem is an equivalent formula only for the minimum, not for Q_{G,k}(t) or #P complexity.",
+          "Samadi–Soltankhah 2023 revised Theorem 3.4 full PDF inspected; scalar minimum is known."
+        ],
+        "reasoning": "Checked outer-independent (empty class independent) against independent-rainbow (positive class independent), and dominating-function enumeration against the scalar domination number. Earlier corona scalar theorem is an equivalent formula only for the minimum, not for Q_{G,k}(t) or #P complexity.",
+        "searches": [
+          "outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "Resultary semantic record search: outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "https://arxiv.org/abs/2208.02340",
+          "https://doi.org/10.3390/math10132287"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched graph domination enumerator databases and previous Resultary graph-enumerator results, finding outer-independent Roman and complete multipartite enumerators for different graph/factor classes, not the complete OI2rd minimum-labeling corona polynomial. Absence of a known table is not a proof of priority.",
+          "Closest Resultary hits inspect different objects and do not establish a covering theorem; absence of result is not positive novelty evidence."
+        ],
+        "reasoning": "Searched graph domination enumerator databases and previous Resultary graph-enumerator results, finding outer-independent Roman and complete multipartite enumerators for different graph/factor classes, not the complete OI2rd minimum-labeling corona polynomial. Absence of a known table is not a proof of priority.",
+        "searches": [
+          "outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "Resultary semantic record search: outer independent 2 rainbow domination corona k independent leaves enumeration minimum functions independence polynomial",
+          "https://arxiv.org/abs/2208.02340",
+          "https://doi.org/10.3390/math10132287",
+          "https://doi.org/10.1137/0212053"
+        ]
+      },
+      "rationale": "The scalar optimum 2n was known in Samadi–Soltankhah for nonisolated base graphs; it is explicitly not claimed new. Their Theorem 3.4 and Cabrera-Martínez concern minimum weights and corona classes, not the complete optimizer enumerator, the precise isolated-base factor (1+2t)^i, or the specialized #P-hard counting dichotomy. Earlier independent-set counting hardness is credited as an ingredient.",
+      "residual_risks": [
+        "Unindexed specialized corona enumerations could already give the same independent-set polynomial.",
+        "The Provan–Ball premise and exact Turing reduction are not claims of parsimonious or bounded-degree hardness.",
+        "The k=1 class and full nonminimum enumeration remain outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The weight 2n is already implied for the applicable two-leaf case; no displayed independent-set optimizer enumerator or clone/interpolation count appears in the inspected primary statement/proof.",
+          "evidence": [
+            "Theorem 3.4 is an equality for the scalar gamma_oir2(G odot H), not a generating polynomial for all optimizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.02340",
+          "material_read": "Primary arXiv full PDF, Section 3.2, Theorem 3.4 and its proof and surrounding corona hypotheses",
+          "method": "ArXiv primary PDF reading, theorem-by-theorem comparison",
+          "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+          "trigger": "Same outer-independent 2-rainbow domination parameter and corona products"
+        },
+        {
+          "assessment": "Known corona application assumes second factor has no isolated vertices; Kbar_2 violates it. Access limit remains a risk for other special statements.",
+          "evidence": [
+            "Stated no-isolates condition on corona factors rules out the present two-private-isolated-leaf construction."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10132287",
+          "material_read": "Article abstract, accessible assumptions/summary; complete publisher text not obtained in this run",
+          "method": "Publisher metadata and domain/hypothesis comparison",
+          "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+          "trigger": "Earlier corona-formula paper with similar title"
+        },
+        {
+          "assessment": "Used solely as the established #P-hardness source for independent-set counting; not claimed new.",
+          "evidence": [
+            "Independent-set count and equivalent vertex-cover count are standard #P-complete quantities."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0212053",
+          "material_read": "Bibliographic/statement-level prior result (not full paper)",
+          "method": "Published complexity theorem comparison",
+          "title": "The Complexity of Counting Cuts and of Computing the Probability that a Graph is Connected",
+          "trigger": "Counting independent sets in bipartite graphs is a hardness premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimum objective value can be trivial even when its optimizer set encodes an arbitrary independence polynomial. The two- versus three-leaf boundary changes the optimizer counting problem from #P-complete to exactly one, a substantive structurally motivated phase transition in domination enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2208.02340",
+    "https://doi.org/10.3390/math10132287",
+    "https://doi.org/10.1137/0212053"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed specialized corona enumerations could already give the same independent-set polynomial.",
+    "The Provan–Ball premise and exact Turing reduction are not claims of parsimonious or bounded-degree hardness.",
+    "The k=1 class and full nonminimum enumeration remain outside the theorem."
+  ],
+  "schema_version": 1
+}

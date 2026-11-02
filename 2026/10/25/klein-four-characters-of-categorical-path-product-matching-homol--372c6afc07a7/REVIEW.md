@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The only external mathematical input is the precisely cited odd-dimensional sphere-wedge theorem of Gupta--Sarkar--Sawant--Shukla (Theorem 3.5 in arXiv v2). The new signed Lefschetz argument handles the augmented degree and simplex orientation correctly. A completely specified eight-state integer transfer matrix proves the three matching-polynomial identities, while a width-independent geometric analysis classifies all eligible edge orbits for the two reflections and their product. The embedded standalone checker independently reproduces the matrix and small-width orbit characters. The proof does not confuse finite testing with an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The source paper's Theorem 3.5 of arXiv v2 determines homotopy types and sphere multiplicities, but its inspected proof and related sections do not state the natural Klein-four homology character. Explicit searches for direct/categorical \(P_\ell\times P_3\) reflection characters, representation multiplicities, and quotient homology did not reveal a covering theorem. Closest published comparison records on Cartesian \(3\times n\) grids concern different edge sets, and an isolated categorical \(P_6\times P_6\) calculation has no implication for this infinite reflection family. Residual risk: an equivalent description might exist under different terminology, and the closest ancillary comparison records were accessible only as summaries.
+PASS
 
-**Value — PASS.** The complete character of the natural two-reflection group, including square-root-scale nonidentity traces and all four eigenspace multiplicities, is not determined by the previously known Betti ranks. In particular the rational homology of the full symmetry quotient changes sharply among congruence classes of path lengths. The formulas cover a natural infinite family and answer a motivated symmetry question about a known nontrivial family of matching complexes; they do not rely for significance merely on a finite computation.
+For G_l=P_l x P_3 with categorical adjacency and h/v path reversals, the known corrected Gupta–Sarkar–Sawant–Shukla v2 Thm3.5 puts reduced integral homology in a single odd degree. The augmented signed Lefschetz formula converts each involution trace into a signed count of eligible edge-orbit matchings. Vertical reversal forces trace 1; central-column/central-gap geometry gives odd chi(h)=F_r, chi(hv)=F_r-2B_r, and even chi(h)=chi(hv)=F_r-2C_r. The explicitly supplied eight-state signed matching transfer matrix, characteristic z^4(z+1)(z+2)(z^2-2), and eight initial values prove the formulas for all widths; Fourier inversion gives complete V4 character and rational quotient invariants. Independent edge-orbit enumeration for widths l=2..9 reproduced every four-tuple, including boundaries 2 and 3. All-l conclusion rests on recurrence and orbit proof, not finite tests.
 
-Scientific limits: rational rather than integral representation decomposition; no classification beyond the specified subgroup; nonequivariant homotopy types are prior work; bibliographic residual risk. The complete mathematical proof and transfer matrix are in `RESULT.md`, with independent finite tests in `verify.py`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gupta et al. arXiv:2403.15298v2 establishes the entire nonequivariant homotopy wedge family (including degree and Betti ranks), which is fully credited. Equivariant V4 traces and irreducible characters do not follow from Betti dimensions; the present signed edge-orbit transfer is the new input. Related Resultary records concern P6 x P6 categorical product or Cartesian grids, neither an all-l P_l x P3 V4 module. Qualified PASS for the full rational reflection character, not existing homology concentration.
+
+## value
+
+PASS
+
+The natural path reversals act on topological invariants invisible in nonequivariant sphere counts. A closed all-length rational V4 character and quotient Betti formula resolve a structural, not arbitrary, symmetry classification; useful for equivariant matching complex investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

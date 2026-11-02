@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-C PASS: The facet-product decomposition reduces all terms to finite polyhedral parameter integrals. Same-facet covariograms are piecewise quadratic near zero, and nonparallel cross-facet coarea fibers are piecewise affine, proving exact degree at most four for fixed small r. The b2 and b3 coefficients follow from a directionally integrated planar boundary loss and a wedge-angle Jacobian; the latter is verified by independent direct transverse-coordinate quadrature. The strict and sharp 2/9 bending bound follows from a valid analytic second-derivative inequality. The cube exact local law is checked via distinct face integrals and direct surface simulation. Unspecified C4(P) exists; its value is not claimed computed.
+PASS
 
-The global finite-degree argument depends on a fixed polyhedron and a common sufficiently small radius. The known unit-cube formula is an external geometric normalization check; its agreement does not replace the general proof.
+For a fixed compact nondegenerate convex polyhedron, decomposing the ordered surface-pair integral into pairs of planar facets yields an exactly local polynomial of degree at most four. The diagonal facet covariogram has area-loss coefficient -(2/3)perimeter(F) r^3 and each adjacent ordered facet pair contributes (2/3)L_e(pi-alpha_e)/sin(alpha_e) r^3 via a transverse wedge Jacobian; cross-pairs touching only at vertices are O(r^4), while disjoint pairs vanish near zero. Thus the CDF equals (pi/A)r^2+(4/(3A^2))sum_e L_e((pi-alpha_e)/sin(alpha_e)-1)r^3+C4(P)r^4 at 0<=r<r0(P), with all higher coefficients exactly absent. The inequality delta/sin(delta)>1+delta^2/6 on (0,pi), sharp as delta tends to zero, supplies the strict 2/(9A^2) squared-bend bound. Direct independent rational/numerical cube coefficient and small-bend checks agreed. Assumes maximal planar facets, ambient Euclidean rather than geodesic distance, and radius threshold depending on P; C4 is not explicitly computed.
 
-## Originality
+## originality
 
-O PASS relative to evidence: Actual published-finding corpus searches of aliases, cross-facet sampling and edge-angle terms and the accessible owned ledger reveal no equivalent Euclidean polyhedral surface-pair law. Full primary text of Tong–Pan and Ma–Torquato rules out apparent broad coverage: coplanar polygon pairs and smooth-interface leading correlations do not imply noncoplanar hinge terms. The cube special case is known from Mathai et al. and is not asserted novel. Remaining priority risk: incompletely accessible older stereology literature; absence of matches does not prove absolute novelty.
+PASS
 
-Closest material: Mathai et al. 1999 on cube distances (only summary and tabulated cube subcase inspectable); Tong et al. 2013 and Tong–Pan 2016 on planar triangles/polygons (2016 full primary text inspected); Ma–Torquato 2018 on leading smooth-interface surface correlations (full primary text inspected). Prior intrinsic polyhedral-surface distance findings are a distinct metric. The only credible residual risk is unreviewed older material.
+No checked prior source implies the full exact small-radius law for arbitrary three-dimensional convex polyhedral surfaces with the edge-dihedral cubic coefficient. The known cube specialization is expressly prior work; coplanar polygon pairs, smooth surface correlations, and intrinsic surface geodesics do not dominate this extrinsic noncoplanar statement. Qualified priority due to uninspected specialized older stereology literature.
 
-## Mathematical value
+## value
 
-V PASS: The cubic correction is the first quantitative way in which extrinsic surface-pair distances detect polyhedral edge bending; it contrasts with the distinct intrinsic cone-angle law and contains a sharp universal squared-bend stability inequality. The exact quartic termination for all fixed convex polyhedra is a structural statement rather than a one-off coefficient, with plausible use in stereological recovery of crease geometry and as a rigorous benchmark for polyhedral correlation functions.
+PASS
 
-The bending inequality is sharp as exterior angles approach zero but is strict for every nonflat finite polyhedron. No closed form for the quartic coefficient is asserted.
+The coefficient exposes a quantitatively sharp edge-weighted bending signal from extrinsic sampled distances, and the exact degree-four locality is a structural theorem for the entire class of three-dimensional convex polyhedra, not an isolated constant. This is a natural benchmark for stereological reconstruction and polyhedral correlation functions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

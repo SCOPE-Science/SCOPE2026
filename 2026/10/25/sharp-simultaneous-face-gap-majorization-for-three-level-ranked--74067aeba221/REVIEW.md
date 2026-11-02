@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-The proof uses explicitly defined vertex-indexed face polynomials, the free-join geometry of the order polytope, and the pyramid/subdirect-sum geometry of the chain polytope. The exact face polynomial subtraction is independently checked, as is the generating-function identity for the complete homogeneous functions. Jacobi–Trudi and a specific semistandard tableau establish strictly positive coefficients at every required degree, including the sharp equality cases and the boundary singleton layer. The standalone verifier tests 169 symbolic pairs, 68 balancing identities and eight independently enumerated small face lattices; finite checks are supplementary to the all-integer proof.
+## correctness
 
-## Originality
-The 2024 subdirect-sum formula already implies the factorization, which is expressly attributed rather than claimed as new. The inspected 2023/2025 maximal-ranked-poset paper compares interpolation choices on a *fixed* poset. The September 2026 universal result compares chain versus order polytopes for one poset. The new result compares *different* ranked posets at the same dimension and proves strict **simultaneous** face-gap majorization with a Schur-positive difference. The closest relevant paper is Freij-Hollanti–Lundström, arXiv:2312.13890, Proposition 8; that result does not give the dimension-fixed balancing law. Residual priority risk remains because this is a short consequence of their general formula and classical symmetric-function identities, and older formulas may implicitly encode it.
+PASS
 
-## Mathematical value
-The X-obstruction is the natural first family in which order and chain polytopes differ combinatorially. A full hierarchy of dimension-by-dimension inequalities is a much stronger quantitative question than nonnegativity, and the unique common extremal split at fixed dimension explains how this obstruction is amplified. The sharp Schur-positive formula provides coefficientwise certificates rather than numerical extremal lists. Scope is limited to complete ranked three-level posets; no general conjecture is implied.
+For P_{a,b}=A_a ⊕ {q} ⊕ A_b, a,b>=1, the order polytope decomposes as a free join of cubes; its nonempty face polynomial is A+B+tAB with A=(2+t)^a,B=(2+t)^b. The chain polytope is a pyramid over the origin-glued subdirect sum of cubes; counting origin-containing and avoiding faces gives F_C=1+(1+t)[A+B-1+(U-1)(V-1)+t(A-U)(B-V)], U=(1+t)^a,V=(1+t)^b. Algebraically D=F_C-F_O=G_aG_b with G_m=1-(1+t)^{m+1}+t(2+t)^m. For m>=2, G_m=t(1+t)h_{m-2}(1,1+t,2+t). Jacobi–Trudi gives D_{a+1,b-1}-D_{a,b}=t^2(1+t)^2 s_{(b-3,a-1)}(1,1+t,2+t) for 2<=a<=b-2; positive tableau terms force every coefficient degrees 2..a+b strictly positive. If a=1 G_1=0, and G_2G_{b-1} is positive in same degrees. Hence for fixed N=a+b>=4 the balanced split uniquely maximizes every intermediate face gap, extreme split minimizes zero; endpoint coefficients computed from first and top G_m terms. Independent integer algebra verified 121 (a,b) factorization identities plus balancing cases; universal claim follows Schur-positive identity, not enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS for simultaneous strict coefficientwise majorization when varying the two outer rank sizes at a fixed total dimension, and an explicit Schur-positivity certificate. Prior general chain-vs-order f-vector inequalities and subdirect-sum face-count formulas are credited; they establish gaps for a fixed poset and yield the factorization ingredient. They do not in the inspected primary statements assert strict all-face improvement under cross-poset balancing or unique balanced optimizer, although an older formula combined with standard Schur positivity may implicitly imply it.
+
+## value
+
+PASS
+
+The Hibi–Li obstruction starts in this minimal three-level complete ranked poset family. Rather than only showing nonnegativity of chain–order face gaps, the result simultaneously ranks every intermediate face dimension with a common exact optimizer. The Schur-positive all-coefficient certificate explains the order rather than merely listing cases; this is a motivated structural extremal lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

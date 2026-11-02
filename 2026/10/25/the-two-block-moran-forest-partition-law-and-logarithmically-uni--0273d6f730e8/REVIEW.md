@@ -1,23 +1,21 @@
-# Review: Two-block Moran-forest partition sizes
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-Starting from the published independent-parent representation, every two-component labeling is counted by within-block increasing attachments and root choices; averaging the initial run yields the displayed finite mass. Combining with the independently proved Poisson-binomial root law normalizes the result. Exact arithmetic exhausts all parent assignments through n=7 and verifies normalization to n=100. Uniform weight asymptotics and harmonic normalization prove the unrestricted log-scale limit; finite checks are not relied on for the limit.
+PASS
 
-Critical points: the earliest birth in each block selects a later parent; every other birth selects an earlier same-block parent. The first-run length has expectation \(a/(b+1)+b/(a+1)\). Every equal-size bipartition is counted with a factor \(1/2\). The exact mass normalization follows independently from the existing Bernoulli root law. The log-uniform limit follows from \(w_n(s)=1/(s+1)+O(1/n)\), uniformly for \(1\le s\le n/2\), and \(Z_n=\log n+O(1)\). The verification script uses finite exhaustive checks but is not the justification of these identities for unbounded order.
+The original Bienvenu–Duchamps–Foutel-Rodier independent-parent construction gives n independent uniform U_j∈[n]\{j}, an edge for U_j<j, and independent relabeling. Conditional on a size-(a,b) randomized birth interleaving, nonroot internal parent choices are (a−1)!(b−1)!, while the two roots contribute E[(n−r_A)(n−r_B)]=(n²−1)(ab−1)/((a+1)(b+1)); dividing by (n−1)^n proves the exact prescribed unordered two-block probability. Counting labeled bipartitions with the equal-size factor 1/2 gives P(S_n=s|K_n=2)=c_n(s)w_n(s)/Z_n. The independent root-event count gives Z_n=((n−1)H_{n−2}−(n−2))/n. On 1≤s≤n/2, w_n(s)=1/(s+1)+O(1/n) uniformly and Z_n=log n+O(1), yielding P(S_n≤n^x|K_n=2)→x for 0<x<1 and endpoint convergence. Independent complete parent-vector enumeration n=3..6 matches the exact law.
 
-## Originality (O): PASS, subject to residual historical-priority uncertainty
+## originality
 
-The founding author-open preprint, arXiv:1906.08806, expressly identifies the full exchangeable partition probability function as lacking a closed expression; only the root-count and unconditioned selected-tree laws are supplied. Later arXiv:2509.19678 studies edit-chain spectra, not partition sizes. Specific searches for the Moran two-block sector and the log-uniform conditioned law returned no coincident or stronger result. Residual risk of unindexed equivalent work is acknowledged, not treated as proof of historical priority.
+PASS
 
-The closest primary source is Bienvenu, Duchamps and Foutel-Rodier, *The Moran forest* (arXiv:1906.08806). Its Section 2.2 specifically notes the lack of a closed EPPF. Its root-count generating function is weaker than partition-size information. Chung and Robertson (arXiv:2509.19678) provides a spectral generalization of editing processes, not a complete or two-component EPPF. Uniform set-partition frequency-count identities concern a different probability measure. An inaccessible or unindexed prior equivalence remains a priority risk, not proof of nonexistence.
+Qualified PASS: the cited original paper supplies the independent-parent representation, total number-of-components distribution and unconditioned component sizes, and explicitly says it lacks a closed full exchangeable partition probability function. The two-block EPPF and conditional logarithmically uniform component-size law are new consequences requiring an additional interleaving calculation; they are not asserted to solve the full EPPF.
 
-## Mathematical value (V): PASS
+## value
 
-The EPPF is the natural, expressly identified unresolved descriptor of the stationary Moran forest. Its exact complete two-component sector is nontrivial at every finite order and yields a qualitative rare-event phenomenon: conditioned on exactly two components, the smaller component has no single deterministic power scale, with a uniform logarithmic exponent. This is not the ordinary typical-tree size law, and can serve as a baseline for later multiblock EPPF investigations.
+PASS
 
-## Scope and limitations
+PASS: gives a natural exact nontrivial sector of an open distributional description and a surprising scale-invariant size law under the rare two-component condition. The result is independently useful in sampling, exchangeability and random forest asymptotics despite not covering every component count.
 
-The result is limited to exactly two components in a labeled stationary Moran forest and does not produce the general all-component partition law. The logarithmic limit is under rare-event conditioning. Exact finite tests validate concrete instances, not arbitrary sample size. Independent mathematical assessment remains to be done.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

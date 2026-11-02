@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:13:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Explicit formula across all three parameter intervals was independently checked with exact rational arithmetic for d=2,…,24 and representative rational h including h=d and both sides of transitions: (c,a²,b²)=(0,d,d) if 1<h≤√d, (0,h²,(d−1)h²/(h²−1)) if √d≤h≤d, and ((h−d)/(d+1),d²(h+1)²/(d+1)²,d²/(d+1)) if h≥d. Every cube vertex and apex lies in the ellipsoid by direct quadratic substitution; exact contacts follow by strict convexity and the strict gap for positive-face vertices when h>d. Global minimality is not inferred from symmetry: for each regime the source constructs an actual contact probability with mean ce1 and covariance diag(a²,b²,…,b²)/d. Verified the apex weights and transverse variance identities symbolically/exactly. Upon affine normalization, the contact measure has E[Z]=0 and E[ZZᵀ]=I/d; for any containing translated ellipsoid w+TB, E||T⁻¹(Z−w)||²≤1 implies tr(T⁻²)≤d and det T≥1 by AM–GM, equality only T=I and w=0. This certifies uniqueness against arbitrary translated, rotated ellipsoids. The volume limit for h_d/√d→τ is obtained by elementary log expansion, with τ=1 handled continuously.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güler–Gürtuna gives necessary/sufficient contact conditions and solutions of truncated smooth second-order cones and cylinders, not the spiked cube.",
+          "Capped hypercube is [0,1]^n∩{sum x_i≤τ}, an intersection/INSCRIBED John problem; isocanted cube has altered vertex-layer geometry."
+        ],
+        "reasoning": "These general methods imply a way to test a candidate, not the claimed closed formulas or contact orbit transitions for a convex hull with one axial outlier. Nearby sharp-transition results have nonmatching vertices and objectives.",
+        "searches": [
+          "Güler–Gürtuna 2007 full PDF theorem 2.2 and theorem 8.1",
+          "Resultary capped hypercube John ellipsoid 9b8726b32127",
+          "Resultary isocanted cube Löwner c0498570052b",
+          "Resultary rank-selected Boolean polytope Löwner 3c04f47dc8c3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git cube spike tree 1cca1b31178b996fa72891b87d4d42ddd28b9589, RESULT.md and verify.py",
+        "Independent rational exact containment and contact covariance over d 2..24",
+        "Güler–Gürtuna 2007 full PDF §2 and §8 with screenshots",
+        "Resultary 2026/10/11 capped hypercube/isocanted cube/Boolean polytope ellipsoid records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 ensures global uniqueness given an isotropic certificate but does not calculate one for K_{d,h}.",
+          "The source constructs three distinct contact distributions; their changing supports yield thresholds."
+        ],
+        "reasoning": "Generic optimality lemmas do not directly imply the exact contact-switch thresholds without working out the cube-plus-apex covariance constraints; alternate body results do not reduce to this convex hull.",
+        "searches": [
+          "Güler–Gürtuna theorem 2.7 iff contact conditions",
+          "Original RESULT.md three explicit isotropic measures",
+          "Resultary capped hypercube and isocanted cube records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural equivalent problem is the D-optimal contact measure for 2^d cube vertices plus one vertex h e1.",
+          "Güler–Gürtuna §8 truncated second-order cone Q_{αβ}=conv(spherical cross-sections), not the discrete-corner polytope."
+        ],
+        "reasoning": "Generic D-optimal design or outer ellipsoid formulations are mathematically equivalent as optimization principles but do not specify the h=√d and h=d solutions on this vertex set.",
+        "searches": [
+          "Resultary: minimum volume covering ellipsoid cube with axial exterior point spike Löwner John contact transitions",
+          "Güler Gürtuna arXiv:0709.0707 theorem 2.2 and §8",
+          "Web cube axial spike convex hull minimum volume ellipsoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The §8 formulas vary two spherical section coordinates α,β and are not the audited two-threshold cube-corner profile.",
+          "Resultary returns other contact-orbit phase results but not this explicit K_{d,h}."
+        ],
+        "reasoning": "No exact table of (c,a²,b²) for all d,h or the h=√d,d thresholds was found in inspected sources; unindexed older optimal-design case studies remain possible.",
+        "searches": [
+          "Resultary cube spike Löwner exact semiaxis",
+          "Güler–Gürtuna §8 tables/closed cases",
+          "Web optimal design D optimality cube plus exterior point"
+        ]
+      },
+      "rationale": "Qualified PASS: Güler–Gürtuna 2007 gives general extremal-ellipsoid John/contact conditions and treats truncated second-order cones or cylinders with round transverse sections, not the cube-plus-one-moving-axial-vertex polytope. Nearby published results about capped hypercube John ellipsoids, isocanted cubes and partial permutohedra concern different bodies, parameters and sometimes inscribed rather than enclosing ellipsoids. The specific two sharp h=√d,d contact transitions and frozen transverse semiaxis were not identified, with residual older optimal-design literature risk.",
+      "residual_risks": [
+        "Prior D-optimal-design literature may contain this specific cube-plus-axial-outlier experiment under an alternative name; no full exhaustive search possible.",
+        "Finite rational checks corroborate but do not replace the universal contact-measure proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL CONTACT CERTIFICATE, DISTINCT SPECIAL BODY",
+          "evidence": "Theorem 2.2 gives isotropic contact conditions; §8 uses spherical cross-sections instead of cube vertices and does not supply two axial-spike transitions.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0707",
+          "material_read": "Full 36-page lawful arXiv PDF accessed, Section 2 theorem 2.2/2.7 contact conditions and §8 p31–32 truncated cone/cylinder special cases, PDF screenshots pages 5 and 31",
+          "method": "full PDF text inspection and representative pages visually checked",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases (Güler and Gürtuna, 2007)",
+          "trigger": "Closest primary general Löwner machinery and high-symmetry explicit shapes"
+        },
+        {
+          "assessment": "DIFFERENT INTERSECTION BODY AND INSCRIBED OPTIMIZATION",
+          "evidence": "Capped hypercube is an intersection with diagonal halfspace, not hull with outward axial point; John ellipsoid is maximal inscribed, not the present Löwner cover.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127",
+          "material_read": "Published record title and structured scientific summary read; full Git scientific files not retrieved",
+          "method": "Resultary semantic ranked record inspection",
+          "title": "Three-phase John ellipsoid of a capped hypercube (published Resultary record)",
+          "trigger": "Potential title collision: hypercube with one cap and three phases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exact minimum-volume circumscribing ellipsoid and full contact-support transition for the canonical centrally symmetric cube perturbed by one external axial vertex give useful structural geometry of outlier influence, including sharp screening of an entire cube facet and a dimension-scale volume law. These thresholds are nontrivial exact geometric information, not simply generic optimality conditions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git cube spike tree 1cca1b31178b996fa72891b87d4d42ddd28b9589, RESULT.md and verify.py",
+    "Independent rational exact containment and contact covariance over d 2..24",
+    "Güler–Gürtuna 2007 full PDF §2 and §8 with screenshots",
+    "Resultary 2026/10/11 capped hypercube/isocanted cube/Boolean polytope ellipsoid records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Prior D-optimal-design literature may contain this specific cube-plus-axial-outlier experiment under an alternative name; no full exhaustive search possible.",
+    "Finite rational checks corroborate but do not replace the universal contact-measure proof.",
+    "Best-of-knowledge originality does not certify priority, independence or journal publication.",
+    "Publication not_ready is a confidentiality-safe metadata/transport blocker rather than mathematical rejection."
+  ],
+  "schema_version": 1
+}

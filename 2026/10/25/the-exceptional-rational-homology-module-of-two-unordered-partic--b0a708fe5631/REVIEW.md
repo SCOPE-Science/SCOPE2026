@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed cubical boundary matrices have \(91\), \(252\), \(168\) generators in degrees \(0,1,2\). The exact identity \(\partial_1\partial_2=0\), a rank-90 first boundary, and the Smith invariants \(1^{153},2,0^{14}\) prove the integral homology. The 168 collineations are reconstructed from invertible binary matrices. The sum-of-trajectories map identifies rational first homology with the eight-dimensional graph cycle module; its asserted surjectivity has an explicit modular rank check. For every group element, signed Lefschetz degree-two traces agree with independently restricted actions on the mod-101 top kernel. The degree-two character is \((14,-2,-1,2,0)\) on the five element orders, and the known finite simple-group character table gives \(W_6\oplus\operatorname{St}_8\).
+## correctness
 
-**Originality — PASS, subject to residual risk.** Ghrist (arXiv:math/9905023) and Abrams–Ghrist (arXiv:math/0009118) supply graph-configuration foundations. Barnett–Farber (arXiv:0903.2180) treat ordered two-particle spaces and their intersection form. Ko–Park (arXiv:1101.2648, Theorem 3.16 and Corollary 3.17) give general nonequivariant graph braid homology. None of these inspected statements gives the order-by-order \(\mathrm{GL}_3(\mathbb F_2)\)-character on this unordered Heawood degree-two homology. published-finding corpus searches for Heawood configuration homology, its Galois-conjugate three-dimensional constituents, equivalent Fano descriptions, and stronger equivariant classifications returned ordered-space calculations and other graphs or complexes, not this result. A historical duplicate in unindexed literature remains possible; unsuccessful search is not uniqueness certification.
+PASS
 
-**Value — PASS.** The canonical Fano-plane incidence geometry has a natural \(168\)-element collineation action. A complete nontrivial 14-dimensional rational top-homology representation, with an exceptional rational six-dimensional summand in addition to the Steinberg module, is not determined by homology ranks or the previously known first-homology torsion. The vanishing fixed subspace is a further equivariant feature, giving a meaningful precise invariant of a natural configuration space.
+For the 14-vertex, 21-edge Heawood incidence graph, the unordered two-particle Abrams cubical model has exactly 91 vertices, 252 edges, and 168 squares. Independently reconstructed integral boundaries obey d1*d2=0, rank(d1)=90 and Smith invariants of d2 1^153,2^1,0^14, yielding H0=Z,H1=Z^8+Z/2,H2=Z^14. The specified GL3(F2) action fixes incidence via p->Ap and l->A^{-T}l. Signed cellular traces on all 168 matrices, including orientation reversal on two-cell coordinates, give H2 character (14,-2,-1,2,0) by orders 1,2,3,4,7. The source first-homology trajectory map and mod101 rank check identify H1(Q)=Steinberg8, and subtraction plus the classical PSL2(7) table identifies H2(Q)=W6+Steinberg8, no invariant vectors. The independent integer SNF and all-group signed character check succeeded; the source's rank101 trajectory-map check was inspected rather than independently replayed.
 
-The principal limitations are potential unindexed prior equivariant coverage, no computation of the full 336-element automorphism-group action, and no integral representation-lattice classification. The included exact Python/SymPy certificate is self-contained; independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier graph braid configuration-space works determine discretization, certain ordered and nonequivariant homology results but do not supply this degree-two rational GL3(F2)-character of unordered Heawood configurations in inspected material. The Heawood independence complex has a W6 representation but is topologically a distinct space, while dodecahedral UConf2 studies have another graph and symmetry group. The rational representation is a motivated refinement rather than a new claim for ordinary homology.
+
+## value
+
+PASS
+
+The Fano incidence graph has a canonical nonabelian 168-element collineation group, and H2's exact exceptional rational representation and zero invariant space are natural symmetry invariants not determined by scalar Betti numbers or mod-two torsion. The result can serve as a concrete equivariant benchmark for graph configuration topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

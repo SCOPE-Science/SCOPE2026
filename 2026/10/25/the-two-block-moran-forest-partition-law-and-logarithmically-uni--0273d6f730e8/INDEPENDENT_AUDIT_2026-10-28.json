@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:17:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original Bienvenu–Duchamps–Foutel-Rodier independent-parent construction gives n independent uniform U_j∈[n]\\{j}, an edge for U_j<j, and independent relabeling. Conditional on a size-(a,b) randomized birth interleaving, nonroot internal parent choices are (a−1)!(b−1)!, while the two roots contribute E[(n−r_A)(n−r_B)]=(n²−1)(ab−1)/((a+1)(b+1)); dividing by (n−1)^n proves the exact prescribed unordered two-block probability. Counting labeled bipartitions with the equal-size factor 1/2 gives P(S_n=s|K_n=2)=c_n(s)w_n(s)/Z_n. The independent root-event count gives Z_n=((n−1)H_{n−2}−(n−2))/n. On 1≤s≤n/2, w_n(s)=1/(s+1)+O(1/n) uniformly and Z_n=log n+O(1), yielding P(S_n≤n^x|K_n=2)→x for 0<x<1 and endpoint convergence. Independent complete parent-vector enumeration n=3..6 matches the exact law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform attachment construction and root indicators are source premises. They do not specify which vertex labels occupy the two blocks; a labeled interleaving/root-weight calculation is needed. Later semigroup eigenvalues/mixing do not produce two-block EPPF."
+        ],
+        "reasoning": "Known general forest representation is not a stronger result already asserting these exact 2-block probabilities; generic representations permit derivation but do not make the evaluated formula a named previous theorem.",
+        "searches": [
+          "Bienvenu et al. 2021 Prop 2.1, Prop 3.1, §5",
+          "Chung–Robertson 2025 edit semigroup mixing"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 6966b7283d156eee27695734db1d82060a9eb730; RESULT.md; verify.py",
+        "Independent complete uniform-parent vector enumeration n=3..6 and exact normalization checks",
+        "2021 author full text Proposition2.1, §2.2, §3 and §5",
+        "Resultary random partition/forest semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Prop2.1 determines a generative distribution but the root count alone does not fix the partition sizes; original §5 unconditional sizes do not imply a rare K=2 conditional log-uniform law."
+        ],
+        "reasoning": "The new formula is a nontrivial computed functional of a known construction rather than an already stated or directly implied corollary of a stronger EPPF theorem.",
+        "searches": [
+          "2021 Moran forest independent parents, root count and component-size results",
+          "2025 stochastic edit semigroups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 source explicitly remarks on page7 (§2.2) that the EPPF has no available closed formula; §3 reports K_n, §5 typical unconditioned component sizes. Resultary closest uniform set-partition models are not Moran forests."
+        ],
+        "reasoning": "A two-block exact EPPF is a strict partial specialization of unknown full law but not equal to the previously calculated root-count law or unconditioned largest-component results.",
+        "searches": [
+          "Resultary: Moran forest exchangeable partition probability two connected components conditional logarithmic size",
+          "Bienvenu–Duchamps–Foutel-Rodier arXiv:1906.08806 author OA",
+          "Chung–Robertson arXiv:2509.19678 edit semigroups Moran forest"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-component partition-probability table in indexed source; original explicitly notes full EPPF unavailable. Reproducible small-n enumeration matches all bipartition shape probabilities."
+        ],
+        "reasoning": "The result is not merely a known numerical table; its all-n formula and limiting law are deduced analytically. Failure of search is not independent novelty certification.",
+        "searches": [
+          "Resultary query exact Moran forest bipartition conditional K=2",
+          "2021 original author paper references and EPPF remarks",
+          "Frozen RESULT.md and finite n≤7 verifier"
+        ]
+      },
+      "rationale": "Qualified PASS: the cited original paper supplies the independent-parent representation, total number-of-components distribution and unconditioned component sizes, and explicitly says it lacks a closed full exchangeable partition probability function. The two-block EPPF and conditional logarithmically uniform component-size law are new consequences requiring an additional interleaving calculation; they are not asserted to solve the full EPPF.",
+      "residual_risks": [
+        "A later unindexed paper may have solved the two-block sector of the EPPF.",
+        "The law is conditional on exactly two components; it is not a universal component-size law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVIDES PARENT LAW AND COUNTS, DOES NOT GIVE TWO-BLOCK FORMULA",
+          "evidence": "Page7 states the authors had not found a closed EPPF and describes uniform attachment/relabeling. The presented conditional two-block law is not given in those inspected sections.",
+          "identifier_or_url": "https://www.normalesup.org/~bienvenu/articles/BienvenuRSA2021.pdf",
+          "material_read": "Complete 34-page author PDF available; materially inspected Proposition 2.1 proof and the full page7 §2.2 EPPF remark, component count §3 and unconditioned component behavior §5",
+          "method": "lawful author-hosted full PDF, text and screenshot page7",
+          "title": "The Moran forest",
+          "trigger": "Exact same random forest model and probable EPPF antecedent"
+        },
+        {
+          "assessment": "DIFFERENT TARGET STATISTIC",
+          "evidence": "Addresses transition spectra and mixing rather than exact labeled two-block partition probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.19678",
+          "material_read": "Preprint metadata and discussion of Moran-forest edit semigroup, spectral/mixing scope",
+          "method": "arXiv public abstract and relevant descriptive sections",
+          "title": "Stochastically Evolving Graphs via Edit Semigroups",
+          "trigger": "Later work mentioning same stochastic evolution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: gives a natural exact nontrivial sector of an open distributional description and a surprising scale-invariant size law under the rare two-component condition. The result is independently useful in sampling, exchangeability and random forest asymptotics despite not covering every component count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 6966b7283d156eee27695734db1d82060a9eb730; RESULT.md; verify.py",
+    "Independent complete uniform-parent vector enumeration n=3..6 and exact normalization checks",
+    "2021 author full text Proposition2.1, §2.2, §3 and §5",
+    "Resultary random partition/forest semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A later unindexed paper may have solved the two-block sector of the EPPF.",
+    "The law is conditional on exactly two components; it is not a universal component-size law.",
+    "Best-of-knowledge originality is not independent external priority certification.",
+    "Publication not_ready is a confidentiality/metadata staging limitation, not scientific rejection."
+  ],
+  "schema_version": 1
+}

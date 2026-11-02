@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The centralizer of rank-one square-zero \(N\) has the explicit block form in RESULT.md, and the square-zero condition reduces to \(B^2=0\), \(fB=Bg=0\), and \(f(g)=0\). The count of rank-\(r\) quotient maps is the number of image/kernel flags times \(\lvert\mathrm{GL}_r(q)\rvert\). Quotienting \(\ker B\) by \(\operatorname{im}B\) converts the remaining equation into one orthogonality relation between a vector and a covector. The independent cases of zero/nonzero quotient classes exhaust the possibilities and give the three rank fibers. The scalar parameter contributes exactly one rank-preserving lift when both quotient classes vanish. Boundary cases \(s=0,1\) are treated explicitly. Direct finite-field enumeration matched the predicted rank fibers for all eight programmed cases, including \(\mathbb F_4\). The infinite statement is proved symbolically, not inferred from sampling.
+PASS
 
-## Originality — PASS (best knowledge; priority risk retained)
+Conjugating N=J2⊕0_b yields every commuting X as unique [[a,f,c],[0,B,g],[0,0,a]]; square-zero forces a=0 over any finite field, B²=0, fB=Bg=0, fg=0, and c free. B rank r corresponds to I=imB ⊂ K=kerB flags and an isomorphism W/K→I, giving M=[b r]_q[b-r r]_q |GL_r(q)|. H=K/I has s=b-2r dimensions; f and g each have q^r lifts of φ∈H* and h∈H with φ(h)=0. Rank comparison of the graph image yields exact R=r,r+1,r+2 fibers M q^(2r), M q^(2r)(q-1+2q(q^s-1)), M q^(2r+1)(q^s-1)(q^(s-1)-1) for s≥1. Summing yields M[q^(2b-2r)+(q-1)q^b]. Characteristic 2 and s=0 boundaries hold. Independently enumerated ALL B,f,g,c for q,b=(2,2),(3,2),(2,3) and recomputed both ranks, totals 44,315,576.
 
-Oblak (arXiv:math/0701561) treats attainable nilpotent Jordan forms and maximal index, not these finite-field fiber sizes. Britnell–Wildon (arXiv:1001.0811, especially its commuting-class results) determines existence of commuting class representatives, not the number for a fixed representative. Oblak (arXiv:1106.1545, Theorem 2.4) proves orbit intersection nonemptiness for square-zero \(N\), not point counts. Košir–Oblak (arXiv:0712.2813) treats commuting-pair geometry and generic orbits; its inspected introduction gives no exact q-count. Nearby published records about square-zero matrices, nilpotent lifts, and rank minimization have different objects or output invariants. A previous square-zero-commutant formula for one additional trivial Jordan block meets the current family only at the excluded boundary \(b=1\). The candidate therefore adds all \(b\ge2\) with a natural quotient-rank refinement. This is not a proof that no wider Hall-polynomial enumeration already implies the formula.
+## originality
 
-## Value — PASS
+PASS
 
-Commuting square-zero pairs form representations of a two-loop radical-square algebra; their enumeration is a natural quantitative companion to the classical possible-Jordan-type problem. A rank-one fixed nilpotent is the first nonzero nilpotent stratum, and the quotient \(\ker N/\operatorname{im}N\) is intrinsic, so the extra parameter measures the induced differential rather than an arbitrary coordinate slice. The formula determines all possible ranks of the second differential and their exact frequencies in an infinite family over all finite fields, with a new nontrivial flag-and-orthogonality decomposition. It is neither a single small-table recomputation nor a restatement of orbit nonemptiness.
+Britnell–Wildon 2011 §4 classifies which pairs of nilpotent similarity *classes* admit commuting matrices, and Oblak/Košir study orbit intersections and generic pairs; existence and orbit geometry do not count labeled F_q matrices with fixed rank-one N, quotient rank r and ordinary rank R. The explicit all-field rank-fiber polynomial and sum remain a qualified best-of-knowledge new numerical distribution. Standard finite-field flag/Hall methods are credited as techniques, not claimed new.
 
-## Scientific limits and closest literature
+## value
 
-The proof does not classify conjugacy orbits, nonreduced schemes, or centralizers of higher-rank fixed matrices. The four inspected primary papers are identified in RESULT.md. Residual publication-priority risk remains from unlocated implicit Hall-polynomial or quiver-representation formulas, and from primary text beyond material actually inspected. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural rank-one square-zero centralizer has a canonical b-dimensional quotient and finite-field nilpotent orbit stratification. Counting its commuting square-zero elements by BOTH ordinary and quotient rank captures information lost by total counts or orbit-existence theorems; it is a complete precise finite-field distribution valid in arbitrary characteristic and b.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: binary projective cap complex
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All 35 projective lines follow by XOR on the 15 nonzero four-bit vectors. Exact enumeration of all 32,767 candidate nonempty subsets gives 3,048 faces. The deterministic 1,484-pair matching leaves one critical vertex, one three-cell and 78 four-cells. The complete 13,770-incidence directed graph is acyclic by an exhaustive topological ordering; this is a proof of the matching condition rather than a partial search. The signed gradient-path recurrence gives 15 coefficients \(-2\), 44 zeros, and 19 coefficients \(+2\), so the attaching-degree ideal is exactly \(2\mathbb Z\). The reduced CW model is a Moore space and 77 four-spheres. Direct mod-two and mod-three simplicial boundary ranks provide separate checks, with no reliance on an experimental extrapolation.
+PASS
 
-## Originality — PASS (with residual risk)
+Independently enumerated all 35 XOR-line triples on labels 1..15 and every one of 32767 nonempty subsets: exactly 3048 permitted faces and f-vector (15,105,420,945,1008,420,120,15), with 168 maximal 5-caps and 15 maximal 8-caps in the source. Reconstructed the full greedy coordinate-toggle matching of 1484 incidence pairs and topologically sorted all 13770 incidence arcs on 3048 cells (acyclic). Critical cells are one 0-cell, one 3-cell (mask 534) and 78 4-cells. Computed signed gradient-path projection to the unique critical 3-cell independently: the integer Morse attaching row has 15 entries -2, 44 zeros and 19 entries +2, gcd 2. A CW complex with those critical cells is a 3-sphere plus 78 4-cells attached by integer degrees; unimodular column reduction leaves degree-2 Moore attachment and 77 null attaching maps. Therefore the claimed integral homotopy type follows, not just its mod-two Betti numbers. This finite calculation is exhaustive by bounded 15-point domain.
 
-The closest primary source on the *same underlying cap objects* is Grynkiewicz–Lev, arXiv:0811.1322, whose theorems concern large complete caps and minimal saturating sets. Its material inspected includes the introduction, definitions, main results, examples and full-document checks for topology/homology; these do not supply an attaching-degree or homotopy classification. Superdock, arXiv:2110.12314, builds different projective-plane complexes with prescribed facets and free abelian fundamental groups, not the cap-subset complex of \(\operatorname{PG}(3,2)\). Other indexed finite-geometric cap classifications concern different incidence systems. No retrieved prior statement implies the degree-two Moore summand or the 77 four-spheres. Failure to find a match is not a proof of global priority; an unindexed equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The 15-point, 35-line projective three-space is a canonical finite-geometric test object. Its cap complex is nonpure, with 168 five-point and 15 eight-point maximal caps, so straightforward manifold or matroid-shellability arguments do not describe it. The detected \(\mathbb Z/2\)-torsion is invisible to rational Betti numbers and forces a non-sphere-wedge homotopy type. The complete degree-two Moore attachment gives a natural integral topological invariant relevant to comparisons of cap complexes across different finite geometries. The claim is a substantive complete classification for a canonical object, not a numeric slice chosen after computation.
+Qualified PASS: the earliest known binary-projective cap studies address admissible sets, cap sizes and saturating geometry, while a highly relevant 2017 thesis computes topology of complexes Cp(2,2), Cp(2,3), and Cp(3,3), not the 15-point Cp(3,2) integral Moore homotopy type. Its framework defines precisely the same type of complex but does not state a theorem covering the precise result; non-indexed equivalent computations remain possible.
 
-## Sources and limitations
+## value
 
-Primary cap literature: Grynkiewicz–Lev, arXiv:0811.1322, especially introduction and geometric/additive definitions and classification theorems. Different topological construction: Superdock, arXiv:2110.12314, introduction, finite projective-plane definitions and Corollary 6.6. Topological reduction: Forman, Advances in Mathematics 134 (1998), 90–145. Residual risk: unindexed or unavailable equivalent homotopy calculation; independently checking the finite certificate remains advisable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the line-free-subset complex of the smallest nontrivial binary projective three-space is a canonical combinatorial-topology object. Its complete integral homotopy type separates genuine degree-two Moore torsion from a wedge-of-spheres guess, a precise non-routine invariant relevant to cap-complex/Steiner-system topology; the certificate is finite and self-contained and needs no speculative infinite-family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

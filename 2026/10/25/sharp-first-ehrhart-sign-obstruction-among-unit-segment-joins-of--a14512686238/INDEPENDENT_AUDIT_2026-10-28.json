@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:13:49.706685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a_i positive integers, B=product_{i=1}^4[0,a_i], J=B*[0,1] embedded in Z^6 with the stated primitive join-height lattice, slice at integer height h in tJ gives (h+1)prod_i(a_i(t-h)+1), so L_J(t)=sum_{k=0}^t(t-k+1)prod_i(a_i k+1)=sum_{j=0}^4 e_j F_j(t). Exact degree-six power sums F_j show only the degree-one monomial coefficient can be nonpositive, equal -Delta/30 where Delta=e4-e3-5e2-10e1-45. Uniform cube sides have Delta(r)=r^4-4r^3-30r^2-40r-45, negative at 8 and positive at 9 with one positive root. The join volume is 24e4 by slice integration. If one side is 1, Delta(1,x,y,z)=-6(xy+xz+yz)-15(x+y+z)-55<0; hence sorted negative-witness sides 2<=a<=b<=c<=d. Candidate (7,8,8,11) has product 4928 and Delta=14. Any smaller/tied normalized volume obeys a^4<=4928, ab^3<=4928, abc^2<=4928, c<=d<=floor(4928/(abc)); exhaustive exact integer enumeration over exactly those proved bounds tests 10618 sorted tuples and finds only (7,8,8,11) with Delta>0. An independent loop in independent_checks.py reproduced the exhaustive result (not just the source verifier exit status). The pair-balancing identity follows from collecting the ab terms of Delta: Delta(a+1,b-1,c,d)-Delta(a,b,c,d)=(b-a-1)((c-1)(d-1)-6). This proves the entire integer family coefficient sign law and the finite exact minimum; the volume bound is essential to exhaustiveness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu--Tao--Xin general theorem gives eventual negative coefficients in rP*[0,1] for dimension >=4, with a 100-cube witness; no sharp four-independent-side minimizer.",
+          "Liu 2026 survey Section 3.4 restates the 100-cube example; Section 4.1 provides a distinct pyramid over [0,7]^4 and does not settle this join family."
+        ],
+        "reasoning": "Existence for sufficiently large uniform r is weaker than a sharp four-side-length integer classification, even though it motivates the computation. The pyramid is a join with a point, not with an interval; its lower-volume negative case is not within the claimed family.",
+        "searches": [
+          "Ehrhart polynomial negative coefficient unit interval join four dimensional orthotope box minimal volume",
+          "arxiv:2606.18794 Theorem 2.3 Example 2.4 large r joins",
+          "arxiv:2610.06338 Section 3 Example 3.4 Section 4 Example 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Liu--Tao--Xin arXiv:2606.18794 original Theorem 2.3 and Example 2.4",
+        "Liu arXiv:2610.06338v2 original Sections 3 and 4, including Examples 3.4 and 4.1",
+        "Ferroni--Higashitani arXiv:2307.10852 survey abstract only",
+        "Resultary semantic search on box-join Ehrhart sign and integer volume thresholds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem: large dilations of any Ehrhart-positive 4D polytope joined with unit segment eventually have negative linear coefficients.",
+          "Claim: for all positive integer 4-box sides, negative iff e4>e3+5e2+10e1+45, and unique least-volume negative tuple 7,8,8,11, with exact balancing sign threshold."
+        ],
+        "reasoning": "Eventual existence does not imply a smallest witness, a full inequality region for independently chosen sides, or anisotropic uniqueness. The known join generating function is a starting formula, and the bounded discrete extremum requires an additional complete certificate.",
+        "searches": [
+          "Ehrhart polynomial negative coefficient unit interval join four dimensional orthotope box minimal volume",
+          "Liu Tao Xin arxiv 2606.18794 Theorem 2.3 Example 2.4",
+          "Liu arxiv 2610.06338 Example 3.4 Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu--Tao--Xin arXiv:2606.18794 join counting identity yields an expression from which the displayed coefficient could be algebraically specialized.",
+          "Liu arXiv:2610.06338 Section 3 states L(P*Q)=sum L_P L_Q, and Section 3 Example 3.4 gives a 100-cube example."
+        ],
+        "reasoning": "The convolution identity and its easy formal coefficient consequence are prior/background. The unique minimizing unequal 4-tuple under integer product order and exact balancing reversal are not identified as established in inspected source, but an older coefficient/orthotope table could be equivalent.",
+        "searches": [
+          "Ehrhart polynomial negative coefficient unit interval join four dimensional orthotope box minimal volume",
+          "integer 4-box unit-segment lattice join Ehrhart coefficient elementary symmetric e4-e3-5e2-10e1-45",
+          "orthotope mixed dilation Ehrhart non-positivity minimal volume"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact bounded search covers 10618 sorted 4-tuples, not arbitrary unbounded possibilities; the analytic volume cutoff proves this is exhaustive for minimality.",
+          "Previously inspected Liu survey records only sample uniform 100-cube join and a different pyramid example."
+        ],
+        "reasoning": "No published table with sorted minimum-volume box-interval join tuple located in actual searches; the finite exhaustive proof is a legitimate sharp cutoff once the volume limit is proved, but it does not show priority.",
+        "searches": [
+          "Ehrhart polynomial negative coefficient unit interval join four dimensional orthotope box minimal volume",
+          "Ehrhart lattice orthotope join negative coefficient minimal normalized volume 118272 4928",
+          "four dimensional integer boxes side lengths 7 8 8 11 Ehrhart"
+        ]
+      },
+      "rationale": "Qualified PASS for the unique minimum normalized volume 118272 (side tuple 7,8,8,11), all-box positivity criterion and pair-balancing reversal. The classical join lattice-point convolution, eventually negative join examples and a large equal-cube witness are prior work; an elementary coefficient specialization is not the chief originality. The sharp four-parameter integer extremum and exact anisotropic minimizer are not obtained from general eventual nonpositivity in material inspected; historical orthotope tables might contain the exact tuple.",
+      "residual_risks": [
+        "Potential historical exact table of rectangular-box join Ehrhart positivity under another description (orthotopes, Cayley sums).",
+        "Ferroni--Higashitani full survey not read; absence of reference is not proof of priority.",
+        "The finite enumeration is complete only under the proved product cutoff e4<=4928, not a census of all negative joins."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes convolution and eventually negative join coefficients, with no sharp 4928-product mixed-box minimizer in inspected text",
+          "evidence": [
+            "Theorem 2.3 eventual negative join; Example 2.4 equal side 100"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.18794",
+          "material_read": "Original primary PDF section 2, Theorem 2.3 and Example 2.4 on the large dilated 4-cube; page screenshot inspected",
+          "method": "primary arXiv PDF and screenshot",
+          "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+          "trigger": "Direct motivating negative-coefficient join theorem"
+        },
+        {
+          "assessment": "Explicit 100-cube join and 7-cube pyramid are distinct from least-volume 4-box*interval join; no 7,8,8,11 optimum found in these relevant results",
+          "evidence": [
+            "Eq. L_{P*Q} convolution; Example 3.4; Example 4.1 separate pyramid"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06338",
+          "material_read": "Complete relevant Section 3 join formulas (lines 352-369), Example 3.4 (lines 422-424) and Section 4 Example 4.1 (lines 456-463)",
+          "method": "primary arXiv HTML full sections",
+          "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+          "trigger": "Potential stronger recent treatment of lattice joins, orthotopes and pyramids"
+        },
+        {
+          "assessment": "Do not infer whole-document noncoverage; older tabulation remains residual risk",
+          "evidence": [
+            "General survey subject includes Ehrhart positivity and counterexamples"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.10852",
+          "material_read": "Survey abstract/bibliographic metadata only; full original survey not read",
+          "method": "primary bibliographic abstract",
+          "title": "Examples and Counterexamples in Ehrhart Theory",
+          "trigger": "General survey might tabulate earlier negative-coefficient examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp first-volume counterexample in a natural, independently parameterized family strengthens a known asymptotic failure phenomenon into an exact finite threshold, with a rigorous computable exhaustive certificate. The closed symmetric-polynomial sign condition and complementary pair-balancing rule explain why the first witness is anisotropic, offering a useful benchmark for Ehrhart positivity under joins.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Liu--Tao--Xin arXiv:2606.18794 original Theorem 2.3 and Example 2.4",
+    "Liu arXiv:2610.06338v2 original Sections 3 and 4, including Examples 3.4 and 4.1",
+    "Ferroni--Higashitani arXiv:2307.10852 survey abstract only",
+    "Resultary semantic search on box-join Ehrhart sign and integer volume thresholds"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only joins of positive integer 4-boxes with a unit lattice segment in standard 6D lattice; no minimum claim over all lattice joins or other segment lengths.",
+    "The unique minimum depends on exhaustive bounded enumeration with mathematically proved finite cutoff; formal symbolic identities independent of enumeration.",
+    "Prior related higher-dimensional Ehrhart positivity result already established; no claim to rediscover that theorem.",
+    "Potential historical exact table of rectangular-box join Ehrhart positivity under another description (orthotopes, Cayley sums).",
+    "Ferroni--Higashitani full survey not read; absence of reference is not proof of priority.",
+    "The finite enumeration is complete only under the proved product cutoff e4<=4928, not a census of all negative joins."
+  ],
+  "schema_version": 1
+}

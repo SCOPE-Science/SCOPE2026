@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The standard irredundant facet counts reduce the invariant to maximal chains minus Hasse covers. Completing any missing adjacent-rank cover adds \(L(u)U(v)-1\ge0\) to the gap; in an optimal profile any missing edge for \(h\ge3\) produces a strictly positive final gain. Complete layers reduce the problem to arranging \(m\) ones in a binary string of length \(h\), where the minimum number of adjacent pairs is \(\max\{0,2m-h-1\}\). Optimization over \(m\) yields the sharp parity formula and equality classifications. A standalone exact checker exhausts 206,516 pure cover arrangements through height seven. Main mathematical limits: finite computations are corroboration, not the all-height proof.
+## correctness
 
-**Originality — PASS with residual risks.** Fourier, arXiv:2608.19989v1, gives an exact local facet-gap formula for arbitrary finite posets and small-gap classifications, but not the sharp rank-thin extremal theorem, its two-parameter bound or maximizer classification. The 2025 Bhandari–Cunningham–Morrell–Oh–Smith article analyzes facet gaps without this graded-width-two optimization. Three-level singleton-middle examples are a narrow specialization, not a stronger all-height result. Similarity searches for rank-thin, layered and width-two facet-gap extrema produced no equivalent theorem. Possible uninspected stronger coverage: maximal ranked-poset literature and recent edge results; general local identities could permit a separate derivation, which is not the same as a previously stated global sharp extremal law.
+PASS
 
-**Value — PASS.** The facet gap is a natural combinatorial-geometric invariant distinguishing two full-dimensional polytope models of the same poset. The result gives the sharp maximum for every feasible height and order, a closed parity law at fixed order, and all equality types; it explains how rank width and singleton placement control exponential facet growth. It is a nontrivial optimization beyond a numerical example or a restatement of known facet formulas.
+For each finite nonempty pure graded P with rank sizes 1 or 2, h ranks and m=n-h doubleton ranks, use standard irredundant facets: gap G=n+number_of_maximal_chains-(min+max)-number_of_Hasse_edges. Adding a missing adjacent-rank cover u<v creates L(u)U(v) chains and one edge; the gap increases by L(u)U(v)-1>=0. Full layered completion has rank indicators x_i in {0,1} and G=2^m-m-1-sum_i x_i x_{i+1}. The minimum adjacency among m ones in h slots is max(0,2m-h-1), giving the fixed h,m formula and sharp constructions. For h>=3 any optimal incomplete cover is impossible: if the profile has adjacent doubletons then complete all but one missing cover, and its last insertion creates 2^(m-2) chains, gain 2^(m-2)-1>0 for m>=3; optimal m<=2 has no adjacent doubletons. h<=2 all gaps vanish. Optimize m<=floor(n/2) to obtain even M_n=2^(n/2)-n and odd M_n=2^((n-1)/2)-n+2, with exactly the stated complete-layer equality classes for n>=5. Independent binary rank-profile checks covered 62 cases. Source verifier enumerates 206,516 pure cover arrangements to h=7, inspected as code but not independently replayed end-to-end. These are not universal proofs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS for the exact two-parameter facet-gap maximum and complete equality classes for pure rank-thin posets. Stanley facet formulas, Bhandari et al. gap constructions, Fourier general local gap formula and small-gap cases, and Ahmad et al. rank-poset f-vector monotonicity are prior work. Their inspected statements do not yield the global height-and-size extremum directly, though Fourier full text could not be read; a possible stronger implication in that paper remains a priority risk, not automatic failure.
+
+## value
+
+PASS
+
+This is a motivated sharp classification of a natural difference of facet counts of two classical polytopes, establishing both an explicit fixed-height/order extremum and a parity-dependent fixed-size extremum with all maximizers. Completing cover graphs and minimizing doubleton adjacency provide a structural extremal explanation, not merely enumerating small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

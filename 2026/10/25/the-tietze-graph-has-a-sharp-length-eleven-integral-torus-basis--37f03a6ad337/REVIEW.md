@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full signed cubical complex and all disjoint-cycle tori were reconstructed from the explicit Petersen vertex expansion. The Prue–Scrimshaw subdivision bound applies to the ordinary unordered two-particle space. The signed second boundary has rank 108 modulo 101; nine valid two-cycles possess a unimodular ambient-chain minor, so they form a primitive basis of the entire rank-nine integral kernel. Exact rational elimination certifies that all total-length-at-most-ten tori span rank four. The ten triangle–hexagon/pentagon–hexagon classes have maximal minors of gcd two, and every triangle–pentagon class kills the resulting parity quotient. All claims were replayed from the provided standard-library checker.
+PASS
 
-## Originality — PASS, with stated risk
+Reconstructed ordinary UConf_2 of the specific 12-vertex Tietze graph via the Prue–Scrimshaw n=2 subdivision criterion (essential paths at least one edge; cycles at least 3). Explicit cubical chains have (66,180,117) cells; all signed ∂₁∂₂ compositions vanish. Independent modular rank of ∂₂ is 108; nine actual product two-cycles give a signed 9×9 unimodular coordinate minor −1, so ker ∂₂ is precisely Z⁹. All disjoint cycle pairs are exhaustively enumerated: 27 in six length families. Their length ≤10 subset has rank four, while nine integral basis tori have length ≤11. For the ten (3,6)+(5,6) tori, gcd of all ten maximal integer minors is 2 and each (3,5) torus has nonzero mod-two parity, establishing exact index-two obstruction and sharp cutoff. No assertion about arbitrary singular cycle length is made.
 
-Actual searches for Tietze, the blown-up Petersen graph, two-point configuration tori, length cutoffs, and parity lattices were compared with the full accessible Barnett–Farber, Farber–Hanbury, Prue–Scrimshaw, and An–Knudsen primary papers. The planar theorem does not apply to the nonplanar graph; the ordered homology framework and discretization theorem do not state the new integer lattice classification. The closest Petersen two-particle result has a different graph and weaker data. The Barnett 2010 thesis abstract was inspected, but the complete thesis was inaccessible, leaving a nonzero bibliographic overlap risk. No unsuccessful search is treated as a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Tietze graph is a canonical twelve-vertex Petersen triangle expansion with unusually short triangles. The theorem determines a sharp, natural geometric length threshold for integral torus generation and isolates an explicit parity failure of rational spanning. The length cutoff and index-two quotient provide nontrivial information beyond the ordinary Betti number, with potential use in comparisons of graph-expansion operations.
+Qualified PASS: ordered two-particle homology/intersection theory, general discrete configuration-space models and planar torus generators precede the claim; their statements do not supply this specific nonplanar Tietze unordered integral lattice, sharp total-length 11, or its index-two parity. Directly inspected the relevant original 2010 Durham thesis rather than relying on abstract. Best-of-knowledge only.
 
-## Scope and limitations
+## value
 
-These are finite, exact integral statements for a specified unlabeled two-particle configuration space. The length minimization refers exclusively to products of vertex-disjoint simple cycles; no classification of all singular two-cycles or other graph expansions is asserted. Reproducibility is computational but exhaustive, and no independent scientific audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the Tietze graph is a classical minimal nonplanar cubic Petersen-variant; determining a primitive integral torus basis with a sharp geometric length filtration and a parity obstruction is an intrinsically natural and reusable test of integral graph-configuration topology, not a mere rank recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

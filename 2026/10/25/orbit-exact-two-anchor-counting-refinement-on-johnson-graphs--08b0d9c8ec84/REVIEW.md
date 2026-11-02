@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem and its quantifiers are verified through the exchange characterization of Johnson adjacency. Two marked vertices determine their respective distance layers by iterative neighbor counting. The two exact neighbor counts \(f=d(c-a)\) and \(g=a(e-d)\) imply \(f-g=c(k-x-y)+(2k-n)a\). For \(n>2k\) this recovers the full four-block profile; for \(n=2k\), the quadratic equation leaves only profiles exchanged by a concrete marker-fixing complement automorphism. Ordinary block permutations are transitive within profiles, so color classes and stabilizer orbits coincide by at most \(k+1\) rounds. Counting is by bounded compositions and the two-element Burnside orbit formula. Two disjoint implementations validate the enumerators and exact orbits in finite ranges. Risk: finite tests do not establish the theorem without the preceding algebra; no stronger unproved conclusion is inferred.
+## correctness
 
-## Originality — PASS, qualified
-The most directly comparable primary result is Arvind–Köbler–Rattan–Verbitsky (arXiv:1502.01255): its Johnson theorem explicitly concerns \(J(n,2)\) and arbitrary marker sets. This higher-rank \(k\ge3\) theorem fixes exactly two marked vertices, and includes an explicit exceptional balanced-size class classification. Johnson automorphism-group results (Jones 2005 and Ganesan arXiv:1412.5055) determine the symmetry but do not entail colour-refinement orbit exactness. Johnson perfect two-colourings (Gavrilyuk–Goryainov 2012) classify equitable two-partitions, not the canonical refinement of a three-coloured individualized graph. The searched research index's nearest Johnson-slice result is spectral concentration, not refinement. Priority risk: a dedicated two-marked Johnson equitable-partition theorem in less searchable literature might imply this result; originality is best-knowledge, not certified exhaustive priority.
+PASS
 
-## Value — PASS
-Finite model theory benefits from explicit characterizations where counting logic coincides with automorphism orbits. The nontrivial \(k\ge3\) two-parameter Johnson family is structurally important because Johnson graphs are unusually resistant to graph-individualization methods. The proof gives universal finite-round orbit recovery, complete orbit counts and class sizes, and exactly resolves the balanced complementation obstruction. This is not merely the known rank-two special case or a small isolated numerical census.
+For J(n,k) with n>=2k>=6, two distinct marked vertices A,B, refinement of singleton colors determines both Johnson distances by round k and hence x=|S∩A|, y=|S∩B|. Partition ground set into C=A∩B (c=k-r), P=A\B (r), Q=B\A (r), D=outside (e=n-k-r). For a vertex profile (a,b,h,d), counts of neighbors increasing or decreasing both x,y equal f=d(c-a), g=a(e-d), with f-g=c(k-x-y)+(2k-n)a. If n>2k this uniquely gives a and the entire four-block profile; if n=2k the quadratic for f gives exactly profile a and c-d, exchanged by an explicit complement-permutation automorphism fixing both markers. Four-block permutations act transitively on single profiles, so no color split beyond these orbit classes; the exhibited complement symmetry proves the balanced pairing. Feasible profile polynomial and Burnside yield exact number and size of final classes. The bound k+1 is an upper bound, not purported tight. Independent check: Independent construction of each labeled Johnson graph and simultaneous 1-WL updates checked for (n,k,r)=(6,3,1),(6,3,3),(7,3,1),(7,3,2),(8,4,1),(8,4,2),(9,4,2); independently computed 4-block profiles, balanced complement pairing and counts. The source also has two distinct verifier implementations, 91 exhaustive parameter triples and 30 group-orbit small cases, but only stated independent cases were replayed here.
 
-## Scope and limitations
-No theorem is asserted for three or more individually marked vertices in higher-rank Johnson graphs. The round bound is not claimed optimal, and no independent verification or publication-priority determination has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Automorphism groups of Johnson graphs and the J(n,2) Tinhofer property are established. Arvind–Köbler–Rattan–Verbitsky prove an all-individualization rank-two theorem; this neither covers k>=3 nor automatically proves that exactly two markers recover stabilizer orbits in all higher ranks. The explicit balanced complementation quotient and complete class sizes are independent of rank-two statements. Older two-anchor equitable partition results might cover it; qualified priority.
+
+## value
+
+PASS
+
+Higher-rank Johnson graphs are a standard association-scheme benchmark for color refinement and finite-variable counting logic. Exact two-marker orbit recovery for every n,k, the balanced exception and complete counts classify precisely what two-variable counting logic can separate, without overstating a general Tinhofer theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
