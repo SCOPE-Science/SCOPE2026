@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian KL and OU variance reduction; one strict sign change of F_b'' and monotone-likelihood-ratio kernel K_x; positive small-x and negative large-x regimes imply a unique root. Uniform O(1/b) approximation of reciprocal integral and exponential-integral expansion prove the logarithmic asymptotic. verify.py passed 197 deterministic bounded checks; only analytic proof establishes the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Olsen–Gupta–Mori–Krishnamurthy 2024, abstract and introduction, treats work moment generating functions for finite trap switching, including arbitrary resetting intervals.",
+        "Mori–Olsen–Krishnamurthy 2023, abstract/introduction, treats stochastic entropy production and random reset positions."
+      ],
+      "reasoning": "The general physical-work or full-entropy formulas could motivate protocol comparisons but do not immediately assert or imply the exact sign of the difference between symmetrized endpoint Gaussian KL rewards for the two particular renewal laws. The full-page proof in RESULT.md supplies the nontrivial MLR and singular exponential-integral steps. Abstract generality does not establish coverage; broad-source risk is retained.",
+      "searches": [
+        "harmonic Ornstein Uhlenbeck resetting heat engine finite reset variance periodic versus Poisson entropy lower bound unique crossing interval x, critical rate asymptotic (T/Tc)^(2/3)/(log(T/Tc))^(1/3)",
+        "https://arxiv.org/abs/2310.11267",
+        "https://arxiv.org/abs/2211.15372"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.28445v1 (full text)",
+      "arXiv:2310.11267 (accessible preprint content)",
+      "arXiv:2211.15372v1 (partial PDF)",
+      "DOI:10.1038/s42005-025-02277-w (relevant full-text sections)",
+      "DOI:10.1103/8dmt-256h (abstract)",
+      "published-finding corpus semantic search: actual three cited queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farago 2026 Section II.C derives the original exact endpoint KL and compares periodic/Poisson in the teleportation (vanishing reset-width) approximation.",
+        "Gupta–Olsen–Krishnamurthy 2025 analyzes optimal erasure *work*, which is not the symmetrized endpoint relative entropy."
+      ],
+      "reasoning": "At fixed x and b→∞, the preceding approximation indeed gives Poisson < periodic. It cannot imply the opposite sign when x shrinks jointly with b: the reciprocal Gaussian-variance contribution is small pointwise at fixed x but becomes a logarithmically enhanced order-one competitor in the transition layer. Thus the prior formula is not a uniform implication of the finite-b theorem. Abstract optimizer bounds over arbitrary renewal distributions also do not compare these two nonoptimizing laws.",
+      "searches": [
+        "harmonic Ornstein Uhlenbeck resetting heat engine finite reset variance periodic versus Poisson entropy lower bound unique crossing interval x, critical rate asymptotic (T/Tc)^(2/3)/(log(T/Tc))^(1/3)",
+        "Farago May 2026 The Resetting Heat Engine Poisson vs periodic schedule stochastic finite temperature width logarithmic singular crossover",
+        "https://arxiv.org/abs/2605.28445",
+        "https://doi.org/10.1038/s42005-025-02277-w"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Farago 2026, Eqs. (11),(17)-(19), contains the Gaussian endpoint divergence and singular-width comparison; finite-width reversal theorem not given.",
+        "Gupta–Olsen–Krishnamurthy 2025 uses externally controlled reset work rather than the endpoint symmetric KL of equal-rate renewal clocks."
+      ],
+      "reasoning": "Writing reset variance as c and bath variance as unity gives q=1+(1-c)c^{-1}(1-e^{-t}). This is the exact alias of the originating Gaussian model. Rewriting in that alias reveals no previously stated unique Poisson-versus-periodic zero or log-corrected width frontier in the material read. A work-cost equality is not equivalent to this divergence ordering.",
+      "searches": [
+        "Farago May 2026 The Resetting Heat Engine Poisson vs periodic schedule stochastic finite temperature width logarithmic singular crossover",
+        "https://arxiv.org/abs/2605.28445",
+        "https://www.nature.com/articles/s42005-025-02277-w"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search returned mathematical findings about different reset and stochastic models, not a tabulated Gaussian-KL Poisson-periodic crossover.",
+        "The originating study includes analytic limiting reset-rate formulas but no finite-contrast crossing table."
+      ],
+      "reasoning": "The claimed quantity is a continuous-parameter theorem, not a finite enumeration. No exact numerical database/table result in consulted sources provides all signs for all c, or the logarithmic asymptotic constant; absence from searches is not a proof of novelty.",
+      "searches": [
+        "OU Gaussian renewal reset endpoint symmetrized KL Poisson deterministic timing exact crossing unique noncommuting temperature rate limits",
+        "https://arxiv.org/abs/2605.28445"
+      ]
+    },
+    "rationale": "The exact Gaussian endpoint-KL functional and singular reset-width formulas are prior (Farago 2026). The new theorem gives a unique reversal between two fixed protocol classes for every positive finite reset width and a sharp log-corrected critical-rate divergence. Its claim is not identical to the general renewal-schedule upper envelope and is not obtained by that upper bound alone: determining which of two nonoptimizing schedules wins requires a separate kernel comparison, and the log-layer requires new asymptotics. The inspected original paper does not state this crossing. Neighboring literature studies different work/entropy observables, not this sharp sign-law.",
+    "residual_risks": [
+      "General abstract convex-order/total-positivity theorems could subsume the qualitative unique-crossing lemma; the quantitative logarithmic reset-temperature frontier requires a separate singular calculation.",
+      "Some adjacent full technical manuscripts were not exhaustively inspectable, so priority is best-knowledge, not independently certified.",
+      "The result is an endpoint KL benchmark, not a thermodynamic ordering of full reset machinery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior benchmark and singular-rate formulas acknowledged; no finite-variance Poisson-periodic unique crossing or log scaling stated",
+        "evidence": [
+          "arXiv:2605.28445v1, Section II.C, Eqs. (11),(17)-(19)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.28445",
+        "material_read": "Six-page primary PDF, especially pp. 2–5: Gaussian relaxation, Eqs. 10–19, periodic/Poisson approximations, conclusions and references",
+        "method": "Primary full-text reading and model-equation comparison",
+        "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+        "trigger": "Exact same model and endpoint symmetrized KL; all protocol claims in original"
+      },
+      {
+        "assessment": "Different physical erasure work cost and trap switching; no specific endpoint-KL clock crossing",
+        "evidence": [
+          "Communications Physics 8, 355 (2025), model and optimal protocol sections"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s42005-025-02277-w",
+        "material_read": "Open-access HTML: abstract, model, moment generating function, optimal protocol, conclusions",
+        "method": "Full open-access text sections inspected",
+        "title": "Thermodynamic cost of recurrent erasure",
+        "trigger": "Broader Gaussian reset and random spacing work protocol"
+      },
+      {
+        "assessment": "Work-fluctuation model distinct; full-text completeness risk noted",
+        "evidence": [
+          "arXiv:2310.11267, introduction and general framework; Phys. Rev. Research 6, 033343"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.11267",
+        "material_read": "Public preprint abstract, introduction and section descriptions; typeset PDF could not be retrieved",
+        "method": "Open preprint HTML and journal OA abstract; source comparison by observable",
+        "title": "Thermodynamic cost of finite-time stochastic resetting",
+        "trigger": "General non-Poisson reset clocks and finite reset width"
+      },
+      {
+        "assessment": "Different stochastic entropy observable; complete paper-level noncoverage not claimed",
+        "evidence": [
+          "arXiv:2211.15372, abstract and Section I"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.15372",
+        "material_read": "29-page PDF cover/abstract/introduction and targeted search for periodic protocol",
+        "method": "PDF searchable text plus rendered first page",
+        "title": "Entropy production of resetting processes",
+        "trigger": "Random reset location and physical entropy production"
+      },
+      {
+        "assessment": "Information cost of random-time measurement, not an explicit Gaussian-KL reset clock phase diagram; priority risk remains",
+        "evidence": [
+          "Phys. Rev. E 112, 044114 (2025)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/8dmt-256h",
+        "material_read": "Open-access journal abstract and bibliography; full result body not accessible from the provided view",
+        "method": "Publisher abstract-level comparison",
+        "title": "Thermodynamic cost of random-time protocols",
+        "trigger": "Potential broader stochastic-clock thermodynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31e22fdf-4f67-415a-8450-3a3f97c15681",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two reset clocks are explicitly analyzed in the motivating thermal cycling study but their exact finite-width ordering is not classified. A unique global crossover, a sharp power/log critical-rate boundary with exponent 2/3, and the failure of the singular-width approximation under joint high-frequency scaling resolve a natural thermodynamic benchmarking gap beyond a routine derivative check.",
+    "status": "PASS"
+  }
+}
