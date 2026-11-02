@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Fourier reduction is exact on each odd cycle. The endpoint min-max lower bound is proved globally by restricting both feasible weights to at least \\(1/b\\) and applying \\((B-x)(B-y)\\ge0\\); uniqueness follows at endpoint balancing. The achieved quadratic has only one possible negative trough, bounded by \\(1/24\\) against an endpoint modulus of at least \\(1/6\\). The repeated-step comparator and strict improvement are exact algebra. The delivered standard-library checker passed 22455 finite assertions, which supplement rather than replace the analytic all-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. give a stationary FMMC optimum, not an independently tuned product over two rounds.",
+        "The published stagewise-safe result addresses all SPD matrices in an interval, but its constraints are norm safety and not entrywise Markov positivity; its even-cycle formula is outside the present odd-only claim."
+      ],
+      "reasoning": "Prior broader polynomial-filter frameworks do not imply the exact odd-cycle positivity-constrained minimax. The symmetry setting permits independent time weights without violating nonnegative entries, a restriction essential to the claimed optimum.",
+      "searches": [
+        "optimal two-periodic symmetric stochastic consensus cycle two step nearest neighbor Laplacian polynomial factor SLEM weights",
+        "periodic consensus on ring alternating lazy nonlazy stochastic weights strict improvement",
+        "Boyd Diaconis Parrilo Xiao fastest mixing Markov chain cycle",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1503.01269",
+      "https://arxiv.org/abs/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/fmmc.html",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For odd n, \\(b<4\\), so the Richardson cap \\(2/b\\) exceeds \\(1/2\\); setting \\(p=2/b\\) is not stochastic because its diagonal \\(1-2p\\) is negative.",
+        "The proposed optimizer uses \\(p=1/2\\) and \\(q=1/(a+b-2)\\), and the comparison with repeated stationary tuning is an exact positive identity.",
+        "The 2015 polynomial filter paper explicitly relaxes the per-factor Markov nonnegativity requirement."
+      ],
+      "reasoning": "Neither a stationary-kernel optimality statement nor a quadratic-filter optimality statement under relaxed Markov constraints logically yields this unique optimizer in \\([0,1/2]^2\\). For even n with \\(b=4\\), the existing safe Richardson formula does cover a closely related case, so even n was not claimed.",
+      "searches": [
+        "two-step fastest mixing on cycle two different stochastic nearest neighbor kernels Chebyshev factorization",
+        "optimal two-periodic symmetric stochastic consensus cycle two step nearest neighbor Laplacian polynomial factor SLEM weights",
+        "2007 fastest mixing cycle stationary",
+        "Apers Sarlette 2015 quadratic consensus polynomial filter",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cycle polynomial is a factored quadratic \\((1-p\\lambda)(1-q\\lambda)\\); polynomial filtering literature studies this representation but without positivity for each factor.",
+        "A stagewise-nonexpansive Richardson result uses \\(0\\le p\\le2/b\\), while odd-cycle stochasticity requires \\(0\\le p\\le1/2\\), and \\(2/b>1/2\\)."
+      ],
+      "reasoning": "Translation to quadratic filtering was checked; the underlying feasible set changes the optimizer. An unconstrained polynomial optimal value is not the answer for nonnegative stochastic factors. The known safe Richardson classification includes nonstochastic factors and a continuous spectral interval.",
+      "searches": [
+        "two-step fastest mixing on cycle two different stochastic nearest neighbor kernels Chebyshev factorization",
+        "two-step Markov chain cycle exact optimal two-period mixing with nonnegative holding parameters",
+        "published-finding corpus 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned the stagewise-safe Richardson record and other polynomial-iteration records, but no exact matching odd-cycle two-round stochastic weight table.",
+        "Prior prior research records titles and recoverable claims were compared for odd-cycle two-round products without a matching statement."
+      ],
+      "reasoning": "No matching exact finite-cycle table or formula was observed in accessible records; absence from search results is not evidence of universal novelty.",
+      "searches": [
+        "periodic nearest-neighbor averaging on cycles two rounds transition probabilities \\(1/2\\) and 1/(a+b-2) optimal SLEM",
+        "two-step fastest mixing on cycle two different stochastic nearest neighbor kernels Chebyshev factorization",
+        "two-step Markov chain cycle exact optimal two-period mixing with nonnegative holding parameters",
+        "published-finding corpus: stagewise safe Richardson frontier",
+        "arxiv 1503.01269 cycle Markov positivity"
+      ]
+    },
+    "rationale": "Compared actual mathematical implications, not simply titles: the prior single-kernel FMMC theorem lacks two-stage optimization; polynomial filtering allows negative Markov entries, and the prior stagewise-safe Richardson bound extends past the stochastic cap on odd cycles and optimizes a continuous interval rather than odd-cycle discrete modes. No inspected work supplies the sharp, feasible two-stage odd-cycle weights. Equivalent unindexed treatment remains possible.",
+    "residual_risks": [
+      "Specialized older works on two-period stochastic consensus may contain the same odd-cycle formula but were not found in accessible search results.",
+      "Some secondary historical analyses on cycles were accessible only as abstracts, and a search result is not sufficient to assert noncoverage of full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mathematically relevant, but solves a less restrictive polynomial-filter problem, not the pair of individually stochastic nearest-neighbor rounds.",
+        "evidence": [
+          "arxiv:1503.01269 initial public submission 2015-03-04",
+          "Polynomial factors may violate Markov nonnegativity; the present theorem requires it after every round."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.01269",
+        "material_read": "ArXiv abstract and the primary PDF exposition of polynomial filters, constraints and theorem, including the passage explicitly dropping Markov nonnegativity.",
+        "method": "Direct page/section reading and PDF inspection",
+        "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+        "trigger": "The closest primary second-order polynomial-filter consensus framework"
+      },
+      {
+        "assessment": "Covers one-step and repeated-one-step optimizer, but not two independently chosen stochastic rounds.",
+        "evidence": [
+          "arxiv:0709.0955 initial submission 2007-09-06",
+          "One-step cycle optimum \\(p=2/(a+b)\\) gives repeated two-step comparator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Full-text framework and cycle subsection describing the one-step optimum.",
+        "method": "Direct full-text section inspection",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "Cycle stationary fastest mixing and symmetry comparator"
+      },
+      {
+        "assessment": "Its SPD norm-safety condition allows p up to \\(2/b\\), larger than odd-cycle stochastic bound \\(1/2\\); its continuous interval objective differs from the discrete spectral objective.",
+        "evidence": [
+          "The stated prior constrained branch optimizes \\(\\{2/L,2/(L+2\\mu)\\}\\) under \\(0\\le\\tau\\le2/L\\).",
+          "For L=\\(b<4\\), \\(2/L>1/2\\), so the prior cap does not ensure stochasticity of the cycle factors."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "material_read": "Entire public RESULT.md including all two-step hypotheses, theorem, explicit formula and corollaries.",
+        "method": "Read-only public repository full-text inspection",
+        "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+        "trigger": "Closest actual published claim on two individually nonexpansive Richardson factors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2b600a3-fbfd-44e5-8d7a-7e739985cfaa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two independently stochastic rounds are natural in gossip and consensus; the theorem solves a constrained yet nontrivial minimax question over every odd cycle. The optimum is attained at the zero-holding boundary, is unique up to time reversal, and strictly improves on the best stationary walk (five-vertex factor \\(1/6\\) versus \\(1/5\\)). Its exact gain and \\(n^{-6}\\) limit quantify the benefit and limitation of admissible time variation without claiming Chebyshev-order acceleration.",
+    "status": "PASS"
+  }
+}
