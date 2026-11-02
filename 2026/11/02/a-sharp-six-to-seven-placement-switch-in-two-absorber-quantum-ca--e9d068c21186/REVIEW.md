@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The three adjacency energies, exact projector-weight tables, rank-one Lyapunov trace identity, four rational lifetime coefficients and sign-changing polynomial comparison together prove the one accepted claim for all integers \(n\ge5\) and all positive common loss rates. The all-size positivity certificate is algebraic; finite Krylov and Lyapunov computations additionally check actual physical graphs rather than claiming numerical enumeration proves the infinite family.
+
+**Originality — PASS on examined evidence; historical priority provisional.** The closest directly overlapping publication is Lugão et al. (arXiv:2203.14384), whose full Section 3 treats Johnson graphs with two marked vertices, projector matrix elements, and Hermitian spatial-search performance, but not the non-Hermitian two-sink conditional lifetime or its sharp size-seven geometry transition. Novo et al. (arXiv:1412.7209) prove coherent absorption via the trap-generated Krylov space and discuss some finite transfer times, without triangular-graph two-sink all-size formulas. Varbanov et al. (arXiv:0803.3446) optimize hitting under a different Poisson measurement protocol. Prior spectral formulas are credited rather than counted as novel. A possible unrecognized exact general rank-one loss identity or historical Johnson-graph treatment remains an explicit priority risk.
+
+**Mathematical value — PASS.** Two site placements have identical eventual capture probability yet different conditional loss-rate optima. The strict adjacency-to-disjoint switch between \(n=6\) and \(n=7\), plus two finite-rate crossovers, provides a structural design criterion for frustrated coherent transport and exact benchmarks across an infinite graph family; it is not merely a reparameterization of a known probability or a small fitted numerical effect.
+
+Self-review: passed. Independent audit: not yet performed.
