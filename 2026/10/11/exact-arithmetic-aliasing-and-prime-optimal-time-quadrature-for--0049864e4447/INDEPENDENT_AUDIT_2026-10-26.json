@@ -1,0 +1,202 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T03:13:22.714105Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed from pinned RESULT.md with probability-normalized dx dt. Spatial Fourier Parseval yields integral_x |U|^4 = S^2+2 sum_{h=1}^K |B_h(t)|^2, B_h(t)=sum_{m=0}^{K-h} a_{m+h}conj(a_m) exp(2pi i(2hm+h^2)t). Continuous time selects equal m; N-point roots-of-unity sum selects N|2h(m-n). Pairing m<n and h>0 gives 4 Re(a_{m+h+r}conj(a_{m+h})conj(a_{m+r})a_m), summed over h+r<=K. With d=N/gcd(N,2), N|2hr iff d|hr; v=gcd(d,h) implies h>=v and r>=d/v. Conversely minimizing divisor v yields collision. All-ones vector has positive alias defect, proving necessary threshold K<sigma(d) even though general signed defects may be negative. Without collisions, 2S^2-sum |a|^4 <= (2-1/(K+1))S^2 by Cauchy-Schwarz, equality iff all nonzero vector entries have equal modulus (including K=0). A collision produces strict norm enlargement by all-ones. For K>=2 least odd prime p>=K has sigma(p)=p+1 and works. Bertrand gives p<2K. Any N<p and N<K has sigma(d)<=d+1<=K; even N>=K has d=N/2<K; odd composite N>=K has divisor 3<=v<=sqrt N so sigma(N)<=3+N/3<3+2K/3<=K for K>=9, with K=2..8 checked directly (only composite exception N=9,K=8). Frequency translation is phase factor plus x translation, preserving spatial Haar fourth moments. Independently checked all collision thresholds K=0..19,N=1..79, prime optimality K=2..199, and independently enumerated all momentum/time congruence quartic terms for K=0..7,N=1..18 with complex coefficients; finite tests corroborate, do not prove the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu-Li arXiv:1108.5164v1 (1.5) integrates over T^(d+1) and Theorems 1.1-1.3 give bounds/level sets, not finite uniform time quadrature.",
+          "Wooley arXiv:1508.05329v1 abstract and theorem use integral over [0,1)^k and higher moments with efficient congruencing, not exact time-grid sampling.",
+          "Ignat arXiv:1910.05517 Sections 1-2 study spatial finite-difference semidiscretization and continuous-time L4 estimates, not arithmetic rational-time quadrature of the exact flow."
+        ],
+        "reasoning": "These stronger-looking Strichartz and numerical bounds concern continuously integrated time or altered semidiscrete dispersion; their parameters and quantifiers do not imply equality of Q_K,N and Q_K,infty for every arbitrary complex vector at a specified integer N. No dominating general theorem was found.",
+        "searches": [
+          "arXiv:1108.5164v1 continuous torus restriction and Strichartz",
+          "arXiv:1508.05329v1 efficient congruencing moment-curve restriction",
+          "arXiv:1910.05517 numerical approximations periodic Schrodinger L4",
+          "Web: discrete time Strichartz fourth torus quadrature; prime sample quadratic Weyl L4"
+        ]
+      },
+      "checked_sources": [
+        "J. Bourgain (1993), Fourier transform restriction phenomena..., Part I, GAFA 3, Proposition 2.1, equations (2.2)-(2.4), PDF https://math.mit.edu/classes/18.158/bourgain-restriction.pdf",
+        "A. Zygmund (1974), On Fourier coefficients and transforms of functions of two variables, Studia Math. 50, 189-201, DOI 10.4064/sm-50-2-189-201 (abstract available; full PDF publisher returned 403)",
+        "Y. Hu and X. Li (2011), Discrete Fourier Restriction associated with Schrodinger equations, arXiv:1108.5164v1, https://arxiv.org/html/1108.5164v1",
+        "T. D. Wooley (2015), Discrete Fourier restriction via efficient congruencing: basic principles, arXiv:1508.05329v1, https://arxiv.org/html/1508.05329v1",
+        "S. Matsutani and Y. Onishi (2002), Wave-Particle Complementarity and Reciprocity of Gauss Sums on Talbot Effects, arXiv:math-ph/0207011v1, https://arxiv.org/pdf/math-ph/0207011",
+        "L. I. Ignat (2019/2007), On the numerical approximations of the periodic Schrodinger equation, arXiv:1910.05517, https://arxiv.org/abs/1910.05517",
+        "Resultary/2026, Exact fourth moment and all extremizers for four consecutive Fourier characters, 2026-10-11, RESULT.md at 2026/10/11/SCOPE-exact-fourth-moment-and-all-extremizers-for-four-consecutive-fou--77a4e780524e",
+        "Resultary/2026, Optimal fourth-overlap energy for arbitrary unions of finite quadratic-chirp bases, 2026-10-11, RESULT.md at 2026/10/11/SCOPE-optimal-fourth-overlap-energy-for-arbitrary-unions-of-finite-qua--76e32f8a77b8",
+        "Resultary semantic search x2; exact matching SCOPE item is the assessed claim, not independent priority evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bourgain provides the continuous 2S^2-sum |a_n|^4 identity by standard orthogonality, a proper component of the claim but no modular time sampling.",
+          "Zygmund (1974) abstract concerns Fourier restriction along circles and parabola-type curves in two variables, with no discrete sampled-time result apparent from abstract; full primary not read (403).",
+          "Talbot paper supplies rational quadratic exponential sums, but not the signed quartic alias sum and divisor minimizing prime theorem.",
+          "Two relevant Resultary findings calculate distinct cyclic Fourier objectives and do not entail the present two-variable moment criterion."
+        ],
+        "reasoning": "A direct elementary derivation from classical orthogonality and modular arithmetic is possible and was independently reconstructed, but none of the inspected earlier theorem statements provides the modular collisions, exact sigma threshold and least-prime optimality. Qualification: older finite-group quadrature literature might contain an equivalent lemma or stronger generic sampling theorem; accessible negative comparisons do not certify global priority.",
+        "searches": [
+          "Bourgain 1993 Proposition 2.1 PDF page 112",
+          "Zygmund 1974 DOI 10.4064/sm-50-2-189-201 archive and publisher",
+          "Matsutani-Onishi 2002 Eq 2.14 PDF",
+          "Resultary semantic search own match versus distinct four-character and quadratic-chirp results",
+          "Web: periodic Schrodinger discrete time L4 uniform sample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bourgain 1993 Proposition 2.1, (2.2)-(2.4): continuous T^2 fourth-moment orthogonality follows from uniqueness of frequency pair n1-n2,n1^2-n2^2 for n1!=n2; primary PDF page 112 read.",
+          "Matsutani-Onishi (2.7)-(2.15), PDF pp.3-4: rational quadratic phases and Gauss coefficients for Talbot self-images, without an all-coefficient spatial L4 moment criterion."
+        ],
+        "reasoning": "The new condition is equivalent to absence of modular off-diagonal temporal characters N divides 2hr with 1<=h,r and h+r<=K. The continuous orthogonality and rational Talbot phase apparatus alone do not mathematically state the exact all-N divisibility threshold or least-grid optimization; the continuous L4 baseline is prior and not claimed as new.",
+        "searches": [
+          "Resultary semantic: Exact quadrature of the space-time L4 norm of finite Fourier Schrodinger waves by equally spaced rational time samples, integer congruence 2hr modulo N, smallest prime N at least spectral bandwidth K",
+          "Web: Schrodinger fourth moment sampling arithmetic divisor product 2hr uniform grid",
+          "Web: periodic Schrodinger Strichartz estimate finite cyclic time grid finite dimension",
+          "Bourgain 1993 Prop 2.1; Matsutani-Onishi arXiv:math-ph/0207011v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary own same title is the very claim under audit, not antecedent.",
+          "Resultary four-consecutive-character theorem treats one-variable cyclic spatial Fourier moment (N>=7), has constant about 2.80884 and different phase/amplitude extremizers; no n^2 temporal phase.",
+          "Resultary quadratic-chirp bases theorem optimizes overlaps of Gauss-sum bases with a totient-weighted divisor count, not a space-time L4 time-sampling test."
+        ],
+        "reasoning": "A multi-parameter threshold sigma(N/gcd(N,2)) and smallest time-grid cardinality are not reproduced by the examined finite Fourier tables. Searches may miss uncatalogued discrete quadrature data, so no absolute novelty claim follows.",
+        "searches": [
+          "Resultary semantic: quadratic Weyl Fourier polynomial fourth moment discrete time average sharp Strichartz constant periodic torus resonance divisor sum sigma(d) prime optimal sampling",
+          "Web: exact time quadrature fourth moment Fourier quadratic dispersion prime sample",
+          "Resultary/2026 four-character L4 cyclic projection/extension RESULT and quadratic chirp fourth-overlap RESULT"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality. Prior continuous parabolic fourth-moment orthogonality (Bourgain/Zygmund) is not new and directly supplies the continuum baseline; rational Talbot quadratic Gauss sums and continuously integrated Strichartz estimates do not imply arbitrary-complex-coefficient uniform temporal quadrature for all moduli, the signed alias polynomial, factor-minimization cutoff, or optimal least odd prime grid. Full published Resultary fourth-moment and chirp-overlap claims are distinct objectives. A simple derivation from classical ingredients does not alone mean a pre-existing theorem states the global arithmetic classification, but a historical or stronger generic finite quadrature result could cover it; see risks.",
+      "residual_risks": [
+        "A historically equivalent modular temporal quadrature lemma in older Fourier sampling, finite Fourier groups, Talbot optics, or numerical PDE literature could imply part or all of the result without wording overlap; semantic and web searches cannot exclude it.",
+        "Zygmund 1974 full text was not obtained (official link 403); inspected abstract and later Bourgain proof substantiate continuous baseline but full paper has not been checked for unexpected finite-grid corollaries.",
+        "Any broad theorem about exact cubature for finite character systems that specializes to the product resonance 2hr may dominate the optimal prime rule; no identified antecedent currently does.",
+        "Mathematical significance is confined to 1D consecutive bands, exact quadratic integer dispersion, sampled time grid j/N and fourth moments; no inference to irregular grids or higher moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the continuous fourth-moment/diagonal collision fact but not the all-N discrete-time congruence threshold or prime-minimum quadrature.",
+          "evidence": [
+            "Proposition 2.1, equation (2.3), uniqueness of simultaneous first and second moments when lag nonzero; page 112"
+          ],
+          "identifier_or_url": "https://math.mit.edu/classes/18.158/bourgain-restriction.pdf",
+          "material_read": "Original PDF pp. 1-6, including section map, Proposition 2.1 and proof eqs (2.2)-(2.4), and scanned PDF page image 112 (PDF zero-index 5).",
+          "method": "Full-text PDF parsed text and page screenshot of the proposition; direct comparison of characters and normalizations",
+          "title": "Fourier transform restriction phenomena for certain lattice subsets and applications to nonlinear evolution equations, Part I: Schrodinger equations",
+          "trigger": "Same parabolic frequency curve and continuous L4 Fourier orthogonality; closest foundation"
+        },
+        {
+          "assessment": "Gauss-sum amplitudes at rational Talbot times are relevant but no arbitrary-coefficient uniform sampled spatial fourth-moment equality or minimal prime sample theorem in inspected material.",
+          "evidence": [
+            "Paraxial quadratic phase (2.7), rational decomposition (2.8)-(2.14), reciprocity (4.7)-(4.10)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0207011",
+          "material_read": "Original 14-page PDF text, abstract, introductory sections and derivation of rational Talbot Gauss coefficients pp.2-4, reciprocity argument p.8; PDF screenshots of pages 4 and 8; searches for moment/fourth.",
+          "method": "Open-access full-text PDF and targeted screenshot of primary formulas (2.11)-(2.15), (4.7)-(4.10)",
+          "title": "Wave-Particle Complementarity and Reciprocity of Gauss Sums on Talbot Effects",
+          "trigger": "Exact rational-time quadratic phase reconstruction potentially equivalent to sampled Schrödinger propagation"
+        },
+        {
+          "assessment": "Continuously integrated torus Lp and level-set estimates, not exact cyclic temporal averages.",
+          "evidence": [
+            "Introduction eq (1.5); Theorems 1.1, 1.2, 1.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1108.5164v1",
+          "material_read": "Full accessible arXiv HTML, Introduction and explicit eqs. (1.5), (1.10)-(1.15), theorem statements; in-document searches for quadrature and sampling.",
+          "method": "Primary arXiv HTML with text search and theorem comparison",
+          "title": "Discrete Fourier restriction associated with Schrodinger equations",
+          "trigger": "Same periodic Schrödinger extension operator; possibly dominating restriction bounds"
+        },
+        {
+          "assessment": "Integral moment-curve estimates in continuously integrated phases, not finite exact time-grid identity or minimal N.",
+          "evidence": [
+            "arXiv:1508.05329v1 introduction integral over [0,1)^k and efficient congruencing bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1508.05329v1",
+          "material_read": "Original arXiv HTML title/abstract, main moment-integral statement, broad theorem formulation; in-document searches for quadrature and discrete time.",
+          "method": "Primary HTML inspection and keyword search",
+          "title": "Discrete Fourier restriction via efficient congruencing: basic principles",
+          "trigger": "General moment curve estimate could cover nonlinear Fourier oscillation"
+        },
+        {
+          "assessment": "Spatial finite-difference dispersion under continuous time; unlike finite equally spaced time samples of the exact quadratic flow.",
+          "evidence": [
+            "Equation (1.4) continuous L4; (2.1) discrete spatial Laplacian"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.05517",
+          "material_read": "Full HTML abstract and introduction pp./sections 1-2, especially eqs (1.4), (2.1), and outline Sections 3-4.",
+          "method": "Open full-text arXiv representation compared PDE scheme and exact sampling variables",
+          "title": "On the numerical approximations of the periodic Schrodinger equation",
+          "trigger": "Finite-scheme L4 Strichartz claims may dominate discrete sampling principle"
+        },
+        {
+          "assessment": "Classical two-dimensional restriction theorem could subsume the continuous ingredient; full-text prior-coverage determination unavailable and explicitly retained as risk.",
+          "evidence": [
+            "Studia Mathematica 50 (1974), 189-201; abstract and URL https://www.impan.pl/en/publishing-house/journals-and-series/studia-mathematica/all/50/2/100317/on-fourier-coefficients-and-transforms-of-functions-of-two-variables"
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/sm-50-2-189-201",
+          "material_read": "Official publishing metadata and archival abstract only; full original download link returned HTTP 403 and was not read.",
+          "method": "Publisher metadata, independent archival abstract, attempted publisher primary PDF",
+          "title": "On Fourier coefficients and transforms of functions of two variables",
+          "trigger": "Classical historical source cited for continuous L4 Fourier restriction"
+        },
+        {
+          "assessment": "Purely spatial one-variable cyclic character average with algebraic sharp constant; not quadratic time flow sampling.",
+          "evidence": [
+            "Definition F_N(k)=sum_{j=0}^3 a_j zeta_N^{jk}, theorem N>=7 and constant 2.808840..."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-fourth-moment-and-all-extremizers-for-four-consecutive-fou--77a4e780524e/RESULT.md",
+          "material_read": "Entire primary published RESULT.md including full theorem, proof, equality classification and limitations.",
+          "method": "Public Git repository exact RESULT.md read by GitHub connector",
+          "title": "Exact fourth moment and all extremizers for four consecutive Fourier characters",
+          "trigger": "Four-consecutive-mode sampled fourth moment; possible exact-table coverage"
+        },
+        {
+          "assessment": "Fourth overlap frame potential of union of chirp bases, a different quantity; no arbitrary-coefficient temporal quadrature theorem.",
+          "evidence": [
+            "Theorem Phi_2(A)=rN+2sum_{m|N}phi(m)C_m(r), different variables and normalization"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-optimal-fourth-overlap-energy-for-arbitrary-unions-of-finite-qua--76e32f8a77b8/RESULT.md",
+          "material_read": "Entire primary published RESULT.md including proof of gcd-energy and balancing criterion.",
+          "method": "Public Git repo primary RESULT.md read by GitHub connector",
+          "title": "Optimal fourth-overlap energy for arbitrary unions of finite quadratic-chirp bases",
+          "trigger": "Cyclic quadratic chirp fourth moments with divisor-weighted arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical discrete Schrödinger/parabola fourth-power measurement becomes exactly evaluable from a finite uniform time grid. The claim completely classifies all bandwidths and moduli by an intrinsic divisor-pair-sum invariant, identifies signed alias interactions and failed-grid witnesses, settles the sharp baseline constant and equality cases, and proves the surprisingly linear minimum sampling budget, the least odd prime >=K, versus naive quadratic temporal frequency range. This is a natural general exact sampling classification (not an arbitrary small table) with plausible use in finite-time diagnostics. Classical Fourier orthogonality is easy, but the optimal sample-count/divisor threshold across every integer modulus is an independent meaningful arithmetic synthesis; it does not assert novelty of Parseval, Bertrand or the continuous L4 bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "J. Bourgain (1993), Fourier transform restriction phenomena..., Part I, GAFA 3, Proposition 2.1, equations (2.2)-(2.4), PDF https://math.mit.edu/classes/18.158/bourgain-restriction.pdf",
+    "A. Zygmund (1974), On Fourier coefficients and transforms of functions of two variables, Studia Math. 50, 189-201, DOI 10.4064/sm-50-2-189-201 (abstract available; full PDF publisher returned 403)",
+    "Y. Hu and X. Li (2011), Discrete Fourier Restriction associated with Schrodinger equations, arXiv:1108.5164v1, https://arxiv.org/html/1108.5164v1",
+    "T. D. Wooley (2015), Discrete Fourier restriction via efficient congruencing: basic principles, arXiv:1508.05329v1, https://arxiv.org/html/1508.05329v1",
+    "S. Matsutani and Y. Onishi (2002), Wave-Particle Complementarity and Reciprocity of Gauss Sums on Talbot Effects, arXiv:math-ph/0207011v1, https://arxiv.org/pdf/math-ph/0207011",
+    "L. I. Ignat (2019/2007), On the numerical approximations of the periodic Schrodinger equation, arXiv:1910.05517, https://arxiv.org/abs/1910.05517",
+    "Resultary/2026, Exact fourth moment and all extremizers for four consecutive Fourier characters, 2026-10-11, RESULT.md at 2026/10/11/SCOPE-exact-fourth-moment-and-all-extremizers-for-four-consecutive-fou--77a4e780524e",
+    "Resultary/2026, Optimal fourth-overlap energy for arbitrary unions of finite quadratic-chirp bases, 2026-10-11, RESULT.md at 2026/10/11/SCOPE-optimal-fourth-overlap-energy-for-arbitrary-unions-of-finite-qua--76e32f8a77b8",
+    "Resultary semantic search x2; exact matching SCOPE item is the assessed claim, not independent priority evidence."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Historical originality is best-of-knowledge, not global priority certification; classic Zygmund full original article was not accessible through publisher link (403), though metadata and abstract were read.",
+    "Some related primary full-text discussions were inspected only in relevant theorem/proof sections; negative assessment does not assert complete noncoverage without adequate material.",
+    "Only quartic moment with quadratic time phase, consecutive 1D frequencies, normalized x-integral and N-point uniform temporal averages j/N is covered; no sharp constant in aliasing regimes.",
+    "No independent human attestation, Lean verification or publication was performed; verification script is finite diagnostic.",
+    "Existing METADATA.json and AUDIT.json contain private operational run identifiers, and REVIEW.md discloses model-review provenance; full confidentiality-safe, evidence-preserving replacements with exact source blob guards were not staged. Publication withheld (not_ready).",
+    "Existing ledger historical defects/gaps are preserved; only three newly appended rows and whole-file bytes were validated."
+  ],
+  "schema_version": 1
+}
