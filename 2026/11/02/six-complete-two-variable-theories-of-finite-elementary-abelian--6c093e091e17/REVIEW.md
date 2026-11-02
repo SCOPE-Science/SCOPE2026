@@ -1,0 +1,11 @@
+# Scientific review: six unbounded-depth two-variable group theories
+
+**Correctness — PASS.** Complete two-variable quantifier-free pair diagrams in the signature \((0,R_+)\) are determined, for odd primes at least five, by the five scalar slopes \(0,1,-1,2,1/2\) and the generic case. In dimensions at least two the independent-vector case realizes the generic diagram; for \(p\ge7\) a generic scalar slope exists already in dimension one. Each six-way class has exactly the same pair-diagram and one-variable-replacement repertoires. Matching current pair diagrams gives an explicit two-pebble back-and-forth through arbitrarily many rounds, so unbounded logical depth is actually proved. Distinct classes have different pair diagrams and are separated by rank-two existential sentences. Exact direct finite checks reproduce all six classes and the representative bound.
+
+**Originality — PASS, qualified.** Prior prime-cyclic and elementary-abelian results classify *unrestricted quantifier-rank-three* sentence theories and do not imply the complete two-variable theories at unbounded quantifier depth. Gomaa's work establishes general quantitative EF-game bounds, not the six-class \(\mathrm{FO}^2\) collapse. Scott uses a different, scalar-rich language. Direct literature and indexed research searches for two-variable, two-pebble, finite elementary abelian, and ternary addition classifications found no statement implying this theorem. Historical priority is not exhaustively established; full access to Gomaa's 2010 article was unavailable.
+
+**Mathematical value — PASS.** The result determines a natural complete finite-variable logical invariant of a fundamental two-parameter family, with no bound on formula depth. It exhibits a sharp expressive-power separation: ordinary rank-three logic has thirteen classes, but even arbitrarily deep \(\mathrm{FO}^2\) has only six. The equivalence of groups of orders 25 and 7 and the sharp nine-element bound are nontrivial consequences of the precise atomic type geometry, not routine substitutions of a finite-rank theorem.
+
+**Limitations.** The theorem does not cover other languages, groups with nonprime exponent, counting logic, or formulas with three variables. Independent validation is still pending.
+
+Self-review: passed. Independent audit: not yet performed.
