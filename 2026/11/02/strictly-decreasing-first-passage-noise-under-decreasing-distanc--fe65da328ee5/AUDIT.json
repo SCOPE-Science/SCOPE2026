@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly specified iid position redraws, the renewal first-passage Laplace transform gives the exact mean and coefficient-of-variation square. The decreasing-distance density admits a probability-mixture-of-uniforms representation with a positive mixing length of finite mean. An algebraically checked derivative identity reduces the sign to the expectation of a symmetric two-variable kernel; the strict inequalities S(x)>2 and R(x)>(3-x)/2 show that kernel is strictly negative at all positive arguments. Endpoint behavior follows by concavity and dominated Laplace limits. The included standard-library program compares independent derivative and kernel calculations in 300 mixtures and 24 interval/target instances; this is corroboration, not the infinite-class proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evans and Majumdar, arXiv:1107.4225, Sec. 4, distributed restart sites and mean first-passage times.",
+        "Reuveni, arXiv:1512.01600, coefficient of variation at an optimally chosen finite nonzero restart rate."
+      ],
+      "reasoning": "The older mean-first-passage result does not imply a global second-moment derivative sign; the optimal-rate universal coefficient of variation equals one only at a finite interior mean optimizer, whereas the theorem here states strictly decreasing coefficient of variation greater than one at all finite rates and converging to one at infinity. A more abstract renewal theorem might imply the specialization and remains an explicit residual risk.",
+      "searches": [
+        "\"Poisson-restarted Brownian first passage with nonincreasing reset distance density; monotonic coefficient of variation, mixture-of-uniforms theorem\"",
+        "arXiv:1107.4225, Sec. 4",
+        "arXiv:1512.01600, optimal restart fluctuations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.01125v1",
+      "arXiv:1107.4225",
+      "arXiv:1512.01600",
+      "Relevant published mathematical research records on first-passage restart variance and catastrophe-restart extremality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The originating paper explicitly supplies a numerical confirmation of the uniform-interval phenomenon and does not establish the kernel sign proof.",
+        "Known universal optimal restart identity concerns a rate at which the mean has an interior optimum, not all reset rates of a law with density positive at target."
+      ],
+      "reasoning": "A renewal formula alone makes the sign question an inequality involving the Laplace transform of an arbitrary distance density; the present proof uses the extra nonincreasing-density hypothesis to derive a signed pair-kernel identity. Neither the previously published mean formula nor the optimal-restart identity entails strict all-rate monotonicity without this argument.",
+      "searches": [
+        "arXiv:2401.01125, equation (59), Sec. VII.B",
+        "arXiv:1107.4225, Sec. 4, equations (45)-(49)",
+        "arXiv:1512.01600, universal optimal restart identity",
+        "\"coefficient of variation\" \"monotonically decreasing\" \"resetting\" \"distributed\" target"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.01125v1, Sec. VII.B, equation (59) and discussion of numerical sign checking",
+        "The derivative of squared coefficient of variation is expressed as the strictly negative positive-mixture pair kernel (RESULT.md, equations (2)-(6))."
+      ],
+      "reasoning": "The source formula is equivalent in a new variable to the renewal formula (1), but the source numerical observation does not entail a proof for every rate, every off-center target, or every nonincreasing distance density. The theorem is about a sufficient distribution-shape condition, not a renaming of the known renewal formula.",
+      "searches": [
+        "\"first-passage fluctuations coefficient of variation monotonicity nonincreasing distance probability reset 2024 Mendez Flaquer-Galmes Campos\"",
+        "\"Brownian distributed resetting monotonic coefficient variation reset rate decreasing density distance distribution theorem\"",
+        "arXiv:2401.01125, sections II and VII.B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2024 first-passage paper gives closed integral and special-geometry expressions; the statement concerning the derivative sign for interior targets is based on numerical observation, not an exact table theorem.",
+        "A related 2026 discrete-restart result, Sharp variance envelope at fixed success probability under memoryless catastrophe, optimizes discrete attempt durations; its object and constraints are different."
+      ],
+      "reasoning": "No exact table of the all-rate derivative sign for monotone Brownian reset-distance densities was found in the checked sources. Numerical plots of a particular target geometry are not a theorem about every density in the identified shape class.",
+      "searches": [
+        "\"Brownian searcher with stochastic resetting to random positions 2024; coefficient of variation strictly decreasing with resetting rate for uniform reset interval containing target\"",
+        "\"first-passage time of a Brownian searcher with stochastic resetting to random positions; heterogeneity of restart locations and large deviations of passage times; exponential moment thresholds\""
+      ]
+    },
+    "rationale": "Méndez, Flaquer-Galmés and Campos (arXiv:2401.01125, Sec. VII.B) give the coefficient-of-variation formula and numerical evidence for monotonicity for a uniform reset interval containing its target. The present result establishes strict monotonicity analytically, also for an off-center target, and for the broader class of all bounded decreasing reset-distance densities. Evans and Majumdar provide the distributed-reset first-moment framework; Reuveni gives a universal coefficient-of-variation value at a mean-optimal rate, not the all-rate monotonicity classification. Other general renewal fluctuation theorems remain a possible priority risk.",
+    "residual_risks": [
+      "A broader renewal or Laplace-transform shape theorem may imply this sufficient condition without using the present kernel proof.",
+      "The priority assessment is based on checked relevant sources, not a census of all publications; further independent literature review is warranted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives renewal moments and reports numerical monotonicity for the interval case; the stated analytic decreasing-density theorem was not located in the inspected relevant material.",
+        "evidence": [
+          "Sec. VII.B gives numerical sign evidence for a target within a uniform reset interval.",
+          "Equation (59) provides the known CV expression that is extended by the new monotonicity proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+        "material_read": "Preprint formulae and discussion in Sections II and VII, particularly Section VII.B and equation (59), with PDF pages inspected.",
+        "method": "Primary open-access paper PDF text and page visual inspection.",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Same stochastic model and reported coefficient-of-variation monotonicity for a uniform reset interval."
+      },
+      {
+        "assessment": "Related random-reset first-passage mean analysis, not a proof of all-rate CV monotonicity for decreasing target distances.",
+        "evidence": [
+          "Section 4 discusses mean first-passage times for spatially distributed resetting."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+        "material_read": "Section 4 and equations (45)-(49) on random resetting locations, with the corresponding PDF material inspected.",
+        "method": "Open-access PDF text and page inspection.",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "Foundational distributional resetting with random restart positions."
+      },
+      {
+        "assessment": "Establishes CV=1 at a nonzero interior mean-optimal rate in its setting; does not state strict monotonic CV for all rates in the decreasing-distance class.",
+        "evidence": [
+          "Main optimal-restart identity concerns a stationary point of the mean restart time."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1512.01600",
+        "material_read": "Abstract, principal renewal and optimal-rate coefficient-of-variation derivation, and PDF page inspection.",
+        "method": "Open-access preprint PDF.",
+        "title": "Optimal stochastic restart renders fluctuations in first passage times universal",
+        "trigger": "Potentially dominating general restart-fluctuation theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe65da32-8ee5-4596-9175-fc572881f0fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicitly noted numerical-only trend in a 2024 physical search model is promoted to a rigorous all-parameter theorem, valid for all off-center targets inside a reset interval and a broad natural class of nonincreasing target-distance densities. This provides a mathematically justified reliability design rule: with a dense resetting neighborhood around the target, increasing restart frequency strictly suppresses relative first-passage noise. The monotone-density mixture and signed pair-kernel inequality are nontrivial structural tools beyond routine evaluation of a moment formula. Limits and non-covered classes are explicit.",
+    "status": "PASS"
+  }
+}
