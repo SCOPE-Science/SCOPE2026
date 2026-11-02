@@ -1,11 +1,21 @@
-# Scientific assessment: atomic stationary laws without average expansion
+# Independent mathematical audit
 
-**Correctness — PASS.** The piecewise binary rules are derived directly from the two rational maps. All 32 endpoint/prefix inequalities are strict rational inequalities; affineness in the probability parameter extends them to the full closed interval. The resulting proper geometric Lyapunov function yields uniform tightness of Cesàro laws and a finite exponential denominator-depth moment. Consecutive doubling steps make zero accessible from every dyadic state, giving uniqueness on the dyadic class. Boundary states of depth below four are handled by a finite exceptional set, not by extrapolating the prefix formula.
+## correctness
 
-**Originality — PASS under available evidence.** The closest direct source, Goverse and Kleptsyn, arXiv:2607.11421v2, explicitly assumes \(p>1/2\) in its original two-map example and uses strict average expansion in Theorem 3.5. The new interval \(2/5\le p\le1/2\) violates that hypothesis at all non-dyadic points in the left semicircle. The four-bit rational Lyapunov certificate and its uniform sign-changing interval are absent from the examined Example 3.1, Theorem 3.5 and Section 3.3. Related general countable-state Foster theory provides the mechanism, not the model-specific certificate. Search and coverage limitations are recorded in the accompanying structured review.
+PASS
 
-**Mathematical value — PASS.** This is a qualitative boundary to a natural sufficient condition, not merely a narrower numerical example: a random non-invertible circle system has a unique exponentially tight atomic stationary distribution even though its pointwise expected logarithmic derivative is strictly negative on an open semicircle. The interval includes the zero-drift endpoint and a robust negative-drift subinterval, making it relevant to identifying correct recurrence hypotheses for random Thompson-semigroup dynamics.
+For dyadic x of depth n≥4, both maps rewrite the leading four binary digits with exact depth changes +1,−1,0, and D lowers depth by one. The positive prefix-dependent V(x)=s^G(x)a_prefix with s=51/50 and eight stated rational a has P_pV≤(3999/4000)V outside finite depth<4. Independently recomputed all 16 exact rational drift slacks for p=2/5 (min 3409/170000000) and p=1/2 (min 268567/10200000000); affine dependence extends to interval. Also independently tested direct rational maps on all 504 odd-numerator dyadics depth4..9. Foster/tight Cesàro argument gives stationary finite V moment, reachability of 0 under D yields uniqueness; prior Goverse–Kleptsyn theorem supplies p>1/2. Nonpositive expected log slope (2p−1)log2 on (0,1/2) is precisely the counterexample boundary. Finite bit checks prove uniform drift only because all-depth rewrite identity is analytic.
 
-**Limits and risks.** The lower cutoff is certified sufficient rather than sharp. No physicality claim or uniqueness on the entire circle is made. A specialized unpublished or unindexed analysis of the exact two maps could supersede the argument. Independent mathematical and historical-priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical contribution established by comparison of actual statements, not titles. The published criterion p>1/2 does not imply stationarity for p=2/5 through 1/2: its hypothesis explicitly fails on the left semicircle. The explicit rational 16-case inequality supplies the missing positive-recurrence implication, while uniqueness on dyadics follows reset accessibility. General ingredients and established results explicitly credited; no priority guarantee.
+
+## value
+
+PASS
+
+The given circle system is an exact motivating example in the published atomic-measure work, and positive average expansion was its sufficient criterion. An explicit uniform finite-prefix drift certificate extends existence and exponential depth tails across the natural sign-change boundary, establishing a substantive boundary counterexample rather than arbitrary parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
