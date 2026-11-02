@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs unique value-by-run arrays, nondecreasing run minima, witnesses for strict run transitions at later values, and the exact parking ballot-prefix condition. The transition weight is a stars-and-bars coefficient, with special initial case, and the endpoint is bijective for each n>=1. The included verifier exhaustively checks every word through n=6, an independently coded literal-allocation recurrence through n=12, and the original table through n=8, plus reported rows through n=20; it ends VERIFY_OK. Finite checks support rather than replace the infinite combinatorial bijection.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barrese et al. 2025 Theorem 3.6 is content-fixed, but is not a run-refined enumeration; Section 3.1 leaves Fubini run enumeration open.",
+        "Cruz et al. 2023 discuss ordinary parking-function descent statistics without the global run-start order condition.",
+        "Baril, Harris, Ramírez 2024 use Catalan words with a local adjacent bound rather than ballot-permitted parking preference multisets."
+      ],
+      "reasoning": "The technically closest later theorem is a broader word-family enumeration for unrefined fixed content, not a general theorem on the joint content-and-run statistic. The other cited families or marginals impose different conditions. Their inspected statements do not imply the claimed all-length run-count transfer without an additional combinatorial derivation.",
+      "searches": [
+        "arXiv:2504.06466 Theorem 3.6 flat Fubini rankings fixed reduced content",
+        "arXiv:2312.16786 parking functions descents descent sets",
+        "arXiv:2405.05357 flattened Catalan words"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.14206 (primary full text; specific table and open question)",
+      "arXiv:2504.06466 (primary full text; Theorem 3.6 and Section 3.1)",
+      "arXiv:2312.16786 (primary statistical definitions)",
+      "arXiv:2405.05357 (primary object definition)",
+      "Public mathematical research records searched semantically for the claim and reformulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Elder et al. pose full specified-run enumeration for flattened parking functions and give only small tabulated lengths and insertion-subclass recursions.",
+        "Barrese et al. establish a different fixed-content marginal and explicitly discuss run enumeration as unsettled in a neighboring Fubini model."
+      ],
+      "reasoning": "The present state tracks satisfied strict descent boundaries while imposing sorted-preference ballot constraints and thus yields all F_{n,r}. The old tables and insertion-subclass recursions do not imply these values for unrestricted words. A content-only enumeration does not fix the run statistic, so the all-run formula is not a direct corollary of the later theorem.",
+      "searches": [
+        "arXiv:2210.14206 open question for k runs",
+        "arXiv:2504.06466 fixed-content formulas and open run refinement",
+        "Semantic research-record search: exact all-run distribution flattened parking functions binomial finite transfer matrix recursion number of runs 2022 Elder Harris Markman Tahir Verga"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2210.14206 defines runs using maximal weakly increasing blocks and nondecreasing run starts.",
+        "arXiv:2504.06466 counts a flat-Fubini fixed-content marginal but does not refine by run count."
+      ],
+      "reasoning": "The present quantity counts original flattened parking preference words by their number of maximal weak-increasing runs; the value-by-run occupancy array is bijective with these words. Equivalent descriptions by ascent blocks, run minima and ballot admissibility were compared with both primary sources. The unrefined fixed-content Fubini count is not an equivalent specified-run enumerator.",
+      "searches": [
+        "arXiv:2210.14206; Section 4 run-count open question",
+        "arXiv:2504.06466; Theorem 3.6 and Section 3.1",
+        "flattened parking functions by runs ballot prefix dyck transfer recurrence finite states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original paper tabulates the same statistic through length eight; the supplied checker reproduces these entries coefficientwise.",
+        "The numerical rows nine through twelve are exact evaluations of the proved recurrence."
+      ],
+      "reasoning": "Previously tabulated small values are expressly excluded from novelty. No matching complete length-uniform refined result or later row table was found in the checked primary texts and targeted searches. Failure of a search is not proof of absolute priority; an unindexed enumeration remains possible.",
+      "searches": [
+        "arXiv:2210.14206 Section 2 tabulation for lengths 1 through 8",
+        "\"4237911\" \"58311919\" parking functions",
+        "\"flattened parking functions\" \"recurrence\" all length"
+      ]
+    },
+    "rationale": "The 2022 source states specified-run enumeration for unrestricted flattened parking functions as open and tabulates only n<=8. The 2025 flat-Fubini content theorem is unrefined by runs; its Section 3.1 still identifies related run enumeration as open. Descent-set parking functions and flattened Catalan words are different marginals/classes. The complete all-n boundary-witness recurrence was not identified in the inspected primary sources or in targeted records, subject to residual unindexed-priority risk.",
+    "residual_risks": [
+      "Targeted semantic retrieval and primary-text inspection are not exhaustive across unindexed mathematics.",
+      "A derived, unstated run refinement of the 2025 Fubini content formula could be discovered and change claim priority; the inspected published statements do not themselves give it.",
+      "The finite values beyond n=8 might have appeared in an unindexed dataset independent of the proved general recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the problem and gives finite table/subclass recursions, but not the unrestricted all-length binomial transfer",
+        "evidence": [
+          "First public arXiv submission 2022-10-25",
+          "Enumerated table lengths 1..8",
+          "Final discussion explicitly asks to enumerate unrestricted flattened parking functions by run number"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.14206",
+        "material_read": "Definition of flattened words, first eight run-distribution rows, recursive subclass results and final open-problems discussion in the full HTML text",
+        "method": "Primary arXiv HTML opened and sections inspected, compared statistic and quantifiers",
+        "title": "On Flattened Parking Functions",
+        "trigger": "Same objects and exact open run-enumeration question"
+      },
+      {
+        "assessment": "Closest possible broader result; counts an unrefined content marginal, without fixing number of maximal runs",
+        "evidence": [
+          "Theorem 3.6 is unrefined by run number",
+          "Section 3.1 presents run distribution for a related class as open"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.06466",
+        "material_read": "Definitions and Theorem 3.6 fixed-reduced-content formula; Section 3.1 discussion of run counting",
+        "method": "Primary arXiv full HTML material read and implication comparison",
+        "title": "Enumerating Flat Fubini Rankings",
+        "trigger": "Potentially stronger later enumeration of flattened words with repeated letters"
+      },
+      {
+        "assessment": "Counts descent statistics for arbitrary parking functions rather than those with ordered run starts",
+        "evidence": [
+          "The flattened condition is an additional global constraint not encoded by plain descent count"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.16786",
+        "material_read": "Definitions, abstract and relevant descent-statistic statements",
+        "method": "Primary arXiv text inspected and compared to run-start-order restriction",
+        "title": "On some discrete statistics of parking functions",
+        "trigger": "Possibly stronger descent-set enumerators on all parking functions"
+      },
+      {
+        "assessment": "Different local Catalan-word constraint; no implication of the parking-prefix run distribution",
+        "evidence": [
+          "Catalan words satisfy a local successive-letter condition; parking functions satisfy sorted prefix occupancy inequalities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.05357",
+        "material_read": "Definition and principal enumeration setup",
+        "method": "Primary arXiv text inspected for object comparison",
+        "title": "Flattened Catalan Words",
+        "trigger": "Same adjective, related descent/run statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cbb26c5a-e4d1-4ac5-b15a-9dd2d218c0b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2022 source poses the count by the number of runs as a specific enumerative gap. This finite, positive-coefficient recurrence answers it for the full unrestricted flattened parking-function family at every length, gives distinct specified-run coefficients instead of only an unrefined total or narrow insertion subclass, and is replayable without enumerating all words. A fixed-order scalar recurrence or closed OGF is neither needed for this natural answer nor claimed.",
+    "status": "PASS"
+  }
+}
