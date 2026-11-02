@@ -1,11 +1,21 @@
-# Review of the Lucas-shift pseudo-Frobenius classification
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The argument reduces pseudo-Frobenius membership to the exact Apéry inequalities of the 2022 primary paper, classifies eligible digit words by an independence/dominating obstruction and legal Lucas carry chains, proves sufficiency through explicit coin-shortening transformations, and counts the three disjoint families. The full calculations in the standalone script agree for \(5\le a\le21\); an independent shortest-path Apéry computation agrees for \(5\le a\le13\). The finite checks alone do not establish the infinite result.
+## correctness
 
-**Originality — PASS within inspected sources (self-review).** The complete arXiv:2211.01436 preprint for the identical Lucas semigroup discusses generators, Apéry sets, Frobenius/genus, not this pseudo-Frobenius set or type. The 2025 shifted \(r\)-Fibonacci type paper concerns a distinct sequence and a different canonical restriction, so its type result does not imply this one. Targeted public searches, mathematical-record searches and semantic published-record comparisons did not identify a covering claim. Residual risk includes unindexed earlier proofs and a later journal-only extension.
+PASS
 
-**Value — PASS (self-review).** Cohen–Macaulay type and complete pseudo-Frobenius sets are natural invariants of numerical semigroups and their rings, distinct from the earlier known Frobenius number and genus. The theorem supplies exact all-index classification and plastic-constant growth for the canonical Lucas-shift family; it is not an arbitrary finite computation or a numerical table.
+From the published Apéry identity w_x=β(x)L_a+x, a gap w_x−L_a is pseudo-Frobenius iff β((x+T_i) mod L_a)≤β(x)+floor((x+T_i)/L_a) for every minimal generator. Isolated vacant digits give necessary independence domination. Lucas identities 2T_i=T_(i+1)+T_(i−2), plus low-index merges, eliminate truncated initial even runs and establish the two upper-path classes; when a odd, maximal Apéry endpoints x=L_a−1,L_a−2 are extra. Maximal independent sets on path obey P_n=P_(n−2)+P_(n−3), giving the formula. Independently enumerated legal words and exact minimal coin DP for a=5..14, with complete pseudo-Frobenius sets agreeing in each case. The finite tests do not prove all a; the carry/normal-form proof supplies that step.
 
-No independent mathematical audit has been carried out. Publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The identical Lucas-shift family is old, as are its Apéry and genus formulas. The new inspected object is its complete pseudo-Frobenius set and Cohen–Macaulay type, with nontrivial maximal-independent path combinatorics; no checked broader statement supplies that all-a count.
+
+## value
+
+PASS
+
+This determines the entire pseudo-Frobenius set and Cohen–Macaulay type of a previously studied infinite numerical-semigroup family, beyond its known Frobenius number and genus. Path maximal-independent structure and the two parity exceptions are natural algebraic-combinatorial data; the type asymptotically follows the plastic constant. The exact invariant can be used in semigroup-ring and numerical-semigroup comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
