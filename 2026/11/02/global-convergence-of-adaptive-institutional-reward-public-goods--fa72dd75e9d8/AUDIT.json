@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Explicit KL differentiation cancels cross terms to a negative-semidefinite drift for every N>=2 and positive epsilon; properness of both Bernoulli divergences ensures compact interior forward orbits, and the largest invariant subset of x=x* is the one equilibrium by the x equation. The Jacobian trace, determinant and discriminant establish exact node/focus threshold; symbolic checker independently reconstructs gradients at N=2..12, and log-odds simulations avoid spurious numerical absorbing boundaries. Finite computations are illustrative, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zino et al., arxiv:2306.14469, abstract and control-law sections: adaptive gains for two-player matrix replicators.",
+        "Zino et al., arxiv:2407.09305, Sections 2–4: matrix-game payoff configurations and adaptive-gain equilibrium selection.",
+        "Collective-risk model arxiv:2305.00253, equation (7), uses state-dependent threshold-risk payoffs with possible Hopf behavior."
+      ],
+      "reasoning": "The inspected broader-looking adaptive-control titles use different payoff and gain dynamics; their statements and hypotheses do not imply the Bernoulli-entropy global theorem for the N-player institutional-reward system. Generic planar LaSalle theory provides a proof tool, not the model-specific strict certificate.",
+      "searches": [
+        "arxiv 2308.09530 Hua Liu 2023 public goods institutional reward, xdot=x(1-x)(-k+delta a sum_{j=0}^{N-1}(1-x)^j), adot=(a-alpha)(beta-a)(u-(u+1)x); global Lyapunov convergence",
+        "relative entropy KL Lyapunov two variable adaptive public goods coevolutionary institutional reward stable interior equilibrium all feedback speeds",
+        "arxiv:2306.14469",
+        "arxiv:2407.09305",
+        "arxiv:2305.00253"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.09530v1 equation (6), Results, Appendix",
+      "arxiv:2306.14469v1 model and main control statements",
+      "arxiv:2407.09305v1 Section 2 and control sections",
+      "arxiv:2305.00253v1 Methods and Results",
+      "published-finding corpus semantic search four actual queries (IDs in named checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Eq. (6), source Results Figure 2 text describes all its illustrated interior trajectories converging with epsilon=0.1; Appendix establishes negative trace and positive determinant at the interior fixed point.",
+        "New proof supplies a compact-boundary coercive entropy and LaSalle argument valid for every epsilon>0; linear characteristic discriminant yields exact node/focus boundary."
+      ],
+      "reasoning": "Negative trace and positive determinant imply only local asymptotic stability, not global attraction. A single illustrated phase portrait cannot imply all-parameter convergence. Neither result implies the coercive entropy identity. Adaptive-gain papers modify other feedback laws, so their sufficient conditions do not dominate this model-specific claim.",
+      "searches": [
+        "Shijia Hua Linjie Liu 2023 coevolutionary dynamics institutional rewards public goods, positive invariant interior equilibrium global attraction for every feedback timescale, explicit Lyapunov function",
+        "Two dimensional replicator institutional reward adjustment nonlinear decreasing S(x) separable Lyapunov, global stability all relative time scales no periodic orbits",
+        "arxiv:2308.09530 Eq. (6), Figure 2 and Appendix",
+        "arxiv:2407.09305 Theorem 1 and game assumptions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hua and Liu, arxiv:2308.09530, Eq. (6), Sections 4 and Appendix: exact system with local equilibrium/Jacobian and Fig. 2 single-case phase portrait.",
+        "published-finding corpus 2026/10/4/SCOPE-fiberwise-barycentric-calibration-on-the-neutral-may-leonard-sim--1f7d0f360ee1 treats invariant measures in a different May–Leonard system."
+      ],
+      "reasoning": "A hidden substitution could express the ODE as a monotone negative-feedback system; no accessible published-finding corpus claim or primary theorem was found proving its parameter-uniform KL identity and interior-global convergence. The source explicitly says all interior trajectories converge in its Figure 2 illustrated regime; that narrower example is not the all-parameter theorem.",
+      "searches": [
+        "Shijia Hua Linjie Liu 2023 coevolutionary dynamics institutional rewards public goods, positive invariant interior equilibrium global attraction for every feedback timescale, explicit Lyapunov function",
+        "Two dimensional replicator institutional reward adjustment nonlinear decreasing S(x) separable Lyapunov, global stability all relative time scales no periodic orbits",
+        "\"coevolutionary dynamics of population and institutional rewards\" \"Lyapunov\" global convergence",
+        "replicator adaptive institutional reward global convergence Lyapunov zero cycles 2023 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full originating manuscript Eq. (6), Figure 2, and Appendix Eq. (15) do not tabulate or state the all-parameter KL certificate or node/focus threshold.",
+        "published-finding corpus search returned closest but nonidentical IDs 2026/10/4/SCOPE-a-quadratic-pairwise-game-where-assortativity-creates-an-evoluti--f981c124b719 and 2026/10/4/SCOPE-fiberwise-barycentric-calibration-on-the-neutral-may-leonard-sim--1f7d0f360ee1."
+      ],
+      "reasoning": "No exact theorem or computational table found with the system, exact KL derivative and universal timescale conclusion. Semantic retrieval cannot prove nonexistence of a database record; future indexing and external literature remain risks.",
+      "searches": [
+        "Shijia Hua Linjie Liu 2023 coevolutionary dynamics institutional rewards public goods, positive invariant interior equilibrium global attraction for every feedback timescale, explicit Lyapunov function",
+        "Two dimensional replicator institutional reward adjustment nonlinear decreasing S(x) separable Lyapunov, global stability all relative time scales no periodic orbits",
+        "arxiv 2308.09530 Hua Liu 2023 public goods institutional reward, xdot=x(1-x)(-k+delta a sum_{j=0}^{N-1}(1-x)^j), adot=(a-alpha)(beta-a)(u-(u+1)x); global Lyapunov convergence",
+        "relative entropy KL Lyapunov two variable adaptive public goods coevolutionary institutional reward stable interior equilibrium all feedback speeds",
+        "arxiv:2308.09530 Section 4 Figure 2",
+        "arxiv:2308.09530 Appendix Eq. (15)"
+      ]
+    },
+    "rationale": "Full-text implication comparisons against arxiv:2308.09530 (Eq. 6, Section 4, Appendix), adaptive-gain controls arxiv:2306.14469 and arxiv:2407.09305, and collective-risk feedback arxiv:2305.00253; four targeted published-finding corpus semantic searches and literature searches reveal no theorem implying the uniform entropy certificate and all-timescale global conclusion. Explicit novelty uncertainty remains for unindexed literature.",
+    "residual_risks": [
+      "An equivalent model-specific global theorem may exist in unindexed or non-open older articles.",
+      "The originating paper verbally reports all interior trajectories converging in its particular numerical Figure 2 regime; originality is the all-parameter, all-timescale theorem and explicit certificate, not convergence for that sample.",
+      "Generic negative-feedback monotone planar systems have Lyapunov traditions; no exhaustiveness claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source asserts all interior trajectories converge in example Fig. 2 at stated parameters and gives local Jacobian stability; not a general Lyapunov proof for all permitted parameters and all positive timescales",
+        "evidence": [
+          "Section 3.3 Eq. (6) exact model",
+          "Section 4 Fig. 2 narrative and epsilon=0.1 sample",
+          "Appendix Eq. (15) local Jacobian and sign conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.09530",
+        "material_read": "Full rendered preprint, equations (1)–(6), Results section including Fig. 2 discussion, Appendix equilibrium and Jacobian equations (7)–(15)",
+        "method": "Read and compared equilibrium assumptions, quantified global conclusions, and local-vs-global implication",
+        "title": "Coevolutionary dynamics of population and institutional rewards in public goods games",
+        "trigger": "Identical defining system (equation 6) and possible pre-existing global attraction"
+      },
+      {
+        "assessment": "Different gain/replicator equations for two-player matrix games; no implication of N-player reward-feedback global entropy",
+        "evidence": [
+          "Adaptive-gain control protocol",
+          "Two-player game model and equilibrium target"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.14469",
+        "material_read": "Paper abstract, mathematical model and control sections, PDF page 4",
+        "method": "Checked game dimension, gain adjustment law, equilibrium conclusions",
+        "title": "On Adaptive-Gain Control of Replicator Dynamics in Population Games",
+        "trigger": "Potential broader stability theorem for adaptive gains"
+      },
+      {
+        "assessment": "Different controlled matrix-game replicator flow; not source model and no stated theorem imposing this entropy identity",
+        "evidence": [
+          "Definition 1 and Section 2 two-player matrix games",
+          "Adaptive-gain control objective"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.09305",
+        "material_read": "Abstract, Section 2 two-player matrix games, Section 3 adaptive-gain protocols, discussion",
+        "method": "Compared model hypothesis and feedback equation rather than matching titles",
+        "title": "Equilibrium Selection in Replicator Equations Using Adaptive-Gain Control",
+        "trigger": "Potential later broader coverage"
+      },
+      {
+        "assessment": "Threshold-dependent nonlinear risk benefits and possible Hopf instability; does not meet strictly decreasing S_N payoff hypothesis",
+        "evidence": [
+          "Equation (7) sigmoid-risk formulation",
+          "Results Section 3 Hopf discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.00253",
+        "material_read": "Methods feedback equations including Eq. (7), Results, Hopf-transition discussion",
+        "method": "Compared payoff x-dependence and feedback variable",
+        "title": "Coevolutionary dynamics via adaptive feedback in collective-risk social dilemma game",
+        "trigger": "Closest ecological public-goods feedback from same research area"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa72dd75-e9d8-4161-972a-72d285b45305",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves the motivated open practical distinction between local coexistence stability and actual eventual cooperation level in a feedback-coupled multiplayer public-goods game: an exact strict entropy certificate excludes oscillatory coexistence and initial-state-dependent interior attractors for every reward-adjustment speed; the focus/node threshold makes transient damped oscillations predictable while global outcomes remain unchanged. It substantially extends a single source numerical phase portrait and local Jacobian analysis, not a mere restatement or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
