@@ -1,15 +1,21 @@
-# Scientific review — sharp bounded-slope curvature preservation
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-parameter conclusion is supported by a complete analytic proof: an exact cap-Hessian identity, the positive-normal-curvature test in the actual graph metric, a two-by-two matrix-Hessian determinant, a discriminant with the unique nontrivial nonnegative zero \(2+\sqrt6\), and midpoint Hessian failure above that threshold. The proof constructs honest two-unit-ball mixed fibers realizing the bad gradient pairs, with strict endpoint inequalities; this is not an inference from numerical experimentation. A standalone SymPy program checks derivative/determinant identities, the transition root, one strict radical example, and fiber feasibility. The theorem neither covers nonsmooth points nor general multi-ball intersections.
+## correctness
 
-## Originality — PASS with residual risk
-The closest first-public 2026 work, Artstein-Avidan–Florentin's *Symmetrizations of Ball-Bodies* (arXiv:2602.14090v1, especially Section 4), shows failure of curvature preservation in dimension three and produces arbitrarily severe curvature loss, but it does not classify the largest disk of cap gradients on which the complete two-dimensional spherical-cap curvature matrix is Loewner convex. The published result *Rank-one curvature loss under Steiner symmetrization of a two-ball lens* shows that at most one principal direction can be deficient and that transverse directions gain curvature; its full statement and proof establish neither the absence of a deficient direction below a universal cap-slope threshold nor sharpness of any such threshold. The geometric theorem here asks a stronger, different quantitative question from these existing results. Prior work on ball-bodies and ordinary Steiner convexity is background, not an implication of the exact slope law. Potentially unindexed earlier matrix-convexity calculations remain a genuine literature risk.
+PASS
 
-## Value — PASS
-The 2026 counterexample creates a natural geometric gap: *how steep must active spherical caps be before symmetrization can first destroy the unit-curvature lower bound?* The finding answers it exactly, with a finite explicit optimal threshold, a complete local all-curvature preservation regime, and realized lens counterexamples arbitrarily near the boundary. This separates the safe part from the failure region of a newly studied convex-geometric operation; it is not just a numerical sample or routine finite verification.
+Read source RESULT.md blob dfb81c28837cba9881972abdb83bcce2b3dc19cd and SymPy verification program. For unit spherical upper cap f, −D²f=H(grad f); mixed upper symmetral h=(f1+f2)/2+C has ∇h=(p1+p2)/2, and every curvature ≥1 iff [H(p1)+H(p2)]/2−H((p1+p2)/2) is positive semidefinite in graph metric. At p=(sqrt R,0), directional matrix Hessian has determinant coefficients A=3(1+2R), B=−4R³+4R²+14R+6, C=2R³+7R²+8R+3; discriminant 16R²(1+R)²(R²−4R−2). For R<=2+sqrt6 positivity follows; beyond it, B<0 and the determinant becomes negative in mixed radial-transverse directions, proving the sharp disk radius. Construct p1,p2=p±εd and ball centers from q_i=−p_i/sqrt(1+||p_i||²), vertical offsets c=(s1+s2)/4. Strict inequalities |s1−s2|<2c<s1+s2 make a genuine open mixed fiber and the Hessian deficit negative for ε small. Independently re-derived symbolic determinant/discriminant and rational-gradient negative example (~−0.00343246) without executing opaque repo code. Claim is local smooth 2-ball R³ only, not nonsmooth curvature or >2 balls.
 
-## Independent status and limitations
-The proof gives classical curvature conclusions only at smooth positive-length mixed fibers of two unit balls. It gives no claim for seams, three-ball lenses, or a uniform quantitative deficit outside the region. Novelty rests on comparisons with inspected accessible sources and published records rather than a logically complete search of all historical literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: full Artstein-Avidan–Florentin 2026 primary source establishes qualitative failure and arbitrarily large curvature loss. Published Resultary rank-one curvature-loss theorem proves at most one deficient principal direction but supplies no zero-deficiency sharp slope radius. The matrix Hessian cutoff is distinct quantitative content. Older equivalent matrix convexity formula might exist.
+
+## value
+
+PASS
+
+The original two-ball Steiner lens counterexample leaves the precise safe-slope boundary unknown. The exact algebraic radius divides guaranteed preservation of *all* classical principal curvatures from attainable failure immediately outside, giving a natural curvature regularity criterion for the self-review, with a realizability construction rather than a loose necessary condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
