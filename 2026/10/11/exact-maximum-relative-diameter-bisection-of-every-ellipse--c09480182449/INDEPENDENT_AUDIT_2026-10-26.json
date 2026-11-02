@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T12:14:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-maximum-relative-diameter-bisection-of-every-ellipse--c09480182449/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-maximum-relative-diameter-bisection-of-every-ellipse--c09480182449/verify.py",
+        "https://arxiv.org/pdf/1803.00321 Proposition 3.1",
+        "Frozen seven Git blobs, independently reconstructed tree 320a733b712eef5039cae3e0808422f603f62a40",
+        "Independent SymPy symbolic identities: vertex and endpoint of half-ellipse chord quadratic; L(d*)²=2a²"
+      ],
+      "rationale": "The audited theorem uses Euclidean ellipse E_{a,b} with a>=b>0 and bisections by boundary-to-boundary simple curves; neither equal-area pieces nor nonlinear minimizer uniqueness is assumed. Frozen seven Git blob identities reproduce tree 320a733b712eef5039cae3e0808422f603f62a40, and current GitHub files match their snapshot blobs. The chord identity |r(t)-r(s)|²=4sin²d(a²sin²m+b²cos²m) holds for r(t)=(a cos t,b sin t), m=(t+s)/2, d=(t-s)/2. On the minor-axis half ellipse m ranges [pi/2+d,3pi/2-d], the maximum bracket occurs at arc endpoints and the diameter squared becomes max_{u∈[0,1]}4u[a²-(a²-b²)u]. If a²<=2b², max=4b² at u=1; otherwise the vertex u*=a²/(2(a²-b²)) gives a^4/(a²-b²). Every other central cut at t0<pi/2 is strictly worse for noncircular ellipses: the cut chord L(t0)>=2b handles the round regime; for a²>2b², cuts t0<=d* have L(t0)²>=L(d*)²=2a²>M², while d*<=t0<pi/2 admit boundary pair s=t0,t=pi+2d*-t0 of squared distance 2a²sin²(pi/2+d*-t0)>M². The published 2018 Proposition 3.1 transfers the centerline optimum to all admissible bisections. The circle a=b and threshold a²=2b² agree continuously. Independent SymPy evaluations checked the endpoint quadratic, vertex, chord formula and transition, but are not used as an infinite proof; packaged verify.py and its saved log are not treated as primary evidence.",
+      "residual_risks": [
+        "Uniqueness holds only among cuts by lines through the center, NOT all nonlinear separating curves.",
+        "The theorem's global minimax statement relies on the cited published Proposition 3.1; that theorem was checked in the primary PDF.",
+        "The packaged numerical sampling is not exhaustive and was not treated as proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 Proposition 3.1 covers replacement of arbitrary bisections by center lines; Section 5 already declares the minor-axis ellipse cut optimal; general coverage of the qualitative optimizer is therefore unequivocally prior.",
+          "2019 general isodiametric inequalities and 2023 subdivision results concern broader classes but do not output individual ellipse aspect-ratio values.",
+          "2004 endpoint reduction is prior and reused; none of these broader results explicitly states strict uniqueness among arbitrary central cut directions of noncircular ellipses."
+        ],
+        "reasoning": "The claimed novelty is NOT global existence, optimality of the minor-axis cut, or the endpoint principle. Comparing implications, the prior reduces this problem to elementary, but nontrivial, one-variable optimization; the evaluated complete diameter phase law and strict direction classification require carrying out additional analytic extremal comparisons. They are not identical assertions of the broader theorems; risk that they are regarded as routine corollaries is explicit.",
+        "searches": [
+          "https://arxiv.org/pdf/1803.00321 Proposition 3.1, Theorem 3.6, Section 5",
+          "https://arxiv.org/pdf/1511.08009 Section 3.2",
+          "https://arxiv.org/pdf/1903.06461 general inequalities",
+          "https://arxiv.org/html/2311.13882 subdivision theorems",
+          "https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf Theorems 1-3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1803.00321",
+        "https://arxiv.org/pdf/1511.08009",
+        "https://arxiv.org/pdf/1903.06461",
+        "https://arxiv.org/html/2311.13882",
+        "https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-maximum-relative-diameter-bisection-of-every-rectangle--f2b48482ae39",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ptolemy-constant-of-an-ellipse--c0ffd5efb240",
+        "Resultary semantic searches (six exact query strings in the structured comparisons)",
+        "Independent exact formula/alias web search above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2018 results imply only that the minor-axis cut achieves the global minimum and that its value can be computed as max_{z on ∂E}|z-(0,b)|. Performing this maximization for y=bz gives the quadratic a²(1-z²)+b²(z-1)² with interior-to-endpoint change at a²=2b².",
+          "The submission separately excludes all other central cut directions using chord lengths and a specific farthest-pair witness; noncircular orientation uniqueness is not stated in that predecessor.",
+          "The exact rectangular and regular-even-polygon bisection results classify different bodies; the ellipse Ptolemy constant is a different functional."
+        ],
+        "reasoning": "The exact formula is an explicit elementary corollary of the known optimizer plus known endpoint representation; therefore originality must be narrowly limited to a previously unstated evaluated curve, transition and strict optimal-direction argument, with no representation as an independent new general theory. Full prior coverage has not been established for that complete quantitative-and-rigidity conjunction. This remains a judgment-sensitive best-of-knowledge PASS, acknowledging possible implicit coverage.",
+        "searches": [
+          "https://arxiv.org/pdf/1803.00321 Equation (2.1), Proposition 3.1, Section 5 and Figure 12",
+          "https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf Theorems 1-2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-maximum-relative-diameter-bisection-of-every-rectangle--f2b48482ae39",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ptolemy-constant-of-an-ellipse--c0ffd5efb240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the primary 2018 paper, the invariant d_M is identical and equation (2.1) reduces a central cut to the farthest distance from a cut endpoint; Section 5 names the ellipse's optimal standard cut but supplies no explicit two-branch value.",
+          "The 2004 original conference note states an endpoint-of-diameter principle but does not tabulate the minor-axis half-ellipse diameter.",
+          "Resultary returned the identical submitted item (excluded as independent prior evidence) and no separate exact ellipse formula among close ranked findings."
+        ],
+        "reasoning": "Equivalent optimization under alternative names (fencing, maximum relative diameter, diameter of semielipse) is accounted for. The submitted explicit semiaxis-dependent value and strict center-line uniqueness remain distinct stated conclusions, although its quantitative evaluation is a short consequence of the existing endpoint formula; this is a significant priority/value residual risk, not grounds to claim a new general minimax technique.",
+        "searches": [
+          "Resultary: Euclidean ellipse minimum over bisections of maximum of component diameters exact formula semiaxes a b transition sqrt 2; maximum relative diameter ellipse standard bisection minor axis explicit maximum chord length ratio; diameter of semi ellipse half ellipse bisection diameter a squared divided by square root a squared minus b squared",
+          "Resultary: maximum bisecting diameter ellipse semiaxes threshold inradius shortest chord; centrally symmetric bisections semiellipse minimax diameter unique center line; farthest distance from minor-axis ellipse vertex transition eccentricity",
+          "web: maximum relative diameter ellipse bisection exact formula; diameter half ellipse semiaxes endpoints",
+          "https://arxiv.org/pdf/1803.00321 equation (2.1), section 5",
+          "https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact expression a^2/sqrt(a^2-b^2), threshold sqrt(2), and semiaxis formula search returned no independent ellipse-specific exact table; the matching self-record was excluded.",
+          "The closest Resultary maximum-relative-diameter records concern rectangles and regular even polygons; their bodies are not Euclidean ellipses and their formulas do not imply the ellipse result by a metric-preserving reduction."
+        ],
+        "reasoning": "Exact-table search does not prove priority. The algebraic branch and threshold are distinctive query fingerprints; no separate direct published table was found. Other recorded diameters in alternate convex families are mathematically incomparable without a reduction.",
+        "searches": [
+          "\"maximum relative diameter\" ellipse bisection exact; \"a^2/sqrt(a^2-b^2)\" ellipse bisection; \"half ellipse\" diameter \"sqrt(2)\" bisection",
+          "Resultary: Euclidean ellipse minimum over bisections of maximum of component diameters exact formula semiaxes a b transition sqrt 2; maximum relative diameter ellipse standard bisection minor axis explicit maximum chord length ratio; diameter of semi ellipse half ellipse bisection diameter a squared divided by square root a squared minus b squared",
+          "Resultary: maximum bisecting diameter ellipse semiaxes threshold inradius shortest chord; centrally symmetric bisections semiellipse minimax diameter unique center line; farthest distance from minor-axis ellipse vertex transition eccentricity",
+          "published Resultary regular-even-polygon bisection https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-maximum-relative-diameter-bisection-of-every-regular-even--0e84351e89a7",
+          "published Resultary rectangle bisection https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-maximum-relative-diameter-bisection-of-every-rectangle--f2b48482ae39"
+        ]
+      },
+      "rationale": "Best-of-knowledge and narrowly scoped: 2004 endpoint-farthest-point and 2018 arbitrary-bisection center-line reduction/minor-axis optimality are prior. The 2018 full text contains neither an explicit all-eccentricity semiaxis value nor the sharp switch at a/b=sqrt(2) nor the strict uniqueness argument for noncircular center cuts. Searches of exact algebraic formula, alias terminology, Resultary and general bisection sources found no independent quantitative-and-rigidity covering statement. That the formula is a short, fairly direct corollary of the 2018 endpoint-max formula is a substantive residual priority/value concern; this verdict does not claim an independent optimization reduction or historical priority certainty.",
+      "residual_risks": [
+        "2018 Cañete–Segura Gomis already establishes qualitative minimization for the same ellipse; the new two-branch number follows after a short calculus optimization of its equation (2.1), so independent originality of the number may be disputed as implicit coverage.",
+        "The complete 2004 JMAA journal article On fencing problems was not accessed: only the complete four-page authors' 2004 conference manuscript was read. No whole-journal-paper NOT_COVERING conclusion is asserted.",
+        "A separately indexed elementary half-ellipse diameter formula or non-English note may predate the submission.",
+        "Resultary's identical record is the research item itself and was excluded as independent prior evidence. Search failure never proves novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_QUALITATIVE_COVERAGE, NOT NUMERICALLY IDENTICAL: proves center-line reduction and minor-axis standard bisection minimizing, but does not state an all-aspect-ratio diameter value, active-pair transition or strict uniqueness among all center-line directions.",
+          "evidence": "Definition 2.3 on PDF p.4 defines d_M; equation (2.1) on PDF p.5 expresses center-line value as maximum boundary distance from an endpoint; Proposition 3.1 (PDF p.6) reduces arbitrary bisections to a center line; Section 5 (PDF p.13, text lines 450-459) explicitly identifies ellipse standard bisection as minimizing. These substantially reduce the submitted computation to an ellipse-specific chord problem.",
+          "identifier_or_url": "arXiv:1803.00321v1; https://arxiv.org/pdf/1803.00321",
+          "material_read": "Full sixteen-page PDF: definitions 2.1-2.3, endpoint farthest-point identity (2.1)-(2.2), Proposition 3.1 and its proof, Theorem 3.6 and its proof, Section 4 standard bisections, Section 5 ellipse example, uniqueness discussion; pages 7, 11 and 13 visually inspected.",
+          "method": "Lawful arXiv primary PDF full-text inspection plus PDF page screenshots.",
+          "title": "Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter",
+          "trigger": "Exact same Euclidean functional, same centrally symmetric bisections, explicit ellipse optimal cut in Section 5."
+        },
+        {
+          "assessment": "GENERAL_CONTEXT_NO_EXACT_ELLIPSE_FORMULA: higher-rotational examples and the 2-fold structural problem, not the submitted semiaxis value.",
+          "evidence": "Section 3.2 discusses center-line geometry for 2-fold symmetric bodies and limited precise characterization; no computation of the ellipse's two-branch maximum relative diameter is given in inspected mathematics.",
+          "identifier_or_url": "arXiv:1511.08009v1; DOI:10.7153/mia-19-25; https://arxiv.org/pdf/1511.08009",
+          "material_read": "Full sixteen-page arXiv manuscript with introduction and Section 3.2 arguments for the k=2 case; initial pages visually inspected.",
+          "method": "Lawful primary PDF full-text and page-image inspection.",
+          "title": "The maximum relative diameter for multi-rotationally symmetric planar convex bodies",
+          "trigger": "Archive-era paper on the same relative-diameter functional, twofold symmetry and optimal standard partitions."
+        },
+        {
+          "assessment": "RELATED_GENERAL_BOUNDS_NOT_NUMERIC_EXACT: global body optimization and bounds do not specialize to the exact ellipse semiaxis formula or orientation uniqueness.",
+          "evidence": "Uses the d_M/D_B bisection parameter and an isodiametric inequality for all planar convex bodies, rather than the exact value for each ellipse aspect ratio.",
+          "identifier_or_url": "arXiv:1903.06461v3; https://arxiv.org/pdf/1903.06461",
+          "material_read": "Full twenty-four-page primary PDF; definitions and main isodiametric inequality plus ellipse illustrations and relevant proofs; page-image inspection of opening pages.",
+          "method": "Lawful arXiv primary PDF and PDF screenshot.",
+          "title": "On the isodiametric and isominwidth inequalities for planar bisections",
+          "trigger": "Same minimax maximum-relative-diameter invariant with general convex-body inequalities and ellipse comparisons."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GENERALITY: discusses higher subdivisions and bounds, not the present exact two-piece ellipse phase diagram.",
+          "evidence": "Describes generalized minimizing subdivisions, often several pieces, with qualitative bounds; no piecewise equation in ellipse semiaxes found in inspected relevant arguments.",
+          "identifier_or_url": "arXiv:2311.13882v1; https://arxiv.org/html/2311.13882",
+          "material_read": "Accessible full-text HTML: definitions, introductory results, main divisional bounds and sections concerning hyperplane divisions, with ellipse examples inspected.",
+          "method": "Lawful primary full-text HTML inspection.",
+          "title": "Optimal divisions of a convex body",
+          "trigger": "Plausible later generalization concerning diameter-optimal subdivisions and ellipses."
+        },
+        {
+          "assessment": "STRUCTURAL_PREDECESSOR_NOT_EXACT: states for symmetric bodies the diameter of a center-line half has a cut endpoint, and equal-area center-line reduction; no ellipse semiaxis formula, transition, or unique-direction conclusion in this conference manuscript.",
+          "evidence": "Theorem 1 locates one diameter endpoint on the cut, Theorem 2 proves a center-line optimum for equal-area curved bisections, Theorem 3 gives a general area-diameter estimate, not a piecewise ellipse computation. The longer separate 2004 journal article was not obtained in full and is NOT certified noncovering.",
+          "identifier_or_url": "Miori, Peri, Segura Gomis, 20th European Workshop on Computational Geometry, Seville 2004, https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf",
+          "material_read": "Full four-page 2004 conference manuscript: definitions, Theorems 1-3 and proofs, Theorem 4 and higher-dimensional discussion; first PDF page visually inspected.",
+          "method": "Lawful primary conference PDF full-text and screenshot.",
+          "title": "On fencing problems",
+          "trigger": "Original geometric fencing work cited as foundational proof of endpoint-diameter reduction, potentially covering exact ellipse computation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-maximum-relative-diameter-bisection-of-every-ellipse--c09480182449/RESULT.md",
+        "https://arxiv.org/pdf/1803.00321 equations (2.1)-(2.2), Section 5",
+        "https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf Theorem 1"
+      ],
+      "rationale": "Maximum relative diameter is precisely the fencing invariant in the cited literature, and ellipses are a canonical complete one-parameter family for which the 2018 source specifically identifies the optimal cut without quantifying its performance. The exact all-aspect-ratio curve identifies a genuine active-farthest-pair phase change at sqrt(2) and gives strict optimal centerline orientation for every noncircular ellipse. It is a closed geometric benchmark rather than an arbitrary parameter slice, though it uses known qualitative reduction and elementary calculus and makes no claim of wider theory or nonlinear minimizer classification. As an explicit natural-family invariant and sharpened orientation classification, it meets the narrow self-contained-value threshold; it is not represented as a large new theorem.",
+      "residual_risks": [
+        "Small incremental nature: the quantitative value is accessible by a short calculation from prior qualitative and endpoint theorems.",
+        "No classification of all minimizing nonlinear bisections, no extension to arbitrary convex bodies, and no new general bisection existence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Analysis assumes ellipse is full closed convex body and bisection is by a simple separating curve whose endpoints lie on the boundary; no equal-area requirement.",
+    "Strict optimality is only among centerline orientations for a>b; nonlinear minimizers are not classified.",
+    "Value/originality claims are deliberately restricted to the explicit performance curve, transition, and direction-rigidity argument, not known general reduction/qualitative ellipse optimum."
+  ],
+  "schema_version": 1
+}
