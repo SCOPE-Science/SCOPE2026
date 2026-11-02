@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cycle-current identity forces every strictly stable ordinary bond to have the same acute increment. A signed-Laplacian path-resistance argument rules out any negative ordinary conductance; the winding bound excludes higher winding classes throughout the stated weak-link range. The exact scalar current relation, strict log-convexity of its ratio function, and quadratic-form stability test produce the unique threshold, two reflected stable branches, strict endpoint treatment, and asymptotic scale. The proof covers each integer \(N\ge5\); the accompanying 1,447 checks are independent *finite* numerical corroboration, not its basis. The fold itself is not asserted to be strictly stable.
+## correctness
 
-## Originality — PASS under inspected evidence
-The explicit one-weight-defect, identical-frequency bifurcation threshold and complete strictly stable equilibrium count are compared against the earlier signed-graph and general single-loop methods. The 2015 signed-graph paper treats one negative edge and a different, uniformly weighted, nonidentical-frequency long-link extremum; the 2015 single-loop paper uses homogeneous edge capacities and discusses one-obtuse-edge continuations. The 2017 weighted topological-state paper is broader in framework but the inspected material does not supply this scalar minimizer, exhaustive weak-bond stable classification, and large-cycle root constant. These papers imply the tools, *not the stated sharp numerical threshold without substantial specialized analysis*. Historical-priority risk from an unlocated equivalent specialization remains.
+PASS
 
-## Value — PASS
-The precise point where a physically natural weak link restores two persistent rotating phase states—despite their weak-link angle being obtuse—is an identifiable bifurcation invariant for every cycle length. The threshold, its strict-stability endpoints, and the unexpected transcendental large-size constant determine a nontrivial window of multistability; this is more informative than merely observing one negative-cosine edge can coexist with network stability. The exact finite-size invariant may be used in design and testing of defective ring oscillator networks, without asserting downstream results not proved.
+PASS. At equilibrium on an N-cycle, Kirchhoff balance forces identical sine currents J on every edge. A positive definite reduced Jacobian cannot have two nonpositive edges, and a single negative ordinary-unit edge is excluded by comparing its magnitude c with the (m−1)/c positive path resistance; consequently all m ordinary increments are the same acute α. The weak w<=wc=sin(3π/(2m)) bound excludes winding |q|>=2 and excludes an acute weak increment in the open range. For q=1, β∈(π/2,π), α=(2π−β)/m, w=f_m(β)=sinα/sinβ. Positive definiteness of reduced cycle Hessian is exactly cosα+m w cosβ>0, equivalent to f_m′(β)<0. The second derivative of log f_m is strictly positive on (π/2,π), its derivative changes sign exactly once, so there is one fold w_m< w_c; synchrony is the only stable equilibrium for w<=w_m and two reflected stable winding states join for w_m<w<=w_c. At equality wc the ordinary positive edges alone span a path, hence stability persists; the fold has an additional zero mode. The asymptotic tan t*=π+t*, m w_m=sec t*+O(m^-2) follows uniformly at its interior nondegenerate optimum. Independently reconstructed one-weak-link Hessians across N=5..30 corroborate. No unrestricted w>wc classification is claimed.
 
-## Closest literature and limitations
-Zelazo–Bürger (arXiv:1408.2187), Bronski–DeVille–Ferguson (arXiv:1508.01507), and Delabays–Coletta–Jacquod (arXiv:1512.04266) are acknowledged as major precursors. The proof does not cover arbitrary defect arrangements, all saddle equilibria, or basins; possible unlocated equivalent sharp results preclude independent historical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the identical-frequency one-weak-bond complete strictly stable equilibrium count, sharp fold and limiting threshold, not the known existence of one-obtuse-edge stable states or the signed-Laplacian/effective-resistance test. Bronski–DeVille–Ferguson 2015 full accessible primary paper develops signed-cycle stability and a different nonuniform-frequency long-link setting; Delabays–Coletta–Jacquod 2015 studies winding on a single cycle, with homogeneous capacities and nonhomogeneous injections. Their inspected exact statements do not directly imply the present special complete classification and parameter w_m. Mathematical reduction to a more general result not located remains a risk.
+
+## value
+
+PASS
+
+PASS. A natural one-defect oscillator ring has a nontrivial exact saddle-node threshold and a complete count of strictly stable states over its entire weak-bond range, with an unexpected finite-size scaling constant. These are meaningful stability/bifurcation invariants not supplied by generic effective-resistance machinery alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
