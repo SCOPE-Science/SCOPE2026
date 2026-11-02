@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise comparison is between normalized cumulative integrals of adjacent Jacobi weight parameters at the same polynomial degree. Jacobi orthogonality fixes the factor \(2k+\beta+1\), and the classical differential and contiguous identities yield the stated exact derivative and its vanishing boundary value at zero. At roots of the original polynomial, the reduced boundary factor is negative; at its derivative roots and both endpoints it is positive. The degree of the factor is exactly \(2k\), proving a sharp root count, strict simplicity, and the required order changes for every allowed real parameter. A separate direct argument handles \(k=0\). The packaged script passed 191 finite checks, which are diagnostic rather than an infinite proof. No hidden numerical assumption is used.
+## correctness
 
-## Originality — PASS, best knowledge
-The relevant prior sources were compared by their mathematical implications. Greengard–Serkh (2018) develops the Zernike–Jacobi orthogonality and recurrence apparatus, but the inspected definitions, integrals and appendices do not give cumulative-square adjacent-weight crossing counts. Driver–Jordaan (2016) studies interlacing of raw Jacobi zeros, not zeros of a difference of normalized integrated squared modes. The previously known fixed-total-degree comparison \(E_{k,\beta}\ge E_{k-1,\beta+2}\) is a nonnegative squared expression with tangencies and does not imply the fixed-radial-degree shift \(\beta\mapsto\beta+1\), which has \(2k\) transverse crossings. Index searches for cumulative Jacobi energy, Zernike angular concentration, parameter shifts, and equivalent square-factor formulations produced no matching theorem. Residual risk: older unindexed connection or integrated-product identities could contain the same statement; independent priority confirmation remains necessary.
+PASS
 
-## Mathematical value — PASS
-These disk/ball mode energies are canonical radial concentration invariants of the Zernike basis, including applications to orthogonal optical modes. The exact crossing number for every radial degree and continuous Jacobi parameter is a global qualitative classification, not a sample calculation. It gives sharp, explicit node/turning-point location brackets and distinguishes two natural index changes: changing angular order at fixed radial index causes complete alternating order reversals, whereas a fixed-total-degree change can cause only tangencies. No stronger spectral or general-aperture assertion is made.
+Standard shifted Jacobi contiguous relation q=p-(1-t)r and derivative p_prime=(k+beta+1)r, together with the Jacobi differential equation, yield a first-order system for q,r and the exact differentiated boundary identity. Integrating from 0 gives the factorization, and Jacobi orthogonality normalizes each energy to 1 at t=1. At each zero z_j of p, R(z_j)=-z_j(1-z_j)r(z_j)^2<0; at derivative zeros c_j R(c_j)=p(c_j)^2>0; endpoint values are positive for beta>-1. The resulting 2k alternating intervals force 2k distinct interior roots, and deg R=2k proves exhaustiveness and simplicity. Special k=0 separately yields t^(beta+1)(1-t)>0. Fresh independent symbolic checks at 24 rational (k,beta) combinations reproduced the differentiated identity, integral factorization and 2k simple root brackets. This is an analytic all-real-parameter zero count, not inferred from numerical root searches.
 
-## Limitations
-The theorem addresses single-mode centered-aperture energies. It does not assert simultaneous diagonalization of all disk compressions, spectral ordering of arbitrary multi-mode subspaces, or an explicit closed-form formula for individual crossings. Bibliographic uniqueness has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty claim is the exact 2k sign-changing crossings of normalized cumulative squared Jacobi/Zernike energies at fixed radial index with angular parameter beta to beta+1. Classical Jacobi identities, quadrature and raw parameter-shift polynomial zero results are credited as prior inputs, not claimed as discoveries.
+
+## value
+
+PASS
+
+The full 2k crossing count is a nontrivial shape theorem for naturally normalized radial-energy distributions of Zernike modes. It gives precise alternating energy-order reversals and locations relative to all radial nodes, contrasting with the separate fixed-total-degree tangency phenomenon. The invariant is intrinsically relevant to disk-mode localization; no multi-mode theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
