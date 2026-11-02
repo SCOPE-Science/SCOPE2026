@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every fixed k>=1, N>=3 and identical Brownian motions with generator D d²/dx², one collective reset at the first +L crossing has a finite-mean regenerative stationary age law: S(t)=erf(sqrt(a/t)), q(t)=[erfc(sqrt(a/t))-erfc(3sqrt(a/t))]/2 for an uncrossed particle below -L, and joint mass (1/mu_N) C(N,k)q^k(S-q)^(N-k)dt. With y=a/t, y_N=[erfc^{-1}(1/N)]²~log N and mu_N~a/y_N, the moving layer y=y_N+w gives Nq->exp(-w)/2 and N(1-(S-q))->3 exp(-w)/2. The resulting fixed-k integral is 1/(2^k k!) int_0^infty f(z) z^(k-1)e^(-3z/2) dz. Bounding layers on each side, plus direct Frullani evaluation for the all-positive-count probability, gives 1/(k3^k), log(3/2) and the log-series conditional law without illegitimately interchanging an infinite k sum. Reconstructed the killed-kernel image integral and all exponent constants. Independently numerically integrated original finite-N renewal formulas, obtaining log(N)P(K_N=1) ~0.3368 at N=10^3 and ~0.3385 at N=10^5, consistent with slow convergence to 1/3; finite quadrature is NOT the infinite proof. Noncompact bounded continuous f is controlled via the stated y-region tail envelope; N=2 is excluded because mu_N diverges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli–Majumdar–Schehr derive the exact stationary joint law and large-N extreme statistics; Biswas–Majumdar–Pal arXiv:2504.13501 optimizes search triggering; de Mauro et al arXiv:2509.06658 uses exogenous reset cycles."
+        ],
+        "reasoning": "Although the exact stationary density is broader finite-N input, the inspected published extreme/FCS statements do not express the rare event outside the mirror threshold with its log-series counts and Gamma trigger-age conditional law. Distinct exogenous/nonstationary optimization premises do not dominate.",
+        "searches": [
+          "first passage resetting gas Brownian simultaneous threshold +L stationary rare mirror -L counts logarithmic series Gamma trigger proximity extreme 2026 Biroli Majumdar Schehr",
+          "arXiv:2512.00440 first-passage gas stationary extreme"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.00440, full primary PDF, eqs (10)-(15),(36)-(38)",
+        "arXiv:2504.13501, abstract/model context",
+        "arXiv:2509.06658, abstract/model context",
+        "Assigned RESULT.md SHA 950d82da03aa982d0d6eaab4b5fc566a4265d5e8 and verify_mirror.py SHA ca8b431ac28eebbfef7e4bed168382e36d1863d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact renewal density gives integrals for K_N, while the claimed new statement evaluates singular y_N~log N boundary layer and controls total positive mass."
+        ],
+        "reasoning": "A general finite-N formula permits derivation but does not already assert or logically provide the asymptotic without saddle-layer analysis and tightness; prior FCS for central intervals differs mathematically from fixed mirror threshold.",
+        "searches": [
+          "first passage resetting gas Brownian simultaneous threshold +L stationary rare mirror -L counts logarithmic series Gamma trigger proximity extreme 2026 Biroli Majumdar Schehr",
+          "arXiv:2512.00440 stationary law eq (10)-(13), FCS eq (36)-(38)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary full text gives joint stationary renewal density and central shrinking-interval FCS; current theorem studies outside the negative mirror threshold at fixed L with N->infty."
+        ],
+        "reasoning": "The central interval shrinks with N; it is not the event X<-L. Ordinary fixed-rank edge scaling is nonuniform across its support endpoint and does not yield the rare logarithmic population mass without a further layer calculation.",
+        "searches": [
+          "first passage resetting gas Brownian simultaneous threshold +L stationary rare mirror -L counts logarithmic series Gamma trigger proximity extreme 2026 Biroli Majumdar Schehr",
+          "arXiv:2512.00440 eqs (10)-(13),(36)-(38)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The question is a continuum N-asymptotic distribution and conditional joint limit, not a finite tabulated combinatorial invariant."
+        ],
+        "reasoning": "No exact finite table could dominate this infinite asymptotic law; the existing exact integral representation is acknowledged as earlier source input.",
+        "searches": [
+          "first passage resetting gas Brownian simultaneous threshold +L stationary rare mirror -L counts logarithmic series Gamma trigger proximity extreme 2026 Biroli Majumdar Schehr",
+          "primary arXiv:2512.00440 reported FCS formulas"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp rare endpoint crossing law (conditional count distribution and trigger-age Gamma profile), NOT for the resetting model, killed density, renewal stationarity or leading extreme scaling. The closest primary work computes full central-interval counting and a limiting extreme density whose support has endpoint -L, but the nonuniform probability of *crossing* that endpoint and the joint logarithmic age layer are not its displayed results. The exact finite-N stationary representation implies these quantities in principle, but does not automatically imply the singular asymptotic theorem; unspecified older endpoint corrections remain priority risk.",
+      "residual_risks": [
+        "A nonindexed analysis of the same stationary renewal law might already derive the nonuniform outside-support mirror-edge counts.",
+        "Full primary texts of secondary first-passage search/exogenous resetting comparisons were not all inspected; they are context, not strong NOT_COVERING claims.",
+        "The numerical renewal quadratures support only finite-size consistency, not uniform asymptotic bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_AND_STATIONARY_LAW_COVERED; MIRROR_ENDPOINT_LOGARITHMIC_COUNT_NOT_STATED",
+          "evidence": "Exact joint stationary law and a distinct shrinking-central-interval full counting statistic; endpoint of leading minimum support at -L.",
+          "identifier_or_url": "arXiv:2512.00440 (EPL 153,31002, 2026)",
+          "material_read": "Full seven-page primary PDF; model and eqs (10)-(15), limiting extremes, central-interval counts eqs (36)-(38), discussion.",
+          "method": "Lawful openly accessible full PDF, text extraction and page inspection.",
+          "title": "First Passage Resetting Gas",
+          "trigger": "Identical first-passage-reset Brownian gas, stationary distribution, order statistics and FCS"
+        },
+        {
+          "assessment": "NOT_DECISIVELY_COMPARED_FULL_TEXT",
+          "evidence": "Model study optimizes target search rather than the claimed stationary mirror occupations; fuller check is a residual risk.",
+          "identifier_or_url": "arXiv:2504.13501",
+          "material_read": "Abstract and bibliographic/model summary only; not read in full.",
+          "method": "Public search metadata/abstract.",
+          "title": "Target Search Optimization by Threshold Resetting",
+          "trigger": "Same trigger architecture in other search objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mirror -L is a natural sharp endpoint of the leading stationary minimum law, making its beyond-endpoint probability a mathematically motivated rare-event correction rather than an arbitrary threshold. The exact logarithmic-series conditional occupation law, Gamma trigger-age localization and sharp logN coefficient provide independently usable edge statistics inaccessible from the leading bulk law. They can inform subsequent boundary point-process asymptotics, though no full process theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2512.00440, full primary PDF, eqs (10)-(15),(36)-(38)",
+    "arXiv:2504.13501, abstract/model context",
+    "arXiv:2509.06658, abstract/model context",
+    "Assigned RESULT.md SHA 950d82da03aa982d0d6eaab4b5fc566a4265d5e8 and verify_mirror.py SHA ca8b431ac28eebbfef7e4bed168382e36d1863d6"
+  ],
+  "disposition": "passed",
+  "limitations": "Identical independent no-drift paths, generator D d²/dx², deterministic +L reset trigger, fixed mirror -L, N->infty and fixed k; stationary instantaneous positions only. No past running-minimum or point-process classification; finite quadrature not proof.",
+  "residual_risks": [
+    "A nonindexed analysis of the same stationary renewal law might already derive the nonuniform outside-support mirror-edge counts.",
+    "Full primary texts of secondary first-passage search/exogenous resetting comparisons were not all inspected; they are context, not strong NOT_COVERING claims.",
+    "The numerical renewal quadratures support only finite-size consistency, not uniform asymptotic bounds."
+  ],
+  "schema_version": 1
+}

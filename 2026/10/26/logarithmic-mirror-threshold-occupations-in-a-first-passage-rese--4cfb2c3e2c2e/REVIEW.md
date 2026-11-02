@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stationary count-and-age formula follows from the killed Brownian reflection kernel and finite-mean reset cycles for every integer \(N\ge3\). A one-dimensional change of variables, explicit complementary-error-function asymptotics, a sharp critical-layer integral, and separate control of the total positive-count probability give the fixed-count and Gamma limits without interchanging an uncontrolled infinite series. Quadrature from the actual embedded `verify_mirror.py` completed 35 checks; it is not used as a proof of convergence.
+PASS
 
-## Originality — PASS
+For every fixed k>=1, N>=3 and identical Brownian motions with generator D d²/dx², one collective reset at the first +L crossing has a finite-mean regenerative stationary age law: S(t)=erf(sqrt(a/t)), q(t)=[erfc(sqrt(a/t))-erfc(3sqrt(a/t))]/2 for an uncrossed particle below -L, and joint mass (1/mu_N) C(N,k)q^k(S-q)^(N-k)dt. With y=a/t, y_N=[erfc^{-1}(1/N)]²~log N and mu_N~a/y_N, the moving layer y=y_N+w gives Nq->exp(-w)/2 and N(1-(S-q))->3 exp(-w)/2. The resulting fixed-k integral is 1/(2^k k!) int_0^infty f(z) z^(k-1)e^(-3z/2) dz. Bounding layers on each side, plus direct Frullani evaluation for the all-positive-count probability, gives 1/(k3^k), log(3/2) and the log-series conditional law without illegitimately interchanging an infinite k sum. Reconstructed the killed-kernel image integral and all exponent constants. Independently numerically integrated original finite-N renewal formulas, obtaining log(N)P(K_N=1) ~0.3368 at N=10^3 and ~0.3385 at N=10^5, consistent with slow convergence to 1/3; finite quadrature is NOT the infinite proof. Noncompact bounded continuous f is controlled via the stated y-region tail envelope; N=2 is excluded because mu_N diverges.
 
-The exact finite-population joint law, leading large-population extrema and scaled symmetric-central-window counting law of Biroli, Majumdar and Schehr are **prior results** and not claimed. Reading the seven-page primary article, particularly eqs. (10)–(15), (27)–(31) and (36)–(38), did not reveal the sharp event probability for crossing the *opposite* fixed trigger level, the rare count's logarithmic-series law, or its joint conditional age-limit. The source's exact law necessarily permits their derivation, but its first-order limits suppress this \(1/\log N\) rare layer. Previous fixed-population far-tail calculations take a different limit and do not subsume this large-population theorem. No equivalent indexed statement emerged from targeted comparisons; this is not a proof of universal uniqueness. The publisher's supplementary attachment was not independently read; it remains a residual coverage risk.
+## originality
 
-## Value — PASS
+PASS
 
-The strict opposite-trigger threshold is the natural endpoint of the known limiting extreme-position support, so its rare exceedance probability is a motivated missing quantitative observable rather than an arbitrary spatial cutoff. The exact logarithmic suppression, non-Poisson logarithmic-series multiplicities, and gamma-distributed age of rare events characterize a collective failure-proximity mechanism invisible in the leading stationary spatial scaling. No additional downstream theorem is required for this precise diagnostic to be useful.
+Best-of-knowledge PASS for the sharp rare endpoint crossing law (conditional count distribution and trigger-age Gamma profile), NOT for the resetting model, killed density, renewal stationarity or leading extreme scaling. The closest primary work computes full central-interval counting and a limiting extreme density whose support has endpoint -L, but the nonuniform probability of *crossing* that endpoint and the joint logarithmic age layer are not its displayed results. The exact finite-N stationary representation implies these quantities in principle, but does not automatically imply the singular asymptotic theorem; unspecified older endpoint corrections remain priority risk.
 
-## Closest literature and limitations
+## value
 
-Closest: Biroli, Majumdar, Schehr, *First Passage Resetting Gas*, arXiv:2512.00440v1/v2, eqs. (10)–(15), (27)–(31), (36)–(38). Other context: Biswas, Majumdar, Pal, arXiv:2504.13501; de Mauro et al., arXiv:2509.06658. The theorem assumes equal independent Brownian particles and full threshold-triggered resetting. Independent novelty/correctness assessment is outstanding. The source's exact finite-size stationary law and inaccessible publisher supplement create a clearly acknowledged risk of implicit derivability, but the exact singular endpoint theorem was not found in the inspected primary text.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mirror -L is a natural sharp endpoint of the leading stationary minimum law, making its beyond-endpoint probability a mathematically motivated rare-event correction rather than an arbitrary threshold. The exact logarithmic-series conditional occupation law, Gamma trigger-age localization and sharp logN coefficient provide independently usable edge statistics inaccessible from the leading bulk law. They can inform subsequent boundary point-process asymptotics, though no full process theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
