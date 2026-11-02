@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The crossing condition beta*S1=gamma and strictly decreasing crossing fix u>1/2; strict positivity beta*I1<1 implies r<(1-u)/u^3. Conversely all these inequalities produce a two-sided peak index switch, with positivity for all later iterates because I declines after day two. Exact jump J=gamma*I1; monotonic optimization in r gives J<(1-u)^2/(1-u+u^3)<2/5; the u down to 1/2 boundary gives sharpness, and r<4 gives initial infectious a>1/5 iff. Symbolic algebra and rational checker corroborated; no finite experiment substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.pnas.org/doi/10.1073/pnas.2106332118",
+        "https://arxiv.org/abs/2409.09157"
+      ],
+      "reasoning": "The PNAS renewal model uses exponential susceptible updates and focuses on incidence peaks under heterogeneous latent-period laws; the 2024 nonstandard scheme uses a distinct incidence mechanism and proves positivity/solutions. Neither supplies the Euler step first peak-switch sharp constants. Broad framing as discrete epidemics alone does not dominate the stated special theorem.",
+      "searches": [
+        "discrete SIR model herd immunity threshold discontinuity peak time exact formula non-monotone transmission first step bifurcation",
+        "Discrete-time epidemics discontinuities in herd immunity threshold first peak-switch strict positivity SIR Euler scheme",
+        "2021 discrete-time Kermack–McKendrick framework incidence peak exact transmission discontinuity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2212.06995",
+      "https://arxiv.org/pdf/2212.06995",
+      "https://www.pnas.org/doi/10.1073/pnas.2106332118",
+      "https://arxiv.org/pdf/2409.09157",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ozbay et al. Discussion explains peak-time jump from shifted integer peak times but supplies no extremal inequality.",
+        "Diekmann et al. Section 7 compares peak incidence across generation-time laws.",
+        "Nguyen et al. Theorem 2.1 bounds continuous-time post-peak overshoot at approximately 0.2984, not peak-timing discontinuities."
+      ],
+      "reasoning": "The present jump is the difference of the susceptible fraction on two adjacent peak days at a parameter crossing, not the post-peak final-size overshoot or maximal infection/incidence peak height. None of the cited theorems logically yields a=1/5 iff or J<2/5 with sharpness. The source qualitative mechanism remains explicitly acknowledged.",
+      "searches": [
+        "https://arxiv.org/pdf/2212.06995",
+        "https://www.pnas.org/doi/10.1073/pnas.2106332118",
+        "SIR discrete-time herd immunity threshold jumps peak time exact bound",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2212.06995",
+        "https://arxiv.org/pdf/2212.06995",
+        "The 2022 source reports and explains peak switches numerically, not an exact threshold or upper supremum."
+      ],
+      "reasoning": "The same observables are used, but a plot or qualitative one-day-shift explanation does not imply the explicit all-parameter iff cutoff, sharp upper constant, or positive-state crossing manifold. These require separate optimization subject to the epidemic map and positivity.",
+      "searches": [
+        "Discrete-time SIR peak switching from day 2 to day 1: transmission beta, recovery gamma, maximum herd-immunity threshold jump, algebraic bound 40 percent",
+        "Sharp 2/5 maximum jump of peak-time cumulative infections at the first 2-to-1 switch in the forward Euler SIR epidemic map; exact downward discontinuity",
+        "arxiv:2212.06995 Figure 6 Methods; source text on infection curves, peak-time attack and transmission"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literature searches returned the Ozbay et al. numerically observed sawtooths but no table or exact entry encoding the pair of optimal constants.",
+        "https://arxiv.org/abs/2212.06995"
+      ],
+      "reasoning": "The result is not a previously tabulated finite sequence or computational lookup; it is a continuous admissible-parameter extremal theorem. Search absence is only a bounded check.",
+      "searches": [
+        "Sharp 2/5 maximum jump of peak-time cumulative infections at the first 2-to-1 switch in the forward Euler SIR epidemic map; exact downward discontinuity",
+        "40 percent maximum first peak-switch Euler SIR herd immunity jump",
+        "one-fifth minimum initial infected early discrete SIR peak discontinuity"
+      ]
+    },
+    "rationale": "The originating 2022 work states the peak-time nonmonotonicity and its one-day-shift mechanism (not new); the narrow contribution is a necessary-and-sufficient physical seed cutoff of 1/5, an admissibility characterization, and exact supremum 2/5 for the earliest downward switch. Its Discussion, Figure 6 and Methods do not provide these extremal constants. Related full texts address different models or continuous overshoot. Semantic research records have no matching coverage among the inspected closest results. A negative search is not uniqueness proof.",
+    "residual_risks": [
+      "An exact optimization for the same early peak shift might appear in unindexed or differently titled literature; negative searches cannot rule it out.",
+      "The 2024 nonstandard difference paper was compared for its mathematical mechanism but not all appendices; its distinct model prevents direct formal implication.",
+      "The source reports the broader qualitative phenomenon; originality attaches only to the precisely scoped sharp seed and jump bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Clearly establishes numerical nonmonotonicity and peak shifting, but not the sharp first 2-to-1 positivity threshold or jump ceiling. Source initial release verified on arXiv abstract as 2022-12-14.",
+        "evidence": [
+          "Discussion: one-step shift in peak explains attack gap; Figure 6 plots deterministic Euler response.",
+          "Methods: Euler discretization of SIR differential equations; infection/recovery simultaneous difference equations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.06995",
+        "material_read": "Abstract, Results, Discussion, Figure 5, Figure 6, Methods and reference list; PDF page images 4, 5, 6 and 9",
+        "method": "Full text and inspected rendered PDF pages",
+        "title": "Bifurcations in the Herd Immunity Threshold for Discrete-Time Models of Epidemic Spread",
+        "trigger": "Same peak-time cumulative-attack variable and deterministic Euler comparison, highly plausible direct overlap"
+      },
+      {
+        "assessment": "Different renewal susceptible update and peak incidence comparisons; no same extremal Euler switch claimed.",
+        "evidence": [
+          "The paper writes susceptible recurrence with exponential of past incidence (Eq. 2.9).",
+          "Section 7 focuses on peak incidence heights under varying generation-interval distributions."
+        ],
+        "identifier_or_url": "https://www.pnas.org/doi/10.1073/pnas.2106332118",
+        "material_read": "Main article sections on discrete-time susceptible renewal update and Section 7 on incidence peak comparison; conclusion",
+        "method": "Full open-access HTML article, inspected equations and relevant sections",
+        "title": "The discrete-time Kermack–McKendrick model: A versatile and computationally attractive framework for modeling epidemics",
+        "trigger": "Possibly dominating broad discrete epidemic model and peak analysis"
+      },
+      {
+        "assessment": "Not a treatment of forward-Euler peak-time cumulative attack extremals; uses a nonstandard positive scheme with a different incidence denominator. Coverage assessment limited to the material inspected.",
+        "evidence": [
+          "Abstract promises exact solution and dynamically consistent nonstandard scheme.",
+          "First model equations use infection term bxy/(x+y) rather than beta SI."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.09157",
+        "material_read": "Abstract, introduction, model equations and comparison of nonstandard discretizations in first three pages; cover PDF rendered",
+        "method": "Accessible arXiv PDF text and page image",
+        "title": "Exact solution for a discrete-time SIR model",
+        "trigger": "2024 mathematical discrete SIR work could cover exact peak switching"
+      },
+      {
+        "assessment": "The overshoot is S at continuous-time prevalence peak minus final S, not a discontinuity between two discretized peak dates.",
+        "evidence": [
+          "Theorem 2.1 gives about 0.2984 as maximal continuous-time post-peak overshoot."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/",
+        "material_read": "Public full text Theorem 2.1 and definitions of continuous-time post-peak overshoot",
+        "method": "Open full-text HTML with mathematical theorem inspection",
+        "title": "Fundamental bound on epidemic overshoot in the SIR model",
+        "trigger": "Potentially strong SIR extremal bound with a numerical fraction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d163d4e-b629-4ed4-ab34-a1e7feae3f6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural finite-time extremal problem for the earliest bifurcation in the deterministic discretization studied by Ozbay et al. is answered sharply: the first downward jump is structurally impossible for seed a<=1/5, and its gap has an exact universal 2/5 supremum subject to strict biological positivity. These precise constraints distinguish small seeds requiring later peaks from large-seed immediate switches, and quantify the numerically observed sawtooth by a rigorous optimal boundary rather than a sample plot.",
+    "status": "PASS"
+  }
+}
