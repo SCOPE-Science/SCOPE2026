@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Proof checks nonzero discriminant, quadratic nonzero roots, local CRT independence and exact mean μ>=H, variance<=3H. Chebyshev gives 12/H for prime input and 4/H for uniform target integers. Quadrant coercivity bounds p,q<=sqrt(X/c); fixed-modulus PNT-AP transfers the local estimate to primes. The early-index contribution is o(X) for r>=2 under N_a(X)^r=O(log² X). Finite root identities reproduced by actual Python verifier with 199+22 checks; finite checks alone do not establish density.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yan--Xu Theorem 1.2 and Section 3, https://arxiv.org/html/2610.28237v1: only r=2, quadratic p²+q²; its argument is adapted, not attributed as new.",
+        "Dai--Pan DOI:10.1016/j.jnt.2026.04.003 (public abstract) establishes a complementary positive-density result for two shifts and p²+q², under bounded reciprocal divisor sums.",
+        "Lam--Schindler--Xiao arXiv:1809.10755 concerns prime values of binary quadratic forms with a thin input, not the present multi-shift representation set."
+      ],
+      "reasoning": "The earlier qualitative theorem dominates only the r=2, F=U²+V² subcase. Its proof does not address the critical r>2 sparsity regime, where N_a(X)^r can still have order (log X)^2, and does not state the local discriminant-root identity for general F. The sparse higher-shift example is outside the two-shift implication. Broad proof-method similarity remains a priority caveat.",
+      "searches": [
+        "Erdos Romanoff primes values binary quadratic quadratic form plus two divisibility sequence shifts positive density necessary condition",
+        "critical sparsity threshold A(X)^r ≤ log² X Romanoff prime-square additive representation with r summands of chain",
+        "additive representations F(p,q)+a_k+a_l for binary quadratic form primes Romanoff density theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28237v1, full HTML Sections 1-3 and references",
+      "DOI:10.1016/j.jnt.2026.04.003, accessible abstract only",
+      "arXiv:1809.10755, accessible abstract only",
+      "Related previously recorded two-shift quantitative Romanoff finding cb82801d-fe95-441c-b217-e6381cb9b597, overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yan--Xu Section 3 uses 2 shift-index choices N_a(X)^2 and a two-prime-square bound to obtain o(X); r>=3 requires the additional density-of-shifts hypothesis N_a(X)^r=O((log X)^2).",
+        "The exact local obstruction extends from roots t²+1 to roots A t²+B t+C, with discriminant Δ and a finite excluded set of primes.",
+        "The earlier quantitative within-slot result proves a sharper rate for a specially supported two-shift sequence, not the universal higher-shift theorem."
+      ],
+      "reasoning": "The old conclusion for two shifts does not imply zero density after adjoining a third or further variable. For r>=3 the number of shifts can be critical rather than trivially small; the new counting balance and explicit realizing chain establish a different assertion. However both use the same Chebyshev-CRT mechanism, an explicitly recorded possible implicit-prior risk.",
+      "searches": [
+        "multi-shift Romanoff theorem p²+q² plus three or more rapidly growing divisibility-chain terms reciprocal divisor sum divergent zero density",
+        "arxiv:2610.28237v1 (primary full HTML source inspected)",
+        "doi:10.1016/j.jnt.2026.04.003 (primary abstract inspected)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.28237v1 Sections 1-3 states r=2 and F(U,V)=U²+V², not arbitrary r>=3 or nondegenerate F.",
+        "The closest previously recorded quantitative Romanoff result concerns two shifts and a specific prime-square sequence; it does not cover general r-shifts and forms."
+      ],
+      "reasoning": "The new theorem concerns every fixed number r of shifts at N_a(X)^r<=C(log X)^2, with a locally discriminant-twisted form. It is not a rewording of the quoted r=2 theorem. Its r=2, sum-of-two-squares specialization is already covered and is not claimed separately.",
+      "searches": [
+        "zero density for r>=3 shifts a_{k1}+...+a_{kr} of divisor chain with A(X)^r=O(log^2 X) added to binary quadratic form of two primes discriminant obstruction",
+        "multi-shift Romanoff theorem p²+q² plus three or more rapidly growing divisibility-chain terms reciprocal divisor sum divergent zero density",
+        "Romanoff theorem prime quadratic form p²+pq+q² divisibility sequence density zero generalized"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only finite calculations are 199 root counts and 22 mean/variance comparisons for small primes; no external exact database or table with the infinite multi-shift statement was identified.",
+        "Searches returned mathematical research results on different local prime phenomena and no exact indexed higher-shift statement."
+      ],
+      "reasoning": "The theorem is an infinite density conclusion, not an exact finite numerical invariant. A lack of table matches is supplementary information rather than proof of originality.",
+      "searches": [
+        "zero density for r>=3 shifts a_{k1}+...+a_{kr} of divisor chain with A(X)^r=O(log^2 X) added to binary quadratic form of two primes discriminant obstruction",
+        "Romanoff theorem prime pairs binary quadratic forms discriminant Legendre character divisor sum density zero"
+      ]
+    },
+    "rationale": "The closest full primary paper Yan--Xu proves only the canonical r=2 two-square case; the present higher-shift sparsity threshold is new in the inspected comparison and is achieved by an explicit chain, while the quadratic-form discriminant lemma handles both irreducible and reducible coercive forms. Existing same-topic recorded results cover special r=2 families but not r>=3. Since proof techniques are close to Yan--Xu, unindexed or implicit earlier derivations are a significant residual priority risk.",
+    "residual_risks": [
+      "Yan--Xu second-moment proof may yield the generalization implicitly to an experienced reader; uniqueness cannot be certified by search.",
+      "Dai--Pan full text not retrieved; abstract comparison cannot exclude hidden further statements.",
+      "Unindexed broader treatments of high-dimensional Romanoff shifts or cone-coercive forms may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: existing r=2, F=U²+V² specialization; no stated r>=3 or general binary-form result",
+        "evidence": [
+          "Theorem 1.2 and Section 3 use exactly two shift indices and fixed modulus concentration.",
+          "Local Lemma 2.1 counts solutions u²+v²=0 using the -4 character, while the new lemma uses general Δ."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28237v1",
+        "material_read": "Full accessible HTML: introduction/Theorems 1.1-1.3, complete Lemmas 2.1-2.2, complete Section 3 proof, and references",
+        "method": "Direct HTML full-text reading and statement/implication comparison",
+        "title": "A necessary condition for a Romanoff type theorem",
+        "trigger": "Identical additive Romanoff objects with two prime squares and two divisor-chain shifts"
+      },
+      {
+        "assessment": "ABSTRACT_NOT_COVERING, FULL_TEXT_ACCESS_RISK: known result assumes bounded reciprocal-divisor sums and two shifts, so not a logical domination of the present divergent case",
+        "evidence": [
+          "Publisher DOI:10.1016/j.jnt.2026.04.003 abstract.",
+          "Yan--Xu arXiv:2610.28237v1 Theorem 1.1 quotes the specific two-shift result."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jnt.2026.04.003",
+        "material_read": "Author/publisher bibliographic abstract and the precisely quoted theorem in Yan--Xu Section 1; full original article inaccessible",
+        "method": "Web abstract and direct primary-literature citation comparison",
+        "title": "On Erdős' generalization of the Romanoff theorem",
+        "trigger": "Complementary theorem on positive density for p²+q² and two shifts from chains"
+      },
+      {
+        "assessment": "DISTINCT_OBJECT: prime values represented by F(ℓ,m), not densities of sums F(p,q)+r divisibility shifts",
+        "evidence": [
+          "Lam--Schindler--Xiao arXiv:1809.10755 abstract; their main target is a quadratic form value itself prime."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.10755",
+        "material_read": "Full public bibliographic abstract and formulation of main result, not the complete paper",
+        "method": "Search result, public abstract and comparison of objects",
+        "title": "On prime values of binary quadratic forms with a thin variable",
+        "trigger": "Plausible broader theory of quadratic forms at restricted prime variables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef529c38-823d-4df7-878b-dc7738325f13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For r>=3, direct counting at N_a(X)^r≈(log X)^2 yields only O(X) and cannot establish density zero. The theorem proves genuine sparsity precisely on this borderline for every fixed r, exhibited by the explicit chain k!2^{ceil(k^{r/2})}. It extends a motivated necessary-condition question beyond two shifts and classifies a natural general quadratic-form local obstruction. This is a mathematical theorem, not merely another numerical case or a substitution of coefficients; the exponent is sufficient, not claimed optimal.",
+    "status": "PASS"
+  }
+}
