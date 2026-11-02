@@ -1,0 +1,15 @@
+# Scientific review: apexed Hamming cube Hilbert distortion
+
+## Correctness
+**PASS.** The definition of \(c_2\) permits a noncontracting scaling. The graph metric has exactly three pair classes: apex/base at one, adjacent cube vertices at one, and nonadjacent cube vertices at two. A tensor-product realization has squared distances \((16/3)(1-2^{-k})\) on Hamming shell \(k\), establishing the uniform upper bound for all parameters. For any Hilbert embedding, translated apex norms, one-bit energies, and two-bit energies give the inequalities on \(R,U,V\). Hilbert-valued Parseval and Cauchy--Schwarz yield the lower constant, with all normalization factors explicitly derived and all integer dimensions \(d\ge2\) covered. Positive-semidefinite Gram averaging supplies the exact finite-dimensional LP. Exact-rational finite checks replay its key orbit identities, but do not substitute for the infinite proof.
+
+## Originality
+**PASS, subject to historical-priority uncertainty.** Robertson's first version of September 27, 2023 examines the unmodified Hamming distance on the ordinary cube, with exact methods for different graph metrics; it does not imply the cone's sharp limiting constant. Vallentin and Cioabă et al. treat distance-regular graphs, while this apexed graph is nonregular. Linial and Magen treat products of cycles and expanders and not the added-hub shortest-path metric. Comparisons of the concrete graph metric and limiting equation, rather than title matching, against published source texts, research-record summaries, and accessible prior claims found no directly dominating statement. Search cannot establish absolute historical uniqueness, especially under alternate diameter-two-metric terminology.
+
+## Mathematical value
+**PASS.** The cone is a natural graph operation on a canonical family whose ordinary Euclidean distortion grows as \(\sqrt d\). The theorem determines the previously unaddressed **exact asymptotic invariant** \(\sqrt{8/3}\) across an exponentially growing family, with a quantitative universal bound and a reproducible finite LP for each \(d\). The lower bound requires simultaneous first- and second-shell Fourier energies; its matching construction is a nontrivial positive-definite tensor kernel. No claim of exact finite-dimensional closed forms or dimension-optimal realizations is made.
+
+## Closest literature and residual risk
+Robertson (2023), arXiv:2309.16070, Section 4.2 addresses ordinary Hamming-cube distortions. Vallentin (2005), arXiv:math/0509716, and Cioabă et al. (2021), arXiv:2109.09708, address distance-regular graph embeddings. Linial and Magen (2001 manuscript) include ordinary cubes and SDP methods; their online PDF abstract was visually checked, while the remainder was not reliably text-extracted. The main remaining risk is an undiscovered equivalent formula for binary truncated Hamming distances with a hub. Independent evaluation would be valuable before any publication claim.
+
+Self-review: passed. Independent audit: not yet performed.

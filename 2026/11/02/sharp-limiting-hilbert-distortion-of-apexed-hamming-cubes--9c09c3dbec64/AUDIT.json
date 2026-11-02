@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "All quantified graph distances, Hilbert norms and distortion scaling are explicit. A Gram tensor with factor inner product 1/2 gives exact squared shell distances (16/3)(1-2^-k); its edge and apex images determine expansion sqrt(8/3) and every pair is noncontracted. For arbitrary noncontracting embedding, Hilbert-valued Walsh-Parseval yields R<=t and U<=dt/4, while every two-coordinate flip has squared length >=4. The exact two-flip identity 8(dU-V)/(d(d-1)), Cauchy--Schwarz V>=U^2/t, and monotonic quadratic on [0,dt/4] yield t>=8(d-1)/(3d). These hold for all d>=2, so squeezing proves the limit. Averaging Gram matrices and Fourier decomposition proves exact LP, with degree-zero mass removable because the shell-two constraint enforces nonconstant mass>=1. A 4030-assertion exact rational standalone checker corroborates, not replaces, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vallentin arXiv:math/0509716: least distortion estimates for distance-regular graphs, including Hamming graphs.",
+        "Cioaba et al. arXiv:2109.09708: confirmation and counterexamples for distance-regular graph conjectures.",
+        "Robertson arXiv:2309.16070, Sec.2 and Sec.4: general distorted negative type, examples complete bipartite and Hamming cube."
+      ],
+      "reasoning": "The coned cube is not regular: its apex has degree 2^d and each cube vertex has degree d+1, so distance-regular hypotheses do not apply. General negative-type characterizations can formulate a distortion optimization for the cone but do not themselves imply the sharp limiting value. The new proof gives a family-specific matching tensor construction and Fourier two-shell lower inequality.",
+      "searches": [
+        "arXiv:math/0509716",
+        "arXiv:2109.09708",
+        "arXiv:2309.16070",
+        "least Euclidean Hilbert distortion of apexed hypercube cone graph K1 join Qd with shortest path min Hamming 2, sharp sqrt(8/3)",
+        "Euclidean distortion of Hamming metric capped at two and one apex point Walsh Fourier tensor product embedding",
+        "Robertson 2023 negative type Hamming cube with universal vertex diameter-two cone"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.16070",
+      "arXiv:math/0509716",
+      "arXiv:2109.09708",
+      "Linial-Magen publicly available PDF (abstract/first-page inspection)",
+      "Published semantic research records (titles and summaries, not represented as full-text inspections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Robertson arXiv:2309.16070, Sec.4.2 explicitly takes d(x,y)=sum_i |x_i-y_i|, unlike min(d,2).",
+        "Vallentin and Cioaba et al. restrict their sharp distance-regular calculations to graphs with homogeneous degrees and distance partitions.",
+        "Linial and Magen online PDF abstract names cycle products and expanders, not the universal-apex metric."
+      ],
+      "reasoning": "An exact formula for the ordinary cube does not imply the cone formula by restriction: its metric is changed on all shells >=3 and there is a further apex point. The graph-cone is not within the distance-regular theorem assumptions. The tensor kernel (1/2)^Hamming and first-versus-second-shell Hilbert lower bound furnish new substantive mathematical steps. Residual risk is undiscovered equivalent treatment under different terminology.",
+      "searches": [
+        "arXiv:2309.16070 Section 4.2 Hamming cube",
+        "arXiv:math/0509716 distance regular Hamming graphs",
+        "arXiv:2109.09708 distance regular graphs",
+        "Euclidean distortion cone suspension of Hamming cube hypercube apex universal vertex",
+        "Hilbert metric embedding diameter-two truncated Hamming cube with apex optimal distortion sqrt 8/3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Robertson arXiv:2309.16070, Sec.4.2: ordinary cube Hamming distance is untruncated.",
+        "Linial and Magen, first-page abstract: products of cycles/expanders, not coned cube.",
+        "published-finding corpus closest record 2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35: norm of linear Lipschitz extension from Euclidean cube vertices, not bi-Lipschitz metric distortion."
+      ],
+      "reasoning": "The cone graph has metric d(o,x)=1 and d(x,y)=min(Hamming(x,y),2). Neither the Euclidean cube with a center under its ambient distances nor the ordinary Hamming metric is isometric, proportional, or an equivalent reformulation of this metric for d>=3; an extension-operator norm is not the least Hilbert distortion. A general SDP description is not the quantified limiting constant.",
+      "searches": [
+        "Euclidean distortion cone suspension of Hamming cube hypercube apex universal vertex",
+        "Hilbert metric embedding diameter-two truncated Hamming cube with apex optimal distortion sqrt 8/3",
+        "negative type distortion Hamming cube cone hub Schoenberg Walsh kernel Fourier second-neighbor",
+        "least Euclidean distortion cone over hypercube graph universal vertex",
+        "Euclidean distortion Hamming cube truncated at distance 2 hub",
+        "Euclidean embedding distortion cone graph Hamming cube distance two cap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d: a Walsh spectral projection norm on a Lipschitz-free space, not Hilbert distortion of the graph metric.",
+        "Published record 2026/10/11/SCOPE-exponential-snowflake-threshold-for-linear-extension-from-hyperc--2499d477ba35: Lipschitz extension norm from Euclidean cube vertices plus center, not least metric distortion.",
+        "No numerical distortion database or table with the cone construction and asymptotic constant was located in the recorded searches."
+      ],
+      "reasoning": "A table of ordinary cube, Banach--Mazur free-space, Fourier projection, or graph-heat invariants does not determine the least distortion of the graph-cone vertex metric. Absence of a search hit is treated only as evidence of a bounded search, not as a uniqueness proof.",
+      "searches": [
+        "least Euclidean Hilbert distortion of apexed hypercube cone graph K1 join Qd with shortest path min Hamming 2, sharp sqrt(8/3)",
+        "Euclidean distortion of Hamming metric capped at two and one apex point Walsh Fourier tensor product embedding",
+        "Robertson 2023 negative type Hamming cube with universal vertex diameter-two cone"
+      ]
+    },
+    "rationale": "The object is the unit-edge graph cone over the binary Hamming cube, with all nonadjacent cube-vertex distances truncated to two and an actual apex at distance one. Robertson 2023 analyzes the ordinary Hamming distance, whose least distortion grows with dimension. Vallentin 2005 and Cioaba et al. 2021 analyze distance-regular graphs, whereas the apex degree 2^d differs from the cube degree d+1 for all d>=2. Linial and Magen analyze cubes as cycle products without the universal hub. None of the inspected statements supplies the cone family limit sqrt(8/3) or the two-shell extremal argument. Results from a semantic research record search concern Walsh norms, other cube invariants and a Euclidean vertex-plus-center extension problem, not this metric invariant. Historical priority remains uncertain beyond accessible coverage.",
+    "residual_risks": [
+      "An older, unindexed theorem may treat Hamming distances truncated at two with a universal hub and subsume this limiting constant.",
+      "The Linial--Magen PDF was only reliably read at the abstract/first page; a covering appendix is not excluded by this material.",
+      "The published semantic research record search returned abstract summaries; highly similar records without direct coverage were compared at the statement level, but not represented as full-text inspection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: computes distorted negative type for ordinary Hamming metric without hub; the cone changes the graph distances.",
+        "evidence": [
+          "arXiv:2309.16070 Sections 4.1-4.2, definitions around Theorem 4.7"
+        ],
+        "identifier_or_url": "arXiv:2309.16070",
+        "material_read": "Full HTML text of sections 1, 2, and 4, including 4.1 complete bipartite graphs and 4.2 Hamming cube",
+        "method": "Read publicly accessible arXiv HTML, inspected definitions and theorem scopes",
+        "title": "Negative type and bi-lipschitz embeddings into Hilbert space",
+        "trigger": "Same invariant and motivating 2023 Hamming-cube example"
+      },
+      {
+        "assessment": "NOT_COVERING for the cone because it is not regular, hence not distance-regular; methods are relevant general background.",
+        "evidence": [
+          "arXiv:math/0509716 abstract and main theorem discussion"
+        ],
+        "identifier_or_url": "arXiv:math/0509716",
+        "material_read": "Accessible full article HTML, introduction, distance-regular graph formulation, stated Hamming and Johnson cases",
+        "method": "Read arXiv HTML source",
+        "title": "Optimal Embeddings of Distance Regular Graphs into Euclidean Spaces",
+        "trigger": "Potentially dominating spectral optimization of Hamming graphs"
+      },
+      {
+        "assessment": "NOT_COVERING: key theorems require distance-regular graphs, unlike this cone.",
+        "evidence": [
+          "arXiv:2109.09708 theorem hypotheses and distance-regular scope"
+        ],
+        "identifier_or_url": "arXiv:2109.09708",
+        "material_read": "Accessible public HTML full text, title/abstract/introduction and hypotheses of key theorems",
+        "method": "Read public article HTML",
+        "title": "The least Euclidean distortion constant of a distance-regular graph",
+        "trigger": "Sharper general results could dominate the proposed cone formula"
+      },
+      {
+        "assessment": "Relevant classical background on ordinary cubes; full source comparison remains a residual risk, but paper abstract does not advertise this apexed metric.",
+        "evidence": [
+          "Author PDF page 1, abstract: products of cycles and constant-degree expanders"
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/~avner/papers/least-distortion.pdf",
+        "material_read": "Author PDF first page via rendered page image, including full abstract; remainder not reliably text-extracted",
+        "method": "Rendered PDF page 1 and visually read title, abstract, and examples; did not claim full-text comparison",
+        "title": "Least-Distortion Euclidean Embeddings of Graphs: Products of Cycles and Expanders",
+        "trigger": "Classical exact Hamming-cube distortion, may include stronger symmetric methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c09c3db-ec64-4e85-b6af-f8bfe7f80916",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical exponentially growing family Q_d has unrestricted Hamming-metric Hilbert distortion of order sqrt(d). A single natural graph-cone operation changes the shortest-path metric to one with the previously uncomputed sharp limiting distortion sqrt(8/3). The proof identifies the precise first- and second-Hamming-shell Fourier obstruction, supplies matching tensor embeddings and a quantitative uniform rate bound, and an exact finite LP for every d. The exact infinite-family limit is mathematically motivated independently of a downstream theorem. This is not a mere reformulation of the original Hamming-cube result.",
+    "status": "PASS"
+  }
+}
