@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Every pebbling move decreases total pebble count by one, giving an exact induction on configuration size. A configuration is stackable iff it has single-vertex support or some legal child is stackable; reversing oriented moves gives an equivalent constructive recurrence. The included standard-library verifier enumerates every composition through t=8 on C5 and t=17 on C7 and independently compares exhaustive direct and backward recurrences at each level. At size 7 the C5 bad set equals the disjoint union of the two specified five-member dihedral orbits; at size 16 the C7 bad set equals the stated fourteen-member orbit. The next layers have no bad configurations. This is a rigorous finite exhaustive enumeration, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The April paper Section 11 reports the sequence of cycle threshold values 4,8,17,37,77 and a generic backward recurrence, not the orbit classification.",
+        "The October follow-up states that checking almost-stacked configurations suffices for tested graphs through 7 vertices; it does not classify all extremal configurations.",
+        "Supplementary pebbling.py returns a witness set from generic recurrence, so the new classification is computationally obtainable from prior code."
+      ],
+      "reasoning": "A prior executable general algorithm can imply a finite output when run, but its documented theorem and report do not specify the exact orbit types or the C5 counterexample to the stronger universal-extremizer assertion. We claim the concrete classification, not a new decision method or numerical threshold. Computability from supplementary code is a residual originality risk.",
+      "searches": [
+        "arXiv:2604.22341v1, full-text Section 11 on computational data and critical witnesses",
+        "arXiv:2610.09650v1, Sections 1–4 on almost-stacked configurations and the ASH",
+        "GitHub: lajossoukup/pebbling pebbling.py source, stacking_number() implementation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.22341v1",
+      "arxiv:2610.09650v1",
+      "https://github.com/lajossoukup/pebbling/blob/main/special_graph_pebbling_report.tex",
+      "https://github.com/lajossoukup/pebbling/blob/main/pebbling.py",
+      "https://github.com/lajossoukup/pebbling/blob/main/atlas_ash_report.py",
+      "published-finding corpus semantic searches recorded in the four named check objects",
+      "Accessible current-week prior research records claims 1–48 for same-slot deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known threshold values do not logically fix how many critically nonstackable configurations exist.",
+        "The ASH is existential (critical witnesses can be chosen almost stacked), whereas the stronger universal assertion fails due to the C5 orbit of (3,3,0,1,0).",
+        "Generic exhaustive methods can recover the finite classification after concrete execution, but do not assert it as an analyzed theorem."
+      ],
+      "reasoning": "The new statement is neither an identical restatement of threshold data nor a formal corollary of the ASH claim; it refines the solution landscape with all extremal witnesses. However it is an explicitly computed finite output of a known class of algorithms, which limits its methodological novelty.",
+      "searches": [
+        "arXiv:2604.22341v1, §11 generic recursion and odd-cycle thresholds",
+        "arXiv:2610.09650v1, Definition 3.1 and Hypothesis 3.2",
+        "published-finding corpus: Almost Stacked Hypothesis cyclic pebbling terminal nonstackable configurations counts orbit classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus search returned no statement of a 14-member C7 critical-obstruction orbit or two critical C5 orbits; nearest results concerned different automata, graph complexes or other orbit censuses.",
+        "The October 2026 Almost Stacked Hypothesis paper, arXiv:2610.09650, Section 3 defines the existential reduction rather than requiring every maximal obstruction to be almost stacked."
+      ],
+      "reasoning": "Definitions of unsolvable/critical/nonstackable pebbling configurations and almost-stacked extremizers were compared as equivalent terminology. Neither exact orbit statement appeared. Mere absence in a bounded search is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Complete orbit classification of maximal nonstackable pebbling configurations on 5-cycle and 7-cycle: 10 and 14 labelled obstructions",
+        "published-finding corpus: Pebbling configurations with 16 pebbles on C7 nonstackable one dihedral orbit (14,1,1), stacking number 17",
+        "Web: \"nonstackable\" \"C7\" \"14\" \"stacking\" pebbling",
+        "Web: \"C_7\" pebbling \"16\" \"14\" \"configurations\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The special-graph numerical table explicitly records stack(C5)=8 and stack(C7)=17, both already known; no critical obstructions or orbit sizes occur in that table.",
+        "atlas_ash_report.py aggregates success/failure by connected graph, not a count or classification of critical witnesses.",
+        "The third-party review repeats numerical odd-cycle sequence but no orbit classification."
+      ],
+      "reasoning": "Neither the threshold table nor the ASH graph-atlas summary contains the claimed labelled maximal-obstruction count, representative tuples, or orbit structure. Any undocumented machine-readable witness sets should be checked independently for historical priority.",
+      "searches": [
+        "GitHub source: lajossoukup/pebbling/special_graph_pebbling_report.tex",
+        "GitHub source: lajossoukup/pebbling/atlas_ash_report.py",
+        "Web: \"C_7\" \"17\" \"almost stacked\" pebbling",
+        "Web: \"stacking number\" \"odd cycle\" 8 17"
+      ]
+    },
+    "rationale": "Csernak and Soukup 2026 give the stacking definition, a general exact recurrence and the numerical values stack(C5)=8 and stack(C7)=17, and their public code can generate witnesses. Those are explicitly excluded from novelty. The new assertion is an explicit labelled critical-obstruction orbit classification and contrast in almost-stacked structure: two five-member types on C5 (one non-almost-stacked) versus a single fourteen-member almost-stacked type on C7. The inspected full article, numerical report source, supplementary generic code and later ASH article do not state those orbit classes or their universal-versus-existential distinction. Exact searches did not locate a statement-level equivalent. Residual priority risk of implicit algorithmic coverage remains acknowledged.",
+    "residual_risks": [
+      "Public generic source code may already emit all 14 and 10 critical configurations as raw lists; a prior unpublished/undocumented analysis may have grouped them into the same orbits.",
+      "No complete historical priority search across every graph-pebbling repository and terminology is possible.",
+      "No claim is made for cycles of order nine or greater; the finite table does not establish broader patterns."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports numerical thresholds and generic recurrence; not a statement of complete dihedral orbit classifications.",
+        "evidence": [
+          "Article Section 11 lists 4,8,17,37,77 and explains parent-counter computation; its cited supplementary package is checked separately."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.22341 (arXiv:2604.22341v1; public 2026-04-24)",
+        "material_read": "Full article text reproduced in public ResearchGate text view, especially the definition, introduction, Sections 7, 9, 11, computational section with C3/C5/C7/C9/C11 sequence.",
+        "method": "Read HTML-extracted article text and located section-11 numeric table/recurrence, cross-checked arXiv abstract and dated first version.",
+        "title": "Stacking and Clearing in Graph Pebbling",
+        "trigger": "Introduces the exact invariant and computes the small odd-cycle thresholds."
+      },
+      {
+        "assessment": "Proves other almost-stacked results and documents existential ASH; does not state the two explicit critical orbit classifications.",
+        "evidence": [
+          "Hypothesis 3.2 uses tests restricted to almost-stacked configurations, not an assertion about every critical obstruction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09650 (arXiv:2610.09650v1; public 2026-10-07)",
+        "material_read": "Introduction, Sections 2–4, especially Definition 3.1, Hypothesis 3.2, prior computational data and the distinction between existential and universal obstructions.",
+        "method": "Read full relevant textual sections via arXiv abstract/full article view.",
+        "title": "The Almost Stacked Hypothesis: A Conjectural Analogue of Sjöstrand’s Cover Pebbling Theorem",
+        "trigger": "Potential stronger treatment of extremal cyclic configurations and small graph atlas."
+      },
+      {
+        "assessment": "Special-graph report lists thresholds only; generic program returns witness sets but does not present orbit enumeration; atlas checker only reports aggregate ASH status.",
+        "evidence": [
+          "The published stack-number function returns a witness_set; special_graph_pebbling_report.tex gives C5=8 and C7=17 with no witness-orbit breakdown."
+        ],
+        "identifier_or_url": "https://github.com/lajossoukup/pebbling",
+        "material_read": "Entire source special_graph_pebbling_report.tex, full code for pebbling.py and atlas_ash_report.py.",
+        "method": "Retrieved named source files from the public repository through repository read actions and compared output fields to the claimed orbit statement.",
+        "title": "Public computational sources for graph pebbling",
+        "trigger": "Primary references point to concrete computational reports that could already list exact witness sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "320ce8cd-1a02-47bf-bee8-1a6f7e002e6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is not a new computation of known stacking thresholds. The explicit dihedral equality-case classification on the first two unresolved-shape odd cycles answers a natural structural question motivated by the Almost Stacked Hypothesis: C7 has a unique orbit of extremal configurations, all almost stacked, but C5 possesses an entire critical orbit with two piles of three. This demonstrates sharply that an existential almost-stacked principle cannot be strengthened to universal description even on a five-cycle. Natural complete classification of critical obstructions at the first nontrivial orders has intrinsic combinatorial value; no infinite extension is asserted.",
+    "status": "PASS"
+  }
+}
