@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible mathematical checks
 
-Run `python verify.py` after installing the packages in `requirements.txt`. The program first confirms the exact symbolic equality between the mean-balance residual and the claimed inverse-coverage variance identity. It then integrates the vaccination equations for a normalized Erlang-2 delay (implemented using two coupled memory stages) and compares mean infection with the predicted discount over ten late apparent periods. Both tests passed in the reported execution, and the predicted/observed relative discount discrepancy was about \(2.24\times10^{-6}\).
+# Independent mathematical audit
 
-The mathematical proof in RESULT.md establishes the theorem without relying on the integration, which does not certify a periodic orbit's exact existence or a global attracting set. The theorem assumes compact interior recurrence; this computation verifies numerical consistency only. The precise original model and equilibrium are independently re-derived in the written proof. No independent audit or external validation has been performed.
+## correctness
+
+PASS
+
+For positive I, averaging d log I gives mean S=delta/beta. Averaging dI and dS yields mean I=(mu/delta)(q-mean p). Averaging d log[p/(1-p)] yields mean I=alpha mean p-eta E(1/p), since normalized delay preserves stationary mean p. The unique interior equilibrium satisfies analogous I*=alpha p*-eta/p* and I*=(mu/delta)(q-p*). Subtraction gives (alpha+mu/delta+eta/(p* mean p))(mean p-p*)=eta(E1/p-1/mean p). The last term equals E[(p-mean p)^2/p]/(mean p)^2>0 for nonconstant p, proving discount; at eta=0 means coincide. Stationary measure extension follows by bounded observables and invariance, not numerical periodic orbit existence. Sympy identity and a rational formula check independently passed.
+
+## originality
+
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A finite-amplitude invariant mean identity identifies a strict campaign-dependent reduction in average prevalence independent of delay-kernel shape. It explains a qualitative distinction between oscillatory and endemic burden beyond local linear stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
