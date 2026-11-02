@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every r with r/gcd(r,d^n)=m, precisely phi(r)/phi(m) primitive roots map to a fixed primitive alpha. Free Galois action of Gal(KQ(zeta_r)/K), of order phi(r)/[K cap Q(zeta_r):Q], produces exactly [K cap Q(zeta_r):F] factors. Kronecker--Weber and Q(zeta_u) cap Q(zeta_v)=Q(zeta_gcd(u,v)) reduce the degrees to finitely capped valuation coordinates, giving an exact polynomial beyond a concrete conductor threshold and the specified positive leading coefficient. Summing Euler factors derives the cyclotomic all-level product. Exact independent Galois-orbit tests pass for 624 cyclotomic cases, six quadratic cases and five nonstandard targets. The tests support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tucker--Zhu Theorem 2.1 includes every number field, but its general-field conclusion is T_n <= a_n <= [K:F] T_n, not an equality.",
+        "Jones--Levy, arXiv:1603.00673v2, deals with arbitrary rational maps, but its relevant conclusion is qualitative eventual stability rather than the factor-count polynomial."
+      ],
+      "reasoning": "The newer source is stronger in its field range than the minimal-field count, and its general bounds are strictly weaker information than a complete field-intersection sum or an exact eventual polynomial. The older source is more general in maps but does not numerically dominate the proposed exact formula.",
+      "searches": [
+        "Tucker Zhu power map roots unity general number field exact factor counts cyclotomic field intersection polynomial growth",
+        "factorization of x power minus root unity arbitrary number fields intersection with cyclotomic fields exact polynomial number of irreducible factors",
+        "eventually polynomial irreducible factor counts under monomial iteration cyclotomic intersections",
+        "iterates monomial x^d root unity number field irreducible factors eventually polynomial degree cyclotomic intersection"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.28688v1",
+      "https://arxiv.org/html/1603.00673v2",
+      "https://en.wikipedia.org/wiki/Kronecker%E2%80%93Weber_theorem",
+      "https://en.wikipedia.org/wiki/Cyclotomic_field"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tucker--Zhu proves T_n exactly over F and two-sided scalar bounds over K (Theorem 2.1(iii)); the detailed proof derives admissible orders.",
+        "Jones--Levy Theorem 1.3 and Section 3.4 discuss when factor counts stay bounded; their formulas do not determine precise splitting by cyclotomic intersections."
+      ],
+      "reasoning": "The general scalar bounds alone do not determine exact sequences: for example Q(cuberoot(2)), Q(zeta_8), and Q(zeta_24) have distinct exact answers within those allowed bounds. Computing all Galois orbit sizes and proving eventual polynomial stabilization require additional steps. Nonetheless the novelty gap is modest because the root-order input is already explicit and Galois field intersections are standard.",
+      "searches": [
+        "Tucker Zhu power map roots unity general number field exact factor counts cyclotomic field intersection polynomial growth",
+        "factorization of x power minus root unity arbitrary number fields intersection with cyclotomic fields exact polynomial number of irreducible factors",
+        "Tucker Zhu 2026 \"factor count\" \"cyclotomic\" \"number field\" exact",
+        "arXiv:2610.28688v1 theorem 2.1 section 2",
+        "arXiv:1603.00673v2 sections 1,3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tucker--Zhu arXiv:2610.28688v1, Theorem 2.1(iii) and proof: root-order criterion, count over F, bounds over K; no exact arbitrary-K formula or eventual polynomial stated.",
+        "Jones--Levy arXiv:1603.00673v2, Sections 1 and 3.4: eventual stability framework and power-map Kummer background."
+      ],
+      "reasoning": "The equivalence between irreducible-factor count and Galois orbit count is classical; neither inspected work supplies the intersection-weighted all-field count, conductor-polynomial or sharp leading coefficient. Their theorems imply boundedness or polynomial-order estimates, not the exact coefficient without additional arguments.",
+      "searches": [
+        "eventual stability power map roots of unity cyclotomic base field exact factor count product formula m divides M",
+        "Jones Levy eventual stability exact factorization numbers cyclotomic splitting orbit count",
+        "Tucker Zhu power map roots unity general number field exact factor counts cyclotomic field intersection polynomial growth",
+        "eventually polynomial irreducible factor counts under monomial iteration cyclotomic intersections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research results about cyclotomic relative tau-numbers and phi-practical polynomial-divisor degrees did not address splitting of root-of-unity monomial preimages.",
+        "Direct web searches returned cyclotomic polynomial factorizations over Q or finite fields, not exact arbitrary-number-field factor-count tables."
+      ],
+      "reasoning": "The proposed result is a universal parametric formula, not an isolated number that could be silently covered by a small table. No exact parametric table in the inspected sources covers it; absence from search indexes is not a uniqueness proof.",
+      "searches": [
+        "number of irreducible factors z^(d^n) minus root of unity over cyclotomic field Q(zeta_M) exact formula phi gcd M r",
+        "cyclotomic binomial X^N - zeta_m factorization over Q(zeta_M) number irreducible factors",
+        "\"eventually polynomial\" \"number of irreducible factors\" \"power map\"",
+        "\"cyclotomic closure\" \"number of irreducible factors\" \"iterates\"",
+        "\"eventually polynomial\" \"cyclotomic\" \"factor count\" iterates",
+        "factorization binomial x^N - root unity cyclotomic field number irreducible factors fixed number field Galois"
+      ]
+    },
+    "rationale": "The 2026 Tucker--Zhu theorem gives the exact minimal-field count and only degree bounds for general number fields. The new statement adds exact intersection-weighted counts at every level, complete invariance under the cyclotomic part of an arbitrary number field, an exact eventual polynomial of specified degree, and the sharp leading coefficient. Its proof genuinely uses additional Galois-orbit and finite-conductor arguments, not an assertion of new root-order parametrization. Related 2017 work studies boundedness and does not state these counts. Residual priority risk: previous implicit applications of standard cyclotomic intersection theory might cover the formula; the original proof makes this extension approachable.",
+    "residual_risks": [
+      "An unindexed earlier publication may record the exact cyclotomic intersection sum or its eventual-polynomial specialization.",
+      "The result is an accessible elaboration of the root-order argument of Tucker--Zhu, so the separation from prior implicit coverage may be debated.",
+      "Exact field-intersection computations for general algebraic input may require separate computational algebra software; the supplied checker validates cyclotomic and two explicit quadratic cases only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT minimal-base field; BOUNDS only for general base; no conductor polynomial or exact all-number-field splitting asserted",
+        "evidence": [
+          "Theorem 2.1(iii): a_n(F,d,alpha)=T_n and T_n<=a_n(K,d,alpha)<=[K:F]T_n",
+          "Proof equation (5): r/gcd(r,d^n)=m; each admissible order contributes one factor over F"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28688v1",
+        "material_read": "Complete arXiv HTML v1 (abstract, Theorems 1.2 and 2.1, full root-order proof and Corollary 2.2, references), especially lines 30--143",
+        "method": "Full-text reading and statement-versus-implication comparison",
+        "title": "A Counterexample to the Eventual Stability Conjecture",
+        "trigger": "Direct same-object result for monomial roots-of-unity preimages"
+      },
+      {
+        "assessment": "Defines eventual stability; proves and surveys qualitative criteria. Does not give the intersection-weighted factor formula or eventually polynomial count claimed here.",
+        "evidence": [
+          "Definition 1.1 counts irreducible factors of iterated preimage polynomials",
+          "Section 3.4 considers power-map preimages through Kummer representations"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1603.00673v2",
+        "material_read": "ArXiv HTML v2: full introduction/definitions and Section 3.4 on power-map Kummer representations, lines 25--110, 247--274",
+        "method": "Primary-text inspection of relevant sections and broader-coverage comparison",
+        "title": "Eventually stable rational functions",
+        "trigger": "Original stability framework and closest older power-map results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b03f467c-827d-41ca-a9a3-9b93c5b1cd90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source paper establishes a new failure of eventual stability and proves only general-field upper/lower factor-count bounds. The new theorem computes the natural full factor-count invariant exactly for every number field, determines its eventual polynomial and sharp leading constant, and explains nonabelian invariance and cross-prime conductor coupling. These are substantive missing quantitative outcomes, not a changed normalization, a small finite cutoff, or a trivial one-parameter table. Scope is explicitly limited to power maps and root-of-unity targets.",
+    "status": "PASS"
+  }
+}
