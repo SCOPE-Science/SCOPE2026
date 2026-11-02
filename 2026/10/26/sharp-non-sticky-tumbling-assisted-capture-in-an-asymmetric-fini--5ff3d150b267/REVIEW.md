@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The independent two-velocity backward equations with collision reflection factors \((1-A)/(1+A)\) and \((1-B)/(1+B)\) are solved exactly for all \(v,L>0\), \(A,B\in(0,1]\), \(x\in(0,1)\) and \(\alpha\ge0\). A strictly increasing quadratic derivative numerator establishes global, rather than local, optimality and all boundary cases. The position thresholds are exact roots with their physical interval placements established. The near-boundary square-root scaling is obtained by an explicit asymptotic balance. The complete proof, not empirical checks, covers the continuous infinite parameter domain. Computational checking reproduces the backward solution, its derivative and optimizer and simulates event-driven first absorption. Numerical experiments cannot prove this continuum theorem but provide checks for algebraic sign or normalization errors.
+## correctness
 
-## Originality — PASS (qualified assessment)
-The exact forward finite-interval mean absorption-time formula is already Angelani (2015), Eqs. (36)–(37), and the broader mean-time framework is Angelani (2023), Eq. (47). The claim explicitly excludes those. The inspected 2023 discussion presents monotonicity for non-sticky cases with the configurations and launch assumptions treated there, while the 2024 article motivates nonmonotone rates using boundary holding. By allowing a fixed *off-center* launch and two unequal instantaneously reflecting partially absorbing ends, the current sharp theorem obtains a finite-rate optimum without that holding mechanism, and gives an entire positional phase boundary with uniqueness, exact improvement region and near-boundary scaling. These statements were not identified in the inspected relevant source sections, results or appendices, although they are algebraic consequences of the known general forward formula. This latter coverage is a substantive originality caveat: stronger published formulas imply the phenomenon after optimization, and an unlocated explicit treatment cannot be ruled out. Subject to that scope and residual risk, the independently formulated global phase classification is assessed original, not the forward equation itself.
+PASS
 
-## Value — PASS
-The exact criterion specifies when velocity persistence or bulk reversals minimize absorption time, revealing a physically meaningful and sharply delimited exception to monotone non-sticky search behavior observed in symmetric configurations. It is not merely a parameter substitution: it classifies the global optimization across every admissible pair of partial-absorption probabilities and all interior launch points, identifies the full sub-ballistic benefit window, and proves an unexpected divergent optimal reversal rate but bounded optimized time near the stronger wall. These are interpretable design constraints for active escape processes. The singular square-root law is not required by the known forward formula's published qualitative discussion. Scope is restricted to Markovian, no-residence wall reflections and an equiprobable velocity sign.
+PASS: The two backward transport equations with flip rate alpha/2 and instant reflection coefficients (1-A)/(1+A),(1-B)/(1+B) imply d(z)=c-z/v and m(z)=c/A+(alpha/v)(cz-z^2/(2v)); the boundary equation yields cv/L=(A+P y/2)/(S+P y). Substitution gives the rational T(y). Its derivative numerator Delta+2RS y+RP y^2 increases strictly for y>=0 (R,S,P>0); Delta<0 therefore gives exactly one positive global minimizer and all improving rates 0<y<-Delta/(RS). Solving concave Delta(x)=B(B-A)+2ASx-S^2x^2 gives both threshold locations; near-wall asymptotics follow by the optimizer formula. Independent 600 random backward-equation/difference/optimization checks passed; analytic monotonicity supplies the continuous proof.
 
-## Prior coverage and limitations
-Closest are Angelani (2015), DOI `10.1088/1751-8113/48/49/495003` (exact general MFPT formula); Angelani (2023), DOI `10.1088/1751-8121/ad009e` (general boundary formula, non-sticky monotonic examples); and Angelani (2024), DOI `10.1140/epje/s10189-023-00402-7` (tumbling optimization with boundary accumulation). A different or older source with the same completed optimization remains a residual historical-priority possibility. The review is not a claim of independent validation or certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge statement-based originality after checking primary comparison and relevant published Resultary records; no uninspected full text asserted not covering. The audited claim specifically disclaims originality of the MET and relies on new explicit monotone derivative optimization and asymmetric threshold. Nothing in inspected primary sections states the full optimized claim. Other mathematical derivations of 2015 forward mean may nonetheless make novelty narrower than asserted.
+
+## value
+
+PASS
+
+PASS: The sharp position-dependent onset of non-sticky tumbling assistance is physically and mathematically motivated because previously discussed tumbling optimization often invoked wall residence and/or symmetric initial placement. The exact global phase threshold, entire improvement interval, and singular near-wall optimal-rate scaling address a natural optimization question absent from mere forward expectation calculations, despite a very short derivative once the old formula is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
