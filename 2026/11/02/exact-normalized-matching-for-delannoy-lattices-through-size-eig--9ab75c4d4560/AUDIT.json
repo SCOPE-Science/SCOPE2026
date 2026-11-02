@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "An exact max-flow/min-cut equivalence reduces each normalized matching inequality over every subset to a saturating integer flow. The complete C++ generator independently checks Delannoy rank counts and every cover, and exhaustive exact 64-bit Dinic calculations saturate all lower-half rank pairs for n=0..18, including the n=18 product 1837659219795. An explicit unmatched-parenthesis bijection proves odd central pairs, and order-reversal plus Hall complement duality proves upper-half pairs. Full replay from the actual artifact returned VERIFY_OK 0_to_18, independently corroborated by a Python flow implementation for n=0..13. No claim extends past n=18.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Dong Proposition 3.7 supplies a symmetric chain decomposition, but a symmetric chain decomposition alone does not establish normalized matching.",
+        "Chen–Dong Theorem 6.2 gives only 0<=n<=5; Appendix A gives only ranks 1 and 2 for arbitrary n.",
+        "Autebert–Latapy–Schwer (2002) abstract describes fixed-endpoint Delannoy paths, not the graded union of endpoint positions used here."
+      ],
+      "reasoning": "A general normality theorem for all n would imply this finite statement, but the closest full primary source explicitly asks that question. Neither the previously proved small-range theorem nor rank-one-to-two matching yields the unverified interior ranks, and the earlier fixed-endpoint lattice cannot be substituted without demonstrating an order-preserving isomorphism. The older paper was abstract-only and leaves a residual priority risk.",
+      "searches": [
+        "Chen Dong 2026 Delannoy lattice normalized matching up to n=18 2026 finite maxflow",
+        "normality of Delannoy lattice sizes n=6 7 8 9 normalized shadow inequality",
+        "\"Le treillis des chemins de Delannoy\" normal normality matching LYM",
+        "\"Delannoy path lattice\" \"normalized matching\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30350v1, September 24, 2026, full relevant text",
+      "Autebert–Latapy–Schwer, Discrete Math. 258 (2002), abstract and bibliographic record",
+      "Autebert–Schwer, SIAM J. Discrete Math. 16 (2003), abstract and reference metadata",
+      "Semantic mathematical records: actual searches above and closest returned titles (unrelated rank-stratified matching polytopes, matching complexes and Delannoy number tables)",
+      "Prior mathematical claims compared for Delannoy, normal poset, normalized matching, shadow inequality, rank matching, LYM and symmetric chains; no overlapping claim identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.30350v1, Proposition 3.7 (symmetric chains), Problem 6.1 (open general normality), Theorem 6.2 (normality for n<=5), Lemma A.1 (first two ranks for all n).",
+        "Current claim verifies all consecutive-rank normalized inequalities up to n=18 by exact finite max-flow and centrally matched odd ranks."
+      ],
+      "reasoning": "The published results are strictly weaker in logical implication: normality for n<=5 and first-rank normality for any n do not imply normality of the intermediate ranks of n=6..18. Symmetric chains imply ordinary (integral) Hall expansion at equal-size central levels but not the required fractional expansion at unequal levels. The new certificate addresses exactly those missing comparisons.",
+      "searches": [
+        "\"Delannoy lattice\" \"normalized matching\" 2026 2025",
+        "\"Delannoy lattice\" \"normal\" \"matching\" lattice theorem",
+        "\"Le treillis des chemins de Delannoy\" normal normality matching LYM"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Dong arXiv:2609.30350v1 §6 states normalized matching for the same word lattice as its open Problem 6.1.",
+        "Direct finite-flow criterion is equivalent to every upper-shadow inequality by max-flow/min-cut."
+      ],
+      "reasoning": "Normality, rank-normality, normalized matching, fractional biregularity of consecutive rank cover graphs and Hall-type shadow expansion were compared as logically equivalent tests. The 2026 paper establishes n<=5 and leaves all-size normality open, so its proved statements do not entail the new finite range n=6..18.",
+      "searches": [
+        "Delannoy lattice normalized matching property 2026 Chen Dong n six seven eight max-flow rank layers",
+        "Delannoy lattice normalized matching conjecture upper shadow Hall fractional matching verified n=6",
+        "Delannoy poset 2026 level normalized matching network flow",
+        "\"Delannoy lattice\" \"normalized matching\" 2026 2025",
+        "\"Delannoy lattice\" \"normal\" \"matching\" lattice theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Delannoy number tables enumerate ranks but do not certify normalized upper-shadow inequalities.",
+        "The full certificate prints equal integral max flow values for every size 0..18 and every necessary lower-half rank pair, independently of pre-existing tables."
+      ],
+      "reasoning": "Rank-cardinality sequences cannot imply arbitrary-subset normalized matching. Search results containing Delannoy rank tables, generalized path enumeration or unrelated matching polytopes do not supply the finite Hall certificates for these cover graphs.",
+      "searches": [
+        "Delannoy poset normal normalized matching property computed",
+        "\"Delannoy lattice\" \"rank\" \"matching\" n",
+        "\"Delannoy lattice\" normal \"n=6\" \"n=7\"",
+        "finite verified normalized matching property Delannoy path lattice n up to 17 18 network flow"
+      ]
+    },
+    "rationale": "The closest full-text primary paper explicitly leaves full normality open, proves only n<=5, and contains no all-rank finite verification of n=6..18. A complete implication comparison of rank-one results and symmetric chain decomposition reveals missing interior inequalities. Searches for equivalent normality and Hall formulations found no covering record; older fixed-endpoint literature remains an abstract-only residual historical-priority risk.",
+    "residual_risks": [
+      "Complete 2002 and 2003 Delannoy-path texts not inspected; a differently stated equivalent finite range is possible.",
+      "Other unindexed or newer work could contain equivalent checks; absence from search is not proof of priority.",
+      "The finite cutoff gives no theorem for n>=19."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly motivating but NOT covering n=6..18 interior ranks; Section 6 explicitly leaves all-size property open",
+        "evidence": [
+          "Problem 6.1 asks normality for every n; Theorem 6.2 proves n<=5; Lemma A.1 proves only ranks 1–2 for arbitrary n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.30350",
+        "material_read": "Accessible full HTML: Sections 1–3 and 6, Proposition 3.7, Problem 6.1, Theorem 6.2, Appendix A through conclusion, plus references",
+        "method": "Read definitions, hypotheses and all relevant theorem/proof statements; compared implications of n<=5, all-size first-rank lemma and central matching with new all-rank n<=18 claim",
+        "title": "Combinatorial aspects of the Delannoy Lattice",
+        "trigger": "Same lattice, identical normalized matching question; likely strongest prior source"
+      },
+      {
+        "assessment": "No covering normalized-matching claim seen in abstract; unresolved full-text priority risk remains",
+        "evidence": [
+          "Abstract discusses distributive lattice of paths between fixed points, unlike the family of all endpoints on a line."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00351-5",
+        "material_read": "Bibliographic record and abstract only; complete paper inaccessible in examined resources",
+        "method": "Compared stated fixed-endpoint object and abstract result with Chen–Dong graded union, without claiming full-text absence",
+        "title": "Le treillis des chemins de Delannoy",
+        "trigger": "Earlier work on Delannoy path lattices could use related terminology"
+      },
+      {
+        "assessment": "Lattice structure of fixed-endpoint generalized paths is described, not finite normalized matching in Chen–Dong lattices; full text uninspected",
+        "evidence": [
+          "Abstract identifies a partial order and establishes lattice structure rather than normalized matching."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895480101387406",
+        "material_read": "Abstract, MSC metadata and reference list only",
+        "method": "Checked stated objects and main result for direct implication",
+        "title": "On Generalized Delannoy Paths",
+        "trigger": "Earlier generalization and Thue order could dominate special path-poset statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ab75c4d-4560-42cf-9bb2-edab55070524",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a nontrivial finite bound on an explicit 2026 open normalized-matching question, extending verified normality from n<=5 to n<=18 (thirteen new sizes). The largest lattice has 6,625,109 elements and a million-plus-sized rank pair, and all exponential-family subset inequalities are resolved exactly rather than sampled. The finite result is useful evidence and a reproducible benchmark for the all-size conjecture, without asserting any general resolution.",
+    "status": "PASS"
+  }
+}
