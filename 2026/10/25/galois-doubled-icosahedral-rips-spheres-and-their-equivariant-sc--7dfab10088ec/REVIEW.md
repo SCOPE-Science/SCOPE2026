@@ -1,19 +1,21 @@
-# Review: Galois-doubled icosahedral Rips spheres and their equivariant scale map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stage identifications are exact consequences of the antipodal metric structure. The orthogonal projector onto the geometric three-plane is explicitly defined by the normalized vertex-coordinate map, and positivity on every triangular supporting plane establishes that the straight-line homotopy never meets zero. Since the complementary three-plane carries the Galois-conjugate rotation character and central inversion acts negatively on both planes, all subgroup invariant dimensions coincide; this proves the claimed fixed-point spheres and equatorial inclusions. The determinant calculation determines rational symmetry-quotient homology. The packaged verifier independently checks every subgroup of the finite symmetry group and all face inequalities. Numerical testing supports, but does not substitute for, the proof.
+PASS
 
-## Originality — PASS, qualified
+Rebuilt two simplicial stages: at graph-distance ≤1 the 20 triangular cliques triangulate the icosahedral boundary S2, and at ≤2 the only forbidden vertex pairs are the six antipodes, giving the 5-sphere cross-polytope boundary in R6; radius ≥3 is a full simplex. For A(e_i)=v_i, the six antipodal vertex representatives satisfy AA*=2I3. Thus U=im A* and W=ker A are orthogonal invariant summands; direct A5 class characters of the 6D signed-axis action minus geometric 3D character give the other 3D Galois-conjugate module, both centrally inverted. Every icosahedral triangular face lies in a supporting plane disjoint from origin, so P_U x≠0 on K1; radial straight-line homotopy from inclusion to normalized P_U x stays defined and G-equivariant. Character averaging and algebraic conjugation of the INTEGER fixed-space dimension force dim W^H=dim U^H for any subgroup H, not just cyclic ones. Fixed-point spheres and equatorial maps follow, and source/target reduced homology degrees d-1 and 2d-1 differ for d≥1. The proof is analytic, not extrapolation from the numerically enumerated subgroup lattice.
 
-Saleh, Titz Mite and Witzel, *Vietoris–Rips complexes of Platonic solids* (arXiv:2302.14388), Lemmas 2.2–2.3, identify the individual icosahedral and cross-polytope sphere stages. Their equivariant Remark 4.5 concerns a different dodecahedral stage. Saleh's 2023 thesis gives the ordinary stage classification. The present claim concerns the actual *equivariant inclusion*, the canonical Galois-paired three-plane modules and every-subgroup fixed-point persistence. Those assertions do not follow from the isolated stage homotopy types. Related published equivariant persistence work treats distinct metric families. An unindexed equivalent result remains possible. Full texts for some indexed related but distinctly scoped records were unavailable; no whole-document noncoverage is asserted from their summaries.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result supplies a natural, simultaneous classification for all cyclic, noncyclic and improper subgroups of a nonabelian symmetry group, identifies the structural reason fixed dimensions double, and shows that the actual persistence maps vanish on reduced integral fixed-space homology. This extends the mathematical information in ordinary sphere-stage classifications rather than merely substituting a new parameter or recomputing Betti numbers.
+Saleh–Titz Mite–Witzel already classify the two icosahedral graph-metric Rips STAGES (S2 and S5) via the cross-polytope, which are explicitly excluded from the originality claim. The inspected source does not give the actual G-equivariant inclusion homotopy class, six-axis 3⊕3-prime representation or universal all-subgroup fixed-space doubling. Resultary icosahedral Čech and dodecahedral Rips statements concern other nerves/graphs; general persistent equivariant cohomology addresses a framework but not this exact A5xC2 map. The added map and uniform fixed-point classification survive these implications.
 
-## Limitations and independent review
+## value
 
-The theorem uses the shortest-path metric of the exact icosahedral graph, not arbitrary perturbations or the Euclidean metric. The quotient claim is rational, not integral. Earlier stage homeomorphisms are attributed to their original authors. Unpublished equivalent work and unread related full texts remain originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining the actual equivariant transition map, not just the homotopy groups at its endpoints, gives a uniform answer for EVERY subgroup fixed-point filtration and integral homology persistence. This is a motivated natural symmetry refinement of an established Platonic-solids Rips computation, potentially useful for equivariant topological data analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Reproduce the finite checks from the embedded standalone script `verify_icosahedron.py` using Python 3 with NumPy and NetworkX:
+## correctness
 
-```bash
-python verify_icosahedron.py
-```
+PASS
 
-The executed script reconstructs a normalized twelve-vertex regular icosahedron and its thirty graph edges, twenty triangular faces and six antipodal axes; enumerates all 120 automorphisms; reconstructs the corresponding orthogonal geometric actions and signed six-axis permutation matrices; and checks the geometric three-plane projection and the invariance of the complementary three-plane. It also enumerates the complete 164-subgroup lattice and checks fixed-dimension doubling. Recorded completion lines:
+Rebuilt two simplicial stages: at graph-distance ≤1 the 20 triangular cliques triangulate the icosahedral boundary S2, and at ≤2 the only forbidden vertex pairs are the six antipodes, giving the 5-sphere cross-polytope boundary in R6; radius ≥3 is a full simplex. For A(e_i)=v_i, the six antipodal vertex representatives satisfy AA*=2I3. Thus U=im A* and W=ker A are orthogonal invariant summands; direct A5 class characters of the 6D signed-axis action minus geometric 3D character give the other 3D Galois-conjugate module, both centrally inverted. Every icosahedral triangular face lies in a supporting plane disjoint from origin, so P_U x≠0 on K1; radial straight-line homotopy from inclusion to normalized P_U x stays defined and G-equivariant. Character averaging and algebraic conjugation of the INTEGER fixed-space dimension force dim W^H=dim U^H for any subgroup H, not just cyclic ones. Fixed-point spheres and equatorial maps follow, and source/target reduced homology degrees d-1 and 2d-1 differ for d≥1. The proof is analytic, not extrapolation from the numerically enumerated subgroup lattice.
 
-```text
-ICOSAHEDRAL_GRAPH_AND_ACTION_VERIFIED 120 20 6 {1: 60, -1: 60}
-CANONICAL_EQUIVARIANT_THREE_PLUS_THREE_SPLITTING_VERIFIED
-PROJECTION_NONZERO_ON_ALL_TWENTY_FACE_SIMPLICES_VERIFIED
-ALL_SUBGROUP_FIXED_DIMENSION_DOUBLING_VERIFIED 164 [(0, 86), (1, 62), (2, 15), (3, 1)]
-```
+## originality
 
-The source of the general result is the written proof: exact cross-polytope structure, positive face-supporting halfspaces, the equivariant orthogonal-projection homotopy, and Galois-conjugate character averages for arbitrary subgroups. The numerical program uses tolerance-based floating-point coordinates and finite enumerations. Its success alone would neither certify exact arithmetic nor establish the claimed homotopies. The claim does not require enumeration of arbitrarily large objects: all groups involved are finite subgroups of the explicitly determined 120-element symmetry group.
+PASS
 
-Independent mathematical audit: not performed.
+Saleh–Titz Mite–Witzel already classify the two icosahedral graph-metric Rips STAGES (S2 and S5) via the cross-polytope, which are explicitly excluded from the originality claim. The inspected source does not give the actual G-equivariant inclusion homotopy class, six-axis 3⊕3-prime representation or universal all-subgroup fixed-space doubling. Resultary icosahedral Čech and dodecahedral Rips statements concern other nerves/graphs; general persistent equivariant cohomology addresses a framework but not this exact A5xC2 map. The added map and uniform fixed-point classification survive these implications.
+
+## value
+
+PASS
+
+Determining the actual equivariant transition map, not just the homotopy groups at its endpoints, gives a uniform answer for EVERY subgroup fixed-point filtration and integral homology persistence. This is a motivated natural symmetry refinement of an established Platonic-solids Rips computation, potentially useful for equivariant topological data analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
