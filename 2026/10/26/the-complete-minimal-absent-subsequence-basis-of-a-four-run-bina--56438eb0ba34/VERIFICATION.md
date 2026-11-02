@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The file `verify.py` is standalone Python 3 and requires only the standard library. Run `python3 verify.py` from the directory containing this file. Its full-subsequence construction iteratively extends a set by both omitting and retaining each input position; it does not use the proposed four-run basis. Every candidate with an observed proper prefix and an absent full word is independently checked against all its one-letter deletions. This gives an exhaustive minimal-absent-subsequence comparison for \(1\le a,b,c,d\le4\), namely 256 quadruples.
+## correctness
 
-Separately, the code checks absence and all immediate-deletion witnesses of the proposed basis for 625 quadruples drawn from run lengths \(\{1,2,3,7,11\}\), and it verifies the exact numbers of five-, six-, and eight-element bases at each total length \(4\le n\le40\) by enumerating all positive compositions of the length.
+PASS
 
-Expected stdout: `VERIFY_OK exhaustive_quadruples=256 long_witness_checks=625 composition_lengths=4..40`.
+The five unconditional and three conditional obstructions are each absent and become present on deleting any one letter. Exact two-, three-, and four-run embedding inequalities and the 1010 obstruction for higher runs exhaust all absent words. Length generating polynomial and fixed-length distribution follow by compositions. Independent exhaustive generation of all subsequences and minimal absent words matched all 81 quadruples with parameters 1..3; finite checks corroborate, not replace, run-case proof.
 
-The checks are finite. They neither prove the universal four-parameter theorem nor independently establish originality. The paper-style exhaustive run-case proof in `RESULT.md` is the infinite proof. No external audit was performed.
+## originality
+
+PASS
+
+Qualified PASS: Kosche et al 2021 Theorem 3.1 and enumeration method algorithmically cover arbitrary word instances, but inspected complete text gives no closed eight-template basis, length spectrum or four-run distribution. The Resultary binary shortest-absent Fibonacci record only counts shortest-layer absences. The 2004 Petković–Ćirić–Bogdanović binary forbidden-subword work remains a material full-text-access priority risk; no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+A minimal-absent scattered-subsequence basis is the canonical finite antichain of a natural word-language ideal; the entire basis for arbitrarily large four-run words has at most eight explicitly determined generators, with sharp five/six/eight transition and length distribution. Complete exact classification is independently useful, not a generic-algorithm speed claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
