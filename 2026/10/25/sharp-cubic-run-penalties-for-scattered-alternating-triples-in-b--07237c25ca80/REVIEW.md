@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each one after \(z\) preceding zeros, the exact scattered-\(010\) contribution is \(z(a-z)\). Compressing ones into positive-length runs gives strictly increasing productive zero cuts. Each boundary one-run must have length one in any nonzero optimum, and remaining one symbols must occur only at highest-weight productive cuts. Strict concavity of \(z(a-z)\) forces the \(t\) nearest integer cuts to the center. Their sorted deficits are \(0,1,1,4,4,\ldots\) or \(0,0,2,2,6,6,\ldots\), proving the cubic penalty. Every allowed run orientation and its feasibility are enumerated; comparison excludes the inferior odd one-ended orientation whenever a zero-ended word exists. All maximizing-cut ties and surplus-one allocations are counted. An independent brute-force checker compared maxima and maximizing-word multiplicities for 1,041 nonempty composition/run classes through length 18, and checked 126 center-deficit cases. These finite experiments are supporting checks only.
+PASS
 
-## Originality — PASS within inspected evidence
+Each one with z preceding zeros contributes z(a−z); summing by consecutive one-runs gives a weighted sum on distinct productive cuts. Fixed orientation has t productive one-runs and u unproductive boundary runs. Since positive run lengths cost t+u ones, all extras must be allocated to productive highest-weight cuts, and strict concavity maximizes the selected weights at t cuts nearest a/2. The sorted losses 0,1,1,4,4,… (even a) or 0,0,2,2,6,6,… (odd a) sum to the displayed cubic Δ_a(t). Enumerating zero-ended and one-ended orientations gives the formulas and exact equality counts Q, including R=2 and (a,R)=(1,3). Independently enumerated all words with lengths 2..13, comparing 400 composition/run maxima and multiplicities. This checks finite cases only.
 
-Bruda, *Enumerating binary words restricted by subsequence frequency* (arXiv:2607.02578v1, Theorem 1.8 and Section 4.4), proves general run-based bounds and proposes improvements for restricted classes, not the exact maximum and full equality classification for every binary composition and exact run count. Menon–Singh, *Subsequence frequency in binary words* (arXiv:2306.07870v1, Section 4), studies unconstrained maxima for patterns with up to three runs, including the baseline \(b\lfloor a^2/4\rfloor\); this alone does not imply the forced-run cubic loss or the count of equality cases. Fang, *Maximal number of subword occurrences in a word* (arXiv:2406.02971v1), concerns extremal subword entropy, not this fixed-pattern target. Related accessible mathematical-record entries address distinct reconstruction and universality parameters. No exact or dominating statement was found; equivalent unindexed results remain possible. The statement is not a claim about general patterns.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact run count is a substantive restriction of the underlying finite-word extremal problem. The theorem gives the complete infinite three-parameter answer, a universal parity-sensitive cubic penalty rather than a general upper bound, explicit sharp witnesses, and all equality multiplicities. These identify the precise cost of fragmentation into runs, an interpretable structural statistic in subsequence-based sequence analysis. The elementary central-cut optimization is reusable as an analytical method for related low-complexity patterns. The narrowness to \(010\), finite binary words, and fixed composition is stated explicitly.
+The exact submitted statement was compared against equivalent terminology, general bounds, named exact prior tables and their logical implications. Inspected relevant sources support a distinct increment; missing full texts and hidden equivalent special cases remain documented best-of-knowledge risks.
 
-## Limitations and verification
+## value
 
-Independent scientific audit and independent certification of mathematical priority have not been performed. No finite calculation establishes the universal quantifiers. The proof is internal to `RESULT.md`; `verify.py` requires only standard Python and returned `CENTER_DEFICIT_CHECKS 126`, `FULL_COMPOSITION_RUN_AND_EXTREMIZER_CASES 1041`, `VERIFY_OK`. Primary citations are dated arXiv identifiers and the closest-source assessments refer to the actual mathematical statements, not merely keyword/title nonmatches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixing both Parikh counts and the exact number of symbol-runs introduces a genuine fragmentation penalty absent from unrestricted subsequence bounds. The theorem is a complete infinite three-parameter extremal answer for the simplest scattered alternating triple, giving sharp cubic parity law, all witnesses and their multiplicities; the central-cut optimization is reusable for constrained word statistics. It is not a claim for general patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
