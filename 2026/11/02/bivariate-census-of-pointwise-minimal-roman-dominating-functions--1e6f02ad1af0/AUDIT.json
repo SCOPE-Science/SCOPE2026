@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "On every simple labeled cycle, the chosen 2-label set fixes the remaining Roman labels. A 2-label can be lowered precisely when it has no external private zero-neighbor; with cyclic gaps, that is equivalent to adjacent short gaps. Weighted short and long gaps, closed-walk traces, and -logdet(I-M) give the exact two-variable formal series. The determinant and its derivative give the all-n polynomial, five-term recurrence, and asymptotic via a unique positive dominant pole. Direct enumeration of the original pointwise order and Roman predicate for n=3..12, plus independent gap-subset enumeration for n=3..17, checked every coefficient and returned VERIFY_OK; infinite correctness rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abu-Khzam–Fernau–Mann, arXiv:2208.05261, Section 4: exact recurrence for paths; Section 9: further classes remain a topic for future counting.",
+        "Abu-Khzam–Fernau–Mann, arXiv:2204.04765, Sections 5–6: polynomial-delay enumeration in general graphs; Proposition 10: the five-cycle count."
+      ],
+      "reasoning": "A general enumeration algorithm and path recurrence do not include an explicit all-cycle bivariate count or an exact cyclic gap determinant. The known five-cycle is an instance, not broad coverage of arbitrary cycle sizes or both weight statistics.",
+      "searches": [
+        "\"minimal Roman dominating functions\" \"C_n\" polynomial",
+        "\"minimal Roman dominating functions\" \"cycles\" enumerating 2025 2026",
+        "\"Roman Census\" \"cycles\" pointwise minimal"
+      ]
+    },
+    "checked_sources": [
+      "Abu-Khzam, Fernau, Mann, arXiv:2204.04765, Sections 3/5, Proposition 10",
+      "Abu-Khzam, Fernau, Mann, arXiv:2208.05261, Sections 4/9",
+      "Plouffe, 1992, Appendix A.178, A1639, PDF image page 212",
+      "Targeted full-text and indexed searches using minimal Roman, strong irredundance, pointwise-minimal, cycle, bivariate, and Fielder terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2204.04765, Proposition 10 supplies 16 functions on C5; the present polynomial specializes to 16 but also resolves every cycle order and every bivariate coefficient.",
+        "arXiv:2208.05261, Section 4 gives path recursions, Section 9 explicitly says other simple graph classes were not analyzed for counts."
+      ],
+      "reasoning": "The general private-neighbor criterion is an input lemma, not an enumerative formula for cycles. The bivariate answer requires a cyclic composition classification, the weighted transfer trace and a logarithmic derivative. General Roman domination polynomials count all feasible functions, not only pointwise-minimal ones; standard domination polynomials count vertex sets. No inspected stronger theorem implies the two-variable result without this missing argument.",
+      "searches": [
+        "\"minimal Roman dominating functions\" \"cycle\" generating function",
+        "\"minimal Roman dominating functions\" \"cycles\" recurrence",
+        "\"minimal Roman domination\" cyclic gaps 00 two labels"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abu-Khzam–Fernau–Mann, arXiv:2204.04765, Lemma 7/Proposition 8: a pointwise-minimal Roman function is fixed by its set of vertices with label 2 and external private neighbors.",
+        "The same paper, Proposition 10: an exact census of 16 functions for the five-cycle only."
+      ],
+      "reasoning": "Strong-irredundance language describes the defender set under the known bijection. It does not itself enumerate such sets on every cycle by two statistics. The new weighted cyclic-gap classification treats this equivalent representation and derives its complete determinant.",
+      "searches": [
+        "\"minimal Roman dominating functions\" \"cycles\" enumeration recurrence",
+        "\"pointwise-minimal Roman\" cycle enumeration growth",
+        "cycle graph count of strongly irredundant sets external private neighbor recurrence 1 1 4 9 16 22 36 65"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "S. Plouffe (1992), Approximations de séries génératrices et quelques conjectures, appendix A.178, sequence A1639 (N1349), directly inspected on PDF page 212 (zero-index page 211): the same univariate coefficients and rational generating function are already tabulated.",
+        "The historical table labels this an A Fielder sequence, rather than a Roman domination census."
+      ],
+      "reasoning": "The unweighted coefficient recurrence and integers are pre-existing data and are not claimed as novel. The table supplies neither a link to pointwise-minimal Roman functions on cycles nor the two-variable enumerator by label-2 count and total weight; thus it does not by itself imply the new structural/bivariate claim. This exact numerical match is documented as a genuine limit on novelty.",
+      "searches": [
+        "\"4, 9, 16, 22, 36, 65, 112\" cycle",
+        "\"1,1,4,9,16,22,36,65\"",
+        "\"1-x-x^3-x^4-x^5\" Roman",
+        "Plouffe Fielder sequence A1639 1 1 4 9 16 22 36 65"
+      ]
+    },
+    "rationale": "The general private-neighbor criterion, the 16 functions on C5, path recurrences, and an unrelated historical unweighted coefficient sequence all predate this work and are credited. The new mathematical statement is the exact bivariate weight-and-number-of-2-labels enumerator for every labeled cycle, its cyclic-gap classification, and the corresponding determinant. Full-text primary comparisons and semantic mathematical-record searches identified no equivalent general cycle theorem. Priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "Published numerical sequence A1639 has precisely the same unweighted terms and rational recurrence; only the Roman-cycle interpretation and two-variable refinement are asserted new.",
+      "There may be unindexed earlier equivalent bivariate enumerations, particularly in literature using external-private-neighbor or strong-irredundance terminology.",
+      "No independent publication-priority determination or independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partial prior coverage: general characterization and n=5 count; no inspected all-n two-variable cycle enumeration.",
+        "evidence": [
+          "First public posting 2022-04-10.",
+          "Proposition 10 lists all 16 functions on C5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.04765",
+        "material_read": "ArXiv full-text HTML: definitions, structural subset criterion, Lemma 7 and Proposition 8, and complete Proposition 10 with its proof counting the five-cycle.",
+        "method": "Read original arXiv first version through its full-text HTML and compared claimed objects and quantifiers.",
+        "title": "Minimal Roman Dominating Functions: Extensions and Enumeration",
+        "trigger": "Exactly the same notion of pointwise-minimal Roman function, including known five-cycle count"
+      },
+      {
+        "assessment": "Counts paths, not the bivariate cycle census; recognizes other simple classes as possible research directions.",
+        "evidence": [
+          "First public posting 2022-08-10.",
+          "Section 9 notes that general counting on other simple graph classes was not carried out."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05261",
+        "material_read": "ArXiv full-text HTML: abstract, formal minimality theorem, complete Section 4 path recurrence, and Section 9 concluding scope/future counting remarks.",
+        "method": "Inspected original arXiv article sections relevant to census rather than relying on abstract alone.",
+        "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+        "trigger": "Direct earlier counting work on pointwise-minimal Roman functions and paths"
+      },
+      {
+        "assessment": "Decisive prior numerical sequence; no Roman dominating functions or bivariate weight refinement mentioned at this entry.",
+        "evidence": [
+          "Entry A1639 lists 1,1,4,9,16,22,36,65,112,186,309,522,... and rational denominator 1 minus powers 1,3,4,5.",
+          "Title/entry describes Fielder sequences; no cycle Roman label interpretation."
+        ],
+        "identifier_or_url": "https://oeis.org/A000051/a000051_2.pdf",
+        "material_read": "Appendix A.178, PDF page 212 (zero-index screenshot page 211), specifically the first Fielder entry A1639 and its rational generating function and initial terms.",
+        "method": "Opened primary PDF, located exact sequence and visually inspected the relevant page image.",
+        "title": "Approximations de séries génératrices et quelques conjectures",
+        "trigger": "Exact database/table check found an identical unweighted integer sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1e6f02ad-1af0-4146-93ba-78ba6502404e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2022 literature singled out C5 as an extremal example and derived path counts but left other simple classes for future counting. The new theorem gives every labeled-cycle count simultaneously at each number of defenders and weight, a five-term efficient recurrence, an exact structural gap description, and the leading growth coefficient. This natural all-cardinality classification is not a tiny isolated computation; the pre-existing univariate sequence is expressly excluded from the novelty claim.",
+    "status": "PASS"
+  }
+}
