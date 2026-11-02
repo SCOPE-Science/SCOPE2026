@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 checker.py` using Python 3 and only its standard library in the same extracted directory. An executed run printed `EXACT_RATIONAL_CHECKS_PASSED=12883`. The standalone program uses `fractions.Fraction`, checks rational weighted pooled isotonic projections against exhaustive contiguous-block partition minimization on small instances, reconstructs finite-cell Jacobian rows, checks row-sum sharpness and finite perturbations, and exercises equal and strongly imbalanced weight cases. These finite computations do not prove any universal quantified claim.
+## correctness
 
-The mathematical proof in `RESULT.md` independently establishes the weighted square-completion reduction; the consecutive-block Jacobian formulas; the globally valid maximum row-sum bound; strict full pooling that attains the maximal local Jacobian norm at a finite pair of inputs; and the complete attainable range over positive weights. Those are analytical deductions, not assertions inferred from the checker. Numerical or exact-rational enumeration is not treated as exhaustive over arbitrary dimensions and weights.
+PASS
 
-Limits: only complete real two-row arrays, prescribed column order, finite strictly positive least-squares weights, and unweighted coordinatewise perturbation norm. The scientific review is not an independent audit.
+Columnwise weighted means s_j and differences d_j transform the quadratic objective exactly into independent mean squares and c_j-weighted isotonic regression of d, c_j=a_jb_j/(a_j+b_j). Inside each PAV pooling cell, output-row absolute Jacobian sums are 1+2[b_j/(a_j+b_j)](1-c_j/C_B) and 1+2[a_j/(a_j+b_j)](1-c_j/C_B). C_B<=C bounds globally; strictly decreasing d forces an interior all-pooled cell and a sign-vector perturbation attaining the maximal row sum. This proves Lip_inf=1+2 max_j alpha_j(1-c_j/C). Equality at the minimal value 2-1/m requires equal all weights; strictly positive finite weights give modulus<3 and one unbalanced column approaches 3. Independent exact-rational perturbation/Jacobian tests covered 72 instances.
+
+## originality
+
+PASS
+
+Prior anti-Monge estimation articles establish the cone and statistical least-squares objectives; general isotonic and unweighted l_p sensitivity theory addresses different operator/metrics. The reconstructed weighted 2-row projector combines a coordinate change and pooling Jacobians that are not represented by a simple isotonic l_inf contraction claim.
+
+## value
+
+PASS
+
+The exact sup-norm error-amplification modulus and sharp weight-design range are natural worst-case robustness measures for the canonical two-row anti-Monge projection under heteroscedastic errors. The attained extremizers expose a genuine pooling-induced amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
