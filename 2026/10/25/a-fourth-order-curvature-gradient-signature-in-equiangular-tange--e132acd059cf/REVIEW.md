@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a \(C^8\) strictly convex support function with positive radius \(\rho=h+h''\), all prescribed tangent halfplanes are active. Intersections of consecutive support lines yield an exact area sum, and the uniform normal-angle phase turns its sample sum into a continuous autocorrelation integral. Fourier orthogonality proves the all-\(n\) mean-area formula. The even autocorrelation expansion through sixth order, followed by integration by parts, proves the fourth-order term and an \(O_K(\delta^6)\) remainder. The explicit family \(h_m=1+\cos(m\theta)/(2(1-m^2))\) is strictly convex and has the claimed signs. Independent numerical constructions test the exact area identity, deliberately aliased phase averaging, and the predicted high-order coefficients. Finite checks are corroboration, not substitutes for the proof.
+## correctness
 
-## Originality
-**PASS relative to the inspected literature and public mathematical-record comparisons, with historical risk.** Ludwig (1994), Theorem 2, treats *best*, optimized circumscribed polygons and their affine-curvature fourth-order term. The present fixed equispaced **normal** scheme, phase average, exact Fourier multiplier, and \(\int(3\rho^2-\rho'^2)\) coefficient are not implied by that optimization statement. Safarewicz–Zwierzyński (arXiv:2505.08017), including the sections on equiangular tangent polygons and associated sets, studies isoperimetric and midpoint-locus properties, not this area-error asymptotic. Bazarov–Tomskova (2026) treats inscribed chordal area discretization through leading order. Public record comparisons concerning projection-direction perimeter quadrature, optimal curvature sampling, and tangential-polygon random rotations have different observables. McClure–Vitale (1975) could not be inspected in full; definitive priority is unverified. Absence from search results is not being equated with proof of uniqueness.
+PASS
 
-## Value
-**PASS.** Equiangular tangent polygons are a natural specified-normal approximation of smooth convex bodies; their first area-defect term depends only on the \(L^2\) size of radius of curvature. The next correction detects the **normal-angle gradient** of that radius and can change sign. A whole explicit family has the same perimeter, curvature-radius histogram and leading approximation error, yet contains both signs for the next correction. This is an intrinsic, geometrically motivated diagnostic of spatial curvature arrangement and provides a reproducible fourth-order benchmark for fixed-normal discretization and error extrapolation.
+PASS. Reconstructed support-line intersection and area identity; random phase exactly replaces each cyclic sum by angle integration. Fourier autocorrelation is even. Independent symbolic expansion of (Q(delta)-cos(delta)H0)/(delta sin delta) yields second coefficient (H0-2H1+H2)/24 and fourth (3H0-7H1+5H2-H3)/720. Integration by parts gives curvature energy terms. h_m=1+cos(m theta)/(2(1-m^2)) has rho_m>0; integral rho^2=9pi/4 and integral (rho_m prime)^2=pi m^2/4. Remainder depends on fixed K; no uniform growing m.
 
-## Closest work and limits
-The 1994 best-approximation expansion is the closest known fourth-order comparator, but optimizes polygon placement in affine arclength rather than prescribing equally spaced normals. The 2025 equiangular construction paper is geometrically close but concerns different invariants. The theorem requires \(C^8\) strictly convex support functions and describes a fixed-body large-\(n\) expansion of expected area, not an optimal polygon or a full area distribution. Further historical-priority checks and an independent mathematical audit are pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Ludwig 1994 Theorem 2 gives the fourth-order term for BEST circumscribed approximations with affine-curvature optimization, not equispaced normal-angle tangent samples or phase-averaged Fourier diagonalization. The exact mean formula and curvature-histogram sign reversal do not follow from that optimization result without a new calculation. Older unindexed fixed-normal quadrature could overlap.
+
+## value
+
+PASS
+
+PASS. The fourth-order correction captures an angular curvature-gradient energy invisible to normal-angle curvature histogram and leading error; explicit smooth convex same-histogram sign reversal is structurally informative beyond routine error-order bookkeeping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

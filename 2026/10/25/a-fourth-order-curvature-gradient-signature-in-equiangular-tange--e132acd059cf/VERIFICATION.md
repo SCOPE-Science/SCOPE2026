@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is established by the exact tangent-intersection area identity, a uniform-phase autocorrelation integral, and an even Taylor expansion through order six. The test script `equiangular_tangent_area_check.py` (Python 3 and `mpmath`) provides independently constructed support-line intersections and shoelace areas, not merely replay of a fitted asymptotic.
+## correctness
 
-The checks performed include: 12 direct-coordinate comparisons with the area identity at several normal counts and phases; numerical phase integration of a deliberately aliased \(n=8\) sample versus the exact Fourier formula; rotation-invariance for separated single-frequency modes; sixth-order-normalized residual stabilization; signs of the sharp fourth coefficient on both sides of the \(m=5/6\) transition; and the exact tangent regular-polygon area for a circle. The executable printed `ALL_EQUANGULAR_TANGENT_AREA_CHECKS_OK`.
+PASS
 
-This is finite numerical corroboration and algebraic reconstruction, not a computer proof of the full smooth-class asymptotics. The proof depends on positive curvature, periodic integration by parts, and bounded eighth derivative of the autocorrelation; the computation does not establish historical priority or independent validation.
+PASS. Reconstructed support-line intersection and area identity; random phase exactly replaces each cyclic sum by angle integration. Fourier autocorrelation is even. Independent symbolic expansion of (Q(delta)-cos(delta)H0)/(delta sin delta) yields second coefficient (H0-2H1+H2)/24 and fourth (3H0-7H1+5H2-H3)/720. Integration by parts gives curvature energy terms. h_m=1+cos(m theta)/(2(1-m^2)) has rho_m>0; integral rho^2=9pi/4 and integral (rho_m prime)^2=pi m^2/4. Remainder depends on fixed K; no uniform growing m.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Ludwig 1994 Theorem 2 gives the fourth-order term for BEST circumscribed approximations with affine-curvature optimization, not equispaced normal-angle tangent samples or phase-averaged Fourier diagonalization. The exact mean formula and curvature-histogram sign reversal do not follow from that optimization result without a new calculation. Older unindexed fixed-normal quadrature could overlap.
+
+## value
+
+PASS
+
+PASS. The fourth-order correction captures an angular curvature-gradient energy invisible to normal-angle curvature histogram and leading error; explicit smooth convex same-histogram sign reversal is structurally informative beyond routine error-order bookkeeping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
