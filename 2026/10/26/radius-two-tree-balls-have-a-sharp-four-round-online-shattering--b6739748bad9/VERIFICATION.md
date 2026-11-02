@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and their scope
+# Independent mathematical audit
 
-The radius-two theorem for all finite trees has a direct geometric proof in RESULT.md. The finite computations are used only for the exact isomorphism-class census at order sixteen and explicit lower-bound certificates.
+## correctness
 
-Run `python verify_pure.py` with `WITNESS.json` beside it. The standard-library program constructs every free tree through order sixteen, checking the complete list of known tree counts and using the AHU center-rooted canonical code to deduplicate leaf extensions. It directly evaluates all distinct closed radius-two balls and the full shattering recurrence on each of the 19,320 representatives, then verifies all four explicit complete decision trees.
+PASS
 
-Independently run `python verify_networkx.py` with NetworkX 3.x installed. It uses NetworkX's nonisomorphic-tree generator, shortest-path distances, a separate concept representation, and a separate exact recurrence. The output of both checks is preserved in `CHECKS.txt`.
+Using exact Littlestone recurrence on distinct closed radius-two balls, centers restricted to a vertex 1-ball have Ldim<=2, and distance-two center groups outside one branch likewise have Ldim<=2. For centers in B2(p), any query has one branch Ldim<=2, yielding bound 3; a hypothetical global depth-5 shattered tree would require depth 4 below its root positive query, impossible. Counting hypotheses gives order>=16 for Ldim4. Verified actual 16-node 16-center depth-4 witness and path P4/P5/P8 witnesses; independent networkx unlabeled generation and separately coded recursion exhaustively evaluated all 19,320 n=16 classes, recovering counts 1,7,227,18516,569. Leaf extension preserves witness, proving every n>=16 attains 4. The full census is genuine exhaustive finite enumeration, whereas all-n upper bound is analytic.
 
-Both computations return the dimension distribution 1, 7, 227, 18516, 569 for dimensions 0, 1, 2, 3, 4 respectively, totaling 19,320. The depth-four witness has sixteen distinct consistent root-to-leaf hypotheses. The original machine's execution output is not itself a proof of the universal theorem; each program and its mathematical completeness argument must be read to assess the finite census. No independent external audit has been performed.
+## originality
+
+PASS
+
+Chalopin et al study fixed-radius tree-ball sample compression with compression size two, a distinct complexity notion not giving Ldim<=4 or the sharp order threshold. Non-clashing teaching maps and randomized Littlestone prediction generalities do not compute this tree radius-two family. Resultary search did not yield an exact matching theorem; case-specific structural proof supplies nontrivial new content.
+
+## value
+
+PASS
+
+Exact online shattering ceiling across every finite tree, sharp minimal tree order 16, and exhaustive distribution among all 19,320 nonisomorphic 16-node trees are natural independent graph-learning invariants. They identify a sharp adaptive-information boundary beyond VC/compression results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
