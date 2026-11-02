@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible integral topology certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` in this directory using Python 3.9 or later; no package installation or network access is needed. The script deterministically reconstructs both Steiner triple systems and all their independence-complex faces. It checks pair uniqueness, the Pasch-trade legality and counts, facet dimensions, signed acyclic discrete-Morse matching, exact boundary minors and independent mod-two chain ranks. The printed `VERIFY_OK` means all of these assertions passed. An actual output record is included as `verification_output.txt`.
+## correctness
 
-The cyclic matching leaves four dimension-three cells and sixteen dimension-four cells, with an integral full-rank four-by-four minor of determinant one. The switched matching leaves two dimension-three cells and nineteen dimension-four cells with an integral full-rank identity minor. The resulting homotopy classification also uses standard Hurewicz and Whitehead theorems as explicitly stated in `RESULT.md`; those infinite-dimensional general theorems are not replaced by finite experimentation. No generalized assertion is made for other Steiner-system orders.
+PASS
 
-The only representation assertion is the cyclic translation character, checked by enumerating fixed faces and deduced via the reduced Lefschetz formula and homology concentration. Neither the full automorphism group nor noncyclic-design characters are classified. Scientific review was conducted without independent external validation.
+PASS. Independently reconstructed the 26 translated blocks and the four-Pasch switch, confirmed both designs have all 78 unordered pairs exactly once and 13 vs 8 Pasch configurations. Exhausted every one of 2^13 subsets under the block-avoidance condition, giving f-vectors (13,78,260,455,312,39) and (13,78,260,455,312,34). With the specified vertex orders, independently rebuilt 568/565 toggle pairs, checked acyclicity of all 4,550/4,520 Hasse arrows, leaving one critical vertex, 4 critical 3-cells and 16 critical 4-cells for C, versus one vertex, 2 critical 3-cells and 19 critical 4-cells for N. Recomputed signed integer Morse differential via gradient substitution, verifying determinants +1 for 4x4 and 2x2 minors; these give split surjections and reduced H4 free rank 12/17. The resulting CW spaces are 3-connected and homological Whitehead/Hurewicz yields the two sphere wedges. Nonidentity translations have no nonempty invariant face, giving reduced Lefschetz -1 and the rational augmentation character. The Pasch relation is expressly only for these two systems, not a general law.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Forbes–Grannell–Griggs counts the same block-avoiding independent sets, and Grannell et al. already classify the two STS13 designs; neither gives their integral homotopy. Nofil studies the exact legal-subset family as a game but nim-values have no implication for Morse attaching maps or H4 characters. Prior design incidence neighborhood results use different vertex and face conditions, and projective-plane cap complexes forbid different triples. Targeted Resultary queries and primary text comparisons found no pre-existing integral 12/17 four-sphere classification or cyclic H4 character; unindexed work remains a residual risk.
+
+## value
+
+PASS
+
+PASS. The two nonisomorphic STS(13)s are the complete first naturally nontrivial two-design classification at this order; their cap complexes are canonical independent-set complexes of the underlying 3-uniform hypergraphs. The exact change from 12 to 17 homotopy spheres under a Pasch trade and explicit cyclic representation are meaningful integral topological invariants, not mechanically implied by counts or game nim-values. A researcher studying cap complexes, trades, or Steiner independence topology can use the exact pairwise classification without a broader theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
