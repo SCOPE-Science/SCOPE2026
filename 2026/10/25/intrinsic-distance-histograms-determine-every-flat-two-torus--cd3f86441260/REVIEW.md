@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a Haar-uniform displacement, intrinsic torus distance is the Euclidean norm of a uniform representative of the Voronoi cell. Exact polar integration gives the continuous derivative of the distance CDF as the uncovered angular measure times radius divided by cell area. A strict Voronoi-facet midpoint creates a new, isolated angular arc of width proportional to the square root of the excess radius. The coefficient counts opposite facet pairs, with no false contributions from arc meetings because their endpoint trajectories remain Lipschitz away from births. The planar Gauss-reduced parity classes then reconstruct an orthogonal two-generator or a nonorthogonal three-relevant-vector Gram matrix. Analytic proof is primary; four numerical test cases corroborate all multiplicity degeneracies.
+## correctness
 
-## Originality
-**PASS (with residual bibliographic risk).** The closest available primary sources describe, respectively, the general cut-locus Hessian (arXiv:1303.1421), complete planar lattice invariants from lattice-neighbor distances (arXiv:2201.05150), and directional Fourier signatures of the entire torus distance kernel (arXiv:2609.05622). None of the inspected stated results shows that the *scalar law of distances between two random torus points* recovers the 2D lattice. The new bridge is an explicit singularity recovery theorem. Search non-exhaustiveness and inaccessible historical literature remain uncertainties, not proofs of uniqueness of publication.
+PASS
 
-## Value
-**PASS.** The result answers a natural inverse metric-measure problem: an unmarked random pairwise-distance histogram, despite discarding direction and point labels, uniquely reconstructs every planar flat torus. The theorem is a complete classification over all rank-two lattices, has a constructive inversion, and handles rectangle/hexagon transitions and coincident thresholds. There is no claim that finite samples allow stable reconstruction.
+PASS. Haar displacement is uniform in a fundamental Voronoi polygon V, so F(r)=area(V∩B_r)/area(V), with F(r)=πr²/A at small r. Direct polar differentiation yields F'(r)=r(2π-L(r))/A, where L is the union length of forbidden angular arcs from genuine facets. The perpendicular foot of each relevant Voronoi edge is interior, hence its pair of newborn arcs is isolated. For k opposite facet-pairs at distance d the one-sided derivative difference equals -4k sqrt(2d)/A sqrt(ε)+O(ε); mergers of previously existing arcs have locally bounded endpoint velocities and produce only O(ε). The number and multiplicities of recovered support distances are complete: two for an orthogonal rank-two basis; three for u,v,v-u when the Gauss-reduced inner product is positive. Lengths 2a,2b and polarization u·v=2(a²+b²-c²) determine the Gram matrix, including ties. Independently reconstructed forbidden-angular-arc lengths for three test shapes gave the correct sqrt multiplicity. A finite test does not establish the inverse theorem, which follows from the explicit geometric argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS to best of knowledge, with explicit residual priority risks. The closest primary Kurlin classification recovers planar lattices from ordered lattice-neighbor distances and strict Voronoi vectors; it does not provide the nontrivial extraction of those quantities from an averaged intrinsic random-pair histogram. Distance-function Hessian/cut-locus and full Fourier distance-kernel studies treat strictly richer or differently aggregated data; no inspected theorem supplies this scalar inverse result. Searches did not yield an exact predecessor; that absence alone is not evidence of novelty.
+
+## value
+
+PASS
+
+PASS. Recovering an entire flat metric torus from just one unmarked scalar random two-point distance distribution is a motivated inverse metric-measure rigidity question. The reconstruction is global for all 2D lattices and gives a constructive procedure handling rectangles and hexagonal/equal-distance degeneracies; the exact threshold singularity coefficient is mathematically significant. This is not a routine restatement of nearest-neighbor lattice geometry because the data are random geodesic distances in the quotient, not lattice-site vectors or the full distance kernel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
