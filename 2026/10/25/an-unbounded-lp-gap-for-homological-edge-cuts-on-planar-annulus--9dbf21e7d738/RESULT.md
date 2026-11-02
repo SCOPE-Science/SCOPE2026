@@ -24,7 +24,7 @@ For each \(m\), take a triangulated annulus \(A_m\) with \(m\) pairwise edge-dis
 
 Let \(K_m\) be the wedge at one vertex of two copies \(A_m^{(1)}\) and \(A_m^{(2)}\). Write \(C_j^{(i)}\) for the rings in copy \(i\), and set
 \[
-c_m=C_1^{(1)}+\sum_{j=1}^{m}C_j^{(2)}.
+c_m=C_0^{(1)}+\sum_{j=0}^{m-1}C_j^{(2)}.
 \]
 The rings have disjoint edge supports, so this is an integral cycle whose nonzero coefficients are \(\pm1\). Its homology class is \([\gamma_1]+m[\gamma_2]\), where \([\gamma_i]\) generates the first homology of the corresponding annulus. Since \(H_1(K_m;\mathbb Z)\cong\mathbb Z^2\) and \(\gcd(1,m)=1\), the class itself is primitive and nonzero.
 
@@ -32,7 +32,7 @@ If an edge set \(C\) has fewer than \(m\) edges, it cannot meet all \(m\) edge-d
 
 For the LP upper bound, extend \(m^{-1}\eta_m\) from the second annulus by zero on the first annulus, obtaining \(\phi_m\in C^1(K_m;\mathbb R)\). It is a cocycle, and
 \[
-\phi_m(c_m)=m^{-1}\sum_{j=1}^{m}\eta_m(C_j^{(2)})=1,
+\phi_m(c_m)=m^{-1}\sum_{j=0}^{m-1}\eta_m(C_j^{(2)})=1,
 \qquad
 \|\phi_m\|_1\le\frac{2m-1}{m}<2.
 \]

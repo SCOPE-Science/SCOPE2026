@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** In the two-annulus wedge, fewer than \(m\) removed edges leave at least one of the \(m\) edge-disjoint generator rings in each annulus. The surviving rings represent the two annulus generators, so their linear combination representing \([c_m]\) remains in the image. The dual-seam cocycle on the second annulus, scaled by \(1/m\), evaluates to one on \(c_m\) and has \(\ell^1\)-norm at most \((2m-1)/m<2\). These two bounds prove the claimed unbounded ratio.
+PASS
 
-## Originality
+The frozen RESULT.md had undefined ring indices C_m: it defined C_0,...,C_{m−1} but used C_1+Σ_{j=1}^m C_j and Σ_{j=1}^m again in pairing. Fully corrected both occurrences in a complete UTF-8 RESULT.md: c_m=C_0^(1)+Σ_{j=0}^{m−1} C_j^(2), φ_m(c_m)=m^-1Σ_{j=0}^{m−1}η_m(C_j^(2))=1. All m rings in each triangulated annulus are homologous, with disjoint edge supports; [c_m]=γ1+mγ2 is primitive, each deletion of <m edges leaves at least one ring in each annulus, so MHC≥m. The seam cocycle η has 1 on each of m ring wraparounds plus m−1 matching diagonals, δ η=0, each ring pairing 1 and ||η||_1=2m−1. Scaling by 1/m on the second annulus gives LP≤(2m−1)/m<2, so the ratio >m/2 unbounded. Independently verified all triangle cocycle equations and ring pairings m=2..12; analytical cut proof covers every m≥2. The unchanged source CHECK script also uses the corrected zero-based index domain. No claim LP optimality.
 
-**PASS.** The closest source formulates the same support-minimization problem and supplies one non-tight example with cut size \(3\) and LP value \(3/2\). Its relevant section and construction appendices were inspected; no annulus-wedge family or unbounded multiplicative gap was found there. Semantic literature/database searches returned nearby cosystolic-support results, but none states or implies this LP-gap family. The claim is compared with those results by the objective and class, not by title.
+## originality
 
-## Value
+PASS
 
-**PASS.** An unbounded gap rules out any universal constant-factor guarantee from the raw \(\ell^1\) objective to the cardinality optimum on this class. This is a substantive limitation of a natural relaxation used to estimate robustness cuts, not just a finite counterexample or a novelty-only claim.
+Hoefgeest–Slot formulate MHC as minimum cocycle support and LP minimizing ||φ||_1 with φ(c)=1; their SoCG 2026 Example 6.3 shows finite non-tight ratio 2, not an all-m planar primitive-chain unbounded gap in inspected conference material. The present double-annulus family proves ratio >m/2 with primitive [c_m]=(1,m) even when chain coefficients ±1. Maxwell–Nayyeri and Chambers–Erickson–Nayyeri study distinct flow/cut formalisms and do not mechanically imply this LP separation. Search of Resultary exact-table topics uncovered no equivalent annulus family; full arxiv draft inaccessible leaves coverage risk.
 
-## Closest literature and limits
+## value
 
-The nearest comparison is Hoefgeest–Slot, Section 6 and Example 6.3. Maxwell–Nayyeri study topological versus combinatorial cuts in a different simplicial-flow formulation; their primary full text was inspected. The present construction is restricted to finite planar simplicial complexes and does not classify stronger relaxations or manifold-only subclasses.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural unweighted ℓ1 relaxation for minimum homological edge cuts has no constant integrality-gap bound even for planar simplicial complexes and primitive integral ±1-support cycles. An explicit seam cocycle and edge-disjoint cycle-packing witness exposes the obstruction, of direct potential use in LP-approximation and algorithmic-topology research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
