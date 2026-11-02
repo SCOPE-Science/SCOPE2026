@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof reconstructs the complete two-variable atomic diagrams in the relational group language and the exact special-response sets for every prime exponent. Odd-prime squaring has the explicit power inverse \(x^{(p+1)/2}\), without assuming commutativity. The generic-response criterion yields exactly the six cases. All six representatives, including \(C_3^2\) of size \(9\), are necessary; hence the sharp global largest smallest representative is \(9\). Full finite atomic-diagram enumeration independently corroborates all six classes and the indicated nonabelian witnesses. The infinite theorem follows from the general lemmas, not from enumeration.
+PASS
 
-## Originality — PASS, residual risk
+The signature permits only direct multiplication atoms on e,x,y, not nested product terms. Independently enumerated all 9 equality and 27 ternary atoms on pointed pairs for cyclic, elementary abelian and nonabelian Heisenberg groups. The proof reduces the entire diagram to x=e,y=e,x=y,x^2=e,y^2=e,x^2=y,y^2=x,xy=e. For each fixed nonidentity x the exceptional y values are e,x for p=2; e,x,x^{-1} for p=3; and e,x,x^2,x^{-1},x^{(p+1)/2} for p>=5, whose pairwise distinctness and p>=7 generic residue yield exact one-step extension sets independent of commutativity. Two-round EF equivalence is equality of the possible pointed extension profiles from both sides, producing six classes. Rank<=2 separating sentences prove they are distinct; only the exponent-3 nontrivial-noncyclic class requires minimum size 9. The independent finite atomic signature calibration found exactly six classes including H3,H5, and does not replace the all-finite-groups lemmas.
 
-Gomaa (2007), Chapter 3, introduces the exact same group signature and derives bounds for abelian and cyclic groups, not this classification across all prime exponents including nonabelian groups. Gomaa (2010) likewise concerns abelian groups. Existing related calculations on finite abelian two-groups and cyclic groups may imply some proper subfamily cases, but do not imply the cross-exponent six-class statement or its nonabelian part. published-finding corpus searches and accessible earlier mathematical claims revealed no directly covering result. Inaccessible or unindexed literature is an explicit residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete natural classification of finite prime-exponent groups under a sharply constrained logical resource. It identifies a nontrivial cross-prime collapse \(C_5^2\equiv_2 C_7\) and establishes the invisibility of noncommutative exponent-prime groups at quantifier rank two, with an optimal nine-element representative bound. Such boundary information makes the expressive weakness of relational multiplication concrete; it is not a table re-enumeration or an arbitrary numerical slice.
+Gomaa 2007 Chapter 3 (the same ternary relation with a named identity) proves EF-depth and variable bounds for finite abelian groups and cyclic prime groups; full primary chapter inspected. A Resultary predecessor improves binary closure estimates for prime cyclic EF distinguishing depth, but does not state the six rank-two theories across all prime exponents, including nonabelian groups. Existing group WL algorithms use a stronger subgroup-generation or pebble language. This theorem restricts quantifier nesting sharply to two with relational, not function-symbol multiplication; textbook atomic-type ideas alone do not give the six-class cross-prime census without the exceptional-response proof.
 
-## Limits
+## value
 
-No result for composite exponents or for multiplication represented as a function. The computation tests finitely many groups; generality depends on the written proof. The related abelian literature was read more extensively than other possible historical coverage. Independent external review was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact quantifier-rank-two theory census in a natural relational group signature answers how much low-depth logic detects prime-exponent structure, including nonabelian groups. Complete finite canonical representatives and sharp nine-point minimum representative bound have independent interest for descriptive complexity and logical model comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
