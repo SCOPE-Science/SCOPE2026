@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The presence-probability bijections yield an exact signed partition-number minor; strict p(m) log-concavity from DeSalvo--Pak for m>=26 proves monotonic propagation. The finite rectangle 0<=a<=25, 1<=r<s<=26-a has exactly 2925 exact integer tests; all 26 saturated diagonal caps are positive, and the only negative saturated off-diagonal case is a=0,r=1. Analytic strict growth of p(s+1)>p(s) handles that infinite boundary. The 11 exceptional triples, five zeros, 25 finite edge cases, and 2884 negative-covariance finite cases match the actual checker, and the analytic extension proves all sizes. A separate direct partition-object enumeration and 562475 exact signs were replayed; neither is substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DeSalvo--Pak arxiv:1310.7982, Theorem 1.1 proves strict log-concavity for indices greater than 25; Theorem 5.1 proves symmetric strong log-concavity.",
+        "The present finite classifier explicitly has positive covariance when (n,r,s)=(5,2,3) and (n,1,n-1), so no global negative-association theorem can cover all sizes."
+      ],
+      "reasoning": "The symmetric inequalities and high-index log-concavity imply much of the negative region, and are credited as premises. Neither theorem states the asymmetric minor sign classification at low indices, the eleven exception triples, the five exact ties, or the unique positive family. The finite cap argument is genuinely required for the global decision.",
+      "searches": [
+        "DeSalvo Pak log concavity partition function n greater 25 arxiv date",
+        "integer partitions events contains i contains j correlated positive negative",
+        "random integer partition negative association multiplicities number of ones counts twos",
+        "DeSalvo and Pak arxiv:1310.7982 theorem 1.1 theorem 5.1"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arxiv:1310.7982",
+        "material": "Theorems 1.1 and 5.1; all-size strict log-concavity and symmetric inequalities"
+      },
+      {
+        "identifier": "arxiv:1407.3639",
+        "material": "Introduction, definition of part multiplicities, Theorems 1–3, generating-function lemmas and conclusion"
+      },
+      {
+        "identifier": "Corteel et al. 1999 DOI above",
+        "material": "publisher abstract, first-publication date and bibliography only"
+      },
+      {
+        "identifier": "Fristedt 1993 DOI above",
+        "material": "bibliographic description and cross-reference only"
+      },
+      {
+        "identifier": "Published related records on set-partition block statistics, compositions and occupancy",
+        "material": "Scientifically compared related published results, objects and parameters; none contained the same two-prescribed-part occurrence classification"
+      },
+      {
+        "identifier": "Accessible prior research records",
+        "material": "current week available collection snapshot, preceding week available collection snapshot, preceding week available collection snapshot (visible metadata), and week2 available collection snapshot and available collection snapshot, recovered titles and claims for overlap only"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[2] supplies the >=26 log-concavity premise but no values or sign reductions for a<26.",
+        "[3] explicitly derives limits for the joint size/multiplicity of a part selected by several sampling schemes; that sampling scheme does not determine two fixed-index Bernoulli covariance signs.",
+        "1999 Corteel et al. abstract mentions averages of distinct sizes and marginal multiplicity probabilities; the full article could not be inspected."
+      ],
+      "reasoning": "A general log-concavity result is not already the exact all-size sign classification: the relevant ratios start at a=n-r-s and may be below 26, where both positive and zero covariance occur. The new finite cap and exact boundary enumeration complete the implication; no previous source inspected contains this complete statement.",
+      "searches": [
+        "exact sign covariance of occurrence of two distinct part sizes in uniformly random integer partitions, positive only 1 and n-1 plus eleven finite exceptional triples; zero in five triples; strict negativity after n>=17",
+        "uniform random integer partition two part sizes presence indicators I_r I_s covariance sign positive exceptions log concavity p(n-r)p(n-s) vs p(n)p(n-r-s)",
+        "arithmetic partitions n 17 unique positive correlation between events contains part 1 and contains part n-1 finite sign classification",
+        "On the multiplicity of parts in a random partition Corteel Pittel Savage Wilf 1999 pdf",
+        "Sampling Parts of Random Integer Partitions Mutafchiev arxiv:1407.3639"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact probability identities are p(n-r)/p(n) and p(n-r-s)/p(n), giving a four-term 2-by-2 minor of p; Mutafchiev arxiv:1407.3639 examines multiplicity of a randomly selected part, not two prescribed indices.",
+        "Corteel et al. 1999 DOI abstract reports marginal size/multiplicity statistics, not the five zero instances or unique positive family."
+      ],
+      "reasoning": "Searched occurrences, presence and part-multiplicity aliases, partition-number 2-by-2 minors, and sign correlations. A joint sampled size/multiplicity law for one part is not a joint pair-of-presence law. Full text of Corteel et al. is inaccessible, retained as a priority risk.",
+      "searches": [
+        "Uniform random integer partition two distinct part-size presence indicators positive covariance rare exceptions n size threshold",
+        "Partition function log concavity implies phase classification of part presence positive association",
+        "Pairwise negative covariance of counts of two sizes in uniformly sampled integer partitions",
+        "uniform random integer partitions covariance contains parts of sizes r and s negative positive correlation",
+        "random integer partitions indicator presence size r size s positive covariance exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact 2925-case table from p(0),...,p(52) is reproduced by the embedded verifier, not imported as prior published data.",
+        "Relevant retrieved records on random partitions focus on asymptotic multiplicities, sampled part sizes, or different set-partition/occupancy models."
+      ],
+      "reasoning": "Searched literature and the semantic research database for exact covariance tables, exceptional triples and threshold n=17; no covering result appeared. Search failure alone cannot establish novelty, so the residual prior-art risk is stated.",
+      "searches": [
+        "pairwise negative covariance of counts of two sizes in uniformly sampled integer partitions",
+        "integer partition numbers log-concavity correlation events presence two distinct parts",
+        "Uniform random integer partition two distinct part-size presence indicators positive covariance rare exceptions n size threshold"
+      ]
+    },
+    "rationale": "Actual primary-source and semantic-database comparison identified the existing one-part sampling/multiplicity results, established partition-number log-concavity, and asymptotic conditioning methods, but no exact two-prescribed-occurrence covariance sign classification. The result is a complete finite-size phase diagram rather than a new marginal formula or restatement of p(m) log-concavity. Comparison is qualified by an inaccessible plausible 1999 full article and possible unlocated historical analogues; no absolute priority certificate is implied.",
+    "residual_risks": [
+      "The 1999 Corteel–Pittel–Savage–Wilf full article could not be inspected; it is a plausible prior-art source beyond its public abstract.",
+      "Broader classical and foreign-language partition probability literature might contain the same finite sign classification; searches cannot certify absolute novelty.",
+      "This theorem relies on the previously established DeSalvo–Pak strict log-concavity; the independent theorem is not reproved.",
+      "No independent audit or independent historical-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES NEEDED PREMISE; does not state the exact two-event presence sign diagram",
+        "evidence": [
+          "Theorem 1.1 states p(m) log-concavity for m>25; Theorem 5.1 is symmetric strong log-concavity for n>m>1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.7982",
+        "material_read": "Full searchable primary manuscript, including Theorems 1.1 and 5.1 and the proof discussion; original front page visually inspected",
+        "method": "Read source PDF text and theorem sections, examined relevant inequalities and searched for covariance or occurrence claims",
+        "title": "Log-Concavity of the Partition Function",
+        "trigger": "Central theorem supplying the all-size high-index inequality; possible stronger domination"
+      },
+      {
+        "assessment": "NOT COVERING INSPECTED CLAIM: part-size and multiplicity of one randomly sampled part, not two fixed part-presence indicators",
+        "evidence": [
+          "Theorems 1–3 give asymptotic joint laws for sampled part size and sampled-part multiplicity; none gives the sign of Cov(I_r,I_s)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.3639",
+        "material_read": "Primary manuscript introduction, definition of part multiplicities, main theorems, generating-function lemmas, proof conclusions and references; front page visually inspected",
+        "method": "Read searchable full-text sections and searched for covariance/independence statements",
+        "title": "Sampling Parts of Random Integer Partitions: A Probabilistic and Asymptotic Analysis",
+        "trigger": "Same uniform integer-partition objects and occurrence/multiplicity variables"
+      },
+      {
+        "assessment": "UNRESOLVED HISTORICAL PRIORITY; accessible abstract does not state exact two-prescribed-size covariance sign theorem",
+        "evidence": [
+          "Publisher confirms first published February 5, 1999; abstract reports one sampled size multiplicity and averages of distinct part sizes, not exact two-part occurrence covariance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199903)14:2<185::AID-RSA4>3.0.CO;2-F",
+        "material_read": "Publisher abstract, dated bibliographic record, accessible reference list; full article inaccessible",
+        "method": "Attempted the author-hosted lawful open-access manuscript and scholarly full-text routes; the article remained inaccessible",
+        "title": "On the multiplicity of parts in a random partition",
+        "trigger": "Historically most plausible direct study of distinct part sizes"
+      },
+      {
+        "assessment": "BACKGROUND and PRIORITY RISK: asymptotic structure not shown to imply all-size finite sign table",
+        "evidence": [
+          "Referenced by Corteel et al. and Mutafchiev for random-partition conditioning and large-integer limits."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1993-1094553-1",
+        "material_read": "Available bibliographic description and citations in the inspected [1] and [3]; full text not inspected",
+        "method": "Compared cited theorem topics with fixed-index finite sign goal",
+        "title": "The structure of random partitions of large integers",
+        "trigger": "Classical conditioning/approximate-independence approach might imply broad statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96a63c43-d6a4-49da-a728-b674ae60c706",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two fixed part-presence Bernoulli variables are natural objects in random integer partitions. Their universal dependence sign is not obvious: exceptional small-index failures coexist with strict negative dependence, while the very large complementary pair remains positively correlated forever. The exact list of eleven isolated positive triples, five ties and unique large-size positive family solves a natural complete classification with an explicit boundary at n=17 and a reproducible finite certificate, not an arbitrary numerical cutoff.",
+    "status": "PASS"
+  }
+}
