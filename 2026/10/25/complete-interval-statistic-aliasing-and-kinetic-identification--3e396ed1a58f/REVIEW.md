@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stationary empty-interval recurrence and boundary values follow from the microscopic hopping and independent Poisson reset process. Solving the characteristic equation, treating its repeated-root case, and using inclusion--exclusion establishes the exact static observation fibers. Root positivity establishes sufficiency of the sharp feasible region. The local generator proves the occupation autocorrelation slope, and strict monotonicity yields global reconstruction. `check.py` checks the algebra numerically, including the repeated-root boundary and an independently solved truncated recurrence. Numerical work is supplemental, not an infinite-lattice proof.
+PASS
 
-## Originality
+PASS: A common Poisson global reset yields a unique stationary law. The empty-interval Markov recurrence E_(n+1)-(2+r/(2D))E_n+E_(n-1)=-(r/(2D))q^n, with E_0=1 and vanishing tail, has a unique two-exponential bounded solution; it is symmetric under exchange of its characteristic root lambda and Bernoulli vacancy q, including the repeated root. Inclusion-exclusion gives u=(1-lambda)(1-q)/(1-lambda q), v=u^2(1-lambda q). The quadratic inverse roots have discriminant z[z(1+u)^2-4u], proving the exact feasible wedge 4u^3/(1+u)^2<=v<u^2 and two ordered physical preimages except the equality merger. The local generator identity on an occupied origin gives m=2D+r q. At fixed u the permitted q(lambda) and (1-lambda)^2/lambda are both strictly decreasing over 0<lambda<1-u, with product ranging from infinity to zero; hence (u,m) identifies parameters iff m>2D. Independent symbolic algebra checked density, pair and recurrence identities exactly. These establish infinite statements analytically rather than by numerical samples.
 
-PASS, with historical-priority uncertainty. arXiv:1309.2107 gives the forward empty-interval process and a continuum formula that implicitly exhibits a related static interchange. The distinct contribution is the exact discrete inverse fiber, its sharp observation feasibility wedge, and the dynamic observable that breaks the ambiguity, together with an unrestricted global two-observable inverse theorem. arXiv:1012.4724 considers time correlations without resetting; arXiv:1801.09216 analyzes reaction/diffusion scaling on lattices and trees, not inverse identification. Searches for reset-coagulation identifiability, interval duality and short-time autocorrelation did not reveal a directly dominating classification. An equivalent specialized treatment may exist.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a natural structural identifiability problem for a microscopic reaction--diffusion model: even perfect knowledge of the entire distribution of stationary empty runs cannot resolve a hidden parameter swap, whereas a single experimentally interpretable short-time local observable does. The exact feasibility region allows an observation to be rejected as incompatible, and the fold at equal latent roots pinpoints loss of static identifiability. The result is more than recomputing a density or making an arbitrary finite-parameter comparison.
+PASS, qualified: Targeted Resultary and primary literature comparisons confirm the strongest known coverage as explicitly acknowledged in the source inspection: published stationary forward empty-interval solutions and continuum symmetry, while the complete discrete inverse fiber and kinetic slope solution are the assessed narrower contribution. Full-text material read and unresolved historical-priority risks are recorded; absence from a search is not asserted as proof of novelty.
 
-## Limits
+## value
 
-Known per-neighbour hopping rate, independent fresh configuration at every reset, exact stationary expectations and right derivative. The result is not a finite-data estimator or a general theorem for quenched resetting, source injection or non-contiguous multipoint statistics. The prior continuum expression implies a weaker static algebraic symmetry; the priority of the full inverse theorem is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Identifiability under an observation family is mathematically and experimentally motivated for a solvable coagulation–diffusion/reset model. The exact twofold static ambiguity survives every contiguous-empty-block measurement, while one accessible initial autocorrelation slope resolves it globally; the full sharp feasible wedge is actionable inverse-data geometry. Scope assumes known D and fresh reset draws and does not claim all spatial multipoint statistics coincide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
