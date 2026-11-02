@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the published nonequivariant sphere-wedge theorem for Stirling complexes and an explicit cellular Lefschetz trace computation for the coordinate-permuting action. Each fixed cube is constant on cycles of the resource permutation. The orientation of the moving cubical factors supplies precisely the parity correction, giving the trace as the surjection/inclusion–exclusion sum. Reindexing yields the stated sign-twisted character for every permutation and every tree. The signed cycle polynomial gives zero trivial-representation multiplicity because every underlying integer is strictly less than the number of resources. A standalone exact checker tests all permutations of eight small parameter pairs, including zero-dimensional boundary cases. Infinite cases rely on the proof, not the enumerations.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest primary paper, D. N. Kozlov's *Stirling complexes*, constructs the same family and proves only its nonequivariant sphere-wedge type and rank formula in Theorem 2.1. Its explicit equivariant open question concerns **permuting leaves of a star** and is not the resource-coordinate action here. Full relevant primary-text sections were read: construction, theorems, the homotopy proof context, the character-independent counting identity, and Open Question 1. Searches of the mathematical research index for resource permutations, cycle-index characters, Stirling complexes, and symmetric-group quotients returned only homology characters of different complexes, not this statement. Absence of a returned match cannot exclude all unpublished or unindexed equivalences.
+PASS
 
-## Value — PASS
-The published theorem's tree-shape-independent Betti rank does not specify how a permutation of the resources acts on homology. The exact infinite-family character is a natural structural refinement of the resource-reconfiguration space: it distinguishes all conjugacy classes of the full coordinate symmetry and shows that the otherwise large homology has no fully symmetric rational class. Rational acyclicity of the resource-unlabeled quotient is a nontrivial geometric consequence rather than a restatement of rank alone.
+For any m-vertex tree m>=2 and n resource coordinates n>=m, cube condition each vertex appears literally among n entries. A permutation with c cycles fixes cell tuples constant on each cycle; for j edge cycles orientation contributes (-1)^(sum_lengths-j) and alternating cell degree multiplies to (-1)^j. Exact cellular Lefschetz formula L=Σ_j(-1)^j C(c,j)(m-1)^j Surj(c-j,m)=Σ_h(-1)^h C(m,h)(1-h)^c. Kozlov sphere-wedge theorem confines reduced homology to n-m, with dimension F_m(n). Thus trace =sgn(σ)F_m(c(σ)). The averaged signed cycle count is a falling factorial a(a-1)...(a-n+1)=0 for all a∈[1,m-1], proving rational quotient acyclicity even at n=m (discrete m! points). Independent direct oriented cubical-cell enumeration checked all permutations for six small parameter pairs up through (4,4), with complete symbolic all-parameter proof.
 
-The work does not determine integral equivariant homology, integral quotient torsion, or the separate tree-leaf symmetry action.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kozlov 2022/2023 provides the same cubical construction, shape-independent nonequivariant sphere-wedge rank and a different open question on permutations of star leaves. It does not supply the coordinate-resource S_n character or resource-unlabeled quotient rational homology in the inspected full-text sections. Other Resultary character results concern other complexes or tree-automorphism groups. Best-of-knowledge original refinement of an established family.
+
+## value
+
+PASS
+
+Natural full resource permutation character and rational quotient calculation for an entire infinite family, showing the striking tree-shape independence persists at the representation level while all nonzero reduced homology disappears under unlabeled resource quotient. These invariants are not implied by the known rank F_m(n), although the proof uses standard signed Lefschetz methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

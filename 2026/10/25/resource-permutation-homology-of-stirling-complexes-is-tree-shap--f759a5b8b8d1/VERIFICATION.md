@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The embedded `stirling_resource_character_checker.py` is standalone Python requiring only the standard library. Run with `python3 stirling_resource_character_checker.py`. Its expected final line is `STIRLING_RESOURCE_CHARACTERS_OK`.
+## correctness
 
-The program explicitly enumerates all cubical cells of the Stirling complex and all permutations for the eight parameter pairs \((m,n)=(2,2),(2,3),(2,4),(3,3),(3,4),(3,5),(4,4),(4,5)\). For every permutation it independently evaluates (i) the signed cellular Lefschetz number from its fixed cells, (ii) the predicted homological character, and (iii) the inclusion–exclusion formula for the same Lefschetz number. It confirms that the average of the character is zero. For \(n=m\) it checks the reduced degree-zero rank.
+PASS
 
-The complete infinite-family assertion is justified by the written cellular trace proof and the cited nonequivariant sphere-wedge theorem. No finite enumeration certifies an infinite claim. This verification is not an independent audit; no independent scientific certification is asserted.
+For any m-vertex tree m>=2 and n resource coordinates n>=m, cube condition each vertex appears literally among n entries. A permutation with c cycles fixes cell tuples constant on each cycle; for j edge cycles orientation contributes (-1)^(sum_lengths-j) and alternating cell degree multiplies to (-1)^j. Exact cellular Lefschetz formula L=Σ_j(-1)^j C(c,j)(m-1)^j Surj(c-j,m)=Σ_h(-1)^h C(m,h)(1-h)^c. Kozlov sphere-wedge theorem confines reduced homology to n-m, with dimension F_m(n). Thus trace =sgn(σ)F_m(c(σ)). The averaged signed cycle count is a falling factorial a(a-1)...(a-n+1)=0 for all a∈[1,m-1], proving rational quotient acyclicity even at n=m (discrete m! points). Independent direct oriented cubical-cell enumeration checked all permutations for six small parameter pairs up through (4,4), with complete symbolic all-parameter proof.
+
+## originality
+
+PASS
+
+Kozlov 2022/2023 provides the same cubical construction, shape-independent nonequivariant sphere-wedge rank and a different open question on permutations of star leaves. It does not supply the coordinate-resource S_n character or resource-unlabeled quotient rational homology in the inspected full-text sections. Other Resultary character results concern other complexes or tree-automorphism groups. Best-of-knowledge original refinement of an established family.
+
+## value
+
+PASS
+
+Natural full resource permutation character and rational quotient calculation for an entire infinite family, showing the striking tree-shape independence persists at the representation level while all nonzero reduced homology disappears under unlabeled resource quotient. These invariants are not implied by the known rank F_m(n), although the proof uses standard signed Lefschetz methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
