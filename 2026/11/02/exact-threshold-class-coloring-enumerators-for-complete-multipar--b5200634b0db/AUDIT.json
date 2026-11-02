@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary positive part sizes and any nonnegative palette size, each color class is threshold exactly when at most one original part has multiplicity greater than one, since two heavy parts force an induced four-cycle, whereas zero or one heavy part allows a universal-vertex/isolated-vertex construction. This equivalence gives the disjoint labelled-class EGF terms; multiplication over named colors and coefficient extraction yields the exact count. Inclusion-exclusion gives onto and unordered refinements. Pigeonhole lower bound on large parts and an explicit constructive allocation prove the minimum formula. The included independent literal induced-graph/EGF checker verified 166 instances and 345279 assignments; finite checks are supplemental only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demange–Ekim–de Werra (2005) abstract: O(n²+nm)-time decision algorithms for (p,k)-colorability of cographs.",
+        "Bravo et al. (2012) abstract: polynomial algorithms for a superclass of cographs.",
+        "Demange–Ekim–de Werra (2006) full-text pages 298, 302: optimization and approximation."
+      ],
+      "reasoning": "The 2005 and 2012 general algorithms cover deciding feasibility, so no new decision-complexity claim is made. Counting all palettes with a multivariate coefficient array is strictly finer than decision and is not established by these algorithm-existence statements. The 2005 full paper was not available, so its possible unquoted counting content is disclosed as a risk.",
+      "searches": [
+        "\"Partitioning cographs into cliques and stable sets\" arxiv pdf 2005",
+        "\"Min Split-coloring\" \"complete multipartite\" exact",
+        "\"Partitioning cographs into cliques and stable sets\" pdf",
+        "\"Partitioning extended P4-laden graphs into cliques and stable sets\" 2012"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.32954v1; primary full-text pages 1–5, 14–16",
+      "DOI:10.7155/jgaa.00129; primary full-text pages 297–302",
+      "DOI:10.1016/j.disopt.2005.03.003; abstract and metadata only",
+      "DOI:10.1016/j.ipl.2012.07.011; abstract and highlights only",
+      "Prior mathematical-record claims including nearby but distinct complete multipartite coloring invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bang-Jensen–Bessy–Reinald (2026) Corollary 4.2: NP-complete two-part decision on arbitrary graphs.",
+        "Demange–Ekim–de Werra (2005) abstract: general cograph (p,k)-decision algorithms.",
+        "Demange–Ekim–de Werra (2006), pp. 298, 302: split chromatic invariant and a related edge-degree bound."
+      ],
+      "reasoning": "General hardness does not imply the exact family counting result. General cograph decision algorithms imply that the family minimum is computable but not the number of all named-color allocations for each palette, and the 2006 degree-bound concerns edge split-coloring. The new theorem rests on an exact one-heavy-part local classification and its labelled combinatorial product, a statement absent from inspected prior results.",
+      "searches": [
+        "minimum split chromatic number K n1 ... nr complete multipartite sharp criterion count parts n_i>k <=k",
+        "\"threshold graph coloring\" \"complete multipartite\" partition",
+        "\"cochromatic number\" \"complete multipartite\" exact",
+        "\"threshold chromatic number\" \"complete multipartite\"",
+        "\"split coloring\" \"complete multipartite graphs\" minimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.32954v1, Corollary 4.2 (threshold partitions equivalent to alternating acyclic color classes).",
+        "Demange–Ekim–de Werra (2006), p. 298 (split-coloring as partition into split graphs).",
+        "On complete multipartite graphs, the same induced heavy-part criterion characterizes split and threshold subgraphs."
+      ],
+      "reasoning": "Comparisons include alternating chromatic number of the complete two-edge-colored graph, minimum split-coloring, (k,k)-clique/stable partitioning, and split subgraph partitions. These notions agree on the current family; prior decision results do not state the multivariate all-k counting identity.",
+      "searches": [
+        "exact exponential generating function threshold color class partition of complete multipartite graphs named colors parts n_i",
+        "alternating chromatic number complete two edge colored graph color given complete multipartite red graph full palette count",
+        "\"Min Split-coloring\" \"complete multipartite\" exact",
+        "\"threshold graph coloring\" \"complete multipartite\" partition",
+        "\"complete multipartite\" \"(k,k)-coloring\" partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record title/claim retrieval returned majority colorings, proper conflict-free colorings and odd colorings on complete multipartite graphs, none with threshold-induced class counts.",
+        "Prior records on complete multipartite forced coloring concern proper coloring of named palettes, not threshold-induced parts."
+      ],
+      "reasoning": "No exact table, equivalent coefficient array, or symbolic formula appeared in the actually retrieved records. Absence from a database is not evidence of global uniqueness, and the current claim is not inferred solely from failed searches.",
+      "searches": [
+        "exact exponential generating function threshold color class partition of complete multipartite graphs named colors parts n_i",
+        "minimum split chromatic number K n1 ... nr complete multipartite sharp criterion count parts n_i>k <=k",
+        "alternating chromatic number complete two edge colored graph color given complete multipartite red graph full palette count",
+        "\"threshold chromatic number\" \"complete multipartite\"",
+        "\"threshold graph partition\" \"multipartite\""
+      ]
+    },
+    "rationale": "The new claim is the exact all-palette labelled counting series, onto counts and unordered class counts on arbitrary complete multipartite graphs; the sharp size threshold is included as a structural corollary, not as a new general decision algorithm. The primary 2026 work proves hardness and threshold correspondence without these formulas. Earlier 2005/2012 work gives polynomial decision algorithms for the larger class of cographs, which already covers computability of the minimum but does not logically yield the exact distribution of all labelled colorings. The open 2006 PDF treats approximation and a different edge-degree threshold. A targeted mathematical-record search and exact phrase/alias searches found no enumerator; this is qualified priority evidence, not a uniqueness certificate.",
+    "residual_risks": [
+      "An inaccessible 2005 cograph full text may contain an explicit family specialization or exact labelled counting identity not visible in its abstract.",
+      "Other indexed or unindexed work may use the equivalent language of split chromatic number, (k,k)-colorability or two-edge-colored complete graphs.",
+      "No independent historical-priority adjudication has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its theorems establish general decision hardness and correspondence, not a complete multipartite all-palette counting function or part-size formula.",
+        "evidence": [
+          "arXiv:2610.32954v1, p. 5 (discussion), p. 15 (Corollary 4.2); first submitted 2026-10-23."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.32954",
+        "material_read": "Full-text pages 1–5 and 14–16 including definitions, Theorem 1.5, Section 4 and Corollary 4.2; manuscript full-text keyword search for multipartite and threshold.",
+        "method": "Lawfully accessible arXiv PDF text plus page-image inspection.",
+        "title": "Acyclic 2-edge-coloured graphs: polynomial-time linkages and colouring hardness",
+        "trigger": "The motivating first-public 2026 source defines alternating chromatic number and its equivalence with induced threshold partition."
+      },
+      {
+        "assessment": "Defines split-coloring and develops approximation schemes. Its similar degree-threshold expression belongs to edge split-coloring on a different graph object; no exact multivariate multipartite color-counting formula was identified.",
+        "evidence": [
+          "Demange, Ekim, de Werra (2006), JGAA 10(2), pp. 298, 302; doi:10.7155/jgaa.00129."
+        ],
+        "identifier_or_url": "https://jgaa.info/index.php/jgaa/article/download/paper129/2838/2645",
+        "material_read": "Full-text introduction pp. 297–300, §3.2 pp. 301–302 including a degree-threshold bound; full-text search of multipartite terminology.",
+        "method": "Open publisher PDF, text search and page images.",
+        "title": "On the approximation of Min Split-coloring and Min Cocoloring",
+        "trigger": "Prior graph partition invariant that can be equivalent on complete multipartite graphs."
+      },
+      {
+        "assessment": "The published general algorithm covers efficient decision of the minimum on the present family. Its abstract does not establish a labelled all-palette multivariate enumerator. No entire-document noncoverage claim is made.",
+        "evidence": [
+          "Demange, Ekim, de Werra (2005), Discrete Optimization 2(2), pp. 145–153; DOI and abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disopt.2005.03.003",
+        "material_read": "Abstract and bibliographic record describing algorithms for (p,k)-colorability of all cographs; full PDF unavailable.",
+        "method": "Bibliographic abstract and publicly available metadata only; the full text was not obtained.",
+        "title": "Partitioning cographs into cliques and stable sets",
+        "trigger": "Complete multipartite graphs are cographs, so a general efficient partitioning algorithm could cover the optimization aspect."
+      },
+      {
+        "assessment": "Another stronger polynomial decision algorithm on a superclass, but no multivariate color-counting formula was established from the inspected abstract; possible hidden specialization remains a priority risk.",
+        "evidence": [
+          "Bravo, Klein, Nogueira, Protti, Sampaio (2012), Information Processing Letters 112, pp. 829–834."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ipl.2012.07.011",
+        "material_read": "Publisher abstract and key highlights, not the full paper.",
+        "method": "Publisher HTML metadata and abstract.",
+        "title": "Partitioning extended P4-laden graphs into cliques and stable sets",
+        "trigger": "Broader class containing cographs gives potentially stronger decision algorithm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5200634-b0db-43fa-bcf5-957158e0e5a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem counts every named-palette and every nonempty unordered threshold-induced partition of an unrestricted complete multipartite family, directly motivated by the 2026 alternating coloring hardness problem and classical split-coloring. It furnishes an exact multivariate distribution and a universal part-size transition, not an arbitrary slice or one finite table. Prior cograph decision algorithms do not supply this full labeled solution-space enumeration. The theorem makes no claim about general graphs, and acknowledges incomplete historical access.",
+    "status": "PASS"
+  }
+}
