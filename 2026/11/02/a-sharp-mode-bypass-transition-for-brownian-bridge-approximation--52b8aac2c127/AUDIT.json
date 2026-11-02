@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs finite bridge coefficients as independent Wiener integrals against an orthonormal and complete cosine basis; variation of constants and Itô isometry give the exact full, infinite-error Parseval sum. Each coefficient is evaluated by an explicit exponential-cosine integral. Parity monotonicity and an exact derivative prove uniqueness and boundary optimality for all q>0. Summable Fourier weights and the odd-fourth-power series prove the small-q limits and finite-budget generalization. A supplied standalone standard-library verifier passed 127 independent numerical consistency checks; none is used instead of the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foster–Lyons–Oberhauser 2020 Theorem 1.1 uses a polynomial basis matching Brownian moments and studies a distinct weighted pathwise optimality criterion.",
+        "Koskela–Relton 2020 Theorem 6 bounds error for a consecutive half-integer KL approximation; it does not specify optimal nonconsecutive bridge modes for any fixed budget.",
+        "A generic projection theorem permits tailored one-dimensional linear functionals of the noise; the current claim is explicitly restricted to the prescribed sine-bridge family."
+      ],
+      "reasoning": "Stronger approximation results over unrestricted Gaussian linear functionals cannot cover this narrowly constrained frequency-selection classification unless they explicitly imply the exact ordering within the sine basis. The inspected results do not derive that ordering, and no universal-optimality claim is made here.",
+      "searches": [
+        "Brownian bridge basis selecting frequencies approximate weighted stochastic integrals optimal Fourier coefficients",
+        "Brownian bridge Fourier expansions optimal SDE numerical strong endpoint error",
+        "https://arxiv.org/pdf/1904.06998",
+        "https://arxiv.org/pdf/2004.05687"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.23693",
+      "https://arxiv.org/pdf/2004.05687",
+      "https://arxiv.org/pdf/1904.06998",
+      "https://doi.org/10.1017/S096354832200030X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Binkowski et al. 2026 motivate smooth bridge SDE methods; no inspected statement gives the q-dependent optimum of arbitrary two-frequency subsets.",
+        "Koskela–Relton 2020 Theorem 6 has an orthogonal series tail for an alternative basis and cannot be read as a direct numerical threshold in the sine basis.",
+        "Foster–Habermann 2022 concerns Lévy-area approximation; Foster–Lyons–Oberhauser 2020 concerns polynomial path approximations."
+      ],
+      "reasoning": "The new endpoint-specific crossing and sharp mean-square reduction do not follow as stated corollaries with unchanged objects or optimization criteria. The proof independently derives the OU Fourier weights and a rigorous global selection argument. A previously overlooked specialized reduction remains possible.",
+      "searches": [
+        "https://arxiv.org/abs/2610.23693",
+        "https://arxiv.org/pdf/2004.05687",
+        "https://arxiv.org/pdf/1904.06998",
+        "https://doi.org/10.1017/S096354832200030X",
+        "stochastic differential equations smooth Brownian bridges optimal Karhunen Loeve mode selection for OU endpoint variance low rank harmonic basis",
+        "exp(-q) (2 q squared plus 13 pi squared) = 5 pi squared stochastic numerical Ornstein Uhlenbeck bridge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koskela–Relton 2020 §3–4 (Theorems 3, 6) gives exact orthogonal errors for half-integer Brownian-motion KL modes, not the endpoint-preserving sine bridge modes.",
+        "Foster–Habermann 2022 §1 gives the Brownian bridge sine expansion, but its target random integral is Lévy area and no OU mode-subset threshold appears in the inspected text.",
+        "The new comparison is the strictly monotone crossing e^{-q}(2q²+13π²)=5π², which is not a restatement of a path-level bridge KL truncation theorem."
+      ],
+      "reasoning": "Same Gaussian projection mechanism does not imply the specific claim without a different basis, an OU endpoint convolution integral, and a cross-parity optimization. The cited works do not already state that bridge frequencies 1,3 uniquely beat 1,2 below a sharp q.",
+      "searches": [
+        "Brownian bridge Karhunen Loeve optimal non consecutive modes linear stochastic differential equation endpoint error",
+        "Ornstein Uhlenbeck endpoint Brownian bridge Fourier modes optimum truncation frequency sine 1 3",
+        "Ornstein Uhlenbeck Brownian bridge cosine Fourier spectral truncation exact endpoint mean-square error optimal selection non-consecutive modes frequencies 1 and 3 versus 1 and 2 threshold",
+        "OU scalar endpoint Karhunen-Loeve expansion Brownian bridge retain modes 1 and 3 instead of 1 and 2 exact phase transition lambda h = 0.9700737596",
+        "https://arxiv.org/pdf/2004.05687",
+        "https://doi.org/10.1017/S096354832200030X"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical-record results for the queries returned OU random sensor threshold and Gaussian Langevin covariance studies, not any Fourier bridge endpoint mode-selection table.",
+        "Related published indexed mathematical findings concerned Gaussian Langevin covariance bias and Ornstein–Uhlenbeck random sensor thresholds, not Fourier-bridge endpoint mode selection.",
+        "A direct bibliographic search for the threshold equation did not expose a table or equivalent exact OU endpoint result."
+      ],
+      "reasoning": "The performed bibliographic and indexed-record searches disclose no exact duplicate; the search corpus is incomplete and cannot establish uniqueness or priority alone.",
+      "searches": [
+        "Ornstein Uhlenbeck Brownian bridge cosine Fourier spectral truncation exact endpoint mean-square error optimal selection non-consecutive modes frequencies 1 and 3 versus 1 and 2 threshold",
+        "stochastic differential equations smooth Brownian bridges optimal Karhunen Loeve mode selection for OU endpoint variance low rank harmonic basis",
+        "arXiv 2610.23693 Toward Spectral Deferred Correction Methods for Stochastic Differential Equations numerical strong error",
+        "OU scalar endpoint Karhunen-Loeve expansion Brownian bridge retain modes 1 and 3 instead of 1 and 2 exact phase transition lambda h = 0.9700737596",
+        "Brownian bridge sine Fourier truncation nonconsecutive mode selection improves OU strong one-step error 84 percent",
+        "exp(-q) (2 q squared plus 13 pi squared) = 5 pi squared stochastic numerical Ornstein Uhlenbeck bridge",
+        "Ornstein Uhlenbeck Brownian bridge optimal subset Fourier sine modes endpoint approximation skip second mode"
+      ]
+    },
+    "rationale": "The sharp choice between sine-bridge coordinates 2 and 3 for an OU endpoint, its unique positive damping transition, and its asymptotic 84.11% fixed-budget gain are not supplied by the inspected related papers. The closest broad orthogonal truncation theorem uses a different KL basis and a consecutive truncation, and the standard bridge theorem concerns Lévy area. The search does not establish absolute novelty: a specialized historical equivalent may exist.",
+    "residual_risks": [
+      "Unindexed older frequency-selection results or a specialized textbook exercise may already state an equivalent OU endpoint crossover; the searches cannot prove a universal negative.",
+      "Only self-review was performed; no external independent priority or correctness validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: mode count and strong/weak approximation are studied, but the exact optimum among arbitrary two frequencies and the transition are not established in inspected material.",
+        "evidence": [
+          "First public October 16, 2026 (arXiv:2610.23693v1).",
+          "Bridge truncation with consecutive modes motivates a fixed-cost alternative; no reported exact nonconsecutive selection frontier."
+        ],
+        "identifier_or_url": "arxiv:2610.23693v1; https://arxiv.org/html/2610.23693v1",
+        "material_read": "arXiv experimental HTML full-text sections introducing smooth Brownian bridge, retained Fourier modes and scalar OU example; first submission metadata cross-checked",
+        "method": "Read article equations, method description and OU example, not title-only search",
+        "title": "Toward Spectral Deferred Correction Methods for Stochastic Differential Equations",
+        "trigger": "Same recent smooth-bridge SDE numerical method and target study motivating frequency selection"
+      },
+      {
+        "assessment": "Related projection structure, but not the same basis, objective or exact crossover; not a direct covering statement.",
+        "evidence": [
+          "Their λ_k=(k−1/2)π and m-prefix truncations differ from the jπ sine bridge expansion.",
+          "Theorem 6 gives an exact sum from omitted k>m and a general bound, without an optimal arbitrary-subset selection theorem."
+        ],
+        "identifier_or_url": "arxiv:2004.05687v1; https://arxiv.org/pdf/2004.05687",
+        "material_read": "Full primary PDF §§2–4, including exact basis formulas (3.2)–(3.5), Theorem 6 and appendix proof",
+        "method": "Inspected and compared the half-integer Brownian-motion KL basis and exact orthogonal error to endpoint-preserving sine-bridge mode selection",
+        "title": "Sampling of Stochastic Differential Equations using the Karhunen–Loève Expansion and Matrix Functions",
+        "trigger": "Possible broader exact truncated-KL strong-error formula dominating this result"
+      },
+      {
+        "assessment": "Different representation and optimization loss; does not imply the exact mode-skip boundary within the sine basis.",
+        "evidence": [
+          "Theorem 1.1 reconstructs a degree-n random polynomial capturing Brownian moments; §§1–2 discuss strong approximation of Brownian paths."
+        ],
+        "identifier_or_url": "arxiv:1904.06998; https://arxiv.org/pdf/1904.06998",
+        "material_read": "Full primary PDF introduction and theorems 1.1–1.3 in §§1–2 with polynomial moment-matching and optimality criteria",
+        "method": "Compared polynomial moment-matching, iterated-integral and weighted path loss to this fixed sine-frequency endpoint loss",
+        "title": "An Optimal Polynomial Approximation of Brownian Motion",
+        "trigger": "Plausible stronger optimality theorem for all finite Gaussian path approximations"
+      },
+      {
+        "assessment": "Supports the exact underlying bridge expansion but analyzes Lévy area rather than scalar OU endpoint mode subset ranking.",
+        "evidence": [
+          "Equation (1.2) records independent cosine-Wiener sine-bridge expansion.",
+          "The stated approximation objective and theorems concern Lévy area and bridge-series fluctuations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S096354832200030X",
+        "material_read": "Open-access full primary text introduction, bridge expansion equations (1.1)–(1.5) and Lévy-area approximation discussion",
+        "method": "Compared represented Gaussian sine modes and the target stochastic integral",
+        "title": "Brownian bridge expansions for Lévy area approximations and particular values of the Riemann zeta function",
+        "trigger": "Exact sine-bridge KL expansion and possible spectral-optimality coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52b8aac2-c127-49ad-9190-2dbb92acc274",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite Gaussian mode budgets are a genuine implementation constraint for smooth Brownian-bridge numerical SDE integrators. The theorem gives an exact, parameter-dependent optimal bridge-frequency selection, an unexpected bypass of the second harmonic, a sharp crossover, and an 84.11% asymptotic reduction in residual endpoint mean-square error at fixed cost. Its scope is clearly limited to strong OU endpoint coupling within a fixed sine basis; the result is not merely another arbitrary spectral table and does not pretend to outperform exact OU transition simulation.",
+    "status": "PASS"
+  }
+}
