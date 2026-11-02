@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the even-photon support, the twirl selection rule reduces exactly to divisibility by \(2M\) when \(M\) is odd. The residue-pair QFI formula then gives a squeezed-vacuum asymptotic \(16\sqrt{2/\pi}\,M^{3/2}2^{-M}(1+o(1))\); a coherent-state pair lower bound and geometric-tail upper bound give \(4M^2e^{-1}/M!(1+o(1))\). Their quotient and Stirling's formula yield the stated constant \(8e\).
+## correctness
 
-**Originality — PASS, with a bounded novelty claim.** The closest primary source [1] explicitly assumes even twirl modulus for its main asymptotic theorem. Its general residue-block identity supplies a method, but the odd-modulus equivalence and the resulting odd-indexed ratio asymptotic are not stated there. The searched semantic findings index returned related quantum-information and variance-bound records but no matching odd-modulus result. This is an extension of a recent result, not a claim of a new general QFI framework.
+PASS
 
-**Value — PASS.** Odd phase-alphabet sizes are a natural omitted parity class in discrete phase-randomisation metrology. The result closes that exact boundary and supplies the asymptotic ratio, rather than relying on a finite numerical observation. The change in leading base is explicit and the proof is self-contained.
+PASS: The uniform phase twirl keeps rho_nm iff M|(n-m). For squeezed vacuum n,m even and M odd, M|(n-m) iff 2M|(n-m), so parameterized channels are exactly identical and QFI_SV(M)=QFI_SV(2M), not merely asymptotic. Conlon Appendix A.3.2 even L=2M gives 4L² sqrt(2) d_{L/2}(1/2)^{L/2}(1+o(1)) =16sqrt(2/pi) M^{3/2}2^{-M}(1+o(1)). The coherent Poisson tail pair lower and geometric tail upper yield J_coh(M)=4M² e^{-1}/M!(1+o(1)). Stirling then gives 8e(M/(2e))^M. Independently calculated Fock-block conditional variances for odd M=3..13 and checked exact M-vs-2M equality numerically, and the asymptotic ratio trend. No noisy-channel or all-probes optimality implied.
 
-**Closest literature and limits.** [1] provides the even-modulus QFI framework and asymptotics. No noisy-channel extension, all-classical-family comparison, or global probe-optimality claim is made. The semantic search is not exhaustive; a separate treatment of odd \(M\) may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, bounded: Conlon et al. full primary HTML explicitly says in Sec. III.1 "Throughout we assume M to be even" and proves the even squeezed asymptotic in Appendix A.3.2. Odd M is outside those hypotheses despite an unqualified-looking abstract/theorem shorthand. The new exact output-equivalence and differing odd-modulus coherent benchmark produce a different leading exponential base. This is a short, natural parity completion of a very recent paper, not a new QFI calculus.
+
+## value
+
+PASS
+
+PASS: Odd phase-alphabet sizes are a natural half of the integer moduli explicitly omitted by the source. The exact even-support identity plus the different coherent factorial tail determines the correct exponential base for these alphabets, a precise boundary necessary for metrological comparison. Its value is limited to closing the parity domain; it does not re-establish or supersede the broad even-M theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
