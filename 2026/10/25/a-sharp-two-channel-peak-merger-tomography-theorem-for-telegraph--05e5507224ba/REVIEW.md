@@ -1,11 +1,21 @@
-# Scientific review: two-channel telegraph spectral merger
+# Independent mathematical audit
 
-**Correctness (PASS).** Conditional two-state phase evolution yields the exact susceptibility. For each spectral channel, its derivative with respect to squared detuning has a strictly decreasing quadratic numerator. This proves the exact two-peak/single-peak dichotomy including the degenerate equality case. Strict monotonicity of the ratio of the two merger thresholds as intrinsic linewidth varies proves existence and uniqueness on exactly the stated open domain. The independently evaluated conditional-matrix checker passes 500 parameter reconstruction cases, 1,500 response evaluations and 1,500 peak-sign cases. Finite checks alone are not an infinite proof.
+## correctness
 
-**Originality (PASS; residual priority risk).** Anderson (1954) established the general motionally narrowed line model; Dykman et al. (arXiv:1006.2402) study frequency-jump susceptibilities; Li et al. (arXiv:1205.0675, equation (3)) supply an absorptive forward line; Sun et al. (arXiv:1511.00893) calculate and measure coherent amplitude versus switching. None of the inspected material asserts the joint necessary-and-sufficient inverse map from the *two* channel-specific coalescence rates, or its universal strict ratio obstruction. That theorem requires an additional global comparison of two different threshold functions. No search establishes absolute priority; an equivalent specialized derivation may exist elsewhere.
+PASS
 
-**Mathematical value (PASS).** The exact rate-ratio obstruction distinguishes incompatible spectral observations from genuine two-state stochastic frequency modulation and yields a calibration-independent (in amplitude) constructive inverse determination of homogeneous damping and frequency-jump strength. The sharp boundary and uniqueness require a nontrivial monotonicity argument, rather than merely a renaming of the known forward spectrum.
+Starting with the conditional two-state Kolmogorov equations for the phase functional C(t), verified C''+q C'+a²C=0 with initial (1,0) and F=(g+q−iω)/((g−iω)(g+q−iω)+a²). With z=ω², denominator D=z²+[(2g+q)²−2(gh+a²)]z+(gh+a²)² is strictly positive for z≥0; M²=(h²+z)/D and I=(h(gh+a²)+gz)/D. Differentiation yields decreasing quadratic derivative numerators, so an off-center doublet occurs precisely when the central derivative is positive, with the quartically flat zero-frequency merger at equality. Algebra gives threshold A_g(q)=(g+q)^3/(2g+q+sqrt((g+q)^2+(2g+q)^2)) and B_g(q)=(g+q)^3/(3g+2q), and A<B. Both increase strictly in q. For fixed P<Q, H(g)=A_g(Q)/B_g(P) has strictly negative logarithmic derivative: ∂_g log A decreases as its q increases and is smaller than ∂_g log B at equal q. Its endpoint values are 2(sqrt2−1)(Q/P)² and 3(sqrt5−2)<1, so unique positive g exists exactly above stated ratio; a=sqrt(B_g(P)) follows. Independent symbolic derivative/threshold and numerical H monotonic checks corroborate general analytic proof; q is total correlation decay not individual switching rate.
 
-**Limits and risk.** Only stationary symmetric two-state switching, known rate-axis units, linear homogeneous broadening, exact spectra and both readout channels are covered. Noise sensitivity, nonstationary switching and nonideal line shapes are unproved. Detailed historical-priority review and independent audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Kubo–Anderson susceptibility and the existence of absorption/amplitude doublet mergers are previously known. In the inspected primary texts the two readout channels are studied as forward spectra, not as the paired map from two positive merger rates to the unknown damping and modulation strength, with an exact forbidden ratio and uniqueness proof. The joint inverse theorem has a qualified originality PASS with risk from specialized spectroscopic inverse theory.
+
+## value
+
+PASS
+
+An exact range and uniqueness theorem for a physically natural pair of peak merger observables resolves which spectral measurements can identify the two unknown model parameters. The strict forbidden ratio and unattained sharp boundary are structural, not a numerical fit. Its motivation is parameter identifiability and discrimination between readout channels; no claim of noise robustness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

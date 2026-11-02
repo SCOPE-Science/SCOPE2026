@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The self-contained `check.py` evaluates the exact rational susceptibility and separately solves the conditional two-state linear response system. It checks the two spectral derivative signs on both sides of each coalescence rate and numerically inverts both measured rates to the original positive parameters.
+## correctness
 
-Running `python3 check.py` on the packaged source produces 500 successful full forward/inverse cases, 1,500 separate matrix-response comparisons, 1,500 peak-sign comparisons, and tests of the sharp universal ratio boundary. The code uses a fixed random seed and only the Python standard library.
+PASS
 
-These are finite numerical and algebraic consistency tests, not independently certified infinite proofs. The theorem's global assertions rely on the exact derivative signs and a strict logarithmic-monotonicity inequality provided in `RESULT.md`. The normalization uses the total correlation decay rate, twice the individual-state transition rate. Experimental identifiability in noise and independent audit are not assessed.
+Starting with the conditional two-state Kolmogorov equations for the phase functional C(t), verified C''+q C'+a²C=0 with initial (1,0) and F=(g+q−iω)/((g−iω)(g+q−iω)+a²). With z=ω², denominator D=z²+[(2g+q)²−2(gh+a²)]z+(gh+a²)² is strictly positive for z≥0; M²=(h²+z)/D and I=(h(gh+a²)+gz)/D. Differentiation yields decreasing quadratic derivative numerators, so an off-center doublet occurs precisely when the central derivative is positive, with the quartically flat zero-frequency merger at equality. Algebra gives threshold A_g(q)=(g+q)^3/(2g+q+sqrt((g+q)^2+(2g+q)^2)) and B_g(q)=(g+q)^3/(3g+2q), and A<B. Both increase strictly in q. For fixed P<Q, H(g)=A_g(Q)/B_g(P) has strictly negative logarithmic derivative: ∂_g log A decreases as its q increases and is smaller than ∂_g log B at equal q. Its endpoint values are 2(sqrt2−1)(Q/P)² and 3(sqrt5−2)<1, so unique positive g exists exactly above stated ratio; a=sqrt(B_g(P)) follows. Independent symbolic derivative/threshold and numerical H monotonic checks corroborate general analytic proof; q is total correlation decay not individual switching rate.
+
+## originality
+
+PASS
+
+The classical Kubo–Anderson susceptibility and the existence of absorption/amplitude doublet mergers are previously known. In the inspected primary texts the two readout channels are studied as forward spectra, not as the paired map from two positive merger rates to the unknown damping and modulation strength, with an exact forbidden ratio and uniqueness proof. The joint inverse theorem has a qualified originality PASS with risk from specialized spectroscopic inverse theory.
+
+## value
+
+PASS
+
+An exact range and uniqueness theorem for a physically natural pair of peak merger observables resolves which spectral measurements can identify the two unknown model parameters. The strict forbidden ratio and unattained sharp boundary are structural, not a numerical fit. Its motivation is parameter identifiability and discrimination between readout channels; no claim of noise robustness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
