@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "The code definition is a rank-five field-power parity check. Exhaustive primitive-polynomial checking proves all six primitive cyclic realizations are represented. A complete 31-coordinate syndrome-and-boundary transfer enumerates all 2^26 kernel words per code without omission or repetition, and an algebraically different signed-character transfer produces the same 18 full arrays. Both standalone package scripts check coefficient equality, dimensions, moments, reciprocal symmetry and three distinct classes; all exact bounded loops terminate. Direct exhaustive lower-dimension tests also agree. No infinite extrapolation is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shi–Özbudak–Solé (2021), full-text Sections IV–V: specialized exact enumerators assume a single nonzero cyclotomic coset; code dimension is then at most five at length 31, unlike dimension twenty-six here.",
+        "Its general stability theorem applies to b at least the code dimension, and hence not to b=2,3,4.",
+        "Vega (2023) treats irreducible cyclic codes by irreducible parity-check polynomials, not Hamming codes whose irreducible polynomial is the generator."
+      ],
+      "reasoning": "A general theory providing bounds, a finite DP procedure in principle, or exact enumerators for different code classes does not logically imply these exact output coefficients without a specialization that has not been supplied. The displayed hypotheses explicitly exclude the current code dimension and read length.",
+      "searches": [
+        "b-symbol weight distributions arbitrary cyclic codes Shi Ozbudak Sole 2021 exact theorem",
+        "2021 geometric approach to b-symbol Hamming weights cyclic codes Section IV nonzero cyclotomic coset Theorem V stability",
+        "2023 complete b-symbol weight distributions semiprimitive irreducible cyclic codes Hamming"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT.2010.5513753",
+      "doi:10.1109/TIT.2016.2522434",
+      "arxiv:1911.02184v1",
+      "arxiv:2103.16299v1",
+      "doi:10.1109/TIT.2021.3069772",
+      "doi:10.1007/s10623-023-01193-w",
+      "OEIS:A010086",
+      "published note: Generation profiles of cyclic binary Hamming codes collapse by pair radius six"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Luo 2019 Section 4 Theorem 2 counts the 2^5-word simplex dual, not the 2^26-word Hamming kernel.",
+        "Liu–Pan 2021 Section 7 Examples 7.3–7.4 concern q=2,m=3,4 generalized-weight matrices in lexicographic column order, not the length-31 full enumerators.",
+        "Shi–Özbudak–Solé 2021 Section V Theorem V.2 needs b>=k for enumerator stabilization; the new objects have k=26 and b<=4.",
+        "Cassuto–Blaum 2010/2011 and Yaakobi–Bruck–Siegel 2016 give metric/construction/decoding principles, not the numerical census."
+      ],
+      "reasoning": "No named primary result supplies a statement from which the new three-way coefficient classification follows as an immediate special case. The dual simplex complete spectrum and generalized Hamming hierarchies have different quantifiers and do not give the requested individual-codeword multiplicities.",
+      "searches": [
+        "Symbol-pair Weight Distributions of Some Linear Codes Ma Luo arXiv 1911.02184 Section 4 simplex",
+        "Generalized b-symbol weights of Linear Codes and b-symbol MDS Codes Liu Pan arXiv 2103.16299 Section 7 Hamming",
+        "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes Shi Ozbudak Sole Section IV V"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma–Luo 2019, Section 4, arxiv:1911.02184v1: complete simplex-code distributions; dimensions and dual object differ.",
+        "Liu–Pan 2021, Section 7, arxiv:2103.16299v1: smaller Hamming examples with generalized weight matrices, not complete length-31 cyclic codeword multiplicities.",
+        "2021 cyclic-code full-text discussion uses b-symbol Hamming weight terminology synonymous with cyclic sliding nonzero-block count."
+      ],
+      "reasoning": "Symbol-pair weight enumerator, pair-read spectrum and cyclic b-symbol weight distribution are equivalent names for the same statistic, so the comparison was performed at the claim level. The checked theorems do not provide eighteen full coefficient arrays or a three-orbit classification of six [31,26] cyclic Hamming embeddings.",
+      "searches": [
+        "symbol pair weight distribution primitive binary cyclic Hamming codes 31 26 3 complete weight enumerator",
+        "Exact complete cyclic 2-symbol 3-symbol 4-symbol window weight distributions of binary Hamming [31,26] codes with parity-check column order primitive field powers, distinguish primitive polynomials",
+        "Hamming [31,26,3] symbol pair weight enumerator frequency 3131 3193 48205 48019"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A010086 is an ordinary length-31 Hamming-weight table; it has no cyclic read-window weights.",
+        "Targeted exact-parameter and distinguishing-coefficient searches returned no identical 18-array table.",
+        "An indexed prior record, Generation profiles of cyclic binary Hamming codes collapse by pair radius six, establishes generation spans, not complete b-symbol coefficient multiplicities."
+      ],
+      "reasoning": "The ordinary Hamming enumerator does not determine the cyclic read enumerator: the six codes here have identical ordinary Hamming spectra but three distinct read spectra. No retrieved indexed table matches the exact claim; this search absence is not considered a mathematical proof of priority.",
+      "searches": [
+        "binary Hamming code 31 length symbol pair weight distribution all primitive polynomials enumerator",
+        "symbol pair Hamming code 31 weight spectrum 0x25 0x2f 0x37",
+        "Hamming [31,26,3] symbol pair weight enumerator frequency 3131 3193 48205 48019"
+      ]
+    },
+    "rationale": "Checked source-level comparisons distinguish full 2^26-member cyclic read-weight histograms from simplex dual spectra, generalized higher-weight matrices, metric distance bounds and unrelated irreducible cyclic-code enumerators. The closest full-text arbitrary cyclic-code result has exact-enumerator hypotheses inapplicable to these dimension-26 Hamming codes at b<=4. Accessible prior claims and indexed tables do not cover the complete three-way split. Nonindexed priority remains a risk, not proof of uniqueness.",
+    "residual_risks": [
+      "Unindexed historical coefficient tables for the six degree-five cyclic Hamming codes may exist.",
+      "The 2016 cyclic-code manuscript was not fully accessible in the checked repository; its full examples were not certified absent.",
+      "Generic algorithms for symbol-read enumerators can reproduce these values without asserting a preexisting length-31 classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces pair-read metric, coding and decoding bounds, not a classifying coefficient table.",
+        "evidence": [
+          "IEEE Xplore conference date added July 23, 2010",
+          "doi:10.1109/ISIT.2010.5513753"
+        ],
+        "identifier_or_url": "https://ieeexplore.ieee.org/document/5513753/",
+        "material_read": "2010 conference public date/abstract and 2011 expanded article introduction and section list.",
+        "method": "Publisher metadata and accessible HTML introduction, not inaccessible publisher PDF.",
+        "title": "Codes for Symbol-Pair Read Channels",
+        "trigger": "Oldest verified public foundation for pair-read metrics; establishes archive cohort."
+      },
+      {
+        "assessment": "Closest conceptual source on cyclic Hamming and pair-distance relationships; residual risk of uninspected detailed examples remains.",
+        "evidence": [
+          "doi:10.1109/TIT.2016.2522434",
+          "2016 publication abstract reports distance lower bounds and decoding algorithms rather than complete frequency distributions"
+        ],
+        "identifier_or_url": "https://authors.library.caltech.edu/records/g86g2-92h26",
+        "material_read": "Public metadata, abstract, version information; full article not accessible from this record.",
+        "method": "Repository metadata/abstract review, not a whole-document negative assertion.",
+        "title": "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+        "trigger": "Direct early generalization to longer cyclic windows and cyclic codes."
+      },
+      {
+        "assessment": "Computes spectra for MDS and simplex codes; the dual Hamming code is not enumerated.",
+        "evidence": [
+          "arxiv:1911.02184v1",
+          "Section 4 Theorem 2 all nonzero simplex codewords constant b-weight"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.02184",
+        "material_read": "Full accessible HTML document: abstract, introduction, Sections 3–5 including Section 4 Theorems 2–3 and Examples 3–4.",
+        "method": "Full-text mathematical statement and object comparison.",
+        "title": "Symbol-pair Weight Distributions of Some Linear Codes",
+        "trigger": "Exact same enumerator statistic and simplex/Hamming duality."
+      },
+      {
+        "assessment": "Computes generalized weight matrices for lexicographically ordered length 7 and 15 Hamming codes, not length 31 individual-codeword read enumerators.",
+        "evidence": [
+          "arxiv:2103.16299v1",
+          "Section 7 lines 646–710"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.16299",
+        "material_read": "Full accessible HTML introduction, definitions, and Section 7 with Hamming Examples 7.3–7.4 and accompanying mathematical claims.",
+        "method": "Full-text comparison of code ordering, dimension and quantified invariant.",
+        "title": "Generalized b-symbol weights of Linear Codes and b-symbol MDS Codes",
+        "trigger": "Exact code family name Hamming in closely related statistic."
+      },
+      {
+        "assessment": "General bounds and special-case enumerators do not cover degree-five-generator dimension-26 Hamming codes at b=2–4.",
+        "evidence": [
+          "doi:10.1109/TIT.2021.3069772",
+          "Section IV Corollaries 2–3 and Section V Theorem V.2"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/350508739_Geometric_Approach_tob-Symbol_Hamming_Weights_of_Cyclic_Codes",
+        "material_read": "Accessible full-text HTML manuscript transcription: introduction, exact-enumerator specialization in Section IV, Section V general stability theorem and hypotheses.",
+        "method": "Direct statement/hypothesis comparison to code dimension and nonzero cyclotomic support.",
+        "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+        "trigger": "Most plausible arbitrary cyclic-code result dominating the claim."
+      },
+      {
+        "assessment": "Concerns codes with an irreducible check polynomial, unlike these Hamming codes with irreducible generator and reducible check polynomial.",
+        "evidence": [
+          "doi:10.1007/s10623-023-01193-w",
+          "Title and theorem scope: semiprimitive irreducible cyclic codes"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01193-w",
+        "material_read": "Open-access HTML abstract, introduction and code-family assumptions.",
+        "method": "Code-family hypothesis comparison.",
+        "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+        "trigger": "Later general complete enumerator result for cyclic codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e58c07d4-ec67-403b-a14d-116d9ddc599e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Among binary primitive cyclic Hamming realizations, degree five is the first field degree with three distinct reciprocal primitive-polynomial pairs; the natural full family is classified, not an arbitrary subfamily. These codes have identical ordinary Hamming spectra yet three different complete overlapping-read spectra, providing exact multiplicity data needed for distinguishing cyclic implementations where minimum distance alone loses information.",
+    "status": "PASS"
+  }
+}
