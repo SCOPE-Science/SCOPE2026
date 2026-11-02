@@ -1,15 +1,21 @@
-# Scientific assessment: logarithmic edge concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary position is the unique exponentially weighted convolution of the two-sided equilibrium alternating-renewal sign process. The switching-time map is contractive. At positive-run entrance the right-edge gap \(D\) satisfies \(D\ge2(1-e^{-U})\), where \(U\) is the preceding negative-run duration; the assumed small-time probability bound gives an exponentially light negative-log tail for \(D\). Stationary age-residual renewal measure \(\overline F(a)da/(2m)\) then gives an **exact** two-sign finite-threshold formula. Integrating the power-law survival and controlling the random logarithmic entrance shift proves the one-sided coefficient; the opposite-moving contribution is \(O(\varepsilon)\). Reflection and a tail-integral criterion prove the two-edge and divergent reciprocal-moment statements. The proof verifies all domain and normalization assumptions rather than extrapolating a finite experiment. The standalone verification code passed 24 comparisons over four Lomax exponents and the half-\(t\) case.
+## correctness
 
-## Originality — PASS (qualified by identifiable residual risk)
-The closest source, Farago and Smith, arXiv:2401.01576, already models **non-Markovian** one-dimensional run-and-tumble particles under a trapping force and obtains general implicit integral equations; that prior contribution is explicitly acknowledged. Its inspected results concern an efficient numerical distribution solver, including half-\(t\) residence times under a sine-shaped force, and note a vanishing effective switching rate near an edge. The inspected text does not derive the explicit logarithmic **integrated stationary edge probability** coefficient for a harmonic force, the exact entrance-age identity, or reciprocal-distance moment divergence. Guéneau–Majumdar–Schehr (arXiv:2306.09453 Appendix B; arXiv:2602.08436) treat exponential residence durations, which generate different asymptotic scaling. Datta–Beta–Großmann, arXiv:2406.15277, provide the general renewal-motility framework without a stationary harmonic trap. Xu et al., arXiv:2004.09775, study inertial harmonic flights instead. Own recoverable scientific-claim history and semantic mathematical research records were checked for equivalent statements and stronger coverage without a matched implication. Unlocated equivalent earlier analysis and consequences hidden in more general integral equations remain possible; the search itself is not a proof of publication priority.
+PASS
 
-## Mathematical value — PASS
-Near-edge accumulation is a natural and physically observable feature of trapped active particles; Farago and Smith explicitly investigate the fat-tailed case where their edge large-deviation interpretation is unclear. This theorem supplies a nontrivial closed asymptotic **with exact constant for an entire regularly varying family**, a parameter-independent canonical Lomax prefactor, and the sharp consequence of divergence of all reciprocal boundary-distance moments. It contrasts qualitatively with the standard Markovian algebraic edge exponent, and uses the equilibrium inspection-age bias jointly with harmonic contraction; it is not a routine restatement of the previously known stationary equations. No general force, infinite-mean process, or temporal-convergence claim is asserted.
+Reconstructed stationary sign process from a two-sided equilibrium alternating renewal law, the unique stationary harmonic convolution Y_t=integral_{-infinity}^t e^{-(t-u)}sigma_u du, and entrance gap D=2-(Z+1)e^{-U}>=2(1-e^{-U}). The near-zero run law bounds Pr(D<delta)=O(delta^eta), establishing exponentially thin log-gap tails. The positive-age measure at a stationary observation is ar F(a) da/(2m), leading to the exact H([log(D/eps)]_+) term. The negative sign contributes J([log(D/(2-eps))]_+) and is O(eps). Karamata/integration of regularly varying survival yields H(L)~c L^{1-beta}/(beta-1). Split D>=e^{-L/2} versus its exponentially rare complement, apply dominated convergence to the long-tail ratio, then reflection symmetry and tail integration yield both edge coefficients and divergent all positive reciprocal-gap moments. Checked that m=1/(beta-1),c=1 gives 1/2 for Lomax, and half-t density has m=1,c=1/2,beta=2 giving 1/4. The exact identity depends on the distribution of the stationary positive-run entrance gap and makes no finite-time claim.
 
-## Limits and nearest comparisons
-There is no claim of a new process definition or of novelty of the standard renewal-age formula in isolation. The precise combination of its length bias with the contracting edge dynamics produces the new spatial asymptotic. The status pertains to the stated first-order, iid alternating-renewal model; full independent scholarly priority review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farago and Smith (2024) provide the established more general non-Markovian trapped RTP and stationary integral equations; those are credited. Their inspected half-t numerics use nonlinear sine force and do not give this sharp harmonic integrated edge coefficient. Guéneau-Majumdar-Schehr (2023) focuses on periodic/Poisson resetting, and other standard harmonic RTP works use exponential runs, which do not imply the regularly varying log-edge law. A hidden general consequence of earlier integral equations is a residual novelty risk.
+
+## value
+
+PASS
+
+A natural stationary boundary observable of non-Markovian active particles has a qualitatively different inverse-logarithmic singularity from Poisson run-time algebraic edge scaling. The closed leading constant over the entire regularly varying family, exact renewal identity and resulting blow-up of all inverse-gap moments answer a motivated model-specific asymptotic question left implicit by the general numerical integral equations, rather than merely rename a renewal identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
