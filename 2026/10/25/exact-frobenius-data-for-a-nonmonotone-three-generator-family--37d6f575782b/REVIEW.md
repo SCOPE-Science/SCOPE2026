@@ -1,19 +1,21 @@
-# Review of exact Frobenius data for a nonmonotone three-generator family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The semigroup's Apéry set is derived by reducing the last two generators to a two-denomination weighted-change problem with denominations \(1\) and \(B=h^2-h+1\). The strict increase of weighted cost under every residue wrap is uniform when \(a\ge(h-1)B\), and thus no smaller representative is missed. The block decomposition gives the Frobenius and genus identities. Generator-step domination and the strict Apéry inequalities for the two terminal candidates establish the complete pseudo-Frobenius set and symmetry criterion. Independent shortest-path and gap computations passed all 2,407 tested parameter triples. Finite testing is only corroborative; the proof covers the stated infinite domain.
+PASS
 
-## Originality — PASS within accessible evidence
+For h>=3,d>=1,gcd(a,d)=1, B=h²-h+1, T=(h-1)², a=qB+s with q>=h−1, every element has residue indexed M=v+Bu and minimal cost W(M)=h² floor(M/B)+h(M mod B). Replacing M by M+a increases W because W(M+a)-W(M)=h(a-T*K), K<=q+1, and a−T(q+1)>=q*h+s−T>0 in stated range. Thus Apéry_{dr mod a}=aW(r)+dr, r=0..a−1. Summing complete B-blocks gives the stated genus; max Apéry lies at full-block terminal qB−1 or residual terminal a−1, giving R,U, U−R=ds−ah(T−s). The two terminal elements are maximal and incomparable in semigroup preorder by explicit residue-minimum inequalities; the PF set is {R}, s=0, or {R,U}, s>0, giving type and symmetry. Equality U=R is excluded since gcd(a,d)=1, s in (0,B), and a> s. Independent priority-queue residue shortest paths for 215 actual h,a,d parameter triples recomputed all Apéry values, genus and pseudo-Frobenius sets without using greedy construction; finite checks support the unlimited proof.
 
-Liu, Xin, Ye, and Yin's arXiv:2306.03459v1 (2023-06-06) introduces the motivating semigroup sequence; its revised arXiv:2306.03459v4 discusses the difficult \(h\ge3\) extension. The revised paper's general closed-form theorem assumes simultaneously \(H_i=ub_i+1\), incompatible with the present second nonmultiplicity coefficient \(h^2\) when \(h\ge3\). Relevant published mathematical-record searches and general Apéry literature did not identify the same complete triple-family theorem or a stronger applicable theorem. The full text of Pascadi's broadly related algorithm paper could not be retrieved in this check; no unsupported negative claim is made from its abstract. Earlier unindexed treatments or broad algorithmic corollaries remain publication-priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem is a motivated slice of the explicitly proposed hard nonmonotone family: the smallest nontrivial three-generator instance with arbitrary positive coprime offsets and a uniform infinite multiplicity region. The result gives an entire Apéry set, genus, both possible pseudo-Frobenius numbers, symmetry/type dichotomy, and an offset-controlled Frobenius phase transition. These are natural intrinsic numerical-semigroup invariants, not a finite-table recalculation or formal variable substitution.
+Qualified PASS: Liu–Xin–Ye–Yin first identify this nonmonotone family as an open-ended target in arXiv:2306.03459; their later general GCNS theorem requires a fixed common coefficient u and cannot yield the three displayed generators for h>=3. We independently compared the coefficient equation, not merely title/parameters. The full explicit Apéry, PF, genus and sharp symmetry criterion is not in inspected theorem statements. General graph/Apéry algorithms compute instances but do not trivially imply this closed uniform classification.
 
-## Scope and limitations
+## value
 
-The bound on the multiplicity is sufficient rather than proved optimal. Larger generator sets, smaller multiplicities, negative offsets, and independent external validation remain outside the established claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete natural numerical semigroup classification with an explicit Apéry set, symmetry/type transition at B|a, d-dependent competing pseudo-Frobenius extrema, genus, and F for a substantial infinite three-generator family singled out in prior literature as nonmonotone. Unlike a routine two-generator formula, a nontrivial no-wrap lemma is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

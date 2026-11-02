@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For h>=3,d>=1,gcd(a,d)=1, B=h²-h+1, T=(h-1)², a=qB+s with q>=h−1, every element has residue indexed M=v+Bu and minimal cost W(M)=h² floor(M/B)+h(M mod B). Replacing M by M+a increases W because W(M+a)-W(M)=h(a-T*K), K<=q+1, and a−T(q+1)>=q*h+s−T>0 in stated range. Thus Apéry_{dr mod a}=aW(r)+dr, r=0..a−1. Summing complete B-blocks gives the stated genus; max Apéry lies at full-block terminal qB−1 or residual terminal a−1, giving R,U, U−R=ds−ah(T−s). The two terminal elements are maximal and incomparable in semigroup preorder by explicit residue-minimum inequalities; the PF set is {R}, s=0, or {R,U}, s>0, giving type and symmetry. Equality U=R is excluded since gcd(a,d)=1, s in (0,B), and a> s. Independent priority-queue residue shortest paths for 215 actual h,a,d parameter triples recomputed all Apéry values, genus and pseudo-Frobenius sets without using greedy construction; finite checks support the unlimited proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The revised Liu–Xin–Ye–Yin GCNS theorem has common-u coefficient requirements inconsistent with the target pair (h,h²). A general symbolic algorithm may compute particular a,d, but no checked theorem gives the uniform q,s formulas."
+        ],
+        "reasoning": "The revised Liu–Xin–Ye–Yin GCNS theorem has common-u coefficient requirements inconsistent with the target pair (h,h²). A general symbolic algorithm may compute particular a,d, but no checked theorem gives the uniform q,s formulas.",
+        "searches": [
+          "Resultary: numerical semigroup triple <a, ha+d, h^2 a+(h^2-h+1)d> Apéry pseudo Frobenius type symmetry genus",
+          "\"h^2-h+1\" numerical semigroup Frobenius Apéry Liu Xin Ye Yin",
+          "arxiv:2306.03459v4 GCNS Theorem 2.10 nonmonotone h^i-h+1",
+          "arxiv:1712.02522 numerical semigroup graphical Frobenius Apéry"
+        ]
+      },
+      "checked_sources": [
+        "Liu, Xin, Ye, Yin arXiv:2306.03459v4, https://arxiv.org/html/2306.03459v4 (full mathematical theorem/discussion read)",
+        "Liu et al. arXiv:2306.03459v1 (original family context)",
+        "Pascadi arXiv:1712.02522 (abstract only)",
+        "Actual source RESULT.md blob 7951ce19b353cc63e29429be2af36ae8e954dbd8; verify.py blob c26172abd099f92b3fcd2c327af304f2d9edcce9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Revised arXiv Theorems 2.10–2.13 cannot be specialized to the target coefficients for h>=3; its mention of the unresolved larger family does not constitute a proof. Standard Apéry identities alone yield implicit algorithms, not these explicit closed forms."
+        ],
+        "reasoning": "Revised arXiv Theorems 2.10–2.13 cannot be specialized to the target coefficients for h>=3; its mention of the unresolved larger family does not constitute a proof. Standard Apéry identities alone yield implicit algorithms, not these explicit closed forms.",
+        "searches": [
+          "Resultary: numerical semigroup triple <a, ha+d, h^2 a+(h^2-h+1)d> Apéry pseudo Frobenius type symmetry genus",
+          "\"h^2-h+1\" numerical semigroup Frobenius Apéry Liu Xin Ye Yin",
+          "arxiv:2306.03459v4 GCNS Theorem 2.10 nonmonotone h^i-h+1",
+          "arxiv:1712.02522 numerical semigroup graphical Frobenius Apéry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The explicit Apéry representatives indexed by dr mod a determine F and genus and characterize PF by maximal Apéry elements; searched equivalent 3-generated semigroup type, symmetry, and Apéry statements, not only Frobenius-number wording."
+        ],
+        "reasoning": "The explicit Apéry representatives indexed by dr mod a determine F and genus and characterize PF by maximal Apéry elements; searched equivalent 3-generated semigroup type, symmetry, and Apéry statements, not only Frobenius-number wording.",
+        "searches": [
+          "Resultary: numerical semigroup triple <a, ha+d, h^2 a+(h^2-h+1)d> Apéry pseudo Frobenius type symmetry genus",
+          "\"h^2-h+1\" numerical semigroup Frobenius Apéry Liu Xin Ye Yin",
+          "arxiv:2306.03459v4 GCNS Theorem 2.10 nonmonotone h^i-h+1",
+          "arxiv:1712.02522 numerical semigroup graphical Frobenius Apéry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior table yielding all residue representatives, pseudo-Frobenius candidates and parameter phase transition is identified. Finite sample tables cannot cover the full infinite h,a,d range."
+        ],
+        "reasoning": "No exact prior table yielding all residue representatives, pseudo-Frobenius candidates and parameter phase transition is identified. Finite sample tables cannot cover the full infinite h,a,d range.",
+        "searches": [
+          "Resultary: numerical semigroup triple <a, ha+d, h^2 a+(h^2-h+1)d> Apéry pseudo Frobenius type symmetry genus",
+          "\"h^2-h+1\" numerical semigroup Frobenius Apéry Liu Xin Ye Yin",
+          "arxiv:2306.03459v4 GCNS Theorem 2.10 nonmonotone h^i-h+1",
+          "arxiv:1712.02522 numerical semigroup graphical Frobenius Apéry"
+        ]
+      },
+      "rationale": "Qualified PASS: Liu–Xin–Ye–Yin first identify this nonmonotone family as an open-ended target in arXiv:2306.03459; their later general GCNS theorem requires a fixed common coefficient u and cannot yield the three displayed generators for h>=3. We independently compared the coefficient equation, not merely title/parameters. The full explicit Apéry, PF, genus and sharp symmetry criterion is not in inspected theorem statements. General graph/Apéry algorithms compute instances but do not trivially imply this closed uniform classification.",
+      "residual_risks": [
+        "Full text of the graphical Apéry general method not read; it may contain a specialization yielding the result.",
+        "Unindexed 3-generated numerical semigroup classifications could be mathematically equivalent under a change of parameters.",
+        "Threshold a>=(h−1)B is only sufficient; smaller multiplicities not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces family but does not cover present closed triple result",
+          "evidence": "Matching coefficient on first generator forces u=h−1, making second coefficient disagree by h(h−1)(h−2), nonzero for h>=3. Source discusses nonmonotone family as challenge.",
+          "identifier_or_url": "https://arxiv.org/html/2306.03459v4",
+          "material_read": "Complete accessible theorem hypotheses and concluding nonmonotone-family discussion, with algebraic comparison of generator coefficients",
+          "method": "Read open full HTML and checked common-u constraint h_i=u*b_i+1 against h,h²",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Exact same nonmonotone offset family and plausible broader GCNS formula"
+        },
+        {
+          "assessment": "No verified complete Apéry/PF formula in inspected portions; residual risk for uninspected sections",
+          "evidence": "Earlier family is motivator, while later theorem explicitly addresses only restricted coefficient structures.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03459v1",
+          "material_read": "Original version abstract/concluding motivating statements accessible; not fully re-read in current execution",
+          "method": "Compare stated family motivation and theorem scope",
+          "title": "A Generalization of Mersenne and Thabit Numerical Semigroups",
+          "trigger": "Earliest paper in same line"
+        },
+        {
+          "assessment": "Unresolved priority risk, not an automatic failure of originality",
+          "evidence": "General algorithmic framework could determine instances but a specific all-parameter closed form has not been shown.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.02522",
+          "material_read": "Abstract only; full primary text not obtained",
+          "method": "Compared abstract scope and recorded access limit, without a negative whole-document claim",
+          "title": "A Graphical Approach to Finding the Frobenius Number, Genus and Hilbert Series of a Numerical Semigroup",
+          "trigger": "Plausible generic algorithm could subsume closed formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete natural numerical semigroup classification with an explicit Apéry set, symmetry/type transition at B|a, d-dependent competing pseudo-Frobenius extrema, genus, and F for a substantial infinite three-generator family singled out in prior literature as nonmonotone. Unlike a routine two-generator formula, a nontrivial no-wrap lemma is needed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Liu, Xin, Ye, Yin arXiv:2306.03459v4, https://arxiv.org/html/2306.03459v4 (full mathematical theorem/discussion read)",
+    "Liu et al. arXiv:2306.03459v1 (original family context)",
+    "Pascadi arXiv:1712.02522 (abstract only)",
+    "Actual source RESULT.md blob 7951ce19b353cc63e29429be2af36ae8e954dbd8; verify.py blob c26172abd099f92b3fcd2c327af304f2d9edcce9"
+  ],
+  "disposition": "passed",
+  "limitations": "Only h>=3, d positive gcd(a,d)=1, a>=(h−1)B, 3 generators; no claims for higher generators or sharpness of threshold.",
+  "residual_risks": [
+    "Full text of the graphical Apéry general method not read; it may contain a specialization yielding the result.",
+    "Unindexed 3-generated numerical semigroup classifications could be mathematically equivalent under a change of parameters.",
+    "Threshold a>=(h−1)B is only sufficient; smaller multiplicities not claimed."
+  ],
+  "schema_version": 1
+}
