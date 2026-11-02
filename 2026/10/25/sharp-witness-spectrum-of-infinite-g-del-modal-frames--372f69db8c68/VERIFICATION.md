@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem's infinitary assertions are established by explicit extremum constructions in `RESULT.md`; finite experiments alone cannot prove them. The proof separately checks both directions for arbitrary inputs to the Gödel box and diamond, finite-range inputs, the continuity of the positive-degree cutoff, and all endpoint cases including zero weights and \(\delta=1\).
+## correctness
 
-Replay the exact rational arithmetic checker from its containing directory with `python3 checker.py`. It exhausts all length-one through length-three rows and valuations over a four-degree rational palette, then verifies closed-form finite-prefix identities for three infinite counterexample families at lengths \(4,8,16,32\). It printed:
+PASS
 
-`EXACT_PREFIX_CHECKS_OK: enumerations n<=3; illustrative prefixes 4,8,16,32`
+For box, zero-valued input on any positive r yields an attained zero; otherwise r<=delta contributes residual 1, leaving finite potential subunit terms. If infinitely many r>delta, f(v_k)=delta+min((r_k-delta)/2,1/(k+1)) gives a nonattained infimum delta. For diamond, positive supremum s is forced by finitely many r>=s/2 unless an infinite positive superlevel permits f_k=epsilon k/(k+1). Finite palette and each interval endpoint have independent explicit arguments; the whole-world zero-r convention is stated. Fresh rational prefix tests corroborate the limiting examples through length 64.
 
-The checker does not certify an infinite theorem or determine bibliographic priority. Modal validity, proof-search complexity, and any nested finite-palette closure are outside the claim. No independent audit has been performed.
+## originality
+
+PASS
+
+Recent Gödel modal papers explicitly define witnessed extremum semantics and prove calculi/FMP, but the inspected primary theorem statements do not identify universal-over-valuations fixed-frame finite-superlevel and cutoff-spectrum equivalences. A fuzzy-relations rephrasing may exist, so acceptance is qualified.
+
+## value
+
+PASS
+
+Witnessed versus unwitnessed evaluation is a central semantic phenomenon; this full rowwise classification separates box and diamond and realizes all cutoff intervals on countable frames, a natural structural finding not an arbitrary finite check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
