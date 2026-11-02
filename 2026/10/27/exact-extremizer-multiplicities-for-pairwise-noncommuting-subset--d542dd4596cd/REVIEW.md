@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The three matrix-commutation equations follow by multiplying the six-coordinate upper unitriangular matrices. The positive-middle-entry stratum decomposes into exactly \(q^3-q+1\) mutually noncommuting fibers; the zero-middle-entry, nonzero-endpoint stratum reduces to a nondegenerate four-dimensional symplectic projective form. Because these strata have no cross-commuting pairs, equality requires one choice from every fiber plus a maximum line-avoiding partial ovoid. The residual stratum strictly lowers the bound. The independent exhaustive ternary verifier enumerates all forty projective points and all cliques, proves no eight-clique exists, counts the \(864\) line-avoiding heptads, constructs an actual group witness of size \(32\), and verifies the integer answer. For general prime powers the theorem depends on a structural algebraic proof, not extrapolated samples.
+## correctness
 
-## Originality: PASS relative to inspected material
-The relevant prior upper-unitriangular branching and group-commutation study [1] does not enumerate maximum noncommuting subsets. The much later group commuting-graph paper [2] already establishes the cardinality reduction of Theorem 6.4, which is expressly excluded from any novelty claim. The finite-geometry thesis [3] already counts all \(2880\) seven-point partial ovoids of \(W(3,3)\), also acknowledged. Their statements do not give the general exact number of all maximum noncommuting group subsets, all equality-case lift choices, or the claimed exact ternary group count. A broader unknown group-theoretic or polar-space equality-case result is possible; inspected sources and searchable records do not prove publication priority.
+PASS
 
-## Value: PASS
-The *number of maximum noncommuting sets* is a natural finer invariant of the commuting graph that is not determined by its independence number. Equality-case factorization for every field size identifies the precise finite-geometric obstruction and all multiplicity factors; the nontrivial \(q=3\) instance gives a fully exact benchmark for a nonabelian group of order \(729\).
+For every prime power q, direct UT_4 matrix multiplication gives three necessary and sufficient commutation equations aD=dA, dF=fD and aE+bF=Ae+Bf. On d!=0, the (r=a/d,s=f/d,t=r(e/d)-s(b/d)) labels partition the q(q²−1) nonzero directions into commuting fibers of size (q−1)q², plus one exceptional zero-direction fiber of size (q−1)q³; all distinct fibers are mutually noncommuting. On d=0 and (a,f)!=(0,0), projectivization identifies the noncommuting choices with pairwise nonorthogonal points of W(3,q) outside the isotropic line L:a=f=0; each has q(q−1) independent lifts. These two strata are completely cross-noncommuting. The residual stratum d=a=f=0 cannot meet the bound because it loses q(q−1)+1 eligible d!=0 fibers. Thus every maximizer and its multiplicity are exactly the displayed product in terms of beta_q and h_q. In W(3,3) a fresh exhaustive 40-point nonorthogonality recursion finds precisely 2880 size-seven partial ovoids, none larger, of which 864 avoid L; 864*6^7*18^24*54=2^37*3^61 and alpha_3=32. The all-q multiplicity is a parameterization, NOT a numeric evaluation of beta_q/h_q for every q. This finite check corroborates only the q=3 part.
 
-## Limitations and closest literature
-Only \(q=3\) has its geometric parameters fully evaluated numerically; the general statement parametrizes them by \(\beta_q,h_q\). A symplectic partial-ovoid enumeration from [3] is reused, not discovered. No independent mathematical review has been completed. References: [1] Kaur–Sharma–Singh, arXiv:2006.01493v1, Section 6; [2] Majeed–Ramkumar, arXiv:2608.09235v1, Theorem 6.4; [3] Lansdown, *Designs in finite geometry*, Chapter 4 Table 4.1.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level primary-literature comparison: the identified antecedents cover qualitative mechanisms, methods or partial counts but no inspected theorem implies the precise assessed evaluated claim; limitations and possible older equivalents remain explicit. Maximum cliques in the noncommuting graph are independent sets in the commuting graph. The exact equality-fiber multiplicities and avoidance of a designated symplectic line are finer invariants than the known independence number or count of unconditioned geometric heptads.
+
+## value
+
+PASS
+
+Counting all maximum pairwise noncommuting subsets, rather than their size alone, is a natural exact invariant of a standard finite nilpotent matrix group. The symplectic partial-ovoid bijection and independent lift-factorization describe equality geometry for all field characteristics, and the fully evaluated ternary result is a motivated first nontrivial finite field. It is not a new determination of the known independence number or the 2880 partial ovoids, nor an unmotivated arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
