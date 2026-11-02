@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Phi(n)=sum_{d|n}mu(d)*2^(n/d) counts nonempty subsets A of [n] with gcd(n,gcd(A))=1, equivalently primitive binary words of length n for n>=2. For odd n>=3, uniquely smallest exponent n/rad(n) occurs with coefficient +/-1 in Mobius sum, so nu_2(Phi(n))=n/rad(n), odd, excluding squares. For n=2m, excluded strings are bounded by 2^m + r*2^(2m/3), r number of odd distinct primes dividing m. For m>=3, r<=m/3<=2^(m/3)-1, giving 2^(2m)-Phi(2m)<2^(m+1)-1 and hence consecutive-square bounds (2^m-1)^2<Phi(2m)<(2^m)^2; m=1,2 treated directly. These two arguments cover all n>=2, exclude every even-exponent perfect power. Independent direct gcd-subset enumeration n=2..16 and Mobius exact tests n=2..300 confirmed both alternatives. Source RESULT.md blob 3b78bc8c0d11f5594a36614d358a48b0946644c3 and verify.py blob c883b60918ea8b7cb638381cef084d0ab2d696b3 inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier all-index non-square theorem concerns f(n), counting subsets with gcd(A)=1, not Phi(n) with gcd(n,gcd(A))=1.",
+          "The displayed Mobius identity provides Phi(n) all-n, and the new valuation/gap proof rules out squares."
+        ],
+        "reasoning": "The broader-looking prior square-exclusion theorem applies to a genuinely different function, so it cannot imply the present statement by a change of notation.",
+        "searches": [
+          "phi(n) relatively prime subsets aperiodic binary necklaces primitive binary strings counts never perfect square all n",
+          "Pongsriiam 2013 Question 3.4",
+          "Ayad-Kihel 2008 JIS 08.5.5"
+        ]
+      },
+      "checked_sources": [
+        "Tang JIS 13 (2010), Article 10.7.6",
+        "Pongsriiam arXiv:1306.4891 and JIS 16 (2013) Article 13.9.1",
+        "Ayad-Kihel JIS 11 (2008) Article 08.5.5",
+        "OEIS A038199; A027375"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang proves the statement for indices with one or two prime factors, whereas n with arbitrary prime-support remain unaddressed.",
+          "Pongsriiam explicitly poses the perfect-power problem for Phi(n)."
+        ],
+        "reasoning": "The existing one/two-prime cases and a theorem for f(n) do not entail the proposed universal assertion; the proof handles arbitrary odd radical multiplicity and all even inputs.",
+        "searches": [
+          "Tang 2010 Remark 6",
+          "Pongsriiam 2013 Question 3.4",
+          "Ayad-Kihel 2008"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Phi(n) is also count of primitive binary words via Möbius inversion.",
+          "Tang uses congruences mod 4 and 3 for n=p,pq; different from all-n even/odd proof."
+        ],
+        "reasoning": "The primitive-word renaming is exact equivalence, not a new result; all-n nonsquareness is the distinctive statement compared to previous special cases.",
+        "searches": [
+          "phi(n) relatively prime subsets aperiodic binary necklaces primitive binary strings counts never perfect square all n",
+          "Tang 2010 JIS Article 10.7.6 Remark 6",
+          "Pongsriiam 2013 Question 3.4",
+          "phi(n) relatively prime subsets aperiodic binary necklaces primitive binary strings counts never perfect square all n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sequence values/aperiodic-word interpretation are tabulated and known, but finite listings do not prove nonsquareness of every later term.",
+          "The proof gives explicit valuation odd n and between-consecutive-squares inequalities for even n."
+        ],
+        "reasoning": "A known table/sequence definition cannot substitute for the universal number-theoretic statement; database search found no all-index square-exclusion theorem.",
+        "searches": [
+          "OEIS A038199",
+          "OEIS A027375",
+          "phi(n) relatively prime subsets aperiodic binary necklaces primitive binary strings counts never perfect square all n"
+        ]
+      },
+      "rationale": "Tang 2010 Remark 6 proves nonsquare/noncube for Phi(p) and Phi(pq), not all indices. Pongsriiam 2013 Question 3.4 explicitly asks if Phi(n) or D(n) can be perfect powers, contrasting Ayad-Kihel square exclusion for the different f(n). The displayed valuation+consecutive-square arguments extend square exclusion uniformly. OEIS A038199/A027375 list the sequence or primitive-word interpretation but do not by themselves resolve perfect powers. No stronger direct published theorem was identified in the inspected material.",
+      "residual_risks": [
+        "Undiscovered later solution of Pongsriiam Question 3.4 or primitive-word reformulation may establish the same statement; no absolute priority claim.",
+        "Odd-exponent perfect powers, other subset-counting functions D(n), and Phi(1)=1 are excluded from the assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit square/cube exclusion only for Phi(p), Phi(pq); no all-n nonsquare theorem",
+          "evidence": "Remark 6: Phi(p) and Phi(pq) congruent 2 mod 4 and 0 mod 3",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Tang/tang2.pdf",
+          "material_read": "All five pages, including Remark 6 on page 3 of PDF (page labeled 2), and Möbius identities",
+          "method": "full text and PDF screenshot",
+          "title": "Relatively Prime Sets and a Phi Function for Subsets of {1,2,...,n}",
+          "trigger": "Same Phi(n) and previous square/cube exclusion cases"
+        },
+        {
+          "assessment": "Question 3.4 asks perfect-power existence for Phi(n), while existing f(n) nonsquare result is for different quantity",
+          "evidence": "Section 4, Question 3.4 distinguishes Phi(n), D(n), f(n)",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.4891",
+          "material_read": "Full 13-page preprint including Section 4 Question 3.4 (PDF page index 11), formulas and limits",
+          "method": "full-text reading and PDF screenshot",
+          "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+          "trigger": "The published original perfect-power question concerning same Phi(n)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes the even-perfect-power branch of a published question for a natural arithmetic/combinatorial counting function; the two uniform alternatives are structural valuation and Diophantine gap theorems, not a finite-table observation. Odd powers (e.g. cubes), and D(n), remain open under this claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tang JIS 13 (2010), Article 10.7.6",
+    "Pongsriiam arXiv:1306.4891 and JIS 16 (2013) Article 13.9.1",
+    "Ayad-Kihel JIS 11 (2008) Article 08.5.5",
+    "OEIS A038199; A027375"
+  ],
+  "disposition": "passed",
+  "limitations": "Phi(1)=1 is an excluded trivial square; odd-exponent perfect powers and D(n) are not addressed.",
+  "residual_risks": [
+    "Undiscovered later solution of Pongsriiam Question 3.4 or primitive-word reformulation may establish the same statement; no absolute priority claim.",
+    "Odd-exponent perfect powers, other subset-counting functions D(n), and Phi(1)=1 are excluded from the assertion."
+  ],
+  "schema_version": 1
+}
