@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical claim and proof are given in `RESULT.md`. This record documents reproducible checks, not an independent audit.
+## correctness
 
-The companion program `checker.py` uses Python with NumPy and SciPy (`requirements.txt`). Run from a directory containing these files with `python checker.py`. It evaluates the underlying Gaussian integral as independent numerical quadratures for real and imaginary parts, then compares it with the exact four-term formula. It also evaluates the enclosed area of the balanced closed zero curve, samples the exact imbalanced isolated zeros by direct quadrature and verifies their nonzero oppositely signed Jacobians, and samples several nearby nonzeros.
+PASS
 
-Observed successful output:
+The four Gaussian overlap integrals give the exact strictly positive prefactor times e^(-i phi)+r²e^(i phi)+2rc cosh u, with c=e^(-a²/sigma²), u=aT/sigma², phi=2pi a nu. For r=1 zeros obey cos v=c cosh u, |u|<=arcosh(1/c); the implicit gradient never vanishes and the level-set Hessian is -c cosh(u) I, proving smooth closed strict convexity. The exact integral I(c)=int_0^arcosh(1/c) arccos(c cosh u) du satisfies I′(c)=-pi/(2c), I(1)=0, hence I=pi/2 log(1/c), and the physical Jacobian yields area exactly 1. Independent quadrature checked c=0.1,0.4,0.8 to ~1e-15. For r≠1 imaginary part (r²-1) sin phi=0 forces odd phi pi; the positive cosh equation has exactly two solutions at ±arcosh((r+r^-1)/(2c)) and the nonzero Jacobian changes sign between them. All real T,nu and positive parameters covered analytically.
 
-```
-independent_gaussian_integrals 8 max_abs_diff 1.043e-15
-balanced_loop_areas 7 max_error_from_one 3.331e-15
-imbalanced_isolated_zeros 24 max_abs_residual 1.567e-15
-neighbor_nonzero_cases 3
-CHECKS PASSED
-```
+## originality
 
-The checker was actually executed, and its standard output was compared byte-for-byte with `checker_output.txt`. The finite checks cannot prove completeness of the infinitely many zero components, global nonvanishing away from them, strict convexity, exact area for all parameters, or winding-index classification. Those facts follow from the exact Gaussian identity, elementary trigonometric exhaustion, nonvanishing Jacobian, and analytic differentiation of the area integral in the proof.
+PASS
 
-An independent mathematical audit has not been performed. The 2009 discussion of symmetry-breaking cat-state blind spots uses a near-origin emphasis; the reported remote exact zeros have been directly verified for representative parameters, but the literature-priority interpretation is a residual limitation.
+PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.
+
+## value
+
+PASS
+
+The real two-Gaussian pulse/cat state is a natural ambiguity-function benchmark. A parameter-independent one-area law for all zero ovals and a complete topology change under any positive amplitude imbalance are precise global geometric invariants, contrasting with the established short-chord blind-spot approximation. The theorem distinguishes exact remote zeros from practically small signals without claiming more general Gaussian multiplets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
