@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The identity follows from an area-preserving decomposition of the regular polygon into \(2n\) equal right triangles whose fixed apex is the nearest polygon vertex. Integrating powers of the distance from this vertex in vertex-centered polar coordinates yields the exact moment formula. The derivative of \(\cos t/\sin^{p+1}t\), dominated convergence for \(0<p<1\), the endpoint integral at \(p=1\), and the local approximation \(\sin t\sim t\) for \(p>1\) establish the three limits.
+## correctness
 
-For \(p=1+\lambda/L\), \(L=\log(n/\pi)\), a direct comparison of \(\sin^{-p}t\) with \(t^{-p}\) controls the integral error uniformly for bounded \(\lambda\), proving the critical-window scaling and its continuous value at zero.
+PASS
 
-Run `python3 check_nearest_polygon.py` with Python 3; no third-party modules are required. The script checks independent geometry sampling, exact low-order reductions, and finite-order numerical approximations to the asymptotic constants and crossover. This is not a formal computer proof: the continuous and all-order parts require the analytic argument. No independent review has been performed.
+The exact nearest-vertex cell is the angular sector of a regular polygon centered on each radius; it splits into 2n congruent right triangles with vertex V as nearest site. Vertex-polar radial integration gives the stated integral with sin(a)^(p+1)/cos(a), and differentiating cos(t)/sin(t)^(p+1) proves the integration-by-parts moment identity. Beta-integral convergence for p<1, J_1(a)=log cot(a/2), and a local power singularity for p>1 yield the sharp constants. For p=1+λ/L, uniform bounded-λ control of sin(t)^(−p)−t^(−p) gives J_p=L(e^λ−1)/λ+O_B(1); multiplying by a^(p+1) cancels e^λ to give (1−e^(−λ))/(3λ), uniformly on compact λ. Twenty independently integrated formula comparisons, second-moment reduction, and five finite crossover cases corroborated the exact computation; the slower O(1/L) finite crossover convergence is not a theorem failure. Every n≥3, p>0 is included, no irregular geometry is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge, not absolute priority: For a point area-uniform in a unit-circumradius regular n-gon, the pth moment of its nearest-vertex distance has an exact Voronoi-triangle integral and excess above the limiting disc moment with regimes a^(p+1) for 0<p<1, a²log(1/a) at p=1, a² for p>1, and uniform critical-window scaling (1−e^(−λ))/(3λ) for p=1+λ/log(1/a), a=π/n. The inspected primary sources contribute prerequisite constructions or related weaker/different statements, without identifying a prior theorem that logically entails the distinctive final statement. Inaccessible/unindexed historical overlap remains an explicit risk.
+
+## value
+
+PASS
+
+The nearest-vertex power cost is a canonical geometric quantization statistic. An intrinsic singular-integral transition at the first moment p=1 separates boundary-layer dominated from quadratic corrections. Establishing all three exact rates and a uniform exponent-moving crossover provides mathematically useful asymptotic information beyond tabulating isolated polygon moments; no downstream general theorem is needed for its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
