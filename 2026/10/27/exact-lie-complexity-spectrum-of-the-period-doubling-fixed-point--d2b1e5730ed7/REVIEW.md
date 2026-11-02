@@ -1,15 +1,21 @@
-# Scientific review — period-doubling Lie complexity
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof defines the exact all-rotations invariant and derives the parity constraints \(d_{2j}=0\), \(d_{2j+1}=1-d_j\). These rule out both \(11\) and \(0000\). The factor decomposition into substituted factors and their one-place rotations is exact; it yields a bijection of fully present cyclic classes under substitution. The critical reverse implication uses the mutually exclusive parity of \(1\)-positions in even- and odd-phase factors, valid when the preimage has length at least two. The exceptional one-symbol base is checked separately. For odd lengths at least five, a cut between two \(1\)'s forces opposite parities, while the zero- and one-\(1\) cases force four consecutive zeros. The remaining bases \(1\) and \(3\) are completely enumerated. The conclusions hold for all positive lengths, not merely those computed. The independent finite checker verified lengths through 192 and all 96 tested renormalizations.
+## correctness
 
-## Originality — PASS, with residual risk
-Bell–Shallit [1] develops Lie complexity and supplies explicit examples for other automatic sequences, but does not give the period-doubling spectrum. Cassaigne–Fici–Sciortino–Zamboni [2] proves two *cyclic* classes at power-of-two lengths for period doubling; that counts classes when merely one rotation is present and does not imply the all-rotations spectrum or the complete classification. Li [3] gives general Lie-complexity theory, not this formula. De Luca–Fici [4] treats Sturmian words. Direct mathematical-record searches for Lie complexity, period doubling, substitution, conjugacy, powers of two and three found no exact prior match. The possibility of an unindexed equivalent expression or an implicit deduction in further automata/Toeplitz literature remains a genuine risk. Search absence alone is not used as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Lie complexity is a natural invariant of factor languages and their complete cyclic Rauzy structures. General automaticity/boundedness does not identify support, class multiplicity, or representatives. The theorem computes the exact infinite support (two geometric progressions), proves total absence at every other length, constructs the two classes throughout, and explains the entire law by a length-doubling bijection. This is a substantive structural classification of a canonical nonperiodic automatic word, not a finite table extension.
+For d=h^infinity(0), h(0)=01 and h(1)=00, derive d[2j]=0 and d[2j+1]=1-d[j]. These force 11 and 0000 absent. Every even-length factor has exactly an aligned h(v) or a one-position rotation thereof; parity of 1 positions distinguishes the phases when v has length >=2, proving both directions and injectivity of the conjugacy-class bijection C_m -> C_2m. Handle m=1 directly. For odd n>=5, any cyclic class with >=2 ones contains a rotation with ones at opposite parities; with <=1 one, a rotation contains four zeros. The only odd base cases are n=1,3, each with two complete classes. Hence L(n)=2 iff odd part is 1 or 3, and 0 otherwise; class representatives follow by h. Independent exhaustive prefix factor/rotation tests n=1..90 and 45 even renormalizations are corroboration, not infinite proof.
 
-## Limits and closest literature
-The result is specific to the fixed point of \(0\mapsto01\), \(1\mapsto00\), and the all-rotations Lie invariant; it does not classify all uniform morphisms. The strongest neighboring coverage is [2, Proposition 17] for a different invariant and [1, Theorem 1.4] for general automaticity; neither contains the concrete asserted spectrum. Additional unindexed or reformulated results cannot be ruled out by the finite search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on statement-and-implication comparison: Bell–Shallit proves boundedness and automaticity of Lie complexity and supplies explicit examples for other automatic words, not the period-doubling table. Cassaigne et al. show period-doubling cyclic complexity c(2^a)=2 but their invariant counts any orbit with >=1 factor; that does not imply all rotations occur, the two 3*2^a classes, or absence elsewhere. Sturmian exact Lie formulas concern a different language. A fresh Resultary semantic query returned a period-doubling three-block lift but no equivalent exact Lie spectrum. This is best-of-knowledge, not exhaustive priority proof.
+
+## value
+
+PASS
+
+The period-doubling word is a canonical nonperiodic automatic word and Lie complexity is an intrinsic language invariant. The complete two-progression support, exact orbit representatives, all other zeros and the structural doubling bijection are a natural infinite classification not supplied by general automaticity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
