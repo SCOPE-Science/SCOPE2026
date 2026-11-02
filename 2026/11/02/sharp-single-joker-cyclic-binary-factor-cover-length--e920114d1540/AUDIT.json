@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact N+k count; graph incidence impossibility at N=2^k-k (including nonempty ordinary path for k>=3); direct k=2 obstruction; explicit all-k>=4 construction by deleting 2k-1 distinct de Bruijn edges with a single duplicate, complete weak-connectivity proof, degree-balance Eulerian trail. k=1..3 separately verified. Python checker constructs and scans all cyclic windows for k=1..12 and exhaustively excludes shorter cases for k=2..4. Finite tests corroborate but are not used to prove all-k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein et al. (2018), sections on greedy method, ILP, NP-hardness and general lower bound (https://pmc.ncbi.nlm.nih.gov/articles/PMC6247992/); rendered equation images were not available.",
+        "Blanchet-Sadri et al. (2010), Theorem 4 and algorithm for binary linear one-hole words.",
+        "Fillmore et al. (2023), abstract https://arxiv.org/abs/2310.13067: one occurrence per target."
+      ],
+      "reasoning": "A general ILP can solve particular finite instances but is not an explicit all-order exact optimum. The linear theorem implies a weaker cyclic lower bound and its attaining construction does not automatically satisfy cyclic closure. The exact-once theorems exclude the extra factor that is mandatory in this model. No inspected stronger result logically forces the present exact cyclic all-k value.",
+      "searches": [
+        "Orenstein Yu Berger 2018 Joker de Bruijn exact one wildcard cyclic extremal",
+        "Joker de Bruijn Covering k-Mers Using Joker Characters 2018 single joker minimum length",
+        "universal partial words one wildcard cyclic cover at least once minimal length 2^n-n+1"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/978-3-642-13562-0_13",
+      "https://paperzz.com/doc/7670913/binary-de-bruijn-partial-words-with-one-hole",
+      "https://doi.org/10.1089/cmb.2018.0032",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6247992/",
+      "https://arxiv.org/abs/1601.06456",
+      "https://arxiv.org/abs/2310.13067"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2010 Theorem 4 https://paperzz.com/doc/7670913/binary-de-bruijn-partial-words-with-one-hole: noncyclic L=2^k-1, construction uses Euler path with distinct endpoints.",
+        "2018 Orenstein et al.: template-based at-least-once covering and ILP; source discussion asks for tighter lower and upper bounds.",
+        "The present proof explicitly rules out the graph-balanced counting equality and constructs an Euler trail in the complement of 2k-1 edges."
+      ],
+      "reasoning": "Cut immediately after the joker and append the first k-1 literal bits to obtain a one-joker linear host of length N+k-1. Therefore the 2010 lower bound yields N>=2^k-k only, falling short by one; their existence theorem for linear words does not imply cyclic existence at N=2^k-k+1. The new proof supplies both additional constraints and attainment. The 2018 template optimization with many periodically specified joker slots does not give the exact single-joker-total formula.",
+      "searches": [
+        "Orenstein Yu Berger 2018 Joker de Bruijn exact one wildcard cyclic extremal",
+        "Exact binary cyclic one-wildcard k-mer cover minimum length 2^k-k+1 one duplicated factor Euler trail",
+        "Shortest cyclic partial words with exactly one diamond covering every length-k binary word at least once",
+        "De Bruijn graph two wildcard-resolution paths overlap one edge and complement Eulerian trail",
+        "Blanchet-Sadri 2010 Theorem 4 noncyclic 2^n-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blanchet-Sadri et al. (2010), https://doi.org/10.1007/978-3-642-13562-0_13, Theorem 4 states linear optimum of 2^k-1, and its introduction explicitly unwraps cycles into noncyclic words.",
+        "Orenstein et al. (2018), https://doi.org/10.1089/cmb.2018.0032, at-least-once factor coverage with template constraints.",
+        "Chen et al., https://arxiv.org/abs/1601.06456, exact-once partial words; Fillmore et al., https://arxiv.org/abs/2310.13067, exact-once partial cycles."
+      ],
+      "reasoning": "The claimed cyclic one-joker total minimum is neither a noncyclic linear host nor a repeated joker template nor an exactly-once partial cycle. The additional graph closure obstruction is essential: merely shortening a linear optimum is not justified.",
+      "searches": [
+        "one joker exact universal cyclic covering word binary all k mers minimum length 2^k-k+1",
+        "single wildcard cyclic de Bruijn cover exact k-mer set 2^k-k+1",
+        "one diamond partial de Bruijn necklace covering not necessarily unique k factors",
+        "binary de Bruijn partial words with one hole cyclic at least once minimum length",
+        "Blanchet-Sadri Schwartz Stich Wyatt 2010 Binary De Bruijn Partial Words with One Hole"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2010 full paper contains tables of good one-hole *linear* seed words at orders 4–8, not the cyclic single-joker-total optimum.",
+        "Targeted published-result searches for the displayed formula returned unrelated substring or subsequence/attractor results."
+      ],
+      "reasoning": "Numerical values from linear or exactly-once tables do not determine this cyclic optimum. The exact value and duplication law were not found in the checked tables or searchable result statements. Absence from a database alone is not a proof of novelty.",
+      "searches": [
+        "one joker exact universal cyclic covering word binary all k mers minimum length 2^k-k+1",
+        "single wildcard cyclic de Bruijn cover exact k-mer set 2^k-k+1",
+        "one diamond partial de Bruijn necklace covering not necessarily unique k factors",
+        "binary de Bruijn partial words with one hole exact enumeration tables",
+        "https://doi.org/10.1007/978-3-642-13562-0_13"
+      ]
+    },
+    "rationale": "The 2010 one-hole exact coverage theorem is noncyclic and its lower bound gives only L>=2^k-k for a cyclic host, not the proven sharp L>=2^k-k+1. The 2018 k-mer joker coverage paper treats a periodic-template optimization and states algorithmic/ILP and generic bounds rather than this exact one-joker-total cyclic formula in material inspected. Exactly-once universal partial cycles are a different property. Targeted semantic searches for both the formula and equivalent single-wildcard cyclic covering formulations found no dominating result; a risk of an unindexed equivalent remains.",
+    "residual_risks": [
+      "An equivalent exact one-joker cyclic covering result may appear under partial-word subword-complexity or generalized de Bruijn terminology in older unindexed literature.",
+      "Some mathematical expressions from the 2018 article are rendered as images and were not inspected in the accessible indexed text; exact hidden special cases cannot be excluded by text snippets.",
+      "Semantic search is neither an exhaustive literature census nor an independence certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves linear optimum 2^k-1 for k>=4 and enumerates linear constructions; does not give the cyclic one-joker-total optimum or the cyclic closure obstruction.",
+        "evidence": [
+          "Theorem 4 and construction, lines 269–343; introduction lines 121–149 establish noncyclic convention."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-13562-0_13",
+        "material_read": "Full accessible text, including definition, lower bounds, Theorem 4 and construction algorithm; original noncyclic convention noted explicitly in introduction.",
+        "method": "Full-text HTML mirror https://paperzz.com/doc/7670913/binary-de-bruijn-partial-words-with-one-hole",
+        "title": "Binary De Bruijn Partial Words with One Hole",
+        "trigger": "Closest primary same alphabet and exactly one wildcard; apparently same factor-coverage objective."
+      },
+      {
+        "assessment": "General prescribed periodic-template optimization and theoretical bounds; an all-k single-joker-total cyclic formula is not apparent in the accessible scientific content, but formula image omissions create residual risk.",
+        "evidence": [
+          "Article sections 2–5 describe periodic template, algorithms, general lower bounds and experiments; authors explicitly cite 2010 earlier one-hole work."
+        ],
+        "identifier_or_url": "https://doi.org/10.1089/cmb.2018.0032",
+        "material_read": "Indexed primary article textual content: introduction, problem formulation, greedy/ILP methods, NP-hardness, theoretical bound, results/discussion; displayed equation graphics unavailable and direct PMC page access challenged.",
+        "method": "Primary PMC full-text indexed excerpts at https://pmc.ncbi.nlm.nih.gov/articles/PMC6247992/ and MIT bibliographic archive https://dspace.mit.edu/entities/publication/42653c67-7d21-4498-b5cd-fae16393c4ff; publisher PDF not read.",
+        "title": "Joker de Bruijn: Covering k-Mers Using Joker Characters",
+        "trigger": "Guiding-source at-least-once joker k-mer coverage and generalized optimization."
+      },
+      {
+        "assessment": "Each target occurs exactly once; no result implying this necessarily-one-duplicate cyclic covering optimum.",
+        "evidence": [
+          "Definition and abstract impose exact-once universality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1601.06456",
+        "material_read": "Abstract, definitions and accessible exact-once statements.",
+        "method": "arXiv preprint and open-access article description.",
+        "title": "On Universal Partial Words",
+        "trigger": "Potentially equivalent binary wildcard covering via partial words."
+      },
+      {
+        "assessment": "Studies exactly-once universal partial cycles rather than the weaker all-covered once-or-more optimization.",
+        "evidence": [
+          "Abstract defines upcycle as covering each word exactly once."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.13067",
+        "material_read": "Preprint abstract and overview of its exact-once construction/nonexistence results.",
+        "method": "arXiv abstract and publicly readable overview.",
+        "title": "The Existence and Structure of Universal Partial Cycles",
+        "trigger": "Modern cyclic wildcard generality could dominate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e920114d-1540-4f69-9949-f927085591d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact all-order optimum with one fixed joker for universal k-mer library coverage; the balance obstruction makes the naive ideal N=2^k-k impossible at every k, yet the deficiency is exactly one and attained constructively. Distinguishes cyclic boundary closure from known linear one-hole optima and from exact-once universal cycles. The object and precise invariant are motivated by universal factor coverage under a minimal degeneracy budget.",
+    "status": "PASS"
+  }
+}
