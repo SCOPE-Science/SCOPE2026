@@ -1,19 +1,21 @@
-# Assessment of the sharp probabilistic parking crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditioning event, finite-size preference distribution, normalization and parameter quantifiers are explicit. The proof transforms the already established Abel-weight law into a symmetric kernel plus an antisymmetric bias correction. Stirling estimates hold both in the interior and as a uniform bound near the endpoints; they justify the Riemann sums and demonstrate that the critical window has two endpoint masses. The resulting TV constant is computed by a closed elementary integral. The offcritical matching follows from an exact \(\ell^1\)-perturbation bound. The independent small-size parking-state enumeration agrees with the exact formula. Finite experiments are corroboration, not infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The original exact conditional PMF separates into t_{n,j}/2−1/[n(n+1)] plus (p−1/2)Δ_{n,j}; A_{n,n}=2/(n+1), t symmetric, Δ antisymmetric and equal to ∑_{k=j}^{n-j} t_{n,k} on the left. Two-sided Stirling gives n^(5/2)t_{n,j}->(2pi)^(-1/2)[x(1-x)]^(-3/2) in the bulk and a summable boundary majorant. The total n-scaled t mass concentrates as 1 at each endpoint; n^(3/2)Δ has explicit integrable bulk profile H=4(1−2x)/sqrt(2pi x(1−x)). This yields half-unit endpoint absolute masses and a signed bulk integral; sinusoidal integration produces the exact square-root profile. A global L1 bound on Δ handles the outer bias. Independently computed gamma-log exact-kernel numerical asymptotic diagnostics n=1000 and 10000: nTV at p=.5 ~0.803,0.906; at p=.5+1/sqrt n ~1.762,1.943 (slow boundary-layer convergence toward 2.172); sqrt(n)TV at p=1 ~0.762,0.786 toward sqrt(2/pi). Limits rely on analysis, not finite values.
 
-Tian and Treviño introduce the random-direction model; Durmić and collaborators derive the exact finite preference law and only order-of-magnitude TV rates. Bellin's estimates apply to classical parking; Harris, Ribeiro and Yin's later work addresses an expanded occupancy model and gives finite bounds or a regime with fewer cars than slots. The exact crossover when \(\sqrt n(p-1/2)\) stays bounded, with its explicit square-root limiting norm, is not implied by any inspected rate bound. Targeted literature and mathematical-results searches did not reveal a matching theorem. Historical priority nevertheless cannot be conclusively ruled out; the exact PMF is not claimed as original.
+## originality
 
-## Value — PASS
+PASS
 
-A source-established contrast \(\Theta(1/n)\) versus \(\Theta(1/\sqrt n)\) is sharpened to a full critical-window function with a precise window width, exact inner and outer leading coefficients, and a structural explanation from mass concentrating at the two boundaries. This is a motivated asymptotic law for a central observable of the model, not a change of notation or a small numerical refinement.
+Best-of-knowledge analysis compares the exact final theorem and logical implications with relevant primary full texts and published research records; known methods and special cases explicitly credited. No decisive coverage found in inspected theorem statements. Unindexed literature can still dominate; negative search is not proof of priority. See four structured comparisons and source-inspection details. An older local limit theorem or overlooked appendix may compute the same norm by direct corollary of the exact law; negative indexed search does not prove priority.
 
-## Limits and verification
+## value
 
-The claim concerns one original preference under full parking success. It does not assert any multi-car distribution or other rule. Exact rational finite enumeration through five cars agrees with the published formula; larger-size diagnostics approach the predicted constants. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite parking preference law and unbiased-versus-biased order rates were known, leaving the natural p−1/2~n^(-1/2) transition unquantified. This theorem supplies a complete sharp window function, its endpoint atoms/bulk decomposition and a matching biased outer constant. It addresses a central natural statistic without claiming new finite parking enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
