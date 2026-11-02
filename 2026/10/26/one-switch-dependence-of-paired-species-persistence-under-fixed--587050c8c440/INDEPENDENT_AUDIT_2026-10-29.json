@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:56:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a,b neighborhood sizes, h overlap, and q uniformly retained partners out of N, avoidance indicators have probabilities binom(N-a,q)/binom(N,q), binom(N-b,q)/binom(N,q), and joint binom(N-a-b+h,q)/binom(N,q), giving the exact covariance determinant. On nondegenerate q<=N-max(a,b), ratio R_q=binom(d,q)binom(N,q)/(binom(N-a,q)binom(N-b,q)), d=N-a-b+h, has successive ratio (d-q)(N-q)/((N-a-q)(N-b-q)); its difference from one has sign h(N-q)-ab. R is unimodal, followed by zero when q>d; hence strict disjoint negative, nested positive, partial overlap Nh<=ab negative (with q=1 tie on equality), or Nh>ab exactly one positive-to-negative phase transition and at most one zero. Smallest such reversal requires N>=5; N=5,a=b=2,h=1 has cov [1/25,1/100,-1/100,0]. Bernoulli independent survival instead gives strictly positive covariance for h>0. Independent rational binomial code verified 15,344 nondegenerate q cases for all feasible a,b,h through N=15, including boundaries. Infinite classification rests on ratio proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joag-Dev–Proschan defines NA for disjoint index sets; Memmott et al. simulate whole-network cumulative extinctions and random deletions without replacement."
+        ],
+        "reasoning": "Neither is a theorem asserting every overlapping pair changes sign at most once in q; the precise exclusion of overlap from the NA scope matters.",
+        "searches": [
+          "Resultary semantic query: negative positive covariance of overlapping set hit indicators sampling uniformly fixed size hypergeometric survival monotone sign change",
+          "Joag-Dev–Proschan DOI:10.1214/aos/1176346079",
+          "Memmott et al. open PDF "
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md 2355cc99c1a99ba51c4be1fca21ac275111f28ba, verify.py e356ad5f61e6d9bb3bd2d18c67d84bc5e1d5abed; independently 15,344 exact rational sign evaluations.",
+        "Memmott–Waser–Price 2004 open full PDF with rendered page; Joag-Dev–Proschan 1983 primary abstract.",
+        "Resultary semantic query: negative positive covariance of overlapping set hit indicators sampling uniformly fixed size hypergeometric survival monotone sign change"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sampling without replacement and aggregate pollinator coextinction are known; NA gives h=0 case."
+        ],
+        "reasoning": "For 0<h<min(a,b), the indicators are functions of overlapping coordinate sets; neither prior claim yields the covariance sign. The new ratio proof provides the precise single-crossing statement.",
+        "searches": [
+          "Memmott et al. 2004 full PDF methods/results",
+          "Joag-Dev–Proschan 1983 abstract",
+          "Resultary semantic query: negative positive covariance of overlapping set hit indicators sampling uniformly fixed size hypergeometric survival monotone sign change"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is finite-population sampling without replacement; persistence means set-hitting. For disjoint sets the covariance follows negative association; for overlapping sets that theorem does not apply."
+        ],
+        "reasoning": "Covariance is exactly a difference of three hypergeometric avoiding probabilities. A general hypergeometric likelihood-ratio identity could encode the one-switch law under different terminology, but the inspected sources do not establish it.",
+        "searches": [
+          "Resultary semantic query: negative positive covariance of overlapping set hit indicators sampling uniformly fixed size hypergeometric survival monotone sign change",
+          "Joag-Dev–Proschan (1983) negative association DOI:10.1214/aos/1176346079",
+          "Memmott–Waser–Price (2004) DOI:10.1098/rspb.2004.2909"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other published covariance results involve iid occupancy indicators/species discovery, not fixed-quota hitting of two overlapping fixed sets."
+        ],
+        "reasoning": "Different random experiment/object prevents implying the sharp N=5 reversal and exact parameter phase table.",
+        "searches": [
+          "Resultary semantic query: negative positive covariance of overlapping set hit indicators sampling uniformly fixed size hypergeometric survival monotone sign change",
+          "Resultary 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "Resultary 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+        ]
+      },
+      "rationale": "PASS for the all-parameter single-sign-switch theorem and sharp five-partner example. Joag-Dev–Proschan negative association applies to increasing functions of DISJOINT coordinate sets; overlapping A,B are outside that hypothesis. Memmott et al. simulate aggregate pollinator removal responses, not exact pairwise covariance phase law. Similar reliability/hypergeometric indicator inequalities may yet imply this result.",
+      "residual_risks": [
+        "An earlier reliability-theory or finite-population two-union covariance theorem might already imply the one-switch law.",
+        "The ecological interpretation is limited to one-step deterministic dependence on any surviving original partner, not full cascades."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Random without-replacement pollinator removal and aggregate extinction curves, not a quantitative pairwise covariance sign theorem.",
+          "evidence": " lines 87-140, ",
+          "identifier_or_url": "https://www.bio.bris.ac.uk/research/community/article_PDF/Memmottetal2004.pdf",
+          "material_read": "Complete seven-page PDF text, including removal algorithms in Methods p2, cumulative species-richness results, discussion; page 2 screenshot examined",
+          "method": "web PDF text plus rendered screenshot",
+          "title": "Tolerance of pollination networks to species extinctions",
+          "trigger": "same random removal and plant partner-survival model"
+        },
+        {
+          "assessment": "The negative-association result explicitly assumes disjoint coordinate groups; full-text uninspected, retain risk for broader identities.",
+          "evidence": ", ",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+          "material_read": "Primary abstract and theorem scope on disjoint subsets via Project Euclid listing, not full paywalled text",
+          "method": "web publisher abstract; attempted full redirect",
+          "title": "Negative Association of Random Variables with Applications",
+          "trigger": "disjoint-neighborhood negative dependence might dominate theorem"
+        },
+        {
+          "assessment": "Network nestedness is relevant context; no assertion of whole-text exclusion.",
+          "evidence": "arXiv:0809.3681",
+          "identifier_or_url": "https://arxiv.org/abs/0809.3681",
+          "material_read": "Title/abstract metadata, not full text",
+          "method": "arXiv bibliographic inspection",
+          "title": "Understanding and characterizing nestedness in mutualistic bipartite networks",
+          "trigger": "related nested pollination networks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact shared-neighborhood co-survival dependence is a natural building block for the variance of total surviving species in a fixed-quotas ecological network. The theorem shows that overlap can produce positive dependence at low retained quota but negative dependence at high quota, in contrast to independent partner retention; the sharp one-switch classification is a useful structural boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md 2355cc99c1a99ba51c4be1fca21ac275111f28ba, verify.py e356ad5f61e6d9bb3bd2d18c67d84bc5e1d5abed; independently 15,344 exact rational sign evaluations.",
+    "Memmott–Waser–Price 2004 open full PDF with rendered page; Joag-Dev–Proschan 1983 primary abstract.",
+    "Resultary semantic query: negative positive covariance of overlapping set hit indicators sampling uniformly fixed size hypergeometric survival monotone sign change"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed-size uniformly chosen subset T_q and two fixed nonempty proper neighborhoods.",
+    "No correlations defined when one variance is zero; for q>Q covariance becomes zero."
+  ],
+  "residual_risks": [
+    "An earlier reliability-theory or finite-population two-union covariance theorem might already imply the one-switch law.",
+    "The ecological interpretation is limited to one-step deterministic dependence on any surviving original partner, not full cascades."
+  ],
+  "schema_version": 1
+}
