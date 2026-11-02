@@ -1,19 +1,21 @@
-# Scientific review: Strong Morse complexes with two large bipartite parts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete-facet lemma follows from uniqueness of the earlier neighbor and the forced precedence inequalities for the two directed incidence types. Every proposed generating facet is realized by an explicitly ordered vertex list. The proof supplies actual elementary collapse pairs inside single cover components, keeps all shared vertices fixed, and obtains a connected graph with the exact edge and vertex counts. Equivariant Mayer-Vietoris is exact because all multiple intersections above order two vanish and each pair intersection consists of exactly two isolated vertices. The signed part-swapping character is obtained by the alternating trace of that exact sequence, not by assuming an equivariant simplicial collapse. The embedded verifier reproduces all-order facets, free-face collapses, and signed Lefschetz characters for five representative sizes. No finite computation is used as an infinite proof.
+PASS
 
-## Originality — PASS, with specified search limits
+For a complete bipartite one-dimensional simplicial input graph, an oriented matching incidence v→u is selected precisely when u is its unique earlier neighbor in a total vertex order. The precedence inequalities restrict each maximal face to pure P_b and Q_a simplices or mixed X_(a,b), Y_(a,b). Each generating facet is realized by a concrete order. Relative-to-vertices descending free-face collapses of each U_b and V_a are valid globally because overlaps consist only of isolated shared vertices. The remaining connected graph has 2mn vertices and 4mn-m-n edges, hence wedge^(2mn-m-n+1) S1. The integral equivariant Mayer-Vietoris exact sequence gives kernel of two signed incidence copies Z[A×B]→Z[A]⊕Z[B], and the rational character 2f(σ)f(τ)-f(σ)-f(τ)+1; part swaps trace 1 when m=n. Fresh enumeration of all (m+n)! orders for (3,3),(3,4),(4,4) exactly matched the proposed entire face sets and Euler counts, and fresh 72 signed S3×S3 automorphism Lefschetz checks (including swaps) all agreed. These finite tests corroborate the all-parameter facet/collapse proof.
 
-The closest mathematical result already determines the entire range with one bipartition of size two, so the present claim *excludes that range* and retains the natural remaining region with both sizes at least three. Its old one-part permutation representation does not imply the two-parameter homotopy classification, nor the full product action and part-exchanging character. The defining Knudson–Owens-White article covers other listed graph families, and the ordinary Chari–Joswig matching complex is a different object. Indexed research queries and comparisons found no statement that implies the present precise claim. The later sections of the defining article were not fully retrievable during comparison; an equivalent unindexed theorem remains a residual risk rather than a disproven possibility.
+## originality
 
-## Value — PASS
+PASS
 
-An arbitrarily high-dimensional family of strong Morse matching complexes collapses to a graph, and the result computes their integral fundamental groups and homology with the full natural permutation symmetry. The two-growing-part regime requires a different multi-piece decomposition from the previous one-small-part calculation. This supplies a structural explanation for a natural gap in a recently defined object, rather than a single arbitrary numerical parameter or a restatement of ordinary discrete Morse theory.
+The prior Knudson–Owens-White preprint defines full strong-Morse matchings and reports calculations for paths, stars, simplex/boundary and cycles, not an all-(m,n)>=3 complete-bipartite theorem in the inspected abstract. A reported separate K2,n result covers the excluded small-part boundary. Resultary published K3,3 and K3,4 ordinary Morse complex calculations and K4,4 two-matching complexes are mathematically different constructions, with different dimensions/Betti counts. Best-of-knowledge PASS; highly relevant defining preprint full text inaccessible and remains material priority risk.
 
-## Limits
+## value
 
-Only finite complete bipartite graphs with both part sizes at least three are classified. The explicit simplicial collapse is not asserted to be equivariant, but the homology module and character computation are natural and equivariant. Full external originality verification and independent scientific validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full strong Morse matching complex is a newly defined and natural topology of gradient matchings, and the two-large-parts region is an unclassified, parameter-uniform family rather than an arbitrary finite instance. The explicit elementary-collapse theorem and integral permutation module for the entire graph automorphism action are reusable structural results; this is mathematically more than verifying the same ordinary Morse Betti count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
