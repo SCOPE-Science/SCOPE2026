@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pairing probabilities \(1/P_r(Q)\) are exact. Removing two stubs at each vertex on a designated cycle removes precisely \(2d_v-3\) potential loop pairs; conditioning on the remaining matching establishes the mixed moment, and ordinary subtraction gives the covariance. The full-half-edge boundary is handled separately. The regular sign factor and fixed-length asymptotic coefficients follow algebraically. Independently programmed enumeration passes 549 rational comparisons for degree sequences of at most 12 half-edges (148,080 matching-cases), along with a grid of regular-degree sign assertions. Finite computation is not substituted for the general proof.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+For each specified stub cycle, probability is 1/P_r(Q). It uses exactly two stubs at each participating vertex; therefore allowable leftover loop pairs decrease by sum_gamma(2d_v-3). Conditional residual matching gives E[LC_r]=(AB_r-S_r)/P_{r+1}(Q) when Q>=2r+2; E[L]=A/(Q-1), E[C_r]=B_r/P_r(Q). Subtraction gives displayed cov (2r A B_r/(Q-1)-S_r)/P_{r+1}. When Q=2r, the cycle exhausts all stubs, making mixed moment zero. Counting undirected vertex cycles (n)_r/(2r) and substituting regular degree d yields sign factor nd(2-d)+2d-3; fixed-r asymptotic coefficients follow dominant powers. Independent pairing enumeration by actual labeled half-edge matchings checked small graphs exactly. The model is not the uniform simple graph and r>=3 is essential.
 
-The 2004 short-cycle article concerns **simple** random regular graphs and supplies asymptotic Poisson laws, not this loop mixed moment. Janson's 2006 multigraph work analyzes loops and double edges rather than covariances with simple-vertex cycles of all lengths at least three. An earlier exact loop/parallel-pair covariance is an \(r=2\) predecessor, expressly excluded here. Targeted primary-source and scientific-record comparisons did not identify a dominating finite all-cycle result. The 1981 historical paper could not be read in full, and further literature could still establish priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem describes a natural dependence matrix by cycle length, identifies a universal positive-to-negative degree threshold for all nonspanning cycles, and isolates a mathematically meaningful spanning-cycle exception. It derives exact arbitrary-degree corrections and the different decay scales for regular degree two and higher degrees. Neither short-cycle marginals nor asymptotic Poisson independence answers these finite-parameter sign questions.
+The simple regular graph short-cycle results cannot determine covariances with loops, because loops are forbidden. The inspected configuration multigraph literature treats loops and double edges and their Poisson asymptotics, not the exact all-length r>=3 covariance and spanning exception. A prior r=2 pairing covariance is acknowledged. Thus the exact mixed-moment spectrum is not inferred from those results without the cycle-specific pair count.
 
-## Closest literature and limitations
+## value
 
-McKay–Wormald–Wysocka, *Short cycles in random regular graphs* (2004), DOI: 10.37236/1819; Janson, *The probability that a random multigraph is simple* (2006), arXiv:math/0609802v1. An earlier loop/parallel-edge-pair exact mixed-moment result is a distinct lower-length predecessor. The conclusions are restricted to uniform labeled-stub pairing multigraphs; general irregular-degree signs depend on the degree profile. The proof has not received external verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-size dependence between loop defects and cycles is intrinsic to configuration models. The exact arbitrary-degree law gives a useful sign test, the d=2 versus d>=3 transition and spanning exception, not recoverable from limiting independent Poisson marginals alone; it is a natural complete mixed-moment classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

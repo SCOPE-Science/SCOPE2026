@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:44:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md 440bed465b140d3f6e8b2e68fa7bb89ac5816949",
+        "assigned verify.py 210765369ac416daba0b643a74c3a7ee0fc4d9d9",
+        "Independent diagnostic suite check2, exact perfect matchings"
+      ],
+      "rationale": "For each specified stub cycle, probability is 1/P_r(Q). It uses exactly two stubs at each participating vertex; therefore allowable leftover loop pairs decrease by sum_gamma(2d_v-3). Conditional residual matching gives E[LC_r]=(AB_r-S_r)/P_{r+1}(Q) when Q>=2r+2; E[L]=A/(Q-1), E[C_r]=B_r/P_r(Q). Subtraction gives displayed cov (2r A B_r/(Q-1)-S_r)/P_{r+1}. When Q=2r, the cycle exhausts all stubs, making mixed moment zero. Counting undirected vertex cycles (n)_r/(2r) and substituting regular degree d yields sign factor nd(2-d)+2d-3; fixed-r asymptotic coefficients follow dominant powers. Independent pairing enumeration by actual labeled half-edge matchings checked small graphs exactly. The model is not the uniform simple graph and r>=3 is essential.",
+      "residual_risks": [
+        "Asymptotics require fixed d,r with n→infinity along valid nd parity, not r growing with n.",
+        "The r=2 double-edge case is excluded as prior work."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general factorial-moment machinery handles prescribed stub matchings; its stated applications include loops and parallel-edge pairs, with asymptotic independence."
+        ],
+        "reasoning": "An asymptotic marginal or joint Poisson result does not determine a finite-Q signed covariance across every r, nor the spanning Q=2r negative exception.",
+        "searches": [
+          "Janson the probability that a random multigraph is simple 2006 joint Poisson loops double edges",
+          "configuration model covariance loop and simple cycles length r exact degree regular graph"
+        ]
+      },
+      "checked_sources": [
+        "Janson arXiv:math/0609802 (relevant full text)",
+        "McKay–Wormald–Wysocka 2004 doi:10.37236/1819",
+        "Wormald 1981 doi:10.1016/S0095-8956(81)80022-6 (full text not obtained)",
+        "Resultary semantic search configuration model covariance loop and simple cycles length r exact degree regular graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simple graph results have L=0 and therefore Cov(L,C_r)=0 in that conditioned model, while the present unconditioned pairing law is generally nonzero."
+        ],
+        "reasoning": "The stated known results cannot imply the finite signed covariance as a direct corollary; the stub deletion argument is additional. An older matching moment identity could nevertheless imply it.",
+        "searches": [
+          "McKay Wormald Wysocka 2004 short cycles simple graphs Janson 2006 configuration pairing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson arXiv:math/0609802 studies configuration-model loops and double edges.",
+          "McKay–Wormald–Wysocka (2004) counts cycles in simple regular graphs with zero loops by definition."
+        ],
+        "reasoning": "These objects differ by conditioning and vertex-cycle length; no equivalent explicit covariance at r>=3 in inspected statements.",
+        "searches": [
+          "configuration model covariance loop and simple cycles length r exact degree regular graph",
+          "configuration model cycles loops exact mixed moment covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic results concerned graph cover-free families, regular-graph cycles and Rips complexes, not a degree-sequence table of Cov(L,C_r).",
+          "The known r=2 loop/double-edge correction is outside r>=3."
+        ],
+        "reasoning": "No exact relevant table was found in queried published mathematical records; absent database coverage is not definitive historical novelty.",
+        "searches": [
+          "Resultary: configuration model covariance loop and simple cycles length r exact degree regular graph"
+        ]
+      },
+      "rationale": "The simple regular graph short-cycle results cannot determine covariances with loops, because loops are forbidden. The inspected configuration multigraph literature treats loops and double edges and their Poisson asymptotics, not the exact all-length r>=3 covariance and spanning exception. A prior r=2 pairing covariance is acknowledged. Thus the exact mixed-moment spectrum is not inferred from those results without the cycle-specific pair count.",
+      "residual_risks": [
+        "Wormald 1981 historical short-cycle primary full text not read; an earlier exact pairing lemma is possible.",
+        "Known r=2 covariance and general joint-moment methods may generate special-case formulas with less work than a new theorem would suggest."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Highly related framework, but no exact all-r>=3 loop/simple-cycle covariance identified in the inspected relevant statements",
+          "evidence": "Janson controls loops and multiple edges in simplicity estimates, not the finite mixed moment formula for vertex-distinct r-cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0609802",
+          "material_read": "Primary paper PDF: definition, loop/double-edge moments, relevant Sections 4, 5 and 7 and inspected page image",
+          "method": "arXiv full PDF text and PDF screenshot",
+          "title": "The probability that a random multigraph is simple",
+          "trigger": "Same distinguishable-half-edge pairing model and moments"
+        },
+        {
+          "assessment": "Conditioned simple regular graphs contain no loop random variable",
+          "evidence": "Sample space is simple regular graphs, so L identically zero, unlike uniform stub multigraphs.",
+          "identifier_or_url": "https://doi.org/10.37236/1819",
+          "material_read": "Abstract and principal short-cycle theorem statements from web publication",
+          "method": "Publisher/abstract search and theorem inspection",
+          "title": "Short cycles in random regular graphs",
+          "trigger": "Potential stronger cycle counting theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned mathematical claim and proof at 2026/10/26/an-exact-loop-cycle-covariance-spectrum-in-the-configuration-mod--532dff18b65d/RESULT.md",
+        "Janson arXiv:math/0609802 (relevant full text)",
+        "McKay–Wormald–Wysocka 2004 doi:10.37236/1819",
+        "Wormald 1981 doi:10.1016/S0095-8956(81)80022-6 (full text not obtained)",
+        "Resultary semantic search configuration model covariance loop and simple cycles length r exact degree regular graph"
+      ],
+      "rationale": "Finite-size dependence between loop defects and cycles is intrinsic to configuration models. The exact arbitrary-degree law gives a useful sign test, the d=2 versus d>=3 transition and spanning exception, not recoverable from limiting independent Poisson marginals alone; it is a natural complete mixed-moment classification.",
+      "residual_risks": [
+        "Regular-degree sign law is narrow; irregular graphs have a formula but not universal sign."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact covariance of loops and all simple-vertex r-cycles (r>=3) in uniform distinguishable-stub pairing graphs, with arbitrary degree sequence, spanning boundary, regular sign reversal at degree two and asymptotic constants.",
+  "limitations": [
+    "Asymptotics require fixed d,r with n→infinity along valid nd parity, not r growing with n.",
+    "The r=2 double-edge case is excluded as prior work.",
+    "Wormald 1981 historical short-cycle primary full text not read; an earlier exact pairing lemma is possible.",
+    "Known r=2 covariance and general joint-moment methods may generate special-case formulas with less work than a new theorem would suggest.",
+    "Regular-degree sign law is narrow; irregular graphs have a formula but not universal sign.",
+    "Scientific PASS is a best-of-knowledge assessment, not external verification, publication or authorization to release unsanitized source files."
+  ],
+  "schema_version": 1
+}
