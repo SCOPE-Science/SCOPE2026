@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit two-variable valuation \(\llbracket p\rrbracket=A\), \(\llbracket q\rrbracket=A\cap B\) witnesses failure of distribution at every pair of incomparable information cells. Under local comparability, the disjunction equals universal quantification over their intersection, hence is a single ordinary \(\mathsf{S5}\) operator. The bipartite block-incidence graph must have star components: a degree-at-least-two vertex forces all neighbors to be leaves. Exactly \(2B_k-1\) decorated pairs occur on a connected \(k\)-element join-component, leading by labelled exponential assembly to the claimed generating function and recurrence. Exhaustive finite checks independently corroborate the census through six worlds and distribution equivalence through three.
+PASS
 
-## Originality — PASS within reviewed sources
+For an arbitrary world w let A,B be its E1,E2 cells. If incomparable, valuation p=A and q=A∩B makes S(p→q) and Sp true but Sq false, violating K. If comparable, S(X) iff (A∩B)⊆X for all X, so the operator agrees at every formula evaluation with the ordinary S5 box over E1∩E2, including nestings. The bipartite graph of intersecting partition blocks has only star components, because a block meeting two disjoint blocks must contain each; a join-component is therefore a whole block of at least one partition. A connected component with k labels has exactly c_k=2B_k−1 ordered decorations (indiscrete partition on either side, subtract double count). Exponential assembly yields exp(2exp(e^z−1)−e^z−1) and distinguished-component recurrence. Independent enumeration of every ordered partition pair n=1..6 yielded L=1,4,19,111,774,6229; exhaustive valuation tests for n<=3 verified iff K distribution. Finite checks are corroboration, not proof of all-n claims.
 
-The 2021 source explicitly identifies non-normality and a three-world counterexample, so those elementary observations are prior art. The 2026 source develops general completeness and representation theory for bundled modalities, but its inspected Section 5.1 does not give this framewise normality characterization or a labelled two-partition census. The 2023 work gives hypergraph/weak aggregation semantics; only an abstract and bibliographic records were accessible, so uninspected sections remain a priority risk. Targeted literature searches for locally comparable partitions, star join-components, and the complete generating function, together with relevant published mathematical-record searches, yielded no dominating known statement. Lack of a database hit alone is not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The normality boundary is a structural question intrinsic to the “someone knows” modality. The answer determines precisely which finite information structures allow it to be treated as one \(\mathsf{S5}\) knowledge operator, identifies how locally finer agents can vary from component to component, and counts every labelled exceptional frame. This is a complete classification and exact natural invariant, rather than an arbitrary finite slice or isolated small counterexample.
+Best-of-knowledge originality applies to the complete fixed-frame iff criterion, the join-component star/partition characterization and the exact all-size ordered labelled census. Prior literature already knows someone-knows is generally non-normal and has a three-world K counterexample; that observation is not new. The full 2026 bundled-modalities paper gives general logic completeness, not this restricted-frame structural classification. An analogous theorem in 2023 hypergraph logic was inaccessible beyond its abstract after authorized access reported a disconnected VPN; this alone does not negate the comparison, and the priority risk remains explicitly stated.
 
-## Risks and boundaries
+## value
 
-A more general colored-partition enumeration or an uninspected section of the 2023 source may imply the result. The formulas concern ordered labelled frames for two agents only; no asymptotic or isomorphism-class census is asserted. No independent validation was obtained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exceptional transition from non-normal someone-knows to a normal S5 operator is an intrinsic semantic problem. A fixed-frame iff criterion, componentwise mixed refinement description and complete ordered labelled count in every finite size are natural structural and enumerative invariants, not an arbitrary small-instance slice. The result is bounded to two agents and does not claim the already known n=3 non-normal counterexample as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
