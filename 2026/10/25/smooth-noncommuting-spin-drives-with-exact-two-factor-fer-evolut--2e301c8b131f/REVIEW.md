@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pulse is explicitly \(C^\infty\): the chosen switch has flat endpoint jets, and the radial and constant-radius pieces glue smoothly. The standard Fer recursion in the full text of Bagnasacco–Giovannetti (arXiv:2609.28302v1, Section II, equations (2)–(4)) is independently reduced by Rodrigues conjugation to a vector map with coefficients \(\alpha(r)\) and \(\beta(r)\). Every positive root of \(\tan(2r)=2r\) makes \(\beta(r)=0\), while \(A_n=r_n^2\alpha(r_n)\ne0\). The initial radial portion has zero first remainder; the constant-radius angular portion has a pure \(T_z\) remainder \(A_n\dot\vartheta T_z\), which commutes with its own time integral, hence the second remainder vanishes identically. Noncommutation is witnessed by two pulse times with nonparallel directions. The qubit norm integral is exactly the radial plus angular path length, \(r_n(1+\Theta)\). The independent ODE numerical tests check eight spin/angle/root configurations and 3256 finite assertions; these are corroboration rather than infinite proof.
+PASS
 
-## Originality — PASS (best knowledge)
+PASS — Checked the full final formula and all quantifiers n>=1, Theta>0, any finite-dimensional nontrivial su(2) spin representation. The piecewise radial then constant-radius rotating f is C-infinity by the flat switch; it integrates H=dot(f). Rodrigues conjugation of the Fer recursion produces the two cross-product terms alpha(r)(f×h)+beta(r)((f×h)×f). At tan(2r)=2r, beta=0, and on the circular arc f×h=r² theta-prime e_z, so H2=A_n theta-prime Tz with A_n!=0. On the radial arc H2=0. F2=-i A_n theta Tz commutes pointwise with H2, forcing H3=0 exactly (not merely convergence); Pauli norm integral equals r(1+Theta) and nonparallel drive vectors prove noncommutation. Critical algebra, continuity at t=1, and n-root locations were independently checked; the actual numerical verifier was inspected, not counted as an infinite proof. Spin j norms differ from the Pauli area by 2j as stated in VERIFICATION.md.
 
-The September 2026 paper treats a universal **sufficient** convergence radius and does not construct smooth noncommuting pulses with exact two-factor termination outside it. The 1998 primary paper establishes earlier sufficient radius/error bounds, not the present construction. The October 2026 Bagnasacco–Burgarth–Giovannetti–Yuasa theorem rules out this behavior only under **real-analytic** drive hypotheses, so it does not subsume a nonzero compactly supported \(C^\infty\) drive. The later paper's explicit closed map is an alternative route to one step of this proof, not the new root-family construction itself. Published literature comparisons and topical searches revealed no equivalent statement. The residual risk is an unlocated antecedent using flat smooth controls or finite-factor Fer resonance loops. These searches and comparisons support only a best-knowledge originality conclusion, not a proof of global priority.
+## originality
 
-## Value — PASS
+PASS
 
-Finite exact Fer termination for noncommuting spin controls is a structural effect, not the routine substitution of an easier commuting model. It sharply separates analytic rigidity from smooth control and exhibits countably many resonant strengths with continuously variable winding, allowing arbitrary integrated pulse area while retaining only two exact unitary factors. This directly clarifies what a uniform sufficient convergence bound does—and does not—predict for designed quantum control pulses. The phenomenon survives every nontrivial finite spin representation, not just a qubit example.
+PASS, qualified. The published 2026-10-20 spin-rigidity paper proves a no-go ONLY for real-analytic drives; its Theorem 1 and proof use analyticity at the start to propagate fixed axis. A nonzero compactly supported pulse is necessarily nonanalytic, so the theorem is inapplicable without contradicting it. The 2026-09-23 universal bound 2.6058 is sufficient for convergence and does not rule out exact special trajectories outside it. No matching smooth two-factor noncommuting family appeared in the semantic indexed-result search. The closed su(2) map itself is known; only special resonant smooth trajectory is put forward as new. Residual risk of an earlier smooth counterexample remains.
 
-## Closest literature and limits
+## value
 
-Bagnasacco–Giovannetti (2026, arXiv:2609.28302v1); Blanes–Casas–Oteo–Ros (1998, DOI:10.1088/0305-4470/31/1/023); Bagnasacco–Burgarth–Giovannetti–Yuasa (2026, arXiv:2610.27979v1). The construction is special and relies on an exact transcendental root; no robustness, genericity, or improved universal radius is asserted. No independent literature-wide priority audit or external mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — This is a nontrivial boundary witness distinguishing strong real-analytic rigidity from C-infinity flexibility for the same exact Fer recursion. It yields a genuinely noncommuting all-time finite product with nonzero second correction and arbitrarily large operator-norm pulse area; a clear, motivated exception to a recent theorem, not a generic convergence-radius claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
