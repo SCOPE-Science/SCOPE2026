@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(m\ge3\), the pairwise shortest-path distances give an exact simplicial identity \(\operatorname{VR}_{\le2}=S^0*L_m\), with \(L_m\) consisting of two disjoint full \((m-1)\)-simplices joined by \(m\) independent matching bridges. Collapsing the contractible simplex subspaces produces the graph with \(m\) parallel edges, hence \(L_m\simeq\bigvee^{m-1}S^1\), and suspension yields \(\bigvee^{m-1}S^2\). Integral Mayer–Vietoris and join homology prove the augmentation-lattice representation and the cancellation of the two minus signs under pole exchange. The graph has diameter three, so there are exactly the four filtration stages stated. A separate finite verifier checks exhaustive simplices and mod-two homology for \(2\le m\le8\), plus all \(608\) group-element Lefschetz traces for \(2\le m\le5\). The all-parameter proof is not inferred from those finite checks.
+PASS
 
-## Originality — PASS, with residual risk
+For m≥3, the graph has 2m+2 vertices, 3m edges, degree-m poles and degree-2 internal vertices; distances: d(p,q)=3; d(a_i,a_j)=d(b_i,b_j)=2 for i≠j, d(a_i,b_i)=1, d(a_i,b_j)=3 for i≠j, every pole to every internal vertex ≤2. Thus at scale 1 the Rips complex is the original connected triangle-free graph with cycle rank m−1. At scale 2 it is exactly S^0*L_m where L_m comprises two full disjoint simplices (on the a and b layers) plus m matched bridges; quotient of two contractible disjoint subcomplexes yields the m-edge banana graph, L_m≃∨^(m−1)S^1, suspension gives ∨^(m−1)S^2 and torsionfree integral homology. Diameter 3 gives a simplex at scale≥3 and no intermediate changes; reduced bars are (2m+1)×[0,1) in H0, (m−1)×[1,2) in H1, (m−1)×[2,3) in H2. Integral H1 of oriented pole-to-pole arms is the augmentation lattice with pole swap −1. H1(L_m) is augmentation on oriented a-to-b bridges with flip −1; H~0(S0) flip −1; the join tensor yields pole flip +1 on H2 and natural coordinate permutation S_m. For m≥3 the two poles alone have valence m≥3, identifying the entire Aut group as S_m×C2. A separate independent BFS/face enumeration and mod-2 reduction for m=3..6 plus 144 signed Lefschetz cases agreed after applying the correct (−1)^k homological Lefschetz convention. Finite checks corroborate, not prove, the uniform statements.
 
-The closest primary work on finite graph metrics [1] classifies Platonic-solid vertex sets. Its Remark 4.5 presents a kernel-lattice homology action for the dodecahedron, a conceptual precedent that does not imply the present theta-family or pole-exchange sign transition. Adamaszek [2, Proposition 2.2] has a girth-seven hypothesis, not fulfilled here, and [2, Theorem 5.1] studies once-subdivided simple graphs, not the family of length-three arms. Adamaszek et al. [3, Theorem 10] require a gluing path no longer than one third of the containing loop, whereas this graph has overlapping six-cycles sharing length-three arms. Their Section 4.2 discusses an obstruction to extending gluing arguments in this regime. Feng–Nukala [4] study different symmetric-difference metrics. Exact and semantic database searches found no covering statement, but unindexed or implicit equivalence remains a possibility. The prior edge-disjoint-hexagon result does not apply because its disjointness hypothesis fails.
+## originality
 
-## Value — PASS
+PASS
 
-The natural family sits exactly at the sharp girth-six boundary where a known large-girth stabilization theorem stops applying, and every six-cycle overlaps many others. The classification determines all scales, *integral* persistent homology, and both permutation and pole-exchange actions for an unbounded family. The opposition of the symmetry signs in adjacent-scale homology is a structural distinction not captured by Betti numbers or single-cycle computations. No assertion is made about a larger universality class.
+Best-of-knowledge originality for the exact infinite family with complete integral persistence AND full S_m×C_2 integral homology actions. Actual full-text comparisons rule out plausible stronger graph-power, glued-graph, hexagon-packing, Platonic-solid and configuration-space results by explicit hypotheses or different constructions. The exact database hit is the assigned result itself, not independent evidence. Residual unindexed or implicit equivalent descriptions remain.
 
-## Remaining limitations
+## value
 
-Only finite vertex sets, equal three-edge paths, integers \(m\ge3\), and the inclusive metric convention are established. Prior-literature completeness and independent validation cannot be guaranteed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Natural, nontrivial complete integral Rips persistence invariant for an unbounded canonical theta-graph family at precisely the girth-six boundary outside general girth≥7 stabilization; its binomial(m,2) six-cycles share entire three-edge arms so disjoint-cycle methods fail. Exact all-scale wedge types, field-independent torsionfree barcodes and complete integral S_m×C2 actions give a useful structural test example. Especially the pole flip changes from −1 on degree-one cycles to +1 on degree-two spheres although Betti ranks match, a distinction not encoded in previously published nonequivariant sphere enumerations. This claim does not claim a general classification for all girth-six graphs or unequal path lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

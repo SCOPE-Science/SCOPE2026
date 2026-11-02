@@ -1,0 +1,211 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T20:55:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual seven pinned original Git files including original independent-verification script",
+        "Independent finite graph/BFS and signed-chain checker"
+      ],
+      "evidence": [
+        "Frozen Git RESULT.md ba96d4c72544265f0187fc3f8c569607b0f9da36: steps 1–5, normalization and all thresholds",
+        "Frozen Git SLOGAN.txt 20f22629db6f537666a0910279e9dd49ee53dbec and VERIFICATION.md 512f398c4260a057a919f765b86f05815b8e2f9c",
+        "Independent new checker /mnt/data/scope07_independent_theta_check.py, m=3..6 homology and 144 signed Lefschetz comparisons; original verifier inspected but not treated as complete proof"
+      ],
+      "rationale": "For m≥3, the graph has 2m+2 vertices, 3m edges, degree-m poles and degree-2 internal vertices; distances: d(p,q)=3; d(a_i,a_j)=d(b_i,b_j)=2 for i≠j, d(a_i,b_i)=1, d(a_i,b_j)=3 for i≠j, every pole to every internal vertex ≤2. Thus at scale 1 the Rips complex is the original connected triangle-free graph with cycle rank m−1. At scale 2 it is exactly S^0*L_m where L_m comprises two full disjoint simplices (on the a and b layers) plus m matched bridges; quotient of two contractible disjoint subcomplexes yields the m-edge banana graph, L_m≃∨^(m−1)S^1, suspension gives ∨^(m−1)S^2 and torsionfree integral homology. Diameter 3 gives a simplex at scale≥3 and no intermediate changes; reduced bars are (2m+1)×[0,1) in H0, (m−1)×[1,2) in H1, (m−1)×[2,3) in H2. Integral H1 of oriented pole-to-pole arms is the augmentation lattice with pole swap −1. H1(L_m) is augmentation on oriented a-to-b bridges with flip −1; H~0(S0) flip −1; the join tensor yields pole flip +1 on H2 and natural coordinate permutation S_m. For m≥3 the two poles alone have valence m≥3, identifying the entire Aut group as S_m×C2. A separate independent BFS/face enumeration and mod-2 reduction for m=3..6 plus 144 signed Lefschetz cases agreed after applying the correct (−1)^k homological Lefschetz convention. Finite checks corroborate, not prove, the uniform statements.",
+      "residual_risks": [
+        "Proof applies only to equal unweighted length-three branches, graph vertices (not continuous metric realizations), m≥3, inclusive threshold without factor-of-two rescaling.",
+        "The finite tests are not a formal proof for all m and do not verify every possible coefficient system."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theta_m^(3) has girth 6, while Adamaszek Prop 2.2 scale-two requires girth≥7.",
+          "Every pair of distinct six-cycles sharing an arm overlaps three edges, violating the all-cycles-edge-disjoint hypothesis.",
+          "Longest shared three-edge arm violates metric-gluing length ≤6/3=2.",
+          "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433",
+          "M. Adamaszek et al., Vietoris–Rips and Čech complexes of metric gluings, SoCG 2018, Theorem 10, Section 4.2; DOI:10.4230/LIPIcs.SoCG.2018.3; https://drops.dagstuhl.de/storage/00lipics/lipics-vol099-socg2018/LIPIcs.SoCG.2018.3/LIPIcs.SoCG.2018.3.pdf",
+          "Resultary/2026, 2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb/RESULT.md; full primary theorem, assumptions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb"
+        ],
+        "reasoning": "Stronger-looking all-graph/special graph theorems are genuinely inapplicable on hypotheses, not merely their different titles. The gluing and hexagon-packing results do not imply scale-two sphere-wedge and symmetry claims for multiply shared hexagons.",
+        "searches": [
+          "graph powers clique complex theta graphs subdivided complete bipartite graph suspension matching cliques",
+          "Vietoris Rips complexes of graph girth 6 edge disjoint hexagonal cycles scale two wedge 2 spheres",
+          "homotopy Rips graph square for graphs with 6 cycles sharing edges",
+          "Adamaszek arXiv:1104.0433 Proposition 2.2",
+          "metric gluings DOI:10.4230/LIPIcs.SoCG.2018.3 Theorem 10",
+          "Resultary hexagon-packing theorem"
+        ]
+      },
+      "checked_sources": [
+        "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433",
+        "M. Adamaszek et al., Vietoris–Rips and Čech complexes of metric gluings, SoCG 2018, Theorem 10, Section 4.2; DOI:10.4230/LIPIcs.SoCG.2018.3; https://drops.dagstuhl.de/storage/00lipics/lipics-vol099-socg2018/LIPIcs.SoCG.2018.3/LIPIcs.SoCG.2018.3.pdf",
+        "N. Saleh, T. Titz Mite, S. Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023), main theorem and Remark 4.5; https://arxiv.org/pdf/2302.14388",
+        "Z. Feng and N. C. P. Nukala, On Vietoris–Rips complexes of finite metric spaces with scale 2, arXiv:2302.14664 (2023), Abstract and Section 1; https://arxiv.org/pdf/2302.14664",
+        "Resultary/2026, 2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb/RESULT.md; full primary theorem, assumptions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb",
+        "Resultary/2026, 2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8/RESULT.md; full primary theorem, definitions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8",
+        "Resultary search exact matched the assigned SCOPE three-edge theta Rips record itself (2026/10/11/SCOPE-complete-vietoris-rips-persistence-and-symmetry-of-three-edge-th--c282838fbdca); self-match is not independent prior coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full claim includes exact degree-zero, one and two bars, integral torsion-freeness, and pole-swap sign character at scale one but trivial character at scale two.",
+          "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433",
+          "M. Adamaszek et al., Vietoris–Rips and Čech complexes of metric gluings, SoCG 2018, Theorem 10, Section 4.2; DOI:10.4230/LIPIcs.SoCG.2018.3; https://drops.dagstuhl.de/storage/00lipics/lipics-vol099-socg2018/LIPIcs.SoCG.2018.3/LIPIcs.SoCG.2018.3.pdf",
+          "N. Saleh, T. Titz Mite, S. Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023), main theorem and Remark 4.5; https://arxiv.org/pdf/2302.14388",
+          "Z. Feng and N. C. P. Nukala, On Vietoris–Rips complexes of finite metric spaces with scale 2, arXiv:2302.14664 (2023), Abstract and Section 1; https://arxiv.org/pdf/2302.14664",
+          "Resultary/2026, 2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb/RESULT.md; full primary theorem, assumptions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb",
+          "Resultary/2026, 2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8/RESULT.md; full primary theorem, definitions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8"
+        ],
+        "reasoning": "Neither a single six-cycle result nor a disjoint-hexagons theorem implies a family of m overlapping hexagons; none of the applicable inspected results computes this S_m×C2 integral representation. Shared augmentation-lattice motifs elsewhere do not imply this concrete group action on this filtered space.",
+        "searches": [
+          "Vietoris Rips homotopy persistence of theta graphs m internally disjoint length three paths between two endpoints integral representation symmetric group pole swap",
+          "graph powers clique complex theta graphs subdivided complete bipartite graph suspension matching cliques",
+          "equivariant homology representation of Vietoris Rips graph shortest path symmetric multiple cycles",
+          "Vietoris Rips complexes of graph girth 6 edge disjoint hexagonal cycles scale two wedge 2 spheres",
+          "arXiv:2302.14388 main theorem and Remark 4.5",
+          "arXiv:2302.14664 abstract/definitions",
+          "arXiv:1104.0433 Prop 2.2 and Thm 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the claimed graph, graph-power clique complex Cl(Theta_m^3 squared) is exactly S^0*L_m, where L_m joins two disjoint layer simplices by m matched cross edges; this is a suspension of an m-parallel-edge graph up to homotopy.",
+          "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433",
+          "Resultary/2026, 2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8/RESULT.md; full primary theorem, definitions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8"
+        ],
+        "reasoning": "Graph-square clique, theta graph, suspension/join and augmentation lattice aliases were compared. The Adamaszek subdivision theorem does not describe these three-edge arms. The theta configuration-space result uses a different space and invariant. No independent equivalent full claim was found; search failure alone is not proof of novelty.",
+        "searches": [
+          "Vietoris Rips homotopy persistence of theta graphs m internally disjoint length three paths between two endpoints integral representation symmetric group pole swap",
+          "graph powers clique complex theta graphs subdivided complete bipartite graph suspension matching cliques",
+          "generalized theta graph three-edge parallel paths Vietoris Rips suspension of edge matching",
+          "Adamaszek arXiv:1104.0433, Theorem 5.1, Section 6",
+          "published Resultary theta configuration RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search exact matched the assigned SCOPE three-edge theta Rips record itself (2026/10/11/SCOPE-complete-vietoris-rips-persistence-and-symmetry-of-three-edge-th--c282838fbdca); self-match is not independent prior coverage",
+          "Published projective-plane incidence-graph scale-two Rips theorem concerns a different diameter-three graph family and no complete theta group character.",
+          "Published Platonic-solid finite graph metrics are different spaces, including the dodecahedron equivariant example."
+        ],
+        "reasoning": "Exact match in Resultary was the record being audited; cannot count it as prior independent discovery. No independent table or primary record determines every m and its two integral automorphism actions. A partial index cannot prove novelty.",
+        "searches": [
+          "Vietoris Rips homotopy persistence of theta graphs m internally disjoint length three paths between two endpoints integral representation symmetric group pole swap",
+          "equivariant homology representation of Vietoris Rips graph shortest path symmetric multiple cycles",
+          "Vietoris Rips complexes of graph girth 6 edge disjoint hexagonal cycles scale two wedge 2 spheres",
+          "generalized theta graph three-edge parallel paths Vietoris Rips suspension of edge matching",
+          "Resultary published record scale-two Rips of finite projective-plane incidence graphs",
+          "Resultary exact assigned finding hit"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact infinite family with complete integral persistence AND full S_m×C_2 integral homology actions. Actual full-text comparisons rule out plausible stronger graph-power, glued-graph, hexagon-packing, Platonic-solid and configuration-space results by explicit hypotheses or different constructions. The exact database hit is the assigned result itself, not independent evidence. Residual unindexed or implicit equivalent descriptions remain.",
+      "residual_risks": [
+        "Elementary classification may be implicit in uncatalogued graph-square clique/suspension literature under alternate notation.",
+        "Published database is incomplete and the exact self-match is not priority evidence.",
+        "Feng–Nukala later sections were not exhaustively read, though its stated symmetric-difference object family is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: scale-two stabilization requires girth at least seven, but theta graph has girth six; one-edge subdivision theorem does not instantiate the three-edge parallel paths; single C6 computation does not determine the family with m≥3 or its integral group actions.",
+          "evidence": [
+            "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0433",
+          "material_read": "Original primary full-text relevant introductory definitions, Proposition 2.2, Theorem 5.1, Section 5 and Section 6 cycle analysis, with original PDF page images inspected",
+          "method": "Open arXiv full text and page-image verification of theorem statements and hypotheses",
+          "title": "Clique complexes and graph powers",
+          "trigger": "Potential all-graph power/clique-complex theorem and six-cycle boundary"
+        },
+        {
+          "assessment": "NOT_COVERING: gluing-path allowance is at most one-third length of shortest containing loop, here 3 versus 6/3=2; cannot infer submitted full-family theorem or equivariant sign change.",
+          "evidence": [
+            "M. Adamaszek et al., Vietoris–Rips and Čech complexes of metric gluings, SoCG 2018, Theorem 10, Section 4.2; DOI:10.4230/LIPIcs.SoCG.2018.3; https://drops.dagstuhl.de/storage/00lipics/lipics-vol099-socg2018/LIPIcs.SoCG.2018.3/LIPIcs.SoCG.2018.3.pdf"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2018.3",
+          "material_read": "Original SoCG full text, Theorem 10, relevant glue-path definitions and proof, Section 4.2 obstruction discussion; source PDF pages inspected",
+          "method": "Open lawful primary full paper and relevant page images",
+          "title": "Vietoris–Rips and Čech complexes of metric gluings",
+          "trigger": "Potential dominating gluing theorem for overlapping length-three branches"
+        },
+        {
+          "assessment": "NOT_COVERING: finite Platonic solids, including a dodecahedron kernel representation, are not the m-arm theta family; analogous augmentation actions are conceptual precedent only.",
+          "evidence": [
+            "N. Saleh, T. Titz Mite, S. Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023), main theorem and Remark 4.5; https://arxiv.org/pdf/2302.14388"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.14388",
+          "material_read": "Original arXiv complete theorem, listed Platonic-solid cases, relevant proof sections and Remark 4.5, with source PDF page images inspected",
+          "method": "Read original arXiv full text and theorem/remark page images",
+          "title": "Vietoris–Rips complexes of Platonic solids",
+          "trigger": "Closest full graph-metric Rips calculation with an integral-looking equivariant example"
+        },
+        {
+          "assessment": "NO COVERAGE IN INSPECTED MATERIAL: theorem domain is subset families with symmetric-difference metric, not this shortest-path theta graph; do not claim unread later material definitively excludes aliases.",
+          "evidence": [
+            "Z. Feng and N. C. P. Nukala, On Vietoris–Rips complexes of finite metric spaces with scale 2, arXiv:2302.14664 (2023), Abstract and Section 1; https://arxiv.org/pdf/2302.14664"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.14664",
+          "material_read": "Primary abstract, definitions and introduction/roadmap of original full paper, original PDF first-page image; detailed later results not claimed read",
+          "method": "Open arXiv original full PDF and inspect opening sections",
+          "title": "On Vietoris–Rips complexes of finite metric spaces with scale 2",
+          "trigger": "Potential broad scale-two classification"
+        },
+        {
+          "assessment": "NOT_COVERING: its hypothesis demands all six-cycles edge-disjoint; for m≥3 theta graph distinct six-cycles share three-edge arms, and its own proof flags larger exceptional cliques for overlapping hexagons. Does not entail current family or sign representations.",
+          "evidence": [
+            "Resultary/2026, 2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb/RESULT.md; full primary theorem, assumptions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb",
+          "material_read": "Complete published RESULT.md statement, assumptions, seven proof steps, verification and limitations",
+          "method": "Read entire original published text via pinned GitHub source path",
+          "title": "A hexagon-packing classification of scale-two graph Rips complexes",
+          "trigger": "Closest published structural girth-six scale-two theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: determines homology of three-particle configuration spaces B_3(Theta_m), not the finite graph-vertex shortest-path Rips complexes or persistence. Exterior cubed augmentation module is not the submitted H1/H2 module.",
+          "evidence": [
+            "Resultary/2026, 2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8/RESULT.md; full primary theorem, definitions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8",
+          "material_read": "Complete published RESULT.md claim, graph/space definitions, proof and limitations",
+          "method": "Read entire published primary mathematical record via GitHub read-only connector",
+          "title": "Complete theta-class relations for three-point generalized theta configurations",
+          "trigger": "Same general theta-graph vocabulary and permutation augmentation lattice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary/2026, 2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb/RESULT.md; full primary theorem, assumptions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb",
+        "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433",
+        "N. Saleh, T. Titz Mite, S. Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023), main theorem and Remark 4.5; https://arxiv.org/pdf/2302.14388",
+        "Pinned original RESULT.md, including exact sign proof and scope"
+      ],
+      "rationale": "Natural, nontrivial complete integral Rips persistence invariant for an unbounded canonical theta-graph family at precisely the girth-six boundary outside general girth≥7 stabilization; its binomial(m,2) six-cycles share entire three-edge arms so disjoint-cycle methods fail. Exact all-scale wedge types, field-independent torsionfree barcodes and complete integral S_m×C2 actions give a useful structural test example. Especially the pole flip changes from −1 on degree-one cycles to +1 on degree-two spheres although Betti ranks match, a distinction not encoded in previously published nonequivariant sphere enumerations. This claim does not claim a general classification for all girth-six graphs or unequal path lengths.",
+      "residual_risks": [
+        "The proof is an elementary join/augmentation calculation; do not overstate a general-purpose homological theory or downstream result.",
+        "Novelty is necessarily best-of-knowledge and can be revised by an equivalent unindexed theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "M. Adamaszek, Clique complexes and graph powers, arXiv:1104.0433 (2011), Proposition 2.2, Theorem 5.1, Section 6; https://arxiv.org/pdf/1104.0433",
+    "M. Adamaszek et al., Vietoris–Rips and Čech complexes of metric gluings, SoCG 2018, Theorem 10, Section 4.2; DOI:10.4230/LIPIcs.SoCG.2018.3; https://drops.dagstuhl.de/storage/00lipics/lipics-vol099-socg2018/LIPIcs.SoCG.2018.3/LIPIcs.SoCG.2018.3.pdf",
+    "N. Saleh, T. Titz Mite, S. Witzel, Vietoris–Rips complexes of Platonic solids, arXiv:2302.14388 (2023), main theorem and Remark 4.5; https://arxiv.org/pdf/2302.14388",
+    "Z. Feng and N. C. P. Nukala, On Vietoris–Rips complexes of finite metric spaces with scale 2, arXiv:2302.14664 (2023), Abstract and Section 1; https://arxiv.org/pdf/2302.14664",
+    "Resultary/2026, 2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb/RESULT.md; full primary theorem, assumptions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-hexagon-packing-classification-of-scale-two-graph-rips-complex--70b9bc9b3abb",
+    "Resultary/2026, 2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8/RESULT.md; full primary theorem, definitions and proof read from published Git source; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-theta-class-relations-for-three-point-generalized-theta--7d068c6381b8",
+    "Resultary search exact matched the assigned SCOPE three-edge theta Rips record itself (2026/10/11/SCOPE-complete-vietoris-rips-persistence-and-symmetry-of-three-edge-th--c282838fbdca); self-match is not independent prior coverage"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Vertex-set shortest-path metric on m≥3 equal length-three unweighted branches only; inclusivity and scale normalization exactly as in RESULT.md.",
+    "No formal proof assistant or external human expert attestation was claimed.",
+    "Best-of-knowledge originality includes stated alias and literature search residual risk.",
+    "Actual published source admin files still disclose operational process provenance, precluding an import-ready publication plan until neutralized."
+  ]
+}
