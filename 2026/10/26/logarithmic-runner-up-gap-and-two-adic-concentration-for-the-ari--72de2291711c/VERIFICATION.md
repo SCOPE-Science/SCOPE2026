@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact proof and explicit constants are in `RESULT.md`. The following scientific checks were completed:
+## correctness
 
-1. Reconstructed the arithmetic derivative from its defining Leibniz rule and prime values. Checked the \(m=1\) and \(t=k\) boundary cases explicitly.
-2. Checked the key odd-prime bound by monotonicity of \(p\log p\), the affine minimization using \(m\le2^t-1\), and the convex minimum of \(ct+bk2^{-t}\), including the factor \(b=1/2-c\).
-3. Independently enumerated the entire sets \(1\le n<2^k\) for \(2\le k\le20\), computing arithmetic derivatives via prime-factor recurrence; the numerical bounds and maximizing-argument localization were satisfied. The verifier is included as `verify_gap.py`.
-4. Compared the claimed second-best gap and two-adic localization with the 2011 dyadic record theorem, the 2003 factorization and equation results, published record tables, and semantic research searches. No exact implication was found among inspected materials.
+PASS
 
-**Limits.** Tests through \(2^{20}\) are finite corroboration and do not prove the universal result. The proof does not determine the sharp leading constant or exact runner-up for all \(k\). A prior literature result outside inspected sources remains possible. Independent audit has not been performed.
+For odd m, sum_p v_p(m)/p <= log(m)/(3 log 3)=b log_2(m). Writing n=2^(k-t)m and x=m/2^t gives exact deficit (k/2)(1-x)+x(t/2-S(m)) >= ct+(k/2-ct)2^-t >=ct+bk2^-t, with c=1/2-b>0. Convex minimization yields c log_2 k+gamma. Competitor n=2^(k-t)(2^t-1), t=ceil(log_2 k), yields (log_2 k+2)/2. Each maximizing t and relative shortfall therefore satisfy explicit bounds. Independently computed D via smallest-prime recurrence for k=2..16; sample gaps k=2:3,k=8:384,k=12:7168,k=16:122880. Finite checks do not prove all-k bounds.
+
+## originality
+
+PASS
+
+Earlier dyadic record results say D(2^k) is maximal and finite OEIS tables list record arguments; those do not quantify the next-best gap for unbounded k or localize every maximizer. Resultary semantic search returned a different arithmetic-derivative cototient gap, not this runner-up invariant.
+
+## value
+
+PASS
+
+Quantitative behavior of the second-best value and valuation of every optimizer addresses a natural sharp near-record invariant, not a numerical one-off; asymptotic logarithmic scale was not implied by record status alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

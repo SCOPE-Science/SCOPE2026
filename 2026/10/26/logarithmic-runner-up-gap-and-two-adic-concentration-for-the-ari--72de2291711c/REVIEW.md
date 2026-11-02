@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit factorization formula yields an exact deficit identity for every integer below a dyadic endpoint. The primewise inequality \(1/p\le\log p/(3\log3)\) for odd primes bounds the logarithmic arithmetic derivative of the odd part. A convex minimization produces the stated uniform lower bound, and the explicit near-endpoint competitor gives the upper bound. Nonnegative terms in the deficit identity yield the two runner-up localization inequalities. The argument includes \(m=1\), \(k=2\), all possible prime factorizations, and tied maximizers; no infinite inference comes from finite computation.
+## correctness
 
-**Originality — PASS on inspected evidence.** The nearest published statement, Dahl–Olsson–Loiko (2011), proves that dyadic powers are records but not a uniform logarithmic estimate for the *next* value; Ufnarovski–Åhlander (2003) treats the derivative and unrelated differential equations. OEIS A131116/A131117 and the accessible 2023 record tabulation are finite records, not the theorem. Semantic research-record queries on runner-up dyadic gaps and two-adic concentration returned no equivalent assertion. The simple global inequality \(D(n)\le n\log_2n/2\) yields only a much smaller \(O(k)\)-scale lower estimate when applied without odd-part structure near \(2^k\); it does not imply the proved \(\Omega(2^k\log k)\). An unindexed prior paper and the uninspected complete 1961 article remain publication-priority risks.
+PASS
 
-**Value — PASS.** The exact dyadic record theorem motivates asking how isolated the record is. The answer gives the full asymptotic *order* of the first nonrecord deficit, plus a quantitative structural statement that every runner-up has a two-adic exponent within \(O(\log k)\) of \(k\). Both hold for the entire unbounded family of dyadic endpoints; this is not a numerical-table extension, a renamed elementary identity, or an arbitrary slice. The optimal multiplicative constant and exact runner-up argument remain open under the present methods.
+For odd m, sum_p v_p(m)/p <= log(m)/(3 log 3)=b log_2(m). Writing n=2^(k-t)m and x=m/2^t gives exact deficit (k/2)(1-x)+x(t/2-S(m)) >= ct+(k/2-ct)2^-t >=ct+bk2^-t, with c=1/2-b>0. Convex minimization yields c log_2 k+gamma. Competitor n=2^(k-t)(2^t-1), t=ceil(log_2 k), yields (log_2 k+2)/2. Each maximizing t and relative shortfall therefore satisfy explicit bounds. Independently computed D via smallest-prime recurrence for k=2..16; sample gaps k=2:3,k=8:384,k=12:7168,k=16:122880. Finite checks do not prove all-k bounds.
 
-No independent review or mathematical certification was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier dyadic record results say D(2^k) is maximal and finite OEIS tables list record arguments; those do not quantify the next-best gap for unbounded k or localize every maximizer. Resultary semantic search returned a different arithmetic-derivative cototient gap, not this runner-up invariant.
+
+## value
+
+PASS
+
+Quantitative behavior of the second-best value and valuation of every optimizer addresses a natural sharp near-record invariant, not a numerical one-off; asymptotic logarithmic scale was not implied by record status alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
