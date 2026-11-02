@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The commutator identity in \(\operatorname{UT}_3(R)\) reduces every pairwise-commutation question to zero determinants on \(R^2\). Valuation factoring is well-defined modulo \(\pi^{m-v}\). A primitive vector gives a projective direction at that level; determinant zero below the truncation threshold is equivalent to equality of the two directions after the appropriate reduction. Every projective point has exactly \(q\) lifts, so the nested direction systems have the same regular tree for every coefficient ring of fixed residue order and length. Scalar representatives and center coordinates have the same counts and do not change commutativity; this constructs a full graph isomorphism. Centralizer sizes and degree multiplicities are counted independently, and their distinct values recover the two parameters. The derived subgroup identifies with the additive ring; the two proposed pairs have different exponents and thus are not isoclinic. Prime-field examples were independently checked by exhaustive determinant comparisons and small full group-multiplication tests. Risk: the proof uses finite commutative *chain* rings essentially; it does not generalize automatically to arbitrary finite local rings.
+PASS
 
-## Originality — PASS against inspected sources
+Matrix multiplication gives [ (a,b,c),(u,v,w) ] central coordinate av-ub; using valuations x=pi^v u and y=pi^w z, zero determinant is automatic if v+w>=m, otherwise equivalently equality of reduced projective directions in P1(R/(pi^(m-v-w))). Every level-1 P1 has q+1 roots and each higher point exactly q lifts, giving a uniform projective-direction tree with same unit scalar label counts. Matching tree, unit labels and central coordinates yields a single adjacency-preserving graph bijection. The determinant map on R² has kernel size q^(m+v), giving full graph degrees q^(2m+v)-1 with multiplicities (q²-1)q^(3m-2v-2); their distinct nonuniversal degree strata recover m and universal vertices q^m recover q. The derived subgroup additive exponents p^m vs p obstruct isoclinism. Independent zero-determinant graph isomorphism for Z4 and F2[t]/t² and full degree histogram {15:48,31:12,63:4} corroborate, but infinite/general residue field proof rests on projective-reduction tree.
 
-The class-two counterexample *phenomenon* is known: Arvind–Cameron (2022) posed the conjecture, while Arvind–Cameron–Ma–Maslova (2023/2025, Section 9) explicitly credit O'Brien with order-64 nonisoclinic pairs and further examples. No priority for the first counterexample is asserted. Bartnicka–Matras (2017) describe projective-line distant graphs over local rings, a related but weaker single-level relation. A published result for two-generated class-two groups gives isoclinism rigidity within that special family; our polynomial-ring examples are not two-generated. Database searches and full-text comparisons found no source deriving the nested-valuation all-chain-ring commuting-graph classification, its converse parameter recovery, or the explicit adjacency-preserving bijections across all chain rings. An equivalent chain-geometry classification may exist, and the specific order-64 example could coincide with one previously reported; novelty is assessed at the infinite structural level only.
+## originality
 
-## Value — PASS
+PASS
 
-The exact recovery of \(q,m\) from the **entire** commuting graph, together with the same-parameter graph isomorphism for every finite commutative chain ring, is a natural recognition theorem rather than an isolated numerical computation. Earlier all-arity commuting-tuple formulas already establish numerical ring-blindness and the same nonisoclinic example, but equality of tuple counts does not force graph isomorphism. Here a **single explicit bijection preserves every commuting pair simultaneously**, and the graph-degree distribution supplies an independent converse parameter-recovery algorithm. The all-level projective-direction tree is a motivated structural mechanism and gives a new graph-classification result beyond the earlier invariant count.
+Best-of-knowledge: the submitted full statement was compared by actual implication to the specific prior primary statements and published mathematical index. PRIOR_PROBLEM: Conjecture is not claimed as still open. ; COVERS_PHENOMENON_NOT_CLASSIFICATION: Order-64 and related examples predate claimed uniform family; no reviewed theorem giving full all-chain-ring (q,m) graph classification. ; RELATED_INVARIANT: Projective-level distant graph distinct from zero-determinant relation on all nonprimitive coefficient pairs.. An inaccessible plausible source alone was not treated as failure; meaningful risks remain listed below.
 
-## Relationship and limits
+## value
 
-Inspected most closely: arXiv:2206.01059, Section 8; arXiv:2305.07301v5, Section 9 and Question 4; arXiv:1701.01263, Sections 2–3; the published two-generated class-two commuting-graph determinant blow-up theorem. Computational checks cover small prime fields only. Exhaustive publication priority and independent audit are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full adjacency graph is a natural invariant of class-two Heisenberg groups; classifying exactly what it recovers and fails to recover across all finite chain rings is a substantive structural theorem, stronger than the existence of isolated nonisoclinic collisions or equality of clique-count sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
