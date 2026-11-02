@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The walk model and semilength convention are defined at the sample-path level. The Catalan-product weight for conditioned excursion lengths is the established first-return enumeration; Lagrange inversion supplies the explicit normalizer, and its adjacent-rank quotient is a monotone fractional-linear function of the remaining mass. This yields a genuine cross-product likelihood-ratio comparison including support boundaries. Conditional independent excursion signs yield the exact positive-sem duration variance relation, and the density-limit proof includes a uniform geometric tail bound, rather than inferring moment convergence from weak convergence alone. Independent exhaustive balanced-walk enumeration and exact rational checks in `verify.py` completed 43,394 assertions.
+PASS
 
-## Originality — PASS (priority provisional)
+For every n>=2 and 1<=k<n, the exact law q_{n,k}(l)=k*l*C_{l-1}*Z(n-l,k-1)/(n*Z(n,k)) follows by Catalan primitive-excursion enumeration and size-biasing by the chosen two-step cell. Z(m,j)=j/(2m-j)*binom(2m-j,m-j). The consecutive-k likelihood ratio is proportional to k/(k-1)*(m-k+1)/(2m-k), m=n-l, increasing in m for k>=3 and constant when k=2; finite support loss makes adjacent laws distinct, and k=1 is a top-atom boundary. The conditional fair excursion signs give Var(A|K=k)=n/4 E[L*|K=k], strictly decreasing from n^2/4 to n/4. For k/n->rho in (0,1), recurrence q(1) plus uniform subcritical geometric bounds on ratios gives the claimed q_rho and first-moment convergence. Checks: independently enumerated every balanced 2n-step bridge n<=7, giving 140 exact cell-size probabilities and strict mean monotonicity. Source RESULT.md Git blob 176378ba2f6495917e1e44ef7352f5c69782f4ec; verify.py blob 3cc4aee4a334a0494cbb1c7d39a93846893637fe. Finite checks are corroborative, not proof of all n.
 
-The closest primary comparison is Serlet's 2014 paper: its equations (5)–(8) already give the complete Catalan-product counting law for excursion lengths conditioned on the return count. Those formulas supply an essential premise and imply the explicit mass law after a size-bias operation, but the inspected analysis concerns a few-zero invariance principle and does not state or establish cross-count likelihood-ratio dominance. Csáki–Hu (2003) and Lindell–Holst (2007) study ranked excursion distributions rather than this monotone time-sampling order. The exact ordering, its strict all-return-count variance consequence, and the linear-density constant are the assessed new combination. A previously published general renewal-composition monotonicity theorem or allocation limit could subsume parts of this finding; broad Janson allocation literature was not completely inspected. This review does not assert conclusive worldwide priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Conditioning a bridge on its return count is natural in excursion theory, pinned-polymer models, and plane-forest encodings. The strict likelihood-ratio order is stronger than variance monotonicity and simultaneously controls every increasing statistic of the excursion experienced by a time-sampled observer. Its effect on positive-excursion occupation variability gives a complete finite return-count hierarchy with sharp endpoints; the density-scale constant describes the contrasting extensive-return regime. This structural order is not evident from the separate marginal bridge law or few-zero invariance principles.
+The exact Catalan-product factorization and laws of excursions tied to the zero count are known; distinct comparative likelihood-ratio ordering across consecutive return counts, the positive-excursion semiduration variance hierarchy and the k/n->rho moment limit are not established by the inspected theorems. Primary comparisons distinguish longest/ranked excursions and the few-zero invariance regime from size-biased finite all-k order. Best of knowledge; possible coverage by general renewal/conditioning monotonicity results remains a residual risk.
 
-## Limitations and closest work
+## value
 
-The law applies only to fair, nearest-neighbor, tied-down walks. The positive-excursion semiduration is defined by complete excursion intervals, not by a pointwise above-zero clock-time count. Finite tests are not used as an all-size proof. Serlet's enumeration overlaps the formula-level groundwork substantially. General renewal ordering results and the complete allocation literature remain an originality risk; no independent scientific audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural size-biased excursion invariant captures the duration encountered by an independently uniform time cell. Strict likelihood-ratio order gives monotonicity for all increasing observables, and in particular an exact fluctuation reduction of excursion-level positivity under more zero returns, plus a nontrivial density-scale limit. This is more than Catalan enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

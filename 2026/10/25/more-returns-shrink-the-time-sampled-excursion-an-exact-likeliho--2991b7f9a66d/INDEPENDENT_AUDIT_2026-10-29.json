@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2 and 1<=k<n, the exact law q_{n,k}(l)=k*l*C_{l-1}*Z(n-l,k-1)/(n*Z(n,k)) follows by Catalan primitive-excursion enumeration and size-biasing by the chosen two-step cell. Z(m,j)=j/(2m-j)*binom(2m-j,m-j). The consecutive-k likelihood ratio is proportional to k/(k-1)*(m-k+1)/(2m-k), m=n-l, increasing in m for k>=3 and constant when k=2; finite support loss makes adjacent laws distinct, and k=1 is a top-atom boundary. The conditional fair excursion signs give Var(A|K=k)=n/4 E[L*|K=k], strictly decreasing from n^2/4 to n/4. For k/n->rho in (0,1), recurrence q(1) plus uniform subcritical geometric bounds on ratios gives the claimed q_rho and first-moment convergence. Checks: independently enumerated every balanced 2n-step bridge n<=7, giving 140 exact cell-size probabilities and strict mean monotonicity. Source RESULT.md Git blob 176378ba2f6495917e1e44ef7352f5c69782f4ec; verify.py blob 3cc4aee4a334a0494cbb1c7d39a93846893637fe. Finite checks are corroborative, not proof of all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Serlet Theorem 2 treats zero counts k=o(sqrt(n)) and an invariance regime, not arbitrary k up to n or a linear-density limit.",
+          "General random-allocation limits may yield the distribution but do not alone supply the finite strong likelihood-ratio order."
+        ],
+        "reasoning": "The closest broader asymptotic and random-allocation results were compared by regime and ordering strength; no inspected theorem entails all three parts of the package.",
+        "searches": [
+          "simple random walk bridges Catalan excursions conditioned number of zeros size biased randomly sampled excursion likelihood ratio stochastic ordering return count",
+          "Serlet 2014 Theorem 2",
+          "Janson 2012 DOI 10.1214/11-PS188"
+        ]
+      },
+      "checked_sources": [
+        "Serlet 2014 DOI 10.1007/978-3-319-11970-0_19",
+        "Lindell-Holst 2007 DOI 10.1239/jap/1197908824",
+        "Csáki-Hu 2003 DOI 10.46298/dmtcs.3337",
+        "Janson 2012 DOI 10.1214/11-PS188"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Serlet includes the Catalan product, so the source enumeration is prior input.",
+          "Taking quotient of Z(m,k)/Z(m,k-1), proving its monotonicity in m, and using random signs derives a stronger new comparison not stated in Serlet."
+        ],
+        "reasoning": "Prior enumeration implies formula (1) under elementary size bias, but the package independently supplies the cross-k ordering argument and conditional variance hierarchy; the novelty lies there, not in its enumerative premises.",
+        "searches": [
+          "simple random walk bridges Catalan excursions conditioned number of zeros size biased randomly sampled excursion likelihood ratio stochastic ordering return count",
+          "Serlet 2014 sections and Theorem 2",
+          "Lindell-Holst 2007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning on number of zero returns gives known Catalan-product excursion lengths in Serlet equations (5)-(8); picking a random two-step time cell size-biases by excursion length.",
+          "Lindell-Holst examines maximal tied-down walk excursions, not the sampled-size likelihood ratio."
+        ],
+        "reasoning": "Equivalent formulations via ordered Catalan compositions, tied-down walks and size-biased renewal intervals were explicitly compared; the strict adjacent return-count likelihood-ratio ordering is an additional relation not implied just by the fixed-k conditional distribution formula.",
+        "searches": [
+          "simple random walk bridges Catalan excursions conditioned number of zeros size biased randomly sampled excursion likelihood ratio stochastic ordering return count",
+          "Serlet 2014 DOI 10.1007/978-3-319-11970-0_19",
+          "Lindell-Holst 2007 DOI 10.1239/jap/1197908824"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact excursion-length enumeration gives Z(n,k), whereas the proposed result orders the entire size-biased distribution when k changes.",
+          "Ranked/longest excursion distributions are different summaries and do not supply the variance identity for positive-excursion semiduration."
+        ],
+        "reasoning": "This is not a database value or finite table; comparison targeted the full law across return-count conditioning and its natural limits.",
+        "searches": [
+          "simple random walk bridges Catalan excursions conditioned number of zeros size biased randomly sampled excursion likelihood ratio stochastic ordering return count",
+          "Csáki-Hu 2003 DOI 10.46298/dmtcs.3337",
+          "Lindell-Holst 2007 DOI 10.1239/jap/1197908824"
+        ]
+      },
+      "rationale": "The exact Catalan-product factorization and laws of excursions tied to the zero count are known; distinct comparative likelihood-ratio ordering across consecutive return counts, the positive-excursion semiduration variance hierarchy and the k/n->rho moment limit are not established by the inspected theorems. Primary comparisons distinguish longest/ranked excursions and the few-zero invariance regime from size-biased finite all-k order. Best of knowledge; possible coverage by general renewal/conditioning monotonicity results remains a residual risk.",
+      "residual_risks": [
+        "General conditional renewal order theory or random-allocation limit theorems might subsume portions of the claim; broad primary literature was not exhausted.",
+        "Physical occupation is complete positive-excursion semiduration A, not counts of clock instants with S_t>0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact Catalan-product enumeration covered; full finite all-k likelihood-ratio statement not found in the inspected theorem",
+          "evidence": "Catalan factors at Serlet equations (5)-(8), theorem governing few-zero asymptotics",
+          "identifier_or_url": "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "material_read": "Complete accessible 12-page PDF; equations (5)-(8) and its invariance theorem for a few zeros",
+          "method": "full-text reading and PDF page inspection",
+          "title": "Invariance Principle for the Random Walk Conditioned to Have Few Zeros",
+          "trigger": "Exact same bridge excursion conditional-zero-count model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural size-biased excursion invariant captures the duration encountered by an independently uniform time cell. Strict likelihood-ratio order gives monotonicity for all increasing observables, and in particular an exact fluctuation reduction of excursion-level positivity under more zero returns, plus a nontrivial density-scale limit. This is more than Catalan enumeration alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Serlet 2014 DOI 10.1007/978-3-319-11970-0_19",
+    "Lindell-Holst 2007 DOI 10.1239/jap/1197908824",
+    "Csáki-Hu 2003 DOI 10.46298/dmtcs.3337",
+    "Janson 2012 DOI 10.1214/11-PS188"
+  ],
+  "disposition": "passed",
+  "limitations": "The limit excludes rho=0; other increments and non-symmetric walks are not covered; finite enumeration is not a proof of the all-n limit.",
+  "residual_risks": [
+    "General conditional renewal order theory or random-allocation limit theorems might subsume portions of the claim; broad primary literature was not exhausted.",
+    "Physical occupation is complete positive-excursion semiduration A, not counts of clock instants with S_t>0."
+  ],
+  "schema_version": 1
+}
