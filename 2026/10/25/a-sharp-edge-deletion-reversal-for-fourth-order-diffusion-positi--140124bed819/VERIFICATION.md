@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and boundaries
 
-Run `python verify.py` from the extracted package using Python 3 and SymPy (see `requirements.txt`). The code symbolically checks the critical deleted-matching entry, existing-edge decomposition, same-side transition polynomial, and negative discriminant. It also checks the polynomial sign brackets controlling the comparison with intact complete bipartite networks.
+# Independent mathematical audit
 
-Recorded successful execution:
+## correctness
 
-`VERIFY_OK: 3 symbolic orbit identities; nonnegativity certificates;  10020 exact direct matrix entries for n=3..11, 5 steps per n`
+PASS
 
-For every integer \(n=3,\ldots,11\), the checker independently builds the \(2n\)-vertex graph Laplacian, expands the RK4 matrix with exact rational arithmetic, and compares each entry at five rational timesteps to its spectral orbit expression. It additionally compares full-matrix nonnegativity with the claimed threshold on both sides of that threshold. It is not an exhaustive test of all integers or real steps, and the claimed all-parameter theorem relies on the explicit analytical sign proof in `RESULT.md`.
+For crown C_n=K_{n,n} minus the diagonal matching, n>=3, the four orthogonal Laplacian spectral projectors with eigenvalues 0,n,n-2,2(n-1) give all orbit entries. The paired nonedge entry is exactly (n-2)(n-1) h^3(1-(n-1)h)/6; same-side quadratic has strictly negative discriminant; existing-edge expression h[(1-z)(1+A z²)+z²/3] positive on 0<z<1; R4(-t)>0 yields positive diagonals. Thus no return beyond 1/(n-1). For intact K_nn the across-part entry 1-R4(-2nh) and scalar convexity yield cutoff rho/(2n), rho unique positive root t³-4t²+12t-24. 8/3<rho<3 gives opposite deletion comparisons n=3 versus n>=4. Independently reconstructed 28 direct rational dense matrices n=3..9 and scalar orbit identities; these finite tests supplement the all-n proof.
 
-The method applies only to completed classical RK4; this is not an independent mathematical certification.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the all-crown RK4 nonnegativity cutoff and matching-deletion reversal: general SSP theory and known cycle n=3 are prior, but neither implies exact n>=4 deleted-entry obstruction and intact K_nn comparison; no equally strong published claim identified. Search absence is not novelty proof.
+
+## value
+
+PASS
+
+An exact all-size one-step cone-positivity horizon and a counterintuitive sharp edge-deletion reversal on a natural regular graph family. It distinguishes completed RK4 positivity from spectral norm stability and from positivity of intermediate stages, which is directly relevant to choosing timesteps on graph diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

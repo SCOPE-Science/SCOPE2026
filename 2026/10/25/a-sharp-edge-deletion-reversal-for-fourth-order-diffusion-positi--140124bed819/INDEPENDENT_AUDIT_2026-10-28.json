@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:09:52.753920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For crown C_n=K_{n,n} minus the diagonal matching, n>=3, the four orthogonal Laplacian spectral projectors with eigenvalues 0,n,n-2,2(n-1) give all orbit entries. The paired nonedge entry is exactly (n-2)(n-1) h^3(1-(n-1)h)/6; same-side quadratic has strictly negative discriminant; existing-edge expression h[(1-z)(1+A z²)+z²/3] positive on 0<z<1; R4(-t)>0 yields positive diagonals. Thus no return beyond 1/(n-1). For intact K_nn the across-part entry 1-R4(-2nh) and scalar convexity yield cutoff rho/(2n), rho unique positive root t³-4t²+12t-24. 8/3<rho<3 gives opposite deletion comparisons n=3 versus n>=4. Independently reconstructed 28 direct rational dense matrices n=3..9 and scalar orbit identities; these finite tests supplement the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gottlieb and Gottlieb 2003 proves general strong stability preserving time-step bounds for linear operators; individual graph Laplacian projectors and negative deleted entries are not evaluated there."
+        ],
+        "reasoning": "A general SSP guarantee may be smaller than the actual per-graph completed-map cone-positivity radius and does not entail the deletion comparison.",
+        "searches": [
+          "Resultary: RK4 graph Laplacian nonnegative one step crown complete bipartite removing perfect matching positivity threshold",
+          "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+        "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "https://mathworld.wolfram.com/CrownGraph.html",
+        "Resultary: RK4 graph Laplacian nonnegative one step crown complete bipartite removing perfect matching positivity threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published classical RK SSP methods and complete stability polynomial coefficients are acknowledged; the all-n paired-entry factorization, sign and n=4 reversal are new specialized deductions from the graph-specific spectral decomposition."
+        ],
+        "reasoning": "Prior universal SSP radius results do not imply the claimed graph-specific sharp cutoff and deletion reversal without the new projector computation.",
+        "searches": [
+          "Resultary: RK4 graph Laplacian nonnegative one step crown complete bipartite removing perfect matching positivity threshold",
+          "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown graph is K_{n,n} minus a perfect matching, with an n=3 cycle special case. Theorem concerns completed classical RK4 entrywise nonnegativity, not ordinary stability.",
+          "Relevant SSP literature treats positivity/monotonicity of linear constant-coefficient evolution at a general level."
+        ],
+        "reasoning": "No exact crown RK4 transition-entry theorem was found in the scoped alias search; generic SSP positivity radius alone is a sufficient method guarantee, not this graph-specific sharp completed step.",
+        "searches": [
+          "Resultary: RK4 graph Laplacian nonnegative one step crown complete bipartite removing perfect matching positivity threshold",
+          "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search surfaced a crown graph exact non-CIS pair count, an invariant of clique/stable-set intersections unrelated to RK4 matrix entries; no same-table result."
+        ],
+        "reasoning": "A combinatorial crown-graph entry is not a table of its RK4 positivity horizons.",
+        "searches": [
+          "Resultary: RK4 graph Laplacian nonnegative one step crown complete bipartite removing perfect matching positivity threshold",
+          "2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the all-crown RK4 nonnegativity cutoff and matching-deletion reversal: general SSP theory and known cycle n=3 are prior, but neither implies exact n>=4 deleted-entry obstruction and intact K_nn comparison; no equally strong published claim identified. Search absence is not novelty proof.",
+      "residual_risks": [
+        "Specialized graph heat-flow/positivity literature may contain an equivalent unindexed crown calculation.",
+        "An accessible copy of the earlier 2001 author-hosted paper was difficult to retrieve directly; composite volume and its relevant exposition were inspected, not every page reread.",
+        "Finite rational checks n<=9 do not establish the universal quantifier; the explicit sign proof is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected general SSP method analysis; no evaluated crown graph entries in inspected material",
+          "evidence": "Paper studies stage coefficients, CFL restrictions, and general linear operator SSP conditions, not K_nn minus perfect matching.",
+          "identifier_or_url": "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+          "material_read": "Original article pages 83-109 in composite volume; abstract, introductory operator conditions, general optimality theorems and numerical example, plus page-image of first article page",
+          "method": "Full primary PDF searchable text and page image; targeted mathematical sections",
+          "title": "Strong Stability Preserving Properties of Runge–Kutta Time Discretization Methods for Linear Constant Coefficient Operators",
+          "trigger": "Direct prior for SSP bounds of RK on linear operators"
+        },
+        {
+          "assessment": "Prior general SSP background; not a proven whole-document exclusion of specialized crown result",
+          "evidence": "General methods of SSP under forward Euler assumptions, not a stated sharp all-crown entrywise cutoff.",
+          "identifier_or_url": "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+          "material_read": "Composite volume page 43 onward contains 2001 SIAM Review article; introduction/abstract and method discussion read",
+          "method": "Primary PDF searchable text; article title and contents checked",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "Foundational fourth-order SSP time discretization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-size one-step cone-positivity horizon and a counterintuitive sharp edge-deletion reversal on a natural regular graph family. It distinguishes completed RK4 positivity from spectral norm stability and from positivity of intermediate stages, which is directly relevant to choosing timesteps on graph diffusion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cfm.brown.edu/people/sg/SGmcg1.pdf",
+    "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+    "https://mathworld.wolfram.com/CrownGraph.html",
+    "Resultary: RK4 graph Laplacian nonnegative one step crown complete bipartite removing perfect matching positivity threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specialized graph heat-flow/positivity literature may contain an equivalent unindexed crown calculation.",
+    "An accessible copy of the earlier 2001 author-hosted paper was difficult to retrieve directly; composite volume and its relevant exposition were inspected, not every page reread.",
+    "Finite rational checks n<=9 do not establish the universal quantifier; the explicit sign proof is essential."
+  ],
+  "schema_version": 1
+}

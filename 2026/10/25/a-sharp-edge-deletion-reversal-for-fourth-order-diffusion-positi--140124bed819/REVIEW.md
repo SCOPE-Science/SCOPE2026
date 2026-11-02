@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A four-projector orthogonal spectral decomposition is reconstructed directly from the crown graph's adjacency block matrix. Exact polynomial identities give the deleted-pair entry \(h^3(n-2)(n-1)(1-(n-1)h)/6\), a globally positive quadratic certificate for same-part entries, and a positive-factor decomposition for edge entries throughout the claimed interval. Positivity of the scalar RK4 polynomial gives diagonal positivity. The intact-biclique comparison follows from its three spectral eigenvalues and strict polynomial convexity. The root bounds \(8/3<\rho<3\) prove the integer reversal. The independent direct rational-matrix replay passed for \(n=3,\ldots,11\). These computations verify algebra but do not replace the infinite proof.
+## correctness
 
-**Originality — PASS, with explicit risk.** Gottlieb–Shu–Tadmor (2001) and Gottlieb–Gottlieb (2003) provide the closest inspected primary method theory: their general SSP guarantees and linear-operator timestep bounds do not state or imply the exact crown-entry orbit sign law or the sharp deletion reversal without a new graph-specific argument. Related numerical-positivity and graph papers concern different time-stepping methods or graph families. A pre-existing maximum-degree-two classification covers only the \(n=3\) six-cycle, and an intact complete-multipartite result covers the comparator \(K_{n,n}\), not the deleted-matching graph for \(n\ge4\). Search non-detection is not a uniqueness proof, and undiscovered specialized literature is a residual risk.
+PASS
 
-**Value — PASS.** This is not simply a new polynomial matrix formula: it determines the full, no-reentry positive timestep interval for a dense, natural infinite network family, demonstrates equality with the forward-Euler cutoff despite a larger spectral-stability window, and proves that deleting only a perfect matching reverses the *absolute* allowable RK4 timestep order at the sharp graph-size boundary \(n=4\). This is a reusable structural counterexample to naive network-sparsification monotonicity in positive high-order diffusion steps, with a completely specified failing transition class.
+For crown C_n=K_{n,n} minus the diagonal matching, n>=3, the four orthogonal Laplacian spectral projectors with eigenvalues 0,n,n-2,2(n-1) give all orbit entries. The paired nonedge entry is exactly (n-2)(n-1) h^3(1-(n-1)h)/6; same-side quadratic has strictly negative discriminant; existing-edge expression h[(1-z)(1+A z²)+z²/3] positive on 0<z<1; R4(-t)>0 yields positive diagonals. Thus no return beyond 1/(n-1). For intact K_nn the across-part entry 1-R4(-2nh) and scalar convexity yield cutoff rho/(2n), rho unique positive root t³-4t²+12t-24. 8/3<rho<3 gives opposite deletion comparisons n=3 versus n>=4. Independently reconstructed 28 direct rational dense matrices n=3..9 and scalar orbit identities; these finite tests supplement the all-n proof.
 
-**Limitations.** The result is for final classical RK4 steps of unweighted crown and complete bipartite Laplacians; no generalized time-integrator, weighted graph, or intermediate-stage claim follows. The six-cycle subcase has prior coverage. Independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the all-crown RK4 nonnegativity cutoff and matching-deletion reversal: general SSP theory and known cycle n=3 are prior, but neither implies exact n>=4 deleted-entry obstruction and intact K_nn comparison; no equally strong published claim identified. Search absence is not novelty proof.
+
+## value
+
+PASS
+
+An exact all-size one-step cone-positivity horizon and a counterintuitive sharp edge-deletion reversal on a natural regular graph family. It distinguishes completed RK4 positivity from spectral norm stability and from positivity of intermediate stages, which is directly relevant to choosing timesteps on graph diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
