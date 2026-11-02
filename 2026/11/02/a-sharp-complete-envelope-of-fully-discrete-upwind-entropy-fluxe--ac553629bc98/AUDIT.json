@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The unrestricted-function theorem is proven by freezing the left pair or the right pair, yielding respectively upper and lower pointwise bounds; the exact dissipation identity proves sufficiency. Consistency is explicitly assumed to fix the additive gauge. Three independent periodic states exist for N>=3. For nu>1, the two bounds conflict for any a!=b. Verification at 12072 exact-rational instances supplements the proof and checks extremal intervals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2107.11283v2 develops fully discrete entropy correction for broader finite-element schemes, without the inspected explicit upwind unrestricted two-point envelope",
+        "arXiv:2004.02258 concerns scalar flux correction via linear programming, without an identified exhaustive all-state flux characterization"
+      ],
+      "reasoning": "Broader algorithmic entropy stabilization does not automatically imply the sharp local classification or quantify the half-cell conservatism. Full historical coverage remains limited.",
+      "searches": [
+        "published-finding corpus: half-cell entropy flux interval sufficient versus necessary upwind linear advection quadratic entropy Liu Jiang Zhang 2610.30535",
+        "web: upwind fully discrete cell entropy inequality necessary sufficient numerical entropy flux interval H(uL,uR) quadratic 1-CFL"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.30535v1 Section 3.2 equations (20)-(23) and Section 3.3",
+      "arXiv:2107.11283v2 relevant entropy correction sections",
+      "arXiv:2004.02258 relevant scalar flux-correction sections",
+      "arXiv:2003.12007 relevant algebraic entropy correction sections",
+      "published-finding corpus semantic searches listed individually in check objects",
+      "40 accessible historical finding claims in the current-week ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For upwind quadratic entropy the source half-cell interval is [U(a)-(1/2-nu)(a-b)^2,U(a)]; the proved full-cell envelope is [U(a)-(1-nu)(a-b)^2/2,U(a)]",
+        "For 1/2<nu<1 the source interval is empty on nonconstant states, but the proved full-cell interval is nonempty"
+      ],
+      "reasoning": "The published half-cell conditions are sufficient, never asserted necessary. Strict inclusion and the open-CFL separation show that its theorem cannot imply the precise converse. Flux-correction schemes have different objects and no inspected statement that covers the unrestricted exact envelope.",
+      "searches": [
+        "arXiv:2610.30535v1 Section 3.2 equations 20-23",
+        "arXiv:2107.11283v2 fully discrete entropy fix",
+        "arXiv:2004.02258 entropy stable flux correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.30535v1 Section 3.2 equations (20)-(23) derives a local sufficient interval, not an exhaustive necessary-and-sufficient full-cell interval",
+        "A published finding on backward-Euler-filtered Crank--Nicolson concerns parabolic positivity, not hyperbolic entropy-flux feasibility"
+      ],
+      "reasoning": "Local shared numerical entropy flux, fully discrete E-flux, upwind entropy flux and half-cell entropy budget refer to closely related formulations. Only the specialized all-state, all-function necessity-and-sufficiency claim is new here; source sufficient coverage does not entail it.",
+      "searches": [
+        "published-finding corpus: Fully discrete entropy stable upwind forward Euler scheme numerical entropy flux H(a,b)=a²/2 - k(a-b)² exact interval k CFL, necessary sufficient",
+        "web: upwind finite volume all consistent quadratic numerical entropy fluxes forward Euler degree two necessary sufficient CFL half cell entropy flux"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 40 prior same-week finding claims include a separate cRKDG instability example using arXiv:2610.30535v1, but no sharp interval or two-point function classification",
+        "No directly matching finite reference table or known exact-domain coefficient was found in the specified searches"
+      ],
+      "reasoning": "This is an unrestricted functional envelope, rather than a table lookup. Checking the shared source does not constitute claim overlap, and search absence alone is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: all quadratic consistent numerical entropy fluxes piecewise constant upwind advection sharp coefficient (1-CFL)/2 classification",
+        "web: linear advection upwind scheme \"numerical entropy flux\" \"1-λ\" square"
+      ]
+    },
+    "rationale": "A motivating 2026 source proves sufficiency of an interface half-cell interval via convex splitting, not the necessary-and-sufficient envelope for every consistent two-point function. Its published equations yield a demonstrably narrower interval, with an exact gap of nu(a-b)^2/2 and premature emptiness for nu>1/2. Accessible primary comparisons, research-record searches, and historical claims showed no direct statement implying the unrestricted classification. Upwind entropy stability, Jensen splitting and the elementary algebra are explicitly not claimed novel. Historical-priority limitations are recorded.",
+    "residual_risks": [
+      "Classical first-order upwind entropy-flux theory may contain an equivalent general characterization under other terminology, not located through these searches",
+      "The inspected older papers and accessible search corpus do not constitute exhaustive publication or theorem-priority coverage",
+      "The result does not assert generalization beyond the specified entropy and upwind update"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sufficient half-cell interval; not directly covering the sharp necessity/sufficiency theorem",
+        "evidence": [
+          "Section 3.2 explicitly says sufficient half-cell inequalities (22) and interval (23)",
+          "For g(a,b)=a, U=F=a^2/2, interval lower bound is U(a)-(1/2-nu)(a-b)^2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30535v1",
+        "material_read": "Full HTML accessed; Sections 1, 2.1, 3.2 (equations 20-24), 3.3 and cited results/references material examined",
+        "method": "Read original HTML and specialized the published virtual-state formulas exactly",
+        "title": "High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations",
+        "trigger": "same 2026 source and shared entropy-flux intervals"
+      },
+      {
+        "assessment": "Treats flux correction and Tadmor entropy budgets; no direct sharp all-functions interval identified",
+        "evidence": [
+          "arXiv:2107.11283 abstract and finite-element entropy-limiting framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2107.11283",
+        "material_read": "Relevant available full-text introductory and entropy-limiting sections",
+        "method": "Examined primary open-access mathematical exposition",
+        "title": "Limiter-based entropy stabilization of semi-discrete and fully discrete schemes for nonlinear hyperbolic problems",
+        "trigger": "general fully discrete entropy correction and possible broader inclusion"
+      },
+      {
+        "assessment": "Provides scalar flux-correction methodology and LP constraints, not the exact universal upwind envelope as inspected",
+        "evidence": [
+          "arXiv:2004.02258 formulation of flux correction for scalar laws"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.02258",
+        "material_read": "Relevant primary full-text sections discussing entropy-stable flux-correction constraints",
+        "method": "Examined available arXiv full-text material",
+        "title": "Entropy stable flux correction for scalar hyperbolic conservation laws",
+        "trigger": "closest scalar flux-correction theory"
+      },
+      {
+        "assessment": "Different finite-element correction setting; no all-function upwind full-cell envelope located",
+        "evidence": [
+          "arXiv:2003.12007 scalar entropy-fixed finite-element framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.12007",
+        "material_read": "Relevant primary full-text sections on discrete entropy fixes and bounds",
+        "method": "Examined source mathematical framework",
+        "title": "Algebraic entropy fixes and convex limiting for continuous finite element discretizations of scalar hyperbolic conservation laws",
+        "trigger": "prior algebraic entropy fix for scalar laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac553629-bc98-4d20-9361-f87b563e9da2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact necessary-and-sufficient classification of all consistent two-point entropy flux functions is a natural mathematical invariant of a fully discrete stable scheme, not an arbitrary small example. Its sharp width quantifies a nontrivial gap between strict half-cell sufficiency and genuine full-step feasibility; for half<nu<=1, half-cell feasibility vanishes although nontrivial universal cell entropy fluxes exist. This provides a precise design boundary for numerical entropy-flux projection and CFL reasoning, without claiming high-order algorithm guarantees.",
+    "status": "PASS"
+  }
+}
