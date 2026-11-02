@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The explicit color-change proof handles every initial configuration in the domain: each bipartition has at most two initially white vertices, matched supports are necessary at size two, and the only two-by-two obstruction is equality of supports. The proof supplies forcing steps in each other case and enumerates all surviving profiles without double counting. A separate exhaustive direct-rule program produced `VERIFY_OK cases=130 initial_colourings=407040`; these finite checks do not prove the infinite assertion.
+## correctness
 
-**Originality: PASS, subject to residual literature risk.** The 2010 zero forcing source defines the ordinary process but does not establish the target deleted-matching polynomial in the inspected material. Boyer et al. (arXiv:1801.08910, Proposition 4) supply the complete bipartite polynomial, recovered at zero deletions, but that statement does not cover the two new low-degree coefficients. Close indexed records on matching-deleted bicliques count other parameters: geodesic subpaths and non-CIS pairs. The thesis arXiv:1311.7672 was accessible only as an abstract; an exact result in its full text or an unindexed source cannot be excluded. Negative searches are not a uniqueness proof.
+PASS
 
-**Value: PASS.** The natural family permits a controlled deletion experiment with a precise structural and enumerative answer across every admissible part size. The ordinary zero forcing number has two sharp transitions after one and two missing disjoint edges, and the result then fixes all coefficients rather than just the extremum. The crown-graph specialization is a complete all-size enumeration.
+With white complements I subset A,J subset B, no forcing into a side with three or more whites is possible because any opposite vertex misses at most one cross edge. Two white vertices on one side must include a matched index so an opposite vertex can have a unique white neighbor. If both sides have two whites with equal nonempty matched supports, every initially blue vertex sees either zero or two opposite whites and no first force exists. In all other cases with at most two whites per side, explicit forcing via b_i or a_j (possibly first clearing a one-white opposite side) reduces to at most one white per side, then finishes. Thus four structural conditions are necessary/sufficient. Enumerate white set sizes 0..4; P_m,P_n count 2-subsets meeting matched indexes; overcount at four whites is E=t(m-t)(n-t)+C(t,2) from equal nonempty matched supports. Sharp min supports for t=0,1,>=2 follow. Independent direct color-change closure over 78 m,n,t triples and 83,456 blue subsets agreed exactly; infinite family relies on case proof.
 
-**Scope.** Parts have at least three vertices; deleted edges are pairwise disjoint. No assertion covers smaller parts, other deletion patterns, or other forcing variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new complete ordinary zero-forcing polynomial for K_{m,n} with t deleted disjoint edges, m,n>=3. The complete-bipartite t=0 specialization is prior and explicitly carved out. The new structural characterization uses four white-subset conditions, with two transition thresholds and crown specialization. Later zero-forcing graph-operation paper was inspected and concerns coefficient upper bounds, not target exact family.
+
+## value
+
+PASS
+
+Matching deletion is a natural controlled perturbation of complete bipartite forcing. A complete all-m,n,t initial-set characterization and polynomial describe two sharp zero-forcing-number phase changes and all minimum crown forcing sets, data useful independently of more general forcing questions. Not merely t=0 coefficient reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

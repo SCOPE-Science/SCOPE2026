@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:01:09.057353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/26/zero-forcing-sets-of-complete-bipartite-graphs-with-a-deleted-ma--8a368cb2e9c6/RESULT.md blob eaf2b9b1c02d91b7856d429ed32c043b6ec63fdf",
+        "Independently implemented checks recorded in independent_checks"
+      ],
+      "rationale": "With white complements I subset A,J subset B, no forcing into a side with three or more whites is possible because any opposite vertex misses at most one cross edge. Two white vertices on one side must include a matched index so an opposite vertex can have a unique white neighbor. If both sides have two whites with equal nonempty matched supports, every initially blue vertex sees either zero or two opposite whites and no first force exists. In all other cases with at most two whites per side, explicit forcing via b_i or a_j (possibly first clearing a one-white opposite side) reduces to at most one white per side, then finishes. Thus four structural conditions are necessary/sufficient. Enumerate white set sizes 0..4; P_m,P_n count 2-subsets meeting matched indexes; overcount at four whites is E=t(m-t)(n-t)+C(t,2) from equal nonempty matched supports. Sharp min supports for t=0,1,>=2 follow. Independent direct color-change closure over 78 m,n,t triples and 83,456 blue subsets agreed exactly; infinite family relies on case proof.",
+      "residual_risks": [
+        "Only simple ordinary zero forcing on m,n>=3 with missing edges a matching; no non-disjoint deletions, small-part or alternative forcing variants.",
+        "2013 thesis only selectively inspected; full-text historical priority not certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer Prop4 determines K_{m,n}, recovered exactly at t=0; Menon–Singh §3 proves inequalities for adding/removing graph features to establish a global path-graph extremal conjecture, with no K_{m,n}-matching polynomial in the inspected full paper.",
+          "Taklimi thesis indexed matching/complete-bipartite sections checked; no verified matching-deletion cardinality polynomial in inspected material."
+        ],
+        "reasoning": "A general graph-operation coefficient inequality does not imply the exact five coefficients or the sharp t=1/t=2 transition.",
+        "searches": [
+          "Boyer et al Zero forcing polynomial of a graph arXiv:1801.08910 Proposition4",
+          "Menon–Singh Exploring Influence Graph Operations on Zero Forcing Sets arXiv:2405.01423 §3",
+          "Taklimi Zero Forcing Sets for Graphs thesis arXiv:1311.7672 and lawful thesis full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Boyer et al arXiv:1801.08910 full PDF Proposition4",
+        "Menon & Singh arXiv:2405.01423 17-page OA preprint full text and two screenshots",
+        "Taklimi 2013 thesis full extracted text targeted searches but incomplete whole-document visual inspection",
+        "Resultary zero forcing semantic search: known complete multipartite and non-CIS matching-deleted results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyer formula implies coefficients only when t=0, while deletion increases/removes forces nonmonotonically by configuration and cannot be inferred from the t=0 enumerator. Menon–Singh coefficient upper bounds do not specialize to exact t≥1 polynomial."
+        ],
+        "reasoning": "The new necessary-and-sufficient white-support characterization is stronger than prior bound/complete-biclique results and determines new coefficients not entailed by inspected sources.",
+        "searches": [
+          "Boyer et al 2018 Proposition4",
+          "Menon–Singh 2025 journal / arXiv:2405.01423 Theorem1.2 §3",
+          "Taklimi thesis 2013 indexed sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same graph also called crown graph when t=m=n, and complementary perfect matching deletion; forcing process is ordinary blue unique-white-neighbor rule, not skew/PSD/power variants.",
+          "Resultary matching-deleted bipartite non-CIS-pair count is a different invariant; complete multipartite forcing polynomial assumes no deleted edges."
+        ],
+        "reasoning": "Matching-deleted biclique/Crown aliases checked. Distinct parameters and forcing rule cannot be treated as a coincident table.",
+        "searches": [
+          "Resultary: zero forcing polynomial complete bipartite graph minus matching deleted crown graph all zero forcing sets",
+          "Web complete bipartite deleted matching zero forcing crown graph polynomial",
+          "Boyer et al arXiv:1801.08910 zero forcing polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boyer complete multipartite table covers t=0, and Resultary complete-multipartite/crown-adjacent records concern different invariants; no exact deleted-matching polynomial discovered."
+        ],
+        "reasoning": "No matching all-m,n,t table seen; bounded search and incomplete old thesis reading are residual risks, not novelty proof.",
+        "searches": [
+          "Resultary: zero forcing polynomial complete bipartite graph minus matching deleted crown graph all zero forcing sets",
+          "Boyer 2018 Proposition4",
+          "Web crown graph zero forcing polynomial C(q,2)(C(q,2)-1)"
+        ]
+      },
+      "rationale": "Best-of-knowledge new complete ordinary zero-forcing polynomial for K_{m,n} with t deleted disjoint edges, m,n>=3. The complete-bipartite t=0 specialization is prior and explicitly carved out. The new structural characterization uses four white-subset conditions, with two transition thresholds and crown specialization. Later zero-forcing graph-operation paper was inspected and concerns coefficient upper bounds, not target exact family.",
+      "residual_risks": [
+        "The 2013 thesis full text was only inspected selectively, so an obscure equivalent corollary cannot be excluded.",
+        "An unindexed crown-graph zero forcing polynomial may have already been tabulated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_BOUNDARY_ONLY: gives exact t=0 polynomial but not matching deletions.",
+          "evidence": [
+            "Proposition 4 complete multipartite forcing polynomial; zero forcing initial-set counts by size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Original full PDF opened; Proposition 4 in section on complete multipartite graphs (t=0) and definitions directly read; opening screenshot checked.",
+          "method": "ArXiv full PDF + screenshot and targeted theorem text",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Original zero-forcing polynomial and complete multipartite formula"
+        },
+        {
+          "assessment": "GENERAL_BOUND_NOT_TARGET: proves path-graph coefficient extremal bounds via operations, no exact arbitrary matching-deleted biclique enumerator in inspected text.",
+          "evidence": [
+            "Theorem 1.2 outerplanar and threshold classes; §3 operation lemmas for coefficient inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.01423",
+          "material_read": "Whole 17-page preprint available; read introduction, §3 vertex/edge operations, Theorem1.2 and §4 future directions; searched entire extracted PDF for matching and complete bipartite, neither occurs; screenshots first page and §3.",
+          "method": "Lawful arXiv full PDF text, two page screenshots and term search",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "Later 2025 journal work explicitly on deleted edges and zero forcing set counts"
+        },
+        {
+          "assessment": "UNRESOLVED_INSPECTION: no exact target result in checked sections but whole document has not been semantically read, so not tagged whole-document NOT_COVERING.",
+          "evidence": [
+            "No exact matching-deleted biclique or crown polynomial identified in accessible portions; strong residual priority risk retained."
+          ],
+          "identifier_or_url": "https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/SRU/TC-SRU-5477.pdf",
+          "material_read": "Lawful thesis full-text PDF retrieval succeeded at text layer; read front/indexed snippets and searched matching, crown, complete bipartite, and polynomial; page screenshot attempt failed; did not inspect every page.",
+          "method": "Government OA thesis extracted text and targeted searches, screenshot transport failure",
+          "title": "Zero Forcing Sets for Graphs",
+          "trigger": "Plausible 2013 thesis on zero forcing set classifications including graph families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and hypotheses, independently evaluated mathematical object and exact invariant"
+      ],
+      "rationale": "Matching deletion is a natural controlled perturbation of complete bipartite forcing. A complete all-m,n,t initial-set characterization and polynomial describe two sharp zero-forcing-number phase changes and all minimum crown forcing sets, data useful independently of more general forcing questions. Not merely t=0 coefficient reuse.",
+      "residual_risks": [
+        "Only simple ordinary zero forcing on m,n>=3 with missing edges a matching; no non-disjoint deletions, small-part or alternative forcing variants.",
+        "2013 thesis only selectively inspected; full-text historical priority not certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only simple ordinary zero forcing on m,n>=3 with missing edges a matching; no non-disjoint deletions, small-part or alternative forcing variants.",
+    "2013 thesis only selectively inspected; full-text historical priority not certified."
+  ],
+  "schema_version": 1
+}
