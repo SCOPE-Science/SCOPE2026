@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For finite labelled subsets, independent uniformly sampled batch marks converge on each finite event window to independent Bernoulli reset decisions. Geometric last-reset tail control converts this into conditional product convergence given the full rate-\(r\) clock. Conditional one- and two-label limits establish the empirical-measure law; uniform stationary eighth moments and an explicit clock-conditional mean establish the stronger \(L^2\) cloud-energy convergence. Independent exponential gaps yield the transform/cumulants; Lindeberg establishes the sequential Gaussian limit; a direct Chernoff/product lower bound proves the small-deviation coefficient. The included source-independent checker passes 80 finite assertion groups. Simulation cannot certify the infinite claims, which follow from the proofs.
+## correctness
 
-## Originality — PASS, with risk
-The main 2026 source already computes a stationary pair law, empirical density-density covariance and spectral form factor, which are fully credited. Its complete v3 main text and S8–S9 were examined. The claim assessed here is the full random empirical **probability-measure** limit and conditional propagation of chaos at \(0<\alpha<1\), plus the cloud-energy Gaussian crossover, which is stronger than a second-order density correlation. Fully collective resetting conditional-independence theory (2025) and local-versus-global Poisson resetting density theory (2024) cover endpoint schemes rather than random interior-sized subsets. A preceding finite-\(N\) two-particle extreme-tail computation addresses a different observable/regime. Classical geometric-weight small-deviation results are not claimed novel. General common-noise chaos theory may still contain an implicit derivation; independent literature assessment is needed.
+PASS
 
-## Value — PASS
-The full macroscopic density is sample-to-sample random even with infinitely many particles, whereas local Brownian noise averages out. This is structurally stronger than pair covariance: it determines arbitrary bounded spatial observables jointly and the full cloud-energy law, and distinguishes globally synchronized from independently reset systems. The weak-fraction central limit gives a quantitative approach to self-averaging and the small-ball coefficient describes rare concentrated clouds.
+For each fixed k and finite event window, without-replacement hypergeometric selection tends in total variation to independent Bernoulli(alpha) marks; geometric tails control the infinite window. Conditional on the common Poisson inter-event durations, independent Brownian motions yield k-particle limits nu^{⊗k}, nu=Σ alpha(1-alpha)^j N(0,2D T_j). Conditional exchangeability gives mean-square empirical convergence. Uniform eighth moments of the tagged thinned-clock Gaussian mixture justify products of squares, so the second moment M_N converges in L² to 2D Σq^j E_j. The Laplace product and cumulants follow from independent exponentials; triangular-array Lindeberg with maximal weight sqrt(alpha) and variance→1/2 gives the sequential CLT. The log-Laplace sum establishes the quadratic small-ball exponent with matching small-value event bound. All claims are stationary and sequential, not temporal or joint-N-alpha process assertions.
 
-## Boundaries
-Fixed diffusion coefficient and clock rate; a deterministic interior limiting batch fraction; stationary, noninteracting Brownian particles. The weak-batch Gaussian regime is a sequential limit, not uniform in particle number. Independent originality confirmation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier de Mauro–Majumdar–Schehr (2026) establishes the same Brownian gas and exact marginal/correlation formulas, and fully synchronized resetting yields a common-noise mixture. The surviving claim is the explicit conditional random empirical-measure limit for interior fixed-fraction batches and its full-moment perpetuity, not the batch-reset model, pair correlation, independent general propagation of chaos, or geometric-series small-ball theorem. No direct dominating published statement found in bounded Resultary and primary searches; priority qualified because supplementary sections and all related models were not exhaustively inspected.
+
+## value
+
+PASS
+
+The stationary empirical distribution of a noninteracting gas is a natural macroscopic observable. Its non-self-averaging random limit at fixed positive reset fraction and exact energy perpetuity distinguish a shared-clock phase from ordinary deterministic law-of-large-numbers behavior. This is not simply recomputing the known two-point covariance, because it identifies the entire random weak limiting measure and sequential Gaussian crossover. The precise full-measure law could be reused in later observables and inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
