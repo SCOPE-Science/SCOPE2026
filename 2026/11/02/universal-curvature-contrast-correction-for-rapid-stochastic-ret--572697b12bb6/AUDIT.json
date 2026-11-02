@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Correctness follows from the exact first-cycle renewal identity, stopped Dynkin formula, return scale/speed derivative, odd-drift cancellation, short-time variance 2t+O(t²), and reset success probability (2S sqrt(r))^-1+O(r^-3/2). Their ratio yields -4(b1’(0)-b2’(0))S r^-3/2+O(r^-5/2); finite numerical PDE checks in verify.py agree but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frequent-reset first passage theory by Linn--Lawley concerns conventional resetting, while Biswas et al. study active return with linear potential. Frydel covers a harmonic return and a free outgoing phase."
+      ],
+      "reasoning": "General renewal identities cover the cycle structure, but conventional instantaneous resetting is not equivalent to target-active finite stochastic return. The new curvature-contrast coefficient requires the parity cancellation and survives beyond solvable harmonic dynamics.",
+      "searches": [
+        "stochastic resetting with stochastic return Ornstein Uhlenbeck switching harmonic spring search stiffness k1 return stiffness k2 high rate approach inverse rate three halves",
+        "general nonlinear odd confining drift stochastic return resetting two diffusions high reset rate sharp three halves correction difference of potential curvatures",
+        "doi:10.1103/PhysRevE.108.024114",
+        "arxiv:2406.08975"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.18814",
+      "https://arxiv.org/abs/2610.18814",
+      "https://arxiv.org/abs/2511.14646",
+      "https://arxiv.org/abs/2406.08975",
+      "https://doi.org/10.1103/PhysRevE.108.024114"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dubey--Pal formula (8) applies to two harmonic drift generators; Frydel explicitly identifies the infinite reset limit for the free/harmonic setting. The new theorem permits independently selected nonlinear b1,b2, and determines a nonzero subleading correction."
+      ],
+      "reasoning": "The leading plateau is fully implied by Frydel in the harmonic specialization and is not claimed. The harmonic special case of the correction is in principle extractable from the exact harmonic MFPT formula, so originality does not rest on that case; it rests on the structural nonlinear-drift theorem, its local/global coefficient separation and analytical extension.",
+      "searches": [
+        "arxiv:2610.18814 renewal equation (8)",
+        "arxiv:2511.14646 Section III.4 equations (47),(54)-(55)",
+        "stochastic return diffusion arbitrary confining potential high frequency resetting mean first passage corrections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 switching-trap article gives a renewal MFPT formula for two linear OU drifts. The 2025 free/harmonic article derives the limiting return-only MFPT."
+      ],
+      "reasoning": "Alternating diffusion and stochastic return are equivalent descriptions of the same protocol. Neither inspected statement explicitly establishes the leading correction for arbitrary nonlinear odd drifts. The plateau is explicitly excluded from the new contribution.",
+      "searches": [
+        "two-phase diffusion stochastic return first passage local drift curvature r^-3/2",
+        "arxiv:2610.18814",
+        "arxiv:2511.14646"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact table or formula states the nonlinear drift-family coefficient or the r^-3/2 correction. The 2025 article explicitly gives the plateau integral in its equations (54)-(55)."
+      ],
+      "reasoning": "The returned numerical and analytic search results describe related boundary-value models, not a tabulation of the stated all-drift asymptotic. Lack of a hit is not treated as uniqueness proof.",
+      "searches": [
+        "mean first passage target during stochastic return vanishing outward diffusion correction r^-3/2 two harmonic traps",
+        "stochastic return two different potentials high resetting asymptotic curvature difference universal coefficient three halves",
+        "arxiv:2511.14646",
+        "arxiv:2610.18814"
+      ]
+    },
+    "rationale": "The known renewal formula and known high-rate plateau apply to harmonic/free-search specializations. The assessed theorem gives a sharp subleading asymptotic for all smooth odd strongly confining drift pairs, with a coefficient controlled by the local slope difference and return scale integral. The exact killed-resolvent identity and parity-based high-rate expansion are independently derived. Source access and implicit theorem overlap remain acknowledged priority risks.",
+    "residual_risks": [
+      "Remainder of 2026 motivating paper could not be inspected due to access failures; possible unobserved asymptotics.",
+      "A broader diffusion perturbation or excursion-theory result could imply the nonlinear drift-family rate even without this wording.",
+      "No human independent priority assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact MFPT for harmonic search/return; nonlinear drift expansion not established in material inspected",
+        "evidence": [
+          "The source states OU dynamics in both phases and gives its renewal MFPT (8).",
+          "arXiv v1 dated 2026-10-13."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.18814",
+        "material_read": "Initial model and MFPT renewal derivation, HTML lines 33-103; attempts to retrieve rest of article unsuccessful",
+        "method": "Read primary HTML model, equations (1),(5)-(8) and conditions; separately verified submission date via arXiv abstract",
+        "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+        "trigger": "Same return-to-zero protocol and switching harmonic drift"
+      },
+      {
+        "assessment": "Explicitly establishes the return-only limit for free-search/harmonic-return; new claim excludes this known plateau and establishes a different nonlinear-class rate correction",
+        "evidence": [
+          "Section III.4 states the finite return-only high-rate limit and gives integral (54).",
+          "Splitting probability integral (48) matches harmonic specialization of the scale function."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.14646",
+        "material_read": "Full accessible article text, including model and Sections III.4, III.5, equations (47),(54)-(55)",
+        "method": "Read primary article text and compared plateau statement, splitting probabilities and protocol to new drift-family theorem",
+        "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+        "trigger": "Near-identical stochastic-return geometry and possibility of high-rate plateau"
+      },
+      {
+        "assessment": "Linear return potential, not the general smooth odd two-drift correction; full-text coverage uncertain",
+        "evidence": [
+          "Abstract identifies U(x)=lambda |x| and full MFPT.",
+          "First publicly submitted 2024-06-13."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.08975",
+        "material_read": "Author abstract and identifying metadata; complete full text inaccessible through arXiv/APS",
+        "method": "Read abstract and publisher metadata; compared the linear-potential model",
+        "title": "Drift-diffusive resetting search process with stochastic returns: Speedup beyond optimal instantaneous return",
+        "trigger": "Earlier target-active return mechanism"
+      },
+      {
+        "assessment": "Conventional immediate restart, not finite stochastic return retaining the old position",
+        "evidence": [
+          "Abstract presents fast-reset first-passage distributions for restart protocols."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.024114",
+        "material_read": "Abstract and model summary",
+        "method": "Read publisher abstract and scope",
+        "title": "First-passage times under frequent stochastic resetting",
+        "trigger": "Possible general high-reset first-passage result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "572697b1-2bb6-4957-b923-2909d0b6664e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A high-rate but finite search/return protocol may be tuned via the local trap-curvature contrast, with known return-only plateau approached from different sides. The unexpected sharp 3/2 rate and universal search-local/global-return factorization apply to strongly confining nonlinear potentials inaccessible to harmonic-only exact formulas. This directly informs finite-rate extrapolation and distinguishes search versus return stiffness design.",
+    "status": "PASS"
+  }
+}
