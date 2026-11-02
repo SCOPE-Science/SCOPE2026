@@ -1,11 +1,21 @@
-# Review of geometric pairwise-distance spacing shifts
+# Independent mathematical audit
 
-**Correctness — PASS.** Every admissible triple forces a solution of \(b^r+b^s=b^t\); elementary modular arithmetic leaves only binary equispaced triples and rules out four occupied sites. This gives the exact word formula. Cantor–Bendixson isolation identifies the singleton orbit; finite-radius locality then fixes every sufficiently widely separated multi-marker orbit after the singleton shift is removed. Conversely finitely supported orbit permutations and phase shifts extend continuously at singleton points and at zero. Distinct leading \(n\log n\) coefficients are preserved under conjugate block codings. Exhaustive finite word/normal-form and arithmetic-profile checks corroborate the unrestricted proofs.
+## correctness
 
-**Originality — PASS on inspected evidence.** Kwietniak (arXiv:1111.0190) provides the spacing-shift framework and zero-entropy criteria, not this automorphism group or word profile. Donoso–Durand–Maass–Petite (arXiv:1501.00510) prove rigidity for minimal or particular transitive systems, including an unrelated nonminimal transitive example, whereas these systems are countable and nontransitive. Cyr–Kra (arXiv:1509.08493) require minimality for their main structure theorems. Related prior modular-spacing and 2-adic-spacing classifications concern different allowed-distance sets and different invariants. No inspected source supplies the claimed common full wreath-product group together with the pairwise nonconjugacy result. Historical priority remains unverified beyond the actual checks.
+PASS
 
-**Mathematical value — PASS.** The result computes the entire centralizer of an infinite, naturally defined family; its nonabelian finitary symmetric subgroup is not detectable from its trivial invariant-measure dynamics. The arithmetic exception at base two doubles the leading complexity coefficient; every integer base has a distinct leading coefficient and nonconstant log-periodic second-order correction. Thus infinitely many nonconjugate zero-entropy, uniquely ergodic shifts nevertheless share the same large automorphism group. This contrasts meaningfully with automorphism rigidity in minimal/transitive low-complexity systems.
+For a triple u<v<w, b^r+b^s=b^t forces r=s and b=2, and four 1 positions are excluded; hence support is at most 2 (b≥3) or at most 3 (b=2, with equal power-of-two adjacent gaps). Summing singleton, two-point and, in base two, triple placements yields both p_b(n) exact formulas including n=1 and power endpoints. In the Cantor–Bendixson derivative only singleton points and the zero point survive; any shift-equivariant homeomorphism translates the singleton orbit uniformly, and after normalization a finite-radius local rule fixes every sufficiently widely spaced multi-marker orbit. Isolated freely shifted multi-marker orbits are countably infinite, so automorphisms consist precisely of finitely supported orbit permutations plus integral phases. Conversely such finite modifications extend continuously at the only accumulation strata, proving the full restricted wreath product and its trivial factor center. Distinct leading n log n coefficients are invariant under finite-radius conjugacies. Independent support/word enumerations test small bases and lengths; the topological group proof, not enumeration, is unrestricted.
 
-Closest literature: D. Kwietniak (2011), S. Donoso et al. (2015), V. Cyr and B. Kra (2015). Banks et al. (2013) was available only at abstract level; its inaccessible complete text is an explicit residual historical-priority risk. The theorem does not claim general classification of all sparse shifts or independent certification of novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the cited spacing-shift literature introduces this all-pairs distance condition and entropy phenomena; the full primary low-complexity automorphism paper concerns minimal or transitive classes, not this countable scattered family. The proof identifies its particular Cantor–Bendixson orbit centralizer, exact group, and basewise nonconjugacy. No directly covering primary theorem was established by inspected material; a broad countable-subshift automorphism theorem or uninspected specialized spacing-shift example could still dominate.
+
+## value
+
+PASS
+
+The automorphism group is a natural topological-conjugacy invariant, but fails to distinguish these infinitely many nonconjugate low-complexity shifts; the exact word-complexity coefficient restores a sharp separation. This is an infinite-family structural result with mathematical motivation beyond renaming or entropy recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

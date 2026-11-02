@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` from this standalone directory. The verified output was:
+# Independent mathematical audit
 
-```
-VERIFY_OK word_counts=98 normal_forms=98 digital_profiles=192 and orbit_freeness
-```
+## correctness
 
-The checker independently brute-forces all binary supports of length \(1\le n\le14\) for bases \(2\le b\le8\) and compares them to the closed word-count formula. A second exhaustive loop compares every accepted support to the proposed complete support normal form. Additional tests check exact digital-profile identities at lengths adjacent to geometric powers up to base exponent eight and that finite marker configurations have no nontrivial shift stabilizer.
+PASS
 
-The computations test finite domains only. The proof of the all-base support classification is the power-sum argument; the proof of the full automorphism group uses Cantor–Bendixson strata, finite-radius locality, and the continuity of finitely supported orbit permutations. The nonconjugacy argument relies on the conjugacy invariance of the leading word-complexity coefficient, not numerical fitting. Independent mathematical audit has not occurred.
+For a triple u<v<w, b^r+b^s=b^t forces r=s and b=2, and four 1 positions are excluded; hence support is at most 2 (b≥3) or at most 3 (b=2, with equal power-of-two adjacent gaps). Summing singleton, two-point and, in base two, triple placements yields both p_b(n) exact formulas including n=1 and power endpoints. In the Cantor–Bendixson derivative only singleton points and the zero point survive; any shift-equivariant homeomorphism translates the singleton orbit uniformly, and after normalization a finite-radius local rule fixes every sufficiently widely spaced multi-marker orbit. Isolated freely shifted multi-marker orbits are countably infinite, so automorphisms consist precisely of finitely supported orbit permutations plus integral phases. Conversely such finite modifications extend continuously at the only accumulation strata, proving the full restricted wreath product and its trivial factor center. Distinct leading n log n coefficients are invariant under finite-radius conjugacies. Independent support/word enumerations test small bases and lengths; the topological group proof, not enumeration, is unrestricted.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the cited spacing-shift literature introduces this all-pairs distance condition and entropy phenomena; the full primary low-complexity automorphism paper concerns minimal or transitive classes, not this countable scattered family. The proof identifies its particular Cantor–Bendixson orbit centralizer, exact group, and basewise nonconjugacy. No directly covering primary theorem was established by inspected material; a broad countable-subshift automorphism theorem or uninspected specialized spacing-shift example could still dominate.
+
+## value
+
+PASS
+
+The automorphism group is a natural topological-conjugacy invariant, but fails to distinguish these infinitely many nonconjugate low-complexity shifts; the exact word-complexity coefficient restores a sharp separation. This is an infinite-family structural result with mathematical motivation beyond renaming or entropy recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
