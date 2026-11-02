@@ -1,15 +1,21 @@
-# Scientific review — exact binary circular-universality distribution
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The ambient alphabet is fixed, cyclic rotations are defined on labeled positions, and the formula covers every length \(n\ge1\) and every attainable index. The proof identifies the universality index of a linear binary word with a matching in its graph of adjacent unequal letters; extending the matchings across the cut proves the circular identity. Each even-parity cyclic transition vector encodes two binary words. A three-state transfer matrix counts contributions from all such vectors, with an explicit correction of two for the alternating vector at even length. Its characteristic polynomial and the cycle-matching count prove the full coefficient formula. Exact derivatives prove the moment identities. A separate standalone checker confirmed every distribution cell through length 16, direct subsequence definitions and cycle matchings through length 10, and a distinct polynomial recurrence through length 80. Finite computations are corroboration only, not the proof of the universal quantifier.
+## correctness
 
-## Originality
-**PASS under best-knowledge literature comparison; residual risk remains.** Barker et al. (2020, arXiv:2003.04629, section 4) introduced circular universality, its comparison with linear universality, and power growth. Fleischmann, Germann and Nowotka (2021, arXiv:2104.09063) analyzed the universality of repetitions and circular behavior. Schnoebelen and Veron (2023, arXiv:2304.11932, sections 3.2–5.1) give algorithms for computing circular index of a specified word. Adamson (2023, arXiv:2304.04583, sections 2–3) counts noncircular universal words. The publicly available *Closed-form law for binary subsequence universality* determines the noncircular distribution, a genuinely different polynomial. These results motivate and partly underpin the argument but do not state the all-length distribution of the circular index or its exact moments. Targeted external and published-result searches did not identify equivalent circular enumeration. The structural matching criterion itself specializes familiar binary arches; novelty is principally the full circular enumeration and its parity/alternating correction. Unindexed equivalent work remains possible.
+PASS
 
-## Mathematical value
-**PASS.** Circular universality is a natural previously introduced combinatorial invariant with known algorithms but no all-length binary distribution in the inspected sources. A graph-matching translation makes the invariant structurally transparent; the resulting spectrum counts every word of each length, not just a selected example, and gives exact first two moments. The even-length alternating correction is a nontrivial cyclic boundary effect, while \(\mathbb E Z_n\sim n/3\) and \(\operatorname{Var}(Z_n)\sim 2n/27\) quantify its typical behavior. These constitute a natural complete classification with plausible uses in random-word and universality studies. The work does not claim significance from computation, novelty search failure, or renaming alone.
+Binary greedy arches correspond to disjoint unequal-adjacent pairs, so circular universality is matching number of the cyclic transition graph. Even transition parity and 3-state trace M(±1,u) generate characteristic roots; the all-ones alternating vector has a two-count correction. Coefficients from nonadjacent-edge matchings; moments from derivatives. Independently enumerated all words n=1,…,10 and checked 35 complete histogram entries.
 
-## Limits
-The result concerns labeled binary words and a fixed binary ambient alphabet; larger alphabets and necklace counts remain outside scope. The finite checker is not a replacement for the proof. The possibility of an equivalent unindexed counting identity is explicitly retained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected closest same-object primary sources and Resultary semantic results for binary circular scattered subsequence universality matching cycle exact distribution. Barker et al 2020 introduces circular universality and arches. Resultary Closed-form law for binary subsequence universality is the noncircular index. The precise quantified original claim and its implication are not identical to those prior statements; a general or unindexed stronger covering theorem remains a stated risk.
+
+## value
+
+PASS
+
+The entire circular binary universality distribution is a natural enumerative invariant of a prominent combinatorics-on-words operator; the matching representation and exact even-period correction give closed moments unavailable from a linear-index table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

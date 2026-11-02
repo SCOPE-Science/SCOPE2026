@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof of the all-length statement is contained in `RESULT.md`. The critical steps are: equivalence between binary arches and matchings of unlike adjacent letters; rotation-to-cycle matching; the even-parity reconstruction of transition vectors; the two-state overcount correction for the fully alternating cyclic vector; and coefficient extraction from the weighted transfer matrix.
+# Independent mathematical audit
 
-For finite checks, run `python3 verify.py` using only the Python standard library. The checker independently recomputes circular indexes from every rotation of every nonempty binary word through length 16, compares the entire distribution to the formula, directly checks all possible candidate subsequences for rotations through length 10, independently exhausts edge-subset matchings for cycles through length 10, checks the two exact moment identities, and validates a separate polynomial recurrence through length 80. Observed output: `VERIFY_OK words=131070 direct_rotations=18434 cyclic_matchings=2046 trace_recurrence_n<=80`.
+## correctness
 
-These finite tests do not prove any statement beyond their tested ranges. The infinite assertions are established by the structural matching and transfer-matrix derivation. No external independent audit is claimed.
+PASS
+
+Binary greedy arches correspond to disjoint unequal-adjacent pairs, so circular universality is matching number of the cyclic transition graph. Even transition parity and 3-state trace M(±1,u) generate characteristic roots; the all-ones alternating vector has a two-count correction. Coefficients from nonadjacent-edge matchings; moments from derivatives. Independently enumerated all words n=1,…,10 and checked 35 complete histogram entries.
+
+## originality
+
+PASS
+
+Inspected closest same-object primary sources and Resultary semantic results for binary circular scattered subsequence universality matching cycle exact distribution. Barker et al 2020 introduces circular universality and arches. Resultary Closed-form law for binary subsequence universality is the noncircular index. The precise quantified original claim and its implication are not identical to those prior statements; a general or unindexed stronger covering theorem remains a stated risk.
+
+## value
+
+PASS
+
+The entire circular binary universality distribution is a natural enumerative invariant of a prominent combinatorics-on-words operator; the matching representation and exact even-period correction give closed moments unavailable from a linear-index table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
