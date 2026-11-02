@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Every valid linear superstring induces an ordered Hamiltonian path through the 32 required equal-length squares, and maximal suffix-prefix overlap concatenation realizes every path cost. The eight length-five root necklaces force q>=7 cross transitions and L>=41+5q; q>=9 costs at least 86. The exact 8-class subset DP yields minimum 82 for q=7. The only q=8 possibility at length <=81 requires all cost-one internal transitions and cost-six cross transitions; those force one primitive 5-cycle split, and an exhaustive 120-case nine-block DP finds no feasible equality path. A literal 82-bit witness contains all 32 squares, verified by direct factor enumeration. The standard-library proof verifier and the separately formulated integer-programming check both executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 source proves all-root-length bounds, and its constructive Algorithm E gives a length-82 five-root instance when evaluated directly.",
+        "The 2015 experimental Figure 4 plots lengths achieved by Algorithm E relative to its general lower bound; no optimality proof is asserted there."
+      ],
+      "reasoning": "A general family construction covers an upper-bound witness, but not the complementary certificate excluding lengths 81 and below. The present 82 lower bound is not entailed by a 72 lower bound and an 82 upper bound.",
+      "searches": [
+        "Generalized de Bruijn words for Primitive words and Powers 2015 Corollary 16 Algorithm E",
+        "superstring containing all length-10 squares over binary alphabet exact minimum",
+        "shortest word squares de Bruijn Au optimal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0904.3997 (initial 2009 public version, Section 3)",
+      "https://au-gary.github.io/Au15a.pdf (2015 revised full Section 3 and Figure 4)",
+      "Semantically searched published research-index records on square superstrings, shortest covering words, and de Bruijn powers; none identified with same sharp lower bound."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Au 2015 Proposition 14 applies the same necklace obstruction but yields only L>=72 for this instance.",
+        "Au 2015 Algorithm E provides an 82-symbol word (its numerical upper bound), while its paper does not analyze the 7-versus-8 necklace-crossing equality obstruction.",
+        "Previously accessible covering results for reversal classes, weight-constrained circular factors, and palindromes use different required languages or cyclic conventions."
+      ],
+      "reasoning": "The new statement is exactly sharpness of a known 82 upper bound: a 72 lower bound does not imply it, and generic covering theorems for different dictionaries do not imply it under any identified reduction. Its novelty rests on the exhaustive certified obstruction, not a renamed construction.",
+      "searches": [
+        "shortest superstring all binary squares order four every word doubled",
+        "de Bruijn squares shortest superstring conjugacy classes exact",
+        "Au 2015 Proposition 14 Theorem 15 Corollary 16 Algorithm E full text",
+        "shortest superstring of all binary length-10 squares"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Au 2009 treats ordinary words containing all length-2n binary squares as contiguous factors; its Proposition 5 gives a general necklace lower bound, not the exact length at n=5.",
+        "Au 2015 Section 3, Proposition 14 explicitly treats the same family and gives 72 as its lower bound when n=5, k=p=2."
+      ],
+      "reasoning": "These are the same objects under the substitutions alphabet size 2, root length 5 and square exponent 2. The cited inequalities do not imply the sharper assertion L=82.",
+      "searches": [
+        "\"squares\" \"superstring\" \"Au\" \"shortest\" length",
+        "\"shortest sequences containing\" \"squares\" \"binary\" exact",
+        "arXiv:0904.3997 Section 3, binary squares, Proposition 5",
+        "Yu Hin Au 2009 generalized de Bruijn words primitive words squares optimal length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Au 2015 Figure 4 displays greedy construction ratios, not a table of certified exact optima.",
+        "The closest semantically returned published records concern string attractors, reconstruction codes and other families, rather than the exact 32-square Hamiltonian path lower bound."
+      ],
+      "reasoning": "No located exact table establishes a matching lower certificate for the same alphabet, root length, linear convention and all-square target set. Search absence is not treated as a uniqueness proof.",
+      "searches": [
+        "\"binary squares\" \"shortest\" \"82\" \"superstring\"",
+        "minimal word containing every square xx for x in {0,1}^5; shortest superstring of 32 binary ten-bit squares",
+        "shortest linear superstring containing all binary length-10 squares",
+        "\"minimum length\" \"all squares\" \"binary\" superstring"
+      ]
+    },
+    "rationale": "Au's 2009/2015 primary text studies exactly the square-power covering problem and proves general bounds; its 2015 Algorithm E yields length 82 for five-bit binary roots, but Proposition 14 only gives lower bound 72 and the computational plot concerns construction length, not minimum. The present lower-bound proof eliminates every length at most 81 by necklace crossings. Searches of similarly framed research records and the accessible prior claim ledger found no implication of this exact lower bound; residual unindexed priority remains.",
+    "residual_risks": [
+      "Unindexed or non-digitized calculations may have previously certified the five-bit case.",
+      "The alternative MILP cross-check depends on an external integer optimizer; the primary recurrence is standard-library and exact.",
+      "No independent scientific audit or historical-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same family, no n=5 matching lower bound; general lower 72 and explicit constructive framework.",
+        "evidence": [
+          "Submitted April 25, 2009.",
+          "Proposition 5: general lower bound k^n+n C(n,k); Section 3 construction and upper-bound discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0904.3997",
+        "material_read": "Full-text HTML transcription, especially Section 3 on squares, Propositions 5 and 6 and the worked example.",
+        "method": "Read exact definitions, parameters, arguments, and displayed bound/construction in the primary source.",
+        "title": "Generalized de Bruijn words for Primitive words and Powers",
+        "trigger": "Earliest public primary text poses square-superstring problem and establishes generic bounds."
+      },
+      {
+        "assessment": "Provides the 82-bit construction by evaluating Algorithm E but does not prove it is minimal; exact n=5 lower bound remains 72.",
+        "evidence": [
+          "Proposition 14 lower bound; Theorem 15 upper construction; Corollary 16 improved general upper; Algorithm E and Figure 4 empirically display short constructions without sharp lower certificates."
+        ],
+        "identifier_or_url": "https://au-gary.github.io/Au15a.pdf",
+        "material_read": "Pages 13–17 of the full 18-page source, especially Proposition 14, Theorem 15, Corollary 16, Algorithm E, Figure 4, and earlier definitions on pages 1–3.",
+        "method": "Inspected full-text PDF content and relevant page images, including the algorithm and plotted ratios.",
+        "title": "Generalized de Bruijn words for Primitive words and Powers (revised 2015 account)",
+        "trigger": "Revised full source may strengthen earlier bounds or contain a direct exact table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1c706b6-5373-4402-9c17-1ebfb6dfb9fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharpness of the length-82 greedy cover resolves a concrete unresolved point of the natural all-squares superstring problem treated in Au 2009/2015. The certified gap from the published general lower bound 72 to the exact optimum 82 is nontrivial and comes from the intrinsic topology of the six five-root necklace cycles. Exact finite optimality at the first 32-square instance, with a reusable crossing obstruction, is mathematically motivated without claiming an all-length theorem.",
+    "status": "PASS"
+  }
+}
