@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The local adjacency classification is proved in both directions; maximality is separately characterized for each of the three occupancy values; a complete three-case lower bound and explicit periodic attaining configurations handle n>=1. Independent graph-level verification matches all subsets for n<=8 and occupancy checks n<=12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bachstein--Goddard 2023, DOI 10.1556/314.2023.00003, identifies king graphs as a problem direction and proves results on rook graphs, not this strip in available text.",
+        "Madsen--Nielsen--Skjernaa 2002, DOI 10.7146/brics.v9i17.21735, Theorem 2 supplies global counting bounds.",
+        "Cao 2020, arXiv:2004.09885, develops generic maximal induced subgraph listing algorithms."
+      ],
+      "reasoning": "Prior general counting complexity bounds and rook lower-bipartite observations do not yield a two-row king-strip minimum; higher-width king graphs remain outside the claim.",
+      "searches": [
+        "\"lower bipartite number\" \"king\" \"2\" strip",
+        "\"lower bipartite number\" \"king's graph\" rectangular",
+        "web: \"The Lower Bipartite Number of a Graph\" king graph"
+      ]
+    },
+    "checked_sources": [
+      "Bachstein--Goddard, doi:10.1556/314.2023.00003: public portions read; full PDF inaccessible",
+      "Madsen--Nielsen--Skjernaa 2002 DOI 10.7146/brics.v9i17.21735: complete PDF read",
+      "Cao 2020 arxiv:2004.09885: full HTML read"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 authors explicitly mention king graphs as future work in their open questions.",
+        "The 2002 full report treats arbitrary graphs with worst-case MIBS counts, not optimal strip occupancies.",
+        "The 2020 full HTML proves general enumeration algorithms, not cardinality sharpness for \\(K_2\boxtimes P_n\\)."
+      ],
+      "reasoning": "No compared source furnishes a reduction from its statement to the claimed exact \\(2\\lceil n/3\rceil\\) optimum and occupancy characterization. The 2023 complete PDF could not be read, which remains an acknowledged risk.",
+      "searches": [
+        "\"lower bipartite number\" \"king\" \"2\" strip",
+        "\"lower bipartite number\" \"king's graph\" rectangular",
+        "web: \"lower bipartite number\" \"king's graph\" rectangular"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "King strip is the strong product of a two-vertex clique and a path; an induced bipartite subset is a column-occupancy word subject to local constraints.",
+        "Bachstein--Goddard 2023 defines lower bipartite number of a graph as minimum size among maximal induced bipartite subgraphs."
+      ],
+      "reasoning": "The claimed minimum is equivalent to a constrained ternary word optimization, not to minimum dominating set or ordinary bipartite-vertex-deletion minimum. Previous MIBS algorithms do not imply the exact optimum for this family.",
+      "searches": [
+        "lower bipartite number king graph strong product K2 and path P_n maximal induced bipartite subsets size distribution 2xN kings strip",
+        "\"maximal induced bipartite\" \"strong product\" \"path\" \"K2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly equivalent two-row king-strip lower bipartite result appeared in published-finding corpus semantic results or accessible own claim texts.",
+        "Direct exhaustive small-size values were independently computed but are used to validate the formula, not to assert novelty."
+      ],
+      "reasoning": "The query results are not an exhaustive database certificate. No exact table or stronger formula implying the infinite theorem was found; absence of a result is not proof of novelty.",
+      "searches": [
+        "lower bipartite number king graph strong product K2 and path P_n maximal induced bipartite subsets size distribution 2xN kings strip",
+        "\"maximal induced bipartite\" \"strong product\" \"path\" \"K2\"",
+        "prior research records: all 130 recoverable claims for king, strong product, maximal induced bipartite, lower bipartite"
+      ]
+    },
+    "rationale": "The closest 2023 source identifies king graphs as further work without this strip theorem in its accessible material. The older complete general-enumeration texts do not imply the exact length-by-length result. Full 2023 text remains inaccessible and priority provisional.",
+    "residual_risks": [
+      "Uninspected full 2023 publisher PDF might contain the same two-row specialization.",
+      "Unindexed papers on strong products or king-strip vertex deletion could imply the exact formula.",
+      "published-finding corpus semantic search and local claim access do not establish absolute publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant open problem motivation; no exact two-row strong-product formula in the material actually read. Missing full PDF remains a specific priority risk.",
+        "evidence": [
+          "Original publication date 2023-02-07; primary MSC2020 05C69",
+          "Section 5 names the kings graph as a suggested family",
+          "Observations 13-14 concern line graphs and rook graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1556/314.2023.00003",
+        "material_read": "Accessible indexed full-text introduction and Section 4, observations 13-14, open-questions paragraph, and original first-page metadata; complete PDF unavailable",
+        "method": "Publisher DOI and open access attempts followed by accessible indexed full-text excerpts",
+        "title": "The Lower Bipartite Number of a Graph",
+        "trigger": "Defines identical invariant and explicitly names king graphs as a direction"
+      },
+      {
+        "assessment": "General exponential bounds and enumeration algorithms rather than a king-strip minimum.",
+        "evidence": [
+          "Theorem 1 gives a 10-vertex extremal construction",
+          "Theorem 2 bounds maximal induced bipartite subgraph counts for arbitrary graphs."
+        ],
+        "identifier_or_url": "https://tidsskrift.dk/brics/article/download/21735/19169/49399",
+        "material_read": "Whole ten-page open-access PDF parsed, sections 1-6 and references; pages visualized",
+        "method": "Web PDF text and page screenshots",
+        "title": "On the Number of Maximal Bipartite Subgraphs of a Graph",
+        "trigger": "Potential general enumeration dominating the exact MIBS question"
+      },
+      {
+        "assessment": "Algorithmic enumeration framework, not a sharp strong-product king-strip lower bipartite number.",
+        "evidence": [
+          "Theorem 1.1 concerns polynomial-delay and incremental enumeration for hereditary graph classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.09885",
+        "material_read": "Full accessible 2020 arXiv HTML",
+        "method": "Full-text review and query for graph-family aliases",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "General enumeration methods potentially implying the claimed classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d41373f8-9e3d-4fc6-9cc3-2a7768843289",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp complete all-length lower bipartite number for a natural, directly motivated bounded-width king graph, alongside a structural classification of all maximal induced bipartite configurations. It is a motivated base case for the specifically suggested wider king-graph family, not a computation for an arbitrary graph.",
+    "status": "PASS"
+  }
+}
