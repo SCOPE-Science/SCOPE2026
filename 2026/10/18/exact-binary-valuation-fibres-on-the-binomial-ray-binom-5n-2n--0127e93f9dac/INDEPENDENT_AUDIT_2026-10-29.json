@@ -1,0 +1,206 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T10:55:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md b7138d7d31e3f704df7179f28e5c191133734317, full proof and displayed matrix",
+        "Assigned verify.py 7db12e9896c154b572b152e1605e02d1b0a4efc4, inspected source; not treated as independent proof",
+        "New independent exact symbolic + all-fibre Python calculation on 2026-10-29, L<=13",
+        "Actual source Git tree 67a0d0aa9bd2cfb3cc52b81f3cf2e8960cd41fc8, all seven entries"
+      ],
+      "rationale": "For all L>=0, n<2^L and j>=0, Kummer identifies nu_2(binomial(5n,2n)) with binary carry-outs in 2n+3n. The three-bit state (previous n bit, carry forming 3n=n+2n, carry adding 3n+2n) has exactly the stated two transitions per input digit; only the second carry is weighted. Four forced zero-input steps clear every one of the eight states; the terminal weights (1,1,1,t,t,t,1,t^2) include all residual carries. The length-L transfer thus enumerates each n exactly once. Formal matrix inversion and coefficient extraction yield F_0=(1+z^3)/(1-z-z^2+z^3-z^4) and F_1=z(1-z^2)^2/(1-z-z^2+z^3-z^4)^2. In a newly written independent Python/SymPy checker the transfer and terminal weights were rebuilt, both rational identities cancelled exactly, and all histograms for L=0..13 (sum 2^L=16383 inputs) agreed with independent digit sums s_2(n)+s_2(3n)-s_2(5n). Git tree SHA-1 was independently reconstructed from all seven actual entries and matched the frozen assignment. The unrestricted theorem follows from Kummer plus state induction, not from finite tests.",
+      "residual_risks": [
+        "The symbolic 8-by-8 elimination was independently checked using SymPy rather than a handwritten closed-form elimination; exact cancellation is sufficient for the finite polynomial identity.",
+        "Directly enumerated indices stop at L=13; the all-L statement is proved by the state argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "E. Rowland, The number of nonzero binomial coefficients modulo p^alpha, arXiv:1001.1783, Theorem 1 counts all lower indices m within one fixed upper row N.",
+          "E. Rowland, A matrix generalization of a theorem of Fine, arXiv:1704.05872, Theorem 1 expresses all-row polynomial T_p(N,x)=sum_{m=0}^N x^{nu_p(binomial(N,m))} using digitwise matrices.",
+          "L. Spiegelhofer and M. Wallner, Divisibility of binomial coefficients by powers of two, arXiv:1710.10884, Section 1 and Theorem 2.1 studies row-wise valuation statistics and asymptotics; source notation vartheta_p(j,N) sums over the complete row."
+        ],
+        "reasoning": "These row-sum theorems do not isolate m=2n while simultaneously varying upper index N=5n over 0<=n<2^L. A general synchronous digit transducer framework guarantees rationality in principle but does not supply the explicit numerator/denominator coefficients or the three-carry-state specialization without new computation; no actually inspected stronger formula implied it.",
+        "searches": [
+          "Resultary: binomial rational rays p-adic valuation distribution transducers Fibonacci binary word",
+          "arXiv:1001.1783",
+          "arXiv:1704.05872",
+          "arXiv:1710.10884",
+          "Web: fixed rational slope binomial p-adic valuation carry automaton"
+        ]
+      },
+      "checked_sources": [
+        "E. Rowland, The number of nonzero binomial coefficients modulo p^alpha, arXiv:1001.1783, Theorem 1",
+        "E. Rowland, A matrix generalization of a theorem of Fine, arXiv:1704.05872, Theorem 1",
+        "L. Spiegelhofer and M. Wallner, Divisibility of binomial coefficients by powers of two, arXiv:1710.10884, Section 1 and Theorem 2.1",
+        "OEIS A130137 (E. Deutsch, 2007), full entry and generating function",
+        "OEIS A130136 (E. Deutsch, 2007), full entry and bivariate generating function",
+        "OEIS A001450, binomial(5n,2n), entry",
+        "Resultary published mathematical search results for four actual query variants; none contained this exact ray count",
+        "Assigned original self-review read as historical research evidence, not accepted as independent proof of novelty"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kummer converts valuation into carry count but does not evaluate its distribution on the dyadic ray.",
+          "E. Rowland, A matrix generalization of a theorem of Fine, arXiv:1704.05872, Theorem 1 outputs a polynomial for a whole Pascal row; taking selected m=2n as N varies is not its stated summation.",
+          "OEIS A130137 (E. Deutsch, 2007), full entry and generating function accounts for the zero layer only; OEIS A130136 (E. Deutsch, 2007), full entry and bivariate generating function marks 0110 words with first-layer numerator z^4, unlike present numerator z(1-z^2)^2.",
+          "Closest Resultary hits included SCOPE-exact-tenth-power-thue-morse-valuations--2cde9accbbd3, concerning valuations of a power-series coefficient object, not binomial(5n,2n)."
+        ],
+        "reasoning": "Each prior statement has a different counted domain or a different statistic, or supplies only a general proof technique. A corollary of a genuinely general preexisting rational-slope theorem would be coverage even without formula matching; no such dominating theorem was established in the inspected sources. This remains an explicit priority risk.",
+        "searches": [
+          "Resultary: exact 2-adic valuation distribution fibers binomial coefficient binom(5n,2n), binary carries, digit strings automatic sequences",
+          "Resultary: 2-adic valuation of binomial(5n,2n) over all n<2^L exact carry automaton generating function",
+          "Resultary: binomial (3n choose n) dyadic valuation fibres and 2-adic carry matrix",
+          "arXiv:1001.1783",
+          "arXiv:1704.05872",
+          "OEIS A130136",
+          "OEIS A130137"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Legendre/Kummer, nu_2(binomial(5n,2n))=s_2(n)+s_2(3n)-s_2(5n)=# carries in 2n+3n.",
+          "Assigned eight-state transfer and F_1(z)=z(1-z^2)^2/Q(z)^2 with Q=1-z-z^2+z^3-z^4."
+        ],
+        "reasoning": "Binary digit-sum, carry-pattern enumeration, and rational-series coefficient counts are equivalent presentations of this exact ray problem. Search matches concerned broader techniques or other arithmetic objects; none established these fibres. Kummer supplies the per-index identity but not the exact dyadic count, so this is not automatically a previously stated distribution.",
+        "searches": [
+          "Resultary: exact 2-adic valuation distribution fibers binomial coefficient binom(5n,2n), binary carries, digit strings automatic sequences",
+          "Resultary: 2-adic valuation of binomial(5n,2n) over all n<2^L exact carry automaton generating function",
+          "Resultary: binomial rational rays p-adic valuation distribution transducers Fibonacci binary word",
+          "Web: binomial(5n,2n) valuation carries distribution",
+          "Web: s_2(n)+s_2(3n)-s_2(5n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001450, binomial(5n,2n), entry lists central object but not this dyadic valuation histogram.",
+          "OEIS A130137 (E. Deutsch, 2007), full entry and generating function already gives the valuation-zero series after index shift: F_0=1+z G_{A130137}.",
+          "OEIS A130136 (E. Deutsch, 2007), full entry and bivariate generating function has bivariate Fibonacci-word 0110 pattern GF (1+z+(1-u)z^3)/(1-z-z^2+(1-u)z^3-(1-u)z^4); its first u-layer is z^4/Q^2, NOT z(1-z^2)^2/Q^2."
+        ],
+        "reasoning": "The parity/valuation-zero sequence is acknowledged as known. Although OEIS A130136 has the same quartic factor, its whole bivariate distribution marks a distinct statistic, with an explicitly different valuation-one numerator; the cited table does not straightforwardly already contain the precise valuation-one ray statistic. No exact ray-fibre table located.",
+        "searches": [
+          "OEIS A001450",
+          "OEIS A130136",
+          "OEIS A130137",
+          "Web: 0,1,2,3,4,7,12,21,34,56,90 valuation binomial 5n 2n"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact all-level dyadic fibre distribution of the fixed ray binomial(5n,2n), especially its nonzero valuation-one rational function, not for the known Kummer theorem, the generic finite-transducer method, or the preexisting parity-count sequence. Primary comparison distinguishes fixed-row valuation distributions from a moving proportional ray and checks the highly pertinent OEIS bivariate word-count family. No checked primary result stated or directly implied the exact all-level ray formula. Unindexed general fixed-ratio carry enumeration is a genuine residual historical-priority risk; failed searches alone are not novelty proof.",
+      "residual_risks": [
+        "A general published rational-slope or synchronized carry-transducer theorem may already imply the explicit specialization without naming (5,2); this was not ruled out universally.",
+        "Parity layer F_0 is a shifted known OEIS sequence and is not independently original.",
+        "The technique itself is Kummer plus a standard finite-state transfer, so originality attaches to specific fully evaluated fibre counts only.",
+        "The inspection of Spiegelhofer–Wallner concentrated on its definitions and theorem; no unsupported claim of whole-paper exhaustive noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the restricted moving ray; theorem counts full fixed rows",
+          "evidence": [
+            "Theorem 1 fixed upper index and all lower indices m."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.1783",
+          "material_read": "Full original PDF, introduction, Theorem 1 and its definitions/proof mechanism",
+          "method": "Downloaded lawful open arXiv PDF, viewed text and screenshots of relevant pages",
+          "title": "The number of nonzero binomial coefficients modulo p^alpha",
+          "trigger": "Potential covering prime-power binomial valuation theorem"
+        },
+        {
+          "assessment": "NOT_COVERING the particular dyadic proportional ray; fixed-row count instead",
+          "evidence": [
+            "Theorem 1 defines T_p(n,x)=sum_{m=0}^n x^{nu_p(binomial(n,m))}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.05872",
+          "material_read": "Full original PDF, introduction and Theorem 1 with formula T_p(n,x)",
+          "method": "Opened arXiv PDF, inspected theorem and adjacent proof pages visually",
+          "title": "A matrix generalization of a theorem of Fine",
+          "trigger": "Potential strongest generic digitwise matrix formula"
+        },
+        {
+          "assessment": "Inspected results address row distributions rather than the designated moving ray; not a whole-document noncoverage claim",
+          "evidence": [
+            "vartheta_p(j,n) sums over 0<=m<=n, unlike n<2^L ray."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.10884",
+          "material_read": "Accessible arXiv primary text, Section 1 definitions and Theorem 2.1; not every appendix",
+          "method": "Primary HTML mathematical reading",
+          "title": "Divisibility of binomial coefficients by powers of two",
+          "trigger": "Known p-adic valuation row distributions"
+        },
+        {
+          "assessment": "Different statistic and distinct first-layer numerator",
+          "evidence": [
+            "[u]G=z^4/Q^2, current F_1=z(1-z^2)^2/Q^2."
+          ],
+          "identifier_or_url": "https://oeis.org/A130136",
+          "material_read": "Full OEIS entry, sequence definition, examples and bivariate generating function",
+          "method": "Primary sequence database entry",
+          "title": "OEIS A130136: occurrences of 0110 in Fibonacci binary words",
+          "trigger": "Same quartic denominator may dominate the result"
+        },
+        {
+          "assessment": "COVERS zero-valuation layer after index shift, explicitly credited",
+          "evidence": [
+            "F_0(z)=1+z G_{A130137}(z)."
+          ],
+          "identifier_or_url": "https://oeis.org/A130137",
+          "material_read": "Full OEIS entry, definition, generating function and history",
+          "method": "Primary sequence database entry",
+          "title": "OEIS A130137: Fibonacci binary words avoiding 0110",
+          "trigger": "Exact parity/valuation-zero sequence match"
+        },
+        {
+          "assessment": "Defines the same coefficients but does not give dyadic valuation-fibre GF",
+          "evidence": [
+            "a(n)=binomial(5n,2n)."
+          ],
+          "identifier_or_url": "https://oeis.org/A001450",
+          "material_read": "Entry definition and documented formula for binomial sequence",
+          "method": "Primary sequence database entry",
+          "title": "OEIS A001450: binomial(5n,2n)",
+          "trigger": "Exact same arithmetic object, possible preexisting table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md complete theorem and proof",
+        "Exact symbolic transfer and A_L(1) computation",
+        "OEIS A130137 prior parity layer",
+        "OEIS A130136 different word-count statistic"
+      ],
+      "rationale": "The 2-adic valuation of binomial(5n,2n) along a fixed proportional ray is a natural digital-arithmetic statistic, and exactly counting all fibre multiplicities over every dyadic interval is a definite infinite-family invariant that a number-theory researcher could reuse. The two distinct carry mechanisms produce nontrivial valuation-one counts and a squared quartic generating denominator, beyond the earlier parity/zero layer. The work explicitly computes this natural case rather than presenting a generic relabeling, a few sampled values or an unsupported major breakthrough. No generic arbitrary-slope theorem or asymptotic universality is asserted.",
+      "residual_risks": [
+        "The work is a specific exact slope invariant, not a new general transfer-matrix theorem; its utility is structural and arithmetic rather than a demonstrated downstream application."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source git tree API response exactly seven files",
+    "RESULT.md, verify.py, VERIFICATION.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json",
+    "E. Rowland, The number of nonzero binomial coefficients modulo p^alpha, arXiv:1001.1783, Theorem 1",
+    "E. Rowland, A matrix generalization of a theorem of Fine, arXiv:1704.05872, Theorem 1",
+    "L. Spiegelhofer and M. Wallner, Divisibility of binomial coefficients by powers of two, arXiv:1710.10884, Section 1 and Theorem 2.1",
+    "OEIS A130137 (E. Deutsch, 2007), full entry and generating function",
+    "OEIS A130136 (E. Deutsch, 2007), full entry and bivariate generating function",
+    "OEIS A001450, binomial(5n,2n), entry"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific result restricted to fixed slope (5,2), prime 2, dyadic cutoffs.",
+    "No full general theory or residue modulo powers of 2.",
+    "Independent test L<=13, not all infinite L.",
+    "Administrative confidentiality cleanup blocked staging; not a scientific failure."
+  ],
+  "residual_risks": [
+    "A general published rational-slope or synchronized carry-transducer theorem may already imply the explicit specialization without naming (5,2); this was not ruled out universally.",
+    "Parity layer F_0 is a shifted known OEIS sequence and is not independently original.",
+    "The technique itself is Kummer plus a standard finite-state transfer, so originality attaches to specific fully evaluated fibre counts only.",
+    "The inspection of Spiegelhofer–Wallner concentrated on its definitions and theorem; no unsupported claim of whole-paper exhaustive noncoverage."
+  ],
+  "schema_version": 1
+}
