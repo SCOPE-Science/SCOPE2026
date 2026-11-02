@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact Euler-factor formula for Schemmel totients shows that a second iterate remains positive precisely when every input prime factor avoids the CRT-forbidden classes \(0\) and \(m\) at every prime at most \(m\). The CRT computes the admissible prime-class proportion \(\beta_m\); the checked fixed-modulus hypotheses of Chang–Martin's Theorem 3.4 yield the stated asymptotic, constant and error. The containment of all nondeficient inputs in this support is a direct implication of the stopping rule. A separate exact-integer verifier corroborates the local identities. The main source theorem is used explicitly, not presented as a newly proved analytic estimate.
+
+**Originality — PASS, with limitations.** Defant's 2015 paper establishes the iterated functions and infinitude of abundant integers for even parameters, but does not give a natural-density classification or two-step survival support. Chang and Martin's 2019 theorem already counts *arbitrary* prime-factor residue-class semigroups; this stronger analytic generality is explicitly credited, and the new claim is strictly the Schemmel-specific identification, exponent, and deficiency consequence. The named equivalent-form and general-coverage comparisons are recorded in `AUDIT.json`. A short specialized application or an unknown exact equivalent could precede this treatment, so originality remains a best-knowledge assessment, not an independent historical certificate.
+
+**Mathematical value — PASS.** It resolves a natural distributional question left by the existence of infinitely many abundant terms: almost all integers are deficient for each even parameter at least four, with an explicit prime-arithmetic decay exponent. The exact two-iterate support is a motivated invariant, not an arbitrary finite computation. The theorem identifies which prime classes control scarcity and separates the precise survival asymptotic from the possibly smaller abundant subset.
+
+**Limits:** No claim about \(m=2\), nor a sharp asymptotic for abundant integers; no independent replication of the Selberg–Delange proof; historical literature coverage is incomplete.
+
+Self-review: passed. Independent audit: not yet performed.
