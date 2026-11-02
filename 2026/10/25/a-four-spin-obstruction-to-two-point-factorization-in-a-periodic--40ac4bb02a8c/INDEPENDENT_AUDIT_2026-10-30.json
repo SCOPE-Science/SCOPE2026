@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At delta=0, hot sites 0 and 3 reset autonomously; spins (X,U,V,Y) form a closed four-spin Markov subsystem. Stationary generator equations give D=16-ab and <XU>=4a/D, <XV>=<UY>=ab/D, <XY>=0, <UV>=4(a+b)/D, <VY>=4b/D, <XUVY>=ab/D. Hence literal ordered-pair product defect F0= -a^2*b^2/D^2 and connected 4th cumulant -2a^2*b^2/D^2. Independently solved all sixteen stationary generator states using exact rational linear algebra for a=1/2,b=1/3 and got defect -1/9025. A shared marked-clock coupling of perturbed and hot-reference systems tracks a backward single ancestry until reset; probability of a different outcome at the first reference-hot reset is <=delta. For products of k spins, discrepancy <=2k delta, yielding |Fdelta-F0|<=8delta+4delta+4delta=16delta for every ring N and the infinite system (max copy probability<1 ensures ancestry termination). Thus for delta=1e-6,a=1/2,b=1/3 the certified upper bound is strictly negative; all baths are then distinct, positive and finite. Finite exact check corroborates local identities, not the infinite-volume coupling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schmittmann–Schmüser 2002 primary Section V explicitly raises period>2 extension; their theorem assumes period two.",
+          "Mayer–Sollich treats a homogeneous Glauber chain and temperature quenches rather than a spatial period-three stationary three-bath law."
+        ],
+        "reasoning": "The prior general-looking multispin formulas are not under the claimed heterogeneous stationary hypotheses. A later multitemperature theorem may contain the computation, retained as priority risk.",
+        "searches": [
+          "stationary four-spin correlation factorization two-temperature three-temperature Glauber kinetic Ising chain periodic baths counterexample",
+          "arXiv:cond-mat/0206345",
+          "arXiv:cond-mat/0212616",
+          "doi:10.1088/0305-4470/37/1/002"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md 4bb3ca5a880a1855b045514417e8a904355fac99",
+        "Independent checker: FOUR_SPIN_EXACT_OK (exact rational 16-state generator)",
+        "arXiv:cond-mat/0212616 full PDF and screenshot page index 5",
+        "arXiv:cond-mat/0206345",
+        "Resultary search: stationary four-spin correlation factorization two-temperature three-temperature Glauber kinetic Ising chain periodic baths counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2002 factorization result is explicitly two-periodic; its Section V states a question for more than two temperatures.",
+          "The all-finite-bath defect Fdelta<=-1/9025+16e-6<0 contradicts the direct analogous identity."
+        ],
+        "reasoning": "Earlier two-bath factorization cannot imply the opposite-sign period-three witness, and the proof establishes a genuine boundary of that exact formula. It does not rule out weighted modified pairing identities.",
+        "searches": [
+          "stationary four-spin correlation factorization two-temperature three-temperature Glauber kinetic Ising chain periodic baths counterexample",
+          "Schmittmann–Schmüser arXiv:cond-mat/0212616 Section V",
+          "arXiv:cond-mat/0206345"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior two-bath ordered correlation formula is an assertion F=0 for alternating temperatures; the current three-bath witness gives F<0.",
+          "Connected cumulant and ordered-pair defect differ: cumulant subtracts all three pairings, while literal factorization subtracts one."
+        ],
+        "reasoning": "The current explicit sign shows nonextension of the exact literal two-pair formula, not of a possibly modified sum over pairings. Period-three cannot be obtained by relabelling two alternating temperatures with all three distinct values.",
+        "searches": [
+          "stationary four-spin correlation factorization two-temperature three-temperature Glauber kinetic Ising chain periodic baths counterexample",
+          "arXiv:cond-mat/0212616 Sections IV–V and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary thermal-entanglement work concerns a quantum XX ring, not classical kinetic-Glauber stationary pair factorization.",
+          "The exact rational F0=-1/9025 is derived from generator balance equations, not copied from a tabulated measurement."
+        ],
+        "reasoning": "No matching published period-three finite-temperature four-spin table was found. This negative search is not a guarantee of priority.",
+        "searches": [
+          "stationary four-spin correlation factorization two-temperature three-temperature Glauber kinetic Ising chain periodic baths counterexample",
+          "Resultary 2026/10/4/SCOPE-exact-finite-temperature-field-phase-diagram-for-alternate-site--378f070a6a54"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): The current explicit sign shows nonextension of the exact literal two-pair formula, not of a possibly modified sum over pairings. Period-three cannot be obtained by relabelling two alternating temperatures with all three distinct values. The prior general-looking multispin formulas are not under the claimed heterogeneous stationary hypotheses. A later multitemperature theorem may contain the computation, retained as priority risk. Earlier two-bath factorization cannot imply the opposite-sign period-three witness, and the proof establishes a genuine boundary of that exact formula. It does not rule out weighted modified pairing identities. Specific priority and access qualifications are recorded below.",
+      "residual_risks": [
+        "Only direct ordered two-point product factorization is disproved; arbitrary modified factorization is not excluded.",
+        "Abstract-only Mayer–Sollich 2004 paper and other unindexed multitemperature work could contain a related formula.",
+        "Coupling bound 16delta is sufficient, not claimed optimal; finite-temperature negative defect is certified only in the stated small-delta interval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-temperature factorization does not directly cover period-three; paper explicitly questions multi-temperature extension",
+          "evidence": [
+            "arXiv:cond-mat/0212616, Section V, PDF screenshot page index 5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0212616",
+          "material_read": "Accessible full primary PDF text, Sections II, IV–V and Appendix A; PDF page-index 5 screenshot read for explicit more-than-two-temperature question",
+          "method": "Read paper text and PDF screenshot of Section V; checked theorem hypotheses and question",
+          "title": "Stationary correlations for a far-from-equilibrium spin chain",
+          "trigger": "Same heat-bath generator and ordered-pair stationary correlation formula"
+        },
+        {
+          "assessment": "Covers alternating two-bath stationary perturbation, not the claimed three distinct values",
+          "evidence": [
+            "arXiv:cond-mat/0206345"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0206345",
+          "material_read": "Accessible abstract, rate formula and model description; entire manuscript not independently reread in this run",
+          "method": "Original arXiv text summary / mathematical-parameter comparison",
+          "title": "Non-equilibrium stationary state of a two-temperature spin chain",
+          "trigger": "Foundational same generator with two baths"
+        },
+        {
+          "assessment": "PRIORITY RISK: cannot declare full text noncovering from abstract alone, though described geometry differs",
+          "evidence": [
+            "J. Phys. A 37 (2004) 9–49"
+          ],
+          "identifier_or_url": "doi:10.1088/0305-4470/37/1/002",
+          "material_read": "Publisher abstract and citation metadata; full text not read",
+          "method": "Abstract comparison of homogeneous temperature quenches versus spatial three-bath stationary process",
+          "title": "General solutions for multispin two-time correlation and response functions in the Glauber–Ising chain",
+          "trigger": "Potential general multispin formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Resolves the literal ordered two-point stationary factorization extension queried for more than two periodically alternating baths in the primary 2002 work. Provides an explicit nonzero negative four-spin defect and uniform all-ring/all-finite-bath witness; does not pretend to refute all augmented representations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only direct ordered two-point product factorization is disproved; arbitrary modified factorization is not excluded.",
+    "Abstract-only Mayer–Sollich 2004 paper and other unindexed multitemperature work could contain a related formula.",
+    "Coupling bound 16delta is sufficient, not claimed optimal; finite-temperature negative defect is certified only in the stated small-delta interval.",
+    "All current publication actions withheld due confidentiality-safe content replacement blocker."
+  ],
+  "schema_version": 1
+}

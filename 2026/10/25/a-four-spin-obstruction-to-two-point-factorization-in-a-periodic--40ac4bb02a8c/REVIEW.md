@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct stationary-generator identities and their algebra establish the exact four-spin obstruction at one hot bath. A shared-clock graphical coupling proves a uniform bound for three-bath perturbations. Complete finite-state generator calculations confirm the exact rational identities for two separate ring sizes. The infinite-volume claim follows from finite ancestral termination rather than extrapolation of numerical results.
+## correctness
 
-**Originality — PASS within inspected evidence.** The exact two-temperature stationary correlation factorization of Schmittmann and Schmüser is explicitly credited; its conclusion poses the period-greater-than-two extension as an open question. The new result disproves the literal ordered two-point product identity for the period-three case, including all-finite-temperature baths. Homogeneous Glauber multispin results have different hypotheses. No directly covering statement was identified among inspected literature and published research records. Historical search is not exhaustive, and a sufficiently broad different theorem might imply the sign witness.
+PASS
 
-**Mathematical value — PASS.** A constructive, size-uniform and finite-bath obstruction resolves the direct-form version of a published mathematical-physics question. It identifies genuine stationary fourth-order dependence invisible to an Ising-like nearest pairing scheme.
+PASS: At delta=0, hot sites 0 and 3 reset autonomously; spins (X,U,V,Y) form a closed four-spin Markov subsystem. Stationary generator equations give D=16-ab and <XU>=4a/D, <XV>=<UY>=ab/D, <XY>=0, <UV>=4(a+b)/D, <VY>=4b/D, <XUVY>=ab/D. Hence literal ordered-pair product defect F0= -a^2*b^2/D^2 and connected 4th cumulant -2a^2*b^2/D^2. Independently solved all sixteen stationary generator states using exact rational linear algebra for a=1/2,b=1/3 and got defect -1/9025. A shared marked-clock coupling of perturbed and hot-reference systems tracks a backward single ancestry until reset; probability of a different outcome at the first reference-hot reset is <=delta. For products of k spins, discrepancy <=2k delta, yielding |Fdelta-F0|<=8delta+4delta+4delta=16delta for every ring N and the infinite system (max copy probability<1 ensures ancestry termination). Thus for delta=1e-6,a=1/2,b=1/3 the certified upper bound is strictly negative; all baths are then distinct, positive and finite. Finite exact check corroborates local identities, not the infinite-volume coupling.
 
-**Limitations.** The theorem does not classify all periods, all parameter triples, or general augmented-amplitude representations. A research-level independent audit and full historical priority check remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge): The current explicit sign shows nonextension of the exact literal two-pair formula, not of a possibly modified sum over pairings. Period-three cannot be obtained by relabelling two alternating temperatures with all three distinct values. The prior general-looking multispin formulas are not under the claimed heterogeneous stationary hypotheses. A later multitemperature theorem may contain the computation, retained as priority risk. Earlier two-bath factorization cannot imply the opposite-sign period-three witness, and the proof establishes a genuine boundary of that exact formula. It does not rule out weighted modified pairing identities. Specific priority and access qualifications are recorded below.
+
+## value
+
+PASS
+
+PASS: Resolves the literal ordered two-point stationary factorization extension queried for more than two periodically alternating baths in the primary 2002 work. Provides an explicit nonzero negative four-spin defect and uniform all-ring/all-finite-bath witness; does not pretend to refute all augmented representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
