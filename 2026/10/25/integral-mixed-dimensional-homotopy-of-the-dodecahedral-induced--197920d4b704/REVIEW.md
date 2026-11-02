@@ -1,11 +1,21 @@
-# Scientific review: Dodecahedral induced-forest complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is specified by a standard explicit \(GP(10,2)\) edge formula. Two independent finite cycle predicates agree on all \(2^{20}\) subsets. The 377,742 gradient pairs leave only 34 dimension-eleven and 90 dimension-twelve critical cells. The complete Hasse orientation is verified acyclic, and the signed integral differential has exactly 24 unit Smith factors, without remaining nonzero invariant factors. The standalone source was compiled and executed successfully. The homotopy conclusion follows from an simply connected high-dimensional cellular range with attaching maps of spheres in adjacent dimensions; it is not inferred from a mere rational rank computation.
+## correctness
 
-**Originality — PASS within checked material, with residual risk.** In the inspected 2015 devoid-complex, 2017 induced-acyclic-complex thesis, and 2023 forest-filtration primary texts, neither a dodecahedral induced-forest classification nor a general statement that implies its \((10,66)\) Betti pair was located. Indexed dodecahedral independence, matching, two-particle configuration, Rips and neighborhood results concern mathematically different functors; no comparison supplies this exact homotopy type. Searches of equivalent names, cycle-free induced subgraphs and stronger family classifications were made in mathematical record search and primary literature. The possibility of unindexed or incompletely inspected equivalent prior work remains; absence of a hit is not itself a novelty proof.
+PASS
 
-**Value — PASS.** The dodecahedral graph is a canonical vertex-transitive cubic planar graph, and induced forests are motivated by feedback-vertex sets and the forest-filtration literature. A complete integral homotopy decomposition, notably with nontrivial free homology in two adjacent dimensions, supplies a structural invariant not determined by the graph's conventional independence or matching complex. The exact 24-unit Morse boundary certificate resolves more than three quarters of a million simplices, rather than merely recomputing an already-known table or claiming a generic theorem without evidence. The scope remains one named graph.
+For GP(10,2), independent exact induced-forest enumeration finds 755608 faces including empty, across 2^20 masks. The independently reconstructed vertex-toggle matching has 377742 pairs, with 34 critical 11-cells and 90 critical 12-cells; full 6967280-incidence Hasse topological sort is acyclic. Signed 34x90 Morse differential independently reconstructed from oriented simplex boundaries has precisely 125 nonzero entries, all +/-1, and unimodular elimination isolates 24 unit pivots and an identically zero residual, yielding Htilde_11=Z^10, Htilde_12=Z^66. Since the Morse CW complex has a single basepoint and cells only in dimensions 11 and 12, integer degree-vector cell cancellation establishes a genuine wedge of 10 S^11 and 66 S^12, not just homology. No general GP(n,2) claim follows.
 
-The closest primary literature is Taylan, arXiv:1501.06754v1 (2015); Zuffi, *Simplicial Complexes From Graphs Toward Graph Persistence* (2017); and Carnero Bravo, arXiv:2307.13271 (2023). Indexed dodecahedral comparison results have different defining simplex predicates and cannot directly imply this classification. Possible equivalent unindexed literature and the absence of independent validation are remaining limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same vertex-induced-forest complex appears as the endpoint of the forest filtration, but the family theorems inspected in Carnero Bravo and Taylan concern paths, cycles, cactus graphs, joins and related graphs, rather than GP(10,2). Published dodecahedral ordinary independence, matching and Rips results operate on different simplicial face predicates; without an explicit equivalence they do not cover the claimed mixed-dimensional integral wedge.
+
+## value
+
+PASS
+
+The dodecahedron is a canonical cubic, planar, vertex-transitive graph; induced forests directly concern feedback-vertex sets. Exact integral mixed-dimensional homotopy with nontrivial cancellation of 24 cell pairs is a natural finite invariant not reducible to Euler characteristic or previously tabulated ordinary independence homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

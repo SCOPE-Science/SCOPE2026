@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and precise verification boundaries
+# Independent mathematical audit
 
-Compile and run the complete standalone verifier with a standard C++17 compiler:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 -o verify verify.cpp
-./verify
-```
+PASS
 
-No network, scientific libraries, external data or precomputed matrices are needed. The code constructs the twenty labeled vertices and thirty graph edges explicitly. It independently tests induced acyclicity by disjoint-set union and graph traversal for all 1,048,576 subsets, then exhaustively verifies a matching on every valid face. The topological sort verifies acyclicity across every face incidence, rather than using sampled gradient paths.
+For GP(10,2), independent exact induced-forest enumeration finds 755608 faces including empty, across 2^20 masks. The independently reconstructed vertex-toggle matching has 377742 pairs, with 34 critical 11-cells and 90 critical 12-cells; full 6967280-incidence Hasse topological sort is acyclic. Signed 34x90 Morse differential independently reconstructed from oriented simplex boundaries has precisely 125 nonzero entries, all +/-1, and unimodular elimination isolates 24 unit pivots and an identically zero residual, yielding Htilde_11=Z^10, Htilde_12=Z^66. Since the Morse CW complex has a single basepoint and cells only in dimensions 11 and 12, integer degree-vector cell cancellation establishes a genuine wedge of 10 S^11 and 66 S^12, not just homology. No general GP(n,2) claim follows.
 
-For the only nontrivial signed integral Morse boundary, the code uses increasing vertex order for simplicial orientations and recursive gradient-path elimination. It checks the 34-by-90 matrix's 125 signed unit entries, performs integer row/column transformations and checks that 24 unit pivots leave a zero residual. Thus the conclusion has no unidentified torsion or hidden nonzero differential. The recorded execution log is included as `VERIFY.log`, but the log alone is not a substitute for compiling and checking the source.
+## originality
 
-This exact finite proof covers the complex of induced forests of \(GP(10,2)\) only; it does not generalize to arbitrary graph families, compute an automorphism module, or provide an independent external audit. Known theoretical inputs are the elementary signed simplicial boundary, discrete Morse acyclicity-to-CW reduction and classification of maps between equal-dimensional simply connected sphere wedges by degrees. Independent audit status remains not performed.
+PASS
+
+The same vertex-induced-forest complex appears as the endpoint of the forest filtration, but the family theorems inspected in Carnero Bravo and Taylan concern paths, cycles, cactus graphs, joins and related graphs, rather than GP(10,2). Published dodecahedral ordinary independence, matching and Rips results operate on different simplicial face predicates; without an explicit equivalence they do not cover the claimed mixed-dimensional integral wedge.
+
+## value
+
+PASS
+
+The dodecahedron is a canonical cubic, planar, vertex-transitive graph; induced forests directly concern feedback-vertex sets. Exact integral mixed-dimensional homotopy with nontrivial cancellation of 24 cell pairs is a natural finite invariant not reducible to Euler characteristic or previously tabulated ordinary independence homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
