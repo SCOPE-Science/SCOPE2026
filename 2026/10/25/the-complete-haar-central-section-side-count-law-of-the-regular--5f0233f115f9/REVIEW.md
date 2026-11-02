@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The polytope is specified by exact inequalities and has exactly 24 signed-permutation vertices, 36 equal-length edges, 6 octagonal facets and 8 triangular facets. Counting section sides by which facets meet the plane gives the explicit three-indicator expression. Four affine threshold lines partition the ordered-normal fundamental triangle into precisely six listed tiles, with disjoint interiors; integrating the spherical Jacobian over those tiles yields exact area formulas. The independently reconstructed 14-facet and 36-edge incidences, spherical quadrature and the edge-crossing expected side count all agree. A numerical experiment is not substituted for the analytic proof.
+## correctness
 
-**Originality — PASS relative to inspected sources and accessible deduplication records.** Lonke's primary full text proves expected face-count formulas for central sections of cubes, not the four-point distribution for a regularly truncated three-dimensional cube. Prior work on related solids and the cube–octahedron intersection family includes the quadrilateral probability for the present parameter; that older formula covers the quadrilateral entry here, which is explicitly credited. It does not determine both the octagon and decagon probabilities, and an expected side count and normalization leave an additional degree of freedom. The six-tile classification and full four-atom law are not covered by the compared statements. Residual risk: an unindexed historic table of exactly these central-section counts could exist; priority is not independently certified.
+PASS
 
-**Value — PASS.** This is the complete natural section-type law for one of the thirteen Archimedean solids, including a positive probability for ten-sided central sections and the exact split between four, six, eight and ten sides. It resolves a genuinely geometric classification, not a cosmetic parameter substitution: the four separate masses are not implied by the previously available quadrilateral probability or mean. The statistic is relevant to slicing geometry and random polyhedral sections, although no broader theorem is claimed.
+Reconstructed 24 signed-permutation vertices (±1,±1,±(sqrt2-1)), 36 edges and 14 facets. The ordered-absolute-normal chamber 0<y<x<1 yields exact facet-crossing expression N=4+2[1<x+a y]+2[a<x+y AND y<1-a x]+2[y<x-a], a=sqrt2-1. Four threshold lines partition the chamber into six listed triangles/quadrilateral tiles, whose unit-normal spherical Jacobian is (1+x²+y²)^(-3/2), with 48 full-sphere chambers. Independent spherical solid-angle implementation gave four masses (0.151052693273...,0.500227288252...,0.281397356296...,0.067322662178...) summing 1 and expected count 6.52997997475809. For all 210,000 independent Gaussian directions, geometric original-edge counting matched the analytic piecewise formula exactly (zero other counts), and histograms matched within 0.00076. All-direction proof rests on exact inequalities and six-tile geometry, not finite random samples.
 
-The normal direction is Haar uniform; degeneracy boundaries have area zero. This review covers only the stated result and does not establish historical priority or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A previously published cube–octahedron intersection family result supplies the quadrilateral marginal of this regular truncated cube; that part is not claimed original. Lonke gives central *cube* means, related Resultary records give rectangular-box hexagon probabilities, random central 4-cube face vectors, width or tetrahedron quantities, not the full four-atom distribution for this truncated cube. Knowing p4, normalization and expected sides leaves additional degrees of freedom, so p8 and p10 require new chamber partitions. Older Voss 1982 might have a covering table; abstract-only and disconnected institutional access prevent confident whole-paper exclusion, captured as priority risk.
+
+## value
+
+PASS
+
+The regular truncated cube is a canonical Archimedean solid. The exact four-atom Haar central-section law, including separate octagon and positive decagon masses, solves the full natural face-count distribution rather than a mean or single tail. It is needed to distinguish polygon-type frequencies in integral geometry, while the previously known quadrilateral component alone plus the mean does not determine other masses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

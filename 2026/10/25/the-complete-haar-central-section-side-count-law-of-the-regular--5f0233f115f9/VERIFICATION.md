@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`python verify.py` was executed from the packaged source with NumPy and SciPy. The actual output was:
+# Independent mathematical audit
 
-```text
-EXACT_SPHERICAL_CHAMBER_PROBABILITIES_OK {4: 0.1510526932733458, 6: 0.5002272882524017, 8: 0.28139735629611207, 10: 0.06732266217814019}
-INDEPENDENT_24_VERTEX_36_EDGE_14_FACET_CONSTRUCTION_OK 4000
-ANALYTIC_SOLID_ANGLES_AGREE_WITH_INDEPENDENT_GNOMONIC_QUADRATURE_OK
-INDEPENDENT_EDGE_CROSSING_MEAN_IDENTITY_OK 6.529979974758095
-INDEPENDENT_HAAR_RANDOM_3D_EDGE_COUNT_DISTRIBUTIONS_OK 450000 {4: 0.15224444444444443, 6: 0.50002, 8: 0.28058666666666665, 10: 0.06714888888888888}
-ALL_REGULAR_TRUNCATED_CUBE_CENTRAL_SECTION_CHECKS_OK
-```
+## correctness
 
-Finite sampling is corroborative only. The mathematical proof depends on exact face incidence, the six-cell planar decomposition and the spherical Jacobian. No external expert audit has been performed.
+PASS
+
+Reconstructed 24 signed-permutation vertices (±1,±1,±(sqrt2-1)), 36 edges and 14 facets. The ordered-absolute-normal chamber 0<y<x<1 yields exact facet-crossing expression N=4+2[1<x+a y]+2[a<x+y AND y<1-a x]+2[y<x-a], a=sqrt2-1. Four threshold lines partition the chamber into six listed triangles/quadrilateral tiles, whose unit-normal spherical Jacobian is (1+x²+y²)^(-3/2), with 48 full-sphere chambers. Independent spherical solid-angle implementation gave four masses (0.151052693273...,0.500227288252...,0.281397356296...,0.067322662178...) summing 1 and expected count 6.52997997475809. For all 210,000 independent Gaussian directions, geometric original-edge counting matched the analytic piecewise formula exactly (zero other counts), and histograms matched within 0.00076. All-direction proof rests on exact inequalities and six-tile geometry, not finite random samples.
+
+## originality
+
+PASS
+
+A previously published cube–octahedron intersection family result supplies the quadrilateral marginal of this regular truncated cube; that part is not claimed original. Lonke gives central *cube* means, related Resultary records give rectangular-box hexagon probabilities, random central 4-cube face vectors, width or tetrahedron quantities, not the full four-atom distribution for this truncated cube. Knowing p4, normalization and expected sides leaves additional degrees of freedom, so p8 and p10 require new chamber partitions. Older Voss 1982 might have a covering table; abstract-only and disconnected institutional access prevent confident whole-paper exclusion, captured as priority risk.
+
+## value
+
+PASS
+
+The regular truncated cube is a canonical Archimedean solid. The exact four-atom Haar central-section law, including separate octagon and positive decagon masses, solves the full natural face-count distribution rather than a mean or single tail. It is needed to distinguish polygon-type frequencies in integral geometry, while the previously known quadrilateral component alone plus the mean does not determine other masses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
