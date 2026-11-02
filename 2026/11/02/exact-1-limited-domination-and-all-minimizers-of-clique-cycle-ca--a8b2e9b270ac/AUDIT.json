@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "An omitted clique column must contain 0, 1 or m omitted vertices; remaining selected vertices permit at most one omitted neighbor. Domination excludes 111 full-column runs; capacity excludes 101, singleton proximity 1 or 2 to a full column. If b full runs occupy f columns, the exact gap argument gives |S|<=m f+(n-f-2b-2)_+. Optimizing feasible f,b forces the claimed h(n) full columns and no singletons, while the no-full case has at most n omissions, with equality only in three row-oriented exceptions at m=3,n in {3,6}. Cyclic blocks with no 111/101 attain the bound, and the cyclic run-composition formula counts every optimum. Original-graph exhaustive enumeration of ten finite instances plus independent column DP for 192 parameter pairs agreed; infinite proof does not rely on those finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.22428; Tepeh, On k-limited domination: complexity and Cartesian products, Section 4 (Theorem 7, Proposition 6, grids, prisms and hypercubes)",
+        "arXiv:2606.22422; Božović et al., On k-limited domination in graphs, Corollaries 7-8 and Theorem 10",
+        "arXiv:2610.01442; Radić, An improved lower and upper bound of the k-limited domination number (abstract only)"
+      ],
+      "reasoning": "Tepeh proves a universal product upper bound, whose equality is already forced by the elementary cardinality lower bound when n is a multiple of four, but does not give all exact product values or the optimizer structure. The source treats complete-complete rook products, path-path grids, prisms and hypercubes, none of which dominates the stated capacity-one complete-cycle case m>=3. Radić gives general lower/upper bounds, not an all-minimizer theorem for these products. The equivalence to (1,m)-domination does not provide an explicit formula for the present family.",
+      "searches": [
+        "minimum one-limited dominating sets clique-cycle cylindrical rook graphs K_m □ C_n, induced matching cuts",
+        "bounded external neighborhood in selected vertices clique-cycle product Cartesian domination 1-limited cylinder",
+        "arXiv:2606.22428 Sections 4-5",
+        "arXiv:2610.01442 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.22428; Tepeh, On k-limited domination: complexity and Cartesian products, Section 4 (Theorem 7, Proposition 6, grids, prisms and hypercubes)",
+      "arXiv:2606.22422; Božović et al., On k-limited domination in graphs, Corollaries 7-8 and Theorem 10",
+      "arXiv:2610.01442; Radić, An improved lower and upper bound of the k-limited domination number (abstract only)",
+      "Mathematical research-index searches for limited domination, clique-cycle Cartesian products, full-column optimizer counts and (1,m)-domination equivalents."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.22428; Tepeh, On k-limited domination: complexity and Cartesian products, Section 4 (Theorem 7, Proposition 6, grids, prisms and hypercubes)",
+        "arXiv:2606.22422; Božović et al., On k-limited domination in graphs, Corollaries 7-8 and Theorem 10",
+        "Current result also classifies every minimum set and its labelled multiplicity, including two exceptional families."
+      ],
+      "reasoning": "The known cycle value n-h(n) and product bound gamma_1^L(K_m square C_n)<=m(n-h(n)) imply only the upper bound. The general n/2 lower bound matches it at n=0 mod 4, but not uniformly at other residues; no published result inspected derives the four-periodic multiplicity or rigidity of omitted full clique columns. The present proof supplies the missing matching lower restrictions and equality analysis.",
+      "searches": [
+        "1-limited domination exact K_m square C_n Cartesian product complete graph and cycle; domination number and counting minimizers",
+        "1-limited domination K_m Cartesian C_n clique cycle cylindrical graph exact gamma m(n-2 floor(n/4)-indicator n congruent 3 mod 4) optimal sets",
+        "1-limited dominating sets K_m square C_n counts 4 n n^2/4 minimum all cyclic full clique columns",
+        "arXiv:2606.22428 Proposition 6 / Theorem 7",
+        "arXiv:2606.22422 Corollary 8 / Theorem 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.22422; Božović et al., On k-limited domination in graphs, Corollaries 7-8 and Theorem 10",
+        "For the (m+1)-regular graph K_m Cartesian C_n, 1-limited domination is equivalent to (1,m)-domination (not to cubic (1,2) except m=2).",
+        "arXiv:2606.22428; Tepeh, On k-limited domination: complexity and Cartesian products, Section 4 (Theorem 7, Proposition 6, grids, prisms and hypercubes)"
+      ],
+      "reasoning": "The capacity-one condition is the usual (1,m)-domination condition in this regular family. We searched both formulations and clique-cycle/cylindrical Cartesian-product terminology. The existing m=2 circular ladder / prism study has different degree and is excluded; changing m=2 to m>=3 is not a mere renaming because partial clique-fiber capacity and equality exceptions change. No equivalent classification of all minimizers was identified.",
+      "searches": [
+        "1-limited domination exact K_m square C_n Cartesian product complete graph and cycle; domination number and counting minimizers",
+        "1-limited domination K_m Cartesian C_n clique cycle cylindrical graph exact gamma m(n-2 floor(n/4)-indicator n congruent 3 mod 4) optimal sets",
+        "bounded external neighborhood in selected vertices clique-cycle product Cartesian domination 1-limited cylinder",
+        "arXiv:2606.22422 (regular-graph (1,d-k)-domination equivalence)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-publication and research-index searches for the exact 4,n,n^2/4,n optimizer census, full column rigidity, and exceptions (3,3),(3,6) returned no directly covering enumerator.",
+        "arXiv:2606.22428; Tepeh, On k-limited domination: complexity and Cartesian products, Section 4 (Theorem 7, Proposition 6, grids, prisms and hypercubes)"
+      ],
+      "reasoning": "The source paper gives no cardinality table for this family; related graphs and general bounds cannot determine counts of all optimizers. Absence of an indexed match is limited search evidence, not a proof of novelty.",
+      "searches": [
+        "1-limited dominating sets K_m square C_n counts 4 n n^2/4 minimum all cyclic full clique columns",
+        "1-limited domination K_3 square C_6 minimum nine and 3 exceptional row solutions",
+        "1-limited domination \"K_m\" \"C_n\" Cartesian product",
+        "k-limited domination \"complete graph\" \"cycle\" Cartesian product",
+        "one limited domination complete cycle product minimum sets"
+      ]
+    },
+    "rationale": "The cycle scalar value and the general Cartesian-product upper bound are explicitly credited to their original sources. For n divisible by four the product scalar value is already implied by combining known bounds, not counted as a standalone new theorem. The new statement determines all m>=3, n>=3 product values in the remaining residue classes, classifies all minimum sets, counts their labelled degeneracy and characterizes exceptional full-cycle-row minimizers. Searches of the accessible primary full text, mathematical indexes, and recoverable historical claims did not find a stronger statement or table implying this full result. Historical priority remains provisional, and uninspected sources are not treated as excluded.",
+    "residual_risks": [
+      "Historical priority remains provisional because some earlier manuscripts and library history were not accessible or fully inspected.",
+      "Full text of the more recent general-bounds manuscript arXiv:2610.01442 was not inspected; the abstract alone cannot exclude an equivalent consequence.",
+      "The use of a semantic index cannot establish uniqueness; absence of a hit only bounds what was found in the actual searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general product inequality and several exact products but not all K_m Cartesian C_n minimizers.",
+        "evidence": [
+          "arXiv:2606.22428; Tepeh, On k-limited domination: complexity and Cartesian products, Section 4 (Theorem 7, Proposition 6, grids, prisms and hypercubes)",
+          "First preprint posted 2026-06-21; MSC 05C69; current text discusses rook graphs, grids, selected prisms/hypercubes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "HTML full text: definitions, Section 4 from Proposition 6 through Proposition 12 and Section 5 concluding questions; compared product families and exact statements.",
+        "method": "Opened accessible HTML-derived complete paper and inspected relevant theorem statements, proof arguments and conclusion.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Direct primary paper on the same invariant and the same Cartesian-product operation"
+      },
+      {
+        "assessment": "Supplies standard definition, regular-graph equivalence, cycle formula and general inequalities but no optimizer census for K_m Cartesian C_n.",
+        "evidence": [
+          "arXiv:2606.22422; Božović et al., On k-limited domination in graphs, Corollaries 7-8 and Theorem 10",
+          "Publisher DOI 10.1007/s40314-026-03902-2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+        "material_read": "Accessible publisher full-text sections defining the invariant, Corollaries 7-9 (including cycle formula), and packing bounds in Section 5.",
+        "method": "Read accessible publisher HTML scientific statements and their relationship with the candidate.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Original definition; potentially stronger general regular-graph and packing results"
+      },
+      {
+        "assessment": "No announced all-optimizer classification for clique-cycle Cartesian products; full-text noncoverage is not claimed.",
+        "evidence": [
+          "arXiv:2610.01442; Radić, An improved lower and upper bound of the k-limited domination number (abstract only)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01442",
+        "material_read": "Abstract and indexed overview only; not full paper.",
+        "method": "Compared the announced generic lower/upper extremal-characterization scope with the explicit present optimizer census.",
+        "title": "An improved lower and upper bound of the k-limited domination number",
+        "trigger": "Potentially dominating newer general capacity-constrained domination bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8b2e9b2-70ac-4fa8-94a9-f7c7c83cf385",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent 1-limited domination literature studies Cartesian products and open equality questions. This yields a sharp, complete two-parameter clique-cycle family, including an all-minimizer classification and nontrivial four-periodic exact counts, rather than just repeating the known product inequality. The exceptional cycle-row optimizer families at (3,3),(3,6) provide a natural structural boundary. The inference for the previously forced n=0 mod 4 scalar special case is acknowledged as prior implication.",
+    "status": "PASS"
+  }
+}
