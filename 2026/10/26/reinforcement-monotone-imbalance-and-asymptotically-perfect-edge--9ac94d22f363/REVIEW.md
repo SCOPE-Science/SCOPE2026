@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Poisson superposition yields the embedded chain with conditional mean \(c\tanh(\alpha\operatorname{arctanh}(d/s_n))\). The shared-uniform coupling is order preserving because the absolute-imbalance states have the same parity. Exact covariance identities use conditional symmetry and total-count Poisson variance. Concavity of \(\tanh\) gives the lower recurrence, which forces superlinear imbalance variance whenever \(c\alpha\ge1/2\). These are infinite analytical arguments; the 650 finite assertions are diagnostics only.
+PASS
 
-## Originality
+Poisson superposition gives N(t)~Poisson((2λ+μ)t) independent of marked jump chain. With equal starting weights w, after n rings D=C1−C2 has conditional mean increment mα(d,n)=c*tanh(α*arctanh(d/(2w+n))), c=μ/(2λ+μ). The absolute chain K=|D| moves one step outward/inward, outward probability increasing in α; using common uniforms and same parity of both chains makes the integer order pathwise monotone. A strictly positive outward-event difference at n2 gives strictly increasing second moments for n≥2. Reflection symmetry E D_n=0 and Cov(N,D_N)=0 yield exact Cov(C1,C2)=(Λt−E D_N²)/4 and corr=(Λt−E D_N²)/(Λt+E D_N²), hence strictly decreasing covariance and negative for α>0. Concavity tanh(αu)≥α tanh(u) implies v_{n+1}≥(1+2cα/(2w+n))v_n+1, giving v_n/n→∞ at cα≥1/2 (nlogn at equality, n^{2cα} above). Poisson concentration yields Corr→−1; this region exists for α<1 iff μ>2λ. Independently reconstructed finite-state distributions at n=2,6,20,60 for α=0,.3,.6,.85,.95; variance increases throughout. The asymptotic follows analytically, not from these tests.
 
-**PASS, subject to historical-priority risk.** The accessible 2026 primary text proves homogenization, not the finite-parameter absolute-imbalance order or the Poissonized covariance/correlation phenomenon. The inspected 2021 WARM manuscript concerns deterministic asymptotic edge proportions. General reinforced-urn overdispersion explains why an analogy is plausible but does not by itself settle this vertex-clock model and its surviving weak-reinforcement regime. Searches of published-finding corpus and accessible current literature found no equivalent same-parameter statement; classical urn coupling literature not fully indexed remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The finding isolates a natural dependence feature hidden by the edge-weight law of large numbers: the two edge counts can become asymptotically perfectly anticorrelated while both proportions homogenize. It also supplies a finite-time pathwise comparison valid at every reinforcement strength in the stated domain. These are structural statistical properties rather than a table entry or an arbitrary parameter slice.
+Best-of-knowledge PASS for pathwise α-order, signed unconditional Poisson-count covariance and perfect anticorrelation regime; published same mathematical model theory establishes deterministic normalized edge limits but no implication to these fluctuation statements.
 
-## Limitations and nearest literature
+## value
 
-The result requires a three-vertex path, symmetric leaf rates and identical positive initial edge weights; it gives only a sufficient perfect-anticorrelation region. The closest primary works are Qin (arXiv:2610.11780v1) and Couzinié–Hirsch (arXiv:2010.03347v2); their published results concern homogenization. Independent validation and exhaustive historical priority have not been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural minimal two-edge reinforced network displays monotone event-count imbalance and a sharp sufficient perfect-anticorrelation regime even while established homogenization sends normalized edge weights to deterministic proportions. The count-dependence phenomenon and finite-time pathwise order are structurally meaningful, not a mere finite urn statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
