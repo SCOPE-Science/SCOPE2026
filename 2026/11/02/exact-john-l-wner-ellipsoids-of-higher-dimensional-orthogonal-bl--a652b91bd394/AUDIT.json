@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "The proof derives block symmetry from global uniqueness, computes exact ellipsoid inclusion in both directions, reduces the full Löwner problem to maximizing strictly log-concave \\(f(v)=v^p(1-v)^q(1-(1-t)v)\\), solves the stationary quadratic and all endpoints, identifies all ridge contacts by equality conditions, verifies a positive two-layer contact design with zero mean and \\(I_d/d\\) covariance, and obtains strict monotonicity with sharp endpoint ratios. No sampling, finite search or external symbolic checker is used to prove a universal quantifier. Executing the bundled verifier passed 4791 exact symbolic and independent numerical checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General John–Löwner existence/uniqueness/contact criteria are known (Gruber and Schuster 2012; Lasserre 2013).",
+        "Todd’s July 6, 2007 presentation develops minimal-volume ellipsoid and optimal-design methods and examples; the examined slides concern other bodies, including intersections of balls.",
+        "Steinmetz literature discusses perpendicular round-cylinder intersection geometry, mainly in three dimensions."
+      ],
+      "reasoning": "The general optimal ellipsoid theorems imply a variational characterization but, without a new body-specific derivation, do not state the explicit radical parameter, full ridge contact set, two-layer contact probability design, and monotone sharp two-parameter ratio. The present proof derives these rather than treating general theorems as novelty.",
+      "searches": [
+        "Steinmetz solid bicylinder intersection two orthogonal cylinders exact minimum volume enclosing Loewner ellipsoid unequal radii",
+        "quadratic constraints two perpendicular infinite cylinders optimal enclosing ellipsoid shape matrix",
+        "maximum inscribed and minimum enclosing ellipsoid intersection {norm x squared+z squared <=a squared, norm y squared+z squared<=b squared} p q dimensions",
+        "orthogonal cylinder intersection contact measures ellipsoid sharp volume ratio p q",
+        "minimum volume enclosing ellipsoid intersection of two perpendicular cylinders",
+        "minimum volume ellipsoid cylinders intersection",
+        "John ellipsoid theorem Gruber Schuster 2012 arithmetic proof arxiv",
+        "Lasserre 2013 generalization Lowener John ellipsoid theorem arxiv"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "https://people.orie.cornell.edu/~miketodd/ublndetz.pdf",
+        "title": "Todd 2007 Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms slides"
+      },
+      {
+        "identifier": "https://arxiv.org/abs/1207.7246",
+        "title": "Gruber–Schuster 2012 John theorem"
+      },
+      {
+        "identifier": "https://arxiv.org/abs/1302.1056",
+        "title": "Lasserre 2013 generalization"
+      },
+      {
+        "identifier": "https://mathworld.wolfram.com/SteinmetzSolid.html",
+        "title": "MathWorld classical Steinmetz solid"
+      },
+      {
+        "identifier": "https://epubs.siam.org/doi/book/10.1137/1.9781611974386",
+        "title": "SIAM 2016 ellipsoid book chapter catalog only"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The ordinary bicylinder is the excluded \\(p=q=1\\) specialization; the previously developed coordinatewise family has separate inequalities \\(x_i^2+z^2\\le a_i^2\\) and is not the \\(p\\ge2\\) Euclidean block cylinder.",
+        "The general contact certificate criterion does not select which contact levels carry the weights without an additional shape-specific calculation.",
+        "A convex hull of perpendicular planar disks differs from the intersection of the block cylinders used here."
+      ],
+      "reasoning": "No inspected prior statement logically implies the exact formulas for all \\(p+q\\ge3\\) and a>=b>0 without an additional body-specific optimization. In particular, a formula for independent scalar cylinders does not impose the correct p-dimensional Euclidean quadratic constraint, and classical 3D formulas do not cover arbitrary p,q. Remaining risk: uncatalogued higher-dimensional Steinmetz extensions might already contain the same reduction.",
+      "searches": [
+        "bicylinder intersecting cylinders John and Löwner ellipsoids minimum enclosing ball axis radius",
+        "generalized higher dimensional Steinmetz bicylinder intersection Euclidean cylinders block coordinate norm John Lowner ellipsoid exact volumes",
+        "For p,q positive, Euclidean block-cylinder intersection K={(x,y,z): ||x||²+z²≤a², ||y||²+z²≤b²}, exact John and Löwner ellipsoids two contact layers, sharp outer/inner volume ratio",
+        "Todd minimum volume ellipsoid optimal design presentation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classic Steinmetz discussions describe the intersection surface and volume in three dimensions (MathWorld, Steinmetz Solid).",
+        "The Gruber–Schuster arXiv:1207.7246 and Lasserre arXiv:1302.1056 papers give universal optimality/contact characterizations but do not state the present higher-dimensional block-body solution in their inspected theorem statements."
+      ],
+      "reasoning": "The claimed set uses TWO inequalities with Euclidean norms on blocks of dimensions p and q (at least one block dimension >=2). The established three-dimensional two-scalar-cylinder case \\(p=q=1\\) is excluded. Intersections of separate coordinatewise cylinder inequalities correspond to block maximum norms, not the single Euclidean quadratic block constraint, and neither their admissible sets nor their ellipsoid optimization reduces to this one by symbol replacement.",
+      "searches": [
+        "bicylinder intersecting cylinders John and Löwner ellipsoids minimum enclosing ball axis radius",
+        "generalized higher dimensional Steinmetz bicylinder intersection Euclidean cylinders block coordinate norm John Lowner ellipsoid exact volumes",
+        "For p,q positive, Euclidean block-cylinder intersection K={(x,y,z): ||x||²+z²≤a², ||y||²+z²≤b²}, exact John and Löwner ellipsoids two contact layers, sharp outer/inner volume ratio",
+        "Löwner bicylinder"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Steinmetz Solid gives classical 3D geometry; no matching higher-dimensional p,q block semiaxes or optimization table is present in the inspected material.",
+        "The available semantic results instead described other ellipsoid problems, including graph polytopes and the convex hull of orthogonal disks."
+      ],
+      "reasoning": "This is an all-positive-integer-parameter extremal classification, not a finite set of tabulated numerical constants. A source covering the same exact formula would dominate the claim; no such table or formula was identified in the materials examined. A failed database search cannot establish historical priority.",
+      "searches": [
+        "Steinmetz solid bicylinder intersection two orthogonal cylinders exact minimum volume enclosing Loewner ellipsoid unequal radii",
+        "generalized higher dimensional Steinmetz bicylinder intersection Euclidean cylinders block coordinate norm John Lowner ellipsoid exact volumes",
+        "maximum inscribed and minimum enclosing ellipsoid intersection {norm x squared+z squared <=a squared, norm y squared+z squared<=b squared} p q dimensions",
+        "orthogonal cylinder intersection contact measures ellipsoid sharp volume ratio p q",
+        "For p,q positive, Euclidean block-cylinder intersection K={(x,y,z): ||x||²+z²≤a², ||y||²+z²≤b²}, exact John and Löwner ellipsoids two contact layers, sharp outer/inner volume ratio"
+      ]
+    },
+    "rationale": "The surviving result is restricted to the non-scalar Euclidean block model \\(p+q\\ge3\\); a pre-existing three-dimensional or coordinatewise-cylinder formula is not claimed. Extensive actual mathematical-literature and public-record equivalence searches did not identify identical or stronger statements, and the inspected general John–Löwner theorems do not themselves supply the exact semiaxis, full ridge-contact, two-layer certificate and sharp p,q ratio law. The conclusion is provisional historical originality, not proof of uniqueness in the literature.",
+    "residual_risks": [
+      "Historical priority is not certified: an obscure higher-dimensional generalized Steinmetz-solid article might formulate the same ellipsoid optimization.",
+      "A plausible 2016 book chapter with ellipsoidal cylinders was only available at catalog/contents level; its full content was not inspected, and its noncoverage is not claimed.",
+      "Some sources on 3D cylinder geometry are only partially accessible; the theorem intentionally excludes the fully scalar case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents general techniques and different bodies, not the proposed p,q Euclidean block-cylinder exact solution in the inspected material.",
+        "evidence": [
+          "Opening slide dated July 6, 2007.",
+          "A relevant slide discusses minimum volume ellipsoid of an intersection of two balls rather than orthogonal Euclidean block cylinders."
+        ],
+        "identifier_or_url": "https://people.orie.cornell.edu/~miketodd/ublndetz.pdf",
+        "material_read": "Presentation opening/date and material addressing Löwner ellipsoids, optimal design and an example on intersection of two balls; inspected representative slides including its optimal-design treatment.",
+        "method": "Accessible PDF text and rendered slide screenshots; checked publication-day date July 6, 2007.",
+        "title": "Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms",
+        "trigger": "Potentially broad optimal-design coverage of cylinder intersections and earliest day-dated foundational source."
+      },
+      {
+        "assessment": "The general theorem is used to justify unrestricted uniqueness and contact optimality; no geometry of the present p,q cylinder intersection is asserted in the inspected theorem.",
+        "evidence": [
+          "arXiv:1207.7246; Peter M. Gruber and Franz E. Schuster."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1207.7246",
+        "material_read": "Open-access arXiv HTML/abstract, theorem and discussion of contact points/uniqueness.",
+        "method": "Direct arXiv HTML text and theorem inspection; earliest public arXiv date July 31, 2012.",
+        "title": "An arithmetic proof of John’s ellipsoid theorem",
+        "trigger": "Most relevant unrestricted-inball/contact theorem."
+      },
+      {
+        "assessment": "A universal theorem with degree-two ellipsoids as a case, but no matching closed-form p,q family or sharp ratio as stated in the inspected material.",
+        "evidence": [
+          "arXiv:1302.1056; Jean-Bernard Lasserre, submitted February 5, 2013."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.1056",
+        "material_read": "Open-access arXiv HTML/abstract, formulation and main results on existence, uniqueness, and contact characterization.",
+        "method": "Direct arXiv HTML reading and comparison of the theorem’s objects, parameters and implications.",
+        "title": "A generalization of Löwner-John’s ellipsoid theorem",
+        "trigger": "Potential stronger general theory of minimal enclosing polynomial sublevel sets."
+      },
+      {
+        "assessment": "Covers classical intersection volume/surface facts, not an optimal ellipsoid formula for all \\(p+q\\ge3\\) in the examined material.",
+        "evidence": [
+          "MathWorld, Eric W. Weisstein, Steinmetz Solid."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/SteinmetzSolid.html",
+        "material_read": "Relevant accessible page text on orthogonal circular-cylinder intersections, volumes, and their surface geometry.",
+        "method": "Direct primary mathematical-reference page inspection and comparison with block-dimensional condition.",
+        "title": "Steinmetz Solid",
+        "trigger": "Most direct classical shape name; possible equivalent 3D cylinder geometry."
+      },
+      {
+        "assessment": "The named chapter concerns ellipsoidal cylinders containing data, apparently a different extremal problem; full text NOT inspected, so noncoverage is not asserted.",
+        "evidence": [
+          "2016 SIAM book entry for Michael J. Todd; chapter title Minimum-Area Ellipsoidal Cylinders."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/book/10.1137/1.9781611974386",
+        "material_read": "Accessible catalog/contents description and chapter title, not full chapter.",
+        "method": "Bibliographic catalog inspection; no full text material for that chapter.",
+        "title": "Minimum-Volume Ellipsoids: Theory and Algorithms",
+        "trigger": "Chapter title Minimum-Area Ellipsoidal Cylinders raises possible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a652b91b-d394-47a7-84ab-deb549fc3380",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural higher-dimensional version of an established classical intersection object receives a complete optimal-ellipsoid classification, all-contact description, explicit contact certificate, and sharp dimension-dependent volume-ratio monotonicity with equality/limiting cases. These are useful exact geometric invariants rather than a fabricated parameter slice or a trivial substitution of the old coordinatewise model; \\(p,q\\ge1\\) and \\(p+q\\ge3\\) is the entire meaningful class of genuinely higher-dimensional two-block cylinder intersections.",
+    "status": "PASS"
+  }
+}
