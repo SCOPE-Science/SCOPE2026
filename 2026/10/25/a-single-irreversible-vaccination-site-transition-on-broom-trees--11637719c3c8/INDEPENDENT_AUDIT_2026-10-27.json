@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:06:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/RESULT.md",
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/VERIFICATION.md",
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/AUDIT.json",
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/METADATA.json",
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/REVIEW.md",
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/SLOGAN.txt",
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/verify_broom.py",
+        "/mnt/data/scope_worker_08_20261027T2154_work/independent_checks.json"
+      ],
+      "rationale": "For every k>=2, L>=1 and real 0<p<1, the tree has N=k+L+1 vertices. Uniform seed among N-1 survivors makes expected final component size the ordered-pair path-connectivity score S_v/(N-1). Removing hub gives k+H_L; removing v_t gives k+H_t+H_{L-t}+2k sum_{j<=t}p^j+k(k-1)p^2. The exact identity D_t=2p(1-p^t)(p^{L-t}-1+k(1-p))/(1-p)^2+k(k-1)p^2 and adjacent difference 2p/(1-p)[p^{L-t-1}-(1-k(1-p))p^t] were independently checked for 1056 rational (k,L,t,p) combinations. For t<=L/2, polynomial coefficients of D_t have at most one sign change, so Descartes plus D_t>0 near zero guarantees at most one interior root, and it is from hub-better to path-better. At p=1, D_t(1)=k(k-1)+2t(t+k-L), whose strict minimum yields switch iff d=L-k>=2 and 2 floor(d^2/4)>k(k-1). Leaf deletion is strictly dominated by deletion of its neighbor for positive p, covering all vertices and boundaries. For p>1-1/k the adjacent-difference sign change yields the stated discrete path optimum. Lengthening L strictly decreases D_t for every fixed admissible path site, giving strictly decreasing thresholds once they exist. The positive correction to D_infinity tends to zero for t=floor(L/2); the bracket k(k-1)p(1-p)^2-2[1-k(1-p)] has one zero by monotonicity in u=1-p on (0,1/k), yielding the stated limit. The known k=2,L=5 threshold is p^2+p^3=1; all algebraic and domain checks agree.",
+      "residual_risks": [
+        "The infinite quantifiers rely on analytic sign-variation and limiting arguments, not the 1056 finite exact tests. The model is independent bond-transmission final size, not general correlated edge or arbitrary SIR timing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holme exactly enumerates connected 3–7 vertex graphs; smallest switching broom in this model has 8 vertices. Hall–Siebert proves exact node-probability dynamics for Markovian SIR/SEIR on trees with a single initial source, not an optimal-vaccination location threshold on brooms of all sizes."
+        ],
+        "reasoning": "The prior stronger-seeming exact-tree model solves forward state probabilities, but no inspected theorem dominates the one-way optimizer transition for a deleted vertex across every k,L,p. A general algorithm for epidemic expectations is not an already evaluated sharp broom classification.",
+        "searches": [
+          "Resultary: optimal vaccination vertex on broom tree expected outbreak component size percolation unique critical transmissibility threshold hub versus path",
+          "Hall–Siebert DOI 10.1007/s00285-022-01854-9, sections 1–4",
+          "Holme DOI 10.1103/PhysRevE.96.062305"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_broom.py at source Git blobs; independent_checks.py exact comparisons (1056); Hall–Siebert 2023 DOI 10.1007/s00285-022-01854-9; Holme 2017 DOI 10.1103/PhysRevE.96.062305",
+        "Resultary search: Resultary: optimal vaccination vertex on broom tree expected outbreak component size percolation unique critical transmissibility threshold hub versus path"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-seed rooted-tree solvability and the identity E[outbreak]=sum pair connectivity do not imply uniqueness of optimizer switching or threshold monotonicity without the D_t polynomial sign analysis. Holme 3–7 node cases do not include first switching broom."
+        ],
+        "reasoning": "Checked logical implication at full quantifier level: the new theorem depends on Descartes sign variation and precise length-integer optimization absent from the inspected prior results.",
+        "searches": [
+          "Resultary: optimal vaccination vertex on broom tree expected outbreak component size percolation unique critical transmissibility threshold hub versus path",
+          "Hall–Siebert 2023 §§1–4",
+          "Holme 2017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tree percolation outbreak under one uniform seed is equivalent to normalized ordered-pair network connectivity, whereas Holme treats exact finite-graph SIR node importance and Hall–Siebert derives node-state equations."
+        ],
+        "reasoning": "Checked equivalent formulations under percolation reliability/pairwise closeness and node-removal centrality: common primitive identities do not identify a sharp all-(k,L) unique transition, the integer switch criterion, or the limiting p_k. SIR with a Markovian infectious period may correlate outward edge transmissions, so Hall–Siebert is not automatically the identical model.",
+        "searches": [
+          "Resultary: optimal vaccination vertex on broom tree expected outbreak component size percolation unique critical transmissibility threshold hub versus path",
+          "primary Holme, Three faces of node importance, 2017; Hall–Siebert, Exact solutions and bounds, 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Holme covers all connected graph orders at most seven; the first switch example B_{2,5} has eight vertices; no accessible exact broom switching table or all-k integer boundary was found."
+        ],
+        "reasoning": "The finite eight-vertex switching benchmark is expressly credited as previously known, not relabeled as new. The novel asserted statement is the infinite-parameter sharp criterion and asymptotic critical root.",
+        "searches": [
+          "Resultary: optimal vaccination vertex on broom tree expected outbreak component size percolation unique critical transmissibility threshold hub versus path",
+          "Holme 2017 exact small-graph census, pp/abstract; compared with all k,L"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison on actual final mathematical statement for One-way optimal vaccination-site transition on broom trees. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.",
+      "residual_risks": [
+        "Prior full Holme text was obstructed by publisher HTML access/CAPTCHA; its verified scope is <=7 vertices, but an unindexed later network-interdiction source could contain the all-broom theorem.",
+        "The known eight-vertex p^3+p^2=1 example is not new and is explicitly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact Markov SIR node-state dynamics on trees; does not state claimed site switch over broom family and uses different transmission mechanism",
+          "evidence": [
+            "Abstract and introduction pp. 1–3; rooted tree model §2.2; first PDF screenshot page 3"
+          ],
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s00285-022-01854-9.pdf",
+          "material_read": "26-page open-access PDF: abstract, introduction and main-results description pp 1–3, plus rooted-tree setup and epidemic-state equation framework on p.4",
+          "method": "Web PDF text and page-3 screenshot",
+          "title": "Exact solutions and bounds for network SIR and SEIR models using a rooted-tree approximation",
+          "trigger": "Same tree epidemic/single seed; could dominate epidemic calculation"
+        },
+        {
+          "assessment": "Small-graph census supports known finite context but does not cover eight-vertex switch or arbitrary broom parameters",
+          "evidence": [
+            "Abstract explicitly limits exact census to connected three-to-seven-vertex graphs"
+          ],
+          "identifier_or_url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.96.062305",
+          "material_read": "Primary publisher abstract, statement of scope (connected graph orders three through seven) and associated methodological comparison; full paper text was not accessible on publisher page",
+          "method": "Primary publisher HTML; open full text was obstructed by CAPTCHA",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Exactly adjacent node-vaccination optimization and previous finite benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/a-single-irreversible-vaccination-site-transition-on-broom-trees--11637719c3c8/RESULT.md",
+        "Assigned RESULT.md and verify_broom.py at source Git blobs; independent_checks.py exact comparisons (1056); Hall–Siebert 2023 DOI 10.1007/s00285-022-01854-9; Holme 2017 DOI 10.1103/PhysRevE.96.062305",
+        "Resultary search: Resultary: optimal vaccination vertex on broom tree expected outbreak component size percolation unique critical transmissibility threshold hub versus path"
+      ],
+      "rationale": "A sharp family-wide optimizer transition identifies exactly when perfect one-site protection shifts from a high-degree hub to the handle, including its unique critical transmissibility and infinite-handle limit. The integer condition and monotonicity supply structural answers for a natural one-seed percolation vaccination problem; this is more than a single numerical benchmark or substitution of a standard pair-count formula.",
+      "residual_risks": [
+        "Prior full Holme text was obstructed by publisher HTML access/CAPTCHA; its verified scope is <=7 vertices, but an unindexed later network-interdiction source could contain the all-broom theorem.",
+        "The known eight-vertex p^3+p^2=1 example is not new and is explicitly excluded from novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One uniform infection seed, one perfectly protected vertex, independent identical edge transmissions, expected final size only; no multi-seed, heterogeneous edges, continuous-time transmission correlations or general graph extension.",
+    "Prior full Holme text was obstructed by publisher HTML access/CAPTCHA; its verified scope is <=7 vertices, but an unindexed later network-interdiction source could contain the all-broom theorem.",
+    "The known eight-vertex p^3+p^2=1 example is not new and is explicitly excluded from novelty."
+  ],
+  "schema_version": 1
+}
