@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact 2x2 matrix multiplication gives trace and determinant; the strict quadratic Schur/Jury criterion gives the necessary-and-sufficient two-periodic stability region. The discriminant reduces to v^2(q^2-6q+1), proving the sharp contrast threshold and complete boundary cases. The canonical starting state has exact even iterates (-11/10)^j; rational verification reproduced the identities without approximations. General claims follow from symbolic proof rather than finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.14108v1 Section 4.1 and Appendix B treats constant beta and random curvature; its determinant/moment operator does not subsume per-step deterministic beta alternation.",
+        "arXiv:2404.03218v1, Sections 1-2, permits varying beta only under its algorithmic adaptive selection restrictions for regularization.",
+        "The published published-finding corpus cyclic alternating minimization result compares block counts with fixed momentum, while heterogeneous Aggregated Momentum studies simultaneous buffers, not a single sequentially alternating coefficient."
+      ],
+      "reasoning": "No inspected broader result gives an implication to the proposed exact period-two beta stability region. General Jury/Floquet theory provides a standard proof method rather than a pre-established specialized theorem; historical priority remains a bounded but genuine uncertainty.",
+      "searches": [
+        "published-finding corpus: periodic inertia parameters inertial gradient descent fixed strongly convex quadratic switched stable matrices unstable",
+        "web: periodically varying momentum parameter heavy ball method stability quadratic alternating two values theorem",
+        "web: alternating momentum Polyak heavy ball periodic coefficients scalar Schur stability parametric resonance",
+        "web: \"switched\" \"heavy-ball\" \"unstable\" quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.14108v1 HTML Sections 4 and Appendix B",
+      "arXiv:2610.09912 original textual record Sections 1 and 3",
+      "arXiv:2404.03218v1 HTML Introduction, Section 2, conclusion",
+      "arXiv:2102.07314 abstract (full text unavailable at attempted URL)",
+      "published-finding corpus record 2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3 (summary)",
+      "published-finding corpus record 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668 (summary)",
+      "published-finding corpus record 2026/10/4/SCOPE-sharp-two-cycle-bifurcation-for-gradient-clipped-heavy-ball-on-a--979ce9506a74 (summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.09912v1 Equation (3) shows fixed-parameter stable region 0<alpha L<2(1+beta). Both fixed beta=0 and beta=9/10 at z=3/2 satisfy this, yet the new exact alternating monodromy has eigenvalue -11/10.",
+        "arXiv:2604.14108v1 Appendix B Equation (20) is the fixed-beta stochastic scalar mean-square threshold; at zero variance it is 2(1+beta)/a."
+      ],
+      "reasoning": "Existing constant-coefficient stability is logically insufficient to infer stability of a product T_c T_b, as the exact pair disproves implication. Varying-curvature proximal-gradient and fixed-momentum cyclic-block results are neither equivalent nor stronger statements. The present complete parameter-space characterization cannot be obtained merely by renaming variables in those prior claims.",
+      "searches": [
+        "web: Two Answers on Heavy Ball Dynamics 2610.09912 time-varying momentum",
+        "web: \"parametric resonance\" \"heavy ball\" discrete optimization momentum",
+        "published-finding corpus: two-periodic alternating momentum heavy-ball method on fixed scalar positive quadratic parametric resonance each fixed momentum stable but alternating unstable Floquet Schur stability exact bands"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity M=T_c(z)T_b(z), with det M=bc and trace 1+bc-(2+b+c)z+z^2, reduces the question to a quadratic Schur criterion.",
+        "Inspected arXiv:2610.09912v1, Section 1.1 states a constant-beta single-step characteristic polynomial, not a two-periodic coefficient product."
+      ],
+      "reasoning": "The relevant aliases are two-periodic inertial gradient descent, periodic damped leapfrog, Floquet heavy-ball recurrence and switched second-order optimization. Generic 2x2 Floquet criteria apply as a tool, but the sharp beta-deficit-ratio result and exact rest-start witness require a distinct parameter specialization and are not consequences of the cited fixed-coefficient formulas.",
+      "searches": [
+        "published-finding corpus: fixed quadratic with alternating momentum beta heavy ball two-periodic schedule stability Schur 3+2sqrt2 momentum deficit ratio",
+        "published-finding corpus: heavy ball oscillating momentum parameters 0 0.9 fixed step 1.5 divergent eigenvalue -1.1 despite individually stable",
+        "web: \"alternating\" \"momentum\" \"heavy ball\" quadratic instability",
+        "web: \"periodic\" \"momentum\" \"heavy-ball\" instability quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical record 2026/10/4/SCOPE-exact-harmonic-mean-stability-frontier-for-aggregated-momentum--121b1461e668 concerns an equal-weight multi-buffer algorithm, not period-two heavy-ball.",
+        "Closest 2026/10/4/SCOPE-three-blocks-create-a-sharp-momentum-stability-barrier-for-cycli--ae67f1db4df3 concerns cyclic block optimization, not temporal alternation of the scalar momentum coefficient."
+      ],
+      "reasoning": "The actual retrieved record summaries contain no exact 3+2sqrt2 alternating-momentum deficit threshold or equivalent monodromy classification. The record search is supporting evidence, not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: two-periodic alternating momentum heavy-ball method on fixed scalar positive quadratic parametric resonance each fixed momentum stable but alternating unstable Floquet Schur stability exact bands",
+        "published-finding corpus: fixed quadratic with alternating momentum beta heavy ball two-periodic schedule stability Schur 3+2sqrt2 momentum deficit ratio",
+        "published-finding corpus: numerical linear algebra matrix preconditioning Krylov algorithm sharp breakdown stability counterexamples eigenvalues inverse"
+      ]
+    },
+    "rationale": "The exact two-periodic monodromy criterion, universal 3+2sqrt(2) deficit-ratio boundary, and canonical rest-initialized divergence are not implied by the inspected fixed-momentum source formulas, adaptive inverse-problem rules, or nearest published mathematical-record claims. Residual risk: older switched/discrete-Hill sources not exhaustively surveyed; search absence alone is not novelty evidence.",
+    "residual_risks": [
+      "An older equivalent result for periodically damped discrete second-order systems or switched heavy-ball methods could exist under a different terminology; no exhaustive review of all historical sources has been performed.",
+      "Full text of arXiv:2102.07314 was inaccessible through the attempted HTML route; only its abstract was read.",
+      "The 63-page arXiv:2610.09912 record was inspected in relevant sections rather than read exhaustively; its constant-tuning framing makes direct coverage unlikely but not logically impossible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers constant beta scalar SGD-momentum mean-square threshold, not deterministic periodic beta Floquet classification",
+        "evidence": [
+          "arXiv:2604.14108v1 HTML Section 4.1, Eq. 10",
+          "arXiv:2604.14108v1 HTML Appendix B, Eq. 20"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.14108v1",
+        "material_read": "Introduction; Section 4.1 scalar linear stability; Appendix B moment polynomial and exact scalar threshold (especially Equations 17-20)",
+        "method": "Read accessible arXiv HTML sections and matched recurrence hypotheses",
+        "title": "Momentum Further Constrains Sharpness at the Edge of Stochastic Stability",
+        "trigger": "Motivating recent scalar momentum stability analysis"
+      },
+      {
+        "assessment": "Arbitrary fixed (alpha,beta) tunings on nonlinear strong-convex class; no inspected theorem for temporally alternating beta; uninspected remainder leaves limited residual risk",
+        "evidence": [
+          "arXiv:2610.09912 Sections 1.1-1.3 Eq. 1-3",
+          "arXiv:2610.09912 Section 3.3 spectral interpolation for constant tuning"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09912",
+        "material_read": "Abstract, Sections 1.1-1.3, Section 3.3, and part of phase-diagram discussion; searched in-page for time-varying/schedule/alternating",
+        "method": "Read arXiv full rendered textual record, inspect Eq. 1 and Eq. 3 and scope",
+        "title": "Two Answers on Heavy-Ball Dynamics",
+        "trigger": "Recent major heavy-ball stability source with potentially broader coverage"
+      },
+      {
+        "assessment": "Variable coefficients under adaptive regularization/selection conditions, no unconditional arbitrary period-two stability classification",
+        "evidence": [
+          "arXiv:2404.03218v1 Eq. 8-9",
+          "arXiv:2404.03218v1 Sections 1-2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.03218v1",
+        "material_read": "Introduction and Section 2 algorithm setup, including equations 8-9, plus conclusion",
+        "method": "Read accessible arXiv HTML and compare momentum admissibility and objective assumptions",
+        "title": "An Adaptive Heavy Ball Method for Ill-Posed Inverse Problems",
+        "trigger": "Potential earlier method allowing variable momentum"
+      },
+      {
+        "assessment": "Claimed individual convergence under particular adaptive framework; no decisive coverage in accessible abstract; residual access risk disclosed",
+        "evidence": [
+          "arXiv:2102.07314 abstract and publication record"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.07314",
+        "material_read": "Abstract only; the requested full HTML could not be fetched",
+        "method": "Read abstract, attempted original HTML retrieval",
+        "title": "The Role of Momentum Parameters in the Optimal Convergence of Adaptive Polyak’s Heavy-ball Methods",
+        "trigger": "Title suggests varying momentum schedules"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "87287643-4a80-49e7-b4d3-23138beede6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural classification of time-periodic momentum safety on an otherwise unchanging strongly convex objective. The sharp ratio 3+2sqrt(2), a nonempty reentrant forbidden step band where both frozen choices are stable, explicit diverging rest start, and instability under arbitrarily small absolute coefficient variation near one provide substantive parameter-design boundaries beyond a trivial isolated counterexample.",
+    "status": "PASS"
+  }
+}
