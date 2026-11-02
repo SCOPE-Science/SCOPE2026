@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact four-probe algebra; exponential/gamma convolution gives bounded two-probe sum density; conditional denominator pole yields 2J2 tail with dominated convergence, and smooth-ridge kernel yields pi J4/2 with cross term negligible. Rational evaluations J2=27/256 and J4=243/256 for A=I2 were independently reconstructed and code-checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kalantzis et al. 2023, author OA PDF, Sections 2-4, uses deterministic probing sequence and compares against separately sampled Monte Carlo.",
+        "Fika 2018 abstract mentions a stochastic extrapolation approach to inverse-trace approximation; accessible abstract does not specify any pole-tail moment classification."
+      ],
+      "reasoning": "Strongest plausible source is Fika 2018, since stochastic extrapolation is explicitly mentioned. Its full text could not be accessed, leaving priority risk. The accessible 2023 deterministic-probing results are not a broader theorem that covers the independent Gaussian nested-means model or its ridge scaling.",
+      "searches": [
+        "published-finding corpus: Gaussian trace probing Aitken transform has infinite mean, universal pole and ridge regularization mean-square diverges inverse delta",
+        "web: \"Extrapolation Methods for Estimating the Trace of the Matrix Inverse\" Fika 2018",
+        "web: \"stochastic Aitken\" \"noise\" extrapolation convergence 2000"
+      ]
+    },
+    "checked_sources": [
+      "Kalantzis et al., ICASSP 2023 DOI 10.1109/ICASSP49357.2023.10095081, full text at https://vkalantzi.github.io/papers/icassp12023.pdf",
+      "Avron and Toledo, JACM 2011 DOI 10.1145/1944345.1944349 (baseline literature)",
+      "Fika 2018 DOI 10.1007/978-3-319-74325-7_7 (abstract/metadata only)",
+      "Buoso, Karapiperi and Pozza 2015 DOI 10.1016/j.apnum.2014.12.003 (abstract/introduction)",
+      "Published research database comparison with Gaussian ratio-tail results for different estimators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kalantzis et al. 2023 Algorithm 2 accelerates deterministic hierarchical probing and has its own monotonicity assumptions, whereas the new statement assumes nested random Gaussian sample averages.",
+        "Avron--Toledo 2011 analyzes unextrapolated quadratic Gaussian/Rademacher trace estimators, not a rational transform.",
+        "The 2018 Fika abstract discusses inverse-trace extrapolation (including a stochastic approach), but the inaccessible full text precludes a conclusive implication comparison."
+      ],
+      "reasoning": "The new theorem is not a corollary of deterministic Aitken acceleration, a standard Gaussian trace mean variance bound, or a generic warning about nearly vanishing denominators: its exact probability tail, all-positive-semidefinite quantifier and ridge MSE coefficient require an independent density calculation. Fika full-text priority uncertainty is explicitly retained.",
+      "searches": [
+        "Kalantzis et al. 2023 official open-access full PDF https://vkalantzi.github.io/papers/icassp12023.pdf",
+        "Fika 2018 DOI 10.1007/978-3-319-74325-7_7 open-access/author/arXiv attempts",
+        "Avron Toledo 2011 DOI 10.1145/1944345.1944349"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The algebraically equivalent rational form has denominator X1-3 X2+X3+X4 and squared numerator (X2-X1)^2.",
+        "Classical Aitken formula uses a second difference in its denominator (Kalantzis et al., 2023, Definition 3 and Algorithm 2)."
+      ],
+      "reasoning": "Checked Aitken, Shanks, stochastic nonlinear-ratio and trace-estimation aliases. General ratio-pole concerns make the mechanism expected but do not mathematically imply the explicit PSD-universal two-sided constants and smooth-ridge limit for the nested 1/2/4 Gaussian trace samples.",
+      "searches": [
+        "published-finding corpus: Aitken delta-squared transform of cumulative sample-mean trace probes 1 2 4, division by stochastic second difference produces 1/t tails",
+        "web: \"Aitken\" \"Monte Carlo\" \"infinite variance\" estimator",
+        "web: \"Aitken\" \"noisy sequence\" division by zero statistics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published mathematical research record on finite-sample Gaussian cross-HSIC studentization concerns a different ratio statistic and different moment thresholds.",
+        "Searches of the mathematical-results database using specific trace/Aitken aliases did not identify any matching explicit nested Gaussian-mean tail or ridge constants."
+      ],
+      "reasoning": "Actual database queries returned related but different Gaussian ratio-tail and numerical estimator results, not the exact trace-mean formula or constants. No database-negative result is treated as uniqueness proof.",
+      "searches": [
+        "published-finding corpus: 2023 Kalantzis Kollias Ubaru Salonidis Accelerating Matrix Trace Estimation by Aitken Delta 2 Process",
+        "published-finding corpus: Aitken delta squared stochastic trace estimator cumulative Hutchinson probes has Cauchy tails infinite expectation denominator zero"
+      ]
+    },
+    "rationale": "Full-text 2023 motivating paper treats deterministic probing, not nested random Gaussian means. Relevant published-finding corpus semantic searches and published mathematical research records revealed no same or stronger exact pole-tail/ridge law. The related Fika 2018 stochastic inverse-trace chapter is materially disclosed as an inaccessible priority risk; no negative full-text assertion is inferred.",
+    "residual_risks": [
+      "Fika 2018 discusses stochastic extrapolation; its full chapter could not be inspected, because accessible public sources did not provide full text. It could contain relevant specialized pole-risk analysis.",
+      "The denominator-pole mechanism follows classical smooth-ratio asymptotics; originality is claimed only for the coupled Gaussian trace-mean law, universal PSD result and exact ridge coefficient, not the general mechanism.",
+      "Other specialized stochastic Aitken Monte Carlo treatments not indexed by the semantic search may establish equivalent or stronger coverage.",
+      "Independent mathematical and publication-priority validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for nested Gaussian MC tail and ridge theorem; algorithm instead accelerates deterministic probing, and random trace estimation appears as comparison baseline",
+        "evidence": [
+          "2023 PDF Sections 2-3, lines 106-233 and 249-342, define deterministic probing and Aitken updates.",
+          "2023 PDF Section 4 lines 343-406 separates the unaccelerated Rademacher Monte Carlo baseline; Section 5 lines 446-451 states deterministic probing contribution."
+        ],
+        "identifier_or_url": "https://vkalantzi.github.io/papers/icassp12023.pdf",
+        "material_read": "Open-access author PDF, Sections 1-5, Definition 3, Algorithms 1 and 2, experiments and conclusion; relevant pages visually inspected",
+        "method": "Web PDF text inspection and page-3/page-4 screenshots",
+        "title": "Accelerating Matrix Trace Estimators by Aitken's Delta^2 Process",
+        "trigger": "Exact topic: trace estimation by Aitken transform of successive approximations"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT: accessible abstract does not imply the stated Gaussian double-budget moment constants, but full comparison could not be completed",
+        "evidence": [
+          "2018 bibliographic abstract confirms extrapolation approaches to inverse-trace estimation, including a stochastic variant.",
+          "The full chapter could not be obtained from available author, preprint and public-repository sources."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-319-74325-7_7",
+        "material_read": "Title, abstract, bibliographic metadata and published synopsis only; the full chapter was unavailable.",
+        "method": "Author, arXiv and repository preprint search; publisher and university-archive checks; no readable full text obtained.",
+        "title": "Extrapolation Methods for Estimating the Trace of the Matrix Inverse",
+        "trigger": "Plausible stronger prior: 2018 work expressly allows stochastic inverse-trace extrapolation"
+      },
+      {
+        "assessment": "NOT_COVERING for Aitken denominator and its tail regularization; establishes random trace-estimator background",
+        "evidence": [
+          "Kalantzis et al. 2023, Section 1 discusses random trace estimator and cites Avron--Toledo [11]."
+        ],
+        "identifier_or_url": "doi:10.1145/1944345.1944349",
+        "material_read": "Bibliographic description and cited result summarized in the ICASSP 2023 primary literature",
+        "method": "Bibliographic source and cited primary-reference comparison",
+        "title": "Randomized Algorithms for Estimating the Trace of an Implicit Symmetric Positive Semi-Definite Matrix",
+        "trigger": "Baseline Gaussian quadratic-form trace estimator"
+      },
+      {
+        "assessment": "NOT_COVERING for independent Gaussian probe distributions and trace-specific sharp tail constants",
+        "evidence": [
+          "Buoso--Karapiperi--Pozza 2015 abstract states deterministic sequences of form S_n=S+a_n lambda^n and convergence acceleration."
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2014.12.003",
+        "material_read": "Abstract and introductory discussion of deterministic sequence-transformation kernels",
+        "method": "Accessible text search result for Applied Numerical Mathematics 90 (2015)",
+        "title": "Generalizations of Aitken's Process for a Certain Class of Sequences",
+        "trigger": "Potential general accelerated-sequence theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3683a16-2407-4426-bab0-7aeb4fc74692",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural proposed transplantation of acceleration from deterministic trace probing to nested Monte Carlo trace means loses all absolute moments of order >=1, for every nonzero PSD matrix, despite finite-moment inputs. The exact 1/t coefficient and inverse-ridge MSE law provide substantive risk and calibration information; the simplest isotropic 2x2 case yields sharp constants.",
+    "status": "PASS"
+  }
+}
