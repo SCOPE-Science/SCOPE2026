@@ -1,19 +1,21 @@
-# Scientific review: expected singleton-richness peaks
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The expected singleton count follows directly from multinomial sampling. A continuous exponential-polynomial interpolation has derivative with \(L\) distinct exponents and degree-one polynomial coefficients; the generalized Rolle argument bounds its real zeros by \(2L-1\), and therefore bounds the number of strict sample-size peaks by \(L\). The separated-abundance family creates \(L\) alternating prominence regions. The generic transcendental choice eliminates ties, proving sharpness. The rational three-species witness has all six strict adjacent inequalities checked by the included verifier.
+PASS
 
-## Originality
+Indicator linearity gives s_n=n sum_i p_i(1-p_i)^(n-1). Group equal values q_j and extend to S(t)=t sum_j c_jq_j/(1-q_j) e^{t log(1-q_j)}. S’ is an exponential polynomial with L distinct real rates and polynomial multipliers of degree at most 1. Repeated Rolle differentiation proves at most 2L-1 real zeros counting multiplicity, so k strict integer maxima force at least 2k-1 derivative zeros and k<=L. For sharpness use p_j=eps^{2^{j-2}} (j>=2), p_1=1-sum p_j: initial n=1 peak, and L-1 separated scales n~1/p_j where a single species contributes e^-1, with vanishing intermediate valleys. Choosing sufficiently small transcendental eps avoids all adjacent ties because s_{n+1}-s_n is a nonzero polynomial for each integer n. Independent arbitrary-precision exact integer sign checks verified all neighboring inequalities of the explicit vector (9899,100,1)/10000 at n=1,102,9999; the all-L statement relies on the analytical construction.
 
-PASS, subject to the residual literature risks below. Magurran (2005) treats species-abundance histograms rather than modal sample sizes of the expected observed-once count. Chao and Jost (2012) treat accumulating richness and coverage, not local maxima of singleton frequency as a function of effort. O'Hara (2005) treats bias of richness estimators. The closest database occupancy results treat richness-frequency covariance or modal multinomial masses, neither of which implies the bound or construction. The root-count bound itself is classical and not claimed as new. A more specialized treatment of exponential mixtures or occupancy counts might entail the theorem and remains a bibliographic risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Singleton counts are used in biodiversity completeness analyses, yet their expectation as sampling effort grows need not be unimodal even for only three species. The sharp bound relates global sampling-effort complexity directly to the number of abundance levels; examples achieve every possible complexity class. The theorem delineates precisely what abundance heterogeneity can permit, rather than providing a routine evaluation at a fixed sample size.
+Qualified PASS: the Chebyshev zero-bound and sampling expectation are established tools; the sharp abundance-level strict-peak count and L-scale realizability are a natural, apparently uncovered specialization, with full-text risk for nearby mixture literature.
 
-## Closest literature and limitations
+## value
 
-Full-text material reviewed from Magurran (2005), O'Hara (2005), and Chao and Jost (2012). Mao and Colwell (2005) had abstract-level material only, leaving a targeted unresolved bibliographic risk. No inference from an inaccessible source was treated as a proof of noncoverage. Conclusions require iid sampling with replacement from a finite fixed positive probability vector. The proof is mathematical and does not show multimodality to be common in field surveys. Independent external validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Expected observed-once species count is a standard sampling diagnostic. A sharp bound on how often its expectation can reverse with sampling effort, controlled by the number of abundance levels rather than number of species, answers a natural shape question and gives explicit extreme examples useful in sampling design and interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
