@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:54:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W interval of length B, 0<BT<1 and centered I_T, the Fourier quadratic-form identity (Baeza–Guasch Lemma 2.1) gives a phase-deficit double integral with nonnegative factor |fhat(w)||fhat(e)|−Re[fhat(w) conjugate(fhat(e))]. The sinc kernel K_T(x)=T sinc(pi T x) is decreasing and >=T sinc(pi BT)>0 for |x|<=B. Thus concentration gain >=T sinc(pi BT)(||fhat||_1^2−|f(0)|^2). Opposite-phase packets of width epsilon at the two spectral ends have f(0)=0 and ratio tending to K_T(B), proving *sharp* uniform coefficient without finite equality attainment. The phase-distance inequality follows from inf_{|zeta|=1} ∫|fhat||u−zeta|²=2(A−|f(0)|) and A²−|f(0)|²>=A(A−|f(0)|). Independently verified algebra and packet limit. No claim at BT=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelent controls global L² distance to a prolate maximizer and set distance from intervals; it is not fixed-modulus Fourier phase stability.",
+          "Baeza–Guasch gives phase-alignment monotonicity for BT<=1 without a positive constant at BT=1."
+        ],
+        "reasoning": "Global PSWF stability and shape-stability are different objectives; neither supplies the explicit sharp constant for the fixed spectral modulus.",
+        "searches": [
+          "Paley Wiener phase symmetrization Fourier modulus sinc sharp deficit phase stability time concentration centered interval",
+          "arXiv:2610.01299, Theorem 1, Sections 1–4",
+          "arXiv:2307.04558v2, Theorem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md adf1c1f0817dc5898605a8037850a0355428ce05",
+        "Independent sinc-minimum/packet limit/phase-distance calculation; independent_checks.py",
+        "https://arxiv.org/html/2307.04558v2",
+        "https://arxiv.org/abs/2610.01299",
+        "Resultary search: Paley Wiener phase symmetrization Fourier modulus sinc sharp deficit phase stability time concentration centered interval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Lemma 2.1 supplies the quadratic-form identity, Theorem 2.2 derives nonnegativity using K>=0; it does not derive sharp K(B)>0 times central peak loss.",
+          "Zelent Theorem 1 uses a different deficit vs global prolate optimizers and does not quantify fixed Fourier modulus."
+        ],
+        "reasoning": "A reader can derive the bound from existing Lemma 2.1 plus the new global minimum-kernel observation and endpoint packet sharpness; prior theorem statements are weaker and not logically equivalent.",
+        "searches": [
+          "arXiv:2307.04558v2, Lemma 2.1/Theorem 2.2",
+          "arXiv:2610.01299, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baeza–Guasch Theorem 2.2 states only ∫_I |f|²<=∫_I |g|² under BT<=1; its proof uses a nonnegative sinc kernel.",
+          "The new right side depends on the squared loss A²−|f(0)|² with sharp coefficient T sinc(pi BT)."
+        ],
+        "reasoning": "Qualitative phase maximization is an antecedent, not an algebraically equivalent statement of the sharp quantitative deficit; the proof is a sharp refinement of its ingredients.",
+        "searches": [
+          "Paley Wiener phase symmetrization Fourier modulus sinc sharp deficit phase stability time concentration centered interval",
+          "arXiv:2307.04558v2, Lemma 2.1/Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary hits concerned Paley–Wiener spectral concentration, phases of discrete Fourier systems and finite Fourier moments, not this sinc-weighted phase-deficit coefficient."
+        ],
+        "reasoning": "A quantitative analytic inequality is not covered by merely finding an adjacent Paley–Wiener title or spectral table.",
+        "searches": [
+          "Paley Wiener phase symmetrization Fourier modulus sinc sharp deficit phase stability time concentration centered interval",
+          "Resultary search; 12 hits"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with close prior ingredients: Baeza–Guasch (2023/2026), Lemma 2.1 and Theorem 2.2 already establish exact fixed-modulus quadratic representation and qualitative nonnegative concentration difference. The inspected paper does not state the quantitative sharp lower constant tied to the central peak loss, or the weighted phase-distance inequality. Zelent 2026 studies global PSWF/observation-set stability and has different normalization and comparison objects. The new sharp coefficient is a short natural corollary of the old kernel identity, so originality is narrow; earlier implicit equivalent corollary is a real risk.",
+      "residual_risks": [
+        "The sharp minimum-sinc lower bound is a short consequence of the already-published Baeza–Guasch quadratic-form proof and might have been explicitly recorded elsewhere; modest novelty should not be exaggerated.",
+        "Sharpness is an approached limit with narrow endpoint packets, not equality for nonzero finite-width spectra; BT=1 is excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct premise to quantitative result; inspected theorem does not state exact sharp deficit coefficient",
+          "evidence": "Lemma 2.1 gives ∫_I|f|² as double integral; Theorem 2.2 uses K>=0 to show phase alignment maximizes.",
+          "identifier_or_url": "https://arxiv.org/html/2307.04558v2",
+          "material_read": "Full readable primary text; Section 2 Lemma 2.1, Theorem 2.2, Corollary 2.3, plus scope and closing sections",
+          "method": "Read primary HTML equations and proof, compared explicit statements, including positivity-only inequality",
+          "title": "Phase symmetrization and a no-aliasing concentration principle in Paley-Wiener spaces",
+          "trigger": "Essential originating paper with exactly the same Fourier modulus and kernel"
+        },
+        {
+          "assessment": "Controls distance to translated PSWF and shape of observation set, not optimal phase deficit at fixed Fourier modulus",
+          "evidence": "Theorem 1 involves spectral gap to prolate eigenfunction and set discrepancy; coefficient non-explicit.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01299",
+          "material_read": "Full readable open manuscript, Sections 1–4 including global stability theorem and proof",
+          "method": "Read primary full text; compare definition of deficit, extremizers and fixed-amplitude condition",
+          "title": "Stability of concentration in the Paley-Wiener space",
+          "trigger": "Closest newer stability claim potentially dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A **sharp** quantitative stability modulus for constant spectral phase at fixed Fourier amplitude is a natural signal-concentration invariant, stronger than the original qualitative symmetrization inequality. It controls weighted Fourier-phase misalignment and is exact at every strict subcritical time–bandwidth pair, rather than being an arbitrary numerical inequality. The proof is elementary given the known kernel but identifies an optimal stability constant not present in inspected results.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md adf1c1f0817dc5898605a8037850a0355428ce05",
+    "Independent sinc-minimum/packet limit/phase-distance calculation; independent_checks.py",
+    "https://arxiv.org/html/2307.04558v2",
+    "https://arxiv.org/abs/2610.01299",
+    "Resultary search: Paley Wiener phase symmetrization Fourier modulus sinc sharp deficit phase stability time concentration centered interval"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Interval spectral band, centered observation interval, 0<BT<1, fixed Fourier modulus; not an arbitrary observation-set optimization.",
+    "Weighted phase estimate is a corollary, not separately claimed to have its own optimal constant."
+  ],
+  "residual_risks": [
+    "The sharp minimum-sinc lower bound is a short consequence of the already-published Baeza–Guasch quadratic-form proof and might have been explicitly recorded elsewhere; modest novelty should not be exaggerated.",
+    "Sharpness is an approached limit with narrow endpoint packets, not equality for nonzero finite-width spectra; BT=1 is excluded."
+  ],
+  "schema_version": 1
+}

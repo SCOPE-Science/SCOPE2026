@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The hypotheses are a bounded spectral interval of length \(B>0\), an observation interval \(I_T=[-T/2,T/2]\), and \(0<BT<1\). Compact Fourier support implies \(\widehat f\in L^1\cap L^2\), so the quadratic-form identity is justified by Fubini. The kernel minimum is \(T\sin(\pi BT)/(\pi BT)\), and the integrated phase gap is exactly \(\|\widehat f\|_1^2-|f(0)|^2\). The two-packet limit verifies optimality of the coefficient.
+PASS
 
-## Originality
+For W interval of length B, 0<BT<1 and centered I_T, the Fourier quadratic-form identity (Baeza–Guasch Lemma 2.1) gives a phase-deficit double integral with nonnegative factor |fhat(w)||fhat(e)|−Re[fhat(w) conjugate(fhat(e))]. The sinc kernel K_T(x)=T sinc(pi T x) is decreasing and >=T sinc(pi BT)>0 for |x|<=B. Thus concentration gain >=T sinc(pi BT)(||fhat||_1^2−|f(0)|^2). Opposite-phase packets of width epsilon at the two spectral ends have f(0)=0 and ratio tending to K_T(B), proving *sharp* uniform coefficient without finite equality attainment. The phase-distance inequality follows from inf_{|zeta|=1} ∫|fhat||u−zeta|²=2(A−|f(0)|) and A²−|f(0)|²>=A(A−|f(0)|). Independently verified algebra and packet limit. No claim at BT=1.
 
-The closest primary source is Baeza-Guasch's phase-alignment theorem, which proves only nonnegativity of the gain. The present result supplies the explicit sharp coefficient and a phase-deficit invariant. The recent global Paley–Wiener stability theorem compares the original function and observation set to prolate/interval extremizers, which is a different statement. published-finding corpus searches returned nearby concentration and phase-stability results but no identical implication. The indexed detached-set crossover record was not available in full text and remains a limited residual risk; no absolute novelty claim is made.
+## originality
 
-## Value
+PASS
 
-The theorem gives a quantitative, sharp relation between the concentration gain and the central-peak loss from spectral phase cancellation. Its consequence is a weighted phase-coherence bound for near-extremizers, with an explicit time–bandwidth dependence. The constant's optimality is shown by a limiting family rather than asserted from numerical evidence.
+Best-of-knowledge PASS with close prior ingredients: Baeza–Guasch (2023/2026), Lemma 2.1 and Theorem 2.2 already establish exact fixed-modulus quadratic representation and qualitative nonnegative concentration difference. The inspected paper does not state the quantitative sharp lower constant tied to the central peak loss, or the weighted phase-distance inequality. Zelent 2026 studies global PSWF/observation-set stability and has different normalization and comparison objects. The new sharp coefficient is a short natural corollary of the old kernel identity, so originality is narrow; earlier implicit equivalent corollary is a real risk.
 
-## Limitations
+## value
 
-The coefficient tends to zero as \(BT\uparrow1\); no positive constant is asserted at \(BT=1\). The theorem concerns fixed Fourier modulus on a centered interval and does not settle unrestricted operator-level concentration.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A **sharp** quantitative stability modulus for constant spectral phase at fixed Fourier amplitude is a natural signal-concentration invariant, stronger than the original qualitative symmetrization inequality. It controls weighted Fourier-phase misalignment and is exact at every strict subcritical time–bandwidth pair, rather than being an arbitrary numerical inequality. The proof is elementary given the known kernel but identifies an optimal stability constant not present in inspected results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
