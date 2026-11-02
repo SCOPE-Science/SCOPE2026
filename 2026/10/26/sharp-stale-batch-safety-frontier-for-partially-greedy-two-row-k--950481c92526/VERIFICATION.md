@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-To reproduce finite checks, place `CHECK.py` beside this file and run `python3 CHECK.py`. The script uses the Python standard library only and checks 2,000 conditional second-moment identities by exhaustive enumeration with exact rational arithmetic. It also checks 4,000 randomized parameter configurations for the top Rayleigh eigenvalue and sharp boundary, and 1,000 generic reflection instances. These are genuine checks run against the included code. They are finite and cannot prove the infinite-parameter claims.
+# Independent mathematical audit
 
-The universal proof is given in RESULT.md. Its critical steps are (i) the independent-draw moment identity, (ii) the top eigenvalue and feasible maximizing eigenvector of the interference quotient, (iii) a strictly positive residual coercivity inequality, and (iv) the countable-union-of-lines argument for generic preservation under pure greedy two-worker reflections. In particular, the Euclidean one-step increase witness for relaxation above the boundary is **not** a proof of long-run divergence.
+## correctness
 
-The methods differ from general lock-free asynchronous implementations: all workers use the same snapshot, and no numerical roundoff, inconsistent data, stale snapshot across multiple batches, or malicious thread scheduling is modelled. No independent validation is claimed.
+PASS
+
+For A=E||r_I u_I||² and B=||E(r_I u_I)||², independence gives exact conditional Δ||e||²=−Kβ{2A−β[A+(K−1)B]}. After residual scaling, B/A is the Rayleigh quotient of [[p,c√(pq)],[c√(pq),q]], maximum R=(1+sqrt(θ²+(1−θ²)c²))/2. The positive top eigenvector is feasible under the greedy residual ordering, including c=0, θ=0 tie, and θ=1 boundaries. Hence the strict universal cutoff is 4/[K+1+(K−1)sqrt(θ²+(1−θ²)c²)]. A≥(1−c)||e||²/2 yields a uniform conditional contraction and geometric mean-square convergence. K=2,θ=1,β=1 yields Householder reflections and a countable union of tie lines, so generic nonconvergence. An independently written checker performed 880 exact outcome and sharp boundary checks.
+
+## originality
+
+PASS
+
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: Two-row cyclic Kaczmarz relaxation (Resultary: SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1) uses sequential cyclic row updates, not K independent same-snapshot additive corrections. Standard RK averaging divides corrections by worker count; the exact θ-dependent interference frontier is distinct. Coleman describes row-selection staleness empirically; this statement is exact for a shared snapshot, not a general lock-free schedule. A standard independence second-moment identity is a prerequisite, but the exact constrained Rayleigh maximum, sharp witness and generic reflection obstruction require further analysis.
+
+## value
+
+PASS
+
+Sharp explicit stability frontier separates stale additive concurrent updates from sequential or averaged updates. The singular θ=1 reflection trap and arbitrarily small exploration restoring convergence are meaningful methodological boundary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
