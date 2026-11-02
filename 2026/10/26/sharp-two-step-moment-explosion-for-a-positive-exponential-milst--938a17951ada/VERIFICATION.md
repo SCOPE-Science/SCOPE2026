@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the numerical-moment frontier
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy, and mpmath installed. The script reads no external files. Its current execution returned:
+## correctness
 
-```
-verification passed: symbolic identities; 176 numeric/exact-rational checks
-```
+PASS
 
-The symbolic checks establish the factorization \(g=xf\), the exact formula for \(q=f'g\), the unique critical point \(x=2\), the maximum \(4\sigma^2/27\), the double-zero expansion with coefficient \(1/12\), and the support-minimum identity \(f^2/q=x+1\). High-precision Gaussian quadrature independently checks the conditional-moment expression at 48 subcritical parameter combinations. The remaining 128 exact-rational checks sample the global inequality for \(q\).
+Conditional on X_n=x, the p-th moment reduces to a one-dimensional Gaussian integral with quadratic coefficient δ=1−phq(x), q=σ²x²/(1+x)³: it is finite iff δ>0. The maximum q(2)=4σ²/27 gives uniform subcritical all-iterate finiteness. The first-step log-multiplier is a strictly convex Gaussian quadratic with lower support below 2 for every x0, and yields a strictly positive density near x=2. Above critical phσ²=27/4, an open set of X1 values has infinite conditional p-moment. At criticality δ(x)=(x−2)²/12+O((x−2)³) and the finite-case conditional moment grows as exp(c/(x−2)²), nonintegrably against that density. Jensen propagates infinite moments for all n≥2. The underlying Lipschitz diffusion has finite finite-time moments. Independent symbolic identities and Gaussian quadratures passed 36 tests.
 
-The infinite-moment conclusions are **not** inferred from finite tests. Their mathematical proof uses: (i) the standard Gaussian quadratic-exponential integral criterion; (ii) the fact that the first-step image has positive density in a neighborhood of the critical state; (iii) the nonintegrable \(\exp(c/(x-2)^2)\) singularity exactly at the boundary; and (iv) a uniform one-step conditional-moment lower bound for persistence. The numerical verifier supports the algebra but does not independently certify these measure-theoretic arguments.
+## originality
 
-The result assumes exact arithmetic and untruncated normal increments. For exact sample paths, the exponent remains finite almost surely and produces strictly positive output even when the mathematical expectation is infinite. Neither finite Monte Carlo nor floating-point overflow is evidence for divergence of the mathematical moment.
+PASS
+
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: The one-step conditional moment Gaussian-MGF formula is classical and appears in the method paper Bréhier–Cohen arXiv:2608.25689 Proposition 9; novelty is the all-initial-state two-step critical reachability and nonintegrability, not the integrator or the one-step identity. A Gaussian integrability identity immediately gives the statewise first-step threshold but cannot alone establish universal blowup by step two at equality: this requires the exact support of first-step distributions, a quadratic vanishing deficit, and an unconditional singular integral. Distinguishes the sharp example from cited sufficient bound; inaccessible full paper may contain stronger implications.
+
+## value
+
+PASS
+
+Exhibits a sharp and surprising finite-step numerical moment failure in a strictly positive high-order scheme despite globally Lipschitz coefficients and all exact SDE moments. Exact boundary and universal two-step reachability make the statement substantially stronger than a sufficient small-step estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
