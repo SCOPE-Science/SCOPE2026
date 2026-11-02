@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed kappa in (0,1), E={1} union {1+exp(-n^kappa)}, the increasing density of points towards 1 is controlled by decreasing gaps g_n~kappa n^(kappa-1)exp(-n^kappa). At the first gap m=m(delta) <=delta, m~(log(1/delta))^(1/kappa) and H=exp(-m^kappa)/delta~m^(1-kappa)/kappa. Global delta-covering number is comparable to m because first m points are separated (up to two per interval) and tail costs O(H)=o(m). For local intervals length r, inverse-counting derivative gives N<=C[1+min(r,a)/delta+H log(1+r/a)], where a=delta H. With r<=a this is O(1+r/delta), and for r>=a optimize r^(-b) at constant multiple a, giving delta^(-b)H^(1-b) for 0<b<1; [a,2a] supplies separated H-point lower bound. b<=0 follows global cover and I=[1,2], b>=1 follows geometric covering plus any singleton at r~delta; R dilation restricted 1/2<R<=2 for nonempty E_R. Hence exactly the three displayed sharp asymptotic two-sided orders. Independently calculated crossover indices H and number of sparse points for multiple (kappa,delta), e.g. kappa=.6, delta=1e-5 gives m=43,H~7.11 and 6 points in [a,2a]; asymptotic proof is analytic, not numerical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior weighted spherical maximal theorems use dimension exponents, not detailed multiplicative log orders for this E."
+        ],
+        "reasoning": "A general bound in terms of sup-local entropy is a framework, not an evaluation of that entropy for this family. The result does not claim new maximal-operator bounds.",
+        "searches": [
+          "Legendre Assouad entropy scale resolved dilations stretched exponential sequence 1+exp(-n^kappa) spherical maximal endpoint logarithmic corrections",
+          "arXiv:2610.18316 Section3",
+          "arXiv:2602.17613"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18316, full primary 23pp including (1.4),(1.12),§3",
+        "arXiv:2602.17613, primary abstract/overview",
+        "Resultary semantic query on Legendre–Assouad stretched exponential entropy",
+        "Assigned RESULT.md SHA 0612e73905292686d6ae41a21d558d922107c899"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing definition and power-law Legendre–Assouad exponent nu_E^sharp(b)=max(b,0) fail to record log multipliers; current theorem computes delta-dependent factors in each b sector."
+        ],
+        "reasoning": "Knowing lim log N/log(1/delta) only supplies the power exponent and cannot distinguish log powers. Full finite-scale estimates require gap crossover and local inverse-density calculation.",
+        "searches": [
+          "Legendre Assouad entropy scale resolved dilations stretched exponential sequence 1+exp(-n^kappa) spherical maximal endpoint logarithmic corrections",
+          "arXiv:2610.18316, eqs 1.1–1.5 and 1.12",
+          "arXiv:2602.17613"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original source defines the exact local entropy supremum over R and I but its worked example is E={1} union {1+n^{-mu}}."
+        ],
+        "reasoning": "Polynomially decreasing gaps have power-law inversion, whereas exp(-n^kappa) has a logarithmic index cutoff and residual H~log^(1-kappa)/kappa; the finite-scale exponents cannot be inferred by renaming the polynomial parameter.",
+        "searches": [
+          "Legendre Assouad entropy scale resolved dilations stretched exponential sequence 1+exp(-n^kappa) spherical maximal endpoint logarithmic corrections",
+          "arXiv:2610.18316 equations (1.4),(1.12), §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Claim computes a continuum delta->0 asymptotic functional, not a finite invariant in a database."
+        ],
+        "reasoning": "An exact finite numerical table is not pertinent; the nearest existing example uses polynomial radii and is not the same function.",
+        "searches": [
+          "Legendre Assouad entropy scale resolved dilations stretched exponential sequence 1+exp(-n^kappa) spherical maximal endpoint logarithmic corrections",
+          "arXiv:2610.18316 worked examples and index"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the *finite-scale logarithmic orders* on the stretched-exponential sequence, not for the Legendre–Assouad functional nor for its power-law exponent. The primary spherical-maximal entropy paper analyzes polynomially converging radii 1+n^{-mu}; substituting a different gap inverse is mathematical work and produces nontrivial log factors invisible to the limiting power dimension. No exact published stretched-exponential three-regime table was found in the inspected sources, but failed bibliographic search does not prove priority.",
+      "residual_risks": [
+        "An unindexed fractal geometry paper may explicitly tabulate these stretched-exponential local covering profiles.",
+        "Asymptotic multiplicative constants (rather than sharp exponents and two-sided orders) are not evaluated; b,kappa endpoint-uniformity not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENTROPY_FUNCTIONAL_KNOWN; SPECIFIC_LOGARITHMIC_STRETCHED_EXPONENTIAL_EVALUATION_NOT_FOUND",
+          "evidence": "The worked radii {1+n^-mu} differ, and existing exponent-level statements do not imply the precise log powers.",
+          "identifier_or_url": "arXiv:2610.18316",
+          "material_read": "Full 23-page openly accessible primary paper; equations (1.1)–(1.5), example (1.12) and Section 3 on polynomial model and weights.",
+          "method": "PDF text and relevant-page inspection.",
+          "title": "Endpoint power weight inequalities for spherical maximal functions",
+          "trigger": "Introduces exact scale-resolved localized Legendre–Assouad entropy and nearest examples"
+        },
+        {
+          "assessment": "CONTEXT_NOT_COMPLETE_FULL_TEXT_COMPARISON",
+          "evidence": "Power-weight conclusions depend on dimension exponents; no claim of exhaustive paper-level exclusion of exact entropy formula.",
+          "identifier_or_url": "arXiv:2602.17613",
+          "material_read": "Abstract, displayed scope and selected overview; whole paper not asserted inspected.",
+          "method": "Public search/arXiv preview.",
+          "title": "Power weight inequalities for spherical maximal functions",
+          "trigger": "Closest general weighted spherical maximal and dimension context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The set E_kappa is a natural sparse model between polynomially clustered and exponentially clustered radii. A full three-regime, two-sided *scale-resolved* entropy profile determines log corrections invisible to the usual limiting Assouad exponent and clarifies endpoint-sensitive logarithmic geometry. It is an exact natural invariant for the object and could be used when endpoint maximal-operator estimates require finite-scale control, without claiming a new maximal theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.18316, full primary 23pp including (1.4),(1.12),§3",
+    "arXiv:2602.17613, primary abstract/overview",
+    "Resultary semantic query on Legendre–Assouad stretched exponential entropy",
+    "Assigned RESULT.md SHA 0612e73905292686d6ae41a21d558d922107c899"
+  ],
+  "disposition": "passed",
+  "limitations": "Fixed 0<kappa<1 and fixed b; constants may depend on both. Sharp orders, not best multiplicative constants or uniformity at b=0,1 or kappa endpoints. No operator boundedness statement.",
+  "residual_risks": [
+    "An unindexed fractal geometry paper may explicitly tabulate these stretched-exponential local covering profiles.",
+    "Asymptotic multiplicative constants (rather than sharp exponents and two-sided orders) are not evaluated; b,kappa endpoint-uniformity not claimed."
+  ],
+  "schema_version": 1
+}

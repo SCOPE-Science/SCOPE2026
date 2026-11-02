@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The decisive scale is the index where consecutive gaps first fall below the covering length. At that index the residual position-to-scale ratio is comparable to a positive power of the logarithm. The proof gives a uniform upper bound for arbitrary localized intervals using the inverse counting derivative, and a matching lower bound from a block of genuinely separated points. The zero- and high-parameter regimes follow from global counting and the trivial interval-cover bound. Dilation normalization is checked on its whole admissible range. The claim is two-sided order, not an exact constant.
+## correctness
 
-**Originality (PASS, best-knowledge with residual risk).** The two 2026 primary studies define the same functional and analyze power-law radii or its dimension-only limit. Full text of the 2026 endpoint study and the 2026 general weighted study were inspected where they define the functional and discuss sequence families. The comparison is at the implication level: the already known Legendre power exponent cannot determine a logarithmic correction, while the polynomial sequence produces a different power law. Targeted semantic database searches did not identify an exact equivalent stretched-exponential three-regime profile. An unindexed or differently phrased pre-existing profile is a residual risk; search failure alone does not prove novelty.
+PASS
 
-**Value (PASS).** The intermediate scale distinguishes families with indistinguishable coarse dimension exponents and directly resolves the finite-scale local entropy appearing in the spherical-maximal endpoint framework. The two transition parameters separate global counting, localized sparse clustering, and pointwise fine-scale covering. This is an exact natural logarithmic classification, not an arbitrary finite computation or a claim of a new maximal-operator theorem.
+For fixed kappa in (0,1), E={1} union {1+exp(-n^kappa)}, the increasing density of points towards 1 is controlled by decreasing gaps g_n~kappa n^(kappa-1)exp(-n^kappa). At the first gap m=m(delta) <=delta, m~(log(1/delta))^(1/kappa) and H=exp(-m^kappa)/delta~m^(1-kappa)/kappa. Global delta-covering number is comparable to m because first m points are separated (up to two per interval) and tail costs O(H)=o(m). For local intervals length r, inverse-counting derivative gives N<=C[1+min(r,a)/delta+H log(1+r/a)], where a=delta H. With r<=a this is O(1+r/delta), and for r>=a optimize r^(-b) at constant multiple a, giving delta^(-b)H^(1-b) for 0<b<1; [a,2a] supplies separated H-point lower bound. b<=0 follows global cover and I=[1,2], b>=1 follows geometric covering plus any singleton at r~delta; R dilation restricted 1/2<R<=2 for nonempty E_R. Hence exactly the three displayed sharp asymptotic two-sided orders. Independently calculated crossover indices H and number of sparse points for multiple (kappa,delta), e.g. kappa=.6, delta=1e-5 gives m=43,H~7.11 and 6 points in [a,2a]; asymptotic proof is analytic, not numerical.
 
-**Limits.** The result gives no sharp leading multiplicative coefficient, no uniform transition estimate in the parameter, and no operator endpoint boundedness statement. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the *finite-scale logarithmic orders* on the stretched-exponential sequence, not for the Legendre–Assouad functional nor for its power-law exponent. The primary spherical-maximal entropy paper analyzes polynomially converging radii 1+n^{-mu}; substituting a different gap inverse is mathematical work and produces nontrivial log factors invisible to the limiting power dimension. No exact published stretched-exponential three-regime table was found in the inspected sources, but failed bibliographic search does not prove priority.
+
+## value
+
+PASS
+
+The set E_kappa is a natural sparse model between polynomially clustered and exponentially clustered radii. A full three-regime, two-sided *scale-resolved* entropy profile determines log corrections invisible to the usual limiting Assouad exponent and clarifies endpoint-sensitive logarithmic geometry. It is an exact natural invariant for the object and could be used when endpoint maximal-operator estimates require finite-scale control, without claiming a new maximal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
