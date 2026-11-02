@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted objects are labelled-edge PED sets, not ordinary edge domination or vertex domination. The 64-state transition graph implements all three local omitted-edge constraints. The 14-state start-to-terminal subgraph has a single recurrent six-cycle and a separate full-edge loop. Counting permitted starts and exits modulo six proves the exact open-ladder coefficients. Its full closed-walk decomposition proves the cyclic formula. Each proper solution has exactly one selected edge per column on average, hence weight equal to the number of columns. The two boundary exceptions are handled separately. Direct independent edge-subset enumeration corroborates the first several orders, but the graph-state argument, not numerical evidence, proves the infinite families.
+## correctness
 
-## Originality — PASS with bibliographic risks
-The closest primary paper (Grippo et al., arXiv:2607.03894v1) establishes general counting algorithms on generalized series-parallel and chordal graphs but does not supply an explicit periodic prism/lower-strip enumerator in the accessible inspected material. The 2025 Grippo et al. paper provides foundational proper-PED/DIM-less complexity results. Allagan, arXiv:2601.03488, studies *minimum vertex domination* of prisms, a different counted object. The published cycle-bouquet PED enumerator and other published prism records do not imply the new formulas. Topical searches were made under PED, perfect edge domination, DIM, circular ladder, prism and Cartesian 2-by-n grid aliases. Later sections of the 2026 counting paper and an older primary full text were not fully retrievable; equivalent unindexed findings remain possible. These limits are not represented as proof of priority.
+PASS
 
-## Mathematical value — PASS
-The two exact weighted polynomials classify every PED set by cardinality throughout natural infinite graph families and reveal a sharp structural difference between open and cyclic boundary conditions. Although general counting algorithms exist, those algorithms do not themselves state this period-three/period-six rigidity and the associated absence/presence of proper PED sets in DIM-less graph families. The contribution is the exact all-order classification, not a claim that generic transfer-matrix techniques are new.
+For each omitted rung/horizontal edge, exactly one adjacent selected edge gives three explicit bit implications. An independently generated directed graph on 64 ordered column-pairs has exactly 102 arcs. Its start-to-terminal productive part has 14 states; verified all 14 successor rows and found exactly one directed six-cycle (1→13→40→2→22→48→1) plus the full-edge loop at 63. Start–exit path residues modulo six yield 2,2,4,2,2,4 proper labelled PED sets by n mod6 and one full set, giving z^(3n−2)+(2+2I[n≡2 mod3])z^n for n≥2, L1=z. Cyclic configurations are closed length-n walks, giving z^(3n)+6I[6|n]z^n for n≥3. Direct independent edge-subset enumeration confirmed all open n≤6 and circular 3≤n≤6; this checks small cases, whereas the exhaustive 64-state graph reduction proves all n. The proper configurations have adjacent selected edges, ruling out DIM.
 
-## Limits and evidence
-The standalone `verify.py` checks the entire local-state transition table and independently tests actual edge subsets on small graphs. Its output is preserved in `verify_output.txt`. The proof and its precise ranges are in `RESULT.md`. No independent scientific validation is claimed. The conclusion does not extend to Möbius strips or wider grids.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison for Periodic perfect-edge-domination rigidity on open and circular two-row ladders: actual mathematical claims and implications, not title-only comparisons, evaluated against the listed primary sources and Resultary. Relevant prior methods are credited; no decisive stronger covering result was demonstrated within accessible readings. Residual priority risks remain explicit.
+
+## value
+
+PASS
+
+Exact cardinality generating polynomials for the natural ladder/prism graph families exhibit nontrivial period-3 versus period-6 boundary rigidity and a sharp proper-PED existence transition without DIM. General counting algorithms do not determine this combinatorial classification automatically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
