@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-From the extracted files run `python3 verify_gp2.py`; the checker requires only Python 3's standard library. It creates a 256-state transfer digraph, verifies 576 transitions, computes all traces of powers 1 through 256 using integer path counts, uses the exact Newton recurrence to build every coefficient of \(\det(I-zT)\), and checks its equality to the five fully listed polynomial factors. It directly enumerates all named two-colorings for \(5\le n\le9\) and verifies all 729 possible initial 3-color recurrence sextuples across a 30-term period.
+# Independent mathematical audit
 
-Actual console results were:
+## correctness
 
-```
-DETERMINANT_OK degree=64 states=256 transitions=576 checked_Newton_orders=1..256
-TRACES_OK A_5..A_14=12,116,226,1286,2486,5172,13202,23232,48128,121844
-DIRECT_BRUTE_OK n=5..9 counts=12,116,226,1286,2486
-THREE_COLOUR_OK 729 initial assignments, six globally admissible 30-periodic sequences
-ALL_CHECKS_PASSED
-```
+PASS
 
-The correctness proof uses a finite matrix identity valid in all lengths; initial counts alone are not an infinite proof. The 729-case search is exhaustive only after the proved recurrence and divisibility by \(t^{30}-1\) reduce *every* admissible three-coloring to a 30-periodic sequence. All integer path calculations and polynomial products are exact, with no randomization, numerical tolerances, or external certificate dependence. An independent audit has not been performed.
+For n>=5 in the simple cubic graph GP(n,2), both binary colour classes are total dominating iff both specified open-neighborhood triples are nonmonochromatic. An exact 256-state four-column transfer T with 576 transitions counts all named cyclic binary assignments by tr(T^n). Independently reconstructed T, computed exact integer traces n=1..256, and applied Newton identities to all 256 coefficients of det(I-zT), recovering the stated degree-64 product (1-z^2)^4(1-2z^2-z^6)(1+2z^4-z^6)P20 P24, including all zero tail coefficients. Direct independent bit-vector enumeration for n=5..9 confirmed A_n=12,116,226,1286,2486, while the trace yields n=5..14 values exactly as claimed. Three-colour validity means every 3-vertex open neighborhood has all three colours; a 6th-order linear recurrence over F3 has characteristic factor dividing t^30-1. Independently exhausted all 729 initial sextuples modulo 3 over a complete forced 30-period and found precisely six valid named affine period-three colourings, one unordered partition iff 3|n. Cubic degree excludes >=4 classes. All-order claims follow from the exact determinant and finite-period proof, not extrapolating the first counts.
+
+## originality
+
+PASS
+
+Earlier Zelinka total-domatic number and Minyard–Sepanski Theorem 4.2 establish qualitative existence of three total-domination classes for GP(n,2) iff 3|n; neither gives the complete two-class counting series. Zhao et al. 2020 concerns minimum total dominating sets, not all partitions; Choi et al. 2026 concerns 2-coupon existence/constraints for cubic graphs. The three-class EXISTENCE criterion is a covered result and is explicitly credited; uniqueness and especially the new exact degree-64 two-class trace enumerator are the surviving claim. No equivalent count was found in Resultary or checked papers; specialized unindexed counting tables remain a risk.
+
+## value
+
+PASS
+
+A complete, all-n partition-count classification for a canonical cubic generalized Petersen family is a natural finite-state enumerative invariant and distinguishes number of partitions from merely maximum total-domatic number. The explicit algebraic generating function is reusable for exact counts and asymptotics; this is more than small known-value recomputation despite relying on a finite determinant certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

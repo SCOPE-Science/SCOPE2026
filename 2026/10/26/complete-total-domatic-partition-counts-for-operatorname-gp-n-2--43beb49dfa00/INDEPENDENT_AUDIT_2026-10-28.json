@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:57:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5 in the simple cubic graph GP(n,2), both binary colour classes are total dominating iff both specified open-neighborhood triples are nonmonochromatic. An exact 256-state four-column transfer T with 576 transitions counts all named cyclic binary assignments by tr(T^n). Independently reconstructed T, computed exact integer traces n=1..256, and applied Newton identities to all 256 coefficients of det(I-zT), recovering the stated degree-64 product (1-z^2)^4(1-2z^2-z^6)(1+2z^4-z^6)P20 P24, including all zero tail coefficients. Direct independent bit-vector enumeration for n=5..9 confirmed A_n=12,116,226,1286,2486, while the trace yields n=5..14 values exactly as claimed. Three-colour validity means every 3-vertex open neighborhood has all three colours; a 6th-order linear recurrence over F3 has characteristic factor dividing t^30-1. Independently exhausted all 729 initial sextuples modulo 3 over a complete forced 30-period and found precisely six valid named affine period-three colourings, one unordered partition iff 3|n. Cubic degree excludes >=4 classes. All-order claims follow from the exact determinant and finite-period proof, not extrapolating the first counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minyard/Sepanski Theorem 4.2 gives iff 3|n and 3 does not divide k for 3-balanced GP(n,k). Zhao 2020 computes domination-related numerical invariants; Choi et al. analyse total-domatic existence conditions for cubic graphs."
+        ],
+        "reasoning": "Qualitative existence and minimum dominating-set counts do not determine the binary colour-assignment multiplicities or the 256-state determinant. The general GP(n,k) colouring theorem dominates only the three-class existence component.",
+        "searches": [
+          "Resultary semantic: generalized Petersen GP(n,2) total domatic partition count 2-color 3-color transfer matrix",
+          "Minyard Sepanski arxiv 2410.05422 Theorem 4.2",
+          "Zhao 2020 Petersen minimum total dominating sets",
+          "Choi Kwon Park arxiv 2609.33902"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md and verify_gp2.py at 68645bf4619cec1151436ccc53f5d66aab9d4541",
+        "Independent 256-power integer trace/Newton factor certificate /mnt/data/independent_gp_trace_1546.py",
+        "Independent direct binary census n=5..9 /mnt/data/scope_checks_1546.py",
+        "Independent complete 729-seed ternary recurrence /mnt/data/independent_ternary_heisenberg_1546.py",
+        "https://arxiv.org/pdf/2410.05422",
+        "https://doi.org/10.1155/2020/5473675",
+        "https://doi.org/10.1023/A:1021759001873",
+        "https://arxiv.org/abs/2609.33902"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.2 is an existence classification for three colours, not an enumeration of 2-colour partitions. No counted binary chromatic series in the inspected original papers."
+        ],
+        "reasoning": "The three-colour existence corollary follows prior work; the unique three-colour partition and full two-colour algebraic generating function are not logical consequences of that existence theorem alone.",
+        "searches": [
+          "arxiv:2410.05422 Theorem 4.2",
+          "Zelinka 2002 generalized Petersen domination",
+          "arxiv:2609.33902 cubic total domatic",
+          "Resultary semantic: generalized Petersen GP(n,2) total domatic partition count 2-color 3-color transfer matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-colour total-domatic partitions are two-coupon vertex colourings modulo colour exchange; three classes are neighborhood 3-balanced colourings for cubic graphs."
+        ],
+        "reasoning": "Translate between labelled coupon colourings and unordered partitions by dividing 2! or 3!. Known 3-balanced existence is covered, but no inspected source enumerates every two-coupon colouring.",
+        "searches": [
+          "Resultary semantic: generalized Petersen GP(n,2) total domatic partition count 2-color 3-color transfer matrix",
+          "GP(n,2) 2-coupon coloring total dominating partition counts",
+          "neighborhood balanced 3-coloring generalized Petersen 2024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independently established A5..A14 values are 12,116,226,1286,2486,5172,13202,23232,48128,121844. No located table established this entire infinite rational generating function."
+        ],
+        "reasoning": "A pre-existing full table/transfer matrix could undermine priority, but finite isolated values cannot entail the exact degree-64 determinant and all-n series.",
+        "searches": [
+          "OEIS GP(n,2) two-coupon two-colour all assignments 12 116 226 1286",
+          "Resultary semantic: generalized Petersen GP(n,2) total domatic partition count 2-color 3-color transfer matrix"
+        ]
+      },
+      "rationale": "Earlier Zelinka total-domatic number and Minyard–Sepanski Theorem 4.2 establish qualitative existence of three total-domination classes for GP(n,2) iff 3|n; neither gives the complete two-class counting series. Zhao et al. 2020 concerns minimum total dominating sets, not all partitions; Choi et al. 2026 concerns 2-coupon existence/constraints for cubic graphs. The three-class EXISTENCE criterion is a covered result and is explicitly credited; uniqueness and especially the new exact degree-64 two-class trace enumerator are the surviving claim. No equivalent count was found in Resultary or checked papers; specialized unindexed counting tables remain a risk.",
+      "residual_risks": [
+        "A specialized older 2-coupon counting transfer matrix or graph colouring database may already imply the exact binary generating function.",
+        "The published three-colour existence classification is not new; value is in exact multiplicities and full enumerator.",
+        "The finite determinant identity is verified computationally and relies on a 256-state exact certificate, not a conceptual small spectral decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS 3-COLOUR EXISTENCE; does not count full two-colour partitions",
+          "evidence": [
+            "Theorem 4.2: G(m,j) 3-balanced iff 3|m and 3 does not divide j"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.05422",
+          "material_read": "Full 33-page arXiv preprint, especially introduction, Section 4, Lemma 4.1, Theorem 4.2 and proof",
+          "method": "arXiv full PDF read; page-six screenshot examined",
+          "title": "Neighborhood Balanced 3-Coloring",
+          "trigger": "same graph family and 3-coupon constraint"
+        },
+        {
+          "assessment": "COUNTS DIFFERENT OBJECTS; minimum dominating sets not entire total-domatic partitions",
+          "evidence": [
+            "Minimum total dominating sets versus partitions into several such sets"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2020/5473675",
+          "material_read": "Full accessible HTML article focusing on total dominating set invariants",
+          "method": "primary HTML read",
+          "title": "The Numerical Invariants concerning the Total Domination for Generalized Petersen Graphs",
+          "trigger": "same GP graph, related domination counts"
+        },
+        {
+          "assessment": "TOTAL DOMATIC NUMBER PRIOR; complete enumeration not verified",
+          "evidence": [
+            "Zelinka (2002) discusses domination/total-domatic quantities"
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1021759001873",
+          "material_read": "Publisher/DML abstract and bibliographic descriptions; no full copy verified",
+          "method": "abstract / bibliographic record",
+          "title": "Domination in generalized Petersen graphs",
+          "trigger": "historical GP domatic bounds"
+        },
+        {
+          "assessment": "POSSIBLE SPECIALIZED GENERAL RESULTS; full document not read",
+          "evidence": [
+            "Choi, Kwon and Park, first posted Sep 27 2026"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.33902",
+          "material_read": "ArXiv abstract and theorem description only",
+          "method": "arXiv listing",
+          "title": "Det-extremal cubic graphs and the total domatic number",
+          "trigger": "recent coupon-colouring conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete, all-n partition-count classification for a canonical cubic generalized Petersen family is a natural finite-state enumerative invariant and distinguishes number of partitions from merely maximum total-domatic number. The explicit algebraic generating function is reusable for exact counts and asymptotics; this is more than small known-value recomputation despite relying on a finite determinant certificate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and verify_gp2.py at 68645bf4619cec1151436ccc53f5d66aab9d4541",
+    "Independent 256-power integer trace/Newton factor certificate /mnt/data/independent_gp_trace_1546.py",
+    "Independent direct binary census n=5..9 /mnt/data/scope_checks_1546.py",
+    "Independent complete 729-seed ternary recurrence /mnt/data/independent_ternary_heisenberg_1546.py",
+    "https://arxiv.org/pdf/2410.05422",
+    "https://doi.org/10.1155/2020/5473675",
+    "https://doi.org/10.1023/A:1021759001873",
+    "https://arxiv.org/abs/2609.33902"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the generalized Petersen graph GP(n,2), n>=5; no general GP(n,k) exact count.",
+    "Transfer determinant proof depends on an exact 256x256 finite certificate, independently reconstructed; small sample counts alone are not proof.",
+    "Known three-colour existence criterion is not original."
+  ],
+  "residual_risks": [
+    "A specialized older 2-coupon counting transfer matrix or graph colouring database may already imply the exact binary generating function.",
+    "The published three-colour existence classification is not new; value is in exact multiplicities and full enumerator.",
+    "The finite determinant identity is verified computationally and relies on a 256-state exact certificate, not a conceptual small spectral decomposition."
+  ],
+  "schema_version": 1
+}
