@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:54:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix v with outdegree k and reveal its full N=n-1 star. Through-v cyclic triangles count a Binomial(k(N-k),1/2); avoiding-v triangles have marginal cyclicity 1/4 and pairwise-independent indicators even when sharing one edge. Pairwise covariance between through-v and avoiding-v sums is zero because for any shared edge the avoiding-v triangle cyclicity conditional on its direction is always 1/4. This establishes E[C|S_v=k]=binom(N,3)/4+k(N-k)/2 and Var(C|S_v=k)=3binom(N,3)/16+k(N-k)/4. Regression against f(S_v), summing over v, gives Cov(C,sum f(S_v))=-n E[((2X-N)^2-N)f(X)]/8. The K_2 identity and binomial orthogonality isolate degree two; zero k require N square >=4. Independently enumerated all 8,64,1024,32768 tournament orientations at n=3,4,5,6 and verified exact rational conditional means, variances and all frequency covariances. This finite check supports but is not the proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee–Bhattacharya 2026 studies inhomogeneous tournament transitivity and limit fluctuations, with wider random edge probabilities but different finite conditional statistic.",
+          "Aldous–Kolesnik and Kolesnik–Sanchez study feasible tournament score sequences."
+        ],
+        "reasoning": "An asymptotic inhomogeneous distribution theorem does not directly fix every finite n and score k conditional variance; the lack of the exact statement remains a best-knowledge claim.",
+        "searches": [
+          "random fair tournament cyclic triangles conditional variance outdegree Krawtchouk covariance score frequency",
+          "arXiv:2606.02340 inhomogeneous random tournaments circular-triad count",
+          "arXiv:2009.09322 Geometry of Random Tournaments"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: random fair tournament cyclic triangles conditional variance outdegree Krawtchouk covariance score frequency",
+        "arXiv:2606.02340",
+        "Kendall–Babington Smith (1940) bibliography and limited accessible material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical score identity directly gives exact covariance with any score test after binomial moments; that component is a derivable corollary, not asserted independent invention.",
+          "Conditional second moment needs pairwise covariance analysis of triangles sharing incident stars and interior edges."
+        ],
+        "reasoning": "The final claim is a conjunction, some covariance pieces may be routine consequences of classical identity, but the conditional finite variance plus complete degree-two functional and exact zeros provide the surviving characterized result. Historiographic caveat retained for inaccessible 1940 primary work.",
+        "searches": [
+          "arXiv:2606.02340",
+          "Kendall Babington Smith 1940 On the Method of Paired Comparisons",
+          "random fair tournament cyclic triangles conditional variance outdegree Krawtchouk covariance score frequency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic triples are the classical circular triads; Kendall–Smith paired-comparison statistics and Krawtchouk polynomial score modes are aliases for the same objects.",
+          "The deterministic identity C=binom(n,3)-sum_v binom(S_v,2) is classical and does not itself provide a one-star conditional variance."
+        ],
+        "reasoning": "The same mathematical model reformulation was directly checked. Published scoring identities might imply covariance by an elementary calculation, but the full conditional variance and sharp zero arithmetic were not located in accessible statements.",
+        "searches": [
+          "random fair tournament cyclic triangles conditional variance outdegree Krawtchouk covariance score frequency",
+          "circular triads Kendall Smith 1940 paired comparisons",
+          "Krawtchouk projection score sequences tournament"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest published tournament records discuss majority-tournament fibers, bank sets, and other statistics rather than conditional circular-triad variance.",
+          "No retrieved exact conditional moment table matches the two formulas and zero-square classification."
+        ],
+        "reasoning": "Finite-n tables or textbook identities could overlap, so no unique-publication inference is drawn from search alone.",
+        "searches": [
+          "random fair tournament cyclic triangles conditional variance outdegree Krawtchouk covariance score frequency",
+          "tournament circular triangle exact conditional variance tables fixed vertex score"
+        ]
+      },
+      "rationale": "Deterministic identity expressing cyclic-triad count by scores and classical binomial/Krawtchouk orthogonality are explicitly prior mathematical ingredients. The assessed contribution is the fully conditional finite-n variance and entire additive-score covariance functional (including square-order exact zero cases). Inspected primary random-tournament literature focuses on score laws and asymptotic circular-triad fluctuations; historical Kendall–Babington Smith full text inaccessible and retained as priority risk.",
+      "residual_risks": [
+        "Earlier circular-triad literature, notably inaccessible Kendall–Babington Smith 1940 primary text, could contain part or all finite-moment formulas.",
+        "Conditional variance is only for one vertex score in fair independent tournaments; triangle indicators are pairwise but not jointly independent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates general triangle statistic but does not visibly state this full fair finite conditional variance under one specified score.",
+          "evidence": [
+            "arXiv:2606.02340 abstract and scope; no whole-document noncoverage claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.02340",
+          "material_read": "Primary arXiv accessible abstract/introduction and available statements on inhomogeneous tournaments and asymptotic fluctuations",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "Transitivity in Inhomogeneous Random Tournaments",
+          "trigger": "Potential general tournament circular-triad fluctuation result"
+        },
+        {
+          "assessment": "Strong historical overlap risk for old exact moments; no full-document exclusion made.",
+          "evidence": [
+            "Biometrika 31 (1940), 324–345."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/31.3-4.324",
+          "material_read": "Bibliographic details and accessible secondary descriptions only; original 1940 full text unavailable",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "On the Method of Paired Comparisons",
+          "trigger": "Historic origin of circular-triad and score formulas"
+        },
+        {
+          "assessment": "Different focus from conditional variance of cyclic triangles at a fixed vertex score.",
+          "evidence": [
+            "arXiv:2009.09322."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.09322",
+          "material_read": "Open-access abstract, introduction and high-level score geometry characterization",
+          "method": "Primary source text or published abstract, compared to claim hypotheses and quantifiers",
+          "title": "The Geometry of Random Tournaments",
+          "trigger": "Random tournament score-law background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact conditional variance of triad intransitivity given one vertex score and its degree-two projection to arbitrary score statistics are natural finite-sample statistics for fair paired comparisons. The square-order zero-covariance classification and universal sign pattern provide precise additional structure beyond a known mean/score identity; no broad downstream theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md blob c7938b772570b4d30442f81fbc028d5daab02055",
+    "Frozen Git verification/check.py blob 7a5726b97573e530e21e47c348110320597919d5",
+    "Independent exact rational enumeration n=3,4,5,6, 32,768 orientations at n=6",
+    "Resultary semantic query: random fair tournament cyclic triangles conditional variance outdegree Krawtchouk covariance score frequency",
+    "arXiv:2606.02340",
+    "Kendall–Babington Smith (1940) bibliography and limited accessible material"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier circular-triad literature, notably inaccessible Kendall–Babington Smith 1940 primary text, could contain part or all finite-moment formulas.",
+    "Conditional variance is only for one vertex score in fair independent tournaments; triangle indicators are pairwise but not jointly independent.",
+    "Full repository directory tree listing at frozen commit unavailable through the provided GitHub read-only connector; material claims and supporting program blobs were actually fetched at exact assigned commit."
+  ],
+  "residual_risks": [
+    "Earlier circular-triad literature, notably inaccessible Kendall–Babington Smith 1940 primary text, could contain part or all finite-moment formulas.",
+    "Conditional variance is only for one vertex score in fair independent tournaments; triangle indicators are pairwise but not jointly independent."
+  ],
+  "schema_version": 1
+}
