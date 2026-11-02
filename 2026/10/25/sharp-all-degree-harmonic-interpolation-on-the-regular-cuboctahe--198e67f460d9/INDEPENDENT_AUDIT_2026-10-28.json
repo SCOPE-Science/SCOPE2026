@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:10:21.732688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The addition theorem with probability-surface-measure normalization yields Gram G_ell(x,y)=P_ell(x dot y). Antipodal vertex-pair row symmetry forces a six-dimensional relevant parity space and six zero eigenvalues, except when listed parity eigenvalues vanish at low degrees. For odd ell, signed-root geometry has eigenvalues +2 and -2, each multiplicity 3, giving 2(1+2a),2(1-2a); for even ell, three eigenbranches 2(1+4a+b), 2(1-b),2(1-2a+b) with multiplicities 1,3,2, where a=P_ell(1/2),b=P_ell(0). Independently used exact rational Legendre recurrence for all ell=0..19, obtaining ranks 1,3,5,6,... and unique minimal 65/32768 at ell10 of multiplicity one. Constructed 12-by-12 Gram directly from independently enumerated vertices and scipy Legendre at ell=0,1,2,3,4,7,10,19,50,100; sorted eigenvalues match branches within 2.2e-12. The required infinite proof is Bernstein |P_ell(cos theta)|<sqrt(2/(pi*ell*sin theta)): for ell>=20, |a|<1/5 and |b|<11/60, giving all even eigenbranches >1/30 and all odd >6/5, hence larger than 65/32768. The finite enumeration is a certificate only for ell<=19, not the infinite conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harmonic-index design paper gives Fisher bounds/vanishing moments; 2014 optimal-dimensional sampling treats L-bandlimited spherical transforms using latitude rings; Legendre lower-envelope result minimizes polynomial values, not the six coupled Gram branches."
+        ],
+        "reasoning": "The general theorems do not dominate the point-specific exact-degree 12-sample problem or the all-integer-degree global minimum. A general algorithm would require additional geometry-specific spectral and arithmetic work.",
+        "searches": [
+          "arXiv:1308.5101 Bannai--Okuda--Tagami",
+          "arXiv:1403.4661 Khalid--Kennedy--McEwen",
+          "Resultary Legendre lower envelope ultraspherical minimizer 2026/9/19"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md ed9d40e81ecd1067b679ac1d6f677b94a89ff75a",
+        "check.py 9c3b47b1d059989ed376aac1b210b5e144adeacc",
+        "CHECK_OUTPUT.txt 3e05e681db1d13a2b794779941038cd84b4196d7",
+        "Independent exact Fraction recurrence 0..19 and direct 12x12 matrices 0..100",
+        "arXiv:1308.5101 primary PDF",
+        "arXiv:1403.4661 primary PDF",
+        "Resultary spherical sampler and root-system queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Design vanishing on harmonic degree t implies a null sum in a special sector, not the complete singular-value distribution or sharp all-degree positive minimum. Other root-system results use different spherical configurations or dimensions."
+        ],
+        "reasoning": "The prior results do not imply the coupled three even/two odd eigenbranches or the degree-ten extremal minimum. The reproduced closed-form Legendre recurrence and tail bound supply nonstandard extra content.",
+        "searches": [
+          "Bannai--Okuda--Tagami 2015 Theorems 1-2",
+          "Khalid--Kennedy--McEwen 2014 introductory and methods sections",
+          "Resultary finite root-system spectral results for other point sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent problem is minimum positive eigenvalue of Legendre Gram matrix over every ell, or exact-degree spherical harmonic sampling singular value; the point configuration is D3/A3 roots."
+        ],
+        "reasoning": "Search incorporated cuboctahedron/Archimedean/D3/A3 roots, Legendre P_l(1/2), parity frames, harmonic index aliases. Prior harmonic-design work studies vanishing sums, not full positive spectrum or global conditioning minimum.",
+        "searches": [
+          "Resultary: cuboctahedron twelve vertex harmonic Legendre Gram sampling eigenvalues degree ten D3 A3",
+          "Web: cuboctahedron spherical harmonic interpolation Gram matrix Legendre spectra",
+          "arXiv:1308.5101 harmonic-index designs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected sample table reports the 65/32768 tenth-degree constant-sector eigenvalue; exact degree-0/1/2 ranks are elementary special cases."
+        ],
+        "reasoning": "Low-degree data are not novelty by themselves; the complete infinite minimum and parity-surjectivity classification distinguish the final claim. A missing web hit does not prove global priority.",
+        "searches": [
+          "Resultary cuboctahedron D3 A3 root harmonic spectra degree ten",
+          "Web: \"65/32768\" cuboctahedron Legendre",
+          "arXiv:1308.5101 and 1403.4661"
+        ]
+      },
+      "rationale": "Classical harmonic addition formulas, signed-root symmetry, and harmonic-index spherical-design literature are prior mathematics. The asserted complete point-set-specific degree-by-degree Gram spectrum is not claimed novel solely for its representation formulas; the discriminating contribution is the *global* exact all-degree conditioning minimum at ell10 and full parity surjectivity from ell3, which are not found in the inspected spherical-design or bandlimited-transform claims.",
+      "residual_risks": [
+        "Unindexed classical cubic-group lattice-harmonic tables, including Altmann--Cracknell, may encode equivalent cuboctahedral eigenbranches; complete historical texts not inspected.",
+        "Only exact-degree spaces and the stated evaluation normalization are covered, not arbitrary bandlimited interpolation or arbitrary point sets.",
+        "Infinite lower bound relies on classical Bernstein Legendre bound rather than finite spectral experiments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies harmonic sum vanishing and tight design existence, not 12 cuboctahedral sample-Gram all-degree conditioning.",
+          "evidence": "Bannai--Okuda--Tagami 2015, Introduction, Theorem 2",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5101",
+          "material_read": "Read primary PDF introduction, harmonic-index definition, Fisher-bound theorem statement and examples; inspected page images, not all 18 pages exhaustively.",
+          "method": "Full-text theorem/point-set comparison",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Closest general design theory for fixed spherical point configurations"
+        },
+        {
+          "assessment": "Uses latitude rings and L-bandlimited transform, not exact-degree fixed twelve cuboctahedral points.",
+          "evidence": "Khalid--Kennedy--McEwen 2014 arXiv:1403.4661",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4661",
+          "material_read": "Read primary PDF introduction, abstract and contributions describing bandlimited sampling, plus a page image; did not read all 14 pages.",
+          "method": "Primary full text portions, sampling normalization comparison",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Potential all-degree sampling conditioning theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cuboctahedron is a canonical Archimedean vertex set. An exact optimal all-degree frame conditioning lower bound and the unexpectedly nearly singular degree-ten constant sector are natural harmonic sampling invariants. Determining whether a fixed configuration is uniformly stably interpolating for every sufficiently high degree is mathematically motivated beyond an arbitrary finite eigenvalue table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed classical cubic-group lattice-harmonic tables, including Altmann--Cracknell, may encode equivalent cuboctahedral eigenbranches; complete historical texts not inspected.",
+    "Only exact-degree spaces and the stated evaluation normalization are covered, not arbitrary bandlimited interpolation or arbitrary point sets.",
+    "Infinite lower bound relies on classical Bernstein Legendre bound rather than finite spectral experiments."
+  ],
+  "schema_version": 1
+}
