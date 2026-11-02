@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone Python script `verify.py` enumerates all permutations through \(n=8\), using exact rational arithmetic. For every \(2\le k\le\min(5,n)\), it compares the directly enumerated covariance of total record count and each of the \(k!\) consecutive-pattern counts with the closed finite sum in the proof. For \(n\le7\) it also compares every positional record-indicator/pattern-indicator covariance, including predicted off-band zeros. For each tested length it verifies the limiting formula's unique maximizer, minimizer family, and extreme values.
+## correctness
 
-Execution in a standard Python 3 environment returned exactly:
+PASS
 
-`VERIFY_OK 7472 exact finite covariance and extremal assertions, exhaustive permutations through n=8`
+Read actual 8571-byte RESULT.md at blob f665bb8dd199b19ac875141ebec4587114984932 and verify.py at 111c952a0e29946039f78bf4585fc193786f26c9. Use iid Uniform[0,1] probability integral transformation. For i<j the record event depends only on preblock values, independent of block relative ranks. For i past the window, a record depends on earlier block only through its unordered values, conditionally independent of internal ranking. Inside the block i=j+r−1, the event requires a prefix maximum and all j−1 earlier values below the block σ_r-th order statistic, giving η E[B_{σ_r,k+1−σ_r}^{j−1}]. Its exact beta moment establishes the kernel. Summing proper prefix-record values gives k/(k−b) by E(1−B)^−1 and a harmonic cancellation gives −(k−1). Independent enumeration of all uniform permutations n=3..7 and k≤4 checked 2170 positional covariances and all 30 k=3 total covariance formulas. The derivation proves all n≥k and fixed-k limit; no asymptotic independence is claimed.
 
-These experiments validate many small exact cases. They are not a proof for unbounded permutation lengths or pattern lengths; the order-statistic argument and harmonic summation in `RESULT.md` are the analytic proof. No source independence or publication priority has been externally certified.
+## originality
+
+PASS
+
+Qualified PASS: Borga derives consecutive-pattern CLTs for restricted permutation classes; Crane–DeSalvo treats consecutive-pattern avoidance and Poisson approximations; Even-Zohar treats classical pattern representation statistics. None of the primary material inspected states the global-record/consecutive-pattern positional joint kernel or sharp constant. However joint-statistic identities could have appeared in older record theory without using this terminology.
+
+## value
+
+PASS
+
+The kernel localizes a global record statistic against a finite-window permutation pattern, reducing all cross-covariances to one beta moment. Its exact limiting extremizers and finite sign reversal reveal nontrivial dependence not determined by either marginal expectation; the all-pattern formula is a natural structural statistic, not a one-off small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

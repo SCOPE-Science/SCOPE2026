@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:50:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read actual 8571-byte RESULT.md at blob f665bb8dd199b19ac875141ebec4587114984932 and verify.py at 111c952a0e29946039f78bf4585fc193786f26c9. Use iid Uniform[0,1] probability integral transformation. For i<j the record event depends only on preblock values, independent of block relative ranks. For i past the window, a record depends on earlier block only through its unordered values, conditionally independent of internal ranking. Inside the block i=j+r−1, the event requires a prefix maximum and all j−1 earlier values below the block σ_r-th order statistic, giving η E[B_{σ_r,k+1−σ_r}^{j−1}]. Its exact beta moment establishes the kernel. Summing proper prefix-record values gives k/(k−b) by E(1−B)^−1 and a harmonic cancellation gives −(k−1). Independent enumeration of all uniform permutations n=3..7 and k≤4 checked 2170 positional covariances and all 30 k=3 total covariance formulas. The derivation proves all n≥k and fixed-k limit; no asymptotic independence is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borga Theorem 1.1 concerns variance/CLT of occurrences in avoidance classes, not covariance with total upper records.",
+          "Crane–DeSalvo does not incorporate record indicators; Even-Zohar uses classical rather than consecutive pattern density."
+        ],
+        "reasoning": "These broader pattern-count theories may include overlap covariances among pattern windows but do not imply this cross-statistic formula with one global historical record event.",
+        "searches": [
+          "arxiv:2003.08426 Theorem 1.1 consecutive pattern CLT in generating tree classes",
+          "arxiv:1509.07941 Poisson approximation consecutive permutation patterns",
+          "arxiv:1811.07883 classical pattern covariances",
+          "Uniform permutations covariance total left-to-right record count versus consecutive pattern occurrences finite band beta moments"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2003.08426 full PDF and page image",
+        "arxiv:1509.07941 full PDF and page image",
+        "arxiv:1811.07883 abstract-level comparison",
+        "Resultary semantic search: Uniform permutations covariance total left-to-right record count versus consecutive pattern occurrences finite band beta moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior CLTs determine marginal pattern fluctuations under other models.",
+          "The new joint kernel requires the beta law for order statistic conditional on specified relative pattern and prior prefix maximum."
+        ],
+        "reasoning": "Neither marginal pattern CLT nor local pattern overlap covariance entails covariance with a global left-to-right record. The new beta calculation is a distinct mathematical step.",
+        "searches": [
+          "Borga arxiv:2003.08426 Theorem 1.1",
+          "Crane DeSalvo arxiv:1509.07941 Theorem 3.7",
+          "Uniform permutations covariance total left-to-right record count versus consecutive pattern occurrences finite band beta moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Records are left-to-right maxima and consecutive occurrences depend on relative order of k consecutive positions.",
+          "Resultary hits include cycle-count/inversion and fixed-point/descent covariance but different joint statistics."
+        ],
+        "reasoning": "Marginal equidistribution between records and permutation cycles does not preserve joint distributions with consecutive pattern occurrences under an unspecified coupling. No equivalence from classical all-subsets pattern densities to consecutive occurrences was found.",
+        "searches": [
+          "Uniform permutations covariance total left-to-right record count versus consecutive pattern occurrences finite band beta moments",
+          "upper records consecutive pattern occurrences covariance random permutations beta order statistics",
+          "permutation cycles versus local pattern covariance equidistribution records cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently verified k=3 six rational formulas for n=3..7; in particular 132 changes sign at n=5.",
+          "No exact paired record-pattern table among returned published records."
+        ],
+        "reasoning": "A pre-existing table would cover the six n-dependent values but would not necessarily cover general fixed k and positional kernel. No relevant known exact database entry identified; no priority certainty claimed.",
+        "searches": [
+          "random permutation record consecutive pattern covariance length three exact 132 n5 reversal",
+          "Uniform permutations covariance total left-to-right record count versus consecutive pattern occurrences finite band beta moments",
+          "length 3 pattern count covariance record count OEIS"
+        ]
+      },
+      "rationale": "Qualified PASS: Borga derives consecutive-pattern CLTs for restricted permutation classes; Crane–DeSalvo treats consecutive-pattern avoidance and Poisson approximations; Even-Zohar treats classical pattern representation statistics. None of the primary material inspected states the global-record/consecutive-pattern positional joint kernel or sharp constant. However joint-statistic identities could have appeared in older record theory without using this terminology.",
+      "residual_risks": [
+        "An older article in record statistics may already couple upper-record indicators to local permutation patterns under a different name.",
+        "The limit takes fixed k then n→∞; no growing-k or Mallows extension; covariance not independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_JOINT_STATISTICS",
+          "evidence": "Borga Theorem 1.1 covers pattern-count CLT in specified avoidance classes, not upper records paired with pattern windows.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.08426",
+          "material_read": "Full accessible PDF: title, introduction, Theorem 1.1, central CLT and the covariance treatment of overlapping consecutive occurrences in generating-tree classes; screenshot inspected",
+          "method": "PDF text search and first-page image",
+          "title": "Asymptotic normality of consecutive patterns in permutations encoded by generating trees with one-dimensional labels",
+          "trigger": "Consecutive-pattern statistic and possible covariance theory"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_RECORD_KERNEL",
+          "evidence": "Focus is pattern avoidance/dependence among occurrences; no upper record indicator kernel in inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07941",
+          "material_read": "Full accessible PDF: abstract, introduction, Poisson approximation statements, pattern-avoidance and dependency framework; screenshot inspected",
+          "method": "PDF text/page image",
+          "title": "Pattern avoidance for random permutations",
+          "trigger": "Same consecutive pattern occurrences in unrestricted uniform permutations"
+        },
+        {
+          "assessment": "NOT_DECISIVE_DIFFERENT_STATISTIC",
+          "evidence": "Classical subset pattern densities are not the fixed consecutive windows defined here.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.07883",
+          "material_read": "Abstract and description of classical (non-consecutive) density representation, not all paper",
+          "method": "arXiv metadata",
+          "title": "Patterns in random permutations",
+          "trigger": "Covariance of permutation pattern densities might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The kernel localizes a global record statistic against a finite-window permutation pattern, reducing all cross-covariances to one beta moment. Its exact limiting extremizers and finite sign reversal reveal nontrivial dependence not determined by either marginal expectation; the all-pattern formula is a natural structural statistic, not a one-off small enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniformly random unrestricted permutations, a left-to-right record indicator has zero covariance with an occurrence of any consecutive length-k pattern outside its window and has an exact beta-order-statistic covariance formula inside; summation yields a fixed-k limiting constant, uniquely maximal for the increasing pattern and minimal for patterns beginning with k, including an n=5 sign reversal for pattern 132.",
+  "limitations": [
+    "An older article in record statistics may already couple upper-record indicators to local permutation patterns under a different name.",
+    "The limit takes fixed k then n→∞; no growing-k or Mallows extension; covariance not independence."
+  ],
+  "schema_version": 1
+}

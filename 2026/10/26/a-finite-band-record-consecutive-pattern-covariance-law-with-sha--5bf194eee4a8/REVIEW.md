@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Conditioning on one contiguous pattern specifies the beta order-statistic law of every observation inside its window. Earlier record indicators are independent of that pattern, and later record events are invariant under reorderings of earlier observations. The interior beta moments establish the complete finite covariance matrix. Harmonic cancellation gives the finite fixed-length limit and monotone positive weights give the exact extremizers; rational telescoping yields the six triple-pattern formulas. The exact-rational verifier checked 7,472 finite identities across every permutation through eight labels. Its finite checks are not substituted for the proof.
+## correctness
 
-**Originality (O): PASS with historical-priority risk.** The inspected 2020 Borga work concerns consecutive-pattern CLTs in prescribed permutation classes; Crane–DeSalvo concern occurrence and avoidance approximation; Even-Zohar concerns classical pattern U-statistics. None of those inspected statements implies a cross-covariance involving left-to-right records. Related available published findings on cycle-count/consecutive-pattern covariance and fixed-point/descent dependence involve different random variables, and distributional equidistribution does not transfer their joint covariance to records. The key novelty assessment concerns the complete all-length record/pattern kernel and sharp limiting record-value classification, not the separately standard record and pattern marginals. A classical equivalent via initial-rank permutations or a previously unnoticed joint generating function remains a risk.
+PASS
 
-**Value (V): PASS.** A global, logarithmic-scale count of record maxima and a local, linearly growing pattern count have an all-size cross-covariance carried by a band of width exactly the pattern length; their potentially logarithmically growing sum cancels to an explicit finite constant. The resulting complete length-\(k\) covariance fingerprint classifies sharp maximizers and minimizers at each pattern length, with an exact finite-sample sign transition for \\(132\\). This supplies interpretable second-moment information for joint record/pattern diagnostics that cannot be read from the two marginal laws. It does not assert a joint CLT or independence.
+Read actual 8571-byte RESULT.md at blob f665bb8dd199b19ac875141ebec4587114984932 and verify.py at 111c952a0e29946039f78bf4585fc193786f26c9. Use iid Uniform[0,1] probability integral transformation. For i<j the record event depends only on preblock values, independent of block relative ranks. For i past the window, a record depends on earlier block only through its unordered values, conditionally independent of internal ranking. Inside the block i=j+r−1, the event requires a prefix maximum and all j−1 earlier values below the block σ_r-th order statistic, giving η E[B_{σ_r,k+1−σ_r}^{j−1}]. Its exact beta moment establishes the kernel. Summing proper prefix-record values gives k/(k−b) by E(1−B)^−1 and a harmonic cancellation gives −(k−1). Independent enumeration of all uniform permutations n=3..7 and k≤4 checked 2170 positional covariances and all 30 k=3 total covariance formulas. The derivation proves all n≥k and fixed-k limit; no asymptotic independence is claimed.
 
-**Principal limitations.** Only uniform permutations are covered. Records and cycles are not interchangeable within arbitrary joint statistics. A separate independent historical-priority review was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Borga derives consecutive-pattern CLTs for restricted permutation classes; Crane–DeSalvo treats consecutive-pattern avoidance and Poisson approximations; Even-Zohar treats classical pattern representation statistics. None of the primary material inspected states the global-record/consecutive-pattern positional joint kernel or sharp constant. However joint-statistic identities could have appeared in older record theory without using this terminology.
+
+## value
+
+PASS
+
+The kernel localizes a global record statistic against a finite-window permutation pattern, reducing all cross-covariances to one beta moment. Its exact limiting extremizers and finite sign reversal reveal nontrivial dependence not determined by either marginal expectation; the all-pattern formula is a natural structural statistic, not a one-off small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
