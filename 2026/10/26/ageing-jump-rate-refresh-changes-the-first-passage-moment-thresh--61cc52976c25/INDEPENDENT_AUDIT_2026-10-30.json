@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Operational-time conditioning gives P(T>t)=E f_x(Lambda_t) for killed unit-rate symmetric walk; reflected Bessel heat kernels yield f_x(u)~x sqrt(2/pi)u^(−1/2) and a global bounded domination. The exact product Laplace transform of independent rates over intervals produces a stable triangular-array limit Lambda_t/B_t^(1/alpha)⇒Z_alpha because the largest normalized interval weight vanishes. A Mellin–beta bound on negative moments proves uniform integrability and the prefactor x sqrt(2) Gamma(1/(2alpha))/(alpha pi). Sum-integral clock inversion gives gamma=(1+alpha beta)/(2alpha(1+beta)), eta=delta(gamma−1/2), the full explicit positive constant and q-moment criterion q<gamma or q=gamma, eta<−1. The mean threshold alpha<1/(beta+2), with alpha=1/(beta+2), delta<−2, follows. Independent finite-stage spectral quadratures checked 3 parameter regimes with normalized survival ratios near 1.01; asymptotic proof rests on triangular arrays and negative moments, not finite simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levit–Reuveni publicly accessible abstract/summary gives fixed-rate-relaxation tail t^(−1/(2alpha)) and finite mean at alpha<1/2; appendix potentially broader but primary unavailable.",
+          "Arutkin–Reuveni 2024 primary PDF develops general operational time and worked constant interval redraws; general clock formula is inherited."
+        ],
+        "reasoning": "The operational-clock framework is stronger in abstraction but does not, in the actually inspected statements, explicitly imply the quantified polynomial-logarithmic ageing exponent, prefactor, and q-moment logarithmic endpoint. Missing Levit full text is a real residual risk.",
+        "searches": [
+          "Levit Reuveni First Passage in Presence of Jump Rate Fluctuations arXiv:2609.26925 supplement Appendix A general dynamics",
+          "Arutkin Reuveni Doubly stochastic continuous time random walk arXiv:2302.07041"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.26925",
+        "https://arxiv.org/abs/2302.07041",
+        "https://doi.org/10.1103/PhysRevResearch.6.L012033",
+        "https://dlmf.nist.gov/10.40",
+        "GitHub RESULT.md and verify_ageing_rates.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed refresh beta=delta=0 has gamma=1/(2alpha), as published, and provides the limiting subcase only.",
+          "General transform E exp(−s Lambda_t) alone does not supply stable normalization B_t, uniform negative moment bound, or n versus t logarithmic inversion."
+        ],
+        "reasoning": "The new exponent for beta>0 is not a mere reparameterization of constant refreshing: the number of independent rate draws per unit time changes with t. Equivalent broad regular variation results remain possible, especially in inaccessible appendix.",
+        "searches": [
+          "Levit Reuveni 2609.26925 constant relaxation time first passage survival",
+          "Arutkin Reuveni 2302.07041 general Laplace transform integrated intensity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model redraws a rate once per deterministic ageing interval, not an iid renewal waiting time and not constant-length refresh.",
+          "At beta=delta=0 it reduces to the published fixed-refresh submodel; otherwise gamma=(1+alpha beta)/(2alpha(1+beta)) differs."
+        ],
+        "reasoning": "Ordinary continuous-time subordination and iid waiting-time CTRW may be dual descriptions for a clock, but neither gives this exact triangular-array ageing schedule without computation of B_t and negative-moment control.",
+        "searches": [
+          "aging time intervals refreshed heavy tailed jump rates first passage survival exponent Mittag Leffler continuous time random walk",
+          "Levit Reuveni first passage jump rate fluctuations varying relaxation time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits were other renewal/first passage and persistence results, without this explicit ageing-rate-refresh theorem."
+        ],
+        "reasoning": "Continuous asymptotic exponents and constants are not entries in a finite known numerical table; focused published-paper comparisons are more relevant.",
+        "searches": [
+          "Resultary search heavy tail refreshed jump rates first passage ageing",
+          "SCOPE published polynomial-logarithmic rate refresh finite mean threshold"
+        ]
+      },
+      "rationale": "The fixed-refresh first-passage exponent and general Cox operational-time transform are already known. The assessed new result is the nonstationary deterministic polynomial-logarithmic refreshing schedule, exact changed exponent, explicit constant, and marginal mean threshold. Closest recent primary supplement was inaccessible through available authorized route, so best-of-knowledge priority is qualified and not certified.",
+      "residual_risks": [
+        "Full Levit–Reuveni September 2026 paper and supplement inaccessible; its general-jump-rate discussion may already imply a broader refresh theorem.",
+        "Authorized institutional retrieval returned vpn_disconnected; no human verification bypass attempted.",
+        "A general prior theorem in regularly varying triangular-array stable subordination might subsume the claimed extension.",
+        "Finite survival quadratures are not an infinite-time proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIOR",
+          "evidence": "Could not rule out polynomial-logarithmic generalization in supplementary material; not treated as failure solely for access.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+          "material_read": "Publicly available abstract and secondary explanatory summary describing fixed relaxation interval; complete primary/supplement not retrieved",
+          "method": "Read accessible summary, attempted primary arXiv/OA then authorized academic download; authorization returned vpn_disconnected, no bypass",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Closest exact rate law and first-passage threshold, plausible stronger coverage"
+        },
+        {
+          "assessment": "PRIOR_METHOD_NOT_EXACT_EXTENSION",
+          "evidence": "Operational-clock transform is known, but considered nonstationary refresh exponent and logarithmic q-moment law not found in read sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.07041",
+          "material_read": "Primary PDF pages on general operational-time representation, finite-interval first-exit, and constant-duration redraw example; PDF page images inspected",
+          "method": "Read relevant primary mathematical sections",
+          "title": "Doubly stochastic continuous time random walk",
+          "trigger": "Same integrated-rate time change and redraws"
+        },
+        {
+          "assessment": "CLASSICAL_TOOL",
+          "evidence": "I_k(u)~e^u/sqrt(2pi u) verifies walk survival prefactor; not a novelty source.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.40",
+          "material_read": "Section 10.40 reference and kernel asymptotic formula cited in source; no full independent handbook survey",
+          "method": "Mathematical reference comparison",
+          "title": "NIST DLMF §10.40 large argument modified Bessel functions",
+          "trigger": "Critical fixed-order Bessel asymptotic for f_x"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically natural ageing rate-refresh protocol shifts the finite-mean first-passage phase boundary and creates a second logarithmic endpoint transition, which a fixed-refresh exponent cannot predict. Full asymptotic constant and moment classification provide nontrivial characterization of first passage under long-memory clock changes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.26925",
+    "https://arxiv.org/abs/2302.07041",
+    "https://doi.org/10.1103/PhysRevResearch.6.L012033",
+    "https://dlmf.nist.gov/10.40",
+    "GitHub RESULT.md and verify_ageing_rates.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Audit restricted to the stated model and quantifiers in frozen RESULT.md; no generalization beyond source hypotheses.",
+    "Independent finite checks supplement reconstructed analytical arguments; finite numerical data is not proof of an infinite claim.",
+    "Scientific best-of-knowledge verdict distinct from publication readiness and absolute historical priority."
+  ],
+  "residual_risks": [
+    "Full Levit–Reuveni September 2026 paper and supplement inaccessible; its general-jump-rate discussion may already imply a broader refresh theorem.",
+    "Authorized institutional retrieval returned vpn_disconnected; no human verification bypass attempted.",
+    "A general prior theorem in regularly varying triangular-array stable subordination might subsume the claimed extension.",
+    "Finite survival quadratures are not an infinite-time proof."
+  ],
+  "schema_version": 1
+}
