@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each k>=2 the exact marker criterion is proved both ways. All adjacent-one targets force at least two distinct host ones in each d-level window, giving R*d>=2(k-1) and the rigorous lower bound. The mod-d two-residue construction has two markers in every d-window; first and last levels satisfy all three target gaps, including the b=0 distinct-marker boundary. The exact residue count gives R<=ceil(2(k-1)/d)+2. The integer balanced-product identity optimizes d and produces the all-k envelope. The elementary squeeze proves the sharp limit. Exact BFS k=2..12, all small-host criterion comparison and construction checks k<=100 plus 150/200/300/500 passed from verifier.py; these finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fleischmann et al. define full k-subsequence-universality and edit distances, not fixed-weight layers",
+        "Tan 2022 bounds lengths of sequences covering permutations of distinct alphabet symbols"
+      ],
+      "reasoning": "Covering all binary length-k words requires length 2k and implies coverage of this proper sublanguage, but gives only a nonsharp upper bound; it cannot imply a lower bound for the weaker family or the leading overhead constant. Permutation coverage with variable alphabet does not specialize to repeated zeros plus two ones.",
+      "searches": [
+        "https://arxiv.org/abs/2007.09192",
+        "https://arxiv.org/abs/2201.06306",
+        "\"universal supersequence\" \"fixed weight\" binary",
+        "\"universal scattered-subsequence supersequence\""
+      ]
+    },
+    "checked_sources": [
+      "Fleischmann et al. (2020), arXiv:2007.09192v1, sections on full subsequence universality and conclusion",
+      "Lagoutte and Tavenas (2013), arXiv:1309.0422, introduction, Lemma 2, Theorem 3",
+      "Tan (2022), arXiv:2201.06306, introduction and main statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-universality implies at most a linear 2k upper bound, not a two-unit envelope about k+2sqrt(2k)",
+        "One-marker target all-prefix/suffix criterion does not force the pair-of-ones minimum for adjacent two-marker patterns",
+        "Arbitrary-subset two-one SCS hardness has different input quantifiers and no universal complete-layer optimum"
+      ],
+      "reasoning": "Existing statements neither dominate the new lower bound nor construct the specified two-residue hosts. A corresponding weight-two bound could be a known specialization in unindexed material, which remains a priority risk.",
+      "searches": [
+        "\"Shortest word containing every binary length-k word of exactly two ones\"",
+        "https://arxiv.org/abs/2007.09192",
+        "https://arxiv.org/abs/1309.0422",
+        "https://arxiv.org/abs/2201.06306"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1309.0422 discusses hard arbitrary subfamilies of equal-length binary inputs having two nonconsecutive ones, rather than all weight-two inputs",
+        "arXiv:2007.09192 covers the full length-k alphabet product; the fixed-weight-two sublanguage has much smaller minimum length"
+      ],
+      "reasoning": "Searched shortest common supersequence, fixed composition, all double-marker binary targets and universal scattered-subsequence terminology. Statement comparison: all-target SCS for a complete layer is not the NP-hard problem for an arbitrary selected set, nor the single-marker language. No equivalent all-length length bound was found.",
+      "searches": [
+        "\"all binary strings with exactly two\" \"subsequence\" \"supersequence\"",
+        "\"supersequence\" \"weight 2\" \"all\" binary words shortest",
+        "\"shortest common supersequence\" \"exactly two\" \"ones\" binary all strings",
+        "\"weight two subsequence supersequence optimal length\"",
+        "https://arxiv.org/abs/1309.0422"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or equivalent asymptotic constant was found in the inspected primary papers",
+        "Complete BFS exact values through k=12 are verified internally and stated only as a finite check"
+      ],
+      "reasoning": "This is an infinite-family asymptotic theorem with uniform additive constants, not an extrapolation from a table. The direct full text reviewed does not contain an exact table or symbolic formula for the complete binary two-one target layer.",
+      "searches": [
+        "\"shortest common supersequence of every binary string of length n with weight r\"",
+        "\"two ones\" \"shortest common supersequence\" all strings",
+        "https://arxiv.org/abs/1309.0422"
+      ]
+    },
+    "rationale": "The sharp constant 2sqrt(2) and the universal two-unit envelope for the complete weight-two binary scattered-subsequence family were not implied by the checked full-universality, arbitrary-input shortest-common-supersequence hardness, one-marker and permutation-universality results. Specific two-residue interval construction and matching incidence lower bound address a different, natural coverage language. Residual risks are documented; absence of matches is not claimed to certify global novelty.",
+    "residual_risks": [
+      "An unindexed or older specialization of full weight-two SCS might imply the same envelope or constant.",
+      "The original 1994 Middendorf article was not read in full; the 2013 discussion covers its arbitrary-subset complexity result but not all of its possible observations.",
+      "Only the intro/main statements, not every appendix of Tan 2022, were examined; it concerns structurally different target words."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines universal as covering every possible word over the alphabet; algorithms compute edit distance to this full-language property, not the two-marker fixed-weight layer or the sharp square-root envelope",
+        "evidence": [
+          "https://arxiv.org/abs/2007.09192",
+          "https://arxiv.org/html/2007.09192v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.09192",
+        "material_read": "Open-access arXiv HTML introduction and sections on universality/edit distances, including definitions, main results and conclusion; abstract and first submission history inspected",
+        "method": "Direct statement/assumption comparison between full-alphabet length-k universality and constant-weight-two targets",
+        "title": "The Edit Distance to k-Subsequence Universality",
+        "trigger": "Nearest direct formal-language and subsequence-universality framework; submitted 2020-07-17"
+      },
+      {
+        "assessment": "Hardness for arbitrary subsets of equal-length words with two nonconsecutive ones does not establish optimal supersequence of the complete constant-weight-two layer; one-marker gadget lower bound has distinct constraints",
+        "evidence": [
+          "https://arxiv.org/abs/1309.0422"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.0422",
+        "material_read": "Open arXiv full-text article, introduction, cited Middendorf restricted-hardness result, Lemma 2 and Theorem 3",
+        "method": "Compared quantifier over arbitrary selected inputs to quantifier over all weight-two words; compared one-marker gadget language to two-marker complete layer",
+        "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+        "trigger": "Discusses precisely two ones in binary equal-length inputs, plus one-marker gadgets; possible structural overlap"
+      },
+      {
+        "assessment": "Distinct language: each symbol appears exactly once in targets; not a weight-two binary substring or scattered-subsequence specialization",
+        "evidence": [
+          "https://arxiv.org/abs/2201.06306"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.06306",
+        "material_read": "Open arXiv text introductory definition, statement of principal asymptotic result and examples",
+        "method": "Compared alphabet-size-growing all-permutations language against binary fixed composition target language",
+        "title": "Skip Letters for Short Supersequence of All Permutations",
+        "trigger": "Permutation-universality terminology and possible generic domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c74ff46-7567-4620-a063-e071703b595a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete weight-two slice is a natural constant-composition restriction of classical subsequence universality and a structured shortest-common-supersequence language, relevant to indexing with sparse markers. The sharp nontrivial 2sqrt(2) leading overhead distinguishes this cover task from the full-language 2k threshold and the one-marker sqrt(k) law. A universal additive-two envelope and an explicit all-length covering construction are useful even though the remaining two-unit finite-length gap is open. The result is neither a table nor a simple parameter substitution.",
+    "status": "PASS"
+  }
+}
