@@ -1,0 +1,19 @@
+# Scientific assessment: partial automorphisms of simple cycles
+
+## Correctness — PASS
+
+The exact domain is every undirected simple cycle with \(n\ge3\) vertices, and every induced-subgraph partial isomorphism, not a distance-preserving restriction of a dihedral symmetry. The cyclic-run argument counts every proper domain/image of a given path-component multiset exactly once; the independent component automorphism count has the necessary singleton exception. The empty and full domains are separated, so cyclic wrap-around and the triangular case are accounted for. The logarithmic upper and lower bounds use, respectively, at most \(4^n\) ordered domain/image choices and a fixed maximum independent set with \(\lfloor n/2\rfloor!\) automorphisms. Their Stirling expansions prove concentration. The fixed-deficiency term follows from the top permissible component count, with all repeated-part and fewer-component cases lower order. The explicit difference from ambient-distance preservation uses a two-point witness for every \(n\ge6\). All seven complete rank vectors for \(3\le n\le9\) were independently reconstructed by exhaustive partial bijections and compared with the partition count, as specified in `verify.py`. The computation does not prove the infinite statements; these are proved symbolically.
+
+## Originality — PASS relative to inspected sources
+
+The closest four full-text works are arXiv:1809.04422 (general partial graph-automorphism inverse-monoid structure), arXiv:2101.12468 (path graph cardinality, Theorem 2.1), arXiv:2205.02196 (the smaller ambient-distance-preserving cycle monoid, Theorem 1.4), and arXiv:2204.13961 (alternating crown-poset automorphisms and generating rank). Their proved statements do not include the all-cycle induced-subgraph rank enumerator or the half-rank concentration law. In particular, the isometry monoid and the induced-graph-isomorphism monoid agree only through five vertices. Exact numerical and mathematical-record searches found no equivalent cycle enumeration in accessible evidence. The general sum over isomorphism types of induced subgraphs is an established counting principle; the new assertions are its explicit cyclic-run evaluation together with the quantitative asymptotics and sharp comparison. A broader implicit enumeration or unidentified table remains a genuine residual publication-priority risk; failed searches are not a proof of global uniqueness.
+
+## Mathematical value — PASS
+
+The result computes the complete rank-size distribution for a canonical graph inverse monoid, rather than only the number of generators or an arbitrary small case. Its asymptotic theorem proves a robust, non-obvious concentration phenomenon: most partial graph symmetries have about half the vertices in their domain, and macroscopic rank deviations are superexponentially rare. The sharp contrast with the earlier cycle partial-isometry count explains precisely why replacing ambient distances by induced adjacency changes the complexity scale, and the fixed-deficiency expansion describes the opposite extreme. These facts provide reusable structural information about inverse monoids of partial symmetries.
+
+## Limits and closest literature
+
+There is no local central limit theorem or full leading-constant asymptotic for total size. The asymptotic near full rank is for fixed deficiency only. The closest studies concern general graph partial automorphisms (Jajcay et al. 2018), path partial automorphisms (Dimitrova et al. 2021), distance-preserving cycle restrictions (Fernandes and Paulista 2022), and alternating-poset crowns (Dimitrova and Koppitz 2022). The possibility of an unlocated broader implication remains open, and there has been no independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.

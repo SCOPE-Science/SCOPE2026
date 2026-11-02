@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Every nonempty proper induced cycle subgraph is a path forest. Cyclic positive-run compositions count its component-size partition exactly; its isomorphism-group order is \\(\\prod_{j}m_j!\\,2^{r-m_1}\\). Thus the sum of two independent domain/image counts times this order is exact, with separate empty and dihedral cases. For any rank k, r<=min(k,n-k); a single independent set has floor(n/2)! automorphisms, bounding the full monoid between factorial and \\(4^n2^ss!\\). Stirling proves the leading logarithmic growth and tail bound. Partitions of fixed deficiency prove the high-rank asymptotic, and {0,2}->{0,3} distinguishes adjacency from ambient distances. Direct independent finite bijection enumeration verified all coefficients for n=3,...,9, but is not used to infer the all-n results.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2205.02196 Theorem 1.4 counts DPC_n, and DPC_n != PAut(C_n) for n>=6 by the induced-isomorphism of {0,2} and {0,3}.",
+        "arXiv:2204.13961 defines an alternating-order crown and computes generating rank.",
+        "arXiv:1809.04422 treats Green relations and representation of general inverse monoids."
+      ],
+      "reasoning": "The broader-looking cycle-isometry result is actually about a proper submonoid and so cannot imply its parent monoid cardinality; the crown poset has a different relation and different sense of rank. Generic structure-of-PAut theorems do not specify this graph-specific enumeration, and no inspected stronger theorem supplies a half-rank limit.",
+      "searches": [
+        "cardinality partial graph automorphism monoid cycles disjoint paths induced subgraphs",
+        "Dihedral inverse monoid partial isometries of cycles compared with all induced-subgraph partial automorphisms",
+        "\"partial automorphisms of a cycle\" cardinality",
+        "\"partial automorphism monoid\" \"cycle\" enumerating",
+        "arxiv:1809.04422",
+        "arxiv:2205.02196",
+        "arxiv:2204.13961"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1809.04422 (2018-09-12)",
+      "arxiv:2101.12468 (2021-01-29)",
+      "arxiv:2205.02196 (2022-05-04)",
+      "arxiv:2204.13961 (2022-04-29)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Path paper Theorem 2.1 uses binomial(n-k+1,r) and linear runs, whereas the cycle count uses n/r times cyclic run lengths and binomial(n-k-1,r-1).",
+        "Distance-preserving cycle monoid size is \\(O(n2^n)\\), while the induced-graph partial automorphism monoid has logarithmic cardinality \\(\\tfrac n2\\log n+O(n)\\).",
+        "Full-subset case has exactly 2n dihedral elements."
+      ],
+      "reasoning": "Neither the path enumerator nor the strict-submonoid count determines the parent-cycle rank coefficients. The new proof counts all induced cyclic path forests, derives concentration from component constraints, and controls fixed deficiency; the established submonoid formula enters only in a sharp comparison and is fully credited.",
+      "searches": [
+        "arxiv:2101.12468 Theorem 2.1 cardinality PAut(P_n)",
+        "arxiv:2205.02196 Theorem 1.4 cardinality DPC_n",
+        "arxiv:1809.04422 inverse monoids partial graph automorphisms",
+        "Random partial automorphism of a cycle has rank asymptotically n/2 with superexponential concentration and monoid cardinality log asymptotic (n/2) log n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1809.04422 defines the same graph partial automorphism object generally, without the inspected cycle-specific enumerator.",
+        "arXiv:2101.12468 Theorem 2.1 counts an undirected path with linear endpoint gaps rather than cyclic run gaps."
+      ],
+      "reasoning": "The natural equivalent formulation counts ordered pairs of isomorphic induced cycle subgraphs weighted by the path-forest automorphism group. Exact cyclic arrangements yield \\(N_{n,\\lambda}\\). The general formula for arbitrary graphs does not itself provide this explicit closed evaluation or its asymptotic tail theorem, and the path formula cannot be used without new cyclic/run and full-domain arguments.",
+      "searches": [
+        "partial automorphism inverse monoid of finite cycle graph C_n exact rank enumeration polynomial cyclic run lengths isolated paths",
+        "cycle C_n partial automorphisms partition run length formula rank generating function",
+        "Exact rank generating function of partial automorphism inverse monoid of undirected cycle C_n via path component partitions",
+        "\"partial automorphisms\" \"cycle graph\" cardinality rank enumerator",
+        "\"PAut(C_n)\" cycle cardinality inverse monoid",
+        "arxiv:1809.04422",
+        "arxiv:2101.12468"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exhaustive rank profiles at n=3,...,9 are (34,97,286,955,3396,12753,50482) in total.",
+        "Exact-sequence and OEIS-targeted web queries did not reveal a matching indexed count in accessible returned results."
+      ],
+      "reasoning": "A matching integer sequence alone would not settle the structural formula or asymptotics, but an identified table with the same invariant could count as prior coverage. No matching table was established by the queries actually run; search failure is not proof of absence and this remains an explicit publication-priority limitation.",
+      "searches": [
+        "\"34, 97, 286, 955, 3396\" graph partial automorphism",
+        "site:oeis.org \"50482\" \"12753\" \"3396\"",
+        "\"12753\" \"50482\" \"3396\" \"955\" inverse monoid",
+        "independent exhaustive count for 3<=n<=9 in verify.py"
+      ]
+    },
+    "rationale": "Best-knowledge novelty: the inspected 2018 general graph-monoid paper establishes the ambient object but not a cycle rank count; the 2021 path theorem concerns open chains; the 2022 cycle-isometry theorem counts only the much smaller ambient-distance-preserving submonoid; the 2022 crown-poset theorem concerns a different relational signature and generating rank. Neither these statements nor checked accessible prior claim titles/claims imply the closed cyclic-run formula, fixed-deficiency leading term, or quantitative half-rank concentration. A hidden stronger implication remains a residual risk, so this is not a global priority certificate.",
+    "residual_risks": [
+      "An equivalent cyclic-run enumeration or same asymptotic may be implicit in general graph partial-automorphism or inverse-semigroup literature not found by the searches.",
+      "Potential unindexed integer-table correspondence; no matching accessible database entry found.",
+      "No independent mathematical audit or separate expert verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the general object but inspected results classify structure and realizability, not all coefficients of the cycle rank enumerator or half-rank concentration.",
+        "evidence": [
+          "Definition of PAut(G) as isomorphisms of induced subgraphs, Section 1.",
+          "Main aim and theorems characterize which inverse monoids arise from graphs, rather than counting cycle induced-subgraph isomorphisms."
+        ],
+        "identifier_or_url": "arxiv:1809.04422; https://arxiv.org/abs/1809.04422",
+        "material_read": "Full available article: abstract/introduction, structural Green-relation and natural-order results, characterizations, and conclusion; relevant formulas and section headings checked.",
+        "method": "Read searchable full-text HTML/PDF and examine sections beyond abstract; check for explicit cardinality, enumeration, cycle-family claims.",
+        "title": "Inverse monoids of partial graph automorphisms",
+        "trigger": "Defines exactly the inverse monoid of induced-subgraph graph isomorphisms and may contain general results implying a cycle count."
+      },
+      {
+        "assessment": "Exact count concerns the linear path \\(P_n\\), whose domain-run component placements have free endpoint gaps; it does not state an all-cycle rank profile or prove half-rank concentration.",
+        "evidence": [
+          "Theorem 2.1 uses n-bit linear words with endpoint-zero sentinels and counts \\(\\operatorname{PAut}(P_n)\\).",
+          "Circular words require nonempty zero-runs around the entire cycle and a separate full-cycle dihedral stratum."
+        ],
+        "identifier_or_url": "arxiv:2101.12468; https://arxiv.org/html/2101.12468v1",
+        "material_read": "Full available article and in particular Section 2 Cardinality, Theorem 2.1, lines of proof describing linear intervals and endpoint gaps; other definitions/aims and generating-rank results.",
+        "method": "Read searchable full HTML, not only snippets or abstract.",
+        "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+        "trigger": "Closest published complete enumeration of the induced-subgraph partial automorphism inverse monoid for a related graph family."
+      },
+      {
+        "assessment": "Counts ambient shortest-path distance-preserving partial bijections \\(\\operatorname{DPC}_n\\), a strict subset of induced-subgraph partial automorphisms for \\(n\\ge6\\). Its exact cardinality is quoted and not claimed as new.",
+        "evidence": [
+          "Theorem 1.4: \\(|\\operatorname{DPC}_n|=n2^{n+1}-\\frac{(-1)^n+5}{4}n^2-2n+1\\).",
+          "For n>=6 the two edgeless sets {0,2} and {0,3} are induced-isomorphic but not distance-isometric."
+        ],
+        "identifier_or_url": "arxiv:2205.02196; https://arxiv.org/abs/2205.02196",
+        "material_read": "Full text, including Definitions, Lemma 1.1, Theorem 1.4 with exact cardinality formula and proof, and later monoid presentation section.",
+        "method": "Read full searchable article and PDF page images for definition and enumeration theorem.",
+        "title": "On the monoid of partial isometries of a cycle graph",
+        "trigger": "Near-identical title and cycle object but possible stronger coverage by distance-preserving maps."
+      },
+      {
+        "assessment": "The crown is a poset with alternating comparabilities, and its maps preserve that order relation; the paper calculates minimum generator rank, not the size distribution for the undirected graph cycle \\(\\operatorname{PAut}(C_n)\\).",
+        "evidence": [
+          "Definition alternates x<y and x>y around the crown.",
+          "Abstract and main results calculate the semigroup generator rank rather than element-domain rank profile."
+        ],
+        "identifier_or_url": "arxiv:2204.13961; https://arxiv.org/abs/2204.13961",
+        "material_read": "Full searchable HTML introduction and core definitions of alternating crown poset, main generating-rank theorem and related results.",
+        "method": "Read full available HTML sections, inspect definition and theorem scopes.",
+        "title": "The rank of the inverse semigroup of all partial automorphisms on a finite crown",
+        "trigger": "Uses cycle/crown terminology and the phrase partial automorphism inverse semigroup."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e26a2a87-744b-424d-9152-4fc5d19d66e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete rank enumerator is a canonical structural invariant of the induced-graph partial-automorphism inverse monoid of a cycle, with a uniform proof for every n. Its half-rank concentration, superexponential macroscopic tail decay, and n log n cardinality scale characterize qualitatively different behavior from the well-studied smaller cycle partial-isometry monoid. A fixed-deficiency law describes the opposite end of the rank spectrum. These statements motivate and refine general inverse-semigroup and graph-automorphism enumeration beyond a routine small finite case.",
+    "status": "PASS"
+  }
+}
