@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact rank-one projector commutator identity reduces the optimization to overlap t. Pang Lemma 3.1, whose critical minmax and square-minimization are reconstructed in RESULT, gives the globally sharp denominator including t=0,1 and repeated minimal eigenvalues. The derivative cubic has one root by a strictly negative derivative and endpoint signs. Explicit positive projections achieve the constant and determine equality; algebra gives monotonic spectral dependence. Numerical direct-matrix tests return VERIFY_OK, but the symbolic proof covers all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pang establishes the unrestricted rank-one constant, which gives an upper bound on restricted Hermitian pairs but is strictly larger: for \\(a=b\\) it is \\(2/a^2\\) versus \\(1/(2a^2)\\).",
+        "Mayumi et al. investigate weighted general matrix commutator bounds and quantum-motivated applications; they do not give the Hermitian rank-one sharp coefficient in the inspected full HTML."
+      ],
+      "reasoning": "An inequality for all rank-one matrices is not a sharp inequality for a strict subset; its coefficient cannot establish the subset optimum or equality. Pang unrestricted constant tends to \\(1/a^2\\) at high anisotropy while the candidate coefficient tends to \\(2/(ab)\\).",
+      "searches": [
+        "weighted commutator inequality rank-one projections Böttcher Wenzel Pang Fang Cheng",
+        "sharp constant for commutator [uu*, vv*] weighted norms Rayleigh quotient product",
+        "arXiv:2403.04199 cases (iv) and (v)",
+        "arXiv:2610.29240v1 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "Pang arXiv:2610.29240v1 full primary HTML",
+      "Mayumi et al. arXiv:2403.04199 full primary HTML",
+      "Fang–Cheng 2025 DOI 10.1016/j.laa.2025.03.015 bibliographic description and citations only",
+      "Published mathematical research records: searches on weighted commutator, rank-one Hermitian projections, positive operators, and overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pang Lemma 3.1: \\(D(t)=ab(1-t^2)\\) below a spectral cutoff and \\([a(1+t)+b(1-t)]^2/4\\) above it; exactly acknowledged and used.",
+        "Pang Corollary 5.2: unrestricted sharp constant exceeds max(\\(2/(ab)\\),\\(1/a^2\\)) when a<b; present restricted constant is strictly less than \\(2/(ab)\\).",
+        "Fang–Cheng Section 4 is described in Pang as an upper bound for the unrestricted constant, not the Hermitian-only optimum; its own full text could not be inspected."
+      ],
+      "reasoning": "The key implication comparison is about distinct extrema over nested domains. Pang and Fang–Cheng establish upper bounds over the larger class, not the least constant for the projection class. The present cubic optimum follows from the known denominator plus the newly specialized commutator identity; this is an openly derivative but mathematically nonidentical conclusion.",
+      "searches": [
+        "sharp constant for commutator [uu*, vv*] weighted norms Rayleigh quotient product",
+        "Pang 2610.29240 normal selfadjoint rank-one positive projection restricted inequality",
+        "arXiv:2610.29240v1 Lemma 3.1 Theorem 5.1 Corollary 5.2",
+        "doi:10.1016/j.laa.2025.03.015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pang Lemma 3.1 minimizes the product of Rayleigh quotients at fixed overlap; Pang Theorem 1.1 instead allows four independent unit vectors for unrestricted rank-one factors.",
+        "A separately published result on the joint numerical radius of two rank-one projections optimizes a different functional, not a weighted commutator."
+      ],
+      "reasoning": "Rank-one projections are positive Hermitian normal matrices, so searched also as pure states, self-adjoint rank one, normal factors, and overlap. The shared Rayleigh denominator does not imply a sharp commutator coefficient without optimizing the different Hermitian numerator. No equivalent formula located.",
+      "searches": [
+        "sharp weighted Frobenius commutator of Hermitian rank-one projectors positive semidefinite matrices with fixed spectrum eigenvalues least two cubic equation",
+        "sharp weighted Frobenius norm commutator rank-one Hermitian positive semidefinite projections spectral weight lambda1 lambda2 overlap cubic",
+        "Pang 2610.29240 normal selfadjoint rank-one positive projection restricted inequality",
+        "arXiv:2610.29240v1 Lemma 3.1 Theorem 1.1 Sections 4-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A separately published result on positivity-restricted triangular Schur truncation concerns a different mapping, not a commutator.",
+        "A separately published result on rank-one crossed-Heinz operators concerns Heinz means, not weighted Frobenius commutators."
+      ],
+      "reasoning": "No directly covering constant or compiled table was found in actually queried mathematical records; those record searches do not certify historical absence.",
+      "searches": [
+        "sharp weighted Frobenius commutator of Hermitian rank-one projectors positive semidefinite matrices with fixed spectrum eigenvalues least two cubic equation",
+        "sharp weighted Frobenius norm commutator rank-one Hermitian positive semidefinite projections spectral weight lambda1 lambda2 overlap cubic",
+        "sharp weighted Frobenius norm commutator rank-one Hermitian positive semidefinite projections spectral weight lambda1 lambda2 overlap cubic",
+        "arXiv:2610.29240v1 2026-10-21"
+      ]
+    },
+    "rationale": "The new claim is the globally optimized sharp constant for pairs of Hermitian rank-one matrices and its equality and anisotropy profile. Pang (2026) already proves the fixed-overlap denominator and unrestricted optimization; those are expressly prior. Self-adjointness changes the numerator and produces a different critical equation and asymptotics. Direct searches and primary comparisons yielded no equal statement. An uninspected plausible older Fang–Cheng text remains a qualified priority risk.",
+    "residual_risks": [
+      "Fang–Cheng publisher full text unavailable; a previously published normal-matrix special case could imply the same sharp constant.",
+      "Older work in matrix inequalities or quantum pure-state geometry may use equivalent terminology not retrieved.",
+      "The fixed-overlap Rayleigh product formula is prior; the new contribution is its nontrivial sharp projection-commutator consequence, not the lemma itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found the previously established Rayleigh-product lemma used in proof, but sharp coefficient concerns all rank-one factors rather than Hermitian rank-one pair.",
+        "evidence": [
+          "arXiv:2610.29240v1 Theorem 1.1, Lemma 3.1 equations (13)-(17), Proposition 3.2, Corollary 5.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29240v1",
+        "material_read": "Full primary HTML, including introduction, statements of Theorem 1.1, Lemma 3.1 and proof, Sections 4-5 and equality cases.",
+        "method": "Compared admissible X,Y, numerator, fixed-overlap denominator, exact optimal values and eigenvalue asymptotics.",
+        "title": "A sharp weighted commutator inequality for rank-one matrices",
+        "trigger": "Same weighted input norm, same output commutator, same two least eigenvalues"
+      },
+      {
+        "assessment": "Broad weighted-matrix bounds and conjectures; directly matching restricted exact formula not identified in read sections.",
+        "evidence": [
+          "arXiv:2403.04199, Sections 1-2, weighted inequality type (iv), general and special cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.04199",
+        "material_read": "Full arXiv HTML introduction, cases (i)-(vi), major theorem and special-case discussion.",
+        "method": "Compared exact admissible matrix class with rank-one Hermitian projectors and proposed sharp constant.",
+        "title": "Böttcher-Wenzel inequality for weighted Frobenius norms and its application to quantum physics",
+        "trigger": "Origin of weighted norm and quantum-state projection motivation"
+      },
+      {
+        "assessment": "Cannot exclude equivalent normal/positive rank-one specialization without full text; explicit residual risk.",
+        "evidence": [
+          "Pang, arXiv:2610.29240v1 Introduction lines 51-60 describes Fang–Cheng bounds."
+        ],
+        "identifier_or_url": "doi:10.1016/j.laa.2025.03.015",
+        "material_read": "Published citation, accessible abstract/context and Pang’s detailed description of Theorem 2.4 and Section 4; publisher full text inaccessible in this execution.",
+        "method": "Compared secondary primary-paper citation of exact propositions, without interpreting inaccessible full text as not covering.",
+        "title": "On some conjectures concerning the Böttcher-Wenzel inequality for weighted Frobenius norms",
+        "trigger": "Pang identifies it as direct predecessor solving unrestricted bounding cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0efbaa04-90bc-4691-b277-e007dbe4bf10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A pair of pure-state projections and their weighted noncommutativity is a natural observable/quantum-motivated subclass of the weighted Böttcher-Wenzel problem. The theorem computes its best constant, sharp spectral dependence, all extremizers and the asymptotic phase separation from unrestricted rank one over arbitrary dimensions; this distinguishes actual geometric constraints from a mere bound or finite table. Scope and reliance on an established lemma are explicit.",
+    "status": "PASS"
+  }
+}

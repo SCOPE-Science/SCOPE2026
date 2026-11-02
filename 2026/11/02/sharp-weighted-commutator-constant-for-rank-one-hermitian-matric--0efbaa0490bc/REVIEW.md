@@ -1,0 +1,15 @@
+# Scientific review — sharp Hermitian rank-one weighted commutators
+
+## Correctness: PASS
+For rank-one Hermitian inputs the numerator has the exact form \(2t^2(1-t^2)\), verified by multiplying projectors, and their weighted squared norms are Rayleigh quotients. Pang's cited Lemma 3.1 establishes the sharp minimum \(D(t)\); the present proof reconstructs its compression and scalar minimization and checks the overlap endpoints, eigenvalue multiplicity, and the equality geometry. The new one-variable quotient is increasing through the first branch, and its derivative on the second is controlled by a strictly decreasing cubic \(h(t)\) with opposite endpoint signs. Its unique root gives a global maximum, attained by explicitly exhibited positive rank-one projections. The normalized formula and anisotropy limit follow algebraically. The accompanying direct-matrix checker returned `VERIFY_OK` over eight spectra; these finite numeric checks are not substituted for proof.
+
+## Originality: PASS with stated historical risk
+Pang (arXiv:2610.29240v1, Lemma 3.1) already supplies the exact denominator, and his Theorem 1.1 gives the larger unrestricted rank-one commutator optimum, neither of which is claimed anew. His Sections 4 and 5 optimize a different numerator over independent left and right rank-one factors, whereas self-adjointness identifies them and forces a distinct numerator; the two constants have different asymptotics. The earlier weighted Frobenius paper by Mayumi and collaborators treats broader matrix inequalities and applications, not this computed pure-state restricted constant. The available description of Fang–Cheng supports bounds for the unrestricted problem; complete publisher text was unavailable, and a hidden equivalent normal/positive specialization is the principal remaining novelty risk. Relevant mathematical-index searches returned different numerical-radius, rank-one operator and commutator problems, not the present sharp coefficient. Failed searches are not evidence of absolute priority.
+
+## Mathematical value: PASS
+The bounded-uncertainty/quantum-state specialization to positive rank-one projections is intrinsic, not an arbitrary parameter slice. It produces the exact sharp constant and all extremizers for every dimension and every positive weight, quantifies the change from isotropic to highly anisotropic weights, and yields an unbounded asymptotic separation from the unrestricted optimal constant. This is a new natural restricted sharp inequality rather than a small finite-instance number, while openly using its crucial existing Rayleigh lemma.
+
+## Closest literature and limitations
+Pang, arXiv:2610.29240v1, Theorem 1.1, Lemma 3.1, Sections 4–5; Mayumi–Kimura–Ohno–Chruściński, arXiv:2403.04199; Fang–Cheng, DOI 10.1016/j.laa.2025.03.015 (abstract and detailed citation available, full text not established). No assertion is made about arbitrary-rank positive operators or complete historical priority. Independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
