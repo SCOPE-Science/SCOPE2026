@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every real positive-definite two-coordinate Hessian the update maps are derived from exact coordinate minimization; their two sampled-path Gram expectations simplify to a scalar positive gap. Strictness follows from the Hessian determinant inequality. A three-coordinate rational Hessian has positive leading minors \(1,7/16,3/32\), and complete enumeration of its six permutation paths and 27 independent paths gives the strict Euclidean gap \(1949/55296\) and opposite energy gap \(-1309/55296\). The independent standalone script checks the generic symbolic identity and all rational path totals. The finite certificate proves the particular counterexample; the universal two-coordinate assertion follows from the symbolic calculation and its displayed proof.
+PASS
 
-## Originality — PASS, with residual risk
+For each coordinate i, exact quadratic minimization updates error by T_i=I−e_i e_i^T H/H_ii; both equal-cost samplers apply n updates. For n=2, idempotent T_i yield four independent-sampling paths and two permutation paths. Their Euclidean Gram expectation difference is exactly (1−c^4/(a²b²))I/4 for arbitrary SPD 2x2 H; Sylvester gives |c|²<ab and strict positivity for nonzero start. In the explicit n=3 example H has leading principal minors 1,7/16,3/32, so SPD. An independent rational SymPy enumeration of all 6 RR and 27 IID products reproduces RR−IID Euclidean error 1949/55296>0 and RR−IID Hessian energy −1309/55296<0 for e=(0,1,0). Thus n=1 coincides, n=2 impossible, n=3 witness exists. This is one epoch only, not all epochs or all higher dimensions.
 
-The source paper arXiv:1803.08200 develops exact coordinate descent with uniform permutation versus independent sampling, but its sections on one-epoch operators and convergence-rate comparisons concern specialized diagonally dominant matrix families and upper bounds. arXiv:1706.00908v4 studies a different special Hessian class. Oswald–Zhou's SOR comparison addresses energy norm bounds. Lai–Lim's positive-semidefinite matrix-product inequality has different factor symmetry and a different target; it does not imply Euclidean comparison of these oblique coordinate maps. Accessible historic claims about relaxed two-coordinate objective differences, two-component gradient reshuffling, and two-line Kaczmarz do not contain the dimension-two Euclidean identity combined with the explicit three-coordinate objective/Euclidean reversal. The relevant exact-phrase and semantic searches did not expose a covering theorem; search incompleteness and uncatalogued equivalent examples remain residual priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The literature explicitly distinguishes expected iterate, expected squared Euclidean distance, and expected objective as three separate convergence criteria. The result supplies an exact all-start one-epoch Euclidean gap in the smallest nontrivial dimension and the smallest-dimension counterexample to extending its sign. The same three-coordinate instance improves expected objective while worsening expected Euclidean error. This establishes a real measurement-dependent boundary for choosing sampling schemes, rather than a merely different wording of a scalar convergence bound or an arbitrary numerical slice.
+Best-of-knowledge qualified PASS for the joint dimension-sharp all-2D Euclidean identity and explicit smallest 3D Euclidean-versus-objective reversal. Gürbüzbalaban–Ozdaglar–Vanli–Wright analyze random permutation against IID sampling in a specialized diagonally dominant Hessian family and convergence criteria, whereas Wright–Lee analyze another structured family with rates. Oswald–Zhou derive randomized SOR energy seminorm results; Lai–Lim discuss symmetric positive-semidefinite matrix products, whereas Euclidean coordinate-step operators here are generally oblique. Prior dimension-two Gauss–Seidel deterministic-order transient findings concern a different risk and sampling scheme. No inspected published result states this full exact comparison; an unindexed special case could still exist.
 
-## Scope and residual risks
+## value
 
-The statement is not about multiple epochs, asymptotic convergence-rate dominance, or all higher dimensions. Published literature not indexed by the searches may contain an equivalent special-case calculation. The self-contained rational arithmetic and algebra support the stated theorem but do not constitute independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A practical optimization diagnostic is whether reshuffling uniformly reduces Euclidean solution error versus independent resampling, not merely the objective. The exact two-coordinate isotropic advantage and dimension-three counterexample identify the minimal structural failure of that plausible universal rule; one concrete SPD system improves objective while worsening Euclidean error. These are genuinely distinct metrics with opposite signs, a substantive boundary for algorithm comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

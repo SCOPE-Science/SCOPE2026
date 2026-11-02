@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:02:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each coordinate i, exact quadratic minimization updates error by T_i=I−e_i e_i^T H/H_ii; both equal-cost samplers apply n updates. For n=2, idempotent T_i yield four independent-sampling paths and two permutation paths. Their Euclidean Gram expectation difference is exactly (1−c^4/(a²b²))I/4 for arbitrary SPD 2x2 H; Sylvester gives |c|²<ab and strict positivity for nonzero start. In the explicit n=3 example H has leading principal minors 1,7/16,3/32, so SPD. An independent rational SymPy enumeration of all 6 RR and 27 IID products reproduces RR−IID Euclidean error 1949/55296>0 and RR−IID Hessian energy −1309/55296<0 for e=(0,1,0). Thus n=1 coincides, n=2 impossible, n=3 witness exists. This is one epoch only, not all epochs or all higher dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gürbüzbalaban et al. restrict analyzed Hessian families; Wright–Lee prove a structured case; Lai–Lim study PSD symmetric factor products."
+        ],
+        "reasoning": "Neither established theorem in accessed material implies the all-SPD 2x2 isotropic Euclidean gap or the contrary 3x3 exact rational example.",
+        "searches": [
+          "arxiv:1803.08200 primary abstract; arxiv:1706.00908v4 primary PDF",
+          "arxiv:1510.04727",
+          "arxiv:2006.01510"
+        ]
+      },
+      "checked_sources": [
+        "Wright–Lee arxiv:1706.00908v4 PDF sections on RPCD and RCD",
+        "Gürbüzbalaban et al. arxiv:1803.08200 primary abstract and publication listing",
+        "Oswald–Zhou arxiv:1510.04727 indexed comparison",
+        "Lai–Lim arxiv:2006.01510 title/abstract comparison",
+        "Resultary: deterministic 2-coordinate Gauss–Seidel transient bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing sufficient RR advantages depend on Hessian family and/or objective/error criteria; the exhibited 3D matrix has opposite RR–IID signs for Euclidean norm and H-energy on the same start."
+        ],
+        "reasoning": "An expected objective improvement does not imply Euclidean solution-error improvement unless H is scalar, so prior objective results neither contradict nor subsume the new counterexample.",
+        "searches": [
+          "Wright–Lee arxiv:1706.00908v4",
+          "Gürbüzbalaban et al. arxiv:1803.08200",
+          "Oswald–Zhou arxiv:1510.04727"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Error-map comparison is E[(T_path)^T I T_path] for Euclidean error and E[(T_path)^T H T_path] for objective energy; RR is uniform permutations and IID uniform n-tuples."
+        ],
+        "reasoning": "An equivalent statement could appear as a norm-dependent Gram-operator matrix inequality or ordered product comparison. Nonsymmetric Euclidean maps prevent naïve application of symmetric PSD noncommutative AGM results.",
+        "searches": [
+          "Resultary: Random reshuffling vs with replacement coordinate descent Euclidean error reversal small dimension 3 one epoch",
+          "web: coordinate descent random reshuffling sampling with replacement Euclidean error worse three variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary record characterizes deterministic two-coordinate Gauss–Seidel order and worst-case Euclidean transient, not uniform-random RR versus IID comparison."
+        ],
+        "reasoning": "Its computed condition number threshold cannot be substituted for the universal expected two-evaluation RR–IID Gram identity. No exact matching table found; search incompleteness remains.",
+        "searches": [
+          "Resultary: Random reshuffling vs with replacement coordinate descent Euclidean error reversal small dimension 3 one epoch",
+          "Resultary: 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS for the joint dimension-sharp all-2D Euclidean identity and explicit smallest 3D Euclidean-versus-objective reversal. Gürbüzbalaban–Ozdaglar–Vanli–Wright analyze random permutation against IID sampling in a specialized diagonally dominant Hessian family and convergence criteria, whereas Wright–Lee analyze another structured family with rates. Oswald–Zhou derive randomized SOR energy seminorm results; Lai–Lim discuss symmetric positive-semidefinite matrix products, whereas Euclidean coordinate-step operators here are generally oblique. Prior dimension-two Gauss–Seidel deterministic-order transient findings concern a different risk and sampling scheme. No inspected published result states this full exact comparison; an unindexed special case could still exist.",
+      "residual_risks": [
+        "Earlier exact one-epoch two/three-coordinate norm comparisons might be implicit in specialized optimization or randomized iterative-method literature.",
+        "Gürbüzbalaban 2020 and Oswald–Zhou 2017 full primary texts were not inspected in complete detail in this run.",
+        "The example demonstrates existence, not every n>=3 or multi-epoch sign."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Convergence comparison for specialized matrix families and objective/iterate rate; not the all-SPD 2D Euclidean Gram identity plus 3D flip",
+          "evidence": [
+            "Defines IID RCD and RPCD epoch updates; rate results not an exact arbitrary-H one-epoch Euclidean difference."
+          ],
+          "identifier_or_url": "arxiv:1706.00908v4",
+          "material_read": "Author arXiv primary PDF, formal problem definition and main structured-Hessian rate comparison, selected proof sections; page image inspected",
+          "method": "Primary PDF text/image reading",
+          "title": "Analyzing Random Permutations for Cyclic Coordinate Descent",
+          "trigger": "Same randomized-permutation vs iid coordinate descent comparison"
+        },
+        {
+          "assessment": "Results on specialized diagonally dominant quadratic families and worst-case criteria; absence of general 3D Euclidean flip not certified from unread portions",
+          "evidence": [
+            "Abstract specifies diagonally dominant family and several criteria."
+          ],
+          "identifier_or_url": "arxiv:1803.08200 / DOI 10.1007/s10107-019-01438-4",
+          "material_read": "Available arXiv abstract and published article description; no complete full-text read in this run",
+          "method": "Abstract/indexed journal page comparison",
+          "title": "Randomness and Permutations in Coordinate Descent Methods",
+          "trigger": "Most relevant named RR/IID comparison"
+        },
+        {
+          "assessment": "Energy-seminorm random SOR bounds rather than exact Euclidean expected CD error",
+          "evidence": [
+            "Same iterative motif but norm and operator families differ."
+          ],
+          "identifier_or_url": "arxiv:1510.04727",
+          "material_read": "Indexed source description and literature comparison, not fully inspected primary text",
+          "method": "Abstract-level comparison",
+          "title": "Random Reordering in SOR-Type Methods",
+          "trigger": "Nearest randomized order model in numerical linear algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A practical optimization diagnostic is whether reshuffling uniformly reduces Euclidean solution error versus independent resampling, not merely the objective. The exact two-coordinate isotropic advantage and dimension-three counterexample identify the minimal structural failure of that plausible universal rule; one concrete SPD system improves objective while worsening Euclidean error. These are genuinely distinct metrics with opposite signs, a substantive boundary for algorithm comparisons.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wright–Lee arxiv:1706.00908v4 PDF sections on RPCD and RCD",
+    "Gürbüzbalaban et al. arxiv:1803.08200 primary abstract and publication listing",
+    "Oswald–Zhou arxiv:1510.04727 indexed comparison",
+    "Lai–Lim arxiv:2006.01510 title/abstract comparison",
+    "Resultary: deterministic 2-coordinate Gauss–Seidel transient bound"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier exact one-epoch two/three-coordinate norm comparisons might be implicit in specialized optimization or randomized iterative-method literature.",
+    "Gürbüzbalaban 2020 and Oswald–Zhou 2017 full primary texts were not inspected in complete detail in this run.",
+    "The example demonstrates existence, not every n>=3 or multi-epoch sign.",
+    "Bounded arithmetic verification is not an infinite proof; no formal Lean or external expert attestation claimed.",
+    "Scientific status is not repository publication; privacy-safe metadata replacements are not ready."
+  ],
+  "residual_risks": [
+    "Earlier exact one-epoch two/three-coordinate norm comparisons might be implicit in specialized optimization or randomized iterative-method literature.",
+    "Gürbüzbalaban 2020 and Oswald–Zhou 2017 full primary texts were not inspected in complete detail in this run.",
+    "The example demonstrates existence, not every n>=3 or multi-epoch sign."
+  ],
+  "schema_version": 1
+}
