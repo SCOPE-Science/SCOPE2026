@@ -1,11 +1,21 @@
-# Review of directed-contact two-community stability
+# Independent mathematical audit
 
-**Correctness (PASS).** The result concerns one interior equilibrium of a normalized smooth three-dimensional mass-conserving ODE. Constant action-blind migration makes the density equation independent of strategic dynamics, giving eigenvalue \(-\alpha-\beta\). Differentiating the exact source-model conversion flux gives an action block equal to a positive migration/contact generator minus a rank-one game-feedback term. Stationary migration forces the generator determinant to vanish; the remaining rank-one determinant is a sum of strictly positive terms while trace is strictly negative. The quadratic Hurwitz test proves local exponential stability without simulation. The exact witness is independently reconstructed from the full nonlinear equations in `CHECK.py`, giving the nonreal roots claimed.
+## correctness
 
-**Originality (PASS, best-knowledge).** Govaert--Zino--Tegling (arXiv:2203.00371, Sections II--V) require a symmetric contact matrix for their ESS theorem, and explicitly flag network symmetry as a further stability problem. Como--Fagnani--Zino (arXiv:2009.10020, Sections II--IV and Conclusion) require undirected community contacts for their convergence theorem and do not have action-blind dynamic migration. Pi et al. (2020, DOI 10.3390/math8122120) and Hu--Zhang (2020, DOI 10.1186/s13662-020-02718-6) study mathematically different delayed two-community systems. Exact implication comparisons and available prior-claim and semantic-database searches did not locate a subsuming theorem for **this particular directed-contact, migrating network-replicator Jacobian**. Such negative searching cannot prove priority; specialist nonindexed reductions are the principal residual originality risk.
+PASS
 
-**Value (PASS).** The original model treats reciprocal interaction in its full ESS convergence theorem; the minimal directed two-community case is the natural first unresolved robustness test. The sign formula completely resolves local stability for **all positive contact asymmetries and all positive constant action-blind migration rates** rather than reporting one stable parameter set. Moreover, an admissible exact witness shows nonreciprocity creates complex, damped modes despite fixed attracting coexistence. It separates loss of monotone relaxation from loss of local stability, a distinction useful when interpreting network-adjustment transients. No global or multi-community significance is claimed.
+For strictly positive 2×2 game payoffs with interior ESS p (K=−(r_A−r_B)' >0), positive directed contacts W and action-independent positive constant migration α,β, mass equilibrium e=β/(α+β), f=α/(α+β) and mixed masses (pe,pf) is interior. The η equation decouples with eigenvalue −(α+β). Differentiating the precise source ODE yields L=C−κg1^T with positive κ=p(1−p)K, C=[[-(Rfu+α),(Reu+β)],[(Rfv+α),−(Rev+β)]], g positive and C(e,f)=0. Thus det C=0, trace L=−A−B−κ(g1+g2)<0 and det L=κ[(B+Y)g1+(A+X)g2]>0: 2D Hurwitz, so full physical Jacobian strictly Hurwitz, implying local exponential stability but no global theorem. Independent symbolic differentiation of original nonlinear ODE at G=[[1/2,3/2],[3/2,1/2]], W=[[10,1],[5,1]], α=β=1/20 gives characteristic polynomial (λ+1/10)(λ²+209λ/40+627/80) and damped nonreal pair −209/80±i√6479/80. Fresh symbolic checks confirm sign identities and witness; exact algebra, not extrapolation, proves universality.
 
-**Limits and nearest comparisons.** The conclusion is local and does not cover more communities, temporal or strategy-dependent movement, delays or stochastic effects. An inaccessible or differently indexed stability source could contain an equivalent matrix argument; the delayed-game literature is structurally different but not a complete literature census. The universal result follows from an exact symbolic identity, not from finite case tests.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+The natural smallest directed extension of a symmetric-network ESS stability theorem resolves whether reciprocity is essential for *local* stability over all positive directed contacts and migration rates. The exact nonreal-mode witness further distinguishes stable relaxation from monotone decay; it is a mathematically meaningful robustness boundary in a specified dynamical model, without inflated global claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

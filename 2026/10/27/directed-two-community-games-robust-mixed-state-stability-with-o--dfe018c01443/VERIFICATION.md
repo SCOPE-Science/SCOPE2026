@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof derives the physical three-dimensional Jacobian and gives an exact determinant formula for arbitrary admissible rates. Under \(R,\alpha,\beta,u,v,w_{11},w_{22},K>0\) and \(0<p<1\), every term in \(-\operatorname{tr}L\) and \(\det L\) is strictly positive, establishing local exponential stability. No finite experiment is used as a universal proof.
+# Independent mathematical audit
 
-The included `CHECK.py`, using SymPy, was run against the embedded formulae. It verifies \(C(e,f)^{\mathsf T}=0\), \(\det C=0\), the exact trace/determinant identities, the nonlinear model's equilibrium, the full rational Jacobian, the rational characteristic polynomial, and the strictly negative quadratic discriminant \(-6479/1600\). It prints `PASS: general identities and exact oscillatory witness` when successful.
+## correctness
 
-Unproved: global convergence, robustness under arbitrary state-dependent flow or delays, and any classification for three or more communities. No external independent audit has taken place.
+PASS
+
+For strictly positive 2×2 game payoffs with interior ESS p (K=−(r_A−r_B)' >0), positive directed contacts W and action-independent positive constant migration α,β, mass equilibrium e=β/(α+β), f=α/(α+β) and mixed masses (pe,pf) is interior. The η equation decouples with eigenvalue −(α+β). Differentiating the precise source ODE yields L=C−κg1^T with positive κ=p(1−p)K, C=[[-(Rfu+α),(Reu+β)],[(Rfv+α),−(Rev+β)]], g positive and C(e,f)=0. Thus det C=0, trace L=−A−B−κ(g1+g2)<0 and det L=κ[(B+Y)g1+(A+X)g2]>0: 2D Hurwitz, so full physical Jacobian strictly Hurwitz, implying local exponential stability but no global theorem. Independent symbolic differentiation of original nonlinear ODE at G=[[1/2,3/2],[3/2,1/2]], W=[[10,1],[5,1]], α=β=1/20 gives characteristic polynomial (λ+1/10)(λ²+209λ/40+627/80) and damped nonreal pair −209/80±i√6479/80. Fresh symbolic checks confirm sign identities and witness; exact algebra, not extrapolation, proves universality.
+
+## originality
+
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+The natural smallest directed extension of a symmetric-network ESS stability theorem resolves whether reciprocity is essential for *local* stability over all positive directed contacts and migration rates. The exact nonreal-mode witness further distinguishes stable relaxation from monotone decay; it is a mathematically meaningful robustness boundary in a specified dynamical model, without inflated global claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
