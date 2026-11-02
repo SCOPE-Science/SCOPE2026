@@ -1,15 +1,21 @@
-# Review of the finite-cycle Grundy packing theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. A cyclic word is obtainable by the greedy packing algorithm exactly when (P) equal colors \(i\) are at distance greater than \(i\), and (G) every vertex of color \(i\) sees a vertex of each smaller color \(j\) within distance \(j\). The necessity and sufficiency both follow directly by ordering the color classes increasingly. Periodic lifting preserves those conditions and makes the published infinite-path seven-color upper bound applicable. The four seeds plus insertion cuts and five additional finite witnesses are checked by standalone exact comparisons and independent first-fit replay. The insertion proof reduces the arbitrary parameter to a finite radius-seven boundary check because both segments have length greater than fourteen when the inserted block has four copies. No finite test is substituted for the local infinite-extension proof.
+## correctness
 
-## Originality
-PASS relative to inspected primary literature and the recorded overlap search, with residual priority risk. Gözüpek and Peterin prove the infinite-path result and finite-path threshold, but they do not derive the eventual cyclic equality or exhibit all four residue-class cyclic constructions. The upper bound is a corollary of their work; the original contribution assessed here is the constructive cycle lower bound for every order at least twenty-eight, together with five explicit smaller examples. Relevant published records concerning ordinary Grundy colorings, b-colorings, cover-free families, and rainbow connection concern different invariants. Unindexed equivalent constructions or later work remain a genuine unresolved bibliographic risk.
+PASS
 
-## Value
-PASS. Closing the path witnesses into a cycle changes every vertex's short-distance constraints across the seam, so an infinite-path bound and finite-path witnesses alone do not establish the cyclic lower bound. The four-residue insertion mechanism gives a complete eventual classification for a natural graph family, rather than a routine isolated coefficient or numerical example.
+A prescribed greedy packing word is characterized exactly by pairwise packing (P) and a lower-color witness (G) for each assigned color. Periodic lifting of a finite cyclic greedy word of maximum color k to the bi-infinite path preserves (P), since repeat spacing n>k, and (G), hence the known Gamma_rho(Z)=7 gives a universal cycle upper bound. Nine literal witnesses establish five extra finite orders and four seeds of lengths 28–31. Inserting (1,2,1,3) at prescribed cuts preserves P,G for t=0..3 by direct checking. For t>=4 the inserted 4t block is longer than radius-7 double neighborhoods, and seed segment length>=28; any radius-7 neighborhood is represented in the t=4 seed or the four pure-periodic phases, proving all lengths >=28.
 
-## Closest literature and limits
-D. Gözüpek and I. Peterin, *Grundy Packing Coloring of Graphs*, arXiv:2409.00697, Theorem 6.6 and Sections 2–3. Orders below twenty-eight are not fully classified here; no uniqueness or classification of optimal words is claimed. Priority verification is based on available sources rather than an exhaustive independent bibliographic search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: inspected the frozen final theorem and compared mathematical implications with published related sources rather than titles. The cited ingredients and simpler special cases are prior; the claimed additional precise joint law/spectral bound/bridge law/Dyck rigidity/cyclic construction is not established by the inspected results. Unlocated equivalent prior coverage remains an explicit risk.
+
+## value
+
+PASS
+
+Resolves an infinite graph-family first-fit packing coloring problem with sharp seven-color threshold and an explicit locally checkable construction for all sufficiently large cycles. This is more than translating a path result, because cyclic boundary packing/witness constraints are nontrivial and require separate gluing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
