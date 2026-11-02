@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T08:58:33.899899Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+        "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md, METADATA.json, AUDIT.json, REVIEW.md at assigned exact tree SHA",
+        "Independent symbolic differentiation and Jacobian calculations using SymPy"
+      ],
+      "rationale": "Independently derived the rate conversion theta1=kappa1/kappa3, theta2=kappa1²/(kappa2 kappa3), theta3=kappa2/kappa4 and the positive equilibrium coordinates x=theta1(1-alpha)/2, y=theta2 alpha(1-alpha)/4, z=theta3(2-alpha)/alpha. Direct substitution in the mass-action equations vanishes, and any positive equilibrium forces z>theta3 and alpha in (0,1). Symbolically verified f=4alpha(K(alpha)-K), Kprime=2(g-theta3)/alpha² with g=alpha²[(1-2alpha)theta2-2theta1]/8, the unique maximum g(alpha*)=T and all endpoint inequalities. Hence the one/three/two counts are global, including K<=theta3. Exact symbolic checks verify the cusp K* expression, f_alphaalpha=-2(3alpha theta2+2theta1-theta2) on folds, f_alphaalphaalpha=-6theta2, and the unfolding determinant 32. The physical planar Jacobian on x+y+z=K has trace -kappa1-kappa2-4kappa3*x-kappa4*(y+z)<0 and determinant proportional to theta3-g(alpha), so fold/cusp zero eigenvalues are simple in the transverse direction. A sample theta=(1,4,1/1000) produced two ordered folds K≈0.55753958 and 0.56979709; this finite example is corroboration only, not proof.",
+      "residual_risks": [
+        "No formal proof assistant verification or external expert attestation is claimed.",
+        "The local orbital-equivalence interpretation of the scalar cusp uses the standard smooth parametrization/center-manifold reduction; the original dual-equation follow-up was inaccessible, but direct negative-transverse-trace and nondegeneracy calculations independently support the local classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+          "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected",
+          "Banaji, Boros and Hofbauer, Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity, Nonlinear Dynamics 112 (2024), 21425-21448, DOI 10.1007/s11071-024-10068-1",
+          "Theorem 3.21 identifies smooth one-to-one equilibrium roots and degeneracy; it is not an explicit phase-count classification. The 2024 network classification chiefly covers two-chemical-species low-molecularity networks, not the exact three-species mass-conserving example."
+        ],
+        "reasoning": "General transfer theorems and small-network classification supply prerequisites or structural conditions, not a directly dominating explicit threshold in these theta parameters for every K. Even a potential prior cusp locus alone does not automatically assert all global root counts, though the deduction here is elementary once the cubic is known.",
+        "searches": [
+          "Resultary semantic: exact bifurcation phase diagram conserved total one three positive equilibria cubic mass action networks Banaji Feliu",
+          "Banaji 2026 dual equations fold cusp Example 2 alpha theta parameters",
+          "Banaji Boros Hofbauer 2024 planar quadratic few-reaction classification",
+          "arXiv:2409.06877 Theorem 3.21"
+        ]
+      },
+      "checked_sources": [
+        "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+        "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected",
+        "Banaji, Boros and Hofbauer, Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity, Nonlinear Dynamics 112 (2024), 21425-21448, DOI 10.1007/s11071-024-10068-1",
+        "Resultary record 2026/10/11/SCOPE-exact-fold-and-multistationarity-phase-diagram-for-a-three-speci--7a30c2c43cf2",
+        "Resultary exact-network and multistationarity semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+          "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected",
+          "Banaji, Boros and Hofbauer, Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity, Nonlinear Dynamics 112 (2024), 21425-21448, DOI 10.1007/s11071-024-10068-1",
+          "Prior cubic implies only the upper bound of at most three positive equilibria and permits a Sturm computation; the new elementary analysis explicitly evaluates the turning-point maximum and the global K ranges."
+        ],
+        "reasoning": "Important near-coverage: from the previously printed cubic and basic calculus, the entire proposed formula can be derived without a new mathematical framework. But neither the inspected theorem statements nor printed Example 4.34 actually give the exact sharp threshold and complete K-classification. This makes priority fragile and the additional mathematics bounded; the inaccessible same-network cusp paper could be decisive if it already gives equivalent parameter conditions.",
+        "searches": [
+          "arXiv:2409.06877v5 Example 4.34 and Theorem 3.21",
+          "Banaji 2026 dual equations fold cusp Example 2 alpha theta parameters",
+          "Resultary semantic: mass action reaction network X to Y Y to Z 2X to 2Z Y+Z to 2X exact cusp fold multistationarity threshold K alpha",
+          "DOI:10.1007/s11071-024-10068-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+          "Example 4.34 writes the same network and exactly f(alpha;theta,K)=2theta1 alpha(1-alpha)+theta2 alpha²(1-alpha)+4theta3(2-alpha)-4K alpha, with alpha in (0,1). The present diagram is a monotonicity classification of K(alpha)=0 solved for K, not a different network.",
+          "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected"
+        ],
+        "reasoning": "Exact aliases were checked via the reaction list, alternative-equation polynomial, conservation K and cusp parametrization terminology. The 2026 original paper supplies an identical cubic; it does not print the sharp threshold or complete fixed-theta K-fiber count, explicitly omitting semialgebraic inequalities. The later cusp-paper full text was not readable, so possible exact equivalent remains recorded as risk.",
+        "searches": [
+          "\"X to Y\" \"Y to Z\" \"2X to 2Z\" \"Y+Z to 2X\" mass action fold cusp parameter",
+          "\"theta_2-2theta_1\" \"216\" mass action cusp",
+          "Resultary semantic: mass action reaction network X to Y Y to Z 2X to 2Z Y+Z to 2X exact cusp fold multistationarity threshold K alpha",
+          "arXiv:2409.06877v5 Example 4.34",
+          "arXiv:2609.07265v1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+          "Example 4.34 says Sturm theory yields polynomial inequalities in rate parameters, but explicitly omits lengthy expressions; its exhibited example establishes attainability, not an enumerated table for all positive parameters.",
+          "Resultary returns the same target published finding at 2026/10/11/SCOPE-exact-fold-and-multistationarity-phase-diagram-for-a-three-speci--7a30c2c43cf2 rather than an independent matching tabulation."
+        ],
+        "reasoning": "A theorem/table containing the threshold T=(theta2-2theta1)^3/(216theta2²) or precise K_-(theta)<K<K_+(theta) classification was not located in inspected sources; absence of search hits is treated only as supporting search coverage, not novelty proof.",
+        "searches": [
+          "\"theta_2-2theta_1\" \"216\" mass action cusp",
+          "\"X to Y\" \"Y to Z\" \"2X to 2Z\" \"Y+Z to 2X\" mass action fold cusp parameter",
+          "Example 4.34 exact multistationarity region theta K three equilibria",
+          "Resultary source 2026/10/11/SCOPE-exact-fold-and-multistationarity-phase-diagram-for-a-three-speci--7a30c2c43cf2"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Banaji--Feliu explicitly derive the identical cubic and the existence of a three-root regime, and note that a Sturm-algebraic description could be obtained but omit it. The independent contribution is a closed global fixed-(theta1,theta2,theta3) diagram with sharp T and ordered fold K-values. General dual-equation theorems and cusp parametrization may cover a portion of the cusp locus, but available material does not prove they establish this complete fixed-parameter classification. A same-network 2026 follow-up is a material unresolved historical-priority risk, because its full text was inaccessible; no claim of exhaustive priority is made.",
+      "residual_risks": [
+        "Full text of arXiv:2609.07265v1 remains unread: it may contain an equivalent fold/cusp threshold or fixed-K semialgebraic description.",
+        "The exact phase diagram is an elementary calculus consequence of Banaji--Feliu’s printed scalar cubic; an older derivation may exist with different parameters or terminology.",
+        "Search indexing is incomplete; unindexed rate-constant elimination tables or supplements were not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full positive-root reduction and triple-root existence are prior; the paper explicitly omits the Sturm-semialgebraic parameter inequalities. It does not print the present closed fixed-theta K-phase diagram.",
+          "evidence": "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+          "identifier_or_url": "arXiv:2409.06877v5; DOI 10.1007/s00285-026-02429-8",
+          "material_read": "48-page original full text accessible; directly inspected pp.34-35 (Example 4.34, network and E_kappa and equation 4.4) by PDF text and page screenshots, and Theorem 3.21 with surrounding explanation in full-text journal HTML.",
+          "method": "Primary open-access arXiv PDF pages 34-35 visually inspected and Springer full-text theorem read.",
+          "title": "Positive equilibria in mass action networks: geometry and bounds",
+          "trigger": "Same network, exact polynomial f and equilibrium parameterization"
+        },
+        {
+          "assessment": "Provides general dual-equation fold/cusp approach; unknown whether its specific example already prints the threshold or complete K-phase diagram. Material unresolved source risk; inaccessible text is not labelled NOT_COVERING.",
+          "evidence": "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected",
+          "identifier_or_url": "arXiv:2609.07265v1",
+          "material_read": "Original abstract, author, date and topic. Neither complete paper nor Example 2 pages could be accessed through arXiv PDF/HTML or alternate open-access page.",
+          "method": "arXiv abstract and institutional record; lawful arXiv/OA full-text attempts failed; authorized Oxford retrieval returned vpn_disconnected and was not retried.",
+          "title": "On the computation of fold and cusp bifurcations in mass action networks via dual equations",
+          "trigger": "Exact network and apparent cusp parametrization, closest potential novelty overlap"
+        },
+        {
+          "assessment": "Classifies primarily networks with two actual chemical species and small reactant/product molecularity; it does not furnish this exact three-species conserved-system fixed-theta diagram.",
+          "evidence": "Banaji, Boros and Hofbauer, Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity, Nonlinear Dynamics 112 (2024), 21425-21448, DOI 10.1007/s11071-024-10068-1",
+          "identifier_or_url": "DOI 10.1007/s11071-024-10068-1",
+          "material_read": "Original open-access journal HTML, abstract, model class, key theorem descriptions of folds and cusp obstruction, and relevant classification/scope paragraphs.",
+          "method": "Open-access primary Springer full-text inspection of mathematical scope and main results.",
+          "title": "Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity",
+          "trigger": "Plausible dominating general bifurcation classification for few-reaction systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+        "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected",
+        "Banaji, Boros and Hofbauer, Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity, Nonlinear Dynamics 112 (2024), 21425-21448, DOI 10.1007/s11071-024-10068-1"
+      ],
+      "rationale": "The four-reaction example is a named motivating network for multistationarity and cusp methods, where an earlier paper explicitly omitted its full parameter inequalities. Its fixed-theta total-mass phase diagram is a natural and complete exact classification, not an arbitrary parameter slice: the threshold singles out the cusp, locates both folds, and gives the number of equilibria for every positive conserved total, including degeneracies and excluded K region. This is a bounded but reusable exact semialgebraic structural fact for the same network; no general reaction-network theorem or stability classification is claimed. Its mathematical value depends on the explicit missing classification, not the computational effort alone.",
+      "residual_risks": [
+        "Because the reduction to a cubic and the existence of up to three roots were already known, the advance is deliberately narrow and may be superseded by a previously uninspected explicit cusp calculation.",
+        "No claims about stability, basin structure or global dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Banaji and Feliu, Positive equilibria in mass action networks: geometry and bounds, Journal of Mathematical Biology 93 (2026), 37, Example 4.34 and Theorem 3.21; arXiv:2409.06877v5, pp. 34-35, https://arxiv.org/pdf/2409.06877",
+    "Banaji, On the computation of fold and cusp bifurcations in mass action networks via dual equations, arXiv:2609.07265v1, abstract only; source full text unavailable, Oxford authorized access reports vpn_disconnected",
+    "Banaji, Boros and Hofbauer, Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity, Nonlinear Dynamics 112 (2024), 21425-21448, DOI 10.1007/s11071-024-10068-1",
+    "Resultary semantic search with exact reaction names and conserved-mass phase terminology"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The arXiv:2609.07265 full manuscript could not be read after OA/arXiv failures and institutional VPN-disconnected response; residual priority risk named, not converted to scientific failure.",
+    "No external expert/Lean verification; exact symbolic computation supports but does not replace the general monotonicity proof.",
+    "Claim concerns only this reaction network, positive rates and fixed-theta conserved-mass fibers; it does not establish stability or general dynamics."
+  ]
+}

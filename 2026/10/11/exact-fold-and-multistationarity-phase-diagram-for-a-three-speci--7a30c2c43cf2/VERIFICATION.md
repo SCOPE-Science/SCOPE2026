@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The scalar equilibrium equation was differentiated and simplified exactly. The critical-point equation is the comparison of \(\theta_3\) with \(g(\alpha)=\alpha^2((1-2\alpha)\theta_2-2\theta_1)/8\). On its positive interval, \(g\) has exactly one maximum, \((\theta_2-2\theta_1)^3/(216\theta_2^2)\), so there are zero, one, or two critical points and no additional fold branches.
+# Independent mathematical audit
 
-The endpoint limits \(K(\alpha)\to+\infty\) as \(\alpha\downarrow0\) and \(K(\alpha)\to\theta_3\) as \(\alpha\uparrow1\), together with the sign pattern of \(K'\), give the complete root counts without numerical enumeration.
+## correctness
 
-For ordinary critical points, \(f_{\alpha\alpha}=-2(3\alpha\theta_2+2\theta_1-\theta_2)\ne0\) and \(f_K=-4\alpha\ne0\). At coalescence, \(f_{\alpha\alpha}=0\), \(f_{\alpha\alpha\alpha}=-6\theta_2\ne0\), and the determinant of the \((K,\theta_3)\) unfolding matrix for \((f,f_\alpha)\) is \(32\).
+PASS
 
-The one-to-one positive-equilibrium correspondence and the transfer from alternative scalar equations to the original mass-action bifurcation type are imported from the cited primary sources. No claim is made about stability away from the local bifurcation type or about global trajectories.
+Independently derived the rate conversion theta1=kappa1/kappa3, theta2=kappa1²/(kappa2 kappa3), theta3=kappa2/kappa4 and the positive equilibrium coordinates x=theta1(1-alpha)/2, y=theta2 alpha(1-alpha)/4, z=theta3(2-alpha)/alpha. Direct substitution in the mass-action equations vanishes, and any positive equilibrium forces z>theta3 and alpha in (0,1). Symbolically verified f=4alpha(K(alpha)-K), Kprime=2(g-theta3)/alpha² with g=alpha²[(1-2alpha)theta2-2theta1]/8, the unique maximum g(alpha*)=T and all endpoint inequalities. Hence the one/three/two counts are global, including K<=theta3. Exact symbolic checks verify the cusp K* expression, f_alphaalpha=-2(3alpha theta2+2theta1-theta2) on folds, f_alphaalphaalpha=-6theta2, and the unfolding determinant 32. The physical planar Jacobian on x+y+z=K has trace -kappa1-kappa2-4kappa3*x-kappa4*(y+z)<0 and determinant proportional to theta3-g(alpha), so fold/cusp zero eigenvalues are simple in the transverse direction. A sample theta=(1,4,1/1000) produced two ordered folds K≈0.55753958 and 0.56979709; this finite example is corroboration only, not proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Banaji--Feliu explicitly derive the identical cubic and the existence of a three-root regime, and note that a Sturm-algebraic description could be obtained but omit it. The independent contribution is a closed global fixed-(theta1,theta2,theta3) diagram with sharp T and ordered fold K-values. General dual-equation theorems and cusp parametrization may cover a portion of the cusp locus, but available material does not prove they establish this complete fixed-parameter classification. A same-network 2026 follow-up is a material unresolved historical-priority risk, because its full text was inaccessible; no claim of exhaustive priority is made.
+
+## value
+
+PASS
+
+The four-reaction example is a named motivating network for multistationarity and cusp methods, where an earlier paper explicitly omitted its full parameter inequalities. Its fixed-theta total-mass phase diagram is a natural and complete exact classification, not an arbitrary parameter slice: the threshold singles out the cusp, locates both folds, and gives the number of equilibria for every positive conserved total, including degeneracies and excluded K region. This is a bounded but reusable exact semialgebraic structural fact for the same network; no general reaction-network theorem or stability classification is claimed. Its mathematical value depends on the explicit missing classification, not the computational effort alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
