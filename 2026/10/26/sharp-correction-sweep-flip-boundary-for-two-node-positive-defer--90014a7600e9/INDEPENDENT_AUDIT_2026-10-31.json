@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:55:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified two-node quadrature, direct per-capita substitution gives predictor x0=a exp(h(1−a)) and correction x_{k+1}=a exp(h[1−(a+x_k)/2]). The normalized map u_{k+1}=c exp(−u_k) is decreasing, with unique positive fixed w=W0(c) and initial u0>w. The increasing second iterate has no nonfixed roots for c≤e and a unique attracting two-cycle for c>e: parametrizing endpoints v=d/(e^d−1), z=d e^d/(e^d−1) gives strictly increasing c(d) from e to infinity and multiplier vz=[d/(2sinh(d/2))]^2<1. At c=e the cubic normal form G(1+δ)=1+δ−δ³/6+O(δ⁴) yields alternate signed sqrt(k) limit sqrt6. The exact Lambert W threshold h_c(a) and carrying-capacity crossing h_r(a) satisfy 2<h_c<h_r, with h_c→2 as a↑1, giving the uniform all-initial-value frontier h≤2. Theorem concerns infinite correction count at fixed h; finite-sweep positivity and h→0 convergence are not contradicted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pezzella Theorem 5.5 concerns collocation-map contractivity; Theorem 5.6 bounds the predictor for small h; Theorem 5.7 concerns N_k<=M and small-h accuracy, not arbitrary infinite sweeps at fixed h.",
+          "Micalizzi–Torlo 2026 analyzes distinct IMEX correction algorithms."
+        ],
+        "reasoning": "Prior finite-step order or collocation stability does not logically imply convergence of explicit repeated corrections at an arbitrary fixed h; the present theorem identifies failure.",
+        "searches": [
+          "Mario Pezzella Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems 2026 Sections 5.2 5.7",
+          "Micalizzi Torlo 2026 implicit-explicit deferred correction methods"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.29523",
+        "https://www.researchgate.net/publication/408236168_Stable_Positive_Integral_Deferred_Correction_Methods_for_Positive_Dynamical_Systems",
+        "https://arxiv.org/abs/2608.23919"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original method's quadrature specializes directly to scalar recurrence; its positivity proof holds for each finite k even where the sequence fails to converge as k→∞.",
+          "The source's near-collocation accuracy estimates apply for bounded correction count and/or small h; they are compatible with fixed-h period doubling."
+        ],
+        "reasoning": "The generic flip criterion W(c)>1 gives local instability, but the strict c(d) monotonicity, global even/odd limit, sharp h_c,h_r and critical signed sqrt(k) identify the method's exact transition beyond what is stated in inspected source sections.",
+        "searches": [
+          "arxiv:2606.29523 SPIDeC method Eq 3 Gauss Lobatto M1",
+          "Lambert W decreasing exponential cycle threshold stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized correction iteration is the classical decreasing exponential map T(u)=c e^{-u}; its generic flip at w=1 is textbook-type dynamics.",
+          "The application is precisely the Pezzella SPIDeC-GL(1) correction sweep with c depending on physical a,h, not arbitrary map renaming."
+        ],
+        "reasoning": "Generic map structure is prior; the complete method-parameter phase diagram, critical rate and collocation bound is the limited surviving contribution.",
+        "searches": [
+          "Positive exponential deferred correction Gauss Lobatto two node logistic fixed step correction sweeps flip period two Lambert W threshold",
+          "logistic exponential Euler Picard iteration x_{n+1}=A exp(-bx_n) flip bifurcation",
+          "Wright type exponential decreasing map c e^-u Lambert W period two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top-12 included a different positive rational flip-map critical relaxation and positivity methods, no matching exponential-deferred-correction logistic formula.",
+          "A source paper numerical stability experiment does not constitute a tabulated all-a,h phase diagram."
+        ],
+        "reasoning": "Neither broad numerical output nor a different recurrence directly covers the full exact c=e and h_c(a) classification.",
+        "searches": [
+          "Positive exponential deferred correction Gauss Lobatto two node logistic fixed step correction sweeps flip period two Lambert W threshold",
+          "Resultary sharp flip boundary Gauss Lobatto deferred correction logistic iterations"
+        ]
+      },
+      "rationale": "Pezzella's 2026 full paper defines SPIDeC and proves positivity for finite correction sweeps, order estimates for sufficiently small step, and contractivity results for collocation; its Sections 5.2–5.7 do not give the exact fixed-h infinite-sweep logistic flip boundary or the explicit stable 2-cycle and critical sqrt(k) law. General decreasing exponential maps and Lambert W are classical, but exact algorithm-specific thresholds and physically bounded collocation interval form the assessed claim. Searches surfaced a different positive rational flip map and other integrators, not this same method. Qualified PASS, not novelty of one-dimensional flip dynamics.",
+      "residual_risks": [
+        "The exponential map's bifurcation theory is classical; only precise application to the SPIDeC-GL(1) correction iteration and finite-parameter threshold survives originality.",
+        "A general numerical-analysis result under different terminology might have an identical method-specific phase boundary.",
+        "No result for higher-node quadrature, arbitrary dynamics, roundoff, or conventional fixed finite correction counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes finite-correction positivity, small-h convergence and collocation contractivity; no same fixed-h all-sweep logistic global phase theorem in inspected relevant sections",
+          "evidence": [
+            "2026 Pezzella Theorem 5.5 (collocation), Theorem 5.6 (predictor), Theorem 5.7 (N_k≤M), Section 5.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.29523",
+          "material_read": "Full-text accessible via lawful ResearchGate publisher-author manuscript; materially read method Eq.(3), Gauss–Lobatto M=1 applicability, Sections 4–5.2 and Theorems 5.5–5.7, numerical contractivity discussion; not every appendix read",
+          "method": "ResearchGate publisher full-text HTML and direct theorem/section comparison; Oxford reported VPN disconnected but full HTML source succeeded",
+          "title": "Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems",
+          "trigger": "Exact prior numerical method, quadrature specialization and possible convergence theorem"
+        },
+        {
+          "assessment": "Different IMEX correction framework; cannot directly dominate logistic explicit positive exponential sweep",
+          "evidence": [
+            "Micalizzi–Torlo 2026 arXiv:2608.23919"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.23919",
+          "material_read": "Abstract and method description, not full manuscript",
+          "method": "Public bibliographic record",
+          "title": "New Efficient Implicit-Explicit Deferred Correction methods",
+          "trigger": "Potential broader high-order deferred correction result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positivity-preserving numerical update can fail to converge as its number of correction sweeps increases, even while its collocation endpoint remains physically bounded. Exact a-dependent Lambert W threshold, globally attracting two-cycle, and critical slowing quantify a counterintuitive, practical boundary of a specific motivated integrator, not just a generic flip-map exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.29523",
+    "https://www.researchgate.net/publication/408236168_Stable_Positive_Integral_Deferred_Correction_Methods_for_Positive_Dynamical_Systems",
+    "https://arxiv.org/abs/2608.23919"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The exponential map's bifurcation theory is classical; only precise application to the SPIDeC-GL(1) correction iteration and finite-parameter threshold survives originality.",
+    "A general numerical-analysis result under different terminology might have an identical method-specific phase boundary.",
+    "No result for higher-node quadrature, arbitrary dynamics, roundoff, or conventional fixed finite correction counts."
+  ],
+  "residual_risks": [
+    "The exponential map's bifurcation theory is classical; only precise application to the SPIDeC-GL(1) correction iteration and finite-parameter threshold survives originality.",
+    "A general numerical-analysis result under different terminology might have an identical method-specific phase boundary.",
+    "No result for higher-node quadrature, arbitrary dynamics, roundoff, or conventional fixed finite correction counts."
+  ],
+  "schema_version": 1
+}
