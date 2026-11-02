@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Direct complete enumeration covers all 38,760 six-subsets, checks acyclicity by union-find, constructs all legal exchange edges and BFS distances for all 2,520 starts. Independent certificate uses an explicitly isomorphic alternative graph labeling, a degree-one-peeling forest test, and pairwise intersection adjacency, and matches every one of the 3,173,940 unordered distances. A graph-theoretic edge-count argument proves the minimum size is at least six. Generated group of order 120, explicit representatives and orbit closure verify all 180 exceptional pairs, their unique partner and per-edge incidence. Both actual package programs executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1016/j.tcs.2023.114188",
+        "https://arxiv.org/html/1603.03855v2"
+      ],
+      "reasoning": "A published planar-subcubic connectivity theorem and its bounded-length transformation do imply connectedness, but not the sharp frequency of paths longer than the Johnson lower bound, uniqueness of exceptional partners, or orbit decomposition. The 2016 induced-forest theorem gives optimum-set-size bounds rather than a metric on optimal sets.",
+      "searches": [
+        "\"Feedback vertex set reconfiguration in planar graphs\" arxiv Bousquet Hommelsheim Kobayashi",
+        "minimum decycling set reconfiguration of prism and generalized Petersen graphs",
+        "feedback vertex set reconfiguration in planar graphs pdf site:arxiv.org"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1603.03855v2",
+      "https://arxiv.org/abs/1603.04559",
+      "https://doi.org/10.1016/j.tcs.2023.114188",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1002/(SICI)1097-0118(199705)25:1%3C59::AID-JGT4%3E3.0.CO;2-H"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.1016/j.tcs.2023.114188",
+        "https://arxiv.org/html/1603.03855v2",
+        "https://arxiv.org/abs/1603.04559"
+      ],
+      "reasoning": "Knowing a 6-diameter bound and 23940 exchange edges cannot determine how many nonadjacent pairs have excess two or whether those pairs share endpoints. The 2016 optimum-set results imply only cardinality inequalities. The 2023 general bound is weaker than the exact local pair classification even specialized to the dodecahedron. No checked theorem with a stronger full metric distribution was found.",
+      "searches": [
+        "minimum feedback vertex sets dodecahedral graph GP(10,2) 2520 configurations token jumping graph diameter six",
+        "minimum feedback sets of dodecahedron token jump exchange graph exact 6 diameter",
+        "unrestricted single vertex exchange dodecahedron 2520 minimum feedback vertex sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/1603.03855v2",
+        "https://doi.org/10.1016/j.tcs.2023.114188"
+      ],
+      "reasoning": "Equivalent language includes minimum decycling sets, complements of maximum induced forests, token-jumping reconfiguration, and Johnson-geodesic excess. The inspected theorem statements do not list the per-pair excess orbits. A general graph-distance result would only cover the claim if it determined this specialized configuration graph and its exceptional pairs; none was identified.",
+      "searches": [
+        "minimum feedback vertex sets dodecahedral graph exchange geometry dodecahedral graph cubic polyhedron",
+        "decycling set reconfiguration dodecahedron vertex exchange metric automorphism orbits",
+        "dodecahedral graph feedback vertex set exchange double detour 180 pairs Johnson distance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/1603.03855v2",
+        "https://arxiv.org/abs/1603.04559"
+      ],
+      "reasoning": "Accessible earlier static and connectivity counts for this configuration space include its 2520 optimum sets, 23940 exchange edges, and diameter 6. These are explicitly excluded from novelty. Searches did not return the intersection-distance table or the three-orbit exceptional matching. Failed database search is not itself a proof of novelty.",
+      "searches": [
+        "dodecahedral minimum feedback vertex sets unrestricted token jumping diameter 6 2520 23940 180 detour pairs",
+        "\"dodecahedral\" \"2520\" \"feedback vertex\"",
+        "\"dodecahedron\" \"2520\" \"induced forest\""
+      ]
+    },
+    "rationale": "The novel portion is the exchange-excess count by overlap, the 180 exceptional pairs forming a matching, the 6-per-edge localization, and the three full-symmetry orbits. Prior general results address optimum feedback-set cardinality or connectedness/bounded reachability, and previously accessible exact data on this graph establish total states, exchange edges, and diameter but not the exceptional-pair classification. Targeted semantic and publication searches found no stronger covering theorem. A published article was not fully accessible, retained as an explicit residual risk.",
+    "residual_risks": [
+      "The 2023 general reconfiguration article was not available in full text; specialized results outside accessible displayed theorems cannot be definitively excluded.",
+      "An older classification under decycling, maximum induced forest, or Johnson subgraph terminology could encode the same excess-two pairs.",
+      "A previous exact coarse census of the same finite configuration graph exists; counts of states, edges, and diameter are not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not supply the token-jump pair-distance or orbit classification.",
+        "evidence": "Theorem 6.1 characterizes the cubic dodecahedron; final section identifies feedback vertex number 6 rather than a reconfiguration metric.",
+        "identifier_or_url": "https://arxiv.org/html/1603.03855v2",
+        "material_read": "Accessible full-text HTML version 2: introduction, main bounds, section 6 dodecahedron characterization, and final proof identifying decycling size 6; v1 release timestamp checked separately.",
+        "method": "Read statements, relevant proof sections, and definition of feedback-set optimum; compared invariants directly.",
+        "title": "Size of the Largest Induced Forest in Subcubic Graphs of Girth at least Four and Five",
+        "trigger": "Primary archived work explicitly treats the dodecahedron as a sharp induced-forest example."
+      },
+      {
+        "assessment": "Static extremal bound, not covering pairwise reconfiguration.",
+        "evidence": "Theorem 1.3 bounds feedback-set cardinality by a function of vertex and edge counts.",
+        "identifier_or_url": "https://arxiv.org/abs/1603.04559",
+        "material_read": "Accessible arXiv HTML/text: abstract, introduction, theorem statements, mention of dodecahedral extremality.",
+        "method": "Compared optimum-size bounds with exchange-metric claim.",
+        "title": "Minimum Size of Feedback Vertex Sets of Planar Graphs of Girth at least Five",
+        "trigger": "Related historical planar girth-5 bound with the dodecahedron as equality case."
+      },
+      {
+        "assessment": "Available text proves broad connectivity and a non-sharp path-length bound but does not state this pair-counting result. Full-text comparison limited.",
+        "evidence": "Theorem 2 establishes connectivity for planar subcubic graphs, with at most 7k moves in its construction; no displayed theorem counts pairs with excess two.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+        "material_read": "Publisher-indexed abstract, introduction, formal adjacency definition, Theorems 1 through 5 and section outlines. Complete article not available in sources inspected.",
+        "method": "Compared displayed theorem statements and accessible summary to the exact pairwise metric; complete full text was not accessible.",
+        "title": "Feedback vertex set reconfiguration in planar graphs",
+        "trigger": "Closest work on the exact notion of single-vertex feedback-set exchange."
+      },
+      {
+        "assessment": "Abstract focuses on general decycling, grids, and hypercubes; an exact dodecahedral reconfiguration comparison is unavailable from this source.",
+        "evidence": "Abstract describes minimum removal to destroy all cycles and families of graph products.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/(SICI)1097-0118(199705)25:1%3C59::AID-JGT4%3E3.0.CO;2-H",
+        "material_read": "Publisher bibliography and abstract only; no full text accessed.",
+        "method": "Checked stated focus and scope.",
+        "title": "Decycling graphs",
+        "trigger": "Classical original treatment of decycling as graph invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c97fa2f2-e601-4439-8672-c375b12a93b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural Johnson lower bound measures necessary exchanges before feasibility constraints. The 180 genuine maximum-excess obstructions are not arbitrary table entries: they form a uniquely partnered matching on only 360 configurations and are uniformly localized to every original dodecahedral edge, in exactly three symmetry orbits. This determines the rare precise circumstances where shortest feasibility-preserving exchange requires two additional moves, finer than connectedness, diameter, or simple state count.",
+    "status": "PASS"
+  }
+}
