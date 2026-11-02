@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The labeled-cycle run decomposition is bijective: every permutation determines one positive composition and one partition of run positions with no adjacent positions in the same block, and each cycle on \(s\) specified labels has \((s-1)!\) orders. The proof bounds configurations having no nearly spanning cycle, then classifies all fixed-size exceptional sets. The leading even-boundary case has one giant cycle with interior isolated exceptional labels, while the odd-boundary case forces an exceptional endpoint, explaining the extra inverse power of \(n\). All 52 package verification checks passed. The proof is restricted to fixed \(d\); finite computations are not used to justify infinite claims.
+## correctness
 
-## Originality (PASS, qualified)
-The closest primary literature studies unweighted set-partition successions (Munagi, 2005 and 2008), consecutive-support whole cycles (Brualdi--Deutsch, 2010), and adjacent successive entries *within* cycle notation (Mansour--Shattuck, 2016). These are different statistics or different weighting measures. The Ewens sampling formula supplies the classical cycle-partition weights, but does not state the fixed-deficit parity tail. Claim/implication comparisons and targeted searches found no dominating theorem. Residual risk: an equivalent asymptotic may exist in unindexed work on factorial-weighted partition successions.
+PASS
 
-## Mathematical value (PASS)
-The statistic measures segmentation of a random cycle partition along the natural label order. Exact extreme-tail probabilities are different by a full polynomial order depending on the parity of a fixed number of separating boundaries, despite typical boundary counts being of linear order. The dominant-cycle proof identifies the sharp boundary mechanism and the constants for every fixed deficit, rather than merely enumerating isolated small examples.
+D_n counts boundaries between consecutive *labels* assigned to different cycles, not adjacent elements in a cycle ordering. Unique maximal runs in the label-ordered cycle partition have compositions ell_1+...+ell_r=n (r=d+1), with nonconsecutive equal-block partition of runs; number of permutations with those cycle memberships is exactly product_B(sum_{j in B}ell_j-1)!. Fix r: an individual largest cycle size m<=n/2 has exponentially small normalized weight; if m>n/2, s=n-m small, t runs of that large cycle are nonadjacent (t<=ceil(r/2)), so contribution O_r(n^(t-s-2)). The only order n^-1 configurations when r=2k+1 have one large cycle occupying alternating k+1 runs and k exceptional singleton labels, giving k! C(n-k-1,k)(n-k-1)!/n!~1/n. For r=2k+2, two alternations with k+1 singleton exceptions contribute 2(k+1)! C(n-k-2,k)(n-k-2)!/n!~(2k+2)/n²; all others lower-order. Independently enumerated every permutation n<=7 and independently summed the weighted composition formula for all eight d values at n=8, matching vector (5040,1812,6042,5539,7744,7134,5102,1907). Additional exact composition probabilities for fixed d=0..3 and n=12,20,30 corroborate the two scaled limits. Finite tests supplement asymptotic dominance proof.
 
-## Scope and related sources
-The largest scientific uncertainty is historical priority, especially in general weighted-set-partition enumeration. The statement does not address other Ewens parameters or growing boundary counts. The finite certificate checks the exact finite formula independently by brute force; the proof handles asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the Ewens-weighted cycle-partition boundary tail and its even/odd order change. Munagi counts unweighted set partitions with consecutive labels in same block; Mansour–Shattuck counts consecutive elements actually adjacent *within the cyclic order*, which is not the same condition. Brualdi–Deutsch count entire cycles of consecutive labels. No statement-level implication to the factorially weighted fixed-d tail appears in full relevant primary texts.
+
+## value
+
+PASS
+
+Natural full-size permutation statistic D_n has an exact finite distribution formula plus a pronounced parity-dependent rare-event asymptotic with explicit coefficients. Different decay powers for neighboring fixed boundaries are nontrivial and could be used as benchmarks for Ewens-weighted partition runs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

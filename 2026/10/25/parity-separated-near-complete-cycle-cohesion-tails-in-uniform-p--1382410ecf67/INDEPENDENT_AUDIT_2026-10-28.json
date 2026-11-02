@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:04:20.818601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "D_n counts boundaries between consecutive *labels* assigned to different cycles, not adjacent elements in a cycle ordering. Unique maximal runs in the label-ordered cycle partition have compositions ell_1+...+ell_r=n (r=d+1), with nonconsecutive equal-block partition of runs; number of permutations with those cycle memberships is exactly product_B(sum_{j in B}ell_j-1)!. Fix r: an individual largest cycle size m<=n/2 has exponentially small normalized weight; if m>n/2, s=n-m small, t runs of that large cycle are nonadjacent (t<=ceil(r/2)), so contribution O_r(n^(t-s-2)). The only order n^-1 configurations when r=2k+1 have one large cycle occupying alternating k+1 runs and k exceptional singleton labels, giving k! C(n-k-1,k)(n-k-1)!/n!~1/n. For r=2k+2, two alternations with k+1 singleton exceptions contribute 2(k+1)! C(n-k-2,k)(n-k-2)!/n!~(2k+2)/n²; all others lower-order. Independently enumerated every permutation n<=7 and independently summed the weighted composition formula for all eight d values at n=8, matching vector (5040,1812,6042,5539,7744,7134,5102,1907). Additional exact composition probabilities for fixed d=0..3 and n=12,20,30 corroborate the two scaled limits. Finite tests supplement asymptotic dominance proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mansour–Shattuck counts i,i+1 consecutive in the cycle ordering; Brualdi–Deutsch counts whole consecutive-block cycles. Neither event is determined by the equality of their cycle labels alone."
+        ],
+        "reasoning": "A more general d-successions formula for cycle-order neighbors does not dominate this partition-membership event.",
+        "searches": [
+          "Resultary semantic query: uniform random permutation cycle partitions consecutive labels same cycle near all adjacent boundaries asymptotics Ewens succession",
+          "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles",
+          "https://arxiv.org/abs/1005.0781"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/26533329_Set_partitions_with_successions_and_separations",
+        "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles",
+        "https://arxiv.org/abs/1005.0781",
+        "https://doi.org/10.1016/j.ejc.2007.06.003",
+        "Resultary semantic query: uniform random permutation cycle partitions consecutive labels same cycle near all adjacent boundaries asymptotics Ewens succession"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mansour–Shattuck Def/Thms 2.3–2.4 use rising/falling cycle successions, adjacency in a written cycle; this is distinct even at fixed n. Munagi result supplies an unweighted reference, but exact cycle partition weights and dominance argument are additional."
+        ],
+        "reasoning": "Neither full source implies the claimed n^-1 even / (d+1)n^-2 odd tail without novel weighted combinatorial analysis.",
+        "searches": [
+          "Resultary semantic query: uniform random permutation cycle partitions consecutive labels same cycle near all adjacent boundaries asymptotics Ewens succession",
+          "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D_n counts separations in the induced cycle *set partition*, with Ewens weights product_B(|B|-1)!; Munagi counts every set partition equally, so cannot simply identify its succession enumerator."
+        ],
+        "reasoning": "Fixed membership is the same partition statistic but not the same weighted probability law; matching definition is insufficient to transfer an unweighted formula.",
+        "searches": [
+          "Resultary semantic query: uniform random permutation cycle partitions consecutive labels same cycle near all adjacent boundaries asymptotics Ewens succession",
+          "https://www.researchgate.net/publication/26533329_Set_partitions_with_successions_and_separations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Munagi Theorem 2.3 gives unweighted successions c_r(n,k)=C(n-1,r) S(n-r-1,k-1); the required factorial-weighted distribution and parity-separated near-all-cohesive asymptotics are not contained in that table."
+        ],
+        "reasoning": "A table of unweighted Stirling counts does not evaluate the Ewens cycle-size weights.",
+        "searches": [
+          "Resultary semantic query: uniform random permutation cycle partitions consecutive labels same cycle near all adjacent boundaries asymptotics Ewens succession",
+          "https://www.researchgate.net/publication/26533329_Set_partitions_with_successions_and_separations"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the Ewens-weighted cycle-partition boundary tail and its even/odd order change. Munagi counts unweighted set partitions with consecutive labels in same block; Mansour–Shattuck counts consecutive elements actually adjacent *within the cyclic order*, which is not the same condition. Brualdi–Deutsch count entire cycles of consecutive labels. No statement-level implication to the factorially weighted fixed-d tail appears in full relevant primary texts.",
+      "residual_risks": [
+        "Earlier factorial-weighted Ewens partition succession formulas under another name may be an implicit alternative representation.",
+        "Fixed d only; no uniform asymptotics as d grows, no nonuniform Ewens theta or cyclic-wrap boundary case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unweighted set partitions with Stirling numbers; factorial weights required for permutation cycles are absent",
+          "evidence": "Theorem 2.3 c_r(n,k)=binom(n-1,r)S(n-r-1,k-1)",
+          "identifier_or_url": "https://www.researchgate.net/publication/26533329_Set_partitions_with_successions_and_separations",
+          "material_read": "Full primary paper text (13 pages) accessible in ResearchGate HTML extraction; Definitions 1.2 and Theorems 2.2–2.3, Corollary 2.5 read",
+          "method": "Primary OA author-uploaded full text via web HTML",
+          "title": "Set partitions with successions and separations",
+          "trigger": "Same label-consecutive-in-block partition statistic"
+        },
+        {
+          "assessment": "Cycle successions are within-cycle ordering adjacency, not merely same cycle membership",
+          "evidence": "Definition rising/falling neighbors in a cyclic order; formulas count such successions",
+          "identifier_or_url": "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles",
+          "material_read": "Complete primary 9-page text read through author-uploaded ResearchGate HTML; Introduction and Theorems 2.3–2.4, Section 3",
+          "method": "Author-uploaded primary full text via web HTML",
+          "title": "Counting permutations by the number of successions within cycles",
+          "trigger": "Highly relevant same permutations and successive labels"
+        },
+        {
+          "assessment": "Counts cycles supported on consecutive sets, a stronger event than a single label-boundary being nonseparating",
+          "evidence": "Whole adjacent cycles, not single same-cycle label pairs",
+          "identifier_or_url": "https://arxiv.org/abs/1005.0781",
+          "material_read": "Accessible full arXiv manuscript read for definitions and enumerations",
+          "method": "Primary full-text arXiv",
+          "title": "Adjacent q-Cycles in Permutations",
+          "trigger": "Consecutive-label cycles potential alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural full-size permutation statistic D_n has an exact finite distribution formula plus a pronounced parity-dependent rare-event asymptotic with explicit coefficients. Different decay powers for neighboring fixed boundaries are nontrivial and could be used as benchmarks for Ewens-weighted partition runs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/26533329_Set_partitions_with_successions_and_separations",
+    "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles",
+    "https://arxiv.org/abs/1005.0781",
+    "https://doi.org/10.1016/j.ejc.2007.06.003",
+    "Resultary semantic query: uniform random permutation cycle partitions consecutive labels same cycle near all adjacent boundaries asymptotics Ewens succession"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier factorial-weighted Ewens partition succession formulas under another name may be an implicit alternative representation.",
+    "Fixed d only; no uniform asymptotics as d grows, no nonuniform Ewens theta or cyclic-wrap boundary case."
+  ],
+  "schema_version": 1
+}
