@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact stationary Bloch solution and beta derivative reconstruct the SLD QFI. Compact-uniform expansion yields positive monotonicity in transverse squared reset amplitude; the remaining pure-target optimization is strictly concave at high temperature. The boundary derivative has nonzero s-Jacobian, yielding a unique analytic transition curve with slope 8/27. The finite positive-temperature witness uses exact rational QFI. verify.py passes 7220 finite tests, corroborating but not replacing the analytic proof; no finite test is treated as an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The initiating paper gives a general reset-Liouvillian representation and a ground-state thermometry example, while coherent resetting addresses frequency QFI in its other example.",
+        "Altintas (arXiv:1602.06783v1) concerns two-qubit phase estimation with dephasing and resetting, not the one-qubit thermal Davies inverse-temperature parameter."
+      ],
+      "reasoning": "The general reset-resolvent formula provides a starting point but does not alone imply a tight all-target QFI maximization or boundary slope. The prior coherence-thermometry theorem concerns nonstationary preparation; no identified broader result directly dominates both the optimization and the finite rational witness.",
+      "searches": [
+        "quantum thermodynamics open quantum systems 2026 population entanglement heat dynamics",
+        "reset-assisted thermometry qubit quantum Fisher information optimize reset target state population versus coherence",
+        "reset-enhanced dissipative quantum metrology Silan Li Qingjun Tong Ruicheng Bao thermometry reset state",
+        "arxiv:1602.06783v1 steady reset quantum Fisher SU(2)",
+        "arxiv:2610.31249v1 coherent frequency metrology section VI"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.31249v1 full HTML and supplement",
+      "arxiv:2405.14439v1 full HTML",
+      "arxiv:1602.06783v1 open text",
+      "published-finding corpus mathematical records via the queries cited above",
+      "Accessible local historical claims and IDs for deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main primary source Eq. (5) supplies the reset master equation; Supplemental S16-S24 explicitly sets ground reset state; no all-target Bloch QFI extremization therein.",
+        "Frazão et al. show that initial coherence improves *transient* qubit QFI; they do not establish a phase transition in optimized *stationary* continuous resets.",
+        "Altintas maximizes phase QFI for a different dephasing model, with no inverse-temperature Davies generator."
+      ],
+      "reasoning": "The new claim is stronger than the stated ground-reset benchmark in a different direction (resource-optimized coherence). It is not a corollary of the transient coherence improvement alone: a steady reset drives a competition between longitudinal and transverse susceptibility, producing the nontrivial threshold s=1/3; the exact finite-temperature rational witness makes the strict distinction concrete.",
+      "searches": [
+        "arxiv:2610.31249v1 full primary text, Supplemental Section III",
+        "arxiv:2405.14439v1 full HTML Sec IV",
+        "arxiv:1602.06783v1 full source text",
+        "published-finding corpus query: Davies bosonic qubit master equation continuous resetting coherent pure target high-temperature inverse-temperature Fisher information sharp phase boundary at reset rate gamma over three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source derives the Davies qubit steady population for ground reset, not a Bloch-ball reset-state QFI maximization (Li–Tong–Bao, arXiv:2610.31249v1 Supplemental III).",
+        "Frazão et al. analyze transient initialized-coherence thermometry without Poisson replacement (arXiv:2405.14439v1 Secs III-IV)."
+      ],
+      "reasoning": "Optimizing continuous replacement-state coherence in steady-state inverse-temperature QFI is not equivalent to optimizing an initial state along a freely thermalizing transient or to optimizing the ground-reset rate. Generic Bloch-variable reparameterizations and phase rotations were accounted for; an exact same-object 1/3 transition was not identified.",
+      "searches": [
+        "coherent reset targets improve thermal qubit temperature quantum Fisher information versus ground-state reset optimized Bloch pure coherence Davies Lindblad steady state",
+        "reset-assisted thermometry qubit quantum Fisher information optimize reset target state population versus coherence",
+        "reset-enhanced dissipative quantum metrology Silan Li Qingjun Tong Ruicheng Bao thermometry reset state",
+        "Davies bosonic qubit master equation continuous resetting coherent pure target high-temperature inverse-temperature Fisher information sharp phase boundary at reset rate gamma over three",
+        "arxiv:2610.31249v1 eq. (5), supplemental Sec. III, S16-S24",
+        "arxiv:2405.14439v1 Secs III-IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned thermometric and qubit-related entries, including a published sharp inverse-environment-size stochastic bath reduction result, which calculates dephasing error, not target-optimized thermal QFI.",
+        "A published mean-field Ising entropy result concerns propagation-of-chaos entropy rather than the present reset problem."
+      ],
+      "reasoning": "No precomputed QFI optimization table or exact phase boundary for this Davies model was located. Search-result absence is not proof of novelty; the statement has been compared against closest returned mathematical claims.",
+      "searches": [
+        "stochastic resetting renewal quantum channel hazard discrete-time complete positivity divisibility operator order",
+        "coherent reset targets improve thermal qubit temperature quantum Fisher information versus ground-state reset optimized Bloch pure coherence Davies Lindblad steady state",
+        "reset-assisted thermometry qubit quantum Fisher information optimize reset target state population versus coherence",
+        "Davies bosonic qubit master equation continuous resetting coherent pure target high-temperature inverse-temperature Fisher information sharp phase boundary at reset rate gamma over three"
+      ]
+    },
+    "rationale": "Published source solves ground-reset steady thermometry, but its full article and supplemental do not optimize coherent reset preparation; finite-temperature coherent QFI witness strictly beats all diagonal targets. Frazão et al. establish transient coherence thermometry but no continuous-reset steady-state phase. A published all-target dominating result was not identified in targeted published-finding corpus and primary-literature searches; conclusions are qualified best-knowledge, not priority certification.",
+    "residual_risks": [
+      "A more general stationary Bloch-state quantum Fisher target-optimization theorem may implicitly yield the phase boundary.",
+      "published-finding corpus semantic coverage and identified primary papers cannot establish exhaustive literature novelty.",
+      "High-temperature ideal Davies rates diverge; the physical interpretation of the mathematical limit requires care."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source provides ground-reset steady thermometry and coherent reset for a different estimated parameter; does not present all-target inverse-temperature QFI phase boundary",
+        "evidence": "Eq.(5), (13)-(14); Supplemental III states ground-state target p_delta=0 and derives S18-S24.",
+        "identifier_or_url": "https://arxiv.org/html/2610.31249v1",
+        "material_read": "Main reset framework, steady-state thermometry and frequency-estimation passages, Supplemental Sections II, III, and VI, including equations S16-S24 and model assumptions",
+        "method": "Full openly accessible arXiv HTML text and supplemental mathematics",
+        "title": "Reset-Enhanced Dissipative Quantum Metrology",
+        "trigger": "Identical reset-Lindbladian and stationary Davies thermal-qubit application"
+      },
+      {
+        "assessment": "Recognizes established role of coherence in transient thermalometry, but studies initial-condition transients without continuous reset; does not imply claimed threshold or exact finite witness",
+        "evidence": "Abstract and Sections III-IV analyze initial-state coherence along transient relaxation.",
+        "identifier_or_url": "https://arxiv.org/html/2405.14439v1",
+        "material_read": "Model/dynamics, QFI derivation, Section IV coherence/diagonal initial conditions, and discussion",
+        "method": "Full openly accessible arXiv HTML text",
+        "title": "Coherence-enhanced single-qubit thermometry out of equilibrium",
+        "trigger": "Broad coherence-enhancement theorem could subsume proposed target optimization"
+      },
+      {
+        "assessment": "Two-qubit dephasing-reset phase-estimation model, not thermal Davies single-qubit inverse-temperature estimation",
+        "evidence": "Hamiltonian, reset dynamics, SU(2) phase estimation setting.",
+        "identifier_or_url": "https://arxiv.org/abs/1602.06783",
+        "material_read": "Open-access primary paper, mathematical model and QFI-estimation parameter sections",
+        "method": "Open scholarly full text inspection",
+        "title": "Quantum Fisher Information of an Open and Noisy System in the Steady State",
+        "trigger": "Stationary reset-assisted quantum Fisher information with coherent states"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1152a60-e2e9-4a0d-8046-b3c6c98f569e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initiating Davies thermometry benchmark fixes a ground reset target. An exact controllable threshold at reset-to-bath ratio 1/3 tells when energy-basis coherence is required for the best high-temperature stationary thermometer, and its slope calibrates finite-temperature shift. An exact finite-temperature witness establishes a nonzero improvement over all energy-diagonal targets at the same reset rate, supplying a real operational capability distinction; scope and costs are clearly limited.",
+    "status": "PASS"
+  }
+}
