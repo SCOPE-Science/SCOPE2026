@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Necessity derives mismatch capacities from balanced color margins; sufficiency is supplied by an explicit half-circle rotation of each feasible mismatch multiset. The one/two/many-color cases establish exactly the displayed support for all positive integer profiles. Exact independent counting verifies all 2047 compositions through n=11 and 19714 positive support witnesses; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hall-type and circulation arguments can give existence of a fixed mismatch vector, but no source identified an all-profile closed support interval/parity characterization.",
+        "The exact finite-sample support is not stated in Stark arXiv:2608.00710."
+      ],
+      "reasoning": "General matching feasibility or inclusion–exclusion could in principle subsume a special case, but deriving the explicit sharp maximum, binary parity obstruction, and gap-free three-color spectrum requires optimizing over mismatch profiles. No retrieved broader theorem was found to provide those implications explicitly; this remains a qualified priority claim.",
+      "searches": [
+        "permutation contingency table off diagonal support exact number of non diagonal entries arbitrary positive equal margins",
+        "multiset permutations possible number of matches positions no fixed points exactly t known results"
+      ]
+    },
+    "checked_sources": [
+      "Dudley Stark, arXiv:2608.00710, 2026-08-01",
+      "Dongsu Kim, Jang Soo Kim and Seunghyun Seo (2017), author-manuscript PDF",
+      "Stanley, Enumerative Combinatorics vol. 1, Problem 2.12 (as quoted in Stark, not independently inspected in full)",
+      "Math Stack Exchange discussion of the Stanley multiset derangement formula (2018)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stark computes moments and Poisson approximation bounds, not the exact support for all finite profiles.",
+        "Stanley’s multiset-derangement formula characterizes whether W=0 (when evaluated), not all W values as a closed range.",
+        "Kim, Kim and Seo count no-fixed-color classes and special derangement structures."
+      ],
+      "reasoning": "Even an exact zero-match count does not by itself imply that all positive mismatch counts in a specified interval are achievable or that two colors have only even mismatch counts. Conversely, an exact multivariate generating function might encode the distribution, so uninspected older enumeration literature poses a nonzero implication risk.",
+      "searches": [
+        "arxiv:2608.00710 Poisson approximations fixed points random multiset permutations",
+        "multiset derangements inclusion exclusion Stanley Problem 2.12",
+        "colored permutations no monochromatic cycles Kim Kim Seo 2017"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stark, arXiv:2608.00710, Sections 1–4, studies the count but not the feasible support set.",
+        "Kim–Kim–Seo (2017) considers the zero-match derangement endpoint."
+      ],
+      "reasoning": "Permuting identical copies is defined by matching positions of the sorted multiset word; equivalently, one seeks diagonal-count support of integer nonnegative tables with the same prescribed row and column margins. The source treatment of the distribution and zero-match case did not yield the all-count support or the sharp parity/no-gap distinction.",
+      "searches": [
+        "\"multiset permutations\" \"number of fixed points\" possible values",
+        "multiset permutations support rencontres number of matches possible values",
+        "for multiset permutations every possible number of fixed points matches has full interval except n minus one with at least 3 colors; two colors only parity fixed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing multiset derangement enumerations treat the zero-fixed-point coefficient.",
+        "The exact count recursion in check_support.py enumerated sizes at most 11; it is verification rather than an external prior table."
+      ],
+      "reasoning": "No directly matching support table for unrestricted positive color multiplicities was identified. A classical coefficient generating function is not the explicit all-profile support classification itself, though it could imply individual positive coefficients when computed.",
+      "searches": [
+        "multiset derangements exact support spectrum all fixed-point counts",
+        "\"multiset permutations\" \"fixed point\" \"support\" maximum number",
+        "\"multiset\" \"fixed points\" \"spectrum\" derangement"
+      ]
+    },
+    "rationale": "Primary full-text comparison finds approximation, moment and zero-derangement literature but no directly covering unrestricted all-profile support spectrum and explicit realization. Novelty remains qualified by possible implicit older enumeration or matching results.",
+    "residual_risks": [
+      "Older rook-polynomial/transportation-table support results may implicitly or explicitly subsume this classification.",
+      "The complete text of Knuth’s The Art of Computer Programming, vol. 3 and Stanley’s book was not independently inspected; only relevant cited content and published derivations were compared.",
+      "Mathematical novelty is a best-knowledge assessment, not an independent historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same W and a_i parameters, but support classification and constructive realization absent",
+        "evidence": "Sections 1–4 provide Lemmas 1–3, Theorems 1–4 and distributional approximations, with no support-spectrum theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.00710",
+        "material_read": "Full HTML mathematical text: introduction, mean/variance, Poisson upper and lower bounds, and references",
+        "method": "Section-by-section theorem and implication comparison",
+        "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+        "trigger": "Identical object and statistic; primary 2026 source"
+      },
+      {
+        "assessment": "Addresses zero-color fixed-point restrictions, not the full W-support classification",
+        "evidence": "The central matching restriction excludes monochromatic fixed cycles and describes derangements, unlike all mismatch counts.",
+        "identifier_or_url": "https://mathsci.kaist.ac.kr/~dskim/papers/J160392AOP.pdf",
+        "material_read": "Author-manuscript PDF: opening motivation, central derangement theorem, selected final material and references",
+        "method": "Text extraction with selected page inspection",
+        "title": "Colored permutations with no monochromatic cycles",
+        "trigger": "Related multiset/colored derangement enumeration"
+      },
+      {
+        "assessment": "Provides a formula for one endpoint only",
+        "evidence": "Inclusion–exclusion counts the number of zero-fixed-point multiset permutations.",
+        "identifier_or_url": "https://math.stackexchange.com/questions/2697154/derangement-formula-for-multisets",
+        "material_read": "Full displayed question and answer giving exact zero-match inclusion–exclusion",
+        "method": "Scientific formula and implication comparison; contextual discussion rather than research publication",
+        "title": "Derangement formula for multisets",
+        "trigger": "Explanation of Stanley multiset derangement inclusion–exclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3698ed40-fe98-4099-b3dd-e1b639203872",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the natural complete finite-sample support of the fixed-point statistic from recent Poisson-approximation work. It gives exact extreme values, a universal one-mismatch gap, a two-color parity phase, and a gap-free spectrum for three or more symbols, with a linear-time witness. These are structural distributional facts beyond a numerical table or moment formula.",
+    "status": "PASS"
+  }
+}
