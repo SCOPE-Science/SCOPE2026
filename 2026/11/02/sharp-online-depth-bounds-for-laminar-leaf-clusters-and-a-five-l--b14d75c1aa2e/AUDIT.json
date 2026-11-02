@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Universal VC at most two follows from intersecting-incomparable trace obstruction. Positive membership classes are inclusion chains of at most H concepts, proving the online upper bound. Complete b-ary regular trees realize all ancestor-chain thresholds, and an opposite root subtree supplies matching negative rank by induction. The n<=4 bound follows from 2N concept counting and a two-shape binary-tree analysis; a five-leaf explicit root (2,3) split gives rank three. Two independent combinatorial generators reproduce the complete 1–5-leaf census and regular-tree finite instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2203.12211: generic shatter-growth bound, does not impose laminar chain height H or give exact b-ary equality.",
+        "arXiv:1909.09667: approximates clustering objective and does not analyze membership-query Littlestone dimension.",
+        "published-finding corpus closest 2026/9/18/SCOPE-binary-similarity-square-root-tree-likeness--5d4665db6247: structural clustering similarity bound, not shattering."
+      ],
+      "reasoning": "No inspected general theorem computes the claimed chain-height extremum or derives the sharp five-leaf onset. Standard hypothesis-count and generic Sauer-Shelah bounds do not imply the chain-height-dependent result when arbitrarily many disjoint clusters are allowed.",
+      "searches": [
+        "Rooted tree clades as hypotheses, leaf-membership queries: exact Littlestone dimension 1+floor(log2(h+1)) on complete binary trees, VC dimension two",
+        "Online shattering of laminar set families by point membership, binary hierarchy, rooted subtree clusters and clade membership",
+        "dual VC dimension and Littlestone dimension of laminar families of rooted tree clusters",
+        "thicket dimension laminar family maximum chain length online learning",
+        "littlestone dimension of laminar concept class height theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.09667",
+      "arXiv:2203.12211",
+      "Published mathematical-result index searches: Rooted tree clades as hypotheses, leaf-membership queries: exact Littlestone dimension 1+floor(log2(h+1)) on complete binary trees, VC dimension two, Online shattering of laminar set families by point membership, binary hierarchy, rooted subtree clusters and clade membership, dual VC dimension and Littlestone dimension of laminar families of rooted tree clusters, Littlestone dimension laminar families subtree clusters hierarchy online learning, VC dimension dual laminar families clades rooted trees, laminar Littlestone dimension hierarchy",
+      "bf95851f-8ef7-46a4-af11-75bd41caa378",
+      "51dd1a62-04e5-4f08-9ee2-02805b2ecba0",
+      "9d757d9b-9c06-470e-ad09-f97b829e45cb",
+      "f6815a2a-2ce0-4870-90c7-6c03680eab3b",
+      "2026/9/18/SCOPE-binary-similarity-square-root-tree-likeness--5d4665db6247",
+      "2026/10/4/SCOPE-catalan-schr-der-orbit-profiles-of-ordered-ultrametric-ball-pres--e6f7c412919e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1909.09667 Definition 1: hierarchy as binary tree, internal nodes induce leaf-descendant clusters; Sections 3–5 give objective approximation not static/adaptive shattering.",
+        "arXiv:2203.12211 Sections 1–2: tree dimension of branch subsets, generalized Sauer–Shelah lemma, standard Littlestone definition; no clade-height online extremal formula.",
+        "Prior bf95851f-8ef7-46a4-af11-75bd41caa378: Maximal antichains on level-regular rooted trees, with vertices as queries: different concepts; equality of dimensions there does not imply the cluster-family formula.",
+        "Prior 51dd1a62-04e5-4f08-9ee2-02805b2ecba0: Root-to-leaf paths as concepts on tree vertices; related incidence transpose but online rank is not duality-invariant.",
+        "Prior 9d757d9b-9c06-470e-ad09-f97b829e45cb: Whole rooted phylogenetic trees as concepts, candidate clades as queries; fixed-tree cluster hypotheses instead.",
+        "Prior f6815a2a-2ce0-4870-90c7-6c03680eab3b: Leaf-to-leaf geodesic path concepts, unrelated membership query domain and hypotheses."
+      ],
+      "reasoning": "The 2019 source supplies the geometric cluster object but its online setting concerns streaming insertion, not adversarial binary leaf membership. The 2022 paper has a different tree-dimension parameter and its generic counting theorem cannot imply the exact structural height bound. Earlier findings use different hypothesis/query orientations and none dominates the new statement by specialization or duality alone.",
+      "searches": [
+        "Rooted tree clades as hypotheses, leaf-membership queries: exact Littlestone dimension 1+floor(log2(h+1)) on complete binary trees, VC dimension two",
+        "Online shattering of laminar set families by point membership, binary hierarchy, rooted subtree clusters and clade membership",
+        "dual VC dimension and Littlestone dimension of laminar families of rooted tree clusters",
+        "arXiv:2203.12211 Tree Dimension and the Sauer-Shelah Dichotomy",
+        "arXiv:1909.09667 Online Hierarchical Clustering Approximations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2203.12211: Theorem 1.3 and Sections 1-2 analyze branch-set tree embeddings and general Sauer-Shelah counts, not clades-as-concepts on fixed leaf ground set.",
+        "Previously accessible path result 51dd1a62-04e5-4f08-9ee2-02805b2ecba0 is the transpose incidence system, which does not generally preserve Ldim."
+      ],
+      "reasoning": "The clades are hypotheses and leaves are query positions; this is the dual of the incidence matrix of root-to-leaf paths, not the same concept class. Neither the published branch embedding dimension nor the older rooted-path rank formula implies the present exact rank.",
+      "searches": [
+        "Rooted tree clades as hypotheses, leaf-membership queries: exact Littlestone dimension 1+floor(log2(h+1)) on complete binary trees, VC dimension two",
+        "Online shattering of laminar set families by point membership, binary hierarchy, rooted subtree clusters and clade membership",
+        "dual VC dimension and Littlestone dimension of laminar families of rooted tree clusters",
+        "\"rooted tree\" \"Littlestone dimension\" clades",
+        "\"laminar\" \"Littlestone dimension\" hierarchy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Two independent complete finite enumerations in CHECK_LAMINAR.py and CHECK_LABELED.py count 12 five-leaf rooted hierarchy types with rank distribution 9 at two and 3 at three.",
+        "Published mathematical-result index searches contain no exact table for these clade-system dimensions."
+      ],
+      "reasoning": "No published exact table or database matching the five-leaf cluster-learning ranks was located in the actual searches. This is not a uniqueness guarantee; finite census is independently reproducible.",
+      "searches": [
+        "\"laminar families\" \"VC dimension\" \"Littlestone\"",
+        "\"hierarchical clusters\" \"online mistake bound\" depth",
+        "Rooted tree clades as hypotheses, leaf-membership queries: exact Littlestone dimension 1+floor(log2(h+1)) on complete binary trees, VC dimension two",
+        "Online shattering of laminar set families by point membership, binary hierarchy, rooted subtree clusters and clade membership",
+        "dual VC dimension and Littlestone dimension of laminar families of rooted tree clusters"
+      ]
+    },
+    "rationale": "The fixed-hierarchy laminar concept family and its sharp inclusion-chain online bound are not established by the inspected primary full texts or by the closest recoverable published or previous claims. The explicit five-leaf threshold and universal complete-tree formula are different mathematical assertions from tree-dimension, hierarchical-clustering-approximation, and rooted-path concepts. Residual historical-priority risk is openly retained.",
+    "residual_risks": [
+      "Unindexed literature on laminar hypothesis families, thicket rank, hierarchical classification or dual range spaces could contain a stronger statement.",
+      "A mathematically implicit consequence in an uninspected source cannot be excluded by abstract or title searches alone.",
+      "Independent expert historical-priority and theorem verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: objective approximation in streaming hierarchy construction, not individual-cluster membership online shattering.",
+        "evidence": "2019-09-20 first submission; Definition 1 in lines 49–53; Theorem 1 approximation in lines 114–124; no Littlestone or VC dimension claims.",
+        "identifier_or_url": "https://arxiv.org/abs/1909.09667",
+        "material_read": "Relevant arXiv HTML portions read: Definition 1, Sections 2.1–3.2, Section 5 and the conclusion; appendices were not checked line-by-line.",
+        "method": "Read accessible mathematical prose and theorem claims; searched page for Littlestone and VC dimension.",
+        "title": "Online Hierarchical Clustering Approximations",
+        "trigger": "Source explicitly defines rooted hierarchy leaf-descendant clusters."
+      },
+      {
+        "assessment": "NOT_COVERING: tree dimension of collections of branches and general shatter functions, not fixed laminar family as a class of hypotheses tested at leaves.",
+        "evidence": "2022-03-23 first submission; lines 6–17 branch-set tree-dimension object, 38–75 general Sauer–Shelah and Littlestone applications, 130–161 higher-arity result.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+        "material_read": "Relevant arXiv HTML portions read: Sections 1–2, Definitions 1.1–1.9, Theorem 1.3, Theorem 2.2 and applications; ancillary appendices were not checked line-by-line.",
+        "method": "Read source theorem text and inspected terms laminar/clade (no occurrences).",
+        "title": "Tree Dimension and the Sauer-Shelah Dichotomy",
+        "trigger": "Closest model-theoretic source linking trees, VC dimension and Littlestone dimension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b14d75c1-aa2e-481a-9919-ac204ad8e6d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural hierarchy-encoded hypothesis space has a sharp all-height upper bound independent of the potentially enormous number of clusters, matched across every complete regular branching number. A complete pair-shattering polynomial remains fixed by leaf count whereas online complexity depends on depth; the five-leaf onset identifies the exact first adaptive gain. These are mathematically motivated hierarchy complexity questions, not arbitrary finite parameter slices; the infinite-family proof makes the dimension separation unbounded.",
+    "status": "PASS"
+  }
+}
