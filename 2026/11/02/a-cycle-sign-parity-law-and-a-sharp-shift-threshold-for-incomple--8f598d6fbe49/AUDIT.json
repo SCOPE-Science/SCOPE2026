@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof fully defines the signed-cycle family, edge signs, IC(0) ordering, and exact arithmetic. Diagonal gauge yields a complete eigenvalue classification; retaining only existing edges yields sign-independent pivot recurrences. Continuant identities give p_j=D_j/D_{j-1} for j<n and p_n=D_{n+1}/D_{n-1}. Path eigenvalue zero locations give sharp signs and both endpoints, while scaling and monotone eigenvalue ratio establish shift and condition-number boundaries. Analytic Taylor expansion proves asymptotics. 3,667 checks in verify_cycle_ic.py test rational recurrences, direct IC and numerical eigenvalues, shifts, and asymptotic constants, without being substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferronato (2012), section on stabilization, summarizes the M-matrix existence guarantee and general SPD/non-M-matrix breakdown. https://doi.org/10.5402/2012/127647",
+        "Scott and Tůma (2024), sections 2 and 3, discuss generic exact-arithmetic breakdown and diagonal shifts; their tests use general sparse benchmark matrices. https://arxiv.org/abs/2403.13123"
+      ],
+      "reasoning": "The M-matrix guarantee covers the safe switching class but not the sharp threshold in the other class. Existence of a breakdown example and existence of some stabilizing shift do not imply the explicit n-dependent breakdown interval, optimal shift infimum, or condition-number threshold.",
+      "searches": [
+        "incomplete Cholesky cyclic matrices equal diagonal sign changing periodic boundary condition exact factorization existence cosine",
+        "\"incomplete Cholesky\" \"cycle\" \"positive definite\" \"breakdown\" signed",
+        "incomplete Cholesky zero fill cyclic tridiagonal breakdown definite matrices"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.13123",
+      "https://doi.org/10.5402/2012/127647",
+      "https://www.mathworks.com/help/matlab/ref/ichol.html",
+      "https://www.netlib.org/lapack/lawns/downloads/",
+      "https://doi.org/10.1002/nla.320"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Scott and Tůma (2024), equations/Algorithm 1 and the B1 discussion, establish generic incomplete-factor pivot failure, not the new phase diagram.",
+        "Eijkhout, LAPACK Working Note 144 (1999), is specifically about existence of incomplete factorizations, but full text access failed; only metadata and abstract were available."
+      ],
+      "reasoning": "The general algorithm implies a solvable recurrence only after an additional cycle-specific derivation. Known general existence/shift statements cover the qualitative possibility but do not state or immediately imply the quantitative all-n signed classification without solving the recurrence and signed spectrum. Full-text uncertainty about Eijkhout is retained as a priority risk.",
+      "searches": [
+        "sharp zero-fill incomplete Cholesky breakdown on signed cyclic tridiagonal positive definite matrix spectral threshold",
+        "matrix I plus signed cycle adjacency IC(0) failure n-dependent cosine threshold and condition number",
+        "\"On the existence problem of incomplete factorisation methods\" 1999 pdf text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The public arXiv:2403.13123 text describes IC(0), exact arithmetic nonpositive pivots, and shift strategies without a signed-cycle or cosine threshold.",
+        "Searches phrased with signed cycles, periodic tridiagonal matrices, Chebyshev path determinants and equivalent sign gauges produced no exact corresponding theorem."
+      ],
+      "reasoning": "A general IC recurrence could be specialized to a cycle, but the inspected sources do not state the sign-independent pivot recurrence and opposite sign-dependent SPD endpoint together, which is the critical complete classification.",
+      "searches": [
+        "incomplete Cholesky zero fill signed cycle graph frustration breakdown threshold cosine pi n+2 path",
+        "IC(0) symmetric positive definite unbalanced signed cycle zero fill factorization breakdown Chebyshev",
+        "incomplete Cholesky graph cycle matrix negative edge path spectral radius positivity failure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest public documentation gives general IC(0) pivot rules and nonpositive-pivot warnings, not the signed-cycle family: https://www.mathworks.com/help/matlab/ref/ichol.html",
+        "Targeted public searching identified no table of signed-cycle IC(0) breakdown thresholds indexed by n and edge-sign product."
+      ],
+      "reasoning": "The statement concerns an infinite family rather than a finite database entry. No exact indexed table or matching catalog formula was found, but negative searches alone are not evidence of absolute uniqueness.",
+      "searches": [
+        "\"incomplete Cholesky\" \"cycle\" \"cos\" breakdown",
+        "\"cyclic tridiagonal\" \"incomplete Cholesky\" breakdown",
+        "\"signed cycle\" \"incomplete Cholesky\""
+      ]
+    },
+    "rationale": "The assessed statement is an exact, complete two-class phase diagram for uniform-magnitude signed cycles under fixed-order IC(0), including the path-length-(n+1) determinant identity, the sharp first failed pivot, and exact rescue shift and conditioning boundary. The motivating 2024 primary work treats generic breakdown mechanisms and shifts, not this signed-cycle classification; a 2012 preconditioning survey treats M-matrix safety and the possibility of SPD breakdown. General algorithms and existence examples do not directly supply the two sign-class sharp formulas. Published-record semantic searches did not surface an equivalent or stronger statement; incomplete older-source access leaves a priority risk.",
+    "residual_risks": [
+      "LAPACK Working Note 144 (Eijkhout 1999) full text could not be accessed; it may have specialized existence criteria beyond the visible abstract.",
+      "Other classical papers on regular incomplete factorizations, signed cycles, and graph-switching conditions may contain an equivalent specialized corollary.",
+      "Finite semantic and web searches cannot certify publication uniqueness; independent literature review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General existence and stabilizing strategies are prior; no matching equal-weight signed-cycle spectral/pivot boundary was found.",
+        "evidence": [
+          "Sections 2 and 3 explicitly explain B1 failure in SPD IC, Algorithm 1, and global shifting; arXiv initial date 2024-03-19.",
+          "No cycle or cyclic threshold in searchable full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.13123",
+        "material_read": "Accessible complete arXiv-rendered paper: introduction, sections 2 through 5, algorithms, examples and reference list; text searched for cycle, cyclic, periodic, and cosine.",
+        "method": "Read full accessible HTML text and inspected algorithm and shift statements.",
+        "title": "Developing robust incomplete Cholesky factorizations in half precision arithmetic",
+        "trigger": "Motivating middle-cohort primary source concerning exact pivot breakdown, IC(0), shifting and sign-indefinite off-diagonal patterns."
+      },
+      {
+        "assessment": "Covers generic safe class and qualitative unstable class but not the paired cycle thresholds, shift infimum, or condition-number cutoff.",
+        "evidence": [
+          "Discussion of M-matrix IC existence and SPD non-M-type breakdown in stabilization section."
+        ],
+        "identifier_or_url": "https://doi.org/10.5402/2012/127647",
+        "material_read": "Accessible full HTML with focus on incomplete-factorization stabilization and M-matrix existence.",
+        "method": "Examined relevant sections and their implications for sign-switchable cycles.",
+        "title": "Preconditioning for Sparse Linear Systems at the Dawn of the 21st Century",
+        "trigger": "Broad general theory might cover all IC(0) breakdown cases through M-matrix or H-matrix criteria."
+      },
+      {
+        "assessment": "Unable to resolve whether it includes any sharper cycle-specific statement. Not classified as NOT_COVERING.",
+        "evidence": [
+          "LAPACK Working Note 144 listed at netlib, Dec 1999; public abstract discusses nonpositive pivots and strategies."
+        ],
+        "identifier_or_url": "https://www.netlib.org/lapack/lawns/downloads/",
+        "material_read": "Archive bibliographic entry and public abstract only; full PDF request failed.",
+        "method": "Located LAPACK Working Note 144 in archive and attempted to follow its PDF link.",
+        "title": "On the Existence Problem of Incomplete Factorisation Methods",
+        "trigger": "Plausible older source concerning necessary and sufficient incomplete-factorization existence conditions."
+      },
+      {
+        "assessment": "Defines zero-fill and warns of positive-definite failure, with no matching all-length signed-cycle criteria.",
+        "evidence": [
+          "The documentation explicitly states nonpositive pivots may arise for SPD matrices and describes a diagonal shift."
+        ],
+        "identifier_or_url": "https://www.mathworks.com/help/matlab/ref/ichol.html",
+        "material_read": "Description and diagonal-compensation example.",
+        "method": "Inspected public reference documentation.",
+        "title": "MATLAB ichol documentation",
+        "trigger": "An exact software-specific IC(0) definition and standard handling of failed pivots."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f598d6f-be49-47f6-936e-8125c5a50055",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete sign-parity classification is a natural sharp boundary of sparse positive-definite factorization on the smallest family with nontrivial fill. It identifies when SPD plus fixed sparsity is insufficient, the exact pivot and parameter responsible, the smallest global-shift infimum that repairs it, and a quantitative condition-number threshold across every n. These are interpretable benchmarks for robust sparse preconditioner design. It does not claim a new generic incomplete-factorization method or finite-precision performance.",
+    "status": "PASS"
+  }
+}
