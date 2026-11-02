@@ -1,19 +1,21 @@
-# Review of the 27-line skew-line complex
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The classical intersection classes reconstruct the Schläfli graph without relying on its name. The independent standalone verifier enumerates all 2,763 nonempty simplices and checks all 10,584 incidences. Its deterministic 1,368-pair matching has one critical vertex and 26 four-cells; complete directed-Hasse acyclicity is verified on all 2,763 face nodes. Forman's theorem yields the claimed wedge because there are no critical cells of intermediate positive dimension. The independent mod-two boundary ranks are \(26,190,530,550,72\). The exact output is in `verify_output.txt`.
+PASS
 
-## Originality (PASS)
+The classical blowup classes E_i, H-E_i-E_j, and 2H-sum_{k!=i}E_k give all 27 lines and an exact skewness test via intersection pairing. Independently reconstructed the 27-vertex Schläfli graph with parameters (27,16,10,8), all 2,763 nonempty cliques and f=(27,216,720,1080,648,72), with no size-seven clique. A separately implemented deterministic greedy matching by vertex scan gave 1,368 disjoint face–coface pairs, 27 critical cells (one 0-cell and 26 dimension-four cells), and topological sorting of all 10,584 directed Hasse incidences visited all 2,763 cells, certifying acyclicity. Therefore Forman yields a CW model with a point and only 26 four-cells; all attachments are null for dimensional reasons. Finite enumeration is exhaustive because the graph has exactly 27 vertices, and the intersection-class argument links it to every smooth complex cubic surface.
 
-The closest source inspecting the identical graph and simplicial construction is Cioabă and Mim (2026), Proposition 7.7(2b), which proves only first-homology vanishing over arbitrary fields. Dolgachev and Kapranov (1993) identify all 27 lines and the sixes but do not give the homotopy type of this disjointness complex. Cross-checks using the complementary generalized-quadrangle partial-ovoid formulation, plus the full graph name and numerical parameters, revealed no covering theorem. The 27-line open-neighborhood complex indexed elsewhere is a different functor, while the degree-four rank agreement with a snub-cubical independence complex does not imply equivalence of objects. An unindexed equivalent computation remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-This determines the complete integral homotopy type of a natural 27-line exceptional-curve compatibility complex associated with cubic surfaces, not just a Betti number. The complex is nonpure, with 72 six-line simplices and 216 inclusion-maximal five-line simplices, but nonetheless has a perfect Morse collapse to a pure four-sphere wedge. The concrete, reusable certificate can be checked without external computational packages.
+The classical 27-line Schläfli graph model is prior geometry. A directly same-complex 2026 paper establishes H1=0 over arbitrary fields, which is strictly weaker than full integral homotopy wedge26 S4. The open-neighborhood complex of the complementary 27-line graph and the snub-cubical independent-set complex are different simplicial objects despite similar Betti dimensions/ranks. Full text of the closely relevant 2026 paper was not accessible, so stronger unpublished appendices or a prior graph-homotopy computation are material residual risks.
 
-## Limitations and remaining review
+## value
 
-The statement is restricted to nonsingular complex cubic surfaces and their full line sets, and does not calculate the Weyl-group action on the degree-four homology. Literature indexing is incomplete and there has been no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The integral homotopy type of the clique/compatibility complex of all 27 lines on a smooth cubic surface is a natural exact invariant of a classical exceptional configuration. The remarkable nonpure complex has faces through dimension five yet collapses to 26 four-spheres; that complete topological classification is mathematically stronger and more reusable than existing H1 vanishing or graph parameters. An exhaustive acyclic matching provides a checkable finite certificate. No equivariant/Weyl-group claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
