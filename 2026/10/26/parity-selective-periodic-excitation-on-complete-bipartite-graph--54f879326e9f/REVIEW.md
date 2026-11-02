@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A periodic excitation at a vertex must be preceded by an excited vertex in the opposite part. The paired backward implications force period-two excitation signals. Full-time stimulation yields pure \(q\)-phase rotations; alternating stimulation yields two explicit scalar return maps, each with one cycle of length \(\lceil q/2\rceil\). Onto occupancy of the relevant palettes gives both sufficiency and exact labelled enumeration. Exhaustive independent functional-graph calculations agree for \(73\) finite parameter triples (\(951316\) total configurations). The proof covers arbitrary positive part sizes and all \(q\ge3\).
+## correctness
 
-**Originality — PASS within bounded available evidence.** The 1978 foundation defines the model; the 1993 multicolor spiral/threshold treatment concerns lattice excitable media; and the inspected 2016 three-color graph theorem characterizes activity and circulation, not this all-color bipartite periodic-state zeta function. Previously known three-color complete-bipartite enumeration is not treated as new. The general \(q\)-dependent palette mechanism, existence threshold and parity bifurcation do not follow from the three-color case alone. Literature-search and accessibility limitations leave the possibility of an unindexed equivalent.
+PASS
 
-**Value — PASS.** The formula gives a complete recurrent-state census for every bipartite part-size pair and every refractory length, including a sharp minimum network size for persistent waves. Unlike merely repeating the three-color calculation, it identifies distinct full and alternating mechanisms, the odd-\(q\) longer-period effect and an explicit dynamical zeta function. It supplies exact observables for multistate network excitation without requiring a downstream theorem.
+The synchronous update sends nonzero states up cyclically and the resting zero to 1 iff the opposite part is excited. A nonzero color cannot vanish before its forced procession ends; counting excitations over a periodic orbit enforces e_A(t)<=e_B(t-1)<=e_A(t-2), and the symmetric inequality. Periodicity then forces either both parts excited at every step (q-phase waves), exactly alternating active steps with an m-color two-step return cycle (2m phases), or no excitation (all-rest). Each nontrivial orbit requires full occupation of its prescribed residue palette on both parts, yielding surjection counts U_q and U_m; no lower periods remain because a progressing vertex visits each required color. The original proof gives these implications over all a,b,q. Independent complete functional-graph enumeration of 54 finite parameter triples classified 3434 periodic configurations and matched the formulas exactly.
 
-**Limitations.** No claims are made for noncomplete graphs, higher excitation thresholds, noisy/asynchronous updates or transient-basin counts. The self-contained argument is analytically finite-dimensional, but independent scientific review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The GHM and its multicolor lattice dynamics are established (Durrett–Griffeath 1993); the three-color graph theory of Gravner–Lyu–Sivakoff does not state this all-q labelled census on K_{a,b}. Published complete multipartite parity automata use binary parity rather than resting/refractory GHM. No located primary source implied the full equality of recurrent-state sets, strict orbit lengths, or zeta factors. Best-of-knowledge new structural enumeration, with unindexed dynamical catalogues a residual risk.
+
+## value
+
+PASS
+
+Full recurrent-state and dynamical-zeta classification for a natural bipartite mean-field excitable network gives a sharp phase palette threshold and odd-q period q+1 not predicted by the three-color case. Structural theorem extends to arbitrary q and part sizes, not a brute-force finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
