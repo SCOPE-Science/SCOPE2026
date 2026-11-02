@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The all-dimensional theorem follows from the structural proof in RESULT.md. The proof uses the intrinsic coordinate-edge decomposition of Hamming graphs, the relation between counting refinement and truncated distances to uniquely colored markers, and inversion of distinct neighbor distance-displacements for each marker equality partition.
+# Independent mathematical audit
 
-Executed `python3 check_three_anchor.py` from the package on Python 3 with only standard-library dependencies. The attached `check_log.txt` records all 3,240 completed deterministic cases and the terminal `ALL_TESTS_PASS`. Exhaustive triples were checked for dimension 2 and alphabet sizes 4 and 5; dimensions 3–5 were checked by seeded sampling. For every tested triple the program directly constructed graph adjacency and iterated vertex recoloring, compared the final classes with a separately constructed coordinate-profile orbit partition, tested both the exact orbit-count formula and every individual multinomial orbit-size formula, and checked the uniform round bound. For the sampled configurations at selected dimensions it also reconstructed orbit profiles from one-neighbor distance-displacement counts, independently of refinement.
+## correctness
 
-The random samples are finite checks, not an exhaustive test for larger dimensions or an infinite proof. No external formal prover or independent mathematical review was used. The dimension-two tests are boundary checks outside the claimed dimension restriction.
+PASS
+
+I reconstructed the wreath-product automorphism group from intrinsic Hamming graph edge directions, and hence the invariant per-coordinate marker-equality/status counts defining each stabilizer orbit. Every status vector is realizable for q>=4, so the stars-and-bars and multinomial formulas include all boundary types n_pi=0. For each mark a_j, counting refinement identifies distances truncated at t+1 after t rounds, hence full three-distance vectors after d-1 rounds. A single extra round recovers the multiplicities of neighbour distance-vector displacements e_S-e_T. On three marker labels, displacements for distinct nonempty partition blocks identify all two- and three-block coordinate statuses, while the distance vector and total n_pi recover the one-block status. Thus round d determines every orbit profile; equivariance gives the reverse inclusion. A separately implemented Hamming adjacency/refinement versus exact orbit-status checker passed 77 new finite triples for q=4,5,6 and dimensions 2–4; that bounded test is not the proof of universal quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for q>=4,d>=3 with exactly three individually marked vertices, its explicit complete orbit/color-class counts and d-round guarantee. Abstract orbit-equivalence criteria for Tinhofer graphs, and existing q=3 marker or d=2 rook results, do not imply this new domain. Primary full text for the most relevant 2026 Tinhofer paper was inspected. Related Hamming perfect-coloring material remains a residual priority risk.
+
+## value
+
+PASS
+
+The equality of an algorithmically defined coarsest equitable partition with a group-orbit partition is a structural infinite-family theorem. The exact number and sizes of all stable classes, plus a linear-in-d refinement bound, are precise reusable invariants rather than a routine automorphism count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

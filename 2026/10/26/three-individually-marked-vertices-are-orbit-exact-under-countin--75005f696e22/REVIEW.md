@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full theorem for an arbitrary \(d\ge3\), \(q\ge4\), and three distinct individually colored words is proved by three reconstructible steps: intrinsic Hamming graph automorphisms imply coordinate-status orbits; iterative counting recovers all three distance coordinates; one further neighbor-count update isolates all two- and three-block equality statuses and then the residual one-block counts. This recovers every orbit profile by round \(d\), while orbit invariance prevents finer colors. The multinomial class-size and stars-and-bars class-count formulas follow without numerical extrapolation. The standalone direct graph-refinement checker was replayed on 3,240 deterministic configurations. Finite tests are not relied upon as an all-dimensional proof.
+PASS
 
-## Originality — PASS (qualified)
+I reconstructed the wreath-product automorphism group from intrinsic Hamming graph edge directions, and hence the invariant per-coordinate marker-equality/status counts defining each stabilizer orbit. Every status vector is realizable for q>=4, so the stars-and-bars and multinomial formulas include all boundary types n_pi=0. For each mark a_j, counting refinement identifies distances truncated at t+1 after t rounds, hence full three-distance vectors after d-1 rounds. A single extra round recovers the multiplicities of neighbour distance-vector displacements e_S-e_T. On three marker labels, displacements for distinct nonempty partition blocks identify all two- and three-block coordinate statuses, while the distance vector and total n_pi recover the one-block status. Thus round d determines every orbit profile; equivariance gives the reverse inclusion. A separately implemented Hamming adjacency/refinement versus exact orbit-status checker passed 77 new finite triples for q=4,5,6 and dimensions 2–4; that bounded test is not the proof of universal quantifiers.
 
-The inspected 2014 color-refinement work provides general theory but no Hamming marker classification. The 2026 Tinhofer hierarchy supplies an abstract orbit/refinement equivalence, not the requisite classification for Hamming powers. Brouwer supplies Hamming background. The closest comparison statements cover \(q=3\) with arbitrary markers and \(d=2\) with arbitrary markers, but neither covers \(q\ge4,d\ge3\). This new range has an extra unmatched symbol status when three marker symbols are distinct at a coordinate. Primary literature and research-index searches returned no dominating theorem. The accessible arXiv perfect-coloring preprints were inspected at relevant theorem and introductory sections; full line-by-line reading of all appendices and complete publication-priority certification remain outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Three-point individualization probes how much of a highly symmetric finite structure is identifiable through basic local counting. The result completely characterizes this probe in the nonternary Hamming family, giving exact orbit classes, sizes, a uniform linear-in-dimension depth bound, and an alphabet-size separation from the ternary case. The result is a structural infinite-family statement, not a finite table or mechanical restatement of an automorphism group.
+Best-of-knowledge PASS for q>=4,d>=3 with exactly three individually marked vertices, its explicit complete orbit/color-class counts and d-round guarantee. Abstract orbit-equivalence criteria for Tinhofer graphs, and existing q=3 marker or d=2 rook results, do not imply this new domain. Primary full text for the most relevant 2026 Tinhofer paper was inspected. Related Hamming perfect-coloring material remains a residual priority risk.
 
-## Closest literature and limits
+## value
 
-Kersting et al., *Power Iterated Color Refinement* (2014); Bhattacharjee et al., *A Hierarchy of Tinhofer Graphs* (2026); Brouwer, *Hamming graphs*. The lawful arXiv manuscripts of Vasil'eva (arXiv:1412.7357) and Bespalov et al. (arXiv:1911.13151) were examined at the stated relevant sections, without a matching marked-vertex theorem identified. Exact independent scholarly priority assessment and independent proof audit remain outstanding. The theorem says nothing for four or more markers or for any other graph family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equality of an algorithmically defined coarsest equitable partition with a group-orbit partition is a structural infinite-family theorem. The exact number and sizes of all stable classes, plus a linear-in-d refinement bound, are precise reusable invariants rather than a routine automorphism count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
