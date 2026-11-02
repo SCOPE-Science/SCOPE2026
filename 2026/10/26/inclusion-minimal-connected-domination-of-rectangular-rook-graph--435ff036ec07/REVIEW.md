@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The selected rook squares form an edge set in a complete bipartite row–column graph. Directly, domination is equivalent to occupying every row or every column, and induced connectivity is equivalent to connectivity of the edge-support graph. The proof rules out simultaneous full coverage and cycles, then forces every leaf onto the fully covered side. The sufficiency argument checks each edge-removal case. Bipartite Prüfer coding enumerates the resulting trees with a surjective column-word or row-word, giving the Stirling factors. An independent graph-definition enumerator checked all coefficient dictionaries and all structural forms for seven small boards, including the boundary square and the \(4\)-by-\(4\) board. The argument, not finite extrapolation, establishes the infinite-family statement.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+For selected squares D the line-graph support H_D is bipartite on occupied rows and columns. Dominating every board square iff all rows or all columns occupied; induced graph connected iff the occupied-edge support is connected. If both sides full, deleting a cycle edge or a leaf edge preserves connected domination; inclusion-minimality forces exactly one side full. With only rows full the supporting graph must be a tree and every occupied column nonleaf; otherwise removing an edge preserves connectivity/domination. Conversely removing any edge either disconnects selected edges or isolates a full-side row, violating domination because another column is empty. Symmetry handles other family. Bipartite Prüfer words of lengths c-1 and p-1 have p^{c-1} possibilities and c!S(p-1,c) surjective column words, with binom(q,c) choices of columns; the dual summand similarly follows. The ranges yield [p,2p-2] U [q,q+p-2], including p=q=2. Independent original-graph subset enumeration and direct Stirling coefficient computation agreed on seven boards through 4x4; the tree bijection, not finite enumeration, proves generality.
 
-Mertens's complete primary paper, arXiv:2401.00716 and the 2024 published version, counts all dominating sets via row–column incidence and an edge-cover polynomial; it does not classify the connected, inclusion-minimal subfamily. Abu-Khzam et al., ESA 2022, focus on exact algorithms, lower-bound constructions and complexity for enumerating minimal connected dominating sets in general graphs, without the rook-family Stirling formula. The software documentation listing a minimal-connected-domination polynomial defines an invariant rather than supplying this closed rook family formula. Searches of indexed research records, ordinary and equivalent terminology, and accessible previous claims disclosed no claim implying the stated polynomial. Since exhaustive novelty verification is impossible, unindexed or differently titled work remains a documented risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result counts every inclusion-minimal connected dominating configuration rather than only minimum solutions or all dominating solutions. The one-sided-leaf-tree classification is a structural reason for a nontrivial Stirling enumerator. The exact size spectrum shows a natural family with arbitrarily long gaps between irredundant feasible sizes, already for two-row boards; this gap phenomenon cannot be inferred from the known connected-domination minimum or ordinary domination polynomial.
+Mertens 2024 evaluates the ordinary domination polynomial of rook graphs by row/column coverage, but counts dominating sets including disconnected and nonminimal configurations; its evaluated theorem does not give the one-sided-leaf-tree iff classification or Stirling minimal-connected polynomial. Abu-Khzam et al ESA 2022 give general minimal connected dominating set enumeration algorithms and lower bounds rather than this exact labeled rook-graph polynomial. Classical Prüfer counting is acknowledged; the new contribution is the exact structural two-family identification and gap spectrum. Full primary PDFs were accessible and examined in relevant mathematical sections. Unindexed equivalent rook-graph minimal connected dominating polynomial remains a priority risk.
 
-## Scope and limitations
+## value
 
-Finite simple labeled rook graphs of dimensions at least two. An elementary proof and standalone reproducible checks are given; exhaustive computational tests only cover the seven stated small boards. Prior published sources were inspected in the indicated relevant sections, not a claim of having inspected every possible text. Literature-priority risk remains, and no independent audit has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinction between minimum-size and inclusion-minimal connected domination is natural and mathematically significant. The exact polynomial enumerates all irredundant connected covering configurations via a nontrivial bipartite tree class; the complete achievable-cardinality spectrum has arbitrarily long holes already for two-row boards. This gap behavior is not implied by ordinary domination coefficients or general enumeration algorithms and can benchmark structural domination problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

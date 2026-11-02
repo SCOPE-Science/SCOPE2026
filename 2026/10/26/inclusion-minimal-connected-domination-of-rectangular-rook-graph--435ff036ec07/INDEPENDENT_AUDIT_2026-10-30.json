@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:16:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For selected squares D the line-graph support H_D is bipartite on occupied rows and columns. Dominating every board square iff all rows or all columns occupied; induced graph connected iff the occupied-edge support is connected. If both sides full, deleting a cycle edge or a leaf edge preserves connected domination; inclusion-minimality forces exactly one side full. With only rows full the supporting graph must be a tree and every occupied column nonleaf; otherwise removing an edge preserves connectivity/domination. Conversely removing any edge either disconnects selected edges or isolates a full-side row, violating domination because another column is empty. Symmetry handles other family. Bipartite Prüfer words of lengths c-1 and p-1 have p^{c-1} possibilities and c!S(p-1,c) surjective column words, with binom(q,c) choices of columns; the dual summand similarly follows. The ranges yield [p,2p-2] U [q,q+p-2], including p=q=2. Independent original-graph subset enumeration and direct Stirling coefficient computation agreed on seven boards through 4x4; the tree bijection, not finite enumeration, proves generality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mertens counts ALL dominating arrangements, independent of connectivity/minimality; Abu-Khzam provides general algorithms, not closed rook enumeration."
+        ],
+        "reasoning": "No identified broader exact theorem directly gives the iff structural tree condition; an algorithm for counting does not automatically supply a closed form, though it can compute it.",
+        "searches": [
+          "Mertens Domination Polynomial of the Rook Graph 2024 theorem 4; Abu-Khzam et al Enumerating Minimal Connected Dominating Sets ESA 2022",
+          "Resultary semantic query: rook graph inclusion-minimal connected dominating sets polynomial bipartite tree rows columns"
+        ]
+      },
+      "checked_sources": [
+        "Mertens arXiv:2401.00716 full PDF relevant theorems",
+        "Abu-Khzam et al ESA 2022 DOI:10.4230/LIPIcs.ESA.2022.1 full PDF main results",
+        "Wolfram GraphData MinimalConnectedDominationPolynomial reference",
+        "Resultary rook graph minimal connected domination query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All rook dominating sets have complete row or column coverage, but connected irredundance additionally forces acyclic one-sided-leaf trees; that restriction requires a nontrivial new structural proof."
+        ],
+        "reasoning": "The exact existing dominating polynomial does not determine connected minimal subfamilies from its coefficients, whereas the result gives their separate complete generating function.",
+        "searches": [
+          "Mertens arXiv:2401.00716 ordinary rook domination polynomial; Abu-Khzam ESA2022 DOI:10.4230/LIPIcs.ESA.2022.1",
+          "Resultary semantic query: rook graph inclusion-minimal connected dominating sets polynomial bipartite tree rows columns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rook graph is L(K_{p,q}); selected squares correspond exactly to edges, and domination means no simultaneously empty row and column."
+        ],
+        "reasoning": "A differently termed minimal connected edge-dominating set in a complete bipartite incidence graph may encode the same problem; comparison must use the line-graph property.",
+        "searches": [
+          "minimal connected edge dominating rook graph line graph of complete bipartite, connected minimal rook domination; one-sided leaf tree",
+          "Resultary semantic query: rook graph inclusion-minimal connected dominating sets polynomial bipartite tree rows columns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wolfram GraphData defines the invariant, without visible all-(p,q) Stirling expression; Resultary hits concern chain graph domination and rook cut-complex."
+        ],
+        "reasoning": "No exact database table supplying all labeled rook configurations was identified; finite small-board coefficients alone do not dominate the symbolic classification.",
+        "searches": [
+          "GraphData MinimalConnectedDominationPolynomial rook graph table; rook graph minimal connected dominating set Stirling numbers",
+          "Resultary semantic query: rook graph inclusion-minimal connected dominating sets polynomial bipartite tree rows columns"
+        ]
+      },
+      "rationale": "Mertens 2024 evaluates the ordinary domination polynomial of rook graphs by row/column coverage, but counts dominating sets including disconnected and nonminimal configurations; its evaluated theorem does not give the one-sided-leaf-tree iff classification or Stirling minimal-connected polynomial. Abu-Khzam et al ESA 2022 give general minimal connected dominating set enumeration algorithms and lower bounds rather than this exact labeled rook-graph polynomial. Classical Prüfer counting is acknowledged; the new contribution is the exact structural two-family identification and gap spectrum. Full primary PDFs were accessible and examined in relevant mathematical sections. Unindexed equivalent rook-graph minimal connected dominating polynomial remains a priority risk.",
+      "residual_risks": [
+        "An older rook-graph or line-graph special-family classification under edge terminology could imply the tree count.",
+        "The proof treats labeled boards p,q>=2, not rectangular boards with missing cells."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All dominating arrangements, not the connected inclusion-minimal subfamily in the inspected complete theorem",
+          "evidence": [
+            "Domination iff all rows or all columns occupied, but Stirling one-sided-leaf tree polynomial is extra."
+          ],
+          "identifier_or_url": "arXiv:2401.00716; J. Integer Seq. 27 (2024)",
+          "material_read": "Full 10-page open PDF; examined the all-dominating-set theorem and edge-cover counting in Sections 2-3 including Theorem 4",
+          "method": "Full PDF with targeted theorem inspection",
+          "title": "Stephan Mertens, Domination Polynomial of the Rook Graph",
+          "trigger": "Same rook graph family and domination polynomial"
+        },
+        {
+          "assessment": "General enumeration framework and bounds, not an exact rook polynomial in the examined theorems",
+          "evidence": [
+            "Algorithmic enumeration and special-family closed form are distinct result types."
+          ],
+          "identifier_or_url": "DOI:10.4230/LIPIcs.ESA.2022.1",
+          "material_read": "Full 15-page lawful PDF; inspected abstract, main algorithmic results and searched for rook graph terminology",
+          "method": "Open primary PDF and text search",
+          "title": "Abu-Khzam, Fernau, Gras, Liedloff and Mann, Enumerating Minimal Connected Dominating Sets",
+          "trigger": "Exact invariant name in general graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction between minimum-size and inclusion-minimal connected domination is natural and mathematically significant. The exact polynomial enumerates all irredundant connected covering configurations via a nontrivial bipartite tree class; the complete achievable-cardinality spectrum has arbitrarily long holes already for two-row boards. This gap behavior is not implied by ordinary domination coefficients or general enumeration algorithms and can benchmark structural domination problems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only inclusion-minimal connected dominating sets, not arbitrary dominating-set polynomial or unrelated domination variants.",
+    "Finite check limited seven boards; universal result depends on tree/Prüfer proof.",
+    "An older rook-graph or line-graph special-family classification under edge terminology could imply the tree count.",
+    "The proof treats labeled boards p,q>=2, not rectangular boards with missing cells."
+  ],
+  "schema_version": 1
+}
