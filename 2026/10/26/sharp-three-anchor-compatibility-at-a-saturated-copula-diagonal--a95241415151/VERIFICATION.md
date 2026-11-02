@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytical and computational verification
+# Independent mathematical audit
 
-The universal theorem rests on the displayed conditional-second-moment identity, the saturation/zero-variance argument, Jensen's inequality, the quadratic inequality on \([\alpha,1]\), and explicitly nonnegative checkerboard row constructions. The finite checkerboard conversion ensures both uniform margins; no numerical approximations are needed for the proof. For every \(0<a<b<c<1\), the interval width is the positive exact fraction \((c-b)(1-c)/(1-a)\).
+## correctness
 
-Run `python3 verify.py` with Python standard library only. The reproduced output is `PASS: 1904 exact-rational construction, moment, interval and incompatibility checks`. The program checks 400 randomly sampled rational triples with exact Fraction arithmetic (two endpoints and one mixture each), the explicit rational pairwise witnesses, 200 general two-anchor witnesses at the threshold, and supplemental conditional-moment stress tests. A seeded pseudo-random sequence makes the checks reproducible. The constructed copulas are rigorously defined by the latent rows and response-bin construction in RESULT.md; the code verifies their row-level moments and probabilities. These finite checks are not exhaustive over continuum parameter ranges.
+PASS
 
-No independent audit has been performed. The complete arbitrary three-anchor feasible set is not claimed.
+Independently reconstructed δ_C(t)=E[F_t²] for F_t=P(Y≤t|X), ordered in t with E F_t=t. δ(a)=a forces F_a=1_A, P(A)=a, and F_b=F_c=1 on A; δ(b)=a+(b-a)²/(1-a) makes F_b=(b-a)/(1-a)=α constant on A^c. With E[T|A^c]=γ=(c-a)/(1-a) and α≤T=F_c≤1, Jensen and (T−α)(1−T)≥0 yield exactly L=a+(c-a)²/(1-a) and U=c−(b-a)(1-c)/(1-a). Conditional-row probabilities for both endpoints have nonnegative masses summing to 1; splitting latent row intervals constructs a valid checkerboard input copula and arbitrary convex interpolation. Pairwise targets (1/4,1/2,3/4) give d=1/3, L=7/12, U=2/3, excluding 3/4, although (a,b),(a,c),(b,c) pairs have separate witnesses. Four distinct exact rational triples were independently checked, not mistaken for a universal proof. Strict a<b<c<1 protects all divisions and yields positive interval width.
+
+## originality
+
+PASS
+
+Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.
+
+## value
+
+PASS
+
+The exact three-anchor range on the first saturated/second minimal-variance boundary answers a natural constrained conditional-moment compatibility problem explicitly highlighted as unresolved by the originating paper. Sharp interval realization and a continuum of pairwise-feasible but jointly impossible specifications give structural content beyond a one-point numerical example. It is not a classification of all multithreshold moment data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

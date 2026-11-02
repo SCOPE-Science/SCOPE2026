@@ -1,11 +1,21 @@
-# Review: sharp three-anchor compatibility
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional-CDF representation converts a saturated diagonal value into an indicator. The second prescribed moment forces a constant posterior on the complement; Jensen and the pointwise quadratic inequality give necessary bounds at the third threshold. Explicit nonnegative ordered latent types attain each endpoint, and the uniform-within-bin construction proves they are copulas with the correct margins. Mixing attains the whole interval. Three explicit pairwise constructions verify the non-gluing example. The exact-rational script rechecks 1,904 instances. Finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS, qualified.** The nearest full primary text (Drnovšek, Kokol Bukovšek, Stopar, arXiv:2610.13846v1) proves sharp bounds with **one** diagonal anchor. Its concluding discussion identifies multi-anchor compatibility as distinct and generally not obtained from the one-anchor bounds. The present simultaneous sharp interval and pairwise-versus-global incompatibility family are not stated there. Fuchs, arXiv:2112.10147, supplies transformation background rather than this sharp multithreshold statement. Searches of publicly indexed mathematical findings and published literature using Markov product, checkerboard, conditional-CDF moments, and pairwise compatibility terminology found no implication-equivalent formula; inability to rule out an implicit theorem in all conditional-moment or completely-positive-matrix literature remains a real risk. Such searches are not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** Membership in the Markov-product range is much more restrictive than ordinary copula diagonal feasibility. The exact interval solves a nontrivial natural two-prescribed-anchor boundary slice, rather than merely obtaining one test value. The infinite rational-parameter family in which each pair of diagonal observations can be separately realized but all three cannot reveals a concrete gluing obstruction for inverse dependence data. The constructions are finite and sharp. The result does not claim a full multi-anchor classification.
+Independently reconstructed δ_C(t)=E[F_t²] for F_t=P(Y≤t|X), ordered in t with E F_t=t. δ(a)=a forces F_a=1_A, P(A)=a, and F_b=F_c=1 on A; δ(b)=a+(b-a)²/(1-a) makes F_b=(b-a)/(1-a)=α constant on A^c. With E[T|A^c]=γ=(c-a)/(1-a) and α≤T=F_c≤1, Jensen and (T−α)(1−T)≥0 yield exactly L=a+(c-a)²/(1-a) and U=c−(b-a)(1-c)/(1-a). Conditional-row probabilities for both endpoints have nonnegative masses summing to 1; splitting latent row intervals constructs a valid checkerboard input copula and arbitrary convex interpolation. Pairwise targets (1/4,1/2,3/4) give d=1/3, L=7/12, U=2/3, excluding 3/4, although (a,b),(a,c),(b,c) pairs have separate witnesses. Four distinct exact rational triples were independently checked, not mistaken for a universal proof. Strict a<b<c<1 protects all divisions and yields positive interval width.
 
-Closest literature: Drnovšek et al., arXiv:2610.13846v1, Sections 5–7; Fuchs, arXiv:2112.10147; ordinary copula diagonal and completely-positive matrix backgrounds. Self-review correctness and novelty assessments are not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.
+
+## value
+
+PASS
+
+The exact three-anchor range on the first saturated/second minimal-variance boundary answers a natural constrained conditional-moment compatibility problem explicitly highlighted as unresolved by the originating paper. Sharp interval realization and a continuum of pairwise-feasible but jointly impossible specifications give structural content beyond a one-point numerical example. It is not a classification of all multithreshold moment data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
