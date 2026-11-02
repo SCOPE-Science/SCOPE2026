@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For all real payoff advantages greater than one, the sample-two response is twice the current share minus its square. When the high-sample best response requires at most two successes, the transformed drift has constant \\(2\\alpha-1\\) and strictly positive subsequent coefficients, proving that any interior fixed point is repelling. When at least three successes are needed, a binomial union bound at explicit \\(\\varepsilon\\) and \\(\\alpha\\) creates a positive-negative-positive drift sign profile and hence an attracting interior state. The threshold condition is exactly \\(k>2(u+1)\\), including all tie boundaries. A standard-library exact checker performed 227 direct rational and integer coefficient, threshold and witness checks; the symbolic proof establishes arbitrary k and u.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 rules out a stable interior for a homogeneous sample size, whereas our mixtures have two size classes.",
+        "Theorem 2 and Appendix A.6 require high enough samples and establish sufficiency, but no sharp integer floor formula or converse for all smaller k."
+      ],
+      "reasoning": "The general model encompasses the selected family, but its published theorem does not imply the exact cutoff. A narrower finite-size first-payoff plateau does not imply higher payoff plateaus or threshold behavior at exact binomial ties.",
+      "searches": [
+        "Arigapudi–Heller–Schreiber, arXiv:2305.10301v2, Sections 2.1–2.6 and Appendix A.6 Theorems 1 and 2; Section 2.6",
+        "Arigapudi–Heller–Schreiber, arXiv:2305.10301v2, Sections 2.1–2.6 and Appendix A.6 Appendix A.6",
+        "Arigapudi Heller Schreiber finite sample size threshold mixing stable interior integer staircase"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.10301v1 first public 2023-05-17",
+      "arxiv:2305.10301v2 full HTML, source Eq. (2.1),(2.2), Theorems 1 and 2, Sec. 2.6, Appendix A.6",
+      "ResearchGate search-accessible excerpts from earlier hawk–dove sampling work; limited access",
+      "MSC2020: 91A26 rationality and learning in game theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper exhibits stable miscoordination for sufficiently large observations; a construction existing at high size does not exclude its presence at smaller k.",
+        "A known first-cell five-observation result applies only when \\(1<u<3/2\\). The new formula determines e.g. \\(k_{\\min}=6\\) at \\(u=3/2\\) and \\(k_{\\min}=7\\) at \\(u=2\\), plus every higher step, and gives a necessary proof for all smaller k.",
+        "The paper notes an earlier sufficient global-convergence criterion; that is a different implication and not a sharp local-miscoordination cutoff."
+      ],
+      "reasoning": "The paper and narrow first-cell result do not logically imply the all-payoff staircase, particularly the discontinuous boundary at exact sample payoff ties. The new construction works for all k strictly exceeding the threshold with a specified rational share.",
+      "searches": [
+        "Arigapudi–Heller–Schreiber, arXiv:2305.10301v2, Sections 2.1–2.6 and Appendix A.6 Theorem 2 and Appendix A.6",
+        "Arigapudi–Heller–Schreiber, arXiv:2305.10301v2, Sections 2.1–2.6 and Appendix A.6 Section 2.6 comparison with Oyama et al. (2015)",
+        "sampling best response coordination game critical minimum sample size floor 2(u+1) stable interior 2 and k heterogeneity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equation (2.2) defines the same mixture of binomial response tails and population ODE.",
+        "Theorem 2 states heterogeneous sufficiently large sampling can create an attracting interior state, without a necessary-and-sufficient finite larger-sample budget."
+      ],
+      "reasoning": "The new assertion is a universal sharp if-and-only-if threshold for the specific two-and-k support, not just existence for sufficiently large k. Transforming to binomial odds gives a positive-coefficient obstruction whenever the high-sample threshold is at most two.",
+      "searches": [
+        "sampling best response coordination game critical minimum sample size floor 2(u+1) stable interior 2 and k heterogeneity",
+        "heterogeneous noise stable miscoordination exact information threshold sampling sizes 2 k",
+        "Arigapudi–Heller–Schreiber, arXiv:2305.10301v2, Sections 2.1–2.6 and Appendix A.6 Eq. (2.2) and Theorem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches returned discussions of heterogeneity and qualitative stability but no table giving minimum large-sample k versus payoff u.",
+        "Source paper illustrates selected sample-size mixtures and high-sample limits, not an all-u exact budget table."
+      ],
+      "reasoning": "Absence of a retrieved table is not evidence of uniqueness by itself. The core novelty comparison is between the mathematical quantified statements: sufficient high k versus exact necessary/sufficient k at every payoff.",
+      "searches": [
+        "\"heterogeneous noise\" \"sample\" \"2k\" \"stable\" \"coordination\" threshold",
+        "\"sampling best-response dynamics\" \"sample size 2\" \"stable interior\" cutoff",
+        "\"stable miscoordination\" \"minimum sample size\" coordination k"
+      ]
+    },
+    "rationale": "The initiating article characterizes when heterogeneous sample sizes can produce stable miscoordination in broad terms but uses sufficiently large higher sample sizes; it does not identify the exact finite cutoff in the two-and-k family for arbitrary payoff advantage. Theorems 1 and 2, their explanatory examples, and Appendix A.6 were compared by logical implication. A narrower low-payoff five-observation boundary is a special case, but does not determine the unbounded all-payoff staircase or any higher transition. An exact binomial-odds coefficient obstruction and an explicit rational construction yield the new full boundary. Targeted mathematical-record and web searches found no covering statement; an unindexed equivalent is not ruled out.",
+    "residual_risks": [
+      "An unindexed or inaccessible specialist theorem might give the same all-payoff sharp finite observation-budget cutoff.",
+      "The related hawk–dove predecessor was inspected only in retrievable excerpts, not as a complete primary full text; strategic equivalences outside the inspected material remain a priority risk.",
+      "The result requires the size-two subpopulation and the stipulated tie convention; different support sets or tie-breaking may shift the threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct source of the model and qualitative existence; no exact all-payoff minimum k with one size-two subpopulation appears in inspected results",
+        "evidence": [
+          "Eq. (2.1) and Eq. (2.2): deterministic binomial sampling response",
+          "Theorem 2: some sufficiently large samples induce an attracting interior",
+          "Section 2.6: sufficient global-convergence conditions, not exact local cutoff",
+          "Appendix A.6: large-sample sufficiency construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.10301v2",
+        "material_read": "Full accessible HTML Section 2.1 payoff normalization; Section 2.2 sampling ODE and tie convention; Sections 2.3–2.6 Theorems 1 and 2 and discussion; Section 3.4 generalization; Appendix A.6 beginning and proof method, as well as introduction and related results",
+        "method": "Inspected accessible complete-paper HTML and compared quantified sufficiency, sample-size assumptions, and boundary coverage",
+        "title": "Heterogeneous Noise and Stable Miscoordination",
+        "trigger": "Exact sampling payoff model and published sufficient-heterogeneity results"
+      },
+      {
+        "assessment": "Different anti-coordination/game-population structure in reviewed excerpts; full text not fully compared, leaving publication-priority risk",
+        "evidence": [
+          "Retrieved sections describe two-population hawk–dove payoff-sampling versus action-sampling and a sample-size-two regime"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/353344257_Sampling_dynamics_and_stable_mixing_in_hawk-dove_games",
+        "material_read": "Search-accessible text excerpts concerning action sampling, asymmetric hawk–dove games, and the maximal sample-size-two regime; not a full-paper coverage inspection",
+        "method": "Compared retrievable excerpts and model definitions; did not infer whole-document noncoverage",
+        "title": "Sampling dynamics and stable mixing in hawk–dove games",
+        "trigger": "Earlier related heterogeneous sampling and stability literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a11614b4-84f4-4d51-bd38-89a07e054d88",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper’s qualitative stability-by-heterogeneity observation makes the information cost of stable miscoordination a natural unknown invariant. The theorem determines the least admissible larger sample size for every payoff advantage, with infinitely many sharp integer steps, a tie-driven transition law, a uniform all-degree obstruction, and an explicit rational sufficient mixture. It is structurally stronger than an isolated finite numerical cutoff and relevant to optimal observation budgets.",
+    "status": "PASS"
+  }
+}
