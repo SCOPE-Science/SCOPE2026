@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:47:23.872796Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent census of all 32768 simple graph edge subsets finds exactly 1858 admissible faces (15,105,395,735,537,70 nonempty f-vector), and independent oriented fixed-face Hopf traces for all 11 cycle types yield (2,1,0,0,0,0,0,8,4,0,36). Separately implemented Jacobi–Trudi signed Young-permutation characters and exact character inner products to recover five multiplicity-one Specht shapes and no others, dimensions summing to 36. Inspected original exact integer Morse verifier, its acyclic lexicographic matching (896 nonempty pairs), and its claimed unit 14-by-14 boundary determinant -1; the standalone source specifies the elimination and finite checks, but I did not reimplement that full 14-by-50 integer elimination. The known published integral Betti dimension is correctly credited. The rational character follows from Euler–Poincaré given homology concentration in degree four, which the source finite exact chain computation supplies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wachs derives representations for a loop-admitting bounded-degree complex.",
+          "Jonsson table reports the 36-dimensional H4 but the full chapter could not be inspected."
+        ],
+        "reasoning": "No examined stronger theorem directly provides the loopless S6-module. Jonsson is residual risk, not evidence of noncoverage.",
+        "searches": [
+          "Wachs 2003 Theorem 7.1 and loop declaration",
+          "Jonsson 2008 book chapter 12.1.1 and Table12.2"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+        "https://doi.org/10.1007/978-3-540-75859-4",
+        "doi:10.4153/CJM-2013-008-4",
+        "Resultary: loopless bounded degree two graph complex six vertices S6 representation Specht decomposition degree 2",
+        "web: loopless bounded degree graph complex six vertices homology S6 representation degree two Specht Jonsson thesis",
+        "web: Jakob Jonsson Simplicial Complexes of Graphs 2005 thesis full text KTH",
+        "Wachs section 7 Theorem 7.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Loop-admitting results are not directly restrictions to the present complex.",
+          "Different Kneser neighborhood and degree-2 graph complexes are not isomorphic by matching their group label count."
+        ],
+        "reasoning": "The full character computation does not follow from the inspected explicit statements; complete Jonsson chapter remains unchecked and a material caveat.",
+        "searches": [
+          "Wachs full author manuscript §7 Theorem7.1",
+          "Jonsson chapter index and known Table12.2",
+          "Resultary related Kneser 6-point representations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complex has graph edges as 15 simplex vertices, no loops, max degree 2; the natural S6 relabeling character differs from loop-admitting chain models."
+        ],
+        "reasoning": "The exact loopless versus loop-admitting distinction is essential: removing loop vertices does not preserve homology representations without an additional theorem.",
+        "searches": [
+          "Resultary: loopless bounded degree two graph complex six vertices S6 representation Specht decomposition degree 2",
+          "Wachs 2003 section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The integral H4 rank 36 and vanishing in other dimensions are prior tabulated facts.",
+          "The 11 conjugacy-class character vector and five Specht constituents require substantially more than rank."
+        ],
+        "reasoning": "A known Betti table does not mathematically imply an S6 representation; trace/equivariant information is new relative to the located table.",
+        "searches": [
+          "Jonsson Table12.2 as reported in primary package",
+          "Resultary: loopless bounded degree two graph complex six vertices S6 representation Specht decomposition degree 2"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.",
+      "residual_risks": [
+        "Jonsson 2008 book chapter pp151–168 is directly relevant and inaccessible in full: an earlier equivariant trace computation there would cover the claim. Authorized Oxford access was blocked by disconnected VPN; this alone does not constitute originality failure.",
+        "Possible specialized Reiner–Roberts representation reduction from loop-allowed to loopless complexes not established in accessible materials.",
+        "Integer 14x50 Morse differential not independently reproduced locally; source code and asserted unimodular minor were inspected, with independent full rational character verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING",
+          "evidence": "Theorem 7.1 refers to graph complexes admitting one loop per labeled vertex, changing the ground simplex vertices and homology; cannot specialize by silently deleting loop vertices.",
+          "identifier_or_url": "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+          "material_read": "Full author-hosted manuscript, specifically definition of graph complex with loops in §7 and Theorem 7.1/representation proof, pp25–27",
+          "method": "Primary PDF text plus page screenshots; compared loop-admitting model and degree conventions",
+          "title": "Topology of Matching, Chessboard, and General Bounded Degree Graph Complexes",
+          "trigger": "Closest published general symmetric-group representation theorem"
+        },
+        {
+          "assessment": "ACCESS_RISK_NOT_RULED_OUT",
+          "evidence": "Known 36 rank is explicitly prior; whether this chapter also contains its full S6 representation could not be determined, so no whole-document noncoverage claim is made.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-75859-4",
+          "material_read": "Springer book table of contents (Graphs of Bounded Degree chapter pp151–168), source package citation to Table12.2; complete chapter NOT accessible",
+          "method": "Looked for lawful open thesis/preprint, then authorized Oxford; Oxford returned vpn_disconnected job 4935d0244639dcd4cfb73aa98f438b76; no bypass",
+          "title": "Simplicial Complexes of Graphs",
+          "trigger": "Exact same loopless bounded-degree family with recorded Betti number 36"
+        },
+        {
+          "assessment": "BACKGROUND_LIMITED_READ",
+          "evidence": "No statement from abstract covers the loopless rational S6 character; full text not used to infer noncoverage.",
+          "identifier_or_url": "doi:10.4153/CJM-2013-008-4",
+          "material_read": "Accessible abstract says loops are admitted and studies torsion; no full-text character assessment",
+          "method": "Background abstract only",
+          "title": "3-torsion in the Homology of Complexes of Graphs of Bounded Degree",
+          "trigger": "Potential stronger equivariant bounded-degree theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The loopless degree-two graph complex on six vertices is a canonical small symmetric bounded-degree complex; its previously known 36-dimensional homology admits a non-obvious complete six-label action. Distinguishing all five irreducible constituents and the sole invariant line gives an independently useful exact equivariant invariant, not merely recomputation of its known Betti number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+    "https://doi.org/10.1007/978-3-540-75859-4",
+    "doi:10.4153/CJM-2013-008-4",
+    "Resultary: loopless bounded degree two graph complex six vertices S6 representation Specht decomposition degree 2",
+    "web: loopless bounded degree graph complex six vertices homology S6 representation degree two Specht Jonsson thesis",
+    "web: Jakob Jonsson Simplicial Complexes of Graphs 2005 thesis full text KTH",
+    "Wachs section 7 Theorem 7.1"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the six-label loopless graph degree-at-most-two complex, reduced rational H4 is the multiplicity-free S6-module S^(6)+S^(4,2)+S^(3,2,1)+S^(2,2,2)+S^(2,1,1,1,1), with one invariant line.",
+  "limitations": [
+    "Only six simple graph labels and degree cap two; all representation claims over Q.",
+    "The known 36-dimensional integral Betti number is not claimed as new.",
+    "Git tree SHA was independently recomputed from fetched file blob identities and modes; complete original raw Git blob byte streams were not locally SHA-1 rehashed.",
+    "Operational privacy is unresolved for public metadata; a completed scientific review is not an imported status or published certificate."
+  ],
+  "residual_risks": [
+    "Jonsson 2008 book chapter pp151–168 is directly relevant and inaccessible in full: an earlier equivariant trace computation there would cover the claim. Authorized Oxford access was blocked by disconnected VPN; this alone does not constitute originality failure.",
+    "Possible specialized Reiner–Roberts representation reduction from loop-allowed to loopless complexes not established in accessible materials.",
+    "Integer 14x50 Morse differential not independently reproduced locally; source code and asserted unimodular minor were inspected, with independent full rational character verification."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_DIRECTLY_COVERING",
+      "evidence": "Theorem 7.1 refers to graph complexes admitting one loop per labeled vertex, changing the ground simplex vertices and homology; cannot specialize by silently deleting loop vertices.",
+      "identifier_or_url": "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+      "material_read": "Full author-hosted manuscript, specifically definition of graph complex with loops in §7 and Theorem 7.1/representation proof, pp25–27",
+      "method": "Primary PDF text plus page screenshots; compared loop-admitting model and degree conventions",
+      "title": "Topology of Matching, Chessboard, and General Bounded Degree Graph Complexes",
+      "trigger": "Closest published general symmetric-group representation theorem"
+    },
+    {
+      "assessment": "ACCESS_RISK_NOT_RULED_OUT",
+      "evidence": "Known 36 rank is explicitly prior; whether this chapter also contains its full S6 representation could not be determined, so no whole-document noncoverage claim is made.",
+      "identifier_or_url": "https://doi.org/10.1007/978-3-540-75859-4",
+      "material_read": "Springer book table of contents (Graphs of Bounded Degree chapter pp151–168), source package citation to Table12.2; complete chapter NOT accessible",
+      "method": "Looked for lawful open thesis/preprint, then authorized Oxford; Oxford returned vpn_disconnected job 4935d0244639dcd4cfb73aa98f438b76; no bypass",
+      "title": "Simplicial Complexes of Graphs",
+      "trigger": "Exact same loopless bounded-degree family with recorded Betti number 36"
+    },
+    {
+      "assessment": "BACKGROUND_LIMITED_READ",
+      "evidence": "No statement from abstract covers the loopless rational S6 character; full text not used to infer noncoverage.",
+      "identifier_or_url": "doi:10.4153/CJM-2013-008-4",
+      "material_read": "Accessible abstract says loops are admitted and studies torsion; no full-text character assessment",
+      "method": "Background abstract only",
+      "title": "3-torsion in the Homology of Complexes of Graphs of Bounded Degree",
+      "trigger": "Potential stronger equivariant bounded-degree theorem"
+    }
+  ]
+}
