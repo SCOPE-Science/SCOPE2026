@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The exact symbolic checker `check_spherical_symbolics.py` was executed successfully with Python 3 and SymPy. It expands \(G_{a-1}-G_{a+1}\), verifies the factor \(4aP/(D_{a-1}D_{a+1})\), verifies the algebraic sharp root for \(\omega^2\), checks two rational-parameter spectral signs, and differentiates the polynomial with respect to \(u=\lambda^2\).
+## correctness
 
-Analytic steps independent of the code: polar measure \(4\pi\sinh^2r\,dr\) and normalized spherical functions \(arphi_\lambda(r)=\sin(\lambda r)/(\lambda\sinh r)\); Laplace sine integral for \(a\pm1>0\); rational positivity and monotonicity; radial Plancherel necessity and positive principal-spherical-function inversion sufficiency. The checker is a reproducibility aid, not a replacement for these analytic steps or an independent scientific audit.
+PASS
 
-The exact scope is real hyperbolic three-space at sectional curvature \(-1\), with \(a>1\) and \(\omega\ge0\). No numerical sweep is claimed exhaustive, and no claims about \(a\le1\) or higher-dimensional hyperbolic spaces are made.
+For hyperbolic three-space curvature -1 and a>1, the spherical function sin(lambda r)/(lambda sinh r), radial measure 4pi sinh²r dr and elementary Laplace sine transforms give \hat f(lambda)=8pi a P(lambda²)/(D_{a-1}D_{a+1}), with P(u)=u²+2(a²+omega²+1)u+(a²-1)²-2(a²+1)omega²-3omega^4. Both D factors are strictly positive and P is strictly increasing for u>=0. Thus the spectral sign on the entire real principal series is decided by P(0), and solving P(0)>=0 yields 3omega^4+2(a²+1)omega² <=(a²-1)² exactly, equality included. Spherical inversion as a positive mixture of positive-definite principal spherical kernels gives sufficiency; radial Plancherel plus the dense compact-test convolution form gives necessity for a>1, and negative P(0) creates an open interval of negative spectrum. Exact independently derived SymPy rational-numerator identity matched and four a-values were sampled; analytic monotonicity is the infinite part of proof.
+
+## originality
+
+PASS
+
+Classical spherical Bochner and Plancherel theorems allow general transform positivity tests, and unmodulated geodesic exponentials have prior positivity results. The exact a,omega hyperbolic-three-space oscillation boundary arises only after a family-specific spectral calculation absent from the materially inspected general source. Priority is qualified because a separate covariance-specific analysis may exist.
+
+## value
+
+PASS
+
+Positive definite isotropic functions are fundamental covariance kernels on curved spaces. This gives the complete admissible oscillation region of a natural two-parameter hyperbolic damped cosine family, with an exact zero-frequency sharp boundary distinct from the Euclidean analogous family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: hyperbolic damped-cosine covariance
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-way proof fixes the curvature and all quantifiers, checks the direct spherical transform, and converts its sign into positive-definite kernels by spherical inversion and radial Plancherel. The exact rational numerator was re-expanded symbolically from its Laplace factors. The spectral polynomial increases in \(u=\lambda^2\) for every admissible parameter, and its constant term gives precisely the claimed sharp boundary. All boundary cases within \(a>1\) are covered.
+## correctness
 
-## Originality — PASS (bounded literature comparison)
-Pusti's 2011 Bochner-type theorem (arXiv:1111.3157) is the general spectral background, and Feragen–Lauze–Hauberg's 2014 work (arXiv:1411.0296) handles the unmodulated geodesic exponential. Neither inspected primary full text states or implies the exact nonzero-oscillation threshold without this new family-specific computation. The Euclidean damped-cosine classification uses a different distance geometry. Targeted semantic searches found no dominating classification; unindexed equivalents remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The two-parameter kernel family is natural in stationary covariance modeling and geodesic kernel methods. The result establishes the exact permissible oscillation, includes the sharp boundary, and locates failure in the low-frequency spherical spectrum. It is not a single numerical example or a restatement of a general positivity criterion.
+For hyperbolic three-space curvature -1 and a>1, the spherical function sin(lambda r)/(lambda sinh r), radial measure 4pi sinh²r dr and elementary Laplace sine transforms give \hat f(lambda)=8pi a P(lambda²)/(D_{a-1}D_{a+1}), with P(u)=u²+2(a²+omega²+1)u+(a²-1)²-2(a²+1)omega²-3omega^4. Both D factors are strictly positive and P is strictly increasing for u>=0. Thus the spectral sign on the entire real principal series is decided by P(0), and solving P(0)>=0 yields 3omega^4+2(a²+1)omega² <=(a²-1)² exactly, equality included. Spherical inversion as a positive mixture of positive-definite principal spherical kernels gives sufficiency; radial Plancherel plus the dense compact-test convolution form gives necessity for a>1, and negative P(0) creates an open interval of negative spectrum. Exact independently derived SymPy rational-numerator identity matched and four a-values were sampled; analytic monotonicity is the infinite part of proof.
 
-## Scientific scope and limitations
-This classification assumes \(a>1\) and curvature \(-1\), and does not decide weaker damping or higher dimensions. It proves positive semidefiniteness, not strict positivity for all distinct point configurations. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical spherical Bochner and Plancherel theorems allow general transform positivity tests, and unmodulated geodesic exponentials have prior positivity results. The exact a,omega hyperbolic-three-space oscillation boundary arises only after a family-specific spectral calculation absent from the materially inspected general source. Priority is qualified because a separate covariance-specific analysis may exist.
+
+## value
+
+PASS
+
+Positive definite isotropic functions are fundamental covariance kernels on curved spaces. This gives the complete admissible oscillation region of a natural two-parameter hyperbolic damped cosine family, with an exact zero-frequency sharp boundary distinct from the Euclidean analogous family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
