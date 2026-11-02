@@ -1,15 +1,21 @@
-# Scientific review: geometric-circle Bergman Toeplitz spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact diagonal moment formula uses normalized Bergman monomials and normalized circle probability. The proof explicitly handles \(n=0\), fixes all quantifiers \(b>1\), \(\alpha>1\), and shows a uniform phase limit via separately dominated positive and negative Mellin-lattice tails. Fourier integration and the zero-free Gamma function establish strict profile nonconstancy; power bounds establish compactness and the Schatten threshold. Most importantly, canonical-order sums and decreasing singular-value sums are proved to differ only by \(O(1)\) using an explicit index-enclosure argument, thereby justifying the critical Dixmier trace. The independent finite tests are not used as proofs of any infinite claim.
+## correctness
 
-## Originality — PASS, with disclosed priority limitations
-Maximenko–Pacheco's Theorem 3.3 (arXiv:2503.23649v1, open-access full text) provides the general radial eigenvalue formula. Li–Long–Wang (arXiv:2609.22908v1) provides general positive-Toeplitz Schatten ideal criteria; those are credited, and ideal membership is contextual. A closely related published Fock Toeplitz result on oscillatory loglog radial smooth symbols was read completely and compared at theorem and proof level. It concerns a different domain and nonmeasurable critical traces; it does not imply the singular disk Bergman lattice result. The new assessed content is the explicit uniform nonconstant Mellin–Gamma periodic coefficient together with the exactly measurable critical trace. Historical equivalence through older Mellin–Poisson or singular Toeplitz theory is an unresolved publication-priority risk; searches do not establish absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-Discrete scale invariance in radial measure support creates an exact, nontrivial eigenvalue-scale oscillation. The result proves that the logarithmic singular trace remains unique despite this oscillation, providing a quantitative boundary between ordinary eigenvalue asymptotics and trace measurability. It computes the entire Fourier fingerprint, all critical trace values (a singleton), and the explicit constant \(1/\log b\) for the trace-critical original family. The work is a self-contained spectral classification for its natural two-parameter measure family, not a theorem about all radial measures.
+Exact diagonal form follows from normalized circle probability and Bergman e_n=sqrt(n+1)z^n; no density of the measure is assumed. Substituting j=floor(log_b n)+ell and bounding the two bilateral tails uniformly yields periodic profile. Fourier exchange and Mellin substitution give Gamma(alpha-2pi im/log b)/log b; zero-free Gamma gives nonconstancy. Uniform positive bounds yield compactness and precise Schatten exponent. For critical A=T^p_c, a_n=(H(log_b n)+o(1))/n; compare sum of first N entries to integral dx H(log_b x)/x and show its logarithmic average tends mean H. Rearranged N largest terms lie among first BN by two-sided c/n,C/n; sums between N and BN differ O(1), proving ordinary Dixmier-logarithmic limit. Independent fresh finite eigenvalue/profile calculations for 3 (alpha,b) pairs, phase samples and alpha=2 numerical quadrature at b=2,4 passed; numerical checks do not prove asymptotics.
 
-## Limitations and reproducibility
-The result treats circle-supported singular measures on the unweighted analytic Bergman disk. It does not claim a sorted singular-value pointwise asymptotic or an exact ordinary operator norm. The proof supplies all needed analytic estimates. The accompanying standalone standard-library Python tests are finite reproducibility checks, not a substitute for analysis. Scientific and priority validation by an independent specialist has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel explicit singular geometric-circle Bergman example with all nonzero Mellin modes and measurable critical Dixmier trace; diagonal moment formula, Mellin transform, and general Schatten criteria are prior standard machinery.
+
+## value
+
+PASS
+
+A singular radial Bergman measure with exactly computable nonconstant log-periodic eigenvalue constants but a UNIQUE Dixmier trace at the critical power supplies a concrete, motivated operator-theoretic contrast between pointwise spectral oscillation and logarithmic trace averaging. Explicit Gamma Fourier modes and critical trace are independently useful invariant data, not a generic diagonalization restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

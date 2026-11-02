@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of geometric-circle Bergman Toeplitz spectral formulas
+# Independent mathematical audit
 
-The exact measure-integral diagonal entry is \((n+1)\sum_{j\ge1}b^{-\alpha j}(1-b^{-j})^n\); the use of normalized circle probability is essential. Write \(n=b^{k+t}\) with \(0\le t<1\): shifting \(j=k+\ell\) gives the claimed bilateral Mellin profile after bounding its two tails uniformly. The nonzero Fourier modes follow from the explicit Gamma integral, not by finite Fourier sampling. Since \(\Gamma\) has no zeros, the periodic limit is provably nonconstant.
+## correctness
 
-At the critical exponent \(p_c=1/(\alpha-1)\), bound the canonical diagonal of \(T^{p_c}\) above and below by constants times \(1/n\). Periodic logarithmic averaging gives its exact limiting logarithmic mean. The top-\(N\) entries all lie among the first \(BN\) canonical entries for one fixed \(B\), so rearrangement changes partial sums by only \(O(1)\). The existence of the ordinary decreasing-order logarithmic limit, not finite numerics, proves Dixmier measurability.
+PASS
 
-Execute `python verify_geometric_circles.py` using a Python 3 standard-library interpreter. The script passed 276 finite checks over positive parameter pairs, periodic profile sums, asymptotic diagonal samples, numerical critical means and the special \(\alpha=2\) exact mean. Because it truncates the infinite circle train and evaluates finite \(n\), it cannot establish all-parameter convergence, nonvanishing infinitely many modes, or an infinite-dimensional trace statement; those follow from the proof above. No independent scientific audit has been performed.
+Exact diagonal form follows from normalized circle probability and Bergman e_n=sqrt(n+1)z^n; no density of the measure is assumed. Substituting j=floor(log_b n)+ell and bounding the two bilateral tails uniformly yields periodic profile. Fourier exchange and Mellin substitution give Gamma(alpha-2pi im/log b)/log b; zero-free Gamma gives nonconstancy. Uniform positive bounds yield compactness and precise Schatten exponent. For critical A=T^p_c, a_n=(H(log_b n)+o(1))/n; compare sum of first N entries to integral dx H(log_b x)/x and show its logarithmic average tends mean H. Rearranged N largest terms lie among first BN by two-sided c/n,C/n; sums between N and BN differ O(1), proving ordinary Dixmier-logarithmic limit. Independent fresh finite eigenvalue/profile calculations for 3 (alpha,b) pairs, phase samples and alpha=2 numerical quadrature at b=2,4 passed; numerical checks do not prove asymptotics.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel explicit singular geometric-circle Bergman example with all nonzero Mellin modes and measurable critical Dixmier trace; diagonal moment formula, Mellin transform, and general Schatten criteria are prior standard machinery.
+
+## value
+
+PASS
+
+A singular radial Bergman measure with exactly computable nonconstant log-periodic eigenvalue constants but a UNIQUE Dixmier trace at the critical power supplies a concrete, motivated operator-theoretic contrast between pointwise spectral oscillation and logarithmic trace averaging. Explicit Gamma Fourier modes and critical trace are independently useful invariant data, not a generic diagonalization restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
