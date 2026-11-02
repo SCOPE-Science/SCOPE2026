@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Proof fixes the normalized graph-state amplitudes, obtains the flat reduced-state spectrum by finite-field character orthogonality, identifies the cut matrix as U_A^T U_B using simplicity, derives all unsigned-incidence left kernels including characteristic-two and odd-cycle cases, and calculates the exact rank as n-q_A-q_B+rank(T_A^T T_B). The Hamilton-path family checks the complement is connected nonbipartite and yields a one-unit characteristic-two deficit precisely for even n. Finite checker: 179427 exhaustive cases through five base vertices, 20000 random cases at 6..15, 112 Hamilton-path cases, and 10 direct reduced-state eigenspectra (max eigenvalue error 2.22e-16). Finite tests do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hein–Eisert–Briegel explicitly give graph-state bipartite Schmidt rank as the cut-adjacency rank over F_2, a general precursor that by itself still requires computing the cut matrix.",
+        "Helwig 2013 and Chen–Zhou 2015 address general prime-power qudit graph-state maximal-entanglement conditions and small classifications, not the line-graph signed-component formula.",
+        "Looi et al. 2007 treat qudit graph-state coding constructions rather than exact all-cuts line-graph spectra."
+      ],
+      "reasoning": "General graph-state rank criteria do imply a method to compute entanglement for any given line graph, and are fully credited. The evaluated component-overlap equality is additional structural information: it replaces an edge-by-edge matrix by a smaller signed component matrix and yields a field-characteristic classification for an infinite cut family. No inspected general theorem states these evaluated consequences.",
+      "searches": [
+        "arxiv:quant-ph/0307130 Sec. III.2 Proposition 3",
+        "arxiv:0712.1979 quantum graph-state finite-dimensional stabilizers",
+        "arxiv:1306.2879 qudit graph-state maximum entanglement",
+        "arxiv:1507.05386 prime-power graph-state CNOT circuits",
+        "\"line graph\" \"graph state\" \"edge partition\" entanglement"
+      ]
+    },
+    "checked_sources": [
+      "Hein, Eisert, Briegel, arxiv:quant-ph/0307130 (2003), general binary graph-state cut rank",
+      "Severini, arxiv:quant-ph/0511147 (2005), full adjacency ranks and global Schmidt measure",
+      "Oum, Excluding a Bipartite Circle Graph from Line Graphs (2006 manuscript), cut rank bound and full adjacency rank",
+      "Looi et al., arxiv:0712.1979 (2007), qudit graph states and codes",
+      "Helwig, arxiv:1306.2879 (2013), qudit graph-state maximality",
+      "Chen and Zhou, arxiv:1507.05386 (2015), prime-power graph states",
+      "Known special computation: rectangular block cuts of rook-graph graph states, covered by the current all-graph statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hein et al. establish the entropy–cut-rank identity; this part of the proof is explicitly not new.",
+        "Kishi–Uetake 1969, quoted by Oum, determine the full binary adjacency rank of a connected line graph, not an arbitrary bipartition cross rank.",
+        "Oum proves an upper bound by graph boundary size, not the exact signed-component overlap rank or prime-characteristic split.",
+        "The previously calculated complete-bipartite rook-graph rectangle cut is subsumed and not presented as an original isolated corollary."
+      ],
+      "reasoning": "Full matrix rank, a bound on cut rank, and a restricted special case do not determine all signed intersections between components from arbitrary complementary edge sets. An explicit proof of the new equality is provided. The paper’s general cut-rank framework is broad but not an already evaluated formula for this graph family, and no decisive stronger published statement was found.",
+      "searches": [
+        "arxiv:quant-ph/0307130 (cut-rank entropy)",
+        "arxiv:quant-ph/0511147 (line graph full rank)",
+        "https://sangil.dimag.kr/pdf/2006line.pdf (Lem. 14, full rank)",
+        "arxiv:1306.2879 (AME graph states)",
+        "\"line graph\" \"graph states\" \"entanglement\" qudit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Severini 2005 Sec. IV.2 discusses ranks of complete line-graph adjacency matrices and which line graphs are bipartite; it does not evaluate arbitrary edge-split cross ranks.",
+        "Oum 2006 Lemma 14 bounds binary line-graph cut rank by the number of boundary vertices; Sec. 3 quotes Kishi–Uetake full adjacency rank.",
+        "Direct cut-matrix algebra identifies the relevant object as U_A^T U_B; the proposed result evaluates this rank through signed component intersections rather than leaving it as a matrix rank over edge sets."
+      ],
+      "reasoning": "Whole-adjacency rank and global multipartite Schmidt measure are different invariants from the reduced-state spectrum for an arbitrary edge split. The Oum boundary upper bound can be strict (e.g. even-order Hamilton-cut qubits); it neither supplies the correction rank nor odd-prime behavior. No equivalent exact all-component expression was identified in inspected sources.",
+      "searches": [
+        "\"Schmidt rank\" \"line graph\" \"incidence\" graph state",
+        "\"line graph\" \"cut-rank\" \"component\" \"parity\"",
+        "\"rank(B_A^T B_B)\" incidence graphs",
+        "arxiv:quant-ph/0511147 (Sec. IV.2)",
+        "https://sangil.dimag.kr/pdf/2006line.pdf (Secs. 3 and 6)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located finite-graph database or table supplied this formula for arbitrary graph, partition and prime.",
+        "An earlier rook-graph rectangular-block entropy calculation is a strict specialization with complete-bipartite base graph and one structured class of edge partitions; it is treated as already covered rather than as new."
+      ],
+      "reasoning": "The statement is an exact uniform theorem, not a newly computed table entry. The overlap comparison specifically excludes the pre-existing rook-graph instance. Absence from searches is not proof of uniqueness; residual specialized literature risk remains.",
+      "searches": [
+        "\"line graph\" \"cut rank\" \"formula\" \"subgraphs\"",
+        "\"line graph\" \"binary cut rank\" \"components\"",
+        "\"line-graph states\" \"entanglement\"",
+        "\"qudit\" \"line graph\" entanglement graph states",
+        "\"cut rank of line graph\" exact formula"
+      ]
+    },
+    "rationale": "Closest full texts show the general cut-rank graph-state rule, high-dimensional qudit frameworks, two-colorable multipartite Schmidt measure, the full binary line-graph adjacency rank, and a cut-rank boundary upper bound. They do not state an exact all-edge-partition signed-component overlap law over every prime, nor the specified even-order complete-graph Hamilton-path qubit versus odd-prime maximality jump. The existing complete-bipartite rook-graph rectangular cut is a covered special case and is not independently claimed. Historical priority remains provisional.",
+    "residual_risks": [
+      "An earlier specialized finite-field incidence-rank, signed-graphic-matroid, or graph-state entanglement theorem may already imply the same signed component-overlap identity under another terminology.",
+      "The synthesis uses established graph-state cut-rank and elementary incidence-kernel techniques. Historical originality of the precise all-partition prime-characteristic formulation has not received independent expert review.",
+      "Published searches and available primary material cannot certify universal historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers binary cut-rank entropy and flat Schmidt coefficients, but contains no arbitrary line-graph component-overlap evaluation or odd-prime characteristic result",
+        "evidence": [
+          "Sec. III.2 gives E_S^(A,B)=rank_GF2(Gamma_AB) and reduced entropy, so that portion is prior coverage."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/quant-ph/0307130v7",
+        "material_read": "Full available HTML with specific scrutiny of Sec. III.2, Proposition 3, and Eq. (48), plus definitions of Schmidt measure",
+        "method": "arXiv HTML full-text reading and proposition comparison",
+        "title": "Multi-party entanglement in graph states",
+        "trigger": "General graph-state bipartition entropy might subsume the quantum component of the claim"
+      },
+      {
+        "assessment": "Concerns global multipartite Schmidt measure of two-colorable graph states and full adjacency nonsingularity; Sec. IV.2 explicitly notes L(T) bipartite only for paths. Does not contain the arbitrary edge-cut spectrum",
+        "evidence": [
+          "Sec. IV.2 defines L(G) and discusses its full adjacency rank, and states why most tree line graphs are not bipartite."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/quant-ph/0511147v1",
+        "material_read": "Complete six-page arXiv HTML, especially Secs. II, III and IV.2 on line graphs and rank",
+        "method": "full original arXiv HTML reading, comparing precise invariant and domain",
+        "title": "Two-colorable graph states with maximal Schmidt measure",
+        "trigger": "Title and abstract explicitly mention line graphs of trees and maximal Schmidt measure"
+      },
+      {
+        "assessment": "Quotes full adjacency-rank theorem for connected simple line graphs and bounds binary cut rank by boundary vertices; does not give exact arbitrary-cut signed overlap formula or odd primes",
+        "evidence": [
+          "Sec. 3 Theorem 1 quotes Kishi–Uetake full adjacency rank.",
+          "Sec. 6 Lemma 14: cut rank at most number of vertices incident to both edge parts."
+        ],
+        "identifier_or_url": "https://sangil.dimag.kr/pdf/2006line.pdf",
+        "material_read": "Original 22-page PDF sections on line graph adjacency ranks, signed graph/delta-matroid constructions, Sec. 6 and Lemma 14, including page images",
+        "method": "full-text extraction and direct PDF page inspection",
+        "title": "Excluding a Bipartite Circle Graph from Line Graphs",
+        "trigger": "Potential exact binary cut-rank formula for line graphs via rank-width and matroids"
+      },
+      {
+        "assessment": "Qudit graph states and graph codes established; does not give this all-simple-graph line-graph edge-cut identity",
+        "evidence": [
+          "Presents qudit graph-state and quantum-code constructions and concrete families, not the stated component-overlap theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0712.1979v4",
+        "material_read": "Available original full HTML, including general definitions and graph-code constructions",
+        "method": "arXiv full-text reading and coverage comparison",
+        "title": "Quantum-error-correcting codes using qudit graph states",
+        "trigger": "Prior qudit graph-state stabilizer formalism in arbitrary local dimensions"
+      },
+      {
+        "assessment": "General maximality framework and examples, no component-signature computation for arbitrary line graphs",
+        "evidence": [
+          "Analyzes absolutely maximally entangled graph states, whereas the present result concerns exact entanglement for each specified line-graph edge cut."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1306.2879",
+        "material_read": "Full source text as available via arXiv text access, with attention to graph-state entanglement and rank conditions",
+        "method": "arXiv textual full reading of theorem statements and applications",
+        "title": "Absolutely Maximally Entangled Qudit Graph States",
+        "trigger": "Prime-dimensional entanglement and general maximality criteria might dominate the Hamilton-cut result"
+      },
+      {
+        "assessment": "Covers CNOT-generated graph states, standard forms, small classifications and multipartite maximal entanglement, not arbitrary-edge-partition line-graph signed component ranks",
+        "evidence": [
+          "Theorem 1 characterizes local-unitary standard forms; Theorem 3 concerns four-partite maximal entanglement in specific local dimensions."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep27135",
+        "material_read": "Open-access full text, specifically introduction, finite-field graph-state definitions, Theorems 1–3 and entanglement discussion",
+        "method": "publisher full-text HTML reading and theorem-domain comparison",
+        "title": "Graph states of prime-power dimension from generalized CNOT quantum circuit",
+        "trigger": "Original published prime-power graph-state construction and maximality results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d25a6aa6-f8d4-4b4c-ba45-9401c6b4c247",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact full entanglement spectra for every edge bipartition of arbitrary simple base graph and every prime qudit dimension reduce to a matrix of connected-component overlaps on at most n vertices, rather than a potentially quadratic-size line-graph cut matrix; nonbipartite components cause an exact odd-characteristic transition. Hamilton-path cuts of K_n exhibit a natural, sharp qubit-only entanglement deficit for even n, with complete maximal mixing at every odd prime. This is a structurally motivated quantum-network classification beyond a known complete-bipartite rectangular-cut special case.",
+    "status": "PASS"
+  }
+}
