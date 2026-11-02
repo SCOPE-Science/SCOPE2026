@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,14 @@
   "schema_version": 1
 }
 ---
-# Verification
+# Algebraic verification and limits
 
-The vector field and the candidate Lyapunov function were independently re-expanded. The exact derivative is
+The displayed ODE and \(V=\alpha x^2+(y-\alpha/k)^2+\alpha\beta z^2\) give exactly
 \[
-\dot V=-\frac{2\alpha(k-\alpha)}{k}x^2
--2k\left(y-\frac{\alpha}{k}\right)^2
--2\alpha\beta b z^2.
+\dot V=-2\alpha(k-\alpha)x^2/k-2k(y-\alpha/k)^2-2\alpha\beta b z^2.
 \]
-No numerical approximation enters this identity.
+Direct symbolic expansion leaves the zero polynomial for the difference of both sides. At \(\alpha=k\), the derivative zero set is \(\{y=1,z=0\}\). Any invariant trajectory in this set satisfies \(0=\dot z=x\), hence is the equilibrium. Positivity/coercivity of \(V\), global continuation, and LaSalle's invariance principle complete the proof.
 
-For \(0<\alpha<k\), all three coefficients are strictly dissipative. For \(\alpha=k\), the derivative vanishes precisely when \(y=1\) and \(z=0\); invariance then forces \(x=0\) through \(\dot z=x-bz\). This is the complete equality-case check required by LaSalle's principle.
+**Specific defect in the earlier literature:** the printed energy \(W=[\alpha x^2+(y-\alpha/k)^2+z^2]/2\) has derivative \(-\alpha(k-\alpha)x^2/k-k(y-\alpha/k)^2-bz^2+(1-\alpha\beta)xz\). Substituting \((\alpha,k,b,\beta;x,y,z)=(1,2,1,3;-2,1/2,1)\) yields \(+1\). This invalidates that proof's universal nonpositivity step but not its stated strict-interior theorem, which is re-proved by the corrected energy.
 
-A strict-extension witness was also checked: at \((\alpha,k,b,\beta)=(1,2,1,3)\), the extra expression in the 2022 theorem is \(4>0\), so that theorem does not apply, while the new Lyapunov derivative remains negative definite.
-
-Limits: the proof establishes a sufficient global-stability region only. It does not show that \(\alpha\le k\) is necessary. Whole-document comparison with the 1996 original model paper was unavailable; this is retained as a literature risk rather than treated as evidence of noncoverage.
+No numerical experiment or external attestation is represented as proof; the full theorem depends on the exact identity and invariance argument. The strict parameter region is explicitly covered by Li (2022), Theorem 2.2. Other historical equivalent boundary proofs cannot be ruled out absolutely.

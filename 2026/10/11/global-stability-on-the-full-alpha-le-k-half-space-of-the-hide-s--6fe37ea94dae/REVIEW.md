@@ -1,33 +1,19 @@
-# Same-system scientific review
+# Mathematical correctness and prior-work assessment
 
-## Correctness
+## Exact theorem and proof
 
-**PASS.** The proof was reconstructed directly from the stated HSA vector field. For
-\[
-V=\alpha x^2+\left(y-\frac{\alpha}{k}\right)^2+\alpha\beta z^2,
-\]
-the cubic terms and the \(xz\) terms cancel identically, leaving
-\[
-\dot V=-\frac{2\alpha(k-\alpha)}{k}x^2
--2k\left(y-\frac{\alpha}{k}\right)^2
--2\alpha\beta b z^2.
-\]
-For \(0<\alpha<k\) this is negative definite. At \(\alpha=k\), the largest invariant subset of \(\{y=1,z=0\}\) is the equilibrium because \(\dot z=x\) there. Properness of \(V\) gives compact forward-invariant sublevel sets, so the global LaSalle argument is complete.
+**Correctness: PASS.** The weighted quadratic energy cancels the nonlinear \(x^2y\) and mixed \(xz\) terms identically; it is proper and strictly positive off the equilibrium. When \(\alpha=k\), the zero derivative locus \(\{y=1,z=0\}\) has the equilibrium as its only invariant subset because \(\dot z=x\). The global LaSalle argument proves the closed equality case.
 
-## Originality
+## Prior results and the genuine new boundary
 
-**PASS.** The closest primary source, Li (2022), proves global stability only under \(k>\alpha\) together with
-\[
-k(\alpha\beta-1)^2+4\alpha b(\alpha-k)<0.
-\]
-The new weight \(\alpha\beta\) on \(z^2\) removes the cross term responsible for that restriction. Same-system integrability and bifurcation papers were compared at the level of their statements and do not dominate this result. The original 1996 model paper was not available for whole-document inspection, which remains a stated residual literature risk.
+**Originality: PASS for the corrected claim, with limitations.** Ximing Li, *New insights to the Hide–Skeldon–Acheson dynamo* (2022), Theorem 2.2, **already states** global uniform asymptotic stability for all \(k>\alpha\), without any extra \(b,\beta\) hypothesis. The strict-interior theorem is not a new result. The previously stated account of Li's theorem as having an extra parameter restriction was wrong.
 
-## Value
+Li's published proof, however, chooses the unit \(z^2\) weight and asserts a nonpositive derivative even when its \(xz\) cross term makes the displayed form indefinite. At \((\alpha,k,b,\beta)=(1,2,1,3)\), \(\dot W=1\) at \((x,y,z)=(-2,1/2,1)\). This refutes the *uniform proof inequality*, not the stability theorem. The corrected energy supplies a valid proof on the entire strict interior and also proves the excluded equality boundary \(\alpha=k\). The 1996 original HSA paper and the 2014/2025 integrability literature were inspected at the relevant theorem/section level; no dominating critical-boundary theorem was identified in inspected material. Unread portions and the 2007 bifurcation paper remain explicit priority risks.
 
-**PASS.** Replacing a parameter-dependent quadratic-form condition by the full closed half-space \(0<\alpha\le k\) materially sharpens the global stability map. It also supplies an immediate exclusion of periodic or chaotic attractors throughout that region and covers the boundary omitted by the published theorem.
+## Scientific value and limits
 
-## Closest literature and limitations
+**Value: PASS for the corrected scope.** Closing the physically natural boundary \(\alpha=k\) rigorously is a motivated global dynamical statement, not an arbitrary parameter sample. Correcting a printed stability-proof gap by an exact cross-term cancellation is independently useful. The result does not extend the *published statement* on strict \(k>\alpha\), and does not prove necessity, rates, or stability for \(\alpha>k\).
 
-The 2022 stability theorem is the closest result and is strictly weaker as a sufficient condition. The 2007 work emphasizes bifurcation transitions and coexistence of attractors, while the 2014 and 2025 same-system papers concern integrability, invariant algebraic surfaces, and related global structure. The new theorem does not claim necessity and says nothing about the global dynamics for \(\alpha>k\).
+## Citations
 
-Same-model review: passed. Independent audit: not yet performed.
+X. Li (2022), DOI:10.3934/dcdsb.2021315; Hide, Skeldon & Acheson (1996), DOI:10.1098/rspa.1996.0070; Mahdi & Valls (2014), DOI:10.1016/j.bulsci.2013.04.001; Diz-Pita et al. (2025), DOI:10.14232/ejqtde.2025.1.76; Moroz (2007), DOI:10.1098/rspa.2006.1758.
