@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The entire five-axiom operation table is uniquely reconstructed from one bottom-row value and two values per atom; all axiom cases are covered and all counts follow by finite product choices. Direct enumeration independently checks m=2,3,4. The all-m proof is symbolic, not inferred from finite computation.
+## correctness
 
-## Originality
-PASS within the inspected primary literature and searched terminology. Chen's definitions and semantic theorems do not enumerate operations on non-distributive flat lattices; Holliday's general representation and involutive Sasaki identification leave the non-involutive and K/T censuses open in the compared statements. Previously identified finite-chain counts do not dominate the flat-lattice result. Possible equivalent older weak-pseudocomplementation results remain a residual priority risk.
+PASS
 
-## Value
-PASS. An infinite canonical family of non-distributive carriers admits an exact algebraic normal form and all K/T/F counts; the F hierarchy collapses to matchings and has an exact Sasaki/non-Sasaki boundary. The distinction answers a natural structural question prompted by the separation of the three semantics.
+From Holliday axioms 1-4, the 1-row is identity, 0-row is constant d and each atom a_i has row determined by c_i=a_i->0 and t_i=a_i->a_i. The five-axiom compatibility reduces to a_i->c_i<=c_i and a_i->d<=d. Counting cases d=1, d=0, d=a_j yields respectively (m+3)^m, 2^m and 2m3^(m-1). Identity and semicomplementation fix d=1,t_i=1 and forbid c_i=1 or a_i, leaving m^m T choices. Inflation a_i<=N^2(a_i) forces each nonzero atomic c_i to pair with its distinct partner; unmatched atoms map to 0, enumerated by involution numbers/partial matchings. Independent implementation generated all admissible atom row options and directly tested axiom 5 and the T/F extras for m=2,3,4; got (41,4,2),(278,27,4),(2633,256,10). The proof addresses all m>=3 without extrapolating finite tests.
 
-## Scientific limitations
-Statements apply only to the specified height-two carriers with named atoms and count binary operations, not isomorphism classes. The Sasaki characterization itself is prior art. The finite checker is corroborative only; independent external assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Holliday provides the five-axiom framework and the involutive Sasaki identification, while Chen defines the K/T/F hierarchy and semantic results. Neither accessible precise statement supplies the joint full all-m operation count, nor the non-involutive F partial-matching classification. Chen full text inaccessible; risk recorded.
+
+## value
+
+PASS
+
+A complete uniform census of a natural three-level hierarchy of conditional algebraic operations over canonical flat lattices. The F partial-matching structural correspondence and explicit all-m K/T/F counts are not an arbitrary small-table recomputation and include genuinely non-involutive operations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
