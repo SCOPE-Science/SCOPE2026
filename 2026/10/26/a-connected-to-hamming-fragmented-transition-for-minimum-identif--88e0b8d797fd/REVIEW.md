@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fully specified, replayable exhaustive search checks every identifying-code candidate of sizes one through six using closed Kneser neighborhoods and rebuilds every one-swap edge. Its computed counts, degree spectra, and connected components agree with the statement. A second independently generated representation lists every spanning \(3P_3\) on nine ground points and confirms exact equality with the independently enumerated minimum codes. The one-edge-swap structure within these representations has a separate combinatorial proof.
+## correctness
 
-**Originality — PASS (best available evidence; residual risk explicitly retained).** The related 2011 line-graph paper studies a different adjacency relation. Roozbayani–Maimani establishes the scalar optimum for these same Kneser graphs, which is explicitly excluded from novelty; the asserted contribution is complete reconfiguration geometry and its sharp contrast at the next order. Searches for Kneser identifying-code exchanges, optimal-code census, the exact code counts, and ternary-Hamming components did not reveal a statement implying the combined theorem. The directly relevant 2016/2017 paper could be verified by its abstract and metadata but not inspected in full, so its possible unindexed equality cases are a concrete originality risk.
+PASS
 
-**Value — PASS.** Identifying codes model fault diagnosis by distinguishing closed-neighborhood sensor signatures. The structure of the minimum-sensor solution space matters for sensor replacement and reconfiguration: the same optimum size can coexist with either globally connected exchanges or hundreds of locked, internally flexible configuration families. Exact degree and component profiles sharpen the distinction beyond the numerical optimum.
+An independent C++17 finite enumerator rebuilt the Kneser vertices as unordered pairs and all closed signatures using disjointness; it counted every increasing k-subset, k=1,...,6 (499177 candidates total for K(8,2) and 2391495 for K(9,2)). Every k<6 subset fails identification; exactly 141120 and 7560 six-subsets pass. Full one-removal/one-addition adjacency yields edges 4730880 and 22680. For K(8,2) BFS produces one component and exact degree multiplicities 56:3360, 58:10080, 64:20160, 66:67200, 72:10080, 74:30240. For K(9,2) BFS gives 280 components each of 27 degree-six codes. Separately, the source constructive certificate enumerates 280 partitions of nine elements into triples and 3^3 center choices, all yielding spanning 3P3 identifying codes and all 7560 optimal codes; changing one path edge moves only one center, so each component is K3□K3□K3. Complete finite exhaustive searches prove exactly the stated finite orders and do not extrapolate to other n.
 
-**Limitations.** The exhaustive theorem applies only to two finite orders; it does not imply an infinite-family transition. The most directly relevant prior article's full text was not available. No independent external audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with a material access limitation. Roozbayani–Maimani establishes the scalar minimum identifying-code number for Kneser graphs, including both size-six minima; those numbers are not claimed as new. The full exchange graph, K8 degree census, and K9 ternary Hamming fragmentation are not present in its accessible abstract, but full text was unavailable and might include equivalent descriptions. Foucaud et al. consider identifying codes in line graphs, whereas K(n,2) is a complement of a line graph; graph-code equivalence is not automatic.
+
+## value
+
+PASS
+
+The result supplies a complete optimum-configuration and local-move classification at two neighboring natural Kneser graphs of the same optimum cardinality, including a sharp connected-to-280-component transition. The exact degree spectrum and Hamming decomposition are independently useful finite invariants, not just minimum-size recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

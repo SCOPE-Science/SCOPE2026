@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:38:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/a-connected-to-hamming-fragmented-transition-for-minimum-identif--88e0b8d797fd?path=RESULT.md",
+        "independent_checks.py",
+        "independent_kneser.cpp"
+      ],
+      "rationale": "An independent C++17 finite enumerator rebuilt the Kneser vertices as unordered pairs and all closed signatures using disjointness; it counted every increasing k-subset, k=1,...,6 (499177 candidates total for K(8,2) and 2391495 for K(9,2)). Every k<6 subset fails identification; exactly 141120 and 7560 six-subsets pass. Full one-removal/one-addition adjacency yields edges 4730880 and 22680. For K(8,2) BFS produces one component and exact degree multiplicities 56:3360, 58:10080, 64:20160, 66:67200, 72:10080, 74:30240. For K(9,2) BFS gives 280 components each of 27 degree-six codes. Separately, the source constructive certificate enumerates 280 partitions of nine elements into triples and 3^3 center choices, all yielding spanning 3P3 identifying codes and all 7560 optimal codes; changing one path edge moves only one center, so each component is K3□K3□K3. Complete finite exhaustive searches prove exactly the stated finite orders and do not extrapolate to other n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roozbayani–Maimani abstract provides the scalar minimum γ_ID; its full text could not be read. The audited classification records 141120 vs 7560 code sets and exchange connectivity."
+        ],
+        "reasoning": "The scalar minimum alone does not imply the cardinality or adjacency of the entire optimum space, but undisclosed structural coverage in the inaccessible source remains a real risk. Aliases: general Kneser identifying code minimum formula vs full exchange graph.",
+        "searches": [
+          "Resultary semantic search: Kneser graph K(8,2) K(9,2) identifying code minimum exchange graph 3 paths Hamming",
+          "Primary-source comparison: M. Roozbayani and H. R. Maimani, Identifying codes and watching systems in Kneser graphs, Discrete Mathematics Algorithms and Applications 9 (2017) 1750007, doi:10.1142/S1793830917500070"
+        ]
+      },
+      "checked_sources": [
+        "M. Roozbayani and H. R. Maimani, Identifying codes and watching systems in Kneser graphs, Discrete Mathematics Algorithms and Applications 9 (2017) 1750007, doi:10.1142/S1793830917500070",
+        "F. Foucaud et al., Identifying codes in line graphs, arXiv:1107.0207"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Roozbayani–Maimani establishes minimum cardinalities, but neither this numeric result nor the unrelated line-graph paper mathematically forces 280 Hamming components at n=9."
+        ],
+        "reasoning": "The claim adds irreducible information beyond the published numerical minima; direct full-source comparison is not possible and must remain a material priority limitation. Aliases: γ_ID(K(n,2))=6 at n=8,9 vs complete optimum-exchange geometry.",
+        "searches": [
+          "Resultary semantic search: Kneser graph K(8,2) K(9,2) identifying code minimum exchange graph 3 paths Hamming",
+          "Primary-source comparison: M. Roozbayani and H. R. Maimani, Identifying codes and watching systems in Kneser graphs, Discrete Mathematics Algorithms and Applications 9 (2017) 1750007, doi:10.1142/S1793830917500070"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roozbayani–Maimani DOI 10.1142/S1793830917500070 treats identifying codes in Kneser graphs and includes known numeric minimum sizes, while Foucaud arXiv:1107.0207 treats ordinary line graphs."
+        ],
+        "reasoning": "The original minimum cardinalities are known; the new object is the graph of all optimal code exchanges. Complementing a line graph does not preserve closed-neighborhood code signatures. Aliases: closed identifying codes in K(n,2); edge sets on n ground points; complement-of-line-graph code representations.",
+        "searches": [
+          "Resultary semantic search: Kneser graph K(8,2) K(9,2) identifying code minimum exchange graph 3 paths Hamming",
+          "Primary-source comparison: M. Roozbayani and H. R. Maimani, Identifying codes and watching systems in Kneser graphs, Discrete Mathematics Algorithms and Applications 9 (2017) 1750007, doi:10.1142/S1793830917500070"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited C++ exhaustive certificate and an independently written enumerator agree; actual Resultary query produced no same-instance identification or Hamming exchange table in top matches."
+        ],
+        "reasoning": "Finite literature tables could be equivalent if present; none was confirmed by inspected accessible sources. Computed numbers alone do not demonstrate novelty. Aliases: K(8,2) and K(9,2) minimum identifying code counts 141120 7560; Hamming components.",
+        "searches": [
+          "Resultary semantic search: Kneser graph K(8,2) K(9,2) identifying code minimum exchange graph 3 paths Hamming",
+          "Primary-source comparison: M. Roozbayani and H. R. Maimani, Identifying codes and watching systems in Kneser graphs, Discrete Mathematics Algorithms and Applications 9 (2017) 1750007, doi:10.1142/S1793830917500070"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with a material access limitation. Roozbayani–Maimani establishes the scalar minimum identifying-code number for Kneser graphs, including both size-six minima; those numbers are not claimed as new. The full exchange graph, K8 degree census, and K9 ternary Hamming fragmentation are not present in its accessible abstract, but full text was unavailable and might include equivalent descriptions. Foucaud et al. consider identifying codes in line graphs, whereas K(n,2) is a complement of a line graph; graph-code equivalence is not automatic.",
+      "residual_risks": [
+        "The most relevant source Roozbayani–Maimani (2017) was accessible only as bibliographic material/abstract. Authorized institutional full-text retrieval returned vpn_disconnected; it was not treated as proving noncoverage.",
+        "A prior unindexed finite optimum-code enumeration or a stronger structural classification could contain the same Hamming decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_SCALAR_RESULT_FULL_TEXT_RISK",
+          "evidence": "Numeric minimum code size is prior work; no claim of whole-document noncoverage; Hamming exchange classification could be in the inaccessible article.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793830917500070",
+          "material_read": "Publisher abstract and available bibliographic passages/size formula; full text inaccessible",
+          "method": "Publisher/search snippets; searched arXiv/OA; authorized Oxford returned vpn_disconnected",
+          "title": "Identifying codes and watching systems in Kneser graphs",
+          "trigger": "Same graphs and invariant; most directly relevant prior primary source"
+        },
+        {
+          "assessment": "DISTINCT_GRAPH_NEIGHBORHOODS",
+          "evidence": "K(n,2) is the complement of L(K_n); closed-neighborhood identifying-code conditions are not invariant under graph complement.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.0207",
+          "material_read": "Primary arXiv abstract and discussed line-graph setting, not a complete Kneser exchange proof",
+          "method": "arXiv source search and publication summary",
+          "title": "Identifying codes in line graphs",
+          "trigger": "Potential transfer under complement relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "M. Roozbayani and H. R. Maimani, Identifying codes and watching systems in Kneser graphs, Discrete Mathematics Algorithms and Applications 9 (2017) 1750007, doi:10.1142/S1793830917500070",
+        "F. Foucaud et al., Identifying codes in line graphs, arXiv:1107.0207"
+      ],
+      "rationale": "The result supplies a complete optimum-configuration and local-move classification at two neighboring natural Kneser graphs of the same optimum cardinality, including a sharp connected-to-280-component transition. The exact degree spectrum and Hamming decomposition are independently useful finite invariants, not just minimum-size recomputations.",
+      "residual_risks": [
+        "The most relevant source Roozbayani–Maimani (2017) was accessible only as bibliographic material/abstract. Authorized institutional full-text retrieval returned vpn_disconnected; it was not treated as proving noncoverage.",
+        "A prior unindexed finite optimum-code enumeration or a stronger structural classification could contain the same Hamming decomposition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Minimum closed-neighborhood identifying codes of K(8,2) and K(9,2) both have size six, but their one-exchange graphs are respectively connected on 141120 codes (4730880 edges with stated six-class degree distribution) and 280 copies of K3□K3□K3 on 7560 codes (22680 edges).",
+  "limitations": [
+    "The most relevant source Roozbayani–Maimani (2017) was accessible only as bibliographic material/abstract. Authorized institutional full-text retrieval returned vpn_disconnected; it was not treated as proving noncoverage.",
+    "A prior unindexed finite optimum-code enumeration or a stronger structural classification could contain the same Hamming decomposition.",
+    "Finite computations establish only their explicitly bounded cases; universal results rely on reconstructed analytic arguments."
+  ],
+  "schema_version": 1
+}
