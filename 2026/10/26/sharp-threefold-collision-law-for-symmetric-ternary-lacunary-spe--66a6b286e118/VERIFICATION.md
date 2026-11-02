@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The infinite proof uses balanced-ternary uniqueness, the least 3-adic exponent of summands, and the two mod-three residue patterns of primitive triples. The standalone `verify.py` enumerates unordered triples for \(J=3,4,5,7,11\) digits, removing every triple with a pair summing to zero. It checks the bound of three and the complete set \(\{\pm5\cdot3^k,\pm7\cdot3^k:0\le k\le J-3\}\) of finite-truncation threefold targets, rather than just testing a few examples. The observed execution was `VERIFY_OK finite_depths=3,4,5,7,11 max_count=3 exact_triple_fibers=36`.
+## correctness
 
-Finite tests do not certify infinite conclusions, literature priority or independence. No independent scientific audit has been performed.
+PASS
+
+Balanced ternary makes a noncancelling unordered pair of distinct powers (or zero plus a power) unique, with the sole doubled-power carry 2ε3^j=-ε3^j+ε3^(j+1). For D nonzero, the least exponent and residue mod3 reduce all primitive representations by ν3(D), except the three identical-power terms when D=±3^v. After sign normalizing d≡1 mod3, every triple is {1,u,w} with u,w∈{0,±3^j:j>=1} and u+w=d−1≠0, or {-1,-1,w} with w=d+2 in that set. The pair lemma bounds the first family by 2 and second by 1. Equality requires d=1+2ε3^j and d+2 signed 3-power, forcing d=7 or -5 at j=1, plus sign inverses; special D=±3^v has only 2 types. Independent complete finite-depth unordered triple enumerations up to exponent depth 8 give r<=3 with saturation only ±5,±7 times powers of 3. Infinite completeness follows from the residue proof, not finite truncation.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct statement after exact model/quantifier comparisons with relevant primary work, related published mathematical records and natural equivalent formulations; no absolute novelty certification.
+
+## value
+
+PASS
+
+The exact pointwise primitive three-frequency fiber multiplicity and complete saturation locus at the critical ratio-three lacunarity endpoint give a natural structural arithmetic invariant relevant to decomposing cubic Fourier coefficients. The statement expressly avoids claiming an unproved sharp Fourier extension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
