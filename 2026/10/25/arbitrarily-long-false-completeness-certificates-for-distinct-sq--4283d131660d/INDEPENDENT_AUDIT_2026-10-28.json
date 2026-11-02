@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each B>=18 the prefix sums are 0..S_B and the tail entries are multiples of Q_B=S_B+2, so any representable sum of squares has residue in [0,Q_B-2] and each hQ_B-1 remains bad. Independently regenerated all 2048 reachable totals from squares 1^2..18^2 by explicit set DP: 128 is absent, the entire [129,324] is present. The induction appends unused (m-4)^2: u=t-(m-4)^2 lies in [129,m^2] for m>=18, and a representation of u cannot already contain that square because 2(m-4)^2>(m+1)^2. All four exact Fuller–Nichols Thm 6 inequalities hold at k=2,n=r=1,b=B,Nhat=129,x=4 by monotone quadratic bounds; sample endpoint inequalities checked for 282 values B=18..299. The published proof additionally assumes that m-x is an eligible sequence element; it is not for sparse A_B. Unbounded B and h are handled by quantified inequalities and congruence, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 Theorem 6 is the stronger-sounding claim being refuted, but its proof uses a tail-availability implication not in its assumptions; 2014 result applies to all natural square bases."
+        ],
+        "reasoning": "A stronger complete-integers theorem cannot cover a sparse-tail sequence. Conversely the invalid general theorem is not valid prior coverage of the counterexample; the witness pinpoints why it cannot be applied.",
+        "searches": [
+          "Fuller Nichols 2015 Theorem 6 PDF pp.5–6",
+          "Fuller Prier Vasconi 2014 Theorem 2.2 square power threshold"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 9304e0b0222da660724c0221bac7e8fd002d3e22; verify.py blob 00f81cf6a6a300e468d3b3a57478ff6020396261",
+        "Fuller–Nichols JIS18 (2015) Article15.10.5 https://cs.uwaterloo.ca/journals/JIS/VOL18/Fuller/fuller2.pdf",
+        "Fuller–Prier–Vasconi 2014 https://msp.org/involve/2014/7-2/involve-v7-n2-p09-p.pdf",
+        "OEIS A001661 https://oeis.org/A001661",
+        "Resultary semantic counterexample query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly says either m-x<a_n or some a_i=m-x, but there is a third possibility when m-x is missing from A; for all B>=18 the returned conditions hold while hQ_B-1 is bad."
+        ],
+        "reasoning": "The new construction disproves the claimed implication for arbitrary A. It does not refute narrower valid claims for the natural-number sequence, nor prove optimal additional hypotheses.",
+        "searches": [
+          "Fuller Nichols 2015 Theorem 6 proof p.6",
+          "2014 unrestricted anti-Waring Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fuller–Nichols 2015 theorem 6 explicitly covers any nondecreasing positive integer sequence; its proof relies on m-x being an available a_i, pp.5–6."
+        ],
+        "reasoning": "The natural equivalents are noncompleteness of distinct-square subset sums and a false sufficient terminal interval test. The S_B+2 modular exclusion gives an actual counterexample to the printed unrestricted theorem; prior anti-Waring identities for the full natural sequence do not imply that statement.",
+        "searches": [
+          "Resultary: counterexample finite anti-Waring completeness certificate arbitrary increasing sequence missing square available square powers",
+          "web: Fuller Nichols generalized anti-Waring Theorem 6 erratum correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known classical N(2,1)=129 and table triple (129,4,18) refer to the unrestricted basis; distinct-square subset sums through 18 have 2048 reachable values."
+        ],
+        "reasoning": "The ordinary anti-Waring threshold and finite table entries are previously known; the unbounded family of sparse sequences satisfying the same finite conditions yet missing a modular residue is a different assertion, not a recomputation of the table.",
+        "searches": [
+          "OEIS A001661 distinct positive powers; 2015 Fuller Nichols Table 1",
+          "Resultary query finite anti-Waring false certificates"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. A counterexample to a published infinite-completeness certification theorem under its own hypotheses, with arbitrarily long false finite certificates, identifies a precise missing availability premise and protects subsequent generalized anti-Waring computations. It is not a minor numerical discrepancy: the witness has gcd one, begins with 1 and has positive-density arithmetic progression tail, so it isolates a substantive logical gap.",
+      "residual_risks": [
+        "An unindexed published correction/erratum or an older sparse-tail subset-sum counterexample may establish priority; searched named theorem and equivalents without locating one.",
+        "The additional full-tail availability hypothesis is sufficient for the contested induction step but no optimal repair or prime-specific conclusion is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem actually quantifies over arbitrary nondecreasing sequences, and its induction tacitly introduces a potentially nonexistent sequence value",
+          "evidence": "Theorem 6 and line “either m-x<a_n ... or a_i=m-x”, printed p.6",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Fuller/fuller2.pdf",
+          "material_read": "Theorem 6 numbered hypotheses and proof on printed pp.5–6, source definitions pp.1–2 and surrounding table discussion",
+          "method": "Full publisher-hosted PDF parsed and screenshots of pp.5–6 inspected",
+          "title": "Generalized Anti-Waring Numbers, Fuller and Nichols (2015)",
+          "trigger": "Direct theorem claimed false with numerical certificate"
+        },
+        {
+          "assessment": "Unrestricted-square sufficient result has all integer bases available, unlike A_B; full primary comparison remains qualified",
+          "evidence": "2015 p.5 describes [5, Thm 2.2] as original anti-Waring result",
+          "identifier_or_url": "https://msp.org/involve/2014/7-2/involve-v7-n2-p09-p.pdf",
+          "material_read": "Referenced theorem statement and unrestricted positive-integer sequence scope as compared in 2015 paper and assigned RESULT; entire original text not independently inspected in this run",
+          "method": "Secondary primary-paper cross-reference",
+          "title": "New Results on an Anti-Waring Problem, Fuller, Prier and Vasconi (2014)",
+          "trigger": "Theorem from which printed sufficiency result generalizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A counterexample to a published infinite-completeness certification theorem under its own hypotheses, with arbitrarily long false finite certificates, identifies a precise missing availability premise and protects subsequent generalized anti-Waring computations. It is not a minor numerical discrepancy: the witness has gcd one, begins with 1 and has positive-density arithmetic progression tail, so it isolates a substantive logical gap.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md Git blob 9304e0b0222da660724c0221bac7e8fd002d3e22; verify.py blob 00f81cf6a6a300e468d3b3a57478ff6020396261",
+    "Fuller–Nichols JIS18 (2015) Article15.10.5 https://cs.uwaterloo.ca/journals/JIS/VOL18/Fuller/fuller2.pdf",
+    "Fuller–Prier–Vasconi 2014 https://msp.org/involve/2014/7-2/involve-v7-n2-p09-p.pdf",
+    "OEIS A001661 https://oeis.org/A001661",
+    "Resultary semantic counterexample query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All infinite claims concern r=1, k=2 with sparse positive-density tails, not arbitrary k or optimal theorem repair.",
+    "Finite DP establishes exactly the base case, with written induction and modular argument establishing all B."
+  ],
+  "residual_risks": [
+    "An unindexed published correction/erratum or an older sparse-tail subset-sum counterexample may establish priority; searched named theorem and equivalents without locating one.",
+    "The additional full-tail availability hypothesis is sufficient for the contested induction step but no optimal repair or prime-specific conclusion is established."
+  ],
+  "schema_version": 1
+}
