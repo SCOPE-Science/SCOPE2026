@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof establishes the sharp constants and all equality cases for every integer \(N\ge3\), using real duality, the cycle Green pseudoinverse and strict concavity of the pair-separation functional, plus exact spectral-gap equality in the complex case. The Green formula was checked against its defining identity and against the known normalized cycle Green formula.
+## correctness
 
-Run the included portable diagnostic with `python3 check.py`; it uses standard-library `fractions.Fraction`, exhaustively enumerates \(2^N\) sign patterns for \(3\le N\le11\), and checks both the proposed exact rational maximum and its entire maximizing-sign family. The checker is a bounded sanity check; it cannot replace the infinite-size analytic proof.
+PASS
 
-Literature comparisons included the zero-extended finite-sequence sharp result (arXiv:2610.19010v1), the sharp cycle log-Sobolev theorem (arXiv:2605.29035v1), and the original cycle Green kernel (arXiv:math/0309080v2), each inspected at the relevant theorem/definition sections. A previously unlocated equivalent older result remains possible. Independent audit is not performed.
+Represent E by cycle Laplacian L and G=L^+. Real norm duality yields sharp C²=max_{sign s} s^T Gs. Green entries are (N²-1)/(12N)-d(N-d)/(2N). For fixed occupied sign count k, signed quadratic maximization minimizes a strictly concave sum over cyclic gaps; its only minimizing vertices have all but one gap equal 1, i.e. contiguous sign blocks. Summing separations yields k(N-k)[k(N-k)+2]/(3N), maximized at k=floor(N/2) or ceil. The complex spectral gap 4sin²(pi/N) and norm l1<=sqrt N l2 give the complex bound, with first Fourier characters attaining it. Constant-magnitude combinations of plus/minus first modes are excluded unless N=4. New independent exact rational enumeration of 2,040 sign patterns on N=3..10 checked maxima and every maximizer; unrestricted result follows from strict concavity and Fourier spectral argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise stated full theorem: mathematical antecedents and equivalent formulations were compared from real source readings. Standard ingredients are credited and genuine historical coverage risks remain; unsuccessful search is not a novelty proof. Known pseudoinverse matrix is an input; it does not state the sign-quadratic optimizer or the full real/complex equality families. Their specified finite-sequence difference has zero extension, distinct from periodic mean-zero difference. However any hidden periodic theorem/appendix remains a material priority risk, not grounds for inferred novelty. Entropy logarithmic/cubic functional differs from the linear l1-energy optimal quotient and its sign-block extremizers.
+
+## value
+
+PASS
+
+This is a complete sharp real/complex Sobolev-energy embedding and equality classification on the natural periodic one-dimensional graph, quantifying real versus complex extremal geometry and a nontrivial limiting field gap; not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

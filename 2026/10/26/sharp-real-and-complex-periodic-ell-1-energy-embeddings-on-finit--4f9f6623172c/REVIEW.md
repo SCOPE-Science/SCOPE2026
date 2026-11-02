@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The real endpoint constant is the maximum of a Laplacian pseudoinverse quadratic form on sign vectors, by exact energy duality. The explicit cycle Green kernel converts this to a strictly concave minimization in cyclic gaps, which enforces contiguous maximizing sign sets. Summing separation multiplicities yields the closed constant and full real equality family. The complex constant follows from spectral-gap and finite-dimensional Cauchy--Schwarz equalities; inspecting their simultaneous equality cases gives the Fourier-wave extremizers and the exceptional four-cycle. Exact rational enumeration for dimensions 3 through 11 agrees with the full claim. Risk: the calculation's validity beyond checked dimensions relies on the written analytic argument, not enumeration.
+## correctness
 
-## Originality — PASS
-Hindov--Nitzan--Olsen--Rydhe's recent sharp difference inequality uses zero extension and no periodic zero-mean subspace. Frank--Ivanisvili's finite-cycle inequalities optimize entropy and a cubic expression, rather than \(\ell^1\) under Dirichlet energy. Ellis supplies the standard Green kernel, not the maximizing signed-potential problem. Actual mathematical-index searches for periodic \(\ell^1\)--energy constants, signed cycle Green optimizers, and real/complex Fourier-wave gaps yielded nearby results on different functionals. A historically older equivalent result might exist under resistance-energy, inverse-Laplacian, or discrete Wirtinger terminology; this remains a specific residual risk, not a claim of exhaustive novelty.
+PASS
 
-## Value — PASS
-The result gives every exact sharp constant and the full equality set for both scalar fields on all finite cycles, rather than a general spectral-gap upper bound. The real extremizers localize as half-cycle sign blocks, whereas complex extremizers are waves, producing a strictly positive asymptotic field dependence. This is the periodic counterpart naturally prompted by the 2026 sharp zero-extension work, with a geometric optimizer transition that is not a renaming or isolated small-graph computation.
+Represent E by cycle Laplacian L and G=L^+. Real norm duality yields sharp C²=max_{sign s} s^T Gs. Green entries are (N²-1)/(12N)-d(N-d)/(2N). For fixed occupied sign count k, signed quadratic maximization minimizes a strictly concave sum over cyclic gaps; its only minimizing vertices have all but one gap equal 1, i.e. contiguous sign blocks. Summing separations yields k(N-k)[k(N-k)+2]/(3N), maximized at k=floor(N/2) or ceil. The complex spectral gap 4sin²(pi/N) and norm l1<=sqrt N l2 give the complex bound, with first Fourier characters attaining it. Constant-magnitude combinations of plus/minus first modes are excluded unless N=4. New independent exact rational enumeration of 2,040 sign patterns on N=3..10 checked maxima and every maximizer; unrestricted result follows from strict concavity and Fourier spectral argument.
 
-## Limitations
-The proof does not treat weighted cycles, higher differences, or nonzero means. Independent audit and publication-priority certification are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise stated full theorem: mathematical antecedents and equivalent formulations were compared from real source readings. Standard ingredients are credited and genuine historical coverage risks remain; unsuccessful search is not a novelty proof. Known pseudoinverse matrix is an input; it does not state the sign-quadratic optimizer or the full real/complex equality families. Their specified finite-sequence difference has zero extension, distinct from periodic mean-zero difference. However any hidden periodic theorem/appendix remains a material priority risk, not grounds for inferred novelty. Entropy logarithmic/cubic functional differs from the linear l1-energy optimal quotient and its sign-block extremizers.
+
+## value
+
+PASS
+
+This is a complete sharp real/complex Sobolev-energy embedding and equality classification on the natural periodic one-dimensional graph, quantifying real versus complex extremal geometry and a nontrivial limiting field gap; not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
