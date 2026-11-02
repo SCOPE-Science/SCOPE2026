@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A full all-primes, all-pattern-lengths, all-residues proof is supplied. Lucas congruences give the exact periodic state invariant; a directly constructed word reaches every state; a prime-power cyclic subgroup argument eliminates nonzero support translations; finite-field affine-hyperplane equality separates all reachable states. The code reproduces the upper-state rule, performs distinct partition minimization, and compares 85,995 words against direct embeddings. The finite tests are supporting evidence rather than an infinite certificate.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The nearest primary paper, Renard–Rigo–Whiteland (arXiv:2402.05838, Section 6.2, Figure 4), supplies general permutation recognizability and the already-known \(01\) modulo-two four-state example, but no \(r\ge2\) formula. Their companion arXiv:2402.05657 supplies \(q\)-Parikh connections, not the state staircase. Searches for modular subsequence state complexity, equivalent names, Lucas periods, and relevant published records found no claim encompassing \(p^{2+\lfloor\log_p r\rfloor}\) for all \(r\ge2\). The prior special case is explicitly excluded as a contribution. Residual risk: unindexed or terminologically different finite-group and automata results might imply the formula.
+PASS
 
-**Mathematical value — PASS.** The classification gives an exact minimal-state invariant of a natural prime-modular subword-counting language across every prime and every repeated-zero exponent. The prime-power plateaux reveal an abrupt digital complexity threshold and replace a naive exponential-size subsequence-counter construction by a sharp linear-in-\(r\) size for fixed \(p\). Its minimality rests on a nontrivial structure theorem for cyclic shifts of the Lucas-support indicator, not on a parameter substitution or enumeration alone.
+Let q=p^d be the smallest prime power exceeding r>=2. Lucas congruence gives f(n)=C(n,r) mod p with period q, so (zeros mod q, count mod p) is a complete p*q DFA. Every state is reachable by 0^r 1^t 0^(N-r). For any two states, suffix blocks 1^k 0 1^k... give affine hyperplanes with coefficient vectors f(a+j); equality of right languages requires proportional coefficient vectors. Their supports have trivial cyclic translation stabilizer because r is in support but r-q/p is not (highest Lucas digit decreases), forcing same a and then same t. Hence every reachable state is distinguishable for every acceptance residue c; sc=p^(2+floor(log_p r)). Independent partition refinement checked all residues in 15 (p,r) choices across p=2,3,5 and tested support translations; the infinite argument is Myhill-Nerode plus Lucas, not the sample.
 
-The theorem does not address general patterns, composite moduli, or syntactic group order. One narrow published case and a general existence theorem are already known; neither is presented as new. The primary manuscript's Section 6.2 and Figure 4 were examined, alongside the companion manuscript and relevant slides. No human or independent review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Renard, Rigo, Whiteland give modular word-binomial permutation automata and a minimal four-state (p=2,r=1,pattern 01) example, but the inspected full Section 6.2 does not determine exact general r>=2 state numbers. Related q-Parikh representations are not minimal-DFA lower bounds. No published Resultary exact staircase matched the targeted search; historical unindexed case remains possible.
+
+## value
+
+PASS
+
+Exact minimal complete automaton size for a simple natural modular subsequence language exhibits a sharp prime-power plateau-and-jump law. The state complexity lower bound is a genuine structural rigidity argument, not a routine recognition claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:55:37.879097Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let q=p^d be the smallest prime power exceeding r>=2. Lucas congruence gives f(n)=C(n,r) mod p with period q, so (zeros mod q, count mod p) is a complete p*q DFA. Every state is reachable by 0^r 1^t 0^(N-r). For any two states, suffix blocks 1^k 0 1^k... give affine hyperplanes with coefficient vectors f(a+j); equality of right languages requires proportional coefficient vectors. Their supports have trivial cyclic translation stabilizer because r is in support but r-q/p is not (highest Lucas digit decreases), forcing same a and then same t. Hence every reachable state is distinguishable for every acceptance residue c; sc=p^(2+floor(log_p r)). Independent partition refinement checked all residues in 15 (p,r) choices across p=2,3,5 and tested support translations; the infinite argument is Myhill-Nerode plus Lucas, not the sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General permutation-automaton/group-language recognition is broader in pattern classes, but only guarantees existence of some automaton, not minimal size."
+        ],
+        "reasoning": "The new Myhill-Nerode separation is an extra lower bound not implied by recognition.",
+        "searches": [
+          "mod prime scattered subsequence 0^r1 minimal DFA state complexity Lucas prime power period",
+          "Renard et al 2024 first and companion papers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.05838; ORBi full manuscript 2268/329468: https://orbi.uliege.be/bitstream/2268/329468/1/univariateR2.pdf ; https://arxiv.org/abs/2402.05838",
+        "arXiv:2402.05657: https://arxiv.org/abs/2402.05657"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lucas congruence alone gives a p*q upper bound; full minimality needs translation-rigid support and affine hyperplane separation."
+        ],
+        "reasoning": "Not a direct corollary of existing general recognizability theorem.",
+        "searches": [
+          "mod prime scattered subsequence 0^r1 minimal DFA state complexity Lucas prime power period",
+          "arXiv:2402.05838 Section 6, Figure 4; arXiv:2402.05657"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact language can be represented by q-Parikh matrix entries, Lucas digit automata, or syntactic group languages."
+        ],
+        "reasoning": "The existing representation and basic example do not state the all-prime minimal p*q count.",
+        "searches": [
+          "mod prime scattered subsequence 0^r1 minimal DFA state complexity Lucas prime power period",
+          "Renard Rigo Whiteland arXiv:2402.05838 section 6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 4 identifies p=2 pattern 01 with four states, already excluded from novelty scope r>=2; no r>=2 family table found."
+        ],
+        "reasoning": "Partial small table overlap acknowledged; claim is uniform staircase.",
+        "searches": [
+          "mod prime scattered subsequence 0^r1 minimal DFA state complexity Lucas prime power period",
+          "Resultary targeted modular-scattered-word query 2; arXiv:2402.05838 Figure 4"
+        ]
+      },
+      "rationale": "Renard, Rigo, Whiteland give modular word-binomial permutation automata and a minimal four-state (p=2,r=1,pattern 01) example, but the inspected full Section 6.2 does not determine exact general r>=2 state numbers. Related q-Parikh representations are not minimal-DFA lower bounds. No published Resultary exact staircase matched the targeted search; historical unindexed case remains possible.",
+      "residual_risks": [
+        "Another literature strand on Lucas automata or binomial-word languages might contain this special minimal-state formula under another coding.",
+        "Only prime moduli and pattern 0^r1, r>=2, are settled; no composite-modulus statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A 4-state minimal DFA is shown for pattern 01 and p=2; the general recognition theorem supplies group-automaton existence but does not give exact p^(2+floor(log_p r)) state complexity for all r>=2 and all residues.",
+          "evidence": "https://orbi.uliege.be/bitstream/2268/329468/1/univariateR2.pdf ; https://arxiv.org/abs/2402.05838",
+          "identifier_or_url": "arXiv:2402.05838; ORBi full manuscript 2268/329468",
+          "material_read": "Full 25-page legal university repository PDF, particularly section 6.2, group-language theorem, Figure 4, and arguments around recognized modular word-binomial counts.",
+          "method": "Full-text PDF and page-image inspection",
+          "title": "A. Renard, M. Rigo, M. A. Whiteland, Introducing q-deformed binomial coefficients of words",
+          "trigger": "Same modular scattered-word counts and permutation automata, including a p=2, pattern 01 example."
+        },
+        {
+          "assessment": "A general matrix representation is not an exact Myhill-Nerode cardinality lower bound for the specific patterns; any implicit special case remains a bounded priority risk.",
+          "evidence": "https://arxiv.org/abs/2402.05657",
+          "identifier_or_url": "arXiv:2402.05657",
+          "material_read": "Accessible abstract and selected overview; not a complete primary-paper proof inspection.",
+          "method": "Open-access abstract/overview",
+          "title": "A. Renard, M. Rigo, M. A. Whiteland, q-Parikh matrices and q-deformed binomial coefficients of words",
+          "trigger": "Same underlying scattered-word counting formalism and potential stronger matrix representation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact minimal complete automaton size for a simple natural modular subsequence language exhibits a sharp prime-power plateau-and-jump law. The state complexity lower bound is a genuine structural rigidity argument, not a routine recognition claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git source: 2026/10/26/prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5/RESULT.md blob 9252ad972cef7fcd3e2d3d4beb161efe4bd5c6f0",
+    "Pinned package verifier: verify.py with independently reconstructed tests",
+    "Resultary query: mod prime scattered subsequence 0^r1 minimal DFA state complexity Lucas prime power period",
+    "arXiv:2402.05838; ORBi full manuscript 2268/329468",
+    "arXiv:2402.05657"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Alphabet {0,1}, scattered occurrences with multiplicity mod prime p, all residues c, r>=2.",
+    "Finite independent DFA minimization supplements but does not establish every prime/r."
+  ],
+  "residual_risks": [
+    "Another literature strand on Lucas automata or binomial-word languages might contain this special minimal-state formula under another coding.",
+    "Only prime moduli and pattern 0^r1, r>=2, are settled; no composite-modulus statement."
+  ],
+  "schema_version": 1
+}
