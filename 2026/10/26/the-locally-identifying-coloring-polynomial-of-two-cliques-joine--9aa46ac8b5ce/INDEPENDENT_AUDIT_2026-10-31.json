@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:48:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: derived the exact closed-neighborhood color sets P, Q and P∪{f(b_i)}, Q∪{f(a_i)} and verified every edge type. For 1<=t<n, shared colors lie only at unmatched positions; at t=1 prohibit n-1 shared colors because the cross matched endpoints then have equal neighborhood color sets. With t=n, at most one reused color with different indices; t=0 has true twins. Choosing paired shared colors and injective fresh colors yields each falling-factorial summand, including n=2,t=2 boundary. Independently checked 62 (n,t,k) instances against the ORIGINAL graph/neighborhood definition for n=2..4; not an infinite computational proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhyravarapu et al give Cartesian-product bounds, and Oliveira gives chi_lid(K_m square P_n)=2m-1 for m>=3,n>=2, covering t=n scalar value."
+        ],
+        "reasoning": "Neither examined result supplies the number of named locally identifying colorings or the all-t family; they are insufficient to derive a complete coefficient enumerator.",
+        "searches": [
+          "locally identifying chromatic polynomial two cliques matching rook graph K_n Cartesian K_2",
+          "arxiv:2305.17536 §3.1 Theorem 4",
+          "UFG thesis Theorem 6.4"
+        ]
+      },
+      "checked_sources": [
+        "Esperet et al 2012 DOI:10.37236/2417 abstract",
+        "Bhyravarapu et al arxiv:2305.17536 PDF §§1,3.1",
+        "Oliveira 2026 UFG thesis §6.3 Theorem 6.4",
+        "Resultary locally identifying polynomial search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Esperet et al originated the definition and bounds; the 2023–24 graph-product paper has chi_lid bounds, while the 2026 thesis has the t=n scalar equality."
+        ],
+        "reasoning": "Those findings cover concepts and a corollary but not the all-parameter polynomial; matching the same t=n scalar is not enough to reject the refined claim.",
+        "searches": [
+          "locally identifying chromatic polynomial two cliques matching rook graph K_n Cartesian K_2",
+          "doi:10.37236/2417",
+          "doi:10.1016/j.dam.2024.07.046"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At t=n the graph is K_n Cartesian K_2, so the old minimum color count is exactly a special case. The all-palette counts depend on which color pairs repeat, not solely the chromatic minimum."
+        ],
+        "reasoning": "Comparison uses the same neighborhood-color-set definition; product upper bounds do not imply a counting polynomial for every palette.",
+        "searches": [
+          "locally identifying chromatic polynomial two cliques matching rook graph K_n Cartesian K_2",
+          "arxiv:2305.17536",
+          "Oliveira-2026-UFG thesis §6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The thesis section displays explicit optimal sample colorings and scalar bounds, not a table of all palette sizes and arbitrary matching t."
+        ],
+        "reasoning": "The exact database/table check targets color-count enumerators rather than merely scalar lid-chromatic numbers.",
+        "searches": [
+          "locally identifying chromatic polynomial two cliques matching rook graph K_n Cartesian K_2",
+          "UFG thesis §6.3"
+        ]
+      },
+      "rationale": "Qualified originality concerns the complete all-k polynomial and full partial-matching palette classification; the scalar chi_lid(K_n square K_2)=2n-1 for n>=3 is prior-covered and deliberately excluded as a new theorem.",
+      "residual_risks": [
+        "An unindexed enumeration under palette-overlap or identifying-chromatic-polynomial terminology could cover the same formula.",
+        "The submitted simple matching-only family is not a claim for arbitrary bipartite crosslinks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_NOT_COVERING exact all-k enumerator",
+          "evidence": "",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.17536",
+          "material_read": "Abstract, initial definition and §3.1 Cartesian product Theorem 4 / Corollary 1 (PDF pp. 1–4)",
+          "method": "primary preprint PDF text plus page 4 screenshot",
+          "title": "On Locally Identifying Coloring of Cartesian Product and Tensor Product of Graphs",
+          "trigger": "same invariant on a superfamily of graph products"
+        },
+        {
+          "assessment": "COVERS scalar special case only; does not give the new all-k matching polynomial",
+          "evidence": "",
+          "identifier_or_url": "https://repositorio.bc.ufg.br/tede/bitstreams/2bd647d9-b5d3-4251-bc38-0b9e9e15c880/download",
+          "material_read": "Chapter 6 §6.3 Theorem 6.4 and the surrounding pp. 113–118 incl scalar product results",
+          "method": "primary 2026 doctoral PDF text and page 113 screenshot",
+          "title": "Coloração de identificação local em algumas classes de grafos",
+          "trigger": "direct t=n=K_n Cartesian K_2 scalar case"
+        },
+        {
+          "assessment": "DEFINITIONAL_PRIOR; not a counting theorem",
+          "evidence": "",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p40",
+          "material_read": "Journal abstract, definition and article scope",
+          "method": "publisher abstract/article landing read",
+          "title": "Locally Identifying Coloring of Graphs",
+          "trigger": "original invariant definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: identifies a natural graph-polynomial invariant refining the known minimum color number for a canonical family interpolating disjoint cliques and a prism; its sharp t=1 and n=2,t=n effects are intrinsic structural transitions, not arbitrary slices. Full counting and color-orbit classification remain useful even where one endpoint scalar value is known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Complete falling-factorial enumeration of all proper locally identifying k-colorings of two n-cliques joined by t matching cross-edges for n>=2, 0<=t<=n, including t=1 exception, full matching case, optimal palette and color-name orbit counts.",
+  "limitations": [
+    "Only equal-sized cliques and cross-matchings; t=0 disconnected included.",
+    "For k<n polynomial evaluation relies on falling factorial interpretation; zero by clique obstruction."
+  ],
+  "schema_version": 1
+}

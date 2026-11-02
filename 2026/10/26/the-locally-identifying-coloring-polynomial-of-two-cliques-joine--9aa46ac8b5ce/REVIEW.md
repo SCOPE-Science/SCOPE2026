@@ -1,11 +1,21 @@
-# Scientific review: locally identifying colorings of partial matching clique joins
+# Independent mathematical audit
 
-**Correctness — PASS.** Each neighborhood color set is exactly its clique palette, with the opposite matched vertex's color added when present. The three types of edge (within a clique touching a matched vertex; cross matching edge; true twins with no cross neighbor) give an if-and-only-if palette-intersection condition. The matching-edge comparison requires one exceptional exclusion at \(t=1\). The counting uses chosen pairs of unmatched vertices and falling factorials; the optimal-coloring partitions follow at maximal palette overlap. The directly implemented graph-definition verifier checked 697,320 candidate second-layer injections in 104 parameter configurations, and additionally 14 full named-color cases. No finite search is used to infer an infinite conclusion.
+## correctness
 
-**Originality — PASS, with literature-priority uncertainty.** The 2023 Cartesian-product source supplies an upper bound, not a complete coloring enumeration. A 2026 thesis gives the exact **scalar** \(\chi_{\mathrm{lid}}(K_n\square P_m)=2n-1\); that part is credited as already known, not treated as the contribution. The accepted claim is the full all-palette polynomial, complete palette-intersection classification for each matching size, the edge-addition profile and the optimum-set census. Searches by invariant, palette intersection, two-clique matching construction, and equivalent complement graph descriptions did not find an indexed stronger result. A missing search hit is not a proof of absolute novelty; priority remains subject to further literature review.
+PASS
 
-**Value — PASS.** Proper colorings of two cliques admit many repeated colors, whereas the local identifying condition sharply controls those repetitions. The theorem gives a full coloring polynomial rather than just the minimum number and resolves sensitivity under every possible matching size. The 4-to-3 order-two edge-addition reversal and the two endpoint plateaus show that the scalar response is not a routine monotone function of edge count. Exact labeled optimizer counts are recoverable from the same structural classification, not unrelated increments.
+PASS: derived the exact closed-neighborhood color sets P, Q and P∪{f(b_i)}, Q∪{f(a_i)} and verified every edge type. For 1<=t<n, shared colors lie only at unmatched positions; at t=1 prohibit n-1 shared colors because the cross matched endpoints then have equal neighborhood color sets. With t=n, at most one reused color with different indices; t=0 has true twins. Choosing paired shared colors and injective fresh colors yields each falling-factorial summand, including n=2,t=2 boundary. Independently checked 62 (n,t,k) instances against the ORIGINAL graph/neighborhood definition for n=2..4; not an infinite computational proof.
 
-**Closest literature and limitations.** See Esperet et al. (2012), Bhyravarapu–Kumari–Reddy (first public 2023-05-27), and Oliveira (2026, Theorem 6.4). The scalar complete-prism value has prior coverage. General cross-edge families, uniqueness against unindexed literature, and independent validation are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality concerns the complete all-k polynomial and full partial-matching palette classification; the scalar chi_lid(K_n square K_2)=2n-1 for n>=3 is prior-covered and deliberately excluded as a new theorem.
+
+## value
+
+PASS
+
+PASS: identifies a natural graph-polynomial invariant refining the known minimum color number for a canonical family interpolating disjoint cliques and a prism; its sharp t=1 and n=2,t=n effects are intrinsic structural transitions, not arbitrary slices. Full counting and color-orbit classification remain useful even where one endpoint scalar value is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

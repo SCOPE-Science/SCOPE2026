@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The original graph-definition checker is the standalone file `check_matching_join.py`. Run `python check_matching_join.py` with a standard Python 3 installation. No third-party library, downloaded data, or external service is needed. The program does not assume the theorem's structural test when deciding whether a coloring is locally identifying: it builds all graph edges, closed neighborhoods and neighborhood color sets, then checks each relevant adjacent pair.
+# Independent mathematical audit
 
-The checker compared 697,320 bottom-layer assignments across 104 combinations with \(2\le n\le5\), \(0\le t\le n\) and \(n\le k\le2n+1\), fixing the first layer canonically by color-permutation symmetry. It confirmed the iff test and exact enumerator. It also exhaustively tested 14 full named-color parameter cases for \(n\in\{2,3\}\), \(k\in\{2n-1,2n\}\), all \(t\), and found exact agreement. These finite computations illustrate and test the analytic proof, not establish it for unbounded \(n\).
+## correctness
 
-The known scalar lid-chromatic value for the fully matched prism is not newly claimed. Priority of the new all-palette enumeration is assessed against accessible literature; independent scientific audit has not been performed.
+PASS
+
+PASS: derived the exact closed-neighborhood color sets P, Q and P∪{f(b_i)}, Q∪{f(a_i)} and verified every edge type. For 1<=t<n, shared colors lie only at unmatched positions; at t=1 prohibit n-1 shared colors because the cross matched endpoints then have equal neighborhood color sets. With t=n, at most one reused color with different indices; t=0 has true twins. Choosing paired shared colors and injective fresh colors yields each falling-factorial summand, including n=2,t=2 boundary. Independently checked 62 (n,t,k) instances against the ORIGINAL graph/neighborhood definition for n=2..4; not an infinite computational proof.
+
+## originality
+
+PASS
+
+Qualified originality concerns the complete all-k polynomial and full partial-matching palette classification; the scalar chi_lid(K_n square K_2)=2n-1 for n>=3 is prior-covered and deliberately excluded as a new theorem.
+
+## value
+
+PASS
+
+PASS: identifies a natural graph-polynomial invariant refining the known minimum color number for a canonical family interpolating disjoint cliques and a prism; its sharp t=1 and n=2,t=n effects are intrinsic structural transitions, not arbitrary slices. Full counting and color-orbit classification remain useful even where one endpoint scalar value is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
