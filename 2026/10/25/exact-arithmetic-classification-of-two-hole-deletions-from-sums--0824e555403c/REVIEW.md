@@ -1,19 +1,21 @@
-# Review of exact two-hole deletion classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For one-sided deletions only three sums have representations composed entirely of forbidden roots; for two-sided deletions only the two diagonal sums can remain blocked because any non-diagonal representation can be oriented. Jacobi's exact signed ordered two-square count then proves the iff conditions without extrapolation. The CRT construction gives a genuine infinite coprime family. The independent-method integer enumeration checks 7,140 pairs as finite corroboration only.
+PASS
 
-## Originality
+After one-sided deletions only N=2u²,u²+v²,2v² can fail, since every other representation has a retained root. For split deletions, reorienting distinct roots avoids the mismatched forbidden positions, so only 2u² and 2v² obstruct. Jacobi r_2(N)=4P(N) for N known representable by two squares; diagonal (t,t) has exactly four signed ordered representations and distinct (u,v) has eight. Other unordered representations exist precisely at P(2t²)>1 (equivalent to a split prime in t) and P(u²+v²)>2. Coprime (5,37) and CRT class v≡0 mod13,1 mod5,3 mod17,4 mod41 supply infinitely many witnesses with no common prime. Independent oracle enumerated all 3160 pairs u<v<=80 and their critical unordered square representations, agreeing with both criteria.
 
-PASS against inspected literature, with an explicit residual risk. Elsholtz--Stadlmann Theorem 2(1) and Lemma 17 give a sufficient common-splitting-prime construction for arbitrarily many deletions, not a necessity classification or the mixed obstruction when the two roots use different split primes. The exact three-sum obstruction, the one-sided versus two-sided contrast at \((5,13)\), and the coprime infinite family are not implied by that theorem. The 2024 Elsholtz--Wurzinger source addresses sums *inside* the square set. Direct and alias searches of the research database and literature did not yield a covering statement, but absence of search hits does not prove global novelty.
+## originality
 
-## Value
+PASS
 
-PASS. This gives a complete, computable classification at the first nontrivial joint-deletion level of a recently studied additive sumset construction. It identifies a genuinely mixed obstruction that cannot be inferred from the individual holes: the pair \((5,13)\) succeeds in separate factors and fails in a single factor. The infinite coprime families show that the common-prime mechanism from the motivating paper is sufficient but not necessary. The value is this exact natural finite-hole boundary, not an asserted broad sieve improvement.
+Best-of-knowledge comparison of the exact mathematical statement and hypotheses with accessible primary text and Resultary; no materially inspected prior statement logically supplies the complete final claim. Inaccessible relevant texts are identified as residual risks, not automatically classified noncovering.
 
-## Scope and remaining risks
+## value
 
-Jacobi's classical identity is an input, and this elementary proof does not cover three or more holes or supersets. Hidden/implicit published equivalents cannot be ruled out. Numerical checks do not constitute a proof of the quantified theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal heterogeneous two-hole deletion problem is naturally motivated by additive decompositions of sums of two squares and sharply distinguishes placing holes in one versus separate factors. The mixed representation threshold and infinite coprime class are a complete exact classification that is not captured by common-prime sufficiency; elementary counting does not make the natural sharp boundary unmotivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
