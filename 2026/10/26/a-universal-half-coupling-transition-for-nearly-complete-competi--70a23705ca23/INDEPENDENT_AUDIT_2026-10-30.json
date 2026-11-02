@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:42:59.815373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 0c39f834cf8ef1ec26ea6f8703fcea7cf2b87da7",
+        "assigned verify.py blob 2f5ed35bc3697f1c57f0f450ffafdb0f1cbdf5bd",
+        "independent_checks.py: lv 63 assertions"
+      ],
+      "rationale": "With n≥4, remove s≥1 disjoint edges from K_n and set H_α=(1−α)I−α M+αJ. Matched-difference eigendirections have eigenvalue 1−2α; α<1/2 gives H_α positive definite and unique positive equilibrium paired x=c/(1−2α), unmatched c/(1−α), c=[1+α(2s/(1−2α)+r/(1−α))]^-1. The Volterra relative-entropy Lyapunov derivative −(x−x*)ᵀH_α(x−x*) proves global convergence. At α=1/2 the equal-twin simplex and pair-ratio first integrals yield the stated critical proportions on the pair-balanced manifold. For 1/2<α<1, invasion-rate exclusion and transverse positive splitting eigenvalues leave exactly the one-pair equilibria stable. On pair-balanced trajectories, d log(q_i/q_j)/dt=(2α−1)(q_i−q_j), so the unique initially largest pair is selected; with s=1 the extinct twin and unmatched-only equilibria cannot attract strictly positive starts. Finite potential and isolated equilibria yield the convergence claim. Independent 63 rational identity/eigenvalue checks passed.",
+      "residual_risks": [
+        "The one-pair winner law is asserted only for 1/2<α<1 and pair-balanced starts with a unique largest pair, except s=1 where all strictly positive starts are allowed.",
+        "Critical manifold includes boundary points, but claim does not classify all possible boundary equilibria at α=1/2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mooij et al. 2026 main theorem gives general bounds, not equality for deleted matchings.",
+          "Mooij–Kryven 2025 treats large-competition independent sets; its modeled aims differ from the critical balanced-pair simplex."
+        ],
+        "reasoning": "A complete all-parameter convergence theorem for competitive LV on complete multipartite graphs would subsume this result, but inspected published graph-general inequalities and independent-set algorithms do not resolve the universal α=1/2 transition for arbitrary s or the explicit winner-selection dynamics.",
+        "searches": [
+          "competitive Lotka Volterra nearly complete graph deleting matching critical coupling 1/2 coexistence stability pair winner",
+          "Mooij Kryven Finding large independent sets in networks using competitive dynamics 2025 full text",
+          "arxiv:2409.01336"
+        ]
+      },
+      "checked_sources": [
+        "Mooij–Baudena–von der Heydt–Miele–Kryven, A Dynamic Mechanism for Prevalence of Triangles in Competitive Networks, Bull Math Biol (2026), DOI 10.1007/s11538-026-01726-z",
+        "Mooij–Kryven, Finding Large Independent Sets in Networks Using Competitive Dynamics, Commun Phys 8 (2025), DOI 10.1038/s42005-025-02153-7",
+        "Resultary semantic query: competitive Lotka Volterra nearly complete graph deleting matching critical coupling 1/2 coexistence stability pair winner"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mooij et al. general maximum-degree and complete graph statements.",
+          "RESULT.md exact pair-balanced ratio invariant and nonlinear potential convergence."
+        ],
+        "reasoning": "The complete graph threshold α=1 and general graph bounds are established. Their combination does not imply that deleting just one edge makes α=1/2; the new block eigenanalysis does. More decisively, the critical simplex and postcritical initial-largest pair selection are not corollaries of generic bounds or the graph-independent potential existence theorem.",
+        "searches": [
+          "competitive Lotka Volterra nearly complete graph deleting matching critical coupling 1/2 coexistence stability pair winner",
+          "Mooij Kryven Finding large independent sets in networks using competitive dynamics 2025 full text",
+          "doi:10.1038/s42005-025-02153-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md H_α decomposition, pair-ratio differential equation and invariant simplex.",
+          "Mooij 2026 graph bounds [1/Δ,1] are not the sharp multipartite boundary."
+        ],
+        "reasoning": "K_n with a removed matching is a complete multipartite competition graph with parts of size two or one. Rewrite as block-competitive symmetric LV; matched-difference eigenvalue 1−2α makes α=1/2. The exact neutral-simplex and basin selection assertions require nonlinear dynamics, not merely recognizing the graph class.",
+        "searches": [
+          "competitive Lotka Volterra nearly complete graph deleting matching critical coupling 1/2 coexistence stability pair winner",
+          "Mooij Kryven Finding large independent sets in networks using competitive dynamics 2025 full text",
+          "arxiv:2603.17584"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Verified full Git result covers n≥4, 1≤s≤floor(n/2).",
+          "Resultary lookup supplied other LV/May–Leonard parameter thresholds but no matching-deletion theorem."
+        ],
+        "reasoning": "The family is infinite in n and s, and the result states exact stability and basins, not a numerical table. Small K4-minus-matching or four-cycle special cases can be computed from known graph examples, but those do not classify arbitrary matching deletions and initial-condition outcomes.",
+        "searches": [
+          "competitive Lotka Volterra nearly complete graph deleting matching critical coupling 1/2 coexistence stability pair winner",
+          "Mooij Kryven Finding large independent sets in networks using competitive dynamics 2025 full text",
+          "Resultary: 18 hits"
+        ]
+      },
+      "rationale": "Mooij et al. (2026) establish graph-general coexistence bounds and network triangle/clustering effects for the same homogeneous competitive model; Mooij–Kryven (2025) connect strong competition to maximal independent sets and treat selected path and complete bipartite cases. These do not furnish a family-wide K_n-minus-arbitrary-matching phase diagram, the α=1/2 neutral simplex, or initial-ratio winner selection. Some low-order special cases and standard symmetric LV Lyapunov methods are covered prior work. A general complete-multipartite theorem may implicitly specialize; none was located in the bounded primary comparison.",
+      "residual_risks": [
+        "A stronger complete-multipartite/matching-complement competition analysis under a different graph naming convention may imply the family case.",
+        "The graph general spectral threshold is easy to compute once the family is specified; substantive contribution includes critical/postcritical dynamics and sharp one-edge instability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_FULL_MATCHING_PHASE",
+          "evidence": "Establishes coupling lower/upper graph bounds and complete-graph extremality; inspected sections do not assert K_n-minus-matching α=1/2 or exact initial-ratio selection.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-026-01726-z",
+          "material_read": "Open full original Springer HTML: introductory model, graph-general coexistence theorem and discussion of triangle/clustering bounds; matching family searched.",
+          "method": "Publisher full-text HTML science and theorem comparison",
+          "title": "A Dynamic Mechanism for Prevalence of Triangles in Competitive Networks",
+          "trigger": "Exact ecological competitive LV graph model, possible dominating threshold theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_FULLY_INSPECTED",
+          "evidence": "Focuses on algorithmically seeking independent sets with gradual competition, not identified exact neutral simplex and basin theorem for matching deletion.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.01336",
+          "material_read": "Available 2025 article abstract and arXiv abstract, plus selected indexed description; full original proof not inspected in this run.",
+          "method": "Nature journal metadata and lawful OA arXiv search",
+          "title": "Finding Large Independent Sets in Networks Using Competitive Dynamics",
+          "trigger": "Same dynamic mechanism and maximal independent set stable outcomes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mooij et al. 2026 general coexistence bounds and complete graph extremum",
+        "RESULT.md full α<1/2, α=1/2, 1/2<α<1 phase description"
+      ],
+      "rationale": "Deleting a vanishing fraction 1/binom(n,2) of competitive edges yet halving the full-coexistence threshold for all n is a sharp robustness discontinuity in a natural ecological network family. The explicit neutral phase and exact deterministic winner-selection mechanism add structural dynamical content beyond routine spectrum calculation, and future work on near-complete interaction graphs can use the full characterization.",
+      "residual_risks": [
+        "Heterogeneous interaction strengths and postcritical α≥1 are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For homogeneous symmetric competitive Lotka–Volterra on K_n minus any nonempty matching, stable full coexistence ends exactly at α=1/2 (versus α=1 on K_n); at criticality there is a pair simplex and above it an explicit balanced-start winner rule for 1/2<α<1.",
+  "limitations": [
+    "Stable states classified only for α<1; winner selection requires pair balance and a unique leading pair except when s=1.",
+    "No heterogeneity, stochasticity, or dynamic graph modifications."
+  ],
+  "schema_version": 1
+}

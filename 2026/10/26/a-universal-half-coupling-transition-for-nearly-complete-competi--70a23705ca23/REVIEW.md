@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive-definite interaction decomposition establishes subcritical global stability. Exact paired/unmatched dynamics identify the stationary critical simplex and the invariant initial-ratio selection law. Potential monotonicity, finiteness of reduced equilibria, and the strictly amplifying pair-ratio identity establish convergence in the stated domain. Invasion eigenvalues exclude all other linearly stable configurations. The standalone exact/symbolic and numerical tests agree. At no point are finite tests substituted for a universal proof.
+## correctness
 
-**Originality — PASS under accessible-source comparison.** The 2026 Mooij et al. graph theorem bounds critical coupling but does not provide the complete-minus-matching exact transition or critical selection. The 2025 Mooij–Kryven paper treats general maximal-independent-set outcomes and explicit bipartite/path cases, but does not imply the matching-deletion initial-condition classification. The existing graph-family spectrum and classical Lotka–Volterra methods are acknowledged. Searches of earlier mathematical results and relevant research records did not find a stronger statement covering all components. The remaining risk is an unindexed or differently named classification of complete multipartite competition systems; independent priority validation is pending.
+PASS
 
-**Value — PASS.** The single-edge calculation establishes a nonvanishing loss of ecological robustness from an asymptotically vanishing network edit, a structural boundary absent from the general bounds. The matching generalization additionally identifies the neutral critical manifold, the exact initial-data selection law, and all linearly stable postcritical states. These are population-survival predictions, rather than merely an adjacency-matrix calculation.
+With n≥4, remove s≥1 disjoint edges from K_n and set H_α=(1−α)I−α M+αJ. Matched-difference eigendirections have eigenvalue 1−2α; α<1/2 gives H_α positive definite and unique positive equilibrium paired x=c/(1−2α), unmatched c/(1−α), c=[1+α(2s/(1−2α)+r/(1−α))]^-1. The Volterra relative-entropy Lyapunov derivative −(x−x*)ᵀH_α(x−x*) proves global convergence. At α=1/2 the equal-twin simplex and pair-ratio first integrals yield the stated critical proportions on the pair-balanced manifold. For 1/2<α<1, invasion-rate exclusion and transverse positive splitting eigenvalues leave exactly the one-pair equilibria stable. On pair-balanced trajectories, d log(q_i/q_j)/dt=(2α−1)(q_i−q_j), so the unique initially largest pair is selected; with s=1 the extinct twin and unmatched-only equilibria cannot attract strictly positive starts. Finite potential and isolated equilibria yield the convergence claim. Independent 63 rational identity/eigenvalue checks passed.
 
-**Scientific limitations.** Results require symmetric, unweighted competition and finite graphs; winner selection for multiple missing edges assumes equal initial densities within each noninteracting pair and a uniquely largest pair. The source literature's graph-universal results and general independent-set theorem retain priority for their own claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mooij et al. (2026) establish graph-general coexistence bounds and network triangle/clustering effects for the same homogeneous competitive model; Mooij–Kryven (2025) connect strong competition to maximal independent sets and treat selected path and complete bipartite cases. These do not furnish a family-wide K_n-minus-arbitrary-matching phase diagram, the α=1/2 neutral simplex, or initial-ratio winner selection. Some low-order special cases and standard symmetric LV Lyapunov methods are covered prior work. A general complete-multipartite theorem may implicitly specialize; none was located in the bounded primary comparison.
+
+## value
+
+PASS
+
+Deleting a vanishing fraction 1/binom(n,2) of competitive edges yet halving the full-coexistence threshold for all n is a sharp robustness discontinuity in a natural ecological network family. The explicit neutral phase and exact deterministic winner-selection mechanism add structural dynamical content beyond routine spectrum calculation, and future work on near-complete interaction graphs can use the full characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
