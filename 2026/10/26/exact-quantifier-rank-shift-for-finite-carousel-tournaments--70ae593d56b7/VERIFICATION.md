@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The companion file `verify_carousel.py` is reproducible using the Python standard library; run `python verify_carousel.py`. The stored `verify_carousel_output.txt` contains the successful run output ending with `VERIFY_OK`.
+# Independent mathematical audit
 
-The verifier checks the six anchored edge rules by direct modular arithmetic for \(1\le m\le75\). Direct recursive atom-type signatures for unlabelled tournaments are checked at ranks one through four through 35 vertices, and rank five through 13 vertices. Independent direct linear-order signatures are checked at ranks one through four, and the claimed arithmetic threshold partition is checked for ranks one through nine and index pairs between one and 99.
+## correctness
 
-The unbounded assertion is proved by the anchored-game and outneighborhood-interpretation lemmas in `RESULT.md`; finite checks alone do not establish it. No machine-checked proof, independent audit, or exhaustive historical novelty guarantee is claimed.
+PASS
+
+Verified all cross-side and within-side arcs in the anchored two-chain coding by modular subtraction. The first EF pebble furnishes an arbitrary anchor; thereafter one common order-game controls repeated indices and both sides, including repetitions of anchor. Conversely relativizing an order sentence to N+(x) adds exactly one quantifier. Combined with the classical cutoff min(m,2^r−1), these prove the unrestricted iff, class counts, minimal representatives and least distinguishing rank. Independent fresh script checked complete anchored atomic diagrams for m=1..36. Boundary q=1 gives one class and m=1 minimum; all m,n≥1, no named vertices.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: the classical finite linear-order quantifier-rank cutoff is explicitly in Mwesigye–Truss (2011), and Coregliano studies the same carousel tournament family, but neither materially inspected primary paper gives the exact transfer R_(2m+1) ≡_q R_(2n+1) iff L_m ≡_(q−1) L_n, the q-theory census and sharp representatives in the pure tournament language. The anchored two-chain index reuse is the novel claim, not the known EF game or tournament definition.
+
+## value
+
+PASS
+
+This is an exact natural elementary-model-theory classification for the standard finite carousel tournament family, giving all quantifier-rank equivalence classes, optimal representative orders and distinguishing ranks. The exact pointwise transfer is not a routine change of variable from the order cutoff without the anchored two-chain game lemma; finite signature comparisons are supporting only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
