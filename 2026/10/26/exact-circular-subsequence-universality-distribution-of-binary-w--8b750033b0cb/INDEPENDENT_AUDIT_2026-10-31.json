@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:49:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An arch factor of a binary word must contain adjacent unequal letters. A k-universal rotation is partitionable into k disjoint complete-alphabet arches; each supplies a matching transition edge on the cyclic position graph. Conversely k vertex-disjoint unequal adjacent pairs can be placed as k separate arches under one cyclic cut. The transition vector has even parity and two word lifts. Runs of consecutive transition edges contribute ceil(length/2) matching edges; the all-ones even-cycle case is handled separately. Cyclic block-sequence logarithmic differentiation with parity marker v=+/-1 yields the rational generating function, and coefficient extraction gives every C_nk. Independent fresh direct enumeration over ALL indexed binary strings n=1..11 tested greedy arches over every rotation against the coefficient formula, matching every row and 4094 words total. The attached source verify.py independently checks through n=17 but was inspected, not used as substitute for the all-n proof. n=1, n=2, constants and alternating words were explicitly included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleischmann et al. main results describe universality of powers and remainders; full PDF sections read.",
+          "Schnoebelen–Veron Section3 gives arch-jumping algorithm and compressed-word signature."
+        ],
+        "reasoning": "General word-index algorithms and structural arch lemmas are prior but do not automatically enumerate indexed binary words by circular index; their framework could potentially be specialized, not a stated dominating numerical classification.",
+        "searches": [
+          "Barker et al. arXiv:2003.04629",
+          "Fleischmann–Germann–Nowotka arXiv:2104.09063",
+          "Schnoebelen–Veron arXiv:2304.11932"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py pinned Git tree 0ddb506684efae209da49eebd7e136f365c1f50b",
+        "Resultary SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "Fleischmann et al. arXiv:2104.09063",
+        "Schnoebelen–Veron arXiv:2304.11932",
+        "Barker et al. arXiv:2003.04629"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sources compute or relate circular universality per word but do not sum over all words.",
+          "The matching lemma plus parity two-lift count is a new exact counting derivation, not a direct quoted corollary."
+        ],
+        "reasoning": "The known algorithms can compute a particular word; deriving a full indexed-word distribution requires nontrivial cyclic block enumeration, so statement-level implication was not identified.",
+        "searches": [
+          "arXiv:2104.09063 Proposition13 and circular universality sections",
+          "arXiv:2304.11932 Section3",
+          "Resultary linear binary universal index record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary linear GF (1+z)/(1-z-2uz²) differs from submitted circular GF and distributions, e.g. maximum over rotations.",
+          "Schnoebelen–Veron abstract and Section3 define circular index by arch jumping, but not full alphabet-fixed enumerators."
+        ],
+        "reasoning": "Circular index maximizes one shared cyclic cut, which can exceed the ordinary index, so the published linear distribution does not imply the circular coefficients.",
+        "searches": [
+          "Resultary: circular scattered subsequence universality index binary words distribution matching transitions",
+          "Resultary SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "Schnoebelen–Veron 2023 arXiv:2304.11932"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact Resultary enumerator covers linear rather than circular universality.",
+          "No all-length table or rational bivariate circular distribution identified in inspected algorithm papers."
+        ],
+        "reasoning": "An identical cyclic matching generating function may be in general cyclic binary-run statistical tables; search did not locate it and absence is not a proof.",
+        "searches": [
+          "Resultary circular binary subsequence universality distribution",
+          "Resultary SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "rationale": "The previous Resultary closed-form binary universality law counts the *linear* index and has generating function (1+z)/(1-z-2uz^2). The circular index is a maximum over a shared rotation, and its distribution is a genuinely different rational function. Barker et al., Fleischmann et al. and Schnoebelen–Veron establish arch decompositions and algorithms for a single word; inspected primary sections do not present the asserted all-length indexed binary circular distribution. A matching-equivalent enumeration in classical cyclic run theory is an explicit priority risk.",
+      "residual_risks": [
+        "Cyclic run-count/generating-function literature could imply the same formula in another terminology.",
+        "2020 Barker full primary unavailable via attempted HTML; do not assert global noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides arch/rotation theory and algorithms; inspected statements do not give the all-length binary circular index distribution. Not claiming inaccessible appendices.",
+          "evidence": [
+            "PDF abstract identifies characterization of circular universality by universality.",
+            "Page6 Proposition13 concerns concatenation arch indices, not an indexed-word enumerator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+          "material_read": "Accessible 20-page PDF; abstract, introduction and selected remainder/arch sections including Proposition13 (page6) were read through text view; page6 screenshot inspected. Not every page was examined",
+          "method": "open-access arXiv full-text PDF with page screenshot",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Same exact circular universality and arch-factorization theory"
+        },
+        {
+          "assessment": "Its result is an algorithm to compute circular universality index and compressed-word signature, not an explicit binary distribution in inspected sections.",
+          "evidence": [
+            "Abstract explicitly states algorithm for circular universality.",
+            "Section3.1 formula iota(w)=max{n:alpha^n(0) defined}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+          "material_read": "Accessible 14-page PDF; abstract, introduction and Section3 arch-jumping formulas were inspected; page5 screenshot examined. Not all pages were read",
+          "method": "open-access arXiv primary PDF",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Direct same circular index and algorithm"
+        },
+        {
+          "assessment": "Credited foundational arch theory; not asserting full-text noncoverage without direct reading.",
+          "evidence": [
+            "Later arXiv:2104.09063 abstract explicitly attributes 2020 introduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Bibliographic abstract and references through later primary sources, direct HTML retrieval unavailable",
+          "method": "arXiv abstract and citations in two primary PDF texts",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Original introduction of circular subsequence universality"
+        },
+        {
+          "assessment": "Linear not circular; cannot use equality of titles to infer coverage.",
+          "evidence": [
+            "Synopsis states GF (1+z)/(1-z-2uz²) for the ordinary index."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Full returned result synopsis with linear GF, not original full article",
+          "method": "Resultary indexed semantic search",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Closest exact combinatorial count in published Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Circular subsequence-universality is a standard word-theoretic invariant. The all-length distribution gives exact counts of words of each attainable index and extremizers for lengths 2k and 2k+1, complementing single-word algorithms and linear-index laws. The fixed alphabet and common cut are essential and clearly stated; the result is not a relabeling of the linear statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The exact distribution by circular subsequence-universality index of every indexed length-n binary word over the FIXED alphabet {0,1} is C_n0=2, C_nk=2^k[binom(n-k-1,k)+2binom(n-k-1,k-1)]-2 1_(n=2k), and its bivariate generating function is z(1+4zu)/(1-z-2uz^2)+z/(1-z)-2uz^2/(1-uz^2).",
+  "limitations": [
+    "Cyclic run-count/generating-function literature could imply the same formula in another terminology.",
+    "2020 Barker full primary unavailable via attempted HTML; do not assert global noncoverage.",
+    "The proposed publication operations remain withheld for public confidentiality, distinct from scientific acceptance; no repository mutation or other validation channel asserted."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: exact binary circular subsequence universality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-alphabet convention, common cyclic cut, indexed-word counting, and exceptional all-transition cycle are explicit. A binary rich arch contains an adjacent unlike pair, while vertex-disjoint unlike pairs can be ordered by a single cyclic cut and each forms a rich block. Thus the circular index equals a cyclic matching number. Every transition vector has even parity and exactly two binary lifts; a non-all-one vector decomposes uniquely into cyclic zero-anchored runs. The weighted block expression \(B_v=(z+vuz^2)/(1-uz^2)\), cycle pointing operation, two-valued parity projection, and isolated all-ones correction produce the stated rational function. Binomial coefficient extraction yields the claimed exact counts. Boundary lengths one and two and constant words are covered. The independently specified direct universality, matching, and coefficient computations agree on every binary word up to length seventeen (262,142 words); polynomial GF coefficients and total row counts agree through length 256. This is a finite check of the algebra; the lemmas supply the infinite proof.
+PASS
 
-## Originality — PASS, subject to residual risk
+An arch factor of a binary word must contain adjacent unequal letters. A k-universal rotation is partitionable into k disjoint complete-alphabet arches; each supplies a matching transition edge on the cyclic position graph. Conversely k vertex-disjoint unequal adjacent pairs can be placed as k separate arches under one cyclic cut. The transition vector has even parity and two word lifts. Runs of consecutive transition edges contribute ceil(length/2) matching edges; the all-ones even-cycle case is handled separately. Cyclic block-sequence logarithmic differentiation with parity marker v=+/-1 yields the rational generating function, and coefficient extraction gives every C_nk. Independent fresh direct enumeration over ALL indexed binary strings n=1..11 tested greedy arches over every rotation against the coefficient formula, matching every row and 4094 words total. The attached source verify.py independently checks through n=17 but was inspected, not used as substitute for the all-n proof. n=1, n=2, constants and alternating words were explicitly included.
 
-The closest published sources characterize circular universality of a *single* word and provide index algorithms. Their displayed results do not give the all-length indexed binary distribution, a matching reduction phrased for this counting problem, or its bivariate generating function. The publicly indexed linear binary universality distribution counts an ordinary single linear input, not the maximum over its cyclic rotations; the two invariants need not agree. A related unpublished-to-this-record construction where individual targets choose their own cuts is logically stronger as a property but has a different input-observation quantifier and does not state the present exact distribution. Comparison is by quantified claim, not title. Primary texts actually examined are listed in the structured audit; an equivalent cyclic-run enumeration or overlooked table remains an uncertainty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Circular universality is a natural, established invariant of scattered-subsequence languages. A complete two-parameter enumeration for every binary source length gives exact probabilities and the sharp extremal multiplicities \(2^{k+1}-2\) and \((2k+1)2^k\). The transition-matching equivalence exposes an underlying graph structure that is not visible in a generic one-word algorithm. This is a natural complete enumeration, not an isolated finite table or routine substitution.
+The previous Resultary closed-form binary universality law counts the *linear* index and has generating function (1+z)/(1-z-2uz^2). The circular index is a maximum over a shared rotation, and its distribution is a genuinely different rational function. Barker et al., Fleischmann et al. and Schnoebelen–Veron establish arch decompositions and algorithms for a single word; inspected primary sections do not present the asserted all-length indexed binary circular distribution. A matching-equivalent enumeration in classical cyclic run theory is an explicit priority risk.
 
-## Closest literature and limitations
+## value
 
-Barker et al. (2020) establish arch/circular universality basics; Fleischmann et al. (2021) study the arch remainder; Schnoebelen and Veron (2023) give efficient index computation. The result is confined to a fixed binary alphabet and one input-dependent but target-independent rotation, counting indexed words rather than necklaces. No independent outside validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Circular subsequence-universality is a standard word-theoretic invariant. The all-length distribution gives exact counts of words of each attainable index and extremizers for lengths 2k and 2k+1, complementing single-word algorithms and linear-index laws. The fixed alphabet and common cut are essential and clearly stated; the result is not a relabeling of the linear statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
