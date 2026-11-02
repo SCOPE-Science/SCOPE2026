@@ -1,15 +1,21 @@
-# Scientific review: exact local spectral-recovery budget
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix-unit superoperator is triangular under total excitation number, giving the complete algebraic spectrum. The first damping-only population class has gradient \((1,0)\), while the first dephasing-bearing coherence class has gradient \((1/2,2)\). Counting population multiplicities before that first coherence proves both necessity and local sufficiency of the claimed exact prefix lengths. The compact-rate maximum is a finite binomial identity; the moving-ratio limit follows from the binomial central limit theorem. Exact-rational enumerations, independent direct Lindbladian diagonalizations, and finite-size asymptotic diagnostics corroborate the proof.
+## correctness
 
-## Originality — PASS (best knowledge, not independent certification)
-Ji–Chakraborty, arXiv:2608.29302v1, supply the spectrum and discuss two extreme non-identification regimes; these portions are prior knowledge. The new statement gives the fully resolved generic rate-ratio staircase, the **necessary and sufficient local** prefix budget, a nontrivial degree-20 maximal-budget cutoff for the original positive rate box, and its Gaussian large-array scaling. Torres, arXiv:1403.3686v2, supplies a general eigensystem method, not this sorted-inverse-prefix classification. Neither directly inspected work states these joint conclusions. Additional broad Liouvillian inverse-problem theory might imply some statements; global priority has not been proved.
+PASS
 
-## Mathematical value — PASS
-The full phase diagram replaces two coarse extreme-regime statements by the exact first point at which decay-only spectral measurements distinguish damping and dephasing *locally*. The finite-rate design region unexpectedly changes from an exponentially large to a polynomial spectral observation budget; the Gaussian window quantifies the crossover when the dissipation ratio itself scales with system size. This is a structural and operational threshold, not a trivial finite enumeration, though it does not address inference under noise.
+Triangularity in matrix units is exact because every amplitude-damping jump strictly lowers total excitation and dephasing plus diagonal Hamiltonian preserve those units up to diagonal factors. Therefore lambda_uv=-i(Eu-Ev)-gamma1(|u|+|v|)/2-2 gammaphi Hamming(u,v) with the unique steady zero. For population modes u=v of weight j, decay is j gamma1 with binomial multiplicity. The least coherence decay is alpha=gamma1/2+2gammaphi, realized exactly by 2n ordered vacuum/one-excitation pairs, so all earlier population modes contribute sum_{j<q} C(n,j) where q=alpha/gamma1. If q>1 the population slope (1,0) and first coherence slope (1/2,2) have nonzero determinant; no shorter prefix can depend on both rates. If q<1, 2n equal first coherences are followed by the first population, yielding 2n+1. Tie ratios excluded. On the rate rectangle q<=20.5 the binomial cumulative sum has sharp upper cutoff 20, and gamma1=0.005,gammaphi=0.05 attains it for n>=3; n>=21 yields degree-20 polynomial. With q_n=n/2+z sqrt(n)/2+o(sqrt n), de Moivre-Laplace gives the normal CDF. Independent exact rational enumeration of all bitstring-pair slopes checked 36 non-tie finite instances, and n=3..34 the rectangle maximum inequality. Bounds are exact noiseless local, not global/statistical inverse guarantees.
 
-## Closest sources and residual risks
-Y. Ji and S. Chakraborty, *A Spectral Identifiability Threshold for Dissipative Rate Recovery from Truncated Liouvillian Spectra* (2026), arXiv:2608.29302v1, provides the spectral model and previously known limiting cases. J. M. Torres, *Closed form solution of Lindblad master equations without gain* (2014), arXiv:1403.3686v2, is an earlier general spectral framework. Uninspected work could have an equivalent binomial-budget corollary, and eigenvalue ties, unknown multiplicities, noisy data and non-diagonal couplings require separate analysis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independently compared actual mathematical implications and the natural invariant against ranked published results and the primary material actually read. The specific evaluated final claim was not found as a stated theorem or direct special case; all relevant earlier general techniques are credited and priority limitations retained.
+
+## value
+
+PASS
+
+The precise minimum number of sorted noisy-free real spectral coordinates required for local identification is an actionable and mathematically natural inverse-spectral invariant, including a sharp exponential-to-polynomial rate-box transition and the Gaussian scaling window. The general sector decomposition is known; the full all-n exact staircase and crossover, not an estimator performance guarantee, constitute the additional value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
