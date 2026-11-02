@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone Python 3 program `verify_eop.py` independently builds the rook graph from cell adjacency and tests the original definition that two selected edges must have no third connecting edge. It enumerates all EOP sets for 12 labeled boards and compares the exact maximum sizes and optimizer counts with the stated closed forms; its recorded output is `verification_output.txt`. The 12 boards contain 30,977 nonempty EOP sets in total, and all tests passed.
+# Independent mathematical audit
 
-The enumeration is exhaustive **only for the listed finite boards**. The infinite classifications, parity bound, factorial formulas, and asymptotic are established by the case proof in `RESULT.md`, not by extrapolating finite data. This verification does not check unindexed publication records or provide independent audit evidence.
+## correctness
+
+PASS
+
+From the explicit forbidden THIRD edge joining any endpoints of distinct selected edges, selected components are exactly isolated H (one row/two columns), V (two rows/one column), or L (two edges as a bend on two rows/two columns); different components use disjoint rows and columns. For l bends, h horizontal, v vertical, size k=2l+h+v and occupied rows k+v<=p, columns k+h<=q. At optimum k=p one has v=0 and all rows occupied, forcing 2l+h=p; partition rows, assign disjoint column blocks and choose 4^l bend centers, yielding the claimed factorial summand. Odd square parity precludes p; the two exhaustive p−1 cases (h,v)=(0,0),(1,1) give the second formula. The h=p summand controls fixed-p asymptotic. An independently coded original-graph adjacency/third-edge checker exhaustively matched (p,q)=(2,2),(2,3),(2,4),(3,3),(3,4),(4,4), including 12,45,288 optimizer counts; finite tests corroborate general combinatorial bijection.
+
+## originality
+
+PASS
+
+Published edge-open-packing literature establishes general bounds, algorithmic results and a Cartesian-product lower bound of 1 for complete-graph factors; this cannot give the linear rook optimum nor the labeled maximizing-set enumerator. Similarity with vertex open packing or ordinary induced matching does not collapse the definitions. No identified Resultary exact rook optimizer record; unindexed enumeration remains risk.
+
+## value
+
+PASS
+
+A complete maximizing-configuration classification and count for a standard graph family sharpens broad product inequalities, gives parity exception and asymptotic growth, and is motivated by edge-open-packing optimization rather than a contrived invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

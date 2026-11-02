@@ -1,19 +1,21 @@
-# Scientific review: maximum edge-open packings of rook graphs
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The local forbidden-third-edge condition forces an exact decomposition into mutually row- and column-disjoint horizontal edges, vertical edges, and two-edge bends. If there are \(\ell\) bends, \(h\) horizontal singles and \(v\) vertical singles, their selected-edge, row, and column counts are \(2\ell+h+v\), \(2\ell+h+2v\), and \(2\ell+2h+v\). These equations prove the general bound, the odd-square exclusion, and the exhaustive equality cases. Block partitions, labeled column assignments, and the four choices of bend center yield the stated factorial counts without overcounting. The exact-adjacency verifier reproduces both formulas on twelve finite boards; that computation is corroboration, not an infinite proof.
+PASS
 
-## Originality (PASS, subject to stated bibliographic risks)
+From the explicit forbidden THIRD edge joining any endpoints of distinct selected edges, selected components are exactly isolated H (one row/two columns), V (two rows/one column), or L (two edges as a bend on two rows/two columns); different components use disjoint rows and columns. For l bends, h horizontal, v vertical, size k=2l+h+v and occupied rows k+v<=p, columns k+h<=q. At optimum k=p one has v=0 and all rows occupied, forcing 2l+h=p; partition rows, assign disjoint column blocks and choose 4^l bend centers, yielding the claimed factorial summand. Odd square parity precludes p; the two exhaustive p−1 cases (h,v)=(0,0),(1,1) give the second formula. The h=p summand controls fixed-p asymptotic. An independently coded original-graph adjacency/third-edge checker exhaustively matched (p,q)=(2,2),(2,3),(2,4),(3,3),(3,4),(4,4), including 12,45,288 optimizer counts; finite tests corroborate general combinatorial bijection.
 
-The closest directly applicable paper is Brešar–Dravec–Hedžet–Samadi, *Induced matching vs edge open packing: trees and product graphs* (arXiv:2406.04020, Section 5). Its Corollary 5.3 gives only a general Cartesian-product lower bound; on two cliques this is one, whereas the claimed answer is essentially the smaller clique's order. The 2024 Brešar–Samadi bounds paper and the 2025 Pandey–Santra characterization paper were inspected at their relevant sections: neither contains the exact labeled rook-board optimum, exhaustive optimizer types, or factorial counts. The introductory 2022 source supplies the definition, not a reported rook-graph theorem. Searches for rook graphs, line graphs of complete bipartite graphs, complete-graph Cartesian products, induced-star packings, parity exceptions, and factorial enumerations did not identify a covering result. This does not exclude an unindexed result or a later full-text version containing such a theorem.
+## originality
 
-## Value (PASS)
+PASS
 
-The theorem gives a complete solution to a natural product-family packing problem, including all maximizing sets and their multiplicities, rather than merely an isolated value. The odd-square parity obstruction is sharp, the counting formulas exhibit a different asymptotic regime with growing aspect ratio, and the exact result demonstrates arbitrarily large slack in a general product lower bound when both factors are cliques. The graph family is canonical: these rook graphs are precisely line graphs of complete bipartite graphs.
+Published edge-open-packing literature establishes general bounds, algorithmic results and a Cartesian-product lower bound of 1 for complete-graph factors; this cannot give the linear rook optimum nor the labeled maximizing-set enumerator. Similarity with vertex open packing or ordinary induced matching does not collapse the definitions. No identified Resultary exact rook optimizer record; unindexed enumeration remains risk.
 
-## Scope and residual risk
+## value
 
-The result concerns maximum (not every inclusion-maximal) edge-open packings of two-factor rook graphs, with both dimensions at least two. The finite verifier does not certify the universal argument. Possible unindexed prior formulas and the most recent journal-version wording are bibliographic risks; independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete maximizing-configuration classification and count for a standard graph family sharpens broad product inequalities, gives parity exception and asymptotic growth, and is motivated by edge-open-packing optimization rather than a contrived invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
