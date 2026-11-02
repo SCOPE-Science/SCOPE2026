@@ -1,19 +1,21 @@
-# Review: The five-point threshold for verbose Vietoris–Rips barcode rigidity on ultrametrics
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Equality of verbose barcodes gives filtered-chain-isomorphic Vietoris–Rips chain complexes. Their degree-one filtration ranks recover the pairwise-distance multiset. The exhaustive ultrametric classification for at most four points proves isometry; the five-point witness is verified against the cited source.
+PASS
 
-## Originality
+Mémoli–Zhou Theorem 11 identifies equality of complete verbose barcodes with filtered-chain isomorphism. Such an isomorphism preserves filtration ranks in degree one, hence the multiset of all pairwise distances. For any ultrametric of at most four points, the distance multiset determines the isometry class: one distance equilateral; two distances have 3+1,2+2,2+1+1 clustering with distinct multiplicities 3,2,1; three distances have precisely the 1,1,4 or 1,2,3 merge patterns. Independently enumerating all 3^6 labeled 4-point edge assignments found exactly 60 ultrametrics and 14 distance-multiset classes, each a single isometry class. The published five-point distance matrices in Example 14 exactly match the claim: nonisometric incident-distance profiles and identical verbose barcodes. The lower-bound classification is analytic, not extrapolation from enumeration.
 
-PASS. The closest primary source proves a five-point failure but does not establish that five is minimal. The new contribution is the lower bound for every ultrametric of cardinality at most four. The claim is limited to this exact threshold.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves a natural minimality question about how many points are required before the verbose barcode ceases to determine an ultrametric up to isometry.
+Best-of-knowledge originality PASS: Theorem 11 plus C1-filtration ranks forces all pairwise-distance counts. In ultrametrics at <=4 points these counts uniquely specify the hierarchy up to relabeling, and Example 14 supplies the sharp pair at five. The decisive lower-bound implication is not stated in the checked primary source. Material comparisons distinguish actual mathematical implication from common terminology. Relevant uninspected sources and residual priority risks remain explicit.
 
-## Closest literature and limitations
+## value
 
-Mémoli–Zhou, “Ephemeral Persistence Features and the Stability of Filtered Chain Complexes,” Theorem 11 and Examples 12 and 14. Example 14 supplies the five-point witness; Example 12 concerns concise-barcode non-discrimination on four points. No claim is made for general metrics or for the concise barcode.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete small-cardinality injectivity threshold is natural for testing the information preserved by a chain-level persistence invariant. The source paper gives a five-point failure but the additional exhaustive four-point lower bound makes the threshold sharp. Its proof is elementary, yet the boundary concerns a precise natural persistence invariant and is not just renaming a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

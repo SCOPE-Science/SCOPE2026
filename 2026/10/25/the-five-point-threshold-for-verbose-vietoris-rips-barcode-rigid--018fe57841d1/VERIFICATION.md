@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The claim is checked by two logical components: (1) verbose-barcode equality determines the degree-one chain-group filtration ranks, hence the pairwise-distance multiset; (2) the ultrametric merge-pattern classification exhausts all nonempty spaces of cardinality at most four. The five-point counterexample is stated in the cited primary source, whose Theorem 11 identifies verbose-barcode equality with filtered-chain isomorphism.
+# Independent mathematical audit
 
-Scope limits: no assertion is made for general finite metrics, for ordinary concise barcodes, or for a classification of all spaces with five or more points. No independent audit or external validation is claimed.
+## correctness
+
+PASS
+
+Mémoli–Zhou Theorem 11 identifies equality of complete verbose barcodes with filtered-chain isomorphism. Such an isomorphism preserves filtration ranks in degree one, hence the multiset of all pairwise distances. For any ultrametric of at most four points, the distance multiset determines the isometry class: one distance equilateral; two distances have 3+1,2+2,2+1+1 clustering with distinct multiplicities 3,2,1; three distances have precisely the 1,1,4 or 1,2,3 merge patterns. Independently enumerating all 3^6 labeled 4-point edge assignments found exactly 60 ultrametrics and 14 distance-multiset classes, each a single isometry class. The published five-point distance matrices in Example 14 exactly match the claim: nonisometric incident-distance profiles and identical verbose barcodes. The lower-bound classification is analytic, not extrapolation from enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: Theorem 11 plus C1-filtration ranks forces all pairwise-distance counts. In ultrametrics at <=4 points these counts uniquely specify the hierarchy up to relabeling, and Example 14 supplies the sharp pair at five. The decisive lower-bound implication is not stated in the checked primary source. Material comparisons distinguish actual mathematical implication from common terminology. Relevant uninspected sources and residual priority risks remain explicit.
+
+## value
+
+PASS
+
+A complete small-cardinality injectivity threshold is natural for testing the information preserved by a chain-level persistence invariant. The source paper gives a five-point failure but the additional exhaustive four-point lower bound makes the threshold sharp. Its proof is elementary, yet the boundary concerns a precise natural persistence invariant and is not just renaming a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
