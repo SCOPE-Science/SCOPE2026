@@ -1,11 +1,21 @@
-# Scientific review: rotation dispersion of scattered binary pairs
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the increment law, covariance/pair-distance identity, and the two sharp extremal inequalities with equality. Concavity over positive cyclic gap vectors yields the clustered upper extremizers; a residue-class lower bound plus a block variance decomposition yields the balanced lower extremizers. The stated mechanical construction attains the latter. The standalone enumeration code re-counts every rotation and verifies all equations and equality classes for 32,738 finite words, but the proof, not enumeration, establishes the all-length assertion.
+## correctness
 
-**Originality — PASS, with risk.** The most directly relevant source is Poovanandran–Simpson–Teh (arXiv:2110.14858, Theorem 4.11), which proves the circular average but not the variance or its extremizers. Vesti (arXiv:1501.00871) proves extremal majorization for base-2 *numeric* rotation orbits, a distinct observable; De Luca–Fici (arXiv:2211.09417) treats balanced and Christoffel words but not these scattered-pair rotation moments. Searches for equivalent formulations, inverse-pair cyclic statistics, and broad majorization were compared with published findings. Jenkinson's 2009 paper was available only through its abstract and second-hand theorem statement; a latent consequence of a more general majorization inequality remains a real residual risk. No independence or literature exhaustion is claimed.
+PASS
 
-**Value — PASS.** The averaged binary circular Parikh count is known to discard all word-order information. A sharp second-moment invariant quantifies the maximal possible order dependence at any fixed composition and singles out canonical balanced versus single-block necklaces. Its exact arithmetic lower bound depends on the gcd of the composition, not just an asymptotic estimate, and the complete equality cases make it useful for analyzing how much information is lost by circular averaging.
+Read original RESULT.md blob 6930dad8ae8ef2628e0914bb7ede9576eedeb765 and verify.py. Rotation increments F_{k+1}−F_k=n x_k−b and direct position sum give mean ab/2. The covariance calculation gives V=b²(n²−1)/12 −sum_{i<j ones} (j−i)(n−j+i). Gap-domain strict concavity of pair penalty makes its minimizers gap-simplex vertices, exactly one block of ones, giving upper expression. For the lower side, F_k modulo n advances by a, so each block of N=n/d successive values consists of distinct residues and has variance at least d²(N²−1)/12; total-variance equality forces each d-spaced consecutive range repeated d times. Rotation increments convert this range condition into all cyclic substring-one counts within floor/ceil b*ell/n, equivalently circular balance; the mechanical Christoffel construction attains it. Independent fresh enumeration checked every nonconstant binary word of n=2..10 and both equality criteria without relying on saved VERIFY_OK. This is an all-n proof; code bounds are only tests.
 
-**Limits.** Only binary scattered \(01\), exact fixed letter composition, all positional rotations, and population variance are addressed. More detailed distributional identification and higher-pattern statistics remain outside scope; another equivalent theorem in unindexed literature cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Poovanandran–Simpson–Teh prove the first moment; Vesti/Jenkinson majorization concerns numeric rotation orbits; De Luca–Fici characterize balanced word structure. The exact scattered-pair variance identity and both equality sharpness results were not in those inspected statements. A general majorization theorem may have a latent transfer to this specific variance, and Jenkinson full text was not read.
+
+## value
+
+PASS
+
+The established circular Parikh mean loses all order information. A sharp second moment quantifies exactly how much circular order can change the observable, detects the canonical homogeneous and clustered necklaces, and exposes a gcd-sensitive finite-length lower obstruction. It is a natural informative invariant, not a mere relabeling of numerical rotation weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
