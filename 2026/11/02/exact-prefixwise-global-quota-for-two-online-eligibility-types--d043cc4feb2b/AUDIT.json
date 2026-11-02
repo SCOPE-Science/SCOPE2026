@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For s<=t, the map q(p)=floor(t(1-p/s))+1 is injective with 1<p/s+q/t<=1+1/t. It places shared agents in opposite phases on the two cycles. For any remainders r,v, neither indicator active implies r/s+v/t<1; both active implies r/s+v/t>1; exactly one active yields a load of one, always between the floor/ceiling of the remainder. Exclusive agents use standard cyclic quota and outsiders have zero. This proves both inequalities over all positive sizes and all prefixes. The standalone verification exhaustively tested 5425 size/intersection configurations and 19027800 residual states for sizes <=30 with exact integers; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biburger, Megow and Shahkarami, Online Fair Division under Eligibility Constraints, arxiv:2610.08064v1 (2026-10-06): online approximation limitations for arbitrary eligibility streams, unit jobs included",
+        "Cembrano, Correa, Griesbach and Verdugo, Online Proportional Apportionment, arxiv:2510.14752v1 (2025-10-16): unrestricted global-quota impossibility with at least four parties"
+      ],
+      "reasoning": "The unrestricted sequence families in both papers are broader as input families, but their negative results do not subsume the present positive guarantee under a two-type promise. The constructive positive general quota theorem of the apportionment paper is restricted to at most three parties and cannot imply this all-agent-size result.",
+      "searches": [
+        "\"Online Fair Division under Eligibility Constraints\" unit processing times online lower bounds",
+        "\"Online Proportional Apportionment\" four parties counterexample arbitrary vote vectors",
+        "arxiv:2610.08064v1",
+        "arxiv:2510.14752v1"
+      ]
+    },
+    "checked_sources": [
+      "Biburger, Megow and Shahkarami, Online Fair Division under Eligibility Constraints, arxiv:2610.08064v1 (2026-10-06)",
+      "Cembrano, Correa, Griesbach and Verdugo, Online Proportional Apportionment, arxiv:2510.14752v1 (2025-10-16)",
+      "Existing laminar eligibility-family prefixwise upper-quota claim (historical result, used for mathematical overlap only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier laminar-family upper-quota construction: arbitrary crossing sets are outside the laminar hypothesis, and lower quota is not obtained by its stated upper guarantee",
+        "Biburger, Megow and Shahkarami, Online Fair Division under Eligibility Constraints, arxiv:2610.08064v1 (2026-10-06)",
+        "Cembrano, Correa, Griesbach and Verdugo, Online Proportional Apportionment, arxiv:2510.14752v1 (2025-10-16)"
+      ],
+      "reasoning": "The claim requires arbitrary overlapping nonnested supports and lower and upper quotas for every prefix and any number of agents. Neither previously known laminar upper-quota result nor either reviewed primary paper implies that statement. The explicit paired-position invariant supplies the missing mechanism.",
+      "searches": [
+        "\"Anytime group upper quotas for laminar online chore eligibility\"",
+        "\"global quota\" restricted assignment two types nonlaminar",
+        "arxiv:2610.08064v1",
+        "arxiv:2510.14752v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biburger, Megow and Shahkarami, Online Fair Division under Eligibility Constraints, arxiv:2610.08064v1 (2026-10-06)",
+        "Cembrano, Correa, Griesbach and Verdugo, Online Proportional Apportionment, arxiv:2510.14752v1 (2025-10-16)"
+      ],
+      "reasoning": "The claim is equivalently online cumulative dependent rounding of a sequence supported on two known uniform probability vectors. Existing general results for at most three agents do not give unrestricted agent dimension under this fixed two-vector restriction.",
+      "searches": [
+        "\"online unit chore restricted assignment eligibility two crossing sets exact Prop1 every prefix\"",
+        "\"global quota\" two eligibility sets cyclic round robin",
+        "arxiv:2510.14752v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Biburger, Megow and Shahkarami, Online Fair Division under Eligibility Constraints, arxiv:2610.08064v1 (2026-10-06): definitions and sections on unit jobs; no table of two-type global quota identified",
+        "Cembrano, Correa, Griesbach and Verdugo, Online Proportional Apportionment, arxiv:2510.14752v1 (2025-10-16): paper addresses general online apportionment rather than exact enumeration of this restriction"
+      ],
+      "reasoning": "The claim is an infinite structural algorithmic theorem, not a finite numerical entry. No exact matching table or item was found by the targeted queries.",
+      "searches": [
+        "\"opposite cyclic permutations\" \"two\" eligibility quota",
+        "two fixed eligibility supports floor ceiling proportional round robin",
+        "arxiv:2610.08064v1"
+      ]
+    },
+    "rationale": "Primary sources formulate the eligibility-aware proportional share and online global quota respectively, but cover different input classes. The first unrestricted-type hardness does not exclude two support types; the second unrestricted-vector existence iff at most three parties does not cover arbitrarily many agents under exactly two fixed uniform-support vectors. Previously available laminar-family online upper quotas do not imply arbitrary crossing sets and both floor and ceiling quota. Actual research-record and targeted literature searches found no mathematical implication covering this assertion. Unknown unindexed equivalent work remains a residual priority risk.",
+    "residual_risks": [
+      "Two-vector online rounding could have been formulated using discrepancy theory or balanced words without eligibility terminology. The accessible searches cannot establish exhaustive publication priority.",
+      "The result is limited to two known uniform-support vectors; extension to three or arbitrary probability vectors is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No theorem identified that implies two-support exact global quota for arbitrary agent counts. General lower bounds require unrestricted eligibility sequences.",
+        "evidence": [
+          "arxiv:2610.08064v1, sections 1–4 and model preliminaries, dated 2026-10-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.08064v1",
+        "material_read": "Abstract, introduction, proportionality definitions, unit-job online chore results, online goods and conclusion, with structure and appendices inspected via accessible HTML navigation.",
+        "method": "Read and compare the accessible full-text HTML theorem statements and model restrictions against the two-support both-quotas assertion.",
+        "title": "Online Fair Division under Eligibility Constraints",
+        "trigger": "Defines the identical-valuation restricted-assignment model and eligibility-aware proportional shares; apparent direct overlap."
+      },
+      {
+        "assessment": "The unrestricted-vector classification for at most three parties does not imply exact global quota for arbitrarily many parties under the two-type restriction.",
+        "evidence": [
+          "arxiv:2510.14752v1, abstract and sections 1–4, dated 2025-10-16"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.14752v1",
+        "material_read": "Abstract, introduction, deterministic and randomized quota results, model distinctions and relevant impossibility construction in accessible HTML.",
+        "method": "Compared quantifier scope of unrestricted input sequences and number of parties to two known fixed uniform-support vectors.",
+        "title": "Online Proportional Apportionment",
+        "trigger": "Uses precisely the global floor/ceiling quota notion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d043cc4f-eb2b-414a-962b-2c5d9f42b364",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact global floor-and-ceiling quota rule under two crossing qualification classes is a substantive sharp positive regime between laminar-only constructions and general online impossibilities. It holds for an unbounded number of agents, applies directly to restricted-assignment capability types, implies simultaneous Prop1 for identical unit goods and chores, and supplies an explicit O(1)-state-per-type cycle implementation. The fixed two-type restriction is motivated by naturally recurring job categories, not an arbitrary finite census.",
+    "status": "PASS"
+  }
+}
