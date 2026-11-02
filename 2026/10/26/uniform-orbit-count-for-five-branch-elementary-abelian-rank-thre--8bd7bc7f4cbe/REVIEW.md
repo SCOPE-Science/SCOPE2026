@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The generating vectors have rank three, nonzero columns, and sum zero; quotient by group automorphisms gives hyperplanes inside the four-dimensional sum-zero space. Dualizing gives affine multisets, and the two excluded orbits are precisely zero dual forms and zero-column cases. Burnside's cycle decomposition checks all affine transformations, including translations when the prime is five. Riemann–Hurwitz gives the genus. The standalone finite enumerator cross-checks several primes without replacing the infinite proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Broughton–Wootton's general generating-vector theory is applicable but their inspected detailed counts concern three and four branch points; Weaver's multiset classification treats rank-two groups. Disney-Hogg–Zuev motivates topological-equivalence classification but does not provide this uniform rank-three five-branch formula in the inspected text. The distinguishing contribution is evaluation of the exact all-prime orbit count, not reinvention of generating vectors. Earlier implicit calculation from general theory or a nonindexed affine-multiset count remains possible.
+PASS
 
-**Value — PASS.** This is the first branch count above the minimal generating case for rank-three elementary-abelian sphere covers. It gives the complete topological-type census for infinitely many groups and a usable finite-field reformulation; the special translation contribution at prime five is an intrinsic structural boundary.
+Riemann existence reduces unmarked five branch values to nonzero spanning 3x5 monodromy columns summing zero, modulo GL3(F_p) and S5. Row spaces are hyperplanes of 4D H=sum-zero subspace, hence dual projective nonzero functionals equivalently 5-field-element multisets modulo simultaneous affine maps. Exclude exactly all-equal zero forms and multiplicity (4,1) zero-column forms; every other hyperplane has five nonzero spanning columns. Burnside cycle index has identity C(p+4,5), translations contribute p-1 only for p=5, and order-d (d|p-1,d>1) multipliers yield p phi(d) [z^5](1-z)^(-1)(1-z^d)^(-(p-1)/d). Subtract two excluded orbits. Riemann–Hurwitz gives genus. Independently enumerated affine multiset orbits for odd primes 3,5,7,11,13, obtaining 3,7,12,29,42; this finite evidence does not replace all-prime Burnside proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new all-odd-prime explicit five-branch rank-three elementary-abelian surface-action orbit census; existing Riemann existence/generating-vector machinery is prior work. Primary Broughton–Wootton provides general framework and only tabulates three/four branches in the relevant tables, Weaver studies rank two. A recent plausible generating-vector ML paper had only abstract access and remains a priority risk.
+
+## value
+
+PASS
+
+The r=5,v=3 case is the first branch number beyond minimal generating vectors for rank-three elementary-abelian covers. A uniform all-p formula classifies topological action types and identifies a genuine prime-five translation exception. Its object and invariant are classical and the count is not a known-table recomputation from inspected work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
