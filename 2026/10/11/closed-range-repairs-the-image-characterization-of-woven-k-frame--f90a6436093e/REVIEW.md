@@ -1,29 +1,13 @@
-# Review
+# Mathematical review
 
-## Correctness
-PASS. For
-\[
-Ke_n=\frac1n e_n,\qquad f_n=g_n=n e_n,
-\]
-the transformed pair is exactly two copies of the standard orthonormal basis. Every transformed weave therefore has energy \(\|h\|^2\), which is bounded below by \(\|K^*h\|^2\).
-
-For
-\[
-x_N=\frac1N e_N\in R(K^*),
-\]
-the original weave has energy \(1\) and norm squared \(1/N^2\), so any putative upper frame bound must be at least \(N^2\). This proves failure of Proposition 2.5.
-
-When \(K\) has closed range, the bounded Moore--Penrose inverse supplies the missing upper estimate, and both repaired bounds were reconstructed directly.
+## Correctness and precise scope
+The unbounded diagonal scaling example is an exact counterexample to the published Proposition 2.5: transformed weaves are orthonormal, but the original range-restricted Bessel inequality fails with ratio \(N^2\). Closed range yields a bounded minimum-norm preimage and proves the quantitative equivalence for the *projected* families. If the original families already belong to \(R(K^*)\), the original unprojected formulation follows. Without that membership, the restricted coefficient inequalities may hold but standard Hilbert-subspace frame membership does not. The zero-operator case is degenerate and is handled with arbitrary positive frame bounds.
 
 ## Originality
-PASS. The exact source, proposition number, range-space formulation, image-sequence formulation, Bessel-upper-bound alias, nonclosed-range alias, later operator-transfer papers, and the available prior scientific records were compared.
+The primary proposition's incorrect Bessel step and the exact diagonal witness are identified explicitly. Related operator-transfer results use closed range and Moore–Penrose estimates, but the inspected passages do not establish this precise counterexample/projection-aware correction. An indexed copy of this record is not independent prior literature. An unindexed correction remains a bibliographic risk.
 
-The nearest prior results about range compression, diagonal scaling, and partition-dependent reconstruction have different implication structures. No checked indexed result states this counterexample or the repaired two-sided quantitative equivalence.
+## Value and limits
+Repairing the reverse implication of an asserted necessary-and-sufficient theorem is a motivated correction. The two examples distinguish failure of an upper bound from the separate requirement that frame vectors lie in the Hilbert subspace. Neither closed-range necessity for an individual pair nor alternative operator-range norms are classified.
 
-## Value
-PASS. The source proposition is a characterization theorem rather than a secondary estimate. The example makes its reverse implication fail although the image families have the strongest possible Bessel behavior: they are an orthonormal basis. The repair identifies the exact functional-analytic mechanism missing from the proof, namely uniform control of preimages.
-
-## Closest literature and limitations
-Later operator-preservation results for woven \(K\)- and \(K\)-\(g\)-frames commonly impose closed-range or bounded-pseudo-inverse conditions, consistent with the repair. Closed range is not claimed to be necessary for every fixed sequence pair; weaker pair-dependent upper control may suffice.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Primary sources
+Bhandari–Borah–Mukherjee, arXiv:1907.08757, especially Propositions 1.4, 2.5 and 2.6; Xiang, DOI 10.1515/math-2021-0103, operator-transfer results; Wang, DOI 10.3934/math.20241242, closed-range construction conditions.

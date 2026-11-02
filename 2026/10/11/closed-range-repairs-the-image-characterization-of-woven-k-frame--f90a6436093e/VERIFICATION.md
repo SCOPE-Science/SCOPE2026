@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,60 +20,14 @@
 ---
 # Verification
 
-Let
+The explicit infinite-dimensional counterexample uses
 \[
-H=\ell^2(\mathbb N),\qquad
-Ke_n=\frac1n e_n,\qquad
-f_n=g_n=n e_n.
+H=\ell^2(\mathbb N),\quad Ke_n=n^{-1}e_n,\quad f_n=g_n=ne_n,
 \]
-Then
-\[
-Kf_n=Kg_n=e_n.
-\]
-For every \(h=(h_n)\in H\),
-\[
-\sum_n|\langle h,Kf_n\rangle|^2
-=
-\|h\|^2
-\]
-and
-\[
-\|K^*h\|^2
-=
-\sum_n\frac{|h_n|^2}{n^2}
-\le\|h\|^2.
-\]
-Thus every transformed weave is a \(K\)-frame with bounds \(1,1\).
+and yields \(Kf_n=Kg_n=e_n\). Every image weave has energy \(\|h\|^2\) and dominates \(\|K^*h\|^2\), so its \(K\)-frame bounds are \(1,1\). For \(x_N=N^{-1}e_N\), all original weaving energies equal \(1\) while \(\|x_N\|^2=N^{-2}\), forcing an unbounded upper-frame ratio. Each \(f_n\in R(K^*)\) and \(R(K)\) is nonclosed by the vector \((1/n)_{n\ge1}\) and its finite truncations.
 
-For
-\[
-x_N=Ke_N=\frac1N e_N,
-\]
-the original weaving energy is
-\[
-\sum_n|\langle x_N,n e_n\rangle|^2=1,
-\]
-while
-\[
-\|x_N\|^2=\frac1{N^2}.
-\]
-Hence no finite upper frame bound exists on \(R(K^*)\).
+For closed-range \(K\), the corrected ordinary frames are the projected families \(Pf_i,Pg_i\) in \(M=R(K^*)\). The identity \(\langle x,Pf_i\rangle=\langle x,f_i\rangle\) for \(x\in M\), the adjoint identity \(\langle h,Kf_i\rangle=\langle K^*h,f_i\rangle\), and the bounded preimage \(h=(K^*)^\dagger x\) prove the two implications with constants \((A,B\|K\|^2)\) and \((C,D\|K^\dagger\|^2)\) for \(K\ne0\). The zero operator is handled trivially. If \(f_i,g_i\in M\), no projections are needed.
 
-Nonclosed range can be checked directly. The vector
-\[
-y=\left(1,\frac12,\frac13,\ldots\right)
-\]
-belongs to \(\ell^2\) but not to \(R(K)\), since its only coordinatewise preimage is \((1,1,1,\ldots)\notin\ell^2\). Finite truncations of \(y\) lie in \(R(K)\) and converge to \(y\).
+The membership caveat is witnessed in \(\mathbb R^2\) by \(K=P_{\operatorname{span}(e_1)}\), \(f_1=g_1=e_1+e_2\): the image is a \(K\)-frame but the unprojected vectors are not vectors of \(R(K^*)\). This does not invalidate the weaker inequalities restricted to that subspace.
 
-For the repair, if \(K\) has closed range and \(x\in R(K^*)\), take
-\[
-h=(K^*)^\dagger x.
-\]
-Then
-\[
-K^*h=x,\qquad
-\|h\|\le\|K^\dagger\|\|x\|.
-\]
-Substitution into the \(K\)-woven inequalities gives the lower bound \(C\) and upper bound \(D\|K^\dagger\|^2\) for the original weave. Substituting \(x=K^*h\) in the opposite direction gives bounds \(A\) and \(B\|K\|^2\) for the image weave.
-
-The primary open PDF was inspected at the full proposition and proof. No numerical approximation or finite truncation is used to establish the infinite statement.
+The full mathematical statements and proofs of the relevant arXiv source's Propositions 1.4, 2.5, 2.6 were read, including page-image verification of the disputed upper-bound step. No finite approximation is used to prove the infinite-dimensional counterexample.
