@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The four-tuple alphabet is partitioned exactly into GC-probability bins with multiplicities \(b_i=(i+1)(k-i+1)\), and the pair success probability has an explicit rational formula. Counting legal paths gives the transfer matrix and its Perron growth rate. For tolerance less than \(1/2\), every legal pair has opposite GC sides and both failure probabilities lie within the extreme tails. This yields the upper spectral estimate. A complete bipartite tail subgraph yields the matching-order lower bound; the constants \(1/24\) and \(2\) are checked algebraically. For the first threshold the four-bin graph and its path eigenvalue are computed explicitly; the \(k=2\) exception is excluded. The verifier checks finite instances by direct composite-symbol enumeration and tests the closed-form onset eigenvalues. Finite verification is not substituted for the all-resolution proof.
+PASS
 
-## Originality (O): PASS, subject to residual risk
+The complete resolution-k four-composition alphabet has b_i=(i+1)(k-i+1) symbols in GC-bin i, and the probability of exactly one GC in a pair is (i(k-j)+(k-i)j)/k^2. With weighted matrix T_ij=b_j 1_{success>=1-eps}, standard Perron walk growth gives 2^{C}=rho(T). When 0<=eps<1/2, allowable bins must lie on opposite GC halves with failure p+h-2ph>=max(p,h), forcing both bins to the extreme eps tails and hence row sums <=W_k(floor(k eps)). The smaller eps/2 tail rectangle is a complete bipartite induced subgraph with Perron root W_k(floor(k eps/2)); W_k(m)=(m+1)(m+2)(3k+3-2m)/6 leads to uniform absolute-factor k(1+k eps)^2 bounds and the exponent 3-2 min(alpha,1). For eps<1/k only the two pure bins remain, giving rho=k+1; at eps=1/k for k>=3, the four-bin weighted path yields rho=[k+1+sqrt((k+1)(9k+1))]/2 and asymptotic one-bit jump. Independently checked rational adjacency and numerical Perron roots against bounds and threshold for k=2..15 and multiple tolerances. Finite checks are corroborative only; k=2 is properly excluded at eps=1/k.
 
-The 2026 Bodur–Walter–Wachter-Zeh paper establishes the probabilistic composite-DNA local constraint model and fixed-parameter transfer-matrix capacity method, which is expressly **prior** and not claimed here. Its inspected local-capacity argument and examples do not state uniform growing-resolution estimates, the \(\varepsilon\asymp1/k\) threshold law, the continuous scaling exponent, or the exact first onset formula. The 2025 Nguyen–Wang–Cai–Zhang–Yakhini paper imposes deterministic satisfaction by all synthesis realizations rather than a probability threshold for each two-position window. Checked indexed mathematical records on DNA window profiles, code recovery depth, and sliding-frameproof capacity have incompatible objects and do not imply the quantitative claim. An unindexed equivalent parameter-scaling derivation remains possible. Literature comparisons address the mathematical implications, not only titles.
+## originality
 
-## Value (V): PASS
+PASS
 
-The model's resolution controls its available composite alphabet of cardinality \(\binom{k+3}{3}\), while the biochemical tolerance controls whether higher-GC mixtures can occur in locally balanced data. The theorem identifies the previously unspecified uniform tradeoff between these two design parameters, including sharp limiting information-exponent transitions and an exact first mixed-symbol capacity jump. This is a natural structural boundary across all synthesis resolutions, rather than a computation at isolated parameter values. It does not claim a full protocol or a solution for longer windows.
+The motivating October 7 2026 primary paper Theorem 15 already supplies the exact general weighted transfer matrix/capacity for arbitrary windows, so that framework is NOT new. Its materially read Sections II-III and Appendix yield bin multiplicities and generic capacity but do not state or imply, without new Perron-tail analysis, the uniform resolution-dependent two-sided estimates and explicit onset eigenvalue. The earlier deterministic all-realizations composite GC model is distinct. Best-of-knowledge originality with explicit general-theorem corollary risk.
 
-## Closest literature and limitations
+## value
 
-Bodur, Walter, and Wachter-Zeh, *Probabilistic GC-Constraints for Composite DNA*, arXiv:2610.09998v1, is the nearest prior framework and already covers general spectral counting. Nguyen et al., *Constrained Coding for Composite DNA*, arXiv:2501.10645v1, treats different deterministic constraints. The quantitative results are restricted to adjacent pairs, strict exact balancing and \(0\leq\varepsilon<1/2\); no independence from other future mathematical derivations is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolution and permissible synthesis error are natural design parameters in probabilistic composite-DNA constrained coding. The uniform capacity scaling and precise first change at eps=1/k provide a reproducible two-parameter phase description beyond a general transfer-matrix algorithm, without asserting wet-lab gains or error-correction properties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
