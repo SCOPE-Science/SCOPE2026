@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The bridge decomposition is exact; label exchangeability and independent exponential holding times give a uniform gate-infection rank. Standard extreme-value limits plus a compact-rank approximation yield independent Gumbel and logistic parts. The first-clique completion is smaller by log n with high probability, and centered exponential-moment bounds make its correction vanish in L2. The moment transform and both source limits follow. The companion standalone rational checker passes 96 exact or numerical assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mountford–Saliba, arXiv:1909.04563v1, pp. 1–4: main theorem assumes configuration-model graph and degree regularity, including bounded degree moments.",
+        "Leskelä–Ngo, arXiv:1806.09568, pp. 1–4: Theorem 2.1 assumes sparse random graphs under prescribed degree regularity.",
+        "van der Hofstad–Hooghiemstra–Van Mieghem, Section 2.1–2.2: the complete-clique flooding transform and two-Gumbel limit are known."
+      ],
+      "reasoning": "A deterministic two-clique graph with degrees growing as n and one separating bridge does not meet the cited sparse random-graph domains. The known complete-clique statement is a building block but does not itself cover the source-dependent barbell distribution or mixed logistic limit.",
+      "searches": [
+        "arxiv:1909.04563v1",
+        "arxiv:1806.09568v3",
+        "https://www.nas.ewi.tudelft.nl/people/Piet/papers/flooding.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1909.04563",
+      "https://arxiv.org/abs/1806.09568",
+      "https://www.nas.ewi.tudelft.nl/people/Piet/papers/flooding.pdf",
+      "https://arxiv.org/abs/2408.08244"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2001 complete-graph result supplies the two-Gumbel clique limit but has no inter-clique bridge.",
+        "The 2019 and 2018 primary full texts state results for random graph ensembles, not single-bridge dense-community graphs."
+      ],
+      "reasoning": "The new assertion is not that a single clique has two Gumbel completion fluctuations. It combines a random gate-infection rank, independent bridge delay, and a second clique; it distinguishes two source orbits and computes an explicit gamma transform and moment gap. The cited theorems alone do not imply that whole assertion as their graph hypotheses do not encompass this family.",
+      "searches": [
+        "complete graph exponentially weighted mean n first passage percolation flooding time sum independent Gumbel 2 log n",
+        "arxiv:1909.04563v1",
+        "arxiv:1806.09568v3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first-passage search retrieves Mountford–Saliba (arXiv:1909.04563) and sparse-graph comparisons, not a barbell source-orbit limiting distribution.",
+        "published-finding corpus closest geometric hit is 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2, a deterministic zero-forcing polynomial on the same graph family."
+      ],
+      "reasoning": "Exponential FPP, SI flooding, weighted barbell broadcasting, and bottleneck traversal are equivalent descriptions of the present model. The indexed exact-zero-forcing result does not involve stochastic passage times; the probabilistic source-sensitive limiting law was not identified in these searches.",
+      "searches": [
+        "SI epidemic two cliques connected by single bridge flooding time distribution Gumbel 2021 2022",
+        "first passage percolation two dense communities connected by bridge passage time limit Gumbel",
+        "First-passage percolation SI infection flooding time on barbell graph two dense cliques connected by a single exponential bridge; source near bottleneck versus ordinary source; sum of Gumbel and logistic limiting law"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact source-sensitive barbell distribution was returned in the searched indexed results.",
+        "An unrelated result about zero-forcing of bridge barbells is indexed at 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2."
+      ],
+      "reasoning": "There is no finite graph census or precomputed table from which this asymptotic theorem is directly read. This is a targeted but nonexhaustive search and not a proof of novelty.",
+      "searches": [
+        "weighted barbell graph first passage percolation flooding exact distribution",
+        "barbell complete graph exponential edge weights flooding 3log n distribution",
+        "Expected flooding time complete graph with bridge graph barbell ordinary vertex three logarithms source vertex two logarithms"
+      ]
+    },
+    "rationale": "Prior complete-clique flood Gumbel laws are credited; the two relevant random-sparse-graph flooding results do not cover a one-bridge dense deterministic barbell, its source-dependent rank-mixture limit or its explicit Gamma transform. Targeted primary-literature and published-claim comparison found no implication-equivalent theorem; independent priority verification remains outstanding.",
+    "residual_risks": [
+      "Searches cannot establish global novelty; alternative terminology for barbell flooding or a specialized unpublished theorem may overlap.",
+      "The complete-graph Gumbel result is established prior art and is not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Configuration-model random graph conditions and main flooding claims do not cover deterministic dense barbells",
+        "evidence": [
+          "arXiv v1 dated 2019-09-10",
+          "Condition 1 includes minimum degree and bounded degree moments",
+          "Theorem 3.1 concerns configuration-model random graphs; searches for “barbell” and “bridge” found no matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.04563",
+        "material_read": "Original paper introduction, degree regularity assumptions (pp. 1–3), graph exploration and principal theorem statement (p. 4); targeted full-text searches for barbell and bridge",
+        "method": "Read original full-text PDF pages and text, including displayed assumptions and theorem; searched terms within PDF",
+        "title": "Flooding and Diameter in General Weighted Random Graphs",
+        "trigger": "Same flooding invariant and 2019 primary source"
+      },
+      {
+        "assessment": "Sparse random degree-sequence model and node-boundary delays do not entail one-bridge deterministic barbell source laws",
+        "evidence": [
+          "Theorem 2.1 imposes (2.1)–(2.3) on sparse random graph",
+          "Section 3.1 cites complete-graph logarithmic-order precedents"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.09568",
+        "material_read": "Full-text PDF introduction and model (pp. 1–3), Theorem 2.1 and preceding results (p. 4), discussion of complete-graph limits (p. 4)",
+        "method": "Inspected searchable PDF and rendered theorem page",
+        "title": "First passage percolation in sparse random graphs with boundary weights",
+        "trigger": "Closest source on flooding with additional delays"
+      },
+      {
+        "assessment": "Directly establishes one-clique law used in the proof, but no bridge or source-orbit result",
+        "evidence": [
+          "Eq. (3) gives exact single-clique Laplace product",
+          "Eq. (9) yields squared gamma limit",
+          "No “barbell” occurrence in inspected full-text search"
+        ],
+        "identifier_or_url": "https://www.nas.ewi.tudelft.nl/people/Piet/papers/flooding.pdf",
+        "material_read": "Introduction and complete-graph Section 2.1–2.2, including exponential birth process and Gumbel limit, plus targeted full-text search for barbell",
+        "method": "Read PDF text and rendered complete-graph model page",
+        "title": "The flooding time in random graphs",
+        "trigger": "Potential dominating exact known complete-clique flood law"
+      },
+      {
+        "assessment": "Quantum search amplitudes are unrelated to classical exponential first-passage flooding",
+        "evidence": [
+          "arXiv dated 2024-08-15",
+          "Paper concerns Schrödinger quantum walks with marked vertices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.08244",
+        "material_read": "Abstract and source metadata",
+        "method": "Read arXiv abstract and metadata",
+        "title": "Searching Weighted Barbell Graphs with Laplacian and Adjacency Quantum Walks",
+        "trigger": "Same weighted graph geometry but potentially different stochastic question"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7eed4299-ea13-4c43-8578-26f1d607a30a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical two-community one-bottleneck network creates a source-location effect of log n in expected flooding, even though only two distinguished source vertices exist. The explicit full limiting distribution and variance reveal a separate logistic rank fluctuation masked by average-order estimates; this is a structurally motivated source-placement and network-reliability fact, not an arbitrary finite numerical slice.",
+    "status": "PASS"
+  }
+}
