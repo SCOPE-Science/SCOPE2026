@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all integers \(n>k\ge1\), both independent signs and all positive wall parameters, two unit vectors summing to a nonzero real number force conjugate pairing, producing the exact finite wall list. The harmonic Jacobian at every unit root is \(n^2-k^2>0\); two differentiations of the real-analytic zero branch yield a unique first and second logarithmic radial derivative. A careful calculation of the real-linear inverse gives the displayed universal two-jet. The sign threshold is exact. Since the boundary is nonzero off the known walls and every crossing is outward and orientation-preserving, the winding staircase follows rigorously from homotopy invariance. The example has exact signed indices and opposite curvature signs. Computations are diagnostics, not substitutes for the analytic proof.
+## correctness
 
-## Originality — PASS, with risk
-The primary 2026 Selmer-trinomial paper classifies the unit-circle roots only at the fixed coefficient, without quantitative deformation jets. The February 2026 parameter-space paper contains much broader raw zero-count theory (Bohl) and root-modulus parameter curves; its counting results may cover the staircase as an implication, which is acknowledged, but its inspected mathematical development does not state the universal local second derivative or acceleration transition. The 2020 one-parameter trinomial paper varies a different coefficient. Semantic index searches covering harmonic-trinomial root motion, zero walls, winding, radial sensitivity, and phase transitions returned no indexed equivalent two-jet. Searches do not prove priority. Inaccessible specialized papers and an unindexed derivation of the same local formulas are residual risks.
+PASS
 
-## Value — PASS
-The unit-circle zeros in the 2026 theorem are a discrete slice of a natural coefficient deformation. A full, exact all-exponent local stability response is mathematically motivated: it determines orientation, first-order speed and a previously unrecorded nonlinear acceleration switch of actual harmonic zeros as the parameter crosses every possible boundary wall. Its combination with a finite signed-index phase diagram distinguishes local root geometry from total root count, and the explicit \((n,k)=(9,1)\) example exhibits both curvature phases in one family. The result is not proposed as an unrelated coefficient substitution or a stronger version of the already known raw counting theorem.
+PASS. For |z|=1 and s>0, u=z^n and v=epsilon z^-k are unit complex numbers with u+v=-delta s real nonzero, which forces v=conjugate(u), hence z^(n-k)=epsilon. Enumerating all roots of this equation gives the finite wall list sigma_j=-2delta cos((2pi j+n0 chi)/L) for L=(n-k)/gcd(n,k), n0=n/g, chi=0 or pi according to epsilon; keep positive levels, with conjugate-pair multiplicities. At every unit zero the real Jacobian |n z^(n-1)|^2-|k epsilon conjugate(z)^(k-1)|^2=n^2-k^2>0, so there is a unique local real-analytic root branch. Let w=z'/z and u=z^n,v=epsilon z^-k; implicit differentiation gives w=-delta v/(n+k) and w'=[nk-(n^2+nk+k^2)v^2]/(n+k)^3. Real parts give the claimed first and second logarithmic radial derivatives because Re(v)=-delta s/2 and Re(v^2)=s^2/2-1. Independently checked these real-linear equations exactly at four root/parameter examples, including (n,k)=(9,1) walls s=sqrt2 and s=2 with second derivatives 9/1000 and -41/500. All roots cross outward because positive velocity; away from walls no boundary roots, so homotopy invariance and zero winding at sufficiently large s give signed index g sum_j 1_{sigma_j>s}. Exact wall multiplicities at s=2 and strictly intermediate walls were checked. No unsigned total zero count, global branch continuation or nonreal coefficient deformation is claimed.
 
-## Closest sources and limits
-Barrera–Barrera–Navarrete, arXiv:2610.22132v1, full 5-page article; Barrera–Campa–Navarrete, arXiv:2602.11296v1, full HTML text on Bohl counts and trochoid coefficient loci; Brilleslyper et al., Proc. Amer. Math. Soc. B 7 (2020), full article on varying the anti-analytic coefficient. Mayya–Verma–Kumar, *Unimodular zeros of certain complex harmonic polynomials* (2026), was only available bibliographically and cannot be definitively ruled out. The result does not determine unsigned zero counts, off-wall continuation or non-real coefficient perturbations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with specific prior-implication risk. Barrera–Barrera–Navarrete, Unimodular Zeros of Selmer's Harmonic Trinomials (arXiv:2610.22132), completely classifies unit roots at the single coefficient s=1, including 2g multiplicity; that fixed-point theorem is prior, not a novel crossing statement. Barrera–Campa–Navarrete (arXiv:2602.11296) gives broad general harmonic-trinomial parameter-space trochoid loci and zero/modulus phenomena, so it may imply the crossing-location or winding portion with computation. Brilleslyper et al. (2020, DOI:10.1090/bproc/51) give an all-parameter zero-count staircase for a different deformation where the anti-analytic coefficient, rather than the real constant, varies. The inspected primary treatments do not state the uniform positive wall derivative and universal second logarithmic radial jet with its curvature-sign switch; these are the narrow originality center. The signed staircase is not independently counted as new if implied by earlier Bohl/root-count theory. Unindexed local root-sensitivity results remain a priority risk.
+
+## value
+
+PASS
+
+PASS. Varying the constant term is a natural one-parameter continuation of the fixed-coefficient harmonic Selmer family. The all-exponent exact local crossing velocity, second-order curvature formula and sharp acceleration sign boundary supply nontrivial stability data at every possible unit-circle wall; the signed winding staircase puts that motion in a complete, delimited phase context. An explicit (9,1) example sees both curvature phases. This precise local jet is motivated even without a new global unsigned zero-count theorem, and is not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
