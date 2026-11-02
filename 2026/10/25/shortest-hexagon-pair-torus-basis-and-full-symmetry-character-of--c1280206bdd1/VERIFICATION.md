@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact reproducibility
 
-Run `python verify_heawood.py` in a directory containing the bundled `requirements.txt`, after installing the listed dependencies. The verifier constructs the LCF graph and a separately defined Fano incidence graph; builds all cells of the unordered deleted cubical product and both signed boundary maps; tests their composition; enumerates the 28 hexagons and 42 vertex-disjoint pairs; constructs their integral product-torus cycles and verifies their vanishing boundary.
+# Independent mathematical audit
 
-The explicit fourteen-column by fourteen-row coefficient minor equals \(-1\), and elimination over \(\mathbb F_{101}\) gives boundary rank 154. These two tests together prove the top integral homology basis: the integral unit minor gives a saturated rank-fourteen subgroup and the modular rank provides the matching rank upper bound for the kernel. The Smith normal form of the boundary has invariant factors \(1\) repeated 153 times and \(2\) once. Connectedness and the Euler characteristic give \(H_1\cong\mathbb Z^8\oplus\mathbb Z/2\).
+## correctness
 
-The full automorphism test enumerates 336 graph automorphisms, checks signed transformations of actual cellular torus chains and compares their integral coordinates with the full chains, then computes all character values. The trace values are also checked by an independent fixed-cell Lefschetz calculation and the graph cycle-space character. The program asserts all these claims and ends with the message `INDEPENDENT_FIXED_CELL_LEFSCHETZ_CHECK_ALL_AUTOMORPHISMS` following `VERIFY_OK_HEAWOOD_HEXAGON_TORUS_INTEGRAL_BASIS_AND_CHARACTER`.
+PASS
 
-Limit: these tests establish statements about the specified finite graph. They neither classify related graph families nor determine an integral irreducible group-ring decomposition. No external independent scientific validation is claimed.
+Correctness PASS for ordinary unordered two-point configuration space of the Heawood graph. Rebuilt both the [5,−5]^7 graph and the Fano-plane incidence model (14 vertices,21 edges,girth6); the cubical model has (91,252,168) cells and ∂1∂2=0. Exact ∂2 Smith invariant factors are 153 ones plus a 2 (rank154); ∂1 rank90 gives H1=Z^8⊕Z/2 and H2=Z^14. Complete enumeration recovers 28 simple hexagons, 42 disjoint pairs; their product 2-chains are closed. The explicit 14×14 minor has determinant −1, proving an integral basis for the saturated rank14 kernel. Independently enumerated 336 graph automorphisms; all 42 geometric tori form one orbit. Cell-sign Lefschetz calculation plus graph first-homology rank8 gives the complete eight-class character table with zero average invariant dimension. Source direct action on integral torus basis was inspected; independently reconstructed character uses Lefschetz, not all source matrix actions.
+
+## originality
+
+PASS
+
+Originality PASS, qualified and strictly excludes prior graph combinatorics. Lawrence–Wilson already proved the 28-hexagon census, 42 disjoint pairs and their automorphism transitivity. Previously published Heawood ordered two-point mod2 and unordered three-point configuration results concern different configurations/coefficient systems. The novel remainder is the unimodular basis inside H2 of the unordered two-point space, the integral H1 torsion and the full signed 336-element rational H2 character, which the cited graph-pair orbit theorem does not imply.
+
+## value
+
+PASS
+
+Scientific value PASS: the Heawood graph is a canonical Fano-plane incidence graph with a highly transitive group and smallest cycles of length six. The sharp integral shortest-cycle torus basis, nontrivial H1 2-torsion and full H2 character provide specific geometric, arithmetic and symmetry data that cannot be read from disjoint-cycle counts alone; the finite instance benchmarks equivariant graph braid methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

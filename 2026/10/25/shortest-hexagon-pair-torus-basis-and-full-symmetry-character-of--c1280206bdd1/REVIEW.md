@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. An equivariant finite deleted-product model is justified by the cited graph configuration literature. The script independently reconstructs its 91, 252 and 168 cells, checks both boundary maps and \(\partial_1\partial_2=0\), and verifies 42 hexagon-pair two-cycles. The \(-1\) determinant of a fully indexed fourteen-by-fourteen minor establishes a primitive rank-fourteen integral sublattice, and the rank-154 finite-field lower bound together with fourteen explicit cycles proves the full integral basis. The exact Smith form of \(\partial_2\) establishes the first-homology two-torsion. All 336 signed cellular symmetry actions are checked in full coordinates and against an independent fixed-cell Lefschetz computation.
+## correctness
 
-## Originality
-PASS, with residual bibliographic uncertainty. Lawrence–Wilson already knew there are 42 disjoint pairs and that their supports are transitive; the homological basis, integral saturation and 336-element rational character are different conclusions, and are not implied by that enumeration alone. Barnett–Farber and Farber–Hanbury supply broad configurations and some Betti-number formulas, but the inspected material does not determine this explicit Heawood shortest-torus basis or full action. An–Knudsen's principal geometric-generator theorem assumes planarity and is not directly applicable. Indexed ordered two-particle mod-two homology is different from this unordered integral calculation. Further unindexed specialist sources are a priority risk.
+PASS
 
-## Mathematical value
-PASS. The Heawood graph is the canonical nonplanar cubic girth-six cage. Its first available disjoint-cycle tori form a single symmetry orbit, and the result establishes integral generation by just fourteen of them. A unit determinant is substantially stronger than rational spanning, while the complete \(336\)-element character gives symmetry information not specified by ordinary Betti numbers. This is a natural, finite, nonplanar test of geometric-generator phenomena.
+Correctness PASS for ordinary unordered two-point configuration space of the Heawood graph. Rebuilt both the [5,−5]^7 graph and the Fano-plane incidence model (14 vertices,21 edges,girth6); the cubical model has (91,252,168) cells and ∂1∂2=0. Exact ∂2 Smith invariant factors are 153 ones plus a 2 (rank154); ∂1 rank90 gives H1=Z^8⊕Z/2 and H2=Z^14. Complete enumeration recovers 28 simple hexagons, 42 disjoint pairs; their product 2-chains are closed. The explicit 14×14 minor has determinant −1, proving an integral basis for the saturated rank14 kernel. Independently enumerated 336 graph automorphisms; all 42 geometric tori form one orbit. Cell-sign Lefschetz calculation plus graph first-homology rank8 gives the complete eight-class character table with zero average invariant dimension. Source direct action on integral torus basis was inspected; independently reconstructed character uses Lefschetz, not all source matrix actions.
 
-## Closest literature and limits
-The published hexagon-pair transitivity theorem is acknowledged without claiming its rediscovery. General configuration-space theorems do not provide the new fully indexed saturation certificate or the exact character. No uniqueness or extrapolation to arbitrary cubic graphs is claimed, and a previously unlocated exact treatment remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality PASS, qualified and strictly excludes prior graph combinatorics. Lawrence–Wilson already proved the 28-hexagon census, 42 disjoint pairs and their automorphism transitivity. Previously published Heawood ordered two-point mod2 and unordered three-point configuration results concern different configurations/coefficient systems. The novel remainder is the unimodular basis inside H2 of the unordered two-point space, the integral H1 torsion and the full signed 336-element rational H2 character, which the cited graph-pair orbit theorem does not imply.
+
+## value
+
+PASS
+
+Scientific value PASS: the Heawood graph is a canonical Fano-plane incidence graph with a highly transitive group and smallest cycles of length six. The sharp integral shortest-cycle torus basis, nontrivial H1 2-torsion and full H2 character provide specific geometric, arithmetic and symmetry data that cannot be read from disjoint-cycle counts alone; the finite instance benchmarks equivariant graph braid methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
