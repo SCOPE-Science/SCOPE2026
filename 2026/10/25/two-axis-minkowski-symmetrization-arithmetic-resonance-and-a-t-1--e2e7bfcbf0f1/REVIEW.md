@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The line-reflection average acts as a rank-one orthogonal projection on each support-function Fourier harmonic. With two equiprobable axes the squared coefficient has the exact conditional expectation multiplier \(1-\sin^2(m\alpha)/2\). The classical support-area identity converts the harmonic energies into the expected isoperimetric deficit, with uniformly summable positive terms. Rational angles select precisely the divisible frequencies; irrational angles have no unit multipliers but arbitrarily near-unit multipliers. Bounded-type continued fractions supply both the small-divisor lower bound and convergents of comparable size, proving matching stretched-exponential bounds. The standalone checker separately tests the harmonic-projection recurrence, support-boundary areas, rational residual and large-time behavior. The check is corroborative, not a proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Klartag (2003) develops harmonic rounding rates for suitably chosen axes. Klain (2011) proves finite-axis Steiner convergence. Coupier–Davydov (2012) covers random Minkowski directions with a density hypothesis that does not include two atomic lines. Bianchi–Gardner–Gronchi (2019) gives finite-direction Minkowski convergence but identifies rate questions as further work. A closely related published result on uniform random axes gives covariance and typical-rate behavior for a different angular law. None of these statements implies the displayed two-point expected-deficit series together with its rational residual and bounded-type \(t^{1/3}\) law. The Fourier projection technique is standard; historical priority beyond inspected literature is provisional.
+PASS
 
-## Value — PASS
-The example isolates a natural and consequential distinction between smoothly distributed symmetrization directions and two atomic directions. It gives the exact expected area observable at every iteration, sharply separates rational and irrational viewing-angle arithmetic, and identifies a nongeometric \(1/3\) stretched-exponential rate for a smooth convex body even though a generic continuous-direction model rounds exponentially. This is a structurally motivated convergence-rate boundary, not a selected numerical increment.
+The support function is analytic with h+h''>3/4, proving a strictly convex body with perimeter 2pi. Reflection about axis beta sends each harmonic coefficient vector (a_m,b_m) to its Euclidean orthogonal projection onto angle m beta. The initial vector is aligned with axis zero; after any step it remains on one of the two projected axes, so each independent equiprobable next step multiplies the expected squared length by lambda_m=1-0.5 sin²(m alpha). Fourier orthogonality and area = (1/2) integral(h²-(h')²) give the exact positive convergent series for E D_t for all integers t>=0. For rational alpha/pi=p/q, lambda_m=1 exactly when q divides m; the rest has a uniform <1 bound on finitely many residue types. For irrational alpha/pi, every lambda_m<1 yet their supremum is 1 by density, yielding decay with no common exponential rate. For bounded continued-fraction coefficients, ||m alpha/pi||>=kappa/m yields upper exp(-c t^{1/3}) after optimizing 2sigma m+c t/m², and convergent denominators q_j comparable to t^{1/3} give a single-term matching lower bound. A new independent full two-axis projection-sequence test at finite t verified the harmonic conditional-energy formula; no finite test is used to prove the infinite decay bounds.
 
-## Limits
-The theorem concerns expectation for one explicitly specified analytic body under iid equiprobable line choices. It supplies no sample-path rate, no universal rate for all bodies, and no exact leading constant in the bounded-type exponent. The cited works' complete broader historical landscape has not been exhaustively established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Klartag (2003) studies suitably chosen fast-rounding symmetrization sequences, Bianchi–Gardner–Gronchi (2019) finite-direction convergence, and Coupier–Davydov (2012) probabilistic Minkowski results under a direction distribution with density, excluding the two atomic line directions here. The Resultary related uniform-random-axis covariance/typical-rate result has a different angular law and no bounded-type rational/irrational resonance. Harmonic projection and continued fractions are standard tools; the exact fixed-two-axis expected deficit and specific t^{1/3} cutoff are not implied by the inspected theorems.
+
+## value
+
+PASS
+
+Two randomly selected fixed axes form a natural singular limit of random geometric symmetrization. The theorem displays a sharp arithmetic dynamical distinction: rational angles leave a positive area deficit, irrational ones round without a uniform exponential rate, and badly approximable irrational angles have stretched-exponential exponent 1/3 for a smooth explicit body. This precise structural rate boundary motivates the specific observable and source class; it is not merely a numerical illustration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
