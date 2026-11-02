@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:45:06.434570Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 74bb8970e5571927822336e3caa51542cd11c35f",
+        "assigned verify_multiplicity_gap.py blob 0c5d1d64ab0b0c93e6b0081b341a4d62408ac4c7; source read",
+        "independent_checks.py exact rational first-layer reconstruction, 21 cases, 6 candidate s and witness"
+      ],
+      "rationale": "The target exponent pattern is exactly (2,1,1,1). Write f(z)=(z+1)/(z-1), g(z)=(z²+z+1)/(z(z-1)); f,g and g/f decrease with prime z, so p=2 or 3 is too large, p>=11 too small, and p=5,7 lead to exactly five surviving (p,q) pairs. Squaring the largest prime s is impossible: reducing the full equation modulo s would force prime s to divide a product of three positive factors strictly smaller than s. For a square among the first three primes, monotone next-prime cutoffs leave exactly 21 third-prime triples, without bounding the last prime. Setting R=g(t)*f(u)*f(v) forces s=(2+R)/(2-R), and all six integral s>r are composite (559,249,63,63,32,39). The exact known witness has sigma=2822400 and phi=1411200. Independent rational arithmetic recovered five stop equalities, 21 triples and six composites. This is a global argument, not a finite search for n.",
+      "residual_risks": [
+        "The proof does not exclude squarefree four-prime solutions, multiplicity >=6 beyond a known example, or other right-hand-side multipliers.",
+        "Direct integer tests through a finite bound do not establish universal exclusion; it depends on the monotone rational cutoff and congruence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broughan–Delbourgo 2013 proves only omega(n)<=3 solutions and fixed-multiplicity finiteness, not the omega=4 Omega=5 empty class.",
+          "Broughan–Zhou 2014 treats complementary low-support cases and quotient equations."
+        ],
+        "reasoning": "A finiteness theorem at fixed Omega=5 does not imply zero solutions, and omega<=3 says nothing for omega=4.",
+        "searches": [
+          "sigma(n)=2 phi(n) four distinct primes omega 4 Omega 5 excluded t squared u v w multiplicity gap 2011009",
+          "Broughan Delbourgo ratio sum of divisors Euler totient 2013 four prime"
+        ]
+      },
+      "checked_sources": [
+        "K. Broughan & D. Delbourgo, Journal of Integer Sequences 16 (2013), article 13.8.8, complete primary PDF https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+        "K. Broughan & Q. Zhou, JIS 17 (2014), article 14.9.2, complete primary PDF https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+        "OEIS A062699 https://oeis.org/A062699",
+        "Resultary semantic query: sigma(n)=2 phi(n) four distinct primes omega 4 Omega 5 excluded t squared u v w multiplicity gap 2011009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proposed five-pair reduction contains p=5 or 7 and four distinct primes; the 2013 classification assumes at most three distinct primes.",
+          "A finite upper bound for prescribed total multiplicity permits zero or many solutions."
+        ],
+        "reasoning": "Neither earlier result logically forces the final exclusion. The new work supplies the missing modular largest-prime case and complete rational residual elimination.",
+        "searches": [
+          "Broughan Delbourgo 2013 theorem solutions omega<=3 sigma=2phi",
+          "sigma(n)=2 phi(n) four distinct primes omega 4 Omega 5 excluded t squared u v w multiplicity gap 2011009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both ordinary sigma and Euler phi factor multiplicatively, so four-prime Omega=5 is exactly t²uvw; Broughan–Delbourgo uses the same quotient sigma/phi."
+        ],
+        "reasoning": "The precise exclusion is unchanged by writing product of f/g factors or by using omega/Omega notation. No inspected source states the no-solution conclusion for (2,1,1,1).",
+        "searches": [
+          "sigma(n)=2 phi(n) four distinct primes omega 4 Omega 5 excluded t squared u v w multiplicity gap 2011009",
+          "sigma=2phi exponent pattern (2,1,1,1) four primes sum of divisors totient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A062699 lists the known multiplicity-six numerical witness n=2011009, not a proof excluding all (2,1,1,1)."
+        ],
+        "reasoning": "The sharpness example is covered and not novel; a sequence table of positive solutions does not imply the negative universal four-prime first-layer theorem.",
+        "searches": [
+          "sigma(n)=2 phi(n) four distinct primes omega 4 Omega 5 excluded t squared u v w multiplicity gap 2011009",
+          "OEIS A062699 2011009 sigma=2phi"
+        ]
+      },
+      "rationale": "Broughan–Delbourgo (2013) classify sigma=2phi with at most three distinct primes and establish bounded-multiplicity finiteness; Broughan–Zhou (2014) treats related ratio equations. Those results do not imply emptiness of the first nonsquarefree omega=4 layer. OEIS A062699 already records 2011009, which is explicitly not asserted novel. Resultary semantic search found no same equation/exponent-shape theorem among returned records; this absence cannot prove novelty.",
+      "residual_risks": [
+        "An equivalent proof of no four-prime Omega=5 solution might be an unindexed number-theoretic corollary.",
+        "The numerical sharpness example is definitely previously catalogued."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS omega<=3 and finiteness, not the target omega=4 Omega=5 exclusion",
+          "evidence": "Main theorem classifies three-prime support; does not restrict the fourth-prime first nonsquarefree shape",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+          "material_read": "Full accessible primary article PDF, including main statements and its proof restrictions",
+          "method": "PDF text inspection and page image for verification",
+          "title": "On the Ratio of the Sum of Divisors and Euler Totient Function I",
+          "trigger": "Same equation and close prime-support classification"
+        },
+        {
+          "assessment": "RELATED, no inspected four-prime Omega=5 blanket exclusion",
+          "evidence": "Focus on other low-support/related quotient classifications",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+          "material_read": "Available complete PDF including theorem statements and relevant sections",
+          "method": "PDF text inspection and page image",
+          "title": "On the Ratio of the Sum of Divisors and Euler Totient Function II",
+          "trigger": "Sequel on exactly the same divisor/totient ratio"
+        },
+        {
+          "assessment": "COVERS witness numerical value, not the universal exclusion",
+          "evidence": "2011009 appears as a solution",
+          "identifier_or_url": "https://oeis.org/A062699",
+          "material_read": "Sequence title/entries and witness context",
+          "method": "Online database inspection",
+          "title": "OEIS A062699",
+          "trigger": "Exact numerical witness and possible table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Broughan–Delbourgo 2013 main classification of omega<=3",
+        "Actual five-pair proof and complete 21-triple exact elimination"
+      ],
+      "rationale": "The published solution is classified for at most three distinct prime factors; the next natural support frontier is four, and Omega=5 is exactly its first nonsquarefree layer. A global impossibility theorem together with the known sharp Omega=6 witness determines a motivated smallest multiplicity, not an arbitrary finite computational cutoff. The modular and rational-prime reductions give substantive structural elimination beyond table lookup.",
+      "residual_risks": [
+        "The sharp witness was previously known, so the added value is strictly the four-prime first-layer exclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "There are no integers with omega(n)=4, Omega(n)=5 and sigma(n)=2 phi(n); 7^3*11*13*41=2011009 is a known four-prime sharp Omega=6 witness.",
+  "limitations": [
+    "Only omega=4, Omega=5 is excluded; Omega>=6 not classified.",
+    "Priority remains best-of-knowledge, not certified historical independence."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Prime-power factors \(f\) and \(g\) are correctly normalized by Euler's totient. The squared-prime-at-largest case is ruled out modulo the last prime. Strict monotonic upper bounds exhaust all but five initial prime pairs. Five explicit rational cutoffs leave exactly 21 next-prime triples, and solving the forced last-prime equation exhausts every remaining possibility. Six integral candidates are demonstrably composite. The known multiplicity-six witness is checked by direct divisor-sum and totient arithmetic. An exact standalone verifier reproduces the complete finite certificate.
+## correctness
 
-**Originality: PASS under available source evidence.** The complete primary texts of the 2013 and 2014 Journal of Integer Sequences papers treat the equation through three distinct primes and give broader finiteness information, not the first nonsquarefree four-prime layer. The integer sequence records the witness but has no unconditional exhaustion for this exponent shape. Distinct published low-multiplicity divisor-sum results concern \(\sigma(n)=3n\), \(\sigma(n)=4n\), or different equations, and thus do not imply this exclusion. An unindexed equivalent result remains a residual priority risk.
+PASS
 
-**Value: PASS.** The four-prime frontier is directly motivated by the literature's proven three-prime classification. The first nonsquarefree multiplicity layer is a natural sharply resolved boundary, not a randomly chosen size cutoff; it proves the minimal multiplicity six for nonsquarefree four-prime solutions and exhibits equality. The crucial modular exclusion and exact finite reduction have meaningful structural content beyond a sequence recomputation.
+The target exponent pattern is exactly (2,1,1,1). Write f(z)=(z+1)/(z-1), g(z)=(z²+z+1)/(z(z-1)); f,g and g/f decrease with prime z, so p=2 or 3 is too large, p>=11 too small, and p=5,7 lead to exactly five surviving (p,q) pairs. Squaring the largest prime s is impossible: reducing the full equation modulo s would force prime s to divide a product of three positive factors strictly smaller than s. For a square among the first three primes, monotone next-prime cutoffs leave exactly 21 third-prime triples, without bounding the last prime. Setting R=g(t)*f(u)*f(v) forces s=(2+R)/(2-R), and all six integral s>r are composite (559,249,63,63,32,39). The exact known witness has sigma=2822400 and phi=1411200. Independent rational arithmetic recovered five stop equalities, 21 triples and six composites. This is a global argument, not a finite search for n.
 
-The exact checker validates only the finite certificate and illustrative bounded experiment; the infinite statement depends on the monotonic reductions and the modular proof. Publication-priority uncertainty is separate from correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Broughan–Delbourgo (2013) classify sigma=2phi with at most three distinct primes and establish bounded-multiplicity finiteness; Broughan–Zhou (2014) treats related ratio equations. Those results do not imply emptiness of the first nonsquarefree omega=4 layer. OEIS A062699 already records 2011009, which is explicitly not asserted novel. Resultary semantic search found no same equation/exponent-shape theorem among returned records; this absence cannot prove novelty.
+
+## value
+
+PASS
+
+The published solution is classified for at most three distinct prime factors; the next natural support frontier is four, and Omega=5 is exactly its first nonsquarefree layer. A global impossibility theorem together with the known sharp Omega=6 witness determines a motivated smallest multiplicity, not an arbitrary finite computational cutoff. The modular and rational-prime reductions give substantive structural elimination beyond table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
