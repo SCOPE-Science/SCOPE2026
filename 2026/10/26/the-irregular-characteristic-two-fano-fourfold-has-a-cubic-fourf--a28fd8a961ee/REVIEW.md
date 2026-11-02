@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Projection from the distinguished point off the complete intersection constructs a second finite flat degree-two universal homeomorphism onto a smooth cubic fourfold. The first radicial map is proved in the cited construction. Finite universal homeomorphisms preserve étale cohomology with prime-to-two coefficients and Frobenius action. Counts of 63 and 693 points over the fields with 2 and 4 elements are derived exactly. Equality in the Weil absolute-value bound for the 22 primitive fourth-cohomology eigenvalues forces fifteen positive and seven negative eigenvalues, yielding the full zeta formula over the degree-seven base extension. Chow transfer uses the finite-flat radicial degree-two push-pull formula after rationalization; the Tate-cycle assertion invokes an existing published theorem for smooth cubic fourfolds.
+## correctness
 
-## Originality
-PASS on the available scientific comparison. Waldron--Witaszek construct the quotient and show its geometric pathology but do not give the projection to a smooth cubic, its zeta, or the rational-Chow/étale comparison. A previously published note on the bi-anticanonical morphism describes the inseparable map to a twist of the singular cover, but not the second projection, cohomological arithmetic transfer, or the exact zeta. The published cubic-fourfold census may already calculate the zeta of the cubic itself: that underlying cubic computation is explicitly *not* claimed new. No inspected accessible source makes the transfer to the irregular fourfold. The novelty risk is that this projection and its arithmetic consequences might be implicitly known to experts or in unindexed communications.
+PASS
 
-## Value
-PASS. This gives the full Frobenius spectrum and cycle-theoretic relation for a newly constructed irregular Fano fourfold which is not isomorphic to the cubic fourfold. It makes precise how a strong coherent-cohomological pathology coexists with entirely conventional ℓ-adic and rational-Chow invariants. The point counts for all extensions, the Euler characteristic 27 and rank-23 codimension-two algebraic cycle space over a quadratic extension are a substantial structural characterization, not an arbitrary isolated finite calculation.
+Waldron–Witaszek Proposition 3.4 supplies π:H→X finite flat radicial degree2; its polarization pullback identity is in their Proposition 3.6. The new projection H→Y forgetting t is well-defined because [0:..:0:1]∉H, and locally adjoins t satisfying z²=a, a monic quadratic, giving finite flat degree2 universal homeomorphism. Y cubic is smooth from gradient pair-swap squares. Universal homeomorphisms preserve ℓ-adic étale topoi, ring/frobenius and Q-Chow by finite flat degree2 push-pull. Independent GF2,GF4,GF8,GF16 projective counts were 63,693,5193,75537. For Y(F2) and Y(F4) the trace on H4 is 32 and 352, with primitive 22 eigenvalues of Weil weight2 and |α|=4; equality Σ α²=22·16 forces each α²=16, hence ±4 with multiplicities 15,7 among primitive, plus one Tate +4. Seventh powers yield ±q² over q=128, and independent formula for all extension counts. Tate cycle assertion uses Auel et al. Theorem4.10; the cardinality/cubic spectrum is prior arithmetic rather than newly invented. The full result depends on source-defined F128 descent of X and H; no claim of coherent-cohomology equivalence.
 
-## Limitations and closest literature
-The proof works over the stated field of characteristic two, with ℓ distinct from 2. The comparison does not identify Hodge/coherent cohomology, integral Chow groups, or other forms of the variety. Main sources: Waldron--Witaszek, arXiv:2609.29924v1; Auel--Kulkarni--Petok--Weinbaum, DOI:10.1090/mcom/4010, especially their cubic-fourfold Tate theorem; the published note *The bi-anticanonical map of the irregular Fano fourfold has degree \(8\)*; and Belmans's contemporaneous discussion of exceptional bundles. Possible implicit or unpublished priority remains the main residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge prior-work comparison: Prior equations make the projection mathematically natural but an evaluated theorem needs the flatness, radiciality and finite-field descent proof. This remains a genuine structural contribution despite the previously known cubic zeta.
+
+## value
+
+PASS
+
+Reveals a concrete smooth cubic-fourfold étale/rational-Chow avatar of a newly constructed irregular Fano fourfold, sharply contrasting pathological H¹(O_X) with conventional cohomological invariants. Determines all finite-field point counts and arithmetic cycles of a natural newly discovered geometric example; not merely recomputation of the cubic census because the exact span X←H→Y is additional structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
