@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The zero-sum star Rayleigh reduction yields the exact matrix inequality \\(\\operatorname{diag}(w)-I+\\mathbf1\\mathbf1^{\\mathsf T}/(m+1)\\succeq0\\). Gram weak duality minimizes the resultant of vectors with prescribed lengths \\(\\sqrt{c_i}\\); triangle/polygon geometry gives the exact dual value \\(C_*\\). Matching explicit primal rates are PSD by a weighted Cauchy–Schwarz identity and achieve \\(C_*\\). Complementary slackness fixes every rate uniquely in either regime. The full-kernel equality analysis determines the gap multiplicity. Replayed exact-rational verifier: 13,940 assertions on independent small parameter patterns, never substituted for all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The broadest dominating framework is Sun et al. (2006), arbitrary connected graphs and positive weighted-sum edge costs, as an SDP rather than explicit optimal rates for all costs.",
+        "Göring et al. (2007), Example 6, explicitly solves the uniform-price star, which is nested in the present polygon regime.",
+        "The 2008 rotational-dimension study handles broader graphs and arbitrary lengths, but its inspected main results classify embeddability rather than closed-form optimal weights."
+      ],
+      "reasoning": "General-purpose SDP or separator theorems logically make the optimization solvable and yield some dual certificates, so the framework itself is covered. The exact elementary solution of the heterogeneous star instance with a support-free but nonuniform phase transition is not stated by those cited theorems; uniform-price star is preexisting and expressly excluded as a stand-alone contribution.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2008/PREPRINT_16.pdf",
+        "https://www-leland.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+      "https://www.tu-chemnitz.de/mathematik/preprint/2008/PREPRINT_16.pdf",
+      "https://www-leland.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+      "https://doi.org/10.1080/03081089008817967"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al., primal/dual general theorem implies global SDP optimality can be checked by a certificate, but its displayed examples include paths and cycles rather than the present star phase law.",
+        "Göring et al., Example 6, implies the equal-cost star optimizer only.",
+        "Fiedler (1990) treats absolute algebraic connectivity with equal average edge weight; its full text was not inspected."
+      ],
+      "reasoning": "The general prior SDP and polygon/triangle inequality together can be specialized to derive this solution, so the present result is a sharp explicit specialization rather than a new SDP duality theorem. An arbitrary-graph solvability theorem does not already assert the closed expressions for all costs or the multiplicity transition. Equal-cost star results cover only a strict subfamily. A decisive stronger specialist theorem would override this assessment if identified; the Fiedler full-text access limitation is retained as residual risk.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2008/PREPRINT_16.pdf",
+        "https://www-leland.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "https://doi.org/10.1080/03081089008817967",
+        "Fiedler absolute algebraic connectivity star nonuniform edge lengths closed form optimal weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., §§3–4 express the same continuous-time weighted-cost maximization as an SDP and dual geometric embedding; §5 exhibits numerical/path/cycle examples.",
+        "Göring et al. (2008), equations (3)–(4), allow arbitrary edge lengths and hence embed the same star price choices in a general framework."
+      ],
+      "reasoning": "The current objective is equivalent to known generic convex and maximum-variance formulations after mapping edge lengths to square-root prices. Those general formulations cover the optimization input but do not, in the portions materially inspected, identify the exact closed-form star optimum, the polygon price threshold, the unique rate vector or the sharp multiplicity split. A mere change of notation would not be novel; these additional solutions are the distinct mathematical assertion.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2008/PREPRINT_16.pdf",
+        "heterogeneous priced star graph maximize algebraic connectivity edge conductance budget, largest square root cost exceeds sum of others, polygon inequality phase transition",
+        "absolute algebraic connectivity of priced weighted stars K_1,m explicit optimizer cost threshold polygon inequality square root edge prices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic record comparisons identified spectral-gap pricing on four-cycles, alternating-price cycles, non-tree bridge-barbells and weighted-star numerical-method positivity, but not this exact heterogeneous-priced star theorem.",
+        "The 2006 Sun et al. paper provides general formulas and specific path/cycle examples, not a tabulated family of all heterogeneous-star prices in the inspected examples."
+      ],
+      "reasoning": "The result is an infinite continuous-price formula rather than a finite table lookup. Neither the actual searched mathematical records nor the inspected published worked examples provided an exact matching all-price table or theorem. Search incompleteness does not itself establish originality.",
+      "searches": [
+        "weighted star Laplacian SDP diagonal majorant optimum algebraic connectivity edge costs unique weights polygon condition",
+        "star graph fastest gossip optimal nonuniform edge activation rates with communication costs",
+        "optimal algebraic connectivity weighted star graph arbitrary edge costs explicit square roots polygons",
+        "maximum variance unfolding star graph unequal edge lengths polygon inequality algebraic connectivity"
+      ]
+    },
+    "rationale": "The general cost-constrained fastest continuous-time mixing SDP and its geometric dual are explicitly attributed to Sun–Boyd–Xiao–Diaconis. The equal-price star embedding is explicitly attributed to Göring–Helmberg–Wappler. What remains assessed is the unique all-heterogeneous-price closed-form star solution, polygon regime boundary, and eigenvalue multiplicity switch, not the general optimization mechanism, uniform-price special case, or an arbitrary-price algorithm. No equal or stronger explicit star statement was identified in the inspected primary text or searched mathematical records; incomplete historical coverage is acknowledged.",
+    "residual_risks": [
+      "The specialized heterogeneously priced star solution might already have been deduced in obscure or unindexed maximum-variance embedding literature.",
+      "The full text of Fiedler (1990) was not accessible here; it is known from its abstract to treat uniform-price tree optimization, but a full comparison was not possible.",
+      "General SDP theory makes the closed-form result derivable in principle; originality rests on the explicit all-price formula, strict uniqueness, phase criterion and multiplicity analysis rather than a new general framework."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General weighted-edge-rate SDP and duality directly apply; inspected worked examples do not give the explicit arbitrary-price star optimizer or polygon threshold",
+        "evidence": [
+          "SDP formulations at pp. 686–687, path and cycle formulas at pp. 695–697; no star example surfaced in inspected §5"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Abstract, definition in §1.2, primal and dual SDPs in §§3.2–3.4, geometric discussion and worked §5 examples (small network, paths, cycles), plus document text searches for star and tree",
+        "method": "Accessible full PDF text inspected by pages/section, with rendered page verification",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same weighted-cost spectral-gap problem and geometric duality"
+      },
+      {
+        "assessment": "Explicitly covers uniform-price stars, not the heterogeneous-cost price threshold in inspected example",
+        "evidence": [
+          "Example 6 describes unit leaf lengths and equal unit optimal star rates"
+        ],
+        "identifier_or_url": "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "material_read": "Introductory primal/dual definitions, separator results and Example 6 with neighboring discussion (pp. 7–9)",
+        "method": "Full PDF section text and rendered pages inspected",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "Star example with optimal embeddings"
+      },
+      {
+        "assessment": "Broad cost/length formulation subsumes the optimization instance, but inspected theorems focus on embedding dimensions, not rates or polygon cost regime",
+        "evidence": [
+          "Equations (3)–(4) explicitly allow general positive edge lengths"
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2008/PREPRINT_16.pdf",
+        "material_read": "Definition 1, generalized embedding (3), dual (4), and main results/roadmap in §§1–2",
+        "method": "Full PDF text and relevant rendered page inspected",
+        "title": "The Rotational Dimension of a Graph",
+        "trigger": "Arbitrary edge lengths and star-related graph embeddings"
+      },
+      {
+        "assessment": "Addresses convex bounds for graph families and symmetry; different feasible design problem from fixed priced star",
+        "evidence": [
+          "First page states available online 5 May 2006; §§2–3 describe graph-family bounds"
+        ],
+        "identifier_or_url": "https://www-leland.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Title/abstract, §§1–2 and example-section scope with relevant rendered pages",
+        "method": "Full PDF sections and page images inspected",
+        "title": "Upper Bounds on Algebraic Connectivity via Convex Optimization",
+        "trigger": "Verified archival convex spectral-gap research and ownership date"
+      },
+      {
+        "assessment": "Uniform-edge-average objective is related, but no whole-document absence claim is made",
+        "evidence": [
+          "Abstract gives the equal-average edge-weight normalization and a general tree variance characterization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Publisher abstract and bibliographic information; full text was not accessible",
+        "method": "Publisher abstract only",
+        "title": "Absolute Algebraic Connectivity of Trees",
+        "trigger": "Original uniform-price tree optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d350c417-a5ce-4f6b-a6b2-b4dc8375319a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arbitrary continuous heterogeneous price inputs admit a unique globally optimal set of weighted-star conductances with no numerical SDP. The sharp polygon inequality identifies a genuinely unexpected region in which equal conductances remain optimal despite unequal prices; outside, the exact reallocation pattern and eigenspace dimension switch. This offers interpretable design sensitivities for continuous-time diffusion and goes beyond the previously known equal-price star and generic algorithmic formulations.",
+    "status": "PASS"
+  }
+}
