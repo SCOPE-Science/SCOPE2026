@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T01:58:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=1 the proper-divisor recurrence gives 2κ(1)=1+κ(1), and for n>1 gives 2κ(n)=1+Σ_{d|n}κ(d). Thus for each fixed finite set of primes, 2F=H+HF in Z[[X1,…,Xr]], H=Π(1−Xj)^(−1), and F=(2Π(1−Xj)−1)^(−1), denominator having constant term 1. With a1=A maximal, Q=Π_{j>1}(1−Xj), coefficient extraction is [X1^A]F=2^A Q^A/(2Q−1)^(A+1). The quotient is integral and mod 2 equals [X2^{a2}…Xr^{ar}]Q^A=Π_{j>1}binom(A,aj) mod 2. Lucas/Frobenius gives oddness iff each aj is a binary submask of A. Includes r=1 and repeated maximal exponents; n=1 deliberately excluded. Independently calculated divisor recurrence on all 780 positive vectors of lengths 1..4 with exponents 1..5: 192 sharp, 588 strict, zero failures. Saved VERIFY_OUTPUT is not treated as universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fink arXiv:2307.16691v1, Theorems 1–2 give all-signature exact value formulas; Section 6 Question 4 singles out the normalized sequence κ0(n)/2^A as an open direction.",
+          "Fink arXiv:2307.16691v1, p. 7 gives MacMahon 1893 arbitrary-signature alternating sum; Conjecture 1 is marked conjectural and experimentally checked to 10^5.",
+          "Fink arXiv:1912.07979 / JNT 256 (2024), Theorem 3 handles explicit one-, two-, three-prime formulas, and Corollary 1 gives only divisibility by 2^A."
+        ],
+        "reasoning": "Existing general formulas encode every numerical κ0(n) and logically allow computation of its parity, so they are the strongest prior coverage and should not be discounted. But obtaining a uniform all-support equality criterion is a substantive symbolic extraction, not an immediately stated or one-line instance of those sums. The present theorem is an exact closed binary classification rather than a claim to original all-value enumeration. Any undiscovered immediate modular simplification of the general formulas remains a priority risk.",
+        "searches": [
+          "https://lims.ac.uk/documents/paper-number-of-ordered-factorizations-and-recursive-divisors.pdf (Sections 2–6 and Questions)",
+          "https://arxiv.org/pdf/2307.09140 (Theorems 1–3 and proofs)",
+          "https://lims.ac.uk/documents/recursive-divisible-numbers.pdf (Theorem 3 and Corollary 1)",
+          "web query: Chor Lemke Mador 2000 On number of ordered factorizations natural numbers pdf"
+        ]
+      },
+      "checked_sources": [
+        "Fink, Number of ordered factorizations and recursive divisors, arXiv:2307.16691v1, primary PDF pp.2–7",
+        "Fink, Properties of the recursive divisor function and the number of ordered factorizations, arXiv:2307.09140v1, primary PDF Theorems 1–3",
+        "Fink, Recursively divisible numbers, JNT 256 (2024), Theorem 3 and Corollary 1, lawful OA PDF",
+        "Chor–Lemke–Mador, Discrete Math 214 (2000), abstract/secondary formula; authorized full text unavailable",
+        "OEIS A067824 and A074206 sequence text and formula references",
+        "Resultary 3 semantic searches: no statement-level hit for same recursive-divisor parity criterion; nearby hits different objects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 result ν2(κ0(n))≥A has no sharpness characterization; the submitted congruence determines precisely when equality holds.",
+          "Fink 2023 finite alternating binomial sum gives all κ0(n) numerically, but not a factorized mod-2 quotient identity. Its conjectured positive sum cannot be relied upon as an established proof.",
+          "The two-prime case follows readily from κ0(p^A q^b)=2^A Σ_i binom(b,i) binom(A+i,i), a formula explicitly covered in Fink 2019/2024 and attributed to earlier ordered-factorization work. Novelty is confined to uniform arbitrary-prime-support classification."
+        ],
+        "reasoning": "The binary submask theorem is stronger in logical content than the old valuation lower bound and more structural than computing values from arbitrary-signature formulas. The two-prime result and purely enumerative special cases are prior and excluded from independent novelty claims. With full text of the older Chor paper inaccessible, a hidden all-support parity result remains a named risk.",
+        "searches": [
+          "Fink 2019/2024 Corollary 1; Fink 2023 arXiv:2307.16691 Theorems 1–2, Conjecture 1, Question 4",
+          "Fink 2023 arXiv:2307.09140 Theorems 1–3; Chor–Lemke–Mador DOI 10.1016/S0012-365X(99)00223-X",
+          "web query: recursive divisor kappa0 binary parity of normalized 2 power max exponent Lucas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fink 2023, arXiv:2307.09140v1, Theorem 3: κ0=1*K and κ0(n)=2K(n) for n>1.",
+          "Fink 2024 JNT 256, Section 4.3 Corollary 1: 2^A divides κ0(n); does not state criterion for quotient oddness.",
+          "Over F2, binom(A,b) is odd iff every one-bit of b is a one-bit of A (Lucas/Frobenius identity)."
+        ],
+        "reasoning": "For n>1, the assertion is equally ν2(κ0(n))=A, ν2(K(n))=A−1, oddness of κ0(n)/2^A, or the all-exponents binary-submask condition. The cited Dirichlet identity and bound do not themselves identify the equality locus; the submitted coefficient calculation derives the missing first 2-adic digit. Resultary semantic hits concern unrelated 2-adic objects rather than this specific function.",
+        "searches": [
+          "Resultary query: recursive divisor function kappa_0 normalized by 2^max prime exponent odd iff prime exponent binary submask of maximum, Lucas binomial parity",
+          "Resultary query: Fink recursive divisor κ0(n) parity quotient 2^α* binary carry-free divisibility",
+          "web query: ordered factorizations 2-adic valuation submask binomial parity recursive divisor counts",
+          "https://arxiv.org/pdf/2307.09140 (Theorems 1 and 3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A067824 displays recursive count values and exact divisor-chain interpretations, not a general valuation equality locus.",
+          "OEIS A074206 displays K(n) and multifactor Pascal-triangle comments, but no all-signature binary-submask congruence.",
+          "Fink 2023 Section 6 Question 4 lists initial normalized κ0(n)/2^A values, not a complete parity characterization."
+        ],
+        "reasoning": "Known sequences and example tables match the object and explain numerical values; neither the finite initial tables nor the searched results supplies an exhaustive condition for all exponent vectors. Any hidden older table-derived modular theorem is a residual risk.",
+        "searches": [
+          "https://oeis.org/A067824 (recursive divisor count, comments and tables)",
+          "https://oeis.org/A074206 (ordered factorization count, comments and formulas)",
+          "web query: OEIS recursive divisors divided largest power of 2 binary submask odd number factorization Fink 2-adic",
+          "Resultary query: ordered factorization count K(n), recursive divisor count, exact two-adic valuation parity criterion from multi-prime signatures, dominant exponent"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the full arbitrary-support binary-submask sharpness locus is not stated in the inspected primary formulas or databases. The Fink lower bound is old and the low-support case is covered, but the uniform first 2-adic digit criterion for all prime supports appears to be a substantive new extraction; significant implicit-prior-formula and inaccessible-primary risks are retained.",
+      "residual_risks": [
+        "Full Chor–Lemke–Mador 2000 paper was not read: Technion hosted OA PDF link returned 404; institutional Oxford reported vpn_disconnected.",
+        "MacMahon 1893 arbitrary-prime-signature formula may hide a short direct mod-2 corollary; primary 1893 memoir was not read.",
+        "General all-value formula determines parity algorithmically, so distinctiveness is the concise all-signature submask classification, not numeric computation or the two-prime special case.",
+        "A matching modular corollary under a different ordered-factorization/tiling alias may be unindexed by searched sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-value formulas and a normalization question; explicit general binary-submask sharpness locus not stated",
+          "evidence": "Theorem 1 and 2 (page 3), discussion and Question 4 (page 7)",
+          "identifier_or_url": "https://lims.ac.uk/documents/paper-number-of-ordered-factorizations-and-recursive-divisors.pdf (arXiv:2307.16691v1)",
+          "material_read": "Eight-page primary PDF: theorem statements p.3, proofs pp.4–5, general MacMahon sum, Conjecture 1 and open Question 4 p.7; PDF text and screenshots of relevant pages",
+          "method": "Web-open full primary PDF text and page-image screenshots of pages 3 and 7",
+          "title": "Number of ordered factorizations and recursive divisors",
+          "trigger": "Closest arbitrary-prime-support exact formulas and explicit normalized sequence question"
+        },
+        {
+          "assessment": "Gives κ0 Dirichlet series ζ/(2−ζ) and κ0=1*K, no normalized quotient parity classification",
+          "evidence": "Theorem 1, Theorem 3 and their proofs, pp.2–4",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09140 (arXiv:2307.09140v1)",
+          "material_read": "Five-page source: Theorems 1–3, proof of Theorem 1, convolution identities and relations to K; screenshot of theorem page",
+          "method": "Web-open primary arXiv PDF text with page-image verification",
+          "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+          "trigger": "General Dirichlet-series and ordered-factorization equivalence may dominate submitted claim"
+        },
+        {
+          "assessment": "Explicitly proves 2^A divisibility and low-support numerical formulas, but does not state arbitrary-support sharpness parity criterion",
+          "evidence": "Theorem 3 and Corollary 1, JNT 256 pp.46–47; Appendix A tables",
+          "identifier_or_url": "https://lims.ac.uk/documents/recursive-divisible-numbers.pdf (arXiv:1912.07979 / JNT 256, 2024)",
+          "material_read": "Original 18-page PDF: Section 4.3, Theorem 3 and Corollary 1 (pp.46–47), appendix numerical table and references; relevant screenshot pages",
+          "method": "Web-open lawful publisher OA PDF text and page-image screenshots",
+          "title": "Recursively divisible numbers",
+          "trigger": "Original maximum-exponent power-of-two lower bound and low-support formulas"
+        },
+        {
+          "assessment": "Confirmed overlap of earlier two-prime specialization; no claim made that inaccessible full paper lacks all-support criterion",
+          "evidence": "Chor–Lemke–Mador 2000 abstract; Fink 2024 Section 4.3 attribution to Chor et al.; Fink 2023 bibliography",
+          "identifier_or_url": "doi:10.1016/S0012-365X(99)00223-X",
+          "material_read": "Publisher/academic abstract and two-prime formula as reproduced by Fink; full original paper not read",
+          "method": "Searched arXiv and lawful OA; Technion hosted PDF link returned 404; authorized Oxford retrieval returned vpn_disconnected",
+          "title": "On the number of ordered factorizations of natural numbers",
+          "trigger": "Classical broader formulas, particularly two-prime ordered-factorization identities"
+        },
+        {
+          "assessment": "Underlying integer sequences known; indexed statements inspected do not state arbitrary-support binary submask parity formula",
+          "evidence": "A067824 definition and comments; A074206 recursive factorization description and multidimensional Pascal comment",
+          "identifier_or_url": "https://oeis.org/A067824; https://oeis.org/A074206",
+          "material_read": "Sequence definitions, comments, initial values and formula references",
+          "method": "Web-open public sequence records",
+          "title": "OEIS A067824 / A074206",
+          "trigger": "Exact database/table overlap for the recurrence and ordered-factorization alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent-normalized κ0(n)/2^A is singled out as a natural open topic in Fink 2023, Section 6 Question 4. The theorem gives a complete exact first-bit/sharpness locus for arbitrary numbers of prime factors, not an unmotivated finite slice or a list of computed values. The exact parity fact could be used to filter signatures before higher-valuation and ordered-factorization investigations; it neither claims new all-value formulas nor settles higher bits. This modest exact invariant survives its two-prime precedent and short formal-power-series proof.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fink, Number of ordered factorizations and recursive divisors, arXiv:2307.16691v1, primary PDF pp.2–7",
+    "Fink, Properties of the recursive divisor function and the number of ordered factorizations, arXiv:2307.09140v1, primary PDF Theorems 1–3",
+    "Fink, Recursively divisible numbers, JNT 256 (2024), Theorem 3 and Corollary 1, lawful OA PDF",
+    "Chor–Lemke–Mador, Discrete Math 214 (2000), abstract/secondary formula; authorized full text unavailable",
+    "OEIS A067824 and A074206 sequence text and formula references",
+    "Resultary 3 semantic searches: no statement-level hit for same recursive-divisor parity criterion; nearby hits different objects"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Proves the first parity bit after 2^A, not exact valuation for strict cases.",
+    "No claim of novelty for Fink maximum-exponent divisibility or known two-prime closed expressions.",
+    "Full Chor–Lemke–Mador and MacMahon originals uninspected, as recorded in originality residual risks.",
+    "Scientific PASS is separate from publication transport; public administrative files were not modified or sanitized."
+  ]
+}
