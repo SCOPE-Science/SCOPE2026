@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:49:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a degree-three vertex with its own spin included in the four-bit minority rule and ties retained, a flip occurs iff >=2 of three neighbors share the old spin. Each flip decreases monochromatic edge count m by 2s-3>=1. At most 3n flips are possible; each state-changing event occurs after geometric waiting time of conditional mean <=2n, giving E[T]<=6n². Stability iff each vertex has <=1 same-color neighbor. If any rung is monochromatic, both its horizontal neighbors must differ in both layers and so are monochromatic opposites; induction gives exactly two coherent-rung alternating configurations for even n, each energy n. Otherwise all rungs bichromatic. Equality of upper adjacent spins on cycle edges must form an independent set Z; cycle consistency requires |Z|≡n mod2. Each k-independent set yields two bit lifts, energy2k, and count n/(n-k) binom(n-k,k). Lucas cycle independent-set generating polynomial gives totals and parity correction; minimum k gives stated ground states. Fresh independent brute force inspected every 2^(2n) labelled configuration for n=3..8 and reproduced energy histogram and total. The source script covers n<=9 but finite checks are not substituted for proof for all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rouquier’s full article explains general strict energy for asynchronous minority, and tree/torus configurations; searches of text for circular prism or ladder found no matches.",
+          "Wacław–Burda count one-spin stable states for random Gaussian couplings rather than uniform antiferromagnetic prism."
+        ],
+        "reasoning": "General energy descent directly implies convergence/absorption but not the exact energy generating polynomial; spin-glass random couplings are a different parameter/object.",
+        "searches": [
+          "Rouquier–Regnault–Thierry arXiv:1011.5119 full primary text",
+          "Wacław–Burda arXiv:0801.1224",
+          "Regnault–Schabanel–Thierry arXiv:0706.2479"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_prism.py source tree 9a8640ee70c70d1c8a5a7c9ac2864b2a92ea3e67",
+        "Rouquier–Regnault–Thierry arXiv:1011.5119 open-access primary text",
+        "Regnault–Schabanel–Thierry arXiv:0706.2479",
+        "Wacław–Burda arXiv:0801.1224"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict descent and singleton recurrent classes follow from established energy method and are not claimed new independently.",
+          "The n-by-n independent-set closed form uses an explicit rung stability classification not present in the general source theorem."
+        ],
+        "reasoning": "The exact count is not a direct numerical corollary of a generic strict Lyapunov principle; its separate cycle parity argument gives the additional classification.",
+        "searches": [
+          "Rouquier–Regnault–Thierry arXiv:1011.5119 energy theorem",
+          "Wacław–Burda arXiv:0801.1224 metastable states on graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2010 paper establishes general asynchronous minority dynamics on graphs and energy monotonicity.",
+          "Resultary search returned ladder topology homology results but no exact closed-neighborhood circular prism spin census."
+        ],
+        "reasoning": "General Ising metastability and minority dynamics share a local-minimum characterization, but the particular uniform interaction and ring-of-rungs energy polynomial is not a quoted equivalent formula.",
+        "searches": [
+          "Resultary: asynchronous minority dynamics circular prism ladder absorbing states metastable energy enumeration",
+          "Rouquier–Regnault–Thierry arXiv:1011.5119"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching prism-specific all-n polynomial in Resultary records surfaced.",
+          "Source full-text search found no circular-prism/ladder exact table."
+        ],
+        "reasoning": "An unindexed Ising ladder metastable-state transfer-matrix table may already count exactly this natural object; residual risk explicitly retained.",
+        "searches": [
+          "Resultary: prism graph asynchronous minority energy polynomial",
+          "Rouquier–Regnault–Thierry 2010 figures and classifications"
+        ]
+      },
+      "rationale": "Rouquier–Regnault–Thierry 2010 develops the same asynchronous minority class and the general energy-descent/absorption principle; it is explicitly NOT original here. Regnault–Schabanel–Thierry 2007 considers square tori with different neighborhoods, and Wacław–Burda 2008 random-coupling Ising spin glasses, not uniform closed-neighborhood prisms. The narrow new-looking claim is the exact all-n energy-resolved absorbing-state polynomial, parity correction and ground-state multiplicities for circular prisms. The proof supplies a rung dichotomy and independent-cycle-set census not located as a displayed table in inspected previous work.",
+      "residual_risks": [
+        "Equivalent uniform antiferromagnetic prism ladder metastable-state polynomial may be known under Ising terminology.",
+        "Uniform upper bound 6n² is a routine energy corollary; novelty/value rests on exact energy census, not the bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the generic energy/convergence framework but does not display an exact all-n circular-prism energy polynomial in inspected sections.",
+          "evidence": [
+            "Energy descent under odd-degree graph minority is credited.",
+            "Rung cycle independent-set classification is a further specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.5119",
+          "material_read": "Accessible complete HTML primary article; inspected model definitions, general energy argument, classification sections and appendix headings; full-text search for ladder/prism terms found no matches. Not every line was read",
+          "method": "lawful open-access full-text HTML",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Same exact stochastic minority update and potential function"
+        },
+        {
+          "assessment": "Random Gaussian coupling Ising spin-glass model differs from the deterministic uniform antiferromagnetic prism; whole-document coverage is not asserted without reading.",
+          "evidence": [
+            "Abstract emphasizes random Gaussian edge couplings on arbitrary graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.1224",
+          "material_read": "Accessible abstract and bibliographic details, not full primary article",
+          "method": "arXiv abstract and source bibliography",
+          "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+          "trigger": "Potential domination of all graph metastability counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Circular prisms are canonical regular degree-three graphs, and metastable absorbing configurations of an asynchronous spin rule are natural finite statistical-mechanics invariants. The exact energy polynomial gives the complete labelled metastable population at every n, beyond general convergence facts, with nontrivial parity- and mod-six effects. The hitting-time bound is useful but routine from prior energy descent and is not the sole claimed contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For asynchronous closed-neighborhood minority updates on the labelled circular prism P_n=C_n square K2 (n>=3), all recurrent communicating classes are singleton absorbing configurations; their monochromatic-edge energy polynomial is 2 sum_{k<=n/2,k≡n mod2} n/(n-k) binom(n-k,k) z^(2k) +2*1_(2|n) z^n, total Lucas_n+2 cos(2πn/3)+2*1_(2|n), ground energy 0 even /2 odd with 2 /2n states, and E T_absorb <=6n².",
+  "limitations": [
+    "Equivalent uniform antiferromagnetic prism ladder metastable-state polynomial may be known under Ising terminology.",
+    "Uniform upper bound 6n² is a routine energy corollary; novelty/value rests on exact energy census, not the bound.",
+    "The proposed publication operations remain withheld for public confidentiality, distinct from scientific acceptance; no repository mutation or other validation channel asserted."
+  ],
+  "schema_version": 1
+}
