@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The biconditional between destruction of every minimum dominating set and domination increase after deletion is proved without a numerical assumption. Exact 24-vertex subset enumeration establishes domination number eight and 1767 optimal sets. Two distinct exhaustions of all 376992 five-edge subsets agree that 276 kill every optimum. Explicit 48-element group actions partition the 276 into eight orbit sizes totalling 276; each representative and its full orbit are replayed. The star counts 240 and 36 are exhaustively established. A finite enumeration is sufficient for this finite claim.
+## correctness
 
-**Originality: PASS with residual risk.** The public 2026 primary record [1] states only domination number eight and bondage number five; it reports four-edge exhaustion and one five-edge obstruction, not the exact five-edge multiplicity, full symmetry-orbit classification, or universal star property. Searches for aliases (truncated-octahedral graph, order-four permutahedron, Cayley graph of adjacent transpositions), exact counts (276, eight orbits), and domination/bondage did not identify a known identical or stronger statement. Another result about the independence complex on this same graph is about a different invariant. Full-text access to [1] was unsuccessful, so an unreported appendix/census remains a documented priority risk.
+PASS
 
-**Value: PASS.** Minimum bondage is a robustness threshold. Exhaustively classifying its witnesses on an important 2026 planar-counterexample graph supplies information not implied by the threshold: every optimal failure isolates a vertex, there are 276 solutions in eight structurally distinct symmetry classes, and double-isolation accounts for 36. This identifies the mechanism and multiplicity of every optimal attack rather than merely recomputing a known bondage number.
+Graph is constructed on all 24 permutations of 4 letters by the three adjacent swaps; 36 undirected edges. Independent C++ enumerated every 6-,7-,8-vertex subset of 24 and reproduced 0,0,1767 dominating subsets. For every of 376,992 five-edge sets, direct deletion and checks against the entire 1767 original minimum-dominating sets gives exactly 276 winners, which is exhaustive and equivalent to gamma(T-F)>8 because edge deletions cannot lower domination number. Independent Python reconstructed each winning edge mask and full vertex-stars, yielding 240 sets isolating one vertex, 36 isolating two, none zero/>2; 13 per vertex. Independently generated 48 full automorphisms via symbol relabeling and permutation-position reversal, partitioning all 276 winners into eight exact orbits with source representatives. Finite exhaustive proof appropriate because T is fixed; no extrapolation. The previously established b=5 is not inferred solely from checking five-edge subsets.
 
-**Limits and relevant literature.** Scope is the named 24-vertex graph, not general planar graphs. See Srivastava, arXiv:2609.02477 (2 September 2026); Weisstein's Truncated Octahedral Graph and Bondage Number references. The primary full text was inaccessible in this attempt; independent priority and proof review remain undone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Srivastava arXiv:2609.02477 publicly states gamma(T)=8, b(T)=5 and four-edge exhaustive obstruction checking, explicitly prior, not a new claim. Its accessible abstract and MathWorld article do not mention complete count of all 5-edge bondage sets, eight orbits or star mechanism; full arXiv PDF inaccessible, authorized Oxford download blocked with vpn_disconnected, so possible appendix coverage is a material priority risk. Resultary finding on truncated octahedron independence-complex splitting studies a different invariant. Exact census not simply implied by knowledge of minimum b(T).
+
+## value
+
+PASS
+
+This graph is the recently established cubic planar counterexample to the planar bondage inequality, so mechanisms of every optimal 5-edge failure are naturally worth classifying. Exact multiplicity, symmetry classes and universal vertex isolation are a substantial robustness refinement, not a mere recomputation of the known bondage number or arbitrary cutset table. The finite census is fully exhaustive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
