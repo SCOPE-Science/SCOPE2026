@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The Python 3 standard-library checker `verify.py` was executed from the package directory. It checks exact walk-shell reachability at dimensions 6 through 9, independently enumerates the maximal-delay seed supports on odd dimensions 7 and 9, and compares the analytic criterion with simulated first-entry time for sparse and random supports. The actual output was:
+# Independent mathematical audit
 
-```text
-n= 6 T= 3 A= 32 maximizers= 274877905920
-n= 7 T= 3 A= 7072 maximizers= 260910748178547848043520
-n= 8 T= 4 A= 128 maximizers= 87112285931760246646623899502532662116352
-n= 9 T= 4 A= 124160 maximizers= 28753491599410357647581146997357381278124002592171864862278107260844988336773201920
-VERIFY_OK walk_shell_checks= 36 state_checks= 246494 bad_supports= {(6, 0): 32, (6, 1): 32, (7, 0): 7072, (7, 1): 7072, (8, 0): 128, (8, 1): 128, (9, 0): 124160, (9, 1): 124160}
-```
+## correctness
 
-Finite tests do not certify the unrestricted dimensions. The proof handles all integers \(n\ge6\) by explicit length-of-walk constructions and exact combinatorial counting. No independent audit or external validation has been performed.
+PASS
+
+OR dynamics propagates seed support along exactly-t graph walks. For t>=2, weight-two generators reach exactly even differences of weight <=2t: disjoint pair decomposition supplies minimal steps, replacing two pairs by three generators adds one step, repeated generators add two, and zero difference has 2/3-step closed circuits. Thus at T=floor(n/2) every occupied parity component fills, but at T-1 only its farthest shell can be missing. When n even the farthest parity-matched vertex has a unique antipode, yielding A=N singleton seed sets. When n odd the farthest shell is an ordinary cube-neighborhood; singleton supports counted once, pair supports have exactly two centers, >=3 supports have unique center, yielding A=N(2^n-n-C(n,2)/2). Components independent, inclusion-exclusion yields 2A 2^N-A^2. Direct shell, odd-subset counting n6..10 and finite first-entry checks passed; all-n claims rest on constructions.
+
+## originality
+
+PASS
+
+General OR-network connectivity and exponent/height facts already follow from Jarrah et al 2008 and Goles--Hernández 2000. Those statements do not give the *number of maximal-depth starting configurations* in the halved cube. Resultary 2026 parity/XOR automata on the same distance-two graph have different addition law and periodic structure, so their rank formulas do not imply OR seed-support census. Earlier special halved-cube graph census may remain undiscovered.
+
+## value
+
+PASS
+
+The exact number of extremal transient states is a natural quantitative dynamical invariant beyond knowing eventual fixed points or max height. Opposite parity dimension cases have qualitatively different seed geometry: singletons in even dimension, arbitrary nonempty subsets of antipodal Hamming-neighborhoods in odd dimension. The fully labeled census makes both effects explicit for an infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
