@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:59:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fact 2 of Beigi–Tomamichel supplies a real degree≤D NOR polynomial p with p(0)=1 and |p(k)|≤epsilon for integers 1≤k≤n. Setting q(x)=p(n-x) and S=sum P_i gives q(n)=1 and |q(j)|≤epsilon for j<n, so operator-norm approximation and exact projector product identities follow from commuting spectral projections. For D≤n/2<n, the Newton coefficients a_s=Δ^s q(0)=sum_{j=0}^s(-1)^(s-j)binom(s,j)q(j) obey |a_s|≤epsilon 2^s for every 0≤s≤D. The identity binom(S,s)=sum_{|T|=s}prod_{i∈T}P_i and tensor-product projective-norm submultiplicativity yield ||q(S)||_pi≤epsilon sum_s binom(n,s)(2mu)^s; mu≤kappa gives the dimension/entropy form. Verified all imported hypotheses directly against Fact 2 and Lemmas 2–3 of the original published full PDF; no numerical certificate is needed for these exact identities. The restriction D<n is necessary: q(n)=1 must not enter finite differences.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beigi–Tomamichel Lemma 3 explicitly states ||tilde P||_pi≤(2kappa)^D 2^{nh(D/n)} and proves it via products of 1−P_i."
+        ],
+        "reasoning": "The original broad quantum channel theorem uses a less sharp intermediate estimate; it does not mechanically imply the improved numerical norm factor for each fixed projector. Other entanglement-norm works use different local norm spaces.",
+        "searches": [
+          "Beigi–Tomamichel arxiv:2609.11771 pp9–10",
+          "Johnston–Kribs arxiv:1304.2328 abstract",
+          "Palazuelos JFA 267 (2014)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 47688336e085eaa4897e2b00c462f8ab299c12fa",
+        "arxiv:2609.11771 full PDF v2 Fact 2/Lemma 2/Lemma 3 and two page images",
+        "arxiv:1304.2328 abstract",
+        "quantum NOR approximation polynomial projective tensor norm Newton basis image projector channel strong converse",
+        "Independent algebraic proof of Newton coefficient identity and success-projection binomial identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known: p(0)=1 and |p(k)|≤epsilon for k≥1, coefficients of p in failed-count basis bounded 2^s. New: coefficients of q in success-count basis bounded epsilon 2^s for s≤D<n."
+        ],
+        "reasoning": "The changed expansion forces a smaller projective-norm estimate by epsilon for the same operator. This is a new bound using prior inputs, not a new approximation or final strong-converse capacity result.",
+        "searches": [
+          "arxiv:2609.11771 Fact 2 and Lemma 3 eqs (41)–(47)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same product-image approximant q(S)=p(n-S) is present in prior work using failure count L=sum(1-P_i); the source expands p(L), whose smallness bound cannot be used at k=0."
+        ],
+        "reasoning": "The equivalent operator identity was known, but the sharper coefficient estimates obtained in the other Newton basis were not supplied; equivalent operator formulations do not entail a stated sharp upper bound without the different finite-difference estimate.",
+        "searches": [
+          "quantum NOR approximation polynomial projective tensor norm Newton basis image projector channel strong converse",
+          "arxiv:2609.11771 v2 Lemma 3 and Fact 2",
+          "arxiv:1304.2328"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced unrelated Grassmann/Hamming endpoint projector norms; no matching epsilon-weighted Stinespring image interpolation theorem."
+        ],
+        "reasoning": "No exact norm table containing the target bound was found; database non-return is a limited search fact only.",
+        "searches": [
+          "quantum NOR approximation polynomial projective tensor norm Newton basis image projector channel strong converse",
+          "Resultary semantic product projector polynomial Newton query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the stronger epsilon-weighted projective norm estimate for the same projector, not for NOR approximation, projective tensor norms or quantum strong converse. Inspection of Beigi–Tomamichel full updated preprint Fact 2 and Lemma 3 shows Newton expansion in failure projections Δ_i with coefficient upper bound 2^s and final norm without epsilon. The alternative success-projection Newton expansion and epsilon gain are not in that inspected source; earlier projective tensor norm studies concern other spaces or norms. An unindexed alternate-basis calculation remains a priority risk.",
+      "residual_risks": [
+        "Earlier or later preprint versions, supplements or related quantum approximation notes may already exploit this alternative Newton expansion.",
+        "The new estimate is an upper bound, not an optimal projective norm or an independently demonstrated quantum capacity improvement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_BOUND_WEAKER_FOR_SAME_OPERATOR",
+          "evidence": "Equations (41)–(47) establish NOR p and norm (2kappa)^D 2^{nh}; their expansion uses Δ_i=1−P_i and |a_s|≤2^s, without epsilon.",
+          "identifier_or_url": "arxiv:2609.11771; https://arxiv.org/pdf/2609.11771",
+          "material_read": "Full public PDF; relevant Section 4, Fact 2, Lemma 2 and Lemma 3 pp8–10, and downstream theorem usage pp11–12",
+          "method": "Read source PDF text of Fact 2 and Lemma 3; visually inspected Newton coefficient estimates on page 10",
+          "title": "Strong Converses for Quantum Channel Capacities from Blowing-Up Lemmata",
+          "trigger": "Exact NOR polynomial construction and tensor projective norm benchmark"
+        },
+        {
+          "assessment": "DIFFERENT_NORM_CONTEXT",
+          "evidence": "No directly inspected theorem for this exact product-projector Newton coefficient estimate.",
+          "identifier_or_url": "arxiv:1304.2328",
+          "material_read": "Abstract and general problem framing only",
+          "method": "Compared different norm spaces and operator setting",
+          "title": "Duality of Entanglement Norms",
+          "trigger": "Possible dominating tensor norm result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same polynomial approximation of a Stinespring-image tensor-power projector is a central technical norm input in the quantum strong-converse proof. Switching the interpolation basis from failed to successful local projections exposes an extra exponentially small epsilon factor while keeping the identical approximate projector and error. This materially improves a natural norm bound without presuming a stronger quantum-capacity theorem; it is a motivated structural lemma, not merely a renamed constant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 47688336e085eaa4897e2b00c462f8ab299c12fa",
+    "arxiv:2609.11771 full PDF v2 Fact 2/Lemma 2/Lemma 3 and two page images",
+    "arxiv:1304.2328 abstract",
+    "quantum NOR approximation polynomial projective tensor norm Newton basis image projector channel strong converse",
+    "Independent algebraic proof of Newton coefficient identity and success-projection binomial identity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite dimensional B,E, one common P, n≥6 and integer 3≤D≤n/2, and only the original NOR polynomial family.",
+    "All-correct projection target identities are exact, but improved bound may not be tight and does not optimize the converse exponent."
+  ],
+  "residual_risks": [
+    "Earlier or later preprint versions, supplements or related quantum approximation notes may already exploit this alternative Newton expansion.",
+    "The new estimate is an upper bound, not an optimal projective norm or an independently demonstrated quantum capacity improvement."
+  ],
+  "schema_version": 1
+}
