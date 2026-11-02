@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exponential backward recurrence age at stationarity yields trace-norm convergent ρ1=E|ψ_T><ψ_T| and ρcommon=E(|ψ_T><ψ_T|)⊗². Reset contraction gives uniqueness; the common density matrix is a mixture of product projectors, hence separable with marginals ρ1. Tight-binding spectral Fourier transform gives overlap J_0(2J(s−t)). A double-exponential age integral reduces to a one-dimensional exponential convolution: P1=E[J_0(2JT)^2], Pcommon=E[J_0(2JT)^4], Pindependent=P1². Strict Cauchy–Schwarz variance is positive because J_0 is nonconstant. Bessel addition/Laplace identities give P1~r/(2πJ) log(16J/r); uniform O(u^−1/2) Bessel decay makes C4 finite, and dominated convergence gives Pcommon~r C4/(2J). The ratio and logarithmic divergence follow. Independently checked several finite-rate Bessel integrals, equality with elliptic P1, strict ratio and small-r trend. Not Umegaki mutual information, not entanglement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald–Böttcher arXiv:2008.00510 §III–IV, Eq.(29) stationary state; Das et al. arXiv:2106.14181 Sec.3 stationary tight-binding probability."
+        ],
+        "reasoning": "Broader coverage: renewal master equations for general quantum stochastic walks include the single-walker states and could imply the formal common reset mixture on the tensor-product Hilbert space; they do not supply a sharp asymptotic of the ratio.",
+        "searches": [
+          "Resultary semantic query: shared common Poisson resetting two quantum walkers Rényi entropy purity classical correlations stationary lattice",
+          "Web scientific search: shared resetting quantum walkers purity correlated clock; common Poisson resetting walkers Rényi correlation",
+          "https://arxiv.org/pdf/2008.00510",
+          "https://arxiv.org/pdf/2106.14181"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2008.00510",
+        "https://arxiv.org/pdf/2106.14181"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ρcommon and ρ1⊗ρ1 share both marginals but differ in collision purity for all positive r,J."
+        ],
+        "reasoning": "Implication: a one-copy stationary density matrix does not uniquely determine a correlated two-copy joint state. The common clock induces a variance of J0²(T); the logarithmic sharpness additionally requires the fourth-power integrability estimate.",
+        "searches": [
+          "Resultary semantic query: shared common Poisson resetting two quantum walkers Rényi entropy purity classical correlations stationary lattice",
+          "Web scientific search: shared resetting quantum walkers purity correlated clock; common Poisson resetting walkers Rényi correlation",
+          "https://arxiv.org/pdf/2008.00510",
+          "https://arxiv.org/pdf/2106.14181"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wald–Böttcher stationary one-walker reset semigroup and Das–Dattagupta–Gupta Bessel site probabilities are antecedents, but do not specify common-age two-copy purity asymptotic."
+        ],
+        "reasoning": "Equivalent formulations: common-reset states are mixtures of product projectors indexed by a shared exponential age; compare with independent product mixtures. Rényi-two contrast is log purity ratio, not von Neumann mutual information.",
+        "searches": [
+          "Resultary semantic query: shared common Poisson resetting two quantum walkers Rényi entropy purity classical correlations stationary lattice",
+          "Web scientific search: shared resetting quantum walkers purity correlated clock; common Poisson resetting walkers Rényi correlation",
+          "https://arxiv.org/pdf/2008.00510",
+          "https://arxiv.org/pdf/2106.14181"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary quantum-reset source gives single-particle site occupations via Laplace integrals; C4~0.902729 checked numerically; no two-particle entropy table in inspected documents."
+        ],
+        "reasoning": "Exact databases/tables: no existing Bessel J0 fourth-power collision integral/ratio table with two reset protocols was identified; the special-function integral C4 is known analytic material but not a record of this stationary joint-state limit.",
+        "searches": [
+          "Resultary semantic query: shared common Poisson resetting two quantum walkers Rényi entropy purity classical correlations stationary lattice",
+          "Web scientific search: shared resetting quantum walkers purity correlated clock; common Poisson resetting walkers Rényi correlation",
+          "https://arxiv.org/pdf/2008.00510",
+          "https://arxiv.org/pdf/2106.14181"
+        ]
+      },
+      "rationale": "PASS (qualified): Stationary Poisson-reset quantum walk density matrices and Bessel site probabilities were already developed by Wald–Böttcher and Das–Dattagupta–Gupta. The claim does not assert the one-body purity, Poisson mixing, or renewal identity individually as novel. Neither inspected primary work studies the two-copy shared-vs-independent clock comparison with coincident marginals and strict Rényi-two contrast, nor establishes the Bessel-fourth-power weak-reset logarithmic singularity. General common-random-environment correlation identities may be antecedents, so novelty is qualified to the full explicit lattice asymptotic.",
+      "residual_risks": [
+        "General renewal-channel or classical common-random-mixture entropy identities may yield equivalent formulation even if exact lattice asymptotic not in inspected papers.",
+        "I2 is a difference of order-two collision entropies, not a quantum mutual-information monotone or an entanglement witness.",
+        "Limit holds at fixed positive hopping on an infinite lattice; finite chains and interacting/indistinguishable walkers are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS single-copy stationary state / renewal law but not asserted joint shared-clock contrast",
+          "evidence": [
+            "The stationary state is expressed via reset generators and eigenmodes of the quantum walk."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.00510",
+          "material_read": "13-page primary arXiv PDF, introductory model and stationary density-matrix formula on p.5 Eq.(29), with page screenshot",
+          "method": "primary full text, relevant equations and screenshot",
+          "title": "From classical to quantum walks with stochastic resetting on networks",
+          "trigger": "Potential general stationary quantum reset result"
+        },
+        {
+          "assessment": "COVERS one-body Bessel stationary localization; no joint shared-versus-independent common-clock correlation in inspected passages",
+          "evidence": [
+            "Eq.(52) shows single-particle stationary site probability as an exponential average of squared Bessel amplitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.14181",
+          "material_read": "31-page primary arXiv PDF, Section 3 and pp.15–16 stationary site probability Bessel/Legendre formulas; p.4 screenshot",
+          "method": "primary PDF sections, extracted text and screenshots",
+          "title": "Quantum unitary evolution interspersed with repeated non-unitary interactions at random times",
+          "trigger": "Same tight-binding model and possible one-body purity antecedent"
+        },
+        {
+          "assessment": "NO DIRECT RESULT identified; not a historical novelty proof",
+          "evidence": [
+            "Retrieved records concern coin optimization and Bernoulli collision entropy rather than common reset clocks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "15 ranked semantic-result summaries, including quantum walk entropy and unrelated collision entropy",
+          "method": "semantic mathematical record search",
+          "title": "Resultary quantum resetting and Rényi entropy related research",
+          "trigger": "Relevant indexed prior mathematical records under semantic query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The choice of shared versus independent stochastic reset times is an experimentally meaningful distinction invisible to every one-body stationary density matrix. The exact diverging collision-entropy contrast, together with rigorously separable joint state, gives a sharp quantitative measure of correlation induced solely by a shared classical reset clock. The interplay between marginal logarithmic Bessel divergence and integrable fourth power is a nontrivial low-rate asymptotic, not a simple restatement of stochastic mixing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2008.00510",
+    "https://arxiv.org/pdf/2106.14181"
+  ],
+  "disposition": "passed",
+  "final_claim": "Two distinguishable, free nearest-neighbor quantum walkers reset with a common Poisson clock have separable stationary joint density matrix and the same marginals as walkers reset independently, but strictly larger joint collision purity; the order-two entropy contrast log(P_common/P_one²)>0 diverges as log[2π² J C4/(r(log(16J/r))²)]+o(1) at fixed J>0 as r→0, where C4=∫_0^∞ J_0(u)^4du>0.",
+  "limitations": [
+    "General renewal-channel or classical common-random-mixture entropy identities may yield equivalent formulation even if exact lattice asymptotic not in inspected papers.",
+    "I2 is a difference of order-two collision entropies, not a quantum mutual-information monotone or an entanglement witness.",
+    "No new repository modifications; source publication requires separate confidentiality-safe metadata review."
+  ],
+  "residual_risks": [
+    "General renewal-channel or classical common-random-mixture entropy identities may yield equivalent formulation even if exact lattice asymptotic not in inspected papers.",
+    "I2 is a difference of order-two collision entropies, not a quantum mutual-information monotone or an entanglement witness.",
+    "Limit holds at fixed positive hopping on an infinite lattice; finite chains and interacting/indistinguishable walkers are excluded."
+  ],
+  "schema_version": 1
+}
