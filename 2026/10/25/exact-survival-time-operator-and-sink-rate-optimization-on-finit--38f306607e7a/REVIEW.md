@@ -1,15 +1,21 @@
-# Supported scientific assessment
+# Independent mathematical audit
 
-## Correctness (C): PASS
-All complex eigenvalues of the surviving-state generator have negative real part because the absorber drains the first site and path connectivity forbids a dark eigenvector. The integral of the survival norm is therefore the unique Hermitian Lyapunov solution. The claimed parity-dependent matrix satisfies the full Lyapunov equation with the correct terminal and sink boundary conditions, yielding the expectation for any initial pure or mixed state. Strict convexity of the local mean in the loss rate gives the unique optimizer for all injection indices at least two. The standalone `verify.py` passed 1,309 independent checks, including comparisons to direct integrated propagation. Numerical tests do not establish all-dimensional statements; the proof does.
+## correctness
 
-## Originality (O): PASS, with residual priority risk
-Riberi (arXiv:2605.08056) studies the same boundary sink on a semi-infinite line. Zhang et al. (arXiv:1706.09524) already derive the all-length end-to-end mean absorption time in Eq. (17), and the middle-initial-state three-site instance in Eq. (33) at zero dephasing. These cases are not novel. The assessed new claim is the exact matrix of integrated lifetimes for arbitrary coherent initial conditions and, as a consequence, the complete finite-path interior-site optimization rule. Targeted published-finding corpus queries and full primary-source comparisons found no stronger general closed matrix. General first-passage and Lyapunov theory could conceal equivalent prior coverage; independent literature review remains important.
+PASS
 
-## Value (V): PASS
-Site-selective excitation makes the absorber's optimal strength a natural, physically controllable quantity. The exact all-size independence of the optimum from the number of sites beyond the injection point is a structural fact not available from an endpoint-only mean. The off-diagonal entries additionally quantify the influence of prepared phases on absorption time.
+Read the exact all-dimensional RESULT.md proof and verify.py. The no-jump generator L=iJA-kappa e1e1*/2 is Hurwitz: Re eigenvalue=-kappa|v1|²/(2||v||²) and v1=0 forces zero all coordinates by path recurrence. Therefore Q=int_0^infinity exp(L*t) exp(Lt) dt is unique positive Hermitian Lyapunov solution L*Q+QL=-I. For i<=j the proposed Qij=(N+1-j)(i/kappa+(i-1)kappa/(4J²)) if even separation, otherwise -i(N+1-j)/(2J); adjacent bulk affine cancellation and first-site sink boundary cancel every off-diagonal residual, diagonal residual -1. Boundary conventions b_(N+1)=0 complete the proof. For site m the diagonal mean is (N+1-m)(m/kappa+(m-1)kappa/(4J²)); convexity uniquely optimizes at 2J sqrt(m/(m-1)) for m>=2, m1 has no finite optimizer. Fresh independent exact SymPy rational calculations verified the full Lyapunov equality for 24 distinct (N,J,kappa) cases and all tested optima. Finite tests support, not prove, all N.
 
-## Scientific limitations
-The statement is restricted to finite homogeneous paths and one autonomous terminal Lindblad sink. No absorption-time variance, dephasing robustness or disorder classification is claimed. The self-review cannot substitute for independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for all-state finite-path Lyapunov matrix and general interior localized optimal rate, with acknowledged pre-existing localized endpoint and N3 formulas. Full primary Zhang et al 2017 and Riberi 2026 are materially read. Neither supplies the displayed matrix on finite uniform paths at arbitrary N and arbitrary initial coherences; generic Lyapunov theory itself is classical.
+
+## value
+
+PASS
+
+The full finite-N integrated survival-time operator handles coherent superpositions, interference and arbitrary density matrices, not merely localized launch. Its closed entries and sharp site-dependent but terminal-length-independent optimal rate solve a natural first-passage and transport design problem. Special endpoint and three-site localized cases are known, not presented as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

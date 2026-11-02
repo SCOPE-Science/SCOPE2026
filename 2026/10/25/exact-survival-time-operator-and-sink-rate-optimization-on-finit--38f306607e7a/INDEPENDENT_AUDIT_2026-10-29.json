@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:45:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the exact all-dimensional RESULT.md proof and verify.py. The no-jump generator L=iJA-kappa e1e1*/2 is Hurwitz: Re eigenvalue=-kappa|v1|²/(2||v||²) and v1=0 forces zero all coordinates by path recurrence. Therefore Q=int_0^infinity exp(L*t) exp(Lt) dt is unique positive Hermitian Lyapunov solution L*Q+QL=-I. For i<=j the proposed Qij=(N+1-j)(i/kappa+(i-1)kappa/(4J²)) if even separation, otherwise -i(N+1-j)/(2J); adjacent bulk affine cancellation and first-site sink boundary cancel every off-diagonal residual, diagonal residual -1. Boundary conventions b_(N+1)=0 complete the proof. For site m the diagonal mean is (N+1-m)(m/kappa+(m-1)kappa/(4J²)); convexity uniquely optimizes at 2J sqrt(m/(m-1)) for m>=2, m1 has no finite optimizer. Fresh independent exact SymPy rational calculations verified the full Lyapunov equality for 24 distinct (N,J,kappa) cases and all tested optima. Finite tests support, not prove, all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riberi gives an exact semi-infinite propagator and first-passage statistics, not a finite interval integrated survival operator. Zhang studies finite paths with dephasing/disorder, but analytical closed cases are narrow."
+        ],
+        "reasoning": "A stronger method such as general Lyapunov solvability does not provide the particular closed matrix or optimizer without a nontrivial computation. Semi-infinite survival has qualitatively different possible incomplete absorption.",
+        "searches": [
+          "finite quantum path boundary absorbing Lindblad sink expected absorption time all off-diagonal coherences Lyapunov optimization",
+          "Riberi arXiv:2605.08056",
+          "Zhang et al arXiv:1706.09524"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1706.09524",
+        "https://arxiv.org/abs/2605.08056",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang et al equation17 and equation33 explicitly pre-cover two localized special cases; the submitted matrix contains all coherent off-diagonals and all N, m. Riberi uses semi-infinite domain."
+        ],
+        "reasoning": "The old special cases are acknowledged; neither known formula alone implies all initial-state and off-diagonal coefficients. General finite-dimensional Lyapunov identity is not claimed novel.",
+        "searches": [
+          "finite quantum path boundary absorbing Lindblad sink expected absorption time all off-diagonal coherences Lyapunov optimization",
+          "arXiv:1706.09524 equations17,33",
+          "arXiv:2605.08056"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang et al equation17 gives end-to-end clean case and equation33 covers the N=3 middle injection at gamma=0; Riberi solves semi-infinite boundary loss."
+        ],
+        "reasoning": "These representations overlap special diagonal elements or different geometry, not the entire N-by-N matrix, Hermitian off-diagonal coherences, and arbitrary launch distribution.",
+        "searches": [
+          "finite quantum path boundary absorbing Lindblad sink expected absorption time all off-diagonal coherences Lyapunov optimization",
+          "arXiv:1706.09524 equation17 and equation33",
+          "arXiv:2605.08056"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated quantum matrix/spectral records, including quantum mixing on P8 rather than this lossy path expected survival operator."
+        ],
+        "reasoning": "No published exact N-by-N finite sink mean lifetime matrix table was found; this is best-of-knowledge, not certified absence.",
+        "searches": [
+          "finite quantum path boundary absorbing Lindblad sink expected absorption time all off-diagonal coherences Lyapunov optimization",
+          "Resultary quantum finite path mean absorption matrix query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for all-state finite-path Lyapunov matrix and general interior localized optimal rate, with acknowledged pre-existing localized endpoint and N3 formulas. Full primary Zhang et al 2017 and Riberi 2026 are materially read. Neither supplies the displayed matrix on finite uniform paths at arbitrary N and arbitrary initial coherences; generic Lyapunov theory itself is classical.",
+      "residual_risks": [
+        "An unindexed finite-path transport formula might encode all Q entries without their current presentation.",
+        "Earlier source equations cover end-to-end and small-middle cases; do not claim these as independently new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "End-to-end and three-site special cases covered, all-coherence matrix not found",
+          "evidence": "Equation17 includes clean all-N endpoint localized transfer; equation33 gives N=3 middle injection and dephasing dependence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.09524",
+          "material_read": "Full 16-page arXiv PDF including equation17 and equation33 and their physical conventions",
+          "method": "arXiv primary full-text and screenshots",
+          "title": "Optimal Dephasing for Ballistic Energy Transfer in Disordered Linear Chains",
+          "trigger": "Same finite chain and terminal sink, with comparable mean times"
+        },
+        {
+          "assessment": "Semi-infinite lattice rather than finite path; no direct coverage of finite all-N Q",
+          "evidence": "Abstract explicitly locates rank-one imaginary defect on semi-infinite line and derives propagator/first-passage statistics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08056",
+          "material_read": "Accessible 23-page primary PDF read at abstract, model Section2 and analytic solution Section3, with page-image verification; not all appendices read line by line",
+          "method": "arXiv primary PDF text and screenshot",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Same Lindblad boundary loss mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full finite-N integrated survival-time operator handles coherent superpositions, interference and arbitrary density matrices, not merely localized launch. Its closed entries and sharp site-dependent but terminal-length-independent optimal rate solve a natural first-passage and transport design problem. Special endpoint and three-site localized cases are known, not presented as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact coherent survival-time operator and terminal sink-rate optimizer on finite uniform quantum paths",
+  "limitations": [
+    "No dephasing, disorder, extra sinks or semi-infinite path.",
+    "Mean-time operator only, not full absorption-time law or variance.",
+    "For m=1 there is no finite positive loss-rate minimizer."
+  ],
+  "schema_version": 1
+}
