@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:08:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At x=b, p_b(b)=1/2 and clipped transformed f∘psi_b has derivative jump from 4bf'(b) on left to zero right. Bin(n,1/2) CLT and uniform integrability yield exact limit sqrt(n)(R_clip(f;b)-f(b))=-bf'(b)sqrt(2/pi). Extending h0(t)=f(bt/(1-t)), t≤1/2, to nonnegative nondecreasing C² h by a positive derivative cutoff gives global Bernstein rational with degree n positive-leading numerator and denominator coefficients, nondecreasing behavior and +1/n strict positivity. Taylor variance estimate gives ||B_n h-h||∞≤||h''||∞/(8n), hence stated uniform error bound. Correct for b>0,f∈C²[0,b], f,f'≥0,f'(b)>0,n≥1. Independent n=50..3000 endpoint experiments show scaled errors tending toward −sqrt(2/pi), only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Bernstein approximation theorems imply O(n^-1) once smoothness is supplied; original rational construction supplies coefficient nonnegativity but clips at t=1/2."
+        ],
+        "reasoning": "Broader Bernstein-rate theory supplies part of the proof, not the specific removal of Minguzzi’s rate obstruction while preserving monotone rational coefficients.",
+        "searches": [
+          "Minguzzi arXiv:2512.03633v2 full paper",
+          "Draganov–Gadjev Direct and Converse Voronovskaya Estimates for the Bernstein Operator (2018)"
+        ]
+      },
+      "checked_sources": [
+        "Minguzzi arXiv:2512.03633v2 full PDF Theorem 3.2 and Remark 3.3",
+        "Draganov–Gadjev (2018), DOI 10.1007/s00025-018-0795-8",
+        "Resultary semantic search: positive monotone rational Bernstein approximation clipping smooth extension O(1/n) Minguzzi"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Theorem3.2 supplies ψ_b clipped at 1/2, giving a cusp; its bound does not prove O(n^-1). The +1/n adjustment was already prior in Remark3.3."
+        ],
+        "reasoning": "The CLT diagnoses the non-improvable clipping rate while the new C² monotone extension allows the classical n^-1 bound; neither follows solely from the old clipped statement.",
+        "searches": [
+          "Minguzzi Theorem 3.2 and Remark 3.3",
+          "classical Bernstein variance estimate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minguzzi gives clipped f and modulus-of-continuity rate; the reviewed formula sharpens smooth endpoint bias and replaces clipping with a smooth monotone continuation."
+        ],
+        "reasoning": "Ordinary C² Bernstein O(n^-1) is known, but it does not alone prove the existence of an admissible C² monotone continuation and positivity/coefficient structure in Minguzzi rational coordinates.",
+        "searches": [
+          "Minguzzi arXiv:2512.03633v2 Theorem 3.2/Remark 3.3",
+          "Resultary: positive monotone rational Bernstein approximation clipping smooth extension O(1/n) Minguzzi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact endpoint limit −bf'(b)sqrt(2/pi) for the clipped rational scheme found in inspected full article."
+        ],
+        "reasoning": "The result is an asymptotic and constructive extension, not a finite known coefficient table.",
+        "searches": [
+          "Minguzzi arXiv:2512.03633v2 Theorem 3.2",
+          "Resultary: positive monotone rational Bernstein approximation clipping smooth extension O(1/n) Minguzzi"
+        ]
+      },
+      "rationale": "Minguzzi already proves positive isotone rational density and the clipped Bernstein construction, and in Remark 3.3 uses +1/n strict-positivity adjustment. The exact clipped endpoint n^(-1/2) bias diagnosis and C² monotone-unclipped extension delivering n^(-1) within same rational coefficient class are not stated in Minguzzi Theorem 3.2 and Remark 3.3. Classical Bernstein C² rate itself is prior; contribution is the particular smooth positive-rational repair.",
+      "residual_risks": [
+        "Equivalent smooth monotone rational approximation constructions may have been used in older literature.",
+        "Extension-dependent error constant is not optimal, and rates for f'(b)=0 were not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": [
+            "Positive isotone rational architecture and +1/n are prior; no n^-1 smooth monotone extension or exact endpoint √n constant in inspected theorem/remark."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.03633",
+          "material_read": "Full 24-page lawful PDF and Theorem 3.2/Remark 3.3 (pages 18–20); checked original clipping definition, modulus bound, and existing +1/n remark.",
+          "method": "full PDF reading including page screenshot",
+          "title": "A Stone-Weierstrass approximation theorem for monotone functions",
+          "trigger": "Direct same rational Bernstein construction and exact clipped boundary"
+        },
+        {
+          "assessment": "BACKGROUND_RATE_ONLY",
+          "evidence": [
+            "Classical Bernstein C² rate is prior, and is used in the repaired rational construction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-018-0795-8",
+          "material_read": "Bibliographic/result-level material for C² Bernstein error; full article not established as read.",
+          "method": "indexed statement inspection",
+          "title": "Direct and Converse Voronovskaya Estimates for the Bernstein Operator",
+          "trigger": "Classical sharp approximation rate source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A quantified rate loss in a recently published constructive positive-monotone approximation theorem and a rate-preserving correction under its strict coefficient constraints form a natural, reproducible algorithmic improvement rather than an arbitrary example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Minguzzi arXiv:2512.03633v2 full PDF Theorem 3.2 and Remark 3.3",
+    "Draganov–Gadjev (2018), DOI 10.1007/s00025-018-0795-8",
+    "Resultary semantic search: positive monotone rational Bernstein approximation clipping smooth extension O(1/n) Minguzzi"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent smooth monotone rational approximation constructions may have been used in older literature.",
+    "Extension-dependent error constant is not optimal, and rates for f'(b)=0 were not classified.",
+    "Frozen full Git tree SHA was not independently reconstructed; assigned tree identity preserved without inventing a new verification certificate.",
+    "Publication not ready due to operational provenance in existing potentially public metadata."
+  ],
+  "schema_version": 1
+}
