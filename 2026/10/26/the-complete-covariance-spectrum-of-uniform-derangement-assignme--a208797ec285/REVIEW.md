@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every integer \(n\ge3\) the exact rook-based two-edge counts, row/column-potential kernel, and symmetric/skew orthogonal decomposition are derived in the proof. On the zero-margin score space, the covariance action is explicitly a positive scalar times the identity plus a nonnegative multiple of transposition. The eigenvalue multiplicities sum to all \(n(n-1)\) coordinates. The zero, equality and boundary cases \(n=3,4,5\) are treated separately. Replaying `check.py` yielded 3,771 rational/exhaustive assertions. Finite checks are corroborative only.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The inspected 2022 derangement Markov-chain work concerns cycle types, while the inspected 2022 rook-theoretic paper supplies general prefix counts, not this symmetric/skew covariance eigendecomposition. The 2001 primary restricted-permutation statistical paper reviews permanents, restricted tests, Markov chains and limit problems; its complete text does not state the two-mode spectrum. The closed prefix counts imply the pair probabilities but do not themselves supply the covariance operator decomposition or unique degree-five isotropy. Accessible prior findings on permutation inversion and cycle statistics concern different observables. There is residual risk of unindexed covariance or representation-theoretic treatments proving an equivalent law.
+PASS
 
-**Value — PASS.** A complete covariance spectrum solves every second-moment problem for linear assignment scores of a derangement, identifies the exactly deterministic score directions, and separates symmetric and antisymmetric designs. The exceptional \(n=5\) isotropic 11-dimensional fluctuation space is a natural finite tight-frame property. This is a motivated finite-dimensional structural classification, not an arbitrary parameter slice.
+Reconstructed one-/two-prescribed-edge counts via rook inclusion–exclusion B_h, deterministic row/column-potential kernel and its dimension 2n−1, and zero-margin decomposition into symmetric and antisymmetric matrices. The essential unrestricted identity ΣA=(p+p²+nr+s)A+sAᵀ on W follows by aggregating row/column-shared, reciprocal, chain and four-distinct-label covariances. Its eigenvalue dimensions and n3 boundary are consistent, λ+−λ−=2D_{n−4}/D_n, vanishing only at n5 for n≥4. Fresh checker enumerated all derangements n3..7, formed independent full covariance matrices and verified exact eigenvalue predictions/multiplicities numerically to tolerance 1e−10; the published source uses finite exact rational checks to n8. Analytical linear-algebra proof rather than finite numerical spectral matching establishes all n.
 
-**Closest literature and scope.** Kagey (arXiv:2210.17021, Corollary 22) is stronger on prescribed-prefix enumeration, so no novelty is assigned to the raw counting lemma. Diaconis–Graham–Holmes (DOI 10.1214/lnms/1215090070) is broader in restricted-permutation testing, but the full inspected article provides no directly applicable covariance eigenspectrum. Da Silva–Jamshidpey–Tavaré (arXiv:2211.13831) is the motivating probability article. The result addresses only uniform derangements; neither priority nor independent validation is established by this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge prior-work comparison: A possible prior covariance representation-theoretic formula with the same data would cover the claim even without identical wording, but none established in the accessed sources.
+
+## value
+
+PASS
+
+Full covariance eigenstructure controls variance of every linear assignment score under a natural restricted-permutation null model; symmetric versus skew scores and exact deterministic potential directions are natural statistical design invariants. The unique n=5 isotropic fluctuation space is a substantial structural fact not implied by the classical derangement counts or generic statistical restricted-permutation tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

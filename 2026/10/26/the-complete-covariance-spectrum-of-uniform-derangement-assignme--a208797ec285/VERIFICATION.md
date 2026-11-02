@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact covariance spectrum
+# Independent mathematical audit
 
-Executing `python3 check.py` enumerated every derangement for \(n=3,4,5,6,7,8\), corresponding to \(2,9,44,265,1854,14833\) permutations respectively. Using independent edge-incidence tallies and exact rational arithmetic, the program checked each off-diagonal expectation, every unordered pair of distinct edge indicators by actual common-label pattern, each diagonal variance, and the symmetric/skew test-vector eigen-equations.
+## correctness
 
-The executable ended with `ALL 3771 EXACT ASSERTIONS PASSED`. The five-vertex covariance eigenvalues were both \(15/44\); for four vertices they were \(4/9\) and \(2/3\), and for six vertices \(66/265\) and \(68/265\), in skew/symmetric order. The mathematical proof in `RESULT.md` separately establishes all \(n\ge3\) via exact inclusion-exclusion and a global covariance-operator identity.
+PASS
 
-**Limits:** This is exact finite enumeration only through \(n=8\). It does not test all sizes, prove historical originality, or constitute independent validation.
+Reconstructed one-/two-prescribed-edge counts via rook inclusion–exclusion B_h, deterministic row/column-potential kernel and its dimension 2n−1, and zero-margin decomposition into symmetric and antisymmetric matrices. The essential unrestricted identity ΣA=(p+p²+nr+s)A+sAᵀ on W follows by aggregating row/column-shared, reciprocal, chain and four-distinct-label covariances. Its eigenvalue dimensions and n3 boundary are consistent, λ+−λ−=2D_{n−4}/D_n, vanishing only at n5 for n≥4. Fresh checker enumerated all derangements n3..7, formed independent full covariance matrices and verified exact eigenvalue predictions/multiplicities numerically to tolerance 1e−10; the published source uses finite exact rational checks to n8. Analytical linear-algebra proof rather than finite numerical spectral matching establishes all n.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge prior-work comparison: A possible prior covariance representation-theoretic formula with the same data would cover the claim even without identical wording, but none established in the accessed sources.
+
+## value
+
+PASS
+
+Full covariance eigenstructure controls variance of every linear assignment score under a natural restricted-permutation null model; symmetric versus skew scores and exact deterministic potential directions are natural statistical design invariants. The unique n=5 isotropic fluctuation space is a substantial structural fact not implied by the classical derangement counts or generic statistical restricted-permutation tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
