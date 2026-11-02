@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For all integers \(n\ge2\), each codeword has one output containing only symbol \(2\), giving an immediate bound of \(n-1\) codewords. At equality the two singleton-output coordinates must each form a bijection, which yields a permutation. The explicit coordinate formulas for zero-deletion descendants prove the necessary-and-sufficient adjacent-rising, equal-orientation conflict rule. An alternating diagonal construction attains the bound for all lengths. The fixed-point-run factor and subset-state recurrence are bijective enumerations, not extrapolations. Independent direct descendant checks agree with the formula for \(k\le8\), and a brute-force maximum-codebook census agrees at lengths \(2\) through \(6\). Risk: a transcription or proof error outside finite checks is possible until independently reviewed; the argument specifies all boundary conditions.
+## correctness
 
-## Originality
-**PASS on current best-knowledge evidence, with historical priority risk.** Sloane's 2002 full text defines deletion correction and its confusability graph, surveys binary and broader alphabet constructions, and does not state this composition-dependent signed-permutation classification. The 1984 Tenengolts work constructs general nonbinary deletion codes, but only its bibliographic record and abstract could be inspected; it is not claimed to have been ruled out in full. Permutation succession results by Reilly–Tanny and Du–Ji concern succession and fixed-point statistics rather than optimal ternary deletion codebooks. Searches for the specific composition, the signed-permutation rule and initial count sequence found no equivalent statement. Search absence alone is not uniqueness proof. The closest earlier recorded binary weight-two single-deletion theorem has different symbol multiplicities and a different optimum and does not imply the present classification. Risk: an earlier equivalent enumeration under alternate terminology may exist.
+PASS
 
-## Value
-**PASS.** The bound alone is elementary, but the main finding is the exact **classification and labeled count of every optimal codebook** for an infinite, physically natural composition class with two distinguishable markers. The signed-permutation model converts deletion-confusability constraints into a local succession condition and yields an exact subset-DP enumeration. This gives a reusable structural description for choosing among many capacity-achieving codebooks with additional design requirements. The statement is restricted to this composition; it does not claim a general new deletion-channel capacity theorem.
+For each word the descendant obtained by deleting marker 1 has precisely one marker 2 at a coordinate v, and vice versa with coordinate u. Any code has at most k=n-1 distinct singleton-marker outputs. At equality u and v separately index every position, inducing v=pi(u). If u<v, the original marker positions are (u,v+1) and orientation +; if u>v they are (u+1,v) with orientation -, with both signs possible for u=v. The zero-deletion descendants for + are (u-1,v),(u,v),(u,v+1) under respective exact feasibility conditions; for - are (u,v-1),(u,v),(u+1,v). Comparing distinct rows/columns shows overlap exactly for labels (u,v),(u+1,v+1) with the same sign. Rising successions off the fixed-point diagonal force the same sign and are excluded; along fixed-point runs the choices alternate. This proves the full classification and 2^{number of fixed-point runs} count. Alternating adjacent markers realize k words for all k>=1. Independently reconstructed direct descendant conflicts for every signed permutation k<=7 and enumerated all maximum k-subsets for n=2..6; matched B_k and direct no-collision tests. These finite checks are corroboration, not proof.
 
-## Source comparisons and limits
-Primary coding context: Sloane, *On Single-Deletion-Correcting Codes* (2002), arXiv:math/0207197, particularly Definition 1.1 and Sections 2, 5 and 6. General nonbinary context: Tenengolts (1984), doi:10.1109/TIT.1984.1056962 (abstract and record only; full text inaccessible). Adjacent permutation successions: Reilly–Tanny (1979), doi:10.1002/sapm197961173 (abstract only); Du–Ji (2024), arXiv:2404.00607 (full text, especially pp. 1–3). All-length validity is grounded in the supplied proof, not the checker or the source search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novel portion assessed is the complete classification and labeled enumeration of all optimal fixed-composition ternary deletion codebooks for every n, not the elementary singleton-output upper bound or classical permutation succession statistics.
+
+## value
+
+PASS
+
+The thin (n-2,1,1) ternary layer is a natural deletion-channel model with two distinguishable markers. Exact classification of all capacity-achieving codebooks, rather than only the easy size n-1, gives an intrinsic parameterization and enumeration that can be used to impose additional design constraints. The orientation-dependent fixed-point-run obstruction is a nontrivial structural coding fact across infinitely many lengths, not arbitrary enumeration of a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

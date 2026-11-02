@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:48:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md blob 8c57b42e69d86988a78c53565c47e75076722bf1",
+        "Pinned checker.py blob 195a24f10a7888ad5e46a2abac0ee466e2a681cb",
+        "independent_checks.py: direct zero-deletion descendant enumeration"
+      ],
+      "rationale": "For each word the descendant obtained by deleting marker 1 has precisely one marker 2 at a coordinate v, and vice versa with coordinate u. Any code has at most k=n-1 distinct singleton-marker outputs. At equality u and v separately index every position, inducing v=pi(u). If u<v, the original marker positions are (u,v+1) and orientation +; if u>v they are (u+1,v) with orientation -, with both signs possible for u=v. The zero-deletion descendants for + are (u-1,v),(u,v),(u,v+1) under respective exact feasibility conditions; for - are (u,v-1),(u,v),(u+1,v). Comparing distinct rows/columns shows overlap exactly for labels (u,v),(u+1,v+1) with the same sign. Rising successions off the fixed-point diagonal force the same sign and are excluded; along fixed-point runs the choices alternate. This proves the full classification and 2^{number of fixed-point runs} count. Alternating adjacent markers realize k words for all k>=1. Independently reconstructed direct descendant conflicts for every signed permutation k<=7 and enumerated all maximum k-subsets for n=2..6; matched B_k and direct no-collision tests. These finite checks are corroboration, not proof.",
+      "residual_risks": [
+        "The general collision comparison is checked by explicit geometry plus bounded enumeration; no assertion about other compositions or deletion counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tenengolts 1984 DOI 10.1109/TIT.1984.1056962 concerns universal nonbinary deletion-code constructions; only abstract/bibliographic record accessible, full text not ruled out.",
+          "General unrestricted ternary length-four maximum size 11 (Resultary record d311fe5550d3) concerns the full 3^4 word space, not the size-three fixed-composition layer."
+        ],
+        "reasoning": "An upper bound or construction for unrestricted ternary codes does not logically classify every optimum contained in the thin composition layer. Lack of Tenengolts full-text access is explicitly a remaining priority risk.",
+        "searches": [
+          "single deletion correcting ternary words exactly one 1 and one 2 all optimal codes signed permutations successions",
+          "Tenengolts Nonbinary codes correcting single deletion or insertion 1984",
+          "Sloane On Single-Deletion-Correcting Codes constructions general alphabet"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0207197",
+        "DOI:10.1109/TIT.1984.1056962",
+        "DOI:10.1002/sapm197961173",
+        "arXiv:2404.00607",
+        "Resultary record d311fe5550d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior definition of a deletion-correcting code gives only the capacity counting argument; it does not force the full fixed-point-run enumeration without zero-deletion collision analysis.",
+          "Pure permutation-succession enumeration does not determine the orientation-restricted labeled-code count."
+        ],
+        "reasoning": "Existing results supply techniques and terminology, but their stated conclusions do not imply the full all-n ternary composition classification without an additional combinatorial theorem.",
+        "searches": [
+          "Sloane 2002 sections 2,5,6 binary deletion codes",
+          "Du and Ji 2024 succession fixed points excedances permutations arxiv:2404.00607",
+          "single deletion correcting ternary words exactly one 1 and one 2 all optimal codes signed permutations successions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sloane 2002 arXiv math/0207197 Def.1.1 studies deletion descendants and general/binary confusability, without the (n-2,1,1) signed-permutation optimum classification in the inspected survey sections.",
+          "Reilly–Tanny 1979 DOI 10.1002/sapm197961173 concerns ordinary permutation successions, not deletion-code fibers."
+        ],
+        "reasoning": "The equivalence between marker-output coordinates and a signed permutation is not a mere restatement of the traditional permutation-succession count: fixed-point signs must alternate to avoid actual deletion collisions. Neither inspected classical permutation statistic is a coding-theoretic classification.",
+        "searches": [
+          "single deletion correcting ternary words exactly one 1 and one 2 all optimal codes signed permutations successions",
+          "constant composition one deletion code optimal ternary exactly two distinguishable nonzero markers",
+          "Sloane On Single-Deletion-Correcting Codes arxiv:math/0207197"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary direct hit: full length-four unrestricted ternary one-deletion codebook census, maximum 11 with six maxima, is a different domain.",
+          "The computed B_1...B_7 are 2,3,8,32,158,918,6258, independently checked for this composition, not a pre-existing codebook table in inspected sources."
+        ],
+        "reasoning": "Numerical sequences or general ternary optimal sizes are not a database covering the exact labeled sparse-family classification; the absence of an indexed match does not prove global novelty.",
+        "searches": [
+          "single deletion correcting ternary words exactly one 1 and one 2 all optimal codes signed permutations successions",
+          "Resultary 2026/10/4/SCOPE-complete-classification-of-maximum-ternary-length-four-single-de--d311fe5550d3",
+          "permutation succession 2 3 8 32 158 918 6258 optimal codes"
+        ]
+      },
+      "rationale": "The novel portion assessed is the complete classification and labeled enumeration of all optimal fixed-composition ternary deletion codebooks for every n, not the elementary singleton-output upper bound or classical permutation succession statistics.",
+      "residual_risks": [
+        "Tenengolts 1984 full article could not be read; authorized Oxford retrieval returned vpn_disconnected, and no bypass was attempted.",
+        "An unindexed equivalence to earlier sparse deletion code or signed permutation enumeration may exist; unsuccessful semantic search is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Definition and survey discuss deletion descendants and binary/general constructions, not this exact (n-2,1,1) all-maximizer signed-permutation theorem.",
+          "identifier_or_url": "arXiv:math/0207197",
+          "material_read": "Full lawful arXiv PDF, definition 1.1 and relevant binary constructions, Sections 2, 5, 6",
+          "method": "PDF text with page screenshot",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Same deletion channel and general code framework"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Constructions cover generic nonbinary code families; full article could contain an earlier sparse specialization and has not been ruled out.",
+          "identifier_or_url": "DOI:10.1109/TIT.1984.1056962",
+          "material_read": "Bibliographic record/abstract only; arXiv/open-access full-text attempts unsuccessful; authorized Oxford full text unavailable due vpn_disconnected",
+          "method": "Index/abstract and authorized institutional retrieval attempt",
+          "title": "Nonbinary codes, correcting single deletion or insertion",
+          "trigger": "Closest classical nonbinary deletion code result"
+        },
+        {
+          "assessment": "RELATED_NOT_DIRECT",
+          "evidence": "Counts permutation successions, with no stated deletion-code restriction or signed fixed-point runs.",
+          "identifier_or_url": "DOI:10.1002/sapm197961173",
+          "material_read": "Abstract and indexed description only",
+          "method": "Publisher index",
+          "title": "Counting Successions in Permutations",
+          "trigger": "Exact combinatorial terminology of increasing adjacent values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §Classification/Counting recurrence",
+        "Sloane 2002 deletion-code confusability framework"
+      ],
+      "rationale": "The thin (n-2,1,1) ternary layer is a natural deletion-channel model with two distinguishable markers. Exact classification of all capacity-achieving codebooks, rather than only the easy size n-1, gives an intrinsic parameterization and enumeration that can be used to impose additional design constraints. The orientation-dependent fixed-point-run obstruction is a nontrivial structural coding fact across infinitely many lengths, not arbitrary enumeration of a tiny instance.",
+      "residual_risks": [
+        "No extrapolation beyond composition (n-2,1,1) and one deletion; the DP is exponential in k."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "All maximum single-deletion-correcting codebooks on length-n ternary words with exactly one 1 and one 2 have cardinality n-1 and are bijective with the stated signed permutations avoiding equal-sign rising successions; labeled codebooks are counted by the fixed-point-run sum B_(n-1) and subset DP.",
+  "limitations": [
+    "Only linear ternary words with exactly one distinct 1 and one distinct 2 and exactly one deletion.",
+    "Best-of-knowledge originality; 1984 primary full text inaccessible."
+  ],
+  "schema_version": 1
+}
