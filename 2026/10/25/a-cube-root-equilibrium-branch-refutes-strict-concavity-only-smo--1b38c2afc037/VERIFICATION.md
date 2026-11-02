@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-- The strategy intervals are compact and convex: both are \([-1,1]\).
-- The own-action second derivatives are exactly \(-1\) for both players, so each utility is strictly concave in the player's own action.
-- Player 2's best response ranges over \([-2/(3\sqrt3),2/(3\sqrt3)]\); adding any \(\varepsilon\in[0,1/8]\) remains inside player 1's action interval.
-- The equilibrium equations reduce exactly to \(x^3=\varepsilon\), giving the unique real branch stated in the result.
-- The quotient \(|x^*(\varepsilon)-x^*(0)|/\varepsilon=\varepsilon^{-2/3}\) diverges, so local Lipschitz continuity and a finite right derivative fail.
-- The base joint Jacobian is \(\begin{pmatrix}-1&1\\1&-1\end{pmatrix}\), with determinant zero.
-- `verify_counterexample.py` was executed from its packaged path using the Python standard library; it passed 99 exact rational checks for \(\varepsilon=k^{-3}\), \(2\le k\le100\), and the determinant check.
+## correctness
 
-## Limits
+PASS
 
-Finite checks do not establish the universal theorem; the analytical derivation does. The result addresses the sufficiency claim in Theorem 3 only. Independent audit and external validation remain unperformed. The trusted importer initializes absent external channels as unperformed; this research does not assess or author those channels or reset old evidence.
+Both compact strategy spaces are [-1,1]; U1_xx=U2_yy=-1. The second best response y=x-x^3 lies in [-2/(3sqrt(3)),2/(3sqrt(3))], so for 0<=epsilon<=1/8 the first best response x=y+epsilon is interior. The unique mutual best response solves x^3=epsilon and y=x-epsilon. The epsilon^{-2/3} difference quotient diverges at zero despite uniqueness; the FOC Jacobian [[-1,1],[1,-1]] has determinant 0. Boundaries, one-sided parameter range, normalization and uniqueness are explicit, not inferred from the verifier.
+
+## originality
+
+PASS
+
+The specific target published Theorem 3 makes a stronger smooth-response assertion under only own-action strict concavity. The explicit unique cube-root equilibrium disproves precisely that assertion. Other regularity literature requires joint regularity and is not treated as novel. The contribution is the targeted invalidation, not the abstract mathematical fact that singular equilibria can have non-smooth branches.
+
+## value
+
+PASS
+
+A one-line own-Hessian regularity shortcut occurs in a specific published theorem. The example isolates the logically missing joint nondegeneracy while preserving both uniqueness and strict own concavity, so it tests a substantive comparative-statics boundary rather than an arbitrary negative/renaming exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

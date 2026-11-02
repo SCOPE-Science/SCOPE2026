@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:52:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both compact strategy spaces are [-1,1]; U1_xx=U2_yy=-1. The second best response y=x-x^3 lies in [-2/(3sqrt(3)),2/(3sqrt(3))], so for 0<=epsilon<=1/8 the first best response x=y+epsilon is interior. The unique mutual best response solves x^3=epsilon and y=x-epsilon. The epsilon^{-2/3} difference quotient diverges at zero despite uniqueness; the FOC Jacobian [[-1,1],[1,-1]] has determinant 0. Boundaries, one-sided parameter range, normalization and uniqueness are explicit, not inferred from the verifier.",
+      "residual_risks": [
+        "Interpretation is a counterexample to the hypotheses actually printed in the 2026 theorem; no assertion that all classes of equilibrium maps lack Lipschitz bounds."
+      ],
+      "sources": [
+        "RESULT.md @ Git blob 383a640778cffcf7e080fd73f688b613a8dca651",
+        "verify_counterexample.py @ Git blob bfaccea06af3002ea72d871ce49202ae25db0b36",
+        "independent_checks.py, exact rational k=2..100"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 Barthel–Hoffmann comparative-statics article discusses IFT conditions (abstract/metadata only).",
+          "The 2026 target theorem claims C1/Lipschitz equilibrium response; its proof states joint FOC nonsingularity without deriving it from listed premises."
+        ],
+        "reasoning": "General IFT comparative statics supply a conditional positive result, not a counterexample to the identified overbroad 2026 theorem. The proof defect and explicit branch are the point of the claim.",
+        "searches": [
+          "Resultary semantic query: unique Nash equilibrium smooth strictly concave individual payoffs cube-root non-Lipschitz equilibrium correspondence failure implicit function theorem De los Reyes Marín utility perturbation",
+          "DOI:10.1016/j.mathsocsci.2021.12.004",
+          "DOI:10.3390/math14030506"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math14030506 (Theorem 3 and proof)",
+        "doi:10.1016/j.mathsocsci.2021.12.004 (metadata/abstract)",
+        "Resultary published mathematical findings query for cube-root uniqueness counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3: twice continuously differentiable and strictly own-action concave utilities => unique local equilibrium mapping that is C1 and locally Lipschitz.",
+          "The exhibited Nash map x*(epsilon)=epsilon^(1/3) is unique for all 0<=epsilon<=1/8 yet not locally Lipschitz."
+        ],
+        "reasoning": "The source assertion contradicts the counterexample; the prior theorem therefore cannot establish the asserted smoothness for this game. The accepted statement does not refute the existence or upper-hemicontinuity portions of the target paper.",
+        "searches": [
+          "DOI:10.3390/math14030506 Section 4 Theorem 3 and proof",
+          "Resultary semantic query: unique Nash equilibrium smooth strictly concave individual payoffs cube-root non-Lipschitz equilibrium correspondence failure implicit function theorem De los Reyes Marín utility perturbation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The counterexample is a smooth two-player game, equivalently a Bayesian game with singleton type spaces; epsilon enters an additive smooth payoff perturbation.",
+          "The joint equilibrium FOC is singular at epsilon=0 although each individual Hessian is -1."
+        ],
+        "reasoning": "Full-information scalar-action and singleton-type formulations are equivalent for this counterexample. Standard IFT regularity requires non-singular *joint* FOC Jacobian; individual strict concavity imposes only diagonal signs, not its determinant.",
+        "searches": [
+          "Resultary semantic query: unique Nash equilibrium smooth strictly concave individual payoffs cube-root non-Lipschitz equilibrium correspondence failure implicit function theorem De los Reyes Marín utility perturbation",
+          "Web query: De los Reyes Marín 2026 Utility Perturbation Operators Theorem 3 strict concavity nonsingular Jacobian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No top returned published mathematical finding described this exact game and target-Theorem-3 falsification; nearest hits addressed unrelated Cournot and control equilibria.",
+          "This claim concerns an analytical implication and has no numerical lookup table as an equivalent format."
+        ],
+        "reasoning": "No exact table/database result was found to dominate the targeted counterexample; failure of search is not proof of priority.",
+        "searches": [
+          "Resultary semantic query: unique Nash equilibrium smooth strictly concave individual payoffs cube-root non-Lipschitz equilibrium correspondence failure implicit function theorem De los Reyes Marín utility perturbation",
+          "Resultary published mathematical findings search: singular Jacobian equilibrium comparative statics cube-root uniqueness"
+        ]
+      },
+      "rationale": "The specific target published Theorem 3 makes a stronger smooth-response assertion under only own-action strict concavity. The explicit unique cube-root equilibrium disproves precisely that assertion. Other regularity literature requires joint regularity and is not treated as novel. The contribution is the targeted invalidation, not the abstract mathematical fact that singular equilibria can have non-smooth branches.",
+      "residual_risks": [
+        "The target paper may have later errata or additional uninspected contextual definitions imposing joint regularity.",
+        "General classical singular-equilibrium examples predate this construction; only the direct 2026 theorem counterexample is asserted original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TARGET_CONTRADICTED",
+          "evidence": "The proof asserts nonsingularity of the joint equilibrium Jacobian from strict own-action concavity; this counterexample supplies a singular Jacobian and cube-root response.",
+          "identifier_or_url": "https://doi.org/10.3390/math14030506",
+          "material_read": "Public full-article HTML extraction: model perturbation format, Theorem 3 statement and its entire short proof, abstract and conclusions.",
+          "method": "Compared exact assumptions and displayed joint-FOC argument against the game.",
+          "title": "Utility Perturbation Operators in Bayesian Games: Structural Stability and Equilibrium Deformation",
+          "trigger": "Directly targeted Theorem 3"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "No claim made about uninspected detailed propositions; residual risk noted.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mathsocsci.2021.12.004",
+          "material_read": "Title, abstract, bibliographic metadata only; no full-paper exclusion.",
+          "method": "Compared scope of differentiability assumptions at the abstract level.",
+          "title": "On dynamic adjustment and comparative statics via the implicit function theorem",
+          "trigger": "General IFT comparative-statics equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-line own-Hessian regularity shortcut occurs in a specific published theorem. The example isolates the logically missing joint nondegeneracy while preserving both uniqueness and strict own concavity, so it tests a substantive comparative-statics boundary rather than an arbitrary negative/renaming exercise.",
+      "residual_risks": [
+        "Not a broad new theory of equilibrium singularities or a repair of all claims of the source paper."
+      ],
+      "sources": [
+        "DOI:10.3390/math14030506 Theorem 3 and its nonsingularity proof step",
+        "RESULT.md exact counterexample and limiting quotient"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3390/math14030506 (Theorem 3 and proof)",
+    "doi:10.1016/j.mathsocsci.2021.12.004 (metadata/abstract)",
+    "Resultary published mathematical findings query for cube-root uniqueness counterexample"
+  ],
+  "disposition": "passed",
+  "limitations": "Publication withheld: PUBLIC AUDIT.json and METADATA.json both contain the operational scope_run_id field. Complete guarded, confidentiality-neutral file replacements were not prepared; no public source package should be delivered or imported from this plan.",
+  "residual_risks": [
+    "Interpretation is a counterexample to the hypotheses actually printed in the 2026 theorem; no assertion that all classes of equilibrium maps lack Lipschitz bounds.",
+    "The target paper may have later errata or additional uninspected contextual definitions imposing joint regularity.",
+    "General classical singular-equilibrium examples predate this construction; only the direct 2026 theorem counterexample is asserted original.",
+    "Not a broad new theory of equilibrium singularities or a repair of all claims of the source paper."
+  ],
+  "schema_version": 1
+}
