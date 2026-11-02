@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns underlying reduced varieties. Colength-four local quotients have precisely the two Hilbert functions \((1,1,1,1)\) and \((1,2,1)\). The latter gives the entire central \(\mathbb P^2\), since every corresponding ideal contains the cubic-power maximal ideal. For a curvilinear quotient, the only condition from a multiplicity-three equation is vanishing of its tangent cubic along its leading tangent direction. This gives one \(\mathbb A^2\) per distinct tangent. The computed six Plücker minors prove that the projective closure of each is a rank-three quadric cone; the boundary is exactly its specified line in the central \(\mathbb P^2\). Exhaustion establishes the component and intersection claims. Symbolic and finite-field checks agree with the derivation. The argument is valid for arbitrary higher-order terms in the given complex germ. Risk: nilpotent Hilbert-scheme structures are expressly outside the claim.
+## correctness
 
-## Originality — PASS, residual risk stated
-Compared the complete statements and implications, not just keywords. Rossinelli (arXiv:2405.20190) computes motivic classes of **curvilinear** loci without the explicit whole-punctual-scheme quadric-cone compactification and boundary incidence. Watari (arXiv:2403.12545) already computes the \(E_6\) fourth coefficient, agreeing with the one-tangent motivic specialization; that old special value is NOT presented as novel. Oblomkov–Shende (arXiv:1003.1568) study related punctual-Hilbert invariants and unibranch cases but do not formulate the uniform cubic-tangent component incidence in the inspected text. The genuinely distinguishable asserted claim is the complete reduced geometric component and incidence classification for all reduced complex multiplicity-three germs, not the standard length-four Hilbert-function stratification or a previously known special coefficient. Residual risk: a general theorem in older local-Hilbert literature or an unindexed example could imply the classification.
+PASS
 
-## Value — PASS
-Length four is the first length at which the noncurvilinear central surface and curvilinear tangent strata interact on a multiplicity-three plane curve. Identifying their projective compactifications and exact incidence gives a natural geometric explanation of variation with the number of tangent branches, as well as exact motivic and Euler data. This geometry is a structurally useful boundary model for punctual-Hilbert and singular-curve invariants; the triangle of attaching lines for an ordinary triple point is not an arbitrary numerical slice. The value rests on component geometry, not on routine recomputation of a known Hilbert-function fact.
+PASS. A colength-four local quotient of embedding dimension ≤2 has Hilbert function (1,1,1,1) or (1,2,1). Noncurvilinear ideals contain m³ and form hyperplane P² in m²/m³; every such ideal contains f. Curvilinear charts v=Bu²+Cu³ (length4) must align with zero of f3; one A² for each distinct tangent. Exact 2-plane Plücker minors (0,−B,1,B²,−B,−C) yield quadric cone X0X2=X1², boundary X0=X1=0; boundary ideals are those with ell² in I. Distinct lines in central P² correspond to Veronese squares of distinct tangent equations, hence 3 nonconcurrent. Curvilinear/noncurvilinear strata exhaust all points; reduced underlying variety components and motive follow. No scheme-theoretic nilpotents asserted.
 
-## Sources and scientific limitations
-Rossinelli, arXiv:2405.20190, §§2–4 (full scholarly text examined); Watari, arXiv:2403.12545, §§1–3 and the \(E_6\) fourth-coefficient computation (full arXiv HTML examined); Oblomkov–Shende, arXiv:1003.1568, §§1, 6–8 (full HTML examined for overlap). The standard ambient length-four classification is also stated in Ballico–Canino (2026), §2. The projective closure is an embedded reduced variety, not a determination of nilpotent structure. General source indexing is incomplete, so priority remains subject to independent literature verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, limited by inaccessible plausible primary coverage. General local Hilbert classifications and Rossinelli curvilinear motive framework supply substantial known ingredients; Watari already gives the r=1 E6 fourth motivic coefficient. The submitted uniform geometric cones, boundaries and intersections for all multiplicity-three germs are not entailed by that isolated coefficient or standard ambient Hilbert-function classification. Rossinelli full text could not be independently retrieved, so only accessible material was compared and its possible stronger implication remains a stated risk.
+
+## value
+
+PASS
+
+PASS. Length four is the first interaction of a two-dimensional noncurvilinear locus with tangent-indexed curvilinear surfaces at a triple plane point. The full component geometry, attachments, and triangle incidence give a natural explicit model beyond a known single motivic coefficient; useful in singular curve Hilbert schemes and motivic stratifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
