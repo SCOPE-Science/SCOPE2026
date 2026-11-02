@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute `python3 verify.py` using standard Python with no third-party libraries. It reconstructs all nonzero recurrence orbits of all \(127\) normalized polynomials of degrees one through seven, proving exact finite-cycle closure for those cases and checking the sharp density envelope and lower-bound uniqueness within that enumeration. It separately compares exact finite MAP Bayes risks against derived central-binomial formulae for the rules \(1+z\) and \(1+z^2\), and checks both strict/weak tail inequalities for eight explicit polynomials over eight observation lengths. All probabilities are rational and calculated using `fractions.Fraction`.
+## correctness
 
-Observed output from the actual embedded program:
+PASS
 
-`VERIFY_OK: 127 closed recurrence kernels; 40 exact Bayesian errors; 64 exact error-sandwich checks; alpha(1+z)=1, alpha(1+z^2)=1/2, alpha(1+z+z^2)=2/3`
+The nonzero constant/trailing coefficients make each N-output finite fiber have exactly 2^d input candidates, indexed by d-bit seeds, and the difference of candidates is a restriction of a finite collection of nonzero periodic bi-infinite recurrence kernels. For biased Bernoulli(q), q=min(p,1-p)<1/2, strict competitor likelihood requires >half minority bits on its kernel support; any MAP error is bounded by union of weak >=half events. The exact binomial half-tail exponent is log(1/(2sqrt(q(1−q)))); periodic support weights m_k(N+d)=rho(k)N+O(1) give the min-density coefficient alpha_Q. SLLN across the finitely many kernel differences gives shift-covariant almost-sure inversion for biased sources. For p=1/2 all 2^d seed candidates are equiprobable and e_N=1−2^(−d). Every nonzero kernel has at least one 1 in each d-window, giving alpha>=1/d; equality forces a d-periodic single-1 kernel, hence Q=1+z^d. Uniform average over all 2^d−1 nonzero recurrence states gives alpha<=2^(d−1)/(2^d−1), attained by primitive irreducible recurrences. Independent recurrence enumeration verified all 31 normalized polynomials degree<=5 and four exact rational posterior-error sandwiches. This proves the unlimited degree/rate theorem by the analytic argument, not finite samples.
 
-The proof of unrestricted degrees and observation horizons is mathematical: reversible finite-state recurrence, exact posterior-likelihood comparisons, binomial large deviations, and cycle double counting. The computational enumeration is supporting reproducibility, not an infinite proof.
+## originality
 
-The source-priority comparison was based on accessible primary sections and published abstracts; full texts of two plausible references were incomplete or inaccessible. No independent audit has been performed.
+PASS
+
+Earlier additive-cellular-automaton work analyzes topological injectivity (Dow), entropy/pressure (Ban–Chang), and Gibbs/non-Gibbs properties of biased XOR output (Kari–Taati and Lőrinczi–Maes–Vande Velde). None of the materially read primary statements yields the exact finite-window entire-seed MAP exponent alpha_Q times the Bernoulli Chernoff rate plus sharp extremal alpha_Q bounds over all normalized binary rules. Generic likelihood large deviations and primitive-polynomial maximal-length sequences are well-known ingredients and not claimed new. Full Ban–Chang and Dow comparisons remain access-limited, and alternate coding-theoretic formulations may exist.
+
+## value
+
+PASS
+
+For a noninjective but surjective additive cellular automaton, the information-theoretic question of whether an entire hidden seed can be recovered from a growing observation window is natural. The exact universal bias-dependent error exponent, the a.e. versus topological invertibility distinction and sharp all-degree minimum/maximum kernel-density envelopes form a complete quantitative classification with an intrinsic periodic recurrence invariant. These are substantive, not merely numerical code checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
