@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For even N=2m, define u all ones, s balanced ±1, S=uu^T-I, Q=ss^T-I and exchange jumps Vij=|i><j|+|j><i|. Their independent-edge dissipator D=Σ D[Vij] has HS-orthogonal spaces scalar eigenvalue 0, symmetric zero-diagonal eigval -(N-2), traceless diagonal and skew zero-diagonal eigval -N. The coherent -i[Jxi S,.] has zero HS-real part; bD[Q] is nonpositive quadratic form, so every nonstationary eigenoperator has Re λ <= -a(N-2), a=J² Δt ξ(1-ξ)(1-κ²)>0. Equality requires X transpose-symmetric, diagonal zero, [Q,X]=0 (for κ>0) and [S,X]=0 (transposition parity in eigenvalue equation), or Xs∈Cs and Xu∈Cu; the entire boundary eigenvalue is exactly -a(N-2). HS contraction on traceless part excludes nontrivial Jordan chains at boundary, hence semisimple. Constant-row-sum linear constraints give dim C(N-2,2) for N>=6 and 0<κ<1, exception N4 dim 3; at κ=0 only Xu constraint, dim C(N-1,2). Independently built full N²×N² Liouvillian matrices at N4,N6 and κ=0,.45 and reproduced gap and multiplicities. Finite spectrum checks are diagnostic; analytic symmetric/s skew decomposition and incidence ranks prove all even N. Inspected RESULT.md blob 74db5c7..., artifacts/verify.py 262c9c7... and status files. Statement concerns leading-order continuous-time generator, not exact finite switching channel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original source may discuss a more comprehensive eigenspace than accessible abstract shows",
+          "Generic Lindblad dissipation provides HS bounds but not the specific two-constraint dimension"
+        ],
+        "reasoning": "Source potentially directly dominates; accessible evidence confirms only one slow mode and rate, while proof needs full spectral classification. A general commutant theorem may imply it; this is noted as residual risk.",
+        "searches": [
+          "Nourmandipour Mancini 2026 Sec V Appendix C.1",
+          "general decoherence-free algebra and HS dissipator theorems"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03194",
+        "https://arxiv.org/abs/1404.0508"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One eigenoperator establishes only lower bound on eigenspace dimension",
+          "Need equality characterization plus linear rank computation to prove multiplicity"
+        ],
+        "reasoning": "Neither a single slow mode nor a spectral rate alone determines multiplicity. But because the exact source full text was unavailable, residual risk of implicit classification remains material.",
+        "searches": [
+          "Nourmandipour Mancini 2026 known slow eigenoperator",
+          "HS spectral abscissa estimate",
+          "balanced row-sum constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source audited report names the exact same correlated ensemble and one slow eigenoperator",
+          "New result specifies all symmetric zero-diagonal operators meeting Xu and Xs constraints"
+        ],
+        "reasoning": "Full rank of the slow spectral projector and exact algebraic multiplicity, not just an explicit eigenoperator, are the claimed independent mathematical facts. Full relevant primary unavailable, so priority cannot be certified.",
+        "searches": [
+          "Nourmandipour Mancini arXiv:2610.03194",
+          "Liouvillian spectral gap commutant algebra exchange jump"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching eigenspace multiplicity lookup among semantic results",
+          "Actual n-dimensional constraint rank yields C(N-2,2) for all even N>=6"
+        ],
+        "reasoning": "Finite spectral tables would not prove the arbitrary-N dimension result or four-site exception; no matching exact table found.",
+        "searches": [
+          "Resultary correlated quantum network slow multiplicity query",
+          "N=4 N=6 N=8 Liouvillian spectrum numerical studies"
+        ]
+      },
+      "rationale": "Nourmandipour–Mancini's October 2026 preprint is an extremely close primary source, describing this random-network ensemble and one explicit slow eigenoperator/rate. The new claim is the full eigenspace dimension, precise boundary uniqueness and four-site exception for 0<κ<1. Original full manuscript could not be accessed (arXiv PDF/OA attempts unavailable and authorized Oxford returned vpn_disconnected); only its publicly available abstract plus mathematical source attribution were compared, so a plausible precise prior coverage remains a material best-of-knowledge risk. The inspected related Farooq–Mancini work treats a different random-network model.",
+      "residual_risks": [
+        "Highly relevant arXiv:2610.03194 full manuscript not read; priority comparison only abstract/attribution, institutional access disconnected",
+        "A general primitive generator/commutant representation theorem may imply exact multiplicities under this symmetry",
+        "Finite-switching-time channel excluded; κ=1 not covered and κ=0 has discontinuous multiplicity",
+        "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+        "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGH-PRIORITY_INACCESSIBLE: published source claims one explicit slow mode and generator; full eigenspace multiplicity not verified absent from whole text",
+          "evidence": [
+            "arXiv:2610.03194v1, first posted 2026-10-02",
+            "Audited RESULT cites source Sec V/App C.1 Eqs (A71),(A83)–(A95); not independently read in full"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03194",
+          "material_read": "Public arXiv abstract and bibliographic details; full manuscript not accessible through arXiv/OA; authorized institutional retrieval returned vpn_disconnected and was not bypassed",
+          "method": "Compared accessible abstract/model description with cited source equations in audited RESULT; no unjustified full-text noncoverage claim",
+          "title": "Emergent Dissipation from Fluctuating Quantum-Network Topology",
+          "trigger": "Direct original physical model and identified slow decay mode, high-priority exact overlap"
+        },
+        {
+          "assessment": "Earlier random graph dissipation context but no established direct formula for specified balanced latent-variable jump generator",
+          "evidence": [
+            "Farooq and Mancini 2014, arXiv:1404.0508"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.0508",
+          "material_read": "Available arXiv abstract/method overview, not a full mathematical source-text inspection",
+          "method": "Compared physical model, covariance of switches and eigenspace scope",
+          "title": "Information Dissipation in Random Quantum Networks",
+          "trigger": "Earlier correlations in random quantum networks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mode multiplicity grows quadratically, so correlation changes the entire slow relaxation geometry rather than merely shifting one decay rate. An explicit closed dimension C(N-2,2), an N=4 exception and a singular κ=0 multiplicity jump give a useful natural structural classification of dissipative network dynamics beyond a single already-known slow eigenoperator.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/75a66f878b7bc7bb89b24618f1adcf7e6624296f/2026/10/25/macroscopic-slow-mode-degeneracy-in-correlated-quantum-network-d--2fa67f283da8/RESULT.md",
+    "https://arxiv.org/abs/2610.03194",
+    "https://arxiv.org/abs/1404.0508"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite numerical or exact enumeration check does not establish an infinite-parameter claim.",
+    "Best-of-knowledge originality does not certify absolute historical priority.",
+    "No GitHub writes, public artifacts, independent expert attestation, or Lean proof produced."
+  ],
+  "residual_risks": [
+    "Highly relevant arXiv:2610.03194 full manuscript not read; priority comparison only abstract/attribution, institutional access disconnected",
+    "A general primitive generator/commutant representation theorem may imply exact multiplicities under this symmetry",
+    "Finite-switching-time channel excluded; κ=1 not covered and κ=0 has discontinuous multiplicity",
+    "GitHub record blobs were retrieved at the frozen commit and verified by their returned Git SHA, but the full directory Git tree was not independently recomputed due read-only connector directory-listing limitations.",
+    "Original public AUDIT.json retains operational identifiers (e.g., scope_run_id); complete sanitized replacements were not staged. No public publication is authorized."
+  ],
+  "schema_version": 1
+}
