@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every exchangeable random self-map, conditioning on the complete indegree vector leaves a uniform multiset arrangement. The ordered prescribed-diagonal event probability is the product of required multiplicities divided by a falling factorial; summing gives the exact factorial-moment formula. A ball-selection injection proves the uniform factorial-moment bound. Locally uniform convergence of normalized-degree products identifies all limiting factorial moments, and the uniform exponential-moment bound promotes this to total-variation convergence. The variance identity proves the necessary direction of the sharp maximum-degree Poisson criterion. Even redistribution of residual indegrees constructs every claimed limiting law. Exhaustive exact-rational enumeration covers all maps through six vertices; the general proof does not depend on that finite experiment.
+PASS
 
-## Originality — PASS, subject to residual risks
+For each d, exchangeability under DOMAIN-POSITION permutations makes the image assignment a uniform rearrangement of a multiset with multiplicities d_i. For r distinct requested diagonal hits, the without-replacement probability is product d_i/(n)_r, and summing over r-tuples gives E[(F)_r|d]=r!e_r(d)/(n)_r. The elementary symmetric count e_r(d)<=C(n,r) yields each factorial moment <=1 and uniformly controls all positive exponential moments. For sorted normalized d_i/n=a_ni, a_ni<=1/i and sum_{i>K}a_ni²<=1/(K+1); thus H_n(z)=product_i(1+a_ni z) converges locally uniformly to exp(qz) product_j(1+p_j z) along coordinatewise convergent profiles. The exact falling-factorial normalization tends to 1 at fixed r, uniform factorial-moment domination permits passage to the entire probability-generating function, and discrete atom convergence plus Scheffe yields TOTAL VARIATION convergence. Variance [n²-sum d_i²]/[n(n-1)] plus uniform exponential integrability proves Poisson(1) implies max d_i/n->0; diffuse degrees prove the converse. Diagonal compactness and explicit floor-and-even-residual integer allocations realize every admissible p_j family. Independent exact enumeration of all 50,069 maps at n=1..6 across 637 degree profiles verifies every full finite conditional distribution, moments, mean and variance; four n=600 profile-moment checks corroborate the boundary limits. The n=1 case is deterministic F=1, and the variance formula is explicitly restricted to n>=2. Finite experiments are not used as the proof of infinite limits.
 
-The 2007 and 2013 permutation fixed-point literature does not imply a complete profile-conditional classification for random self-maps. The 1990 random-mapping framework supplies motivation rather than a checked identical claim. The 2026 multiset-permutation study has a different matching rule, with mean \(\sum_i d_i^2/n\) instead of the identically-one mean here, but its full paper remains inaccessible. Earlier formulations in matching/occupancy literature are possible. Indexed research comparisons and a search of accessible earlier local claims found no equivalent classification; the absence of a hit is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The limiting law classifies all persistent deviations from the Poisson fixed-point heuristic using the macroscopic indegree profile, with a necessary-and-sufficient Poisson condition and converse realizability for every admissible Poisson–Bernoulli law. Exact mean-independence holds even when the conditional variance changes substantially. This combination distinguishes infinitely many structurally different conditional regimes for a standard probabilistic graph model rather than reporting a lone covariance or a routine first-moment calculation.
+No dominating published theorem was identified after three fresh semantic searches of published mathematical findings and targeted primary-literature searches. The closest direct multiset-permutation primary manuscript (Stark, 2026, §§1–4 and Lemma 1/Theorem 2) was read in full available HTML text and counts matches to a MULTIPLICITY-MATCHED reference word, with mean sum d_i^2/n, whereas the assessed fixed-point event tests one uniquely labelled domain position for each possible image and has mean 1. The 2014 Diaconis–Evans–Graham work concerns permutations, the all-one-degree special profile. Neither prior result entails the full prescribed-indegree conditional distribution, sharp iff Poisson criterion, and every Poisson-plus-Bernoulli limit. An inaccessible foundational 1990 mapping paper is a specific remaining historical-priority risk, not an automatic scientific failure.
 
-## Limitations and closest sources
+## value
 
-The proof requires exchangeability of image positions. It gives no arbitrary-profile convergence rate and does not address nonexchangeable random maps. Closest compared sources are Diaconis–Fulman–Guralnick (2007, ordinary permutation fixed points), Diaconis–Evans–Graham (2013, permutation fixed-point statistics), Flajolet–Odlyzko (1990, random mapping statistics), and Stark (2026, different multiset-position matching rule). Two primary full texts were inaccessible; the latter remains a specific originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete labelled indegree sequence is a natural observable of finite functional digraphs, and the conditional number of loops is a canonical statistic. While the invariant conditional mean 1 is elementary, the result gives an exact full finite conditional law, a complete class of all possible TV subsequential limit distributions with macroscopic indegree hubs, a necessary AND sufficient sharp Poisson(1) criterion, and realizability of every admissible Poisson-plus-Bernoulli profile. This distinguishes diffuse-degree Poisson behavior from qualitatively non-Poisson concentrated-degree behavior and constitutes a motivated classification rather than a one-moment exercise or arbitrary numerical gain. The theorem is limited to exchangeable image-coordinate laws and does not claim rates or nonexchangeable extensions; no downstream paper-sized application is needed for its mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
