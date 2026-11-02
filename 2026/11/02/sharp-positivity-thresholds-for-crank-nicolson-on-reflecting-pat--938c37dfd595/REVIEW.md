@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The end-step identity \(C_n=2(I+sL_n)^{-1}-I\) reduces the matrix sign question to resolvent diagonals. The explicit four-image Neumann Green kernel is verified by the tridiagonal recurrence, reflecting endpoint equations and source jump; the central-minimum inequality follows from a two-term convex geometric sum. Spectral resolvent monotonicity proves a unique finite threshold for every \(n\ge3\) and all-step positivity for \(n=2\). Exact comparisons of successive central diagonals prove strict decrease with path length. Expanding the two different polynomial equations near \(z=1/3\) yields the distinct constants \(4\) and \(20/3\) with an \(O(n9^{-n})\) error. The complete all-length proof, not the finite replay, establishes the result. An extracted standard-library verifier checked 105 full exact-rational matrix identities and the threshold trends.
+
+## Originality — PASS, with priority qualification
+The general Markov resolvent-return positivity criterion is existing literature and supplies the starting reduction, not the stated novelty. A published Dirichlet-difference theorem of Higueras and Roldán (arXiv:2301.01066, Theorem 1, Section 6.1, full PDF examined) has a different endpoint stencil and an increasing cutoff sequence with a different limiting constant. It does not establish the central obstruction, decreasing Neumann thresholds, parity-specific root equations or exponentially small finite-size corrections of this result. Gao and Sun, DOI 10.1002/num.21760, study higher-order compact Neumann schemes; their abstract and reference list were available but their full paper was not. That unresolved full-text comparison remains a specific priority risk. The self-contained claim is confined to the evaluated reflecting-path threshold, not any novel general Cayley or Markov result.
+
+## Value — PASS
+For cell-centered no-flux diffusion, nonnegative concentrations should remain nonnegative under each numerical end-step, independently of the initial data. The standard sufficient local-sign step restriction does not give the sharp horizon. This finding gives exact finite-mesh cutoffs, identifies the central site where positivity first fails, proves a best possible all-mesh threshold of \(\kappa\Delta t/\Delta x^2=3/2\), and resolves finite-size sensitivity to parity. The contrast with known Dirichlet cutoffs shows that the boundary condition changes both the limiting threshold and the direction of mesh dependence; these are natural non-arbitrary quantities useful for checking positivity-preserving implementations.
+
+## Scope and remaining uncertainties
+The theorem applies only to the symmetric unit-weight reflecting path Laplacian, not higher-order compact schemes, Robin boundary rows or arbitrary weighted grids. Full text of one related Neumann compact-scheme article was not available, so hidden specialist priority is not ruled out. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The Cayley identity C=2G-I plus strict positivity of the tridiagonal M-matrix inverse reduces the sign test to the central return diagonal. Formula (1) for the full Green kernel satisfies the exact Neumann recurrence, endpoint reflection identities and source jump. The diagonal geometric sum is smallest at the central vertex/pair, and the Laplacian spectral decomposition makes every diagonal strictly decreasing from 1 to 1/n. This proves unique threshold roots for n>=3 and unconditional n=2. Exact ratios for consecutive central diagonals establish decreasing thresholds and the limiting s=3/4. Expanding the odd and even root equations gives 4*3^{-n} and (20/3)*3^{-n} with O(n*9^{-n}) errors. A standalone standard-library verifier reproduced 105 complete rational matrix kernel identities and supplementary root checks; no infinite inference rests on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general published published-finding corpus criterion covers any finite reversible chain by spectral formula, but supplies neither evaluated Neumann-path roots nor finite-size parity asymptotics.",
+        "Higueras–Roldán 2023 fully examined the Dirichlet difference operator and a different exact limiting positivity CFL value 2(2-sqrt(2)).",
+        "Gao–Sun, DOI:10.1002/num.21760, describes a fourth-order compact Neumann scheme and convergence estimates, which is not the combinatorial path Laplacian tested here."
+      ],
+      "reasoning": "General reversible-chain positivity thresholds can be defined implicitly, but extracting exact central Green diagonals and two separate parity corrections is additional mathematical content. A Dirichlet theorem does not dominate a reflecting-boundary classification. The inaccessible Neumann compact paper creates a residual noncoverage uncertainty rather than proof of disjointness.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson matrix positivity for undirected path graph with zero flux boundary exponentially sharp threshold",
+        "Web: Crank Nicolson positivity discrete heat equation graph Laplacian path exact timestep nonnegative inverse resolvent maximum principle",
+        "Web: before:2016 Crank Nicolson monotonicity positivity preservation finite differences Neumann boundary time step restriction analytic"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/num.21760 (online abstract, date, methods and bibliography)",
+      "https://arxiv.org/pdf/2301.01066 (direct primary full-text theorem and proof inspection)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a (public complete RESULT.md)",
+      "https://doi.org/10.1002/nla.597 (public abstract and date: staggered-grid stability, distinct objective)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published general criterion gives C=2(I+sL)^{-1}-I and the crossing test G_ii=1/2; it does not compute path Green entries.",
+        "The 2023 Dirichlet theorem uses a positive-definite tridiagonal with interior and endpoint diagonal 2, and identifies endpoint obstructions. Its finite cutoffs increase toward 2(2-sqrt(2)) in tau/dx^2 units; the reflecting path has degree-1 endpoint rows and center obstructions with decreasing cutoffs tending to 3/2.",
+        "The Gao–Sun available abstract describes higher-order compact Neumann discretization, with convergence rather than this exact positivity horizon; full text inaccessible."
+      ],
+      "reasoning": "The reduction alone is covered and not claimed. The final statement is not a mere restatement of a general threshold: the entire family is explicitly solved by two different algebraic root equations and parity-dependent asymptotic evaluation. The prior Dirichlet result does not imply the changed boundary matrix or its central-root behavior. The full-text limitation for Gao–Sun is not silently treated as an exclusion.",
+      "searches": [
+        "published-finding corpus: sharp Crank Nicolson positivity threshold on a finite Neumann reflecting path Laplacian with central Green diagonal and parity dependent n correction 3/4",
+        "Direct full-result comparison: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "Direct full-text comparison: arxiv:2301.01066 Theorem 1 Section 6.1",
+        "Publisher methods/abstract: doi:10.1002/num.21760"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a proves the general Cayley resolvent diagonal condition and reversible monotonicity but evaluates only the two-state and complete-graph families.",
+        "Higueras–Roldán 2023, arXiv:2301.01066, Theorem 1 gives a Dirichlet, not reflecting, tridiagonal formula and increasing finite-mesh thresholds."
+      ],
+      "reasoning": "Equivalent names examined include implicit midpoint, trapezoidal rule, Cayley end-step, stochastic positivity, finite-volume Neumann no-flux, and reflecting birth-death path. General terminology matches the first reduction, but not the parity-dependent evaluated reflecting-path equations, monotonic direction, or exponentially sharp corrections.",
+      "searches": [
+        "published-finding corpus: Implicit midpoint Crank Nicolson positivity Markov generator path graph sharp timestep diagonal resolvent nonnegative stochastic matrix",
+        "published-finding corpus: sharp Crank Nicolson positivity threshold on a finite Neumann reflecting path Laplacian with central Green diagonal and parity dependent n correction 3/4",
+        "Web: \"Crank Nicolson\" \"Neumann\" \"positivity\" \"3/2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a has a general spectral threshold but no table or entry for reflecting paths.",
+        "Higueras–Roldán 2023 Table 1 tabulates Dirichlet, not Neumann, positivity thresholds.",
+        "Gao–Sun 2012 online publisher abstract supplies convergence-order discussion, not a positivity cutoff table."
+      ],
+      "reasoning": "Searched for the exact central-root formulas, Neumann reflecting path, and parity coefficients. No matching exact cutoff table was found in inspected sources; absence of a search result alone does not certify uniqueness, and the unavailable Neumann full text is retained as a risk.",
+      "searches": [
+        "published-finding corpus: Neumann finite difference heat equation Crank Nicolson positivity reflection method images root 3/4 4 20/3",
+        "Web: \"Crank-Nicolson\" \"Neumann\" \"positivity\" \"finite volume\"",
+        "Web: \"Compact difference schemes for heat equation with Neumann boundary conditions (II)\" pdf"
+      ]
+    },
+    "rationale": "The general resolvent-return criterion is explicit prior work, and the 2023 complete Dirichlet heat-equation theorem is distinct prior work. The evaluated reflecting-path theorem requires an exact Neumann image kernel, identifies the central rather than endpoint obstruction, finds parity-specific finite equations, proves strictly decreasing thresholds, and calculates two exponential corrections. No inspected source supplies this evaluated full-size Neumann statement; the Gao-Sun Neumann compact-scheme paper was only accessible by abstract, so specialist priority remains qualified.",
+    "residual_risks": [
+      "Original full text of Gao–Sun, DOI 10.1002/num.21760, not accessible; the publisher abstract does not exclude an unreported similar result.",
+      "The generic resolvent criterion is known and is not new; originality is restricted to explicit Neumann-path roots, central location, strict decrease and parity asymptotics.",
+      "Uninspected specialist Neumann finite-difference and reflecting birth-death literature could contain equivalent evaluated formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general diagonal-resolvent reduction and reversible crossing theorem; does NOT state explicit reflecting-path parity equations or asymptotic corrections",
+        "evidence": [
+          "General C=2R-I theorem with G_ii>=1/2 and a complete graph example",
+          "The supplied worked graph family is the complete graph, not the reflecting path"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Complete public RESULT.md, including theorem, derivation, limitations and references",
+        "method": "Read published repository source text",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Exact general method and possible direct coverage of graph-path thresholds"
+      },
+      {
+        "assessment": "COVERS finite-mesh Dirichlet positivity, with endpoint-obstruction and increasing sequence; not the Neumann reflecting operator and central/parity theorem",
+        "evidence": [
+          "Introduction explicitly specifies homogeneous Dirichlet endpoints",
+          "Theorem 1: root coth(m omega)sinh omega=3cosh omega-4 and Dirichlet limit 2(2-sqrt(2)) in tau/dx^2 units"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.01066",
+        "material_read": "PDF abstract and introduction pp.1-4, exact Theorem 1 pp.7-8, and Section 6.1 theorem proof pp.16-17; inspected page renderings",
+        "method": "Primary open-access PDF text and page images",
+        "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+        "trigger": "Closest finite-mesh, all-size exact positivity classification"
+      },
+      {
+        "assessment": "Abstract studies compact fourth-order spatial Neumann schemes and convergence; a full-text novelty comparison cannot be made and remains a priority risk",
+        "evidence": [
+          "Publisher first published online 2012-12-18",
+          "Abstract states O(tau^2+h^4) convergence of a compact scheme, and does not state a sharp one-step Crank–Nicolson positivity threshold"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/num.21760",
+        "material_read": "Publisher metadata, abstract, first-online date, and bibliography; original article full text not obtained",
+        "method": "Publisher public record and alternate open-access search",
+        "title": "Compact difference schemes for heat equation with Neumann boundary conditions (II)",
+        "trigger": "Neumann boundary numerical discretization with same physical heat problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "938c37df-d595-4219-9b13-a964436c2677",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-size nonnegative end-step cutoff for a standard reflecting/no-flux path heat semidiscretization is a direct physical invariant, not an arbitrary numerical slice. The exact central criterion, strictly decreasing finite-mesh thresholds, sharp all-mesh CFL of 3/2, and parity-dependent exponentially small finite corrections quantify when a stable second-order heat step can create negative concentrations. The contrast with known Dirichlet behavior identifies meaningful boundary dependence. This gives an exact reproducible positivity benchmark for finite-volume diffusion codes and does not claim broader PDE convergence.",
+    "status": "PASS"
+  }
+}
