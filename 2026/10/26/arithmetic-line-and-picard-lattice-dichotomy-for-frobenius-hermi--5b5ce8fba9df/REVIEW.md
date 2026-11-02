@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Invertibility of the symmetric matrix proves smoothness; four-dimensional quadratic-form theory gives an exhaustive two-case classification. The rational-line criteria and conjugate-intersection counts are algebraic. For integral Picard lattices, Kondō–Shimada's line-basis theorem supplies the complete geometric Néron–Severi group; independent exact enumeration identifies a determinant-\(-9\) basis. The explicit Frobenius actions on all \(112\) lines give integer matrices of order two, and unimodular kernel reduction determines the saturated invariant lattices. The standalone verifier reproduces every displayed rank, determinant, and Smith normal form. The Galois orbit-sum sublattice has exact index \(1\) in the primitive fixed lattice in both cases, proving integral generation by line traces.
+## correctness
 
-**Originality — PASS, with residual risk.** Kondō–Shimada [1] already provide the geometric Néron–Severi lattice, all \(112\) lines, and standard-model Frobenius; Rams–Schütt [2] already provide geometric uniqueness and the sharp line count. These are not claimed as original. The present statement gives an equationwise arithmetic classification of the complete nonsingular symmetric-Frobenius family, particularly the nonsplit model's rank-\(11\) Picard lattice with discriminant \(6144\) and group \((\mathbb Z/2)^{10}\oplus\mathbb Z/6\). The standard automorphism representation in [1] may allow this arithmetic calculation in principle, and an equivalent unlocated Hermitian-form table remains possible. Neither inspected work states the nonsplit integral arithmetic invariant or the two-case family classification.
+PASS
 
-**Mathematical value — PASS.** This is a natural complete arithmetic classification of a ten-parameter symmetric-Frobenius linear family, not a selected isolated coefficient experiment. The nonsplit arithmetic Picard lattice and the conjugate-line incidence refine the classical \(112\)-line geometry beyond point counts. The integral discriminant and discriminant group are genuinely finer than a rational Frobenius eigenspace count, and integral generation by Galois traces identifies concrete rational divisor generators.
+Independently re-enumerated 7462 F9 2-planes and 112 isotropic lines, reconstructed the line incidence Gram rank 22 and discriminant -9, both twisted Frobenius integral matrices, primitive Z-kernels, exact Gram determinants and Smith normal forms, and orbit-sum lattice index one in both classes. Point counts 16/10, meeting Frobenius-pair counts 16/20. Uses known complete geometric line basis and finite-field Galois descent Br(F3)=0; exact symbolic check independently rerun.
 
-The classification concerns only invertible symmetric forms; no claim about all quartic K3 surfaces or all their forms is made. No external independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. Geometric NS structure and square-class Frobenius are prior, but the non-square invariant lattice/split-vs-nonsplit arithmetic table not identified as an asserted result
+
+## value
+
+PASS
+
+Integral arithmetic Picard lattices and line-orbit trace generation distinguish the two natural arithmetic forms of a 112-line supersingular K3 surface. The nonsplit lattice is a motivated arithmetic classification beyond the known geometric maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

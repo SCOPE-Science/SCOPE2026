@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification
 
-Run `python verify.py` with Python 3.10+ and SymPy installed. No third-party datasets or external source files are required. The program directly enumerates all \(7462\) two-dimensional subspaces of \(\mathbb F_9^4\), checks the \(112\) Hermitian lines and every line intersection, and verifies an integral \(22\)-line geometric lattice basis of determinant \(-9\). For determinant-square and determinant-nonsquare models it reconstructs twisted Frobenius, counts invariant lines and touching conjugate pairs, counts rational points, and computes **saturated** integral Frobenius-fixed lattices and their Smith normal forms. A column Hermite-normal-form calculation verifies that rational line classes and conjugate-line orbit sums generate the full primitive invariant lattice with index \(1\). It separately verifies the second diagonal representative in the square class.
+# Independent mathematical audit
 
-Exact algebraic inputs are nondegenerate quadratic-form classification in dimension four over \(\mathbb F_3\), the Hermitian incidence theorem, the established geometric Néron–Severi line-basis identification, and the vanishing of the Brauer group of a finite field. The enumerations do not, by themselves, certify the external geometric theorem or independence of the result from all mathematical literature. Only self-review has been performed.
+## correctness
+
+PASS
+
+Independently re-enumerated 7462 F9 2-planes and 112 isotropic lines, reconstructed the line incidence Gram rank 22 and discriminant -9, both twisted Frobenius integral matrices, primitive Z-kernels, exact Gram determinants and Smith normal forms, and orbit-sum lattice index one in both classes. Point counts 16/10, meeting Frobenius-pair counts 16/20. Uses known complete geometric line basis and finite-field Galois descent Br(F3)=0; exact symbolic check independently rerun.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. Geometric NS structure and square-class Frobenius are prior, but the non-square invariant lattice/split-vs-nonsplit arithmetic table not identified as an asserted result
+
+## value
+
+PASS
+
+Integral arithmetic Picard lattices and line-orbit trace generation distinguish the two natural arithmetic forms of a 112-line supersingular K3 surface. The nonsplit lattice is a motivated arithmetic classification beyond the known geometric maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
