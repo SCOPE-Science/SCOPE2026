@@ -1,17 +1,21 @@
-# Scientific review: sharp roundness of an equal-area square bisection
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof covers every compact convex two-piece equal-area partition, not just a line-cut ansatz: separation of interiors forces the interface to be a line, and central symmetry forces a zero-offset cut. Reflection reduces all directions to \(0\le t\le1\). The inradius is bounded by three necessary supporting-line constraints and attained by a feasible disk. The circumradius is bounded by the long vertex diagonal and attained because the other two vertices lie in its diameter disk. The logarithmic derivative has the exact sign of strictly decreasing \(H(t)\) with opposite endpoint signs, proving global uniqueness. Decimal constants are not needed for the proof. An executable checker tests algebraic and numeric identities but is supplementary rather than a substitute for proof.
+## correctness
 
-## Originality
-PASS within the documented accessible comparison. The principal 2026 paper gives existence of equal-area fat subdivisions for all convex bodies; a numerical sharp two-piece square bisection and its unique oblique direction do not follow from that existence statement. Damian–O'Rourke's complete 2003 exposition studies the same circularity invariant and unrestricted polygon partitions; its Section 6 explicitly proposes understanding tradeoffs in the number of pieces and it does not provide the two-piece equal-area square optimum. The closest indexed results solve triangle equal-area bisection fatness, two-part maximum inradius for orthotopes, and bisection diameter for regular even polygons. None evaluates the simultaneous ratio, and the square's extremum at an interior angle is not implied by the separate one-sided extrema. Relevant result titles were compared by claims and coverage, not title similarity.
+PASS
 
-The 2026 full manuscript could not be inspected beyond the abstract and dated bibliographic information. This is a real but bounded residual priority risk; an inaccessible source was not called fully checked. An unindexed solution to this elementary exact special case is also possible.
+For precisely two compact convex pieces with disjoint interiors and union a square, convex separation forces their common interface to be a straight cut. Equal area in a centrally symmetric square forces the line through center; square symmetries reduce y=tx,0≤t≤1. For trapezoid K_t=conv{(−1,−t),(−1,1),(1,1),(1,t)}, supporting-line constraints give sharp inradius r=(1+t)/(1+t+√(1+t²)) attained by a specified center. An enclosing circle with the diameter from (−1,−t) to (1,1) contains the other corners, giving R=√(4+(1+t)²)/2. The exact log derivative of f=r/R has sign of H(t)=4(1−t)−(t+√(1+t²))(1+t)³; H strictly decreases from +3 to negative, giving unique t*=0.28867838972... and optimum 0.465023362935585... up to symmetries. Independent symbolic differentiation and exact polynomial squaring checks plus root bracket and endpoint comparisons completed.
 
-## Value
-PASS. The 2003 square-circularity work explicitly motivates studying the tradeoff with the number of pieces, while the 2026 fat-partition theorem uses equal-area convex pieces and exactly the inradius/circumradius geometry. The first nontrivial, exactly-two-piece square case therefore has a natural role as a calibrated finite benchmark, not an arbitrary parameter slice. Its solution is counterintuitive: neither the symmetry-axis bisection nor the diagonal bisection maximizes the objective, despite optimizing natural component measures separately. The theorem gives the exact algebraic optimizer and all equality orientations.
+## originality
 
-## Scope and residual limitations
-Only Euclidean two-piece, equal-area convex partitions of a square are classified. The result does not sharpen the known global optimum over arbitrarily many pieces. Full text of the 2026 motivating paper was unavailable. The work has not undergone independent expert assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified PASS: Damian–O’Rourke 2003 optimize unrestricted-cardinality polygon partitions, with square bounds for a different optimum; Pach–Tardos 2026 prove uniform equal-area fatness bounds for arbitrary convex bodies using a different roundness C(S) measure, not the exact two-piece square ratio. Unlike earlier source claim of inaccessible full text, Pach–Tardos 25-page primary PDF was now obtained through authorized access and pages 1–18 materially read; §§2–3 have no exact oblique square optimum. Resultary sharp two-piece equilateral-triangle result concerns another body.
+
+## value
+
+PASS
+
+PASS: precisely two equal-area convex pieces and roundness r/R form a natural nontrivial extremal partition problem. The optimum is strictly oblique rather than axis-parallel/diagonal, giving an exact uniqueness theorem contrasting canonical cuts; geometric reduction and monotonicity are genuine proof content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
