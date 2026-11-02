@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:03:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary finite field F_q, e>=3,m>=2, the companion basis u,Au,...,A^{m-1}u lifts the mod-epsilon Jordan cyclic basis, so K=1+epsilon M_m(R) acts transitively on each fixed characteristic polynomial. Its centralizer reducing to identity has size q^((e-1)m), giving uniform fiber q^((e-1)(m²-m)). In S=R[T]/(T^m-sum_h epsilon^h a_h(T)), the identity T^((e-1)m+j)=epsilon^(e-1) T^j a_1(T)^(e-1) holds because all other multinomial terms contain epsilon^e. This is nonzero precisely when j+(e-1)v<m with v=ord_T(a_1), yielding the strict high-tail indices em-(e-1)v and no others; the equality boundary belongs to the low tail. Counting valuation-v polynomials a_1 gives (q-1)q^(m-v-1), then all other coefficients and uniform fibers yield (q-1)q^((e-1)m²-v-1), complementary total q^((e-1)m²-ceil(m/(e-1))), and maximum frequency 1-1/q. Independent exhaustive powers of all 256 F2[epsilon]/epsilon³ lifts of J2 gave counts index 2:16, 3:48, 4:64, 6:128 and no index 5; symbolic proof covers arbitrary e,m,q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avni et al. analyze 3x3 matrices over local principal ideal rings and cyclic similarity, but not arbitrary m high-tail index multiplicities in the inspected sections.",
+          "Prasad–Singla–Spallone explicitly assume length-two local rings."
+        ],
+        "reasoning": "A local-ring similarity theorem covers classification tools but does not establish the all-e,m,q nilpotency-index distribution without the high-power valuation calculation.",
+        "searches": [
+          "nilpotency index matrices lifting regular nilpotent Jordan block truncated local ring k epsilon^e characteristic coefficient valuation high tail",
+          "Avni–Onn–Prasad–Vaserstein arXiv:0708.1608 full text",
+          "Prasad–Singla–Spallone arXiv:1212.6157 full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0708.1608 full PDF",
+        "arXiv:1212.6157 full PDF",
+        "Resultary 2026-10-04 dual-number full RESULT.md",
+        "Resultary Jordan-ring semantic search",
+        "Frozen RESULT.md and exact Python verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For e=2, the analogous high-power criterion produces consecutive indices; e>=3 allows jumps of e-1.",
+          "The new count uses uniform K-orbits for all m and the identity epsilon^(e-1)a_1^(e-1), not given as an index theorem in cited work."
+        ],
+        "reasoning": "Neither e=2 result nor the 3x3 ring similarity classification directly yields the e>=3 all-m strict-high-tail formula; the companion method remains borrowed.",
+        "searches": [
+          "arXiv:0708.1608 Sections 1.2–2.1",
+          "arXiv:1212.6157",
+          "Resultary 2026-10-04 dual-number full theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nilpotency index of the lift is the nilpotence order of T in companion quotient R[T]/f(T), hence can be expressed through valuation of the first epsilon characteristic coefficient.",
+          "Cyclic normal form itself appears in Avni–Onn–Prasad–Vaserstein."
+        ],
+        "reasoning": "The theorem is not merely a renaming of cyclic similarity classes: it extracts which top-end powers vanish and counts matrices in each fiber. A preexisting explicit nilpotence-order corollary remains possible.",
+        "searches": [
+          "nilpotency index matrices lifting regular nilpotent Jordan block truncated local ring k epsilon^e characteristic coefficient valuation high tail",
+          "arXiv:0708.1608 cyclic companion similarity classes",
+          "arXiv:1212.6157 local ring length two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full published dual-number result gives a complete e=2 index list {m,...,2m}, with no forbidden high-tail gaps.",
+          "This result fixes e>=3 and gives strict high-tail indices spaced by e-1."
+        ],
+        "reasoning": "The closest exact table is for e=2 and not an exact source for the e>=3 high-tail sequence and counts.",
+        "searches": [
+          "nilpotency index matrices lifting regular nilpotent Jordan block truncated local ring k epsilon^e characteristic coefficient valuation high tail",
+          "Resultary/2026/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md"
+        ]
+      },
+      "rationale": "The cyclic companion description and local principal ideal ring similarity framework are prior work. The new claim is the precise high-index valuation threshold and multiplicities for e>=3, a regime not covered by the earlier complete e=2 distribution; a more general existing classification might still contain the resulting corollary.",
+      "residual_risks": [
+        "General chain-ring nilpotency valuation theorems could contain this as a special corollary.",
+        "High-tail conclusion does not assert full low-index distribution; upper-tail boundary handled correctly.",
+        "Finite q=2,m=2,e=3 enumeration is not a proof for arbitrary prime powers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies companion machinery, not the claimed high-index counts",
+          "evidence": [
+            "Cyclic matrices are similar to companions; underlying classification by similarity."
+          ],
+          "identifier_or_url": "arXiv:0708.1608",
+          "material_read": "Full accessible PDF, especially sections 1.2 and 2.1 with cyclic companion classification",
+          "method": "PDF direct inspection",
+          "title": "Similarity Classes of 3x3 Matrices over a Local Principal Ideal Ring",
+          "trigger": "Cyclic companion matrices and arbitrary ring length"
+        },
+        {
+          "assessment": "Length-two hypothesis excludes e>=3",
+          "evidence": [
+            "The title and theorem setup specify local rings of length two."
+          ],
+          "identifier_or_url": "arXiv:1212.6157",
+          "material_read": "Full accessible PDF, introduction and similarity/centralizer results",
+          "method": "PDF direct inspection",
+          "title": "Similarity of Matrices over Local Rings of Length Two",
+          "trigger": "Potential stronger arbitrary-m local ring theorem"
+        },
+        {
+          "assessment": "Does not cover length e>=3",
+          "evidence": [
+            "All indices m through 2m occur for epsilon²=0; excluded from current e>=3 domain."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md",
+          "material_read": "Full published RESULT.md including formula, proof and limitations",
+          "method": "Read published GitHub source",
+          "title": "Exact nilpotency-index distribution for Jordan lifts over finite dual numbers",
+          "trigger": "Exactly same regular Jordan fiber with ring of length two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "High-index persistence of a Jordan nilpotent block under local-ring thickening is a canonical algebraic invariant. The full arithmetic support of indices above (e-1)m, explicit forbidden gaps, and exact fiber counts for all dimensions/ring lengths are a meaningful natural classification even though lower-index multiplicities remain open.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0708.1608 full PDF",
+    "arXiv:1212.6157 full PDF",
+    "Resultary 2026-10-04 dual-number full RESULT.md",
+    "Resultary Jordan-ring semantic search",
+    "Frozen RESULT.md and exact Python verification"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General chain-ring nilpotency valuation theorems could contain this as a special corollary.",
+    "High-tail conclusion does not assert full low-index distribution; upper-tail boundary handled correctly.",
+    "Finite q=2,m=2,e=3 enumeration is not a proof for arbitrary prime powers.",
+    "Publication metadata contain operational provenance requiring guarded sanitization before public release."
+  ],
+  "schema_version": 1
+}
