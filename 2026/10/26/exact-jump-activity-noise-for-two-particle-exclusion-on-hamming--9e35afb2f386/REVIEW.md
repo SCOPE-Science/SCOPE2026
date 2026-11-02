@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full accepted-jump tilted-generator perturbation is derived from its two eigenvector equations, with the global activity distinguished from the radial Hamming-distance transitions. The two-particle chain is finite, irreducible and reversible under uniform unordered-pair equilibrium. The Hamming-distance quotient has the stated birth and death rates; its Poisson equation gives an exact binomial-tail Dirichlet sum, whose terms are all positive. The high-dimensional coefficient follows from a complete mode-based bound on the summation tails at fixed alphabet size. The independently constructed full-generator checker passed nine cases and nine normalized asymptotic tests. Risk: finite tests do not replace the all-parameter argument, and numerical computation at high dimensions only tests the limit heuristically.
+## correctness
 
-**Originality — PASS within inspected sources, with residual risk.** The prior SSEP activity literature already establishes Markov tilted generators and activity fluctuations on one-dimensional rings (Lecomte, Garrahan, van Wijland, arXiv:1203.1600); Arita–Krapivsky–Mallick (arXiv:1407.3228) address hydrodynamic coefficients on infinite cubic lattices; de Queiroz (arXiv:1207.3044) treats instantaneous activity/current for TASEP. The provided exact \(q\)-ary Hamming-graph full-hop Fano sum and its fixed-alphabet dimension coefficient are not stated in the inspected material. The previously available complete-bipartite formula does imply the square case \(H(2,2)\), which is explicitly excluded from novelty. Risk: a broader finite-graph pseudoinverse or distance-regular-chain treatment could implicitly specialize to some part of the formula; a database miss does not exclude all historical coverage.
+PASS
 
-**Mathematical value — PASS.** Exclusion-induced modulation of the accepted jump clock is a natural kinetic observable, not an arbitrary statistic. The result evaluates it for every Hamming alphabet and dimension, distinguishes Poissonian one-factor geometry from strictly excess-noisy multifactor systems, and supplies an exact exponentially small dimension-scaling constant; these facts explain how rare blocked edges affect long-time counting fluctuations. This is more than a recomputation of stationary mean activity. Limits: two particles, symmetric unit hopping, equilibrium counting of all accepted jumps, fixed alphabet in the asymptotic statement, and no assertion about full counting-process convergence.
+Uniform unordered-pair stationary law and Hamming distance J give pi_j=w_j/N, upward radial rate a_j=2(d-j)(q-1), downward b_j=2j (j>=2), and total successful hop rate lambda_j=2d(q-1)-2*1[j=1], INCLUDING within-J transitions at q>2. First two derivatives of tilted full generator yield variance-rate mu+2<lambda-mu,(-Q)^(-1)(lambda-mu)> for the reversible system, reducible to a radial Poisson equation. Summation over j gives flux pi_j*a_j*(g_{j+1}-g_j)=-pi_1*sum_{h>j}pi_h and exact positive energy, yielding formula. First tail term dominates fixed-q asymptotic: higher terms split at binomial mode with uniform fixed-q remainder bounds. Full pair-state Q built independently and solved with exact rational linear algebra for (q,d)=(2,2),(2,3),(3,2): mu,F precisely (8/3,10/9),(36/7,52/49),(7,29/28). This is not an assertion of full-process Poisson convergence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS with priority qualifications. Tilted-generator eigenvalue perturbation and SSEP activity cumulants were previously developed, in particular Appert-Rolland et al. 2008 and Lecomte et al. 2012 on 1-D rings. The all-Hamming-graph two-particle exact binomial-tail variance and fixed q dimension limit are distinct, though a general Green-function theorem could specialize to them.
+
+## value
+
+PASS
+
+This evaluates an exact natural fluctuation invariant for the canonical two-particle exclusion model on every q-ary Hamming graph, proving positive excess noise and an unexpectedly sharp dimension correction. It distinguishes counted same-distance hops and compares the one-factor Poisson boundary, a motivated physical question beyond mere simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
