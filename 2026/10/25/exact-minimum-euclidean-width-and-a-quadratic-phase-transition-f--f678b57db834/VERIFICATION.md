@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in `RESULT.md` is exact for every integer \(n\ge5\), \(2\le k\le n-2\): it uses the support formula, centered ordered-chamber gap decomposition, Euclidean triangle inequality, and strict equality conditions. The parity arithmetic is displayed explicitly, avoiding extrapolation from finite experiments.
+## correctness
 
-To reproduce the supplementary finite checks, run `python3 verify_width.py` in the same directory. The verifier uses Python's standard library, performs \(12{,}320\) rational phase/candidate checks, \(25{,}540\) explicit two-level checks and \(65{,}800\) random-direction inequality checks. The program was executed successfully. All numerical results are finite regression checks, not a proof of the quantified theorem and not a certification of novelty.
+PASS
 
-Only intrinsic Euclidean normals orthogonal to the all-ones vector are used. The known centrally symmetric subcase is acknowledged in the prior-work comparison. No independent audit has been performed.
+For standard Δ_{n,k}, n>=5 and 2<=k<=n-2, intrinsic normals lie in the zero-sum hyperplane. Sorting a normal u, the width is its largest r-coordinate sum minus smallest r-coordinate sum, r=min(k,n-k). Every ordered mean-zero u is a nonnegative sum of centered two-level gap rays v^(j). On this chamber width is linear, and the Euclidean triangle inequality proves W=min_j min(r,j,n-j)√[n/(j(n-j))]; strictness excludes multiray equality. Monotonicity in j leaves only j=1 and balanced floor(n/2), giving W=min{√[n/(n-1)], r√[n/(floor(n/2)ceil(n/2))]}. Exact parity algebra yields singleton direction below n=4r²-1, balanced above, and BOTH only at that odd integer. Independently enumerated every rational candidate ray minimum and exact phase for all n=5..170 and admissible r (7225 cases); these finite checks supplement the symbolic proof.
+
+## originality
+
+PASS
+
+Har-Peled and Robson (2023) give complete Euclidean width for REGULAR SIMPLICES (rank one), outside the new 2<=k<=n-2 range. Martínez-Sandoval and Padrol (2019) concern projections and skeletons of hypersimplices, not intrinsic minimum width. Connected-matroid-base-polytope inradius already implies the centrally symmetric special case n=2k, which is acknowledged prior. Neither establishes the nonsymmetric all-rank formula or precise all-minimizing-normal quadratic transition.
+
+## value
+
+PASS
+
+Exact intrinsic width is a basic geometric invariant of the uniform-matroid base polytope. The all-rank minimizer classification and sharp, parameter-dependent switch between highly unbalanced and balanced supports are structurally informative beyond known inradii or simplex width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

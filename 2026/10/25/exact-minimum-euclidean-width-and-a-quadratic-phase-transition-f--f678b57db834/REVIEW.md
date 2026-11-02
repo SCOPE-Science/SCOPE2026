@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support function on a rank-\(k\) hypersimplex is the sum of the largest \(k\) normal coordinates; complementing converts this exactly to \(r=\min(k,n-k)\). Every sorted mean-zero normal decomposes uniquely as a nonnegative sum of two-level step vectors. The width functional is linear on that chamber, so the Euclidean triangle inequality bounds width below by the minimum generator ratio. The triangle inequality is strict for combinations of two different nonparallel step vectors, proving completeness of the equality classification. Exact squared ratios reduce to the two endpoint partition sizes; a parity-aware integer calculation establishes the threshold \(\(n=4r^2-1\)\). The theorem explicitly uses intrinsic rather than ambient normals. Exact finite fraction arithmetic and random vectors corroborate the proof but are not substituted for it.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+For standard Δ_{n,k}, n>=5 and 2<=k<=n-2, intrinsic normals lie in the zero-sum hyperplane. Sorting a normal u, the width is its largest r-coordinate sum minus smallest r-coordinate sum, r=min(k,n-k). Every ordered mean-zero u is a nonnegative sum of centered two-level gap rays v^(j). On this chamber width is linear, and the Euclidean triangle inequality proves W=min_j min(r,j,n-j)√[n/(j(n-j))]; strictness excludes multiray equality. Monotonicity in j leaves only j=1 and balanced floor(n/2), giving W=min{√[n/(n-1)], r√[n/(floor(n/2)ceil(n/2))]}. Exact parity algebra yields singleton direction below n=4r²-1, balanced above, and BOTH only at that odd integer. Independently enumerated every rational candidate ray minimum and exact phase for all n=5..170 and admissible r (7225 cases); these finite checks supplement the symbolic proof.
 
-The closely related complete simplex-width proof of Har-Peled–Robson (2023) treats the rank-one case, while Martínez-Sandoval–Padrol (2019) treat hypersimplex projections and skeletons. Published research records on hypersimplex inradii, matroid independence-polytope radii and simplex plank widths were compared by **the mathematical invariants and implications**, not titles alone. The centrally symmetric case \(\(n=2k\)\) can be deduced from known inradius data and is explicitly recognized as covered; the claimed new content is the uniform formula and full direction/phase classification over the non-simplex, generally noncentrally symmetric family. No checked record states or entails that full result. Broader ordered-coordinate norm inequalities and inaccessible unindexed literature leave residual priority risk; no uniqueness or independent priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Minimum Euclidean width is a natural affine-intrinsic invariant of the uniform-matroid base polytope. The exact classification gives all minimizing directions across every integer rank and dimension, including a non-obvious structural bifurcation precisely at \(\(n=4r^2-1\)\). This connects polytope geometry to an ordered-coordinate spread functional and determines behavior even when the usual inball calculations are insufficient. It is not an arbitrary parameter slice or a known-table recomputation.
+Har-Peled and Robson (2023) give complete Euclidean width for REGULAR SIMPLICES (rank one), outside the new 2<=k<=n-2 range. Martínez-Sandoval and Padrol (2019) concern projections and skeletons of hypersimplices, not intrinsic minimum width. Connected-matroid-base-polytope inradius already implies the centrally symmetric special case n=2k, which is acknowledged prior. Neither establishes the nonsymmetric all-rank formula or precise all-minimizing-normal quadratic transition.
 
-## Closest literature and limits
+## value
 
-Har-Peled–Robson, arXiv:2301.02616 (2023): complete rank-one simplex width. Martínez-Sandoval–Padrol, arXiv:1909.01189 (2019): hypersimplex projections. Indexed connected-matroid base-polytope inradius result: implies the symmetric \(\(n=2k\)\) subcase but does not resolve general nonsymmetric minimum width. Absolute priority and independent mathematical assessment are outstanding; the exact theorem is for \(2\le k\le n-2\), with normals restricted to the affine span.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact intrinsic width is a basic geometric invariant of the uniform-matroid base polytope. The all-rank minimizer classification and sharp, parameter-dependent switch between highly unbalanced and balanced supports are structurally informative beyond known inradii or simplex width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
