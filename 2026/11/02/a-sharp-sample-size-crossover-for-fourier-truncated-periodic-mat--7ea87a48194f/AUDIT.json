@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every \\(d\\ge1\\), \\(\\nu>0\\), \\(m\\ge1\\), \\(N\\ge1\\), Fourier positivity bounds the tail kernel by its diagonal value. Parseval and Haar conditioning give exact finite-N expectation and fourth-order variance. The variance inequality and the two-case proof give concentration along arbitrary joint \\(N(m)\\). Lattice Riemann-sum comparison with uniform tail domination gives the explicit nonzero spectral constants and three sharp regimes. The packaged verifier checked 115 finite rational and periodic-grid identities; no infinite conclusion rests on experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Puchkin, Noskov, Spokoiny, arXiv:2308.14739 (2023): https://arxiv.org/abs/2308.14739",
+        "Barnett, Greengard, Rachh, arXiv:2305.11065 (2023), Section 4, Conjecture 9, Eq. (40)-(42): https://arxiv.org/html/2305.11065",
+        "Avron et al., Random Fourier Features for Kernel Ridge Regression, arXiv:1804.09893 (2018): https://arxiv.org/abs/1804.09893"
+      ],
+      "reasoning": "Broad sample-covariance concentration estimates concern a sample covariance versus its population counterpart, not the deterministic Fourier-truncation error evaluated at random sites. Random Fourier feature results bound randomized spectral-feature approximations, not this exact deterministic tail. General Parseval and degenerate U-statistic facts are mathematical ingredients, not an identified prior statement with the full sharp regime and constants.",
+      "searches": [
+        "random Fourier features covariance approximation Frobenius error diagonal bias N squared expected norm spectral truncation",
+        "expected Frobenius norm squared kernel Gram matrix spectral truncation i.i.d. diagonal off-diagonal finite sample Fourier covariance",
+        "Sharper dimension-free bounds on the Frobenius distance between sample covariance and its expectation"
+      ]
+    },
+    "checked_sources": [
+      "Barnett, Greengard, Rachh, arXiv:2305.11065 (2023), Section 4, Conjecture 9, Eq. (40)-(42): https://arxiv.org/html/2305.11065",
+      "Bachmayr, Graham, Nguyen, Scheichl, arXiv:1905.13522 (2019), Sections 1-4: https://arxiv.org/abs/1905.13522",
+      "Puchkin, Noskov, Spokoiny, arXiv:2308.14739 (2023): https://arxiv.org/abs/2308.14739",
+      "Avron et al., Random Fourier Features for Kernel Ridge Regression, arXiv:1804.09893 (abstract and application scope): https://arxiv.org/abs/1804.09893"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barnett, Greengard, Rachh, arXiv:2305.11065 (2023), Section 4, Conjecture 9, Eq. (40)-(42): https://arxiv.org/html/2305.11065",
+        "Bachmayr, Graham, Nguyen, Scheichl, arXiv:1905.13522 (2019), Sections 1-4: https://arxiv.org/abs/1905.13522",
+        "Puchkin, Noskov, Spokoiny, arXiv:2308.14739 (2023): https://arxiv.org/abs/2308.14739"
+      ],
+      "reasoning": "The 2023 EFGP conjecture predicts N-times an off-diagonal RMS exponent for iid sites in a nonperiodic frequency-mesh setting as N tends to infinity. It neither covers a simultaneous m,N limit nor yields the diagonal-dominated regime when \\(N/m^d\\) tends to zero. The periodization study proves Fourier eigenvalue properties for regularly gridded observations; it does not imply stochastic Gram-matrix Frobenius concentration at independent Haar sites without additional arguments. The sample-covariance paper concerns random empirical covariance instead of the deterministic kernel approximation error.",
+      "searches": [
+        "2023 arxiv Uniform approximation common Gaussian process kernels equispaced Fourier grids Conjecture 9",
+        "2019 arxiv Unified Analysis Periodization-Based Sampling Methods Matérn Covariances eigenvalue decay",
+        "2023 arxiv Frobenius sample covariance estimator concentration dimension free"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barnett, Greengard, Rachh, arXiv:2305.11065 (2023), Section 4, Conjecture 9, Eq. (40)-(42): https://arxiv.org/html/2305.11065",
+        "Bachmayr, Graham, Nguyen, Scheichl, arXiv:1905.13522 (2019), Sections 1-4: https://arxiv.org/abs/1905.13522",
+        "Indexed Fourier projection results inspected by title and summary concern finite-group Lebesgue constants or frame spectra, not iid-torus covariance Gram truncation."
+      ],
+      "reasoning": "The aliases covariance-kernel matrix Frobenius error, Fourier spectral cutoff, random-site Gram matrix and periodic Matérn error were searched. No retrieved statement asserted the same exact finite-N diagonal law together with uniform relative concentration and the \\(N/m^d\\) regime classification. Fourier-projection endpoint norms are different observables.",
+      "searches": [
+        "periodic Matérn kernel Fourier truncation sample size phase transition diagonal error m N squared Frobenius norm",
+        "random iid torus points periodic Matérn kernel Gram matrix spectral cutoff Frobenius error self averaging N over m to power d crossover",
+        "finite sample Frobenius Gram kernel approximation diagonal bias dominates off diagonal Fourier truncation covariance random uniform points spectral projection phase transition N cutoff m Matérn periodic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Barnett, Greengard, Rachh, arXiv:2305.11065 (2023), Section 4, Conjecture 9, Eq. (40)-(42): https://arxiv.org/html/2305.11065",
+        "Bachmayr, Graham, Nguyen, Scheichl, arXiv:1905.13522 (2019), Sections 1-4: https://arxiv.org/abs/1905.13522",
+        "No retrieved exact table or database entry gave a finite-sample diagonal/off-diagonal identity with the \\(N/m^d\\) critical constant."
+      ],
+      "reasoning": "The object is a continuum family indexed by dimension, smoothness, cutoff, and sample size; the exact constants are spectral-tail integrals rather than pretabulated numerical data. Nearby records focus on Fourier projection finite-grid norms, not kernel Gram errors.",
+      "searches": [
+        "Barnett Greengard Rachh 2305.11065 Conjecture 9 finite N random data Frobenius error diagonal contribution Matérn Fourier",
+        "periodic Matérn covariance Fourier truncation Gram matrix iid sample self averaging N cutoff ratio exact constants"
+      ]
+    },
+    "rationale": "The complete claim is a finite-N diagonal/off-diagonal identity plus an explicit all-joint-scaling concentration theorem and an exact critical regime \\(N/m^d\\), for periodic Matérn spectral truncation at iid Haar design sites. Directly inspected 2023 work predicts a related nonperiodic high-sample Frobenius exponent, but does not state this exact periodic two-term law, the uniform variance bound, or the critical constant. Related periodization and sample-covariance papers have different operators or sampling models. This is a qualified, non-independent priority assessment.",
+    "residual_risks": [
+      "A specialized prior result on periodic-kernel Gram matrix U-statistics might already give the exact finite-sample formula or the all-scaling limit, despite not being retrieved.",
+      "The proof ingredients are classical; independent experts may judge the combined application less novel than the exact source comparison suggests.",
+      "No nonperiodic Fourier-grid version of the 2023 motivating conjecture is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related motivation but not direct coverage; nonperiodic EFGP, large-sample heuristic, no all-regime periodic exact identity or finite-N variance guarantee",
+        "evidence": [
+          "Conjecture 9 is explicitly formulated as a high-probability large-N claim for a nonperiodic Matérn Fourier-grid approximation",
+          "Section 4 Eq. (40)-(42) develops off-diagonal Fourier cancellation rather than an exact diagonal-aware finite-N theorem"
+        ],
+        "identifier_or_url": "arxiv:2305.11065; https://arxiv.org/html/2305.11065",
+        "material_read": "Full-text HTML Introduction, Section 3 Fourier error analysis, Section 4 Conjecture 9 and the derivation through Eq. (42); abstract and references context",
+        "method": "Open-access arXiv HTML text, mathematical statements compared line by line against the periodic theorem",
+        "title": "Uniform approximation of common Gaussian process kernels using equispaced Fourier grids",
+        "trigger": "Most plausible direct coverage: random-location Matérn covariance Frobenius approximation in Section 4"
+      },
+      {
+        "assessment": "Provides Fourier/periodization background, but studies covariance simulation on regular grids and eigenvalue rates, not iid-location Gram truncation Frobenius regimes",
+        "evidence": [
+          "Eq. (1.2) defines covariance entries; Eq. (1.4) uses Fourier diagonalization on a periodic extension",
+          "The stated main problems are circulant-embedding size and eigenvalue decay; no matched iid Gram error theorem"
+        ],
+        "identifier_or_url": "arxiv:1905.13522; https://arxiv.org/abs/1905.13522",
+        "material_read": "Full-text arXiv rendering, Introduction and Sections 2-4 covering periodization, Fourier eigenvalue decay and sampling-grid assumptions",
+        "method": "Open-access arXiv full-text search and mathematical theorem comparison",
+        "title": "Unified Analysis of Periodization-Based Sampling Methods for Matérn Covariances",
+        "trigger": "Periodic Matérn covariance spectrum is a potential dominating framework"
+      },
+      {
+        "assessment": "Not same object: fluctuations of an empirical random-vector covariance estimator rather than random-site kernel approximation error",
+        "evidence": [
+          "Its defining random object is an empirical covariance from centered i.i.d. random vectors; our Gram difference is deterministic given random design sites"
+        ],
+        "identifier_or_url": "arxiv:2308.14739; https://arxiv.org/abs/2308.14739",
+        "material_read": "Open-access arXiv HTML abstract and full Introduction defining the sample covariance and its expectation",
+        "method": "Compare random matrix observable and centering against the claimed deterministic Fourier truncation error",
+        "title": "Sharper dimension-free bounds on the Frobenius distance between sample covariance and its expectation",
+        "trigger": "Possible broad Frobenius concentration covering random covariance matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ea87a48-194f-430c-be5a-e2209f5d0294",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A documented 2023 mathematical approximation gap concerns the Frobenius error exponent of Matérn Fourier grids at random sites. The new periodic analogue identifies precisely when that extra spectral exponent is observable in a finite random covariance matrix: the sample count must cross the retained Fourier feature scale. The all-growth-regime concentration, explicit critical constant and exact two-term decomposition make this a practical and structural cutoff-selection diagnostic, beyond a routine fixed-N Parseval calculation.",
+    "status": "PASS"
+  }
+}
