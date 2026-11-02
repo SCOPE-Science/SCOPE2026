@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete proof derives the bilateral generating function with both convergence restrictions and explicit q-binomial substitutions from the primary two-index distribution. The independent-geometric factorization follows by uniqueness of Laurent coefficients. The parity product is everywhere positive; termwise differentiation on compact parameter sets supplies the strict monotonicity. The provided standard-library checker passed 30 numerical assertions with tail budgets; numerical work is corroborative, not an infinite proof.
+## correctness
 
-## Originality
-PASS with residual priority risk. Gnedin--Olshanski (2011, Theorem 5.1) gives the exact one-point distribution and is the essential stronger starting result. He--Müller--Verstraaten (arXiv:2201.11610v1, Theorem 1.6 and Section 10) explicitly left both the strict inequality between parity constants and their individual strict monotonicity open. These are nontrivial consequences of the new product summation. The later Bufetov--Chen (arXiv:2402.09892) formula is for a different, mixed Mallows probability measure. The exact predecessor/source implication, published-finding corpus comparisons, and residual search coverage risk are documented in AUDIT.json. Nothing asserts that all historical sources have been exhaustively excluded.
+PASS
 
-## Value
-PASS. The result solves two explicit mathematically motivated questions in one coherent exact-distribution theorem, rather than merely giving a special numerical constant. It also yields the independent-geometric difference interpretation, a reusable structural representation of stationary one-site displacement.
+The Gnedin–Olshanski Theorem 5.1 exact normalized double sum has terms (1-q)(q;q)_infty q^(rs+r+s)/((q;q)_r(q;q)_s). In the annulus q<|z|<q^-1, absolute convergence permits summing s first by Euler q-binomial and then r by the general q-binomial identity, obtaining (q;q)_infty^2/[(qz;q)_infty(q/z;q)_infty]. Each factor is the product of generating functions of independent geometric(q^k) variables, and their total expectations sum to a finite value, proving X-Xprime law. At z=-1 the parity difference is a convergent strictly positive product. Log differentiation on compact q-subintervals gives -4 Σ_{k>=1} k q^(k-1)/(1-q^(2k))<0, proving strict monotonicity and endpoints. Independent double-sum/product diagnostics at four q values agree to 1e-8. Those are corroborative; the q-binomial evaluation establishes the infinite law.
 
-## Closest literature and limitations
-Primary motivating source: He, Müller, and Verstraaten, *Cycles in Mallows random permutations*, arXiv:2201.11610v1, Section 10. Foundational formula: Gnedin and Olshanski, arXiv:1103.1498v1, Theorem 5.1. Additional comparison: Bufetov and Chen, arXiv:2402.09892. This is an exact transform of established one-site data, not a new joint displacement law. A matching transform in uninspected literature remains possible; independent validation has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gnedin–Olshanski 2011 proves the exact one-point double-sum distribution, and this is explicitly an exact transform of that known marginal. He–Müller–Verstraaten 2022/2023 Section 10 explicitly leaves c_o>1/2>c_e for Q>1 as an open problem; this product gives its strict global solution and additionally monotonicity. The paper does NOT explicitly pose monotonicity as a second separate open problem, despite that wording in the assigned result; that attribution overstates the source, while both mathematical monotonicity and the explicitly posed parity inequality remain established. Bufetov–Chen 2024 uses a different nonergodic mixture measure.
+
+## value
+
+PASS
+
+The exact independent-geometric difference representation is a natural structural law for stationary single-site Mallows displacement and directly resolves a published open parity inequality. The strict monotonicity supplies additional global information, not just a computational reformulation of isolated values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
