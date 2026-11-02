@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Run `python3 verify.py` from the extracted package. The script uses standard-library `decimal` for locating finite beta-greedy digits, checks each produced beta-polynomial identity as an exact triple in the cubic integer ring, verifies the `111`-free condition, checks substitution-length and Parikh-vector identities, and directly compares canonical prefix decomposition for ten thousand lengths and five prefix-power examples. Expected final line: `TRIB_PREFIX_ABELIAN_PASS beta_expansions=200 canonical_prefix_tests=10000 parikh_examples=5`.
+# Independent mathematical audit
 
-The script checks sample inputs only. The all-\(k\) claim rests on the cited Frougny–Solomyak finiteness theorem, exact recurrence transfer and explicit induction; no finite experiment establishes property (F) or substitutes for an infinite proof. The published source's publisher full text was inaccessible, while its theorem statement was verified through a mathematical exposition. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Canonical no-111 Tribonacci length numeration yields exact prefix Parikh sums; finite greedy β-expansions of ordinary j via published multinacci finiteness criterion, and irreducible recurrence X³−X²−X−1, transfer coefficients to L_m and P_m without negative subscripts. Independently compared generated actual prefixes for m=6,…,8 and j up to 4, consistent with M(4)=6; finite checks do not prove all-k finiteness.
+
+## originality
+
+PASS
+
+Inspected closest same-object primary sources and Resultary semantic results for Tribonacci word prefix Abelian k powers substitution length beta expansions. Popoli–Shallit–Stipulanti 2024 classify additive-power orders and existence. Frougny–Solomyak 1992 beta-expansion finiteness is the established premise. The precise quantified original claim and its implication are not identical to those prior statements; a general or unindexed stronger covering theorem remains a stated risk.
+
+## value
+
+PASS
+
+For every fixed exponent, a cofinal natural sequence of prescribed prefix orders for Abelian powers is much more informative than generic existence somewhere in the word; the constructive β numeration provides a reusable prefix structure and explicit thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

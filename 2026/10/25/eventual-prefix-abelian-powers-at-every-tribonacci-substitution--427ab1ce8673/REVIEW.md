@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The prefix-concatenation lemma for binary digit strings avoiding `111` follows by induction from the three-block Tribonacci recurrence. The 1992 published Pisot-base finiteness criterion supplies finite admissible expansions of every positive integer; polynomial divisibility transfers these exact expansions to all three Parikh-vector coordinates. Difference of successive prefix identities proves the all-exponent theorem. The included checker replays extensive finite examples. It does not substitute for the cited infinite finiteness property.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The closest focal source is Popoli–Shallit–Stipulanti, arXiv:2410.02409, Section 5, especially Theorems 35–36 and Problem 37. It gives all orders for squares somewhere and algorithmic recognition for cubes, but not the exact all-\(k\) prefix-vector identities. Other inspected work on Pisot synchronizability and the original finiteness theorem supplies methods or premises, not the same statement. published-finding corpus and literature searches revealed no covering result. An unindexed equivalent, especially in Rauzy-fractal terminology, remains possible.
+PASS
 
-**Mathematical value — PASS.** For each exponent the theorem explicitly identifies a cofinal family of orders and the starting position of the powers, significantly narrowing a natural open arithmetic-combinatorial question. This is not a solution to the full characterization of all orders. Explicit thresholds are sufficient, not proven optimal.
+Canonical no-111 Tribonacci length numeration yields exact prefix Parikh sums; finite greedy β-expansions of ordinary j via published multinacci finiteness criterion, and irreducible recurrence X³−X²−X−1, transfer coefficients to L_m and P_m without negative subscripts. Independently compared generated actual prefixes for m=6,…,8 and j up to 4, consistent with M(4)=6; finite checks do not prove all-k finiteness.
 
-The original 1992 theorem's publisher full text was unavailable; its primary abstract and a mathematical exposition giving the precise condition were inspected. No independent mathematical audit was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected closest same-object primary sources and Resultary semantic results for Tribonacci word prefix Abelian k powers substitution length beta expansions. Popoli–Shallit–Stipulanti 2024 classify additive-power orders and existence. Frougny–Solomyak 1992 beta-expansion finiteness is the established premise. The precise quantified original claim and its implication are not identical to those prior statements; a general or unindexed stronger covering theorem remains a stated risk.
+
+## value
+
+PASS
+
+For every fixed exponent, a cofinal natural sequence of prescribed prefix orders for Abelian powers is much more informative than generic existence somewhere in the word; the constructive β numeration provides a reusable prefix structure and explicit thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
