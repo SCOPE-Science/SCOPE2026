@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The correct J=2 optimized source coefficient is 2^-2(2/3)=1/6; exact rational generating-function matching gives a cubic pole polynomial. For r<=4/5 a uniform Chebyshev bound proves every n>=3 weight positive and n<=2 direct; for 4/5<=r<=r_* Bernstein signs certify n<=30 except sixth and an analytic Chebyshev tail bound certifies n>=31. The sixth weight is exactly g(r)/46656 in normalized coordinates and supplies necessity through 15/16. For larger r, complex poles are strictly closer than the only real pole, and Pringsheim rules out nonnegative Taylor coefficients. The independent standard-library checker reruns 340 exact-rational finite certificates; infinity relies on the stated analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferrari 2026 Theorem 3.1 optimizes the source multistep coefficients with A-stability, but does not bound individual CQ Taylor coefficients.",
+        "Banjai 2022 CQ positivity theorem and Karaa 2024 Theorems 1 and 3 concern positive semidefinite quadratic forms.",
+        "The explicit present negative sixth weight above r_* supplies an A-stable-method counterexample to the implication A-stable => all lag weights nonnegative."
+      ],
+      "reasoning": "General stability/coercivity results are mathematically distinct and do not dominate an impulse response sign classification. Coefficientwise nonnegativity is stronger and requires the extra pole-geometry and rational interval analysis.",
+      "searches": [
+        "Matteo Ferrari Convolution quadrature based on a truncated trapezoidal rule first submitted July 2026 TTRJ c2 2/3",
+        "Samir Karaa positivity convolution quadratures nonconvex sequences complete primary text",
+        "BDF2 convolution quadrature exponential kernel 1/(s+lambda) positive weights sign changing threshold 1/2 step size h lambda sharp classification"
+      ]
+    },
+    "checked_sources": [
+      "Ferrari, arXiv:2607.11422 (complete accessible full text, §§2–5)",
+      "Banjai, arXiv:2203.00986 (complete accessible full text, §§4 and 6)",
+      "Karaa, doi:10.5802/crmath.669 (complete accessible full text, Theorems 1 and 3, §4)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ferrari’s c_2^2=2/3 is multiplied by 2^-2 in the TTR2 symbol, producing (1-z)^3/6.",
+        "A bilinear lower bound for a convolution quadratic form is not a coefficientwise positive impulse-response statement.",
+        "The source scheme remains A-stable for parameters beyond the threshold while its exponential-kernel lag sequence has a negative term, so A-stability cannot imply the present assertion."
+      ],
+      "reasoning": "Published method coefficient and CQ definitions supply the setup but not the exact all-index implication. The source theorems do not constrain every Taylor coefficient of the exponential resolvent, and related quadratic-form bounds do not entail individual nonnegative weights.",
+      "searches": [
+        "Ferrari arXiv:2607.11422 full text Theorem 3.1 and equations (1), (9)",
+        "Banjai arXiv:2203.00986 §4 Theorem 1 and §6",
+        "Karaa DOI:10.5802/crmath.669 Theorems 1 and 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "All-lag coefficientwise nonnegativity is equivalent to preserving nonnegative inputs under every finite causal discrete convolution.",
+        "Karaa 2024 and Banjai 2022 study positive-definite convolution quadratic forms, which do not imply every individual lag weight is nonnegative."
+      ],
+      "reasoning": "Equivalent statements about individual Taylor coefficient signs, positive impulse response and all nonnegative inputs were compared, not merely title matches. The quadratic-form positivity comparators concern distinct quantifiers and cannot imply the exact impulse-response threshold.",
+      "searches": [
+        "\"TTR2\" \"positive\" \"convolution quadrature\" weights",
+        "\"truncated trapezoidal\" \"nonnegative\" convolution weights exponential kernel",
+        "\"exponential kernel\" \"convolution quadrature\" \"positive weights\" BDF2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv:2607.11422 theorem tables list optimized method parameters and principal error constants, not an all-lag exponential-kernel positivity threshold.",
+        "The Karaa 2024 article tabulates lower bounds for quadratic-form positivity in fractional schemes, not the present quartic root."
+      ],
+      "reasoning": "No matching exact coefficient-sign table or formula was found in the checked primary literature. Absence from checked tables and search results is not considered definitive proof of novelty.",
+      "searches": [
+        "\"truncated trapezoidal\" \"nonnegative\" convolution weights exponential kernel",
+        "\"TTR2\" \"positive\" \"convolution quadrature\" weights",
+        "\"exponential kernel\" \"convolution quadrature\" \"positive weights\" BDF2"
+      ]
+    },
+    "rationale": "The exact-lag threshold for the resolvent of the optimized TTR2 cubic is not supplied by Ferrari’s general A-stability/accuracy theory, Banjai’s discrete coercivity theory or Karaa’s quadratic-form positivity. The checked literature does not state the quartic all-lag threshold for the fixed exponential kernel. Search incompleteness leaves historical-priority uncertainty.",
+    "residual_risks": [
+      "A previously unidentified specialized result on absolute monotonicity of rational functions or discrete exponential impulse responses could affect historical priority.",
+      "The claim concerns individual convolution weights, not positive definiteness of a convolution quadratic form; the literature uses the word positivity for both distinct notions.",
+      "Independent mathematical validation and comprehensive priority review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives c_2^{(2)}=2/3 and the 2^{-2} prefactor, hence the 1/6 cubic term, and treats A-stability/error/perturbation; does not state the all-lag sign threshold for K(s)=1/(s+lambda).",
+        "evidence": [
+          "Ferrari (2026), §2 equation (1) defines CQ coefficients through K(delta(z)/h)",
+          "Ferrari (2026), §3 equation (9), Theorem 3.1 and equations (13), (16) determine the optimized symbol",
+          "A-stability and error analysis do not imply positivity of Taylor coefficients of the resolvent"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.11422",
+        "material_read": "Full accessible HTML, introduction, §2 CQ definition, §3 equation (9) and Theorem 3.1, associated principal error estimates, §4 derivation and §5 applications",
+        "method": "Direct examination of complete accessible preprint text and its stated theorems, hypotheses and CQ formulation",
+        "title": "Convolution quadrature based on a truncated trapezoidal rule",
+        "trigger": "Exact optimized J=2 symbol and source paper potentially covering CQ weight properties"
+      },
+      {
+        "assessment": "Section 4 proves a bilinear/energy positivity property of CQ; Section 6 introduces a general truncated-trapezoidal polynomial; neither establishes nonnegative scalar exponential CQ coefficients at every lag nor the quartic threshold.",
+        "evidence": [
+          "Banjai (2022), §4 Theorem 1 is an inequality involving a sum of pairings of data with CQ outputs",
+          "Banjai (2022), §6 tunes multistep coefficients to A-stability and principal error, not coefficientwise impulse response positivity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.00986",
+        "material_read": "Full openly accessible text rendered at https://www.researchgate.net/publication/358975289_Implicitexplicit_BEMFEM_coupled_scheme_for_acoustic_waves_with_the_wave_equation_in_the_second_order_formulation, §4 convolution weights and Theorem 1, §6 polynomial method and numerical experiments",
+        "method": "Read full-text HTML of author preprint including CQ coefficient definition and the precise coercivity theorem",
+        "title": "Implicit/explicit, BEM/FEM coupled scheme for acoustic waves with the wave equation in the second order formulation",
+        "trigger": "Original source of truncated trapezoidal family and related CQ positivity notions"
+      },
+      {
+        "assessment": "Results concern positive-definiteness of convolution quadratic forms generated by sequences; this neither supplies nor dominates an exact positivity threshold for every lag weight of the J=2 truncated-trapezoidal exponential CQ.",
+        "evidence": [
+          "Karaa (2024), Theorem 1 proves lower bounds for sums over k,j of beta_(k-j) phi_j phi_k",
+          "Karaa (2024), Theorem 3 extends quadratic-form bounds to nearly convex sequences; this is not an entrywise weight-sign assertion"
+        ],
+        "identifier_or_url": "https://doi.org/10.5802/crmath.669",
+        "material_read": "Full text (eight published pages) accessible through https://www.researchgate.net/publication/386127070_Positivity_of_convolution_quadratures_generated_by_nonconvex_sequences; main inequalities, Theorem 1, Theorem 3 and §4 examples",
+        "method": "Inspected definitions, nonnegative/convex sequence assumptions, quadratic form conclusions and BDF2 applications",
+        "title": "Positivity of convolution quadratures generated by nonconvex sequences",
+        "trigger": "Potentially equivalent prior positivity theorem with BDF2 convolution applications"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0667c094-ef1b-4b4f-b8d4-3d7167a082c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positive memory kernels applied to nonnegative discrete forcing motivate nonnegative impulse weights. The exact finite step-size bound determines when this stronger positivity survives for an A-stable higher-accuracy scheme; it is an intrinsic method/kernel property and improves the BDF2 admissible normalized step by a factor 2r_* approximately 1.8664. The endpoint sixth-weight phenomenon and universal larger-step obstruction are nontrivial; no general PDE or arbitrary-kernel significance is asserted.",
+    "status": "PASS"
+  }
+}
