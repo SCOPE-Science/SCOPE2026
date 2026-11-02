@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For strictly positive substrate, free enzyme, binding and catalytic parameters (and nonnegative dissociation), the two equilibrium LNAs have explicitly derived stable drift and diffusion matrices. Their exactly inverted substrate PSDs differ by a rational function with numerator -d ω⁴+B ω²+C₀, B,C₀>0, and strictly positive denominators. A concave quadratic in squared frequency has precisely one positive zero if d>0 and no nonnegative zero if d=0. This analytically proves the complete sign classification; a separate symbolic residual check is exactly zero, 1,200 independently constructed resolvent checks and 100 independent covariance-Lyapunov checks yielded 5,000 successful numerical comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thomas et al. 2012 general LNA and ssLNA framework, https://doi.org/10.1186/1752-0509-6-39",
+        "Marmolejo Lozano et al. 2025 spectral matrix Eq. (6), V.1 and Appendix C, https://arxiv.org/html/2510.27600v1",
+        "Eilertsen et al. 2021 abstract, https://arxiv.org/abs/2101.04814"
+      ],
+      "reasoning": "General OU matrix-spectrum identities include the data needed to calculate spectra, but do not themselves establish the parameter-uniform sign, root count, or the sharp zero-dissociation boundary. The inspected slow-scale-reduction results concern asymptotic validity and a different reduced-noise scheme; the theorem instead compares full and conventional heuristic models at every real frequency without assuming time-scale separation.",
+      "searches": [
+        "general slow-scale linear noise approximation frequency spectra chemical networks Thomas Straube Grima",
+        "2025 enzyme catalysis substrate product coherence reduction spectra",
+        "Eilertsen Srivastava Schnell stochastic enzyme kinetics Fenichel slow scale LNA"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1110.6617",
+      "doi:10.1186/1752-0509-6-39",
+      "arxiv:2510.27600",
+      "arxiv:2101.04814"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 paper establishes an integrated substrate variance overestimate.",
+        "The 2025 paper analyses normalized cross-coherence and mutual-information rate rather than the signed difference of two free-substrate auto-spectra.",
+        "The present proof obtains an explicit signed quartic-in-frequency numerator whose root count depends sharply on dissociation."
+      ],
+      "reasoning": "An integral inequality cannot imply pointwise spectral dominance or a unique sign reversal: positive and negative frequency contributions may cancel. Cross-coherence is a quotient of cross- and auto-spectra, and its frequency dependence likewise does not determine the sign of the difference of the two substrate auto-spectra. The present comparison requires an additional exact subtraction and nontrivial all-parameter coefficient positivity check.",
+      "searches": [
+        "arxiv:1110.6617 variance comparison",
+        "doi:10.1186/1752-0509-6-39 spectral LNA",
+        "arxiv:2510.27600 substrate and product coherence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Thomas et al. 2011 Eq. (1) and variance discussion, https://arxiv.org/html/1110.6617v1",
+        "Marmolejo Lozano et al. 2025 Sections II, V.1, Appendix C.1, https://arxiv.org/html/2510.27600v1"
+      ],
+      "reasoning": "The equivalent comparison can be expressed as the sign of the difference of two substrate autocovariance Fourier transforms or as a unique positive zero of a signed rational response difference. The inspected 2011 article compares integrated variances, and the 2025 paper compares coherence between two observables, not this scalar auto-spectrum sign classification.",
+      "searches": [
+        "\"open Michaelis-Menten\" \"noise power spectrum\" heuristic full crossing",
+        "arxiv:1110.6617",
+        "arxiv:2510.27600"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first public exact-model source is arXiv:1110.6617, 30 October 2011; it tabulates variance comparison rather than crossover frequencies.",
+        "The 2012 open-access slow-scale article provides modeled covariances and stochastic simulation comparisons, without an exact frequency crossing table."
+      ],
+      "reasoning": "An explicit crossover table or exact indexed classification for this full-versus-heuristic substrate PSD was not identified in the checked research literature. This negative search is not a proof of novelty, so residual priority risk remains.",
+      "searches": [
+        "\"stochastic quasi steady state\" \"spectral crossover\" Michaelis Menten",
+        "\"Michaelis Menten\" \"power spectral density\" heuristic full noise comparison",
+        "Thomas Straube Grima original open Michaelis Menten 2011 2012"
+      ]
+    },
+    "rationale": "The 2011 Thomas–Straube–Grima source gives an integrated substrate-variance overestimate, not a signed frequency-local full-LNA/hQSSA auto-spectrum comparison. The 2012 article provides spectral resolvent methodology and slow-scale reduction, not the all-parameter unique-crossing theorem. The 2025 Marmolejo Lozano–Popović–Grima paper provides general spectra and analyses substrate–product coherence/MI in an extended network, not an explicit substrate auto-spectrum sign reversal, uniqueness cutoff, or dissociation-zero exception. The signed rational factorization and positivity arguments are additional to these premises, rather than a mere restatement of any inspected prior conclusion. Claim of historical priority is provisional.",
+    "residual_risks": [
+      "Historical priority has not been independently certified; a general two-dimensional Ornstein–Uhlenbeck spectral comparison theorem might entail this specialization.",
+      "Only the abstract of the Eilertsen–Srivastava–Schnell geometric-reduction paper was directly accessible.",
+      "The recent 2025 paper contains broad spectral-matrix identities for an extended model, and further literature may carry unrecognized equivalent implications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes variance gap and physical network, not pointwise spectral sign or unique frequency crossing",
+        "evidence": [
+          "Reaction scheme Eq. (1), reduced process Eq. (3), text concerning variance relative error and its numerical validation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1110.6617v1",
+        "material_read": "Full HTML main text, reaction (1), reduced reaction (3), variance comparison and appendix definitions",
+        "method": "Direct open-access full-text inspection and formula/implication comparison",
+        "title": "Limitations of the stochastic quasi-steady-state approximation in open biochemical reaction networks",
+        "trigger": "Exact same full and heuristic enzyme network; strongest possible direct antecedent"
+      },
+      {
+        "assessment": "Provides the LNA machinery and comparisons of noise amplitude; no explicit all-parameter crossover theorem between full and heuristic substrate auto-spectra",
+        "evidence": [
+          "Background and Methods, Michaelis–Menten case, power-spectrum treatment and stochastic model reduction comparison"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1752-0509-6-39",
+        "material_read": "Full open-access HTML, methodological spectral sections and enzyme model results",
+        "method": "Full-text scientific comparison of reduced matrix dynamics and spectral claims",
+        "title": "The slow-scale linear noise approximation: an accurate, reduced stochastic description of biochemical networks under timescale separation conditions",
+        "trigger": "General spectra for enzyme networks and corrected reduction"
+      },
+      {
+        "assessment": "Treats information transfer and coherence in an enzyme network extended by product removal; does not give the unique scalar substrate PSD sign crossing or dissociation-free classification. General matrix formulas are acknowledged as background.",
+        "evidence": [
+          "Equation (6) general PSD matrix; Section V.1 reaction scheme and coherence comparisons; Appendix C.1 full/heuristic LNA definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.27600v1",
+        "material_read": "Full HTML sections II–V, especially Section V.1 and Appendix C.1, including displayed spectral matrices and coherence statements",
+        "method": "Direct full-text implications comparison of substrate auto-spectrum versus substrate–product cross-coherence",
+        "title": "Effects of Model Reduction on Coherence and Information Transfer in Stochastic Biochemical Systems",
+        "trigger": "Explicitly studies spectral full-versus-reduced enzyme network, potentially dominating"
+      },
+      {
+        "assessment": "Focus is ssLNA geometric validity and loss of normal hyperbolicity, not an apparent scalar spectral sign theorem; unresolved full-text priority risk",
+        "evidence": [
+          "ArXiv abstract describes Fenichel reduction and stochastic QSSA validity, without an auto-spectrum crossing statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.04814",
+        "material_read": "Abstract only; full text was not accessible in the examined web representation",
+        "method": "ArXiv abstract and bibliographic assessment; no whole-document noncoverage claim",
+        "title": "Stochastic enzyme kinetics and the quasi-steady-state reductions: Application of the slow scale linear noise approximation à la Fenichel",
+        "trigger": "Related rigorous geometric Michaelis–Menten stochastic reduction possibly broader"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4e1c15f-dff2-476f-8ff5-a2454493e4c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural, previously published biochemical question was whether stochastic-QSSA variance estimates are faithful. The exact signed spectral result strengthens that context in a materially distinct direction: an integrated overestimate hides a unique high-frequency underestimate when dissociation is positive. It yields an explicit physically interpretable crossover and the sharp k1=0 boundary, identifying which frequency ranges can be biased in opposite directions. That information is relevant to frequency-resolved fluctuation measurements and to diagnosing the limits of reduced biochemical kinetics, while carefully delimiting the high-frequency physical validity of the Gaussian models.",
+    "status": "PASS"
+  }
+}
