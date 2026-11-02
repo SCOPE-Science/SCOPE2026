@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The finite type recursion is exactly the quantifier-rank/back-and-forth recursion; the 19-form extension reduction is exhaustive for the named-zero ternary addition relation. Exact fraction arithmetic produces the 60/46/93 arrangement certificate and isolates all exceptional primes below 193. Direct finite type computation gives the stated 35 classes and an independent orbit-free enumeration corroborates low primes. The unusual separation at 157 and 191 follows from nested extension profiles, rather than a fixed four-element closed binder. A published lower-bound claim is in tension with the result, which is a priority target for independent verification.
+
+**Originality — PASS, qualified.** Inspected primary literature gives general depth bounds and binder techniques but not the exact 35-class rank-four partition. Gomaa's 2007 Theorem 3.3 actually predicts a conflicting lower bound for large prime pairs. Its binder reduction does not account for arbitrary alternating strategies that distinguish families of extensions. Earlier rank-three findings and related addition-chain improvements do not imply this rank-four partition. A precise prior statement encompassing the classification was not found; the published contradiction and unpublished manuscript citations remain residual risks.
+
+**Value — PASS.** The classification identifies all exceptional prime characteristics visible at exactly four quantifiers, a sharp finite representative bound of 191 elements, and two unexpected isolated primes beyond a long stable-looking region. It also isolates a concrete question about the adequacy of closed-binder arguments in relational-group EF games. Exact bounded-depth classification, rather than a routine bound increment, is the mathematical contribution.
+
+Self-review: passed. Independent audit: not yet performed.
