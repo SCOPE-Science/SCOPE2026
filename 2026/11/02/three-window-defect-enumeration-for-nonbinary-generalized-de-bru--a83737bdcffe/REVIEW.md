@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (C): PASS
+The claim specifies labeled alphabets, order, cyclic windows, and rotation equivalence. A necklace with all distinct windows induces a balanced three-edge deletion in the de Bruijn graph. Exactly the four listed cycle types occur for orders at least three, with an order-two boundary classification. The directed matrix-tree determinant is reduced to dimensions at most three; the overlap-length-one collision for period-three repeated-symbol cycles is explicitly included. The positive cofactors give connected Eulerian deletion graphs. The BEST theorem then supplies the necklace count. All 212 admissible deletion sets across six concrete parameter pairs were independently checked by full graph cofactors, and the ternary order-two count was separately verified by direct word enumeration.
+
+## Originality (O): PASS, with residual risk
+The relevant published generalized de Bruijn treatment by Gabric--Holub--Shallit supplies the factor-complexity characterization and finite tables but explicitly leaves general near-power exact enumeration open. Chen--Kitaev--Sun give existence probabilities and two-deletion results, not an exact number of necklaces for every three-edge deletion type. Nellore--Ward count a more restrictive class in finite cases and ask a distinct enumerative question; their construction does not imply the present formula. Classical BEST/matrix-tree identities alone do not imply the four parameter-dependent correction factors without the cycle-overlap calculation. Direct scholarly searches and relevant mathematical-record searches found no statement implying this theorem. Residual risk: a less-visible formula for partial de Bruijn cycles, especially older feedback-shift-register literature, might cover an equivalent family. The ternary order-two value 20 is already tabulated; it is a boundary consistency check rather than an independently claimed discovery.
+
+## Mathematical value (V): PASS
+Gabric--Holub--Shallit identify exact counting outside complete de Bruijn lengths as a genuine open problem, even near powers, and report only isolated finite data. The present theorem resolves the next nontrivial defect size of three over every nonbinary alphabet and order, partitions all allowable missing patterns, and gives closed rational correction factors dependent on short periodic correlations. The repeated-symbol period-three correction is structural rather than a routine substitution into a known two-defect answer. It supplies an exact infinite family rather than a single enumerated instance.
+
+## Scope and limits
+The theorem excludes binary alphabets and defect sizes other than three. It counts generalized de Bruijn necklaces, not necessarily Nellore--Ward multiplicity-balanced necklaces. Mathematical proof is distinct from finite verification. An independent expert audit and comprehensive unpublished-literature clearance have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
