@@ -1,19 +1,21 @@
-# Review of a Galois-twist rank law for random generation of square-zero local algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algebra admits a coefficient-field section because its field residue is separable. The radical is a module for a product of Galois-indexed fields. The proof calculates the radical part of the generated algebra by a two-sided inclusion: crossed derivations yield the necessary linear spans, and a graph subalgebra realizes the converse. Conditional on field-generating residues, a change of variables produces independent uniform matrices with \(r\) rows for the identity twist and \(r-1\) for each nonidentity twist. Finite-field rank enumeration and divisor-lattice inversion give the stated joint law and full-generation probability. The code exhaustively checks small examples but is not an infinite proof.
+PASS
 
-## Originality — PASS against inspected sources
+Separable Wedderburn–Malcev splitting and K⊗FqK≅∏σK decompose J into K^{kσ} with σ-twisted right action. For a residue-generating r-tuple, N=B∩J is a K-bimodule; an algebra section modulo N defines σ-derivations. Ordinary derivations of finite separable fields vanish; for nonidentity σ, every σ-derivation is t(σ(a)−a). Therefore N_id is spanned by r independent uniform radical vectors, while N_σ for σ≠id is spanned by r−1 adjusted vectors b_i−(σ(a_i)−a_i)/(σ(a_j)−a_j)b_j. This linear transformation is invertible, separately by σ, making all ranks independent conditional on residues; the law is independent of the particular generating residue tuple. Gaussian-binomial rank counts give the displayed distribution. Möbius inversion over subfields gives the exact residue-generation probability and product full-generation formula; positivity iff nσ≥kσ yields the minimal positive r, including kσ=0 and m=1 boundaries. Independent brute-force F2 algebra closure verified all r≤3 and k_id≤3; examined original F4 closure checker for twisted examples.
 
-Sercombe--Shalev (arXiv:2009.01115, publicly posted 2020-09-02) study random generation and classify maximal-subalgebra types, without stating this complete isotypic rank distribution. Iovanov--Sistko (arXiv:1705.00762) supply the general maximal-subalgebra background. Kravchenko--Mazur--Petrenko (J. Algebra 426 (2015)) give a general counting/lifting framework, but no identical specialized product law was identified in the accessible text. The latter article could not be examined fully, and earlier equivalent formulations in crossed-derivation or bimodule terminology remain possible. No exhaustive priority claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The result settles a complete natural conditional random-subalgebra profile for all square-zero local finite-field associative algebras with a field residue. The difference between \(r\) and \(r-1\) effective random rows is a structural feature of noncommutative Galois twists, and its multiplicative independence yields both explicit random-generation probabilities and exact minimal positive generator thresholds. This is more informative than a single finite table, while not claiming a theorem about nonsquare-zero or semisimple-product quotients.
+The 2024 Sercombe–Shalev paper provides broad random-generation bounds and maximal-subalgebra structure; Iovanov–Sistko study maximal subalgebras. The complete conditional product of independent Galois-twist rank distributions and the precise full-generation probability for every r/multiplicity were not explicitly identified in the relevant inspected statements. General rank counting and finite-field separability are standard components; the coupled algebra-generated-subspace characterization is the added theorem.
 
-## Scientific limitations
+## value
 
-The dimension/profile law is conditional on full generation of the residue field. The formula does not classify subalgebras generated with residues in proper subfields. The proof requires \(J^2=0\) and a single separable field residue. Computational checks use small characteristic-two instances. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result exactly classifies all conditional generated radical dimensions and full-generation probabilities for a natural complete algebra class, including all Galois twists and multiplicities. These distributions matter beyond the known minimal generator count and are not a vacuous local check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

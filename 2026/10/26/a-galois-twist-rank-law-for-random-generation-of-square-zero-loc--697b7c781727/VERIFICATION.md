@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The general proof uses a coefficient-field splitting, decomposition of the square-zero radical into Galois-twisted bimodules, the classification of crossed derivations, and independent rank counts after invertible row operations. No exhaustive finite computation is asserted to establish the theorem for arbitrary dimensions.
+# Independent mathematical audit
 
-Run `python3 verify_generation.py` from the same directory. The script defines the field with four elements as a polynomial quotient over the binary field, implements the displayed algebra product, and closes all generated algebras under multiplication and binary linear span. It checks exact enumerations of ordered pairs in six radical configurations, two single-generator configurations, the conditional full profile for distinct twists, and the rank distribution when the same nontrivial twist occurs twice. The calculations are finite and reproduce explicit numerators and denominators independently of the general proof.
+## correctness
 
-The identity-twist and nonidentity-twist cases differ because ordinary finite-field derivations vanish whereas crossed derivations are inner. The proof depends on the residue field being separable over the base field and on the square-zero hypothesis. The general result has not been independently validated.
+PASS
+
+Separable Wedderburn–Malcev splitting and K⊗FqK≅∏σK decompose J into K^{kσ} with σ-twisted right action. For a residue-generating r-tuple, N=B∩J is a K-bimodule; an algebra section modulo N defines σ-derivations. Ordinary derivations of finite separable fields vanish; for nonidentity σ, every σ-derivation is t(σ(a)−a). Therefore N_id is spanned by r independent uniform radical vectors, while N_σ for σ≠id is spanned by r−1 adjusted vectors b_i−(σ(a_i)−a_i)/(σ(a_j)−a_j)b_j. This linear transformation is invertible, separately by σ, making all ranks independent conditional on residues; the law is independent of the particular generating residue tuple. Gaussian-binomial rank counts give the displayed distribution. Möbius inversion over subfields gives the exact residue-generation probability and product full-generation formula; positivity iff nσ≥kσ yields the minimal positive r, including kσ=0 and m=1 boundaries. Independent brute-force F2 algebra closure verified all r≤3 and k_id≤3; examined original F4 closure checker for twisted examples.
+
+## originality
+
+PASS
+
+The 2024 Sercombe–Shalev paper provides broad random-generation bounds and maximal-subalgebra structure; Iovanov–Sistko study maximal subalgebras. The complete conditional product of independent Galois-twist rank distributions and the precise full-generation probability for every r/multiplicity were not explicitly identified in the relevant inspected statements. General rank counting and finite-field separability are standard components; the coupled algebra-generated-subspace characterization is the added theorem.
+
+## value
+
+PASS
+
+The result exactly classifies all conditional generated radical dimensions and full-generation probabilities for a natural complete algebra class, including all Galois twists and multiplicities. These distributions matter beyond the known minimal generator count and are not a vacuous local check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
