@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T18:48:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md tree 557ba4fbe00e810b5344caf85723e9988f34cbbe",
+        "Source finite-field verifier blob 2e351682875eea9b32db2b76d1ce23a839ca69d3",
+        "Independent GF(2) matrix enumeration n=2,3 and exact Gaussian arithmetic n=4"
+      ],
+      "rationale": "Fix E and conjugate to diag(I_r,0); writing F=[A B;C D], (EF)^2=EF forces A^2=A, AB=B. With T=im A, L=ker A, expand F^2=F to BC_T=BC_L=BD=DC_T=0, DC_L=C_L and D^2+C_TB=D. Then D^3=D^2 and D^2 is a projection giving a unique splitting W=H⊕K; maps C_T:T→K, B:K→T satisfy BC_T=0, C_L:L→H arbitrary. Conversely D=I_H⊕C_TB reconstructs all equations. The map F has rank t+dim H. Count splittings by Gaussian coefficient q^{hk}, C_L by q^{h(r-t)}, (C_T,B) via rank-j sum Z. This proves exact count with no overcounting and commuting specialization B=C=0. Independent complete GF(2) brute-force ranks of ordered idempotent pairs for n=2,3 agree all strata (58 and 2608 qualifying), and integer formula sums n=4 to 375244. The algebra proves all prime-power fields, not finite enumeration.",
+      "residual_risks": [
+        "Counts ordered labeled pairs, not similarity orbits nor prescribed individual-product fibers; finite checks do not establish characteristic-uniform result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alahmadi et al Section 4 gives real nonnegative rank-one two-factor conditions rather than all-rank finite-field counts",
+          "Erdős all-field singular factorization allows an arbitrary number of factors"
+        ],
+        "reasoning": "These broader settings cover existence but not enumeration by ordered factor ranks and rank EF with exact q-dependent multiplicities. The uniform all-q formula is not a direct substitution into their product existence results.",
+        "searches": [
+          "Alahmadi Jain Leroy Sathaye 2015 Decompositions into products of idempotents rank one",
+          "Erdos 1967 full theorem",
+          "Laffey 1983 existence Euclidean rings"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0017089500000173 full 5-page PDF",
+        "DOI:10.13001/1081-3810.2948 full primary 15-page author PDF",
+        "DOI:10.1080/03081088308817567 accessible abstract only",
+        "Resultary finite-field idempotent-factorization search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Erdős: each singular matrix factors as product of idempotents; no prescribed exactly-two factor rank distribution",
+          "Alahmadi 2015: when rank-one nonnegative M is factorable into two real nonnegative projectors"
+        ],
+        "reasoning": "Every count implies some existence in each feasible stratum; no converse from existence/factorability to multiplicities. The block splitting D² and BC_T=0 are genuinely required. Laffey abstract cannot justify a whole-document absence statement.",
+        "searches": [
+          "Erdos On products of idempotent matrices Theorem",
+          "Alahmadi et al 2015 Theorem 4.2",
+          "Laffey 1983 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erdős 1967 theorem factors any singular matrix into an unspecified number of idempotents, not this two-factor rank census",
+          "Resultary closest exact fibers are idempotent–nilpotent factorizations of 2x2 matrices, a different factor property"
+        ],
+        "reasoning": "An idempotent product is weaker than commuting and stronger than an arbitrary product. Its three simultaneous ranks have a new finite-field zero-product parametrization. Classical existence of factorizations is not an equivalent enumeration.",
+        "searches": [
+          "Resultary: ordered pairs idempotent matrices E F with EF idempotent finite field joint ranks enumeration commuting zero-product Gaussian",
+          "\"EF idempotent\" \"idempotents\" \"rank\" finite field count",
+          "Erdos 1967 products of idempotents",
+          "Laffey 1983 product of idempotent matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary close record counts idempotent–nilpotent pair fibers in dimension two",
+          "Published Gaussian binomial counts I_q(n,r) give single-idempotent distributions; commuting pair count is easier product I_q(n,r)I_q(r,t)I_q(n-r,h)"
+        ],
+        "reasoning": "Neither single-idempotent tables nor commuting-only strata determine the extra noncommuting zero-product correction Z_q(t,k). The resulting all-(n,q,r,s,t) formula is not a finite database transcription.",
+        "searches": [
+          "Resultary idempotent product rank distribution enumeration finite fields",
+          "commuting idempotent matrices rank stratum Gaussian binomial",
+          "finite semigroup matrix idempotent two factor table"
+        ]
+      },
+      "rationale": "Closest primary work treats existence of unspecified idempotent factorizations and rank-one nonnegative real two-factor decompositions, not the full three-rank GF(q) count with EF idempotent. Known commuting-pair formulas are a special lower-dimensional subcount; Z correction is substantive. Full Laffey text remains inaccessible but abstract explicitly targets Euclidean-ring existence.",
+      "residual_risks": [
+        "Laffey (1983) full article unavailable; Oxford authorized access attempt returned storage-limit error, not full text.",
+        "Potential equivalent combinatorial enumeration in older idempotent semigroup literature, under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows every singular matrix is a product of an unspecified number of idempotents, not counts of ordered pairs E,F with EF idempotent and three prescribed ranks",
+          "evidence": [
+            "Page 118 theorem states every singular square matrix factors into idempotents; pages 119–121 give two existence constructions"
+          ],
+          "identifier_or_url": "DOI:10.1017/S0017089500000173; https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D7F71F46E6BC063800B8BB17209B4A06/S0017089500000173a.pdf/on_products_of_idempotent_matrices.pdf",
+          "material_read": "All five primary PDF pages, theorem statement and induction/rational-canonical-form constructions, including page screenshot",
+          "method": "Lawful publisher-hosted open PDF and page image",
+          "title": "On products of idempotent matrices",
+          "trigger": "Original matrix idempotent factorization theorem potentially implying finite-field rank census"
+        },
+        {
+          "assessment": "Existence in rings and factorization of nonnegative real matrices; does not contain a finite-field three-rank joint count",
+          "evidence": [
+            "Section 4, Lemma 4.1 and Theorem 4.2 characterize nonnegative real rank-one factorizations, not counts over finite fields",
+            "Sections 2–3 discuss regular/Euclidean ring existence"
+          ],
+          "identifier_or_url": "DOI:10.13001/1081-3810.2948; https://people.ohio.edu/jain/Decompositions-idempotents.pdf",
+          "material_read": "Complete fifteen-page PDF structure, abstract, Section 1, ring existence theorems and Section 4 nonnegative rank-one two/three-factor characterization; PDF first page inspected",
+          "method": "Lawful primary author-hosted PDF text and page image",
+          "title": "Decompositions into products of idempotents",
+          "trigger": "Full modern primary treatment of two-idempotent factorization"
+        },
+        {
+          "assessment": "Abstract extends existence theorems to division/Euclidean rings; complete text unavailable, so no whole-document exclusion claimed",
+          "evidence": [
+            "Publisher abstract states that every singular matrix over a Euclidean ring is a product of idempotents"
+          ],
+          "identifier_or_url": "DOI:10.1080/03081088308817567",
+          "material_read": "Publisher bibliographic entry and complete accessible abstract; full paper unavailable; authorized institutional attempt failed storage limit",
+          "method": "Publisher OA abstract and institutional authorized access attempt (no bypass)",
+          "title": "Products of idempotent matrices",
+          "trigger": "Classical potentially relevant Laffey paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact reversible D² decomposition in RESULT.md",
+        "Independent GF(2) full rank-stratum census n<=3",
+        "Comparison with Erdos and Alahmadi existence-only theorems"
+      ],
+      "rationale": "Joint ranks of two idempotents and their idempotent product give natural statistics on a noncommutative algebraic locus over all finite fields. The formula separates the commuting locus by an exact multiplicative correction from arbitrary noncommuting pairs. The reversible block decomposition and whole-parameter Gaussian-binomial census supply a useful complete classification beyond textbook counting of single projections.",
+      "residual_risks": [
+        "Does not treat orbit structure, >2 products, individual product fibers, or asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For labeled ordered idempotents E,F in M_n(F_q) with EF also idempotent, full joint rank count N(r,s,t)=I_q(n,r)I_q(r,t)[n-r choose s-t]_q q^{(s-t)(n-r-s+t)+(s-t)(r-t)} Z_q(t,n-r-s+t), and commuting subcount I_q(n,r)I_q(r,t)I_q(n-r,s-t), for precisely the feasible ranks.",
+  "limitations": [
+    "Odd/nonprime finite-field cases follow from field-linear proof, not checked exhaustively.",
+    "Laffey complete primary article not retrievable via available authorized capacity; priority qualifier retained."
+  ],
+  "schema_version": 1
+}

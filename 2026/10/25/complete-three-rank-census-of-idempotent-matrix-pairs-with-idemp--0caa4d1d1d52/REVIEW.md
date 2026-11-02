@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For a fixed idempotent first factor, the off-diagonal block equations follow from direct multiplication. The canonical splitting by the idempotent \(D^2\) is unique and reversible; this yields a zero-product matrix-pair enumeration for which the Gaussian coefficient formula is derived. The image of the second factor is explicitly determined, proving its rank. Both boundary cases and the commuting specialization follow from the same construction. A standalone exhaustive verifier has replayed the full enumeration for finite fields of orders \(2,3,4,5\), including degree four over the binary field. Finite tests are corroboration, not the general proof.
+## correctness
 
-**Originality — PASS, best knowledge with documented risk.** Erdős (1967) and Alahmadi–Jain–Leroy–Sathaye (2015) discuss existence of idempotent factorizations; the inspected results do not imply the three-rank finite-field count. The closest published database hits count idempotent–nilpotent or other distinct factorization types. The earlier set-transformation enumeration is not a vector-space count. The full text of Laffey (1983) was inaccessible, so its potential implicit coverage remains a historical-priority risk; a failed search is not a proof of novelty.
+PASS
 
-**Value — PASS.** The simultaneous factor and product ranks are intrinsic structural parameters of a natural idempotent-product locus in a classical finite linear monoid. A complete closed formula for every field and dimension gives an exact noncommuting-versus-commuting ratio and handles genuinely noncommuting strata rather than a routine marginal single-idempotent count.
+Fix E and conjugate to diag(I_r,0); writing F=[A B;C D], (EF)^2=EF forces A^2=A, AB=B. With T=im A, L=ker A, expand F^2=F to BC_T=BC_L=BD=DC_T=0, DC_L=C_L and D^2+C_TB=D. Then D^3=D^2 and D^2 is a projection giving a unique splitting W=H⊕K; maps C_T:T→K, B:K→T satisfy BC_T=0, C_L:L→H arbitrary. Conversely D=I_H⊕C_TB reconstructs all equations. The map F has rank t+dim H. Count splittings by Gaussian coefficient q^{hk}, C_L by q^{h(r-t)}, (C_T,B) via rank-j sum Z. This proves exact count with no overcounting and commuting specialization B=C=0. Independent complete GF(2) brute-force ranks of ordered idempotent pairs for n=2,3 agree all strata (58 and 2608 qualifying), and integer formula sums n=4 to 375244. The algebra proves all prime-power fields, not finite enumeration.
 
-**Limits and sources.** See RESULT.md and AUDIT.json for full comparison. Only labeled pairs with idempotent product are classified; no orbit classification, longer products, or independent mathematical validation is claimed. Relevant primary references are Erdős (1967), Laffey (1983; abstract only), and Alahmadi et al. (2015).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest primary work treats existence of unspecified idempotent factorizations and rank-one nonnegative real two-factor decompositions, not the full three-rank GF(q) count with EF idempotent. Known commuting-pair formulas are a special lower-dimensional subcount; Z correction is substantive. Full Laffey text remains inaccessible but abstract explicitly targets Euclidean-ring existence.
+
+## value
+
+PASS
+
+Joint ranks of two idempotents and their idempotent product give natural statistics on a noncommutative algebraic locus over all finite fields. The formula separates the commuting locus by an exact multiplicative correction from arbitrary noncommuting pairs. The reversible block decomposition and whole-parameter Gaussian-binomial census supply a useful complete classification beyond textbook counting of single projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
