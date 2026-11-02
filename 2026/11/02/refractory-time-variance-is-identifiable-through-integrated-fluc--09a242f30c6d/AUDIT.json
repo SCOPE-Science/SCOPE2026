@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Exact stationary AR(1) endpoint solution; exact cycle reward; corrected martingale difference; independently checked all Brownian/exponential moments; fourth-moment renewal-time boundary control and martingale CLT; symbolic rational identity and independent exponential-refractory Markov-Poisson cross-check; nine cycle-level and three physical-time sampled validation cases. No finite test is used to infer a global theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "García-Valladares et al. discuss resetting to a given fixed position and first-passage outcomes, not a multiplicative reset with nontrivial location memories.",
+        "Di Bello et al. derive one-time PDFs for partial resetting without pause phases.",
+        "Generic renewal-reward CLTs are methodological ingredients, rather than a model-specific variance/identification formula.",
+        "Olsen–Löwen arXiv:2401.12685, section 4, handles a different definition of partial reset: only velocity is reset, while observed position remains continuous and unreset. Its long-time effective diffusion cannot be substituted for the stationary position path-area rate."
+      ],
+      "reasoning": "At complete resetting the clock-variance coefficient is zero, so results assuming a fixed target reset point cannot imply the strictly positive slope for 0<a<1 by specialization. Conversely, pause-free models cannot vary pause variance at fixed mean. General Markov-additive martingale theory could provide an alternative proof but would still require the exact model-specific computation; this remains a publication-priority risk.",
+      "searches": [
+        "Deterministic refractory times minimize zero-frequency fluctuations of partially resetting Brownian motion at fixed mean refractory time",
+        "Stolevik Olsen Lowen 2024 partial stochastic resetting refractory periods integrated Brownian displacement Green Kubo",
+        "Renewal reward Brownian AR1 random pauses stationary histogram identical but temporal integral variance distinguishes pause laws",
+        "arxiv:2310.19913 complete resetting with refractory",
+        "arxiv:2305.13722 partial resetting without refractory"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2406.10039v1",
+      "arxiv:2305.13722",
+      "arxiv:2310.19913 (partial access)",
+      "arxiv:2205.03363 (abstract)",
+      "arxiv:2401.12685 (full HTML text, especially sections 3–5)",
+      "arxiv:2202.02715 (abstract and stated first-passage scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Olsen–Löwen one-time stationary characteristic functions coincide at fixed pause mean; they contain no calculation of the variance of a time-integrated position observable.",
+        "Here distinct clock laws with identical static laws yield distinct exact area rates and a unique inversion for clock variance."
+      ],
+      "reasoning": "A stationary one-time distribution, even including all its spatial cumulants, cannot determine the covariance integral without temporal information. No broader result in the materially inspected sources directly supplies this unique positive clock-variance coefficient or complete attainable range.",
+      "searches": [
+        "arxiv:2406.10039v1 full primary text sections III–V, appendices",
+        "Partial stochastic resetting refractory Brownian stationary integrated-position fluctuation variance depends on variance of frozen waiting times deterministic pause minimizes noise",
+        "Renewal reward Brownian AR1 random pauses stationary histogram identical but temporal integral variance distinguishes pause laws"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Olsen–Löwen equations (30)–(33) and (46)–(49) classify the spatial one-time law, not integrated-path covariance",
+        "The new rate is the zero-frequency position spectrum (Green–Kubo integral), equivalently the asymptotic signed path-area variance."
+      ],
+      "reasoning": "The one-time marginal fixes neither temporal dependence nor area variance; explicit fixed-vs-exponential pause laws with the same stationary marginal yield different rates 31/3 versus 32/3. Search covered covariance, Green–Kubo, zero-frequency and renewal-reward aliases.",
+      "searches": [
+        "Partial stochastic resetting with refractory periods: exact long-time variance of integrated position, renewal reward AR(1) covariance and dependence on refractory waiting time variance",
+        "Diffusion reset to fraction of position with immobile refractory durations: stationary time correlation zero frequency spectral density integrated displacement",
+        "Olsen Lowen 2024 partial resetting with refractory cycles time-averaged displacement covariance, exact zero-frequency spectrum",
+        "arxiv:2406.10039v1 sections IV–V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Singh and Pal, arXiv:2202.02715, study first-passage Brownian additive functionals before absorption with complete resetting; the signed area until target hit is not the stationary integrated-position variance here.",
+        "Olsen and Löwen, arXiv:2401.12685, section 4, study diffusion of the observable position when a separate hidden velocity is reset to zero; their equation (55) makes effective diffusion depend on mean refractory length only, unlike the present stationary partially reset position-area observable."
+      ],
+      "reasoning": "Queries covered the exact coefficient, equivalent zero-frequency spectrum / integrated-area variance and accessible published first-passage and velocity-resetting results. Those source equations concern stopped time integrals or an unreset position with reset velocity; neither provides a table or exact expression for the present proportional-position-reset temporal functional. No-search-match is not a novelty proof.",
+      "searches": [
+        "Partial stochastic resetting with refractory periods: exact long-time variance of integrated position, renewal reward AR(1) covariance and dependence on refractory waiting time variance",
+        "Deterministic refractory times minimize zero-frequency fluctuations of partially resetting Brownian motion at fixed mean refractory time",
+        "Olsen Lowen 2024 partial resetting with refractory cycles time-averaged displacement covariance, exact zero-frequency spectrum"
+      ]
+    },
+    "rationale": "Compared exact claim implications for the stationary one-time law versus temporal integrated-position variance against material primary text and accessible comparable research records. Olsen–Löwen already gives the one-time law; this claim is only the temporal-variance penalty and its sharp identification/optimization consequences. No inspected source states or directly implies the exact positive partial-reset coefficient under frozen nonmemoryless pauses. Remaining implicit-general-theorem risk is identified, not denied.",
+    "residual_risks": [
+      "General Markov-additive fluctuation theorems may implicitly imply portions of the result once the model-specific Poisson equation is solved.",
+      "Only the introduction/abstract of the plausible 2023 complete-reset refractory pathway article was materially accessible as parsed text.",
+      "Indexed semantic search and accessible history do not certify global uniqueness or publication priority.",
+      "The related 2024 velocity-reset/refractory transport paper has a broad renewal methodology, but its observable and reset map are different; implicit structural reductions remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model and one-time mean-only invariance, not identified exact integrated fluctuation rate or inverse clock-variance theorem",
+        "evidence": [
+          "Equations (30)–(33) give phase mixture with weights only mean refractory time",
+          "Equations (46)–(49) compute one-time cumulants",
+          "Discussion catalogs propagators and steady-state statistics rather than time-integrated observables"
+        ],
+        "identifier_or_url": "arxiv:2406.10039v1; https://www.researchgate.net/publication/381471128_Partial_stochastic_resetting_with_refractory_periods",
+        "material_read": "Full publicly accessible transcribed preprint text, sections I–V and relevant appendix passages, especially equations (30)–(33), (46)–(49), and concluding section",
+        "method": "Read manuscript text and compared observable and quantifier scope: one-time propagator/cumulants versus time-integrated covariance",
+        "title": "Partial stochastic resetting with refractory periods",
+        "trigger": "Exact same partial-reset, frozen refractory model and stationary law"
+      },
+      {
+        "assessment": "No frozen refractory law to vary; one-time density results do not cover the claimed variance penalty",
+        "evidence": [
+          "Title and abstract address time-dependent PDFs under partial resetting without refractory periods"
+        ],
+        "identifier_or_url": "arxiv:2305.13722; https://www.researchgate.net/publication/370981125_Time-dependent_probability_density_function_for_partial_resetting_dynamics",
+        "material_read": "Accessible public full-text transcription, introduction, model and results sections",
+        "method": "Compared model (without refractory) and marginal distribution results against path-integral covariance",
+        "title": "Time-dependent probability density function for partial resetting dynamics",
+        "trigger": "Earlier partial resetting and time-dependent distributions"
+      },
+      {
+        "assessment": "Fixed-position complete-reset model does not directly cover nonzero partial-reset memory, but incomplete inspection is an explicit residual risk",
+        "evidence": [
+          "Authors specify reset to a given position and primarily time-dependent PDF and first-passage targets"
+        ],
+        "identifier_or_url": "arxiv:2310.19913; https://www.researchgate.net/publication/375187569_Stochastic_resetting_with_refractory_periods_pathway_formulation_and_exact_results",
+        "material_read": "Abstract, introduction and initial accessible web transcription only; complete remaining source not materially inspected",
+        "method": "Compared the stated complete-reset model and examined its advertised first-passage observables",
+        "title": "Stochastic resetting with refractory periods: pathway formulation and exact results",
+        "trigger": "Potential general refractory renewal framework"
+      },
+      {
+        "assessment": "No frozen refractory times: cannot classify changes in their variance",
+        "evidence": [
+          "The identified source treats partial resetting diffusion without an independent frozen pause phase"
+        ],
+        "identifier_or_url": "arxiv:2205.03363; https://arxiv.org/abs/2205.03363",
+        "material_read": "Accessible abstract and search bibliographic result only",
+        "method": "Compared mechanism-level assumptions",
+        "title": "Diffusion with Partial Resetting",
+        "trigger": "Earlier partial Brownian resetting without frozen intervals"
+      },
+      {
+        "assessment": "The observed position is not reset; a separate velocity is reset, so the effective diffusion result (55) concerns distinct processes and depends only on mean refractory time. It cannot specialize to the positive variance-of-refractoriness coefficient for a position reset multiplicatively.",
+        "evidence": [
+          "Introduction explicitly distinguishes resetting a variable by a factor from resetting one component of a coupled state",
+          "Section 4 describes reset velocity, untouched position and normal diffusion; equation (55) is independent of refractory-time variance"
+        ],
+        "identifier_or_url": "arxiv:2401.12685; https://arxiv.org/abs/2401.12685",
+        "material_read": "Full accessible HTML paper: model and scope in sections 1–3, refractory extension in section 4 including equations (48)–(55), section 5 conclusions",
+        "method": "Compared which state variable undergoes reset and which is integrated, then compared the asymptotic variance observable",
+        "title": "Dynamics of inertial particles under velocity resetting",
+        "trigger": "Same authors, pauses and an effective diffusion variance of integrated velocity"
+      },
+      {
+        "assessment": "Different functional, stopping horizon and complete-reset model; direct coverage not established",
+        "evidence": [
+          "Abstract studies additive first-passage functionals up to absorption in a complete reset model"
+        ],
+        "identifier_or_url": "arxiv:2202.02715; https://arxiv.org/abs/2202.02715",
+        "material_read": "Accessible title, abstract and stated scope; no full-text comparison claimed",
+        "method": "Compared stopped integral up to first passage against stationary long-horizon signed area",
+        "title": "First-passage Brownian functionals with stochastic resetting",
+        "trigger": "Time-integrated Brownian observables under resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09a242f3-0c6d-42e7-9244-c0143e45589f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stationary snapshots cannot distinguish pause distributions having the same mean, but the long-time integrated-position variance strictly identifies their second moment at every 0<a<1. A sharp universal deterministic minimizer and full attainable half-line solve the motivated temporal identifiability and clock-design questions; neither follows from spatial stationary distributions alone.",
+    "status": "PASS"
+  }
+}
