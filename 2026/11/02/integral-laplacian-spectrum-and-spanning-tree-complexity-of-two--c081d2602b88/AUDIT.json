@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The block Laplacian (n−1+L_H,−R;−Rᵀ,L_2+2) is established by exact move counting. The intertwining L_2 Rᵀ=RᵀL_H, Gram RRᵀ=(n−2)I+J, and explicit L_2 spectrum of m isolates plus q squares yield a complete invariant-space splitting. The paired blocks have eigenvalues (0,n+1), (1,n), (3,n+2), while ker R contributes (2,4,6) with dimensions (q,m(m−2),q); all dimensions and boundary coincidences agree. Kirchhoff produces the exact spanning-tree product. Two independent constructed code checkers passed characteristic polynomials m=2..8, modular nullities/cofactors m=2..9, and exact cofactors m=2..4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dalfó et al. arXiv:2012.00808, Theorem 4.3 gives B L_h=L_k B; Cor. 3.4 lifts base eigenvectors, without identifying orthogonal complement in K_1 ∨ mK_2.",
+        "Reyes et al. arXiv:2309.07089: §4 complete spectrum for cycles; prior parts concern odd graphs and multipartite graphs mainly algebraic connectivity.",
+        "Reyes et al. arXiv:2310.16929: results on spectral radii and distance-regular graph classes; friendship graphs are nonregular.",
+        "Audenaert et al. arXiv:math/0507251 §3–6: symmetric-square machinery and cospectrality for strongly regular graphs, not a complete nonregular friendship-family Laplacian calculation."
+      ],
+      "reasoning": "Broad spectral inclusion and generic construction theorems do not imply multiplicities of eigenvalues in the complement of incidence lifts. The current proof computes eigenvalues of the nonlifted kernel (q, m(m−2), q dimensions) and combines three paired two-dimensional blocks, then gives a closed tree product. No inspected stronger theorem states or directly computes those quantities for this graph family.",
+      "searches": [
+        "\"On the Laplacian spectra of token graphs\" Dalfó 2020, inspect arXiv:2012.00808 full text §§3–5",
+        "\"On the spectra of token graphs of cycles and other graphs\" inspect arXiv:2309.07089 full text §§1–4",
+        "\"On the spectra and spectral radii of token graphs\" inspect arXiv:2310.16929 full HTML §§1, 3–5",
+        "The exact complete Laplacian spectrum of the 2-token graph of friendship windmill graph K1 join m disjoint edges and spanning-tree product integrality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0507251",
+      "arXiv:0910.4774",
+      "arXiv:2012.00808",
+      "arXiv:2309.07089",
+      "arXiv:2310.16929"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general token Laplacian inclusion yields only eigenvalues 0,1 (m−1),3 (m),2m+1 (1) from the friendship base graph; full claim additionally needs 2 (q),4 (m(m−2)),6 (q),2m (m−1),2m+2 (m), plus all tree factors.",
+        "The 2005 strongly regular theorem has a regular-base hypothesis which K_1∨mK_2 does not satisfy (degrees 2m at hub, 2 periphery)."
+      ],
+      "reasoning": "A general identity could be used as a lemma, but does not give the residual kernel spectrum or multiplicities. The distinct graph family has m(2m+1) token states and a nonregular degree pattern; it is not an instance of the general spectral-inclusion or regular-graph results. New equations determine the missing q+m(m−2)+q and other noninherited eigenvalues, so the full claimed multiset is not an immediate corollary of the inspected published results.",
+      "searches": [
+        "arXiv:2012.00808 Theorem 4.3 and Corollary 3.4 full-text comparison",
+        "arXiv:math/0507251 §§3–6 full-text comparison with strongly regular spectral theorem",
+        "K_1 vee disjoint triangles vertex-pair exclusion walk cofactor exact tree count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0507251, §1 and §4: symmetric-square and unordered-pair graph terminology; full text https://arxiv.org/abs/math/0507251",
+        "arXiv:0910.4774, §1–2: indistinguishable token transition graph https://arxiv.org/abs/0910.4774"
+      ],
+      "reasoning": "The unordered-pair hard-core token graph, symmetric square, and two-particle simple-exclusion state graph describe the same object. Dutch windmill with triangular blades means K_1 joined to m disjoint edges, not a cycle blade of length four. Searched those formulations and compared graph constructions and claims, not only titles. Found no statement with this full Laplacian multiset or tree count.",
+      "searches": [
+        "\"token graph\" \"friendship graph\" \"Laplacian spectrum\"",
+        "\"symmetric square\" \"friendship graph\" Laplacian spectrum",
+        "\"windmill graphs\" \"two-token\" spectral",
+        "\"friendship graph\" \"exclusion process\" eigenvalues",
+        "Symmetric square of friendship graph Dutch windmill spectral eigenvalue multiplicities 1 2 3 4 6 2m 2m+1 2m+2",
+        "Dutch windmill two-vertex symmetric power K_1 join independent mK_2 integral Laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected introductions, spectral theorem statements and relevant example sections of arXiv:math/0507251, arXiv:2012.00808, arXiv:2309.07089 and arXiv:2310.16929 do not contain a friendship two-token Laplacian multiplicity table."
+      ],
+      "reasoning": "No table with the claimed parameterized eigenvalue multiplicities or tree count appeared in the checked primary papers and bibliographic search results. This is a bounded negative search, not an exhaustive census of all publications, articles or databases.",
+      "searches": [
+        "F_2(K_1 vee m K_2) spectrum friendship two-particle graph eigenvalues 0 1 2 3 4 6 2m 2m+1 2m+2 spanning trees",
+        "Friendship graph token spectral eigenvalues Laplacian spectral theorem perfect edge disjoint triangles with common hub",
+        "\"friendship graph\" \"token graph\" Laplacian eigenvalues",
+        "\"friendship graph\" \"symmetric square\" spectrum"
+      ]
+    },
+    "rationale": "Full-length primary research texts on symmetric squares, token graph basics and Laplacian lifting were examined, and targeted full-text searches identified no all-eigenvalue formula for the 2-token friendship graph. The established general intertwining relation accounts for the inherited eigenvalues, not the remaining dimensions. The new derivation explicitly resolves all remaining dimensions and the tree product. Search absence is not proof of absolute novelty; unindexed or differently named prior work is a residual risk.",
+    "residual_risks": [
+      "An equivalent full eigenvalue formula might appear in unindexed or uncited literature, under symmetric-square/particle-exclusion terminology.",
+      "Same mathematical model proof and code checks have not received independent scholarly peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides fundamental symmetric-square constructions and related spectral theorems, but no stated full Laplacian multiset for friendship graph; principally strongly regular results",
+        "evidence": "§1 defines symmetric k-th power; §§3–4 equitable partitions/construction; strongly regular treatment in later sections.",
+        "identifier_or_url": "arXiv:math/0507251 | https://arxiv.org/abs/math/0507251",
+        "material_read": "Full arXiv-rendered text, §§1–4 and theorem statements/construction and spectral sections",
+        "method": "Read HTML full-text rendering, compare graph model, strongly regular hypotheses and claimed spectral constructions",
+        "title": "Symmetric Squares of Graphs",
+        "trigger": "Earliest terminology and general symmetric-square spectral coverage"
+      },
+      {
+        "assessment": "Gives basic edges and token adjacency, but not friendship-family Laplacian spectral classification",
+        "evidence": "§1 formal graph of k-subsets; §2 number of vertices and edges; sections on connectivity, diameter, cliques and Hamiltonicity.",
+        "identifier_or_url": "arXiv:0910.4774 | https://arxiv.org/abs/0910.4774",
+        "material_read": "Full arXiv-rendered text, introduction, basic properties, and results headings/sections",
+        "method": "Read full-text introduction §§1–2 and inspect later theorem scope",
+        "title": "Token Graphs",
+        "trigger": "Direct definition and foundational configuration counts/graph operations"
+      },
+      {
+        "assessment": "General eigenvalue inclusion/intertwining covers the lift but no complete friend-family spectrum or tree count",
+        "evidence": "Theorem 4.3: B L_{k1}=L_{k2}B; Corollary 3.4: lifted eigenvectors; §5 examples other graph families.",
+        "identifier_or_url": "arXiv:2012.00808 | https://arxiv.org/abs/2012.00808",
+        "material_read": "Full arXiv-rendered manuscript; Introduction, matrix approach §§3–4 and theorem/corollary statements, examples",
+        "method": "Read mathematical theorem statements and compare exact implication of binomial incidence spectral lifting against residual eigenvalues",
+        "title": "On the Laplacian spectra of token graphs",
+        "trigger": "Strong candidate to imply claimed result via general spectral lifting"
+      },
+      {
+        "assessment": "Spectrum for cycles and algebraic connectivity in other families, not a nonregular friendship-family multiset",
+        "evidence": "§1 describes complete cycle spectrum in §4; related families focus on algebraic connectivity.",
+        "identifier_or_url": "arXiv:2309.07089 | https://arxiv.org/abs/2309.07089",
+        "material_read": "Full arXiv-rendered manuscript, title/abstract, introduction and theorems on cycles/multipartite families",
+        "method": "Read and compare addressed graph families and type of spectral information",
+        "title": "On the spectra of token graphs of cycles and other graphs",
+        "trigger": "Later token spectral method and possibility of a dominating family"
+      },
+      {
+        "assessment": "Predominantly spectral radii, walk-regular and distance-regular settings; does not state complete friendship token Laplacian spectrum",
+        "evidence": "Introduction Theorems 1.1–1.3 and stated organization of §§3–5.",
+        "identifier_or_url": "arXiv:2310.16929v1 | https://arxiv.org/html/2310.16929v1",
+        "material_read": "Full HTML manuscript; Introduction, scope of §§3–5, and theorem statements",
+        "method": "Inspected broad spectral results and hypotheses, searched paper for friendship/windmill terminology",
+        "title": "On the spectra and spectral radii of token graphs",
+        "trigger": "More general follow-up potentially covering nonregular friendship graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c081d260-2b88-4262-98e3-6a3e0c4143a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This computes the complete spectral arithmetic and exact tree complexity for a canonical infinite family of nonregular two-particle exclusion graphs. It explains integral eigenvalues and fixed spectral gap 1 using a structural decomposition, not an ad hoc small census. The residual square/isolate geometry matters naturally to understanding hard-core particle motion; exact spectrum and spanning-tree count can serve as benchmarks for reconfiguration networks and related stochastic processes.",
+    "status": "PASS"
+  }
+}
