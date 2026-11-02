@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The local neighborhood of a selected root edge is K_{n-2} square K_2. Both selected and unselected neighbors must be cliques; for n>=5 the unique maximum-clique bipartition forces a full root star, and any extra edge causes a forbidden geodesic. Direct converse and n=3,4 boundary arguments are complete. A separate Floyd–Warshall exhaustive checker on all 2,131,016 subsets for n=3..7 confirms the coefficient spectrum; the proof handles all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1903.04286 full HTML Section 4.2 concerns the maximum size of ordinary general-position sets, not complement convexity or the dual all-set polynomial.",
+        "arXiv:2306.09965 full HTML Section 5.2 concerns smallest maximal ordinary general-position sets; maximal ordinary sets need not be dual.",
+        "arXiv:2408.15951 full HTML Sections 4.2 and 5.2 concern strong and lexicographic product bounds/exact values, not line graphs of complete graphs.",
+        "The earlier mathematical claim 7073a6a6-4c1d-483d-a741-5bef91defe4e determines maximal *ordinary* general-position polynomial of T_n; it does not characterize those whose complements are convex."
+      ],
+      "reasoning": "None of the inspected broader theorems forces the all-set dual classification: either the endpoint-pair quantifier differs, the graph operation is different, or only ordinary size/maximality is addressed. In particular, a star is a maximal ordinary GP set, but maximality alone does not ensure convexity, nor exclude other maximal ordinary sets.",
+      "searches": [
+        "\"dual general position\" \"line graph\" 2024 2025",
+        "\"dual general position\" \"triangular graph\"",
+        "\"general position number\" \"line graph of complete graph\" n",
+        "\"Lower General Position Sets in Graphs\" line graphs complete graphs theorem",
+        "\"convex subgraphs\" \"Johnson graph\" 2018"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2402.17338 full HTML via DOI open text",
+      "arxiv:1903.04286v2 primary full HTML",
+      "arxiv:2306.09965 primary full HTML",
+      "arxiv:2408.15951 primary full HTML",
+      "Public mathematical claim searches with aliases and full exact claim; relevant records identified",
+      "Previously recorded related mathematical statements, compared for claim implications",
+      "Focused web searches on triangular graph, line graph, Johnson graph and convex complement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 Tian–Klavžar Theorem 3.1 defines the extra convex-complement test but no T_n solution.",
+        "2019 Ghorbani et al. Theorem 4.4 fixes only gp(T_n), and is explicitly credited for the final period-three comparison.",
+        "2023 Di Stefano et al. Theorem 5.2 classifies the lower maximal ordinary GP parameter for the identical graph family; its result has no complement-convexity hypothesis.",
+        "An earlier triangular-graph maximal-GP enumerator gives an all-maximal-*ordinary*-set polynomial, not an all-dual-set polynomial."
+      ],
+      "reasoning": "The new theorem does not follow from the scalar gp bound, nor the lower gp bound, nor an enumerator of maximal ordinary GP sets: all can hold while selected sets fail to leave convex complements. The proof shows the additional neighborhood bi-clique restriction and establishes its forced full-star consequence, including the n=4 exception. The final gp-versus-gpd difference is a corollary of this new dual calculation combined with the credited 2019 gp formula.",
+      "searches": [
+        "\"dual general position\" \"triangular\" \"general position\"",
+        "\"dual general position\" \"line graph of complete graph\"",
+        "\"general position\" \"Johnson graph\" J(n,2) complete classification",
+        "\"general position\" \"L(K_n)\" convex complement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2402.17338 Section 3 Theorem 3.1: S is dual iff S is ordinary general position and the complement is geodesically convex; the paper does not state the complete T_n set family.",
+        "arXiv:1903.04286 Section 4.2 Theorem 4.4: ordinary gp(L(K_n))=n when n is multiple 3 and n-1 otherwise.",
+        "The closest semantically indexed dual-general-position result concerns complete multipartite base graphs, not triangular graphs."
+      ],
+      "reasoning": "Checked aliases T_n, L(K_n), J(n,2), triangular graph, complete-graph line graph, and dual GP versus complement-convex ordinary GP. The existing convexity criterion provides a necessary concept, not the full family classification; the new local maximum-clique rigidity argument is required.",
+      "searches": [
+        "dual general position number of triangular graph T_n line graph of complete graph K_n",
+        "all dual general position sets in line graphs of complete graphs, only stars",
+        "dual general position polynomial Johnson graph J(n,2)",
+        "\"dual general position\" \"Johnson\" graph",
+        "\"dual general position\" triangular graphs exact polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed public claim under a query stating the full theorem treats complete multipartite graphs, not triangular graphs.",
+        "A second relevant indexed claim treats square-page book graphs, not triangular graphs.",
+        "Earlier mathematical claim row 77cf9761-bfc9-46e0-9c2f-b19466249063 treats distance equalizers of T_n, whose quantifier is not dual geodesic position."
+      ],
+      "reasoning": "Exact polynomial, class aliases, and claimed cardinality spectrum were queried rather than relying on titles. No matching published table or prior claim was identified; this is not a proof of global absence.",
+      "searches": [
+        "dual general position polynomial Johnson graph J(n,2)",
+        "dual general position number of triangular graph T_n line graph of complete graph K_n",
+        "\"dual general position\" \"line graphs\"",
+        "For every n at least 5, the only nonempty dual general position sets of the triangular graph T_n = line graph L(K_n) are the n vertex stars of cardinality n-1; for n=4 the 8 three-cliques, and for n=3 all subsets. Dual general position polynomial 1+n z^(n-1)."
+      ]
+    },
+    "rationale": "Closest original full texts and related mathematical statements do not state or imply the exact dual all-set classification. The additional forced local neighborhood bipartition closes the gap left by ordinary GP maxima and convexity definitions; multiple exact-claim and alias searches found no dominating result, subject to residual priority uncertainty.",
+    "residual_risks": [
+      "An unindexed publication or result equivalent to the dual all-set theorem may exist.",
+      "Some pre-2024 work on Johnson-graph geodesic convexity could provide auxiliary tools; no inspected material yields the combined dual classification directly.",
+      "There is no independent mathematical priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact triangular all-set polynomial; general convex-complement criterion applies but is insufficient alone.",
+        "evidence": [
+          "Theorem 3.1 characterizes dual sets via ordinary GP and convex complement.",
+          "Section 4 addresses Cartesian products; neither T_n nor L(K_n) is a family addressed in the full article."
+        ],
+        "identifier_or_url": "arxiv:2402.17338; https://link.springer.com/article/10.1007/s40840-024-01788-z",
+        "material_read": "Full open HTML: introduction; definitions; Section 3 including Theorems 3.1, 3.9; Section 4 including Theorem 4.6; Section 5 conclusions and references.",
+        "method": "Primary HTML section/theorem comparison to complete triangular-graph all-set statement",
+        "title": "Variety of general position problems in graphs",
+        "trigger": "Original definition and possible stronger dual/general convexity theorem"
+      },
+      {
+        "assessment": "Ordinary gp scalar is PREEXISTING and credited; no dual criterion or all-dual-set conclusion.",
+        "evidence": [
+          "Theorem 4.4 establishes gp(L(K_n))=n if 3 divides n, otherwise n-1.",
+          "No selected/unselected complement-convexity requirement in the 2019 ordinary gp problem."
+        ],
+        "identifier_or_url": "arxiv:1903.04286; https://arxiv.org/html/1903.04286v2",
+        "material_read": "Primary full arXiv HTML: introduction; Section 4.2 and Theorem 4.4 proof about L(K_n); related earlier gp characterization.",
+        "method": "Compare definition and strength of ordinary gp(L(K_n)) to dual complete-set claim",
+        "title": "The general position problem on Kneser graphs and on some graph operations",
+        "trigger": "Same graphs and possibly dominating ordinary position theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: lower ordinary GP parameter and its maximal-set structure do not impose convexity of complement.",
+        "evidence": [
+          "Theorem 5.2 concerns smallest maximal ordinary gp sets of L(K_n).",
+          "Dual property differs from maximality and is not discussed."
+        ],
+        "identifier_or_url": "arxiv:2306.09965; https://arxiv.org/abs/2306.09965",
+        "material_read": "Primary full arXiv HTML: Introduction, Section 5, especially Theorem 5.2 for line graphs of complete graphs.",
+        "method": "Compare lowest cardinality of inclusion-maximal ordinary GP to all dual sets",
+        "title": "Lower General Position Sets in Graphs",
+        "trigger": "Same triangular graphs with maximal ordinary GP classification"
+      },
+      {
+        "assessment": "NOT_COVERING: no all-dual-set classification of T_n; product theorems address distinct graph operations.",
+        "evidence": [
+          "Theorem 4.6 gives strong-product bounds and 4.7 an exact strong-product result with a complete factor.",
+          "Section 5 concerns lexicographic products, not L(K_n)."
+        ],
+        "identifier_or_url": "arxiv:2408.15951; https://arxiv.org/abs/2408.15951",
+        "material_read": "Primary full arXiv HTML: introduction, Section 2 definitions, Section 4.2 dual strong-product bounds, Section 5 lexicographic-product dual treatment.",
+        "method": "Compare graph class and implication scope of product theorems",
+        "title": "General position problems in strong and lexicographic products of graphs",
+        "trigger": "Most relevant later treatment of dual GP with general product estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4acb8f5d-ae33-4a29-a448-6805d5a33d2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural all-set classification in the newly introduced dual variant, not a scalar-only deduction: every nonempty set in this infinite symmetric graph family is maximum, yielding an unbounded cardinality gap and exact two-term polynomial. The nonhereditary phenomenon and comparison with the published ordinary GP number give a mod-three equality/strict-deficit classification, directly relevant to the general comparison problem raised in Tian–Klavžar concluding remarks.",
+    "status": "PASS"
+  }
+}
