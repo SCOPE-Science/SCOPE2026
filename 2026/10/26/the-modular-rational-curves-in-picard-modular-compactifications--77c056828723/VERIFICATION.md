@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The source's integrally defined subgroup of block matrices \\(\\operatorname{diag}(M,I_{n-1})\\) gives the open transverse multiplier \\((c\\tau+d)^{-1}\\) and geodesic tangent multiplier \\((c\\tau+d)^{-2}\\). The source's cusp analysis gives exactly four points with \\(q=\\exp(2\\pi i\\tau/3)\\), and the ordinary normal frames extend as \\(\\partial/\\partial\\zeta_j\\); the tangent frame extends logarithmically as \\(q\\partial_q\\). This is the needed comparison of holomorphic extensions, not simply a first-Chern-class computation. The resulting square root of \\(T_{\\mathbb P^1}(-S)=\\mathcal O(-2)\\) is uniquely \\(\\mathcal O(-1)\\).
+## correctness
 
-Run `python3 artifacts/check_automorphy.py` for exact transformation checks. This finite run does not establish the universal statement; the symbolic determinant-one derivative calculation in the proof and the four cusp charts do.
+PASS
 
-The normal degree cross-check from published canonical degree is \\(1-n=-(n-3)-2\\). Cohomology is \\(h^0=h^1=0\\) for each degree-minus-one line summand. Neither a global flop nor a general classification of Picard modular curves is asserted. No independent audit has been performed.
+The specific geodesic stabilizer acts block-diagonally with scalar transverse coordinate ξ/(cτ+d). Its normal derivative is j^-1 independently in each of n-1 directions, while geodesic derivative equals j^-2. By the cited matching ambient-and-curve toroidal coordinates q=exp(2πiτ/3), the ordinary transverse ∂ξ frames extend nonvanishingly to four cusps, whereas q∂q is a nonvanishing logarithmic tangent frame. Thus N=L^(n-1), L^2=T_{P1}(-S)=O(-2), so L=O(-1); H0 and H1 vanish. This exactly matches adjunction using source K.C=n-3. The symbolic automorphy and degree were independently checked. The crucial cusp-period matching and subgroup statement are cited primary inputs whose full source could not be independently inspected; this is a conditional, explicitly qualified reconstruction, not direct theorem corroboration by small matrices.
+
+## originality
+
+PASS
+
+The 2026 Memariansorkhabi–Yeung paper constructs these modular curves, four transverse cusps and computes canonical degree; the assessed claim is the full ordinary normal splitting and embedded deformation rigidity, not construction or degree alone. Normal bundle degree alone never entails balanced splitting for n>=3. Source full text could not be retrieved, so exact overlapping treatment in its appendices or a general compactified-geodesic normal theorem is a substantial residual risk.
+
+## value
+
+PASS
+
+Exact splitting of a distinguished infinite family of modular rational curves determines deformation/obstruction spaces and distinguishes the K-trivial threefold case. This is a natural vector-bundle invariant not determined by a single canonical intersection number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
