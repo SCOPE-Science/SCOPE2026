@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For p=36k+7, exponents 0,1,2,3,5 have no square factor 4 or 9; exponent 4 always has square factor 9. Every remaining square obstruction is q^2 for q>=5 with q<=sqrt(10^9). For each q and a, k lies in the single exact class (2^a-7)*36^{-1} modulo q^2 and is marked only after p-2^a>=q^2. Enumerating all k from 0 through floor((10^9-7)/36) therefore detects ALL simultaneous failures, not a bounded list of guessed candidates. Standalone verify.py checks that the complete obstructed-integer set is precisely nine values, checks primality of each via deterministic trial division up to sqrt(10^9), and factors p-64 for both qualifying primes. No speculative analytic extrapolation is used. The special p=7 has squarefree remainder p-1=6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Christian Hercher, arXiv:2411.01964v1, reports computational verification of existence of some representation for all odd integers below 2^50 and smallest odd integers needing higher exponents; the reported minimum is not restricted to prime p=7 mod 36.",
+        "Harman--Paquin, arXiv:2610.07214v1, Theorem 7, only reports this residue class through primes below 10^8, and Section 7 explicitly poses a>=6 discovery beyond it."
+      ],
+      "reasoning": "Broad representability of every odd integer to 2^50 implies existence for both new primes but does not determine the first usable exponent of each or the least prime in a specified residue class needing exponent six. The narrower 10^8 classification cannot dominate a census through 10^9. Earlier unpublished computations could still contain the same data; that is recorded as a priority risk.",
+      "searches": [
+        "Christian Hercher On the Sum of Squarefree Integers and a Power of Two November 2024 arxiv",
+        "Harman Paquin One-Power Erdős Conjecture primes 7 mod 36 first exponent 6",
+        "Harman Paquin prime p needing exponent six squarefree power 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.07214",
+      "https://arxiv.org/abs/2411.01964",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL28/Hercher2/hercher24.html",
+      "https://oeis.org/A377587",
+      "Public semantic mathematical-research-record searches on exact primes, exponent-six thresholds, and squarefree remainders"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Harman--Paquin proves unbounded least exponent by Dirichlet/CRT, but the proof is ineffective for the first prime and does not yield the finite threshold.",
+        "Hercher reports a 2^50 existence census, a weaker predicate than exact least exponents in one prime progression."
+      ],
+      "reasoning": "Unboundedness and existence are not equivalent to an exact minimum; even taken together, they do not imply 189954151 is the first. The present complete arithmetic-progression sieve and the nine candidate eliminations are necessary additional information.",
+      "searches": [
+        "first prime requiring sixth exponent one-power Erdos conjecture p 7 mod 36 beyond 10^8",
+        "Harman Paquin prime p needing exponent six squarefree power 2026",
+        "Christian Hercher On the Sum of Squarefree Integers and a Power of Two November 2024 arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harman and Paquin, arXiv:2610.07214v1, Section 5 Table 3, counts a>5 as zero below 10^8, and Section 7 explicitly asks for the first a>=6 prime.",
+        "No targeted indexed record located for either of the two numerically identified primes as the first exponent-six examples."
+      ],
+      "reasoning": "Equivalent formulations include least prime in the 7 mod 36 class with all five admissible low exponents obstructed, first exponent-six squarefree-plus-power-of-two representation, or least prime with five squareful remainders. A prior result computing an exact number would cover this regardless of its formulation; none was found in the checked relevant primary material or search results.",
+      "searches": [
+        "189954151 first prime 7 mod 36 squarefree plus power two minimum exponent 6",
+        "998649907 p minus 1 2 4 8 16 32 squarefree representation",
+        "Harman Paquin exact first prime exponent six 189954151 2026",
+        "\"189954151\" squarefree prime 2 power Erdős",
+        "\"998649907\" squarefree 2 power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A377587: a(n) is the smallest odd integer m with m-2^k nonsquarefree for every integer 1<=k<=n; the sequence does not restrict to primes and does not test a=0.",
+        "Harman--Paquin Table 2 gives eleven primes below 10^8 requiring a=5; Table 3 explicitly records zero requiring a>5 under that cutoff.",
+        "The targeted exact-number searches did not locate an entry identifying 189954151 or 998649907 as the exponent-six primes in the class."
+      ],
+      "reasoning": "Neither table supplies the two new primes. The global minimum for all odd integers does not determine the class-restricted prime minimum. An exact database entry not located by the searches remains possible.",
+      "searches": [
+        "OEIS A377587 least odd numbers requiring higher exponent power two squarefree",
+        "189954151 prime squarefree exponent six OEIS",
+        "998649907 prime squarefree exponent six OEIS"
+      ]
+    },
+    "rationale": "The primary October 2026 paper classifies primes in exactly this residue class only below 10^8 and explicitly suggests finding the first with a_min>=6; its theorems on densities and unboundedness do not compute the first. Hercher gives a substantially wider representability computation for odd integers, but his reported table concerns a different unrestricted odd-integer first threshold and does not state the restricted-prime census or threshold. The finite first-exponent-six example and complete tenfold census are not literal or logical corollaries of those statements; the new exact sieve is needed. No equivalently formulated public prior result was found in targeted record and number searches. An unindexed computation or unreleased data could still cover this finite fact.",
+    "residual_risks": [
+      "A prime-restricted detailed output of Hercher’s large GPU computation could exist without appearing in the reported tables.",
+      "An unindexed or unpublished integer-sequence entry could already record the first exponent-six prime.",
+      "Reproducibility is self-review only; no independent audit or external priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves earlier cutoff 10^8, excludes exponent 4 and poses locating first exponent >=6; does not state new exact example or 10^9 census.",
+        "evidence": [
+          "arXiv:2610.07214v1, 5 October 2026, Theorem 7 and Tables 2–3",
+          "Section 7 conclusion explicitly suggests a first exponent-six search"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.07214",
+        "material_read": "Abstract, introduction and scope, Sections 3–5 including the exponent tables and computation, Sections 6–7 including stated conjectures and future questions",
+        "method": "Full public HTML mathematical text, checked definitions, tables and implications",
+        "title": "The One-Power Erdős Conjecture for Primes p ≡ 7 (mod 36)",
+        "trigger": "Exact same congruence class and squarefree-plus-power-of-two invariant"
+      },
+      {
+        "assessment": "A complete general odd-integer existence computation covers representation existence through 2^50, but the published output does not classify least exponents for primes 7 mod 36 or give this first prime.",
+        "evidence": [
+          "arXiv:2411.01964v1, 4 November 2024",
+          "Journal of Integer Sequences 28 (2025), Article 25.3.1",
+          "OEIS A377587 linked by journal article"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.01964",
+        "material_read": "Full accessible publication discussion of computational algorithms, verification bound, and least-odd-number exponents, with original source and journal abstract",
+        "method": "Public full-paper material and published journal landing page; compared reported tables and covered predicates",
+        "title": "On the Sum of Squarefree Integers and a Power of Two",
+        "trigger": "Dominating large numerical computation could contain same finite finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cda17ec2-7474-4759-874a-9954eb3c8c07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated natural finite cutoff directly suggested in the conclusion of the source paper, rather than a random enumeration. It identifies the first occurrence of the new least-exponent layer a=6 in the precise prime progression under study, gives the entire layer through 10^9, and increases the published finite prime range tenfold. An exact modular-square obstruction enumeration eliminates infinitely many possible unknown factors by proving every possible q is covered. Its standalone certificate and nine-candidate reduction make the result reusable as a first threshold; no broader theorem is claimed or needed for value.",
+    "status": "PASS"
+  }
+}
