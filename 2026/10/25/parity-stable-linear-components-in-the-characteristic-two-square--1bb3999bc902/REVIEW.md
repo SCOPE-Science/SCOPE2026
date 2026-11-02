@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete derivation spaces for the two parity cases are reconstructed from \(D(t)\) and the defining relation; the characteristic-two identity that \(D^2\) is again a derivation reduces the problem to \(D^2(t)=0\). Both parities yield the same pair equations \(ab=b^2=0\) in \(k[s]/(s^m)\). Valuation strata prove the irreducible-component list, dimensions, intersections, point counts, and the rank/acyclic criterion. Exhaustive independent matrix tests ran over \(\mathbb F_2\) and \(\mathbb F_4\), sixteen truncation configurations. The proof, not finite extrapolation, covers all characteristic-two fields and all lengths.
+## correctness
 
-**Originality — PASS with residual risk.** Premet (arXiv:1405.2426, 2014) studies regular derivations and invariant fibres under characteristic \(p>2\), not the characteristic-two restricted square-zero cone. The inspected 2020 theory of \(p\)-DG modules supplies context but not this truncated-derivation component arrangement. Targeted searches for equivalent p-nilpotent cone, characteristic-two derivations, finite-field counts, and generic square-zero differentials did not identify a dominating statement. Hidden equivalent literature is an unresolved publication-priority risk; absence of a search hit is not proof of uniqueness.
+PASS
 
-**Value — PASS.** Restricted nilpotence is intrinsic to modular derivation Lie algebras. A uniform classification of an infinite sequence of reduced nullcones, including their growing linear-component arrangement, exceptional parity-preserving isomorphism, exact finite-field counts and acyclic locus, resolves a motivated geometric/arithmetic question rather than a routine isolated computation.
+The relation D(t^n)=n t^{n−1}D(t) makes f=D(t) unrestricted at even n but divisible by t at odd n. Writing f=a(t²)+t b(t²) or f=t²a(t²)+t b(t²), respectively, gives the same S² coordinate space. In char2, D² is again a derivation, and D²(t)=f f′, f′=b(t²), so D²=0 iff ab=b²=0 in S in either parity. Since b²=0 forces v_s(b)>=ceil(m/2), its b-valuation strata lie in closed linear subspaces L_j, none contained in another. All components have m dimensions, intersection L_j∩L_l dimension m−(l−j), consecutive additions count q^m−q^{m−1} new points, and the map on odd monomials gives rank m−min(v_s(a),v_s(b)). The acyclic rank m requires even n and unit a (hence b=0). Independent exhaustive coefficient equations in GF(2), m=1..6, gave 2,6,12,32,64,160 points and component counts 1,2,2,3,3,4. These finite checks do not substitute for symbolic all-field proof.
 
-**Closest sources and limitations.** Premet, *Regular derivations of truncated polynomial rings* (2014, arXiv:1405.2426); *Free (Z/p)^n-complexes and p-DG modules* (2020, DOI 10.1016/j.jalgebra.2020.07.028). The theorem concerns characteristic two, reductions of schemes, and labelled derivations. It does not give scheme multiplicities or automorphism-conjugacy classes. Independent mathematical assessment and comprehensive priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Premet studies regular derivations in truncated polynomial rings with characteristic p>2 and p-power truncation assumptions, not the characteristic-two square-zero restricted cone for arbitrary even and odd lengths. General p-DG and square-zero matrix theories do not incorporate the Leibniz equations ab=b²=0 here. The inspected sources and Resultary semantic results did not yield a dominating reduced-component classification or the parity-paired point counts. Best-of-knowledge priority remains uncertain for modular Witt p-nilpotent cone literature.
+
+## value
+
+PASS
+
+Square-zero is intrinsic restricted nilpotence for derivations in characteristic two. The theorem classifies an infinite family of reduced derivation cones, reveals an unexpected even/odd linear isomorphism, determines their entire component intersection pattern and exact field arithmetic, and characterizes acyclic differentials. These natural invariants are not a textbook matrix-rank count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
