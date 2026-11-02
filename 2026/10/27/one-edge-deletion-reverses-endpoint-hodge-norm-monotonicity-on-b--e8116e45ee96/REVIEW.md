@@ -1,19 +1,21 @@
-# Scientific review: one-edge deletion on balanced tripartite graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem fixes an integer \(m\ge2\), unit graph edges, and canonical real Euclidean-orthogonal projectors. The unpunctured graph Laplacian has eigenvalues \(2m\) on within-part zero-mean subspaces and \(3m\) on part-constant zero-mean subspaces. These give the stated base edge-current potentials. The deleted-edge Sherman--Morrison formula applies since its denominator \((3m^2-3m+1)/(3m^2)\) is strictly positive. All surviving edges belong to precisely four classes; a full integer-polynomial sign certificate verifies the 80 scaled potential differences for all integral \(m\ge2\), the four absolute column sums, and strict phase comparisons. An independent grounded-Laplacian exact-rational program corroborates the formulas on 535 complete columns in dimensions \(m=2\) through \(6\). No finite enumeration is treated as a proof of all dimensions.
+PASS
 
-## Originality
+At the assigned eight-blob Git tree, independently reconstructed Laplacian eigenspaces (2m within parts, 3m on part-constant zero-sum vectors), the Green current potential and Sherman–Morrison correction with denominator S_m/(3m^2)>0 for every integer m>=2. The full edge set is partitioned into X,Y,Z,W and each representative into eight voltage types. An independently written exact polynomial checker proves the fixed sign of all 80 relevant differences on t=m-2>=0 (not a sampled guess), cross-multiplies the eight cut/cycle rational orbit formulas, proves strict optimizing-orbit phase comparisons and the deletion response including m=2 equality for P, and the common leading 1/(3m) asymptotic. A second independent grounded-Laplacian Fraction calculation checks every one of 535 actual intact and punctured projector columns for m=2,...,6, including maxima and multiplicities. Orthogonality, orientation invariance and equality of l1/linfinity endpoint norms follow from the symmetric real projector. The statement is limited to canonical Euclidean-orthogonal projections on unweighted K_{m,m,m}-e, not arbitrary projection minima or weighted graphs.
 
-**PASS, conditional on available bibliographic coverage.** The 2023 primary paper of Dilworth, Kutzarova and Ostrovskii focuses on invariant cycle projections for discrete tori and Hamming graphs. The 2018 predecessor studies diamond, Laakso and related recursively generated graph families. Neither inspected relevant section gives the endpoint orthogonal norms of \(K_{m,m,m}-e\), the two edge-maximizer transitions, or strict cycle-norm growth under deletion. Standard Laplacian pseudoinverse updates, known intact multipartite calculations, and previously observed isolated nonmonotone edge insertion are not being presented as new. The new statement is an all-parameter, deletion-specific transfer-current norm law. published-finding corpus searches for the graph family, endpoint projections, aliases, exact formula, and edge addition/reversal found no covering item; their closest thematic entries concern cactus-coordinate suppression operators, multipartite symmetric-edge polytopes, or unrelated graph invariants. Search cannot guarantee absence of specialized unpublished electrical-network calculations.
+## originality
 
-## Value
+PASS
 
-**PASS.** Edge addition need not increase the \(\ell_1\)-operator norm of the canonical cycle projection, and the theorem supplies an explicit infinite dense graph family where it strictly decreases it. Besides the sign of the perturbation, the proof identifies the precise edge orbits carrying the norm and their two separate sharp transitions. It determines natural Banach-space operator invariants with exact formulas, and both excess norms share the unexpectedly large \(1/(3m)\) leading perturbation scale. This is substantially stronger than a numerical counterexample or a mere rank-one inverse identity.
+Best-of-knowledge priority survives explicit comparison against the cited graph cycle-space papers, related published findings and nine fresh semantic searches for equivalent transfer-current, exact formula and edge-deletion claims. Rank-one pseudoinverse updates, intact multipartite projector norms and the general existence of nonmonotone edge insertion are known techniques or background, not claimed original. The distinct all-m K_{m,m,m}-e orbit-maximizer transitions, exact paired endpoint norm formulas and shared 1/(3m) deletion response were not implied by the actual inspected prior statements. The historical-priority risk from unindexed specialized electrical-network calculations is retained.
 
-## Closest literature and limits
+## value
 
-S. J. Dilworth, D. Kutzarova and M. I. Ostrovskii, *Cycle spaces: invariant projections and applications to transportation cost*, arXiv:2305.12582 (2023), is the main source. Their *Lipschitz free spaces on finite metric spaces*, arXiv:1807.03814 (2018), supplies historical background. The mathematical claim is limited to the canonical orthogonal projectors on real, unweighted balanced tripartite graphs after one edge deletion; it does not establish global minima among arbitrary projections or general deletion monotonicity. Specialized preprints not indexed by the checked services remain a bibliographic risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical cut/cycle orthogonal projection endpoint norm is a natural Banach-space and graph-transportation invariant; its perturbative behavior under edge deletion is not a routine monotonicity consequence of the graph Laplacian. The theorem supplies a complete infinite dense-graph family, exact rational norms, sharp exceptional m=2 behavior, different strict maximizing-edge transitions at m=3 and m=4, and identical 1/(3m) response scales for two complementary projections. These are motivated exact geometric and operator-theoretic facts beyond one-off numerical examples. It neither claims optimal nonorthogonal projection minima nor rests on an arbitrary unmotivated finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
