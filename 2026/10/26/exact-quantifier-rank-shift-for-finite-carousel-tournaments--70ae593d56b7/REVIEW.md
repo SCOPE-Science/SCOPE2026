@@ -1,15 +1,21 @@
-# Scientific assessment — exact quantifier-rank shift for carousel tournaments
+# Independent mathematical audit
 
-## Correctness: PASS
-For an arbitrary first move, translational symmetry makes its selected point an anchor. All arcs between remaining vertices are determined by two side tags and the order comparisons of the corresponding one-to-one position indices. Consequently the order-game back-and-forth strategy lifts with one extra tournament move. In the converse direction, relativizing any order sentence to the transitive outneighborhood of an existentially chosen vertex yields an equivalent tournament sentence at only one higher rank. The classical exact finite-order cutoff completes the proof. The boundary case at rank one is addressed separately: there is one class with a three-vertex smallest representative. Direct computations confirm the anchored identities and finite cases without being substituted for the infinite proof.
+## correctness
 
-## Originality: PASS, with residual risk
-The finite-order quantifier-depth cutoff used in the proof is classical and specifically appears in the 2010 online work of Mwesigye and Truss. Coregliano's 2015 carousel preprint develops the same tournament objects, focusing on structural and asymptotic combinatorics. Neither examined primary treatment provides the all-rank equivalence transfer or its complete sharp classification. Searches for cyclic/locally-transitive/carousel aliases, EF games, exact rank cutoffs and possible stronger published claims revealed no implication-covering result. Related halfgraph, colored-order, directed-path and tournament invariant results have different structures or logical languages. Discovery limitations leave a risk of an unindexed or inaccessible equivalent theorem.
+PASS
 
-## Value: PASS
-This is an exact infinite-rank classification of a canonical finite-tournament family and measures an unexpected uniform shift in bounded-depth expressivity. The concrete consequences include a sharp minimal representative bound at each rank and an exact least distinguishing rank between any two distinct orders. The result addresses how an unnamed globally cyclic structure encodes an anchored linear order through two interacting transitive sides; it is more than verifying small examples.
+Verified all cross-side and within-side arcs in the anchored two-chain coding by modular subtraction. The first EF pebble furnishes an arbitrary anchor; thereafter one common order-game controls repeated indices and both sides, including repetitions of anchor. Conversely relativizing an order sentence to N+(x) adds exactly one quantifier. Combined with the classical cutoff min(m,2^r−1), these prove the unrestricted iff, class counts, minimal representatives and least distinguishing rank. Independent fresh script checked complete anchored atomic diagrams for m=1..36. Boundary q=1 gives one class and m=1 minimum; all m,n≥1, no named vertices.
 
-## Scope and limits
-The result applies only to pure-arc carousel tournaments with at least three vertices. Altering the signature or broadening to arbitrary locally transitive tournaments is not covered. The included program gives finite corroboration only, and indexed searches cannot establish exhaustive novelty. Key sources are Mwesigye–Truss, *Order* (2011), DOI 10.1007/s11083-010-9178-9; and Coregliano, arXiv:1503.04124.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the classical finite linear-order quantifier-rank cutoff is explicitly in Mwesigye–Truss (2011), and Coregliano studies the same carousel tournament family, but neither materially inspected primary paper gives the exact transfer R_(2m+1) ≡_q R_(2n+1) iff L_m ≡_(q−1) L_n, the q-theory census and sharp representatives in the pure tournament language. The anchored two-chain index reuse is the novel claim, not the known EF game or tournament definition.
+
+## value
+
+PASS
+
+This is an exact natural elementary-model-theory classification for the standard finite carousel tournament family, giving all quantifier-rank equivalence classes, optimal representative orders and distinguishing ranks. The exact pointwise transfer is not a routine change of variable from the order cutoff without the anchored two-chain game lemma; finite signature comparisons are supporting only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

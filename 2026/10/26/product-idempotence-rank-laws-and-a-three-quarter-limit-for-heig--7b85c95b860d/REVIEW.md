@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each strict comparable pair of a height-two poset, the two idempotence equations leave zero or one free variable per factor. The further ordered-product idempotence equation has coefficient rank zero or one on those variables. Enumerating its sixteen vertex-label patterns gives the explicit edge exponent matrix. Since no interval has a third vertex, these linear solution spaces are independent across edges. Idempotent ranks follow from diagonal ones, and star row sums yield the exact probability and the limit. Independent exhaustive matrix enumeration passed nine finite configurations including nonstars and complete bipartite examples.
+## correctness
 
-## Originality — PASS against inspected sources
-The 2022 incidence-monoid study proves structural properties of idempotent components and closure in restricted antichain submonoids; it does not enumerate the ordered-product idempotence locus in full finite-field incidence algebras. The 2020 potent-matrix paper counts single potent elements, not the mixed product condition. Published-record searches for product-idempotence rank laws, incidence-monoid star probabilities and orthodox height-two semigroups returned related but distinct results. Readable local historical claim records were checked for overlap; related centralizer-rank and single-element counts did not imply this ordered-pair refinement. A possible equivalent enumeration under band or orthodox-semigroup terminology remains a priority risk.
+PASS
 
-## Value — PASS
-The event that a product of idempotents remains idempotent controls whether idempotents form a subsemigroup, a central question in the motivating incidence-monoid literature. This result determines the exact ordered-pair product-closure count and full three-rank refinement on every finite height-two poset, and the star family exhibits an unexpectedly nonzero limiting closure probability of \(3/4\). It is not merely a restatement of the known orthodoxy of selected antichain submonoids.
+Under the height<=2 assumption every strict comparable pair is a cover, so off-diagonal incidence-algebra multiplication has no intermediate summand. For E,F idempotent with diagonal bits a_x,b_x, the edge coordinates X,Y are independently permitted exactly when a_x != a_y and b_x != b_y. The off-diagonal EF entry is a_x Y+X b_y and an additional rank-one linear equation applies if diagonal products agree; enumerating the 16 ordered bit-state cases yields precisely the non-symmetric 4x4 D matrix. Thus independent q^(D) edge factors and rank monomials follow from an exhaustive local linear-space calculation. Idempotent matrices have rank equal to number of diagonal ones even in char2. For the star center, three row sums of q^D equal (1+q)^2 and the fourth 1+3q, giving N=3(1+q)^(2m)+(1+3q)^m. Total individual idempotents 2(1+q)^m, hence probability=3/4+1/4[(1+3q)/(1+q)^2]^m and limit 3/4 for every fixed finite q>=2. Empty poset and isolates handled by empty products; no height>=3 claim.
 
-## Scope and risk
-No result is asserted for longer chains, nor priority against inaccessible literature. All computations are finite consistency checks supplementing an all-field proof. No independent external audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Can-Casimiro-Malheiro analyze incidence-monoid idempotent varieties and products within prescribed antichain submonoids; their Theorem 4.9 calculates product of selected idempotent components, not all ordered pairs in full I(P,F_q) with (EF)^2=EF and not a joint triple-rank polynomial. Gargate-Gargate compute single potent/idempotent element counts using diagonal roots, not the mixed condition on EF. The four-state weighted partition function is an independent exact whole-algebra counting invariant; standard local equation solving is credited as the method, not claimed as intrinsically new.
+
+## value
+
+PASS
+
+The exact triple-rank polynomial for ordered idempotent pairs supplies a natural all-ranks algebraic invariant of every height-two poset; the universal 3/4 limit for growing stars quantifies a nontrivial failure of closure under multiplication, contrasted with known orthodox submonoid structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:58:52.520163Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "No claim for all higher even moments, arbitrary Fourier spectra, or the sharp constant at N=6."
+      ],
+      "rationale": "Plancherel for P^3 on the probability torus, with support among signed coordinate triples, gives exactly F=6-9Σs_j²+4Σs_j³+Σ(18-12s_j)|q_j|²+36Σ_{i<j}(2-s_i-s_j)Re(q_i conj(q_j)), normalized S=1. The inequalities |q_j|<=s_j/2 and Re(q_i conj(q_j))<=s_i s_j/4 give the scalar profile G(s)=15-(45/2)Σs_j²+10Σs_j³. The identity C_d-G(s)=Σ(s_j-1/d)²(45/2-10s_j-20/d) is nonnegative, with positive coefficients d>=2, and the separate within-pair and phase terms form the claimed exact positive deficit. Equality forces uniform s_j, balanced |a_j|=|b_j|, and common product phases; d=1 is handled separately. Fourier cubic support lies in [-3,3]^d so no alias for finite cyclic orders>=7; at order6 the ±3e_j frequencies merge and create exactly 1/(4d²) excess for uniform equal coefficients. An independent Gaussian-integer triple convolution rederived the polynomial moment for 35 random test configurations in each d=1..5 and checked sharp/extremal and finite-modulus boundary cases. This is an exact all-d proof, not an inference from numerical samples.",
+      "scope": [
+        "Complex coefficients, all d>=1, S>0 normalized by unweighted coefficient energy, continuous probability torus; finite-product tori each N_j>=7; order6 counterexample uniform N=6."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Havrilla et al. prove Gaussian type-L comparison (sixth-moment upper bound 15 after variance normalization), without dimension correction or cross-product phase equality.",
+          "Norvidas bounds separated samples; Hubert et al. optimize pointwise symmetric polynomials on other spectra."
+        ],
+        "reasoning": "The prior inequalities operate with a weaker constant or distinct optimization variables, so they do not dominate the exact coefficient-space constant or deficit decomposition for these cross-polytope characters.",
+        "searches": [
+          "Havrilla Nayar Tkocz arXiv:2102.09500 Theorem 1 Corollary 3",
+          "Norvidas arXiv:2209.12294 large sieve trigonometric powers",
+          "Hubert Metzlaff Moustrou Riener arXiv:2303.09487"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.09500 main text Theorem 1 Corollary 3",
+        "arXiv:2209.12294 abstract",
+        "arXiv:2303.09487 abstract",
+        "Resultary coordinate-/four-term-/subgroup-hole sixth-moment records",
+        "Frozen RESULT.md and check_sixth.py; independent Gaussian-integer convolution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 Gaussian bound is 15, whereas C_d<15 in every finite dimension.",
+          "The 2026 four-term one-dimensional spectrum has a different additive convolution than the ±e_j spectrum."
+        ],
+        "reasoning": "The claimed positive deficit implies a dimension-dependent strict improvement and full complex-rigidity statement absent from the cited broader results. The transfer to cyclic order≥7 uses a spectrum-specific nonaliasing argument.",
+        "searches": [
+          "arXiv:2102.09500 real type L sixth moments",
+          "arXiv:2209.12294 separated trigonometric sample estimates",
+          "Resultary 2026/10/11 sixth moment four term even moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balanced a_j,b_j correspond to independent cosine/phase-shifted arcsine variables; exact extremal moment is 15-45/(2d)+10/d².",
+          "Full claim additionally controls arbitrary complex pair magnitudes and relative products with a manifest nonnegative deficit."
+        ],
+        "reasoning": "An equal-weight real arcsine-sum sixth-moment calculation is a special slice of the theorem but cannot alone establish all complex equality and phase rigidity. A hidden general Schur-concavity statement might imply its scalar bound and should remain a literature risk.",
+        "searches": [
+          "Steinhaus independent coordinate cosine arcsine sixth moment equality",
+          "sharp L6 embedding cross-polytope support +-e_i complex products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed ternary-coordinate characters have constant 6-8/d+3/d² and different mod3 aliasing.",
+          "Four consecutive Fourier modes and finite subgroup-hole spectra have other additive 3-sum patterns."
+        ],
+        "reasoning": "Search comparisons discriminate the actual frequency support and collision counts, not keyword equality. No exact 2d antipodal-coordinate table was found, which alone does not prove novelty.",
+        "searches": [
+          "Resultary sharp sixth Fourier moment coordinate cross +-e_i complex coefficients",
+          "Resultary 2026/10/11/SCOPE-sharp-sixth-moment-constant-for-ternary-coordinate-characters--94b02774effb",
+          "Resultary 2026/10/11/SCOPE-sharp-sixth-moment-fourier-norm-via-four-term-even-moment-symmet--f3e238ebf219"
+        ]
+      },
+      "rationale": "PASS, qualified: the arbitrary-complex-coefficient exact 2d-mode L2-to-L6 bound and three-way positive deficit are stronger than the Gaussian comparison and have different spectrum from previously indexed exact sixth-moment examples. Equivalent arcsine/majorization formulations in older analysis remain a genuine priority risk.",
+      "residual_risks": [
+        "An older sharp sixth-moment identity for sums of independent arcsine variables or a general unconditional moment majorization theorem might imply the exact constant without Fourier terminology.",
+        "Some related arXiv paper full bodies were not materially read; no whole-document novelty conclusion is drawn.",
+        "The order-six example does not compute the order-six optimum, which is intentionally outside the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correctly credited universal comparison; does not contain the dimension-dependent cross-spectrum coefficient-phase deficit in examined main results",
+          "evidence": [
+            "Theorem 1 moment comparison, Corollary 3 independent type-L sums, upper bound normalized to Gaussian sixth moment 15."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.09500",
+          "material_read": "Accessible full extracted text, Introduction, Theorem 1 and Corollary 3, type-L hypotheses and Gaussian constant",
+          "method": "arXiv extracted full text",
+          "title": "Khinchin-type inequalities via Hadamard’s factorisation, Havrilla–Nayar–Tkocz (2021)",
+          "trigger": "strong Gaussian moment theorem for sums of independent type-L random variables"
+        },
+        {
+          "assessment": "Sampling control is not the claimed continuous coefficient-energy extremum; possible stronger details not excluded",
+          "evidence": [
+            "Subject: large-sieve values at separated points of trigonometric polynomial powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.12294",
+          "material_read": "Abstract and theorem scope/metadata only; full derivation not accessed in this run",
+          "method": "arXiv abstract/bibliography",
+          "title": "On large sieve inequalities involving pth powers of trigonometric polynomials, Norvidas (2022)",
+          "trigger": "potential sampled sixth-moment comparison"
+        },
+        {
+          "assessment": "A different pointwise objective and coefficient symmetry restriction; not a basis for whole-document noncoverage",
+          "evidence": [
+            "Formulates optimization of symmetry-invariant trigonometric polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.09487",
+          "material_read": "Abstract and description of pointwise objective, not full proof",
+          "method": "arXiv abstract",
+          "title": "Optimization of trigonometric polynomials with crystallographic symmetry and spectral bounds, Hubert et al. (2023)",
+          "trigger": "potential orbit-symmetric Fourier optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-dimensional sharp Fourier synthesis L2-to-L6 constant is a natural operator invariant; Gaussian universal bounds are nonsharp. The quantitative positive certificate identifies three geometrically different ways to miss equality, and nonaliasing exactly at order seven shows a meaningful finite-grid boundary. The result is a full coefficient-space theorem and equality classification, not a numerical record.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2102.09500 main text Theorem 1 Corollary 3",
+    "arXiv:2209.12294 abstract",
+    "arXiv:2303.09487 abstract",
+    "Resultary coordinate-/four-term-/subgroup-hole sixth-moment records",
+    "Frozen RESULT.md and check_sixth.py; independent Gaussian-integer convolution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim for all higher even moments, arbitrary Fourier spectra, or the sharp constant at N=6.",
+    "An older sharp sixth-moment identity for sums of independent arcsine variables or a general unconditional moment majorization theorem might imply the exact constant without Fourier terminology.",
+    "Some related arXiv paper full bodies were not materially read; no whole-document novelty conclusion is drawn.",
+    "The order-six example does not compute the order-six optimum, which is intentionally outside the claim."
+  ],
+  "schema_version": 1
+}

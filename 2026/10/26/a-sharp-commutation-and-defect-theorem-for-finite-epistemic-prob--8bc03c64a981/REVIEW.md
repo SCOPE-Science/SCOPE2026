@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event-semantics reduction is exact: epistemic knowledge of a real-valued probability is the minimum of row probabilities on a source information cell, while probability of knowledge is the row measure of the union of target cells wholly contained in the event. Evaluating cell unions and their complements forces agreement of every target-cell mass. Excluding a selected point from each positive nonsingleton target cell then forces coverage of all selector vertices. Conversely, a covering selector row attains the obvious lower bound for every event. An inequality with one chosen missing point in each partially intersected cell establishes the attained sharp minimax discrepancy, without assuming the row supports lie in the source class. The supported-case permutation statement follows from the exact number of rows and singleton target-cell structure. All relevant finite boundary cases are covered; the checker explores 31,099 rational matrix/partition instances, not an infinite domain proof.
+PASS
 
-## Originality — PASS within inspected literature
+For cell unions P=D and complements P=W\D, equality forces min and max of each target-cell mass to coincide. Omitting a selector of one point from every positive nonsingleton target cell forces one source row to simultaneously put all those cell masses at the omitted points. Conversely, selector rows avoid every partially included cell and attain exactly the probability of the E-interior. For the supremum defect, restrict arbitrary partial cells by chosen omitted points and compare their omitted mass with the full-selector maximal omitted mass; the reverse inequality is reached by an event missing exactly one point in every positive nonsingleton cell. Under support on C the d source rows must realize all d Dirac masses and thus are a permutation matrix. Independent exact-rational enumeration considered all partitions and all denominator-two stochastic matrices on n<=3; 2,188 cell/matrix pairs, no counterexample, including the defect identity.
 
-The initiating 2026 primary paper (arXiv:2604.22459v1) defines both modal/probability nestings and derives reasoning/complexity results; no theorem in inspected Sections 2–7 and proof appendix states the universal all-event commutation classification, sharp selector coverage obstruction, or exact discrepancy. The 2025 modal probability predecessor (arXiv:2511.22389) addresses semantic models, upper/lower probabilities, and complexity; its inspected Sections 1–4 do not imply the selector-classification statement. Mathematical-record searches for epistemic probability commutation, its permutation special case, and lower-envelope rectangular pure-vertex coverage returned no matching claim; adjacent entries concern unrelated epistemic frames, neighborhood-product rectangularization, or hedged update commutation. No negative novelty claim about inaccessible older source texts is inferred from these searches. Residual possibility: classical lower-probability envelope theorems or older epistemic probability conditions under another terminology imply some of the result.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 source explicitly considers the quantitative distinction between taking epistemic minima of probabilities and taking probabilities of epistemic propositions. The theorem gives exact necessary/sufficient structural data for their universal equality, the optimal number of epistemic states needed to realize all compatible selectors, and an attained minimax defect for partial failure. The epistemically supported specialization has a sharp rigidity phenomenon: true nondegenerate common uncertainty cannot commute, with optimal gap at least \(1-1/d\). These are natural frame-invariant properties of probability/knowledge interchange, beyond a renamed textbook identity.
+All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. The epistemic operators become an interior operator on subsets and a lower envelope of finitely many stochastic rows. The all-event commutation is equivalent to rectangular Dirac-vertex coverage, not mere equality of expected cell masses. No structurally equivalent theorem was identified in read modal sources; finite lower-envelope theory is a potential alias.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Interchanging epistemic lower probability and probability of a known event is a natural structural issue in finite probabilistic S5 semantics; exact iff selector coverage, a sharp source-world cardinality obstruction and attained worst-case discrepancy distinguish shared-support beliefs from stable commutation and can guide model classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

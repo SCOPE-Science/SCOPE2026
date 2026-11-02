@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The sign-normalization lemma preserves both primal and dual Lee enumerators, and all possible rank-two generator column multisets are covered by the thirteen sign types. The exact count \(\binom{n+12}{12}-6\binom{n+2}{2}+5\) independently checks coverage. The character-orthogonality formula evaluates the complete dual Lee enumerator in \(\mathbb Z[\alpha]\), with exact cancellation and divisibility asserted. All normalized classes through length six were evaluated without sampling, and two independent implementations reproduce the length-seven witness directly. Scope is explicitly restricted to dimension two and \(\mathbb F_5\).
+PASS
 
-## Originality
+The Lee weight on F5 respects column sign reversal. Each generator column of F5^2 therefore has exactly 13 sign-orbit types including zero, so the exact number of spanning rank-two normalized multisets at length n is binomial(n+12,12)-6*binomial(n+2,2)+5. Its n=2..6 values are 60,400,1735,6067,18401. An independently written full C++17 census enumerated every such multiset, evaluated each of 25 primal combinations and the full dual Lee enumerator using the exact character factors F0=1+2z+2z², F1=1+αz+(-1-α)z², F2=1+(-1-α)z+αz², α²=1-α. Each primal spectrum uniquely determined its dual for n<=6, across 1,5,18,49,129 primal spectrum signatures respectively, with all irrational components canceled and integer divisibility checked. A separate direct 5^7-vector dual enumeration (not using Fourier) confirmed equal primal Lee spectra for the two 7-column generators and distinct dual Lee-weight-4 counts 56 and 60. This is an exact finite exhaustive proof within fixed dimension two; it does not extrapolate to other dimensions.
 
-PASS, subject to a clearly identified access risk. Wood (2026) constructs dimension-two nonduality examples and proves broad failure but does not provide the earliest quinary Lee threshold in the inspected sections. The 2020 theorem of Abdelghany–Wood establishes Lee-weight nonduality over moduli at least five; its full text was not accessible for a precise comparison of finite examples. The current claim includes a sharp lower exclusion over every two-dimensional code of lengths at most six, not simply an existence witness. Literature and published research-record searches did not identify an equivalent shortest-length theorem, but absence of a search result does not establish priority.
+## originality
 
-## Value
+PASS
 
-PASS. The least block length for failure of a weight enumerator to determine its dual is a natural quantitative strengthening of nonexistence theorems. The cutoff seven and its exhaustive universal exclusion for all shorter two-dimensional quinary codes distinguish genuine finite-length rigidity from eventual failure. The result is a finite structural threshold rather than a routine variant of an existing bound; it does not assert broader coding performance improvements.
+PASS, qualified: broad Lee-weight MacWilliams nonduality and rank-two constructions are old, but the first exact two-dimensional quinary failure length 7 requires complete shorter-length exclusion not supplied by Wood (2026) in the inspected full text. Abdelghany–Wood (2020), a particularly plausible older source, was available only at abstract level; institutional full-text access was blocked, and this is a real residual historical-priority risk.
 
-## Closest literature and limitations
+## value
 
-Wood, *Weights on finite fields and failures of the MacWilliams identities* (2026), arXiv:2601.02608, is the nearest recent framework. Abdelghany–Wood (2020), DOI 10.1016/j.disc.2020.112036, remains the most important inaccessible earlier article. The assertion is only about the \([n,2]_5\) class and cannot establish the global shortest failure over dimensions three or more.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first block length at which Lee weight fails to determine its dual for fixed information dimension is a natural sharp invariant of weight enumerator duality. The complete exact exclusion n<=6 and explicit witness n=7 resolve a genuine finite rigidity boundary beyond general MacWilliams failure existence; it is not a tiny arbitrary slice, because n=7 is the minimum length and two is the first nontrivial linear rank for the studied construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

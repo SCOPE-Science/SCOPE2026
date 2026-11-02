@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The automorphism group is exactly the product of infinite symmetric groups on row and column coordinates. The pointwise stabilizer fixes precisely the used rows and columns, so its orbit count on arbitrary tuples factors into two distinguished-Bell polynomials. Applying invariant-set inclusion–exclusion removes the individually fixed parameter cells; signed Stirling inversion then removes collisions among tuple coordinates. The small-arity specialization recovers the unordered support pair from the product and sum of squares of its shifted coordinates. A direct bipartite-incidence classification establishes the sharp four-cell minimum, while a two-row degree-distribution argument establishes arbitrarily large collision fibers. Every statement is quantified over finite bases, and the limitations about fixed cardinality and ordered support are explicit. The standalone checker corroborates the independent analytic derivation on small cases; it is not offered as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+Automorphisms are independent row and column permutations. A finite base fixes precisely its r used rows and c used columns, so counting ordered potentially repeated cells involves two distinguished-block partition polynomials a_h(r),a_h(c). Inclusion–exclusion removes the m individually named cells, and signed Stirling inversion excludes repetitions among k new cells. Therefore t_k=sum_{j<=k} s(k,j) sum_{i<=j}(-1)^i C(j,i)m^i a_{j-i}(r)a_{j-i}(c). In particular t1=(r+1)(c+1)-m and t2=t1(t1-1)+(r+1)^2+(c+1)^2+1. With known m these recover product and sum of squares of r+1,c+1, hence unordered supports. Distinct shapes with (m,r,c)=(4,2,3), row-degree patterns (3,1) versus (2,2), are not isomorphic under named E,F but share all t_k. Bipartite 1,2,3-edge shapes have no distinct full-support patterns with the same ordered (r,c), proving sharpness. For two rows and n named points, a family of degree partitions produces floor((n-1)/2)+1 inequivalent bases with identical spectra. Independent Stirling–Bell computations reproduce t0..t4=(1,8,82,1067,17108). Only numerical counts are identified, not equality of complete types over named bases.
 
-Cameron's *Sequences Realized by Oligomorphic Permutation Groups* (2000), in the full readable primary text, develops oligomorphic orbit/type counting, Bell and Stirling transforms and the infinite symmetric product action, including unlabelled bipartite-pattern orbits. These are pre-existing methods, not new ingredients. Applegate–Cameron's *Orbits on n-Tuples* (2009) develops general tuple-orbit inequalities, but not the finite-base grid stabilizer spectrum or its sharp collision fibers. Searches for pointwise-stabilizer finite-base type counts, bipartite incidence aliases, equality-of-spectra implications, and equivalence-class reduction did not identify a statement that covers the complete arity-two saturation and collision theorem. The closest comparison on random bipartite graph reduct groups concerns different edge-flip actions and is not a covering implication. The remaining risk is unindexed or implicitly equivalent material about product actions and orbit-growth invariants. Bibliographic search failure is not treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The parameter-size-conditioned numerical type spectrum is a natural invariant of a classical homogeneous structure. The result completely determines when two finite bases have equal type counts in every arity, proves that arity two is sufficient to classify this numerical equivalence, and determines both its first genuinely nonisomorphic fixed-support collision and unbounded exact-size fibers. The theorem precisely distinguishes loss of structural incidence information from loss of numerical orbit-growth information; the sharp and unbounded features are not just a restatement of the basic Bell-number formula.
+Cameron 2000 already describes oligomorphic orbit sequences, Bell-number orbit transforms, and product actions; Applegate–Cameron establishes growth bounds for orbit sequences. These are credited as the general machinery. The complete fixed-finite-base arity-two determination and sharp nonisomorphic incidence-graph collisions with an unbounded family are not given by the inspected general results. The collision is not a conclusion from equality of titles: the same stabilizer type counts are computed from the exact ordered row/column support. Risk remains that a standard orbit-profile characterization of the two-equivalence grid appears in an older model-theory thesis.
 
-## Closest literature and limitations
+## value
 
-P. J. Cameron, *Sequences Realized by Oligomorphic Permutation Groups*, J. Integer Sequences 3 (2000), Article 00.1.5, https://cs.uwaterloo.ca/journals/JIS/VOL3/groups.html (online 2000-01-25). R. Applegate and P. J. Cameron, *Orbits on n-Tuples*, Comm. Algebra 37 (2009), 269–275, https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/orbitpaper.pdf. Numerical types do not encode actual complete formulas, the two-count recovery presupposes equal known base sizes, and the four-cell minimality presupposes a fixed ordered pair of support sizes. Independent validation was not undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem precisely distinguishes what numerical type spectra can and cannot recover in a canonical omega-categorical structure: unordered support sizes are identified by arity two, but the graph of incidences inside that support is invisible even to the entire sequence, with arbitrarily many witnesses. This is a motivated model-theoretic reconstruction/collision invariant and a sharp first finite obstruction, not a one-off Bell computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

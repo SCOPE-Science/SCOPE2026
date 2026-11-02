@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-The included `affine_distance_kernel_verifier.py` is a standalone Python 3 program requiring SymPy and NumPy. Run `python affine_distance_kernel_verifier.py` in the directory containing the script. It prints four geometry checks and ends with `PASSED all symbolic, geometry, spectral and rank assertions` on success.
+## correctness
 
-**Exact symbolic checks.** The script verifies the general identities
-\[
-\det B_1=(1-w)^2(1-(k-1)w),\qquad
-\det B_0=\frac{1-w}{n-1}\bigl((n-1)+\beta w+\gamma w^2\bigr),
-\]
-verifies the scalar-sector factorization, and checks that the constant-sector determinant in the \(\mathrm{AG}(3,3)\) case equals \((1-w)(1-54w+416w^2)\). It verifies the exact radicals \(w_\pm=(27\pm\sqrt{313})/416\) and the strict ordering \(0<w_-<w_+<1/8\).
+PASS
 
-**Graph and spectral checks.** Finite-field arithmetic constructs incidence graphs for \(\mathrm{AG}(2,2)\), \(\mathrm{AG}(3,2)\), \(\mathrm{AG}(2,3)\), and \(\mathrm{AG}(3,3)\), with \(10\), \(22\), \(21\), and \(66\) vertices. Breadth-first search confirms graph distances and parallel-class distance four. Direct symmetric eigenvalue computation agrees with the predicted two scalar-sector multiplicities and block-sector eigenvalues at five values of \(e^{-a}\). Separate checks verify the signs in and outside the admissible intervals and the endpoint nullities \(1,1,26\) for the three positive thresholds.
+Let M be point-block incidence for any existing AD(n,mu). The design identities MM^T=kI+lambda J and M^T M=kI+mu(J_r-I_r) tensor J_n split real point and block spaces into v-1 corresponding singular directions with 2x2 B1, r-1 uncoupled parallel-class contrasts with scalar L=f0-n f2+(n-1)f4, and two constant directions with 2x2 B0. Total 2(v-1)+(r-1)+2=v+b dimensions, so PSD iff L>=0, B1>=0, B0>=0, including singular cases and arbitrary automorphism groups. For exponential f_j=z^j with w=z² and 0<w<1, direct determinant identities give L=(1-w)(1-(n-1)w), det B1=(1-w)^2(1-(k-1)w), and det B0=(1-w)/(n-1)*[(n-1)+beta w+gamma w²]. Positive diagonal pivots reduce PSD to w<=1/(k-1) and the quadratic inequality; a=0 separately yields the all-ones rank-one kernel. In AG(3,3), n=3,k=9,r=13, determinant factor 1-54w+416w² has roots (27±sqrt313)/416 both below 1/8, yielding exactly two positive-a disconnected PSD bands, with rank 40 at w=1/8 and 65 at the two quadratic boundaries. Independent symbolic algebra checked all determinant factors, inequalities, and root ordering; the singular-value proof handles all actual designs. The design's existence assumption is explicit, no universal (n,mu) existence assertion.
 
-**Limits.** Floating-point diagonalization at selected small orders does not certify a universal theorem, and numerical rank comparisons use an absolute threshold of \(10^{-8}\). The all-design proof is the symbolic orthogonal decomposition in `RESULT.md`. The algebraic endpoint identities are checked exactly; existence of every possible integer-parameter design is not claimed. No independent audit has yet been performed.
+## originality
+
+PASS
+
+Ma 2016 explicitly derives spectral factorization and distance signature for affine-resolvable incidence graphs at the one specific radial weight f_d=d, supplying the essential design identities and singular-space structure. DeVille 2017/2020 treats arbitrary radial weights on distance-regular graphs and Cartesian products, where distance-class matrices commute, whereas these incidence graphs are biregular for r != k and their B1 distance-one and distance-two restrictions do not commute. This structural nonapplicability prevents a direct theorem specialization. The present exact all-parameter 5-weight PSD cone plus disconnected AG(3,3) exponential kernel interval is a motivated extension; the possibility of equivalent older coherent-config/block-matrix spectral computations remains explicit.
+
+## value
+
+PASS
+
+The complete radial positive cone and its exact rank multiplicities are natural stability and covariance-kernel invariants of incidence geometries; disconnected admissible exponential bandwidths provide a structural counterexample to naïve monotonicity, with sharp radical endpoints and boundary rank changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

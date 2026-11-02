@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ten rank-three matchings on the seven-edge path are an exhaustive list, proved by the \(\binom{N-r+1}{r}\) bijection. The static dimension lower bound uses four explicit traces; the upper bound checks an explicitly listed absent trace for each of the only ten possible all-one queried triples. The adaptive lower bound supplies a single complete depth-three decision tree and all eight distinct witnesses. The upper bound follows from the ten-concept information bound. The noninteractive minimum-order assertion follows from the rank bound and the one/four concept counts for five/six edges. The independent-domain additivity argument supplies both sides of both all-\(s\) formulas. Programmatic checks repeat the finite certificates. The method proves the infinite family without relying on a finite extrapolation.
+PASS
 
-## Originality — PASS, with residual risks
+For one P8, selecting three nonadjacent edges among seven yields exactly ten edge sets. A direct trace calculation finds a shattered pair but no shattered triple, so VC=2; an independent recursive version-space game finds Ldim=3, with ten hypotheses ruling out depth four. For all paths of at most six edges, an exhaustive exact all-ranks check finds no Ldim >=3. For product classes on disjoint ground sets, VC and Littlestone dimensions add: a shattered set restricts to shattered sets in each coordinate, and adaptive trees can be combined; for the upper bound on sequential depth the standard finite game rank has additivity under product of independent label domains. Thus disjoint s-fold products have 2s and 3s, with precise per-component quotas. Independently reconstructed every source tree and tested the finite base/marginal path cases. No claim about a *single global* fixed quota across components or arbitrary graphs.
 
-Searches of published mathematical research records for path matching incidence, fixed-cardinality path matching classes, matching quota VC/Littlestone gaps, and eight-vertex path adaptive shattering did not reveal an exact published counterpart. The closest inspected primary sources are Manurangsi (arXiv:2211.01443, ITCS 2023) on the complexity of finding these dimensions and Hanneke (PMLR 247, 2024) on general dimension relationships. Their examined theorems do not imply the ten-matching obstruction table or the particular sharp small-path witness. Abstract VC/Littlestone inequalities, general hardness, and routine additivity do not alone imply the matching-specific values. Priority may still be affected by literature on uniform independent sets of paths, constant-weight Fibonacci strings, or unpublished notes; search failure is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a deliberately structured extremal learning example, not an arbitrary random finite set system. It identifies the smallest path permitting full three-level adaptive shattering by a fixed-size matching class while static shattering stops at two, and converts that local obstruction into an exact unbounded additive gap for a natural family of component-quota matchings. The edge and matching constraints matter: taking every matching or dropping the fixed quotas changes the concept family. The exact witness is reusable for understanding when matching feasibility permits adaptive but not simultaneous decisions. No general classification of all matching classes is claimed.
+The finite ten-matching P8 witness, its sharp small-path minimality, and its graph-specific VC/Littlestone gap are not stated by the materially inspected learning-theory sources. The general inequality Ldim <= log2|C| and direct-product additivity are standard and must not be presented as new. The infinite gap s is a consequence of the finite base gap; originality is restricted to the particular matching incidence witness and its minimal path threshold. Priority remains qualified because a prior equivalent finite concept class might have appeared under online matching prediction or shattering-tree terminology.
 
-## Closest literature and limits
+## value
 
-Manurangsi (2022/2023) supplies hardness results for arbitrary finite concept matrices, not this explicit family. Hanneke (2024) studies foundational relationships and bound statements, not the given path matching family. Abstract product additivity is explicitly credited as elementary. The finite certificate is exhaustive only for the stated base path and minimality range; historical novelty and independent mathematical validation remain unconfirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact disparity on a natural finite combinatorial family demonstrates a structural separation of static and adaptive prediction for *fixed-rank matchings*, with the smallest possible path size for adaptive depth three and a parametrized sequence whose gap grows linearly. The product extension is elementary, but the minimal graph-constrained witness and its full static/adaptive certificate are motivated by complexity of learning matching hypotheses, not an arbitrary unmotivated slice. The result does not claim a new general VC/Littlestone inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

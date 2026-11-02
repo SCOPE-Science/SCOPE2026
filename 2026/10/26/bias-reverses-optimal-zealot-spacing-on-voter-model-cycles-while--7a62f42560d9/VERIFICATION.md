@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification scope
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python 3 from a directory containing `verify.py`; its exact output must coincide byte for byte with `certificate.json` in the same directory. The code constructs full continuous-time Markov generator transitions from disagreeing neighbor incidences, with positive opinion adopted at rate `plus` and negative at rate `minus`. It directly checks stationary balance on *all* states and ensures all states can reach the proposed unique recurrent support. It confirms the exact full distribution, first moment, and both endpoint masses.
+## correctness
 
-The generated certificate counts 175 full generators, 8,960 full-state configurations, 1,645 stationary-support configurations, and 56,300 directed flips for 3 to 9 vertices and five rational rate ratios. Additional exact checks cover 1,805 strict neighboring-placement comparisons and 185 complete stationary probability mass functions on 4 to 40 vertices. The invariants use integer/rational arithmetic; no floating-point tolerance or random draws are involved.
+PASS
 
-Finite verification cannot establish strict curvature for every positive real persuasion ratio or the classification for arbitrarily many voters. These claims are proved analytically in `RESULT.md`. Source comparisons and novel implications have not been independently audited.
+On each arc, every configuration has a positive-rate path into a unique closed irreducible single-interface birth-death class. From detailed balance, Pr(I=i)=r^i/Z_a(r) and Pr(J=j)=r^j/Z_b(r), independently; X=1+I+J and PGF t Z_a(rt) Z_b(rt)/(Z_a(r)Z_b(r)). At r>1, the real extension f_x=x/(1-exp(-x log r))-r/(r-1) has f_x''>0 via h(z)=(z-2)+(z+2)e^-z, h(0)=0 and h'>0; hence balancing strictly decreases mean. At r<1, f_m(r)=m-1-f_m(1/r) reverses curvature; r=1 mean n/2. For b>=a+2, balancing changes the normalizer by (r^(b-1)-r^a)/(r-1)>0, with positive r=1 limit, so both endpoint masses fall. Length-one arcs and nearly balanced arcs are explicitly included. These computations establish the all-n result, not the finite verifier alone. As an additional independent check, a newly implemented 132-case exact finite-state continuous-time generator calculation (n=4..9, every placement, four rational rate pairs) verified zero global stationary flux and the full convolution probabilities over 7,152 transient-and-recurrent configurations.
+
+## originality
+
+PASS
+
+The neutral two-zealot continuum domain-wall calculation is prior art (Mobilia et al. 2007). The strict finite-cycle position order for opinion-dependent copying ratios r !=1 and the simultaneous tail comparison are distinct and were not covered by the accessible primary formulations; fixed positions and bias are both necessary. Published-index semantic searches gave other voter and bounded-confidence systems, not a theorem implying this exact result.
+
+## value
+
+PASS
+
+A fixed number of opposing zealots on a cycle has a natural design variable: their separation. The theorem resolves exactly how rate asymmetry changes the globally optimal placement while both failure and near-consensus extreme risks respond in the same direction, a nontrivial separation of expectation and tail criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

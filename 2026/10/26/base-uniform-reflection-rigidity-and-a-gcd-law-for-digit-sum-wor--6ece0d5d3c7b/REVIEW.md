@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The base-arithmetic carry lemma exactly characterizes every adjacent pair, including both periodic and aperiodic branches. Each length-four window crosses at most one substitution boundary, ensuring two increments \(+1\); the reversal would require two increments \(-1\), impossible for any modulus at least three. The full short-factor family decompositions are exact by the constructive adjacency lemma. Inclusion–exclusion gives the short counts, and reversal-orbit counting gives the gcd trichotomy. Finite symbolic and direct-prefix verifications independently support the proof; prefix data are not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Allouche et al. (arXiv:2406.09302, Question 62) discuss generalizing reflection complexity and give only an illustrative binary-base, modulus-three case. Starosta (arXiv:1104.2476) gives full factor complexity and short factor languages but does not give the claimed ordinary reversal-orbit census for every base. Allouche–Shallit (2000) supplies palindrome information that cannot alone exclude distinct reversed factor pairs. The current claim covers all bases at least three, the gcd-determined exact length-two/three behavior, and the universal length-four threshold. Published-record and mathematical research-record searches found no stronger directly covering statement. Unindexed equivalent results remain a possibility.
+PASS
 
-**Value — PASS.** A short local combinatorial obstruction solves a natural all-base variant of a published reflection-complexity question for a classical family, with a substantive number-theoretic dichotomy arising from the carry modulus. The classification is sharp and encompasses infinite aperiodic and periodic families; it is not merely an isolated finite table or a restatement of palindromic avoidance.
+PASS: Reconstructed base-b carry identity t(bq+j)=t(q)+j and exact adjacent-pair relation c−a≡1 mod gcd(b−1,m), including a constructive realization using trailing (b−1) digits. Every four-window at b≥3 crosses at most one substitution-block boundary, hence two of its three adjacent increments equal +1; its reversal would require two −1 increments, impossible in one four-window for m≥3. Length-three reverse companions must be palindromes. Explicit three- and four-factor families have sizes 2m²/d−m and 3m²/d−2m by inclusion-exclusion; reversal of length-two pairs occurs exactly for d|2, giving displayed gcd trichotomy. Independent direct-prefix tests across 20 base/modulus combinations and three lengths were honest subset checks; 48/60 prefix counts were complete, 12 were not because prefixes do not necessarily realize the full infinite language. All 60 avoided contradictory reversals. Infinite result rests on constructive adjacency and substitution boundary proof.
 
-**Limits.** The focus is the ordinary reversal relation for base at least three and modulus at least three. Starosta's exact factor-complexity formula is prior work. No human or independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Allouche–Campbell–Li–Shallit–Stipulanti (2024) Question62 explicitly raises generalized reflection complexity and gives a base2/modulus3 instance; Starosta (2011) establishes ordinary factor complexity and short factor sets for generalized Thue–Morse, and Allouche–Shallit (2000) treats ordinary palindromes. Factor complexity and palindrome absence alone cannot determine the number of distinct reversal-orbit classes. The new short +1 increment argument covers every b,m≥3, including periodic ones.
+
+## value
+
+PASS
+
+PASS: A published reflection-complexity question motivates precisely these digit-sum words. The complete base≥3 all-modulus classification includes a nontrivial gcd(b−1,m) trichotomy for short factors and an all-length ordinary-reversal obstruction; it distinguishes periodic from aperiodic families. The +1-increment argument is elementary but solves a substantive natural family-wide invariant, not an arbitrary tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

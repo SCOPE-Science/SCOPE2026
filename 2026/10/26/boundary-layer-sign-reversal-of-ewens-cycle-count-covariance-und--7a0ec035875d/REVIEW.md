@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Cycle-index marking gives each finite factorial moment exactly. The at-most-one-forbidden-cycle argument holds for \(n\ge2r+4\). Expanding the determinant around the unrestricted coefficients separates the \(n^{-\theta}\) rare-giant perturbation from the \(n^{-2}\) baseline. The \(\theta=1\) exact determinant and \(r=1\) factorization resolve degenerate leading coefficients. Twelve exhaustive permutation comparisons, 2,464 exact finite checks, 15 special cases, and 72 coefficient checks passed. Finite tests do not establish asymptotic claims.
+## correctness
 
-## Originality
-PASS under available evidence, with residual historical-priority risk. The 2020 paper's general cycle-index formulas supply a route to the finite covariance but its inspected sections focus on sublinear length cutoffs and do not state the fixed-\(r\) sign flip at \(r=3\), the parameter crossover at \(\theta=2\), or the uniform-parameter exceptional scale. The earlier sublinear-cutoff papers and different derangement conditioning were compared by mathematical implication rather than matching terms. Semantic searches of mathematical records found related cycle/inversion and fixed-point/descent covariances but not the same claim. A stronger preexisting cycle-index consequence may cover the classification, and this cannot be ruled out absolutely.
+PASS
 
-## Value
-PASS. A rare-event exclusion of probability \(\asymp n^{-\theta}\) can dominate the unconditional \(\asymp n^{-2}\) covariance, reversing its sign. The sharp integer boundary \(r=2\)/\(r=3\) for \(0<\theta<1\), \(\theta=2\) crossover and singular \(\theta=1\) rate are structural properties of a natural near-maximal-cycle conditioning, not arbitrary numerical slices.
+The Ewens exponential cycle index A_L(z)=exp(theta sum_(j<=L)z^j/j) gives a_(n-s)=g_(n-s)-theta sum_(j=0 to r-s-1)g_j/(n-s-j), since n>=2r+4 precludes two forbidden cycles. Marking a 1-cycle, a 2-cycle, and both yields Cov=theta^2(a_n a_(n-3)-a_(n-1)a_(n-2))/(2a_n^2). The asymptotic relative removed mass theta Gamma(theta)n^(-theta)G_(r-s-1) has determinant linear coefficient -theta Gamma(theta)n^(-theta)(g_(r-1)-g_(r-3)); baseline covariance theta^2(1-theta)n^-2; the theta=2 and theta>2 limits follow. At theta=1 the leading perturbation cancels for r>=3, and the exact harmonic-sum determinant yields n^3 c->(3-2r)/2 and strict negativity; r=1 and r=2 have n c->-1/2. r=1 also factors exactly with a strictly negative bracket at every n>=3. Independent exact rational evaluation for r=1..4, theta=1/2,1,3/2,2,3 and admissible n, including 100, corroborated signs. Fixed-r and theta hypotheses were respected throughout.
 
-## Limitations
-All asymptotic limits take fixed \(r\) and fixed \(\theta\). General finite-\(n\) sign claims are restricted to the two proved cases. No claim of a comprehensive priority search or external verification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing exclusion-cycle asymptotics treat a sublinear maximum cycle length n^beta and do not determine this near-maximal n-r boundary. The classical Ewens conditioning relation already provides joint cycle-index coefficients, but the sign reversal at r=3, degeneracy theta=1 and theta=2 competition are an evaluated classification not obtained by merely citing that relation.
+
+## value
+
+PASS
+
+Changing only a few excluded giant-cycle sizes changes small-cycle dependence in a sharply quantified and unexpected way. The first positive conditional covariance at r=3 in 0<theta<1 and the two distinct power laws are natural boundary-layer invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational reproducibility
 
-The primary reproducibility entry point is `python3 artifacts/verify.py`. Its only dependency is the Python standard library. It reconstructs the Kirillov matrices using matrix-unit products, enumerates all six-dimensional functional parameters over four distinct finite fields (including an extension field of characteristic two), and obtains the rank distributions:
+# Independent mathematical audit
 
-- \(q=2\): ranks \((0,2,4,6,8)\) have multiplicities \((1,3,11,29,20)\).
-- \(q=3\): \((1,6,48,278,396)\).
-- \(q=4\): \((1,9,123,1227,2736)\).
-- \(q=5\): \((1,12,248,3764,11600)\).
+## correctness
 
-For \(q=2\), the same code enumerates all \(1024\) possible first matrices and solves the corresponding ten-variable linear equations for the second matrix. It finds \(48640\) pairs with zero additive commutator and \(38400\) pairs with commutator \(E_{14}\). This is exhaustive linear-system enumeration over the entire full triangular algebra, not a sampling claim.
+PASS
 
-The optional symbolic identity check `python3 artifacts/check_pfaffians.py` requires SymPy and recomputes all size-eight principal Pfaffians of the ten-by-ten matrix over the polynomial ring \(\mathbb Z[a,b,c,d,e,f]\). It verifies precisely six generating polynomials (up to signs) and crucial size-six and size-four witnesses. Both scripts were executed and returned their named success messages.
+In the ten matrix-unit basis, B_lambda(X,Y)=lambda(XY-YX) is alternating for every characteristic. An independent SymPy construction of all 45 principal 8x8 minors found 24 nonzero Pfaffians with exactly six distinct factors up to sign: (be-cd)c^2, (be-cd)ac, (be-cd)bc, (be-cd)ce, (be-cd)cf and (be-cd)(ae+bf), each repeated four times. Explicit lower Pfaffian witnesses and the disjoint cases c!=0, c=0/be!=0, c=e=0/b!=0, c=b=0/e!=0, and b=c=e=0 give exactly the five stated rank-count polynomials summing to q^6. Independent matrix-unit rank computations over prime fields q=2,3,5 reproduce every stratum. For each additive functional, the bilinear character sum over (X,Y) equals q^(20-rank), so F_q(h)=q^14 sum q^(-rank)psi(-ch). Weighted c=0 versus c!=0 strata give the displayed F(0), F(h!=0), and difference q^11(q^2+q-1). This is additive algebra commutator, not group multiplicative commutator, and characteristic two is included by Pfaffian polynomial identity. A separate integer Fourier calculation using independently enumerated prime-field Kirillov ranks also reproduced F_q(0), F_q(h!=0) and their difference for q=2,3,5.
 
-**Limits.** Finite-field enumeration alone would not establish the theorem for all prime powers; universality comes from the explicit polynomial Pfaffians, algebraic case reductions, exact character orthogonality, and symbolic expressions in the proof. These checks do not constitute independent mathematical validation.
+## originality
+
+PASS
+
+Kostant (2012) establishes generic coadjoint-orbit codimensions over C, not every finite-field rank count. Kaur–Sharma–Singh (2020) study commuting probabilities of invertible triangular matrix groups and their unitriangular subgroups, not all-element additive bracket with prescribed nonzero output; their apparent greater generality in size does not imply these fibers. An earlier detailed coadjoint orbit census may implicitly contain some rank data.
+
+## value
+
+PASS
+
+The complete distribution of Kirillov ranks, not merely generic index, gives finite-field algebraic orbit statistics; the exact contrast between zero and nonzero highest-root additive commutator fibers quantifies a natural concentration phenomenon. It is meaningful even without classifying all six-coordinate commutator targets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

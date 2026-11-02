@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:05:38.322118Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The regular quadratic polynomial P(z) has adjugate-vector numerator p(z)=adj(P(z))b with each coordinate degree≤2n−2. At nonzero nonsingular center ξ, x(z)=z p(z)/det P(z); an annihilating functional vanishing on derivatives orders 0..2n−2 forces ℓ(p) to have a zero of multiplicity 2n−1 at ξ and therefore ℓ(p)≡0. Finite-dimensional annihilator duality gives exact equality of the local solution-image span and those jets over the indicated real/complex field. For P(z)=I+(z−ξ)²diag(1,...,n), all real parameters give SPD matrices and the even/odd Taylor coefficients are paired multiples of K^j b. Vandermonde independence yields ranks min(n,1+floor(m/2)); order 2n−2 is necessary for n≥2, with n=1 valid at order zero. Independently constructed rational-rank tests checked n=1..7 and their exact sharp threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Botchev et al. Section 4 develops the augmented recurrence and derivative-QR iteration with 2n blocks.",
+          "Tisseur–Meerbergen survey companion linearization of QEPs."
+        ],
+        "reasoning": "Companion-state dimension does not directly give sharp output derivative-order bound and equality staircase, though standard rational system realization theorems could reproduce it.",
+        "searches": [
+          "https://arxiv.org/html/2610.14902v1",
+          "https://eprints.maths.manchester.ac.uk/466/",
+          "quadratic matrix pencil projected solution derivative finite termination rank plateau"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.14902v1",
+        "https://eprints.maths.manchester.ac.uk/466/",
+        "Resultary semantic search: quadratic pencils, realization and exact jets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 article discusses QR ranks of derivatives but does not prove that 2n−2 exact output derivatives always suffice or that odd derivatives can each fail to increase rank in SPD diagonal pencils.",
+          "Rational numerator has degree 2n−2, a classical bound that makes the core span theorem derivable by an elementary annihilator argument."
+        ],
+        "reasoning": "Prior analysis contains related premises but no exact combined universal sharp bound/positive-definite counterexample in materially read sections; derivability from broader realization theory remains an acknowledged originality risk.",
+        "searches": [
+          "https://arxiv.org/html/2610.14902v1",
+          "https://eprints.maths.manchester.ac.uk/466/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The image span of a vector-valued rational curve equals the rank of its Taylor-jet matrix once the numerator degree bound is exceeded.",
+          "Quadratic-pencil companion linearization gives a 2n-dimensional state representation, but x(z) is an n-vector output."
+        ],
+        "reasoning": "Compared rational realization, Krylov moment matching, transfer-functions and polynomial adjugate formulations. Sharp 2n−2 and SPD rank plateaux are not stated in inspected source.",
+        "searches": [
+          "Resultary semantic query: quadratic matrix pencil rational solution curve derivatives 2n-2 jet span rank plateau adjugate rational Krylov moment matching",
+          "https://eprints.maths.manchester.ac.uk/466/",
+          "https://arxiv.org/html/2610.14902v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is an all-n theorem; independent finite rank data verify dimensions≤7 only.",
+          "The packaged primary derivative recurrence is algorithmic, not a table classifying diagonal SPD jet-rank staircases."
+        ],
+        "reasoning": "A fixed finite table cannot establish the universal threshold; no exact prior classification was found.",
+        "searches": [
+          "Resultary semantic query: quadratic matrix pencil rational solution curve derivatives 2n-2 jet span rank plateau adjugate rational Krylov moment matching",
+          "https://arxiv.org/html/2610.14902v1"
+        ]
+      },
+      "rationale": "Rational function degree bounds, adjugate and realization theory are classical, as are quadratic-pencil companion linearizations. Botchev et al. 2026 explicitly develop a 2n-dimensional augmented derivative recurrence, but do not state the exact output-vector finite-jet span threshold 2n−2 and SPD false-plateau equality family in inspected sections. Originality is therefore a bounded sharp output-space refinement, not a claim that rational-jet span methodology or polynomial-degree argument is generally new.",
+      "residual_risks": [
+        "Classical rational realization and Padé/moment matching may state a stronger jet-span theorem under transfer-function terminology.",
+        "The witness SPD diagonal family is outside the electromagnetic coefficient subclass of motivating work; theorem concerns exact spans, not numerical stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Presents derivative-based model reduction and 2n augmented recurrences, not explicit tight projected solution-vector 2n−2 jet span or positive-definite plateau family.",
+          "evidence": [
+            "arXiv:2610.14902v1, Section 4.2 and equations 17–26."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.14902v1",
+          "material_read": "Full arXiv 2610.14902v1 HTML, especially Section 4.2 derivative recurrence (equations 17–26), 2n companion iteration and appendix implementation discussion.",
+          "method": "Lawful arXiv full HTML and equation-level text inspection",
+          "title": "A single LU factorization approach to model reduction for linear system families with a quadratic matrix pencil",
+          "trigger": "Same quadratic pencil equation x=zP(z)^−1 b and derivative QR algorithm"
+        },
+        {
+          "assessment": "Quadratic-eigenvalue companion linearization is established prior mathematical machinery; exact output derivative bound not confirmed as a stated result.",
+          "evidence": [
+            "Tisseur–Meerbergen, SIAM Review 43 (2001), DOI 10.1137/S0036144500381988."
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/466/",
+          "material_read": "Survey abstract, introduction and linearization discussion; not all appendices or complete theorem search.",
+          "method": "Lawful University of Manchester institutional repository publication",
+          "title": "The quadratic eigenvalue problem",
+          "trigger": "Classical possible broader companion realization bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-jet stopping criteria are natural for derivative-based model reduction. The exact worst-case number of derivatives and robust explicit positive-definite arbitrarily long alternating rank plateaux show a mathematically meaningful failure of terminating a derivative iteration after one rank plateau; useful as a precision benchmark rather than a generic elementary rephrasing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.14902v1",
+    "https://eprints.maths.manchester.ac.uk/466/",
+    "Resultary semantic search: quadratic pencils, realization and exact jets"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical rational realization and Padé/moment matching may state a stronger jet-span theorem under transfer-function terminology.",
+    "The witness SPD diagonal family is outside the electromagnetic coefficient subclass of motivating work; theorem concerns exact spans, not numerical stability.",
+    "Read at frozen source commit; individual GitHub file blob SHAs obtained. The complete Git tree was not independently reconstructed; the assigned tree SHA is server-supplied rather than independently attested.",
+    "No publication or repository mutation; publication plan is not_ready due to source metadata confidentiality."
+  ],
+  "schema_version": 1
+}

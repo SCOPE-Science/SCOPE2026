@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:05:38.322126Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a minimal accessible permutation DFA A with N states and |F|=m, the generated finite group G acts transitively. The reverse subset DFA has an orbit B of t distinct translates of F, pairwise distinguishable using accessibility and forward minimization. The assumption exactly two reversed accepting states implies each original state belongs to exactly two orbit blocks, so 2N=tm. Forward minimality forces an injection from Q to unordered pairs of B via each state's incidence signature, hence N≤C(t,2), m≤t−1 and N≥m(m+1)/2. Equality requires t=m+1 and bijects Q with all unordered pairs of B, turning transitions into a 2-homogeneous edge action with vertex-star final states. Conversely any 2-homogeneous edge action is forward minimal, has m final edges and reversed accept count exactly two; a full cycle and adjacent transposition give binary alphabet witnesses. The argument is all m≥2, not a bounded DFA census. Independent edge-star orbit checks verified witness incidence for m=2..6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "German 2026 Theorem 1 solves every pair of accepting-state counts m,α≥2, using α-subset state witnesses with size C(m+α−1,α).",
+          "Rauch–Holzer Lemma 23 proves regular incidence in reverse reachable subsets."
+        ],
+        "reasoning": "A general existence/spectrum theorem has broader α coverage but supplies no universal minimization over possible forward-state counts; Lemma 23 supplies a needed premise but not the tight lower bound and equality rigidity.",
+        "searches": [
+          "https://arxiv.org/html/2605.13385v1",
+          "https://arxiv.org/pdf/2208.14731"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.14731",
+        "https://arxiv.org/html/2605.13385v1",
+        "Resultary semantic search: 2-homogeneous automata and reversal acceptance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In German Section 3 the star construction gives a matching upper bound but not absence of smaller state automata.",
+          "Rauch–Holzer uniform incidence requires additional injection of original states to pair signatures to derive N≥m(m+1)/2."
+        ],
+        "reasoning": "Combining known incidence with an injectivity argument yields sharp lower bound and all 2-homogeneous optimizers. The lemma alone does not literally state or imply the optimizer rigidity without these additional arguments.",
+        "searches": [
+          "https://arxiv.org/pdf/2208.14731",
+          "https://arxiv.org/html/2605.13385v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orbit B of final-state subsets is precisely reverse reachable-state family. Each forward state yields a two-element signature of orbit-block membership under the reverse accepting count two.",
+          "This translates to a regular incidence structure of pairs, and equality to the complete graph edge action."
+        ],
+        "reasoning": "Compared accepting-state spectrum, reverse subset complexity and 2-homogeneous permutation-group edge actions; earlier existence is not identical to minimal forward state size.",
+        "searches": [
+          "https://arxiv.org/pdf/2208.14731",
+          "https://arxiv.org/html/2605.13385v1",
+          "Resultary semantic query: permutation DFA reversal two accepting states minimal forward states 2 homogeneous pair action"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "German's explicit witness family has size C(m+1,2) for α=2; known sizes are construction sizes, not an exhaustive minimum table.",
+          "Independent finite witnesses at m=2,3,4,5,6 have 3,6,10,15,21 states, with m+1 reverse states."
+        ],
+        "reasoning": "No exact previously published minimum-size/equality-class table was identified; the all-m argument is independent of finite cases.",
+        "searches": [
+          "https://arxiv.org/html/2605.13385v1",
+          "Resultary semantic query: permutation DFA reversal two accepting states minimal forward states 2 homogeneous pair action"
+        ]
+      },
+      "rationale": "Rauch–Holzer (2022) already establish uniform incidence in reverse subset orbits (Lemma 23), exclusion of one reversed final state, and initial spectrum results. German (2026) establishes exact accepting-count spectrum for reversal with an m+1 choose 2 star-family witness when reversed count is two. The new assessed statement is a universal forward state minimum among all permutation DFAs satisfying the pair of final-state counts plus complete 2-homogeneous equality rigidity. The existing witness is an upper bound only; exact possible-state optimization and equality classification were not proven in the materially read works.",
+      "residual_risks": [
+        "Other finite-automata optimization or permutation-group references might contain the same sharp lower bound under different terminology.",
+        "No classification of 2-homogeneous groups or alphabet-size optimization beyond existence of binary witnesses is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves uniform reverse-subset incidence and partial accepting-count spectrum, not the state-minimal α=2 classification; crucial antecedent explicitly credited.",
+          "evidence": [
+            "arXiv:2208.14731, p.186 Lemma 23 and Theorem 26."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.14731",
+          "material_read": "Full arXiv 2208.14731 PDF, Section 3.6, printed p.186, Lemmas 23–25, Theorem 26 and Conjecture 27; screenshot of page 9 zero-indexed.",
+          "method": "Lawful arXiv full PDF parsed text and page screenshot",
+          "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+          "trigger": "Foundational structural incidence lemma and possible prior minimum-state theorem"
+        },
+        {
+          "assessment": "Proves all accepting-count pairs achievable and provides the binomial-size witness, but does not establish it is smallest possible or classify every optimum.",
+          "evidence": [
+            "arXiv:2605.13385v1, Theorem 1 and Section 3, α=2 specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.13385v1",
+          "material_read": "Full arXiv HTML of 2605.13385v1, Theorem 1 and Section 3 star-α-subset construction including relevant lemmas.",
+          "method": "Lawful arXiv full HTML and equation-level inspection",
+          "title": "Exact Accepting-State Spectrum for Reversal of Permutation Automata",
+          "trigger": "Same accepting-count pair and exact known witness size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "State-size optimization under simultaneous accepting-state constraints is a natural automata-complexity invariant. A sharp universal lower bound and classification of every equality case strengthens existence constructions and exposes 2-homogeneous group geometry, providing more than a routine reformulation of the existence spectrum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2208.14731",
+    "https://arxiv.org/html/2605.13385v1",
+    "Resultary semantic search: 2-homogeneous automata and reversal acceptance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Other finite-automata optimization or permutation-group references might contain the same sharp lower bound under different terminology.",
+    "No classification of 2-homogeneous groups or alphabet-size optimization beyond existence of binary witnesses is asserted.",
+    "Read at frozen source commit; individual GitHub file blob SHAs obtained. The complete Git tree was not independently reconstructed; the assigned tree SHA is server-supplied rather than independently attested.",
+    "No publication or repository mutation; publication plan is not_ready due to source metadata confidentiality."
+  ],
+  "schema_version": 1
+}

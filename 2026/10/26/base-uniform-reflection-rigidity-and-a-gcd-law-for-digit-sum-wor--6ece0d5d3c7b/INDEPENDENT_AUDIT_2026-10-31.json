@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:01:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed base-b carry identity t(bq+j)=t(q)+j and exact adjacent-pair relation c−a≡1 mod gcd(b−1,m), including a constructive realization using trailing (b−1) digits. Every four-window at b≥3 crosses at most one substitution-block boundary, hence two of its three adjacent increments equal +1; its reversal would require two −1 increments, impossible in one four-window for m≥3. Length-three reverse companions must be palindromes. Explicit three- and four-factor families have sizes 2m²/d−m and 3m²/d−2m by inclusion-exclusion; reversal of length-two pairs occurs exactly for d|2, giving displayed gcd trichotomy. Independent direct-prefix tests across 20 base/modulus combinations and three lengths were honest subset checks; 48/60 prefix counts were complete, 12 were not because prefixes do not necessarily realize the full infinite language. All 60 avoided contradictory reversals. Infinite result rests on constructive adjacency and substitution boundary proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Starosta covers all-base all-modulus factor complexity but not ordinary reversal-orbit enumeration in inspected material.",
+          "Allouche/Shallit old digit-sum palindromic avoidance controls w=w^rev, not both distinct w and w^rev occurring."
+        ],
+        "reasoning": "Broader factor enumerations or stronger b=2 examples do not logically imply the all b≥3 no-reversal theorem without an additional localization argument.",
+        "searches": [
+          "Starosta 2011 full PDF Property IV/V, Table2",
+          "Allouche–Shallit 2000 digit sum palindrome theorem",
+          "Allouche et al 2024 full PDF Section9"
+        ]
+      },
+      "checked_sources": [
+        "Allouche et al. 2024 arXiv:2406.09302 Section9 Question62, primary PDF",
+        "Starosta 2011 arXiv:1104.2476 Properties IV–V/Table2 primary PDF",
+        "Allouche–Shallit 2000 DMTCS article via dmtcs.episciences.org/282",
+        "Resultary semantic reflection/digit-sum factor search 2026-10-31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Allouche et al. expressly leave generalized cases open and mention a specific b2,m3 result.",
+          "Starosta gives pair/triple factor languages; combined with new observation that every length4 window crosses at most one substitution block boundary one derives all-length reflection rigidity."
+        ],
+        "reasoning": "The crucial two-internal-adjacencies obstruction is not an automatic implication of known palindrome/factor complexity results; prior input is credited while new reversal statement remains independent.",
+        "searches": [
+          "Allouche et al. arXiv:2406.09302 Question62",
+          "Starosta arXiv:1104.2476 Property IV/V and Table2",
+          "Allouche–Shallit (2000) Theorem8 palindrome bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary reversal of factors fixes alphabet labels; Starosta also discusses dihedral antimorphisms involving simultaneous letter permutations, a different equivalence.",
+          "Starosta ordinary factor-complexity C(n) is known, but r(n) requires reversal-orbit sizes."
+        ],
+        "reasoning": "A palindrome count addresses fixed factors under reversal and is not by itself the absence of distinct mutually reversed factors. The correct notion is ordinary factor reversal.",
+        "searches": [
+          "Allouche et al. arXiv:2406.09302 PDF Section9 Question62",
+          "Starosta arXiv:1104.2476 Properties IV–V and Table2",
+          "Resultary semantic generalized Thue Morse digit sum reflection complexity reverse factors gcd base modulus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The borrowed C(n) complexity table determines possible factor counts but not the r2 case split d=1,2,>2.",
+          "No inspected table lists this exact all-b,m ordinary reversal orbit trichotomy."
+        ],
+        "reasoning": "New exact formulas are not merely a recomputation of C(n), because reversal identification can merge different factors even with known C(n).",
+        "searches": [
+          "Starosta 2011 exact factor complexity Table2",
+          "Allouche et al 2024 Question62 listed examples",
+          "Resultary Thue Morse/reflective factor searches"
+        ]
+      },
+      "rationale": "PASS qualified: Allouche–Campbell–Li–Shallit–Stipulanti (2024) Question62 explicitly raises generalized reflection complexity and gives a base2/modulus3 instance; Starosta (2011) establishes ordinary factor complexity and short factor sets for generalized Thue–Morse, and Allouche–Shallit (2000) treats ordinary palindromes. Factor complexity and palindrome absence alone cannot determine the number of distinct reversal-orbit classes. The new short +1 increment argument covers every b,m≥3, including periodic ones.",
+      "residual_risks": [
+        "A later or differently indexed solution to Question62 for all b,m could overlap.",
+        "Starosta factor-complexity table is borrowed; originality excludes its formulas and any known palindrome-only results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question motivates exact generalization, does not supply all b≥3 modulo m formula",
+          "evidence": "Question62 explicitly asks how reflection complexity generalizes to generalized Thue–Morse",
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "Full open preprint PDF Section9 Question62, pp.30–31, including base2/modulus3 example and the definition of reflection complexity",
+          "method": "Visual reading of primary preprint PDF relevant pages",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "explicit earlier generalized reflection-complexity question"
+        },
+        {
+          "assessment": "Counts and dihedral symmetries are prior; ordinary reversal orbit enumeration not found in inspected sections",
+          "evidence": "Property IV/V and Table2 specify factor complexity for all bases/moduli",
+          "identifier_or_url": "https://arxiv.org/abs/1104.2476",
+          "material_read": "Primary open PDF Properties IV–V and Table2, relevant factor/palindrome formulas",
+          "method": "PDF relevant-page reading",
+          "title": "Generalized Thue-Morse words and palindromic richness",
+          "trigger": "exact same word family; possible implication via factor language"
+        },
+        {
+          "assessment": "Ordinary palindrome constraints do not prove nonoccurrence of distinct mutually reversed factors",
+          "evidence": "Theorem8 concerns palindromicity, not full reflection pair language",
+          "identifier_or_url": "https://dmtcs.episciences.org/282",
+          "material_read": "Accessible indexed article and identified palindrome theorem excerpt, not full paper",
+          "method": "Article metadata plus theorem excerpt read",
+          "title": "Sums of Digits, Overlaps, and Palindromes",
+          "trigger": "could contain stronger reflection-free theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A published reflection-complexity question motivates precisely these digit-sum words. The complete base≥3 all-modulus classification includes a nontrivial gcd(b−1,m) trichotomy for short factors and an all-length ordinary-reversal obstruction; it distinguishes periodic from aperiodic families. The +1-increment argument is elementary but solves a substantive natural family-wide invariant, not an arbitrary tiny example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Allouche et al. 2024 arXiv:2406.09302 Section9 Question62, primary PDF",
+    "Starosta 2011 arXiv:1104.2476 Properties IV–V/Table2 primary PDF",
+    "Allouche–Shallit 2000 DMTCS article via dmtcs.episciences.org/282",
+    "Resultary semantic reflection/digit-sum factor search 2026-10-31"
+  ],
+  "disposition": "passed",
+  "limitations": "No b=2 general theorem claimed; full long factor complexity comes from Starosta, only reflection orbit refinement is new.",
+  "schema_version": 1
+}

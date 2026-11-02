@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification uses exactly the binary two-cut rotation coding and central-window separation metric stated in the result. The circle factor is injective on regular phases and has two one-sided configurations only at boundary orbits. Their difference set is exactly one coordinate (distinct endpoint orbits) or two coordinates separated by the unique integral displacement (same orbit). Those finite-difference pairs force the stated covering constraints. Conversely, any nonempty periodic pattern-covering schedule separates distinct fibers by construction and distinct phases by density of every arithmetic progression for irrational rotations. The minimum-mean-cycle argument proves that the infimum is achieved by a periodic schedule. The sample \(2/11\) claim is supported by an exact 128-vertex integer cycle-potential computation and explicit 11-periodic witness; it is not extrapolated from numerical trials.
+## correctness
 
-## Originality — PASS under examined evidence
-Ferrari's public introduction establishes the general finite-witness obstruction and examples for finite-type symbolic systems, not the exact all-parameter zero-entropy irrational two-cut rotation cost. The arithmetic change from density one to one-half at radius zero and the matching periodic sufficiency are not statements of the examined public abstracts and accessible introduction. Sturmian coding literature identifies asymptotic pairs but does not state the corresponding observer–hider optimum in the portions inspected. The comparison is by logical implication: an obstruction \(\beta_R\ge\kappa(F)\) alone does not provide the periodic-schedule upper bound for a non-SFT system. Significant bibliographic residual risk remains because Ferrari's full text was inaccessible; the finding is not independently priority-certified.
+PASS
 
-## Mathematical value — PASS
-The motivating article explicitly asks for observation costs beyond standard finite-type models. The result is a complete natural zero-entropy family, not a finite census or terminology change. It exhibits a discontinuous arithmetic phase change in an optimization invariant despite identical qualitative dynamical complexity and gives an exact finite algorithm (plus a nontrivial rational \(2/11\) instance). These are structurally meaningful results for sparse orbit reconstruction.
+PASS: Independently checked proof from the actual binary coding: a unique circle phase exists because each nonzero phase translation changes the interval indicator on an open arc, sampled densely by irrational rotation. Phase fibers are singleton except endpoint orbits; one-sided limits differ at one time if boundary orbits differ, at two times separated by |k| otherwise. Every winning schedule must hit all translates of [-R,R] or the union of two such intervals. Every nonempty periodic covering schedule separates distinct phases by density of each arithmetic progression n≡r mod period, and separates same-phase endpoints by covering, establishing equality with κ. A finite 2^(q+2R)-state de Bruijn graph attains the covering min mean on a cycle. For q=5,R=1, independently constructed 128 vertices and 252 edges; integer Bellman-Ford relaxation has no negative cycle at cost 11b−2, and a 2/11 period11 schedule covers all shifts. Bounds and algorithm are exact; finite graph is not a proof of irrational phase dynamics.
 
-## Closest literature and limitations
-Ferrari (2026) introduces the game and general lower bound; Peltomäki (2020) gives Sturmian rotation coding conventions; Barbieri–Labbé–Starosta (2021) treats indistinguishable asymptotic pairs. The full text of Ferrari's 2026 article was not obtained; novelty is best-evidence, not formal priority certification. The result is limited to irrational binary two-cut rotations and central symbolic metrics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Ferrari 2026 introduced observer–hider cost and necessary finite-witness covering lower bound; asymptotic Sturmian pairs are classical. The extra global periodic upper bound for irrational rotation codings and exact dichotomy between disjoint/same endpoint orbits is not established by the accessible material. The relevant Ferrari full paper was inaccessible despite OA/arxiv attempts and authorized Oxford tool returned vpn_disconnected, an explicit priority risk rather than automatic O failure.
+
+## value
+
+PASS
+
+PASS: This supplies a complete exact observation-cost solution for a natural minimal, zero-entropy, non-SFT dynamical family. The dichotomy controlled by whether cut endpoints share an irrational orbit is an exact arithmetic-geometric classification, with algorithmic rational costs and a nontrivial 2/11 instance, directly addressing a substantive open model class beyond the source SFT examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

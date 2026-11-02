@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The orbit of the accepting set supplies the reachable, minimal reverse DFA, and transitivity forces exactly two orbit-block memberships per forward state. Minimality injects forward states into unordered pairs of reverse blocks; incidence counting gives the sharp quadratic bound. Equality makes that injection bijective, forcing the complete-graph edge model and 2-homogeneous action. The converse constructs a minimal edge-action DFA with the stipulated forward and reversal accepting-state counts. The standalone verifier independently checks small cases; no infinite conclusion depends on those cases.
+PASS
 
-## Originality
+For a minimal accessible permutation DFA A with N states and |F|=m, the generated finite group G acts transitively. The reverse subset DFA has an orbit B of t distinct translates of F, pairwise distinguishable using accessibility and forward minimization. The assumption exactly two reversed accepting states implies each original state belongs to exactly two orbit blocks, so 2N=tm. Forward minimality forces an injection from Q to unordered pairs of B via each state's incidence signature, hence N≤C(t,2), m≤t−1 and N≥m(m+1)/2. Equality requires t=m+1 and bijects Q with all unordered pairs of B, turning transitions into a 2-homogeneous edge action with vertex-star final states. Conversely any 2-homogeneous edge action is forward minimal, has m final edges and reversed accept count exactly two; a full cycle and adjacent transposition give binary alphabet witnesses. The argument is all m≥2, not a bounded DFA census. Independent edge-star orbit checks verified witness incidence for m=2..6.
 
-PASS under the available literature comparison, with residual risk. Rauch–Holzer (2022) considers attainable reversal accepting-state values; German (2026) proves full attainability and supplies the upper-bound witness. The searched text of neither establishes a lower bound on the **number of forward states** among such witnesses, nor a characterization of every state-minimal witness. The new universal lower bound and rigidity implication are mathematically different from the prior existence statement. Unindexed results and conceptual reformulations remain possible risks.
+## originality
 
-## Value
+PASS
 
-PASS. The literature's attainable-spectrum question naturally leads to optimizing witness size: the published construction uses quadratically many states for reverse accepting-state count two, but it was not shown necessary. The exact minimum proves that this quadratic cost is intrinsic. The rigidity theorem further identifies all optimal architectures as 2-homogeneous complete-graph edge actions, a meaningful structural restriction rather than a numerical restatement of a construction.
+Rauch–Holzer (2022) already establish uniform incidence in reverse subset orbits (Lemma 23), exclusion of one reversed final state, and initial spectrum results. German (2026) establishes exact accepting-count spectrum for reversal with an m+1 choose 2 star-family witness when reversed count is two. The new assessed statement is a universal forward state minimum among all permutation DFAs satisfying the pair of final-state counts plus complete 2-homogeneous equality rigidity. The existing witness is an upper bound only; exact possible-state optimization and equality classification were not proven in the materially read works.
 
-## Verification and limitations
+## value
 
-The finite verifier passes for \(m=2,\ldots,12\), with an exhaustive smaller-state check for the first two parameters. The proof handles every integer \(m\ge2\). Larger reversed accepting-state counts and optimal generator-word lengths are outside scope. The novelty assessment is literature-bounded and the work awaits independent scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+State-size optimization under simultaneous accepting-state constraints is a natural automata-complexity invariant. A sharp universal lower bound and classification of every equality case strengthens existence constructions and exposes 2-homogeneous group geometry, providing more than a routine reformulation of the existence spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

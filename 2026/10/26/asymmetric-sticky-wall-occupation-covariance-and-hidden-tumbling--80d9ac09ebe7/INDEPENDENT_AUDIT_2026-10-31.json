@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:08:34.632099Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing tau=L/v, u=1/(2 gamma0), w=1/(2 gammaL), H=tau+u+w, the stationary wall probabilities are u/H and w/H, independent of alpha. Polynomial Poisson correctors built from J_j(s)=p_j s+u(p_j-1_{j=0}) and K_j(s)=alpha p_j s^2+2alpha u(p_j-1_{j=0})s satisfy every bulk generator and wall-release equation. The martingale/coboundary formula yields Sigma00=2u^2[2alpha tau^3+6alpha tau^2 w+6alpha tau w^2+3tau^2+6tau w+6w^2]/(3H^3), with SigmaLL by u↔w, and Sigma0L=−2uw[alpha(tau^3+3tau^2(u+w)+6tau uw)+3tau(u+w)+6uw]/(3H^3). Every denominator is positive for positive parameters, giving Sigma0L<0 and a strictly negative derivative in alpha. Known speed and interval length plus the two wall means solve for u,w; the cross covariance then uniquely solves alpha. An independent SymPy construction from the actual generator symbolically checked all boundary identities and three closed forms. The result is an infinite-time stationary CLT covariance, not a finite-time law, and assumes alpha,gamma0,gammaL,v,L positive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff (2023) eqs. (5.1)–(5.19) derives a joint Laplace BVP for wall occupation and detailed absorption/splitting formulas. Its Section 5 Gamma(s,z) expression has a common gamma for the two wall-release mechanisms.",
+          "Angelani (2023) describes general unequal boundary conditions and first-passage/mean exit times."
+        ],
+        "reasoning": "These are highly relevant broader process frameworks. They determine parts of the model and potentially generate equal-release moments, but do not directly state or dominate the full unequal-detachment stationary covariance/strict alpha inversion; residual possible derivability is explicitly retained.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.01158",
+          "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf",
+          "run and tumble wall occupation covariance occupation time stationary unequal release"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2302.01158",
+        "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bressloff defines two occupation times exactly and gives a joint-transform BVP, so it cannot be treated as unrelated literature.",
+          "The closed covariance and identification use a stationary Poisson-equation solution with two independent wall release rates absent from the equal-gamma Section 5 transform."
+        ],
+        "reasoning": "A generic joint transform in principle determines moments, but the inspected published formula does not immediately imply arbitrary unequal-release covariance, sign derivative and parameter inversion. The original scientific claim is limited to this concrete analytic result; it does not assert that wall occupation times or their transforms are novel.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.01158",
+          "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf",
+          "run and tumble wall occupation covariance occupation time stationary unequal release"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff §§2 and 5 uses boundary states B0,BL and integrated occupation times A0(t),AL(t); his double Laplace-transformed propagator is an equivalent generating representation for common release gamma.",
+          "The new covariance is the long-time covariance/Green–Kubo form of wall-indicator additive functionals under potentially distinct release rates gamma0,gammaL."
+        ],
+        "reasoning": "Search considered both occupation-time Laplace transforms and Poisson-equation CLT covariances. The same stochastic observables are indeed studied, but no equal-parameter complete explicit covariance or unequal-release identification theorem is stated in the inspected source.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.01158",
+          "run-and-tumble sticky reflecting walls occupation time covariance asymmetric detachment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical covariance table for arbitrary gamma0/gammaL was identified in Bressloff Section 5 or Angelani 2023.",
+          "The derived Sigma0L has a rational closed form depending on all three rates and L/v."
+        ],
+        "reasoning": "Published exit-time or absorption tables are different statistics; a table of stationary integrated-wall covariance would be directly covering if found.",
+        "searches": [
+          "run-and-tumble sticky reflecting walls occupation time covariance asymmetric detachment",
+          "https://arxiv.org/pdf/2302.01158"
+        ]
+      },
+      "rationale": "Bressloff 2023 is a strong exact-object precursor: it defines *two* wall occupation times and solves joint Laplace-time boundary value problems for sticky run-and-tumble particles, but its explicit Section 5 double-Laplace formulas use a common detachment rate gamma and are developed for encounter-based absorption and splitting, rather than the stationary unequal-release covariance matrix, its negative cross monotonicity or parameter inversion. Angelani 2023 gives a general boundary framework and mean exit times, also not that stationary covariance. The new theorem is narrowly the closed asymmetrically released covariance matrix and identifiability. Stronger joint-propagator results might yield its equal-release specialization by nontrivial differentiation; do not claim all underlying renewal/Laplace techniques as new.",
+      "residual_risks": [
+        "The equal-release specialization may be algebraically obtainable from Bressloff’s two-variable occupation-time Laplace transform after careful long-time differentiation.",
+        "A broader joint additive-functional CLT or Green–Kubo calculation for piecewise deterministic boundary processes might imply these covariance entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A genuine close precursor: contains the joint wall occupation transform for common gamma, but primarily treats absorption and splitting. It does not give arbitrary gamma0/gammaL asymptotic covariance/monotone alpha identification.",
+          "evidence": [
+            "arXiv:2302.01158v1, §5, particularly eqs. (5.5), (5.6), (5.15); common detachment rate gamma."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01158",
+          "material_read": "Full 27-page arXiv PDF, Sections 2 and 5 including equations (2.5)–(2.7), (5.1)–(5.19), joint occupation time Laplace-space boundary conditions, and title-page screenshot.",
+          "method": "Lawful arXiv full text with PDF page screenshot",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Exactly same two-wall occupation process, potentially stronger joint-transform result"
+        },
+        {
+          "assessment": "Treats asymmetric boundary transport and exit-time statistics, not an explicit stationary covariance matrix of two wall occupation integrals.",
+          "evidence": [
+            "J. Phys. A 56 (2023), 455003; doi:10.1088/1751-8121/ad009e."
+          ],
+          "identifier_or_url": "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf",
+          "material_read": "Full 15-page lawful journal PDF; abstract, introduction, general boundary setup and mean exit time discussion; title-page screenshot.",
+          "method": "IOP OA manuscript PDF and page screenshot",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "Unequal sticky boundary conditions could dominate the parameter result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary means are exactly blind to the tumbling rate, whereas the cross covariance is strictly monotone in it. The theorem supplies exact quantitative anti-correlation and a nontrivial identifiability mechanism for a physically natural asymmetric boundary model; the sign is not just a tautology that occupation times compete, since asymptotic covariance includes temporal memory and wall dynamics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2302.01158",
+    "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires independent exponential residence-time release and memoryless bulk tumbling; no absorption, heterogeneous drift speed or nonstationary initial law.",
+    "Known interval length and particle speed are needed for identifying physical gamma parameters from means; positivity of all rates is assumed."
+  ],
+  "schema_version": 1
+}

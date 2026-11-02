@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:02:28.044179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2,k>=3, write L=L_{K_m}⊗I+I⊗L_star and G=(mI+L_star)^{-1}. A horizontal unit edge has potential (e_i−e_j)⊗G e_s, yielding its absolute clique and spoke voltage-drop column sums. A vertical unit spoke splits into a constant-in-clique tree mode plus (e_i−1/m 1)⊗G(e_0−e_ell). The derived inverse entries have fixed positive signs and 0<a<1, so all absolute values are resolved algebraically. P=I−Q gives each cycle column norm as 1+cut_column_norm−2Q_ee. Subtractions q_h−q_l>0 and p_h−p_l>0 exclude leaf maxima. Integer sign polynomials A_Q and A_P give the exact hub/spoke boundaries: Q tie m=4,k=11; P ties m=7,k=11 and m=8,k=37, and switch at m=6 k=5. An independent grounded-Laplacian numerical reconstruction on 64 (m,k) instances independently tested three edge columns per case, 192 in total; largest six-column formula error was 5.33e−15. The universal proof is symbolic matrix inversion and sign analysis, not the finite grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilworth–Kutzarova–Ostrovskii theorem 45 calculates hypercube Q, not K_m □ K_(1,k).",
+          "The authors have graph-general projection tools but not a universal formula that immediately yields the claimed star-dependent absolute column ordering."
+        ],
+        "reasoning": "No dominant parameter theorem covering all inhomogeneous clique-star switching was identified; the general transfer-current representation is not a sharp optimized norm result.",
+        "searches": [
+          "arXiv:2305.12582 Theorem 45 and Sections 2.4-2.7",
+          "arXiv:1807.03814 Lipschitz free spaces finite metrics"
+        ]
+      },
+      "checked_sources": [
+        "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 theorem 45, corollary 60 and graph-family sections",
+        "Resultary graph projection searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior hypercube formula (n+1)/2 is for Q on a regular binary hypercube, not for nonregular clique×star edges.",
+          "Prior general projector formulas require graph-specific inversion and sign minimization; the exact switches depend on two integer polynomials A_Q/A_P."
+        ],
+        "reasoning": "A direct substitution into a hypercube formula is invalid. The graph-inhomogeneous optimized endpoint phase diagram requires additional algebra, checked independently here.",
+        "searches": [
+          "arXiv:2305.12582 theorem 45 hypercube cut norm",
+          "arXiv:1807.03814 general finite metric Lip free space approach"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q=D^T L^+D coincides with edge transfer-current/electrical gradient projection; P is its orthogonal complement.",
+          "Induced l1 and l∞ norms agree because these projectors are real symmetric."
+        ],
+        "reasoning": "The theorem is compared in electrical network, Hodge-decomposition and transportation-cost terms. Those equivalents are methods but do not already specify these six norms and maximizers.",
+        "searches": [
+          "arXiv:2305.12582 cycle-cut invariant projections and transportation costs",
+          "Transfer Current Matrix, Burton–Pemantle theorem lecture notes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published finding is a separate cactus transportation edge basis norm problem, not this clique-star Cartesian projection.",
+          "The inspected Hamming/torus/hypercube computations do not list these clique-star phase boundaries."
+        ],
+        "reasoning": "A pre-existing electrical-graph table could match despite low search recall, but no exact six-expression table appeared in the identified checked sources.",
+        "searches": [
+          "Resultary: exact l1 norm projection cycle space K_m Cartesian star graph Hodge cut space switching edge",
+          "Resultary: Cartesian product clique star graph K_m square K_1,k cut cycle projection l1 norm",
+          "arXiv:2305.12582 prior graph family tables"
+        ]
+      },
+      "rationale": "The cut/cycle orthogonal projector formalism and transfer-current matrix are classical, and Dilworth–Kutzarova–Ostrovskii compute endpoint norms on Hamming graphs, tori and hypercubes (their theorem 45 is specifically hypercube). The inhomogeneous K_m × star product, all six edge-type rational expressions and distinct hub/spoke switching thresholds are not asserted by the inspected prior source. A general graph Laplacian formula is a tool and does not by itself imply the optimized piecewise thresholds. Best-of-knowledge O PASS, with possible less-indexed transfer-current closed-form identities a residual risk.",
+      "residual_risks": [
+        "An older transfer-current norm formula for Cartesian products with a star could yield the six expressions as a corollary.",
+        "The result concerns only canonical orthogonal edge-space projections, not minimal-norm projections among all projections.",
+        "Numerical projector checks are finite corroborations; universal inequalities depend on the algebraically reconstructed sign polynomials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies general framework and hypercube/tori/Hamming cases, not exact clique-star branch thresholds",
+          "evidence": [
+            "Theorem 45 states hypercube cut norm (n+1)/2; Corollary 60 hypercube cycle norm; Section 1 defines cut and cycle edge spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "Full primary PDF accessed; cut/cycle definitions Section 1, graph families Sections 2.4-2.7 including theorem 45 and corollary 60 materially read",
+          "method": "arXiv PDF text and graph-theorem comparisons",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Closely matched cut/cycle projection norms, possible dominating graph family"
+        },
+        {
+          "assessment": "General finite metrics/recursive diamond and Laakso graphs; insufficient reading to assert whole-document noncoverage",
+          "evidence": [
+            "Finite metric/Lipschitz-free framework is established prior technique."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "Abstract and relevant cited sections/description compared; entire primary document not materially inspected",
+          "method": "arXiv abstract and scope comparison",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Potential stronger graph-general projection computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical Hodge cut/cycle projectors are fundamental to transportation-cost and graph edge-space analyses, and the clique×star product is a natural inhomogeneous Cartesian family. Knowing exactly which geometric edge direction controls an endpoint norm and where it changes is a useful complete invariant, not an arbitrary tiny-graph computation; complementary projections exhibit different reentrant branching thresholds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md blob bc11b8ed9c6939e7a30a3a6b4deea2ab0d20b50b",
+    "checker.py frozen tree and independent grounded-Laplacian verification of 192 columns",
+    "independent_verification_results.txt",
+    "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 theorem 45, corollary 60 and graph-family sections",
+    "Resultary graph projection searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "m>=2,k>=3 simple unweighted graphs only; no minimality among arbitrary nonorthogonal projections.",
+    "Symmetry proves l1=l∞ for each projector; no assertion on other lp operator norms.",
+    "Operational publication blocker independent of completed C/O/V: original METADATA.json and AUDIT.json contain potentially public internal operational provenance; no full sanitized replacement files with exact Git blob guards have been prepared."
+  ],
+  "schema_version": 1
+}

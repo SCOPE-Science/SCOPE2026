@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification is finite and fully quantified: \(32,767\) nonzero ternary quartic forms, partitioned into \(279\) disjoint projective orbits, with \(78\) smooth orbits and \(10,920\) smooth forms. The projective action is generated from all \(168\) invertible binary matrices; chartwise Groebner unit-ideal tests establish geometric smoothness, not merely nonsingularity on rational points. Contact is computed by formal expansions modulo \(t^8\), and degree-four-by-degree-two Bezout gives contact exactly eight. An independently implemented conic-first computation enumerates \(84\) smooth-conic flags and tests all nonzero quartics, reproducing the four-bin histogram. The extremal orbit has size \(21\) and contains a verified explicit representative. Actual calculation artifacts and full programs are embedded.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-The inspected 2017 sextactic/2-Hessian work of Maugesten–Moe treats classical osculation outside the binary-field equation census. The 2018 author-posted manuscript by Kamel–Elshareef deals with higher Weierstrass geometry of quartics, not the same characteristic-two rational conic-incidence frequency. Nart–Ritzenthaler classifies characteristic-two quartic curves as objects, but the needed conic eight-contact flag distribution in fixed coordinates is not an implication of a list of isomorphism types alone. Separate rational-line/bitangent/inflection classifications recorded in the available collection do not determine this finer conic-osculation invariant. Multiple actual semantic result searches returned no exact stronger theorem. This is evidence for, not certainty of, novelty; unindexed tables and unexamined secondary details remain risks.
+PASS
 
-## Value — PASS
-The invariant is natural in the canonical genus-three embedding because conic sections are divisors in \(2K_C\) and eightfold contact means a section supported at one rational point. The exact full distribution and the unique orbit attaining its sharp maximum answer an arithmetic osculation question not controlled by rational point counts, line flexes, or the abstract curve census. The smallest binary field is a mathematically distinctive boundary where usual characteristic-zero Wronskian arguments cannot be presumed valid.
+PASS: The final claim fixes the ground field F2, geometrically smooth quartics and conics, rational base points, intersection multiplicity exactly eight, and counts literal nonzero homogeneous forms (scalars F2^×={1}), not isomorphism classes. Reconstructed the conic-first method using all 28 geometrically smooth conics and their 84 rational point flags. Formal conic expansions modulo t^8 give eight homogeneous linear constraints on all 32767 nonzero quartic forms. An independently written GL3(F2) action checks all 168 substitutions and partitions them into 279 orbits. On each orbit representative, independent GF2 Groebner unit-ideal checks in each affine chart give exactly 78 geometrically smooth orbits, total 10920 forms. Their contact histogram is exactly h=0:9849,h=1:840,h=2:210,h=4:21, and the unique h=4 orbit has 21 forms. The two complementary searches together are exhaustive; this is a finite-field proof, not extrapolation. Bezout bounds contact order by 8 for smooth quartic vs conic.
 
-## Limitations
-The theorem is restricted to geometrically smooth plane quartics and geometrically smooth conics over \(\mathbf F_2\). Program agreement is not an independent mathematical audit. The checker independently evaluates contact and smoothness but accepts the first certificate as a list of orbit representatives and reconstructs each orbit to verify exhaustiveness. No assertion of absolute literature uniqueness or general-field behavior is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Best-of-knowledge assessment after comparing maximal conic osculation with sextactic points, canonical genus-three characteristic-two curve classification, and adjacent line/tangency tables. The exact 9849/840/210/21 fixed-coordinate smooth-conic eight-contact distribution is not a stated or logically immediate consequence of inspected primary results. Older unindexed conic-contact tables remain a genuine risk; failure to find them is not a novelty proof.
+
+## value
+
+PASS
+
+PASS: The enumeration is a complete, exact, equation-weighted incidence distribution for a natural canonical genus-three family in the smallest characteristic-two projective plane; the sharp maximum and unique extremal orbit are relevant to Weierstrass/osculating conic geometry. Neither a generic small table nor an arbitrary selected quartic is the central invariant; it exhausts all smooth forms and distinguishes smooth conics from singular line pairs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

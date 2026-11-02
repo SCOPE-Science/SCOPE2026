@@ -1,15 +1,21 @@
-# Review of radial positivity on affine resolvable incidence graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence identities \(MM^{\mathsf T}=kI+\lambda J\) and \(M^{\mathsf T}M=kI+\mu(J_r-I_r)\otimes J_n\), together with the explicit distance classes, imply an exhaustive orthogonal decomposition of dimension \(2+2(v-1)+(r-1)=v+b\). The resulting one-dimensional and two \(2\times2\) spectral sectors match the stated matrices and multiplicities. The determinant identities for exponential-distance kernels follow by symbolic expansion; the single nontrivial constant-sector quadratic specializes to \(1-54w+416w^2\) for \(\mathrm{AG}(3,3)\). Both radical roots are positive and strictly below \(1/8\). Thus the two separated admissible intervals and ranks \(1,40,65\) follow without numerical extrapolation. The included checker reproduces symbolic identities and tests independently constructed small incidence graphs. Its numerical examples are corroboration, not substitutes for the proof.
+## correctness
 
-## Originality — PASS under bounded literature review
-Ma (arXiv:1604.08922) analyzes the **ordinary distance matrix** and determines its inertia. That result fixes \(f_j=j\); it neither implies the complete five-parameter positive-semidefinite cone nor the disconnected exponential-distance bandwidth set. DeVille (arXiv:1708.02294), Sections 2.1–2.4, develops generalized-distance spectral machinery for distance-regular graphs and Cartesian products; the incidence graphs here have unequal point and block valencies, so they do not meet those particular hypotheses. The broader commuting-distance-matrices criterion also fails: the distance-one and distance-two matrices do not commute on the \(B_1\) sector. Relevant published work on affine-plane incidence Vietoris–Rips complexes concerns homotopy and not positive definiteness of covariance matrices. An accessible search for equivalent radial-kernel or resolvable-design parametrizations found no decisive coverage, but absence of an indexed match cannot establish uniqueness. Earlier association-scheme or coherent-configuration literature may contain equivalent specialized formulas.
+PASS
 
-## Mathematical value — PASS
-The general cone gives an explicit parameter-independent certificate for **all** radial covariance matrices on a natural family of nonregular incidence graphs, including designs without transitive symmetry. Its exponential slice displays a sharp phenomenon not visible from a single fixed distance matrix: for the 66-vertex \(\mathrm{AG}(3,3)\) incidence graph, validity in the positive bandwidth parameter is nonmonotone, with two closed admissible intervals separated by an excluded interval. The exact radicals and boundary ranks isolate the obstruction in different spectral sectors. This supplies a motivated boundary example for applying distance-decay kernels to finite incidence geometries.
+Let M be point-block incidence for any existing AD(n,mu). The design identities MM^T=kI+lambda J and M^T M=kI+mu(J_r-I_r) tensor J_n split real point and block spaces into v-1 corresponding singular directions with 2x2 B1, r-1 uncoupled parallel-class contrasts with scalar L=f0-n f2+(n-1)f4, and two constant directions with 2x2 B0. Total 2(v-1)+(r-1)+2=v+b dimensions, so PSD iff L>=0, B1>=0, B0>=0, including singular cases and arbitrary automorphism groups. For exponential f_j=z^j with w=z² and 0<w<1, direct determinant identities give L=(1-w)(1-(n-1)w), det B1=(1-w)^2(1-(k-1)w), and det B0=(1-w)/(n-1)*[(n-1)+beta w+gamma w²]. Positive diagonal pivots reduce PSD to w<=1/(k-1) and the quadratic inequality; a=0 separately yields the all-ones rank-one kernel. In AG(3,3), n=3,k=9,r=13, determinant factor 1-54w+416w² has roots (27±sqrt313)/416 both below 1/8, yielding exactly two positive-a disconnected PSD bands, with rank 40 at w=1/8 and 65 at the two quadratic boundaries. Independent symbolic algebra checked all determinant factors, inequalities, and root ordering; the singular-value proof handles all actual designs. The design's existence assumption is explicit, no universal (n,mu) existence assertion.
 
-## Scope and residual risks
-The general statement assumes a design actually exists and does not solve parameter-feasibility questions. The originality assessment is bounded by accessible primary literature and indexed mathematical results; alternative presentations through coherent configurations could overlap. An external mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ma 2016 explicitly derives spectral factorization and distance signature for affine-resolvable incidence graphs at the one specific radial weight f_d=d, supplying the essential design identities and singular-space structure. DeVille 2017/2020 treats arbitrary radial weights on distance-regular graphs and Cartesian products, where distance-class matrices commute, whereas these incidence graphs are biregular for r != k and their B1 distance-one and distance-two restrictions do not commute. This structural nonapplicability prevents a direct theorem specialization. The present exact all-parameter 5-weight PSD cone plus disconnected AG(3,3) exponential kernel interval is a motivated extension; the possibility of equivalent older coherent-config/block-matrix spectral computations remains explicit.
+
+## value
+
+PASS
+
+The complete radial positive cone and its exact rank multiplicities are natural stability and covariance-kernel invariants of incidence geometries; disconnected admissible exponential bandwidths provide a structural counterexample to naïve monotonicity, with sharp radical endpoints and boundary rank changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

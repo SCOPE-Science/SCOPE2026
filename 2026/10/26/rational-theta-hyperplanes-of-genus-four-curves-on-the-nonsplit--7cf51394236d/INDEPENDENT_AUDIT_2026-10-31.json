@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:02:08.567251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed nonsplit quadric Q in P3/F2 has exactly 5 rational points, 120 automorphisms permuting them, and a 16-dimensional cubic-section quotient (65535 nonzero classes). The full group orbit census gives 683 orbits. For every representative, the exact Jacobian-ideal Groebner unit test on four affine charts detects geometrically smooth complete intersections over the algebraic closure, not merely F2 or F4 rational smoothness; 254 smooth orbits of total weight 27060. Fifteen rational hyperplane sections consist of 10 smooth conics and 5 conjugate-line tangent conics; restriction to a conic yields a binary sextic, even-divisor iff odd exponents vanish (3 linear syndrome conditions), while tangent conics have analogous three-bit extension-field syndromes with a vertex parity condition. An independent implementation rebuilt group generators, reduced cubic action, 15 linear syndromes, exact Groebner smoothness and full weighted orbit census, reproducing bins 5680,13580,7020,320,460 and the 7 extremal orbits with weights 120,30,60,60,10,60,120. The independent implementation did not use the source certificate JSON, so the enumeration is supported by independent exact finite computation. Smoothness over Fbar is certified by algebraic ideal tests; small-extension point tests alone would not suffice.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xarles enumerates all F2 genus-4 isomorphism classes and point data, a broader curve census.",
+          "Pacini-Testa give theta-hyperplane machinery for general curves; Harris-Len classically treats tritangent planes."
+        ],
+        "reasoning": "A complete list of curve equations does not by itself state the rational incidence distribution; computing the fifteen exact even-divisor tests and orbit weights is additional finite geometric work. General theta counts need not determine the rational subset in characteristic two.",
+        "searches": [
+          "genus four canonical curves F2 nonsplit quadric rational theta hyperplanes even contact hyperplane census",
+          "https://arxiv.org/abs/2007.07822",
+          "https://arxiv.org/abs/2004.00955",
+          "https://arxiv.org/abs/1701.02353"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2007.07822",
+        "https://arxiv.org/abs/2004.00955",
+        "https://arxiv.org/abs/1701.02353",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xarles computes group orbit representatives and smoothness, but evaluates point counts, not even theta hyperplane sections.",
+          "Pacini-Testa identifies even-divisor theta hyperplanes, not 27060 equation-weighted rational incidence frequency."
+        ],
+        "reasoning": "The prior genus-four classification and general definition are essential prerequisites, not a direct numerical implication of the 0..4 rational theta hyperplane frequencies or seven extremal representatives.",
+        "searches": [
+          "genus four canonical curves F2 nonsplit quadric rational theta hyperplanes even contact hyperplane census",
+          "https://arxiv.org/abs/2007.07822",
+          "https://arxiv.org/abs/2004.00955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The condition hyperplane divisor everywhere even is the characteristic-two theta-hyperplane notion in Pacini-Testa Definition3.10.",
+          "Nonsplit Q is the Arf-invariant-one quadric in Xarles canonical trigonal classification, distinct from split Q."
+        ],
+        "reasoning": "Compared rational theta-hyperplanes, canonical genus-4 theta-characteristics, tritangents, and fixed-nonsplit quadric cubic sections; the count t(C) and smooth/tangent section refinement were not present as explicit invariants in the inspected source portions.",
+        "searches": [
+          "genus four canonical curves F2 nonsplit quadric rational theta hyperplanes even contact hyperplane census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xarles §2 enumerates canonical cubic sections and prints point-count tables; no theta count column in the materially inspected tables.",
+          "Independent census gives exact bins and seven maxima with smooth/tangent breakdown."
+        ],
+        "reasoning": "An existing auxiliary program or an unindexed historical fixed-quadric incidence table might already allow this exact histogram; examined public model data did not directly tabulate it.",
+        "searches": [
+          "genus four canonical curves F2 nonsplit quadric rational theta hyperplanes even contact hyperplane census",
+          "https://arxiv.org/abs/2007.07822"
+        ]
+      },
+      "rationale": "Xarles 2020 already enumerates abstract genus-four F2 curves, split/nonsplit quadric models, source-coordinate automorphism orbits, and point counts: this prior curve enumeration is fully credited. Pacini-Testa 2020 supply characteristic-two even-divisor theta-hyperplane definitions and general geometric theory. Neither inspected relevant full-text theorem/tabulation supplies the 15 rational-hyperplane syndrome counts or the seven fixed-nonsplit extremal incidence orbits. The new claim is the extra theta incidence statistic in an explicitly fixed equation-weighted quotient, not existence or total classification of genus-four curves. An indirect calculation from Xarles' curve list is possible and is an explicit residual priority risk.",
+      "residual_risks": [
+        "Xarles full auxiliary classification program or older finite-geometry incidence tables may permit immediate derivation, beyond the checked published tables.",
+        "Theta-hyperplane count is equation-weighted with fixed nonsplit Q and scalar-normalized cubic classes, not the count of abstract genus-four isomorphism classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already computes the underlying canonical model orbit and smoothness classification, but its examined point-count tables do not include the rational theta-incidence distribution.",
+          "evidence": [
+            "§2 algorithm Steps1-8, point-count data; fixed Arf-invariant classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.07822",
+          "material_read": "Full accessible arXiv text, especially §2 nonsplit/split quadric orbit algorithm, models, Tables of point counts, and selected examples; PDF table pages inspected.",
+          "method": "Public arXiv full-text targeted sections and PDF screenshot",
+          "title": "A census of all genus 4 curves over the field with 2 elements",
+          "trigger": "Closest full arithmetic genus-four curve census"
+        },
+        {
+          "assessment": "Supplies the correct even-divisor formulation; not a finite-F2 fixed-nonsplit equation-weighted enumeration.",
+          "evidence": [
+            "Definition3.10; Theorem3.11."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.00955",
+          "material_read": "Section3 Definition3.10 and Theorem3.11 on theta counts; relevant PDF page screenshot inspected; not entire work",
+          "method": "Primary arXiv PDF full text targeted passages",
+          "title": "Complex and tropical counts via positive characteristic",
+          "trigger": "Characteristic-two definition of theta-hyperplanes via even divisor"
+        },
+        {
+          "assessment": "Classical characteristic-zero tritangents; not enough material to make a whole-document noncoverage assertion.",
+          "evidence": [
+            "arXiv 1701.02353, 2017."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.02353",
+          "material_read": "Paper abstract and bibliographic summary; full paper not read",
+          "method": "arXiv metadata",
+          "title": "Tritangent planes to space sextics: the algebraic and tropical stories",
+          "trigger": "Classical theta-hyperplane/tritangent alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theta-hyperplane incidence profile refines the established small-field genus-four census by a natural canonical divisor invariant, giving all rational even-section multiplicities and the sharp extremal classes. The complete exact list and split of smooth versus tangent quadric sections are independently useful arithmetic-geometric data, not an arbitrary single numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2007.07822",
+    "https://arxiv.org/abs/2004.00955",
+    "https://arxiv.org/abs/1701.02353",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed nonsplit Q and F2 only, equation-weighted quotient rather than abstract isomorphism classes.",
+    "Exhaustive finite computation is legitimate because all 65535 cubic classes, 683 orbits, and geometric smoothness tests are exactly covered; extension-field sampling alone was not used as smoothness proof."
+  ],
+  "schema_version": 1
+}
