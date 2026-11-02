@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The fully executable certificates are `verify_permutation.py` and `verify_cycles.py` (Python 3, standard library only). Invoke each from the directory containing the embedded files:
+## correctness
 
-```bash
-python verify_permutation.py
-python verify_cycles.py
-```
+PASS
 
-The corresponding stored complete stdout files are `permutation_output.txt` and `cycles_output.txt`. In the current verification, both programs exited successfully, their output bytes matched the stored records, and each ended in `VERIFY_OK`.
+The 30-vertex duad/syntheme incidence graph is specified by 15 pair vertices and 15 perfect pair partitions, with 45 edges. Each perfect matching is a 15-entry distinct duad assignment to synthemes; complete backtracking enumerates exactly 288. Two separately inspected source verifiers use (a) relative-permutation cycles and (b) explicit simple eight-cycle flips. Independently written exhaustive Python enumeration reconstructed the 288 matchings, exactly 1440 undirected exchanges, ten regular neighbors, the complement (10,20) and (30) strata of 144 matchings each, radius 5, diameter 6 and the complete stated distance profiles. All 41,328 pairs were evaluated by breadth-first search and tested for one Hamiltonian 30-cycle symmetric difference; exactly 144 unordered pairs meet both conditions. The computation is exhaustive for this one finite explicitly specified graph, not for other graphs or flip lengths.
 
-The permutation checker exhaustively assigns duads to synthemes and independently reconstructs exchange adjacency from relative-permutation cycles. The cycle checker enumerates all 30-vertex graph matchings and 90 actual eight-cycles, and explicitly performs each valid alternating flip. Both compute all-pairs shortest paths, two-factor types, antipodal equivalence, and the same 1440-edge adjacency digest:
+## originality
 
-`ba8739d1315a1daa2d3810948317a38cdf47b81a8cd37f5377e6825b7136e6a3`
+PASS
 
-The algorithms are exhaustive for the one specified finite graph. They do not certify results for infinite families or resolve independent publication priority. The matching count of 288 is previously tabulated and is not presented as a novel result.
+Classical Tutte–Coxeter incidence, girth and matching count are acknowledged. Known 4-cycle switch chains cannot move on girth-eight T, and general arbitrary alternating-cycle reconfiguration does not imply the exact fixed eight-cycle metric. The exhaustive 288-vertex distance stratification and Hamiltonian-antipode equivalence were not found under Resultary or inspected primary references. A differently named finite graph computation remains a historical risk.
+
+## value
+
+PASS
+
+The Tutte–Coxeter graph is a canonical girth-eight cubic cage. Since shorter alternating-cycle switches do not exist, its first possible flip length is mathematically forced; the exact distance geometry at that threshold and Hamiltonian characterization of antipodes are structural finite invariants beyond known matching count, even without a general-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
