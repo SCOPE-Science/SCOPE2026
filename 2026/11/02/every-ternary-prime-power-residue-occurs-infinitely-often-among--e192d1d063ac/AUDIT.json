@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The factorial-unit recurrence proves an exact mod-3^k expression. Separated ternary digit blocks factor the unit and count v carries, n+1=1 modulo 3^k, giving C_n=3^v d_k^v c_k^t. The explicit 2 mod 9 central-binomial congruence and 3-adic lifting prove c_k generates the full unit group; this provides all residue classes and infinite witness indices. Direct integer Catalan and 3-adic-oracle tests corroborate k<=7 but are not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Jiang 2013, Theorem 1, complete four-page inspection",
+        "Krattenthaler–Müller 2013, Section 12",
+        "Burns 2017, theorem for primes at least five"
+      ],
+      "reasoning": "No inspected theorem asserts universal image for all prime powers or provides a stronger all-power-of-three conclusion. Chen–Jiang pertains only to sparse fixed-tail indices; Krattenthaler–Müller to fixed-level generating functions; Burns to primes.",
+      "searches": [
+        "Catalan numbers modulo prime powers universal residue distribution images all primes",
+        "Catalan numbers all residue classes modulo 3^k p-adic surjectivity",
+        "Catalan numbers modulo a prime power Chen Jiang 2013 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1310.8635 (Section 3.1 and Open question 3.6)",
+      "arXiv:1308.2856 (Section 12)",
+      "Chen–Jiang, Integers 13 #A36 (complete PDF)",
+      "Deutsch–Sagan, JNT 117 Theorem 5.2",
+      "arXiv:1703.02705 (complete PDF)",
+      "arXiv:1611.03705 (complete PDF)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rowland–Yassawi, Open question 3.6",
+        "Chen–Jiang, Theorem 1",
+        "Burns, Theorem 1 and introductory comparison"
+      ],
+      "reasoning": "The prior open question poses the logical negation as possible. The exact sparse-digit product formula proves the stronger claim that each 3^k-class occurs infinitely often, which cannot be derived from mod-prime coverage or stabilization along C_(p^j-a) alone.",
+      "searches": [
+        "Rowland Yassawi open question 3.6 Catalan powers 3 forbidden residues",
+        "Chen Jiang Catalan numbers modulo a prime power congruence eventual constancy",
+        "Burns Catalan no forbidden residue modulo primes versus prime powers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1310.8635 Open question 3.6",
+        "arXiv:1703.02705 first-page statement",
+        "arXiv:1611.03705 mod-three section"
+      ],
+      "reasoning": "The theorem is equivalent to no forbidden residue modulo any 3^k, dense image in Z_3, and infinitely often full residues at every level. Source coverage modulo primes \\(p\\ge5\\) concerns a different base and does not cover powers of three, and natural-density results do not imply this statement.",
+      "searches": [
+        "\"Catalan numbers\" \"modulo\" \"3^k\" \"all residues\"",
+        "\"Catalan numbers\" \"no forbidden residue\" \"prime power\"",
+        "Catalan numbers all residues modulo 3^k arbitrary k dense 3-adic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krattenthaler–Müller Section 12 explicit modulo 9,27",
+        "Deutsch–Sagan Theorem 5.2 modulo 3"
+      ],
+      "reasoning": "Known tables or finite-level algorithms can inspect individual moduli but cannot certify a statement for every exponent k. The new claim is not a recomputation of a finite table.",
+      "searches": [
+        "Catalan numbers mod 3 powers forbidden residues OEIS",
+        "Catalan sequence residues modulo 9 27 generating-function tables",
+        "Catalan congruence all residue classes powers three"
+      ]
+    },
+    "rationale": "The source explicitly asks about forbidden residues modulo powers of three; the new all-k sparse-digit construction answers it negatively with infinite witnesses. The closest primary literature treated mod 3, fixed low powers, sparse stabilizing subsequences, or primes rather than all powers of 3. No equivalent conclusion was identified in the actual comparisons; historical completeness is not certified.",
+    "residual_risks": [
+      "The literature searches and inspected items do not establish universal historical priority; an unlocated later paper or unpublished proof could contain an equivalent result.",
+      "The construction gives arbitrarily large witness indices and no uniform positive natural density, so prior finite-level computations cannot be read as proving this theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The publication asks whether such a forbidden residue exists; a uniform theorem excluding all forbidden classes is not established there.",
+        "evidence": [
+          "Open question 3.6 asks if any residue class is missing modulo some power of three."
+        ],
+        "identifier_or_url": "arXiv:1310.8635",
+        "material_read": "Full text, especially Section 3.1 and Open question 3.6",
+        "method": "Read PDF text and inspected page images of the stated question",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Explicit forbidden-residue question for Catalan numbers modulo powers of three"
+      },
+      {
+        "assessment": "It gives tools and explicit fixed-level congruences for Catalan numbers, including small powers; inspected formulas do not provide all-exponent residue surjectivity or constructive infinite witnesses.",
+        "evidence": [
+          "Catalan Section 12 analyzes generating functions modulo 9 and 27 as examples, without the present universal coverage theorem."
+        ],
+        "identifier_or_url": "arXiv:1308.2856",
+        "material_read": "Full-text Section 12, explicit finite congruence calculations and surrounding theorem statements",
+        "method": "Read PDF text with page-image checks",
+        "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+        "trigger": "General Catalan generating-function formulas modulo powers of three"
+      },
+      {
+        "assessment": "Theorem 1 gives stabilization and distinctness of C_(p^j-a) modulo p^k for fixed 0<=a<p; this thin-index statement cannot imply residue coverage by all Catalan numbers for arbitrary k.",
+        "evidence": [
+          "Published 2013-06-14; Theorem 1 concerns C_(p^j-a) subsequences, not the image of all C_n."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/n36/n36.pdf",
+        "material_read": "All four pages, including Theorem 1, Lemmas 1–3 and their proofs",
+        "method": "Read complete accessible PDF text and inspected first and final page images",
+        "title": "Catalan numbers modulo a prime power",
+        "trigger": "Identical subject keywords and a highly plausible stronger-covering publication"
+      },
+      {
+        "assessment": "Gives explicit residue classes modulo three only, which is a special case of the new all-power statement.",
+        "evidence": [
+          "Theorem 5.2 gives a digit characterization for Catalan numbers modulo 3."
+        ],
+        "identifier_or_url": "https://users.math.msu.edu/users/bsagan/Papers/Old/ccm.pdf",
+        "material_read": "Full PDF, including Theorem 5.2 on Catalan residues mod 3",
+        "method": "Read primary PDF text and relevant theorem statement",
+        "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+        "trigger": "Known complete mod-three characterization"
+      },
+      {
+        "assessment": "Every residue modulo every prime \\(p\\ge5\\) is attained infinitely often, but no extension to arbitrary powers of 3 is established; this is the precise logical gap filled by the current result.",
+        "evidence": [
+          "The statement is restricted to reduction modulo a prime; the introduction contrasts prime-power forbidden residues."
+        ],
+        "identifier_or_url": "arXiv:1703.02705",
+        "material_read": "Full paper, including introduction and proof scope",
+        "method": "Read arXiv PDF text and page-image evidence",
+        "title": "The Catalan numbers have no forbidden residue modulo primes",
+        "trigger": "Strongest nearby coverage theorem for prime moduli"
+      },
+      {
+        "assessment": "Establishes density results modulo 3 and powers of 2, not all residue images modulo powers of 3.",
+        "evidence": [
+          "The mod-three section shows nonzero residue classes have zero natural density; zero density does not preclude the infinite occurrence proved here."
+        ],
+        "identifier_or_url": "arXiv:1611.03705",
+        "material_read": "Full paper, with particular focus on scope and mod-three section",
+        "method": "Read arXiv full text and inspected relevant page image",
+        "title": "Asymptotic density of Catalan numbers modulo 3 and powers of 2",
+        "trigger": "Might establish coverage via limiting distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e192d1d0-63ac-416d-90b8-968751a2f0f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It resolves the explicit Rowland–Yassawi 2013 forbidden-residue question uniformly for every 3^k, with explicit infinite families. Sparse ternary digit multiplicativity supplies a motivated structural mechanism, not an arbitrary finite table or elementary restatement.",
+    "status": "PASS"
+  }
+}
