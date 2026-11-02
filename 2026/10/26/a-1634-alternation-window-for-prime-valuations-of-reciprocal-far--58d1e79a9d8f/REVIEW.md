@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The valuation is reconstructed directly from the reduced Farey product, with numerator and denominator contributions counted separately. The Möbius floor-error bound is uniform in the prime and requires only \(m<p\). The 817 intermediate rational inequalities and the terminal bound are exhaustively checked using exact arithmetic in the embedded verifier, independently cross-checked against direct Farey enumerations for small primes. The proof combines these facts to force 1634 strict sign transitions, with no appeal to finite samples as an infinite proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Lagarias–Mehta's originating study (arXiv:1503.00199) proves at least one sign change (Theorem 4.10) and proposes much stronger long-term sign-balance questions; it does not give the simultaneous 817-block alternating window or the coefficient threshold \(820\). Their arXiv:1409.4145 concerns unreduced products. Actual searches of published research records and literature for linear-prime scaling, the exact totient coefficient, a cutoff at \(820\), and dense Farey-valuation sign changes yielded no implication covering the finding. Unindexed or differently formulated prior work is a remaining priority risk.
+PASS
 
-**Value — PASS.** The theorem changes a single sign-change existence fact into a uniform, explicitly quantified oscillation theorem for a natural valuation function closely linked to the originating paper's sign-distribution question. The cutoff \(820\) is the natural first failure of a computed arithmetic scaling criterion, not an arbitrary truncation. This makes a meaningful but restricted advance; it does not prove long-term positive proportions for fixed primes.
+Read actual RESULT.md at Git blob 34ea842fd43e36d74a62074b3a9ace69db1a3bca and verify.py at 16637a8bf42d7113dfcc23c1ae06d256e4e6b770. Direct denominator counting for d=jp gives (p−1)Σφ(j), and the numerator kp contribution is T_k−L_k. Möbius inversion of the coprime d count gives |η_k|≤τ(k), thus f_p(mp)=pC_m+E_m and |E_m|≤m² whenever m<p. At the single new denominator mp the exact jump is (p−1)φ(m). An INDEPENDENT Fraction sieve over all m=3..820 confirms min C=6/5, min(φ−C)=1/2 and −9<C_820<−8. For p>2·820² the two error inequalities enforce all signs; 817 pairs and one last sample force 1634 sign transitions. This is a uniform infinite-prime proof based on an exhaustive FINITE m-range certificate, not a prime sample extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: the 2015 Lagarias–Mehta analysis studies the same reduced Farey product, establishes general valuation identities and a short sign pattern through 3p−1 (Theorem 4.10); its Property (P3) is a much stronger but unproved fixed-prime claim. The audited certified 817 paired signs and the first failure of the prime-scale coefficient at 820 are new finite-window consequences not stated by that theorem, requiring a separate exact rational census. Historical earlier tabulations could cover the coefficient cutoff; that risk remains.
+
+## value
+
+PASS
+
+A rigorous large explicit window with 1634 successive nonzero sign alternations materially strengthens a sparse earlier local sign theorem for a canonical arithmetic product, while the first m=820 coefficient failure describes where that linear prime-scale mechanism ceases. The finite cutoff is structurally defined as the first failure, not an arbitrary slice; no infinitely-many-changes-for-fixed-p assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
