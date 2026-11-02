@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Full quantified proof: strict positive rank scale; man-optimality; equal k changed agents on both sides; changed man utility ratio ≤(n−1)/n and woman ratio ≤n; multiply and maximize; cyclic construction attains bound; n≥3 equality forces k=n and all individual ratios sharp; unique rank-determined optimum and no duplicate extremizer counting. Exhaustive n2/n3 tests verify 16/46656 labeled profiles; finite tests are not all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jain--Vaish, arXiv:2312.09167 / AAAI 2024, solves two-sided Nash matching with capacities and unrestricted cardinal utilities, not stable marriage with rank utilities",
+        "Desai et al. arXiv:2609.02354v1 provides stable NSW maximization algorithms, no stated men-proposing baseline performance bound"
+      ],
+      "reasoning": "Algorithms approximating unrestricted cardinal two-sided NSW do not subsume this stable matching rank-utility baseline ratio; upper bounds for unrestricted optima do not directly yield the sharp stable optimum versus man-optimal stable matching, nor the equality census. The source algorithm obtains the optimum but does not compare its objective to DA on every market.",
+      "searches": [
+        "\"stable marriage\" Nash social welfare male optimal exponential gap product",
+        "\"n-1\" \"Nash social welfare\" \"stable matching\" Gale Shapley",
+        "Jain Vaish Maximizing Nash Social Welfare under Two-Sided Preferences 2024",
+        "Fair Stable Matching A Nash Social Welfare Approach arxiv:2609.02354"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.02354",
+      "https://arxiv.org/abs/2312.09167",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/28839",
+      "published-finding corpus:2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+      "published-finding corpus:2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-sex-equ--8dcd874ae6a3",
+      "published-finding corpus:2026/10/4/SCOPE-exact-proposal-law-for-three-by-three-gale-shapley-under-uniform--6adf82ec232d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Desai et al. prove polynomial-time selection of maximum-NSW stable matching, leaving worst-case DA comparisons uncharacterized in inspected formal results",
+        "Gale--Shapley man-optimality gives the local monotone men ranking used in this proof, but not the sharp welfare bound alone"
+      ],
+      "reasoning": "A general algorithm that returns the maximizing matching does not itself imply the ratio of its Nash welfare to men-proposing DA, much less necessity of first/second and first/last ranks or labeled extremizer count. Comparison between Nash optimum and minimum regret similarly does not bound the Nash optimum relative to DA; the product-of-agent-utility-ratios argument and sharp witness supply these missing implications.",
+      "searches": [
+        "arxiv:2609.02354v1 full-text definitions theorems conclusion",
+        "arxiv:2312.09167v1 opening theoretical results",
+        "stable marriage ranking utilities Nash product worst-case guarantee DA versus max Nash stable [published-finding corpus]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.02354v1 rank-induced utility and geometric-mean NSW definitions; Gale--Shapley as proposer-optimal baseline",
+        "published-finding corpus:2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1 (matching-object census, no reported welfare ratio)"
+      ],
+      "reasoning": "Taking the 2n-th root of a product ratio gives the NSW approximation factor. The equivalent \"price of male-optimal stability\" and log-NSW additive-loss formulations were queried. The same model in Desai et al. instead establishes an optimizing algorithm; the published 3x3 census concerns isomorphism counts. Neither inspected description states or implies the exact all-n DA-to-NSW optimum factor.",
+      "searches": [
+        "stable marriage Nash social welfare rank-induced utilities Gale Shapley men-optimal three agents exact price of stability Pareto NSW [published-finding corpus semantic search]",
+        "stable matching maximizing product of utilities of men and women geometric mean rank-based 3x3 extremal ratio [published-finding corpus semantic search]",
+        "Fair Stable Matching A Nash Social Welfare Approach Desai Rasheed Ghalme Gujar 2026 [published-finding corpus semantic search]",
+        "sharp ratio Gale Shapley men-optimal to maximum Nash social welfare among stable marriages sqrt(n-1) rank utility [published-finding corpus semantic search]",
+        "(n-1)^n Nash product improvement men-optimal woman optimal stable matchings cyclic preference instance [published-finding corpus semantic search]",
+        "geometric mean welfare approximation male optimal stable marriage n men women [published-finding corpus semantic search]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Three-by-three full-symmetry published-finding corpus record reports 669 classes stratified by number of stable matchings; no Nash objective reported",
+        "Rank-maximal/sex-equal published-finding corpus record reports disagreement census for different fairness objectives",
+        "Deferred-acceptance proposal published-finding corpus record reports exact 3x3 proposal law, not utility-product differences"
+      ],
+      "reasoning": "These exact small-market databases have distinct reported statistics. The new result provides an all-size multiplicative factor and a rank-characterized extremal family with its independent labeled counting proof. Full texts of selected records were not obtainable, leaving explicit table-overlap risk for the n=3 count but not direct implication of the all-n inequality.",
+      "searches": [
+        "published-finding corpus:2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+        "published-finding corpus:2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-sex-equ--8dcd874ae6a3",
+        "published-finding corpus:2026/10/4/SCOPE-exact-proposal-law-for-three-by-three-gale-shapley-under-uniform--6adf82ec232d",
+        "stable matching maximizing product of utilities of men and women geometric mean rank-based 3x3 extremal ratio [published-finding corpus]"
+      ]
+    },
+    "rationale": "The exact primary 2026 rank-utility NSW stable-marriage preprint was inspected across the formal setup, algorithmic results, experiments, conclusion and relevant appendices. It optimizes among stable matchings, without stating a general proposer-optimal approximation ratio, a sharpness classification or the extremal census. Comparisons to a general two-sided NSW paper and published stable-marriage census/fairness records reveal no stronger result implying this conjunction. Comparisons between Nash welfare and minimax regret do not imply the DA-performance extremum. The elementary ratio estimate and cyclic equality construction are proved directly, not inferred from unsuccessful searching; residual coverage risks remain.",
+    "residual_risks": [
+      "No finite literature search proves absence of an equivalent unindexed theorem or later revision.",
+      "Some relevant published small-market record full texts were not accessible, so their private tables cannot be excluded from containing the small-n count.",
+      "Prior literature using alternate Nash-utility normalizations can differ materially from n-r; equivalence must be checked case-by-case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects and Nash objective, but no identified all-size sharp men-proposing deferred-acceptance approximation ratio or derangement extremizer census.",
+        "evidence": [
+          "arXiv:2609.02354v1 first posted 2026-09-02",
+          "Rank-derived utilities n-r and Nash-welfare optimal stable matching, algorithm SNSW-Alg, empirical evaluation; discussion of future guarantees"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.02354",
+        "material_read": "Original 16-page preprint PDF: introductory motivation, model and definitions, algorithmic results, main experiments, conclusion and relevant appendix notation; inspected rendered title, experiments and concluding pages as well as PDF extracted sections.",
+        "method": "Primary arXiv public full text PDF, rendered-page and section inspection",
+        "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+        "trigger": "Exact same utility definition and constrained NSW optimization"
+      },
+      {
+        "assessment": "Many-to-one cardinal matching and capacity results, no stable-marriage DA welfare bound or extremizer count.",
+        "evidence": [
+          "arXiv:2312.09167, AAAI 2024 DOI:10.1609/aaai.v38i9.28839"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.09167",
+        "material_read": "Introduction, model and statement of main results from primary PDF; abstract and AAAI venue record",
+        "method": "Open-access PDF and publisher abstract",
+        "title": "Maximizing Nash Social Welfare under Two-Sided Preferences",
+        "trigger": "Potential broader Nash matching theory"
+      },
+      {
+        "assessment": "Counts symmetry classes and stable matching multiplicities, not an identified NSW-ratio statement. Full-content table comparison remains a residual risk.",
+        "evidence": [
+          "published-finding corpus record reports 669 isomorphism classes and 491/161/17 by number of stable matchings"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+        "material_read": "Published search-record title and summary only; full record inaccessible",
+        "method": "Semantic research-record retrieval",
+        "title": "Full-symmetry census of three-by-three stable-marriage profiles",
+        "trigger": "Exact published enumeration on same labeled profile universe"
+      },
+      {
+        "assessment": "Other fairness objectives and census; no reported Nash-welfare versus DA ratio.",
+        "evidence": [
+          "published-finding corpus reports rank-maximal/sex-equal 3x3 conflict counts 7572/6204"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-sex-equ--8dcd874ae6a3",
+        "material_read": "Published search-record title and summary only; full record inaccessible",
+        "method": "Semantic research-record retrieval",
+        "title": "Sharp three-by-three conflict layer for rank-maximal and sex-equal stable marriage",
+        "trigger": "Exact small-market comparison between stable-matching fairness criteria"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a15a4ae2-d815-49e2-a5a9-6741a06247aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural quantitative gap for the most widely used stable matching algorithm relative to a new rank-induced Nash-welfare optimizer: the exact worst-case NSW approximation factor grows as sqrt(n−1). Both the attaining construction and complete equality and rarity classification answer structural questions about when this welfare baseline is sharp, beyond merely restating the man-optimality theorem or computing a small table.",
+    "status": "PASS"
+  }
+}
