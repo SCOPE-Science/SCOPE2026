@@ -1,15 +1,21 @@
-# Review of the marked-parameter superspecial cutoff
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The squarefreeness condition \(t^2\ne4\) is checked for every prime in scope. For a hyperelliptic genus-three curve, vanishing of the Cartier–Manin matrix is equivalent to superspeciality. An explicit differential calculation reduces that matrix to the pair \(A_p,B_p\); palindromicity accounts for the two repeated matrix entries. A finite, exact binomial-coefficient and Euclidean-algorithm calculation gives the nine monic gcds, while an independently implemented full polynomial expansion checks the matrix for every base-field parameter in each prime. The proof uses the polynomial gcd for geometric completeness, so it does not mistake an \(\mathbf F_p\) sample for all algebraic-closure parameters.
+## correctness
 
-## Originality
-**PASS, subject to the recorded literature risks.** Fuertes–Streit present this family and its symmetry, not the stated characteristic-by-characteristic Cartier common-root comparison. Yui's general Cartier formula yields a method, not the explicit first off-center prime or the relevant simultaneous coefficient gcds without further computation. The recent full genus-three superspecial enumeration yields aggregate isomorphism-class counts and a program producing invariants; neither the displayed marked pencil nor its first off-center parameter cutoff is reported in the inspected material. Actual semantic searches did not identify an exact previous formulation. This is an assessment of claim implication, not an argument from search failure alone. Kuribayashi–Komiya's original 1980 source was identifiable bibliographically but not read in full; an unindexed specialized calculation remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The family is not a contrived isolated equation: it is the classical one-dimensional locus of genus-three hyperelliptic curves with a dihedral symmetry. The central member \(t=0\) has extra automorphisms and is a familiar superspecial source for appropriate primes. The first emergence of *additional nonzero marked parameters* is a natural arithmetic invariant of this locus, not an arbitrary large-prime example. Simultaneous vanishing of two nonconstant Cartier coefficient polynomials explains why these points are exceptional. The exact threshold and complete small-prime classification give an independently reusable reference for studying superspecial strata inside automorphism-rich loci and for checking curve-enumeration algorithms; they do not assert a new global enumeration theorem.
+PASS. For p≥5 and t²≠4, f=x(x⁶−tx³+1) is squarefree of degree seven and genus three. Cartier on dx/y,x dx/y,x² dx/y reduces via reciprocal polynomial P(u)=u²−tu+1 to zero iff both A_p=[u^m]P^{(p−1)/2} and B_p=[u^{(p−1)/2}]P^{(p−1)/2} vanish. The exact multinomial formula and Euclidean gcd in F_p[t], independently recomputed for all nine primes with sympy, produce 1,t,t,1,1,t,t,1,t(t²−20); p=31 roots 0,±12 are smooth since 12²≡20≠4. Polynomial gcd proves algebraic-closure completeness; base-field sampling alone would not.
 
-## Closest literature and limitations
-The closest directly inspected primary family source is Fuertes–Streit (2006), §6, DOI 10.4171/RMI/462. The strongest broader comparator is Ohashi et al. (2025), §§4.1–4.2, DOI 10.1007/s40993-025-00657-3. The starting formula is standard (Yui 1978). This result is restricted to the nine primes through \(31\) and to marked parameters, not geometric isomorphism classes. It is possible that published invariants or an older specialized table implicitly encode the same example; independent originality review is still needed. The earliest dated accessible version of the Fuertes–Streit paper that was verified is 2006-08-31; an older 1980 predecessor is bibliographically known but its exact initial day of public release was not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final claim after comparison to directly read primary results and published Resultary matches; older or less accessible sources and terminology remain explicit residual risks, not proof of novelty.
+
+## value
+
+PASS
+
+PASS. The D₆-symmetric Fuertes–Streit pencil is a classical moduli locus and central t=0 superspecial members were known. The first noncentral superspecial marked parameter and full small-characteristic locus are intrinsic arithmetic threshold data for that fixed natural family and useful in testing genus-three superspecial enumeration, not an arbitrary finite parameter slice. No assertion about geometric isomorphism classes or p>31.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
