@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The event has an exact two-dimensional Dirichlet-spacing representation, and the shortest altitude identity reduces it to \(2\sin b\sin g\) on one ordered chamber. The monotone endpoints separate full, partial, and excluded width slices, yielding the complete CDF without missing cases. Both moment integrals were evaluated symbolically and independently by numerical quadrature; the small-width and near-equilateral asymptotic constants follow from explicit rescaling. Direct Cartesian calculations and 450,000 uniformly sampled configurations corroborated the formulas. A finite check is not a substitute for the analytic derivation.
+PASS
 
-## Originality (O): PASS relative to inspected evidence
+The half-gap Dirichlet simplex of 3 independent arclength-uniform circle points is uniform at density 2/pi^2, or 12/pi^2 in the ordered sixth. Caliper width equals the minimum altitude, 2 sin(beta) sin(gamma) for the two smaller ordered half-gaps; slice integration yields the stated exact CDF. Direct integration gives E W=5/pi^2 and E W^2=1-47/(8 pi^2). The small-t boundary-layer integral yields 3t[log(8/t)+1]/pi^2+o(t), whereas the unique equilateral maximum and its ordered tangent wedge give P(W>3/2-epsilon)~12 epsilon^2/pi^2. Independent checks: Independently rederived the half-gap chamber and implemented 2D numerical quadrature of k=0,1,2 moment integrals, yielding 1.0, 0.5066059182116889, and 0.40473804610126557; 200000 independently generated Cartesian Euclidean triangles gave first moment 0.5064642067220751 and second moment 0.404172202145847. Checked the stated verifier source verify_inscribed_triangle_width.py (Git blob 66a39f310269ba95110ff7e43ca7459ea92b0fb2) by reading it, not treating its claimed success as proof. Endpoint laws rest on the local analytical rescaling, not simulation.
 
-The closest primary source, Koroleva--Nikitin (2013), uses the same inscribed uniform-circle model but states limit laws for maximal perimeters and areas and not a distribution for minimum altitude/width. The related Silverman--Brown (1978) work treats flatness/collinearity limits, while Daley--Ebert--Swift (2016) specifies a different random-triangle measure. Targeted searches for minimum altitude, width, thinness, moments, and the logarithmic coefficient found no direct statement or dominating formula in the examined results; a search absence alone does not establish priority. Abstract-level evidence for two older sources is expressly weaker than complete full-text inspection. The contribution is not a side-length or area corollary: width requires minimizing a ratio of area to side length and sorting the cyclic gaps.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Minimum width is the worst-direction caliper thickness of an inscribed triangle, a natural measure of its resistance to flattening and a distinct observable from area or perimeter. The full law is recovered at every threshold, exact first two moments enable quantitative calibration, and the two different endpoint mechanisms (logarithmically enhanced flatness versus quadratic near-equilateral concentration) identify genuinely different rare-event geometries. This is a complete distributional answer for a canonical three-point sampling model, not an arbitrary finite slice or a trivial renaming.
+Koroleva–Nikitin arXiv:1301.1360v1 studies the identical circle-point sampling model, but the inspected full-paper theorem statements and sections 2.1–2.2 give U-maximum perimeter and area extreme-value laws over large samples, not the fixed-three-point minimum-caliper-width distribution, moments, or tails. Residual limits explicitly listed in originality.residual_risks.
 
-## Limits and closest literature
+## value
 
-The model is uniform arclength on a unit circle, not uniform points inside a disk. The one-dimensional CDF integral is exact but not asserted elementary. Historical priority remains provisional, including possible unindexed articles in stochastic geometry; independent validation is not claimed. Source readings and exact comparisons appear in the structured scientific review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full probability distribution and two endpoint regimes for a canonical intrinsic size statistic of a random inscribed triangle; the logarithmic thin limit and quadratic near-equilateral limit quantify distinct degeneracies that are not reducible to area or perimeter moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
