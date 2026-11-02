@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:12:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 97b34aa88becaad53a1cea243ea5f15920d827d9 full Gaussian age mixture and inverse proof",
+        "Frozen verify.py blob 55ad49459a056875c3c42f692886ee303182c5b9 quadrature routines inspected, not treated as proof",
+        "Independent analytic arctan monotonicity and Python forward/inverse checks"
+      ],
+      "rationale": "PASS: A single Poisson reset clock for the WHOLE profile yields a common stationary age A~Exp(r); conditional on A=a the field is a centered Gaussian stochastic convolution, not a product of independent local reset ages. Its zero-lag variance is D/[2 sqrt(nu mu)] erf(sqrt(2mu a)), and the spatial heat kernel gives C_ell = D exp[-ell sqrt((r+2mu)/(2nu))]/sqrt[2nu(r+2mu)] after exponential-age integration. Hence V=D/sqrt[2nu(r+2mu)] and R=exp[-ell sqrt((r+2mu)/(2nu))]. Gaussian fourth moments and the integral identity for the square of erf give K=(12/pi)y atan(1/y)-3, y=sqrt[1+r/(2mu)]>1. The derivative atan(1/y)-y/(1+y²)>0 follows from integrating a positive rational derivative, giving a bijection from y>1 to 0<K<12/pi-3. The inverse uses s=2nu(log R/ell)^2, y uniquely from K, then mu=s/(2y²), r=s(1-1/y²), D=V sqrt(2nu s); positivity and the stated image are exact. Independently computed forward/inverse parameter triples (mu,r,D,nu,ell)=(.5,.7,2,1,.8),(1.6,.08,.31,.37,2.2),(.11,12,.65,3,.2) with relative reconstruction errors <1e-7. This is an exact infinite-line argument, not a noisy-data estimator.",
+      "residual_risks": [
+        "The global common-reset mechanism must not be replaced by independent spatial clocks; the covariance formula depends on it.",
+        "Parameter inference assumes exact stationary moments and known nu,ell; statistical stability and finite-resolution effects are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen 2023 derives all moments for harmonic Brownian particles reset to a distribution; the process is one degree of freedom rather than a pinned infinite-dimensional field.",
+          "The 2014 interface result covers several universality classes but does not include positive spatially uniform harmonic mass or a spatial covariance calibration inversion."
+        ],
+        "reasoning": "Neither broad physical family automatically dominates the parameter-identifiability theorem with exact non-Gaussian fourth-moment observable interval. Additional heat-kernel and special-function analysis is required even though the renewal framework was known.",
+        "searches": [
+          "stochastic Edwards Wilkinson pinned interface Poisson global resetting stationary kurtosis covariance identifiability pinning diffusion inverse",
+          "doi:10.1103/PhysRevE.108.044120",
+          "arxiv:1312.5954"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1312.5954 primary full PDF renewal and EW profile",
+        "arxiv:1308.0284 Rouse pinning original abstract",
+        "doi:10.1103/PhysRevE.108.044120 particle reset moment abstract",
+        "Resultary semantic query: stochastic Edwards Wilkinson pinned interface Poisson global resetting stationary kurtosis covariance identifiability pinning diffusion inverse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Massless reset-interface non-Gaussian density is known from 2014, but it lacks positive uniform pinning mu and so has no r/mu inverse problem.",
+          "2013 absorption/pinning addresses an initial-condition relaxation, and Olsen considers a single harmonic particle with resetting."
+        ],
+        "reasoning": "A prior renewal identity or a single-particle moment recursion does not give the exact spatial covariance with mass s=r+2mu, the arctangent kurtosis law and its strict inverse on positive triples. No stronger coverage was established in sources read.",
+        "searches": [
+          "arxiv:1312.5954",
+          "arxiv:1308.0284",
+          "doi:10.1103/PhysRevE.108.044120",
+          "stochastic Edwards Wilkinson pinned interface Poisson global resetting stationary kurtosis covariance identifiability pinning diffusion inverse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The field is a massive Edwards–Wilkinson stochastic heat equation (a continuum Rouse model), with Poisson resets of the entire profile.",
+          "Gupta–Majumdar–Schehr Eq. (4) gives an exponential-age renewal formula for the massless interface; Gupta–Rosso–Texier treat harmonic absorption/pinning without global resets."
+        ],
+        "reasoning": "Using the same reset-age mixture is not the same as a closed-form inverse of three positive parameters. The simultaneous mass and global resetting matter: second moments reveal r+2mu, while kurtosis separates them, yielding a new image and inverse.",
+        "searches": [
+          "stochastic Edwards Wilkinson pinned interface Poisson global resetting stationary kurtosis covariance identifiability pinning diffusion inverse",
+          "arxiv:1312.5954",
+          "arxiv:1308.0284",
+          "doi:10.1103/PhysRevE.108.044120"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included non-spatial Klausmeier inverse identifiability and unrelated OU sensor thresholds, not a pinned resetting interface triple.",
+          "The source proof supplies exact inequalities 0<R<1 and 0<K<12/pi-3, not a finite numerical parameter table."
+        ],
+        "reasoning": "A finite simulation fit or reset-rate curve cannot certify the full three-dimensional admissible region and injectivity. No exact table/database with the same triple was identified; search absence alone is not novelty evidence.",
+        "searches": [
+          "stochastic Edwards Wilkinson pinned interface Poisson global resetting stationary kurtosis covariance identifiability pinning diffusion inverse",
+          "pinned Edwards Wilkinson interface global reset stationary kurtosis covariance inversion exact image"
+        ]
+      },
+      "rationale": "PASS qualified: the 2014 full original Gupta–Majumdar–Schehr paper establishes exponential-age renewal and non-Gaussian fluctuations of massless (unpinned) reset Edwards–Wilkinson interfaces, but its formulas do not treat positive harmonic mass together with a global exact inverse for r,mu,D. The 2013 Gupta–Rosso–Texier paper analyzes pinned Rouse motion without whole-profile resets; Olsen (2023) treats reset harmonic single particles and their moment recursions. These supply valuable pieces but not the spatial covariance and exact three-parameter observable image in the same model. A specialized general Gaussian-field inverse theorem may cover it and remains a residual priority risk.",
+      "residual_risks": [
+        "A unifying theorem for Gaussian-field resetting plus pinning may entail the inverse without exact wording.",
+        "Only abstract-level material for the pinned Rouse and 2023 reset-harmonic particle papers; broader sections could have relevant observations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_MASSLESS_RESETTING_BASELINE",
+          "evidence": "Establishes the age-mixture renewal and non-Gaussian stationary EW massless height distribution but no positive uniform mass or inverse from three spatial/point moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.5954",
+          "material_read": "Full accessible 5-page OA PDF, particularly model, Eq. (2)–(7), renewal equation and massless stationary EW profile, with page-2 visual screenshot",
+          "method": "OA arXiv PDF text plus page screenshot",
+          "title": "Fluctuating interfaces subject to stochastic resetting",
+          "trigger": "Same EW field, whole-profile Poisson reset mechanism"
+        },
+        {
+          "assessment": "RELATED_PINNING_WITHOUT_RESET",
+          "evidence": "Includes harmonic absorption/pinning but not a shared whole-profile Poisson reset and its kurtosis-based inverse.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.0284",
+          "material_read": "Public arXiv abstract plus accessible publication summary of pinned Rouse transient and equilibrium behavior",
+          "method": "OA abstract/publisher abstract",
+          "title": "Dynamics of a tagged monomer: effects of elastic pinning and harmonic absorption",
+          "trigger": "Pinned spatially coupled Gaussian dynamics could contain the heat-kernel formulas"
+        },
+        {
+          "assessment": "RELATED_SINGLE_PARTICLE_MOMENTS",
+          "evidence": "Provides moment methods for reset particles, not an already demonstrated three-parameter spatial stochastic heat-field inverse; no whole-paper negative assertion.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.044120",
+          "material_read": "Public APS full abstract and references, identifying harmonic Brownian and run-and-tumble particles; article full text not accessed beyond abstract",
+          "method": "Publisher HTML abstract",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Possibly dominating reset-moment universal formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2014 massless non-Gaussian reset-interface renewal theorem",
+        "2013 pinned Rouse boundary model",
+        "Frozen source exact positive image and inverse"
+      ],
+      "rationale": "PASS: Spatial covariance identifies only the combined damping r+2mu, so two physically different mechanisms are unidentifiable from second moments. A single fourth-order kurtosis observable resolves this genuine degeneracy and determines the minimal compatible region for positive parameters along with noise amplitude. This natural global inverse classification for a widely studied continuum interface is not a trivial three-equation numerical fit.",
+      "residual_risks": [
+        "No statistical conditioning, measurement-noise, finite-system or unknown-diffusivity guarantee; the result is exact stationary analytic identifiability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict r>0,mu>0,D>0,nu>0,ell>0 and known nu,ell; boundary K=0 and K=12/pi-3 excluded.",
+    "No general theorem for reset clocks independent at each site, finite noisy samples or Bayesian identifiability is claimed."
+  ],
+  "schema_version": 1
+}
