@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The weighted Schwarz--Pick integral bound \(2|A|+|C|\le1\) is proved for every Schur function, including its degenerate constant cases. Taylor integral identities determine an exact Möbius disk, quadratic extremizers attain its boundary, and an explicit sum-of-squares polynomial proves the sharp threshold with a real boundary witness parameter and complex extremizer.
+## correctness
 
-## Originality
-PASS under the inspected prior work. Poomalai and Ravichandran (arXiv:2610.07845v1, Theorem 3.2, Remark 3.3) only state a sufficient radius and acknowledge it is not known sharp. Korzybska, Kowalczyk and Wójcik (2006) give an inferior centered estimate; their proof does not contain the exact off-center variability disk. Other lemniscate literature imposes different derivative/quotient conditions. Priority remains contingent on potentially unindexed general-range results; the Kaur (2023) article's abstract, but not entire text, was accessible.
+PASS
 
-## Value
-PASS. The exact bound \(\min\{1,\sqrt{2/3}/M\}\) closes a natural, expressly identified sharp-radius gap and improves the nontrivial 2026 bound \((2-\sqrt2)/M\). The supporting range formula provides reusable quantitative information for other target domains.
+For |z|=r and h(t)=f''(tz)/M, the integral moments A=integral t h, B=integral(1-t)h, C=B-A satisfy C=-integral t(1-t)h'; Schwarz-Pick and 1-|h|²<=2(1-Re(xibar h)) give |C|<=1-2|A|. Taylor identities imply (p-1)/(2-p)=Mz A/(1+Mz C), so |(p-1)/(2-p)|<=m/2; constant Schur functions yield every point in the Möbius disk, including its boundary. For a=m/2 the exact denominator-minus-numerator identity for |P_m(w)^2-1|² is (1-2a²+2a Re w)²+2a²(1-6a²); it is strictly positive when m<sqrt(2/3). Re P_m>0 from |P_m-1|<1. At a=1/sqrt(6), Re w=-sqrt(2/3) yields exact tangency, and a slightly larger quadratic datum escapes. M<=sqrt(2/3) has full unit radius. An independent symbolic expansion, 31 Schur monomials and exact tangency independently checked. No analytic argument relies on these finite checks.
 
-## Limits
-Only the \(n=1\) class and the right Bernoulli lemniscate are addressed. Finite checker output is not an independent infinite-dimensional proof. Unindexed stronger literature is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: independently read primary papers establish only centered estimates/lower bounds for the exact same class. The new sharp displacement and tangency are additional; residual priority risk is explicitly retained.
+
+## value
+
+PASS
+
+The exact radius replaces a recognized nonsharp disk-inclusion lower bound in the natural bounded-second-derivative class, and the entire sharp displaced variability disk is a reusable geometric invariant for other Ma-Minda target regions. Strict improvement is not a mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
