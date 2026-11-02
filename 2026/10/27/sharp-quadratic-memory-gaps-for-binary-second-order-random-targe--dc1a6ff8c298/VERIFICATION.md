@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The analytical evidence consists of a direct stationary flux solution, eight finite first-step systems, two exact factorizations, and positivity of the denominators. The proof covers every point of the strictly positive four-parameter transition cube; the program checks only a finite subset and cannot prove a universal or historical claim by itself.
+## correctness
 
-`check_binary_second_order.py` independently constructs the lifted four-state transition law and solves the stationary and target-hitting linear equations using `fractions.Fraction`, without substituting the claimed analytic hitting-time expressions into those solves. Its assertions then compare independently solved values to both quadratic deficit formulas. The checks comprise 268 rational parameter tuples, include edge-near-positive examples, and explicitly verify the witness with marginal \((1/2,1/2)\).
+PASS
 
-Reproduction: run `python check_binary_second_order.py` in the folder holding the supplied source; the program needs only Python's standard library and prints its exact outputs to standard output. The included `check_output.txt` records its successful output. The command was performed again on the complete supplied source file before packaging.
+For strictly positive a,b,c,d, the lifted history-state Markov chain is primitive with stationary pair law (u,1,1,v)/(u+v+2), u=(1−b)/a, v=c/(1−d). The strictly positive hitting recurrences for targets y=0,1 are solvable by one-step first-step equations; the eight solutions yield exact differences K00−K01=(a−b)²(1+c−d)/Δ and K11−K10=(c−d)²(1+a−b)/Δ with Δ=(1−b)(1−d)+ac+2a(1−d)>0. Thus four-history constancy forces a=b and c=d; in the converse the first-order random-target identity gives K=1+1/(a+1−c). The proof distinguishes positive return time from time-zero hits and four-history targets from one-symbol targets. Independently formed the four-state transition matrix and solved exact rational stationary and absorbing hitting linear systems in 21 sampled kernels; both squared gaps agreed. Only proof, not sample search, establishes all positive parameters.
 
-Limitations: strict positivity is needed for the asserted stationary uniqueness, finite positive-hitting means, and denominator positivity. First passage is at a strictly *positive* time, including when the current state equals the target. The theorem concerns hitting a one-symbol target, not any of the four history states. No independent audit, external mathematical certification, or exhaustive historical-priority determination is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.
+
+## value
+
+PASS
+
+The exact nonnegative quadratic defect laws answer a natural full-history version of the stationary-target hitting-time constancy question, identify precisely when order-two memory remains detectable, and quantify the deviation. This is a complete small-alphabet structural classification rather than merely a numeric hitting-time example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
