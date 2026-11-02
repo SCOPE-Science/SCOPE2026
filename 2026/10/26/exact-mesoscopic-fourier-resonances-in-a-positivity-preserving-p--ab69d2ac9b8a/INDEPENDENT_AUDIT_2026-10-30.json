@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:01:09.622683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed four diagonal displacement shifts from Eq.22 with h=1/k² and N=k² per axis: sqrt(h)=k/N, so bilinear interpolation is nodal and P_k=1/4 sum of shifts (±k,±k). Characters on Z_N² have eigenvalue cos(2πa/k)cos(2πb/k); residue lifting counts +1 with multiplicity k² for odd k, 2k² for even k. The minimum symbol is -cos(π/k) for odd k and -1 for even k; A=I-P/(1+r/k²) is SPD M-matrix, with exact kappa2=1+(1+b_k)k²/r. For k≥3 the resolved mesh-dependent cos(2πkx) has continuum solution Q/(r+2π²k²) and exact discrete solution (1+r/k²)Q/r, so grid max error→1/r. Independently enumerated multiplicities/extrema for k=2..11; all-k proof is Fourier arithmetic, not those samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Li–Yue derive monotonicity and convergence for fixed smooth datum; their general scheme includes the specialization.",
+          "Debrabant–Jakobsen give generic consistency and convergence, not full spectrum at commensurate h."
+        ],
+        "reasoning": "The prior positivity/convergence theorems neither exclude nor compute mesh-dependent high-frequency resonance. No claimed contradiction to convergence at fixed smooth forcing.",
+        "searches": [
+          "periodic four diagonal quadrature elliptic stencil Fourier resonance k^2 mesh disconnected graph positivity preserving expectation",
+          "Xu–Li–Yue 2026 expectation scheme Eq.22, Thm3; Debrabant–Jakobsen 2009 semi-Lagrangian theory."
+        ]
+      },
+      "checked_sources": [
+        "H. Xu, K. Li, X. Yue, https://arxiv.org/html/2604.02797v1",
+        "K. Debrabant, E. R. Jakobsen, https://arxiv.org/abs/0910.1046",
+        "U. M. Ascher et al., https://doi.org/10.1137/0732037",
+        "Resultary query: periodic four diagonal quadrature elliptic stencil Fourier resonance k^2 mesh disconnected graph positivity preserving expectation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xu–Li–Yue original includes the transition matrix, so the Fourier formula is an operator-specific calculable consequence, not an independent new scheme.",
+          "The original convergence estimates depend on source smoothness and do not imply uniform convergence for q_k."
+        ],
+        "reasoning": "A Fourier-symbol computation is an accessible specialization of known methods; the meaningful new exact arithmetic classification and contrasting forcing family are not explicitly proved by cited earlier statements. Future exact-stencil spectral analyses remain priority risk.",
+        "searches": [
+          "periodic four diagonal quadrature elliptic stencil Fourier resonance k^2 mesh disconnected graph positivity preserving expectation",
+          "Fourier diagonalization plus Xu–Li–Yue Eq22 and fixed-smooth convergence."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The k-cell diagonal walk has k² or 2k² stationary components, equal to +1 Fourier multiplicity.",
+          "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac concerns a time-evolution CN/BE filter rather than this periodic two-dimensional expectation stencil."
+        ],
+        "reasoning": "The graph-component formulation is equivalent and included in the mathematical explanation; published generic aliasing does not imply the exact parity-dependent result without the arithmetic group calculation.",
+        "searches": [
+          "periodic four diagonal quadrature elliptic stencil Fourier resonance k^2 mesh disconnected graph positivity preserving expectation",
+          "Periodic four-shift walks and Cayley graph Fourier characters; disconnected Markov chains; numerical spatial aliasing."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-exact-four-frequency-fourier-projection-norm-on-every-cyclic-gro--6fefdbed98ba is projection norm in one cyclic group, not this diffusion stencil.",
+          "No matching count k²/2k² in inspected published findings."
+        ],
+        "reasoning": "A general formula for circulant eigenvalues is classical, but the exact parity count, condition number and forcing response are not retrieved as an existing operator-specific table.",
+        "searches": [
+          "periodic four diagonal quadrature elliptic stencil Fourier resonance k^2 mesh disconnected graph positivity preserving expectation",
+          "Exact symbols/condition numbers periodic elliptic 4-shift stencil; Resultary Fourier projection norm tables."
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison by mathematical implication, using actual Resultary search, relevant primary source material, the assigned final claim, and explicit residual priorities. The contribution is limited to the exact special calculation/structural theorem; general underlying methods are credited.",
+      "residual_risks": [
+        "A prior exact Fourier analysis of this specific stencil or equivalent Markov-group walk may contain the arithmetic multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Specializes to exact nodal four-diagonal walk; no stated parity-dependent Fourier multiplicities or mesoscopic forcing counterexample",
+          "evidence": [
+            "Eq.22 four-branch expectation normalization; Theorem3 fixed smooth datum, different quantifier."
+          ],
+          "identifier_or_url": "H. Xu, K. Li, X. Yue, https://arxiv.org/html/2604.02797v1",
+          "material_read": "Original paper complete HTML, especially §2.3 Eq.22 four weighted endpoints, algorithm and theorem on fixed-smooth-data convergence",
+          "method": "direct reading of primary arXiv HTML",
+          "title": "A Non-compact Positivity-Preserving Numerical Scheme for Elliptic Differential Equations Based on Mathematical Expectation",
+          "trigger": "Original stochastic-quadrature scheme and nearest antecedent"
+        },
+        {
+          "assessment": "Framework broader but spectral multiplicity not computed",
+          "evidence": [
+            "Convergence under consistency and regularity does not imply uniform suppression of high-frequency mesh-dependent forcing."
+          ],
+          "identifier_or_url": "K. Debrabant, E. R. Jakobsen, https://arxiv.org/abs/0910.1046",
+          "material_read": "Accessible primary source theory in §§1,3–5,7 as compared against the assigned scheme",
+          "method": "primary full-text/arXiv comparison",
+          "title": "Semi-Lagrangian schemes for linear and fully non-linear diffusion equations",
+          "trigger": "Broader semi-Lagrangian consistency and positivity literature"
+        },
+        {
+          "assessment": "Different time-dependent IMEX discretization; no full-text noncoverage assertion",
+          "evidence": [
+            "Abstract is not whole-paper evidence; historical aliasing analysis may contain related mechanisms."
+          ],
+          "identifier_or_url": "U. M. Ascher et al., https://doi.org/10.1137/0732037",
+          "material_read": "Abstract-level bibliographic material only",
+          "method": "search/abstract",
+          "title": "Implicit-Explicit Methods for Time-Dependent Partial Differential Equations",
+          "trigger": "Possible aliasing antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact nonconstant undamped modes of growing multiplicity and exact nonconvergent response to a physically resolved mesh-dependent source expose an instructive arithmetic resonance in a genuinely positivity-preserving elliptic solver. Distinguishes positivity and fixed-datum consistency from uniform spectral damping; the precise k² grid and parity are naturally compelled by displacement/mesh commensurability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "H. Xu, K. Li, X. Yue, https://arxiv.org/html/2604.02797v1",
+    "K. Debrabant, E. R. Jakobsen, https://arxiv.org/abs/0910.1046",
+    "U. M. Ascher et al., https://doi.org/10.1137/0732037",
+    "Resultary query: periodic four diagonal quadrature elliptic stencil Fourier resonance k^2 mesh disconnected graph positivity preserving expectation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only periodic constant isotropic parameters and commensurate N=k², r>0; q_k depends on k.",
+    "Fixed smooth-data convergence is not disproved; high-frequency physical source derivatives diverge."
+  ],
+  "residual_risks": [
+    "A prior exact Fourier analysis of this specific stencil or equivalent Markov-group walk may contain the arithmetic multiplicities."
+  ],
+  "schema_version": 1
+}

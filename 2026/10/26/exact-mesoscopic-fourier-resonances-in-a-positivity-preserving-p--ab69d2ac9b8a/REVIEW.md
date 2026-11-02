@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact nodal specialization of [1, Eq. (22)] gives four translations by \((\pm k,\pm k)\) and a reaction factor \((1+r/k^2)^{-1}\). Fourier multiplication proves the symbol for every integer \(k\ge2\). Counting cosine values \(\pm1\) gives the exact parity-dependent multiplicities, and the extreme eigenvalues give the condition number. The \(k\)-frequency forcing has exact continuum and discrete solutions. The finite checker verifies cases \(2\le k\le8\); its tests are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS with identified residual risk
+Reconstructed four diagonal displacement shifts from Eq.22 with h=1/k² and N=k² per axis: sqrt(h)=k/N, so bilinear interpolation is nodal and P_k=1/4 sum of shifts (±k,±k). Characters on Z_N² have eigenvalue cos(2πa/k)cos(2πb/k); residue lifting counts +1 with multiplicity k² for odd k, 2k² for even k. The minimum symbol is -cos(π/k) for odd k and -1 for even k; A=I-P/(1+r/k²) is SPD M-matrix, with exact kappa2=1+(1+b_k)k²/r. For k≥3 the resolved mesh-dependent cos(2πkx) has continuum solution Q/(r+2π²k²) and exact discrete solution (1+r/k²)Q/r, so grid max error→1/r. Independently enumerated multiplicities/extrema for k=2..11; all-k proof is Fourier arithmetic, not those samples.
 
-The closest paper [1] states positivity and convergence for smooth fixed data, but its inspected equations, theory and examples do not give this exact arithmetic Fourier spectrum or the resolved forcing response. The broader semi-Lagrangian paper [2] proves consistency and convergence for a general family without implying this operator-specific multiplicity and parity classification. Related spectral aliasing in [3] concerns a different numerical scheme, and only the abstract was accessible. Targeted searches of the published mathematical findings index for Fourier symbols, aliases, graph disconnectivity, and reaction-resolvent response yielded no exact matching claim. Broad conceptual aliasing remains known and the historical literature may contain a closer treatment not identified here.
+## originality
 
-## Value — PASS
+PASS
 
-The very wide stencil can fail to damp a growing-dimensional space of nonconstant modes at natural, commensurate meshes, despite an entrywise nonnegative inverse. The exact parity and condition number diagnose iteration difficulty, while a mesh-dependent resolved forcing produces a quantified \(O(1)\) solution discrepancy. This is a meaningful boundary of uniform mesoscopic fidelity, not a challenge to ordinary convergence for a fixed smooth problem.
+Best-of-knowledge comparison by mathematical implication, using actual Resultary search, relevant primary source material, the assigned final claim, and explicit residual priorities. The contribution is limited to the exact special calculation/structural theorem; general underlying methods are credited.
 
-## Limits
+## value
 
-The theorem is only for constant isotropic coefficients, periodic quotient grids, \(N=k^2\) and strictly positive constant reaction. No uniform statement is made over smooth-data regularity classes, variable coefficients, noncommensurate steps or nonperiodic boundaries. The checker has finite scope. The full text of one aliasing-related historical paper was inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact nonconstant undamped modes of growing multiplicity and exact nonconvergent response to a physically resolved mesh-dependent source expose an instructive arithmetic resonance in a genuinely positivity-preserving elliptic solver. Distinguishes positivity and fixed-datum consistency from uniform spectral damping; the precise k² grid and parity are naturally compelled by displacement/mesh commensurability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
