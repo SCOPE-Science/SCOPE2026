@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result follows from the planar tangent-line threshold for two endpoints at fixed radii and the correctly normalized angular cap distribution in dimension \(d\). Independent radial integration gives the exact double integral. A monotone uniform-radial coupling proves strict decline, while conditional cosine-moment expansion gives rational three- and five-dimensional formulas. A general odd-dimensional binomial integration argument proves rationality; uniform small-cap asymptotics and an explicit beta moment compute the thin-shell coefficient. An exact common-denominator polynomial certificate verifies both displayed rational identities; independent random-segment checks are supplementary. Tangent chords and endpoint degeneracies are null events.
+## correctness
 
-## Originality — PASS (subject to historical indexing limitations)
-Balko et al. [1], with first public arXiv date 2014-12-04, define the Beer index for general measurable sets and derive inequalities, not evaluated multi-dimensional spherical-shell laws. Hodge, Marshall, and Patterson [2] explicitly evaluate the planar annulus, which is recognized as prior and excluded from novelty. The three- and five-dimensional rational evaluations and common odd-dimensional mechanism are not implied by that planar result or the available general bounds. Targeted searches for shell visibility, degree of convexity, hole probability, and independent published mathematical records did not identify an equivalent stronger claim. There remains a risk of unindexed prior derivations; negative searches alone do not certify novelty.
+PASS
 
-## Value — PASS
-Concentric spherical shells are canonical nonconvex bodies, and line-of-sight visibility is their intrinsic probabilistic convexity statistic. The exact three- and five-dimensional laws give concrete benchmark invariants, and the odd-dimension rationality theorem explains why the formulas simplify. The all-dimensional thin-shell exponent and exact constant quantify geometric visibility loss as shell thickness collapses, rather than giving a routine reparameterization of the existing planar coefficient.
+Uniform directional density c_d sin^(d-2)(θ), tangent-line threshold θ≤arccos(a/r)+arccos(a/s), and independent normalized volume radial densities establish the exact two-radius cap identity. Quantile coupling makes a/R_a strictly increasing in a, so b_d strictly declines. For odd d, each H_d is a rational cosine polynomial; moment integrals reduce by z=r²-a² to finite binomial expressions with at most √(1-a²), so independent squared moments are rational. Exact b3,b5 formulae and special values verified by separately derived symbolic moments. Uniform small-cap and coupled radial limits give κ_d; boundaries a→0 and a→1 and tangencies handled. Finite checks do not substitute for universal derivation.
 
-## Scope and limitations
-Uniform volume measure, concentric Euclidean spherical boundaries, and independent endpoints are essential. The all-dimension integral and asymptotic law are exact analytical statements; displayed rational closed forms are limited to dimensions three and five. The prior planar-annulus calculation and historical-priority caveat are explicit; no independent external checking is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: exact 3D/5D volume-uniform shell Beer-index rational functions, odd-dimension rationality and sharp all-d leading constant are not implied by the inspected planar annulus result, general Beer-index bounds, or the later facet-cone-volume zero-limit theorem. Self-match to published finding was excluded; priority remains historically uncertain.
+
+## value
+
+PASS
+
+For canonical nonconvex hollow Euclidean balls, the Beer-index visibility probability is a natural probabilistic convexity invariant. Explicit d=3,d=5 probability laws provide higher-dimensional exact benchmarks not implied by the known planar annulus; proof of odd-dimensional rationality explains a structural parity simplification; the exact dimension-dependent thin-shell exponent and constant quantify degeneration across every d≥2. This is a worthwhile self-contained classification, not a renaming or arbitrary numerical slice; no global downstream theorem or unproved generalizations claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of exact shell-visibility formulas
+# Independent mathematical audit
 
-The accompanying standard-library Python file `verify_shell_visibility.py` is executable with `python verify_shell_visibility.py` in the same directory. It recomputes exact radial moments for dimensions three and five using finite binomial antiderivatives rather than taking the displayed polynomial formulas as inputs to the moment routine.
+## correctness
 
-For each dimension \(d\in\{3,5\}\), after clearing the denominators, the difference between the independently recomputed moment formula and the proposed closed expression has a numerator polynomial of degree at most \(4d\). Checking equality at \(4d+1\) distinct *exact rational* values with `fractions.Fraction` is therefore a valid full polynomial-identity proof for those two formulas. The run prints `EXACT_IDENTITIES_OK d=3,5 common-denominator degree certificate`.
+PASS
 
-The script separately constructs independent uniform shell points in Euclidean three and five dimensions, computes the minimum squared norm along each joining segment, and compares sample visibility fractions to the formulas. A fixed pseudorandom seed makes these diagnostics reproducible; they are not relied upon for general mathematical correctness. A complete run ends with `VERIFY_OK`.
+Uniform directional density c_d sin^(d-2)(θ), tangent-line threshold θ≤arccos(a/r)+arccos(a/s), and independent normalized volume radial densities establish the exact two-radius cap identity. Quantile coupling makes a/R_a strictly increasing in a, so b_d strictly declines. For odd d, each H_d is a rational cosine polynomial; moment integrals reduce by z=r²-a² to finite binomial expressions with at most √(1-a²), so independent squared moments are rational. Exact b3,b5 formulae and special values verified by separately derived symbolic moments. Uniform small-cap and coupled radial limits give κ_d; boundaries a→0 and a→1 and tangencies handled. Finite checks do not substitute for universal derivation.
 
-Analytical checks not delegated to the script include the tangent-angle equivalence, normalized spherical cap distribution, strict radial coupling, the general odd-dimensional square-root cancellation, and uniform thin-shell asymptotics. The limitations and earlier two-dimensional formula are acknowledged in `RESULT.md`. These materials document analytical and same-model checking only; an independent audit has not been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: exact 3D/5D volume-uniform shell Beer-index rational functions, odd-dimension rationality and sharp all-d leading constant are not implied by the inspected planar annulus result, general Beer-index bounds, or the later facet-cone-volume zero-limit theorem. Self-match to published finding was excluded; priority remains historically uncertain.
+
+## value
+
+PASS
+
+For canonical nonconvex hollow Euclidean balls, the Beer-index visibility probability is a natural probabilistic convexity invariant. Explicit d=3,d=5 probability laws provide higher-dimensional exact benchmarks not implied by the known planar annulus; proof of odd-dimensional rationality explains a structural parity simplification; the exact dimension-dependent thin-shell exponent and constant quantify degeneration across every d≥2. This is a worthwhile self-contained classification, not a renaming or arbitrary numerical slice; no global downstream theorem or unproved generalizations claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
