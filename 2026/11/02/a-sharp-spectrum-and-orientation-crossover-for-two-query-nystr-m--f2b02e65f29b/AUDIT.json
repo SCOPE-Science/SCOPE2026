@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The Nyström residual equals \\(\\det(A)(Ju)(Ju)^{\\mathsf T}/(u^{\\mathsf T}Au)\\) in dimension two. Conditioning on the Gaussian sketch gives exact Rademacher variance \\(4R_{12}^2\\); isotropic Gaussian angular integration produces closed moments. Algebra gives the exact difference, the derivative of Q is strictly negative on \\(t>1\\), and equality and isotropic cases are explicitly addressed. Positive-definite high-dimensional strict reversals follow by dominated convergence. Standalone SymPy identities and 28 independent angular quadratures passed. Finite experiments are supportive, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2.1 of arXiv:1603.05988 gives a general eigenvector/SVD-deflation variance formula; it does not average over the rank-one Gaussian Nyström sketch or compare equal-budget mixed probes.",
+        "Theorem 3.4 of arXiv:2109.10659 proves high-probability Nyström++ guarantees for sufficiently large Gaussian sketch and Gaussian residual sample counts, not the exact two-query Rademacher decision region."
+      ],
+      "reasoning": "Generic high-probability error bounds and rotationally invariant Gaussian comparisons do not determine the basis-sensitive threshold. Prior results already cover the qualitative possibility of deflation harm, which is explicitly excluded from novelty. The new classification is not implied by those claims without a distinct exact Gaussian angular computation.",
+      "searches": [
+        "Finite-query trace estimator choice rank-one Gaussian Nyström versus Hutchinson when deflation increases variance eigenbasis alignment two probes",
+        "Deflation as a method of variance reduction Gambhir Stathopoulos Orginos Hermitian variance increase Nyström Gaussian sketch threshold",
+        "Two query unbiased stochastic trace estimation Gaussian Rademacher optimal deflation eigenvector alignment",
+        "arxiv:1603.05988 Theorem 2.1",
+        "arxiv:2109.10659 Theorem 3.4"
+      ]
+    },
+    "checked_sources": [
+      "Persson–Cortinovis–Kressner, arXiv:2109.10659 (first public 2021-09-22), Algorithm 5 and Section 3; full-text relevant material inspected.",
+      "Gambhir–Stathopoulos–Orginos, arXiv:1603.05988 (first public 2016-03-18), Section 2; full-text relevant theory and examples inspected.",
+      "SIAM J. Matrix Anal. Appl. 43 (2022) 1162–1185, DOI 10.1137/21M1447623, publication metadata and MSC 65C05 cross-checked."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Our normal form requires the explicit moment E[u_1^2u_2^2/(u^TAu)^2]; the preprint Nyström++ analysis bounds the Frobenius residual instead of integrating Rademacher off-diagonal noise.",
+        "Known SVD deflation uses a deterministic exact eigenprojector, whereas the residual here depends nonlinearly on a Gaussian sketch through \\(u^{\\mathsf T}Au\\).",
+        "The general Rademacher off-diagonal variance formula is a known ingredient, not claimed as new."
+      ],
+      "reasoning": "One cannot replace Gaussian correction variance by Rademacher variance without accounting for eigenbasis orientation, so the broader rotationally invariant results neither imply nor subsume the exact threshold. The work adds a complete classification for one natural mixed design, not a new general theorem that deflation can worsen variance.",
+      "searches": [
+        "Sharp orientation spectral anisotropy phase transition comparing two-probe Rademacher Hutchinson trace estimator with one Gaussian sketch one Rademacher residual Nyström estimator 2 by 2 SPD variance",
+        "Unbiased trace estimation Nyström rank one Gaussian sketch off diagonal Rademacher Hutchinson variance 2 dimensional exact eigenvector rotation formula",
+        "Finite-query trace estimator choice rank-one Gaussian Nyström versus Hutchinson when deflation increases variance eigenbasis alignment two probes",
+        "arxiv:2109.10659 Algorithm 5 Gaussian samples",
+        "arxiv:1603.05988 SVD deflation variance increase"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Persson–Cortinovis–Kressner Algorithm 5, arXiv:2109.10659, pp. 22–24: rank-one specialization has the same Nyström algebra but the correction samples are Gaussian, not Rademacher.",
+        "Gambhir–Stathopoulos–Orginos, arXiv:1603.05988, pp. 2–4: deflation is the exact SVD spectral projection, not a random rank-one Gaussian Nyström sketch.",
+        "No exact equivalent statement was recovered in the dedicated search results; this absence is not itself proof of priority."
+      ],
+      "reasoning": "The broad names Hutch++, Nyström++, deflation and Hutchinson overlap, but the random sketch operator, residual probe law and query budget differ. A general conditional off-diagonal variance identity is shared background and is used in the proof; the exact averaged Gaussian-sketch angular transition is not the same formula as the cited SVD or all-Gaussian bounds.",
+      "searches": [
+        "Sharp orientation spectral anisotropy phase transition comparing two-probe Rademacher Hutchinson trace estimator with one Gaussian sketch one Rademacher residual Nyström estimator 2 by 2 SPD variance",
+        "Unbiased trace estimation Nyström rank one Gaussian sketch off diagonal Rademacher Hutchinson variance 2 dimensional exact eigenvector rotation formula",
+        "Improved variants Hutch++ Persson Cortinovis Kressner 2021 Nyström++ exact 2x2 variance Rademacher",
+        "arxiv:2109.10659 Algorithm 5",
+        "arxiv:1603.05988 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual semantic searches for rank-one Nyström, two-query Rademacher trace variance, and eigenvector orientation returned no matching exact table or explicit phase boundary."
+      ],
+      "reasoning": "The current assertion is a continuous exact variance decision surface, not an existing listed numerical constant or tabulated special case in the materials checked. Search coverage cannot rule out differently titled unpublished calculations.",
+      "searches": [
+        "Gaussian Nyström estimator two matrix vector products Rademacher trace estimation exact variance spectral angle transition",
+        "randomized rank-one Nyström Hutchinson variance Rademacher diagonal rotation 2x2",
+        "Nyström++ Rademacher trace estimator variance low rank approximation increase variance diagonal matrix rotation",
+        "Hutchinson deflation variance can increase low rank approximation off diagonal trace estimator",
+        "exact variance Gaussian Nyström Hutchinson 2x2 orientation trace estimator",
+        "Gaussian Nyström rank-one Hutchinson variance 2x2"
+      ]
+    },
+    "rationale": "Qualified best-knowledge priority: inspected 2021 Nyström++ and 2016 SVD-deflation primary theory do not include the new exact mixed Gaussian/Rademacher two-product, all-angle and anisotropy phase classification. The general possibility of harm from deflation and Rademacher off-diagonal variance are acknowledged pre-existing results; the nontrivial Gaussian-sketch angular integration is the assessed contribution.",
+    "residual_risks": [
+      "A specialized prior exact Gaussian-rank-one Nyström plus Rademacher-probe two-query calculation might be published under alternative terminology or in an inaccessible source.",
+      "Qualitative variance increase from deflation is already known; novelty excludes that phenomenon and is restricted to the exact mixed-probe orientation/anisotropy classification.",
+      "The exact finite-dimensional criterion is for two-by-two matrices; no full all-dimensional sharp phase surface is claimed.",
+      "No independent priority or scientific review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the Nyström construction and general Gaussian-probe concentration results, but does not analyze this mixed-probe, two-query rotation threshold.",
+        "evidence": [
+          "Algorithm 5 specifies independent i.i.d. standard Gaussian sketch and correction arrays.",
+          "Theorem 3.4 is a nonasymptotic high-probability approximation statement and does not give the exact two-dimensional Rademacher variance comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.10659",
+        "material_read": "Abstract, introduction pp. 1–5, detailed method and Algorithm 5 pp. 21–24, Theorem 3.4 pp. 23–24, algorithm-related conclusions; direct inspection of the page displaying Algorithm 5.",
+        "method": "Full-text PDF sections and algorithm equation inspection.",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Primary 2021 source introducing one-pass Nyström++ and exact construction of the sketch estimator."
+      },
+      {
+        "assessment": "Covers the qualitative direction and exact SVD-deflation variance formula, not random Gaussian Nyström sketching or equal-budget mixed-probe orientation boundary.",
+        "evidence": [
+          "Theorem 2.1 assumes removal of leading singular triplets.",
+          "The example varies eigenvalues/eigenvector geometry after exact SVD deflation; it does not treat the random Nyström rank-one projection."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1603.05988",
+        "material_read": "Abstract and introduction pp. 1–2, Section 2 pp. 3–4 including Theorem 2.1, proof and explicit example; direct inspection of the theorem page.",
+        "method": "Primary preprint full-text theoretical-section inspection.",
+        "title": "Deflation as a method of variance reduction for estimating the trace of a matrix inverse",
+        "trigger": "Directly pertinent earlier result proving deflation can increase Hutchinson variance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2b02e65-f29b-4c87-b090-f06874259585",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a complete sharp basis-sensitive criterion for choosing between two prescribed equal-cost randomized trace estimators, with a unique spectral existence threshold. Unlike rotationally invariant Gaussian trace-estimator comparisons, the same fixed spectrum can reverse the risk ordering under coordinate rotation, with the reversal robust to small positive tails in every higher dimension. It clarifies when investing a matrix-vector product in Gaussian Nyström deflation is or is not productive under Rademacher residual probing, rather than merely presenting one cheap negative diagonal example.",
+    "status": "PASS"
+  }
+}
