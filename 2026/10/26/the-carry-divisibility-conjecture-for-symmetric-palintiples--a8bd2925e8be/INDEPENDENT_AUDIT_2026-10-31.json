@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:04:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof; frozen blob e007a1d29d6b5584c0ee8e266fd363681ddb8224",
+        "Independent calculations in scope05_checks_20261031T215600.py",
+        "Independently tested 52 concrete digit-reversal palintiples over 2≤n≤9, n<b≤20 and lengths 3–5 by reconstructing each multiplication and carries, confirming every symmetric-carry example obeys divisibility and binary carry set.",
+        "Separately inspected the ℓ=2 shared-prime case, minimal carry valuation contradiction, k=1 excluded by c1>0, and both leading/trailing nonzero boundary conditions."
+      ],
+      "rationale": "Given 1<n<b, a genuine nonzero-ended base-b digit reversal multiple of length k+1 and carries c0=c_(k+1)=0 with symmetric c_j=c_(k−j), eliminate the two grade-school equations to obtain (n²−1)d_j=nbc_(k−j+1)−nc_(k−j)+bc_(j+1)−c_j. Symmetry gives c_k=0 and first digit identity (n²−1)d0=bc1, forcing c1>0, and b(nc_(j−1)+c_(j+1))≡(n+1)c_j mod n²−1 for 1≤j≤k−1. For every prime ℓ|n−1, set a=vℓ(n−1), q=vℓ(n+1), t=vℓ(b). If t≤q, the first equation makes c1 multiple ℓ^a and congruence inductively propagates. If t>q, take a carry of globally least ℓ-valuation s<a: left side has valuation ≥t+s and right (n+1)c_j has exactly q+s<a+q, so their difference cannot vanish mod ℓ^(a+q). Thus n−1 divides every carry. Since 0≤c_j≤n−1, all carries are 0 or n−1; c1=n−1 and n+1|b by first identity. Holt 2014 Theorem 6 supplies the converse. This handles ℓ=2, n=2, all k and noncoprime cases; no finite cutoff is used. Independently enumerated 52 actual valid small digit-reversal multiples with symmetric carries and checked all conclusions.",
+      "residual_risks": [
+        "Finite checks corroborate, but do not establish, the universal claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kendrick 1089 graph iff base criterion does not imply all symmetric-carry palintiples live on that graph.",
+          "Holt 2025 reflected graph-class symmetry is not c_j=c_(k−j)."
+        ],
+        "reasoning": "The inspected graph and enumeration theorems do not mathematically entail all-carry divisibility. A broad semigroup/automata equivalence in unindexed sources remains conceivable.",
+        "searches": [
+          "Holt conjecture symmetric palintiple carries divisible by n minus 1 proof n plus 1 divides base Kendrick Young graph",
+          "Kendrick 2015 arXiv:1410.0106 Theorem 3.1 Remark 4",
+          "Holt 2025 arXiv:2504.17158 Theorem 18"
+        ]
+      },
+      "checked_sources": [
+        "Holt 2014 Integers 14 A42 full primary paper",
+        "Holt 2015 arXiv:1410.2356 full 6-page primary preprint",
+        "Kendrick 2015 arXiv:1410.0106 Theorem3.1 and Remark4",
+        "Holt arXiv:2411.10859 relevant full sections",
+        "Holt arXiv:2504.17158 Definition9/Theorem18",
+        "Resultary Holt conjecture symmetric palintiple carries divisible by n minus 1 proof n plus 1 divides base Kendrick Young graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Holt 2014: sufficient direction and restricted gcd=1 converse.",
+          "Holt 2015: universal carry-divisibility statement remains explicitly conjectural."
+        ],
+        "reasoning": "The present valuation proof removes gcd(b,n−1)=1 without narrowing the remaining parameters and completes the iff with the already published sufficiency.",
+        "searches": [
+          "Holt 2014 Theorems 6 and 7",
+          "Holt 2015 Conjecture 1",
+          "Holt conjecture symmetric palintiple carries divisible by n minus 1 proof n plus 1 divides base Kendrick Young graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holt 2015 Conjecture 1 exactly asserts every symmetric palintiple carry is 0 mod n−1.",
+          "Conditional corollary states the iff n+1|b if this divisibility holds."
+        ],
+        "reasoning": "This theorem exactly settles an identified previously unproved formulation, not a different renamed result; checked also the equivalent base divisibility statement.",
+        "searches": [
+          "Holt conjecture symmetric palintiple carries divisible by n minus 1 proof n plus 1 divides base Kendrick Young graph",
+          "Holt 2015 arXiv:1410.2356 Conjecture 1",
+          "symmetric palintiple n+1 base iff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2014 article has examples/table but only a coprime necessity theorem.",
+          "The audited implication quantifies over all n,b,k and is proved by valuations, not finite search."
+        ],
+        "reasoning": "An exact table restricted to known examples cannot resolve the infinite conjecture; no competing all-base theorem appeared in targeted searches.",
+        "searches": [
+          "Holt conjecture symmetric palintiple carries divisible by n minus 1 proof n plus 1 divides base Kendrick Young graph",
+          "palintiple carry symmetric tables Holt 2014"
+        ]
+      },
+      "rationale": "The mathematical statement is explicitly Holt 2015 Conjecture 1: symmetric palintiple carries divisible by n−1. Holt 2014 Theorem 6 proves sufficiency n+1|b and Theorem 7 obtains necessity only when gcd(b,n−1)=1. Kendrick 2015 characterizes an associated Young graph as 1089 iff n+1|b but does not establish every symmetric palintiple arises on that graph; its Remark 4 recognizes the conjectural direction. Holt 2025 works on general permutiples and reflected permutiple graph classes, whose symmetry is not carry symmetry. Available inspected full primary sources and scholarly searches reveal no resolution, while later unindexed digit-reversal proofs remain a priority risk. The new two-case local valuation argument resolves the exact historical conjecture without relying on computer enumeration.",
+      "residual_risks": [
+        "An equivalent unrestricted carry proof may have appeared in unindexed digit-reversal or recreational number theory after the original conjecture.",
+        "The new result addresses symmetric carries, not shifted-symmetric or asymmetric palintiples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 6: n+1|b sufficient; Theorem 7 converse assumes gcd(b,n−1)=1; unrestricted necessity not proved",
+          "evidence": "Integers 14 (2014), A42, pp. 3–7",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/INTEGERS/papers/o42/o42.pdf",
+          "material_read": "Full original primary paper, especially Theorems 1,3,6,7 and relevant pp.3–7; page image visually checked",
+          "method": "Full-text source/theorem hypothesis comparison",
+          "title": "Some General Results and Open Questions on Palintiple Numbers",
+          "trigger": "Original multiplication identities and missing converse"
+        },
+        {
+          "assessment": "Names n−1 divisibility of symmetric carries as Conjecture 1; consequences assume it",
+          "evidence": "arXiv:1410.2356 (2015 version), Conjecture 1",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.2356",
+          "material_read": "All six pages, Conjecture 1 and conditional Corollary 2; a screenshot of the conjecture page inspected",
+          "method": "Primary full-text exact-statement comparison",
+          "title": "Some Thoughts on Determining Symmetric Palintiples",
+          "trigger": "Conjecture 1 is verbatim equivalent to audited carry divisibility"
+        },
+        {
+          "assessment": "Graph isomorphism iff base divisibility does not prove that all symmetric-carry numbers have such graph; Remark 4 leaves that direction conjectural",
+          "evidence": "Kendrick 2015 Theorem 3.1 and Remark 4",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.0106",
+          "material_read": "Full article principal theorem 3.1 and Remark 4 with comparison of graph class and carry symmetry",
+          "method": "Primary full-text implication analysis",
+          "title": "Young Graphs: 1089 Et Al.",
+          "trigger": "Potential stronger Young-graph classification implying carry symmetry"
+        },
+        {
+          "assessment": "General construction/enumeration, no identified all-parameter symmetric carry divisibility theorem",
+          "evidence": "Holt arXiv:2411.10859 (2025)",
+          "identifier_or_url": "https://arxiv.org/abs/2411.10859",
+          "material_read": "Abstract, introduction, algorithmic construction and theorem discussion in available full text",
+          "method": "Primary article relevant-sections comparison",
+          "title": "Finding Permutiples of a Known Base and Multiplier",
+          "trigger": "Later original-author result might supersede conjecture"
+        },
+        {
+          "assessment": "Reflection-symmetry of permutiple graph classes is a different notion from palindromic grade-school carry sequence",
+          "evidence": "Holt arXiv:2504.17158 (2025), Definition 9, Theorem 18",
+          "identifier_or_url": "https://arxiv.org/abs/2504.17158",
+          "material_read": "Abstract and Section 3, Definition 9 and Theorem 18 read",
+          "method": "Primary full-text equivalence check",
+          "title": "Utilizing Symmetry in Finding New Permutiples from Known Examples",
+          "trigger": "Later original-author title suggests symmetric palintiple result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Holt 2014 Integers 14 A42 full primary paper",
+        "Holt 2015 arXiv:1410.2356 full 6-page primary preprint",
+        "Kendrick 2015 arXiv:1410.0106 Theorem3.1 and Remark4",
+        "Holt arXiv:2411.10859 relevant full sections",
+        "Holt arXiv:2504.17158 Definition9/Theorem18",
+        "Resultary Holt conjecture symmetric palintiple carries divisible by n minus 1 proof n plus 1 divides base Kendrick Young graph"
+      ],
+      "rationale": "An explicit published all-base, all-length arithmetic conjecture is resolved, including precisely the noncoprime case that blocked Holt 2014. This is substantive and naturally motivated arithmetic structure, not an arbitrary small numerical pattern.",
+      "residual_risks": [
+        "An equivalent unrestricted carry proof may have appeared in unindexed digit-reversal or recreational number theory after the original conjecture.",
+        "The new result addresses symmetric carries, not shifted-symmetric or asymmetric palintiples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Every digit-reversal multiple must have positive nonzero leading and trailing digits; n=1 and trivial leading-zero cases excluded.",
+    "Holt 2014 sufficiency explicitly retained as prior result; only missing necessity and carry divisibility are assessed as new."
+  ],
+  "schema_version": 1
+}
