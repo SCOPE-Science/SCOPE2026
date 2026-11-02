@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:52:53.560265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source circular word W=0^a(10)^(k-1)1 has k zero and k one runs, one zero run of length a, all others length one. Exactly two distinct position deletions partition into disjoint cases by number s of deleted ones (recoverable from remaining one count). For s=0, two long-run zeros / one long and one singleton / two singleton runs yield 1+(k-1)+C(k-1,2)=1+C(k,2) distinct necklaces. For s=1, the adjacent-to-long-run cases coalesce to one, interior one deleted after long-run-zero deletion yields H_a(k)=k-2 if a>=4 and ceil((k-2)/2) if a=3 due to interchange of equal-length two-zero runs, and other cases yield (k-2)^2. For s=2, deletion of ones neighboring the long run gives k-2 classes, internal pairs yield C(k-2,2), with floor((k-3)/2) duplicate signatures exactly at a=3 when two zero runs of length three interchange. The case disjointness and oriented *cyclic* signatures (no reversal quotient) yield the T_s formulas and totals 2k²-6k+8 if a=3 versus 2k²-5k+5 if a>=4; gap k-3 begins k=4. Independently built a canonical least-rotation necklace enumeration from every unordered deleted-position pair and confirmed all three counts for 168 parameter pairs (a=3..8,k=3..30). Finite tests corroborate, not replace, all-a,k run-signature exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bar-Lev–Etzion–Yaakobi 2022 counts linear fixed-length deletion balls/anticodes and discusses runs; it does not automatically identify necklace rotations of output words. ITCS 2026 gives cyclic trace probability representations for arbitrary sources."
+        ],
+        "reasoning": "A general formula for individual trace likelihood may allow individual support checks but does not state the closed parametric distinct-output count. No published general theorem whose direct specialization yields both T_s polynomials and a=3 collision threshold was found.",
+        "searches": [
+          "circular binary necklace two deletion trace distinct outputs run length elongated alternating",
+          "arxiv:2206.07995v1 fixed-length Levenshtein balls",
+          "ITCS 2026 cyclic statistic formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: circular binary necklace two deletion trace distinct outputs run length elongated alternating",
+        "https://arxiv.org/abs/2009.01346",
+        "https://arxiv.org/html/2206.07995v1",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.30/LIPIcs.ITCS.2026.30.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Narayanan–Ren proves circular trace sample complexity, Bar-Lev et al. work with linear Levenshtein outputs, and ITCS 2026 develops cyclic statistics/individual probabilities for indistinguishability. None states these distinct circular outputs or the 3-versus-4 special-run collision."
+        ],
+        "reasoning": "General membership likelihoods or linear output bounds might permit further derivation, but the all-k run collision classification is a genuine independent theorem; the original work is not rejected merely for being a concrete parametrized instance.",
+        "searches": [
+          "circular binary necklace two deletion trace distinct outputs run length elongated alternating",
+          "arxiv:2009.01346 Sections 1-3",
+          "arxiv:2206.07995v1 Sections 1-2",
+          "ITCS 2026 Sections 1, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Narayanan–Ren 2020 defines circular deletion traces with random rotation, and Burudgunte–Valiant–Wang 2026 treats cyclic gap statistics, trace probabilities and sample-complexity bounds, not fixed two-deletion support-cardinalities in this source family."
+        ],
+        "reasoning": "Formal output object is a necklace up to rotation but not reversal, with exactly two deletions and one elongated zero run. These differ from the general stochastic distribution or linear Levenshtein balls; equivalent-count terminology is an acknowledged risk.",
+        "searches": [
+          "circular binary necklace two deletion trace distinct outputs run length elongated alternating",
+          "arxiv:2009.01346 circular trace reconstruction",
+          "doi:10.4230/LIPIcs.ITCS.2026.30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits are linear deletion-ball variances and pairwise multi-deletion ambiguity bounds; none evaluate rotation-quotiented exact two-deletion outputs W_{a,k}."
+        ],
+        "reasoning": "Checked exact object/invariant before comparing numbers: linear sphere-size variance cannot be substituted for the circular deterministic-source refined support table. No known matching table located in bounded searches.",
+        "searches": [
+          "circular binary necklace two deletion trace distinct outputs run length elongated alternating",
+          "Resultary 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+          "Resultary 2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d"
+        ]
+      },
+      "rationale": "Independently compared actual mathematical implications and the natural invariant against ranked published results and the primary material actually read. The specific evaluated final claim was not found as a stated theorem or direct special case; all relevant earlier general techniques are credited and priority limitations retained.",
+      "residual_risks": [
+        "Other combinatorics-on-necklaces references may contain an equivalent two-deletion run-collision formula under a different canonicalization.",
+        "Only a>=3,k>=3, exactly two deleted positions, circular rotations but neither reversal nor bit complement; no arbitrary-source trace sphere formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes circular trace model and reconstruction complexity, not the support-count polynomial for W_{a,k}.",
+          "evidence": "Theorems 1.2, 1.4 and 1.6 concern numbers of random traces needed to distinguish/reconstruct.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.01346",
+          "material_read": "Primary full-text introduction, Sections 1-3 and sample-complexity theorems for circular strings.",
+          "method": "Read arXiv full-text HTML converted in web source",
+          "title": "Circular Trace Reconstruction",
+          "trigger": "originating circular trace channel and exact rotation convention"
+        },
+        {
+          "assessment": "Linear fixed-length deletion spheres are not circular necklace-quotient support counts; no direct implication of these T_s numbers.",
+          "evidence": "The metric and equivalence are on linear strings; output rotations are not merged.",
+          "identifier_or_url": "https://arxiv.org/html/2206.07995v1",
+          "material_read": "Primary full HTML: introduction, definitions and deletion-ball formulas in first sections.",
+          "method": "Read accessible primary arXiv HTML",
+          "title": "On the Size of Balls and Anticodes of Small Diameter under the Fixed-Length Levenshtein Metric",
+          "trigger": "same deletion count but possible linear-to-circular implication"
+        },
+        {
+          "assessment": "General stochastic circular-trace comparison and n^5/n^6 sample bounds, not a rotation-classified two-deletion support cardinality for this family.",
+          "evidence": "Main theorems concern distinguishing sparse circular strings with random deletions and cyclic statistics.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.30/LIPIcs.ITCS.2026.30.html",
+          "material_read": "Full public proceedings HTML: abstract and Sections 1-3/5 including cyclic statistics, individual trace-probability context and lower/upper bounds.",
+          "method": "Read primary proceedings article HTML",
+          "title": "New Bounds for Circular Trace Reconstruction",
+          "trigger": "potentially stronger circular trace probability theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The supported trace-count invariant is natural for circular deletion channels, and the a=3 length-collision transition gives an interpretable structural threshold. The composition-refined exact support counts are independently usable for code/reconstruction studies of this concrete near-alternating family without claiming general deletion complexity. Not merely a count for one tiny instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic search: circular binary necklace two deletion trace distinct outputs run length elongated alternating",
+    "https://arxiv.org/abs/2009.01346",
+    "https://arxiv.org/html/2206.07995v1",
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/html/LIPIcs.ITCS.2026.30/LIPIcs.ITCS.2026.30.html",
+    "SCOPE-Science/SCOPE2026@44ae2b9060bafd7ccaac2bd95bf387d413371148:2026/10/26/exact-two-deletion-circular-traces-for-a-single-elongated-run--a3184d9feaf8/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only a>=3,k>=3, exactly two deleted positions, circular rotations but neither reversal nor bit complement; no arbitrary-source trace sphere formula."
+  ],
+  "residual_risks": [
+    "Other combinatorics-on-necklaces references may contain an equivalent two-deletion run-collision formula under a different canonicalization.",
+    "Only a>=3,k>=3, exactly two deleted positions, circular rotations but neither reversal nor bit complement; no arbitrary-source trace sphere formula."
+  ],
+  "schema_version": 1
+}

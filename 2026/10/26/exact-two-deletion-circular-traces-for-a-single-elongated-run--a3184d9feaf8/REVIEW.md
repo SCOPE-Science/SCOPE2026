@@ -1,19 +1,21 @@
-# Review: Exact two-deletion circular traces for a single elongated run
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input, deletion operation, and rotation equivalence are defined explicitly. The proof exhaustively separates deletions by the number of deleted ones and by their positions relative to the unique zero run of length at least three. The decisive nontrivial step counts two equal distinguished run lengths under cyclic rotation only when the initial run has length three; the proof derives the two resulting duplication terms. Independent canonical-rotation and run-cycle implementations agree for all 120 parameter pairs with integers \(3\le a\le8\) and \(3\le k\le22\); they do not establish the unbounded claim themselves.
+PASS
 
-## Originality — PASS (with residual risk)
+The source circular word W=0^a(10)^(k-1)1 has k zero and k one runs, one zero run of length a, all others length one. Exactly two distinct position deletions partition into disjoint cases by number s of deleted ones (recoverable from remaining one count). For s=0, two long-run zeros / one long and one singleton / two singleton runs yield 1+(k-1)+C(k-1,2)=1+C(k,2) distinct necklaces. For s=1, the adjacent-to-long-run cases coalesce to one, interior one deleted after long-run-zero deletion yields H_a(k)=k-2 if a>=4 and ceil((k-2)/2) if a=3 due to interchange of equal-length two-zero runs, and other cases yield (k-2)^2. For s=2, deletion of ones neighboring the long run gives k-2 classes, internal pairs yield C(k-2,2), with floor((k-3)/2) duplicate signatures exactly at a=3 when two zero runs of length three interchange. The case disjointness and oriented *cyclic* signatures (no reversal quotient) yield the T_s formulas and totals 2k²-6k+8 if a=3 versus 2k²-5k+5 if a>=4; gap k-3 begins k=4. Independently built a canonical least-rotation necklace enumeration from every unordered deleted-position pair and confirmed all three counts for 168 parameter pairs (a=3..8,k=3..30). Finite tests corroborate, not replace, all-a,k run-signature exhaustion.
 
-Narayanan and Ren (arXiv:2009.01346) introduce circular trace reconstruction and focus on probabilistic reconstruction rather than this exact rotation-quotient output spectrum. Bar-Lev, Etzion and Yaakobi (arXiv:2206.07995) study linear deletion spheres and fixed-length Levenshtein balls, which retain or restore linear starting positions. The related ITCS 2026 article gives general circular-trace probabilities but does not explicitly evaluate this polynomial for the displayed family. Targeted mathematical-record queries found deletion variance, inverse-ball and multi-trace comparison results, not this all-parameter composition-refined claim. The possibility of an equivalent prior enumeration under another name is a substantive residual risk; no priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of distinguishable observations under cyclically unidentified two-position deletions is a natural support-size statistic in circular trace reconstruction. For the first nonalternating family with a single elongated zero run, exact output deduplication is nontrivial because changing deletion positions can produce the same necklace. The theorem classifies every outcome by composition and captures a sharp stable boundary between an elongated run of length three and runs of length at least four; the formula holds for an infinite two-parameter family and gives a finite-block benchmark without relying on empirical extrapolation.
+Independently compared actual mathematical implications and the natural invariant against ranked published results and the primary material actually read. The specific evaluated final claim was not found as a stated theorem or direct special case; all relevant earlier general techniques are credited and priority limitations retained.
 
-## Scientific limitations
+## value
 
-The proof does not count probabilities or multiplicities of individual traces; it does not address more than two deletions, arbitrary circular sources, or linear observation classes. Literature indexing and alternative formulations cannot be exhaustively excluded. External independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported trace-count invariant is natural for circular deletion channels, and the a=3 length-collision transition gives an interpretable structural threshold. The composition-refined exact support counts are independently usable for code/reconstruction studies of this concrete near-alternating family without claiming general deletion complexity. Not merely a count for one tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
