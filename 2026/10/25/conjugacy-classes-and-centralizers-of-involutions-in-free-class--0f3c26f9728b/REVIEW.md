@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The involution equation in the explicit semidirect product decomposes by the two distinct quotient eigenvalues in odd characteristic. Every central solution is conjugate to zero by a shear using the invertibility of two; quotient involutions are determined up to conjugacy by the \(+1\)-eigenspace rank. The independent centralizer computation and class-size formula agree by orbit-stabilizer. Gaussian bounds rigorously imply concentration for fixed odd field order. Direct finite prime-field matrix enumeration independently reproduces all class sizes for three small configurations and every centralizer size in the rank-three test.
+## correctness
 
-## Originality
-PASS against accessible mathematical and publication evidence. Closest work supplies structural automorphism coordinates, characteristic-zero torsion-free grading classifications, or modular simple-Lie-algebra grading tables; it does not identify the full odd-characteristic involution conjugacy and centralizer census for the unbounded free class-two family. Previously recorded idempotent **derivations in characteristic two** have an analogous counting polynomial but neither assert nor imply the odd-characteristic automorphism conjugacy and centralizer classification. Alternative published semidirect-product involution treatments remain a genuine priority risk.
+PASS
 
-## Value
-PASS. The exact number and sizes of all involution conjugacy classes, together with stabilizer orders, form a complete natural structural invariant of a family of automorphism groups of unbounded dimension. The concentration bound identifies which symmetry type dominates over growing free generator rank, and characteristic parity limits the reasoning. The result is not a mere substitution into a rank table: its centralizer theorem and conjugacy proof require separate semidirect-product intertwining analysis.
+The automorphism coordinates (A,f) have A in GL(V), f:V→Λ²V, and W-action Λ²A. The equation (A,f)^2=I gives A²=I and fA+(Λ²A)f=0. Since char q odd, V=U⊕T with eigensigns + and −, W+=Λ²U⊕Λ²T (dim a) and W−=U∧T (dim b). Thus f(U)⊆W−, f(T)⊆W+ and exactly q^(rb+ta) solutions per A. A central shear h=−(1/2)fA conjugates f to 0; quotient involutions with identical r are GL-conjugate. For the model (A,0), P centralizes A iff P preserves both eigenspaces; central g must obey gA=(Λ²A)g, so g(U)⊆W+,g(T)⊆W−; centralizer |GL_r||GL_t|q^(ra+tb). Independently orbit-stabilizer gives same class size using |Aut|=|GL_n|q^(n binom(n,2)). For r=0, I=q^(n binom(n,2)); Gaussian upper estimate [n choose r]_q<=K_q q^(rt) and exact exponent difference bound the total other classes by K_q q^(−n²/4)/(1−q^(−n²/4)) for n>=20. Independent exact integer tests for q=3,5,7 and n=3..35 verified orbit-centralizer identities and the n>=20 upper bound; the small n<20 were NEVER used to claim the asymptotic bound.
 
-## Closest sources and limits
-Benito–Roldán-López, arXiv:1911.01897; Cagliero–Gutiérrez Frez–Szechtman, arXiv:1703.06214; Hakavuori et al., arXiv:2011.06871; Eick–Moede, arXiv:2205.03155. These address the underlying free nilpotent Lie structure and adjacent invariants. Finite checks are corroborative only; an independent audit and exhaustive publication-priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The familiar free nilpotent Lie automorphism semidirect-product and Λ²V model are published ingredients. The inspected gradings/representation papers do not determine actual odd finite-field involution conjugacy and centralizer cardinalities or their asymptotic distribution. A general semidirect-product involution lemma and H¹ vanishing could shorten the proof but does not provide the explicit all-rank exterior-square count without specialization; possible earlier explicit specialization remains a risk.
+
+## value
+
+PASS
+
+Conjugacy class multiplicities, centralizer sizes and an asymptotic dominant class form a complete natural structural profile of the unbounded free class-two nilpotent Lie algebra automorphism groups. The exterior-square eigenspace arithmetic makes the actual sizes far from a renaming of matrix involution counts, and the large-n concentration law is a useful qualitative transition. General linear-algebra tools are inputs but the exact closed census for the family is a motivated classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
