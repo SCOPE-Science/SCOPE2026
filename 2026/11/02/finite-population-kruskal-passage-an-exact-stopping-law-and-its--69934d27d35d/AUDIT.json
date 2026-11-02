@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Conditionally unexposed deck entries are exchangeable, so adaptive visited labels are without-replacement draws. The coefficient polynomial counts exactly the t-subsets below the threshold. Fixed-t asymptotic counts arise from positive compositions minus pair collisions; intersections of distinct equalities lose two degrees of freedom. A uniform factorial majorant justifies termwise expectation limits, yielding the exact 7e/4 coefficient. A separate brute-force verifier checked 493231 shuffled decks, all reported tails and finite-n bias tests. Finite enumeration is not used to justify the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corregidor, arXiv:2610.29015v1, investigates sharp worst-case iteration maxima for the same class of decks, not random-arrangement laws",
+        "Cohen 2024 abstract and available article text explicitly assume independent identically distributed continuous first-passage increments, not a shuffled fixed multiset"
+      ],
+      "reasoning": "The exact finite-population law is a different parameter and probabilistic assumption from the published worst-case bound. Russell and Cohen give broader thresholds for independent uniform increments, but their stronger threshold generality does not dominate the finite-population dependence/correction claim.",
+      "searches": [
+        "\"sampling without replacement\" first passage sum threshold complete sequence 1 2 n",
+        "\"random permutation\" \"sum\" \"exceeds n\" \"e\" stopping time",
+        "doi:10.1080/00031305.2023.2244542",
+        "arxiv:2610.29015v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.29015v1 (same object, extremal arrangement bound)",
+      "arxiv:math/0110143v1 (iid approximation and two-chain coupling)",
+      "doi:10.2307/3213732 (iid uniform renewal)",
+      "doi:10.1080/00031305.2023.2244542 (iid first-passage comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Worst-case extremal bound over arrangements does not specify their cardinality distribution under uniform shuffling",
+        "Classical i.i.d. continuous uniform renewal laws explain the e limit, but not the finite-n expectation coefficient",
+        "Section 1 of Lagarias et al. describes iid label approximations and explicitly notes fixed-permutation dependence"
+      ],
+      "reasoning": "No cited prior statement has a hypothesis and conclusion that directly subsume both the finite multiset exact distribution and the fixed-one-copy first-order bias. The infinite iid limiting law is acknowledged as already covered; the claim is restricted to the distinguishable finite dependence and correction.",
+      "searches": [
+        "On the Number of Iterations in a Kruskal-Type Process Corregidor theorems arrangement n m max",
+        "\"Kruskal-Type Process\" \"random\" \"iteration\" 2026",
+        "\"First-Passage Times for Random Partial Sums\" Cohen Yadrenko 2024 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lagarias--Rains--Vanderbei, arXiv:math/0110143v1, §1 distinguishes uniform fixed-deck permutations from i.i.d. cards and addresses two-path coupling, not one-path crossing",
+        "Russell 1983 abstract states the iid continuous-uniform distribution, not the random-permutation finite-population coefficient formula"
+      ],
+      "reasoning": "Jump-sequence exposure is equivalent to simple sampling without replacement; this equivalence was checked explicitly. The nearest inspected renewal first-passage results use independent continuous summands, so those known formulas cover the limit but do not imply the stated 1/n correction without a finite-population perturbation. Terminological variants such as deck elimination, constrained subset sums and uniform-permutation renewal were searched.",
+      "searches": [
+        "Kruskal card counting probability distribution time to exit random shuffled deck values 1 to n",
+        "random permutation sample without replacement sum exceeds n stopping time 7e/4 expectation",
+        "arxiv:math/0110143v1",
+        "doi:10.2307/3213732"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant inspected references and targeted indexing queries revealed no table or database giving the value 7e/4 or the finite-population polynomial for the specified deck"
+      ],
+      "reasoning": "The coefficient sum gives finite exact counts for every pair of natural parameters, not a transcription of a looked-up table. Negative database searches are evidence of limited inspection only, not a novelty proof. A database using an unrecognized transformation remains a residual risk.",
+      "searches": [
+        "\"without replacement\" \"7e/4\" sum random permutation",
+        "\"Kruskal\" \"e\" \"iterations\" deck \"random\"",
+        "\"random permutation\" \"sum\" \"exceeds n\" \"e\" stopping time"
+      ]
+    },
+    "rationale": "The newly claimed exact finite-population multi-copy stopping law and first-order correction are absent from the inspected closest primary statements. The classical iid-renewal distribution and e limit are credited and not claimed as new; unresolved historical-priority risk remains.",
+    "residual_risks": [
+      "An older finite-population first-passage identity under generalized hypergeometric, bounded-composition or deck-elimination terminology might subsume the coefficient expression.",
+      "Russell 1983 full text was not lawfully accessible during review; its abstract and later discussion describe only continuous iid renewal.",
+      "The 1/n bias could have appeared in unpublished lecture notes or combinatorial tables not indexed by the inspected queries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant foundational setup, no random-deck law in inspected theorem statements",
+        "evidence": "Fixed multiset of m copies each 1..n and maximum iteration count over arbitrary arrangements; published 2026-10-21",
+        "identifier_or_url": "arxiv:2610.29015v1",
+        "material_read": "Introduction and problem definition through the main worst-case bound discussion and extremal theorem description",
+        "method": "Accessible arXiv HTML text; cross-checked first publication with dated arXiv index",
+        "title": "On the Number of Iterations in a Kruskal-Type Process",
+        "trigger": "Same deck-elimination dynamics and primary MSC"
+      },
+      {
+        "assessment": "Studies iid decks and two-process coupling rather than finite-multiset one-path exit distribution",
+        "evidence": "§1 expressly contrasts uniform permutations of fixed decks with iid models; §§3--4 examine coupling probabilities for iid geometric/uniform labels",
+        "identifier_or_url": "arxiv:math/0110143v1",
+        "material_read": "Introduction §1, coupling setup §2, model formulas in §§3–4; not the appendices",
+        "method": "Open-access arXiv HTML material",
+        "title": "The Kruskal Count",
+        "trigger": "Canonical prior random Kruskal-count model"
+      },
+      {
+        "assessment": "Known iid continuous-uniform first-passage distribution; limits are not claimed new",
+        "evidence": "1983 abstract explicitly identifies iid uniform threshold-crossing distribution",
+        "identifier_or_url": "doi:10.2307/3213732",
+        "material_read": "Publisher abstract and bibliographic metadata; article full text gated",
+        "method": "Cambridge journal landing page",
+        "title": "On the Number of Uniform Random Variables Which Must Be Added to Exceed a Given Level",
+        "trigger": "Exact limiting renewal law and expectation"
+      },
+      {
+        "assessment": "Confirms e and iid uniform renewal are pre-existing; other increments treated continuous and independent",
+        "evidence": "Abstract states the prior Yadrenko and Russell uniform results and extends iid calculations to exponential and Levy increments",
+        "identifier_or_url": "doi:10.1080/00031305.2023.2244542",
+        "material_read": "Publisher full HTML abstract and results description",
+        "method": "Taylor & Francis landing page accessible text",
+        "title": "First-Passage Times for Random Partial Sums: Yadrenko's Model for e and Beyond",
+        "trigger": "2024 review of uniform renewal e and first passage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69934d27-d35d-4c0e-8046-f60917ad6783",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initiating extremal deck process has an explicitly motivated missing random-arrangement counterpart. The complete finite population law is computable for arbitrary multiplicity, and the nontrivial 7e/4 correction quantifies how forced distinctness and integer thresholds alter the classical e-limit. The finite correction is not a routine restatement of the iid theorem; its collision count and uniform asymptotic interchange are essential. No general large-m theory or larger downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
