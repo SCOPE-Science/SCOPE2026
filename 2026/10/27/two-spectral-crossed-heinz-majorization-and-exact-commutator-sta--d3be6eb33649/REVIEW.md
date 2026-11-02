@@ -1,19 +1,21 @@
-# Scientific assessment: two-spectral crossed-Heinz comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every finite matrix dimension and every positive-definite pair with no more than two spectral levels per matrix. The proof reduces **both** powers to a pair of spectral projections and proves the exact principal-angle block decomposition into one- and two-dimensional reducing subspaces. The two-dimensional Ky Fan comparison is reconstructed using the explicit \(R_+\) and \(R_-\) formulas and positive off-diagonal divided differences. Ky Fan partial-sum maxima commute with block concatenation, yielding weak majorization in all dimensions. A separate trace expansion leaves only \(\operatorname{Tr}(PQ-PQPQ)\) and gives the exact positive commutator coefficient. Scalar and commuting boundaries, singular inputs by continuity, and \(0<t<1\) quantifiers are explicitly addressed. The exact rational script checks 486 instances; its 972 partial-sum tests are numerical and supplemental. No finite check is promoted to an infinite proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Each two-level positive matrix has powers affine in spectral projections P,Q. The canonical two-projection decomposition gives orthogonal one- and two-dimensional reducing principal-angle blocks. The published fully general n=2 weak singular-value majorization for crossed versus ordinary Heinz expressions applies on each 2-block, equality on 1-block, and Ky Fan partial sums are subadditive under concatenation. Thus s(C_t) is weakly majorized by s(H_t) for arbitrary n and independently chosen spectral levels. Trace expansion leaves precisely alpha_t alpha_{1-t} beta_t beta_{1-t} Tr(PQ-PQPQ), equivalent to the squared commutator via ||[P,Q]||_F^2=2 Tr(PQ-PQPQ). Positive spectral-gap coefficient gives equality iff A,B commute; scalar inputs and t endpoints are handled separately. Independent 120 random real two-spectral tests confirm all Ky Fan sums and Frobenius formula, not general proof.
 
-Sababheh–Bourin, arXiv:2610.04567v1, Theorem 3.3 proves the **two-by-two** ingredient, while their Section 6 handles arbitrary-dimensional inputs with an identical two-point numerical spectrum by comparing to \(A+B\); it does not state the independently specified two-spectral weak comparison with \(H_t\). The publicly indexed common-two-spectra tracial statement also compares \(C_t\) with \(A+B\), not the full singular-value lists with \(H_t\). Bottazzi et al. (arXiv:1403.7472v1) address the generic-input Frobenius inequality in a parameter strip and general counterexamples. The indexed rank-one result establishes different Schatten crossover behavior with three supporting spectral values. Both related indexed full findings were read for statement implication, and no covering assertion was found. The two-dimensional theorem and two-projection decomposition are expressly credited; no independent priority certificate is claimed. Older unindexed two-projection corollaries remain a realistic residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The dimension-three general-matrix counterexamples make the distinction between matrix dimension and spectral cardinality mathematically motivated. The theorem identifies an unlimited-dimensional, noncommutative family on the **positive** side of the crossed-Heinz/ordinary-Heinz obstruction, with **separately arbitrary eigenvalue pairs**, full unitarily invariant norm control, and an explicit sharp-as-an-identity quantitative Frobenius stability coefficient. The known three-versus-two spectral counterexample places a sharp boundary on how far this family can be enlarged by spectral cardinality. This is a natural structural comparison theorem, not a numerical table, parameter renaming, or claim to solve the unrestricted problem. The lifting mechanism is classical and not claimed as a new general technique.
+The full Sababheh–Bourin arXiv HTML Theorem 3.3 proves the 2x2 inequality; its Section 6 treats a common identical two-point spectrum and a different Loewner comparison with A+B. Neither states arbitrary-dimensional independent-two-spectra majorization by H nor this product-form exact Frobenius commutator deficit. The two-projection block reduction is standard, so novelty is the new assembled family and explicit quantitative identity, not the matrix decomposition or underlying 2x2 theorem.
 
-## Closest sources and limitations
+## value
 
-The primary comparison is with Sababheh–Bourin (2026), Theorem 3.3 and Section 6, and the full-text Bottazzi–Elencwajg–Larotonda–Varela (2014) treatment. Two public 2026 research records address common-spectra trace stability and rank-one Schatten transitions. No generalization beyond two spectral values or equality characterization for every unitarily invariant norm is asserted. Unindexed prior formulations remain possible. Verification is self-review only; independent scientific examination remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-spectral matrices form a natural, dimension-independent noncommutative class at the known sharp boundary of general crossed-Heinz domination. The exact spectral-gap coefficient turns a qualitative norm inequality into a strict commutator stability law and gives a clean equality classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

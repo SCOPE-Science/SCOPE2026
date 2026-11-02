@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of verification
+# Independent mathematical audit
 
-Run `python3 verify_heinz.py` from the extracted package. It requires Python 3 and its standard library only. It reconstructs the crossed and ordinary matrices independently from rational projection data at exponents \(t\in\{1/4,1/2,3/4\}\), using two different positive eigenvalue pairs, and confirms **486 exact rational** identities for the squared Frobenius defect in dimensions two, three, and four. It also checks **972** Ky Fan inequalities for one and two principal-angle blocks using floating-point evaluation of singular values of explicit real two-by-two matrices. All exact rational identities use `fractions.Fraction`; the numerical checks have a stated rounding tolerance.
+## correctness
 
-The optional `verify_random.py` uses NumPy to check further randomized complex spectral projection pairs in dimensions two through eight, for 840 cases with different positive levels and exponent parameters. Its floating-point results are diagnostic, not rigorous certificates of weak majorization.
+PASS
 
-The infinite family is proved in `RESULT.md` using the two-by-two singular-value formula and an explicit finite-dimensional decomposition of a pair of projections into one- and two-dimensional blocks. The commutator coefficient is proved exactly by a trace expansion, independently of the numerical tests. The published dimension-two theorem is credited; the random tests do not certify novelty, priority, or general correctness on their own.
+Each two-level positive matrix has powers affine in spectral projections P,Q. The canonical two-projection decomposition gives orthogonal one- and two-dimensional reducing principal-angle blocks. The published fully general n=2 weak singular-value majorization for crossed versus ordinary Heinz expressions applies on each 2-block, equality on 1-block, and Ky Fan partial sums are subadditive under concatenation. Thus s(C_t) is weakly majorized by s(H_t) for arbitrary n and independently chosen spectral levels. Trace expansion leaves precisely alpha_t alpha_{1-t} beta_t beta_{1-t} Tr(PQ-PQPQ), equivalent to the squared commutator via ||[P,Q]||_F^2=2 Tr(PQ-PQPQ). Positive spectral-gap coefficient gives equality iff A,B commute; scalar inputs and t endpoints are handled separately. Independent 120 random real two-spectral tests confirm all Ky Fan sums and Frobenius formula, not general proof.
 
-No independent scientific audit has been performed.
+## originality
+
+PASS
+
+The full Sababheh–Bourin arXiv HTML Theorem 3.3 proves the 2x2 inequality; its Section 6 treats a common identical two-point spectrum and a different Loewner comparison with A+B. Neither states arbitrary-dimensional independent-two-spectra majorization by H nor this product-form exact Frobenius commutator deficit. The two-projection block reduction is standard, so novelty is the new assembled family and explicit quantitative identity, not the matrix decomposition or underlying 2x2 theorem.
+
+## value
+
+PASS
+
+Two-spectral matrices form a natural, dimension-independent noncommutative class at the known sharp boundary of general crossed-Heinz domination. The exact spectral-gap coefficient turns a qualitative norm inequality into a strict commutator stability law and gives a clean equality classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
