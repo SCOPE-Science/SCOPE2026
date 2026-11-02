@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. It independently reconstructs all 7342 nonempty simplices from the degree-at-most-two condition, produces 3663 disjoint discrete-Morse pairs from the listed fixed edge order, and verifies that the directed Hasse graph of 37728 incidences is acyclic by a complete topological sort. Its critical-cell vector is one vertex plus fifteen five-simplices.
+## correctness
 
-It then calculates the exact selected-edge-orbit alternating sum for all 1152 automorphisms and compares with the proposed character. As an independent combinatorial route, oriented fixed-simplex Lefschetz traces are evaluated for the 25 nonswap type pairs and five swap types, including the augmented empty-face correction. The output contains `K44_TWO_MATCHING_EQUIVARIANT_VERIFIED` on success. These calculations are exhaustive because the graph and action are finite and every possible mask or group permutation is included.
+PASS
 
-Limits: No integral automorphism-lattice decomposition, equivariant topological wedge splitting, or generalized all-parameter formula is claimed. No independent mathematical audit has been performed.
+Independent enumeration found exactly 7342 nonempty degree≤2 edge masks, 3663 disjoint Hasse pairs and precisely one unpaired 0-simplex plus fifteen 5-simplices, with all 37728 incidences acyclic under exact topological ordering. Hence integral homotopy wedge15 S5. For every group permutation the reduced signed Lefschetz trace may be computed by selecting cycles of edge action subject to all eight row/column caps, with weight (−1)^{#selected cycles}; since only H5 survives, this is χ itself. Independent exact orbit enumeration verifies the closed formula on all 25 nonswap type pairs and five swap classes. Nonswap restriction matches uσuτ+vσ+vτ, swap traces u(στ); character comparison in characteristic zero determines the induced summand and flip-positive tensor module. The latter has no invariant vector, nor does induced summand.
+
+## originality
+
+PASS
+
+Reiner–Roberts already gives the side-preserving S4×S4 rational-module structure of the same multiple chessboard complex, and the fifteen-sphere topology is known. The submitted original portion is the full wreath-product extension under bipartition exchange: five swap-class characters, the positive tensor flip, and the vanishing of full G-invariants. Independently reconstructed complete signed class traces and Morse homology.
+
+## value
+
+PASS
+
+The full graph automorphism group genuinely includes part exchange, and extending the known row-column representation requires nontrivial sign data. Explicit five swap traces decide the positive-vs-negative flip ambiguity and give a complete, independently reproducible small but canonical equivariant example, without claiming a new homotopy wedge or infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

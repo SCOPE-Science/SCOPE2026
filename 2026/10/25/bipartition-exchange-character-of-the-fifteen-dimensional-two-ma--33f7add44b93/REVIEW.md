@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact face-mask enumeration visits all 7342 admissible simplices, the 3663 acyclic discrete-Morse pairs are verified against 37728 Hasse incidences, and the only critical cells are one 0-cell and fifteen 5-cells. For every one of 1152 bipartite automorphisms, a signed fixed-cycle subset sum matches the explicit representation character. A separate fixed-simplex signed Lefschetz implementation checks 25 side-preserving cycle-type pairs and five side-exchanging types. The proof spells out the parity of each selected orbit and the Hopf trace normalization. The group-representation identification is a consequence of equality of characters in characteristic zero.
+## correctness
 
-**Originality — PASS, qualified.** Reiner and Roberts' Theorem 3.3 already controls the characteristic-zero representation restricted to row and column permutations. It does not specify the involution exchanging the two parts; in particular, the positive versus negative flip extension of the 9-dimensional diagonal tensor summand remains undecided by the restriction alone. The new five swapped-class traces and the full wreath-product decomposition settle that precise missing datum. The prior nonequivariant 15-sphere classification is cited and not claimed as new. Search cannot rule out unindexed equivariant computations.
+PASS
 
-**Mathematical value — PASS.** The full automorphism group naturally contains a part-exchanging involution, and classifying its action is necessary for a complete representation-level description of this canonical 4-by-4 capacity-two chessboard complex. The extra trace resolves a genuine representation-extension ambiguity not recorded by ordinary homology ranks or the side-preserving character. The exact nontrivial class values are a useful finite benchmark for higher-matching equivariant topology. No sweeping infinite-family conclusion is claimed.
+Independent enumeration found exactly 7342 nonempty degree≤2 edge masks, 3663 disjoint Hasse pairs and precisely one unpaired 0-simplex plus fifteen 5-simplices, with all 37728 incidences acyclic under exact topological ordering. Hence integral homotopy wedge15 S5. For every group permutation the reduced signed Lefschetz trace may be computed by selecting cycles of edge action subject to all eight row/column caps, with weight (−1)^{#selected cycles}; since only H5 survives, this is χ itself. Independent exact orbit enumeration verifies the closed formula on all 25 nonswap type pairs and five swap classes. Nonswap restriction matches uσuτ+vσ+vτ, swap traces u(στ); character comparison in characteristic zero determines the induced summand and flip-positive tensor module. The latter has no invariant vector, nor does induced summand.
 
-**Limitations and closest coverage.** The result is rational and graph-specific. Reiner–Roberts provides the base side-preserving weight-space description; Singh treats different capacity parameters; the published explicit 15-sphere result provides nonequivariant homotopy only. An unindexed equivalent characterization or a representation-theoretic strengthening of the 2000 work could reduce historical novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reiner–Roberts already gives the side-preserving S4×S4 rational-module structure of the same multiple chessboard complex, and the fifteen-sphere topology is known. The submitted original portion is the full wreath-product extension under bipartition exchange: five swap-class characters, the positive tensor flip, and the vanishing of full G-invariants. Independently reconstructed complete signed class traces and Morse homology.
+
+## value
+
+PASS
+
+The full graph automorphism group genuinely includes part exchange, and extending the known row-column representation requires nontrivial sign data. Explicit five swap traces decide the positive-vs-negative flip ambiguity and give a complete, independently reproducible small but canonical equivariant example, without claiming a new homotopy wedge or infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
