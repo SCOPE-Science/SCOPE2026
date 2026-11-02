@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T00:03:47.162048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary-increment normal form f(1)=1 and f(i+1)-f(i) in {0,1} is a bijection for all n. For independent F,G the active jumps of G address pairwise distinct outer increments U_1,...,U_{G(n)-1}; conditioning on G then averaging over independent V_i factors the joint generating polynomial as ∏(1-pq+pq t_i). Thus the FULL output increment vector is iid Bernoulli(pq), not merely its rank. Induction gives all k factors and exact map fiber multiplicity (2^k-1)^(n-r). The absorbing map has all bits zero, giving exact hitting/TV laws and the lattice-window binomial-Poisson cutoff. n=1 and p,q=0 or1 are explicitly accounted for. Fresh independent actual-map composition checks: 36 parameter/fiber tests for n<=6 and k<=4; these do not establish the general statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higgins addresses larger transformation monoids, but only abstracts were readable; larger objects alone do not yield the restricted iid increment product law.",
+          "The 2022 Green-relation/generator theorem has no claimed random law."
+        ],
+        "reasoning": "A general random-transformation theorem could potentially specialize; full Higgins sources remain uninspected, so novelty is qualified. The visible material does not imply the stated exact law.",
+        "searches": [
+          "Higgins 1990 DOI:10.1007/978-1-4899-2608-1_10",
+          "Higgins 1992 DOI:10.1093/oso/9780198535775.003.0006",
+          "arXiv:2204.07427v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.7428v2 — Combinatorial results for certain semigroups of order-preserving full contraction mappings of a finite chain",
+        "arXiv:2204.07427v1 — On certain Semigroup of Order-decreasing Full Contraction Mappings of a Finite Chain",
+        "DOI:10.1007/978-1-4899-2608-1_10 — Random Products in Semigroups of Mappings",
+        "DOI:10.1093/oso/9780198535775.003.0006 — Combinatorial aspects of transformation semigroups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior one-factor rank law follows from the new theorem at k=1 but its converse fails logically.",
+          "An n-dependent Bernoulli increment product law requires identifying distinct sampled outer bits after composition."
+        ],
+        "reasoning": "Prior rank counts and semigroup generators do not entail independence of all increments of an arbitrary product; all-k fibers and cutoff therefore remain distinct conditional assertions.",
+        "searches": [
+          "arXiv:1303.7428v2 Corollaries 4.4,4.7",
+          "arXiv:2204.07427v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-factor binary-word count and rank is a k=1 marginal of the claimed stronger multiplication identity.",
+          "Selected distinct outer increments give an exact product measure, equivalently binomial thinning of each gap."
+        ],
+        "reasoning": "The monoid law has been compared under Bernoulli thinning, ordered factor-fiber enumeration, absorption time, and random map-product terminology. No inspected theorem produces the full coordinatewise product law.",
+        "searches": [
+          "Resultary semantic: probability convolution random products order-preserving order-decreasing full contractions Bernoulli thinning transformation semigroup mixing time",
+          "arXiv:1303.7428v2 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior tabulations/counts concern the one-map cardinality and rank.",
+          "Finite sample enumeration cannot determine a universal all-length individual fiber count."
+        ],
+        "reasoning": "The nearest tables do not tabulate all factor lengths or encode the convolution identity. This check does not claim absence of unindexed tables.",
+        "searches": [
+          "arXiv:1303.7428v2 Corollary 4.4",
+          "Resultary semantic: Bernoulli thinning random semigroup products"
+        ]
+      },
+      "rationale": "One-element rank and monoid cardinality are established earlier; the full product measure convolution, every labeled ordered factor fiber and logarithmic absorbing cutoff require the new distinct-index argument. No inspected source asserts an equivalent all-k law. Strongest caveat: inaccessible original 1990/1992 Higgins works on random transformation products may contain specializations; they were not treated as proven NOT_COVERING.",
+      "residual_risks": [
+        "Complete 1990 and 1992 Higgins chapter texts unavailable; author priority might affect product-law novelty.",
+        "General binomial thinning and Poisson cutoff are not separately new.",
+        "No statement for dependent factors, heterogeneous bits or arbitrary monotone transformations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers k=1 and the normal-form count, not the inspected conditional law of arbitrary compositions",
+          "evidence": [
+            "https://arxiv.org/abs/1303.7428"
+          ],
+          "identifier_or_url": "arXiv:1303.7428v2",
+          "material_read": "Sections 3–4 and Corollaries 4.4 and 4.7, which count one-factor rank and monoid cardinality",
+          "method": "full available primary text",
+          "title": "Combinatorial results for certain semigroups of order-preserving full contraction mappings of a finite chain",
+          "trigger": "same ODCT_n monoid and one-step rank"
+        },
+        {
+          "assessment": "Semigroup generating rank differs from image rank of random independent products",
+          "evidence": [
+            "https://arxiv.org/abs/2204.07427"
+          ],
+          "identifier_or_url": "arXiv:2204.07427v1",
+          "material_read": "Abstract and structural/Green relation results and generating-rank description",
+          "method": "primary available material",
+          "title": "On certain Semigroup of Order-decreasing Full Contraction Mappings of a Finite Chain",
+          "trigger": "same transformation monoid"
+        },
+        {
+          "assessment": "Possible special-case priority remains genuinely unresolved",
+          "evidence": [
+            "https://doi.org/10.1007/978-1-4899-2608-1_10"
+          ],
+          "identifier_or_url": "DOI:10.1007/978-1-4899-2608-1_10",
+          "material_read": "Publisher abstract/preview only; no main-body theorem read",
+          "method": "indexed abstract and attempted authorized institutional full text (VPN disconnected)",
+          "title": "Random Products in Semigroups of Mappings",
+          "trigger": "historically relevant product law for transformations"
+        },
+        {
+          "assessment": "May contain a related product/rank law; cannot exclude it",
+          "evidence": [
+            "https://doi.org/10.1093/oso/9780198535775.003.0006"
+          ],
+          "identifier_or_url": "DOI:10.1093/oso/9780198535775.003.0006",
+          "material_read": "Abstract/preview only; no full mathematical result read",
+          "method": "publisher preview",
+          "title": "Combinatorial aspects of transformation semigroups",
+          "trigger": "historically relevant probabilistic monoid chapter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural multiplicative probabilistic problem on an entire noncommutative transformation-monoid family: it determines the full product law and exact fibers, hitting-time distribution and sharp mixing scale, not merely a textbook binomial fact for one map.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1303.7428v2 — Combinatorial results for certain semigroups of order-preserving full contraction mappings of a finite chain",
+    "arXiv:2204.07427v1 — On certain Semigroup of Order-decreasing Full Contraction Mappings of a Finite Chain",
+    "DOI:10.1007/978-1-4899-2608-1_10 — Random Products in Semigroups of Mappings",
+    "DOI:10.1093/oso/9780198535775.003.0006 — Combinatorial aspects of transformation semigroups"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete 1990 and 1992 Higgins chapter texts unavailable; author priority might affect product-law novelty.",
+    "General binomial thinning and Poisson cutoff are not separately new.",
+    "No statement for dependent factors, heterogeneous bits or arbitrary monotone transformations.",
+    "Originality is a documented best-of-knowledge comparison, not exhaustive priority certification.",
+    "All independent experiments have bounded domains and do not replace the all-parameter proofs.",
+    "No protected expert, formal verification or publication attestation is asserted."
+  ],
+  "schema_version": 1
+}

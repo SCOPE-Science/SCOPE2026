@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives an explicit binary normal form and a full multivariate generating-polynomial computation of the composition law. Conditional independence is justified by the distinct pre-jump indices of an inner map, including \(n=1\) and endpoint probabilities. Multiplying probabilities by the number of ordered tuples yields the integer fiber count, while the absorption/cutoff follows from elementary binomial limits. The included verifier independently composes actual value vectors and checks rational measures and product counts; its finite range is not substituted for the universal argument.
+## correctness
 
-## Originality — PASS, with historical-priority limitations
-The 2013 Adeshola–Umar work enumerates single-map rank and fixed-point strata in this monoid, while the 2022 Zubairu–Umar–Aliyu paper analyzes algebraic relations and generating rank. The new statement concerns a nontrivial measure-convolution submonoid, all product fibers and a quantitative absorption cutoff, neither stated in the inspected full texts. Published mathematical-record searches returned no directly comparable claim. Higgins's broader 1990/1992 probabilistic treatments of transformation semigroups are the closest inaccessible historical sources; their accessible abstracts do not decide whether this restricted family is implicit, so a residual priority risk is retained. The claim does not assert novelty for binomial thinning or Poisson limits independently of this semigroup.
+PASS
 
-## Value — PASS
-This completely determines the law of products of arbitrary lengths, not merely the size or rank distribution of one element. Closure of the full \(n-1\)-coordinate Bernoulli family under convolution is structurally informative despite noncommutativity, and the exact individual multiplication-fiber counts and logarithmic absorption cutoff describe natural multiplicative dynamics for all chain sizes. The exact labeled factor-count theorem cannot be recovered from the earlier one-step marginal counts without a separate multiplication argument.
+The binary-increment normal form f(1)=1 and f(i+1)-f(i) in {0,1} is a bijection for all n. For independent F,G the active jumps of G address pairwise distinct outer increments U_1,...,U_{G(n)-1}; conditioning on G then averaging over independent V_i factors the joint generating polynomial as ∏(1-pq+pq t_i). Thus the FULL output increment vector is iid Bernoulli(pq), not merely its rank. Induction gives all k factors and exact map fiber multiplicity (2^k-1)^(n-r). The absorbing map has all bits zero, giving exact hitting/TV laws and the lattice-window binomial-Poisson cutoff. n=1 and p,q=0 or1 are explicitly accounted for. Fresh independent actual-map composition checks: 36 parameter/fiber tests for n<=6 and k<=4; these do not establish the general statement.
 
-## Limits
-The theorem is restricted to homogeneous independent Bernoulli increments and independently sampled factors. The earliest two historical probability-oriented chapters were available only in summaries, and no independent verification of priority or proof has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+One-element rank and monoid cardinality are established earlier; the full product measure convolution, every labeled ordered factor fiber and logarithmic absorbing cutoff require the new distinct-index argument. No inspected source asserts an equivalent all-k law. Strongest caveat: inaccessible original 1990/1992 Higgins works on random transformation products may contain specializations; they were not treated as proven NOT_COVERING.
+
+## value
+
+PASS
+
+This resolves a natural multiplicative probabilistic problem on an entire noncommutative transformation-monoid family: it determines the full product law and exact fibers, hitting-time distribution and sharp mixing scale, not merely a textbook binomial fact for one map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
