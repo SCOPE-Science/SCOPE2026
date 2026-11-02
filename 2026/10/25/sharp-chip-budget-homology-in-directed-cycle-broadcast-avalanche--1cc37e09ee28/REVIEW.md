@@ -1,11 +1,21 @@
-# Scientific review: sharp chip-budget homology in directed-cycle broadcast avalanches
+# Independent mathematical audit
 
-**Correctness — PASS.** With exactly \(k\) initial grains at the broadcaster, the first parallel firing deposits one grain in each directed cycle. Inductively the unique grain in every cycle moves forward by one position each step, while the broadcaster remains empty. The simultaneous support tuples are therefore exactly the generalized-CRT solutions, with all positions having the same residue modulo the common gcd \(g\). These supports give \(g\) vertex-disjoint complete multipartite joins plus the initial source point. The standard integral homotopy of finite joins proves the free ranks and degrees without finite extrapolation. Since no more than \(k\) vertices with positive outdegree can fire at one time using \(k\) grains, the constructed nonzero \((k-1)\)-dimensional homology is a sharp realization. The checker reconstructs entire firing periods and exact simplicial boundary ranks over four fields in six small examples.
+## correctness
 
-**Originality — PASS (conditional on literature coverage).** The foundational article by Riihimäki and Smith (arXiv:2606.26786v1, June 25, 2026) studies directed cycles, paths, and two equal cycles that share a vertex. A closest subsequent study of complementary residue avalanche supports concerns a *single* cycle; its available abstract does not imply the broadcaster graph with simultaneous independent cycles. Earlier accessible claims about three-chip cyclic gaps, periodic cycle configurations, and a two-jump circulant likewise do not cover the new joint-CRT formula. These are claim/implication comparisons, not an assertion that a failed search proves universal novelty. **Residual risks:** related work indexed only through abstracts, possible hidden stronger propositions or unindexed equivalents.
+PASS
 
-**Value — PASS.** This theorem supplies an exact infinite-family integral homotopy calculation tied to an explicit physical grain budget and establishes that the universal upper homological degree is attained for every number of chips at least two. The generalized-CRT component decomposition connects arithmetic synchronization to topological join structure. It goes beyond a single example or elementary counting of firing supports by furnishing a sharp realization theorem, albeit one with an unavoidable isolated source component.
+PASS. At initial parallel firing the outdegree-k source distributes exactly one grain per disjoint directed cycle, never receives grains and never fires again. Induction gives exactly one grain at cycle index (t-1) mod n_i at every t>=1. Pairwise gcd(n_i,n_j)=g by coprime quotients; the generalized Chinese remainder theorem makes a tuple reachable iff all indices have common residue modulo g. Thus the exact complex is an isolated initial broadcaster plus g mutually vertex-disjoint joins D_{m1}*...*D_{mk}; their integral homotopy is wedges of prod(m_i-1) spheres of degree k-1 and reduced H0 rank g, free all higher groups. Every finite directed positive-outdegree configuration with k conserved grains fires at most k vertices at once, giving upper dimension k-1; the construction attains it for all k>=2. Independently simulated complete support periods for six parameter tuples and matched every CRT support. Top integral assertion relies on mathematical join decomposition rather than tested field ranks.
 
-The proof applies to positive-outdegree digraphs of the stated broadcaster form only; it does not resolve arbitrary avalanche-complex realization or connectivity. The included finite tests are corroboration, not independent validation of the proof or priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Foundational Riihimäki–Smith avalanche homology work and closest published related SCOPE residue construction are genuine prior context, but their accessible statements do not imply the present broadcaster plus k independent cycles / CRT join family. Foundational full text was inaccessible this run; best-of-knowledge with specific risk, not a blanket noncoverage assertion.
+
+## value
+
+PASS
+
+PASS. For the new avalanche homology of directed sandpiles, the complete exact homotopy type is a natural infinite arithmetic family. The model establishes the maximum achievable nonzero homological dimension for every positive chip budget and exposes gcd-controlled disconnected join topology, not simply a degree count on a fixed tiny graph. It does not classify general avalanches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

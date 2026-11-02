@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-The proof is independent of computation: verify the exact parallel chip-firing recurrence; use the generalized Chinese remainder theorem with pairwise gcd \(g\); identify all maximal faces of the simplicial join; apply the integral join-suspension identity. Nonzero homology of degree \(k-1\) follows directly from all \(m_i\ge2\); no finite calculation is promoted to a universal argument. The universal dimension bound requires positive outdegree and a fixed conserved grain count.
+## correctness
 
-Run `python3 verify.py` (Python 3.9+ standard library). On each selected graph, it constructs directed arcs, simulates a full firing period from exactly \(k\) initial grains at the broadcaster, and compares every observed firing support to all predicted CRT facets. For six finite instances, it enumerates faces and computes boundary ranks over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\), and \(\mathbb F_7\); each observed reduced Betti number agrees with the claimed formula. Three additional tuples undergo complete-period facet comparison without full homology reconstruction. The actual run printed `ALL CHECKS PASSED`.
+PASS
 
-Checked homology examples: \((3,4)\), \((6,10)\), \((9,15)\), \((3,4,5)\), \((4,6,10)\), \((6,10,14)\). Additional exact firing-support checks: \((3,5,7)\), \((6,10,14)\), \((3,5,7,11)\). The checker does not compute integral Smith forms; integral torsion-freeness is proved by the join decomposition. It is not a check on arbitrary unequal pairwise gcd patterns or digraphs with sinks. Independent audit: not performed.
+PASS. At initial parallel firing the outdegree-k source distributes exactly one grain per disjoint directed cycle, never receives grains and never fires again. Induction gives exactly one grain at cycle index (t-1) mod n_i at every t>=1. Pairwise gcd(n_i,n_j)=g by coprime quotients; the generalized Chinese remainder theorem makes a tuple reachable iff all indices have common residue modulo g. Thus the exact complex is an isolated initial broadcaster plus g mutually vertex-disjoint joins D_{m1}*...*D_{mk}; their integral homotopy is wedges of prod(m_i-1) spheres of degree k-1 and reduced H0 rank g, free all higher groups. Every finite directed positive-outdegree configuration with k conserved grains fires at most k vertices at once, giving upper dimension k-1; the construction attains it for all k>=2. Independently simulated complete support periods for six parameter tuples and matched every CRT support. Top integral assertion relies on mathematical join decomposition rather than tested field ranks.
+
+## originality
+
+PASS
+
+PASS qualified: Foundational Riihimäki–Smith avalanche homology work and closest published related SCOPE residue construction are genuine prior context, but their accessible statements do not imply the present broadcaster plus k independent cycles / CRT join family. Foundational full text was inaccessible this run; best-of-knowledge with specific risk, not a blanket noncoverage assertion.
+
+## value
+
+PASS
+
+PASS. For the new avalanche homology of directed sandpiles, the complete exact homotopy type is a natural infinite arithmetic family. The model establishes the maximum achievable nonzero homological dimension for every positive chip budget and exposes gcd-controlled disconnected join topology, not simply a degree count on a fixed tiny graph. It does not classify general avalanches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
