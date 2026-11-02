@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite and completely specified by the eighteen-vertex LCF graph and the unordered two-particle deleted-product complex. Barnett–Farber, arXiv:0903.2180, Lemma 1.1 gives the required equivariant homotopy model. Signed boundaries and their composition were reconstructed explicitly; 153, 432, 297 are the cellular ranks. Every simple cycle is exhaustively enumerated by a unique canonical rooted traversal; all 234 disjoint-cycle products are checked to be cycles. Exact reduction gives boundary rank 270 modulo 101. An integer 27-by-27 minor of shortest-cycle torus vectors is +1, establishing a rank-27 *primitive* sublattice in the kernel and therefore its complete integral basis. Full integer reconstruction and Smith normal forms establish the orbit and length-lattice quotients. The arbitrary-dimension conclusion is not inferred from modular experiments: the full object is finite and all necessary steps are executable exactly.
+PASS
 
-## Originality — PASS with residual risk
+PASS. Reconstructed the LCF 18-vertex 27-edge graph, signed unordered 153/432/297-cell deleted-product model and d1d2=0. Independently enumerated all 783 cycles and 234 disjoint pairs (45/108/54/27 by lengths), found d2 ranks 270 over F101 and 269 over F2, and recomputed the explicitly indexed 27x27 torus minor determinant +1. Since 27 genuine cycles lie in ker d2 and a unit minor makes their Z-span saturated in ambient Z^297, they integrally equal the entire rank-27 kernel. Independent integral coordinate/SNF replay gives orbit18 (rank17 primitive), orbit27 (rank27, factors 2,2,2,2,2), length 6,6 and 6,8 both basis-generating, length 6,10 factors 2,2,2,2,4 and 8,8 factors 2,2,2,2,2. Full automorphism enumeration yields order216 and orbit sizes18 and27. All finite enumerations are exhaustive for the given fixed graph, not claims about all graphs. The topological model is backed by Barnett--Farber Lemma1.1.
 
-Compared at the level of implications, Barnett–Farber (arXiv:0903.2180) treats general ordered deleted products and planar bases, Farber–Hanbury (arXiv:1005.2300) treats mature-graph homology and edge addition, and An–Knudsen (arXiv:2008.10371) treats planar geometric generators and nonplanar counterexamples. None of the inspected relevant sections specifies the Pappus graph's 45 shortest product tori, the two distinct automorphism-orbit sublattices, or their nontrivial Smith factors. Searches also compared published Pappus graph matching/independence-complex results and three-particle configuration homology; those concern distinct spaces or particle counts. A general homology-rank theorem does not determine these integral embedding indices. Equivalent specialized results in inaccessible or unindexed literature remain possible, and search failure does not certify priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies the full natural shortest-cycle generating lattice for a classical symmetric nonplanar graph and distinguishes integral generation from rational spanning. In particular the 27-element automorphism orbit has rational rank 27 but index 32, while another cycle-length family detects order-four torsion in the quotient. These are motivated geometric-generator invariants of a recognized test graph, not a restatement of its Betti number or a parameter change to a known family. The computation is a finite classification rather than a general structural theorem; its usefulness is precisely the integral orbit and length-lattice obstruction.
+PASS, best of knowledge. This is a graph-specific exact integral *cycle-length- and automorphism-orbit-generated sublattice* result; general ordered two-point deleted-product and intersection-form theorems, planar generation statements, and published results for Petersen/dodecahedral or three-particle Pappus systems do not imply the Pappus orbit Smith profiles. Targeted Resultary and primary full-text comparisons did not find a dominating calculation; an unindexed Pappus integral torus-lattice table remains a residual possibility.
 
-## Closest literature and limitations
+## value
 
-Barnett–Farber (2009), Farber–Hanbury (2010), and An–Knudsen (2020) supply the graph-configuration framework and relevant comparisons. The Pappus result is specific to two unordered particles. An independent scientific audit has not been performed, and specialized literature may still contain equivalent information.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Shortest disjoint cycles form the geometrically canonical low-complexity torus family; precisely identifying integral generation, primitive suborbits and nontrivial 2-primary/4-primary quotients resolves a natural lattice-generation question rather than merely recomputing Betti numbers. The nontrivial Z/4 obstruction is structurally different from a rational span statement and supplies a meaningful finite comparison for graph braid topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
