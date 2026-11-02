@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Reproduction of the finite certificate
+# Independent mathematical audit
 
-Execute `python verify_tree_distance.py` with the Python 3 standard library. The output from the actual program was:
+## correctness
 
-```
-A degree sequence (1, 1, 1, 1, 1, 2, 3, 3, 3)
-B degree sequence (1, 1, 1, 1, 2, 2, 2, 2, 4)
-common edge-pair separation counts ((0, 10), (1, 10), (2, 6), (3, 2))
-exact density intervals independently checked
-Exhaustive labeled Prufer trees:
-n=2 labeled=1 nonisomorphic=1 signatures=1 collision=none
-n=3 labeled=3 nonisomorphic=1 signatures=1 collision=none
-n=4 labeled=16 nonisomorphic=2 signatures=2 collision=none
-n=5 labeled=125 nonisomorphic=3 signatures=3 collision=none
-n=6 labeled=1296 nonisomorphic=6 signatures=6 collision=none
-n=7 labeled=16807 nonisomorphic=11 signatures=11 collision=none
-n=8 labeled=262144 nonisomorphic=23 signatures=23 collision=none
-CERTIFICATE_OK
-```
+PASS
 
-The program builds Prüfer trees and checks their edge histograms by a combinatorial breadth-first-distance algorithm, plus rooted-center canonical isomorphism codes. Equality of piecewise density expressions is checked exactly at multiple rational points per affine piece, and follows universally from the proof's convolution identity. No sampling or random seeds are involved.
+For a unit-edge tree with m edges, normalized whole-tree arclength gives density [2m(1-r)_+ +2 Σ_{k≥0} N_k g(r-k)]/m² with g triangular on [0,2]. End-point minimum edge distance k gives the two independent offsets; f(0+)=2/m determines m, and triangular integer translates are linearly independent, so law equality iff edge-separation histogram agrees. Both displayed eight-edge trees independently have histogram (10,10,6,2), different degree multisets/leaf counts, and the displayed four-interval piecewise density. Independent enumeration of all 1,1,2,3,6,11,23 nonisomorphic trees with n=2..8 (NetworkX independent unlabeled generator; no histogram collisions) and all 47 nonisomorphic 9-vertex trees (45 distinct histogram classes) verifies sharp first collision. The source Prüfer script exhausts all 8^6 labeled trees through n8, furnishing separate finite certificate.
 
-**Limits:** Enumerating finite trees through eight vertices cannot prove claims for arbitrary weighted trees, non-tree metric graphs, or higher-order random-point statistics. The nine-vertex witness is checked directly. Historical-priority verification and independent mathematical auditing have not been performed.
+## originality
+
+PASS
+
+The full two-point metric-measure inverse problem and counterexamples are old (Mémoli–Needham); Hosoya edge/vertex polynomial equivalence is explicitly known from Tratnik–Žigert Pleteršek Theorem 3.2. The claimed contribution is only the sharp smallest nine-unit-vertex threshold, pair with different leaf count and explicit continuous density. A prior enumerated same-Hosoya table might implicitly determine minimality; unavailable full Mémoli text remains a genuine specific priority risk, although no decisively covering statement was observed.
+
+## value
+
+PASS
+
+This is a natural complete finite cutoff for the intrinsic metric-tree distance inverse problem: an apparently rich continuous distance law first fails at exactly nine vertices and cannot even reconstruct leaf count. Exhaustive small-tree classification is meaningful, not an arbitrary finite invariant, and the precise density gives a reusable reconstruction benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

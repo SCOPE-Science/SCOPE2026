@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact pair-distance law follows by conditioning on same-edge versus distinct-edge placement, with a shifted triangular convolution for every pair of separate edges. Direct breadth-first endpoint calculations establish the shared histogram \((10,10,6,2)\), and degree multisets prove different metric branching. The separate finite verifier enumerates all \(n^{n-2}\) labeled trees for each \(2\le n\le8\) and groups them using exact unrooted isomorphism codes; the complete census rules out all smaller equal-law nonisometric pairs. The limit is the explicitly bounded family of unit-edge trees, not arbitrary weighted metric trees.
+## correctness
 
-## Originality — PASS (qualified)
-Relevant prior literature already formulates the global distance-distribution inverse problem and proves general noninjectivity (Mémoli–Needham, Example 4.3), and establishes the equivalence between edge and vertex Hosoya polynomials (Tratnik–Žigert Pleteršek, Theorem 3.2). Those aspects are **not** claimed as innovations. The examined full texts and targeted searches did not identify the **least** nine-vertex counterexample, its exact metric law, or the different-leaf-count witness. Martin–Morin–Wagner's 2006 eleven-vertex pair is a larger example. Residual priority risk: earlier enumerated Hosoya-polynomial tables may encode an equivalent nine-vertex pair without discussing the continuous metric law or sharp cutoff; independent bibliographic validation remains warranted.
+PASS
 
-## Mathematical value — PASS
-A natural finite reconstruction threshold and its smallest counterexample are structurally meaningful: the complete unlabeled two-point distance law fails to recover even leaf count in the smallest possible unit-edge case. The result is an exact self-contained boundary for a metric inverse problem, not a perturbative increment or an arbitrarily chosen graph. Exhaustive classification is legitimately finite, and the explicit law provides a benchmark for distance-histogram reconstruction.
+For a unit-edge tree with m edges, normalized whole-tree arclength gives density [2m(1-r)_+ +2 Σ_{k≥0} N_k g(r-k)]/m² with g triangular on [0,2]. End-point minimum edge distance k gives the two independent offsets; f(0+)=2/m determines m, and triangular integer translates are linearly independent, so law equality iff edge-separation histogram agrees. Both displayed eight-edge trees independently have histogram (10,10,6,2), different degree multisets/leaf counts, and the displayed four-interval piecewise density. Independent enumeration of all 1,1,2,3,6,11,23 nonisomorphic trees with n=2..8 (NetworkX independent unlabeled generator; no histogram collisions) and all 47 nonisomorphic 9-vertex trees (45 distinct histogram classes) verifies sharp first collision. The source Prüfer script exhausts all 8^6 labeled trees through n8, furnishing separate finite certificate.
 
-## Closest literature and scope
-Mémoli–Needham (arXiv:1810.09646) address the same inverse problem in general; the 2017 edge-Hosoya theorem yields an equivalent discrete invariant; Martin–Morin–Wagner (arXiv:math/0609339) provide a larger related tree pair; the 2015 path-vertex-cover invariant is different. Unit edge lengths and whole-tree normalized arclength are essential. The proof gives no claim of independent external verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full two-point metric-measure inverse problem and counterexamples are old (Mémoli–Needham); Hosoya edge/vertex polynomial equivalence is explicitly known from Tratnik–Žigert Pleteršek Theorem 3.2. The claimed contribution is only the sharp smallest nine-unit-vertex threshold, pair with different leaf count and explicit continuous density. A prior enumerated same-Hosoya table might implicitly determine minimality; unavailable full Mémoli text remains a genuine specific priority risk, although no decisively covering statement was observed.
+
+## value
+
+PASS
+
+This is a natural complete finite cutoff for the intrinsic metric-tree distance inverse problem: an apparently rich continuous distance law first fails at exactly nine vertices and cannot even reconstruct leaf count. Exhaustive small-tree classification is meaningful, not an arbitrary finite invariant, and the precise density gives a reusable reconstruction benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
