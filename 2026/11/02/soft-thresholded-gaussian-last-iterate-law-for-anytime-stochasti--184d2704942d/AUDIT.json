@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The sign-drift perturbation bound is proven by the forward invariance of an explicit thin interval and exact motion outside it. Split at m=floor(n/log(n)^4): early drift shrinks as 1/log(n)^2, weighted-sign triangular-array CLT has variance tending to one, late drift mass tends to theta, and late martingale maximal variance tends to zero. The continuous mapping theorem yields the soft-threshold normal limit. A uniform L² envelope yields expectation convergence. An exact monotone integral proves uniqueness of the coefficient optimizer. The standalone finite checker corroborates discrete inequalities and numeric constants, without being treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.24879v1 accessible title/abstract: fixed-horizon constant steps and order 1/sqrt(n), unlike anytime harmonic schedule.",
+        "arXiv:2607.15980 accessible title/abstract: fixed-horizon constant steps, dimension-dependence bounds.",
+        "Classical stochastic-approximation weak-limit theory is a relevant generic technique but no inspected covering theorem fixes this triangular-array geometry and explicit law."
+      ],
+      "reasoning": "The related fixed-horizon results cannot imply a logarithm-scaled anytime soft-threshold limit without a separate nonuniform time-schedule argument. The closest original anytime result establishes only lower expected order, not the distribution, sharp leading constant, or tuning optimum. A sufficiently general specialized weak-limit theorem could still cover this example, hence residual historical risk.",
+      "searches": [
+        "Anytime stochastic subgradient diminishing steps 1/sqrt(t) horizon-dependent absolute value loss vanishing slope asymptotic soft-threshold Gaussian terminal iterate critical noise Brownian stochastic approximation",
+        "Beretta Cesari Colomboni last iterate projected stochastic subgradient method pays a logarithm even in dimension one arXiv 2610.30143"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.30143v1 — fully inspected HTML, Section 2 and proof",
+      "arXiv:2606.24879v1 — abstract and bibliographic material only; complete document inaccessible",
+      "arXiv:2607.15980 — public abstract only",
+      "Standard weighted triangular-array central limit theorem and Doob maximal inequality — proof-tool applicability checked"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beretta et al. arXiv:2610.30143v1 Theorem 2 proves finite-n E f(X_n)≥(gamma b²/24)(log n)/sqrt(n) for one specially chosen objective; its proof uses Khintchine and triangle inequalities.",
+        "The new theorem gives, for every fixed positive theta, a normalized weak law with a positive zero atom, expectation convergence with an explicit coefficient, and a unique theta optimum inside a parameterized family."
+      ],
+      "reasoning": "A lower bound on an expectation does not determine a distribution, atom, large-deviation/exceedance profile or exact asymptotic coefficient. Moreover, the finite-n source choice uses an expected absolute Rademacher sum, whereas the new family uses a deterministic theta times the harmonic standard deviation. The new statement is not a rephrasing of the old bound; nevertheless it credits the same underlying example and its rate.",
+      "searches": [
+        "Anytime projected stochastic subgradient Rademacher noise last iterate Gaussian soft threshold weak limit log n over sqrt n",
+        "Last iterate projected SGD log n/sqrt n one dimensional sharp limiting law scaled Gaussian soft thresholded sigma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Beretta et al., arXiv:2610.30143v1, entire Section 2 and proof: expectation-order lower bound, not a weak-limit law.",
+        "Published research records retrieved for absolute-value/soft-threshold and stochastic approximation corresponded to different recursions, regularization, or time regimes."
+      ],
+      "reasoning": "The equivalently phrased limit can also be a Gaussian hard/soft-thresholded random variable with positive zero atom and a one-sided shifted-Gaussian tail. The full inspected motivating article uses the same scalar bounded-noise example but derives only a triangle-inequality lower bound. None of the retrieved research statements gives the proposed limiting distribution for this anytime horizon-scaled drift.",
+      "searches": [
+        "Soft-thresholded Gaussian limiting law and point mass at zero for last iterate of anytime stochastic subgradient 1/sqrt(t) on horizon-tuned absolute-value objective; optimal leading constant",
+        "Soft thresholding limit law stochastic subgradient method one-dimensional absolute value f(x)=epsilon_n |x| Rademacher noise last iterate logarithmic factor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant accessible published mathematical-record responses concerned deterministic trust-region projection, step-memory methods, constant-step signSGD, or other stochastic optimization algorithms; no exact last-iterate law for the present recurrence was returned.",
+        "The full text of arXiv:2610.30143v1 gives a lower bound but no exact database/tabulated constant or normal-mixture law."
+      ],
+      "reasoning": "The claim is a distributional and asymptotic theorem, not a finite tabular invariant. A mathematically analogous distribution in a table would cover it only after establishing an exact reduction to this recursion. Retrieved database abstracts supply no such reduction; negative search evidence is not global uniqueness proof.",
+      "searches": [
+        "Last iterate error under 1/sqrt(t) subgradient absolute value Gaussian soft threshold nontrivial atom optimal leading constant horizon-dependent convex objective",
+        "critical rescaling of stochastic subgradient absolute loss horizon n log n sqrt n point mass at zero limit distribution"
+      ]
+    },
+    "rationale": "The complete motivating paper proves only finite-n expected logarithmic rate and supplies no weak last-iterate law, limiting zero atom, exact leading constant or optimal family tuning; other accessible nearby abstracts describe constant-horizon steps. Extensive statement-level literature-record searches found no covering equivalent, though specialized stochastic approximation literature is a residual priority risk.",
+    "residual_risks": [
+      "A specialized historical stochastic-approximation limit theorem for vanishing nonsmooth drift could cover the soft-threshold law under an abstract theorem; no exact implication was identified from accessible material.",
+      "The full text of arXiv:2606.24879v1 was not accessible; based on its public abstract it addresses different constant-horizon steps, but its appendices were not verified.",
+      "The claim is original only to the best of the examined record, not independently priority-certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers scalar log-over-root expected lower-bound rate, not weak law, zero atom, precise asymptotic expected constant, or optimal theta.",
+        "evidence": [
+          "Section 2 Theorem 2 finite-n lower bound gamma b² log(n)/(24 sqrt(n))",
+          "Proof chooses epsilon using finite weighted-sign expected absolute value and concludes by a Khintchine/trapezoid lower estimate."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30143v1",
+        "material_read": "Full public HTML, title, abstract, Section 1, Section 2 including statement and all proof lines, and references",
+        "method": "Direct paragraph-by-paragraph and formula-level comparison of hypothesis, recurrence, output and logical implication",
+        "title": "The Last Iterate of the Projected Stochastic Subgradient Method Pays a Logarithm, Even in Dimension One",
+        "trigger": "Direct same-process and same-noise precursor with potentially covering result"
+      },
+      {
+        "assessment": "Describes a fixed-horizon constant-stepsize regime; does not by its public abstract imply the present anytime distribution theorem. Full-text incompleteness remains priority risk.",
+        "evidence": [
+          "Public summary explicitly specifies fixed stepsizes of order inverse root horizon and scalar convergence order inverse root horizon."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.24879",
+        "material_read": "Accessible arXiv abstract and Bristol institutional bibliographic page, but not full text",
+        "method": "Read abstract, metadata, and institution abstract; lawful source and preprint/full-text download attempts unsuccessful; institutional download facility required separate access",
+        "title": "New Bounds for the Last Iterate of the Stochastic subGradient Method",
+        "trigger": "Same authors and related scalar stochastic subgradient bounds"
+      },
+      {
+        "assessment": "Describes fixed-horizon constant steps and high-dimensional expected-rate bounds, not the anytime scalar Gaussian soft-threshold limit.",
+        "evidence": [
+          "Public summary describes constant steps and a worst-case dimension horizon bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.15980",
+        "material_read": "Accessible public title, date and abstract",
+        "method": "Compared algorithmic step regime and theorem output against the current claim",
+        "title": "Sharp Dimension Dependence for the Last Iterate of the SubGradient Method",
+        "trigger": "Related dimension-sensitive last-iterate bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "184d2704-942d-4389-b6e3-edb83d74e9b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The existing logarithmic expected-rate lower bound cannot determine whether errors are rare or typical. An explicit nondegenerate limiting distribution with an atom and exact threshold exceedance probabilities supplies a meaningful stochastic-reliability characterization. A sharp leading-order expected-loss constant and a unique natural tuning optimizer benchmark attainable logarithmic loss within a motivated bounded-noise construction; no sweeping minimax optimality is asserted.",
+    "status": "PASS"
+  }
+}
