@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The greedy matching cost is precisely the last used position in the infinite alternating host. A complete case analysis of first, interior, and final single-character deletion yields a necessary-and-sufficient structural characterization of minimal absent subsequences, including both possible boundary weights. Each admissible word has a unique run factorization; the two rational run series track length and greedy cost, and an exact parity extraction produces the claimed bivariate generating function. The supplied independent-from-formula brute-force checker matches the definition, characterization, and rational recurrence for the stated exhaustive ranges. Finite verification supplements rather than replaces the algebraic proof.
+## correctness
 
-## Originality — PASS within examined evidence
-The closest source is the foundational full text of Kosche et al. (arXiv:2108.13968), Section 3 and Proposition 3.8: it treats repeated increasing-block words, but the quantitative lower-bound argument assumes a larger even alphabet and does not give the exact two-letter minimal-absent length distribution. Manea et al. (arXiv:2504.21471) gives general enumeration algorithms and a test for minimality, not this closed bivariate series. Adamson et al. (arXiv:2407.18599) treats all absent subsequences of a prescribed length under universality constraints, not minimal absents for the fixed periodic source. Targeted mathematical-record and web searches found no equivalent or dominating published formula. Residual risk: unindexed work or a disguised specialization not recognized in available literature.
+PASS
 
-## Mathematical value — PASS
-The work determines a complete natural infinite enumerative family that appears as the binary specialization of a previously studied repeated-block construction. In addition to a precise membership characterization, it gives exact counts at every absent-word length, an all-order recurrence, the shortest-layer count, and the total exponential growth rate. This resolves the quantitative structure of a canonical example rather than tabulating arbitrary finite cases. It does not solve general absent-subsequence enumeration.
+Greedy subsequence matching in 0101... places last symbol exactly at F(v)=length+[first=1]+number of equal adjacent bits; absent from (01)^m iff F>2m. Deleting first/interior/final symbols drops F by 0,1 or 2; zero-drop witnesses are initial 01 and interior alternating triples 010/101, producing the exact minimality test, with final two equal required at F=2m+2. Unique run decomposition with internal runs length>=2 produces two rational weight series, parity extraction yields the stated rational GF and recurrence; shortest layer m+2 and pole asymptotics follow. Independently exhaustively enumerated and checked direct subsequence deletion minimality and the proposed structural criterion for every binary word up to length 2m+1, m=1..7, including 65534 candidates for m=7, and matched full degree counts. Infinite GF is symbolic, not finite extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared actual invariant and mathematical implications rather than names. Examined closest primary materials, cited known premises/special cases, and preserved priority risks; no decisive equivalent or dominating all-scope theorem found within checked sources.
+
+## value
+
+PASS
+
+Alternating binary words are the canonical smallest-alphabet repeated-block case in the MAS literature. A complete length-refined infinite-family rational generating function, structural membership test, recurrence and asymptotic growth resolve a natural enumeration problem not answered by generic output-sensitive listing or shortest-word counts. The invariant is motivated before computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
