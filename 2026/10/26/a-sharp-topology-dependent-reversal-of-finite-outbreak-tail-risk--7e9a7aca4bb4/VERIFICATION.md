@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-The standalone script `verify.py` uses exact `fractions.Fraction` arithmetic to compare analytic risks to a direct enumeration of retained-edge subsets and their connected components on each graph. Run `python3 verify.py` and compare its JSON output byte-for-byte after ordinary newline normalization with `certificate.json`.
+## correctness
 
-Checks cover all thresholds on three- through nine-vertex examples at probabilities \(1/4\), \(1/2\), and \(3/4\); symbolic/combinatorial Bernstein-coefficient identities and sign blocks across sizes four through sixty; strict log-concavity of coefficient ratios for the same finite ranges; and finite strict mean comparisons. The eight-vertex risk reversal is checked at two exact rational probabilities on opposite sides of the algebraic threshold.
+PASS
 
-These checks are not an exhaustive experiment over all sizes or real transmissibility values. The infinite assertions, the absence of additional crossover parameters, and the mean comparison are established in `RESULT.md` by exact formulas and analytical inequalities. No independent scientific audit has been performed.
+Derived size-biased star binomial tail and size-biased path run formula from edge independence. Conditional coefficients in the degree-(n-1) Bernstein basis have one positive-to-negative sign switch: the ratio H_j is strictly log-concave and the final nonzero coefficient has sign t(t-1)-(n-1). Division by the first negative Bernstein term makes the normalized difference strictly decreasing, proving unique transverse crossing when n>=t(t-1)+2. Endpoint n=3 is isomorphic, t=2 is strictly lower for the star and t=n equal. Ordered-pair tree distances prove larger star expectation. Independent exact enumeration covers n=3..8 and p=1/3,2/3; signs and endpoint coefficient checked to n=49 and the n=8,t=3 root polynomial factored symbolically. Finite tests corroborate, do not prove, all n.
+
+## originality
+
+PASS
+
+The exact random-root percolation object appears in Jevtic–Lanchier–La Salle 2020, but its available abstract describes first and second moments; their whole paper was not accessible. Newman–Jensen–Ziff use generating functions on a different small-world geometry, and Kenah–Robins distinguish independent edge percolation from correlated SIR. The audited theorem adds a sharp finite star/path tail-risk single-crossover law that is not an implication of those inspected moment or model-general statements. Potential uninspected exact distributions and extremal-tree reliability predecessors remain a material priority risk.
+
+## value
+
+PASS
+
+The distinction between mean outbreak magnitude and tail-exceedance risk in the simplest two finite epidemic topologies is substantively motivated. A sharp population-vs-threshold boundary, a unique transverse transmissibility crossing, and the minimal eight-vertex case constitute an interpretable infinite-family structural phase diagram, not a routine change of variables. Relevant under explicitly independent homogeneous edge transmission, not general SIR infectious periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

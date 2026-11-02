@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two explicit probability formulas follow from the star's binomial open-edge count and size-weighted counting of all possible open path runs. Converting their difference to the binomial/Bernstein basis yields exact coefficients. A strictly log-concave conditional-risk ratio permits at most one coefficient sign change. Dividing by the binomial basis term at the first negative index establishes a strictly decreasing function of transmissibility and hence one transverse risk crossing. The last nonzero coefficient identifies the sharp integer cutoff. A separate ordered-pair distance formula proves strict mean ordering. An exact-rational verifier independently tests percolation components, coefficients, sign patterns and examples; no finite experiment is used as proof of an infinite assertion.
+PASS
 
-## Originality
+Derived size-biased star binomial tail and size-biased path run formula from edge independence. Conditional coefficients in the degree-(n-1) Bernstein basis have one positive-to-negative sign switch: the ratio H_j is strictly log-concave and the final nonzero coefficient has sign t(t-1)-(n-1). Division by the first negative Bernstein term makes the normalized difference strictly decreasing, proving unique transverse crossing when n>=t(t-1)+2. Endpoint n=3 is isomorphic, t=2 is strictly lower for the star and t=n equal. Ordered-pair tree distances prove larger star expectation. Independent exact enumeration covers n=3..8 and p=1/3,2/3; signs and endpoint coefficient checked to n=49 and the n=8,t=3 root polynomial factored symbolically. Finite tests corroborate, do not prove, all n.
 
-PASS under available evidence, with remaining literature risk. Newman–Jensen–Ziff (arXiv:cond-mat/0108542) develop outbreak-cluster generating functions in a different small-world model, while Hartfield–Alizon (DOI:10.1371/journal.ppat.1003277) study large-population outbreak thresholds. Kenah–Robins (arXiv:q-bio/0610057) clarify the boundary between bond percolation and general stochastic SIR dynamics. None of the inspected substantive statements supplies the sharp finite star/path single-crossing comparison. Jevtić–Lanchier–La Salle (2020, DOI 10.1016/j.spl.2020.108714) study this exact random-root bond-percolation object on paths and stars and derive first and second moments. The accessible abstract does not report a finite tail-risk crossover; their full paper could not be read, so its possible hidden tail formulas and comparisons are a material residual risk. Finite-path outbreak-size formulas and the mean comparison are established prior techniques, not themselves claimed as new. Equivalent results may be indexed under finite-tree reliability, size-biased component ordering or graph-percolation inequalities; independent bibliographic confirmation would be useful.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. An exact, sharp phase diagram for two canonical epidemic network structures resolves a risk-measure ambiguity: a topology increasing *mean* outbreak size can decrease probability of surpassing a moderately large threshold. The population cutoff \(n=t(t-1)+2\), uniqueness of the transmissibility crossing and minimal eight-vertex instance are structural rather than arbitrary parameter slices, giving an interpretable boundary for finite-network outbreak-tail comparisons. They do not claim direct clinical predictions.
+The exact random-root percolation object appears in Jevtic–Lanchier–La Salle 2020, but its available abstract describes first and second moments; their whole paper was not accessible. Newman–Jensen–Ziff use generating functions on a different small-world geometry, and Kenah–Robins distinguish independent edge percolation from correlated SIR. The audited theorem adds a sharp finite star/path tail-risk single-crossover law that is not an implication of those inspected moment or model-general statements. Potential uninspected exact distributions and extremal-tree reliability predecessors remain a material priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The distinction between mean outbreak magnitude and tail-exceedance risk in the simplest two finite epidemic topologies is substantively motivated. A sharp population-vs-threshold boundary, a unique transverse transmissibility crossing, and the minimal eight-vertex case constitute an interpretable infinite-family structural phase diagram, not a routine change of variables. Relevant under explicitly independent homogeneous edge transmission, not general SIR infectious periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
