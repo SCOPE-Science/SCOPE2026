@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Direct Frobenius normal/tangent basis gives the rank-one projector and 2x2 step overlap. The frame derivative yields exact continuous rotation R(sqrt(2)*pi); the step discriminant (cos(delta)-1)(9cos(delta)+7)/4 is negative for N>=3, giving rho=cos(pi/N), and its traceless remainder squares to -omega^2 I. This algebra proves the closed finite-N power and singular values. Strict contraction is a consequence of three spanning normals. Taylor expansion of rho^N, N theta, and the skew/symmetric decomposition proves the sharp N-times-error limit. A standard-library checker passed 206 finite checks; the infinite claim relies on these written identities rather than numerical extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Louis et al. (2018) abstract describes a Jacobi-field fanning scheme for transport along geodesics, not the next-tangent-space orthogonal-projection recurrence.",
+        "Nguyen–Sommer (2024) abstract provides exact continuous parallel-transport formulas on various matrix groups/quotients, not the specified rank-one discrete projection loop.",
+        "Carrel–Vanzan (2026) §5.2.1 establishes a general O(h) estimate without the constant or exact spectrum."
+      ],
+      "reasoning": "A general order-one error bound covers the rate in a weak qualitative sense, but does not recover the exact positive damping, finite-grid singular values, or sharp leading constant. The other compared transport maps are distinct and no implication to these finite-step invariants was identified. Inaccessible or unexamined full texts remain a historical risk rather than a fabricated negative comparison.",
+      "searches": [
+        "matrix manifold tangent projectors product cyclic angle closed curve exact singular values",
+        "product of orthogonal projections moving tangent spaces closed curve discrete parallel transport exact damping circular",
+        "doi:10.1137/17M1130617",
+        "arxiv:2408.06054"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.29554",
+      "https://www.paperpeel.com/paper/2610.29554",
+      "https://www.nicolasboumal.net/book/IntroOptimManifolds_Boumal_2022.pdf",
+      "https://doi.org/10.1137/17M1130617",
+      "https://arxiv.org/abs/2408.06054"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel–Vanzan Theorem 5.2 bounds projected-Euler global error by C_T h; the present theorem calculates for one smooth periodic rank-one benchmark the exact loop transfer and the optimal limit of N times its operator-norm error.",
+        "Boumal (2023) establishes tangent-space projection as a legitimate vector-transport construction; this does not specify the product along the closed test curve.",
+        "The original finite-grid formula explicitly separates eigenvalue attenuation from larger nonnormal singular-value attenuation."
+      ],
+      "reasoning": "The new statement logically implies the source method has a nonzero first-order worst-case coefficient on this benchmark, whereas the source general O(h) bound only implies bounded scaled error, not its positive exact limit or the full finite-grid spectrum. No inspected stronger result was found that computes these values.",
+      "searches": [
+        "arxiv:2610.29554v1 §§3,5.2.1–5.2.2",
+        "Boumal An Introduction to Optimization on Smooth Manifolds 2023 tangent projection vector transport",
+        "parallel transport by orthogonal projection successive tangent spaces numerical Riemannian circle exact matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carrel–Vanzan §5.2.1: Q_{i+1}=P_{Y_{i+1}}(Q_i+hG(t_i,Q_i)); its Theorem 5.2 is an order-one global bound, not a finite-loop spectral formula.",
+        "The new symmetric-loop map is exactly the Nth power of a 2-by-2 frame-overlap matrix; its nonnormal singular values and holonomy error are stronger numerical invariants than the projection-step definition."
+      ],
+      "reasoning": "The homogeneous covariant equation is a special case of the source scheme, not a new algorithm. Mere shared method or first-order convergence does not imply the computed finite-grid spectrum and sharp coefficient; the inspected source does not report them. Classical geometric parallel transport is an equivalent continuous concept but does not by itself determine the product of discrete orthogonal projectors.",
+      "searches": [
+        "dynamical low rank rank-one tangent projector difference exact norm cos product principal angle pathwise stability covariant Euler adjoint numerical",
+        "rank one matrix manifold rotating projector Euler closed loop monodromy cos(pi/N) attenuation spectral holonomy",
+        "rank-one matrix tangent projection transport closed loop spectral monodromy sharp first order error constant",
+        "arxiv:2610.29554v1 §5.2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record, “A sharp angular phase boundary for the Frobenius symmetric-modulus defect of orthogonal-column rank-one pairs” (2026): a symmetric-modulus inequality, not a moving tangent-projection product.",
+        "Published record, “Higher-rank dominated lines inherit the Chern–winding eigensection criterion” (2026): continuous eigensections in dominated cocycles, not finite numerical transport.",
+        "No inspected numerical table or exact-case source supplied this loop spectrum or error constant."
+      ],
+      "reasoning": "The closest published mathematical-record hits concern other rank-one, angular or bundle phenomena. Comparing their statements rather than titles shows they do not imply the claim; lack of a database match is not treated as an exhaustive novelty certificate.",
+      "searches": [
+        "Carrel Vanzan projected Euler covariant tangent transport monodromy rotation rank one holonomy exact cos pi N spectral attenuation",
+        "rank-one matrix tangent projection transport closed loop spectral monodromy sharp first order error constant",
+        "matrix manifold tangent projectors product cyclic angle closed curve exact singular values",
+        "projection based vector transport sphere polygon discrete holonomy numerical error constant"
+      ]
+    },
+    "rationale": "Claim-to-prior comparison: the inspected Carrel–Vanzan Section 5.2.1 gives the same projected Euler step and a general first-order global bound, not an exact monodromy matrix, eigenvalues, singular values, or sharp loop error constant. The textbook tangent-projection transport and continuous holonomy are acknowledged, and the Jacobi-field and matrix-exponential transport papers use different maps or settings. Mathematical-record and web searches found no exact covering statement; as a limitation, classical products-of-projections theory not located could subsume this particular closed form.",
+    "residual_risks": [
+      "A classical formula for products of uniformly rotated orthogonal projectors could imply the entire special-case result even without using low-rank terminology; broader historical uniqueness is not established.",
+      "Only abstract-level access was used for the fanning-scheme and matrix-exponential parallel-transport comparators.",
+      "The theorem is a narrow but motivated exact benchmark for a published numerical method, not a general forced-adjoint or optimal-control result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same projection recurrence and generic first-order error; does not state rank-one closed-loop finite-grid spectrum, singular values or sharp error coefficient in inspected material",
+        "evidence": [
+          "arXiv v1 initially submitted 2026-10-21 10:41:40 UTC",
+          "https://www.paperpeel.com/paper/2610.29554 §5.2.1, formulas and Theorem 5.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.29554",
+        "material_read": "Online full-text reproduction, §§3, 4.2, 5.2.1–5.2.2 including method, local and global errors and relevant references",
+        "method": "Section-by-section text inspection of publicly accessible paper body; compared method and theorem statements",
+        "title": "Dynamical low-rank approximations for the optimal control of matrix ODEs",
+        "trigger": "Exact motivating covariant projected-Euler scheme, theorem and nearest possible coverage"
+      },
+      {
+        "assessment": "Establishes prior construction, not the concrete periodic low-rank finite-step spectral and asymptotic constants",
+        "evidence": [
+          "N. Boumal, Cambridge University Press 2023, discussion of tangent-projection transport"
+        ],
+        "identifier_or_url": "https://www.nicolasboumal.net/book/IntroOptimManifolds_Boumal_2022.pdf",
+        "material_read": "Relevant projection transport discussion (around printed p. 303), including the definition and properties",
+        "method": "Inspected readable PDF text and page image",
+        "title": "An Introduction to Optimization on Smooth Manifolds",
+        "trigger": "General projection-to-next-tangent-space transport may already be standard"
+      },
+      {
+        "assessment": "Different Jacobi-field fanning scheme; full-text uncertainty remains",
+        "evidence": [
+          "SIAM Journal on Numerical Analysis 56 (2018), pp. 2563–2584, doi:10.1137/17M1130617"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/17M1130617",
+        "material_read": "Publisher abstract and bibliographic information; full article was not examined",
+        "method": "Inspected accessible publisher abstract",
+        "title": "A Fanning Scheme for the Parallel Transport along Geodesics on Riemannian Manifolds",
+        "trigger": "Potential broader projected parallel transport numerical method"
+      },
+      {
+        "assessment": "Exact continuous transport on matrix groups/Stiefel/flag quotients; no assessed implication to the discrete tangent-projection loop",
+        "evidence": [
+          "D. Nguyen and S. Sommer (2024), arXiv:2408.06054 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.06054",
+        "material_read": "Public arXiv abstract; full text not examined",
+        "method": "Inspected abstract, domain and stated main results",
+        "title": "Parallel transport on matrix manifolds and Exponential Action",
+        "trigger": "Exact matrix-manifold parallel transport potentially dominates continuous portion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d52a19fb-ce8e-4b75-be4d-1b0cddff363d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closed-loop transport is a natural benchmark: endpoint bases agree, so any amplitude loss and geometric-angle defect belong to the numerical transport itself. The exact spectral damping cos(pi/N)^N, nonnormal norm-loss correction, and positive leading operator-error coefficient make the benchmark useful for detecting errors in covariant projected integrators and for calibrating timestep effects in low-rank adjoint computations. The result is not merely the generic first-order method estimate or a reparametrization of continuous holonomy; it quantifies specific finite-step phenomena. The homogeneous, exact-projector scope is openly limited.",
+    "status": "PASS"
+  }
+}
