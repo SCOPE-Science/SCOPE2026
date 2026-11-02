@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact integral formal-series identity \\(S(z)^2=S(z)-z+2T(z)\\) implies \\(F(z)=(S(z)/z)/(1-2T(z)/z)\\); modulo \\(2^N\\), only terms with \\(r<N\\) occur. Any nonzero term forces \\(n+r+1\\) to be a sum of \\(2r+1\\) powers of two, hence \\(s_2(n+r+1)\\le2r+1\\). Subadditivity with \\(N-r-1\\) gives \\(s_2(n+N)\\le2N-1\\). Translation by \\(N\\) proves the stated binomial-coefficient upper bound. The independent recurrence and factorized-series calculations agree for 2048 coefficients and test 4,718,592 index/precision cases. No unproved analytic or computational lemma is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alkauskas 2010, concluding page 8, stated improved exponential-order threshold for N>=4",
+        "Alkauskas 2010 Theorem 6: finite tables for each fixed N, without the claimed linear uniform support exponent"
+      ],
+      "reasoning": "The earlier all-precision result leads to an exponent exponential in \\(N\\) in a direct sparse-support count; the new theorem supplies exponent \\(2N-1\\). The paper’s final threshold refinement remains exponential in \\(N\\). Finite tables determine fixed-precision residues but do not contain this explicit uniform linear-in-precision rate.",
+      "searches": [
+        "\"Alkauskas\" \"popcount\" \"linear\" composition count",
+        "\"binary compositions\" \"popcount\" 2-adic valuation linear bound",
+        "\"compositions into powers of two\" \"valuation\" \"digit sum\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1003.1064",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL13/Alkauskas/alkauskas2.pdf",
+      "https://www.researchgate.net/publication/266919056_On_binary_and_Fibonacci_compositions",
+      "https://geodesic.mathdoc.fr/item/JIS_2010__13_5_a2/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alkauskas 2010 Theorem 1 weight cutoff and Theorem 6 finite class bounds",
+        "Explicit family n=2^L-N-1 (L>=2N, N>=3) has s2(n+N)=L but s2(n+2^(N-1))<2^N"
+      ],
+      "reasoning": "For every \\(N\\ge3\\), the infinite family \\(n=2^L-N-1\\), \\(L\\ge2N\\), satisfies the new cutoff but not the published original cutoff. The proof also gives the explicit \\(O_N(K^{2N-1})\\) dyadic exceptional-count bound. The prior all-precision theorem does not imply this merely by shifting its index.",
+      "searches": [
+        "2013 research open question congruence counting partitions powers of 2 Alkauskas 2010",
+        "\"compositions into powers of 2\" \"s_2\" \"n+\" \"2N\"",
+        "Knopfmacher Robbins 2002 \"On binary and Fibonacci compositions\" pdf text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alkauskas 2010, Theorem 1 and Theorem 6, complete published PDF",
+        "Knopfmacher and Robbins 2003, Section 2, recurrence and parity"
+      ],
+      "reasoning": "Compared the equivalent contrapositive (nonzero modulo \\(2^N\\) forces binary weight at most \\(2N-1\\) in \\(n+N\\)) with digital-weight, congruence, and ordered-composition aliases. The 2003 parity theorem covers \\(N=1\\), but not arbitrary \\(N\\); the 2010 theorem has a differently shifted and exponentially larger sufficient cutoff.",
+      "searches": [
+        "\"binary composition function\" \"binary weight\" \"2N\" congruence",
+        "\"compositions into powers of 2\" \"popcount\" divisibility",
+        "\"ordered binary partitions\" \"linear\" \"digit\" modulus two powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alkauskas 2010, Tables 1 and 2 list exact residue cases modulo four and eight",
+        "2003 Knopfmacher and Robbins Table 1 lists numerical composition values through index 50"
+      ],
+      "reasoning": "Previously published tables determine the new bound in some small-precision cases; those cases are acknowledged and are not presented as separately new. They do not provide the arbitrary-precision estimate or uniform polylogarithmic exponent.",
+      "searches": [
+        "\"binary composition function\" \"modulo 16\" count nonzero density",
+        "\"theta(n)\" \"compositions into powers of 2\" modulus 16 count polynomial",
+        "Alkauskas 2010 Table 1 Table 2 modulo 4 modulo 8"
+      ]
+    },
+    "rationale": "Alkauskas (2010) establishes an exponential-in-precision cutoff \\(s_2(n+2^{N-1})\\ge2^N\\) and small-modulus tables, but does not state the uniform linear cutoff \\(s_2(n+N)\\ge2N\\) or its \\(O_N((\\log x)^{2N-1})\\) exceptional-count consequence. Knopfmacher and Robbins (2003) give the recurrence, generating function and parity, not this all-precision quantitative bound. Scientific searches and checked records did not disclose an equivalent or dominating theorem; historical-priority risk remains.",
+    "residual_risks": [
+      "No claim of exhaustive historical priority: a different published digital-weight theorem or later treatment might contain stronger coverage.",
+      "Quantitative power 2N-1 is not claimed optimal, and no lower bound on exceptional frequency is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers parity, fixed-precision tables and exponential-order cutoff, not the new linear shifted all-N cutoff.",
+        "evidence": [
+          "Theorem 1 near the beginning of the paper",
+          "Theorem 6 and its finite-table implication",
+          "closing discussion of an improved exponential-order threshold"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL13/Alkauskas/alkauskas2.pdf",
+        "material_read": "Nine-page full-text extraction, including Theorems 1 and 6, Proposition 5, Tables 1 and 2, and the final improvement discussion; page containing Proposition 5 visually examined.",
+        "method": "Public journal PDF; inspected theorem statements, proofs, residue tables and concluding bound.",
+        "title": "Congruence Properties of the Function that Counts Compositions into Powers of 2",
+        "trigger": "Same ordered-composition function and all-precision binary-digit cutoff; decisive primary comparison."
+      },
+      {
+        "assessment": "Gives generating function, recurrence, parity, growth estimates, but not the all-N digit-weight cutoff.",
+        "evidence": [
+          "Theorem 1 recurrence and generating function",
+          "Theorem 2 parity",
+          "Theorem 3 asymptotics"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/266919056_On_binary_and_Fibonacci_compositions",
+        "material_read": "Author-uploaded full-text transcription, Section 2: generating function and recurrence, parity theorem, asymptotic results, and distinct-parts variant.",
+        "method": "Public author-uploaded textual full version, mathematical statements and calculations inspected.",
+        "title": "On Binary and Fibonacci Compositions",
+        "trigger": "Earlier paper on exactly the same ordered power-of-two compositions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4cc2cbf-a768-422b-9e19-32ca3d1e37a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The binary-composition function has a documented modulo-prime-power sparsity phenomenon. The new formula reduces the sufficient binary-weight cutoff from exponential \\(2^N\\) to linear \\(2N\\), and yields the explicit all-precision exceptional-count upper bound \\(O_N((\\log x)^{2N-1})\\). This substantially quantifies a motivated arithmetic-divisibility question and rests on a structural formal-series identity, rather than on finite numerical enumeration.",
+    "status": "PASS"
+  }
+}
