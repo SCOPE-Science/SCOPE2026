@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T20:53:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G=Z/n, n≥2, a(x)=x+1 and b(x)=f(x) arbitrary, define Φ(K)={d:∀x, f(x+d)−f(x)∈K}. Φ maps subgroups to subgroups by telescoping and is monotone; H_0={0}, H_{t+1}=Φ(H_t) grows until fixed after ≤Ω(n) strict subgroup inclusions. Bob can translate a marked pair to any x with a-word, while Alice's a preserves d and b sends d to f(x+d)−f(x). Induction with arbitrary Bob prefixes proves two states force-merge in ≤t Alice moves iff d∈H_t, even with Bob first. Sequential pair merges reduce full image size (Bob words cannot expand image sets), so Alice wins iff H∞=G; if H∞ proper, Bob chooses a perpetual losing marked difference. Each step tests n² differences and ≤log₂ n strict stages. For n prime H1=G iff f constant. Composite nonconstant f periodic mod nontrivial divisor r with outputs in one residue mod r gives H2=G. At n=pq, subgroup lattice forces winning iff f factors mod p or q and values all lie in a single residue class for that divisor. Counts p(n/p)^p plus q(n/q)^q minus n intersection constants (one option if p=q), yielding p^{p+1}, or p q^p+q p^q−pq. Independently iterated all n^n maps for n=2..6, counts exactly 2,3,8,5,36, total 50,068 maps. Source's separate subset-game attractor method was inspected; finite counts support but do not replace all-n induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lipin–Volkov Section 3 supplies arbitrary automata game decision with two-token relation, more general as a decision theorem.",
+          "Ordinary synchronizing words can fail against adversarial inserted words, so circular ordinary-reset theory is not a stronger winning statement."
+        ],
+        "reasoning": "The general decision theorem indeed dominates existence as an algorithm, not the explicit low-complexity cyclic arithmetic classification with exact labeled counts. Note this distinction rather than claiming the general game is new.",
+        "searches": [
+          "arxiv:2601.18362 Lipin Volkov 2026 Section 3 general adversarial game recognition",
+          "arxiv:1808.01711 circular semi flower automata prime synchronization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full RESULT.md 51a30820d8e588083d336e3fd8265c67c42102b4, verify.py code and other package status/metadata.",
+        "Lipin & Volkov arxiv:2601.18362 primary PDF relevant sections, rendered page inspection.",
+        "Singh & Raj arxiv:1808.01711 abstract/context only.",
+        "Resultary semantic query as recorded.",
+        "Independent all-map subgroup test n=2..6, 50,068 functions, private reconstruction log."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n prime f must be constant to defeat arbitrary Bob words, unlike ordinary synchronizing cycle automata where nonconstant maps may reset.",
+          "The n=pq formula is explicit over all n^n maps, stronger quantitative information than deciding one map via relation closure."
+        ],
+        "reasoning": "The general relation test implies that each individual input has a yes/no answer, but does not by itself state the arithmetic subgroup chain or symbolic global enumerator. Those are the scope of originality.",
+        "searches": [
+          "Lipin Volkov 2026 Theorem pair relation synchronization arbitrary automata",
+          "Singh Raj 2018 synchronization of circular semi-flower automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general game already has an E_t relation over pairs; cyclic translation invariance turns it into differences in H_t.",
+          "Resultary query returned ordinary synchronizing automata and cycle constructions, not a matching subgroup count."
+        ],
+        "reasoning": "The H_t criterion may be an explicit quotient of the known relation iteration, so the *abstract decidability* is covered; the subgroup arithmetic, sharp composite threshold, and all semiprime map counts remain the assessed potentially new content.",
+        "searches": [
+          "Lipin Volkov Adversarial Synchronization pair token relations E_l 2026",
+          "Resultary: adversarial synchronization cyclic automata a full cycle b arbitrary function subgroup hierarchy winning primes semiprimes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent all-map brute force n=2..6 matches 2,3,8,5,36; in particular n=4 gives 8 and n=6 gives 36.",
+          "No inspected published exact semiprime function-count table was identified."
+        ],
+        "reasoning": "Finite small n counts do not establish all semiprime n; the inclusion-exclusion formula derives counts symbolically. Earlier unindexed transition table could overlap.",
+        "searches": [
+          "adversarial synchronization cyclic order pq winning functions count p q^p",
+          "cyclic automaton adversarial reset semiprime labeled transition function census"
+        ]
+      },
+      "rationale": "Lipin–Volkov 2026 defines this unrestricted game and proves general relation/two-token recognition, which are clear prior stronger *decision* tools over arbitrary automata. Its inspected Section 3 does not give this cyclic map subgroup hierarchy, prime/composite dichotomy or exact semiprime labeled-function enumeration. The cycle arithmetic classification is a specialization with substantially more explicit structure. Ordinary circular automata synchronization is weaker than adversarial winning; earlier prime-order ordinary reset results do not imply this theorem. No demonstrated earlier formula dominates the counts; a specialization of the general relation operator could produce the subgroup criterion, and this derivability is acknowledged.",
+      "residual_risks": [
+        "The H_t iteration may be a mechanically recognizable specialization of Lipin–Volkov relation iteration; the exact counting formula is the principal surviving new result.",
+        "A semiprime enumeration may exist in unindexed automata enumerations or electronic tables.",
+        "Full-state and pair-game quantifiers require arbitrary finite Bob words; if game convention disallows initial Bob word, the proof provides a stronger pair statement under its stated convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_CRITERION_NOT_EXPLICIT_CYCLIC_CENSUS",
+          "evidence": "Defines E_t relation and arbitrary-automaton recognition; the cyclic residue subgroup formula and semiprime count are not in inspected central results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.18362",
+          "material_read": "Read PDF model/definitions and Section 3 including general two-token relation and decision propositions, inspected rendered pages; not claiming line-by-line entire 34-page article.",
+          "method": "arXiv primary PDF text and rendered screenshot of relevant pages",
+          "title": "Adversarial Synchronization",
+          "trigger": "Same unrestricted adversarial game and possibly stronger theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GAME",
+          "evidence": "Ordinary word synchronization is a weaker property than forced resets with adversarial insertions.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.01711",
+          "material_read": "Abstract and source references; no full article independently reread.",
+          "method": "arXiv bibliographic comparison",
+          "title": "On the Synchronization of Circular Semi-Flower Automata",
+          "trigger": "Prime-order and circular reset related literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete criterion and finite algorithm for the whole natural class of cycle-plus-map automata, a sharp prime-versus-composite existence boundary, and exact semiprime map enumeration constitute an infinite-family structural classification rather than a single instance. It isolates the exact obstruction under adversarial interleavings, a distinction material for reset games.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen full RESULT.md 51a30820d8e588083d336e3fd8265c67c42102b4, verify.py code and other package status/metadata.",
+    "Lipin & Volkov arxiv:2601.18362 primary PDF relevant sections, rendered page inspection.",
+    "Singh & Raj arxiv:1808.01711 abstract/context only.",
+    "Resultary semantic query as recorded.",
+    "Independent all-map subgroup test n=2..6, 50,068 functions, private reconstruction log."
+  ],
+  "disposition": "passed",
+  "limitations": "Two-letter complete deterministic automata only; one letter fixed unit cycle, other arbitrary. General exact win criterion for all n; closed function count only n=pq with prime factors including p=q, labeled maps. Bob may pass/insert arbitrary finite words and the marked-pair statement allows initial Bob rotation.",
+  "residual_risks": [
+    "The H_t iteration may be a mechanically recognizable specialization of Lipin–Volkov relation iteration; the exact counting formula is the principal surviving new result.",
+    "A semiprime enumeration may exist in unindexed automata enumerations or electronic tables.",
+    "Full-state and pair-game quantifiers require arbitrary finite Bob words; if game convention disallows initial Bob word, the proof provides a stronger pair statement under its stated convention."
+  ],
+  "schema_version": 1
+}

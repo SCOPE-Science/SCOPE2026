@@ -1,12 +1,21 @@
-# Self-review: modular subgroup hierarchy for cyclic adversarial synchronization
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof verifies that the operator \(\Phi(K)=\{d:f(x+d)-f(x)\in K\ \forall x\}\) is an additive subgroup operator and is monotone. Exact pair-game induction handles arbitrary initial adversarial words and proves equivalence of merging a difference in \(t\) Alice turns with its membership in \(H_t\). Reduction of a full state set by repeated winning pair strategies proves the forward direction; an adversarial rotation invariant on any difference outside the stable subgroup proves necessity. The semiprime subgroup lattice reduces the winners to periodic maps with single residue-class output, and elementary inclusion-exclusion counts them. A separately coded exhaustive powerset-game attractor matches the subgroup criterion on all \(n^n\) maps for \(2\le n\le6\), and a nontrivial three-stage chain is checked at \(n=8\).
+## correctness
 
-## Originality — PASS within examined evidence
-Lipin–Volkov (arXiv:2601.18362, Sections 2–3 and 5) gives the unrestricted game and general relation algorithms, but the cyclic-group subgroup hierarchy, sharp prime/composite dichotomy, and complete semiprime map enumerator are not stated there. Singh–Raj (arXiv:1808.01711) concerns ordinary circular-automaton synchronization and cannot by itself settle adversarial winning. Searches for cyclic game subgroups, prime/composite obstruction and semiprime counts did not yield an equivalent or stronger result; related finite automaton thresholds and prior finite four-state game counts have different hypotheses and conclusions. Residual risk: relevant unindexed specialization or unpublished equivalence.
+PASS
 
-## Mathematical value — PASS
-The exact all-order criterion turns an unrestricted strategy game into arithmetic of divisors with a provably terminating small subgroup hierarchy, and the prime/composite boundary and semiprime closed enumeration give genuinely structural families, not a single parameter example. It resolves a natural test class of the recently introduced adversarial model and exposes a strict difference from ordinary synchronization. The two-letter cyclic assumption is essential; broader automata and closed enumeration for orders with three or more prime factors remain open here.
+For G=Z/n, n≥2, a(x)=x+1 and b(x)=f(x) arbitrary, define Φ(K)={d:∀x, f(x+d)−f(x)∈K}. Φ maps subgroups to subgroups by telescoping and is monotone; H_0={0}, H_{t+1}=Φ(H_t) grows until fixed after ≤Ω(n) strict subgroup inclusions. Bob can translate a marked pair to any x with a-word, while Alice's a preserves d and b sends d to f(x+d)−f(x). Induction with arbitrary Bob prefixes proves two states force-merge in ≤t Alice moves iff d∈H_t, even with Bob first. Sequential pair merges reduce full image size (Bob words cannot expand image sets), so Alice wins iff H∞=G; if H∞ proper, Bob chooses a perpetual losing marked difference. Each step tests n² differences and ≤log₂ n strict stages. For n prime H1=G iff f constant. Composite nonconstant f periodic mod nontrivial divisor r with outputs in one residue mod r gives H2=G. At n=pq, subgroup lattice forces winning iff f factors mod p or q and values all lie in a single residue class for that divisor. Counts p(n/p)^p plus q(n/q)^q minus n intersection constants (one option if p=q), yielding p^{p+1}, or p q^p+q p^q−pq. Independently iterated all n^n maps for n=2..6, counts exactly 2,3,8,5,36, total 50,068 maps. Source's separate subset-game attractor method was inspected; finite counts support but do not replace all-n induction.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Lipin–Volkov 2026 defines this unrestricted game and proves general relation/two-token recognition, which are clear prior stronger *decision* tools over arbitrary automata. Its inspected Section 3 does not give this cyclic map subgroup hierarchy, prime/composite dichotomy or exact semiprime labeled-function enumeration. The cycle arithmetic classification is a specialization with substantially more explicit structure. Ordinary circular automata synchronization is weaker than adversarial winning; earlier prime-order ordinary reset results do not imply this theorem. No demonstrated earlier formula dominates the counts; a specialization of the general relation operator could produce the subgroup criterion, and this derivability is acknowledged.
+
+## value
+
+PASS
+
+A complete criterion and finite algorithm for the whole natural class of cycle-plus-map automata, a sharp prime-versus-composite existence boundary, and exact semiprime map enumeration constitute an infinite-family structural classification rather than a single instance. It isolates the exact obstruction under adversarial interleavings, a distinction material for reset games.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
