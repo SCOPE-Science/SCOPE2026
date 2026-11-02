@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Every pure profile is a functional digraph. Multiple cycles allow an improving cross-component redirection. Any tail depth at least two yields a legal parity-correct redirect that strictly lengthens the unique cycle. For one cycle with only depth-one leaves, every legal alternative gives a cycle no longer than the current one. The exact labeled count follows from choosing alternating cycle vertices, directed alternating cycles, and one-step leaf targets. The balanced asymptotic follows uniformly from Stirling bounds and the strictly concave exponent with unique omega-constant maximizer. Exact-rational finite cases independently exercise every profile for K_{a,b} at eight small parameter pairs (71,799 total), including all unilateral moves; this corroborates, rather than substitutes for, the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1808.03206v4, Theorem 3.9 and Remark 3.13: a general ordinal potential and existence of Hamiltonian PFNE; later discussion notes a unicycle with no unilateral cycle extension is an equilibrium.",
+        "The journal article DOI 10.1287/moor.2021.1186 publicly states existence and Hamiltonian examples; its full journal text was not independently inspected."
+      ],
+      "reasoning": "The general potential result covers the qualitative allowed profitable deviations and guarantees existence, so the proof explicitly takes that established mechanism as its starting point. It does not contain an all-size labeled PFNE count or a distribution under uniform equilibrium sampling; deriving those requires the bipartite depth analysis, alternating-cycle enumeration, and strict saddle-point maximization. This claim is the quantitative spectrum and limit, not general existence.",
+      "searches": [
+        "Complete bipartite buck-passing prior-free equilibrium enumeration number of equilibria k!(k-1)! k^(a+b-2k) typical long-run cycle fraction Lambert W omega constant",
+        "Functional digraph one cycle with leaves count complete bipartite alternately oriented cycles stationary buck passing Nash",
+        "\"buck passing\" \"number of equilibria\" functional graph",
+        "\"buck passing game\" \"bipartite\" \"equilibria\" count"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1808.03206",
+      "https://arxiv.org/html/1808.03206v4",
+      "https://doi.org/10.1287/moor.2021.1186",
+      "2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65",
+      "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.9 of arXiv:1808.03206v4 implies the *general* absence of profitable cycle-extensions at an equilibrium for full-support priors.",
+        "Complete graph discussion in arXiv:1808.03206v4, the example after the Rawlsian fairness analysis, establishes Hamiltonian equilibrium only on K_n, which has within-part edges absent in K_{a,b}.",
+        "The nearest published record 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 concerns parity automata rather than buck-passing games."
+      ],
+      "reasoning": "The literature already implies a general local-optimality test, and the present structural lemma can be reconstructed from it in the bipartite host. Crucially the published result does not logically state or evaluate the enumerator N_k(a,b), the asymptotic mass concentration under a uniform choice of equilibrium, or the universal 1+omega fairness constant. Those quantitative statements are the final claimed contribution; none was found as a prior corollary explicitly evaluated or as part of a stronger covering enumeration.",
+      "searches": [
+        "The Buck-Passing Game Cominetti Quattropani Scarsini 2018 prior-free Nash equilibria, combinatorial counting equilibrium profiles on complete bipartite graphs",
+        "Prior-free equilibrium buck-passing game, complete bipartite graph, one recurrent cycle and leaves, cycle-count generating polynomial",
+        "\"buck-passing\" \"complete bipartite\" \"equilibrium\"",
+        "\"buck passing\" \"number of prior-free equilibria\" networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cominetti–Quattropani–Scarsini, arXiv:1808.03206v4, Section 3 / Theorem 3.9: costs are governed by recurrent cycles; changes improve by lengthening a cycle or removing it.",
+        "arXiv full-text search of \"bipartite\" returned no match; the directly inspected examples concern complete graphs, bidirected cycles, and other networks."
+      ],
+      "reasoning": "Equivalent statements would count every deterministic prior-free equilibrium on K_{a,b} by recurrent cycle length, or give the balanced uniform-equilibrium cycle law. The general cycle-improvement criterion is known, and the bipartite structural step is a specialization; neither that criterion nor the inspected examples supplies the product formula, its balanced saddle point, or the fairness limit.",
+      "searches": [
+        "Deterministic buck passing game prior-free Nash equilibria complete bipartite K_{a,b} unique directed cycle depth-one in-trees count equilibrium polynomial cycle length enumeration",
+        "The Buck-Passing Game Cominetti Quattropani Scarsini 2018 prior-free Nash equilibria, combinatorial counting equilibrium profiles on complete bipartite graphs",
+        "Prior-free equilibrium buck-passing game, complete bipartite graph, one recurrent cycle and leaves, cycle-count generating polynomial",
+        "\"buck-passing game\" \"complete bipartite\" \"equilibrium\"",
+        "Cominetti Quattropani Scarsini buck passing complete bipartite equilibria count unicycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite table or closed count for complete bipartite buck-passing equilibria was identified in the checked research records or the initiating full text.",
+        "A related published record on spanning-tree isomorphism classes of complete bipartite graphs, ID 2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65, concerns non-strategic unlabeled tree types rather than labeled equilibrium profiles."
+      ],
+      "reasoning": "The exact formula is independently evaluated for all 71,799 profiles of eight small graphs; this is a new check, not a substitute for searching previous mathematical tables. No retrieved table encoded these PFNE counts. An unidentified database entry could still exist.",
+      "searches": [
+        "Deterministic buck passing game prior-free Nash equilibria complete bipartite K_{a,b} unique directed cycle depth-one in-trees count equilibrium polynomial cycle length enumeration",
+        "Complete bipartite buck-passing prior-free equilibrium enumeration number of equilibria k!(k-1)! k^(a+b-2k) typical long-run cycle fraction Lambert W omega constant",
+        "Lambert W omega constant 0.638 typical directed cycle size random prior-free equilibrium buck passing bipartite",
+        "\"buck-passing\" \"number\" \"prior-free\" equilibria cycles complete graph"
+      ]
+    },
+    "rationale": "The initiating paper gives the buck-passing model, full-support ordinal potential, and the general two-mechanism characterization of profitable moves; these are cited, not claimed new. A direct complete-bipartite specialist comparison found no previous exact equilibrium-size enumerator, nor the new uniform-equilibrium Lambert-W concentration and fairness constant. Searches of published mathematical records and the accessible prior research ledger found related work on other network games or graph counts but no implication of the enumerator/asymptotic. Absence from search is not uniqueness proof; priority remains conditional on undiscovered specialized results.",
+    "residual_risks": [
+      "The 2022 published article full version was not independently read; substantive comparison used the lawful open arXiv version of the same paper.",
+      "A less easily indexed quantitative equilibrium-census result or exact OEIS-style table could have escaped focused literature searches.",
+      "The structural lemma is a specialization of a general published equilibrium criterion; priority is claimed for the explicitly derived exact enumerator and balanced asymptotic, not for the qualitative criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the qualitative deviation mechanism and general equilibrium existence; inspected portions do not give the bipartite enumerator or balanced uniform-equilibrium distribution.",
+        "evidence": [
+          "arXiv:1808.03206v4, Section 3, Theorem 3.9 and Remark 3.13",
+          "arXiv:1808.03206v4, discussion of fair equilibria and example on complete K_n",
+          "Document searches returned no matches for bipartite, counting, enumerat."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.03206v4",
+        "material_read": "Full-text HTML: definitions in Sections 2–3, payoff expression, Theorem 3.9 and its proof, Remark 3.13, complete-graph and bidirected-cycle examples, and later discussion of unextendible unicycles.",
+        "method": "Direct reading of accessible arXiv HTML and within-document term searches for bipartite, counting, and enumeration.",
+        "title": "The Buck-Passing Game",
+        "trigger": "Original paper defining exactly this deterministic game and prior-free equilibrium."
+      },
+      {
+        "assessment": "Its abstract reports existence and Hamiltonian-equilibrium conditions; cannot exclude journal-only material beyond the accessible full arXiv text.",
+        "evidence": [
+          "Published online 2021-11-08; volume 47(3), 2022; primary MSC 91A43."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/moor.2021.1186",
+        "material_read": "Journal landing-page abstract, metadata and keywords; full journal version not independently read (open arXiv full text of the same paper was available).",
+        "method": "Inspection of the publicly accessible publisher abstract and publication metadata, cross-checked with arXiv version.",
+        "title": "The Buck-Passing Game (journal publication)",
+        "trigger": "Published peer-reviewed version of the initiating manuscript."
+      },
+      {
+        "assessment": "Unlabeled tree-isomorphism counting cannot imply the enumerator of labeled strategic PFNE functional digraphs.",
+        "evidence": [
+          "Record title and public summary explicitly concern spanning-tree isomorphism classes on K_{d,m}."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65",
+        "material_read": "Published title and summary, not full proof.",
+        "method": "Statement and parameter comparison of indexed summary.",
+        "title": "Published mathematical record: complete bipartite spanning-tree types",
+        "trigger": "Similarity search for complete bipartite combinatorial enumeration."
+      },
+      {
+        "assessment": "Parity automata have simultaneous deterministic Boolean state updates, not strategic outgoing buck-passing choices; the cycle census does not cover the claim.",
+        "evidence": [
+          "Record summary refers to primitive automaton periods up to four."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "material_read": "Published title and summary, not full proof.",
+        "method": "Comparison of dynamics, parameter and enumerated objects from summary.",
+        "title": "Published mathematical record: complete multipartite parity automata",
+        "trigger": "Potential cycle-length spectrum analogue from indexed literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "616d23df-5ec2-4c9a-a7e0-610d22f9617c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It is a natural equilibrium-selection statistic for a network-constrained public-chores game. While an existence theorem and local-improvement criterion were known, the full cycle-length polynomial reveals exactly how many equilibria have a given recurring burden. The uniform-equilibrium limit shows that typical equilibria retain only 63.81% of agents in the recurrent cycle and incur a precise 1.56714 fairness penalty relative to the best equilibrium, distinguishing generic equilibrium behavior from worst-case price of anarchy. This constant and the complete labeled census are not merely renamings or an arbitrary narrow slice.",
+    "status": "PASS"
+  }
+}
