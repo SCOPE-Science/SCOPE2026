@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the stated checks
+# Independent mathematical audit
 
-Run `python3 tree_cut_verify.py` with Python 3 and no third-party packages. It reconstructs each graph \(K_m\square T\), enumerates faces of its total two-cut complex using the complementary nonedge criterion, enumerates all elements of \(S_m\times\operatorname{Aut}(T)\), and calculates their **signed reduced simplicial Lefschetz numbers**. It compares these numbers to \((-1)^{mt-4}\) times the predicted trace on the unique nonzero reduced rational homology. There are \(192\) exact permutation/sign comparisons over ten examples, including a four-vertex star and a four-vertex path. All completed successfully.
+## correctness
 
-For cases with at most nine graph vertices it additionally computes actual simplicial boundary-map ranks over \(\mathbb F_2\), including the augmented degree-zero correction, and checks the predicted reduced Betti rank \((m-1)(t-1)\). These matrices confirm finite cases only; the general integral assertion, the absence of torsion, the full representation and the exact equivariant extension order follow from the proof in `RESULT.md`.
+PASS
 
-For a human proof check, independently verify that the tree incidence matrix has an integral right inverse after rooting; that \(H^1\) of the quotient multigraph is \(\bigoplus_{e} \mathbb Z^{[m]}/\mathbb Z\mathbf1\); that tree automorphisms multiply every bipartition-oriented edge by the same sign; and that Alexander duality contributes the ambient vertex-permutation sign. Finally verify that the invariant homomorphism restriction \(\operatorname{Hom}_{S_m}(\mathbb Z^{[m]},\mathbb Z)\to\operatorname{Hom}_{S_m}(\mathbb Z,\mathbb Z)\) is multiplication by \(m\). None of these verification suggestions implies that an external audit occurred.
+Read RESULT.md, proof and full tree_cut_verify.py. The clique complex of K_m □ T consists of t contractible column simplices plus m parallel edges over each tree edge; tree incidence has an integral right inverse, yielding H^1= (Z^m/Zdiag)⊗Z[E(T)]. A tree automorphism changes all bipartition-oriented edges by the common sign χ_T; ambient Alexander duality contributes ε=sign(σ)^t sign(a)^m. This proves integral H_{mt-4}=εχ_T⊗U_m⊗P_T with all other reduced groups zero, including mt=4 degree zero. The non-split exact sequence has order m: invariant Hom restriction Z→Z multiplies by m, the explicit equivariant lift s([z])=mz−sum(z)diag proves the upper bound, and restriction to S_m and projection to one tree edge proves lower bound. Independent small-face Euler enumerations matched three boundary cases; source verifies 192 signed traces on 10 trees.
+
+## originality
+
+PASS
+
+Chauhan–Shukla–Vinayak prove the path-factor nonequivariant wedge of (m−1)(t−1) spheres, not arbitrary branching trees or integer actions. Carnero Bravo v3 §5.4 treats Cartesian products of paths and products of complete graphs, not products of one complete graph and arbitrary tree or the precise order-m integral extension. Total-cut symmetry papers examine different complexes or graph families.
+
+## value
+
+PASS
+
+A complete infinite-family integral homology Γ-module for arbitrary branching trees substantially refines path-only wedge ranks. The canonical weight-lattice extension has exact unbounded order m but no torsion in ordinary homology, a sharp symmetry obstruction that disappears rationally and distinguishes natural group lattices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
