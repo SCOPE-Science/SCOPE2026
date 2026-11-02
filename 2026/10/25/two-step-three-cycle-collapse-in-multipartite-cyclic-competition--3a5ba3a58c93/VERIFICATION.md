@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py`. The script enumerates all 2158 realizable saturated seven-support signatures, verifies their exact successor-availability transitions, and checks the assertion that every support signature is monochromatic or all-advancing after at most two updates. It verifies the three-step return of all resulting support signatures. Saturation at two is sufficient because one only needs to know whether a successor color occurs in zero, one, or at least two distinct graph parts.
+## correctness
 
-The script separately checks the finite factor on all support-tuples for three, four, and five parts and runs a vertex-adjacency implementation on ten graph-size vectors, covering 24246 labelled configurations. It verifies the claimed primitive-period counts, the sharp transient bound, and direct agreement with the support sum. The exact output appears in `verification_output.txt`.
+PASS
 
-The finite-graph enumerations are cross-checks; the all-size proof uses the exact 2158-class quotient. This verification is not independent external certification. The claimed theorem does not extend to arbitrary graph topologies, greater numbers of colors, or asynchronous updates.
+The synchronous three-color cyclic cellular automaton on loopless complete multipartite graphs K_{n1,...,nr}, r≥3 and all ni≥1, has an exact support evolution: a vertex of color c advances iff c+1 occurs in a different part. Recording multiplicities of each of seven nonempty part-color-support sets capped at two is sufficient to decide all successor tests and to reconstruct the next capped signature. The inspected source enumerates the complete 2158 realizable signatures and proves by finite exhaustive quotient that every signature after two steps is monochromatic or all-advancing; independently reimplemented signature dynamics reproduce the 1972/165/21 first-entry profile and all T⁵=T² relations, and independently simulated labelled examples reproduce periodic counts 9,21,273. Since the finite quotient is an exact factor for arbitrary part number and sizes, this is not an extrapolation from finite graph samples. All-advancing configurations rotate globally and have period exactly 3; only the 3 global monochromes are fixed. The product of onto-function counts over supports yields the complete R census, (R−3)/3 three-cycles and zeta function. The exhibited mixed-color same-part configuration proves sharpness two if any part has size≥2; singleton case sharpness one.
+
+## originality
+
+PASS
+
+Foundational cyclic/Greenberg–Hastings automata papers and Gravner–Lyu–Sivakoff's general circulation/synchronization results concern related graph dynamics, but do not in their inspected statements determine this all-size complete-multipartite CCA recurrence cutoff, only periods 1 and 3, or labelled periodic-state polynomial. Neighboring published Resultary example on complete multipartite **binary parity automata** has a different update map; complete-bipartite cyclic competition can have primitive period four, hence does not imply the r≥3 theorem. The distinction is both in the exact transition and its graph family, not an artificial change of notation. Unindexed specialized treatments remain possible.
+
+## value
+
+PASS
+
+The sharp bound two, absence of bipartite period-four behavior after adding a third part, uniform period classification for unbounded graph size, and exact dynamical zeta function give a natural complete dynamics/census theorem. The exact finite quotient is an explicit reusable structural reduction of an infinite graph family, not merely experimental data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

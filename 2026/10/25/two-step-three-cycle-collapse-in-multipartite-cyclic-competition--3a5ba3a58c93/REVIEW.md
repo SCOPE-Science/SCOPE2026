@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The update is defined on labelled complete multipartite graphs with arbitrary positive part sizes. An exact seven-support-type quotient tracks the number of parts carrying each support, saturated at two. Because availability of each successor color outside the current part depends only on zero/one/at-least-two membership, the quotient is an exact factor for **all** graph sizes. All 2158 realizable signature classes are exhaustively processed in a standalone checker, establishing entry into global rotation or monochromatic fixation within two updates. The same checker tests all-support configurations through five parts and independently simulates 24246 labelled configurations on representative graphs. Recurrent-state enumeration follows by support-specific surjection counting. The sharpness witness is explicit. Finite labelled tests serve as corroboration, not the infinite-size proof.
+## correctness
 
-## Originality — PASS, with residual risks
-Searches of published mathematical findings and academic literature found no same-operator complete multipartite three-color cyclic recurrent-state census with the two-step cutoff. The closest general paper of Gravner–Lyu–Sivakoff proves synchronization via circulation and characterizes long-run excitation activity, but neither gives this exact census nor the sharp bounded transient for all parameters. Durrett–Griffeath supplies the historic lattice model, not the multipartite result. Related complete-multipartite **Greenberg–Hastings** and complete-**bipartite** cyclic calculations concern different maps or fewer graph parts; neither entails the current theorem without the independent all-size transition quotient. The bipartite model admits primitive period four while this model does not. Residual risk: mathematically equivalent analyses may be unindexed, and the foundational 1993 full text was not materially inspected.
+PASS
 
-## Value — PASS
-This proves a sharp uniform finite-entry theorem across infinitely many graphs, a complete primitive orbit census, a graph-part-count bifurcation excluding period four, and an exact zeta function. It distinguishes cyclic competition from the Greenberg–Hastings operator even on the same graph family: their coincident all-advancing support census hides genuinely different fixation and transient behavior. The finite quotient compresses arbitrary graph sizes to a tractable, auditable 2158-signature certificate. No larger-color generalization is asserted.
+The synchronous three-color cyclic cellular automaton on loopless complete multipartite graphs K_{n1,...,nr}, r≥3 and all ni≥1, has an exact support evolution: a vertex of color c advances iff c+1 occurs in a different part. Recording multiplicities of each of seven nonempty part-color-support sets capped at two is sufficient to decide all successor tests and to reconstruct the next capped signature. The inspected source enumerates the complete 2158 realizable signatures and proves by finite exhaustive quotient that every signature after two steps is monochromatic or all-advancing; independently reimplemented signature dynamics reproduce the 1972/165/21 first-entry profile and all T⁵=T² relations, and independently simulated labelled examples reproduce periodic counts 9,21,273. Since the finite quotient is an exact factor for arbitrary part number and sizes, this is not an extrapolation from finite graph samples. All-advancing configurations rotate globally and have period exactly 3; only the 3 global monochromes are fixed. The product of onto-function counts over supports yields the complete R census, (R−3)/3 three-cycles and zeta function. The exhibited mixed-color same-part configuration proves sharpness two if any part has size≥2; singleton case sharpness one.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Foundational cyclic/Greenberg–Hastings automata papers and Gravner–Lyu–Sivakoff's general circulation/synchronization results concern related graph dynamics, but do not in their inspected statements determine this all-size complete-multipartite CCA recurrence cutoff, only periods 1 and 3, or labelled periodic-state polynomial. Neighboring published Resultary example on complete multipartite **binary parity automata** has a different update map; complete-bipartite cyclic competition can have primitive period four, hence does not imply the r≥3 theorem. The distinction is both in the exact transition and its graph family, not an artificial change of notation. Unindexed specialized treatments remain possible.
+
+## value
+
+PASS
+
+The sharp bound two, absence of bipartite period-four behavior after adding a third part, uniform period classification for unbounded graph size, and exact dynamical zeta function give a natural complete dynamics/census theorem. The exact finite quotient is an explicit reusable structural reduction of an infinite graph family, not merely experimental data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
