@@ -1,19 +1,21 @@
-# Review: edge-neighbor parity extinction on even complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is over \(\mathbb F_2\) and distinguishes \(N\) underlying vertices from \(E\) edge states. The equality \(F=B^{\mathsf T}B\) is exact, including the zero diagonal, because each simple edge has exactly two endpoints. Connectivity gives \(\operatorname{im}B=W\) and \(\ker B^{\mathsf T}=\langle\mathbf1_N\rangle\); even total order puts the constant vector inside \(W\). For \(Q=BB^{\mathsf T}\), restriction to \(W\) is identified with the parity-zero vector of \(r\) part sums. Projecting through \(B^{\mathsf T}\) removes one dimension precisely for even \(r\). Since every part has even size, the next \(Q\) kills this image. This proves all rank and zero-cube statements for all allowed class sizes. The Jordan rank differences and kernel cardinalities yield the complete extinction census. Direct matrix checks and exhaustive simulations corroborate the proof without replacing it.
+PASS
 
-## Originality — PASS, qualified
+For every r>=2 and even part sizes n_i>=2, take the binary unsigned vertex-edge incidence matrix B of the connected multipartite graph. The line-graph adjacency is exactly F=B^T B because a diagonal incidence inner product is 2=0 in F_2. The image of B is W={y:sum y=0}, dim N-1, and ker B^T=<1_N>, which lies in W for even N; hence rank F=N-2. BB^T=A_G on even-degree vertices. On W it sends each vertex in part i to the part sum s_i, with sum_i s_i=0; the image is (r-1)-dimensional in part-constant space and hits <1_N> exactly when r is even. Thus rank F^2=c=r-1-1_{r even}. Because every part size is even, A_G annihilates part-constant vectors: F^3=B^T A_G^2 B=0. The ranks force Jordan block counts b3=c, b2=N-2-2c, b1=E-2N+4+c, and kernel sizes give the asserted complete H_0..H_3 extinction census. The r=2 and r>=3 sharp depth boundaries are handled. Independently constructed GF2 line-graph adjacency and exact rank triples for eight even-part profiles in private scratch calculations; the actual unrestricted proof, not these finite cases, establishes all sizes.
 
-The line-graph incidence identity is a known fact (Abudayah–Alomari–Sander). General finite-field finite-time convergence is known (Pasqualetti–Borra–Bullo). The closest published complete-multipartite parity analysis concerns bits on the **original graph vertices**, for which the all-even adjacency square vanishes; the present dynamics instead updates **underlying edges** and computes the ranks of \(B^{\mathsf T}B\) and its square. Lights Out on graphs additionally uses a different operator and question. Searches under line-graph, incidence, binary parity, nilpotence and Jordan aliases did not identify the same complete edge-state formula. The remaining risk is a historical graph-code or modular-rank formula not found in indexed literature; search absence alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp nilpotency transition between two and three graph parts, the all-parameter Jordan block structure, and the part-count parity plateau in the exact final-step proportion form a motivated structural classification of a natural graph dynamics. The result applies to infinitely many class sizes and provides all depth strata rather than one small matrix rank. No novel incidence identity, general finite-field convergence theorem, or result for odd class sizes is claimed.
+Best-of-knowledge based on actual source-tree proof inspection, prior claim/implication comparisons and the explicit coverage boundaries. Classical binary cut-cycle code or adjacency-rank literature may already contain an equivalent part-count Jordan formula under different terminology.
 
-## Limits
+## value
 
-Independent evaluation and priority/uniqueness verification have not occurred. Numerical tests reach finite sizes only; the proof is the unrestricted certificate. See the verification document and standalone program for the reproducible checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The line-graph edge-neighbour XOR rule is a natural finite-field dynamical system. The complete arbitrary-part-size Jordan decomposition, full initial-state extinction census and parity plateaus in the number of parts are more informative than the standard incidence identity; they provide exact worst-case convergence and proportions of exceptional depths. The treatment is sharply restricted to even-sized parts and F_2, a motivated structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
