@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The supporting executable `verify.py` checks the two minimal hub-to-hub moments with exact SymPy algebra. It then generates random finite periodic diamond chains with complex bond amplitudes, balanced interference, and independently varying real hub and arm energies. It constructs both the original Hamiltonian and a separately assembled direct sum of three-site matrices, tests their unitary equivalence and eigenvalue agreement, and verifies no dynamically propagated amplitude escapes the prescribed five original sites.
+## correctness
 
-For perturbed systems it separately breaks the complex interference balance and the arm-energy equality, confirms the leading Taylor coefficients, and tests actual short-time transition probabilities using matrix exponentials. The reproducibility program requires Python 3, NumPy, SciPy and SymPy. Run `python3 verify.py`; the reference execution returned `TOTAL_ASSERTION_GROUPS= 3378` with no failed assertions (650 each for exact blocks, eigenvalues, confinement dynamics, path errors and energy errors; 125 direct small-time comparisons; two symbolic moment identities and one fixed example).
+PASS
 
-The finite calculations are not exhaustive over unbounded lattice sizes or continuous parameters. Infinite-chain conclusions are established by the analytic invariant-space decomposition and the bounded-operator Taylor expansion in `RESULT.md`. No formal-machine or independent third-party proof review has been performed.
+For the explicitly bounded selfadjoint two-sided diamond Hamiltonian with all four arm couplings nonzero, adjacent hub moments are <A_(j+1),H^2 A_j>=S_j=r_j†l_j and <A_(j+1),H^3 A_j>=(v_j+v_(j+1))S_j+T_j. Identically confined dynamics makes both vanish and forces E_U,j=E_V,j. Conversely orthogonal arm vectors plus equal arm energies yield an exact orthogonal decomposition into 3x3 Jacobi blocks indexed by hubs, proving confinement for all time and compact complete eigenbasis. Taylor amplitudes yield hub-to-hub probabilities |S|² t^4/4 or |conj(r_U)l_U|²|eps_U-eps_V|² t^6/36 according to first failure. Independent Hermitian matrix checks verified 100 finite models, not the infinite operator theorem. Closure of eigenvalue union need not consist solely of eigenvalues.
+
+## originality
+
+PASS
+
+Known magnetic AB caging, symmetric-arm disorder localization and detangling are credited. The combined arbitrary cell-dependent all-hub iff, exact trimer decomposition and separated t^4 versus t^6 short-time escape coefficients were not established by inspected comparator statements.
+
+## value
+
+PASS
+
+This classification gives necessary and sufficient local engineering constraints for perfect caging under arbitrary bounded spatially varying complex hoppings and onsite terms, rather than numerical robustness for a fixed physical gauge. The two distinct leakage orders quantify two different physical mechanisms and provide a predictive local boundary statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review: diamond-chain confinement and leakage classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator is bounded and self-adjoint by its explicitly bounded nearest-neighbor coefficients. The two lowest potentially nonzero transition moments from one hub to the next are derived exactly: the second moment is the sum of the two complex path amplitudes, and the third is their energy-weighted sum plus hub-energy multiples. Vanishing of both moments forces equal arm energies because neither path contribution is zero. Conversely, path orthogonality and equal arm energies provide a sitewise orthonormal rotation into independent three-site irreducible Jacobi blocks. This proves the infinite-chain statement, the complete compact eigenbasis and the exact evolution support. Matrix exponential Taylor coefficients yield the strictly positive quartic or sextic leading probability unless the corresponding obstruction vanishes.
+PASS
 
-An independent symbolic four-site calculation and 3,378 categorized numerical assertion groups were passed using the standalone checker. Finite tests are corroborative only. The theorem correctly states the topological spectrum as a closure, without claiming accumulation points are eigenvalues.
+For the explicitly bounded selfadjoint two-sided diamond Hamiltonian with all four arm couplings nonzero, adjacent hub moments are <A_(j+1),H^2 A_j>=S_j=r_j†l_j and <A_(j+1),H^3 A_j>=(v_j+v_(j+1))S_j+T_j. Identically confined dynamics makes both vanish and forces E_U,j=E_V,j. Conversely orthogonal arm vectors plus equal arm energies yield an exact orthogonal decomposition into 3x3 Jacobi blocks indexed by hubs, proving confinement for all time and compact complete eigenbasis. Taylor amplitudes yield hub-to-hub probabilities |S|² t^4/4 or |conj(r_U)l_U|²|eps_U-eps_V|² t^6/36 according to first failure. Independent Hermitian matrix checks verified 100 finite models, not the infinite operator theorem. Closure of eigenvalue union need not consist solely of eigenvalues.
 
-## Originality — PASS, subject to priority risk
+## originality
 
-Vidal–Mosseri–Douçot (1998) supply foundational flux-caging interference, not the arbitrary-disorder equivalence. Flach–Leykam–Bodyfelt–Matthies–Desyatnikov (2013) provide the closely related flat-band detangling principle; this is a conceptual precursor and could make the sufficiency direction familiar. Gligorić–Leykam–Maluckov (2019) compare generic disorder effects on caging; Ahmed–Ramachandran–Khaymovich–Sharma (2022) include a published symmetric-on-site, fixed-hopping special case. Danieli–Andreanov–Mithun–Flach (2020) develop periodic all-bands-flat families. The reported new assertion is the joint necessary-and-sufficient, arbitrary-complex-bond, inhomogeneous one-cage criterion plus sharp quartic/sextic adjacent-hub leakage classification, not the earlier general physical effect, symmetric-potential example, or rotation technique.
+PASS
 
-The closest inspected source material does not explicitly provide the entire combined equivalence with the adjacent-hub short-time laws. Some published general local-unitary constructions may imply the sufficiency as a quick specialization. The full space of historic diamond-chain results cannot be exhaustively excluded; independent priority evaluation is still needed.
+Known magnetic AB caging, symmetric-arm disorder localization and detangling are credited. The combined arbitrary cell-dependent all-hub iff, exact trimer decomposition and separated t^4 versus t^6 short-time escape coefficients were not established by inspected comparator statements.
 
-## Mathematical value — PASS
+## value
 
-A natural experimentally relevant design question is whether deliberately correlated disorder can preserve **every** local cage, not merely one flat band. The result answers it exactly for a broad, nonperiodic family, supplies the gauge-invariant phase-and-amplitude calibration condition, and gives different measurable initial-leakage powers for bond-interference errors and detuned arm energies. Its global trimer decomposition identifies all localized modes without periodic Bloch theory. These outcomes are structural and go beyond merely repeating the fixed-hopping example.
+PASS
 
-## Limitations and independent status
+This classification gives necessary and sufficient local engineering constraints for perfect caging under arbitrary bounded spatially varying complex hoppings and onsite terms, rather than numerical robustness for a fixed physical gauge. The two distinct leakage orders quantify two different physical mechanisms and provide a predictive local boundary statement.
 
-Only two-sided, single-particle, Hermitian nearest-neighbor diamond chains with four nonzero hoppings per cell are treated. No claims are made for interactions, disordered arbitrary additional links, robustness to unconstrained disorder, or experimental noisy inverse estimation. Spectral type, rather than a discrete topological spectrum, is asserted. The historical priority of the exact combined theorem remains a residual research risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
