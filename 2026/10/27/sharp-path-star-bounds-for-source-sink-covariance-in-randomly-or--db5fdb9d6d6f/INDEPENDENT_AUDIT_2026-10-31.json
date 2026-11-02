@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:59:40.653744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed simple tree, source/sink indicator at a vertex has marginal q_v=2^{-d_v}; diagonal cross covariance is −q_v² and the only off-diagonal dependence occurs at adjacent ordered pairs, each contributing q_u q_v. Summation gives 2Σ_edges q_uq_v−Σ_vertices q_v². Substitution yields path (n−4)/16 and star (n−1)/2^(n−1)−(n−1)/4−4^−(n−1). For any nonstar, at most n−2 leaves and at least two leaf edges give a strict lower bound above star. For any nonpath, detach one pendant arm from an extremal branch vertex and attach it to another arm terminal; the exact covariance gain is ≥5/64, branch excess drops by one, and iteration reaches the path. n=2 and n=3 are handled separately. Independently enumerated every orientation of 47 unlabeled trees n=2..8 and reproduced the local formula and both extremal inequalities. Finite enumeration is diagnostic, not the general argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bienvenu arXiv:1711.08815 concerns positive association of common-source directed percolation reachability events.",
+          "Guo–He doi:10.1002/rsa.20928 Section 5 concerns sink-popping sampling rather than source–sink mixed count extrema.",
+          "Kozerenko–Dekhtiar doi:10.61091/um124-01 Theorem 3.13 and Proposition 3.19 concern line-digraph size and components."
+        ],
+        "reasoning": "Prior association and line-digraph bounds do not dominate the covariance of the numbers of sources and sinks. A separate tree-covariance extremal theorem would, but none located.",
+        "searches": [
+          "Resultary published findings semantic query: Random orientations of trees covariance number of sources and sinks sharp maximum path minimum star",
+          "web search: covariance sources sinks uniformly oriented tree path star"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md 8e2b0746a75ebc2ed4e3146a0b0bcc58c5fba94f and verify.py c3ac209f1b34e4a043da5a104b331d9c15567db4",
+        "Kozerenko & Dekhtiar 2025 doi:10.61091/um124-01 Sections 3.2–3.3 full PDF",
+        "Bienvenu arXiv:1711.08815 abstract/theorem description",
+        "Guo & He 2020 doi:10.1002/rsa.20928 referred Section 5",
+        "Resultary orientation and tree covariance semantic search",
+        "Independent checker TREE_ORIENTATION_EXACT_CASES 47"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kozerenko–Dekhtiar Proposition 3.19 counts weak components as Σ_sources,sinks(d_v−1)+1, and Corollary 3.20 computes an expected component count.",
+          "The mixed second moment E[SK] does not follow from a first-moment component statistic without additional information."
+        ],
+        "reasoning": "Prior means/conditional events cannot infer exact pair covariance or unique path/star extrema. Basic indicator calculation for covariance may be elementary, but the strict all-tree extremal classification is the assessed contribution.",
+        "searches": [
+          "Resultary published findings semantic query: Random orientations of trees covariance number of sources and sinks sharp maximum path minimum star",
+          "web search: covariance sources sinks uniformly oriented tree path star"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same observable is the mixed coefficient of the two-variable sources/sinks probability-generating function; it is not the expected number of sources, sink-free probability, or reachability association.",
+          "Kozerenko–Dekhtiar 2025 treats orientation-dependent source and sink counts in line digraph components but not their product covariance."
+        ],
+        "reasoning": "Compared the mixed second derivative/covariance to references on tree orientation, sinks, reachability and line digraphs. None of the passages inspected states an equivalent mixed count formula with strict path–star extrema.",
+        "searches": [
+          "Resultary published findings semantic query: Random orientations of trees covariance number of sources and sinks sharp maximum path minimum star",
+          "web search: covariance sources sinks uniformly oriented tree path star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on root-degree covariances for random recursive trees and path-star width variance of zonotopes are different random objects/observables.",
+          "Independent exact enumeration of all tree orientations n≤8 supplements proof but is not a previously published table."
+        ],
+        "reasoning": "No matching path–star covariance table found; searched aliases include polytree, random orientation, source/sink, and bivariate generating-function coefficient.",
+        "searches": [
+          "Resultary published findings semantic query: Random orientations of trees covariance number of sources and sinks sharp maximum path minimum star",
+          "web search: covariance sources sinks uniformly oriented tree path star"
+        ]
+      },
+      "rationale": "Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.",
+      "residual_risks": [
+        "A bivariate generating-function result for random orientations of fixed trees could imply the mixed covariance and shape extrema even without matching wording.",
+        "Only independently enumerated tree orders through 8; unrestricted tree assertion rests on the graft and degree argument.",
+        "Not proved for dependent/bias-oriented edges or graphs with cycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its exact quantities are line-digraph arcs and weak-component counts; no theorem about Cov(S,K) or path/star sharp extrema.",
+          "evidence": [
+            "Proposition 3.19 k(L(T))=Σ_{inner sources/sinks}(d−1)+1",
+            "Corollary 3.20 averages weak components"
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/um/volume%20124/line-digraphs-of-polytrees.pdf",
+          "material_read": "Full open-access 22-page PDF accessible; read introduction and sections 3.2–3.3 (especially Theorem 3.13, Proposition 3.19, Corollary 3.20), first page image inspected",
+          "method": "Primary open-access full-text PDF, text extraction and visual page inspection",
+          "title": "Line digraphs of polytrees",
+          "trigger": "Same fixed-tree random orientation and source/sink terminology"
+        },
+        {
+          "assessment": "Reachability association is a different family of variables; no whole-document exclusion claimed.",
+          "evidence": [
+            "Common-source reachability indicators are distinct from mixed source–sink count covariance"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.08815",
+          "material_read": "Abstract and theorem descriptions available; full text not independently inspected here",
+          "method": "Search result/abstract and package reference comparison",
+          "title": "Positive association of the oriented percolation cluster in randomly oriented graphs",
+          "trigger": "Association for random orientations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp sign-changing mixed count covariance provides a complete extremal shape classification under the natural uniform orientation ensemble and explains why the path and star respectively optimize the observable. The strict pendant-path transformation and finite-size sign boundary are useful structural mechanisms in probabilistic graph orientation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md 8e2b0746a75ebc2ed4e3146a0b0bcc58c5fba94f and verify.py c3ac209f1b34e4a043da5a104b331d9c15567db4",
+    "Kozerenko & Dekhtiar 2025 doi:10.61091/um124-01 Sections 3.2–3.3 full PDF",
+    "Bienvenu arXiv:1711.08815 abstract/theorem description",
+    "Guo & He 2020 doi:10.1002/rsa.20928 referred Section 5",
+    "Resultary orientation and tree covariance semantic search",
+    "Independent checker TREE_ORIENTATION_EXACT_CASES 47"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge novelty with explicit inaccessible/uninspected priority risks; no external attestation.",
+    "Finite independent computations do not prove unrestricted quantifiers; analytical proof judged separately.",
+    "Potentially public provenance and earlier-literature first-public date remain unsanitized; publication withheld."
+  ],
+  "residual_risks": [
+    "A bivariate generating-function result for random orientations of fixed trees could imply the mixed covariance and shape extrema even without matching wording.",
+    "Only independently enumerated tree orders through 8; unrestricted tree assertion rests on the graft and degree argument.",
+    "Not proved for dependent/bias-oriented edges or graphs with cycles."
+  ],
+  "schema_version": 1
+}

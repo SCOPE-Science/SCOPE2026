@@ -1,15 +1,21 @@
-# Scientific review: sharp path–star source–sink covariance bounds
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact local covariance identity follows by inclusion of the sole common edge for adjacent vertices and disjoint edge sets for nonadjacent vertices. The star and path formulas were recomputed from the identity. The lower bound for a nonstar uses at most \(n-2\) leaves, the maximum degree \(n-2\), and two distinct positive leaf-edge terms. The upper bound uses a terminal branch vertex and two pendant paths; both cases of the edge-replanting calculation are displayed with strict positive lower bounds. The positive-integer branch-excess decreases, proving termination at a path. The exceptional small orders are explicit. The accompanying exact checker passed orientation enumeration and degree-conserving graft tests.
+## correctness
 
-## Originality — PASS on inspected evidence
-Equivalent formulation checked: sources are indegree-zero vertices and sinks are outdegree-zero vertices; this is the joint zero in-/outdegree count in fair orientations. A simple vertex-indicator calculation yields the local formula, but does not imply sharp shape extrema without an argument comparing host trees. Broader coverage checked: positive association of fixed-source reachability (Bienvenu, arXiv:1711.08815) does not imply anything universal about source-count/sink-count covariance, which can have either sign; Guo and He analyze sink-free orientation sampling rather than the mixed covariance. Exact database/table coverage checked: no matching tabulation or equivalent path–star result was found in the targeted published-finding corpus or literature searches; absence from search is not treated as uniqueness proof. Claim-versus-prior implication checked: the source/sink generating functions for random DAGs in Ralaivaosaona's work are for a different random underlying graph; the degree-weighted averages in Kozerenko and Dekhtiar's oriented-tree paper do not imply the strict mixed covariance extrema. The full accessible texts or pertinent full sections of these primary sources were inspected. Residual historical-priority uncertainty remains for other orientation-polynomial and tree-extremal literature not surfaced by the searches.
+PASS
 
-## Mathematical value — PASS
-The object (independently oriented fixed trees) and invariant (dependence of numbers of sources and sinks) are natural in the study of random graph orientations. The result identifies the first tree size admitting positive count covariance and classifies the exact extremal shapes for every order. The positive pendant-path transplantation is a structural comparison argument, not an arbitrary finite-table lookup or a routine normalization. Its sharpness matters because the sign of dependence changes across host-tree shapes, despite independence of the edges. The theorem is narrower than full joint-distribution stochastic order and does not cover cyclic graphs.
+For a fixed simple tree, source/sink indicator at a vertex has marginal q_v=2^{-d_v}; diagonal cross covariance is −q_v² and the only off-diagonal dependence occurs at adjacent ordered pairs, each contributing q_u q_v. Summation gives 2Σ_edges q_uq_v−Σ_vertices q_v². Substitution yields path (n−4)/16 and star (n−1)/2^(n−1)−(n−1)/4−4^−(n−1). For any nonstar, at most n−2 leaves and at least two leaf edges give a strict lower bound above star. For any nonpath, detach one pendant arm from an extremal branch vertex and attach it to another arm terminal; the exact covariance gain is ≥5/64, branch excess drops by one, and iteration reaches the path. n=2 and n=3 are handled separately. Independently enumerated every orientation of 47 unlabeled trees n=2..8 and reproduced the local formula and both extremal inequalities. Finite enumeration is diagnostic, not the general argument.
 
-## Closest sources and limitations
-Bienvenu (arXiv:1711.08815, inspected HTML paper) proves association of fixed-source reachability. Guo and He (DOI 10.1002/rsa.20928, inspected full article) address sink-popping. Ralaivaosaona (DOI 10.4230/LIPIcs.AofA.2022.17, inspected paper) addresses random DAG sources and isolated vertices. Kozerenko and Dekhtiar (DOI 10.61091/um124-01, inspected Sections 3.2–3.3) count properties of line digraphs of polytrees. None of the inspected material states or directly implies the joint tree-order extrema. Search coverage is finite, and an overlooked stronger orientation-polynomial theorem could affect priority. Independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.
+
+## value
+
+PASS
+
+Sharp sign-changing mixed count covariance provides a complete extremal shape classification under the natural uniform orientation ensemble and explains why the path and star respectively optimize the observable. The strict pendant-path transformation and finite-size sign boundary are useful structural mechanisms in probabilistic graph orientation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
