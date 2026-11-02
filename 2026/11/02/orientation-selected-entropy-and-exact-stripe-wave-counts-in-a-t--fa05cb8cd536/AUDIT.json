@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For each index-shift wave, the alphabet update forces increments 0 or 1. Horizontal stripes give exactly 3b_i successor neighbors. Diagonal stripe geometry yields N_i=2b_i+(b_i xor b_{i+1})+b_{i-2}b_{i-1}, a necessary-and-sufficient four-symbol criterion. The explicit eight-state transfer matrix and its characteristic polynomials are computed with exact integer arithmetic in the embedded verifier; the eigenvalues then give entropy via standard SFT spectral theory. The color lift is three-to-one, so does not change entropy. The axial period count is an exact trace of I+P, and zeta is its determinant reciprocal. Separate brute-force two-dimensional updates for all period widths 3–8 and thresholds 1–8 agree; such finite checks are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Urías et al., Chaos 6 (1996), §§I,III: a general algorithm for finite-automaton presentations of one-dimensional traveling states and their entropy.",
+        "Fisch, Gravner, Griffeath, Statistics and Computing 1 (1991) 23–39, §2: horizontal band propulsion threshold θ≤3 for range-one square neighborhoods.",
+        "Muñoz and Nuño, arXiv:2610.37990 §V.4: three-front attractors sampled numerically; no complete diagonal traveling-subshift classification."
+      ],
+      "reasoning": "The general finite-transducer theorem is a genuine stronger methodological framework, and the horizontal propagation cutoff is known. Neither statement gives, without a separate new specialization, the explicit two-orientation finite-type restrictions, the quartic Perron root at diagonal threshold two, or the golden-mean entropy at threshold three. These exact, naturally motivated dynamical invariants—not generic computability or the known single-front bound—constitute the assessed claim.",
+      "searches": [
+        "Urías Salazar-Anaya Ugalde Enciso 1996 Traveling patterns in cellular automata topological entropy finite automata full text",
+        "Fisch Gravner Griffeath Threshold-range scaling of excitable cellular automata 1991 horizontal band waves",
+        "2026 cyclic-dominance automaton symmetry resolved periods stripe waves"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2503.16593 (2025, full HTML)",
+      "Fisch–Gravner–Griffeath (1991), DOI 10.1007/BF01890834 (open full PDF)",
+      "Urías–Salazar-Anaya–Ugalde–Enciso (1996), DOI 10.1063/1.166190 (author-uploaded text; relevant sections)",
+      "arXiv:2610.37990 (first public Oct 27 2026; independent self-review; full HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known horizontal condition θ≤3 is a proper part of the new theorem, explicitly not claimed as new.",
+        "Earlier 1996 work implies abstract finite-state computability for 1D traveling-wave subsystems but no explicit two-orientation Moore calculation.",
+        "October 2026 work measures selected attractors, whose three-band restriction describes observations from sampled initial data; the present result identifies arbitrary exact waves and their entropy, not their basins."
+      ],
+      "reasoning": "The novel mathematical content concerns simultaneously the complete two-direction local constraints, their distinct exact entropy spectra at every integer threshold, and the axial exact all-period census. Those concrete statements do not follow logically from the prior isolated-front threshold or period-quotient classification without additional calculations. The strongest generic transducer precedent might make the new calculation less surprising and is disclosed, not hidden.",
+      "searches": [
+        "Fisch Gravner Griffeath 1991 range one box θ≤3 band condition and stripe waves",
+        "Urías et al. 1996 traveling configurations transducer theorem §§I,III",
+        "Muñoz Nuño arXiv:2610.37990 §V.4 travelling waves one band per state",
+        "Sharipov et al. arXiv:2503.16593 §9 topological entropy proposed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharipov et al., arXiv:2503.16593 §§1–3,9: reversible one-dimensional brickwork cellular automata; entropy identified as a further diagnostic.",
+        "Muñoz and Nuño, arXiv:2610.37990 §§II,V.4,V.13: same three-color Moore update; parameter study and sampled three-band attracting waves, without the all-stripe transfer matrices."
+      ],
+      "reasoning": "The closest interpretation of the same mathematical model uses predator counts at Moore radius one, so equality of model was checked directly rather than excluded by different terminology. Their observed attractor family is not the complete symbolic traveling-wave set; the unrestricted finite-type families and entropy are different claims. Reversible brickwork rules are not equivalent to this irreversible threshold CCA.",
+      "searches": [
+        "cyclic cellular automaton Moore radius one striped successor subshift topological entropy log two threshold three",
+        "cyclic cellular automata travelling wave topological entropy transfer graph diagonal orientation",
+        "arXiv:2503.16593 Introduction, Summary, Conclusions; arXiv:2610.37990 Model, Traveling waves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sharipov et al. §B tables label distinct reversible 3-state brickwork rules and not Moore cyclic threshold dynamics.",
+        "Muñoz and Nuño §V.4 list observed band-width symmetry classes up to selected widths, not the closed formula for all stripe configurations or orientation-dependent entropy.",
+        "Exact integer transfer polynomials supplied and checked in verify_cca_waves.py."
+      ],
+      "reasoning": "No inspected specific table provides the quartic diagonal Perron factor, its entropy, or the complete color-lift periodic-point formula. A failed search is not treated as novelty proof; finite generic algorithms can in principle output such a table, and this is retained as an explicit residual risk.",
+      "searches": [
+        "three color cyclic cellular automata Moore diagonal stripe threshold 2 eigenvalue 1.866760399 entropy",
+        "2^n + 2 cos(n pi/3) cyclic cellular automaton wave periodic point zeta",
+        "cyclic dominance stripe shift of finite type three colors adjacency I+P Artin Mazur zeta",
+        "Sharipov 3-state RCA tables Appendix B; Muñoz Nuño Supplementary wave band tuples"
+      ]
+    },
+    "rationale": "The exact two-orientation subshift classification and its diagonal quartic-Perron versus golden-mean entropy switch were not found in the inspected highly related mathematical papers. Prior constructions do cover horizontal band propagation at threshold three and general finite transducer methods; both are explicitly credited. The same Moore-rule study posted in October 2026 analyzes observed attracting three-band waves and period quotients, not full stripe subshifts or entropy. Explicit priority remains provisional against unindexed or specialized calculations.",
+    "residual_risks": [
+      "A specialized prior application of the 1996 general traveling-transducer algorithm to this three-color, two-dimensional Moore model could contain the exact spectral factors without having been indexed or retrieved.",
+      "Only the relevant sections of the 1996 full text were read; absence of a diagonal Moore calculation is supported by its examples and stated scope but not a formal database-wide priority proof.",
+      "The result concerns all exact stripe waves; no inference is drawn about how likely a random finite initial state is to reach them."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different one-dimensional reversible brickwork cellular automata; does not state the two-dimensional cyclic threshold model or present theorem.",
+        "evidence": [
+          "arXiv first public timestamp March 20, 2025; §1 brickwork rule and §9 topological entropy as future direction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.16593",
+        "material_read": "Full parsed HTML available; Introduction, Summary, model descriptions, class distinctions, Conclusions and Outlook including topological-entropy proposal examined.",
+        "method": "Read parsed public scholarly manuscript and compared rule definitions and claimed quantities.",
+        "title": "Ergodic behaviors in reversible 3-state cellular automata",
+        "trigger": "Recent first-public 2025 source on rigorous dynamical diagnostics for three-state deterministic cellular automata; explicit outlook discusses topological entropy."
+      },
+      {
+        "assessment": "Already establishes the horizontal wave cutoff at θ≤3 for radius-one box neighborhood. It does not give the diagonal SFT entropy spectrum, exact quartic transfer factor, or complete axial zeta formula.",
+        "evidence": [
+          "Fisch, Gravner, Griffeath, Statistics and Computing 1 (1991), 23–39, DOI 10.1007/BF01890834; §2 threshold θ≤(2ρ+1)ρ."
+        ],
+        "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+        "material_read": "Open full paper accessible as parsed PDF; abstract, introductory §§1–2, explicit band-wave criteria, other wave-orientation and threshold discussions inspected.",
+        "method": "Reviewed full available primary PDF source focusing on the exact stated horizontal front cutoff and wave interpretation.",
+        "title": "Threshold-range scaling of excitable cellular automata",
+        "trigger": "Classical primary source defining cyclic cellular automata and straight band-wave thresholds in the same Moore neighborhood."
+      },
+      {
+        "assessment": "Provides a broadly applicable method and does not present the explicit diagonal threshold-two quartic or orientation comparison for the three-color two-dimensional Moore rule. Residual risk of an already derived specialized case remains.",
+        "evidence": [
+          "Urías, Salazar-Anaya, Ugalde, Enciso, Chaos 6 (1996), 493–503, especially Introduction and §III; DOI 10.1063/1.166190."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/1.166190",
+        "material_read": "Author-uploaded full text available and inspected at abstract, Introduction, and Section III including conditions on transducer edges, trimming, and entropy method; not every page was checked.",
+        "method": "Compared formal traveling-set definition F|S=shift, general finite-transducer construction and stated scope.",
+        "title": "Traveling patterns in cellular automata",
+        "trigger": "Potentially dominating generic theorem for complete traveling sets and their topological entropies."
+      },
+      {
+        "assessment": "Reports relative-period and attractor-census phenomena, not the full subshift entropy or exact all-period zeta. Its band-wave observations do cover the already known horizontal cutoff, which is not claimed new.",
+        "evidence": [
+          "Muñoz and Nuño, arXiv:2610.37990, first submitted October 27, 2026, §II θ=ceil(8α), §V.4 three-band waves and θ=3 cutoff."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.37990v1",
+        "material_read": "Full HTML parsed; Abstract, Introduction, §II model, §V.4 traveling waves, §V.13 parameter sweeps, and Discussion examined.",
+        "method": "Matched neighbor count and threshold translation exactly and distinguished sampled attracting three-band waves from all possible traveling stripe configurations.",
+        "title": "Symmetry-resolved periods in a cyclic-dominance automaton: separating intrinsic from lattice-induced periodicity",
+        "trigger": "Same two-dimensional three-color threshold Moore rule; highly plausible direct mathematical overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa05cb8c-d536-4ea7-8d81-3e26c30d73b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In cyclic excitable-medium dynamics, the classic propagation threshold concerns a straight band but does not determine the richness of the full wave family. The exact comparison of complete horizontal and diagonal unit-index-speed waves reveals an orientation obstruction (diagonal entropy zero at threshold one despite horizontal entropy log2), an algebraic quartic Perron entropy at threshold two, a golden-mean regime at threshold three, and exact period growth on horizontal cylinders. These are naturally motivated exact dynamical invariants for a fixed physically standard 8-neighbor model; the combined classification is not an arbitrary isolated finite table or a renaming of a known band cutoff.",
+    "status": "PASS"
+  }
+}
