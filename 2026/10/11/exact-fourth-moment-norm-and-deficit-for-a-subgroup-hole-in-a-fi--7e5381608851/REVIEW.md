@@ -1,15 +1,18 @@
-# Review
+# Scientific comparison and exact two-scale deficit
 
 ## Correctness
-PASS. Fourier averaging over \(H=K^\perp\) is exactly the multiplier onto \(K\), so deleting \(K\) forces zero mean on every \(H\)-coset. On the \((m-1)\)-dimensional zero-sum space, the compressed coordinate projectors form a regular simplex. Their Hilbert--Schmidt Gram matrix has exactly the eigenvalues \((m-1)/m\) and \((m-2)/m\). Decomposing the rank-one operator \(zz^*\) into scalar, simplex-traceless, and orthogonal components gives the local identity and nonnegative remainder. Summing over cosets gives the global two-term deficit and the sharp constant. Character orthogonality verifies the displayed extremizer family exactly.
+The orthogonal average over the annihilator gives zero mean on each coset. The Gram operator of compressed coordinate projectors has scalar eigenvalue \((m-1)/m\), traceless-frame eigenvalue \((m-2)/m\), and zero on its orthogonal complement. Its decomposition on \(z_Cz_C^*\), together with the rank-one Hilbert--Schmidt norm and the elementary coset-energy identity, gives the stated exact fourth-moment defect. Both terms are nonnegative, and the translated point-mass defect attains equality. The degenerate \(m=2\) case is handled separately by the zero coefficient of the local term. Bounded independent numerical checks are supplementary, not the proof.
 
-## Originality
-PASS with a stated residual risk. Direct searches for subgroup-hole \(\Lambda(4)\) constants, annihilator-coset zero-mean formulations, and exact fourth-moment norms found no implication-equivalent indexed result. Michels develops the general \(\Lambda(p)\) framework for infinite character sets, while Bonami--Révész study finite cyclic idempotent concentration and relative coset concentration. Neither inspected source states the subgroup-complement \(L^4/L^2\) formula or the exact two-scale deficit. The previously recorded co-singleton formula is a strict special case; it does not contain the new coset decomposition or subgroup-size dependence.
+## Originality and priority limitation
+The sharp norm formula is **covered**: Holevo–Utkin (arXiv:2603.24017v2) treated dimension three and conjectured the sharp \(\ell^q/\ell^2\) profile; Zhang (arXiv:2605.05243, 2026) proved it in all real dimensions with an explicit extension to complex zero-sum vectors. Apply Zhang's \(q=4\) result on each annihilator coset to recover the norm value immediately. A separately published co-singleton \(\Lambda(4)\) classification is another covered special case. These earlier results are not cited as if they were new here.
 
-## Value
-PASS. A subgroup hole is a canonical dense spectral set, and its annihilator is the basic geometric object controlling finite Fourier conditional expectation. The theorem gives a group-structure-independent exact norm and, more importantly, an exact stability identity that separates two mathematically different sources of loss: spreading \(L^2\) mass across annihilator cosets and failing the local simplex extremal geometry. This is useful beyond a single finite table or parameter value.
+The **additional retained contribution** is the exact Hilbert–Schmidt two-scale decomposition for every subgroup-hole Fourier function. The inspected primary papers concern sharp norm values and entropy, not this projection identity; the finite idempotent-concentration and infinite \(\Lambda(p)\) literatures likewise address different invariants. It remains possible that an equivalent simplex-frame purity/stability identity appears in older frame or quantum-measurement literature. This is a qualified best-of-knowledge statement, not proof of priority.
 
-## Closest literature and limitations
-The closest inspected sources are arXiv:math/9904176v1 and arXiv:0811.4576v1. The former defines the \(\Lambda(p)\) setting but studies infinite-set/operator-ideal questions; the latter explicitly treats finite cyclic groups and cosets but in idempotent concentration. A residual risk remains that the norm-only formula may exist under finite-dimensional Nikolskii terminology. The deficit identity and the exact two-scale interpretation were not found in the checked sources.
+## Value and limits
+The natural Fourier conditional expectation makes a subgroup hole equivalent to zero-mean restrictions along its annihilator cosets. The exact identity distinguishes loss caused by spreading energy among these cosets from the rank-one operator component outside the local regular-simplex span. This gives a full quantitative equality-defect invariant, more informative than the known sharp norm alone. No higher-moment extension or explicit all-extremizer orbit theorem is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Primary references
+- A. S. Holevo and A. V. Utkin, *A conjecture on a tight norm inequality in the finite-dimensional ℓp*, arXiv:2603.24017v2 (2026), §§1–2.
+- Haonan Zhang, *Proof of the Holevo–Utkin conjecture on sharp ℓp norms for zero-sum vectors*, arXiv:2605.05243 (2026), Theorem 2, complex-vector extension, §4.
+- C. Michels, *Λ(p)-sets and the limit order of operator ideals*, arXiv:math/9904176v1 (1999), Theorem 1.
+- A. Bonami and S. Gy. Révész, *Concentration of the integral norm of idempotents*, arXiv:0811.4576v1 (2008), Theorem 6 and finite-group sections.

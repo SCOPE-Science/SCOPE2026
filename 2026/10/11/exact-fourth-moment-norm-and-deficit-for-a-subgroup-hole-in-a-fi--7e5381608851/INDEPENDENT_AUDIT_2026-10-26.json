@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T11:51:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026/2026/10/11/exact-fourth-moment-norm-and-deficit-for-a-subgroup-hole-in-a-fi--7e5381608851/RESULT.md pinned commit 6c379935c2e469fc18959fc6c387e31328c64bcf, git blob 24bd155274f153041cfdd8a6a4493b669f5dc0d0",
+        "Independent exact Gram calculation and independent_subgroup_deficit_check.py, independent_subgroup_deficit_results.json",
+        "https://arxiv.org/abs/2605.05243"
+      ],
+      "rationale": "Fresh derivation of the repaired exact identity: Fourier averaging over H annihilates all K-perpendicular frequencies, forcing z_C in the complex zero-sum space V_C for each H coset. The projected coordinate vectors p_j have frame operator sum p_j p_j^*=I_V. The Gram matrix of their rank-one projectors E_j has diagonal (m-1)^2/m^2 and off-diagonal 1/m^2; the induced real Hermitian-frame operator has scalar eigenvalue (m-1)/m, traceless-simplex eigenvalue (m-2)/m, and zero on the perpendicular complement. For A=zz*, B=A-SI_V/(m-1), ||B||_HS^2=S^2(m-2)/(m-1), giving sum |z_j|^4=S^2/m+(m-2)/m||Proj_W B||_HS^2. Subtracting this from alpha_m S^2 gives exactly (m-2)/m||R||_HS^2. Summing over cosets expands (sum S_C)^2, producing 2 alpha_m sum_{C<D} S_C S_D and the full normalized N-scale identity. The m=2 case has W=0 and coefficient zero; N=2, k=1 is admissible. Evaluation coefficients c conjugate(chi(y)) yield f=c(N delta_y-k 1_{y+H}), with all mass in one coset and R=0, so the known norm value is indeed sharp. Bounded independent numerical checks: 220 local/global randomly generated complex zero-sum test cases for m=2..12, 1..5 cosets, max normalized error 4.22e-16; not proof of all dimensions.",
+      "residual_risks": [
+        "The Fourier theorem is restricted to finite abelian groups, with K a proper dual subgroup; no assertion for nonabelian groups or general removed sets.",
+        "The exact nonnegative deficit is an operator-space projection measure, not a calibrated Euclidean distance to the full optimizer orbit.",
+        "The unchanged repository verifier checks norm cases and extremizers but not the new projection identity; an independent numerical script checks 220 examples, and proof is algebraic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang proves a stronger family of sharp ℓq norm constants for all q>2 and complex zero-sum vectors. Its q=4 theorem directly covers the submitted sharp K4 value after coset decomposition.",
+          "Holevo–Utkin prove d=3 and propose the general conjecture; their paper does not give HS residuals.",
+          "Michels Theorem 1 concerns infinite Λ(p) sets and operator-ideal limit orders, not a finite exact fourth-moment deficit.",
+          "Finite abelian full Fourier-transform p→q norm results allow unrestricted coefficients and do not supply a restricted-subspace exact deficit."
+        ],
+        "reasoning": "The norm portion is already covered by a strictly broader theorem. The extra *exact stability identity* is not stated in the source and needs the specific simplex Hermitian-frame spectral argument and coset interaction split; full prior coverage of the repaired theorem was not established.",
+        "searches": [
+          "arXiv:2605.05243 Theorem 2 and §4 q>2 proof, complex vectors, POVM entropy discussion",
+          "arXiv:2603.24017v2 §1 formulation and §2 d=3 theorem",
+          "web: norm of Fourier transform on finite abelian groups Gilbert Rzeszotnik (2010)",
+          "arXiv:math/9904176v1 Theorem 1",
+          "web: simplex POVM purity variance fourth moment exact identity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.05243",
+        "https://arxiv.org/html/2603.24017v2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c",
+        "https://arxiv.org/html/0811.4576v1",
+        "https://arxiv.org/html/math/9904176v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-fourth-moment-norm-and-deficit-for-a-subgroup-hole-in-a-fi--7e5381608851",
+        "https://aif.centre-mersenne.org/item/AIF_2010__60_4_1317_0/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m=|K-perp| and k=N/m cosets: Zhang maximum alpha_m implies ||f||4^4 ≤ N alpha_m ||f||2^4, while one-coset point defect attains equality. Thus the norm formula was known as a corollary, even without a matching title.",
+          "The earlier co-singleton finding is m=N,k=1 and proves a norm/equality classification but not a two-term HS decomposition.",
+          "Bonami–Révész finite cyclic results study relative concentration of idempotents rather than arbitrary complex-coefficient subgroup-hole deficit identities."
+        ],
+        "reasoning": "Original broad novelty assertion is covered as to its norm. Repaired claim explicitly treats that norm as known and retains the all-input exact decomposition; no inspected implication yields its squared-distance equality as stated.",
+        "searches": [
+          "arXiv:2605.05243 Theorem 2 plus complex-vector discussion",
+          "arXiv:2603.24017v2 formula M(d,alpha), alpha=2",
+          "published co-singleton Resultary RESULT.md at https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c",
+          "arXiv:0811.4576v1 Theorem 6 and coset relative concentration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier subgroup-hole condition is equivalent to zero conditional mean on every coset of K-perp.",
+          "Zhang arXiv:2605.05243 Theorem 2, explicitly extended to complex vectors in §1, gives the local q=4 sharp maximum (m²−3m+3)/(m(m−1)) for m≥3; m=2 follows trivially.",
+          "The published co-singleton RESULT.md determines the norm and equality profiles for the full zero-sum group subspace but gives no squared projection remainder.",
+          "Zhang discusses a POVM of projected coordinate vectors, which identifies a nearby operator formulation, but the read text does not state the exact HS-projection defect."
+        ],
+        "reasoning": "The repaired identity is the full polynomial equality describing every positive deficit; its two-component HS/energy formula is not logically implied by knowing only the maximum or equality orbit. Prior sharp-norm novelty is explicitly surrendered.",
+        "searches": [
+          "Resultary: sharp fourth moment norm Fourier characters finite cyclic group co-singleton subgroup complement",
+          "web: zero-sum vectors sharp ℓ4 inequality stability deficit exact expression complex",
+          "web: regular simplex frame fourth moment variance projection Hilbert Schmidt identity",
+          "primary: arXiv:2605.05243 §1 complex-vector extension and §4",
+          "published co-singleton RESULT.md at https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hit lists the assessed record (self-match excluded) and an earlier co-singleton norm/equality record.",
+          "Resultary also lists a related sixth-moment subgroup-hole result, but no independent database statement of the fourth-moment two-scale projection deficit.",
+          "The repaired object is an all-groups exact symbolic identity rather than a lookup table."
+        ],
+        "reasoning": "Neither an exact table nor the inspected earlier co-singleton entry records the HS projection formula. An absence of search results does not prove uniqueness.",
+        "searches": [
+          "Resultary: sharp fourth moment norm Fourier characters finite cyclic group co-singleton subgroup complement",
+          "Resultary: subgroup-hole exact fourth-moment and deficit",
+          "published co-singleton database entry https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c",
+          "submitted self-match https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-fourth-moment-norm-and-deficit-for-a-subgroup-hole-in-a-fi--7e5381608851"
+        ]
+      },
+      "rationale": "Repaired claim narrows novelty to the full exact two-scale Hilbert--Schmidt defect, not the sharp norm. Zhang (May 2026), Theorem 2 and complex vector extension, already prove the sharp zero-sum ℓ4/ℓ2 constant in every dimension m, and elementary coset decomposition immediately implies the subgroup-hole K4 formula. Holevo--Utkin earlier state the q=4 extremal formula and establish d=3; published Resultary co-singleton result is a covered case. None of the inspected original/source publications states the global split of the entire deficit into cross-coset S_C S_D and local squared frame-projection remainders. This is an exact identity for every f, not derivable as a stated implication of only a bound on the maximum. Qualified best-of-knowledge; the regular-simplex spectral computation is elementary, and an existing general frame/purity formula might imply the local identity.",
+      "residual_risks": [
+        "A general already-published complex simplex POVM purity/frame potential identity may re-express the local HS remainder, despite no exact citation found.",
+        "The surviving identity is an exact finite-dimensional spectral decomposition; its novelty is modest and not an independent new sharp norm result.",
+        "Resultary self-match was excluded as independent priority evidence; no database search proves novelty.",
+        "Full classifications of equality sets or higher moments are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NORM_COVERING_DEFICIT_NOT_STATED",
+          "evidence": "Theorem 2 confirms Holevo–Utkin q>2 conjecture; introductory complex-vectors section extends it to C^d. At q=4 its alpha_m maximum matches exactly; no HS two-scale identity stated. DOI/arXiv date May 4 2026.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.05243",
+          "material_read": "Full accessible arXiv text: introduction and Theorem 2, complex-vector extension, §4 q>2 proof, finite-dimensional POVM and entropy discussion",
+          "method": "arXiv cached full-text HTML as returned by arxiv.org/abs/2605.05243; searched for projection/stability/deficit",
+          "title": "Proof of the Holevo-Utkin conjecture on sharp ℓp norms for zero-sum vectors",
+          "trigger": "Direct 2026 stronger sharp-norm theorem on the same zero-sum complex vectors"
+        },
+        {
+          "assessment": "PRIOR_NORM_SPECIAL_CASE",
+          "evidence": "§1 M(d,alpha) formula, with alpha=2 and d(2)=3; §2 proves dimension-three real q=4 identity. No global coset/HS defect stated.",
+          "identifier_or_url": "https://arxiv.org/html/2603.24017v2",
+          "material_read": "Full arXiv HTML §§1–2, q=4 d=3 equation, proof and §3 numerical verification context",
+          "method": "Full-text HTML source",
+          "title": "A conjecture on a tight norm inequality in the finite-dimensional l_p",
+          "trigger": "Original March–April 2026 formulation of the same sharp local zero-sum norm"
+        },
+        {
+          "assessment": "NORM_SPECIAL_CASE_COVERED",
+          "evidence": "Sharp K4^4=N−2+1/(N−1) for k=1 and full optimizer orbits, but no two-scale frame HS formula or multi-coset gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c",
+          "material_read": "Entire RESULT.md theorem, proof, extremizer classification, limitations and references",
+          "method": "Published Resultary repository full source file via GitHub at main",
+          "title": "Sharp Lambda(4) constant for the co-singleton spectrum of a finite abelian group",
+          "trigger": "Closest independently published result for deletion of trivial dual subgroup"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Theorem 6 bounds uniform concentration levels for idempotents, not the all-coefficient zero-sum sharp norm/deficit.",
+          "identifier_or_url": "https://arxiv.org/html/0811.4576v1",
+          "material_read": "Introduction, finite cyclic sections, Theorem 6, the relative-concentration discussion",
+          "method": "Accessible arXiv HTML full article; sections and theorem read",
+          "title": "Concentration of the integral norm of idempotents",
+          "trigger": "Finite cyclic cosine/idempotent concentration including relative coset concentration"
+        },
+        {
+          "assessment": "DIFFERENT_INFINITE_SET_SCOPE",
+          "evidence": "Theorem 1 characterizes infinite Λ(p) subsets through operator ideal orders; it does not imply a finite subgroup-hole stability identity.",
+          "identifier_or_url": "https://arxiv.org/html/math/9904176v1",
+          "material_read": "Full arXiv HTML introduction, definition of K_p(Lambda), Theorems 1 and 2",
+          "method": "Accessible arXiv HTML",
+          "title": "Λ(p)-sets and the limit order of operator ideals",
+          "trigger": "General Lambda(p) framework and potential broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Final repaired RESULT.md local mathematical proof",
+        "https://arxiv.org/abs/2605.05243",
+        "https://arxiv.org/html/2603.24017v2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c",
+        "Independent HS projection checks m=2..12"
+      ],
+      "rationale": "The dual subgroup hole and its annihilator cosets form a natural conditional-expectation subspace. While the sharp norm is known, an all-input exact two-scale stability formula quantifies separately global mass splitting and the local rank-one Hermitian departure from the regular-simplex measurement span. It is a substantive structural identity with a nonnegative geometric remainder and an exact equality criterion, not a single numerical table entry, arbitrary slice, or a reinterpretation of the norm alone. The formula is specific to the fourth moment, with modest scope honestly stated; no downstream theorem is required.",
+      "residual_risks": [
+        "A direct quantitative distance to the nonlinear extremizer orbit is not derived; HS defect may vanish on multiple low-dimensional orbits.",
+        "This is a finite-dimensional exact identity rather than an extension to arbitrary finite Fourier spectra or higher even moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Original sharp norm claim is covered by Zhang (May 2026) and cannot claim originality; repaired final finding is exclusively the two-scale deficit.",
+    "No claim of a full equality-orbit classification, a general subgroup-free spectrum, or any q≠4 stability formula.",
+    "No formal Lean or external expert attestation; source verification.py only supplies bounded stress tests.",
+    "Confidence in exact mathematical correctness does not prove bibliographic uniqueness beyond inspected work."
+  ],
+  "schema_version": 1
+}
