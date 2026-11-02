@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Eight explicit domino compositions exhaust the local perfect matchings. The local VC upper bound uses the exactly enumerated per-edge positive counts and the fact that a three-query shattering of eight concepts would force three balanced edges, whereas only one exists. A complete three-level query tree is constructed explicitly and all eight outcomes are realized. Every connecting edge is an even-even separating bridge and therefore excluded from all perfect matchings. Static support counting and concatenated adaptive trees yield the exact unrestricted product dimensions. Standalone graph enumeration confirms the block calculation and the two-block bridge case.
+
+**Originality (PASS under accessible comparisons).** The 2021 Guingona–Kolesnikov–Nierwinski–Soucy zero-set theorem handles a different function family and proves equality rather than an exact matching-family separation. The 2021 Ghazi–Golowich–Kumar–Manurangsi work gives general classifier aggregation bounds, not the ladder block or graph construction. Searches of accessible research records for perfect-matching, domino tiling, ladder and adaptive shattering variants did not identify this result; searches are not proof of priority. Other graph results on maximal independent sets, minimal dominating sets and acyclic orientations concern distinct concept families and do not imply the perfect-matching claim. Possible prior formulations in tiling learning or dimer systems remain a residual risk.
+
+**Value (PASS).** The five-column perfect-matching gadget has a sharp one-unit adaptive advantage and, via a parity-forbidden bridge, turns that local phenomenon into exact linear separation within connected planar bipartite subcubic graphs. This rules out equality of VC and Littlestone dimensions under several natural geometric and degree restrictions and supplies a reproducible witness mechanism. It is not an arbitrary finite enumeration.
+
+**Limitations.** The construction uses bridges and does not address two-connected graphs. No broader exact formula for ladder widths is claimed. Independent historical-priority and scientific audits remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
