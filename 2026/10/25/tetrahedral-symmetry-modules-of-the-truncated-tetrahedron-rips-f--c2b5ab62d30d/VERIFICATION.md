@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Use `python3 verify_tetrahedral_equivariance.py` with a standard Python 3 interpreter. No network access, source downloads, third-party libraries, or separate certificate files are required. The script independently reconstructs the graph on twelve ordered distinct label pairs and checks that every vertex has graph degree three. It computes all 144 ordered pair distances and their unsigned distribution: eighteen graph edges, twenty-four distance-two pairs, twenty-four distance-three pairs.
+## correctness
 
-It loops over every nonempty subset of the twelve vertices, not a sample, and tests each pair against graph distance at thresholds one and two. The resulting complete face vectors, by face cardinality, are \((12,18,4)\) and \((12,42,48,12)\). The script builds every simplicial boundary column from all codimension-one faces and performs exact bitwise elimination over \(\mathbb F_2\). The ranks are \((11,4)\) at threshold one and \((11,31,12)\) at threshold two. The mathematical proof explains why they determine the corresponding rational ranks; the code alone does not claim the integral Smith normal form.
+PASS
 
-The script then enumerates every permutation in \(S_4\), verifies equality of signed Lefschetz numbers within each conjugacy class, and checks their ordered vectors \((-2,2,2,1,0)\) and \((6,2,2,3,0)\). It computes the homology characters using the rational rank information, performs the exact \(1/24\)-weighted irreducible character inner products, and checks dimensions one and two for the full and rotation-subgroup invariant spaces. The expected success line is `TETRAHEDRAL_EQUIVARIANT_CHARACTER_OK`. These steps check the finite mathematical certificate; independent review of the proof and mathematical originality has not occurred.
+For the ordered-pair twelve-vertex cubic graph, the inclusive graph-metric threshold one has f-vector (12,18,4) and exact mod-two boundary ranks (11,4); threshold two has (12,42,48,12) and ranks (11,31,12). The latter ranks achieve rational upper bounds from connectivity, the boundary relation and column counts, so rational homology dimensions are 3 in H1 at scale 1 and 5 in H2 at scale 2. Independently enumerated all S4 label permutations and their signed fixed-face Lefschetz counts, yielding characters (3,-1,-1,0,1) and (5,1,1,2,-1). Character inner products give sign-twisted standard and trivial+sign+standard; A4 invariants have rank two versus S4 rank one. Threshold >=3 is a simplex; interval endpoints are inclusive [1,2),[2,3). These are exact finite facts, not asymptotic numerical extrapolations.
+
+## originality
+
+PASS
+
+The known graph-metric truncated-tetrahedron VR result determines the nonequivariant wedges only, not the S4 character, A4 restriction or quotient invariant ranks. The irreducible decompositions supply information not logically fixed by Betti ranks; the Platonic-solid paper does not treat this Archimedean graph. Best-of-knowledge priority remains qualified.
+
+## value
+
+PASS
+
+The Rips filtration of a natural Archimedean graph is a documented test case; explicitly resolving its full tetrahedral symmetry representation and distinct rotational/full-symmetry quotient ranks is a motivated equivariant topological refinement, not a renaming of wedge ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

