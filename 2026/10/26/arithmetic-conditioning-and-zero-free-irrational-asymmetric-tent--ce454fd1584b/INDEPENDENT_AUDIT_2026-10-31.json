@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:52:44.589124Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e141a24dac28ec38dc0c45089e0ae21b1671c8b3",
+        "Frozen VERIFICATION.md blob 1a23f55efe89026a4b8c6aa7967f1f0a9f85b29b",
+        "independent_checks_batch4919.py"
+      ],
+      "rationale": "The triangular density is continuous, compactly supported and normalized to mass one. Distributional differentiation twice gives F_c(t)=2E_c(t)/(c(1-c)t^2) for t!=0 and F_c(0)=1, with E_c=e^{-ict}-(1-c)-c e^{-it}. Strict convexity of the disk implies any real zero must have e^{-it}=1 and kc integer, hence nonzero zeros exist exactly for rational apex c=p/q at t=2pi*q*nonzero integer; E_c has vanishing first derivative and second derivative c(1-c) there, giving multiplicity two. For a cell t=2pi k+u, |u|<=pi, let P=(1-c)+c e^{-iu} and r=|E|. From 1-|P| <= r and 1-|P|^2=4c(1-c)sin^2(u/2), derive c(1-c)u^2 <= pi^2 r/2. The cancellation of the linear Taylor term in e^{icu}P bounds |e^{icu}P-1| <= pi^2r/4; triangle inequality yields the uniform lower cell bound with factor 1+pi^2/4, and u=0 gives equality for the upper estimate. |1-e^{-2pi ikc}| is comparable to ||kc||, so the cell minima of |t|^2|F| have exact Diophantine order; taking log-limsup gives mu(c)+1, including Liouville mu=infinity, and the globally weighted cubic lower bound is equivalent to inf_k k||kc||>0. Wiener L1 translation cyclicity follows for irrational c. Independent 100 frequency-cell checks at 201 sampled points each plus rational zero locations agreed with the global inequality; the proof, not samples, treats all real frequencies.",
+      "residual_risks": [
+        "Numerical cell samples cannot certify the entire continuum; the uniform analytic bound does.",
+        "The t=0 formula has a removable normalization and is not covered by the t^-2 expression without the limiting extension.",
+        "The logarithmic exponent assumes c irrational; rational c has exact zeros and must remain excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wiener gives L1 density iff no real zeros, and standard Diophantine theory gives mu(c)=1+limsup -log||kc||/log k.",
+          "Neither cited general theorem alone gives the parameter-uniform estimate away from cell centers."
+        ],
+        "reasoning": "Existing general theorems subsume the final cyclicity and number-theory interpretation conditional on the new analytic estimate, but not the estimate itself in inspected sources.",
+        "searches": [
+          "asymmetric triangular density Fourier transform zero free irrational mode Diophantine approximation exponent badly approximable small divisors Wiener",
+          "arXiv:1606.05011",
+          "Wiener 1932 Tauberian theorem"
+        ]
+      },
+      "checked_sources": [
+        "asymmetric triangular density Fourier transform zero free irrational mode Diophantine approximation exponent badly approximable small divisors Wiener",
+        "irrational asymmetric triangular density Fourier cells diophantine exponent badly approximable",
+        "https://arxiv.org/pdf/1606.05011",
+        "https://rdrr.io/cran/CharFun/src/R/cfX_Triangular.R"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior transform formula and Wiener theorem imply the basic rational/irrational zero dichotomy immediately.",
+          "They do not by themselves force a parameter-uniform 1+pi^2/4 whole-cell comparison or the cubic lower bound for badly approximable c without the additional Taylor/convexity estimate."
+        ],
+        "reasoning": "The surviving contribution is the quantitative robust lower bound, not the elementary zero criterion.",
+        "searches": [
+          "asymmetric triangular density Fourier transform zero free irrational mode Diophantine approximation exponent badly approximable small divisors Wiener",
+          "CharFun cfX_Triangular.R",
+          "arXiv:1606.05011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier transform expression is exactly the known triangular characteristic function (opposite sign convention).",
+          "Real-zero condition reduces to integer relations kc integer; Diophantine cell-minimum formula is a strictly quantitative comparison of the same expression."
+        ],
+        "reasoning": "The closed CF itself and rational zero arithmetic are essentially immediate prior; bounded cell conditioning and exact limsup exponent remain the assessed new statement.",
+        "searches": [
+          "asymmetric triangular density Fourier transform zero free irrational mode Diophantine approximation exponent badly approximable small divisors Wiener",
+          "irrational asymmetric triangular density Fourier cells diophantine exponent badly approximable",
+          "CharFun cfX_Triangular.R"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned distinct lacunary Fourier nonvanishing and irrational rotation Fourier examples, not an exact table or bound for triangular apex densities."
+        ],
+        "reasoning": "No same family exact minimum-of-cell table found; originality is not inferred from retrieval absence alone.",
+        "searches": [
+          "asymmetric triangular density Fourier transform zero free irrational mode Diophantine approximation exponent badly approximable small divisors Wiener",
+          "irrational asymmetric triangular density Fourier cells diophantine exponent badly approximable",
+          "Resultary Fourier nonvanishing and irrational arithmetic search"
+        ]
+      },
+      "rationale": "CharFun 2019 source explicitly implements the general three-exponential triangular characteristic function; the source transform is prior and trivial to specialize to [0,1]. Dimitrov–Xu 2016 treats the symmetric tent with sinc-squared zeros and Wiener translation density, not irrational asymmetric apex conditioning. Wiener’s criterion and irrationality exponent identity are classical. The claim is confined to a uniform full-cell inequality plus their exact application to this one-parameter family. Best-of-knowledge novelty assessment of the surviving precise mathematical contribution; unsuccessful database search is not proof of absolute priority.",
+      "residual_risks": [
+        "Older asymmetric B-spline, interpolation or Diophantine small-divisor estimates may already contain a directly equivalent cellwise comparison.",
+        "Optimality of factor 1+pi^2/4 is not established or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS symmetric tent sinc^2 real zeros and Wiener translation consequences; different asymmetric Diophantine parameter family",
+          "evidence": "Proposition 2.15 symmetric tent f, Section 4 observations about zeros and translation spans; no apex irrationality exponent",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.05011",
+          "material_read": "Full open 17-page PDF, especially Proposition 2.15 p.9 and Section 4 pp.14–16, Wiener criterion, symmetric tent example; screenshot first page",
+          "method": "arXiv OA full PDF, targeted theorem text and mathematical implication comparison",
+          "title": "Wronskians of Fourier and Laplace Transforms",
+          "trigger": "Classical Wiener density of translates and symmetric tent comparison"
+        },
+        {
+          "assessment": "COVERS the three-exponential transform formula; the core new cellwise Diophantine estimates do not appear",
+          "evidence": "The source explicitly lists CF for arbitrary a<=c<=b and the t=0 removable value, but no mode irrationality classification",
+          "identifier_or_url": "https://rdrr.io/cran/CharFun/src/R/cfX_Triangular.R",
+          "material_read": "Complete published open R source/documentation lines 54–98, characteristic function and definition",
+          "method": "Direct source-code/metadata inspection of 2019 documentation",
+          "title": "CharFun source: cfX_Triangular.R",
+          "trigger": "Exactly same triangular characteristic function with arbitrary mode"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-frequency cell lower estimate quantifies how a positive compactly supported kernel can be zero-free but arbitrarily poorly conditioned. The exact link to irrationality exponent and badly-approximable threshold is a natural bridge between Fourier translation cyclicity and Diophantine small divisors; neither the already-known triangular characteristic function nor the zero classification alone is submitted as the principal novel value.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source tree 9359d2a3574d3313a60de1096aa994ad42ae4d97",
+    "Frozen RESULT.md Git blob e141a24dac28ec38dc0c45089e0ae21b1671c8b3",
+    "Frozen METADATA.json Git blob 29a74279e50b7939701810e1479806c7de49edc8",
+    "Frozen AUDIT.json Git blob ede3fdf1e69722e0d38c1723689854255afd929c",
+    "independent_checks_batch4919.py",
+    "asymmetric triangular density Fourier transform zero free irrational mode Diophantine approximation exponent badly approximable small divisors Wiener",
+    "irrational asymmetric triangular density Fourier cells diophantine exponent badly approximable",
+    "https://arxiv.org/pdf/1606.05011",
+    "https://rdrr.io/cran/CharFun/src/R/cfX_Triangular.R"
+  ],
+  "disposition": "passed",
+  "limitations": "Mathematics assessed on the exact current final source claim; no widening of hypotheses, no fabrication of external verification. Numerical cell samples cannot certify the entire continuum; the uniform analytic bound does.",
+  "residual_risks": [
+    "Numerical cell samples cannot certify the entire continuum; the uniform analytic bound does.",
+    "The t=0 formula has a removable normalization and is not covered by the t^-2 expression without the limiting extension.",
+    "The logarithmic exponent assumes c irrational; rational c has exact zeros and must remain excluded.",
+    "Older asymmetric B-spline, interpolation or Diophantine small-divisor estimates may already contain a directly equivalent cellwise comparison.",
+    "Optimality of factor 1+pi^2/4 is not established or claimed.",
+    "Finite checks are corroboration only; unrestricted statements rely on analytical argument and named external theorems."
+  ],
+  "schema_version": 1
+}
