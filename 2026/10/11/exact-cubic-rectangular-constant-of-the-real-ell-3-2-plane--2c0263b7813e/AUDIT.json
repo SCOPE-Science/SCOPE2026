@@ -1,115 +1,213 @@
 {
   "correctness": {
-    "rationale": "Smooth Birkhoff orthogonality in \\(\\ell_3^2\\) gives a complete one-parameter tangent family. After including both tangent orientations, the cubic rectangular ratio becomes \\(F(t,s)\\). Three sign regions are eliminated by explicit positive denominator-minus-numerator factorizations. On the only region capable of exceeding one, the change \\(u=t^3\\) and \\(h=st^2\\) gives the rational function \\(R(u,h)\\). Its finite boundary is below one and all escaping paths tend to one. The exact derivative resultant has one admissible root \\(u\\ge1\\); the linear subresultant forces a unique \\(h\\in(4,5)\\), and substitution is certified modulo \\(P\\). Hence the unique interior point is the global maximizer.",
+    "rationale": "The real smooth ell_3^2 Birkhoff criterion x1|x1|y1+x2|x2|y2=0 reduces all unit orthogonal pairs, modulo signed-coordinate isometries and tangent orientation, to x=(t,1)/(1+t^3)^(1/3), y=±(1,-t²)/(1+t⁶)^(1/3), t>=1, together with axis pairs of value 1. After signed scaled lambda s the cubed ratio is F(t,s)=[1+t³+|s|³(1+t⁶)]/[|t+s|³+|1-s t²|³]. Independent exact expansion verifies all three eliminated sign-region denominators-minus-numerator: for 0<=s<=t^-2, s²t[3(t³+1)-2s t^5]>0; for -t<=s<=0, v=-s, v²(3t^4+3t-2v)>0; for s<=-t, v=-s, t[3v²(t³-1)+6tv-2t²]>0. On s>=t^-2, u=t³>=1, h=s t²>=1 gives exact R(u,h)=[u²(1+u)+h³(1+u²)]/[(u+h)³+u²(h-1)³]. Both finite boundary values are <1 and the explicit difference D-N=-u[3h²(u-1)-6hu+2u] proves R->1 on every unbounded path, by cases h bounded, u>=h³, and u<h³ with h->infinity. R(16,5)=36477/25645>1, so an interior maximizer exists. Independently derived both derivative numerator polynomials and exact resultant factor 4u^13(u+1)^4 Q(u)P(u), with Q>0; exact Sturm root count gives exactly one u>=1 root of degree-ten P, isolated (16.1428,16.1429). Independently checked the linear subresultant 4A(u)h-B(u) modulo P, rational interval positivity A>0,B-16A>0,20A-B>0 and derivative divisibility after h=B/(4A). The unique admissible stationary point is the global maximum, rho=1.4225104283683517897..., mu3=rho^(1/3)=1.124652845212756113... . Finite numerical checks were not used for the universal result.",
     "risks": [
-      "The algebraic maximum is represented by an isolated degree-ten root rather than radicals.",
-      "The arbitrary-dimensional value \\(\\mu_3(\\ell_3)\\) is not claimed."
+      "The proof is specific to real two-dimensional ell_3 and the cubic numerator, not all ell_p or higher dimensions.",
+      "The full polynomial certificate is nontrivial and depends on the exact subresultant signs; these were independently replayed rather than accepted from VERIFY_OK."
     ],
     "sources": [
-      "doi:10.1017/S0004972721000253 for the definition of \\(\\mu_p\\) and the motivating \\(\\ell_p\\) estimates",
-      "Bundled RESULT.md",
-      "Bundled verify.py"
+      "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-cubic-rectangular-constant-of-the-real-ell-3-2-plane--2c0263b7813e/RESULT.md",
+      "frozen verify.py at same commit",
+      "Independent local SymPy derivation and exact resultant/Sturm/subresultant computation 2026-10-26",
+      "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf"
     ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "earlier_scientific_assessment": {
+    "correctness": "PASS: Smooth Birkhoff tangents reduce to one exact rational objective; sign regions and boundary behavior are controlled, and the unique degree-ten stationary root is isolated by Sturm and subresultant identities.",
+    "limits": "The earlier scientific conclusions are preserved as historical analysis; they do not serve as independent confirmation of this assessment.",
+    "originality": "PASS (at that assessment): The 2021 full paper gives a nonsharp general bound, and the then-identified p=4 and alternate ell3 objectives did not determine this cubic exact value.",
+    "value": "PASS (at that assessment): The calculation supplies an exact interior optimizer for a natural cubic planar invariant and improves a nonsharp general bound."
+  },
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The motivating paper gives only general upper estimates for \\(\\mu_p(\\ell_p)\\), not exact planar \\(p=3\\) values.",
-        "The exact \\(\\ell_4^2\\) record concerns one different exponent.",
-        "No all-\\(p\\) planar theorem covering \\(p=3\\) was returned."
+        "Baronti–Casini–Papini Theorem 5.6 bounds mu_p(ell_p) but has no exact formula for p=3.",
+        "Published mu4(ell4^2) and mu2(L4) handle different numerator and ambient exponents.",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-generalized-rectangular-constant-of-the-real-ell-4-2-plane--1e948b1d4c03/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quadratic-generalized-rectangular-constant-and-extremizers--f46017f59baf/RESULT.md"
       ],
-      "reasoning": "Neither a general upper bound nor an isolated \\(p=4\\) exact computation logically determines the cubic planar extremum.",
+      "reasoning": "A general bound or a theorem with ambient/numerator p=4 does not imply the exact p=3 maximization. Checked for stronger domination by 1970 projection methods but complete 1970 text unavailable; no speculative NOT_COVERING.",
       "searches": [
-        "Revisiting rectangular constant ell_3 exact",
-        "generalized rectangular constant ell_p^2 p=3",
-        "mu_p ell_p p=3 exact rectangular constant"
+        "Resultary query: Norm of rank one projection Gastinel Joly mu_p in real two dimensional l_p 1970 exact formula for p=3",
+        "Resultary query: Sharp lower envelope norm x plus lambda y for Birkhoff James orthogonal unit vectors in l3^2",
+        "Web: Revisiting the rectangular constant in Banach spaces Baronti Casini Papini 2021 pdf mu_p theorem 5.6",
+        "Web: Gastinel Joly generalized rectangular constant ell_3^2"
       ]
     },
     "checked_sources": [
-      "doi:10.1017/S0004972721000253",
-      "2026/10/4/SCOPE-exact-generalized-rectangular-constant-of-the-real-ell-4-2-plane--1e948b1d4c03",
-      "2026/10/4/SCOPE-exact-t-perpendicular-constant-of-the-real-ell-3-2-plane--eeaceac82101",
-      "2026/10/4/SCOPE-exact-dragomir-symmetry-constant-for-the-h-lder-dual-planes-ell--e06afddcaccd",
-      "own:aa03310b-9c95-4c10-b2cf-59de5192d177"
+      "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-generalized-rectangular-constant-of-the-real-ell-4-2-plane--1e948b1d4c03/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rectangular-constant-of-the-real-ell-3-2-plane--9f0ec32a8c0f/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quadratic-generalized-rectangular-constant-and-extremizers--f46017f59baf/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-t-perpendicular-constant-of-the-real-ell-3-2-plane--eeaceac82101/RESULT.md",
+      "https://arxiv.org/html/1407.1353v1",
+      "https://doi.org/10.1016/0024-3795(70)90015-7",
+      "Resultary semantic query ids as listed in four originality checks"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The source upper bound at \\(p=3\\) is \\(3^{1/3}\\), substantially above the accepted value.",
-        "The \\(\\ell_4^2\\) theorem uses exponent-specific quartic algebra.",
-        "The \\(\\ell_3^2\\) \\(T_{\\perp}\\) and Dragomir-symmetry records optimize different functions."
+        "Theorem 5.6 gives upper bound 3^(1/3)≈1.442 for p=3; strict compared with 1.12465.",
+        "p=4 result relies on B²=A(1-A²) quartic moment polynomial, while this exact solution requires cubic sign-piece branches and a degree-ten resultant.",
+        "p=3 classical mu_1 optimizes a linear scalar numerator, unlike (1+lambda³)^(1/3).",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-generalized-rectangular-constant-of-the-real-ell-4-2-plane--1e948b1d4c03/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rectangular-constant-of-the-real-ell-3-2-plane--9f0ec32a8c0f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-t-perpendicular-constant-of-the-real-ell-3-2-plane--eeaceac82101/RESULT.md"
       ],
-      "reasoning": "Recovering the accepted value requires the cubic Birkhoff tangent parametrization and the new semialgebraic global-max certificate; none of the closest prior statements supplies these.",
+      "reasoning": "Compared exact objectives, hypotheses and implications rather than shared Banach-space titles/parameters. No inspected statement yields the degree-ten stationary root or exact cubic supremum; priority conclusion remains best-of-knowledge.",
       "searches": [
-        "rectangular constant real ell_3^2 exact",
-        "mu_p ell_p p=3 exact rectangular constant",
-        "generalized rectangular constant ell_p^2 p=3"
+        "Resultary query: Exact cubic generalized rectangular constant mu3 ell3^2 normalized Birkhoff orthogonal tangent optimized algebraic value 1.124652845",
+        "Resultary query: Norm of rank one projection Gastinel Joly mu_p in real two dimensional l_p 1970 exact formula for p=3",
+        "Resultary query: Sharp lower envelope norm x plus lambda y for Birkhoff James orthogonal unit vectors in l3^2",
+        "Web: Revisiting the rectangular constant in Banach spaces Baronti Casini Papini 2021 pdf mu_p theorem 5.6",
+        "Web: rectangular constant ell_3^2 mu_3 exact"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The defining source writes \\(\\mu_p\\) as a supremum over Birkhoff unit pairs and \\(\\lambda\\).",
-        "The accepted parametrization is exactly that supremum specialized to smooth \\(\\ell_3^2\\) tangents.",
-        "No indexed result states the cubic planar value or its equivalent two-variable rational maximum."
+        "2021 primary paper defines mu_p as (1+lambda^p)^(1/p)/||x+lambda y|| on Birkhoff unit pairs.",
+        "Signed tangent parameterization and elimination produce same invariant as explicit rational supremum R(u,h).",
+        "Same-space classical mu_1 paper explicitly optimizes numerator 1+lambda, a different problem.",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rectangular-constant-of-the-real-ell-3-2-plane--9f0ec32a8c0f/RESULT.md"
       ],
-      "reasoning": "Searches used both the invariant notation and the tangent-optimization formulation, so a change of parametrization would not by itself create apparent novelty.",
+      "reasoning": "Used mu_3, cubic generalized rectangular, Gastinel–Joly, tangent-optimization, algebraic decimal and defining polynomial aliases. No independent equivalent value found; the exact self-match in Resultary does not evidence priority.",
       "searches": [
-        "exact generalized rectangular constant ell_3^2 mu_3",
-        "rectangular constant ell_3 plane Birkhoff tangent exact algebraic",
-        "mu_p ell_p p=3 exact rectangular constant"
+        "Resultary query: Exact cubic generalized rectangular constant mu3 ell3^2 normalized Birkhoff orthogonal tangent optimized algebraic value 1.124652845",
+        "Resultary query: Norm of rank one projection Gastinel Joly mu_p in real two dimensional l_p 1970 exact formula for p=3",
+        "Resultary query: Sharp lower envelope norm x plus lambda y for Birkhoff James orthogonal unit vectors in l3^2",
+        "Resultary query: Degree ten polynomial u^10 -12u^9 -59u^8 exact rectangular constant",
+        "Resultary query: Gastinel Joly rectangular constant mu_3 of real l_3 two dimensional ell3^2 exact algebraic constant Birkhoff orthogonality",
+        "Web: rectangular constant ell_3^2 mu_3 exact",
+        "Web: 1.124652845 rectangular constant"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Exact decimal and exact-object searches returned the \\(\\ell_4^2\\) record but no \\(\\ell_3^2\\) table entry.",
-        "No own-ledger row contains the candidate value attached to \\(\\mu_3\\)."
+        "The 2021 original table reports classical mu_1(ell_3)≈1.7285, not mu_3(ell_3^2)≈1.124652845.",
+        "Resultary exact duplicate is the same assigned finding; nearby p=4 and p=3 mu_1 records differ.",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rectangular-constant-of-the-real-ell-3-2-plane--9f0ec32a8c0f/RESULT.md"
       ],
-      "reasoning": "Searching the decimal value catches possible isolated numerical tables even if they omit the polynomial certificate.",
+      "reasoning": "Searched candidate decimal and degree-ten defining polynomial as well as parameter nomenclature. A table for a different numerator exponent does not determine the claimed exact value.",
       "searches": [
-        "mu_3 ell_3^2 Gastinel Joly generalized rectangular constant exact 1.124652845",
-        "generalized rectangular constant ell_3^2 1.12465",
-        "mu_3 ell_3^2 rectangular constant exact"
+        "Resultary query: Exact cubic generalized rectangular constant mu3 ell3^2 normalized Birkhoff orthogonal tangent optimized algebraic value 1.124652845",
+        "Resultary query: Degree ten polynomial u^10 -12u^9 -59u^8 exact rectangular constant",
+        "Resultary query: Gastinel Joly rectangular constant mu_3 of real l_3 two dimensional ell3^2 exact algebraic constant Birkhoff orthogonality",
+        "Web: 1.124652845 rectangular constant"
       ]
     },
-    "rationale": "The 2021 full paper was inspected at the definition of \\(\\mu_p\\), its statement that exact values are generally unknown, and Theorem 5.6 giving only an upper estimate for \\(\\mu_p(\\ell_p)\\). published-finding corpus searches covered the exact invariant, \\(\\ell_3^2\\) aliases, the candidate decimal, Birkhoff-tangent phrasing, and the \\(p=3\\) specialization. No covering \\(\\ell_3^2\\) value was found. Current and immediate-prior own ledgers were checked: the closest own generalized-rectangular result is the regular octagon, while other \\(\\ell_3^2\\) rows treat different objectives.",
+    "rationale": "Best-of-knowledge after substantial implication-level search and reading, the exact cubic planar generalized rectangular constant and isolated unique orbit were not covered by inspected prior mathematics. The 2021 primary paper defines precisely mu_p and proves only broad estimates; Theorem 5.6 gives mu_3(ell_3)<=3^(1/3), a nonsharp upper bound. The strongest published exact same-invariant neighbor covers p=4, and the same-space classical mu_1(ell_3^2), T_perp and isosceles findings use different functionals; the L4 generalized mu2 theorem has different exponent and a quartic moment envelope. No reported table or stronger arbitrary-exponent classification covers the degree-ten cubic target. Resultary exact match is the assigned work itself and is not treated as independent priority evidence. The 1970 initiating paper remained inaccessible after appropriate routes, so residual historical risk is recorded, not treated as automatic originality failure.",
     "residual_risks": [
-      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
-      "An equivalent \\(p=3\\) calculation may exist under older rectangular-constant notation without modern \\(\\mu_p\\) indexing.",
-      "The original Gastinel--Joly definition predates the 2021 source; the accepted work is anchored to the 2021 revisiting paper as the literature-led gap and uses that paper as the earliest verified public source for this research direction."
-    ],
-    "risks": [
-      "No independent human literature audit has been performed."
+      "The 1970 original Gastinel–Joly paper could not be read in full; bibliography and secondary descriptions alone cannot rule out a hidden equivalent calculation.",
+      "An unindexed alternate notation for the same extremum, or a stronger theorem outside queried literature, may exist.",
+      "A self-match in the published index is not proof of independent novelty or earlier/later discovery."
     ],
     "source_inspections": [
       {
-        "assessment": "MOTIVATING_NOT_COVERING: it defines the invariant and gives nonsharp general \\(\\ell_p\\) estimates, but no exact \\(\\ell_3^2\\) computation.",
-        "evidence": "First published online 26 April 2021; primary MSC 46B20; PDF page 131 states Theorem 5.6.",
+        "assessment": "NOT_COVERING: defines mu_p and gives upper bounds for p>=2, not the sharp cubic planar value or degree-ten stationary algebra.",
+        "evidence": [
+          "p.124 definition mu_p(x,y)=sup_{lambda>=0}(1+lambda^p)^(1/p)/||x+lambda y||",
+          "p.129 notes exact mu_p in general unknown",
+          "Theorem 5.6, p.131, mu_p(ell_p)<=(2^(p-1)-1)^(1/p), yielding p=3 upper 3^(1/3) > 1.12465",
+          "p.132 numerical table is for classical mu_1, not mu_3; p=3 lists 1.7285.",
+          "Source: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf"
+        ],
         "identifier_or_url": "doi:10.1017/S0004972721000253",
-        "material_read": "Open-access Cambridge PDF: first page with publication date, primary MSC and definition of \\(\\mu_p\\); Section 5 statement that exact values are generally unknown; Theorem 5.6 and its proof giving \\(\\mu_p(\\ell_p)\\le(2^{p-1}-1)^{1/p}\\) for \\(p\\ge2\\).",
-        "method": "Publisher PDF text plus page-image inspection.",
+        "material_read": "All ten publisher-PDF pages (124–133), including definitions on pp.124–125, Section 4, Section 5, Lemma 5.1, Theorem 5.6 and its proof on pp.131–132 and the concluding numerical table. Pages 124, 131 and 132 additionally inspected as rendered PDF page images.",
+        "method": "Lawful OA publisher PDF full text, extracted text and page-image inspection.",
         "title": "Revisiting the rectangular constant in Banach spaces",
-        "trigger": "Primary 2021 source revisiting the exact invariant and highlighting unknown exact \\(\\ell_p\\) values."
+        "trigger": "Same Gastinel–Joly generalized invariant, exponent-matched ell_p results and explicit unknown-exact-value discussion."
+      },
+      {
+        "assessment": "NOT_COVERING: ambient exponent p=4 and numerator exponent 4, with quartic expansion and different critical equation; no implication at p=3.",
+        "evidence": [
+          "mu_4(ell_4^2)=((5+sqrt(17))/4)^(1/4); p=4 expansion has 6A lambda^2+4B lambda^3 terms, unlike cubic p=3 with sign branches."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-generalized-rectangular-constant-of-the-real-ell-4-2-plane--1e948b1d4c03/RESULT.md",
+        "material_read": "Complete published RESULT.md including theorem, reduction to moments A,B and B^2=A(1-A^2), stationary equations, proof and limitations.",
+        "method": "Frozen public result full source via read-only GitHub.",
+        "title": "Exact generalized rectangular constant of the real ell_4^2 plane",
+        "trigger": "Nearest exponent-matched exact mu_p(ell_p^2), p=4."
+      },
+      {
+        "assessment": "NOT_COVERING: evaluates classical mu_1(ell_3^2)=1.728538138..., where numerator 1+lambda, not cubic numerator (1+lambda^3)^(1/3); different objective and extrema.",
+        "evidence": [
+          "Classical mu_1 value 1.728538138...; own polynomial degree fourteen and different tangent optimizer."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rectangular-constant-of-the-real-ell-3-2-plane--9f0ec32a8c0f/RESULT.md",
+        "material_read": "Complete public RESULT.md, its degree-fourteen stationary reduction, p=3 numerical comparison, and explicit definition.",
+        "method": "Public Resultary result full source via read-only GitHub.",
+        "title": "Exact rectangular constant of the real ell_3^2 plane",
+        "trigger": "Same real cubic plane and Birkhoff pair domain; potential confusion between mu_1 and mu_3."
+      },
+      {
+        "assessment": "NOT_COVERING: has numerator exponent 2 and ambient real L4; does not determine mu_3 on ell_3^2.",
+        "evidence": [
+          "mu_2(L4)=1.3878495669... based on quartic moment equality, not cubic tangent stationary system."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quadratic-generalized-rectangular-constant-and-extremizers--f46017f59baf/RESULT.md",
+        "material_read": "Complete published RESULT.md including moment inequality, equality classification, and analytic optimization.",
+        "method": "Public Resultary result full source via read-only GitHub.",
+        "title": "Exact quadratic generalized rectangular constant and extremizers of real L_4",
+        "trigger": "Stronger ambient-space coverage with parameter mu_2; test possible domination by general moment inequality."
+      },
+      {
+        "assessment": "NOT_COVERING: T_perp optimizes sqrt(||x+y|| ||2x-y||), has no free cubic numerator or lambda optimization.",
+        "evidence": [
+          "Distinct T_perp(ell_3^2)=1.963961418... and a degree-seventeen polynomial for its own optimizer."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-t-perpendicular-constant-of-the-real-ell-3-2-plane--eeaceac82101/RESULT.md",
+        "material_read": "Complete published RESULT.md, tangent parametrization, T_perp product of two chords, boundary/sign regions and limits.",
+        "method": "Public Resultary result full source via read-only GitHub.",
+        "title": "Exact T-perpendicular constant of the real ell_3^2 plane",
+        "trigger": "Same Birkhoff tangent family and cubic plane may imply geometric extremizer objective."
+      },
+      {
+        "assessment": "NOT_COVERING: objective is classical mu_1 and rectangular modulus, not exact mu_3(ell_3^2).",
+        "evidence": [
+          "Definition in introduction mu(X)=(||x||+||y||)/||x+y||; Theorem 2.2 finite-dimensional attainment for classical mu.",
+          "https://arxiv.org/html/1407.1353v1"
+        ],
+        "identifier_or_url": "arXiv:1407.1353",
+        "material_read": "Complete arXiv experimental HTML text, introduction, Sections 2–3, theorems and proofs including attainment and upper bound.",
+        "method": "Lawful open full-text arXiv HTML.",
+        "title": "On rectangular constant in normed linear spaces",
+        "trigger": "Primary paper studying rectangular constant, Birkhoff orthogonality and upper-bound attainment."
+      },
+      {
+        "assessment": "ACCESS_LIMITED; no whole-text NOT_COVERING assertion. Inaccessible primary source remains an explicit priority risk, not automatic scientific failure.",
+        "evidence": [
+          "Original article: Linear Algebra and Its Applications 3 (1970), 185–224; DOI as above.",
+          "Baronti–Casini–Papini 2021 cites it as source of generalized mu_p and classical mu_1 numerical tables."
+        ],
+        "identifier_or_url": "doi:10.1016/0024-3795(70)90015-7",
+        "material_read": "Bibliographic records and the 2021 paper citations/descriptions only; no 1970 article full text obtained.",
+        "method": "Bibliographic data and accessible secondary mathematical comparison; original full text not available.",
+        "title": "Condition numbers and general projection method",
+        "trigger": "Original Gastinel–Joly introduction of generalized constant; historical-priority risk."
       }
-    ],
-    "sources": [
-      "doi:10.1017/S0004972721000253"
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "scientific_assessment",
   "schema_version": 1,
-  "scope_run_id": "2c0263b7-813e-4ddd-a2cf-bd0b21dd4f95",
   "value": {
-    "rationale": "The motivating paper explicitly notes that exact generalized rectangular constants are generally unknown and supplies only broad \\(\\ell_p\\) estimates. The result closes the first untreated smooth cubic planar case after the indexed quartic computation, identifies a unique nontrivial interior Birkhoff orbit, and supplies a reusable exact resultant/Sturm method for smooth non-Hilbert planes. This is a natural invariant/object pairing rather than an arbitrary parameter slice.",
+    "rationale": "The Gastinel–Joly generalized rectangular constant is a standard, geometrically motivated invariant of Birkhoff–James orthogonality. The real cubic Banach plane is the first non-Hilbert smooth odd-integer exponent and a natural exact benchmark, not an arbitrary parameter slice. The full cubic exact value is not implied by published p=3 classical mu1, p=4 generalized mu4, nor the nonsharp general estimates. Its extremizer is genuinely interior and unique modulo natural sign/permutation normalizations, requiring a substantive semialgebraic global certificate (factorized resultant, Sturm count, subresultant, escape control). A future geometric-constant researcher could use this exact planar value and tangent orbit for quantitative comparisons and benchmarks, despite its narrow two-dimensional scope. A paper-sized general theorem is not required.",
     "risks": [
-      "The result is a sharp planar benchmark, not a full exponent or dimension theorem."
+      "No general p or arbitrary dimension classification is claimed.",
+      "The answer has a degree-ten algebraic representation rather than simple radicals; this does not diminish its exact invariant status."
     ],
     "sources": [
-      "doi:10.1017/S0004972721000253",
-      "Bundled RESULT.md"
+      "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6FA1E4C0B2931AF39B3A4AAA64F3B314/S0004972721000253a.pdf/div-class-title-revisiting-the-rectangular-constant-in-banach-spaces-div.pdf",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-generalized-rectangular-constant-of-the-real-ell-4-2-plane--1e948b1d4c03/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rectangular-constant-of-the-real-ell-3-2-plane--9f0ec32a8c0f/RESULT.md",
+      "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-cubic-rectangular-constant-of-the-real-ell-3-2-plane--2c0263b7813e/RESULT.md"
     ],
     "status": "PASS"
   }

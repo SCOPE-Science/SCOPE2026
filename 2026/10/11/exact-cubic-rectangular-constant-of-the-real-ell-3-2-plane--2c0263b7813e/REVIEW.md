@@ -1,15 +1,13 @@
-# Same-model review
+# Mathematical assessment
 
 ## Correctness
-PASS. Smooth Birkhoff orthogonality gives a complete tangent parametrization. Three sign regions of the cubic ratio are eliminated by exact positive factorizations. The only remaining region is the rational optimization \(R(u,h)\) on \(u,h\ge1\). Its boundary is below one, escape tends to one, and the derivative resultant has exactly one admissible root \(u\ge1\). The linear subresultant forces the unique corresponding \(h\in(4,5)\). Exact substitution modulo the degree-ten polynomial verifies stationarity, so this point is the global maximum.
+PASS. The real smooth cubic norm gives the complete Birkhoff tangent family. All negative-sign and small-positive-scale cases have quotient at most one by explicit factorizations. In the remaining region, the cubed ratio equals R(u,h) with u,h>=1. Its boundaries and escape limits equal or lie below one, and R(16,5)>1 forces the maximum inside. Exact differentiation gives the degree-ten resultant, one u>=1 root by Sturm theory, and a unique h from the linear subresultant. Rational interval signs and derivative divisibility confirm this stationary point. The resulting cubic rectangular constant is 1.124652845212756... . No grid is used as an infinite proof.
 
 ## Originality
-PASS. The 2021 Cambridge full text was inspected at the definition of \(\mu_p\), its discussion that exact values are generally unknown, and Theorem 5.6's upper estimate. published-finding corpus searches covered \(\mu_3\), \(\ell_3^2\), the candidate decimal, and the Birkhoff-tangent formulation. No covering value was found. The closest exact same-invariant result is for \(\ell_4^2\); own-ledger generalized-rectangular work is polyhedral and does not imply the smooth cubic case.
+PASS, best-of-knowledge. The full primary Baronti–Casini–Papini article (2021 online; 2022 print) defines the exact generalized invariant but proves nonsharp ell_p bounds; its Theorem 5.6 gives mu_3(ell_3)<=3^(1/3), not the exact planar value. The published exact ell_4^2 exponent-four result, the real ell_3^2 classical mu_1 computation and the quadratic mu_2(L4) result have different objectives and do not imply the cubic stationary system. The original 1970 Gastinel–Joly paper was not accessible in full, so historical priority remains subject to this material risk.
 
-## Value
-PASS. The result resolves a natural exact case singled out by the source's lack of exact \(\ell_p\) values, finds a genuinely interior extremal orbit, and replaces a broad upper bound by an exact algebraic constant with a finite certificate. The degree-ten root is mathematically intrinsic to the cubic stationary system rather than an arbitrary numerical slice.
+## Mathematical value
+PASS. The result computes an exact, natural geometric invariant for the first smooth non-Hilbert odd-exponent Banach plane, together with a unique nontrivial interior Birkhoff tangent. The algebraic certificate and sharp value are independent mathematical content beyond known upper bounds and neighboring exponent calculations.
 
-## Closest literature and limitations
-Baronti, Casini and Papini, *Bulletin of the Australian Mathematical Society* 105 (2022), 124--133, first published online 26 April 2021, revisit \(\mu_p\) and prove only general estimates for \(\ell_p\). A published research record computes the planar exponent-four case. The present result is limited to real \(\ell_3^2\) and does not determine the arbitrary-dimensional constant.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Scope and references
+The scalar field is real and the dimension is exactly two. The result does not classify arbitrary real ell_p spaces or all generalized exponents. Primary reference: Baronti, Casini and Papini, *Revisiting the rectangular constant in Banach spaces*, Bull. Aust. Math. Soc. 105 (2022), 124–133, DOI 10.1017/S0004972721000253. Related precise results for mu_1(ell_3^2), mu_4(ell_4^2), and mu_2(L4) concern different objectives.
