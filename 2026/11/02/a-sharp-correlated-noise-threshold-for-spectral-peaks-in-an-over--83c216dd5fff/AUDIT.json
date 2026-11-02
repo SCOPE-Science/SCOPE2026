@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The transfer matrix yields exact stationary PSD with the stated Fourier normalization. Its scalar derivative has the monotone-sign numerator -z^2-2cz+a^2b^2-c(a^2+b^2), so c<a^2b^2/(a^2+b^2) is necessary and sufficient for exactly one positive-frequency maximum; equality has none. AM-GM gives the exact optimized rho threshold and attaining gain. Independent Fourier inversion gives a slower negative and faster positive exponential in every peaked unequal-decay case, hence one positive covariance zero; the repeated-eigenvalue formula gives a single linear bracket and the same conclusion. The explicit rho=-4/5 example is exact. Replayed 3,058 numerical checks support the identities but are not relied on for their infinite parameter ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "MacKay (2021), Eq. 2.1-2.6 general linear-Gaussian drift and cross-mode covariance; triangular two-state systems are within its formalism.",
+        "Wallace et al. (2011) focus-based quasicycle mechanism is a separate narrower dynamical hypothesis."
+      ],
+      "reasoning": "General OU resolvent/Lyapunov relations can be specialized to obtain the PSD but do not by themselves state the classification over coupling/noise correlation or the exact covariance sign-pattern. The optimized threshold requires deriving and analyzing the rational derivative and the maximization; the new claim does not assert invention of linear spectral theory.",
+      "searches": [
+        "Sharp covariance threshold in stable feed-forward linear Langevin network for nonzero-frequency resonance",
+        "\"Inference of dominant modes for linear stochastic processes\" full text PMC"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3089610/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8059618/",
+      "https://doi.org/10.1103/PhysRevE.82.051903"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wallace et al. (2011) has a damped-focus quasicycle and explicitly contrasts stable-node feedforward simulations.",
+        "MacKay (2021) considers arbitrary modal covariance but does not rule in/out nonzero-frequency maxima using rho and coupling.",
+        "Direct comparison: unlike oscillatory stable-focus models, A has eigenvalues -a,-b; without negative input correlation the present PSD is provably monotone."
+      ],
+      "reasoning": "The strongest relevant general modal method permits correlated real modes, so its formulas are prerequisites but do not contain the asserted iff correlation boundary or unique covariance sign reversal as stated. The new result is not a special case of a published focus-resonance threshold, which presupposes complex deterministic modes; a direct broader mode-spectrum classification not inspected remains a priority risk.",
+      "searches": [
+        "Real-eigenvalue two-dimensional Ornstein-Uhlenbeck processes showing finite-frequency spectral peaks due to negatively correlated white noise",
+        "Sharp covariance threshold in stable feed-forward linear Langevin network for nonzero-frequency resonance",
+        "Correlated input noise noise-cancellation quasicycles in overdamped feedforward stochastic differential equations",
+        "\"Brain Rhythms Reveal a Hierarchical Network Organization\" peak eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wallace et al. (2011), PMC3089610, sections Quasi-cycles/Discussion: noise peaks around stable focus with feedback and damped deterministic oscillations.",
+        "MacKay (2021), PMC8059618, section 2, discusses coupled real mode forcing and covariance rather than this exact downstream peak threshold."
+      ],
+      "reasoning": "Searched aliases: stochastic resonance, spectral band-pass peak, quasicycles, nonnormal OU covariance. The claim instead gives a necessary/sufficient negative input-correlation inequality with purely real stable poles and a one-zero autocovariance; none of the inspected named results asserts that equivalent statement.",
+      "searches": [
+        "Real-eigenvalue two-dimensional Ornstein-Uhlenbeck processes showing finite-frequency spectral peaks due to negatively correlated white noise",
+        "Correlated input noise noise-cancellation quasicycles in overdamped feedforward stochastic differential equations",
+        "\"real eigenvalues\" \"spectral peak\" \"noise\" linear stochastic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Targeted research-index queries returned records on OU slow-mode sampling and correlated-noise SIRS covariance, not a table of this threshold.",
+        "Literature queries found no matching tabulated threshold -b/sqrt(a^2+b^2) for an overdamped feedforward noise resonance."
+      ],
+      "reasoning": "There is no finite enumerated invariant being replicated. The exact formula and universal inequality are analytic and parameter-uniform; neither an exact lookup table nor a cited numerical spectrum implies the sharp sign classification.",
+      "searches": [
+        "Real-eigenvalue two-dimensional Ornstein-Uhlenbeck processes showing finite-frequency spectral peaks due to negatively correlated white noise",
+        "Sharp covariance threshold in stable feed-forward linear Langevin network for nonzero-frequency resonance",
+        "\"anticorrelation\" \"spectral peak\" \"feedforward\" Langevin",
+        "\"b/sqrt(a^2+b^2)\" noise spectrum correlation"
+      ]
+    },
+    "rationale": "Accessible own-result claims were compared for matching real-mode correlated-noise spectral thresholds and no equivalent was observed. Targeted scientific literature and indexed-result searches returned closest general OU, correlated-noise sensitivity, and stochastic oscillation records; these do not state the two-component anticorrelation/noise-gain threshold or the downstream covariance one-crossing theorem. Full-text Wallace et al. (2011) treats oscillatory stable-focus network quasicycles, not this stable-node feedforward correlated-noise mechanism. MacKay (2021) supplies broad modal covariance machinery but not the exact peak-sign classification. Priority remains provisional; a specialized signal-processing theorem may overlap.",
+    "residual_risks": [
+      "Specialized continuous-time signal processing literature may predate this exact correlation-optimized criterion under bandpass spectral factorization language.",
+      "MacKay (2021) appendices were not fully inspected; generic covariance spectral tools are already established.",
+      "Bressloff (2010) full text inaccessible in this pass; only its model-level abstract could be compared.",
+      "Claims are specifically limited to the stationary downstream coordinate of the stated two-component linear feedforward Langevin system."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different stochastic network model; observed quasicycle peak is tied to a weakly damped focus, not the proposed real-eigenvalue anticorrelated feedforward null model",
+        "evidence": [
+          "2011 PLoS ONE 6(5):e14804, pp in online section: Quasi-cycles and Discussion (stable focus, noisy cycles)"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3089610/",
+        "material_read": "Full accessible HTML article, especially the Quasi-cycles and Discussion sections and their model distinctions",
+        "method": "Read source text and compared deterministic eigenvalue regimes, noise covariance and claimed spectral mechanism",
+        "title": "Emergent Oscillations in Networks of Stochastic Spiking Neurons",
+        "trigger": "Direct physical comparison of peaks attributed to network quasicycles"
+      },
+      {
+        "assessment": "Provides general machinery/expressions, but the material inspected states no rho-k spectral peak boundary or covariance sign-crossing classification; uninspected appendices remain a risk",
+        "evidence": [
+          "R. S. MacKay 2021, section 2, real and complex modes, correlated forcing covariance S_mn=C_mn/(lambda_m+lambda_n)"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8059618/",
+        "material_read": "Full-text indexed section 2 excerpt, including equations (2.1)-(2.6), and publication abstract; complete appendix not accessible in this pass",
+        "method": "Compared general real/complex Gaussian mode and correlated forcing assumptions against explicit optimized peak claim",
+        "title": "Inference of dominant modes for linear stochastic processes",
+        "trigger": "Plausible broader OU correlation/mode result that could subsume the theorem"
+      },
+      {
+        "assessment": "No decisive implication can be asserted from abstract alone; historical-priority risk explicitly retained",
+        "evidence": [
+          "P. C. Bressloff, Phys. Rev. E 82, 051903 (2010): spectral amplification of damped oscillations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.82.051903",
+        "material_read": "Publisher abstract and Oxford repository record, full article not accessible from the browsed interfaces",
+        "method": "Compared abstract-level model and result, did not infer full-document absence of the current result",
+        "title": "Metastable states and quasicycles in a stochastic Wilson-Cowan model of neuronal population dynamics",
+        "trigger": "Earlier stable-focus quasicycle literature may claim a general noise-induced spectral classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83c216dd-5fff-45d7-a61b-9bbf9c057104",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A PSD peak is commonly used to infer oscillatory feedback or a complex deterministic mode. The theorem supplies an exact necessary-and-sufficient parameter boundary for a robust countermechanism with only real decay modes; the strongest allowable correlation boundary after optimal coupling is explicit and independent of forcing intensities. The resulting single covariance sign reversal distinguishes a spectral band-pass artefact from repeated damped cycles. This is a natural all-parameter class and a useful caution for interpreting finite-frequency noise, rather than a one-off numerical example.",
+    "status": "PASS"
+  }
+}
