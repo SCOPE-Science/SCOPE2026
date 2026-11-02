@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The method is reconstructed from both component evaluations of the original same-sample SEG stage, yielding \\(Mz+\\epsilon d\\). Every rotation plane satisfies \\(M_j^{\\mathsf T}M_j=r_j^2I\\) and \\((M_j-I)^{\\mathsf T}(M_j-I)=h_jI\\). Independent centered signs remove cross terms exactly, giving the iid and reshuffling geometric-series formulas. Their difference is controlled by \\(q_j-1=2(\\kappa t_j^2-1)/(1+r_j^2)\\), giving necessary and sufficient modal conditions. An active mode above the threshold furnishes strict reverse inequality at every epoch; the remaining modes prove the converse. Contractivity yields unique invariant distributions and the stationary limits. The source-recommended \\(\\kappa=4\\) rational witness has exact \\(V_{\\mathrm{iid}}=169/31\\) and ratio \\(1521/971\\). Stage-based exact rational enumeration checked 32 finite-history expectations, including a mixed-frequency four-dimensional model. Only the analytic proof establishes the infinite families.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Sa 2020 proves failure of reshuffling superiority in learning/matrix-product settings; broad negative lesson is not new.",
+        "Chae–Yun–Kim obtain lack of convergence for some SEG schemes on nonidentical bilinear component matrices and no stationary ratio under strictly stable shared skew Jacobian."
+      ],
+      "reasoning": "A general negative reshuffling example does not imply the necessary-and-sufficient per-frequency threshold or exact epoch moments for this stable operator family. The prior general claims are explicitly excluded from novelty.",
+      "searches": [
+        "Christopher De Sa Random Reshuffling is Not Always Better NeurIPS 2020 PDF sections 1-4",
+        "arxiv:2501.00511 Appendix H.1 SEG-RR divergence",
+        "\"random reshuffling can be worse than with replacement saddle-point stochastic extragradient\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.07148 full HTML, Algorithm 1 and affine Theorem 2.2 including Appendix B.2",
+      "arXiv:2501.00511 full HTML, Theorem 4.1 and Appendix H.1",
+      "De Sa NeurIPS2020 PDF, first page and introductory methodological material",
+      "Iusem–Jofré–Oliveira–Thompson SIAM J Optimization DOI 10.1137/15M1031953, published abstract and MSC",
+      "Closest published mathematical records for normal extragradient and stochastic noise covariance; related published mathematical statements on SEG coupling and gradient reshuffling were compared by implication.",
+      "arXiv:2604.10373 public HTML introduction and main theorem; SGD reshuffling plus Richardson–Romberg, not affine-skew SEG"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source bounds decrease with stepsize and can favor random reshuffling but are not equalities nor uniform upper/lower stationary comparisons.",
+        "The Chae–Yun–Kim existence-of-divergence claim does not imply a *strictly stable* noise-floor crossover; the associated component Jacobians differ.",
+        "The 2020 positive-semidefinite product counterexample does not specialize to common-skew same-sample SEG affine offset recurrences."
+      ],
+      "reasoning": "The exact stage computation produces \\(q_j=h_j/(1+r_j^2)\\), whose sign relative to one changes at \\(\\kappa t_j^2=1\\). The inspected source results concern convergence bounds, divergence in a different component-Jacobian class, or positive-semidefinite matrix-product counterexamples; none supplies an implication of the new necessary-and-sufficient frequency test. These prior works motivate the new question and limit the novelty claim.",
+      "searches": [
+        "arxiv:2403.07148 Theorem 2.2 Appendix B.2 gamma2=4gamma1",
+        "arxiv:2501.00511 Theorem 4.1 Appendix H.1",
+        "Christopher De Sa NeurIPS 2020 noncommutative arithmetic geometric means counterexample",
+        "\"shuffling worse than iid for extragradient affine monotone skew-symmetric shared linear operator opposite biases finite epoch second moment\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2403.07148 uses the same-sample stage and states affine convergence bounds, not an exact iid-to-reshuffling modal variance ratio.",
+        "arxiv:2501.00511 constructs divergent SEG on different sample-dependent linear operators; its result is not an equality of stable stationary second moments."
+      ],
+      "reasoning": "The present stage update is a commuting affine random recursion with opposite persistent forcing and strict norm contraction; neither the source convergence inequalities nor the published divergence constructions are equivalent to the exact q_j crossover.",
+      "searches": [
+        "arxiv:2403.07148 Algorithm 1 same-sample SEG-RR",
+        "arxiv:2501.00511 Theorem 4.1 Appendix H.1",
+        "\"same-sample stochastic extragradient bilinear minimax random reshuffling worse than iid stable modes spectral threshold noise variance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical records concern deterministic normal extragradient minimax polynomials, other stochastic methods such as STORM/PAGE, or sampling-order comparisons for different solvers; no record displayed the same sharp crossover and two-client affine-skew variance law."
+      ],
+      "reasoning": "These searches do not certify global uniqueness. However, no identified exact parameter table or database row contains an implication of the finite-epoch formula or its universal modal threshold.",
+      "searches": [
+        "\"SEG-RR stochastic extragradient random reshuffling two-component bilinear saddle stationary mean-square error with replacement reversal threshold frequency stepsize 1/sqrt(2)\"",
+        "\"Emmanouilidis Vidal Loizou 2024 SEG-RR opposite affine clients Jz plus minus v gamma2 four gamma1 finite horizon mean square noise superiority sharp crossover one half\"",
+        "\"random reshuffling affine same-sample stochastic extragradient explicit noise covariance AR1 stability per rotation mode\""
+      ]
+    },
+    "rationale": "Available literature establishes SEG-RR and convergence bounds, generic non-uniform shuffling counterexamples in other methods, and distinct divergence examples for SEG. The assessed result concerns an exact finite-epoch and stationary mean-square comparison on an individually contractive common-skew two-component affine family: the sharp spectral threshold \\(\\eta\\omega=1/\\sqrt\\kappa\\) and its source-recommended \\(\\kappa=4\\) instance. No inspected statement implied this complete stable parameter classification. An older equivalent calculation in random affine recurrences remains possible, so this is a qualified priority assessment.",
+    "residual_risks": [
+      "A general theorem for contractive affine random recurrences with paired antithetic perturbations could subsume the exact \\(q_j\\) formula despite not appearing in tested searches.",
+      "Earlier publications using alternate terms (two-component flip-flop extragradient, ordered gradient pairs) may contain an equivalent threshold; comprehensive global priority is not proved.",
+      "Source recommended affine extrapolation ratio kappa=4 is examined beyond source sufficient small-step guarantees, in a directly proven strict-contraction regime; broader source convergence claims are not challenged.",
+      "Later stationary-distribution analysis of other stochastic VI schemes may contain general affine Markov-chain facts, but the SEG-specific modal comparison was not found in the inspected accessible parts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the method and asymptotic rate estimates, not an exact finite-epoch stationary variance comparison across sampling methods.",
+        "evidence": [
+          "Algorithm 1 uses independent new uniform permutation per epoch with same component in both stage evaluations.",
+          "Appendix B.2 chooses extrapolation γ₂=4γ₁ and bounds an expected squared-distance neighborhood, without an exact necessary-and-sufficient sign threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.07148",
+        "material_read": "Accessible full HTML article, Algorithm 1, introduction comparison, affine Theorem 2.2 and its Appendix B.2 proof.",
+        "method": "Read arXiv full HTML mathematical statements and source algorithm; compared samples, scalar linearization, step ratios, and conclusion.",
+        "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+        "trigger": "Defines the exact investigated stochastic same-sample extragradient method and affine stepsize ratio."
+      },
+      {
+        "assessment": "Constructs divergent stochastic extragradient examples, while the present class has strict contraction and exact finite stationary variance.",
+        "evidence": [
+          "Theorem 4.1 asserts existence of monotone two-component examples whose SEG variants diverge for positive steps.",
+          "Appendix H.1 uses explicit component matrices and an instability proof, not the present homogeneous contraction plus opposite additive perturbations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.00511",
+        "material_read": "Full arXiv HTML scientific text, Theorem 4.1, Section 4 and Appendix H.1 construction.",
+        "method": "Compared its lower-bound assumptions and explicit sample-dependent matrices against equal-skew additive-offset recurrence.",
+        "title": "Stochastic Extragradient with Flip-Flop Shuffling & Anchoring: Provable Improvements",
+        "trigger": "Closest recent published negative results for shuffling-based extragradient."
+      },
+      {
+        "assessment": "Establishes generic reshuffling inferiority prior to this result; does not formulate or imply the stable SEG spectral noise-crossover classification.",
+        "evidence": [
+          "Abstract explicitly presents a learning algorithm where with-replacement sampling outperforms random reshuffling.",
+          "Formulation centers noncommutative arithmetic-geometric-mean inequalities for positive semidefinite matrix products."
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "PDF first-page abstract and introduction and relevant PDF text sections of the paper.",
+        "method": "Inspected the PDF page and scientific formulation; identified its matrix-product/learning counterexample context.",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "General warning against novelty claims merely asserting that random reshuffling can underperform."
+      },
+      {
+        "assessment": "Develops variance-reduction stochastic extragradient with oracle complexity, not a sourced implication of the specific random-reshuffling variance ratio.",
+        "evidence": [
+          "Published abstract studies pseudomonotone stochastic VIs and variance reduction.",
+          "Its MSC listing includes 90C33, aligning with finite-dimensional stochastic variational inequalities."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M1031953",
+        "material_read": "Published publisher abstract and MSC metadata.",
+        "method": "Abstract and classification review; full paper not inspected.",
+        "title": "Extragradient Method with Variance Reduction for Stochastic Variational Inequalities",
+        "trigger": "Classifying the mathematical subject and distinguishing earlier stochastic-extragradient variance-reduction theory."
+      },
+      {
+        "assessment": "Concerns SGD plus Richardson–Romberg extrapolation with quasi-strong monotonicity and asymptotic bias bounds; does not state the exact stable affine-skew SEG reshuffling/iid crossover.",
+        "evidence": [
+          "Informal main theorem treats two parallel SGD reshuffling runs with step sizes gamma and 2gamma and bias/MSE orders.",
+          "The studied update is not the same-sample extragradient two-evaluation polynomial M=I-eta J+kappa eta squared J squared."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.10373",
+        "material_read": "Public arXiv HTML introduction, full informal main theorem and stated methodological contributions.",
+        "method": "Compared underlying SGD versus SEG stage definitions, strong-monotonicity hypotheses, and stationary/bias assertions.",
+        "title": "Shuffling the Data, Stretching the Step-Size: Sharper Bias in Constant Step-Size SGD",
+        "trigger": "Later work by overlapping authors on stochastic VI reshuffling, stationary distributions and noise floors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aba47074-7058-4b63-9bb3-d7d982a9ab94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random reshuffling is a motivated design decision in stochastic variational-inequality solvers. The result gives a necessary-and-sufficient spectral cutoff for its mean-square benefit in an exact noninterpolating common-skew affine family, a stable counterexample using the literature-recommended step ratio, and finite-epoch as well as stationary costs. Rather than a generic reshuffling counterexample, it completely classifies the strict-contraction parameter interval and explains the transition through the paired noise polynomial.",
+    "status": "PASS"
+  }
+}
