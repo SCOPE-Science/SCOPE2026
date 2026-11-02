@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The operator norms reduce, using the molecular norm of a Lipschitz-free space, to images of ordered pairs of Cantor points. Each image has two positive and two negative unit atoms; its transport norm is exactly the lesser cost of the two possible matchings. Splitting coordinates into prefix, interval and tail gives a universal upper bound. A one-coordinate molecule and a common-full-block rectangular molecule attain the two competing bounds for every finite or infinite interval. Nested retractions, ranks and strong convergence follow directly from the summability assumption. Finite-cube linear programs crosscheck 48 interval cases; they are not used as infinite-dimensional proof.
+## correctness
 
-**Originality: PASS, subject to the stated literature risk.** Talimdjioski establishes residual approximation properties for Cantor metrics; Doucha–Kaufmann already establishes MAP for this compact invariant-metric group subclass. Lancien–Pernecká gives monotone decompositions over \(\ell_1\), while Cúth–Doucha studies compact-group-action projections. Those results do not state this exact family of weighted-coordinate interval norms or imply its sharp half-tail threshold from their stated estimates. Several targeted searches returned no equivalent quantitative result. A prior derivation embedded in unindexed metric transport or Banach-space literature is a residual risk.
+PASS
 
-**Mathematical value: PASS.** The theorem supplies a complete sharp norm profile for every interval sum of a natural, explicitly given monotone finite-dimensional decomposition. The exact weight condition distinguishes bimonotonicity from contractivity of individual level projections. For geometric weights, this produces distinct sharp thresholds at \(r=1/3\) and \(r=1/2\), information absent from the qualitative MAP theorem and from the universal bound two on projection differences.
+The weighted prefix/block/tail decomposition p+h+e of d(x,y) is exact. Applied to (P_m-P_n)(delta_x-delta_y), finite 2-by-2 Kantorovich transport gives min(a+b,2p+h) for sources p_mx,p_ny and sinks p_nx,p_my. For p=0 the image ratio is <=1; otherwise p>=a_n and a,b<=B_{n,m}, yielding ratio <=2 min(1,B_{n,m}/a_n). A pair differing in one block coordinate gives ratio 1, and a min-prefix-coordinate pair with a common all-one block gives ratio 2 min(1,B_{n,m}/a_n). This works for m=infinity since weights are summable. Retractions P_n have norm 1, rank 2^n-1, commute, and strongly tend to I; the tail criterion follows exactly. Independent exact-rational all-molecule exhaustive checks on six finite weighted cube configurations verified 66 intervals and 18,648 ordered-as-unordered molecule pairs, with zero discrepancy; no extrapolation from finite tests was used.
 
-**Limits.** Only this coordinate filtration, real scalars and the weighted binary-product metric are covered; there is no assertion about optimal decompositions over all choices. MAP itself is not an originality claim. Any equivalence in unindexed literature remains to be assessed independently.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative MAP is already known for this compact invariant-metric group by Doucha–Kaufmann. The general monotone FDD and group-action projection results do not give the norms of deterministic coordinate-truncation differences. Read closest published Resultary findings about Walsh spectral and Dirac-diagonal projection operators; they are mathematically different. Four implication/comparison checks with actual searches and primary-source readings identify no direct published coverage; best-of-knowledge priority remains subject to possible unindexed transportation literature.
+
+## value
+
+PASS
+
+The exact norm profile of every consecutive block of an explicit monotone FDD is a canonical quantitative invariant of that fixed decomposition. It distinguishes individual-block contractivity (geometric r<=1/2) from all-tail bimonotonicity (r<=1/3), giving a complete weight-sequence criterion absent from qualitative MAP or generic ||P_m-P_n||<=2. This is a motivated exact classification, not a broad basis optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
