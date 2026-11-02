@@ -1,0 +1,12 @@
+# Mathematical review
+
+## Correctness
+**PASS.** For graphs of order at most five, the symmetric \(\mathbb F_2\)-linear system \((I+A)s=\mathbf1\) is consistent, and either bounded degree (at most three) or a universal vertex turns this into an actual equilibrium. Both displayed six-vertex nonexistence examples have short independent best-response contradictions. An exhaustive deterministic enumeration inspects each of the \(2^{\binom n2}\) labeled graphs and each candidate profile for every \(1\le n\le6\); all \(6!\) label permutations are used for canonicalization. The included reproducible program was run, reproducing exactly two isomorphism classes, with \(180\) and \(120\) labelings. Limitation: the finite census does not address larger graphs, and the proof relies on the correctness and reproducibility of the compact finite enumerator for the complete first layer.
+
+## Originality
+**PASS (subject to stated bibliographic residual risk).** The closest primary sources are the 2022 0-or-2-neighbors open problem of Gilboa–Nisan, the 2023 nonmonotone-pattern NP-hardness theorem of Klimm–Stahlberg, and the 2023/2024 finite-pattern complexity theorem of Gilboa. Gilboa's inspected illustration of nonexistence has nine vertices, not six. These sources do not assert the exact first order and the two complete six-vertex isomorphism classes. Searches for equivalent formulations, dominance by broader complexity theorems, indexed exact small-graph tables and implication equivalences found no matching covering result. Bibliographic priority remains unproved; an unindexed graph census could cover the claim. The finite-size theorem is not claimed to solve the computational complexity problem (already settled).
+
+## Mathematical value
+**PASS.** The 0-or-2-neighbors pattern was singled out in the motivating 2022 problem, and subsequent proofs made nonexistence central to computational hardness. The smallest possible obstruction and complete first-failure layer are natural intrinsic graph-game invariants; both answer a structural question that NP-hardness and a nine-vertex example leave open. Two different minimal topologies occur, one an eight-edge cycle-like hub graph and the other a nine-edge three-sun. This is a complete motivated finite classification, not a tiny unmotivated parameter change. Limitations: no general graph algorithm or classification above six vertices is provided.
+
+Self-review: passed. Independent audit: not yet performed.
