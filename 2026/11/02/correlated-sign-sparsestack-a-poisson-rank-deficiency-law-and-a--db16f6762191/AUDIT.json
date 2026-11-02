@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact finite signed-incidence component rank identity was reconstructed and checked exhaustively for 5,018 cases. Joint factorial moments give independent short-cycle Poisson limits; bicyclic components and long cycles vanish for c<1; independent sign thinning yields the logarithmic Poisson parameter, and a column-coupling argument gives divergence for c>=1. A verifier covered finite tests but did not substitute for the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heidary arXiv:2609.02978 gives OSE sufficiency with more general sparsity; it does not state exact constant-probability loss for two hashes.",
+        "Coja-Oghlan et al APPROX/RANDOM 2023 theorem imposes minimum degree >=3, unlike the two-nonzero-column graph here."
+      ],
+      "reasoning": "A sufficient embedding theorem neither identifies the sharp failure probability nor covers the fixed sparse two-edge subcritical regime without further specialization; the 2023 sparse matrix sufficient full-rank criterion requires different degree assumptions.",
+      "searches": [
+        "fixed two block SparseStack random CountSketch column nullity Poisson critical half dimension m=r full rank asymptotic signed graphic matroid",
+        "full rank probability sparse sketch with two nonzeros per column in separate row blocks random Rademacher signs binomial bipartite cycles",
+        "random two stack oblivious subspace embedding coherent coordinate subspace singular with limiting probability 1-(1-c squared) one fourth",
+        "SparseStack optimal oblivious subspace embedding Gaussian full rank signed graph correlated signs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.20195 (indexed extracts only)",
+      "arXiv:2609.02978 (abstract/annotated theorem only)",
+      "Cohen–Jayram–Nelson SOSA 2018 PDF",
+      "Coja-Oghlan et al APPROX/RANDOM 2023 PDF (theorem/assumptions)",
+      "arXiv:1211.1002 (abstract)",
+      "published-finding corpus: multiple signed-bipartite CountSketch, Poisson nullity and sign reuse searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jeendgar et al define two-block sparse hashing but focus on low-precision rounding and numerical performance.",
+        "Cohen–Jayram–Nelson 2018 analyze embedding properties of sparse JL transforms.",
+        "Coja-Oghlan 2023 requires minimum check degree at least three; our incidence graph has expected bounded and often zero check degree."
+      ],
+      "reasoning": "The source sketch recipe and generic OSE estimates do not imply the exact independent or correlated-sign nullity law; known graph-rank and random-cycle facts are clearly separated as ingredients. No claimed improvement to the pre-existing general OSE theorem.",
+      "searches": [
+        "arXiv:2606.20195 SparseStack two block independent signs construction",
+        "arXiv:2609.02978 optimal oblivious subspace embedding sparsity",
+        "APPROX/RANDOM 2023 full rank sparse random matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SOSA 2018 sparse JL describes multiple independent CountSketch blocks; classical signed-graph incidence nullity is component/cycle controlled.",
+        "published-finding corpus closest graph-signing entries concern deterministic signed cycles and not random Sketch nullity."
+      ],
+      "reasoning": "Compared full matrix-rank claim to signed-incidence graph nullity, balanced cycles, and random pseudoforest Poisson counts rather than only matching paper titles; an equivalent probabilistic theorem was not located.",
+      "searches": [
+        "two stacked CountSketch random signed bipartite incidence matrix full column rank probability subcritical c random edges (1-c^2)^(1/4) balanced cycles",
+        "SparseStack ζ=2 sketch random coherent identity subspace exact rank failure phase transition signed bipartite graph pseudoforest",
+        "signed bipartite incidence random graph independent Rademacher columns unicyclic balanced cycles full rank probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-finding corpus queries returned sparse signed-graph/spectral and random low-rank results but no direct Poisson rank deficiency table; no table asserting the proposed coefficient was found."
+      ],
+      "reasoning": "Comparisons cover a complete Poisson distribution (not just expected rank) and correlation ρ as a parameter; none of the checked records supplied this distribution.",
+      "searches": [
+        "signed bipartite incidence random graph independent Rademacher columns unicyclic balanced cycles full rank probability",
+        "SparseStack ζ=2 sketch random coherent identity subspace exact rank failure phase transition signed bipartite graph pseudoforest"
+      ]
+    },
+    "rationale": "The claimed contribution is the correlation-dependent full distribution of SparseStack column nullity and sharp threshold at two-block density one, not the classical incidence-matroid identity or Poisson sparse-cycle count. Accessible references provide the sketch construction and general embedding/full-rank theory but do not imply the exact two-parameter Poisson law in the degree-two bipartite model. Semantic records searches returned no equivalent finding. A close older signed-graph application or inaccessible primary full text could change the priority judgment.",
+    "residual_risks": [
+      "The motivating paper full primary text was inaccessible, so overlap in its unpublished appendices cannot be fully excluded.",
+      "The September 2026 preprint full text was not inspected; a stronger uninspected argument might cover the exact two-block case.",
+      "An older equivalent theorem on signed incidence matrices of sparse random bipartite multigraphs could directly imply this application.",
+      "The statement is limited to the precise two-stack coordinate-subspace model and does not quantify norm distortion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Construction relevant; whole-paper absence leaves possible undiscovered overlapping theorem",
+        "evidence": [
+          "arXiv:2606.20195 indexed introduction/SparseStack definition; PDF not material-accessible"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.20195",
+        "material_read": "Search-indexed methodological extracts about independent per-block hashing and sketch construction, not primary full text",
+        "method": "Open-access and preprint full-text attempts failed; authorized library access unavailable",
+        "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+        "trigger": "Primary 2026 source introducing SparseStack"
+      },
+      {
+        "assessment": "General sparsity and subspace-embedding bounds, not an explicit ρ-dependent Poisson nullity law in available material; residual uninspected full-text risk",
+        "evidence": [
+          "arXiv:2609.02978 abstract and theorem overview"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.02978",
+        "material_read": "Accessible abstract and annotated presentation of OSE guarantees; full primary PDF not obtained",
+        "method": "Preprint/source discovery, analytical implication comparison",
+        "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+        "trigger": "Same named sketch and potential stronger theorem"
+      },
+      {
+        "assessment": "Provides the known sketch architecture, not the stated correlated-sign Poisson nullity distribution",
+        "evidence": [
+          "SOSA 2018 published PDF"
+        ],
+        "identifier_or_url": "SOSA 2018 Cohen Jayram Nelson",
+        "material_read": "Accessible complete nine-page primary PDF; multiple-stack construction and sparse embedding statements inspected",
+        "method": "Primary PDF inspection",
+        "title": "Simple Analyses of the Sparse Johnson–Lindenstrauss Transform",
+        "trigger": "Classical independent-stack hashed sparse projection model"
+      },
+      {
+        "assessment": "Minimum-degree at least three does not cover the current two-entry-per-column model",
+        "evidence": [
+          "APPROX/RANDOM 2023 full-rank theorem degree hypotheses"
+        ],
+        "identifier_or_url": "APPROX/RANDOM 2023 Coja-Oghlan et al",
+        "material_read": "First pages, definitions, and stated full-rank theorems in openly accessible primary PDF",
+        "method": "Primary PDF inspection of hypotheses and rank criteria",
+        "title": "The Full Rank Condition for Sparse Random Matrices",
+        "trigger": "Potential dominating full-rank sparse random matrix theorem"
+      },
+      {
+        "assessment": "No decisive dominance located; still an uninspected source risk",
+        "evidence": [
+          "arXiv:1211.1002 abstract"
+        ],
+        "identifier_or_url": "arXiv:1211.1002",
+        "material_read": "Accessible bibliographic abstract and sketch-setting summary; not full paper",
+        "method": "Theorem-level abstract/secondary comparison",
+        "title": "OSNAP: Faster Numerical Linear Algebra Algorithms via Sparser Subspace Embeddings",
+        "trigger": "General OSE sparse-sign structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db16f676-2191-49a7-a2d8-0531a9603fde",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-stack sparse sketches are used to preserve subspace information at minimal per-column sampling cost. Their injectivity failure probability for coherent coordinate subspaces is a nontrivial, nonvanishing limiting operational reliability risk. The correlation parameter quantifies the cost of reusing sign bits, while the complete Poisson law and sharp critical density distinguish structural failure from mere expected distortion. Rank failure itself invalidates every OSE guarantee on this subspace.",
+    "status": "PASS"
+  }
+}
