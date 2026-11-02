@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact scalar Gaussian accumulator, the infinite series defines the unique invariant distribution under a contractive affine recursion. The finite-startup inverse-moment cutoff follows from polar integration of a strictly positive Gaussian quadratic form. The stationary Mellin representation is justified by Tonelli and explicit Gaussian Laplace transforms. On each noncritical interval \(k/2<p<(k+1)/2\), rescaling the integral and using an integrable beta-function majorant proves the stated sharp coefficient. At \(p=k/2\), a log-coordinate change gives a plateau supported on an interval of unit length; three explicit integrable majorants establish the exact logarithmic coefficient. The analytic proof covers every \(p>0\) and every \(0<\beta<1\), including critical boundaries. Supplementary numerical quadrature completed 25 checks; it is not a replacement for the proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+Stationarity follows from the contraction V law = (1-beta)Z_0²+beta V independent, defining a positive infinite Gaussian quadratic form. All fixed-beta inverse p moments are finite because V dominates a positive multiple of the first n Gaussian squares for any n>2p; the finite-n cutoff follows from polar integration of an n-dimensional Gaussian quadratic form with full-rank positive weights. By Tonelli, M_p=1/Gamma(p) integral_0^infty t^{p-1} prod_{j>=0}(1+2(1-beta)t beta^j)^(-1/2) dt. For noncritical p between successive half-integers, substitute t=beta^{-k}u; the first k factors tend to their power-law limits, the remaining factors to one, and the integrable beta-function majorant yields the exact Gamma expression and exponent. For p=k/2 the same scaling is marginal; change to log-beta time x=log t/log(1/beta). The leading plateau covers one unit interval [k-1,k] with height 2^{-k/2}/Gamma(k/2), tails dominated integrably, producing a single log. The finite startup and beta=0 boundaries are explicitly separated. Independently integrated the Mellin product at beta=1e-3 and 1e-5 for p=.25,.75,1.25: scaled ratios moved toward 1. At critical k=1,2, the two-scale logarithmic slopes match predicted coefficients within 0.54%. Numerical corroboration does not prove dominated-convergence steps.
 
-The source arXiv:2608.30382v1 introduces the relevant bias-corrected second-moment recursion and proves inverse-moment *bounds* in Section 4 after startup, but does not assert a sharp small-\(\beta\) stationary Gaussian asymptotic, its half-integer staircase, or its critical logarithmic constants. Its main optimization theorem concerns a different coupled process and a parameter range bounded away from zero. arXiv:1908.03265 uses a scaled inverse-chi-square approximation for adaptation variance; that approximation does not imply exact limits for the infinite geometrically weighted Gaussian sum. arXiv:2404.01436 concerns general optimization convergence, not these scalar invariant-law asymptotics. Targeted searches of earlier mathematical findings, Gaussian quadratic forms, reciprocal moments, and stationary adaptive accumulators identified no mathematically dominating statement. Negative searches are not proof of priority; possible older Mellin analyses of geometric quadratic forms remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The reciprocal moments of second-moment accumulators are required to control adaptive denominators in stochastic optimization. The theorem supplies exact sharp constants and all phase transitions, distinguishes finite startup from stationary integrability, and quantifies why letting the memory parameter tend to zero is singular even though each positive value regularizes every inverse moment. The claim is mathematically motivated by an existing 2026 study of RMSprop inverse-moment control, not merely a numerical table or renaming.
+Qualified best-of-knowledge original contribution: A half-integer inverse-moment staircase for a Gaussian RMSprop variance accumulator. Closest prior work and limits are compared by implication, not title; priority risk retained.
 
-## Scope and outstanding limitations
+## value
 
-This is a scalar independent-Gaussian denominator theorem, not an optimization-convergence theorem. The archive of older geometric Gaussian quadratic-form results has not been exhausted. Numerical assertions are diagnostic only, and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reciprocal moments of adaptive variance estimates control singular stochastic denominators. The full all-order exact stationary asymptotic and its every-half-integer exponent switch and marginal logarithmic constant describe a natural stochastic invariant in a regime where a positive memory parameter regularizes all moments yet its removal causes a singular hierarchy. Separating finite-startup integrability from the stationary law is relevant to RMSprop analytical estimates and supplies more than a known elementary moment cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

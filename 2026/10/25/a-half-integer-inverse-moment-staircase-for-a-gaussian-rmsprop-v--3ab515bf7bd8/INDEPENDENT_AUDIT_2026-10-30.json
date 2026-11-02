@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:07:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-half-integer-inverse-moment-staircase-for-a-gaussian-rmsprop-v--3ab515bf7bd8/RESULT.md blob 84f8c4b566979c2b67f14179dc310077cd56ea70",
+        "2026/10/25/a-half-integer-inverse-moment-staircase-for-a-gaussian-rmsprop-v--3ab515bf7bd8/verify.py source blob; independent checks separately recorded",
+        "Independent bounded verification JSON and script attached"
+      ],
+      "rationale": "Stationarity follows from the contraction V law = (1-beta)Z_0²+beta V independent, defining a positive infinite Gaussian quadratic form. All fixed-beta inverse p moments are finite because V dominates a positive multiple of the first n Gaussian squares for any n>2p; the finite-n cutoff follows from polar integration of an n-dimensional Gaussian quadratic form with full-rank positive weights. By Tonelli, M_p=1/Gamma(p) integral_0^infty t^{p-1} prod_{j>=0}(1+2(1-beta)t beta^j)^(-1/2) dt. For noncritical p between successive half-integers, substitute t=beta^{-k}u; the first k factors tend to their power-law limits, the remaining factors to one, and the integrable beta-function majorant yields the exact Gamma expression and exponent. For p=k/2 the same scaling is marginal; change to log-beta time x=log t/log(1/beta). The leading plateau covers one unit interval [k-1,k] with height 2^{-k/2}/Gamma(k/2), tails dominated integrably, producing a single log. The finite startup and beta=0 boundaries are explicitly separated. Independently integrated the Mellin product at beta=1e-3 and 1e-5 for p=.25,.75,1.25: scaled ratios moved toward 1. At critical k=1,2, the two-scale logarithmic slopes match predicted coefficients within 0.54%. Numerical corroboration does not prove dominated-convergence steps.",
+      "residual_risks": [
+        "Exact independent scalar standard-Gaussian gradients only, no coupled optimization dynamics, denominator epsilon floor, correlated innovations or heavy tails.",
+        "The asymptotic is beta down zero; a statement about beta up one would be different and is not proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dereich–Jentzen (2026), arXiv:2608.30382, abstract states uniform nonasymptotic optimization bounds using inverse-moment control across hyperparameters, not exact stationary Gaussian asymptotic coefficients.",
+          "Liu et al. arXiv:1908.03265 discusses effective inverse-chi-square approximations for optimizer variance rather than exact infinite-product limiting constants."
+        ],
+        "reasoning": "General RMSprop convergence and inverse-moment bounds cover a broader algorithmic problem but an inequality or approximation does not directly imply the displayed exact all-p Gaussian small-memory coefficients. Since the Dereich–Jentzen primary text was inaccessible, a decisive stronger theorem within it cannot be categorically excluded.",
+        "searches": [
+          "Gaussian exponentially weighted chi square RMSprop stationary inverse moments beta zero half integer logarithmic asymptotics",
+          "RMSProp exponentially weighted chi squared stationary inverse moments p beta to zero exact",
+          "weighted infinite chi square geometric weights inverse moments beta small precise asymptotic Mellin logarithmic transition half integers",
+          "Dereich Jentzen Convergence rates for the RMSprop optimizer with full control of the hyperparameters pdf 2608.30382"
+        ]
+      },
+      "checked_sources": [
+        "Dereich–Jentzen arXiv:2608.30382v1 abstract, full PDF inaccessible via arXiv/OA and authorized access disconnected",
+        "arXiv:1908.03265 abstract/summary",
+        "arXiv:2404.01436 abstract/summary",
+        "Resultary semantic searches: geometric Gaussian-square inverse moments and RMSprop beta small"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ArXiv:2608.30382 accessible abstract emphasizes estimates with constants uniformly controlled in hyperparameters; it does not itself state exact values as beta decreases to zero.",
+          "An effective inverse-chi-square approximation has no rigorous asymptotic equivalence at every critical p=k/2."
+        ],
+        "reasoning": "The precise beta-exponents and critical logs follow from exact Mellin-scale transitions and are not consequences of published inequalities alone. Full text of the strongest competing RMSprop article remains inaccessible, and pre-existing geometric Gaussian quadratic-form asymptotic theorems may independently imply the claim.",
+        "searches": [
+          "Gaussian exponentially weighted chi square RMSprop stationary inverse moments beta zero half integer logarithmic asymptotics",
+          "RMSProp exponentially weighted chi squared stationary inverse moments p beta to zero exact",
+          "weighted infinite chi square geometric weights inverse moments beta small precise asymptotic Mellin logarithmic transition half integers",
+          "Dereich Jentzen Convergence rates for the RMSprop optimizer with full control of the hyperparameters pdf 2608.30382"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant scalar RMSprop accumulator is equivalently an infinite diagonal Gaussian quadratic form with geometrically decaying eigenvalues beta^j.",
+          "Dereich–Jentzen arXiv:2608.30382v1 considers RMSprop second-moment denominator inverse-moment bounds, per the accessible abstract."
+        ],
+        "reasoning": "The Gaussian quadratic-form reformulation was searched explicitly to avoid relying on optimizer terminology. The main novel candidate is an exact small-beta Mellin asymptotic with a staircase of half-integer thresholds, not the known Gaussian Laplace product or startup n/2 integrability cutoff.",
+        "searches": [
+          "Gaussian exponentially weighted chi square RMSprop stationary inverse moments beta zero half integer logarithmic asymptotics",
+          "RMSProp exponentially weighted chi squared stationary inverse moments p beta to zero exact",
+          "weighted infinite chi square geometric weights inverse moments beta small precise asymptotic Mellin logarithmic transition half integers",
+          "Dereich Jentzen Convergence rates for the RMSprop optimizer with full control of the hyperparameters pdf 2608.30382"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches for exponentially weighted Gaussian chi-square stationary inverse moments and half-integer critical logarithms surfaced related optimizers and Gaussian bounds but no exact complete constant table.",
+          "The source self-review also lists other adaptive-optimizer records with different observables; no direct equality formula was independently found."
+        ],
+        "reasoning": "No checked published table was verified to contain the all-order asymptotic staircase. Search failure alone is not novelty proof, particularly for historical q-product/Mellin asymptotics.",
+        "searches": [
+          "Gaussian exponentially weighted chi square RMSprop stationary inverse moments beta zero half integer logarithmic asymptotics",
+          "RMSProp exponentially weighted chi squared stationary inverse moments p beta to zero exact",
+          "weighted infinite chi square geometric weights inverse moments beta small precise asymptotic Mellin logarithmic transition half integers",
+          "Dereich Jentzen Convergence rates for the RMSprop optimizer with full control of the hyperparameters pdf 2608.30382"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original contribution: A half-integer inverse-moment staircase for a Gaussian RMSprop variance accumulator. Closest prior work and limits are compared by implication, not title; priority risk retained.",
+      "residual_risks": [
+        "The highly relevant Dereich–Jentzen August 2026 full article could not be independently read; it may contain an implicit or explicit same-sum theorem.",
+        "Older generic Mellin/q-product results for geometrically weighted chi-square forms could imply these asymptotics; no exhaustive archive search is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Accessible abstract confirms inverse-moment bounds but cannot rule out sharper lemmas in the unavailable full text. This access limit alone does not establish either novelty or failure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30382",
+          "material_read": "full abstract and citation record only; arXiv PDF and lawful OA attempts unsuccessful, authorized institutional retrieval returned vpn_disconnected with job d313a36eb357fc80f312ec5a407236db",
+          "method": "abstract comparison, lawful authorized access attempt",
+          "title": "Convergence rates for the RMSprop optimizer with full control of the hyperparameters",
+          "trigger": "same denominator and strongest recent possible competitor"
+        },
+        {
+          "assessment": "NOT_DECISIVE_FROM_AVAILABLE_MATERIAL",
+          "evidence": [
+            "Describes an effective-chi-square approximation, not an inspected theorem matching exact Gaussian geometric-product asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.03265",
+          "material_read": "abstract and indexed Section 3.2 description only; full paper not independently read",
+          "method": "mathematical-observable comparison",
+          "title": "Statistical properties of adaptive learning-rate estimates / inverse-chi-square RMSprop approximation",
+          "trigger": "nearby stationary variance approximation"
+        },
+        {
+          "assessment": "NOT_DECISIVE_FROM_AVAILABLE_MATERIAL",
+          "evidence": [
+            "Optimization convergence bounds are not directly the scalar infinite quadratic-form reciprocal moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.01436",
+          "material_read": "index/abstract and identified scope only",
+          "method": "bounded statement-level screening",
+          "title": "Adaptive stochastic optimization convergence bounds",
+          "trigger": "general optimizer literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/a-half-integer-inverse-moment-staircase-for-a-gaussian-rmsprop-v--3ab515bf7bd8/RESULT.md",
+        "Dereich–Jentzen arXiv:2608.30382v1 abstract, full PDF inaccessible via arXiv/OA and authorized access disconnected",
+        "arXiv:1908.03265 abstract/summary",
+        "arXiv:2404.01436 abstract/summary"
+      ],
+      "rationale": "Reciprocal moments of adaptive variance estimates control singular stochastic denominators. The full all-order exact stationary asymptotic and its every-half-integer exponent switch and marginal logarithmic constant describe a natural stochastic invariant in a regime where a positive memory parameter regularizes all moments yet its removal causes a singular hierarchy. Separating finite-startup integrability from the stationary law is relevant to RMSprop analytical estimates and supplies more than a known elementary moment cutoff.",
+      "residual_risks": [
+        "Scalar independent Gaussian accumulator only; not an adaptive optimization convergence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dereich–Jentzen arXiv:2608.30382v1 abstract, full PDF inaccessible via arXiv/OA and authorized access disconnected",
+    "arXiv:1908.03265 abstract/summary",
+    "arXiv:2404.01436 abstract/summary",
+    "Resultary semantic searches: geometric Gaussian-square inverse moments and RMSprop beta small"
+  ],
+  "disposition": "passed",
+  "final_claim": "For independent standard Gaussian Z_j, stationary variance V_beta=(1-beta) sum_{j>=0} beta^j Z_j², 0<beta<1, all E[V_beta^{-p}] are finite for every p>0. If k/2<p<(k+1)/2, k=floor(2p), then beta^{kp-k(k+1)/4} E[V_beta^{-p}] tends to 2^{-p}Gamma(p-k/2)Gamma((k+1)/2-p)/(sqrt(pi)Gamma(p)). At p=k/2, integer k>=1, the asymptotic has beta^{-k(k-1)/4} log(1/beta) coefficient 2^{-k/2}/Gamma(k/2). With finite n positive-weight Gaussian terms inverse moment finite iff n>2p; beta=0 permits p<1/2.",
+  "limitations": [
+    "Exact independent scalar standard-Gaussian gradients only, no coupled optimization dynamics, denominator epsilon floor, correlated innovations or heavy tails.",
+    "The asymptotic is beta down zero; a statement about beta up one would be different and is not proved.",
+    "The highly relevant Dereich–Jentzen August 2026 full article could not be independently read; it may contain an implicit or explicit same-sum theorem.",
+    "Older generic Mellin/q-product results for geometrically weighted chi-square forms could imply these asymptotics; no exhaustive archive search is claimed.",
+    "Scalar independent Gaussian accumulator only; not an adaptive optimization convergence theorem."
+  ],
+  "schema_version": 1
+}
