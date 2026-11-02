@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The kernel formula is obtained by inverting the three-hat Gramian; convexity reduces all evaluation points to vertices, and reproducing constants converts the norm calculation to the negative kernel mass. The proof exhausts the two genuinely different sign regimes, displays positive polynomial certificates for the strict \(7/3\) bound, and gives an explicit sharp degenerating family. A standalone exact symbolic checker verifies the crucial identities and independent rational integrations. No finite experiment substitutes for the universal algebraic proof.
+PASS
 
-## Originality
+For positive a,b,c, the cyclic three-hat Gram matrix is G=(1/6)[[2(a+c),a,c],[a,2(a+b),b],[c,b,2(b+c)]]. The reproducing kernel K(x,y) is affine in evaluation x within each arc; convexity of ∫|K(x,y)|dy reduces the L∞ norm to three knots. Its knot-0 inverse row (A,−X,−Y)/D is verified by direct symbolic inversion, and ∫K=1 makes the norm 1+2 times its negative area Q. The proof exhausts X,Y≥0, X<0, Y<0; X,Y cannot both be negative. The displayed exact positive-coefficient polynomials R,T prove 2/3−Q>0 in the first and second regimes, with the third by symmetry. Independent SymPy algebra verified inverse identities and positive-denominator formulations; the degeneration (a,b,c)=(ε²,1,ε) has Q→2/3 exactly, while a=b=c yields 16/9. This proves a strict per-mesh norm <7/3 and unattained global supremum 7/3; no reliance on finite samples.
 
-PASS on inspected evidence, with the residual uncertainty stated below. The closest primary full-text source, Passenbrunner (arXiv:1608.06720, 2016), establishes a general mesh-independent periodic-spline projection bound but not the exact three-knot value or extremal degeneration. Passenbrunner–Shadrin (arXiv:1308.4824, 2013) gives nonperiodic convergence and inverse-Gram estimates, and Kayumov (arXiv:math/0408418, 2004) supplies wider interval-spline background. Earlier finite-mesh calculations known from accessible research records address uniform three-knot circles or a four-knot alternating mesh, which do not imply the unrestricted three-knot supremum. Equivalently formulated or unindexed earlier computations cannot be excluded.
+## originality
 
-## Value
+PASS
 
-PASS. Three cyclic intervals form the first case in which the relative arc lengths yield a nontrivial continuous family of periodic hat-spline projections. The exact all-mesh constant \(7/3\), strict nonattainment, and explicit hierarchical near-extremizers supply a sharp stability boundary beyond general order-dependent boundedness. The uniform mesh has a substantially smaller norm \(16/9\), so the extremal instability is geometric rather than merely dimension- or degree-dependent.
+Passenbrunner, Orthogonal projectors onto spaces of periodic splines (arXiv:1608.06720v2, 2016), Theorem 1.4, explicitly proves a constant c_k independent of number and placement of knots, via Gram estimates; full primary PDF and proof Sections 1-3 inspected. It does not specify c_2=7/3 at exactly three knots or a nonattaining extremizing family. Nonperiodic results of Shadrin and Passenbrunner–Shadrin apply more broadly to interval knots but do not yield this exact periodic three-knot envelope. Best of knowledge PASS with residual historical finite-dimensional calculation risk.
 
-## Limitations and literature risk
+## value
 
-The theorem is only for three positive arc lengths and ordinary degree-one periodic splines. Although the most directly relevant primary periodic-spline article was materially inspected, a historical short explicit computation not indexed under these phrases remains possible. Kayumov's thesis was consulted for abstract and relevant introductory passages, not inspected exhaustively. A separate independent scientific audit remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three knots are the first genuinely variable-mesh finite-dimensional periodic degree-one projector. Determining the sharp 7/3 amplification, proving that no positive mesh attains it, and identifying a two-scale singular extremal geometry give a natural exact stability boundary not obtainable from qualitative mesh-independent boundedness alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T13:58:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive a,b,c, the cyclic three-hat Gram matrix is G=(1/6)[[2(a+c),a,c],[a,2(a+b),b],[c,b,2(b+c)]]. The reproducing kernel K(x,y) is affine in evaluation x within each arc; convexity of ∫|K(x,y)|dy reduces the L∞ norm to three knots. Its knot-0 inverse row (A,−X,−Y)/D is verified by direct symbolic inversion, and ∫K=1 makes the norm 1+2 times its negative area Q. The proof exhausts X,Y≥0, X<0, Y<0; X,Y cannot both be negative. The displayed exact positive-coefficient polynomials R,T prove 2/3−Q>0 in the first and second regimes, with the third by symmetry. Independent SymPy algebra verified inverse identities and positive-denominator formulations; the degeneration (a,b,c)=(ε²,1,ε) has Q→2/3 exactly, while a=b=c yields 16/9. This proves a strict per-mesh norm <7/3 and unattained global supremum 7/3; no reliance on finite samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 bounds every periodic spline projector by some c_k without an evaluated value, and its proof sums inverse-Gram exponential-decay estimates.",
+          "Interval spline literature is broader in knot count but distinct in periodic boundary conditions; an interval constant 3 would be weaker even if transferable."
+        ],
+        "reasoning": "None of the inspected stated theorems implies that 7/3 is the exact strict least upper bound of all positive three-knot mesh norms or supplies the collapsed extremizing sequence.",
+        "searches": [
+          "arXiv:1608.06720v2 Theorem 1.4 full PDF, Sections 1-3",
+          "arXiv:1308.4824 inverse spline Gram matrices",
+          "arXiv:math/0408418 second-order L-spline bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1608.06720",
+        "https://arxiv.org/abs/1308.4824",
+        "Resultary semantic query: sharp L-infinity norm L2 orthogonal projection three periodic linear spline knots 7/3",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/sharp-three-knot-periodic-linear-spline-projection-bound--088a71941c5f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.4 states only ||P||∞≤c_k, with no explicit 7/3 or exact k=2,n=3 extremizers.",
+          "Symbolic inverse of the 3×3 Gramian and casewise negative-kernel area positivity is not included in the general geometric-decay proof."
+        ],
+        "reasoning": "A weaker existence of a constant cannot imply this evaluated sharp constant and equality/nonattainment claims. The source is genuinely same spline class and is duly credited for qualitative boundedness.",
+        "searches": [
+          "Passenbrunner 2017 periodic splines mesh-independent bound theorem 1.4",
+          "Passenbrunner Shadrin interval arbitrary knots inverse Gram bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Passenbrunner Theorem 1.4 gives existence of c_k, with k=2 covering piecewise-linear periodic splines, but no formula for minimum admissible 3-knot constant.",
+          "A three-frequency Fourier projection is a different space with global trigonometric basis, not cyclic hat splines."
+        ],
+        "reasoning": "The alias \"second-order spline\" means piecewise linear order k=2, checked against the same function class; general bounds do not constitute the exact evaluated three-knot result.",
+        "searches": [
+          "sharp L-infinity norm L2 orthogonal projection three periodic linear spline knots 7/3",
+          "arXiv:1608.06720 Theorem 1.4 periodic spline L infinity norms",
+          "exact 7/3 three knot projector triangle hat cyclic Gram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform three-knot case evaluates 16/9 but is strictly below the nonuniform global supremum.",
+          "A published numerical or uniform-mesh table cannot determine the continuum of mesh ratios; no exact 7/3 comprehensive table located."
+        ],
+        "reasoning": "The precise new invariant is a continuous three-arc mesh supremum; one exact uniform entry cannot cover it.",
+        "searches": [
+          "three-knot periodic linear spline projection sharp 7/3",
+          "uniform three-knot periodic projection norm 16/9",
+          "sharp L-infinity norm L2 orthogonal projection three periodic linear spline knots 7/3"
+        ]
+      },
+      "rationale": "Passenbrunner, Orthogonal projectors onto spaces of periodic splines (arXiv:1608.06720v2, 2016), Theorem 1.4, explicitly proves a constant c_k independent of number and placement of knots, via Gram estimates; full primary PDF and proof Sections 1-3 inspected. It does not specify c_2=7/3 at exactly three knots or a nonattaining extremizing family. Nonperiodic results of Shadrin and Passenbrunner–Shadrin apply more broadly to interval knots but do not yield this exact periodic three-knot envelope. Best of knowledge PASS with residual historical finite-dimensional calculation risk.",
+      "residual_risks": [
+        "Older unpublished or unindexed explicit 3×3 Gram inversions could contain the same 7/3 extremal constant.",
+        "Scope strictly three knots, unweighted arclength and degree-one periodic splines; no four-or-more-knot claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides qualitative knot-independent c_k for all periodic knots, but no sharp 7/3 three-knot constant in inspected entire theorem/proof",
+          "evidence": "Theorem 1.4 and Section 3; bound with unspecified order-dependent c_k",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.06720",
+          "material_read": "Full 11-page arXiv PDF arXiv:1608.06720v2, especially definition of periodic space at p.3, Theorem 1.4 on p.3 and proof p.7 with geometric-decay bound; screenshot of p.3 inspected",
+          "method": "read primary PDF text and page screenshot",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "Same precise periodic orthogonal spline projector, arbitrary knots, potential dominating bound"
+        },
+        {
+          "assessment": "Concern nonperiodic interval spline projection, so does not settle exact three-knot torus constant",
+          "evidence": "Interval setting and non-sharp general estimates",
+          "identifier_or_url": "https://arxiv.org/abs/1308.4824",
+          "material_read": "Accessible abstract and cited descriptions; whole paper not independently read",
+          "method": "bibliographic and theorem-scope comparison",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "Other arbitrary-knot orthogonal projector inverse-Gram bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three knots are the first genuinely variable-mesh finite-dimensional periodic degree-one projector. Determining the sharp 7/3 amplification, proving that no positive mesh attains it, and identifying a two-scale singular extremal geometry give a natural exact stability boundary not obtainable from qualitative mesh-independent boundedness alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older unpublished or unindexed explicit 3×3 Gram inversions could contain the same 7/3 extremal constant.",
+    "Scope strictly three knots, unweighted arclength and degree-one periodic splines; no four-or-more-knot claim.",
+    "Only the exact hypotheses/domain of the assigned RESULT.md were evaluated; no external attestation, formal Lean proof, publication or automated certificate is claimed.",
+    "Submitted reproducibility scripts are corroborative unless exhaustive state closure plus a proved finite reduction is explicitly established."
+  ],
+  "schema_version": 1
+}
