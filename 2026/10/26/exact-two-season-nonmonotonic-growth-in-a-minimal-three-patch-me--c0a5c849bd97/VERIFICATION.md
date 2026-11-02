@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 (arbitrary-precision integers). Success prints `CERT_OK` after checking every strict inequality; the program's optional rounded printed margins do not enter any assertion. The coefficient matrices are represented as literal exact integers. Exponential Taylor truncation is controlled by a separately checked factorial tail bound, not by heuristics. Componentwise comparison with a positive integer vector gives spectral bounds by Perron–Frobenius/Collatz–Wielandt.
+## correctness
 
-The program verifies the specific three-patch witness. The general lower bound on patch number is a mathematical reduction to the published symmetric-migration monotonicity theorem; it is not a finite-enumeration inference. The work establishes neither global optimization of the period nor a classification of all three-patch interactions. No independent audit has been performed.
+PASS
+
+The package defines a fixed conservative irreducible 3-patch Metzler migration L and A1=L+diag(-4,8,10), A2=L+diag(3,-5,-1), with equally long alternating seasons. Writing B1=A1+16I and B2=A2+9I gives Lambda(T)=-25/2+log rho(exp(T B2/2)exp(T B1/2))/T. Reconstructed independent exact-integer Taylor enclosures of e^M with N=430 and remainder <10^-12 entrywise for M=B1,B2,4B1,4B2; independent Horner recurrence and Collatz bounds verify Q2*v>a*v and Q8*v<b*v for v=(276,629,1000), a=778*10^11, b=356*10^53, with a^4>b. This rigorously proves Lambda(2)>Lambda(8), not merely a sampled numerical reversal. For two patches, a fixed positive diagonal similarity symmetrizes the irreducible conservative off-diagonal migration; its constant diagonal adjustment is absorbed into seasonal growth, allowing the published symmetric-dispersal period-monotonicity theorem. One patch or one season gives no reversal. Critical residual: the two-patch boundary uses the full applicability of that published monotonicity theorem, not only finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality from distinct actual primary statements and implications: Compared the exact number of distinct regimes and migration constraints; prior three-regime counterexample does not by itself instantiate two regimes. The earlier unrestricted nonmonotonicity statement is more general in freedom of regimes but its existential witness with three regimes does not imply an existential witness with exactly two. The new sharp regime-count witness remains additional information. Strict two-season existence and the simultaneous minimal patch/season counts require the new integer certificate plus published two-patch obstruction.
+
+## value
+
+PASS
+
+The phenomenon of dispersal-induced growth depends on temporal scale. A fully exact two-regime counterexample at the smallest possible migration dimension sharpens a previously three-regime qualitative counterexample and identifies a genuine sharp model-complexity boundary. The exact rational/integer spectral enclosure allows later researchers to reuse a rigorous witness without numerical uncertainty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
