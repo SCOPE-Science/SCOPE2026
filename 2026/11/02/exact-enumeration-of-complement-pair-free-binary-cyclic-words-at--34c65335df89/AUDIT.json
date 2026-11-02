@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact all-length proof via 256 exhaustive edge-orientations, 324 recurrent SCC inclusions, fifteen pairwise family intersections, six 8-state determinant identities using exact Newton traces, and formal transfer-trace/inclusion-exclusion. Actual self-contained verifier returned VERIFY_OK, including independent brute force through length 16.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Currie et al. Theorem 3 gives repetition-threshold existence and §5 explores complexity under exponent restrictions, without enumerating all marked circular words.",
+        "Hadjicostas–Zhang 2018 repository abstract states general multiple-pattern case as conjectural or conditional, not an explicit eight-pair complement-exclusion count."
+      ],
+      "reasoning": "Infinite-word repetition classifications with extra power-free conditions do not imply this unrestricted exact cyclic count. General transfer-matrix methods can in principle generate the count after a separate, nontrivial finite graph decomposition; a fully general multi-pattern theorem might subsume it and is the main open coverage risk.",
+      "searches": [
+        "Complement Avoidance in Binary Words arxiv:2209.09598 Theorem 3 and Section 5",
+        "On Cyclic Strings Avoiding a Pattern Hadjicostas Zhang 2018 multiple patterns",
+        "Circular Binary Strings without Zigzags 2003 cyclic length enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.09598 full HTML §§1–5 relevant sections",
+      "Integers 3 (2003) A19 full author-uploaded text, Introduction and counting section",
+      "Hadjicostas–Zhang 2018 UNLV repository abstract",
+      "OEIS A283021 metadata and sequence (different zigzag problem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 paper includes constraint length four only with critical-exponent restrictions in Theorems 16–17.",
+        "The 2003 paper forbids both alternating three-factors, whereas admissibility here is a pairwise condition on eight complement pairs of length-four factors.",
+        "The 2018 abstract describes one-pattern enumeration and conditional multi-pattern extensions."
+      ],
+      "reasoning": "None of the inspected primary results states or logically entails the exact six-graph trace decomposition without additional computation. The 2018 full text could contain a stronger multivariate theorem; abstract alone cannot exclude that possibility, so the residual priority risk is recorded.",
+      "searches": [
+        "arxiv:2209.09598 complement avoidance infinite words critical exponent finite complexity",
+        "doi:10.1016/j.disc.2018.03.007 cyclic strings avoiding pattern",
+        "Integers 3 (2003) A19 full text zigzags"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2209.09598 (Sections 2 and 5, complete HTML available): examines infinite words, critical exponents and growth thresholds; it does not display the marked circular factor-length-four counting law.",
+        "Integers 3 (2003) A19 full text: forbidden zigzags 010 and 101 differ from length-four complementary pair avoidance."
+      ],
+      "reasoning": "A cyclic factor set avoiding eight simultaneous complement-pair conflicts is a union of orientations of an eight-pair de Bruijn graph, not the same language as avoidance of one prescribed 3-bit or 4-bit pattern or of both zigzags. No equivalent length-indexed formula was found; uncertainty remains because finite-state reinterpretation may appear elsewhere.",
+      "searches": [
+        "cyclic binary words no two complementary length 3 factors exact enumeration Narayana recurrence a(n)=a(n-1)+a(n-3)",
+        "complement avoidance binary words length three cyclic finite enumeration generating function",
+        "Binary circular complement-free length four factor languages renewal graphs seven-cycle and three-cycle counting",
+        "Currie et al. arxiv:2209.09598 sections 2 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical all-length formula or identical marked-circle sequence was surfaced in the searched mathematical records; the available related OEIS A283021 concerns zigzag avoidance and has different counts."
+      ],
+      "reasoning": "A related OEIS sequence with the word circular does not certify exact equality; the graph specification and first values must match. No matching indexed record found, which is not a global novelty certificate.",
+      "searches": [
+        "Exact number of marked cyclic binary words of length n with no complementary pair of length four factors; formula 4 Lucas7 plus 2 Lucas3 minus 4",
+        "complement avoidance cyclic binary count 10 12 20 58 74 98 132 178 244",
+        "OEIS circular binary strings complementary factors length 4"
+      ]
+    },
+    "rationale": "Primary full-text comparison with the 2022 complement-avoidance paper and 2003 cyclic zigzag paper found different scopes and no matching all-length marked cyclic formula. The related 2018 abstract has no explicit result for this family but was not reviewed in full. Comparisons of primary mathematical statements and public indexed formulas found no matching or stronger implication; non-indexed transfer-matrix literature remains a genuine risk.",
+    "residual_risks": [
+      "A general multiset cyclic forbidden-pattern theorem could imply the formula although the full Hadjicostas–Zhang article was not readable from available public repository evidence.",
+      "Equivalent finite-state graph enumeration may exist in an unindexed source or specialized OEIS table."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not found covering this exact unrestricted marked cyclic enumeration; material focuses critical exponents and existence/complexity thresholds",
+        "evidence": [
+          "arxiv:2209.09598 §§2,5 and Theorems 3,16,17"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.09598v2",
+        "material_read": "Full accessible HTML, Introduction, Sections 2, 3 and 5 and references; Theorems 3, 16, 17 and statements of related finite-word bounds",
+        "method": "Read full HTML sections and compare quantifiers, circular vs bi-infinite domains, and unrestricted counting vs critical exponent restrictions",
+        "title": "Complement Avoidance in Binary Words",
+        "trigger": "Exact same complementary-factor constraint and length-four theorems"
+      },
+      {
+        "assessment": "Counts cyclic words avoiding both 010 and 101, not pairwise complement conflicts on all length-four words",
+        "evidence": [
+          "Integers 3 (2003), #A19, Introduction and §2"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/228396896_Circular_binary_strings_without_zigzags",
+        "material_read": "Available full author-uploaded text, abstract, Introduction, section 2 definitions, restrictions and counting aims",
+        "method": "Compare forbidden factor sets, cyclic conventions and enumerated statistics",
+        "title": "Circular Binary Strings without Zigzags",
+        "trigger": "Exact circular binary enumeration using length-three forbidden motifs"
+      },
+      {
+        "assessment": "No explicit exact covering count visible in accessible material; full text remains an originality risk",
+        "evidence": [
+          "UNLV institutional abstract, 2018, doi:10.1016/j.disc.2018.03.007"
+        ],
+        "identifier_or_url": "https://oasis.library.unlv.edu/math_fac_articles/54/",
+        "material_read": "Complete institutional repository abstract and metadata, not full article",
+        "method": "Compare abstract-level scope of single-pattern counts and conditional multiset generalization",
+        "title": "On Cyclic Strings Avoiding a Pattern",
+        "trigger": "Cyclic marked-position enumeration and multiple forbidden patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34c65335-df89-48ab-a602-a5180c852a85",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-length marked circular enumeration for a natural complement-avoidance language and a six-family structural theorem that determines the sharp length-7 mixed-doublet onset; not just generic transfer matrices or a bounded parameter census.",
+    "status": "PASS"
+  }
+}
