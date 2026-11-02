@@ -1,19 +1,21 @@
-# Self-review: sharp target-dependent quadrature crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified finite diagonal RKHS the optimal quadrature weights equal the target coefficients at sampled nodes. Squared worst-case error is exactly the weighted omitted-coordinate sum. Residual-diagonal pivots produce the stated sequential omission product; determinant-subset counting produces the companion rational probability. Comparing logarithmic derivatives yields strict ordering when the budget is at least two. Symmetry and a fixed number of omitted nodes yield both all-target risk identities. The large-contrast limit is a fixed-degree rational asymptotic. A standalone rational-enumeration script corroborates all major formulas in smaller finite settings; it does not replace the proof.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+PASS: For diagonal SPD kernel diag(L,1^m), sampled RKHS coordinate sections are orthogonal and optimal weight on sampled i is g_i, leaving squared worst-case error Lg_0² 1_{spike omitted}+sum_{i≥1}g_i² 1_{i omitted}. Residual-diagonal RPChol pivoting draws sequential without replacement proportional to unchanged diagonal masses, giving p_R=product_{j=0}^{k-1}(m-j)/(L+m-j); k-DPP volume sampling gives p_D=(m-k+1)/(kL+m-k+1). Both equal at L=1; derivative of log p_R is strictly more negative than log p_D for L>1,k≥2, so p_R<p_D. Exchangeability of m small coordinates plus exactly m+1-k omissions proves E_J=Lg_0²p_J+(m-k+1-p_J)Q/m, Q=sum g_i². Therefore the exact sign of E_D-E_R is sign(Lg_0²-Q/m); equality and opposite strict orderings both occur. For g=e_0, p_R~(m)_k L^-k, p_D~(m-k+1)/(kL), giving E_D/E_R~L^(k-1)/[k(m)_{k-1}]. Independently enumerated ALL ordered pivot paths and determinantal k-subsets with exact rational probabilities for 2≤m≤5, 2≤k≤m, L=3/2,3,10, and several targets; all identities match. This is a finite dimensional family with exact algebra valid for every stated m,k,L, not a continuous-domain theorem.
 
-The closest primary references are Epperly and Moreno (2023), who introduced RPChol kernel quadrature and explicitly highlighted comparison to volume sampling; Belhadji, Bardenet, and Chainais (2020), who derived volume-sampling expected kernel errors; Chen, Epperly, Tropp, and Webber (2022 preprint), who compared RPChol and DPP matrix approximations; and Yu (2010), who established inclusion-probability majorization for successive versus rejective sampling. The last qualitative inclusion comparison is **prior work**, not novel here. No inspected result establishes the complete target-dependent quadrature sign boundary together with its sharp unbounded squared-error ratio. Equivalent classical sampling formulations remain a real residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The study was motivated by a published gap between pivoted-Cholesky and fixed-size volume-sampling kernel quadrature. The complete target-risk crossover shows why a single trace or average-error ranking can obscure opposite outcomes for different integration functionals; a concrete dominant-coordinate functional yields an unbounded advantage even though both samplers nearly always include that coordinate at high contrast. The finding provides an exact model benchmark rather than a new general guarantee. No downstream theorem, smooth-domain extension, or typical-case advantage is claimed.
+PASS qualified: RPChol kernel quadrature and volume sampling with optimal RKHS weights are known (Epperly–Moreno 2023, Belhadji et al 2020). Yu 2010 compares inclusion probabilities of successive/rejective unequal-probability sampling, so a qualitative dominant-coordinate omission advantage is known. The additional complete sign-classification of expected SQUARED quadrature risks for all target g and asymptotically unbounded ratio on the one-spike family are not stated in the inspected previous studies. A sampling-theoretic equivalent of the diagonal weighted-risk calculation is plausible and explicitly retained as priority risk; not claiming first inclusion-probability inequality.
 
-## Scope and limitations
+## value
 
-The result applies only to fixed finite counting-measure sets, diagonal one-spike positive-definite kernels, optimal quadrature weights, and expected **squared** RKHS worst-case error. The precise high-contrast asymptotic fixes the number of nodes. Its formula is not an expectation of unsquared error, and it does not show high-probability or continuous-domain superiority. The finite verifier is supporting evidence and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A motivated open comparison asks whether random pivoted Cholesky or fixed-size determinantal sampling yields better quadrature. The explicit same-kernel/same-budget diagonal model shows target dependence with an indefinite (one-positive/m-negative) risk difference and unbounded performance ratio, ruling out uniform dominance. The result is narrow but a complete interpretable counterexample and exact classification, not a meaningless arbitrary spectral slice. No extrapolation to continuous kernels, noisy data, or unsquared-risk ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

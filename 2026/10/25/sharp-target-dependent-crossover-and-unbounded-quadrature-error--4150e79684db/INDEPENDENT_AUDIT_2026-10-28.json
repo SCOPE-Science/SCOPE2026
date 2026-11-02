@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For diagonal SPD kernel diag(L,1^m), sampled RKHS coordinate sections are orthogonal and optimal weight on sampled i is g_i, leaving squared worst-case error Lg_0² 1_{spike omitted}+sum_{i≥1}g_i² 1_{i omitted}. Residual-diagonal RPChol pivoting draws sequential without replacement proportional to unchanged diagonal masses, giving p_R=product_{j=0}^{k-1}(m-j)/(L+m-j); k-DPP volume sampling gives p_D=(m-k+1)/(kL+m-k+1). Both equal at L=1; derivative of log p_R is strictly more negative than log p_D for L>1,k≥2, so p_R<p_D. Exchangeability of m small coordinates plus exactly m+1-k omissions proves E_J=Lg_0²p_J+(m-k+1-p_J)Q/m, Q=sum g_i². Therefore the exact sign of E_D-E_R is sign(Lg_0²-Q/m); equality and opposite strict orderings both occur. For g=e_0, p_R~(m)_k L^-k, p_D~(m-k+1)/(kL), giving E_D/E_R~L^(k-1)/[k(m)_{k-1}]. Independently enumerated ALL ordered pivot paths and determinantal k-subsets with exact rational probabilities for 2≤m≤5, 2≤k≤m, L=3/2,3,10, and several targets; all identities match. This is a finite dimensional family with exact algebra valid for every stated m,k,L, not a continuous-domain theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior works supply general kernel quadrature bounds and RPChol/DPP matrix approximation comparisons rather than exact sign of every target-functional risk for this one-spike kernel."
+        ],
+        "reasoning": "General expected-error upper bounds do not imply the target-dependent sign classification or sharp divergence on the fixed model. More general inclusion ordering alone cannot yield the whole weighted error matrix without model-specific reconstruction.",
+        "searches": [
+          "Epperly Moreno arxiv:2306.03955",
+          "Belhadji Bardenet Chainais arxiv:2002.09677",
+          "Chen Epperly Tropp Webber arxiv:2207.06503 Appendix C"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 3c0af848dde8220df1173cbb3ea509808adb4f90",
+        "https://arxiv.org/abs/2306.03955",
+        "https://arxiv.org/abs/1005.4107",
+        "https://arxiv.org/abs/2002.09677",
+        "https://arxiv.org/abs/2207.06503"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known p_R<p_D for heavy coordinate gives only its inclusion advantage; other m coordinates must have opposite average omission to preserve k, yielding weighted risk difference (p_D-p_R)(Lg0²-Q/m)."
+        ],
+        "reasoning": "Once the diagonal error model is reconstructed, final comparison is an elementary but motivated exact consequence of distinct sampling probabilities. Inspected earlier theorems do not explicitly provide this all-target criterion or the L^(k-1) contrast ratio.",
+        "searches": [
+          "Yu arxiv:1005.4107",
+          "Epperly Moreno arxiv:2306.03955",
+          "Chen et al arxiv:2207.06503"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diagonal pivoted Cholesky equals successive probability-proportional-to-size sampling; determinant k-subset law equals rejective sampling; RKHS squared quadrature risk is a weighted inclusion-complement cost."
+        ],
+        "reasoning": "Under sampling-theory aliases the inclusion inequality is old, and a hidden exact quadratic-form risk relation may exist; inspected prior references do not state full target-sign crossover and unbounded risk ratio.",
+        "searches": [
+          "arxiv:1005.4107 successive rejective unequal-probability inclusion",
+          "arxiv:2306.03955 RPChol",
+          "Resultary: randomly pivoted Cholesky fixed size volume sampling quadrature target dependent error diagonal spike"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed sharp multistage adaptive randomized pivoting concerns column projection error stages, not comparison with k-DPP optimal quadrature target risk."
+        ],
+        "reasoning": "No exact one-spike target-risk table surfaced in checked search. Negative search is a residual-risk-bearing observation rather than proof of novelty.",
+        "searches": [
+          "Resultary semantic: one-spike RPChol DPP quadrature target risk",
+          "Resultary 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+        ]
+      },
+      "rationale": "PASS qualified: RPChol kernel quadrature and volume sampling with optimal RKHS weights are known (Epperly–Moreno 2023, Belhadji et al 2020). Yu 2010 compares inclusion probabilities of successive/rejective unequal-probability sampling, so a qualitative dominant-coordinate omission advantage is known. The additional complete sign-classification of expected SQUARED quadrature risks for all target g and asymptotically unbounded ratio on the one-spike family are not stated in the inspected previous studies. A sampling-theoretic equivalent of the diagonal weighted-risk calculation is plausible and explicitly retained as priority risk; not claiming first inclusion-probability inequality.",
+      "residual_risks": [
+        "Classical successive/rejective sampling theory may contain a reformulation of this exact two-level weighted-risk difference.",
+        "Only finite diagonal one-spike RKHS, expected squared worst-case quadrature error, exact sampling and fixed (m,k) contrast limit are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RPChol algorithm and its usefulness established; comparison with volume sampling explicitly presented as a research direction, not exact all-target diagonal classification",
+          "evidence": "Method and comparison discussion in primary full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03955",
+          "material_read": "Accessible full paper, quadrature setup, sampled weights, error bounds and future-work discussion",
+          "method": "Read primary mathematics and relevant discussion",
+          "title": "Kernel quadrature with randomly pivoted Cholesky",
+          "trigger": "Direct originating algorithm and comparison motivation"
+        },
+        {
+          "assessment": "Already establishes qualitative inclusion-order relationships; cannot claim that part as novel, nor does it state RKHS weighted-risk crossover",
+          "evidence": "Known inclusion majorization versus target-weighted squared quadrature loss.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.4107",
+          "material_read": "Accessible full arXiv text, statement and inclusion-probability inequalities",
+          "method": "Read primary main theorem and model definitions",
+          "title": "On the inclusion probabilities in some unequal probability sampling plans without replacement",
+          "trigger": "Two samplers coincide with classic successive/rejective sampling schemes on diagonal weights"
+        },
+        {
+          "assessment": "Provides established fixed-size determinantal sampling background; cannot exclude all possible exact risk statements without full reading",
+          "evidence": "Motivation and expected interpolation quadrature setting; recorded access/read limitation.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.09677",
+          "material_read": "Accessible arXiv abstract and study description; complete full-text inspection not established during this execution",
+          "method": "Bibliographic and statement-level comparison only",
+          "title": "Kernel interpolation with continuous volume sampling",
+          "trigger": "Potential dominating DPP quadrature bounds"
+        },
+        {
+          "assessment": "Different multistage matrix-subset projection objective; no whole-document noncoverage assertion",
+          "evidence": "Known comparison is not sufficient to imply direct RPChol/DPP expected squared quadrature crossover.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+          "material_read": "Resultary title and summary only; full text not read",
+          "method": "Semantic search metadata comparison, explicitly limited to snippet-level",
+          "title": "Worst-case sharpness of multistage adaptive randomized pivoting",
+          "trigger": "Semantically nearby published mathematical result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A motivated open comparison asks whether random pivoted Cholesky or fixed-size determinantal sampling yields better quadrature. The explicit same-kernel/same-budget diagonal model shows target dependence with an indefinite (one-positive/m-negative) risk difference and unbounded performance ratio, ruling out uniform dominance. The result is narrow but a complete interpretable counterexample and exact classification, not a meaningless arbitrary spectral slice. No extrapolation to continuous kernels, noisy data, or unsquared-risk ratios.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 3c0af848dde8220df1173cbb3ea509808adb4f90",
+    "https://arxiv.org/abs/2306.03955",
+    "https://arxiv.org/abs/1005.4107",
+    "https://arxiv.org/abs/2002.09677",
+    "https://arxiv.org/abs/2207.06503"
+  ],
+  "disposition": "passed",
+  "limitations": "Actual frozen package C/O/V assessed; finite computations not infinite proofs. Source-level scientific originality is best-of-knowledge, not independent universal priority certification. Public metadata privacy controls prevent import.",
+  "residual_risks": [
+    "Classical successive/rejective sampling theory may contain a reformulation of this exact two-level weighted-risk difference.",
+    "Only finite diagonal one-spike RKHS, expected squared worst-case quadrature error, exact sampling and fixed (m,k) contrast limit are covered."
+  ],
+  "schema_version": 1
+}
