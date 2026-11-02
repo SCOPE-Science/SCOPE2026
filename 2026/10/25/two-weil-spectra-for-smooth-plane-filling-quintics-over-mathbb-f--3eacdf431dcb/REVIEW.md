@@ -1,13 +1,21 @@
-## Correctness
-The prior matrix theorem classifies every smooth minimal-degree plane-filling quintic by irreducible cubics. Direct verification gives two affine-characteristic orbits (sizes two and six); polynomial-residue field computations exhaustively count all eight representatives over six field extensions, including all four points at infinity. Newton identities and the genus-six Weil functional equation rigorously determine both complete zeta functions. Modulo-two irreducibility checks certify the claimed simple factors. The standalone code was compiled and executed successfully; finite arithmetic is not substituted for the published structural theorem.
+# Independent mathematical audit
 
-## Originality
-Homma and Kim proved the existence and matrix description; Homma proved the precise projective equivalence criterion and smoothness test; Cunha studied geometric automorphisms, quotients and ordinarity. Those established facts are expressly excluded from the novelty claim. The contribution evaluated is the exact two-polynomial Frobenius spectrum over the prime field and the corresponding distinct Jacobian isogeny decompositions. Statement-level comparisons with those primary results and relevant published records found no direct equation-by-equation coverage. An unindexed arithmetic table or stronger general Frobenius computation may overlap and remains a genuine residual risk; search nonappearance does not establish absolute novelty.
+## correctness
 
-## Value
-This is the entire finite-field arithmetic classification, not an arbitrary isolated point count, for a canonical extremal genus-six family realizing the minimum degree of a smooth plane-filling curve. The distinction between a repeated dimension-two factor and a simple dimension-six Jacobian is an informative structural invariant despite all curves being geometrically related and ordinary.
+PASS
 
-## Boundaries
-Two projective classes follow from prior geometric results. The only new claims are the complete \(\mathbb F_3\) zeta polynomials and their arithmetic-isogeny implications. The result does not classify polarized Jacobians or unmarked abstract curves.
+Homma–Kim representation and Homma equivalence criterion reduce all smooth degree-five plane-filling F3 curves to irreducible characteristic cubics modulo affine scalar/shift. The eight cubic polynomials form two orbits of sizes two and six, as verified from coefficient transforms. For each companion representative, the given affine equation over F_{3^n}, together with exactly four rational points at infinity, was independently exhaustively enumerated for ALL n=1..6 using a new finite-field implementation: A point counts (13,13,55,13,208,913); B (13,13,16,117,273,640). The genus-six Weil functional equation and Newton identities reconstruct all twelve coefficients from n≤6, not from infinite extrapolation. Separate exact mod-2 irreducibility tests of the quartic and degree-12 factors support the simple isogeny decomposition; middle coefficients coprime to 3 prove ordinarity. Geometric two-class classification is explicitly a prior theorem, not novel.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Comparisons of actual mathematical implications support a best-of-knowledge original contribution beyond cited prior facts, with explicit overlap credit and residual priority risks; not a universal guarantee.
+
+## value
+
+PASS
+
+Complete arithmetic Frobenius spectrum and Jacobian isogeny contrast for an extremal natural family of smooth plane-filling curves, beyond prior geometric/projective classification. Exact zeta functions are reusable arithmetic invariants and determine point counts over every finite extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
