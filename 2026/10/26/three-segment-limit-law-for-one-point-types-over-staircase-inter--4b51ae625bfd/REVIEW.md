@@ -1,15 +1,21 @@
-# Scientific review: three-segment staircase type-profile law
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete-type criterion is the standard finite-poset ideal/filter characterization. A disjoint classification by first omitted lower element, or by first included upper element for mixed profiles, proves the exact bivariate polynomial. The normalized three-class decomposition provides an explicit coupling proving the Wasserstein \(O(n^{-1/2})\) estimate. Direct integration yields the covariance and limiting correlation; the support is bounded and both marginal variances are nonzero. Independent small-size ternary transitivity enumeration reproduces every coefficient for dimensions one through five.
+## correctness
 
-## Originality
-PASS, qualified. An earlier height-two bipartite independent-set formula covers the unrefined scalar type count by specialization; only the joint law is a novelty candidate. The closest available published published-finding corpus theorem classifies all one-point profiles as ideal/filter pairs and proves generic counting hardness; it does **not** state the staircase bivariate distribution or its limit. The two inspected 2010 interval-order papers enumerate unlabelled \((2+2)\)-free posets and related statistics, not pointwise-stabilizer one-types over an explicitly named staircase. The inspected 2010 ultrahomogeneous-structure preprint gives the established model-theoretic extension machinery. No equivalent three-segment law or \(-23/33\) correlation was found in the performed semantic and targeted literature searches. Residual risk: an implicit or independently known special-purpose enumerative derivation, especially in specialized Ferrers-poset work. Lack of a search hit does not prove novelty.
+PASS
 
-## Mathematical value
-PASS. The parameter family is the canonical one-step staircase of nested neighborhoods, a tractable representative of interval orders; the generic type-count problem is hard in general. The **joint** predecessor/successor size profile, not just the scalar total, reveals three coexisting macroscopic classes with different supports and an exact negative limiting correlation. The quantitative distributional theorem distinguishes a naturally constrained yet asymptotically mixed two-sided class from one-sided extensions and makes the precise normalized type-shape law reusable for comparisons with other poset parameter families. No general unknown downstream theorem is required for this finite-family classification.
+The ideal/filter cross-order criterion is necessary and sufficient for a one-point extension in the random poset. By the first missing a_i, one-sided ideals contribute (1+u)^{n-1} sum_{i=0}^{n-1}u^i+u^n(1+u)^n; by the first chosen upper b_j, two-sided profiles contribute v(1+v)^{n-j}((1+u)^j-1). These classes are disjoint except for the single empty profile, yielding the exact polynomial and total. Conditioned classes give uniform cut indices plus binomials; coupling establishes O(n^-1/2) W1 (an O(1/n) exceptional mass). The limiting mixture has EX=3/8, EX²=5/16, EXY=1/48; covariance -23/192, variance 11/64 and correlation -23/33. An independent exhaustive enumeration of all ternary profiles for n=1..4 checked the full bivariate polynomial coefficientwise. This does not prove the all-n result; the combinatorial partition and coupling do.
 
-## Related literature and limits
-Kitaev–Remmel (arXiv:1004.3220) and Dukes–Kitaev–Remmel–Steingrímsson (arXiv:1006.2696) address the interval-order setting; Dolinka–Mašulović (arXiv:1009.2892) treats relevant Fraïssé extension context. The 2026 published published-finding corpus scalar-counting record provides a stronger general **decision/counting framework**, not an explicit bivariate or asymptotic profile. This work is confined to named staircase parameter posets; no conclusion is drawn for general height-two or interval-order parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general ideal/filter description and scalar count by height-two independent-set enumeration are prior. The asserted independent contribution is the exact joint marked-profile polynomial for this labeled staircase family and its quantitative distributional limit, not the generic classification or complexity. The primary interval-order paper enumerates unlabeled interval orders, rather than one-point extensions over one fixed labeled poset. Same-family Ferrers-poset enumeration or implicit specialization could still cover this result; no literature search certifies priority.
+
+## value
+
+PASS
+
+A staircase/Ferrers interval order is a canonical nontrivial parameter family for random-poset types. The exact joint distribution, singular three-segment geometry, quantitative convergence and universal rational correlation are natural observable statistics useful independently of the already known scalar count; not a renaming or isolated tiny evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
