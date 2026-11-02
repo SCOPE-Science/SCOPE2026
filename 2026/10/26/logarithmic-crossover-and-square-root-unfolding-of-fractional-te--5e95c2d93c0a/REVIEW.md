@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier normalization was independently recovered by elementary integration and the exact lower-incomplete-gamma identity. Differentiation in the exponent at the triangular case yields \(2C_n/T_n^2\), while the second frequency derivative is \(2/T_n^2\), giving the displayed square-root constant without an omitted factor of two. The upper-incomplete-gamma expansion identifies the competing endpoint terms and, in the double scaling, yields the uniform \(C^1\) limit \(1-e^\lambda\cos s\). Both limiting roots are simple when \(\lambda>0\), and compactness plus the derivative control excludes spurious roots in the target frequency cells. The checker exercised the exact incomplete-gamma representation and observed convergence of the paired offsets. Limits: the argument does not treat the double-scaling boundaries \(\lambda=0\) and \(\lambda=\infty\) or all complex roots.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Tuck (2006) proves positivity of Fourier-cosine transforms for convex input profiles, including a relevant half of the tent exponent transition. Sedletskii (2009) develops Pólya-type real/simple zero placement for positive increasing sine-transform weights and sharper localization of finitely indexed roots. These results cover the qualitative sign/zero setting, and they are credited. Neither of the inspected statements supplies the proposed simultaneous \(\varepsilon\log n\) scaling or the explicit \(\arccos(e^{-\lambda})\) separation law. DLMF §8.11 states the incomplete-gamma asymptotics used in the new derivation, but not the zero geometry. Semantically related finite Fourier transform and special-function literature could contain an equivalent scaling not found by the documented searches; the Sedletskii PDF was materially inspected only in its introductory/results pages, not in its entirety. This is a publication-priority risk, not evidence of absence.
+PASS
 
-## Mathematical value — PASS
-The triangular Fourier window has infinitely many degenerate spectral notches, whereas fractional perturbations split them. A fixed-notch perturbation expansion alone misses the exponentially distant frequencies at which arbitrarily small exponent changes produce finite notch separation. The two-scale theorem gives an explicit universal transition profile and supplies a natural explanation for noncommutation of parameter and high-frequency limits. This is a motivated, quantitative spectral-zero invariant, rather than a mere restatement of positivity or an arbitrary finite numerical slice.
+With Fourier normalization F_alpha(t)=2∫_0^1(1−x)^alpha cos(tx)dx, direct integration gives F_1(t)=2(1−cos t)/t² and positive double roots T_n=2πn. Differentiating in alpha at 1 gives 2[γ+log T_n−Ci(T_n)]/T_n² with positive C_n=∫_0^{T_n}(1−cos u)/u du, hence local Taylor F_{1−ε}(T_n+s)=(s²−2C_n ε)/T_n²+O_n(|s|³+ε|s|+ε²). Fixed-index implicit-function roots are ±sqrt(2C_n ε)+O_n(ε), exactly two per cell by positivity away from T_n. The exact lower-incomplete-gamma formula and standard DLMF 8.11 upper incomplete-gamma asymptotics give uniformly for alpha near1 F_alpha(t)/2=alpha t^(−2)+Γ(alpha+1)t^(−alpha−1)cos(t−π(alpha+1)/2)+O(t^(−4)), uniformly with s derivative. For n→∞ and ε log(2πn)→λ∈(0,∞), this scales to 1−e^λ cos s on the entire bounded cell [-π,π], with exactly two simple zeros at ±arccos(e^(−λ)); uniform C^1 convergence yields exact two-zero assertion. Independently evaluated exact mpmath incomplete-gamma integral at 50-digit precision for n=1,3,10 with ε=1e−5, confirming local square-root coefficients and for n=10^5,10^7 at λ=.5 confirming convergence toward ±0.919106657294. The finite numerics are corroboration; analytic uniform estimate and compactness establish all sequences. Actual source RESULT.md, check.py and checker output listing were compared.
 
-## Literature and scope
-Relevant sources: Tuck, *On positivity of Fourier transforms* (2006); Sedletskii, *Localization of small zeros of sine and cosine Fourier transforms* (2009); DLMF §8.11. A general historical priority search is not exhaustive. The mathematical result is restricted to real frequencies, to exponent perturbations from below, and to crossover parameters strictly between zero and infinity. Checks recorded in the package are numerical diagnostics, not independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tuck 2006 is the qualitative convex Fourier-transform positivity theorem; his actual six-page primary paper was read in full, and contains no alpha→1 fractional-tent paired-root crossover. Sedletskii 2009 treats qualitative location/realness of sine/cosine zeros for positive increasing weights, without the two-parameter logarithmic limit in accessible abstract. DLMF §8.11 provides the classical incomplete gamma expansion used in proof; that is a shared lemma, not the claimed application. Bounded searches did not identify an exact fixed-index square-root plus all-sequences logarithmic arccos transition; general finite Fourier transform zero literature could contain equivalent formulas.
+
+## value
+
+PASS
+
+The exponent alpha=1 is an authentic double-zero coalescence separating Fourier positivity and oscillation, and the natural nonuniform parameter ε log T controls when infinitesimal exponent changes persist at exponentially high frequencies. Explicit fixed-n square-root unfolding and arccos crossover classify a sharp transition that qualitative positivity or pointwise-in-alpha asymptotics do not quantify. This is a motivated precise Fourier zero invariant rather than arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:05:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With Fourier normalization F_alpha(t)=2∫_0^1(1−x)^alpha cos(tx)dx, direct integration gives F_1(t)=2(1−cos t)/t² and positive double roots T_n=2πn. Differentiating in alpha at 1 gives 2[γ+log T_n−Ci(T_n)]/T_n² with positive C_n=∫_0^{T_n}(1−cos u)/u du, hence local Taylor F_{1−ε}(T_n+s)=(s²−2C_n ε)/T_n²+O_n(|s|³+ε|s|+ε²). Fixed-index implicit-function roots are ±sqrt(2C_n ε)+O_n(ε), exactly two per cell by positivity away from T_n. The exact lower-incomplete-gamma formula and standard DLMF 8.11 upper incomplete-gamma asymptotics give uniformly for alpha near1 F_alpha(t)/2=alpha t^(−2)+Γ(alpha+1)t^(−alpha−1)cos(t−π(alpha+1)/2)+O(t^(−4)), uniformly with s derivative. For n→∞ and ε log(2πn)→λ∈(0,∞), this scales to 1−e^λ cos s on the entire bounded cell [-π,π], with exactly two simple zeros at ±arccos(e^(−λ)); uniform C^1 convergence yields exact two-zero assertion. Independently evaluated exact mpmath incomplete-gamma integral at 50-digit precision for n=1,3,10 with ε=1e−5, confirming local square-root coefficients and for n=10^5,10^7 at λ=.5 confirming convergence toward ±0.919106657294. The finite numerics are corroboration; analytic uniform estimate and compactness establish all sequences. Actual source RESULT.md, check.py and checker output listing were compared.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF expansion underlies the proof and gives endpoint oscillation coefficients; Tuck proves positivity for convex weights, and Sedletskii locates zeros for monotone ones."
+        ],
+        "reasoning": "A full two-scale statement can be derived using these known ingredients but is not itself explicitly furnished in the inspected work; source lemmas and qualitative boundaries credited as prior.",
+        "searches": [
+          "DLMF §8.11(i) incomplete gamma uniform expansion",
+          "Tuck 2006 full 6-page primary PDF",
+          "Sedletskii 2009 Fourier sine/cosine zero localization"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D232B9DEB4819E4D2FF17E8162B8B066/S0004972700047511a.pdf/on_positivity_of_fourier_transforms.pdf",
+        "https://doi.org/10.3103/S0027132209040068",
+        "https://dlmf.nist.gov/8.11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tuck applies when alpha>1 through convexity; Sedletskii treats fixed increasing weight alpha<1; neither controls n exponential in 1/ε. DLMF provides gamma kernel expansion but no root-tracking theorem by itself."
+        ],
+        "reasoning": "The new conclusion requires combining singular perturbation at T_n with uniform endpoint asymptotics and C^1 convergence in logarithmically scaled cells, not mere substitution of an existing fixed-alpha zero location result.",
+        "searches": [
+          "Tuck 2006 positivity theorem",
+          "Sedletskii 2009 localization",
+          "DLMF 8.11 asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The power-tent cosine transform reduces via integration by parts to a sine transform of an increasing weight when alpha<1; Pólya/Sedletskii qualitative zero theorems apply."
+        ],
+        "reasoning": "Those qualitative real/simple zero placements are not equivalent to a derivative-in-alpha double-zero unfolding or the ε log n arccos limit for every admissible sequence.",
+        "searches": [
+          "Resultary query: fractional power tent Fourier transform alpha near 1 zeros logarithmic crossover square root double zero sine cosine integral",
+          "E.O. Tuck On positivity of Fourier transforms DOI:10.1017/S0004972700047511",
+          "A.M. Sedletskii 2009 sine/cosine Fourier zero localization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed logarithmic crossover result for mollified-ball Fourier norm has different object, parameter and norm target; source checker evaluates the exact incomplete-gamma transform directly."
+        ],
+        "reasoning": "No exact earlier small-alpha root crossover table/formula found in bounded searches. Unindexed classical special-function zero asymptotics remain possible.",
+        "searches": [
+          "Resultary fractional tent Fourier log crossover query",
+          "Resultary 2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518",
+          "Public phrase searches power tent Fourier roots double exponent"
+        ]
+      },
+      "rationale": "Tuck 2006 is the qualitative convex Fourier-transform positivity theorem; his actual six-page primary paper was read in full, and contains no alpha→1 fractional-tent paired-root crossover. Sedletskii 2009 treats qualitative location/realness of sine/cosine zeros for positive increasing weights, without the two-parameter logarithmic limit in accessible abstract. DLMF §8.11 provides the classical incomplete gamma expansion used in proof; that is a shared lemma, not the claimed application. Bounded searches did not identify an exact fixed-index square-root plus all-sequences logarithmic arccos transition; general finite Fourier transform zero literature could contain equivalent formulas.",
+      "residual_risks": [
+        "Potential earlier equivalent double-scaling analysis in classical non-English Fourier-transform zero literature was not comprehensively ruled out.",
+        "Uniformity excludes crossover endpoints λ=0 and λ=∞ and any claims about complex zeros; numerical checks alone cannot certify the uniform theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves positivity criteria for general convex transforms, no fractional-tent double scaling or root shifts",
+          "evidence": "Bulletin Austral. Math. Soc. 74 (2006), pp.133–138.",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D232B9DEB4819E4D2FF17E8162B8B066/S0004972700047511a.pdf/on_positivity_of_fourier_transforms.pdf",
+          "material_read": "Full six-page original paper including convexity theorem, proofs and large-t discussion; PDF visual screenshot of p. 134",
+          "method": "Lawful Cambridge primary PDF, read full article",
+          "title": "On Positivity of Fourier Transforms",
+          "trigger": "Closest positivity threshold at alpha=1"
+        },
+        {
+          "assessment": "Classical real/simple zeros and localization, no accessible quantitative two-parameter crossover statement",
+          "evidence": "Moscow University Mathematics Bulletin 64(4) (2009), pp.172–177.",
+          "identifier_or_url": "https://doi.org/10.3103/S0027132209040068",
+          "material_read": "Published abstract and exact hypothesis/zero interval statements; full paper not read",
+          "method": "Publisher and public research indexed summaries",
+          "title": "Localization of small zeros of sine and cosine Fourier transforms of a finite positive nondecreasing function",
+          "trigger": "Same sine-transform zero placement regime for alpha<1"
+        },
+        {
+          "assessment": "Standard endpoint expansion, does not state fractional-tent zero limit",
+          "evidence": "Chapter 8 incomplete gamma asymptotic formulas and locally uniform parameter regime.",
+          "identifier_or_url": "https://dlmf.nist.gov/8.11",
+          "material_read": "Full online reference section and formulas 8.11.1–8.11.2, checked parameter setting and series form",
+          "method": "Primary NIST DLMF reference full text",
+          "title": "DLMF §8.11(i) Large z, Fixed a",
+          "trigger": "Crucial nonstandard uniform incomplete-gamma expansion used in proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent alpha=1 is an authentic double-zero coalescence separating Fourier positivity and oscillation, and the natural nonuniform parameter ε log T controls when infinitesimal exponent changes persist at exponentially high frequencies. Explicit fixed-n square-root unfolding and arccos crossover classify a sharp transition that qualitative positivity or pointwise-in-alpha asymptotics do not quantify. This is a motivated precise Fourier zero invariant rather than arbitrary parameter slicing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D232B9DEB4819E4D2FF17E8162B8B066/S0004972700047511a.pdf/on_positivity_of_fourier_transforms.pdf",
+    "https://doi.org/10.3103/S0027132209040068",
+    "https://dlmf.nist.gov/8.11"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "α approaches 1 strictly from below; fixed positive n or sequences with ε log(2πn)→λ in (0,∞).",
+    "Fourier transform uses the stated even compact-support convention; exactly two real zeros in each stipulated open cell, no full complex-zero classification."
+  ],
+  "residual_risks": [
+    "Potential earlier equivalent double-scaling analysis in classical non-English Fourier-transform zero literature was not comprehensively ruled out.",
+    "Uniformity excludes crossover endpoints λ=0 and λ=∞ and any claims about complex zeros; numerical checks alone cannot certify the uniform theorem."
+  ],
+  "schema_version": 1
+}
