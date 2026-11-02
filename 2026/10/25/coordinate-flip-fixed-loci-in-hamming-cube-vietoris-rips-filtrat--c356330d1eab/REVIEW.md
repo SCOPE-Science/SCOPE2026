@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed homeomorphism uses a complete characterization of fixed barycentric coordinates and a sharp equivalence between orbit-union simplices in \(Q_n\) and diameter-constrained simplices in \(Q_{n-1}\). The explicit affine inverse settles surjectivity, injectivity, intersections, boundaries and the \(r=1\) endpoint. Naturality follows from the same midpoint formula for every scale and every symmetry of the remaining coordinates. The scale-four homotopy wedge is a **corollary of** Feng's published Theorem 24; that nontrivial input was checked in the primary source. The included script independently checks finite cases but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risks
-The closest 2026 original full text is Galetto–Montaño–Wellner, arXiv:2606.20784v1 (Introduction; Sections 4, 6–8): it computes ambient homology representations but no coordinate-flip geometric fixed-point homeomorphism. The exact scale-three wedge is **known** from Feng (2023), and Adams–Virk (2024) repeat it. A statement about an entire ambient module does not by itself identify the geometric fixed subspace; taking invariants in homology is not in general the homology of the fixed space. The searched records on the hypercube scale-four forbidden graph and on other equivariant hypercube complexes also concern different objects. A general result in equivariant clique-complex topology could subsume the elementary midpoint reduction without matching these paper titles; bibliographic priority cannot be certified from searches alone.
+PASS
 
-## Value — PASS
-The exact PL identification addresses a topologically stronger fixed-locus question in a natural family with full symmetry, not merely another sphere-count computation. It determines the full filtration of the geometric fixed spaces, is equivariant under all unaffected coordinates, and at the first scale outside the published general equivariant ambient-homology classification yields an infinite mixed-dimensional integral homotopy formula. Such loci are natural inputs to Smith-type and equivariant topology. It does not solve the ambient scale-four homotopy problem.
+The ORIGINAL first theorem statement is FALSE: it identifies |VR_{≤r}(Q_{n-1})| with |VR_{≤r}(Q_n)|^{flip}. For n=2,r=1, the left side is a connected interval while the right has two isolated orbit-edge midpoints. The source proof, slogan, and finite face checker correctly use radius r−1. The complete attached replacement RESULT.md fixes the theorem to |VR_{≤r-1}(Q_{n-1})| ≅ |VR_{≤r}(Q_n)|^{flip}. For each orbit O_x={(x,0),(x,1)}, the maximum cross-orbit distance is d_{n-1}(x,y)+1; fixed barycentric coordinates occur with equal weights on each O_x. The map e_x→(e_{(x,0)}+e_{(x,1)})/2 therefore extends to a PL homeomorphism with explicit inverse and commutes with scale inclusions and unflipped symmetries. At r=4, n≥6, substituting m=n−1 in Feng 2023 Theorem 24 establishes a_n=Σ_{j=4}^{n−2}2^{j−4}C(j,4) four-spheres and b_n=2^{n−5}C(n−1,4) seven-spheres; n=6 gives S4∨10S7. All C/O/V findings assess the CORRECTED final claim, not the disproved original.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. An abstract simplicial fixed-orbit construction may subsume the PL part, and its general statement is not claimed as new. The precise metric shift of the Boolean cube and equivariant filtration are the assessed application. The earlier theorem and the corrected orbit-union criterion combine to prove the fixed-space formula; one component alone does not cover the final theorem. Remaining general equivariant priority is a real risk.
+
+## value
+
+PASS
+
+The exact natural filtration-level fixed-space model is geometrically stronger than computing invariant ambient homology. The coordinate flip is a canonical cube symmetry, the one-unit scale shift is essential, and the previously known scale-three integral wedge theorem yields a complete mixed-dimensional scale-four fixed-locus classification for all n≥6. The general orbit-barycenter lemma is acknowledged elementary; the specific all-scale identification is a motivated topological invariant, not a formal relabeling of the ambient homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
