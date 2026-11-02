@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact translation of unselected-edge one-neighbor domination to three local Boolean clauses. The standard-library finite-state checker enumerates all 512 triples, verifies 42 involved states, 102 arcs, and precisely cyclic SCCs of lengths 1 and 6; all other SCCs are acyclic, proving the only cyclic labelings. The 6-cycle has weight six per traversal and six labelled phases. Independent direct subset enumeration agrees for n=3..6, plus an independent C++17 search for n=3..7. The finite-order checks support but do not replace the infinite closed-walk argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.03894v1 accessible abstract: GSP and chordal counting algorithms; tree/forest/chordal extremal classes.",
+        "arXiv:2509.04598v1 accessible abstract: cubic-time counting algorithm for P6-free graphs."
+      ],
+      "reasoning": "The prisms have induced four-cycles and K4 minors for every n at least 3, hence lie outside chordal and generalized series-parallel classes. They have arbitrarily long induced paths for growing n, so P6-free algorithms do not yield the all-n polynomial. A generic enumeration algorithm for wider graph families could of course specialize to prisms but does not state the claimed exact counting expression.",
+      "searches": [
+        "Counting perfect edge dominating sets extremal results linear-time algorithms arxiv 2607.03894",
+        "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets arxiv 2509.04598"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.03894v1 (abstract and secondary detailed scientific overview; full original inaccessible)",
+      "arxiv:1705.08379 (abstract)",
+      "arxiv:2509.04598v1 (abstract)",
+      "published-finding corpus searchable mathematical research records (actual searches listed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest older local claim: open-ladder enumerator z^(3n-2)+(2+2*1_[n=2 mod3])z^n, obtained with endpoint boundary conditions.",
+        "Current circular transition certificate has one loop and one six-cycle; cyclic closed-walk condition is absent in open ladders."
+      ],
+      "reasoning": "The open-ladder formula does not imply any count on graph C_n square K_2; adding two closing edges changes every local constraint near both ends. The infinite-family phase 6|n is not a corollary of the cardinality count with open ends. Paper general algorithms yield procedures, not an explicit complete count or six-orbit rigidity.",
+      "searches": [
+        "arxiv:2607.03894 count PED chordal GSP",
+        "prior complete perfect edge dominating open ladder P_2 square P_n cardinality polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest: 2026/10/11/SCOPE-hexagonal-prism-total-three-cut-complex-a-22-sphere-wedge-and-it--d01fa35dd99c (different invariant).",
+        "Primary nomenclature: perfect edge domination; dominating induced matching is the stricter all-edge-once version."
+      ],
+      "reasoning": "No retrieved statement implies the two-term perfect-edge-domination polynomial. Counting only dominating induced matchings cannot include the full-edge PED solution and does not by itself classify all PED sets.",
+      "searches": [
+        "perfect edge dominating sets of circular ladder prisms C_n □ K_2; for n divisible by six exactly six nontrivial sets of n edges, otherwise only all edges",
+        "efficient edge domination, dominating induced matchings, perfect edge domination of triangular prism and hexagonal prism: cyclic period six",
+        "selected edge sets of prism graph whose every unselected edge has exactly one selected neighbor, 64-state automaton cyclic trace",
+        "\"dominating induced matching\" \"prism graph\" six",
+        "\"perfect edge domination\" \"circular ladder\" prism graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top near prism-related records have different invariants, including 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2.",
+        "Independent exhaustive edge-subset counts n=3,...,7 were computed; not used as a published table."
+      ],
+      "reasoning": "No published exact prism perfect-edge-domination table, coefficient sequence, or polynomial was located; this does not certify exhaustive absence.",
+      "searches": [
+        "perfect edge domination prisms C_n square K_2 six states table",
+        "\"perfect edge dominating sets\" \"prism\" \"6\" circular",
+        "published-finding corpus: perfect edge domination of circular ladder prisms exact polynomial"
+      ]
+    },
+    "rationale": "The complete prism-specific polynomial and six-phase rigidity are not stated in the located 2026 general counting results, earlier graph-class papers, or high-similarity published mathematical records. The open-ladder polynomial is a different boundary problem and does not logically yield cyclic compatibility. The inaccessible relevant full preprint and alternative terminology remain risks; novelty is not inferred merely from failed searches.",
+    "residual_risks": [
+      "Relevant 2026 PED counting manuscript not fully readable; indirect coverage beyond abstract cannot be ruled out.",
+      "Closely related open-ladder counting argument uses similar local transition machinery, and similarity may reduce originality/value judgement; cyclic closing condition creates the new theorem rather than following from its coefficient formula.",
+      "Earlier specialized prism enumeration under alternative terminology might have been missed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No explicit cyclic-prism result in accessible material; broader implicit coverage remains unresolved priority risk.",
+        "evidence": [
+          "arXiv v1 first public 2026-07-04",
+          "Stated algorithms concern generalized series-parallel and chordal graphs; prisms belong to neither."
+        ],
+        "identifier_or_url": "arxiv:2607.03894v1 | https://arxiv.org/abs/2607.03894",
+        "material_read": "arXiv bibliographic record and full abstract; detailed publicly available secondary paper overview, not the primary PDF. Direct PDF and open-access attempts failed, and institutional download needed human intervention.",
+        "method": "read accessible metadata/abstract and secondary scientific overview; checked stated graph classes against structural minors of prisms",
+        "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+        "trigger": "Primary 2026 counting paper motivating the question; exact invariant and plausible general coverage"
+      },
+      {
+        "assessment": "Provides algorithmic/complexity context, no located all-order cyclic-prism polynomial.",
+        "evidence": [
+          "Includes cubic claw-free and P5-free algorithmic cases; general prisms with n growing are not inside those restrictions."
+        ],
+        "identifier_or_url": "arxiv:1705.08379 | https://arxiv.org/abs/1705.08379",
+        "material_read": "public abstract and historical description; no accessible complete original text in this review",
+        "method": "read indexed scholarly abstract and compare coverage of cubic claw-free and P5-free families",
+        "title": "Perfect Edge Domination: Hard and Solvable Cases",
+        "trigger": "Foundational general PED definitions and algorithms"
+      },
+      {
+        "assessment": "Algorithm for P6-free graphs cannot imply uniform formula over all prism lengths; no exact prism polynomial in inspected material.",
+        "evidence": [
+          "First public 2025-09-04; P6-free class and DIM-less complexity results."
+        ],
+        "identifier_or_url": "arxiv:2509.04598v1 | https://arxiv.org/abs/2509.04598",
+        "material_read": "arXiv abstract; full PDF not read",
+        "method": "read accessible arXiv indexed abstract and compare P6-free hypothesis",
+        "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+        "trigger": "2025 graph-class counting algorithm possibly dominating specific instances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9f8d1b1-3d3c-4e1e-9bf4-3f079f057fca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete structural classification in a natural infinite family of cubic graphs not chordal or generalized series-parallel, with a sharp mod-six existence transition and a discontinuous factor-three change in optimum cardinality. It produces a two-term whole-set polynomial, six canonical solutions and a tractable benchmark for the 2026 counting problem. The new boundary-resonance statement is not implied by the earlier open-ladder cardinality counts; this is more than a small numerical improvement.",
+    "status": "PASS"
+  }
+}
