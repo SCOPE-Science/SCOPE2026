@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every possible rounded row is one of four grid vertices; determinant identities classify their projective lines exactly. Inclusion–exclusion in the zero-level case and disjoint collinearity classes otherwise prove the finite-product formulas for arbitrary independent, possibly nonidentical entry probabilities. The homogeneous rare-event limits follow directly by exponentiation, with no interchange of infinite sums. The embedded exact rational verifier passed 827 checks including boundary cases, independent brute-force rank enumeration and inhomogeneous probabilities.
+## correctness
 
-**Originality — PASS subject to priority uncertainty.** The 2026 primary source establishes probabilistic singular-value lower bounds with positive normalized column variance and independent stochastic errors; it does not give exact rank probabilities by quantizer-level geometry, and its fixed-positive-variance asymptotics do not imply the rare-window formulas. The prior tall-and-thin regularization results concern general concentration bounds. Classical fair binary rank formulas cover a special isolated point, not the three geometries or their variance-matched contrast. Published-record and semantic-record searches located no stronger matching implication. The 2024 predecessor's full text and older discrete-rank sources remain residual priority risks.
+PASS
 
-**Value — PASS.** Grid placement is an actual algorithm-design choice in numerical quantization. The sharp finite-sample trichotomy and differing sparse-limit success probabilities at equal rounding variance explain which parts of stochastic rank lifting are lost under zero-level or dependence degeneracies. The result supplies a necessary geometric diagnostic beyond variance-only regularization theorems; it is not a claim about generic singular-value magnitudes or arbitrary matrix dimensions.
+Each rounded row belongs to one of four vectors (L,L),(U,L),(L,U),(U,U) with respective independent probabilities a_i,b_i,c_i,d_i. Exact real rank drops below two precisely when all nonzero row vectors occupy one one-dimensional line. If L=0, the three line events (diagonal and two coordinate axes) overlap only at all-zero rows, yielding P(rank2)=1-product(a+b)-product(a+c)-product(a+d)+2product(a). If U=0, complement endpoint probabilities. For L=-U !=0 the four row types occupy two distinct lines so P=1-product(a+d)-product(b+c); for nonzero nonopposite levels three distinct lines yield P=1-product(a+d)-product b-product c. This partitions all L<U, even degenerate p_i,q_i. For p_i=q_i=alpha/N, binomial/exponential limits give (1-exp(-alpha))^2 at zero lower endpoint and 1-exp(-2alpha) at opposite/generic levels, despite equal spacing and per-entry variance. Independently exhaustively enumerated N=2 row pairs with p=q=1/4, yielding exact 15/128, 15/32, 69/128 in the three cases; proof covers arbitrary N by line-event geometry. Dependence boundary: common random bit per row can force identical columns.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Ma–Yu–Drineas 2026 and Dexter et al 2024/25 study smallest singular values and probabilistic rank restoration, not the target-specific exact real-rank probabilities for four-point rectangular row support. The earlier fair binary-matrix case is subsumed and explicitly not claimed original. The three grid-location regimes and exact rare-rounding contrast, though derived with elementary inclusion-exclusion, are not found in the inspected prior work. Full Ma–Yu–Drineas article inaccessible beyond abstract; material risk of exact two-column example.
+
+## value
+
+PASS
+
+Stochastic rounding is used to restore rank in numerically rank-deficient inputs; exact rank-two probability is a directly motivated natural finite-sample statistic. The striking difference between zero-level and shifted-level critical windows at identical Bernoulli variance exhibits a genuine geometric boundary beyond generic variance-based statements. It is limited to two columns, not a broad singular-value theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

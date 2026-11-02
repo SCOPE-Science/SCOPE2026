@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:56:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each rounded row belongs to one of four vectors (L,L),(U,L),(L,U),(U,U) with respective independent probabilities a_i,b_i,c_i,d_i. Exact real rank drops below two precisely when all nonzero row vectors occupy one one-dimensional line. If L=0, the three line events (diagonal and two coordinate axes) overlap only at all-zero rows, yielding P(rank2)=1-product(a+b)-product(a+c)-product(a+d)+2product(a). If U=0, complement endpoint probabilities. For L=-U !=0 the four row types occupy two distinct lines so P=1-product(a+d)-product(b+c); for nonzero nonopposite levels three distinct lines yield P=1-product(a+d)-product b-product c. This partitions all L<U, even degenerate p_i,q_i. For p_i=q_i=alpha/N, binomial/exponential limits give (1-exp(-alpha))^2 at zero lower endpoint and 1-exp(-2alpha) at opposite/generic levels, despite equal spacing and per-entry variance. Independently exhaustively enumerated N=2 row pairs with p=q=1/4, yielding exact 15/128, 15/32, 69/128 in the three cases; proof covers arbitrary N by line-event geometry. Dependence boundary: common random bit per row can force identical columns.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "High-probability lower bounds on smallest singular values for stochastic rounding",
+          "These require distribution/variance assumptions and yield bounds rather than exact probabilities over arbitrary heterogeneous (p_i,q_i) and all L<U; no logical implication to exact three-case product laws in inspected Dexter §4.1."
+        ],
+        "reasoning": "These require distribution/variance assumptions and yield bounds rather than exact probabilities over arbitrary heterogeneous (p_i,q_i) and all L<U; no logical implication to exact three-case product laws in inspected Dexter §4.1.",
+        "searches": [
+          "Resultary semantic query: stochastic rounding exact rank restoration two column quantized random matrices full rank probability",
+          "Primary source comparison: https://arxiv.org/pdf/2403.12278"
+        ]
+      },
+      "checked_sources": [
+        "Dexter–Boutsikas–Ma–Ipsen–Drineas, Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices, arXiv:2403.12278, §4.1 (primary full PDF inspected)",
+        "Ma–Yu–Drineas, Stochastic Rounding Increases Small Singular Values, arXiv:2606.00312 (public abstract)",
+        "Cooper, On the distribution of rank of a random matrix over a finite field, RSA 17 (2000) (background different field and fixed law)",
+        "Resultary semantic search: stochastic rounding exact rank restoration two column quantized random matrices full rank probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compare prior spectral regularization estimates with exact rare rounding alpha/N asymptotics",
+          "Probability bounds do not force either of the two distinct sharp limiting formulas at identical variances. In this special two-column case direct collinearity geometry is required. The full Ma paper remains unread."
+        ],
+        "reasoning": "Probability bounds do not force either of the two distinct sharp limiting formulas at identical variances. In this special two-column case direct collinearity geometry is required. The full Ma paper remains unread.",
+        "searches": [
+          "Resultary semantic query: stochastic rounding exact rank restoration two column quantized random matrices full rank probability",
+          "Primary source comparison: https://arxiv.org/pdf/2403.12278"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full rank in an N-by-two quantized matrix = existence of two noncollinear realized rows",
+          "The fair binary-matrix rank law is a special case. Neither the prior singular-value bounds nor finite-field rank formulas determine the endpoint-dependent three-line vs two-line real geometric cases."
+        ],
+        "reasoning": "The fair binary-matrix rank law is a special case. Neither the prior singular-value bounds nor finite-field rank formulas determine the endpoint-dependent three-line vs two-line real geometric cases.",
+        "searches": [
+          "Resultary semantic query: stochastic rounding exact rank restoration two column quantized random matrices full rank probability",
+          "Primary source comparison: https://arxiv.org/pdf/2403.12278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Check for explicit exact N=2 and heterogeneous row probabilities",
+          "The N=2 15/128,15/32,69/128 values were recomputed from all 16 row pairs. Published fair matrices cover at most a special geometry, not a grid-geometric table for all levels."
+        ],
+        "reasoning": "The N=2 15/128,15/32,69/128 values were recomputed from all 16 row pairs. Published fair matrices cover at most a special geometry, not a grid-geometric table for all levels.",
+        "searches": [
+          "Resultary semantic query: stochastic rounding exact rank restoration two column quantized random matrices full rank probability",
+          "Primary source comparison: https://arxiv.org/pdf/2403.12278"
+        ]
+      },
+      "rationale": "Ma–Yu–Drineas 2026 and Dexter et al 2024/25 study smallest singular values and probabilistic rank restoration, not the target-specific exact real-rank probabilities for four-point rectangular row support. The earlier fair binary-matrix case is subsumed and explicitly not claimed original. The three grid-location regimes and exact rare-rounding contrast, though derived with elementary inclusion-exclusion, are not found in the inspected prior work. Full Ma–Yu–Drineas article inaccessible beyond abstract; material risk of exact two-column example.",
+      "residual_risks": [
+        "A complete accessible version of Ma–Yu–Drineas 2026 was not read and could contain matching special cases.",
+        "Similar two-column four-point rank formulas may occur in earlier discrete random-matrix probability papers under aliases.",
+        "No singular-value magnitude statement is proven, only exact real rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides probabilistic regularization motivation and special fair two-column examples; no inspected all-parameter, all-grid exact three-regime law",
+          "evidence": "§4.1 two-column example and high-probability estimates",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.12278",
+          "material_read": "§4.1 and two-column fair Bernoulli illustration, together with theorem statements on high probability",
+          "method": "Full lawful OA PDF, relevant sections read",
+          "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+          "trigger": "Same stochastic-rounding rank restoration model"
+        },
+        {
+          "assessment": "Exact finite-sample formula coverage cannot be conclusively excluded; material priority risk",
+          "evidence": "Abstract: lower-bound effect on small singular values",
+          "identifier_or_url": "https://arxiv.org/abs/2606.00312",
+          "material_read": "Abstract and accessible summary only",
+          "method": "Web abstract; full primary text unavailable",
+          "title": "Stochastic Rounding Increases Small Singular Values",
+          "trigger": "Same rank-restoration and 2026 spectral regularization model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stochastic rounding is used to restore rank in numerically rank-deficient inputs; exact rank-two probability is a directly motivated natural finite-sample statistic. The striking difference between zero-level and shifted-level critical windows at identical Bernoulli variance exhibits a genuine geometric boundary beyond generic variance-based statements. It is limited to two columns, not a broad singular-value theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dexter–Boutsikas–Ma–Ipsen–Drineas, Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices, arXiv:2403.12278, §4.1 (primary full PDF inspected)",
+    "Ma–Yu–Drineas, Stochastic Rounding Increases Small Singular Values, arXiv:2606.00312 (public abstract)",
+    "Cooper, On the distribution of rank of a random matrix over a finite field, RSA 17 (2000) (background different field and fixed law)",
+    "Resultary semantic search: stochastic rounding exact rank restoration two column quantized random matrices full rank probability"
+  ],
+  "disposition": "passed",
+  "limitations": "Two columns only; common quantization interval; independent entries except explicit dependence contrast; exact real rank not stability of nonzero singular values.",
+  "residual_risks": [
+    "A complete accessible version of Ma–Yu–Drineas 2026 was not read and could contain matching special cases.",
+    "Similar two-column four-point rank formulas may occur in earlier discrete random-matrix probability papers under aliases.",
+    "No singular-value magnitude statement is proven, only exact real rank."
+  ],
+  "schema_version": 1
+}
