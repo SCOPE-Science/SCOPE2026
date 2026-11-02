@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof independently establishes the required centering step by alternating Steiner symmetrizations across two reflection axes. For the centered regular Reuleaux polygon, reflection symmetry perpendicular to each strip normal and constant width force the support values in those directions to be exactly \(w/2\). This traps the body inside the regular \(2n\)-gon with vertices \(\{\pm v_j\}\), while those vertices themselves lie in the body and its reflection, proving equality with the centered symmetric hull. Firey's width-one area formula then gives the claimed ratio. The standard-library checker replays the strip geometry, polygon area, source-area simplification, and monotonicity for odd \(3\le n\le101\). Risk: the compactness step in the centering argument is qualitative, but it uses only standard planar convex-body compactness and does not conceal a numerical premise.
+## correctness
 
-## Originality
-**PASS.** The closest material literature is the Reuleaux-polygon asymmetry program of Jin and Guo. Its materially inspected full text computes and optimizes the Minkowski measure, not the Estermann outer-area measure; the term “Estermann” does not occur in that text. Firey's paper supplies the area formula but no central-symmetry optimization. Classical Estermann references emphasize the Reuleaux triangle, while targeted exact-form, object-name, container, and special-case searches found no formula for the full regular Reuleaux family. The owned current ledger contains a general centering theorem and a formula for straight regular polygons, but not the Reuleaux hull identification or the new value; the current claim is not logically contained in that row without the constant-width support argument and the regular-Reuleaux area computation. Residual risk: an unindexed classical note or book exercise may contain the same concise computation.
+PASS
 
-## Value
-**PASS.** Reuleaux polygons are a standard test family in the literature on asymmetry of constant-width bodies, and several distinct asymmetry measures have been studied on them. The Estermann measure is classical, yet the inspected literature provides only the triangle extremal statement rather than an all-order regular-family profile. The exact formula and explicit optimal container give a natural benchmark complementary to the known Minkowski formula and quantify convergence to the disk. The result is a self-contained exact invariant for a canonical family, not an arbitrary parameter slice.
+Repaired final formal definition explicitly minimizes only over centrally symmetric CONVEX bodies, as the standard Estermann invariant requires. The original omitted convexity inside its displayed set quantifier and is literally false if arbitrary nonconvex symmetric supersets are admitted (e.g. R_n union -R_n has smaller area than the convex antipodal hull). Full corrected RESULT.md supplied with exact blob/hash guard. Independent proof review: alternating Steiner symmetrizations across distinct reflection axes preserve area, convexity, K-containment and centrally symmetric centers, whose projections converge to o; boundedness and Blaschke compactness yield a centered area minimizer. Symmetry plus width w gives support h(±u_j)=w/2 for axes perpendiculars, so R_n lies in n strips whose intersection is regular 2n-gon conv{±v_j}; reverse inclusion follows from vertices. Firey width-one formula gives area R_n=w²(pi/2-n/2 tan(pi/(2n))), hull area=nw²/2 tan(pi/(2n)), ratio and monotonicity and asymptotic. Independent bounded disk-intersection geometry checks n=3,5,7,9 corroborated areas to ~1.1e-6; numerics not universal proof. All odd n>=3 and w>0 only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge: the formula for outer-area Estermann symmetry of all regular Reuleaux odd-gons (n>=5) is not given by the materially inspected Firey area paper, Chakerian general extremal theorem, Guo–Jin different Minkowski measure, or the published straight-regular-polygon centering result. The n=3 case, area input and generic two-reflection centering are prior mathematics and are not claimed new. The exact Reuleaux antipodal hull identification and family-specific quotient remain independently useful. The identical indexed SCOPE finding is self-copy, not independent priority evidence.
+
+## value
+
+PASS
+
+Regular Reuleaux polygons are canonical exact constant-width examples, and the classical Estermann outer-area measure is natural for this family. The finite/natural infinite-family classification gives an explicit optimal centrally symmetric containing convex polygon and exact unknown n>=5 area ratio, monotone convergence and two-term asymptotics. The particular value is useful as a benchmark contrasting the distinct inner Kovner–Besicovitch and Minkowski asymmetry measures. It is an elementary motivated exact special-family geometric fact, not a new general centering theorem, an irregular-Reuleaux extremal theorem, or merely a normalization change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

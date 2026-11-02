@@ -5,9 +5,9 @@ Let \(R_n\subset\mathbb R^2\) be a regular Reuleaux polygon of odd order \(n\ge3
 For a planar convex body \(K\), define its Estermann outer symmetry measure by
 \[
 E(K)=\frac{\operatorname{area}(K)}
-{\inf\{\operatorname{area}(S):K\subset S,\ S\text{ is centrally symmetric}\}}.
+{\inf\{\operatorname{area}(S):K\subset S,\ S\text{ is a centrally symmetric convex body}\}}.
 \]
-Then a minimum-area centrally symmetric superset of \(R_n\) is
+Then a minimum-area centrally symmetric convex superset of \(R_n\) is
 \[
 H_n=\operatorname{conv}\bigl(\{v_0,\ldots,v_{n-1},-v_0,\ldots,-v_{n-1}\}\bigr).
 \]
@@ -36,16 +36,16 @@ E(R_n)
 ## Assumptions and scope
 A regular Reuleaux \(n\)-gon has odd \(n\), constant width \(w\), \(n\)-fold rotational symmetry, and \(n\) reflection axes. It may be constructed from a regular \(n\)-gon by replacing each side by the appropriate circular arc of radius \(w\).
 
-The Estermann measure used here is the area of the body divided by the least area of a centrally symmetric convex body containing it. The result identifies one actual minimum-area container. No claim is made that regular Reuleaux polygons are extremal for this measure among all Reuleaux polygons of the same order.
+The Estermann measure used here is the area of the body divided by the least area of a centrally symmetric convex body containing it. Convexity of the enclosing body is essential: allowing arbitrary centrally symmetric, nonconvex supersets would define a different invariant. The result identifies one actual minimum-area container. No claim is made that regular Reuleaux polygons are extremal for this measure among all Reuleaux polygons of the same order.
 
 The formula is scale invariant. The proof below keeps \(w\) explicit.
 
 ## Proof
 First we show that the center of a minimum-area centrally symmetric container may be taken to be \(o\).
 
-Let \(K\) be a convex body invariant under reflection in a line \(L\), and let \(S\supset K\) be centrally symmetric with center \(c\). Steiner symmetrization of \(S\) about \(L\) preserves area and contains \(K\): on every line perpendicular to \(L\), the chord of \(K\) is already centered on \(L\), and its length is at most the length of the corresponding chord of \(S\). Moreover, the Steiner symmetral of \(S\) is centrally symmetric about the orthogonal projection of \(c\) onto \(L\). Indeed, central symmetry of \(S\) makes the chord-length function symmetric about that projected coordinate.
+Let \(K\) be a convex body invariant under reflection in a line \(L\), and let \(S\supset K\) be a centrally symmetric convex body with center \(c\). Steiner symmetrization of \(S\) about \(L\) preserves area and contains \(K\): on every line perpendicular to \(L\), the chord of \(K\) is already centered on \(L\), and its length is at most the length of the corresponding chord of \(S\). Moreover, the Steiner symmetral of \(S\) is centrally symmetric about the orthogonal projection of \(c\) onto \(L\). Indeed, central symmetry of \(S\) makes the chord-length function symmetric about that projected coordinate.
 
-Choose two distinct reflection axes \(L_1,L_2\) of \(R_n\), meeting at \(o\). Starting with any centrally symmetric container, alternately Steiner-symmetrize about \(L_1\) and \(L_2\). Areas remain unchanged, all bodies still contain \(R_n\), and their centers follow alternating orthogonal projections onto \(L_1,L_2\), hence converge to \(o\). A fixed-area family of convex containers of the fixed body \(R_n\) is bounded after the centers enter a bounded neighborhood of \(o\); by compactness for planar convex bodies, a convergent subsequence has a centrally symmetric limit containing \(R_n\), with the same area and center \(o\). Thus the infimum over all centrally symmetric containers equals the infimum over containers centered at \(o\).
+Choose two distinct reflection axes \(L_1,L_2\) of \(R_n\), meeting at \(o\). Starting with any centrally symmetric container, alternately Steiner-symmetrize about \(L_1\) and \(L_2\). Areas remain unchanged, all bodies still contain \(R_n\), and their centers follow alternating orthogonal projections onto \(L_1,L_2\), hence converge to \(o\). A fixed-area family of convex containers of the fixed body \(R_n\) is bounded after the centers enter a bounded neighborhood of \(o\); by compactness for planar convex bodies, a convergent subsequence has a centrally symmetric limit containing \(R_n\), with the same area and center \(o\). Thus the infimum over all centrally symmetric convex containers equals the infimum over convex containers centered at \(o\).
 
 For a fixed center \(o\), the smallest centrally symmetric convex set containing \(R_n\) is
 \[
