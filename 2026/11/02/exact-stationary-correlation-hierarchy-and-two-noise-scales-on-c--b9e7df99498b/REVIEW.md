@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The stationary pair generator identity is reconstructed from the precise asynchronous update normalization and reduces by windmill symmetry to three linear equations. Their unique solution is explicit, the denominator is positive, and a strict algebraic gap identity establishes the ordering. Both asymptotic regimes and the intervening window are derived by taking joint clique/petal limits. The stand-alone exact rational and finite-state checker passed 512 assertions; finite tests are supporting evidence, not infinite proofs.
+
+**Originality (PASS, qualified).** The main closest source, Pymar–Rivera arXiv:2112.01478, treats general stationary noisy voters and weighted density laws but does not state windmill-specific exact three-class spatial correlations or the two noise scales. Benjamini–Helman Tov–Zhukovskii arXiv:2207.01224 studies a parallel-update model and single-vertex temporal repetitions, not the asynchronous stationary spatial quantities. Peralta et al., arXiv:1807.04615, develop heterogeneous-network pair approximations, whose accessible abstract does not assert the exact family result. Standard stationary balance equations and coalescence duality are explicitly credited. Historical priority cannot be proven by unsuccessful search; an inaccessible full text leaves residual risk.
+
+**Value (PASS).** Clique bouquets provide a natural structured, heterogeneous network interpolating tightly connected neighborhoods and a common hub. The theorem determines the complete pairwise correlation geometry, reveals that same-petal correlation is strictly larger than direct hub correlation, and identifies distinct mesoscopic global and local-noise scales. These exact spatial observables cannot be inferred from a global spin density or a single-vertex temporal repetition statistic.
+
+**Boundaries and limitations.** Only pair correlations are proved; the full law is not characterized. Equality of limiting classes does not contradict their strict finite separation. The comparison of the 2018 stochastic approximation paper was limited to its abstract and available metadata. Prior literature may contain equivalent results under different parameterization, and outside review remains necessary.
+
+Self-review: passed. Independent audit: not yet performed.
