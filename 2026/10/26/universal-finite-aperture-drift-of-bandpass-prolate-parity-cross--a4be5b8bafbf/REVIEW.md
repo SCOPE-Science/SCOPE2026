@@ -1,15 +1,21 @@
-# Scientific review: finite-aperture bandpass-prolate parity crossings
+# Independent mathematical audit
 
-## Correctness — PASS
-The parity reduction is unitary, with positive rank-one limits for both sector operators. The second-order analytic eigenvalue correction includes the first-order off-constant-mode mixing term. The normalized spectral gap has nonzero bandwidth derivative at each fixed sinc resonance, giving an even analytic crossing curve with explicit positive second-order displacement. The remaining sector eigenvalues are strictly lower for sufficiently small apertures. Executable quadrature independently checks the crossing, trace, parity reversal, spectral isolation, and asymptotic remainder at 12 finite parameter cases; the proof, not those checks, supplies the infinite conclusion.
+## correctness
 
-## Originality — PASS, with documented residual priority risk
-Bandpass-prolate degeneracies and qualitative even–odd dominance switches predate this result. The 2011 SenGupta–Sun–Jiang–Chen–Mariani study examines the equivalent disjoint frequency-band spectral problem. The full 2013 Hogan–Lakey paper explicitly acknowledges qualitative parity reversals and prior degeneracy observations. The asserted new claim is **only** the sharp all-fixed-mode narrow-aperture displacement, its explicit positive coefficient, uniqueness, transversality and exactly-double top spectrum. Published research-record searches and inspected closely relevant primary text did not reveal that quantitative formula. The original Morrison (1963) article, explicitly about bandpass degeneracy, was inaccessible in full; unindexed stronger coverage cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-Leading eigenvalue crossings change the parity of the optimally concentrated bandlimited signal. A precise perturbation law locates the transition and gives the rate of drift as the two windows widen, with a nonzero derivative ensuring a robust switch. The coefficient is independent of crossing index after normalizing by its limiting resonance; this is a substantive structural statement beyond known plots of parity changes.
+Reflect the two windows E_epsilon around ±a and set d=2a. The sinc Fourier concentration kernel splits unitarily into parity blocks T_eta/epsilon with rank-one limit h_eta J, h_eta=k(0)+eta k(d)>0; the top eigenvalue 2h_eta is isolated and simple for W near each W0=nπ/d. Analytic perturbation gives lambda_eta=2epsilon h_eta+(2epsilon^3/3)[k"(0)+eta k"(d)+k'(d)^2/h_eta]+O(epsilon^5). The first-order mixing contribution is required. The normalized parity gap equals k(d)+(epsilon²/3)[k"(d)-k'(d)^2 k(d)/(k(0)^2-k(d)^2)]+O(epsilon⁴). At W0, k(d)=0, ∂W k(d)=(-1)^n/π, k"(d)=-2W0(-1)^n/(πd²), so analytic IFT yields a unique local transverse crossing W_n(epsilon)=W0[1+epsilon²/(6a²)+O(epsilon⁴)]. Both sector top eigenvalues are simple and separated from the smaller spectrum, so full leading eigenvalue has multiplicity exactly two. Independent 36-node parity Nyström quadrature for a=1 and n=1,2,3, epsilon=.15 and .075 agrees with positive O(epsilon²) shift and 1/6 normalized coefficient. Numerics cannot prove all fixed n or rigorous O(epsilon⁴) remainder.
 
-## Limits and sources
-The theorem is local for each fixed positive mode index, not a census at arbitrary aperture and not uniform in the mode. Primary comparative sources: Slepian–Pollak (1961), Morrison (1963, full text inaccessible), SenGupta et al. (2012, published online 2011), Hogan–Lakey (2013, full paper examined). The closest published concentration-record about detaching a fragment describes a different geometry and does not imply this crossing formula. Calculations were independently reproduced numerically but not independently mathematically audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent comparison of the precise surviving theorem to same-object primary mathematics, Resultary semantic matches, general covering results and exact numeric searches; known foundations explicitly excluded from claimed novelty. Relevant inaccessible source risks are material and unresolved historical-priority caveats, not automatic scientific failure. The novelty rests on the explicit all-fixed-mode epsilon² parity-crossing shift and transversality, NOT preexisting degeneracy; Morrison 1963 full remains inaccessible.
+
+## value
+
+PASS
+
+Bandpass parity crossing changes which symmetry of a signal maximizes concentration. The explicit positive second-order finite-aperture drift and transversality locate the switch and distinguish it from prior qualitative existence of degeneracies; coefficient 1/(6a²) is a meaningful normalized perturbation invariant. It is local fixed mode, not a whole-spectrum or large-mode result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
