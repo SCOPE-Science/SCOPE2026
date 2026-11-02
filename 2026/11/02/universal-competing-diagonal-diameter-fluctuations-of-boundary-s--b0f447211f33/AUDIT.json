@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The multinomial-to-independent-Poisson limit holds jointly on four distinct vertex neighborhoods under uniform arclength sampling, also for angles tending to pi/2. First-order distance losses along incident edges yield a minimum of two independent exponentials with rates summing exactly to one after normalization, hence one Exp(1) per endpoint and independent Gamma(2,1) per diagonal. Uniform localization excludes all other vertex pairs and controls Taylor errors. Exact diagonal separation converges to tau, giving the stated min of shifted Gamma laws. A deterministic nearest-boundary-point bound yields an exponential moment envelope, establishing convergence of all fixed moments; survival integration yields both exact limiting moments. Reproducible code checks exact endpoint reduction, detuning expansion, survival integrals and sample simulations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brunel (2015), Section 3, proves deviation inequalities for support-function geometric functionals including maximal width (diameter), without the limiting distribution.",
+        "Prochno et al. (2024) study Hausdorff distance and provide a multivariate vertex-process limit in the proof, but neither their Theorem 1 nor the inspected corollaries give the angle-detuned sample diameter law.",
+        "The related diameter-graph local limit recorded in the own ledger uses area-uniform interior samples, scaling sqrt(n), and cone-area Poisson processes."
+      ],
+      "reasoning": "The broad results bound other functionals or give local-point-process inputs. The competing-diagonal law for arclength samples scales with n rather than sqrt(n), has exponential rather than cone-area-Rayleigh endpoint costs, and includes a nonuniform right-angle transition.",
+      "searches": [
+        "arxiv:2404.02870v1",
+        "arxiv:1503.01504v2",
+        "Diameter graph Poisson limits boundary sampled convex polygons with rare competing diametral pairs and critical angular detuning."
+      ]
+    },
+    "checked_sources": [
+      "Reitzner, Schütt, Werner, arxiv:1911.05917v1 (2019-11-14), inspected OA PDF opening and claimed targets",
+      "Prochno, Schütt, Sonnleitner, Werner, arxiv:2404.02870v1 (2024-04-03), inspected OA PDF main theorem and corner PPP proof",
+      "Brunel, arxiv:1503.01504 (2015), inspected OA PDF functional bounds",
+      "published-finding corpus records: 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e, 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1, 2026/10/11/SCOPE-exact-diameter-law-and-exponential-endpoint-fluctuations-for-ran--72b090c504e9, 2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6, 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928",
+      "Own research ledger claim IDs: own-ledger:c6177123-ed93-497c-9770-f2224967aa3e, own-ledger:6a01e893-119f-4348-9c07-7de36d54d4c8, own-ledger:9dbb5d60-fd0c-4560-88c6-f0cd9d83314d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reitzner et al. (2019) address face numbers and volume deficit of boundary-sampled polytopes; no diameter law is stated.",
+        "Prochno et al. (2024) derive a maximum-type Hausdorff approximation law from local Poisson processes; the new assertion evaluates a two-pair min of gamma sums with a moving-angle shift.",
+        "The existing diameter-graph finding for interior samples is not directly applicable because its local scaling and probability measure differ."
+      ],
+      "reasoning": "The antecedent results support the proof technique, but their stated conclusions do not assert the new finite-angle crossover nor calculate this sample-diameter limit. Deriving it requires the specific first-order opposite-endpoint loss, rate cancellation and controlled moving-geometry comparison. Priority remains provisional in the presence of potentially unlocated generic extreme-distance theorems.",
+      "searches": [
+        "arxiv:1911.05917v1",
+        "arxiv:2404.02870v1",
+        "arxiv:1503.01504v2",
+        "own-ledger:6a01e893-119f-4348-9c07-7de36d54d4c8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The independent boundary Poisson corner processes are established in Prochno et al. [2], Section 2, equation (9), but their scalar target is corner-to-hull Hausdorff error.",
+        "The new random limit is min of two sums of weighted exponential corner variables, with a deterministic angle-dependent shift; it is not the Hausdorff maximum-of-corner-errors distribution."
+      ],
+      "reasoning": "An alternative description as a competition between opposite-vertex diameter pairs was checked. The independence/gamma decomposition and near-degenerate angular crossover require a distinct geometric functional and do not follow as a numerical specialization of the displayed Hausdorff laws. A generic corner Poisson convergence provides an ingredient but not the asserted new distribution.",
+      "searches": [
+        "Near-right-angle parallelogram random boundary sample diameter n times missing diameter has universal min of two independent shifted Gamma(2,1), crossover parameter n absolute cosine angle.",
+        "Random sample diameter of arclength-uniform boundary points of a rectangle, asymptotic distribution minimum of two Erlang sums, shape independent normalized law.",
+        "arxiv:2404.02870v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed geometric record about fourth chord moments of parallelograms treats an independently sampled two-point chord moment, not the maximum among n points.",
+        "The indexed random cross-polytope-section diameter law is a different stochastic model.",
+        "No matching distributional formula or limiting moment table appeared in the queried records."
+      ],
+      "reasoning": "Compared statistic, geometry, sampling distribution and scaling rather than parameter-name coincidence. Search failure is only bounded evidence, not proof of novelty.",
+      "searches": [
+        "Random sample diameter of arclength-uniform boundary points of a rectangle, asymptotic distribution minimum of two Erlang sums, shape independent normalized law.",
+        "Diameter graph Poisson limits boundary sampled convex polygons with rare competing diametral pairs and critical angular detuning.",
+        "Sample diameter near square or rectangle from uniformly sampled perimeter points: universal right-angle phase transition of extreme distances.",
+        "diameter random convex hull points sampled on boundary of rectangle parallelogram asymptotic distribution",
+        "sample diameter uniformly boundary points polygon asymptotic nearest vertices exponential",
+        "asymptotic diameter random inscribed rectangle n uniform perimeter gamma distribution",
+        "random polygon diameter limiting distribution parallelogram inscribed points extreme value"
+      ]
+    },
+    "rationale": "The explicit n-scale two-diagonal minimum-of-shifted-gamma limit and exact critical angular transition were not found in the inspected primary claims or prior mathematical records. Known independent local corner Poisson processes and broad diameter deviation bounds are credited as inputs. Unlike the own interior-sampled polygon diameter law, the new samples lie on boundary edges and the limit is exponential/gamma, not cone-area/Rayleigh. Historical priority remains provisional.",
+    "residual_risks": [
+      "Historical priority provisional: a more general theory of sample diameters for distributions supported on polygon boundaries may imply the new special case.",
+      "The local corner-Poisson convergence is known; mathematical novelty is the competing-diameter functional and critical detuning, not independent Poisson scaling itself.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO MATCH IN INSPECTED PRIMARY STATEMENTS; focuses on faces and volume; uninspected appendices are a bounded residual risk.",
+        "evidence": "The introduction explicitly identifies expected numbers of vertices/facets and volume difference as the investigated quantities.",
+        "identifier_or_url": "https://arxiv.org/pdf/1911.05917",
+        "material_read": "Primary PDF abstract, introduction, main theorem statements in Section 1, Section 3 theorem proof organization, and text occurrences of diameter/perimeter; appendices not read.",
+        "method": "Read open-access primary PDF text and initial page image.",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Same boundary-sampled polygon model and lead date"
+      },
+      {
+        "assessment": "PARTIAL_METHOD_OVERLAP, not the new sample-diameter limit or critical angle crossover.",
+        "evidence": "Equation (9) proves asymptotic independence of corner Poisson processes; equation (11) analyzes max_i n dist(v_i,Q_n), not max_{j,k} ||X_j-X_k|| or near-rectangular diagonal competition.",
+        "identifier_or_url": "https://arxiv.org/pdf/2404.02870",
+        "material_read": "Primary PDF abstract, Introduction, Theorem 1, proof Section 2 pages 8–11 including equation (9) and its multinomial derivation and the global Hausdorff functional; verified PDF page images.",
+        "method": "Read open-access primary full-text sections and page images.",
+        "title": "Random approximation of convex bodies in Hausdorff metric",
+        "trigger": "Same polygon boundary sampling and corner-process limit"
+      },
+      {
+        "assessment": "BROADER_FUNCTIONAL_BOUNDS, but no exact moving-parallelogram limiting distribution.",
+        "evidence": "Theorem 2 bounds moments of support/width errors under cap-mass assumptions; does not give an exact two-diagonal gamma crossover.",
+        "identifier_or_url": "https://arxiv.org/pdf/1503.01504",
+        "material_read": "Primary PDF Introduction and Sections 3.1–3.2, including Theorem 2 and remarks identifying the diameter as the maximal width; also inspected initial page image.",
+        "method": "Read accessible primary PDF text and page image.",
+        "title": "Uniform Behaviors of Random Polytopes under the Hausdorff Metric",
+        "trigger": "General functional bounds include diameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0f44721-1f33-42ed-88d3-74a77a3e9ca5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete limiting distribution resolves a natural unstable geometric extreme: both diagonals compete in a rectangle, but arbitrarily small perturbations become decisive at sample-size scale 1/n. The mean interpolates explicitly from 5/4 to 2, all integer moments are controlled, and the entire law unexpectedly loses all dependence on rectangle aspect ratio by exact cancellation of edge-length sampling rates. This is a structural singular-crossover theorem, not routine fixed-shape asymptotics.",
+    "status": "PASS"
+  }
+}
