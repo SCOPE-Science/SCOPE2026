@@ -1,11 +1,21 @@
-# Review of the vertex-geodesic online-shattering classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The upper bound is deduced from the exact version-space recurrence, support-bound lemma, four query-shape reductions and explicit center-degree refinement. Separate depth-three and depth-four certificates provide constructive lower bounds; the verifier replays every binary label sequence from endpoint pairs. The 128 canonical diameter-four trees of orders five through twelve were also exhaustively checked. The finite check does not replace the infinite proof.
+## correctness
 
-**Originality — PASS with priority risk.** The inspected full-text sections of Ghazi et al. (2020 preprint; 2021 ALT proceedings) give generic closure inequalities, not the diameter-four branching criterion. Abraham et al. analyze VC dimension of the same shortest-path vertex sets (Theorem 2), not online shattering. The directly related earlier analyses of paths on chains and rooted descendant cones concern strictly narrower or different concept classes. Searches using geodesic-path, thicket, online mistake bound and diameter-four terminology located no dominating exact classification. The absence of a search hit is not a proof of absolute priority.
+PASS
 
-**Mathematical value — PASS.** This completes the first four nonzero diameter layers of online path learning for trees and isolates the first branching-sensitive threshold. Even with an unbounded number of endpoint-pair hypotheses, diameter-four trees have optimal worst-case realizable mistake bound at most four, with the exact three-versus-four transition controlled solely by center degree. Known VC dimension two does not imply this adaptive classification. The six-vertex minimal obstruction is an explicit reproducible structural witness.
+The finite version-space recurrence Ldim(F)=max_x 1+min(Ldim(F_{x,0}),Ldim(F_{x,1})) for nonempty branches is used, not a VC-dimension substitution. On a diameter-four tree decomposed into center r, children c_i and their leaf clusters, paths containing a fixed leaf have Ldim<=2 by examining other leaves, its own child, other children and r; paths containing a fixed child c_i have rank<=3; paths avoiding the root have rank<=3. Thus each query of the unrestricted path class has a branch rank<=3, establishing Ldim<=4. If center degree is two, root-containing paths have rank<=2, child-negative paths have rank<=2, and leaf-positive paths rank<=2, giving Ldim<=3. The diameter<=3 cases follow analogous leaf/star reductions. Lower bounds use geodesically embedded path witnesses for D<=3 and D=4 with center degree two, plus the explicit six-vertex branching center-degree-three tree. Its depth-four complete mistake tree is stored in tree_geodesic_certificates.json; every one of its sixteen endpoint-pair histories was independently replayed against actual tree paths, with all five lower-bound certificates verified. Independent recurrence calculations also reproduced 51 canonical diameter-four shapes through 10 vertices; the frozen source verifier had tested 128 through 12. Only the written structural induction proves the unbounded family.
 
-**Closest literature and remaining limits.** See RESULT.md references to Ghazi et al. and Abraham et al.; the latter already proves the classical static VC upper bound and is credited. Historical priority beyond those inspected texts remains open. Diameter-five and larger trees are unclassified here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ghazi–Golowich–Kumar–Manurangsi 2020/2021 prove generic closure bounds for Littlestone dimension under Boolean aggregation, with no exact diameter-four vertex-path family. Abraham–Delling–Fiat–Goldberg–Werneck prove VCdim<=2 for unique-shortest-path systems, which matches the static part but does not imply adaptive Ldim: the latter can be 3 or 4 with VCdim 2. Paths on chains and rooted descendant-cone concepts are narrower or different classes. The branching-sensitive center-degree threshold and exact small-diameter Ldim were not found as implications of inspected primary statements.
+
+## value
+
+PASS
+
+This is an exact classification of online path-membership learning in the first four tree diameter layers, with a structural one-bit branching threshold and a six-vertex minimal witness. It answers a natural adaptive-versus-static contrast: Ldim can jump while known VCdim remains two, and the optimal realizable deterministic mistake bound stays <=4 regardless of tree order. This is a meaningful complete finite-diameter family classification, not a small enumerative curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:44:24.952299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 2359ae3b988e62ad10e3146ca12319a5e1445bb3",
+        "Frozen verify_tree_geodesic_rank.py blob 34a776739d662e7ff7a24dc826f1965daa4d51b4 and certificate JSON blob 3c9d5d8656f06bec4cb13a2b91c6746713fa5504, both independently inspected",
+        "Independently replayed 5 nested binary certificates and independently computed Ldim through n=10 in independent_checks.py",
+        "Ghazi et al 2020 arxiv:2007.03668v1 §2.1 provides the precise shattering definition"
+      ],
+      "rationale": "The finite version-space recurrence Ldim(F)=max_x 1+min(Ldim(F_{x,0}),Ldim(F_{x,1})) for nonempty branches is used, not a VC-dimension substitution. On a diameter-four tree decomposed into center r, children c_i and their leaf clusters, paths containing a fixed leaf have Ldim<=2 by examining other leaves, its own child, other children and r; paths containing a fixed child c_i have rank<=3; paths avoiding the root have rank<=3. Thus each query of the unrestricted path class has a branch rank<=3, establishing Ldim<=4. If center degree is two, root-containing paths have rank<=2, child-negative paths have rank<=2, and leaf-positive paths rank<=2, giving Ldim<=3. The diameter<=3 cases follow analogous leaf/star reductions. Lower bounds use geodesically embedded path witnesses for D<=3 and D=4 with center degree two, plus the explicit six-vertex branching center-degree-three tree. Its depth-four complete mistake tree is stored in tree_geodesic_certificates.json; every one of its sixteen endpoint-pair histories was independently replayed against actual tree paths, with all five lower-bound certificates verified. Independent recurrence calculations also reproduced 51 canonical diameter-four shapes through 10 vertices; the frozen source verifier had tested 128 through 12. Only the written structural induction proves the unbounded family.",
+      "residual_risks": [
+        "Only diameter at most four and vertex-path membership; tree paths include singleton endpoints.",
+        "No online-learning runtime bound or high-diameter theorem is claimed.",
+        "Finite recurrence enumeration verifies a sample of trees, not the universal upper bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic O(k d log k) closure applies to Boolean aggregations and does not identify the branching center threshold.",
+          "Static VCdim bound is universal for unique shortest paths, but does not determine Ldim."
+        ],
+        "reasoning": "Neither more general prior theorem supplies the three-versus-four exact diameter-four answer; a special-space classification remains independent.",
+        "searches": [
+          "arxiv:2007.03668v1 Proposition 2.3",
+          "VC-Dimension and Shortest Path Algorithms Theorem 2",
+          "online learning paths set system trees littlestone dimension path vertex concepts 2023 2024"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2007.03668v1 full text §§1–2",
+        "Abraham et al VC-Dimension and Shortest Path Algorithms Theorem 2",
+        "Resultary query Littlestone dimension path vertex geodesic concepts trees diameter four center branching online shattering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "VCdim=2 allows Ldim>=2 and does not distinguish the different diameter-four branch cases.",
+          "The direct version-space rank inequalities and six-vertex depth-four witness supply the claimed threshold."
+        ],
+        "reasoning": "No cited earlier result states a uniform center-degree-dependent online mistake bound for the exact concept class.",
+        "searches": [
+          "arxiv:2007.03668v1",
+          "Abraham unique shortest paths VC dimension 2 Theorem 2",
+          "Resultary query Littlestone dimension path vertex geodesic concepts trees diameter four center branching online shattering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghazi et al define Ldim with adaptive membership trees and bound aggregates; they do not compute path-on-tree ranks.",
+          "Abraham et al Theorem 2 already establishes static VCdim<=2, not the adaptive dimension."
+        ],
+        "reasoning": "These objects share binary set-system language but the exact tree geodesic concept class and adaptive mistakes are not implied by generic closure or static shattering.",
+        "searches": [
+          "Littlestone dimension path vertex geodesic concepts trees diameter four center branching online shattering",
+          "Littlestone dimension geodesics \"tree\" \"paths\" queries vertex labels",
+          "arxiv:2007.03668v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact diameter-four Ldim tables in inspected primary sources; the attached 128-shape table is a finite corroboration, not a preexisting external database.",
+          "Reported classical VCdim two appears in Abraham et al and is explicitly excluded from novelty."
+        ],
+        "reasoning": "The exact Ldim transition is a new classification in inspected material; nonappearance in search is not universal novelty proof.",
+        "searches": [
+          "Resultary query Littlestone dimension path vertex geodesic concepts trees diameter four center branching online shattering",
+          "Littlestone dimension all paths in trees geodesic path membership",
+          "Abraham Theorem 2 USP hypergraph"
+        ]
+      },
+      "rationale": "Ghazi–Golowich–Kumar–Manurangsi 2020/2021 prove generic closure bounds for Littlestone dimension under Boolean aggregation, with no exact diameter-four vertex-path family. Abraham–Delling–Fiat–Goldberg–Werneck prove VCdim<=2 for unique-shortest-path systems, which matches the static part but does not imply adaptive Ldim: the latter can be 3 or 4 with VCdim 2. Paths on chains and rooted descendant-cone concepts are narrower or different classes. The branching-sensitive center-degree threshold and exact small-diameter Ldim were not found as implications of inspected primary statements.",
+      "residual_risks": [
+        "Possibility of an old direct Littlestone/thicket theorem for tree interval systems under other learning terminology.",
+        "The VCdimension-two portion is prior, not an original claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Ldim definition matches, but theorem addresses Boolean compositions of concept classes, not exact ranks for geodesic path classes.",
+          "identifier_or_url": "https://arxiv.org/html/2007.03668v1",
+          "material_read": "Full HTML of the paper with §2 definitions, Proposition 2.3 and proof of Boolean aggregation closure.",
+          "method": "Read original paper HTML and check statement/hypotheses.",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "Same online shattering invariant, possible generic bound"
+        },
+        {
+          "assessment": "COVERS_STATIC_VC_ONLY",
+          "evidence": "Theorem 2 proves unique-shortest-path systems have VC dimension at most two, not Littlestone dimension.",
+          "identifier_or_url": "https://www.researchgate.net/publication/228866581_VC-Dimension_and_Shortest_Path_Algorithms",
+          "material_read": "Text rendering of introduction and §3 Theorem 2 with full proof visible via source excerpt (not a verified full-PDF read).",
+          "method": "Read accessible original article text as indexed primary excerpt; did not claim whole PDF inspected.",
+          "title": "VC-Dimension and Shortest Path Algorithms",
+          "trigger": "Same unique-shortest-path set system"
+        },
+        {
+          "assessment": "DIFFERENT_FOCUS",
+          "evidence": "Ramsey bounds for abstract Littlestone trees are not an exact vertex-geodesic classification in the inspected abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.07765",
+          "material_read": "Abstract and metadata only.",
+          "method": "Read indexed primary abstract, not the mathematical full text.",
+          "title": "Ramsey Theorems for Trees and a General Private Learning Implies Online Learning Theorem",
+          "trigger": "Potential general stronger tree-shattering technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md version-space proof and explicit six-vertex certificate",
+        "Ghazi et al precise Ldim definition; Abraham et al static VCdim result"
+      ],
+      "rationale": "This is an exact classification of online path-membership learning in the first four tree diameter layers, with a structural one-bit branching threshold and a six-vertex minimal witness. It answers a natural adaptive-versus-static contrast: Ldim can jump while known VCdim remains two, and the optimal realizable deterministic mistake bound stays <=4 regardless of tree order. This is a meaningful complete finite-diameter family classification, not a small enumerative curiosity.",
+      "residual_risks": [
+        "No claim for diameter>=5 or general graphs with multiple geodesics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all finite nonempty simple undirected trees of diameter D<=4, let P(T) be the vertex-membership concepts of all unique simple u-v paths, including singleton paths. Littlestone dimension is D if D<=3, is three if D=4 with center degree two, and is four if D=4 with center degree at least three. The VC dimension is two for D>=2, as previously known.",
+  "limitations": [
+    "Concepts are endpoint-to-endpoint vertex paths, not edge paths, rooted cones, or unions of paths.",
+    "All lower-bound certificates were actually replayed; finite upper-bound samples do not establish generality."
+  ],
+  "schema_version": 1
+}
