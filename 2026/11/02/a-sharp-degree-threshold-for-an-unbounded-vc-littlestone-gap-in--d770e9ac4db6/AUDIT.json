@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The P10 family has exactly 16 maximal independent sets, fully re-enumerated by an independent domination predicate. Vertex-membership counts (9,7,5,8,6,6,8,5,7,9) leave only two balanced coordinates, which forbids static shattering of four coordinates; a supplied three-coordinate certificate attains three. The supplied complete depth-four tree has 16 distinct valid leaf witnesses, and cardinality 16 forbids depth five. For m disconnected blocks, maximal independent sets factor exactly; static shattering is componentwise; sequentially concatenated depth-four trees supply depth 4m, while cardinality 16^m gives the upper bound. Degree-one graphs are independent edges and isolates. An executable checker validates every small certificate and path orders 1..10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona et al., arXiv:2109.04805v1, Theorem 3.10: equality for the whole class of zero sets of nonzero linear combinations of linearly independent functions; the present family has strict inequality.",
+        "Ghazi et al., PMLR 132 (2021), Proposition 3: asymptotic bounds for Boolean aggregate classes; no exact invariant for disjoint graph-component membership products."
+      ],
+      "reasoning": "The zero-set equality theorem does not apply to a class explicitly witnessing unequal dimensions; composition upper bounds are neither a formula for maximal independent sets nor a statement forcing equality. General cardinality upper bounds are used as a proof ingredient but do not imply the lower witness.",
+      "searches": [
+        "\"Littlestone dimension\" \"maximal independent set\"",
+        "\"Littlestone and VC-dimension of families of zero sets\" \"03C45\"",
+        "arxiv:2109.04805 Theorem 3.10 zero-set dimensions",
+        "pmlr-v132-ghazi21a Proposition 3 Littlestone closure"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.07640",
+      "https://arxiv.org/abs/2109.04805",
+      "https://arxiv.org/abs/2012.06066",
+      "https://proceedings.mlr.press/v132/ghazi21a.html",
+      "https://arxiv.org/abs/1907.07216",
+      "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/model-theory-and-combinatorics-of-banned-sequences/8A2FC4028DA96C7B36299672DE713806"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chase–Freitag, arXiv:1801.07640v1, Definitions 2.1–2.4 and main banned-sequence theorems: dimension definitions and general bounds without the path membership-class calculation.",
+        "Song–Yao, arXiv:2012.06066v2, Theorem 1.1 maximizes a fixed-size maximal-independent-set count over graphs of order n; this does not specify which vertex-membership query traces are achievable on P10.",
+        "Krivelevich et al., arXiv:1907.07216v1, abstract and path discussion concern expected greedy independent-set size, a probability-law parameter rather than shattering."
+      ],
+      "reasoning": "The new conclusion cannot be inferred from the compared extremal counting, random greedy, linear zero-set equality, or generic dimension upper bounds. The exact path gap requires a constructive decision tree and balanced-column obstruction, and the degree threshold further uses component structure.",
+      "searches": [
+        "arxiv:1801.07640 thicket dimension stable regularity Sauer Shelah maximal independent",
+        "arxiv:2012.06066 maximal independent sets fixed size Theorem 1.1",
+        "arxiv:1907.07216 random greedy maximal independent sets on paths",
+        "\"maximal independent sets\" \"Littlestone dimension\" graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An independent dominating set is exactly an inclusion-maximal independent set of a graph.",
+        "Chase–Freitag, arXiv:1801.07640v1, Definitions 2.1 and 2.4 identify classical static and thicket (Littlestone) shattering; a document search does not locate maximal-independent-set statements.",
+        "Song–Yao, arXiv:2012.06066v2, Section 1 formulates maximal independence but no online dimension."
+      ],
+      "reasoning": "The claim has been compared with maximal stable sets and independent dominating sets, and thicket rank with Littlestone rank, rather than title matching only. The visible papers use those concepts but do not yield the ten-vertex path gap. Searches can miss equivalents.",
+      "searches": [
+        "\"maximal independent sets\" \"Littlestone dimension\" graph",
+        "\"independent dominating\" \"VC dimension\" \"path\"",
+        "\"online shattering\" maximal independent sets paths",
+        "thicket dimension of independent dominating sets of path graphs / union of paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published arXiv records arXiv:2012.06066 and arXiv:1907.07216 discuss extremal counts and random greedy distributions, not a tabulation of both shattering dimensions for the ten-vertex path.",
+        "Exact membership-frequency and tree certificates are supplied; these numbers are not reported in the inspected sources."
+      ],
+      "reasoning": "No exact table or accessible result implying the values (3,4), the sharp degree boundary, or the 3m/4m product identities was located; a negative search alone is not a novelty certificate.",
+      "searches": [
+        "\"maximal independent sets\" \"VC-dimension\" graph",
+        "\"maximal independent sets\" \"shattered\" \"path\" VC",
+        "maximal stable sets vertex membership, VC dimension and Littlestone dimension, 10 vertex path",
+        "\"online shattering\" maximal independent sets paths"
+      ]
+    },
+    "rationale": "Actual semantic searches for all three synonymous objects (maximal independent sets, independent dominating sets, maximal stable sets) and online/static dimensions found no source implying the 10-path separation or its exact max-degree-two amplification. Primary text comparisons show the closest results address general thicket bounds, special zero-set equality, counting, random greedy laws, or generic closure. See the four statement-level checks and residual risks.",
+    "residual_risks": [
+      "An older result may exist under independent domination or maximal stable set terminology, despite the located searches.",
+      "The selected inspections do not constitute an exhaustive review of every article or unpublished preprint on membership-query dimensions.",
+      "Historical priority is not equivalent to the mathematical proof; exact uniqueness of discovery is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_THE_SPECIFIC_GRAPH_CLASS",
+        "evidence": "The displayed theorems concern banned sequences, generalized Sauer–Shelah bounds, and stable-set-system shatter functions; no maximal-independent-set family appears.",
+        "identifier_or_url": "https://arxiv.org/pdf/1801.07640",
+        "material_read": "Abstract and introduction, Definitions 2.1–2.4 and the general shattering framework; searched the text of the complete 22-page PDF for maximal sets, paths, and disjoint unions.",
+        "method": "arXiv PDF text view, PDF page screenshot, and full-document term search",
+        "title": "Model Theory and Combinatorics of Banned Sequences",
+        "trigger": "Primary-03C45 focal source developing VC and thicket dimensions"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_STRICT_GAP",
+        "evidence": "Theorem 3.10 gives equality for a complete zero-set family with linear-independence hypotheses, not for maximal independent sets of paths.",
+        "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+        "material_read": "Title, abstract, introduction, summary of Theorem 3.10, and zero-set setup; in-document searches for independent-set formulations.",
+        "method": "arXiv PDF text view and page screenshot",
+        "title": "Littlestone and VC-Dimension of Families of Zero Sets",
+        "trigger": "Plausible general equality theorem for graph-associated set systems"
+      },
+      {
+        "assessment": "COUNTING_NOT_SHATTERING",
+        "evidence": "The paper bounds the count of maximal independent sets of a fixed cardinality across graphs, not membership-label patterns on one path.",
+        "identifier_or_url": "https://arxiv.org/pdf/2012.06066",
+        "material_read": "Complete four-page statement and abstract, definitions, Theorem 1.1 and proof approach; in-document search for Littlestone.",
+        "method": "arXiv PDF text view and page screenshot",
+        "title": "Maximizing the Number of Maximal Independent Sets of a Fixed Size",
+        "trigger": "Same graph object and disjoint-union themes"
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_AN_EXACT_GRAPH_THEOREM",
+        "evidence": "Proposition 3 gives an asymptotic composition upper bound O(kd log k), not equality of the two dimensions or an explicit graph witness.",
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Abstract, Introduction, Proposition 3 statement, and preliminaries on shattering; the paper concerns Boolean aggregates.",
+        "method": "Official PDF text view and page screenshot",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Potentially stronger generic closure theorem applicable to products of classes"
+      },
+      {
+        "assessment": "DISTRIBUTION_NOT_ALL_CONCEPT_CLASS",
+        "evidence": "The stated focus is expected density and random greedy output, not exhaustive membership-class VC/Littlestone dimensions.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+        "material_read": "The arXiv abstract and source metadata together with published HTML abstract and introduction",
+        "method": "arXiv abstract and open HTML publisher page",
+        "title": "Greedy Maximal Independent Sets Via Local Limits",
+        "trigger": "Studies maximal independent sets specifically on paths"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d770e9ac-4db6-422d-99a9-2e82cbee6f94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first path exhibiting an exact VC/Littlestone separation yields, by a valid independent-component construction, a linear unbounded gap for all numbers of blocks. This locates a sharp maximum-degree boundary for forests: equality at maximum degree at most one but divergence at degree two. The structural boundary is an invariant statement about a natural online independent-domination query problem, and the infinite conclusion is not merely a small isolated census.",
+    "status": "PASS"
+  }
+}
