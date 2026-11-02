@@ -1,11 +1,21 @@
-# Scientific review: sequential Rule-60 sweep classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the exact implicit system \(Hy=Jx\) for every update order, verifies that \(\det(tH+J)=(t+1)^n+t^a\), and proves the transpose module is cyclic because the factors \(t\) and \(t+1\) act invertibly. The characteristic polynomial is also the minimal polynomial, so every fixed-point count follows by computing \(\deg\gcd(Q,t^m+1)\). The proof handles repeated factors and arbitrary return time. Exact independent computations checked 6,390 schedules, 59,700 fixed-point ranks, 5,978 cyclic-vector instances, and 160 orbit enumerations.
+## correctness
 
-**Originality — PASS on inspected evidence.** Macauley and Mortveit's arXiv:0802.4412v1 treats generic graph update-order cycle equivalence and gives the cyclic orientation upper bound. Macauley, McCammond, and Mortveit's arXiv:0808.1238v2, Section 5, identifies the Rule-60 local matrices and their generated group, but not the rational canonical form or all-iterate census of every simple sweep. In contrast, this theorem determines one specific permutation product from its cyclic precedence count. Published research-index searches under the exact polynomial, asynchronous Rule-60, cyclic transvections, and update-order aliases returned no covering result. The same-rule intermediate-boundary paper of Kim (2015, DOI:10.14403/jcms.2015.28.4.545) was inspected only at abstract level; its unavailable full text is a genuine historical-priority risk. The published Rule-150 ordered-sweep classification uses a different two-neighbor local rule and does not imply this one.
+PASS
 
-**Mathematical value — PASS.** The theorem gives a natural complete all-size classification of a large family of sequential dynamical maps, not a finite recomputation or an isolated polynomial. It simultaneously determines all linear similarity classes, periodic-point counts, primitive cycles and global orders, including non-squarefree cases. The difference between the unique zero fixed state and schedule-sensitive nontrivial orbit orders is a substantive dynamics invariant.
+In update-order coordinates the predecessor-used equations give H F=J with H unit triangular. The determinant of tH+J has only diagonal and full-cycle permutations, yielding Q. In the cokernel of B(t)^T, both t and (t+1) are units since Q(0)=Q(1)=1; row relations make the module cyclic, so minimal polynomial equals the degree-n characteristic Q even with repeated factors. Kernel of t^m+1 on F2[t]/(Q) has dimension deg gcd. Any mixed precedence orientation is an acyclic orientation of the cycle and admits a topological sort. Independent bitwise sweep and polynomial determinant calculations matched all 150 schedules for n=3,4,5.
 
-The results are not independently audited or certified. The restricted scope is one complete permutation sweep on a finite cyclic binary ring; they do not extend to repeated-site or synchronous schedules. The theoretical proof, not the finite verifier, establishes the unrestricted quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rule-60 transvections and generated group SL_n(F2) are established in Macauley–McCammond–Mortveit, as are update-order cycle-equivalence bounds in Macauley–Mortveit. Their inspected claims do not give the polynomial of each single sweep or an all-return-time exact gcd census. Historical characteristic-matrix work on different boundary conventions remains a priority risk.
+
+## value
+
+PASS
+
+A natural complete classification of all one-pass linear sweep dynamics by one cyclic precedence statistic, with explicit fixed-point, cycle and order data; not merely counting a few schedule types or rebranding the known group generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
