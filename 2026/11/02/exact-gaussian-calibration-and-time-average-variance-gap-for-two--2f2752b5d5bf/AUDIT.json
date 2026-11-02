@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Independently reconstructed both SRK stages from primary full text. Linear substitution yields identical P=1-x+x^2/2, Brownian-pair covariance gives Q=2h(1-x+x^2/3), exact AR Lyapunov variance and polynomial certificate x^3(3x-4)/12 give unique calibration, stable region and covariance sign. Stationary geometric covariance sum gives physical-time limit and exact +x²/[3(2-x)²] factor, with scalar resonance 7/3. Reproducibility code ran 11052 deterministic checks; proof covers all SPD dimensions and stable steps, not extrapolated from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye (2026), Mean Square Error Analysis of Stochastic Runge–Kutta Integrators, arXiv:2609.11528v1, https://arxiv.org/abs/2609.11528 (full paper, Section 2.2 and Sections 4–5).",
+        "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+        "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+        "Li et al. (2019), Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond, arXiv:1906.07868, https://arxiv.org/abs/1906.07868."
+      ],
+      "reasoning": "General MSE/Wasserstein estimates and underdamped splitting-scheme covariance asymptotics do not imply these two overdamped SRK transitions are identical or that their sampling variance is uniformly inflated. Li et al. 2019 analyzes a different 3-gradient scheme. An unspecified general AR(1) identity is a proof tool, not an earlier statement about the new integrators.",
+      "searches": [
+        "weak order two stochastic Runge Kutta Langevin Euler Maruyama exact physical time asymptotic variance Gaussian Ornstein Uhlenbeck linear observable Brownian bridge extra variance",
+        "OU ergodic Runge Kutta discretization stationary bias sign crossing lambda h 4/3 Euler asymptotic variance",
+        "stochastic Runge Kutta overdamped Langevin two-stage three-stage harmonic quadratic 4/3 exact Gibbs distribution mean asymptotic variance"
+      ]
+    },
+    "checked_sources": [
+      "Yang and Wang (2026), Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity, arXiv:2605.07939v1, https://arxiv.org/html/2605.07939v1.",
+      "Ye (2026), Mean Square Error Analysis of Stochastic Runge–Kutta Integrators, arXiv:2609.11528v1, https://arxiv.org/abs/2609.11528 (full paper, Section 2.2 and Sections 4–5).",
+      "Li et al. (2019), Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond, arXiv:1906.07868, https://arxiv.org/abs/1906.07868.",
+      "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+      "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang and Wang (2026), Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity, arXiv:2605.07939v1, https://arxiv.org/html/2605.07939v1.",
+        "Ye (2026), Mean Square Error Analysis of Stochastic Runge–Kutta Integrators, arXiv:2609.11528v1, https://arxiv.org/abs/2609.11528 (full paper, Section 2.2 and Sections 4–5).",
+        "Li et al. (2019), Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond, arXiv:1906.07868, https://arxiv.org/abs/1906.07868.",
+        "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+      ],
+      "reasoning": "The Yang–Wang scheme coefficients allow our direct derivation but their theorems bound errors without the exact coefficients/signs or invariant-accurate resonance. Ye gives O(1/(Nh)+h^4) rather than the limiting coefficient, and does not identify SRK-I/II on quadratics. A known proof ingredient or the fact a result can be derived from printed definitions does not by itself decide historical novelty. Explicit caution: specialist earlier OU/SRK analysis may have already performed the same derivation.",
+      "searches": [
+        "quadratic Langevin stochastic Runge Kutta invariant measure exact at resonant time step h lambda 4/3 and autocorrelation error",
+        "SRK-I SRK-II Yang Wang Xuda Ye quadratic drift collapse identical Gaussian AR1 invariant exact resonance 4/3",
+        "\"2605.07939\" Gaussian invariant measure scalar Ornstein Uhlenbeck covariance autocorrelation time average",
+        "stochastic Runge Kutta overdamped Langevin two-stage three-stage harmonic quadratic 4/3 exact Gibbs distribution mean asymptotic variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang and Wang (2026), Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity, arXiv:2605.07939v1, https://arxiv.org/html/2605.07939v1.",
+        "Ye (2026), Mean Square Error Analysis of Stochastic Runge–Kutta Integrators, arXiv:2609.11528v1, https://arxiv.org/abs/2609.11528 (full paper, Section 2.2 and Sections 4–5).",
+        "published mathematical-record search returned underdamped UBU Gaussian covariance statements and unrelated OU observation statistics, but not a same-transition SRK-I/II exact harmonic invariant or time-average variance theorem."
+      ],
+      "reasoning": "The exact polynomial AR(1) transition is the common object; an alternative Gaussian harmonic/invariant-measure theorem would cover its consequences even without the 4/3 or 7/3 wording. Neither directly inspected two-SRK source states that common transition or these consequences; closest returned references concern different transitions.",
+      "searches": [
+        "For scalar Ornstein Uhlenbeck Langevin, stochastic Runge Kutta SRK-I and SRK-II same update, stationary variance exactly target at step size 4/(3 lambda), polynomial 1-x+x^2/2 Brownian integral",
+        "quadratic Langevin stochastic Runge Kutta invariant measure exact at resonant time step h lambda 4/3 and autocorrelation error",
+        "weak order two stochastic Runge Kutta Langevin Euler Maruyama exact physical time asymptotic variance Gaussian Ornstein Uhlenbeck linear observable Brownian bridge extra variance",
+        "SRK-I SRK-II Yang Wang Xuda Ye quadratic drift collapse identical Gaussian AR1 invariant exact resonance 4/3",
+        "\"2605.07939\" Gaussian invariant measure scalar Ornstein Uhlenbeck covariance autocorrelation time average",
+        "SRK-I SRK-II identical quadratic Gaussian AR(1) exact invariant density 4/3 stationary time average variance 7/3",
+        "stochastic Runge Kutta overdamped Langevin two-stage three-stage harmonic quadratic 4/3 exact Gibbs distribution mean asymptotic variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Yang and Wang (2026), Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity, arXiv:2605.07939v1, https://arxiv.org/html/2605.07939v1. §2.2 and experiments.",
+        "Ye (2026), Mean Square Error Analysis of Stochastic Runge–Kutta Integrators, arXiv:2609.11528v1, https://arxiv.org/abs/2609.11528 (full paper, Section 2.2 and Sections 4–5). §2.2 and §5.",
+        "The published mathematical-record hits included no exact table for this named transition, Gaussian x=4/3 invariant resonance, or physical-time 7/3 ratio."
+      ],
+      "reasoning": "Published experiment summaries and general convergence tables report orders/empirical errors, not this exact harmonic stationary covariance/linear-autocovariance table. Search failure does not certify absence.",
+      "searches": [
+        "For scalar Ornstein Uhlenbeck Langevin, stochastic Runge Kutta SRK-I and SRK-II same update, stationary variance exactly target at step size 4/(3 lambda), polynomial 1-x+x^2/2 Brownian integral",
+        "quadratic Langevin stochastic Runge Kutta invariant measure exact at resonant time step h lambda 4/3 and autocorrelation error",
+        "SRK-I SRK-II identical quadratic Gaussian AR(1) exact invariant density 4/3 stationary time average variance 7/3",
+        "stochastic Runge Kutta overdamped Langevin two-stage three-stage harmonic quadratic 4/3 exact Gibbs distribution mean asymptotic variance"
+      ]
+    },
+    "rationale": "Primary manuscripts give new schemes and nonasymptotic general bounds but not the modewise invariant calibration plus asymptotic-variance transition; earlier SRK-LD and nearest published underdamped UBU Gaussian work have different kernels. Exact published mathematical-record searches were performed across aliases and constants, with actual closest records enumerated. No stronger implication found in materially inspected works, but specialist historical priority remains a real residual risk.",
+    "residual_risks": [
+      "Unindexed, older specialist stochastic-Runge–Kutta analyses on harmonic Ornstein–Uhlenbeck targets may already derive the same covariance or asymptotic-variance identity. Search-based absence is not proof of historical priority.",
+      "The two integrators have distinct gradient-evaluation costs; physical-time comparisons cannot be translated into cost-optimality claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the 2-gradient scheme and 3-gradient methods; not found a common quadratic AR transition or exact invariant resonance/variance ratio",
+        "evidence": [
+          "ArXiv HTML equations (15)–(16), May 8, 2026; general RKLMC scheme equations (10)–(14), experiments and stated main contributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.07939v1",
+        "material_read": "§1 overview, §2.2 equations (8)–(20), main bounds, numerical experiments, listed proof appendices",
+        "method": "Inspected arXiv openly accessible HTML full text",
+        "title": "Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity",
+        "trigger": "Original definitions and claimed second-order invariant convergence"
+      },
+      {
+        "assessment": "Identifies SRK-I/II and joint Brownian path; provides error bounds and experiments, not exact Gaussian covariance transition or time-average coefficient",
+        "evidence": [
+          "§2.2 SRK-I and SRK-II complete stages, §4 Theorem 2 O(1/(Nh)+h^4), §5 numerical long-time sampling comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.11528",
+        "material_read": "§2.2 equations (2.1)–(2.2), introduction, §§3–5, appendix descriptions, long-time experiments, conclusions",
+        "method": "Inspected arXiv full HTML rendered through arXiv abstract reader",
+        "title": "Mean Square Error Analysis of Stochastic Runge–Kutta Integrators",
+        "trigger": "Potential dominating analytic result for two named samplers and their mean-square sampling error"
+      },
+      {
+        "assessment": "Analyzes a distinct 3-gradient SRK-LD integrator and broad sampling guarantees; does not directly state the two named 2026 scheme result",
+        "evidence": [
+          "Earlier SRK-LD development and method comparison in Yang–Wang 2026 §1 and Ye 2026 §5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.07868",
+        "material_read": "Method description, introduction, claimed convergence results, numerical experiments discussion",
+        "method": "Inspected lawful arXiv full-text HTML",
+        "title": "Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond",
+        "trigger": "Earlier stochastic Runge–Kutta scheme for Langevin dynamics, possible general coverage"
+      },
+      {
+        "assessment": "Constrained/manifold invariant-measure order conditions, not the same quadratic SRK-I/II steps or exact sharp physical-time variance phenomenon",
+        "evidence": [
+          "General invariant measure order-condition framework; no two-SRK-specific transition matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/search/?query=Laurent+Vilmart+order+conditions+sampling+invariant+measure",
+        "material_read": "Accessible article overview, method and main order-condition statements",
+        "method": "Read openly accessible full web HTML paper overview",
+        "title": "Order Conditions for Sampling the Invariant Measure in Manifolds",
+        "trigger": "Broader higher-order invariant-measure sampling results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f2752b5-d5bf-4a99-955b-ff11b9e1816e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fully characterizes a natural Gaussian test problem for two recently proposed samplers; separates exact marginal sampling from physical-time Monte Carlo efficiency at a sharp attainable nonzero resonance, supplies anisotropic impossibility for single-step covariance exactness, and identifies surprising contrast to low-order Euler on a specified variance metric. Such benchmark informs calibration choice without pretending to general nonlinear performance or equal work.",
+    "status": "PASS"
+  }
+}
