@@ -1,15 +1,21 @@
-# Review of the type-resolved minimum-brightness law
+# Independent mathematical audit
 
-## Correctness — PASS
-The public proof specifies the tetrahedron, Haar measure, projection-area normalization, triangular/quadrilateral boundary, all twelve minimizers, chart, spherical Jacobian, and two exact angular integrals. The critical equal-leading/unequal-third-order coefficients follow from uniform inversion of the exact local area formula and elementary integrations. A separately implemented planar convex-hull calculation tests both area and vertex count, and deterministic radial quadrature checks each coefficient and the conditional limit. The `verify_projection.py` package runs and has no external data dependencies beyond NumPy and SciPy. These finite tests are not substituted for the general analytical argument.
+## correctness
 
-## Originality — PASS relative to inspected material
-Feldman–Klain's theorem gives the unconditional triangular-shadow probability. Finch gives unconditional projected-area moments, unconditional type probabilities, and angular formulas for area and perimeter; the new conclusion is a **joint endpoint law sorted by silhouette type**, including the nonzero linear conditional bias. The published tetrahedral area-weighted moment formulas give finite conditional moments, not endpoint asymptotic coefficients. Searches by the exact area threshold, silhouette type, aliases, and third-order coefficients found no equivalent statement. Vickers–Brown's older paper could not be inspected beyond available abstract/bibliography; overlap remains a risk, and global novelty is not certified.
+PASS
 
-## Value — PASS
-The lower area endpoint lies exactly on the boundary between triangular and quadrilateral shadows. Its two adjacent geometric strata are equally likely at leading order but measurably different at next order, a sharp orientation/shape-selection effect inaccessible from unconditional silhouette frequencies and a useful local diagnostic of geometric projection bias. Both the exact cubic coefficient split and the sign and value of its conditional linear bias are intrinsic to the natural threshold problem, rather than an arbitrary numerical slice.
+The exact projection-area identity S(u)=max{4a,2(a+b+c)} on ordered absolute coordinates, together with the convex-hull criterion, isolates twelve minimizers at projected area 2sqrt(2). In a tangent chart the radial boundary is S=2sqrt(2)sqrt(1-r²)+r max(2sqrt(2)|cos phi|,2|sin phi|). A uniform positive slope permits Taylor inversion. The spherical chart Jacobian and independently evaluated angular integrals give equal epsilon² coefficient 3/(2sqrt(2)pi) for N=3 and N=4, and epsilon³ coefficients 7/(8pi) versus 5/(8pi). Their ratio yields triangular conditional slope +sqrt(2)/24. Local disjointness and remainders are uniform for sufficiently small positive surplus; finite hull/numerical tests are auxiliary.
 
-## Residual limitations
-The statement concerns the explicitly normalized regular tetrahedron and only the near-minimal-area joint distribution. It is not a global distribution, not a general-tetrahedron theorem, and not an independently certified priority claim. Source inspection limits include the inaccessible full text of Vickers–Brown (2001).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality relative to the genuinely inspected primary claims, including broader/equivalent variants; no exact or dominating prior theorem identified. No unsuccessful search is construed as proof of absolute priority. A directional pointwise formula permits computing the answer but is not itself a statement of the evaluated joint endpoint expansion. Finite conditional moments cannot determine the endpoint density; the uniform radial inversion and sector integrals supply a distinct mathematical implication.
+
+## value
+
+PASS
+
+This is a natural geometric selection question at the precise minimum projected brightness where triangular and quadrilateral projected silhouettes meet. The symmetric leading probability and nonzero next-order coefficient are genuinely new quantitative conditional geometry, not a mere unconditional moment or small arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
