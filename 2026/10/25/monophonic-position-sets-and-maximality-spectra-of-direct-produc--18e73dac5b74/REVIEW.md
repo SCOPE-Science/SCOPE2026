@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The induced-path classification has three symmetry-complete nonclique-triple witnesses: a five-vertex alternating path for three cells in one row, a four-vertex chordless path for a repeated-row corner, and a three-vertex path for the remaining repeated-row case. Every nonconsecutive pair on each displayed path shares a coordinate, proving absence of chords. Transposition covers columns. This proves that every monophonic-position set of size at least three is a clique; clique enumeration and inclusion-maximality then follow by injective row-column assignments. Direct brute-force checks from the graph definition for four sizes agree with both polynomials; `verify.py` prints `VERIFY_OK`. Boundary \(p,q\ge3\) is essential to the witness constructions; no assertion beyond that scope is made.
+## correctness
 
-**Originality (PASS, with acknowledged residual risk).** The complete text of Thomas et al., arXiv:2012.10330, including §§2–4, supplies the definitions and the disjoint-union-of-cliques lemma but not a categorical-product classification. Di Stefano et al., arXiv:2306.09965, §§5–6, analyze lower *geodesic* general position on the same graph and general lower monophonic comparisons, not this exact all-set or inclusion-maximal monophonic census. Iršič et al., arXiv:2401.05696, address the geodesic polynomial, whose feasible sets strictly contain monophonic-position sets here. Chandran et al., arXiv:2412.09837, examine Cartesian and lexicographic products, not the categorical product. Brešar et al., arXiv:2509.18784, study strongly 2-monophonic coverage for Kneser, Johnson and Hamming (Cartesian) graphs and give a general sufficient condition, without a categorical-product result or a monophonic-position enumerator. Searches of relevant mathematical records and recoverable previously accessible claim descriptions did not reveal an equivalent statement; these negative searches alone are not proofs of uniqueness. Priority against unindexed literature remains a risk.
+PASS
 
-**Value (PASS).** The 2025 strongly 2-monophonic framework asks for vertex-transitive examples and provides motivation for this categorical-product classification. The structural assertion that *every* nonclique triple is captured by an induced path of length at most four is a nontrivial path-geometry property. It provides a complete polynomial over an infinite product family and, separately, the exact inclusion-maximality spectrum. The latter yields arbitrarily large gaps between upper and lower maximal-set sizes within a symmetric, connected, diameter-two graph family. The contrast with geodesic general position is quantitatively unbounded when one factor has order three.
+A nonclique triple necessarily repeats a row or column. Coordinate relabeling leaves exactly three cases, with explicit induced paths (00,11,02,10,01), (00,21,10,01), and (00,12,01); their nonconsecutive vertices share a coordinate, so all three witnesses are chordless. The third selected vertex is internal for each repeated-coordinate pair. Conversely, an induced path cannot contain three clique vertices. Injection of chosen rows into distinct columns counts all cliques; nonadjacent pairs cannot extend and all smaller cliques can. Boundary p,q=3 supplies every necessary fresh coordinate. Independent direct adjacency and DFS induced-path enumeration gave forbidden triples exactly equal to all nonclique triples for 3x3 (78) and 3x4 (196), and the claimed counts for small boards. These tests are corroboration; the canonical witness argument proves the unrestricted family.
 
-The classification does not extend here to factors of order two or to arbitrary product factors. Small-graph checks are not an infinite proof, and priority uncertainty cannot be eliminated mechanically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest monophonic-position theorem of Thomas–Chandran–Tuite–Di Stefano gives a general induced disjoint-union-of-cliques constraint, not a clique-only rule for categorical products. Later monophonic-product work concerns Cartesian or lexicographic products; results about K_p×K_q in geodesic general position count different feasible sets. Brešar–Cornet–Dravec formulate strongly 2-monophonic coverage, but their relevant Hamming examples are Cartesian rather than categorical products. The new exact induced-path witnesses supply the classification and inclusion-maximal enumerator. This is best-of-knowledge, not proof of absolute priority.
+
+## value
+
+PASS
+
+A complete finite-set enumerator and inclusion-maximality spectrum for every categorical product K_p×K_q resolves a natural induced-path graph invariant. The strongly-2-monophonic conclusion constructs an additional vertex-transitive diameter-two family, while the gap between lower and upper maximal sizes and the contrast with geodesic general position become arbitrarily large; these are structural rather than isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

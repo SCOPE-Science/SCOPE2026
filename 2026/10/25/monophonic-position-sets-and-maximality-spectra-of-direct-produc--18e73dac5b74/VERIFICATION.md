@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The scientific argument is a finite-case **proof schema** valid for all factor sizes \(p,q\ge3\): any nonclique triple shares a row or column, and the three explicitly listed canonical induced paths cover all possible equality patterns. Every adjacency and non-chord statement is checked directly from coordinate inequality. Clique classification then gives both finite-sum polynomials for the whole infinite family.
+## correctness
 
-The supplied standalone executable `verify.py` builds the adjacency matrix, generates every induced path, detects each forbidden triple, tests all \(2^{pq}\) subsets and tests inclusion maximality. Running `python3 verify.py` from the extracted artifact directory produced the following exact lines:
+PASS
 
-```
-PASS p=3,q=3: all={0: 1, 1: 9, 2: 36, 3: 6}; maximal={2: 18, 3: 6}; induced-path-forbidden-triples=78
-PASS p=3,q=4: all={0: 1, 1: 12, 2: 66, 3: 24}; maximal={2: 30, 3: 24}; induced-path-forbidden-triples=196
-PASS p=3,q=5: all={0: 1, 1: 15, 2: 105, 3: 60}; maximal={2: 45, 3: 60}; induced-path-forbidden-triples=395
-PASS p=4,q=4: all={0: 1, 1: 16, 2: 120, 3: 96, 4: 24}; maximal={2: 48, 4: 24}; induced-path-forbidden-triples=464
-VERIFY_OK
-```
+A nonclique triple necessarily repeats a row or column. Coordinate relabeling leaves exactly three cases, with explicit induced paths (00,11,02,10,01), (00,21,10,01), and (00,12,01); their nonconsecutive vertices share a coordinate, so all three witnesses are chordless. The third selected vertex is internal for each repeated-coordinate pair. Conversely, an induced path cannot contain three clique vertices. Injection of chosen rows into distinct columns counts all cliques; nonadjacent pairs cannot extend and all smaller cliques can. Boundary p,q=3 supplies every necessary fresh coordinate. Independent direct adjacency and DFS induced-path enumeration gave forbidden triples exactly equal to all nonclique triples for 3x3 (78) and 3x4 (196), and the claimed counts for small boards. These tests are corroboration; the canonical witness argument proves the unrestricted family.
 
-These finite computations provide implementation regressions and independently confirm boundary examples. They do not claim exhaustive verification for arbitrary size or any independent third-party validation. Inaccessible/unindexed prior literature could affect priority, not the correctness of the displayed combinatorial proof.
+## originality
+
+PASS
+
+The closest monophonic-position theorem of Thomas–Chandran–Tuite–Di Stefano gives a general induced disjoint-union-of-cliques constraint, not a clique-only rule for categorical products. Later monophonic-product work concerns Cartesian or lexicographic products; results about K_p×K_q in geodesic general position count different feasible sets. Brešar–Cornet–Dravec formulate strongly 2-monophonic coverage, but their relevant Hamming examples are Cartesian rather than categorical products. The new exact induced-path witnesses supply the classification and inclusion-maximal enumerator. This is best-of-knowledge, not proof of absolute priority.
+
+## value
+
+PASS
+
+A complete finite-set enumerator and inclusion-maximality spectrum for every categorical product K_p×K_q resolves a natural induced-path graph invariant. The strongly-2-monophonic conclusion constructs an additional vertex-transitive diameter-two family, while the gap between lower and upper maximal sizes and the contrast with geodesic general position become arbitrarily large; these are structural rather than isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

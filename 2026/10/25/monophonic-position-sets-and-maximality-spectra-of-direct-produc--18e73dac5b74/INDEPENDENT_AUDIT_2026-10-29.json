@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:09:39.918538Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md c0217c2f12a609942a1787aee2a7cc29690d2773",
+        "Frozen verify.py 037a899f5f6fbf56e21f344efdd73c5c66f52849"
+      ],
+      "evidence": [
+        "RESULT.md blob c0217c2f12a609942a1787aee2a7cc29690d2773: explicit three canonical induced paths and exact counting",
+        "verify.py blob 037a899f5f6fbf56e21f344efdd73c5c66f52849: DFS with chord tests and subset enumerators inspected, not treated as a proof",
+        "Independent fresh 3x3 and 3x4 induced-triple comparisons: 78/78 and 196/196",
+        "SLOGAN.txt and VERIFICATION.md inspected, same p,q>=3 and maximal versus maximum interpretation"
+      ],
+      "rationale": "A nonclique triple necessarily repeats a row or column. Coordinate relabeling leaves exactly three cases, with explicit induced paths (00,11,02,10,01), (00,21,10,01), and (00,12,01); their nonconsecutive vertices share a coordinate, so all three witnesses are chordless. The third selected vertex is internal for each repeated-coordinate pair. Conversely, an induced path cannot contain three clique vertices. Injection of chosen rows into distinct columns counts all cliques; nonadjacent pairs cannot extend and all smaller cliques can. Boundary p,q=3 supplies every necessary fresh coordinate. Independent direct adjacency and DFS induced-path enumeration gave forbidden triples exactly equal to all nonclique triples for 3x3 (78) and 3x4 (196), and the claimed counts for small boards. These tests are corroboration; the canonical witness argument proves the unrestricted family.",
+      "residual_risks": [
+        "The proof relies on the completeness of the three repeated-coordinate equality cases; classification deliberately excludes two-row/factor-two boundaries.",
+        "Finite tests do not establish all p,q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thomas et al allow disjoint unions of cliques in general monophonic position; additional coordinate witnesses are required here.",
+          "Chandran et al address Cartesian/lexicographic products with different adjacency relations.",
+          "Brešar–Cornet–Dravec give general sufficient conditions and Cartesian Hamming examples, not an exact tensor-product classification."
+        ],
+        "reasoning": "These results are related and provide definitions or upper-level constraints, but the distinct adjacency operation blocks direct inclusion and none inspected implies the full categorical product classification.",
+        "searches": [
+          "arXiv:2012.10330 Lemma 3.1 and graph-family sections",
+          "arXiv:2412.09837 Cartesian and lexicographic monophonic products",
+          "arXiv:2509.18784 strong 2-monophonic graphs §3"
+        ]
+      },
+      "checked_sources": [
+        "Thomas et al arXiv:2012.10330 PDF full",
+        "Brešar–Cornet–Dravec arXiv:2509.18784 PDF full",
+        "Chandran et al arXiv:2412.09837 full 19-page PDF and OA 2026 publisher article",
+        "Di Stefano et al arXiv:2306.09965 relevant statement",
+        "Iršič et al arXiv:2401.05696 geodesic enumerators",
+        "Chandran et al arXiv:2412.09837 Cartesian and lexicographic products",
+        "Resultary semantic query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Di Stefano et al determine lower geodesic general position of same tensor graph family, which does not count the stricter induced-path class.",
+          "The three new paths prove any repeated-coordinate triple lies in a monophonic interval; absent from the cited general union-of-cliques constraint."
+        ],
+        "reasoning": "No inspected prior statement dominates the complete polynomial or inclusion-maximality spectrum; a new induced-path covering argument is required.",
+        "searches": [
+          "arXiv:2306.09965 lower general position sets of tensor graph products",
+          "arXiv:2012.10330 Lemma 3.1",
+          "arXiv:2509.18784 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_p×K_q in the categorical sense is the complement of the rook graph, not Cartesian K_p □ K_q.",
+          "Thomas et al Lemma 3.1 constrains induced subgraphs of monophonic sets to be unions of cliques; it does not force a single clique in this special graph."
+        ],
+        "reasoning": "Compared monophonic induced-path condition, strongly 2-monophonic interval-covering condition, tensor/categorical adjacency and complement-of-rook aliases. Neither a general monophonic position number nor a geodesic position polynomial alone implies the exact all-set and maximal-set enumerators.",
+        "searches": [
+          "Resultary: monophonic position sets categorical direct product complete graphs induced paths strong 2-monophonic maximality enumeration",
+          "monophonic position categorical/tensor Kronecker product of complete graphs complement of rook graph",
+          "Thomas et al arXiv:2012.10330 §2 and Lemma 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching published-finding title/abstract in the returned Resultary rankings.",
+          "The geodesic polynomial allows whole coordinate rows of size >=3, forbidden by monophonic induced paths here."
+        ],
+        "reasoning": "A potentially coincident small coefficient is not the same enumerated invariant. Negative index searches cannot establish historical uniqueness.",
+        "searches": [
+          "Resultary semantic published findings for categorical complete graph product monophonic position polynomial",
+          "arXiv:2401.05696 general-position polynomial of graph products",
+          "3x3, 3x4 direct induced-triple checks"
+        ]
+      },
+      "rationale": "The closest monophonic-position theorem of Thomas–Chandran–Tuite–Di Stefano gives a general induced disjoint-union-of-cliques constraint, not a clique-only rule for categorical products. Later monophonic-product work concerns Cartesian or lexicographic products; results about K_p×K_q in geodesic general position count different feasible sets. Brešar–Cornet–Dravec formulate strongly 2-monophonic coverage, but their relevant Hamming examples are Cartesian rather than categorical products. The new exact induced-path witnesses supply the classification and inclusion-maximal enumerator. This is best-of-knowledge, not proof of absolute priority.",
+      "residual_risks": [
+        "An unindexed monophonic-position theorem for the complement of a rook graph could provide equivalent coverage.",
+        "A stronger published graph-interval condition might imply the classification by specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines monophonic position and shows induced subgraph of a monophonic set is union of cliques, not necessarily clique for categorical K_p×K_q.",
+          "evidence": [
+            "Lemma 3.1; general position definitions and scope of graph families"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.10330",
+          "material_read": "Full accessible PDF including definition §2, Lemma 3.1 and families §§3–4",
+          "method": "Read full primary PDF text; inspected screenshot of Lemma page",
+          "title": "On monophonic position sets in graphs",
+          "trigger": "Same definition, general structural restrictions"
+        },
+        {
+          "assessment": "Uses induced-path coverage and Cartesian graph examples; no direct-product complete-factor result or enumerator in inspected results.",
+          "evidence": [
+            "Definitions and §3 results on strong 2-monophonicity, Cartesian examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.18784",
+          "material_read": "Full accessible PDF; definitions, strongly 2-monophonic statements and Cartesian Hamming graph applications",
+          "method": "Read PDF text and relevant page screenshot",
+          "title": "Monophonic number of Kneser graphs and strongly 2-monophonic graphs",
+          "trigger": "Same coverage terminology and examples of symmetric graph families"
+        },
+        {
+          "assessment": "Only Cartesian and lexicographic products are addressed; no categorical/direct product K_p×K_q enumeration is stated.",
+          "evidence": [
+            "PDF Sections 3–4; publisher article posted 11 September 2026; distinct graph adjacency operation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.09837",
+          "material_read": "Full 19-page arXiv PDF, introductory product definitions, Sections 3 and 4 and main theorems, with publisher OA version cross-check",
+          "method": "Read complete PDF text, relevant page screenshot and publisher open-access article",
+          "title": "On monophonic position sets of Cartesian and lexicographic products of graphs",
+          "trigger": "Highly relevant same-invariant product-graph title; possible categorical product alias"
+        },
+        {
+          "assessment": "The graph agrees but geodesic paths and lower position number differ from monophonic all-set classification.",
+          "evidence": [
+            "Theorem 5.4 and §6 comparisons"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+          "material_read": "Abstract and theorem-level comparison of lower geodesic position on direct products",
+          "method": "Read source statement and compare invariants",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Explicit related result on same tensor product K_p×K_q"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact canonical induced-path construction",
+        "Infinite parameter enumerators, maximality gap min(p,q)-2 and gp-mp separation for p=3, q unbounded"
+      ],
+      "rationale": "A complete finite-set enumerator and inclusion-maximality spectrum for every categorical product K_p×K_q resolves a natural induced-path graph invariant. The strongly-2-monophonic conclusion constructs an additional vertex-transitive diameter-two family, while the gap between lower and upper maximal sizes and the contrast with geodesic general position become arbitrarily large; these are structural rather than isolated computations.",
+      "residual_risks": [
+        "Does not classify arbitrary factor graphs or factor order 2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md c0217c2f12a609942a1787aee2a7cc29690d2773",
+    "Frozen verify.py 037a899f5f6fbf56e21f344efdd73c5c66f52849",
+    "Thomas et al arXiv:2012.10330 PDF full",
+    "Brešar–Cornet–Dravec arXiv:2509.18784 PDF full",
+    "Chandran et al arXiv:2412.09837 full 19-page PDF and OA 2026 publisher article",
+    "Di Stefano et al arXiv:2306.09965 relevant statement",
+    "Iršič et al arXiv:2401.05696 geodesic enumerators",
+    "Chandran et al arXiv:2412.09837 Cartesian and lexicographic products",
+    "Resultary semantic query above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "p,q>=3 finite simple undirected categorical product only",
+    "No assertion for tensor products of arbitrary noncomplete graphs or factors of size two."
+  ],
+  "residual_risks": [
+    "The proof relies on the completeness of the three repeated-coordinate equality cases; classification deliberately excludes two-row/factor-two boundaries.",
+    "Finite tests do not establish all p,q.",
+    "An unindexed monophonic-position theorem for the complement of a rook graph could provide equivalent coverage.",
+    "A stronger published graph-interval condition might imply the classification by specialization.",
+    "Does not classify arbitrary factor graphs or factor order 2."
+  ],
+  "schema_version": 1
+}
