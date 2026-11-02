@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Complete coupon-coverage inclusion-exclusion gives the joint CDF factorization on K_(n,n). Conditioning on the first/second distinct coupons proves the exact strict odd difference. Coefficients of constant and first missing-coupon term cancel in the even difference; the unique leading product coefficient is 1, and other exponential bases are at most 1-2/n < (1-1/n)^2. A pathwise coupling dominates collocated starts and excludes a stochastically best random mixture. 1171 exact checker assertions and independent small graph state-DP comparisons passed. Limits: n fixed then time grows; no mean-order or other graph claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rivera et al. derive worst-case and stationary expected-cover-time bounds; these neither imply nor rule out crossings of full distribution functions.",
+        "Alon et al. derive speed-up bounds in k for graph families, which cannot decide parity-specific strict CDF order in a fixed graph."
+      ],
+      "reasoning": "Dominating bounds on expected time or speed-up do not logically compare two complete distribution functions; first-order stochastic order is strictly stronger. We found no broad stochastic-order theorem with this setting as a corollary.",
+      "searches": [
+        "\"multiple random walks\" \"complete bipartite\" \"start\" \"cover time\" two",
+        "\"multiple random walks\" \"bipartite\" coupon collector limiting",
+        "finite graph multi-walker cover time stochastic ordering crossings different starting arrangements independent walkers"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2011.07893",
+      "https://arxiv.org/html/2011.07893v3",
+      "https://arxiv.org/abs/0705.0467",
+      "https://link.springer.com/article/10.1007/s00446-016-0282-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2011.07893 first posted 2020-11-16, includes MSC 60J10; its theorem program concerns expected times under stationarity/worst-case and general graph bounds.",
+        "arXiv:0705.0467 first posted 2007-05-03, defines multiple cover time and examines speed-up from common starts.",
+        "Both works leave full-distribution parity-sensitive start comparisons outside the listed results.",
+        "A focused mathematical research-record search on no stochastically optimal start, balanced bipartite walks, alternating cover-time CDFs returned closest results on unrelated domination and parity-game problems, not on stochastic cover-time order."
+      ],
+      "reasoning": "The explicit first-order stochastic-order nonexistence and exact CDF difference asymptotics are neither consequences of a mean bound nor covered as special cases of cited graph-family order bounds. This is a limited, reasoned comparison rather than certification of priority.",
+      "searches": [
+        "arxiv:2011.07893 Section 1, Section 4, Section 5 and Appendix",
+        "arxiv:0705.0467 Sections 1-4 and tables; keyword search bipartite",
+        "\"two independent random walks\" \"complete bipartite\" \"stochastic dominance\" \"cover time\"",
+        "no stochastically optimal starting placement two independent synchronous random walks K_n,n bipartite cover time distribution alternates with even odd deadline coupon collector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.07893 sets out effects of starting locations but its searchable extended full text has no complete-bipartite parity/CDF theorem.",
+        "arXiv:0705.0467 considers collocated walks and cover-time speed-up; no identical comparison appears in inspected primary material."
+      ],
+      "reasoning": "Equivalent formulations would compare deadline success probabilities at even versus odd times, or establish the absence of a first-order-stochastic minimum over two-walker initial configurations. The checked source results state neither.",
+      "searches": [
+        "\"two independent random walks\" \"cover time\" \"parity\" \"bipartite\"",
+        "two independent synchronous simple random walks balanced complete bipartite K_(n,n) same-side distinct vs opposite-side initial positions cover time CDF parity alternation no stochastic dominance",
+        "\"starting vertices\" \"random walks\" \"stochastic dominance\" cover time bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published sources inspected provide orders and bounds for general graph families; no finite table or exact formula for this pair of initial placements was located.",
+        "Exact finite probabilities are derived independently from complete-bipartite coupon inclusion-exclusion and checked by Markov-state enumeration for small sizes."
+      ],
+      "reasoning": "The infinite parity alternation and its sharp exponential coefficients do not follow from a finite enumeration; no known tabulated complete classification was identified in accessible texts.",
+      "searches": [
+        "\"two random walks\" \"cover time\" \"parity\" \"bipartite\"",
+        "\"multiple random walks\" \"cover time\" \"even\" \"odd\" complete bipartite",
+        "multiplayer cover time complete bipartite two walkers same start side different part exact formula"
+      ]
+    },
+    "rationale": "The comparison is for full cover-time CDFs, not just expectation or order-of-magnitude speed-up. Accessible primary works give coarser multi-walk results. Actual searches of multi-walker graph coverage, starting-location effects, coupon collector parity, and stochastic dominance found no directly dominating result. The priority assessment is best-knowledge and not a uniqueness proof.",
+    "residual_risks": [
+      "A full historical-priority search of all graph-cover-time distributions is not possible; an earlier result could imply this theorem under a different formulation.",
+      "The claim applies only to synchronous non-lazy random walks on K_(n,n); changing the transition or observation protocol changes the parity argument.",
+      "No independent mathematical review has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the proposed sharp parity-CDF theorem in inspected material; work is chiefly expected-cover-time bounds, even where initial starts vary.",
+        "evidence": [
+          "arXiv abstract and Introduction Section 1 explicitly note difficulty of start-vertex effects.",
+          "Section 5 table lists cycles, trees, tori, expanders, hypercube and clique rather than balanced complete bipartite parity-CDF laws.",
+          "The article includes stochastic-order terminology only in different lazy/non-lazy comparison context of short conference version."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.07893v3",
+        "material_read": "Introduction, contributions, Section 4 covering/mixing formulations, Section 5 graph-family theorem statements, Section 6 conclusions and appendix indexing; focused full-text searches for complete bipartite, stochastic order, initial configurations and distributional cover times.",
+        "method": "Open-access full HTML mathematical text; corroborated with 16-page freely licensed conference PDF, including a rendered screenshot of the introduction.",
+        "title": "Multiple Random Walks on Graphs: Mixing Few to Cover Many",
+        "trigger": "Closest full treatment of multiple-walk cover times and sensitivity to initial vertices, with permitted MSC 60J10."
+      },
+      {
+        "assessment": "NOT_COVERING for pair-start stochastic-CDF parity crossing; results mainly bound multi-walk speed-up in expectation.",
+        "evidence": [
+          "Section 1 defines simultaneous walks primarily starting from a common vertex.",
+          "Section 3 results table covers speed-up rates for cycles, grids, hypercube, expanders and other families, not precise balanced-bipartite start CDFs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0705.0467",
+        "material_read": "Accessible full HTML introduction, related work, definitions, results table and theorem statements; full-text searches for bipartite, opposite placements, stochastic and complete graphs.",
+        "method": "Open-access arXiv mathematical HTML.",
+        "title": "Many Random Walks Are Faster Than One",
+        "trigger": "Foundational multiple-walk cover-time paper and strongest plausible prior start-distribution coverage."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: deals with ring, rotor-router comparisons and cover-time asymptotic bounds, not bipartite two-walker deadline order.",
+        "evidence": [
+          "Section 3.3 compares worst-case and spaced initial locations on a cycle at order-of-magnitude scale."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00446-016-0282-y",
+        "material_read": "Accessible abstract and Section 3.3 comparison statements on random walks and starting placements.",
+        "method": "Open webpage HTML section inspection.",
+        "title": "The Multi-Agent Rotor-Router on the Ring: A Deterministic Alternative to Parallel Random Walks",
+        "trigger": "Related placement dependence for multiple random walks on a different graph family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "963c5c05-0388-4239-9ccb-549cd78c03eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Parallel-walk deployment on symmetric graphs motivates comparing success at every deadline. For every balanced complete bipartite size, the theorem prevents a single deterministic or randomized deployment from optimizing all deadlines, with exact opposite parity tail rates. This is structural stochastic-order information beyond the classical expectation or big-O cover-time analysis; not a mere parameter substitution or isolated finite computation.",
+    "status": "PASS"
+  }
+}
