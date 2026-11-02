@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All-n proof: the (k,r) chain partitions the k^2-r feasible edges; the terminal obstruction is equivalent to R_1=1. The first-moment conditional identity telescopes to the exact nonnegative defect sum. The independently proved contraction E[(R_k)_2] <= k^4/n^2 produces 0 <= 2/(n+1)-Q_n <= 16H_n/n^2. Exact rational recurrence, independent subset-state dynamic programming and the full 720 edge orders at n=3 agree. Finite tests are supplementary, not infinity proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer and Frieze, 1991, DOI 10.1002/rsa.3240020104, accessible abstract: general graph matching bounds, forest theorem",
+        "Arnosti, full-text DOI 10.1287/stsy.2021.0082, Theorem 1: RANDOM-VERTEX stochastic dominance after averaging random edge sets",
+        "Tang–Wu–Zhang, arXiv:1907.05135, Theorems 1.1–1.3: worst-case approximation bounds"
+      ],
+      "reasoning": "A universal worst-case approximation lower bound, a comparison averaged over random input graphs, or a theorem about random vertex decision orders does not determine the rare probability of n-1 rather than n matches on this fixed dense graph. The full text of Dyer–Frieze 1991 was not obtained, so its possible special examples remain a residual risk.",
+      "searches": [
+        "randomized greedy matching fixed graphs Dyer Frieze 1991 performance bounds",
+        "Greedy Matching in Bipartite Random Graphs Arnosti random edge stochastic comparison",
+        "Toward a Better Understanding of Randomized Greedy Matching Tang Wu Zhang 2019 approximation"
+      ]
+    },
+    "checked_sources": [
+      "Tang, Wu, Zhang 2019 arXiv:1907.05135, available full text",
+      "Arnosti 2021 DOI:10.1287/stsy.2021.0082, available full PDF",
+      "Dyer, Frieze 1991 DOI:10.1002/rsa.3240020104, publisher abstract only",
+      "Previous claim about random greedy matching on the tripartite graph K_(n,n,k) with vanishing third part: different underlying graph and deficiency mechanism"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arnosti 2021 comparison between RANDOM-EDGE and RANDOM-VERTEX concerns a random graph with fixed row degree distribution",
+        "Tang–Wu–Zhang 2019/2023 theorems bound worst-case approximation factors",
+        "The derivation here uses the specific overlap state R_k, conditional second factorial moments, and an exact telescope"
+      ],
+      "reasoning": "Neither prior implication supplies the coefficient 2: generic ratio results permit deficiencies of order n, whereas the claim resolves a rare deficiency of one edge with probability asymptotic to 2/n. The specific recursion and contraction are not stated in the compared theorem statements.",
+      "searches": [
+        "random edge greedy matching crown graph 2/n failure limit",
+        "Arnosti 2021 random edge stochastic domination fixed graph",
+        "Dyer Frieze randomized greedy matching forest regular dense graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arnosti 2021, DOI 10.1287/stsy.2021.0082, Sections 1–3: random-edge algorithm and random-graph averaging",
+        "Tang–Wu–Zhang 2019, arXiv:1907.05135, Sections 1–4: oblivious query-commit and RDO approximation"
+      ],
+      "reasoning": "A random order on all allowed edges is the same process as uniform selection from the currently feasible edges. The tested matching formulations did not produce an already proved formula for the common unmatched label in fixed K_(n,n) minus its diagonal. Approximation ratios of other greedy policies cannot yield a sharp n-times-failure limit.",
+      "searches": [
+        "random greedy matching crown graph probability of nonperfect maximal matching",
+        "random sequential matching with forbidden diagonal rows columns probability last unmatched pair equal 2/n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No crown-graph probability table was identified in the inspected primary papers",
+        "The complete small-size values 0, 1/3, 4/21, 4/21 were independently computed by a finite-state overlap recursion and bit-mask chain"
+      ],
+      "reasoning": "No matching exact finite-n table or database entry was identified. The computations cannot certify absence from unpublished tables; they supply independent correctness checks only.",
+      "searches": [
+        "crown graph random greedy maximal matching probability",
+        "K n n minus perfect matching random matching terminal failure recurrence table",
+        "random greedy matching near-complete bipartite graph forbidden positions"
+      ]
+    },
+    "rationale": "The verified claim concerns the terminal failure event of uniform random-edge greedy matching on fixed crown graphs, its exact (k,r) recursion, and sharp failure probability 2/n with a harmonic error bound. Full-text comparisons of the directly relevant 2019/2023 and 2021 works establish approximation-ratio and random-edge-set performance results, not this conditional terminal-event statistic. Relevant earlier fixed-graph work is acknowledged as a priority risk, not claimed comprehensively excluded.",
+    "residual_risks": [
+      "Earlier fixed-graph random matching research, especially the full Dyer–Frieze 1991 paper, could contain an equivalent crown special case not visible in the accessible abstract.",
+      "Unindexed or unpublished exact tables or prior equivalent formulations may exist; search absence is not proof of priority.",
+      "No independent specialist audit has evaluated the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Paper compares stochastic performance averaged over random edge sets, and does not state the crown failure-probability asymptotic or an implication yielding its coefficient",
+        "evidence": [
+          "Theorem 1 conditions on graph drawn from fixed row degree distribution; the theorem is stochastic dominance between two algorithms, not a fixed crown rare-event law",
+          "Theorem 2 compares vertex-iterative algorithms; the crown state (k,r) and its failure probability are not identified"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+        "material_read": "Full open-access 18-page PDF; abstract, introduction, exact algorithm definitions, Theorems 1 and 2, proof Markov-chain setup, extended comparisons and appendices; text searched for crown, diagonal and complete bipartite",
+        "method": "PDF text and page-image inspection",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Same RANDOM-EDGE process and bipartite matching; strongest directly relevant accessible study"
+      },
+      {
+        "assessment": "Focuses on RDO, MRG, oblivious matching and universal approximation guarantees; no exact terminal probability on the crown graph is identified",
+        "evidence": [
+          "Theorems 1.1 and 1.2 are 0.639 and 0.531 approximation statements for RDO",
+          "The work explicitly distinguishes decision-order and preference-order randomization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.05135",
+        "material_read": "30-page available arXiv PDF: abstract, introduction, algorithm definitions, table of results, main Theorems 1.1–1.3 and relevant comparison text; corresponding public full-text HTML checked",
+        "method": "Open-access arXiv PDF text, page-image and full-text HTML inspection",
+        "title": "Towards a Better Understanding of Randomized Greedy Matching",
+        "trigger": "Closest broad randomized greedy matching theory; original publicly available preprint"
+      },
+      {
+        "assessment": "The described work concerns worst-case general graphs and an exact forest guarantee; crown-graph results cannot be excluded from the unread full paper",
+        "evidence": [
+          "Abstract highlights near-half worst-case performance, sparse planar graphs and a sharp forest ratio"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and bibliographic information only; full original text not obtained",
+        "method": "Publisher abstract inspection and bibliographic search",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational fixed-graph random feasible-edge algorithm from 1991"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db2b2a3c-e303-4c1f-97c0-5ea1726a3f6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The crown graph is the canonical one-factor deletion of K_(n,n), a natural model of one forbidden partner per entity. Sharp failure risk, rather than matching ratio, is a specific and practically interpretable invariant of the greedy process. The 2/n constant differs from the 1/n independent-survivor benchmark and arises from the exact preserved-overlap mechanism. The finite-n harmonic bound and factorial-moment lemma make the result useful beyond isolated numeric computation, though no extension to arbitrary forbidden-edge patterns is claimed.",
+    "status": "PASS"
+  }
+}
