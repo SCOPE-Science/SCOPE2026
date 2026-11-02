@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "An unrestricted unique minimum exists by strict inverse-trace convexity and edge-Laplacian injectivity. Symmetry then forces two conductance classes. The complete unsigned-incidence spectral decomposition includes one nontrivial constant-mode eigenvalue, n-1 coupled pairs and m-n uncoupled 2y modes; exact trace reduction yields a one-dimensional derivative and its unique boundary/interior optimum. All boundary and n=3 multiplicity cases were reconstructed. Standalone exact rational verifier succeeded on 308 checks; the theorem relies on the analytic proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh, Boyd and Saberi, MTNS 2006 paper, Sections II F and IV, prove the strictly convex general conductance-allocation framework and numerical/SDP solution.",
+        "Yang and Klein, arXiv:1403.1851v1, Theorem 4.3 gives a general unweighted triangulation Kirchhoff-index identity, not a priced optimum."
+      ],
+      "reasoning": "The general SDP framework covers the optimization problem implicitly, and its convexity/uniqueness are prior work, but the inspected results do not specify the complete-graph edge-triangulation spectrum, exact priced allocation, or sharp direct-edge support threshold. The general unweighted triangulation identity does not cover free weighted edge classes.",
+      "searches": [
+        "optimal inverse trace graph Laplacian ladder prism torus conductance budgets",
+        "effective resistance optimal allocation on complete graph triangle expansion graph direct edge costs",
+        "Ghosh Boyd Saberi 2006 minimizing effective resistance graph SDP strict convexity examples"
+      ]
+    },
+    "checked_sources": [
+      "Yang--Klein, arXiv:1403.1851v1 (2014-03-07), Introduction and Section 4.",
+      "Ghosh--Boyd--Saberi, MTNS 2006, conference PDF, Sections II, IV, V and VI.",
+      "Ghosh--Boyd--Saberi, SIAM Review 50 (2008), DOI:10.1137/050645452 (publication metadata and MSC)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MTNS 2006, Sections V and VI, present allocations on barbell and other graphs, not the edge-triangulation family and its priced threshold.",
+        "arXiv:1403.1851v1, Section 4, establishes unweighted resistance formulas for triangulations; the exact present optimization is not stated there.",
+        "Prior related complete-graph, book-network and biclique allocation claims apply to different graphs or objectives and do not furnish the incidence-expanded T(K_n) theorem."
+      ],
+      "reasoning": "The new theorem asserts the unrestricted global optimizer and the inequality P/Q >= 8(n+1)/(n^2+n+2), with a change of support already at n=8 when prices agree. Neither a graph-family title match nor a generic convexity result proves this exact inequality. The closest known configurations are structurally nonisomorphic and no stronger statement implying the formula was identified in the compared sources.",
+      "searches": [
+        "Minimizing total effective resistance by conductance allocation under edge prices. Exact graph family sharp support deletion threshold original shortcut edges and subdivision two-hop replacement.",
+        "resistance diameter minimization optimal edge conductances under budget graph effective resistance worst-case price ratio",
+        "Resistance distance-based graph invariants of subdivisions and triangulations of graphs Yang Klein 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang and Klein, arXiv:1403.1851v1, Introduction and Theorem 4.3 define the ordinary edge-triangulation T(G) and its fixed-weight Kirchhoff index.",
+        "The current graph T(K_n) is also the complete-graph triangle expansion, equivalently K_n with one two-edge parallel replacement route for every original edge."
+      ],
+      "reasoning": "Renaming the structure as an edge triangulation, triangle expansion or clique with edgewise parallel two-paths does not turn the unweighted Kirchhoff-index formula into an exact optimal priced-conductance allocation. Every inserted vertex participates as a source/target in all-pairs resistance, so simply reducing each two-edge path to an effective conductance on the original clique would lose part of the objective.",
+      "searches": [
+        "weighted triangulation graph complete graph K_n edge subdivision shortcuts optimal resistance minimizing conductance budget direct edge deletion threshold",
+        "Kirchhoff index graph triangulation T(K_n) variable weights on original edges vs inserted vertex spokes optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Yang--Klein Theorem 4.3 provides values at fixed unit weights for T(G), not the minimizing price-dependent support.",
+        "No table of the two-price T(K_n) support cutoff was identified in inspected published material."
+      ],
+      "reasoning": "A fixed-weight Kirchhoff-index table, even when specialized to the original complete graph, is not a table of the optimizer as the price ratio varies. No exact listed design value or threshold for this costed problem was found; lack of an indexed match by itself is not evidence of absolute priority.",
+      "searches": [
+        "triangulation complete graph edge conductance budget optimal Kirchhoff index minimize direct edges",
+        "weighted triangulation graph original edges and inserted edges conductances effective resistance minimization",
+        "weighted triangulation graph Kirchhoff index arbitrary edge weights old edges and newly inserted edges formula"
+      ]
+    },
+    "rationale": "The inspected 2006 general resistance-optimization and 2014 unweighted-triangulation results do not give the exact T(K_n) two-price allocation or its sharp zero-original-edge threshold. Accessible prior graph-specific claims concern other nonisomorphic graphs or different objectives; no exact or stronger claim was identified after searches for aliases, implications and parameter formulas. Specialized unindexed historical coverage is still possible.",
+    "residual_risks": [
+      "Search and inspected-section comparisons do not exhaust older graph-optimization literature.",
+      "A specialized historical weighted-triangulation theorem could remain unindexed or use an alternate name.",
+      "The generic SDP formulation can solve instances numerically and is prior work; originality is confined to the explicit graph-family solution and exact threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the graph family and covers fixed unit-conductance resistance invariants; no two-price conductance allocation or deletion frontier in inspected material.",
+        "evidence": [
+          "arXiv:1403.1851v1, 2014-03-07, pp. 1--3 and 11--12, especially Theorem 4.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.1851",
+        "material_read": "Full-text Introduction, definitions and example T(K_5), Section 4 and Theorem 4.3 with neighboring triangulation identities; text searched for optimal and conductance.",
+        "method": "Read primary arXiv PDF text and visually inspected relevant pages, including page 11 of the PDF.",
+        "title": "Resistance distance-based graph invariants of subdivisions and triangulations of graphs",
+        "trigger": "Exact graph class T(K_n) and possible general Kirchhoff-index implication"
+      },
+      {
+        "assessment": "Provides a stronger general algorithmic convex optimization setup and uniqueness, fully credited, but not the priced T(K_n) spectral formula or sharp original-edge support threshold.",
+        "evidence": [
+          "MTNS Kyoto proceedings, July 24--28 2006, TuP12.2; pp. 1185, 1188--1191, 1194."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Introduction, Section II F (strict convexity), Section IV (optimization/optimality conditions), and sections on special graphs and examples (including the barbell).",
+        "method": "Read primary conference PDF text and visually inspected relevant pages including first page and page bearing barbell/Examples section.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Potential domination by the original general ER-minimization framework and example families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95953135-ef09-4ec3-922c-69c7ffc1b379",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Edge triangulation is a standard graph transform that supplies an alternative two-hop route to every original connection. Under a single budget, selecting which direct edges should carry positive conductance is a natural robustness/resource-allocation question. The result is an exact unrestricted network-design classification: sharp price frontier, all optimal weights and Kirchhoff index, a nontrivial n=8 equal-price support transition, and a 1/n large-order boundary. Its significance is structural, not a small numerical improvement or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
