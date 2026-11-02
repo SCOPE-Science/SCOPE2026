@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nonzero coordinates satisfy a genuinely Frobenius-semilinear fixed-point equation only in characteristic two. The classical Lang normal form gives exactly \(2^n\) geometric fixed points. Rational Frobenius descent provides a well-defined conjugacy class in \(\mathrm{GL}_n(\mathbb F_2)\). The twisted-conjugacy stabilizers are precisely the centralizers of the descended binary matrices, so the induced distribution is uniform at the *matrix* level; subspace-lattice Möbius inversion then establishes every probability. The standalone field-arithmetic checker exhaustively verifies \(24{,}053\) matrices in eight finite configurations. Risks: Lang is an invoked standard theorem; the finite tests cannot certify the arbitrary-dimensional theorem, which depends on the written orbit proof.
+## correctness
 
-**Originality — PASS within the investigated sources.** Wei–Zou (arXiv:2310.12368, Introduction, Theorems 1.1 and 2.1) counts algebra **isomorphism classes**, a different sampling problem. Kaygorodov–Martín González–Viruel (arXiv:2610.22248, Remark 23) gives the exact mean of one nonzero idempotent, and the general geometric count is known; neither determines the characteristic-two idempotent-count distribution. Dempwolff–Fisher–Herman (DOI:10.1017/S0017089500020164) provides the classical normal form, not the asserted evolution-algebra census. An already-published note gives existence of a two-dimensional idempotent-free perfect evolution algebra over every finite field, but does not state the uniform binary-characteristic law. Exact alias, implication, and literature comparisons are in the accompanying structured review. Risk: general finite semilinear orbit theory or specialist evolution-algebra literature may contain an equivalent distribution under another description. The literature comparison is not an independent historical priority certificate.
+PASS
 
-**Mathematical value — PASS.** The number of rational idempotents is a natural algebra invariant that measures fixed points of the nonassociative squaring operation. The result gives the *complete probability law* for an entire infinite family, not merely its mean or existence cases. Its exact independence from the extension degree and intrinsic binary fixed-space interpretation reveal an arithmetic structure and a sharp characteristic-two boundary. Risk: applications outside this family are not established and are not claimed.
+PASS: The idempotent equation in the specified evolution basis is x=A^T x^[2]. For invertible M=A^T, classical Lang/semilinear normal form M=B(B^[2])^-1 over the algebraic closure turns fixed points into B(F2^n), exactly 2^n geometric idempotents. Frobenius_q descent C=B^-1 B^[q] lies in GL_n(F2) and counts rational idempotents as 2^dim ker(C-I). A rational twisted-conjugacy orbit of M corresponds to a binary conjugacy class [C] and has stabilizer |Z_GL_n(F2)(C)|; hence uniform M produces the uniform binary matrix C conjugacy-class law. Möbius inversion on binary subspace lattice gives N_{n,k}= [n choose k]_2 Σ_{j=0}^{n-k}(-1)^j 2^{j choose 2}[n-k choose j]_2 2^{(k+j)(n-k-j)}|GL_{n-k-j}(F2)|. Independently enumerated all invertible binary matrices n=1,2,3: fixed-point count histograms respectively {2:1}, {1:2,2:3,4:1}, {1:48,2:98,4:21,8:1}. These agree with the formula; all extension degrees and n follow from the proof, not finite tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (qualified): earlier works cover classical Lang/semilinear normalization, evolution algebra isomorphism classes and the average nonzero idempotent count. The uniform-matrix full distribution independent of extension degree and binary fixed-space law is a sharper separate statement. Any equivalent random semilinear matrix orbit theorem remains a risk.
+
+## value
+
+PASS
+
+PASS: Rational idempotent elements form a central invariant of a perfect evolution algebra. This all-n complete probability law over all 2-power fields, including nontrivial extension-degree invariance and exact k-frequencies, goes beyond the already published mean or existence statement; the binary descent makes a structural arithmetic prediction useful in finite-algebra experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

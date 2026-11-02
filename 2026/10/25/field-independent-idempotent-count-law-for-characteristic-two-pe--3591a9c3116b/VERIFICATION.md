@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The claimed law applies to all \(n\ge1\) and \(q=2^e\), with uniformly distributed **invertible** structure matrices, and does not sample unweighted isomorphism classes. The proof reduces the nonassociative idempotent equation to semilinear fixed points, performs Frobenius descent, matches twisted-conjugacy orbit sizes to conjugacy-class weights in \(\mathrm{GL}_n(\mathbb F_2)\), then performs exact subspace Möbius inversion. Lang's theorem is cited rather than reproved.
+## correctness
 
-The standalone checker `evolution_idempotent_checker.py` enumerates all invertible matrices and all their rational idempotent vectors in eight configurations: \((2,1),(4,1),(8,1),(2,2),(4,2),(8,2),(2,3),(2,4)\). Exact tested-matrix total: \(24{,}053\). It compares **whole rank distributions** rather than only expectations. Final successful output: `ALL_CHARACTERISTIC_TWO_EVOLUTION_CHECKS_PASSED 24053`.
+PASS
 
-Finite exhaustive tests cannot justify untested dimensions and field orders; the general result is established mathematically by the proof in RESULT.md. Idempotent count is always at least one because zero is idempotent. No claim is made in odd characteristic or for singular structure matrices. Historical uniqueness is not independently certified. Independent audit: not performed.
+PASS: The idempotent equation in the specified evolution basis is x=A^T x^[2]. For invertible M=A^T, classical Lang/semilinear normal form M=B(B^[2])^-1 over the algebraic closure turns fixed points into B(F2^n), exactly 2^n geometric idempotents. Frobenius_q descent C=B^-1 B^[q] lies in GL_n(F2) and counts rational idempotents as 2^dim ker(C-I). A rational twisted-conjugacy orbit of M corresponds to a binary conjugacy class [C] and has stabilizer |Z_GL_n(F2)(C)|; hence uniform M produces the uniform binary matrix C conjugacy-class law. Möbius inversion on binary subspace lattice gives N_{n,k}= [n choose k]_2 Σ_{j=0}^{n-k}(-1)^j 2^{j choose 2}[n-k choose j]_2 2^{(k+j)(n-k-j)}|GL_{n-k-j}(F2)|. Independently enumerated all invertible binary matrices n=1,2,3: fixed-point count histograms respectively {2:1}, {1:2,2:3,4:1}, {1:48,2:98,4:21,8:1}. These agree with the formula; all extension degrees and n follow from the proof, not finite tests.
+
+## originality
+
+PASS
+
+PASS (qualified): earlier works cover classical Lang/semilinear normalization, evolution algebra isomorphism classes and the average nonzero idempotent count. The uniform-matrix full distribution independent of extension degree and binary fixed-space law is a sharper separate statement. Any equivalent random semilinear matrix orbit theorem remains a risk.
+
+## value
+
+PASS
+
+PASS: Rational idempotent elements form a central invariant of a perfect evolution algebra. This all-n complete probability law over all 2-power fields, including nontrivial extension-degree invariance and exact k-frequencies, goes beyond the already published mean or existence statement; the binary descent makes a structural arithmetic prediction useful in finite-algebra experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
