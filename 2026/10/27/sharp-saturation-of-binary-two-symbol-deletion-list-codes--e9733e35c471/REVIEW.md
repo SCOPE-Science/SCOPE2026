@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof counts distinct length-two deletion outputs, not deletion-index patterns. The universal \(2L\) bound uses the repeated-symbol subsequence forced by three binary positions. The second bound uses the exact set of two one-output words and four two-output words. The finite classification of all three-output words gives the sharp obstruction, while the constructions attain the ceiling with all receiver loads checked algebraically. A separate finite checker verified 4,088 input words, 240 constructions, and 40 small exact capacity instances. Remaining correctness risk: an unnoticed logical error in the written infinite proof; finite checks cannot eliminate this risk.
+## correctness
 
-**Originality — PASS within examined evidence.** Lin's 2026 paper on binary list-decodable deletion codes gives asymptotic results for bounded deletion count, not the exact near-total-deletion two-survivor saturation threshold. Con–Doron–Ribeiro's 2026 work concerns asymptotic rates and deletion fractions. The closest accessible posted records about two-deletion codes or unordered multiset deletion use different channels and neither states nor implies the four-output theorem. Searches under deletion shadows, two-subsequence signatures, near-total deletions, and exact list-capacity ceilings revealed no covering result. Historical-priority risk remains for unindexed equivalent work or undiscovered earlier exhaustive classifications.
+PASS
 
-**Value — PASS.** A fixed list bound with only two surviving ordered symbols is a natural extremal regime of adversarial deletion decoding. The result determines an exact sharp all-parameter capacity ceiling, a transition from \(2L\) to roughly \(4L/3\), and the exact minimum source length at which the ceiling becomes attainable. The four-pattern signature classification explains the phase transition structurally. It is not merely an isolated small table or a known single-deletion special case.
+For every n>=3 and integer L>=1, each received word of length two is an ordered (not necessarily consecutive) subsequence, and codes use distinct source words. Each input has repeated 0 or 1, giving M<=2L. Exactly two constant words have signature size one and exactly four boundary-minority words have signature size two; all others have size >=3, so 3M-8 <= four receiver loads <=4L. Thus B(L)=min(2L,floor((4L+8)/3)). All three-output signatures are classified for n>=4 by missing pair: counts n-2,n-2,n-3,n-3; four-output words contribute at least one excess signature count. At equality B for L>=5, total excess q<=delta=4L+8-3B, forcing B <=4n-4+delta, and the three L mod 3 cases imply n>=max(4,ceil(L/3)+1); n=3 has only eight inputs and is strictly short. Explicit layer-based constructions with base six small-signature words, class multiplicities, and zero, one or two four-output words attain all four load ceilings for every n at/above threshold, and for L=1..4 attain 2L for every n>=3. Independent dynamic programming checks all n=3..6 and L=1..8, plus direct enumerations of signature class sizes. The proof is symbolic for all n,L; no claim of exact smaller-n M below saturation.
 
-**Scope and literature limits.** The non-saturation values below the stated threshold are not claimed; the result is binary and retains exactly two ordered symbols. Publication priority cannot be certified exhaustively. Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement/implication comparison of actually read primary theorems and direct published mathematical-finding search supports best-of-knowledge originality for the final narrow claim, with precisely documented broader prior formulas and residual historical risks. Neither a failed search nor literature inaccessibility is treated as a proof of novelty.
+
+## value
+
+PASS
+
+The near-total deletion regime with exactly two ordered surviving symbols is a natural extremal list-decoding channel. The result gives a sharp universal capacity ceiling and the exact onset in source length when it becomes achievable, a genuine all-n,L phase transition rather than an arbitrary finite code table. It specifies a constructive family and sharp obstruction while honestly leaving below-saturation optima unclassified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

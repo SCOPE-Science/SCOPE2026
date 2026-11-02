@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The mathematical proof establishes the result for every integer source length \(n\ge3\) and every list size \(L\ge1\). In particular, the two separate incidence bounds and the four disjoint three-output classes establish the universal bound and strict pre-saturation obstruction. Explicit class-based constructions attain the bound at and beyond the threshold.
+# Independent mathematical audit
 
-Run `python3 check.py`. The checker uses only the Python standard library and reports:
+## correctness
 
-```
-PASS enumerated_words 4088 construction_cases 240 exact_DP_cases 40
-```
+PASS
 
-These are complete finite checks only over their stated ranges. The infinite statement follows from the symbolic argument, not from extrapolation. The exact integer dynamic program is distinct from the construction and directly optimizes finite signature-class populations for small parameters. The checker does not establish priority in the literature or an independent audit.
+For every n>=3 and integer L>=1, each received word of length two is an ordered (not necessarily consecutive) subsequence, and codes use distinct source words. Each input has repeated 0 or 1, giving M<=2L. Exactly two constant words have signature size one and exactly four boundary-minority words have signature size two; all others have size >=3, so 3M-8 <= four receiver loads <=4L. Thus B(L)=min(2L,floor((4L+8)/3)). All three-output signatures are classified for n>=4 by missing pair: counts n-2,n-2,n-3,n-3; four-output words contribute at least one excess signature count. At equality B for L>=5, total excess q<=delta=4L+8-3B, forcing B <=4n-4+delta, and the three L mod 3 cases imply n>=max(4,ceil(L/3)+1); n=3 has only eight inputs and is strictly short. Explicit layer-based constructions with base six small-signature words, class multiplicities, and zero, one or two four-output words attain all four load ceilings for every n at/above threshold, and for L=1..4 attain 2L for every n>=3. Independent dynamic programming checks all n=3..6 and L=1..8, plus direct enumerations of signature class sizes. The proof is symbolic for all n,L; no claim of exact smaller-n M below saturation.
+
+## originality
+
+PASS
+
+Statement/implication comparison of actually read primary theorems and direct published mathematical-finding search supports best-of-knowledge originality for the final narrow claim, with precisely documented broader prior formulas and residual historical risks. Neither a failed search nor literature inaccessibility is treated as a proof of novelty.
+
+## value
+
+PASS
+
+The near-total deletion regime with exactly two ordered surviving symbols is a natural extremal list-decoding channel. The result gives a sharp universal capacity ceiling and the exact onset in source length when it becomes achievable, a genuine all-n,L phase transition rather than an arbitrary finite code table. It specifies a constructive family and sharp obstruction while honestly leaving below-saturation optima unclassified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
