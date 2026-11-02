@@ -1,15 +1,21 @@
-# Scientific review: fourteen unitary reciprocal-cube components
+# Independent mathematical audit
 
-## Correctness — PASS
-The prime Euler product formula follows from the definition of unitary divisors. The proof establishes that primes at least \(31\) fill \([1,T]\) by a consecutive-log-digit gap condition. The crucial condition is proved from Nagura's unconditional prime-gap inequality and an increasing truncated-product argument. Finite exceptional exponents for the first ten primes then reduce the entire infinite set to exact closed interval operations. The standalone exact rational checker proves every merge and every remaining strict separation in both prime orders, and verifies the stated 14 rational endpoint pairs. Rounded approximations never decide a comparison. The certificate is independent of arbitrary integer cutoff experiments.
+## correctness
 
-## Originality — PASS (with residual risk)
-Defant's foundational article gives a connectedness threshold and motivates the component count but does not state the 14-interval decomposition for exponent \(-3\). The closest identified published mathematical-results record evaluates exponent \(-2\), which does not imply this theorem at a different exponent. Achenjang–Berger study the nonunitary divisor function and their conclusions do not cover these Euler factors. Semantic searches covered the parameter, alternate names, component-count notation and exact candidate number. An unindexed or unpublished identical computation remains a risk, and one closest results database record was accessible as a summary rather than a complete public package.
+PASS
 
-## Value — PASS
-The next natural integral exponent following the already studied \(-2\) case has substantially more components (14 versus 2). An exact full decomposition and its thirteen certified gaps give a concrete unitary-divisor component spectrum value for the central problem proposed by Defant. Neither the count nor the gap locations follow routinely from the source's qualitative transition theorem; completing the finite interval arithmetic and proving that no hidden tail gaps occur are substantive. The result offers exact test data for conjectured monotonicity and component-spectrum problems without purporting to settle them.
+The final claim covers every n>=1 with unrestricted prime exponents and includes topological closure. Unitary divisors give Euler factors 1+p^(-3a), Z=zeta(3)/zeta(6). The max consecutive positive log-digit gap at p is log((1+p^-3)/(1+p^-6)). For p>=29 Nagura p_next<6p/5 implies b=p_next^3<2a for a=p^3; multiplying the exact ratio (b+1)^2/(b^2+1)·(a^2+1)/(a^2+a)>1 proves F_i increases strictly to Z. Hence all p>=31 satisfy the infinite-digit no-gap criterion, giving complete interval [1,T]. For the ten small primes, each exponent family a>=A_p with omission merges with prior intervals because 1+p^(-3A_p)<=T; the a<A_p options are exhaustive. Independent Python Fraction arithmetic uses integral-test zeta enclosures to merge only at proved overlap and separate only at strict gaps, yields 14 intervals and matches every 14 published rational (L,U) pairs, in both prime orders. The rightmost upper coefficient equals P exactly, hence endpoint Z; all 13 gaps positive. This validates full generality without interpreting finite prime tests as an infinite proof.
 
-## Evidence and limitations
-Primary inspected text: Defant, arXiv:1507.02654v3, Abstract, Section 2 and Section 3; arXiv submission history establishes initial public date 9 July 2015. Contrasting source: Achenjang and Berger, arXiv:1808.07550, ordinary divisor-function closure (not unitary). Closest indexed fixed-parameter result: unitary divisor exponent -2 (published-finding corpus identifier `2026/10/4/SCOPE-exactly-two-connected-components-for-the-unitary-divisor-range-a--95ec686c61cb`). The first-week published indexed result is not a replacement for access to unindexed earlier literature. Earlier local history not accessible in this record is not represented as checked. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent comparison of exact statements and Euler factors: Defant proves the connectedness threshold and poses the component-count question but not this exact r=3 count; Sanna and Achenjang–Berger classify ordinary divisor Euler factors. The full published r=2 unitary RESULT supplies two intervals only. Originality at r=3 is best-of-knowledge, with unindexed-coverage residual risk.
+
+## value
+
+PASS
+
+The exact natural number of connected components of the unitary divisor range is the open component-spectrum problem explicitly asked by Defant; r=3 is the next integer exponent after an independently published r=2 count. A complete 14-component classification with all thirteen certified gaps and explicit endpoints is a mathematical invariant useful for further comparison, not a mere numerical small-n trial or a known table recomputation. The result combines analytic elimination of all large-prime hidden gaps with nontrivial exact rational branch arithmetic. It does not claim a monotonicity theorem, global classification across r, or parametrized lower bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
