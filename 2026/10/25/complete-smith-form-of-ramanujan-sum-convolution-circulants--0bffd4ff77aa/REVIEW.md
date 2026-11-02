@@ -1,15 +1,21 @@
-# Assessment of the Ramanujan convolution Smith classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prime-power evaluation is classical and is explicitly derived in Fowler–Garcia–Karaali, arXiv:1201.1060, Section 3.1. The proof here uses integral row/column operations and exact determinantal divisors to obtain the local Smith factors. The Chinese remainder factorization is by permutation matrices, and tensor products of unimodular equivalences remain unimodular; separately sorting each prime valuation correctly recovers the canonical global invariant factors. Exact independent computations of full integer matrices up to size \(42\) corroborate the proof. Limitation: a finite computation is not the justification for a theorem over all \(n\).
+PASS
 
-## Originality — PASS, conditional on inspected coverage
+For each p^a, the Ramanujan prime-power identity splits the circulant into p^{a-1} copies of p^{a-1}(pI-J). Exact row/column operations and determinantal divisors give Smith factors 1,p^(p-2),0 for pI-J, with p=2 handled. Chinese-remainder permutation tensor products preserve integrally unimodular equivalences; independently sorting prime valuations across the phi(n) nonzero diagonal entries produces the stated divisibility-ordered factors, with n=1 and n=2 boundaries. The determinant product, exponent, congruence kernel and cyclicity criteria follow from those invariant factors. Independently constructed Ramanujan integer matrices and computed exact SymPy Smith forms for every 1<=n<=15; all factors matched. This finite test is not the all-n proof.
 
-The closest full primary sources are Fowler–Garcia–Karaali (arXiv:1201.1060, all 32 pages available, relevant Sections 2–3 inspected) and Schlage-Puchta (DOI:10.1007/s00013-021-01643-8, open full text). Both discuss Ramanujan matrices with divisor-based indexing rather than the full difference circulant and neither identifies its integer cokernel. The integral-circulant-graph source of Le–Sander (DOI:10.37236/3159) studies graph spectra, not the stated full-kernel Smith form. Targeted searches, including equivalent Fourier-projector and modular-cokernel formulations, did not locate matching or dominating coverage. The unresolved risk is a prior unindexed all-moduli result or more general integral convolution theorem that implies the formula.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete classification of the torsion structure of the arithmetic Fourier projection \(C(n)\) over \(\mathbb Z\) for every modulus. It differentiates integral arithmetic from the easily computed \(\{0,n\}\) complex spectrum, yields exact modular solution counts, torsion exponents, and an unexpected complete cyclicity classification. The all-moduli invariant-factor law is a natural classification, not an isolated or parameter-arbitrary small computation.
+Fowler–Garcia–Karaali develop the classical Ramanujan prime-power and multiplicative identities and divisor/supercharacter tables. Schlage-Puchta evaluates a determinant of the tau(n)-by-tau(n) divisor-indexed matrix, not the n-by-n difference circulant nor its Smith form. Complex Fourier eigenvalues (n or 0) do not determine integral Smith data. No exact all-modulus invariant-factor formula was identified in Resultary; possible earlier integer-convolution literature remains a risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Complete invariant factors, torsion exponent/order, cyclicity and all mod-m kernel counts form a natural integral-arithmetic refinement to the easily known Fourier rank of a canonical convolution operator. The multiplicative decomposition makes the answer usable at every modulus, not a finite table or numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

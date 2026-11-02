@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Ramanujan convolution Smith form
+# Independent mathematical audit
 
-The arithmetic identity \(c_n(t)=\sum_{d\mid\gcd(n,t)}d\mu(n/d)\) was used to assemble each integer matrix \(C(n)=(c_n(i-j))\), including the cases \(n=1\) and powers of \(2\). The attached `verify_ramanujan_smith.py` calls SymPy's exact-domain Smith normal form on the full integer matrix and compares the entire diagonal, including the \(n-\varphi(n)\) trailing zeros, with the closed formula.
+## correctness
 
-Executed check: `VERIFY_OK smith_cases 28 max_modulus 42 max_dimension 42`. No floating-point calculations were used. The executed script file is embedded alongside this document; it uses Python 3 and SymPy 1.13+.
+PASS
 
-This test is a finite corroboration, not a proof for all moduli. Universal validity follows from the prime-power block decomposition, the determinantal divisors of \(pI_p-J_p\), the integral Chinese remainder tensor factorization, and the prime-by-prime valuation sort in `RESULT.md`. No independent review or external certification has been performed.
+For each p^a, the Ramanujan prime-power identity splits the circulant into p^{a-1} copies of p^{a-1}(pI-J). Exact row/column operations and determinantal divisors give Smith factors 1,p^(p-2),0 for pI-J, with p=2 handled. Chinese-remainder permutation tensor products preserve integrally unimodular equivalences; independently sorting prime valuations across the phi(n) nonzero diagonal entries produces the stated divisibility-ordered factors, with n=1 and n=2 boundaries. The determinant product, exponent, congruence kernel and cyclicity criteria follow from those invariant factors. Independently constructed Ramanujan integer matrices and computed exact SymPy Smith forms for every 1<=n<=15; all factors matched. This finite test is not the all-n proof.
+
+## originality
+
+PASS
+
+Fowler–Garcia–Karaali develop the classical Ramanujan prime-power and multiplicative identities and divisor/supercharacter tables. Schlage-Puchta evaluates a determinant of the tau(n)-by-tau(n) divisor-indexed matrix, not the n-by-n difference circulant nor its Smith form. Complex Fourier eigenvalues (n or 0) do not determine integral Smith data. No exact all-modulus invariant-factor formula was identified in Resultary; possible earlier integer-convolution literature remains a risk.
+
+## value
+
+PASS
+
+Complete invariant factors, torsion exponent/order, cyclicity and all mod-m kernel counts form a natural integral-arithmetic refinement to the easily known Fourier rank of a canonical convolution operator. The multiplicative decomposition makes the answer usable at every modulus, not a finite table or numerical exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
