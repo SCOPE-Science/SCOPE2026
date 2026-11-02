@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The universal rooted upper bound is not inferred from finite data: positive response to a size-k cluster exactly factors into laminar hierarchies of sizes k and n-k+1. Disjoint-alphabet product Littlestone dimensions add, so its depth is n-3 inductively, excluding depth n-1. Binary-prefix grafting shatters n-2 queries and containment transfers upper bound. Outgroup-rooting gives exact unrooted split equivalence. Definitions include proper clades, n=2 base, n=3 unrooted base; packaged standalone finite checker passes against the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Avdiukhin et al., Tree Learning: Optimal Algorithms and Sample Complexity, arXiv:2302.04492 (2023-02-09), https://arxiv.org/abs/2302.04492; AAAI 2023, DOI 10.1609/aaai.v37i6.25822.",
+        "Chase, Freitag and Reyzin, Applications of Littlestone Dimension to Query Learning and to Compression, MFCS 2024, DOI 10.4230/LIPIcs.MFCS.2024.42."
+      ],
+      "reasoning": "Theorem on multiclass triplet inputs can yield dimensional bounds for triplet-prediction but not for Boolean full-subset clade membership: neither domain nor label/output alphabets match. General Littlestone query-learning/compression results do not evaluate this class; their strongest applicable general bounds from concept count are much weaker, of order n log n.",
+      "searches": [
+        "All rooted binary trees identified by clade membership queries: Littlestone dimension, VC dimension, adaptive shattering tree of hierarchy features",
+        "Online shattering nonbinary phylogenetic tree clades, hierarchical clustering class Littlestone dimension",
+        "Rooted phylogenetic tree query concept class Boolean membership in clade subsets versus triplet orientations; VC dimension Littlestone dimension online shattering hierarchical laminar cluster systems",
+        "Avdiukhin 2023 Tree Learning Optimal Sample Complexity and Algorithms Natarajan Littlestone dimension triplet"
+      ]
+    },
+    "checked_sources": [
+      "Hendriksen and Francis, A partial order and cluster-similarity metric on rooted phylogenetic trees, arXiv:1906.02411 (2019-06-06), https://arxiv.org/abs/1906.02411.",
+      "Avdiukhin et al., Tree Learning: Optimal Algorithms and Sample Complexity, arXiv:2302.04492 (2023-02-09), https://arxiv.org/abs/2302.04492; AAAI 2023, DOI 10.1609/aaai.v37i6.25822.",
+      "Chase, Freitag and Reyzin, Applications of Littlestone Dimension to Query Learning and to Compression, MFCS 2024, DOI 10.4230/LIPIcs.MFCS.2024.42.",
+      "Emamjomeh-Zadeh and Kempe, Adaptive Hierarchical Clustering Using Ordinal Queries, SODA 2018 (abstract and bibliographic metadata consulted; complete text not assessed).",
+      "Published mathematical-record indexed hits: 2026/9/18/SCOPE-binary-similarity-square-root-tree-likeness--5d4665db6247, 2026/9/18/SCOPE-phylogenetic-rank-complete-multipartite-graphs--cea9c3369a96, 2026/10/4/SCOPE-colored-gap-orbit-profiles-for-minimal-chain-ultrametric-expansi--d80a1c925594"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Avdiukhin et al., Tree Learning: Optimal Algorithms and Sample Complexity, arXiv:2302.04492 (2023-02-09), https://arxiv.org/abs/2302.04492; AAAI 2023, DOI 10.1609/aaai.v37i6.25822.",
+        "Hendriksen and Francis, A partial order and cluster-similarity metric on rooted phylogenetic trees, arXiv:1906.02411 (2019-06-06), https://arxiv.org/abs/1906.02411.",
+        "Chase, Freitag and Reyzin, Applications of Littlestone Dimension to Query Learning and to Compression, MFCS 2024, DOI 10.4230/LIPIcs.MFCS.2024.42."
+      ],
+      "reasoning": "The triplet-query online dimension compares order relationships within labeled triples; here a single query asks whether an arbitrary k-subset is EXACTLY a proper cluster. Such a predicate may be characterized by multiple triplet constraints, but there is no one-query equivalence or known dimension-preserving reduction. The latter exact linear formula neither follows from the former multiclass theorem nor from hierarchy refinement metrics.",
+      "searches": [
+        "Avdiukhin 2023 Tree Learning Optimal Sample Complexity and Algorithms Natarajan Littlestone dimension triplet",
+        "Rooted phylogenetic tree query concept class Boolean membership in clade subsets versus triplet orientations; VC dimension Littlestone dimension online shattering hierarchical laminar cluster systems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hendriksen and Francis, A partial order and cluster-similarity metric on rooted phylogenetic trees, arXiv:1906.02411 (2019-06-06), https://arxiv.org/abs/1906.02411.",
+        "Avdiukhin et al., Tree Learning: Optimal Algorithms and Sample Complexity, arXiv:2302.04492 (2023-02-09), https://arxiv.org/abs/2302.04492; AAAI 2023, DOI 10.1609/aaai.v37i6.25822."
+      ],
+      "reasoning": "The class of possibly nonbinary phylogenies is equivalently every laminar family of nontrivial proper subsets; fully binary phylogenies are maximal laminar families. Outgroup rooting identifies unrooted split concepts with rooted clade concepts on one fewer labels. Searches using laminar, hierarchy, clade, split, and tree terminology found no covering exact online-shattering theorem.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension of hierarchical cluster families, laminar subset systems, membership in a clade, all rooted binary phylogenetic trees on n taxa, dimensions n-2",
+        "Online learning laminar families as hypotheses, membership of a candidate subset as a cluster, VC dimension equals Littlestone dimension n-2",
+        "VC dimension Littlestone dimension clade membership queries phylogenetic rooted binary trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hendriksen and Francis, A partial order and cluster-similarity metric on rooted phylogenetic trees, arXiv:1906.02411 (2019-06-06), https://arxiv.org/abs/1906.02411.",
+        "The standard rooted-binary tree count is (2n-3)!!; standard phylogenetic census counts trees, not clade-query Littlestone dimensions."
+      ],
+      "reasoning": "Published index returns nearby tree metric and phylogenetic-rank results but no exact clade-membership online-dimension table or universally quantified identity. Counting tables are not adaptive-shattering tables. Lack of matching records alone does not prove novelty.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension of hierarchical cluster families, laminar subset systems, membership in a clade, all rooted binary phylogenetic trees on n taxa, dimensions n-2",
+        "Online learning laminar families as hypotheses, membership of a candidate subset as a cluster, VC dimension equals Littlestone dimension n-2",
+        "rooted binary tree clade membership VC Littlestone exact n-2"
+      ]
+    },
+    "rationale": "A literature and published-mathematical-index comparison distinguishes exact Boolean whole-clade membership from multiclass triplet-labeled tree learning, phylogenetic hierarchy metrics and abstract query-compression bounds. None of the inspected full texts implies the exact rooted/unrooted formula. Global historical priority is not certified, and remaining risks are recorded.",
+    "residual_risks": [
+      "Historical work under laminar family teaching dimension, membership query mistake bounds, or cluster hierarchy terminology could independently imply the formula.",
+      "An ordinal-query hierarchical clustering paper was only inspected at abstract level; no full-text noncoverage claim is made.",
+      "Separate larger query alphabets, partial clades, and noisy queries are outside the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact Boolean clade-query dimension theorem in inspected full text",
+        "evidence": [
+          "Hendriksen and Francis, A partial order and cluster-similarity metric on rooted phylogenetic trees, arXiv:1906.02411 (2019-06-06), https://arxiv.org/abs/1906.02411."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.02411",
+        "material_read": "Full accessible arXiv HTML including definitions, cluster hierarchies, refinement results and discussion; text searched for VC and Littlestone terminology.",
+        "method": "Full-text reading and targeted terminology search",
+        "title": "A partial order and cluster-similarity metric on rooted phylogenetic trees",
+        "trigger": "same laminar rooted phylogenetic objects and clade definitions"
+      },
+      {
+        "assessment": "NOT_COVERING because classifiers label triples and use multiclass output; no exact whole-subset Boolean clade-membership theorem.",
+        "evidence": [
+          "Avdiukhin et al., Tree Learning: Optimal Algorithms and Sample Complexity, arXiv:2302.04492 (2023-02-09), https://arxiv.org/abs/2302.04492; AAAI 2023, DOI 10.1609/aaai.v37i6.25822."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.04492",
+        "material_read": "Eight-page AAAI 2023 full text including problem formulation and Natarajan and online Littlestone theorems; targeted inspection of input labels.",
+        "method": "Full PDF text and page-image inspection",
+        "title": "Tree Learning: Optimal Algorithms and Sample Complexity",
+        "trigger": "highly relevant learning-theoretic treatment of phylogenetic hierarchies"
+      },
+      {
+        "assessment": "NOT_COVERING for these exact tree-specific dimensions in inspected text",
+        "evidence": [
+          "Chase, Freitag and Reyzin, Applications of Littlestone Dimension to Query Learning and to Compression, MFCS 2024, DOI 10.4230/LIPIcs.MFCS.2024.42."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2024.42",
+        "material_read": "Accessible full PDF sections defining Littlestone dimension and general query compression/learning results; targeted full-text search for laminar, hierarchy and phylogenetic.",
+        "method": "Full PDF text and relevant page-image inspection",
+        "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+        "trigger": "possible general query-learning results implying special cases"
+      },
+      {
+        "assessment": "Plausibly related but queries concern ordinal relations, and noncoverage is not certified from a full manuscript",
+        "evidence": [
+          "Emamjomeh-Zadeh and Kempe, Adaptive Hierarchical Clustering Using Ordinal Queries, SODA 2018 (abstract and bibliographic metadata consulted; complete text not assessed)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1.9781611975031.28",
+        "material_read": "Bibliographic record and accessible abstract only; complete manuscript not inspected",
+        "method": "Abstract and bibliographic review",
+        "title": "Adaptive Hierarchical Clustering Using Ordinal Queries",
+        "trigger": "alternative phylogenetic online query formulations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d757d9b-9c06-470e-ad09-f97b829e45cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural entire-family (not arbitrary small slice) exact static and adaptive invariant for binary and nonbinary rooted trees and their unrooted split counterparts. Product factorization gives structural insight into a sharp linear online depth despite (2n-3)!! hypotheses, and formalizes a meaningful query-language contrast with published multiclass triple-labeled tree learning. Does not assert a full sample-complexity result.",
+    "status": "PASS"
+  }
+}
