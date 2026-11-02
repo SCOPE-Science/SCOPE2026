@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 c7k3_equivariant_checker.py` from the extracted package using Python 3 standard library. The executable reconstructs the categorical graph and every independent face; verifies its exact 5,282-face enumeration and 2,639 pairs and checks that the 25,242 directed incidence graph is acyclic by a full topological sort. Critical bitmasks are 132225 (dimension 3) and 166145, 590402, 592130 (dimension 4), plus the critical zero-cell after empty-face de-augmentation. The exact oriented integer Morse boundary rows for all critical four-faces are zero.
+# Independent mathematical audit
 
-It constructs a primitive three-cycle (signed cross-polytope with 16 facets), checks its entire integral boundary vanishes and its projection is one, then evaluates every dihedral and color automorphism on it. Separate alternating signed fixed-simplex counts determine the fourth-homology traces. It asserts all 84 character identities and prints `C7_K3_EQUIVARIANT_HOMOTOPY_VERIFIED` only on full success. The fixed orbit count is exhaustive for this finite graph, not a claim about all cycle-product parameters. Interpretation of the Morse differential as attaching degree uses the standard discrete Morse theorem and \(\pi_3(S^3)\cong\mathbb Z\). No independent external audit has been performed.
+## correctness
+
+PASS
+
+The graph is the categorical C7×K3: edges join adjacent cycle positions with unequal colors, not the Cartesian product. The source certificate enumerates every one of 5,282 faces including empty, 2,639 matching pairs and four augmented critical faces; a complete 25,242-cover directed-Hasse acyclicity check and signed Morse ∂4=(0,0,0) yield the integral wedge S3∨3S4 after the empty-face/vertex matched pair becomes a critical ordinary vertex. Independently reconstructed the face histogram and mod-two homology dimensions one in degree3, three in degree4. A primitive integral H3 cycle, full signed action across all 84 elements of D7×S3, and reduced signed Lefschetz traces give H3 reflection-sign⊗color-sign and H4 trivial-dihedral⊗(color-sign⊕standard). Independently recomputed all 84 signed simplex Lefschetz traces and checked the predicted character relation, though that is not by itself a second integral H3 cycle proof. Rational transfer gives vanishing positive-degree rational homology of the quotient, not contractibility.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: searched Resultary by semantic same-object aliases, inspected relevant primary theorem statements, distinguished direct and partial coverage, and found no proven dominating statement of the final claimed exact invariant. Residual risks and incomplete primary sections are explicitly documented.
+
+## value
+
+PASS
+
+The paper on exactly this cycle-product already reports Sage evidence of nonzero free homology and leaves unresolved integral torsion for this parameter. A complete finite wedge homotopy calculation and full joint color–dihedral rational homology characters resolve a distinct, meaningful exact case and illuminate its symmetries. The claim correctly does not settle the global categorical-product conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
