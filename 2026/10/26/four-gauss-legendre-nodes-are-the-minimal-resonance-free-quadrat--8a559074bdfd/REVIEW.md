@@ -1,11 +1,21 @@
-# Scientific assessment of the planar Gauss–Legendre Gramian result
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first derives a positive-term Cauchy–Binet determinant formula for rank-one covariance forcing. The two- and three-node singular sets follow by explicit differences of Legendre roots. For four nodes, simultaneous collinearity would make the ratio of the two distinct positive Legendre roots rational, contradicting its explicitly irrational squared value. For zero damping, convergents of that irrational root ratio give the displayed inverse-square least-eigenvalue bounds; the normalized continuous Gramian eigenvalues follow from elementary trigonometric integration. The included standalone verifier passed 163 reproducibility assertions. Numerical experiments are not offered as a proof of all-step positivity or the infinite sequence.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** The 2026 Lyapunov integrator paper proves nonnegative semidefiniteness and associated accuracy, without the specific four-node Gaussian quadrature arithmetic classification. The 2010 sampled controllability paper is a very close conceptual predecessor: it contains a general rank criterion for sampled modal vectors, but the inspected material does not give the Gaussian-node threshold or quantitative infinitely recurring near-singularity against a well-conditioned continuous Gramian. The arithmetic classification and quantitative discrepancy are the candidate contribution, not the general rank criterion. Search coverage is incomplete for historical specialized oscillator sampling theory, so priority requires independent confirmation.
+PASS
 
-**Mathematical value — PASS.** The minimum Gaussian node count is a natural cost/guarantee question for positive-weight forcing quadrature in differential Lyapunov equations. The result distinguishes mere positive semidefiniteness, strict positive definiteness, and robust conditioning of approximate controllability Gramians, and gives an explicit counterexample to inferring the last from the first two. The limitation to a planar rotation and direct integral quadrature is substantive and stated rather than hidden.
+Derived the Cauchy–Binet determinant as a sum of strictly positively weighted squared sines of pairwise node-angle differences. For 2/3 Gauss nodes the common direction occurs at the displayed exact integer multiples of pi sqrt(3) and 10pi/sqrt(15), respectively. Four-node singularity would force rational a/b from both symmetric node pairs, whereas (a/b)^2=(23+4 sqrt(30))/7 is irrational. Continued fractions give infinitely many q with |q a/b-p|<1/q, and testing perpendicular direction yields the pi^2/q^2 eigenvalue upper bound. Undamped exact W/h has eigenvalues 1/2 ± |sin(omega h)|/(2|omega|h), so the operator-norm discrepancy tends to 1/2. Independent numeric weighted determinants and convergents corroborate the derivation but are not its proof.
 
-**Closest literature and limitations.** Zhang–Lan–Jing, arXiv:2606.15703v1 (integration-factor Lyapunov positivity), and Fúster-Sabater–Guillén, arXiv:1006.4288v1 (sampled reachability criterion). Trefethen, arXiv:2101.09501, treats Gaussian quadrature properties rather than this rank phenomenon. The finding does not address higher-dimensional systems, general Runge–Kutta discretizations, finite-precision rank, or general conditioning-rate asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sampled-reachability rank criterion and older Gauss quadrature exactness explain the mechanism but do not directly furnish the precise Gauss-node arithmetic threshold, the lower-order resonance sets, or the near-resonant conditioning defect. The closest integrator literature concerns positive semidefinite Lyapunov evolution using different methods, so best-of-knowledge originality survives with specialized-priority risk.
+
+## value
+
+PASS
+
+Positive definite rather than merely positive semidefinite quadrature is a natural rank-preservation design question. The sharp four-node threshold and infinite badly conditioned subsequence show rigorously that unconditional algebraic rank retention need not imply robust approximation, a structural warning for direct Gramian quadrature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

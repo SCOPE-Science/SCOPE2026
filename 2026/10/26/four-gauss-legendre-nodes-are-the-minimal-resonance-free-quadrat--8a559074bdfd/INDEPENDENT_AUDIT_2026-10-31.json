@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:41:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/four-gauss-legendre-nodes-are-the-minimal-resonance-free-quadrat--8a559074bdfd/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/four-gauss-legendre-nodes-are-the-minimal-resonance-free-quadrat--8a559074bdfd/verify.py",
+        "/mnt/data/scope_worker-06_20261031T073315Z/independent_checks.py"
+      ],
+      "rationale": "Derived the Cauchy–Binet determinant as a sum of strictly positively weighted squared sines of pairwise node-angle differences. For 2/3 Gauss nodes the common direction occurs at the displayed exact integer multiples of pi sqrt(3) and 10pi/sqrt(15), respectively. Four-node singularity would force rational a/b from both symmetric node pairs, whereas (a/b)^2=(23+4 sqrt(30))/7 is irrational. Continued fractions give infinitely many q with |q a/b-p|<1/q, and testing perpendicular direction yields the pi^2/q^2 eigenvalue upper bound. Undamped exact W/h has eigenvalues 1/2 ± |sin(omega h)|/(2|omega|h), so the operator-norm discrepancy tends to 1/2. Independent numeric weighted determinants and convergents corroborate the derivation but are not its proof.",
+      "residual_risks": [
+        "Applies to direct quadrature of the integral for a planar rotational pair only, not to Gauss Runge–Kutta update maps or general matrices. Numerical near-resonance checks do not certify arbitrarily large steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Integrating-factor SSP Runge–Kutta positivity concerns discrete matrix evolution and PSD; direct positive-weight quadrature can remain rank one if all directions coincide."
+        ],
+        "reasoning": "No checked theorem forces strict positivity of all four-node direct integrals at every step or near-singular deviation.",
+        "searches": [
+          "Zhang Lan Jing 2026 positivity preservation differential Lyapunov equations integrating factor",
+          "Gaussian quadrature positive weights controllability Gramian sampled data"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1006.4288",
+        "https://arxiv.org/abs/2606.15703",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/four-gauss-legendre-nodes-are-the-minimal-resonance-free-quadrat--8a559074bdfd/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard positive weights guarantee G_s>=0, not G_s>0; the arithmetic irrationality of two Gauss root radii eliminates simultaneous collinearity for s=4."
+        ],
+        "reasoning": "New step-specific and all-step statements require calculating precise Gauss abscissa differences, not merely applying general positivity/controllability principles.",
+        "searches": [
+          "arXiv:1006.4288 nonuniform sampling controllability",
+          "arXiv:2606.15703 Lyapunov positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted rank-one Gramian full rank iff its sampled modal vectors span R², equivalently not all sampled angles are congruent modulo pi; this is a classical sampled controllability criterion."
+        ],
+        "reasoning": "Explicitly separates known projective span criterion from the new assertion that the first standard Gauss–Legendre node set with irrational internal spacing ratios has s=4.",
+        "searches": [
+          "Fúster-Sabater Guillén 2010 nonuniformly sampled reachability determinant condition",
+          "sampled controllability oscillator two dimensional quadrature rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned neighboring Padé Markov positivity and unrelated Gramian frame examples, not this all-step node hierarchy."
+        ],
+        "reasoning": "No prior exact one-through-four node singularity table was located; this limited search cannot certify priority.",
+        "searches": [
+          "Resultary: Gauss Legendre quadrature node resonances planar rotation controllability Gramian positive definite",
+          "four-node Gaussian quadrature irrational abscissa ratio rank resonance"
+        ]
+      },
+      "rationale": "The sampled-reachability rank criterion and older Gauss quadrature exactness explain the mechanism but do not directly furnish the precise Gauss-node arithmetic threshold, the lower-order resonance sets, or the near-resonant conditioning defect. The closest integrator literature concerns positive semidefinite Lyapunov evolution using different methods, so best-of-knowledge originality survives with specialized-priority risk.",
+      "residual_risks": [
+        "Full historical sampled-data/controllability literature not exhaustively read; specialized oscillator rank formulas could yield a corollary.",
+        "The old arXiv full PDF route was unavailable; the abstract does not justify any whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General nonuniform sampling rank criterion; precise Gauss-node arithmetic not established from accessible text",
+          "evidence": "Abstract discusses choice of sampling sequence and joint reachability/observability criteria.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.4288",
+          "material_read": "ArXiv abstract and study scope; attempted full arXiv PDF but full-text route was disabled",
+          "method": "arXiv abstract, open full-text attempt",
+          "title": "Characterisation of observability and controllability for nonuniformly sampled discrete systems",
+          "trigger": "General sampled controllability determinant may imply quadrature case"
+        },
+        {
+          "assessment": "Studies PSD preservation of integrating-factor ODE solvers; not direct rank-one integral quadrature",
+          "evidence": "Main statement describes positivity-preserving IF SSPRK schemes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+          "material_read": "ArXiv abstract and description of method; full technical text not independently inspected",
+          "method": "bibliographic abstract",
+          "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Same positive definite Lyapunov motivation"
+        },
+        {
+          "assessment": "No directly covering four-node all-step classification returned",
+          "evidence": "The high-ranked hits lacked planar direct-rotation quadrature.",
+          "identifier_or_url": "Resultary semantic query: Gauss Legendre quadrature node resonances planar rotation controllability Gramian positive definite",
+          "material_read": "Ranked titles/summaries, including unrelated Gram matrices and eight-state Padé positivity",
+          "method": "Resultary semantic search",
+          "title": "Published mathematical record search for Gaussian node resonance",
+          "trigger": "Search for exact node-count and conditioning antecedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1006.4288",
+        "https://arxiv.org/abs/2606.15703",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/four-gauss-legendre-nodes-are-the-minimal-resonance-free-quadrat--8a559074bdfd/RESULT.md"
+      ],
+      "rationale": "Positive definite rather than merely positive semidefinite quadrature is a natural rank-preservation design question. The sharp four-node threshold and infinite badly conditioned subsequence show rigorously that unconditional algebraic rank retention need not imply robust approximation, a structural warning for direct Gramian quadrature.",
+      "residual_risks": [
+        "All-step guarantee is specific to a two-dimensional rank-one rotating system; not a theorem for generic high-dimensional Gramians."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For rank-one forced planar rotations with damping gamma>=0 and nonzero angular frequency, direct s-node Gauss–Legendre Gramian quadratures are singular infinitely often at s=1,2,3, and s=4 is strictly positive for every step h>0; undamped G4/h has inverse-square almost-resonant eigenvalues while W/h tends to I/2.",
+  "limitations": [
+    "Applies to direct quadrature of the integral for a planar rotational pair only, not to Gauss Runge–Kutta update maps or general matrices. Numerical near-resonance checks do not certify arbitrarily large steps.",
+    "Full historical sampled-data/controllability literature not exhaustively read; specialized oscillator rank formulas could yield a corollary.",
+    "The old arXiv full PDF route was unavailable; the abstract does not justify any whole-document noncoverage claim.",
+    "All-step guarantee is specific to a two-dimensional rank-one rotating system; not a theorem for generic high-dimensional Gramians."
+  ],
+  "schema_version": 1
+}
