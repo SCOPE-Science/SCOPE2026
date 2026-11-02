@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-The included `verify_petersen_line_square.py` requires Python 3 and uses only the standard library. `verify_integral_coinvariants.py` requires SymPy 1.14, and imports the first script from the same directory. Both scripts derive the graph from two-subsets rather than relying on external databases. The first script exhaustively enumerates 15 line vertices, 105 pairs, 1,023 simplices, 120 group permutations and all seven character classes, checking the signed simplicial Lefschetz traces and exact Specht inner products. The second explicitly creates four signed 32-by-32 integer action matrices, checks the Coxeter relations and computes the exact 32-by-128 Smith normal form.
+## correctness
 
-Expected decisive outputs include `VR_RADIUS_TWO_INTEGRAL_H4_RANK 32`, `FULL_S5_INVARIANT_RATIONAL_H4_DIMENSION 2`, `SMITH_NONZERO_UNIT_FACTORS 30` and `SMITH_ZERO_FACTORS 2`. The complete genuine script outputs are in `verification_output.txt`.
+PASS
 
-The local computations establish the exact finite numerical assertions. The proof of the join decomposition, signs, module construction, representation formula and validity of the coinvariant presentation appears in `RESULT.md`. They do not amount to independent external certification, an orbit-space integral-homology calculation, or an exhaustive literature novelty proof.
+For Petersen KG(5,2), its 15 graph edges partition canonically into five three-element classes indexed by the missing element of the two disjoint 2-subsets. Independent breadth-first all-pairs distances on the line graph confirm each within-class distinct pair at distance 3 and every interclass pair at distance ≤2 (counts 30 distance1,60 distance2,15 distance3). Thus inclusive VR radius2 is literally the join of five discrete tripletons, with 4^5−1=1023 nonempty simplices and integral H4=(Z²)^⊗5 of rank32. The induced S5 action includes sign of permuting five join factors. Independent exhaustive 120-permutation signed simplicial Lefschetz characters equal the claimed (32,0,8,2,0,0,2) by cycle type; the Specht decomposition follows from S5 character inner products. Independently constructed signed 32-dimensional integral adjacent-transposition matrices verify Coxeter relations, and their concatenated (R_i−I) 32x128 integer matrix has Smith 30 units and two zero rows, proving torsion-free coinvariants Z². No claim of integral quotient-space homology.
+
+## originality
+
+PASS
+
+The 2021 Lužar–Máčajová–Škoviera–Soták strong Petersen coloring already yields the canonical five tripleton edge-color classes; the elementary nonequivariant join and rank-32 homotopy are not independently new. The assessed original mathematical content is the full Koszul-signed integral S5 lattice, explicit seven-class character/Specht multiplicities, and no-torsion coinvariant Z². Adamaszek covers ordinary line-graph clique topology, not the radius-two 15-vertex S5 integral invariants. Resultary published Petersen particle-configuration S5 modules and graph three-cut module concern different complexes. Full primary color-theorem material inspected, no explicit homology lattice/Smith classification there; unindexed equivalent representation computation remains risk.
+
+## value
+
+PASS
+
+Even when the underlying nonequivariant wedge decomposition is elementary from known canonical edge coloring, the exact integral S5-module and torsion-free coinvariant quotient are natural and nontrivial equivariant refinements attached to the Petersen graph’s full symmetry, potentially reusable for orbit-space and equivariant topology. The 30 unit Smith factors distinguish an integral statement from a rational multiplicity calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

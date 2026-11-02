@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof reduces the graph-distance statement to endpoint-intersection cases in the canonical five-coloring and gives a genuine simplicial join isomorphism. Its signed action is induced by the oriented join chain complex. The character formula follows from cyclewise trace on rank-two augmentation lattices. Exhaustive independent signed simplicial Lefschetz traces agree for all 120 permutations. The Specht inner products use the exact character table reconstructed by Jacobi–Trudi. Four explicit adjacent-transposition matrices satisfy their relations and their concatenated integer Smith form has 30 invariant units and two zeros. These certify the integral coinvariants, not merely their rational rank. The code's finite checks are exhaustive for this fixed finite graph.
+## correctness
 
-## Originality: PASS, with residual uncertainty
-The 2021 paper on strong Petersen edge coloring already supplies the natural five color classes, so the join and its nonequivariant 32-sphere homotopy type are acknowledged as consequences of prior structure. The present claim instead determines the full signed integral S5 action, all seven character values and rational irreducible constituents, and proves that the coinvariant lattice is torsion-free of rank two. The inspected primary arXiv papers do not supply these exact equivariant invariants. Related published Petersen three-cut, matching and configuration results concern different complexes with incomparable module claims. Similar computations in unindexed literature remain possible.
+PASS
 
-## Mathematical value: PASS
-Equivariant homology distinguishes actions on a space even when the underlying homotopy type is an elementary wedge of spheres. Here the Petersen graph is a canonical symmetric snark, and the explicit tensor representation captures how its five natural missing-color classes transform. The zero-torsion integral coinvariant result refines the two-dimensional invariant rational subspace with an integral lattice statement relevant to equivariant combinatorial topology. This is not proposed as a new nonequivariant Betti-number computation or as a general theorem about arbitrary line graphs.
+For Petersen KG(5,2), its 15 graph edges partition canonically into five three-element classes indexed by the missing element of the two disjoint 2-subsets. Independent breadth-first all-pairs distances on the line graph confirm each within-class distinct pair at distance 3 and every interclass pair at distance ≤2 (counts 30 distance1,60 distance2,15 distance3). Thus inclusive VR radius2 is literally the join of five discrete tripletons, with 4^5−1=1023 nonempty simplices and integral H4=(Z²)^⊗5 of rank32. The induced S5 action includes sign of permuting five join factors. Independent exhaustive 120-permutation signed simplicial Lefschetz characters equal the claimed (32,0,8,2,0,0,2) by cycle type; the Specht decomposition follows from S5 character inner products. Independently constructed signed 32-dimensional integral adjacent-transposition matrices verify Coxeter relations, and their concatenated (R_i−I) 32x128 integer matrix has Smith 30 units and two zero rows, proving torsion-free coinvariants Z². No claim of integral quotient-space homology.
 
-## Sources and limitations
-Adamaszek (arXiv:1104.0433), especially Theorem 5.2 on the ordinary clique complex of a line graph, supplies the adjacent-radius baseline; Lužar et al. (arXiv:2101.04768), Section 2, supplies the canonical five-edge-color structure. Their published statements do not determine the integral top-homology S5-character or Smith invariants. This finding does not determine integral homology of the quotient complex, and independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2021 Lužar–Máčajová–Škoviera–Soták strong Petersen coloring already yields the canonical five tripleton edge-color classes; the elementary nonequivariant join and rank-32 homotopy are not independently new. The assessed original mathematical content is the full Koszul-signed integral S5 lattice, explicit seven-class character/Specht multiplicities, and no-torsion coinvariant Z². Adamaszek covers ordinary line-graph clique topology, not the radius-two 15-vertex S5 integral invariants. Resultary published Petersen particle-configuration S5 modules and graph three-cut module concern different complexes. Full primary color-theorem material inspected, no explicit homology lattice/Smith classification there; unindexed equivalent representation computation remains risk.
+
+## value
+
+PASS
+
+Even when the underlying nonequivariant wedge decomposition is elementary from known canonical edge coloring, the exact integral S5-module and torsion-free coinvariant quotient are natural and nontrivial equivariant refinements attached to the Petersen graph’s full symmetry, potentially reusable for orbit-space and equivariant topology. The 30 unit Smith factors distinguish an integral statement from a rational multiplicity calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
