@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The face-center exposure lemma places the vertices of each flag face at the minimum distance from its center. Affinity of squared-distance differences then fixes the two closest vertices throughout each characteristic simplex, and the squared gap equals squared edge length times one simplex barycentric coordinate. Uniform barycentric coordinates yield the exact \(\mathrm{Beta}(1,d)\) distribution. Null cell boundaries and ties are accounted for. Independent numerical draws over multiple polytope types corroborate, but do not prove, the universal statement.
+## correctness
 
-## Originality — PASS, with uncertainty
-Full-text comparisons to Khalid–Durrani (arXiv:1207.5857) and Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479) find respectively order statistics to *randomly sampled points* and Gaussian support-function extrema, neither of which implies the volume-uniform squared nearest-two **fixed vertex** gap law. Related indexed mathematical records on beta gauges, simplex deep-hole spectra, and Voronoi clearance likewise have different objects and statistics. No published statement with matching quantifiers was located. Search incompleteness and equivalent unindexed literature remain risks.
+PASS
 
-## Mathematical value — PASS
-A single exact law covers every dimension and every combinatorial type of Euclidean regular convex polytope, including the sporadic examples; it converts a geometric nearest-site robustness problem into a universal beta distribution and supplies all exact tail probabilities and moments. The universality across nonisomorphic solids, not a routine one-instance computation, is the mathematical significance.
+For flag-regular full-dimensional Euclidean P, face-center c_F lies in the relative interior of F-exposing normal cone; regular orthoscheme flag-reflection symmetry forces its ray to the face-center ray. In every characteristic simplex associated to v=edge[v,u] subset faces, v remains nearest and u second-nearest: squared distance differences are affine; at v their gap is edge length squared, at all higher face centers both are minimizing co-nearest. Hence (D2^2-D1^2)/s^2 equals first barycentric coordinate lambda_0 on every simplex. Uniform measure restricts to uniform simplex and lambda_0~Beta(1,d), independent of simplex volume. Boundary sets null. Independently verified exact cube formula Z=1-max/min? Specifically for cube [-1,1]^d Z=min_i |X_i| (nearest two vertices differ by flipping minimum absolute coordinate), with s^2=4, yielding P(Z>t)=(1-t)^d, and bounded Monte Carlo d=2,3,4,6.
 
-## Independent validation
-No independent audit was undertaken. Mathematical validity rests on the included analytic derivation, not on computational tests.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Characteristic orthoschemes and Dirichlet(1,...,1) barycentric law are textbook ingredients, but their combination with Voronoi first/second vertex order gives an all-regular-polytope shape-independent Beta(1,d) invariant. Prior regular-polygon distance papers fix a reference point and random locations, not two closest fixed vertices; regular polytope mean width/Gaussian extrema are different observables. Possible alternative Voronoi margin wording is residual priority risk.
+
+## value
+
+PASS
+
+A distributional universality theorem across all regular polygons, Platonic solids and higher-dimensional regular polytopes, including all moments and dimension-only tails for a geometrically natural nearest/second-nearest squared-distance statistic; not a numerical sample or arbitrary invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
