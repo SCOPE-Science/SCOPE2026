@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The absence-of-live-edge identity \(1-R_v(p)=(1-p)^{n-1}I(T-N[v];p/(1-p))\) follows by conditioning on neighbors of the protected vertex and exactly enumerating independent survivor sets. The complete Prüfer bijection enumerates all labeled trees through seven vertices; exact integer coefficient comparisons cover all protected choices and prove a universal optimum for all orders through six and all but one seven-vertex isomorphism class. The exceptional class has the explicitly factored crossover \(p(1-p)^3(1-p-p^2)\) with a unique interior root. The provided program rechecks the finite proof and independently enumerates the seven-vertex survival states at rational test points. Finite testing is not used to infer an unproved higher-order assertion.
+## correctness
 
-## Originality — PASS with bibliographic residual risk
-Primary full text of Gilbert et al. (1998) concerns a habitat-corridor experiment and species richness; Levit and Mandrescu (2002) analyze independence polynomials of trees and coefficient unimodality. The corresponding stated results do not imply a sharp *single protected site / at least one surviving edge* optimum cutoff. Goldschmidt et al. (1994) use connectivity of all operational nodes; Amin et al. (1993) use the expected number of connected pairs; these objectives are distinct. The inspected abstracts of the two older publisher sources do not justify declaring their complete contents disjoint, and equivalent earlier results may exist under vertex-importance terminology. No such stronger matching theorem was identified in the completed comparisons. The finding makes no independent novelty certification claim.
+PASS
 
-## Mathematical value — PASS
-A functional adjacency event is the weakest connectivity requirement admitting two-patch movement. A sharp first network size and complete isomorphism classification show precisely when a locally central patch ceases to be the best guarantee of retaining at least one viable interaction. The probability switch at the golden-ratio conjugate is analytical, not a table coincidence, and a coefficientwise-minimal-root classification explains all smaller trees. It does not imply population persistence in realistic habitat systems.
+For protected vertex v, failure means all neighbors of v fail and the remaining survivors form an independent set. Therefore 1-R_v=q^(n-1)I(T-N[v];p/q); the factor q^(n-1) is common. Independent fresh exhaustive Prüfer enumeration of every labeled tree of size 2..7, with direct independent-set subset counts, gave per-size (total, nondominance) (1,0),(3,0),(16,0),(125,0),(1296,0),(16807,840). Every one of the 840 nondominance cases has precisely the equally subdivided 3-star structure (automorphism group size 6). Its center residual polynomial is (1+t)^3 and arm-neighbor residual polynomial is (1+2t)^2, with leaf residual polynomial 1+5t+6t²+t³. Center-minus-arm success is p(1-p)^3(1-p-p²), giving the unique golden threshold. All n<=7 are exhausted, not sampled; no assertion above n=7.
 
-## Closest literature and limitations
-The comparison included ecological corridor experiments, tree independence-polynomial methods, classical node reliability and expected pair-connected reliability. The latter two were available only as abstracts; that limits, but does not settle, bibliographic coverage. Every scientific statement assumes an unweighted tree, independent common-probability survival of nonprotected patches, and one infallibly protected patch.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: An intervention that protects one fixed vertex to retain at least one viable habitat link is a motivated binary network-reliability objective. The exact smallest size without a single universal optimum, unique 7-vertex topology and probability crossover locate a concrete structural threshold; ecology is used as motivation, not a claim about field resilience. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.
+
+## value
+
+PASS
+
+An intervention that protects one fixed vertex to retain at least one viable habitat link is a motivated binary network-reliability objective. The exact smallest size without a single universal optimum, unique 7-vertex topology and probability crossover locate a concrete structural threshold; ecology is used as motivation, not a claim about field resilience.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
