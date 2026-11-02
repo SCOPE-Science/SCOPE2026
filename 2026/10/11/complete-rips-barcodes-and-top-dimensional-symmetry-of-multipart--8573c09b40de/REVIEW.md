@@ -1,19 +1,21 @@
-# Scientific review: complete Rips barcodes and top-dimensional symmetry of multipartite prisms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-parameter theorem with explicit hypotheses \(k\ge2\), \(a_i\ge2\). Exact shortest-path distances show that scale-two edges connect all distinct partite classes and restrict within each class to \(K_a\square K_2\). Taking clique complexes commutes with simplicial join. The resulting factor is a graph-like complex of two simplices joined by matching edges, homotopy equivalent to a bouquet of \(a-1\) circles. At scale one, the two layer clique complexes are bouquets of \(B\) spheres in degree \(k-1\) joined by \(N\) bridges; collapsing a spanning tree among the bridges adds exactly \(N-1\) independent circles. As the scale-one and scale-two positive homology degrees are disjoint, all positive-dimensional persistence maps from one to two vanish. The local matching-edge orientation also yields the full integral augmentation-lattice action. Independent graph-distance and mod-two chain checks corroborate the proof for the listed finite cases; no finite census is substituted for the infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For each distinct pair of prism vertices the four distance types are 1/2/3 exactly as the original graph adjacency and horizontal two-step paths require. At scale one the clique complex is two copies of the join of discrete sets D_ai, each a bouquet of B spheres of dimension k−1, joined by N isolated matching bridges and hence N−1 additional circles. At scale two complete between-part adjacency makes the flag complex the join over i of Cl(K_ai square K2); each local two-simplex-and-ai-matchings complex is a bouquet of ai−1 circles. The join is a bouquet of B spheres of dimension 2k−1. Scale three is a simplex. Homology degrees at consecutive scales differ, giving all persistence intervals. Oriented matching-edge integer cycles have coefficient sum zero, identifying each integral local H1 as an augmentation lattice; part permutations act naturally and the layer swap acts by −1 on each factor, hence (−1)^k. This is an analytic all-k, all-ai proof, not an inference from finite tests.
 
-The graph-power theory of Adamaszek and the circle classification of Adamaszek--Adams were examined in material full text; neither gives the multipartite-prism join decomposition, persistence barcode, and integral group action. The separate known cube example \(K_{2,2}\square K_2\) is covered but cannot imply the general theorem. A separate toroidal grid analysis uses cyclic, not multipartite, Cartesian factors. Exact-object, graph-square, barcode, Cartesian-product, layer-swap, and augmentation-module searches found no covering theorem. An unindexed theorem phrased as a graph-power join decomposition remains a nonzero originality risk; failed searches are not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The two-layer construction is a natural Cartesian graph product, and complete multipartite graphs form a canonical infinite class. The theorem supplies a complete persistent homology classification over every field, sharp universal scale transitions, integral torsion information, and top-dimensional symmetry for arbitrary numbers and sizes of parts. In particular, sphere dimension changes from \(k-1\) at scale one to \(2k-1\) at scale two, with unbounded dimensions and multiplicities controlled structurally. This is an exact all-parameter classification, not a single numerical special case.
+Qualified best-of-knowledge novelty: the exact cube special case and general graph-power/persistent product methods are earlier work, but their actual theorems do not imply the full multipartite-prism all-scale barcode and integral top-homology action. A companion complete multipartite Čech theorem concerns a different construction with a different top degree. The precisely matching published-index result is the assessed record itself rather than a separate prior source. Absence of search matches is not asserted as proof of uniqueness.
 
-## Limitations
+## value
 
-The argument does not apply to arbitrary weighted or continuous graph metrics. Mod-two checks only support the proved algebra; they do not certify infinite behavior. An equivalent result might exist in literature under alternate names. The result has not undergone independent audit.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Complete graph-metric Rips persistent homology and the integral equivariant top homology of a natural k-parameter family of Cartesian graph prisms is a motivated, reusable exact classification. It displays the nontrivial change from 2B top classes in degree k−1 at radius 1 to B in degree 2k−1 at radius 2, together with N−1 geometric circles, all integer torsion information and layer-swap parity. It is not merely the known cube table entry, nor an arbitrary numerical slice. The arguments use elementary joins once the difficult exact metric/flag decomposition is recognized; no broad Rips product theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
