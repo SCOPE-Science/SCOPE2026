@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For a fixed 2-column Gram matrix of eigenvalues L and 1, the sketched norm difference is an exact indefinite Gaussian quadratic form. With two independent sketch rows it diagonalizes as alpha*chi_squared_2 - beta*chi_squared_2 with independent terms; direct exponential integration gives the mispivot probability beta/(alpha+beta). Multiplication by the exact norm gap yields the expected regret formula. Real Gram rotations realize every allowed gap. The transformed squared risk h(u)=u^2(1-u)/(1+u) has derivative 2u(1-u-u^2)/(1+u)^2 and unique interior maximizer s=(sqrt(5)-1)/2; feasibility yields L=2+sqrt(5), all equality cases, and the sharp asymptotic. The standalone verify.py reproduced 14027 finite algebraic, quadrature, and seeded simulation checks. Monte Carlo and finite grids are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Melnichenko et al., arxiv:2311.08316 §§2.1–2.3: QRCP of sketched data and restricted-singular-value inheritance; §4: numerical pivot-quality comparisons.",
+        "Martinsson et al., arxiv:1512.02671 §3.1: Gaussian row-sketch QR pivot selection; §4.2: experimental pivot-quality comparisons."
+      ],
+      "reasoning": "The cited algorithms and their guarantees are stronger in dimension and broader as methods, but the embedding-based inequalities and experimental comparisons do not directly imply the exact expected squared-first-pivot regret envelope, its golden-ratio optimizer, or its equality cases for fixed Gram eigenvalues.",
+      "searches": [
+        "arxiv:2311.08316 CQRRPT randomized Gaussian column pivoting",
+        "arxiv:1512.02671 HQRRP randomized pivot selection quality",
+        "Gaussian sketched QRCP first pivot expected loss maximizing over right singular vectors singular values"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.08316, §2.1 Algorithm 2, Theorem 3, §4",
+      "arxiv:1512.02671, §§3.1, 4.2",
+      "arxiv:2408.04101, Theorem 2.1, Corollary 2.11, Table 1",
+      "arxiv:1509.06820, abstract only; no full-text noncoverage inference",
+      "Accessible historical research claims for the relevant numerical-optimization-control category, compared by mathematical objective and object."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duersch and Gu, arxiv:1509.06820 available abstract: randomized pivot selection and fast QR factorization, without a visible exact spectrum-constrained expected first-pivot norm loss.",
+        "Gaunt, arxiv:2408.04101 Corollary 2.11 covers the constituent sign probability but does not optimize the QR selection regret over Gram orientations.",
+        "CQRRPT arxiv:2311.08316 Theorem 3 bounds rank revelation by restricted sketch condition number rather than by the exact expected squared first-pivot loss."
+      ],
+      "reasoning": "Even in the two-column case, a general embedding bound does not furnish the exact optimizer or sharp fixed-spectrum expected-loss value. The known sign CDF is a necessary lemma but does not by itself assert the orientation maximization. The full Duersch–Gu document was not available and remains a specific residual risk rather than a fabricated negative comparison.",
+      "searches": [
+        "Randomized QR with Column Pivoting Duersch Gu arxiv 1509.06820",
+        "Householder QR randomized pivot probability two-column Gaussian norm reversal optimizer",
+        "rank revealing QR Gaussian sketched first pivot regret golden ratio singular vector orientation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaunt, arxiv:2408.04101, Theorem 2.1 and Corollary 2.11: exact chi-square difference representation and sign probabilities for independent sums of correlated-normal products.",
+        "The QR pivot error is a sign event for an indefinite Gaussian quadratic form; its two-row law is a special instance of the known sign distribution."
+      ],
+      "reasoning": "The probability lemma is intentionally credited as known Gaussian distribution theory. The surviving claimed novelty is the optimization over right-singular-vector orientations of the expected first QR pivot squared-norm regret, including a unique phase switch at L=2+sqrt(5); that fixed-spectrum optimization is not stated by the inspected probability paper.",
+      "searches": [
+        "Randomized QR column pivoting correlation Gaussian 2x2 Wishart diagonal ordering expected loss",
+        "two correlated chi-square norms ordering probability difference of squares trace determinant exact",
+        "arxiv:2408.04101 Theorem 2.1 Corollary 2.11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Gaunt arxiv:2408.04101 Table 1 contains sign-probability numerical examples of a Gaussian product law, not an extremal QR pivot-regret table.",
+        "The inspected CQRRPT §4 and HQRRP §4.2 give numerical comparisons, not exact tables of maximizing Gram orientations under a fixed spectrum."
+      ],
+      "reasoning": "No exact QR pivot-regret orientation table or previously recorded equality cases were found in the searched sources. This is a bounded search outcome, not a proof that no database or unpublished formula exists.",
+      "searches": [
+        "Gaussian sketch first column pivot maximum expected regret with fixed singular values orientation two columns two rows golden ratio crossover 2+sqrt5",
+        "pivot norm misranking Gaussian sketch two columns golden ratio",
+        "On the product of correlated normal random variables and the noncentral chi-square difference distribution Table 1"
+      ]
+    },
+    "rationale": "The Gaussian QRCP mechanism is prior art in arxiv:1512.02671 and arxiv:2311.08316, and the underlying Gaussian chi-square difference sign law is prior art covered by arxiv:2408.04101. The distinctive, assessed statement is the exact fixed-spectrum orientation maximum of expected first-pivot squared-norm regret, strict optimizer cases, and threshold L=2+sqrt(5). Actual searches of accessible historical claims, published mathematical records, and primary article sections identified no theorem directly covering that optimization; absence of search hits is not proof of priority. The Duersch–Gu full text was inaccessible, a declared risk.",
+    "residual_risks": [
+      "Equivalent fixed-spectrum worst-regret calculations may be buried in earlier randomized pivoting or Gaussian ordering papers not located by title or semantic searches.",
+      "The full text of Duersch–Gu arxiv:1509.06820 was inaccessible in this run; abstract comparison is not decisive.",
+      "The underlying chi-square difference probability law is known and explicitly not claimed original; the claim is limited to a new QR-oriented optimization of its consequence.",
+      "No independent priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Confirms the pivot-selection mechanism; does not state the golden-ratio fixed-spectrum expected squared first-pivot regret extremum in material inspected.",
+        "evidence": [
+          "Algorithm 2 §2.1 step QRCP(SM); Theorem 3 §2.2; §4 numerical pivot quality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+        "material_read": "Public HTML full text, algorithm and introduction §§1.3–1.4, algorithm §§2.1–2.3, Theorem 3 and §4 pivot-quality metrics and experiments.",
+        "method": "Checked definitions of sketch pivot, theorem scope, rank-revealing inheritance statements, and the exact object being measured.",
+        "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices (CQRRPT)",
+        "trigger": "Motivating 2023 algorithm introducing QRCP on a random sketch and studying rank-revealing quality."
+      },
+      {
+        "assessment": "Direct algorithmic prior art, including general two-column applicability; no exact fixed-spectrum QR-pivot loss optimizer found in material inspected.",
+        "evidence": [
+          "§3.1 sketch selection; §4.2 rank approximation error experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.02671",
+        "material_read": "Public HTML full-text §1, §3.1 on Gaussian-sketch pivot selection, §3.2–3.3 on downdating, and §4.2 quality experiments.",
+        "method": "Compared first-pivot selection, oversampling context and experimental quality claims with the precise squared-norm regret claim.",
+        "title": "Householder QR Factorization with Randomization for Column Pivoting (HQRRP)",
+        "trigger": "Earlier original Gaussian-sketch pivot selection and possible stronger rank-revealing statement."
+      },
+      {
+        "assessment": "Strong direct coverage of the distributional/sign-probability sublemma; the new claim excludes novelty for that lemma. No fixed-spectrum QR pivot-regret orientation extremum in inspected text.",
+        "evidence": [
+          "Theorem 2.1 known chi-square difference representation; Corollary 2.11 known sign probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.04101",
+        "material_read": "Public HTML full-text introduction, Theorem 2.1, Corollary 2.11, and Table 1 on sign distributions.",
+        "method": "Compared the general difference-of-chi-squares representation and sign CDF to the probability sublemma, then checked whether the QR orientation optimization was present.",
+        "title": "On the product of correlated normal random variables and the noncentral chi-square difference distribution",
+        "trigger": "Plausible dominating probability representation and exact sign law."
+      },
+      {
+        "assessment": "Algorithmic prior art and an unresolved coverage risk; abstract alone cannot exclude a specialized lemma in the full text.",
+        "evidence": [
+          "arxiv:1509.06820 abstract and SIAM SISC DOI 10.1137/15M1044680 abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+        "material_read": "ArXiv abstract and publisher abstract, not the full original document; a full-text retrieval did not succeed.",
+        "method": "Compared accessible abstract claims only; avoided whole-document noncoverage inference.",
+        "title": "Randomized QR with Column Pivoting",
+        "trigger": "Seminal randomized QRCP paper with potentially overlapping pivot-quality statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "87492150-b186-4430-98b5-228eacfd1648",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first QR diagonal squared equals the squared selected column norm, making its regret relative to exact greedy pivoting a natural quantification of local rank-revealing pivot fidelity. At fixed two singular values, rotating input columns changes worst expected fidelity, and beyond a sharp spectral threshold the worst orientation switches away from singular axes. The maximum grows as 0.300283... sqrt(L), even though the axis-aligned loss tends to 1. The threshold and equality classification provide a reproducible stress-test instance for low-budget Gaussian sketch pivoting. No unjustified claim of full QR-error or rank-one projection loss is made.",
+    "status": "PASS"
+  }
+}
