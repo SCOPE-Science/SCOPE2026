@@ -1,19 +1,21 @@
-# Scientific review: universal logarithmic boundary loss of real Poisson norms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the normalized unit circle and real mean-zero boundary data, with each \(1\le p<\infty\) fixed. Kovalev's exact extremizer reduction is reconstructed from strip subordination. The change of variables \(a=(1-r^2)/(2r)\) gives an exact positive deficit integral. Splitting at \(x=a\), a uniform quadratic Taylor bound contributes an \(O_p(a)\) remainder because its weighted integral equals \(a\sqrt{1-a^2}\); the remaining elementary integral supplies \(4p/\pi^2\) times \(a\log(1/a)\). Taking the fixed \(p\)-th root and dividing by \(r\) gives the claimed universal coefficient. Continuity and the published exact small-radius moment characterize existence, not uniqueness, of a supercritical crossing. A separately derived \(p=2\) Fourier formula agrees with this normalization. Twelve finite checks passed; they are not substitutes for the analytic proof.
+PASS
 
-## Originality — PASS with stated residual risk
+For 1≤p<∞ fixed, normalized probability Haar and real mean-zero ||f||∞≤1, Kovalev Prop 2.1 gives exact sharp square-wave extremizer by conformal strip Φ=4 arctan(z)/π and Littlewood subordination of |Re Φ|^p. With a=(1-r²)/(2r), the exact moment-deficit integral is (2/π)∫_0^1 [1-(1-(2/π)atan(a/x))^p]/sqrt(1-x²) dx. On (0,a), its contribution is bounded by O(a); for a≤x≤1 use uniform 1-(1-(2/π)atan t)^p=(2p/π)t+O_p(t²), valid t∈[0,1] even p=1, because inner base≥1/2 and p fixed. The weighted error a²∫_a^1 dx/(x² sqrt(1-x²))=a sqrt(1-a²)=O(a); the main integral equals log((1+sqrt(1-a²))/a)=log(1/a)+O(1). Hence 1-Np(r)^p=(4p/π²)a log(1/a)+O_p(a); p-th root and a=1-r+O((1-r)²) establish Np(r)/r=1-(4/π²)(1-r)log(1/(1-r))+O_p(1-r). The log loss dominates O_p(1-r) so Np<r near 1. As r→0, Np/r→(4/π)||cos||_p; it exceeds 1 exactly for p>4.1095286347..., and continuity produces at least one equality radius. No claim of uniqueness, p→∞ uniformity, complex data or nonzero mean. Independently reconstructed the 7-blob Git tree and checked p=2 Fourier equality high precision plus 12 (p,epsilon) consistency cases; finite checks support, not replace, proof.
 
-The full relevant parts of Kovalev's 2026 original paper provide the exact real sharp norm, the critical exponent for **all-radius** contractivity, and the boundary limit, but not the fixed-\(p\) logarithmic norm asymptotic or the re-entrant strict inequality for supercritical exponents. The 2020 Brevig–Ortega-Cerdà–Seip article establishes Hardy-duality conditions on derivatives at the origin, not radial \(L^p\) norm asymptotics. Closest prior quantitative work on the small-radius complex Poisson obstruction treats a separate family and the exponent \(4\); a prior exact extremizer classification likewise does not derive the boundary rate. Searches for equivalent formulas, stronger perimeter/semigroup coverage, and precomputed tables did not identify a full covering result. Some classical heat-content asymptotics may cover related special moments, and the indexed literature is incomplete; absence of a hit is not taken as a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The logarithmic term is the leading, sharp-order boundary loss of a natural sharp operator norm. Its coefficient is unexpectedly independent of every fixed finite exponent. Most importantly, it gives a qualitative radius transition beyond the recently established all-radius critical exponent: loss of contractivity near the center does not preclude strict contractivity near the boundary. The result is not an arbitrary slice or isolated numerical example; its hypotheses encompass the complete family of finite real exponents.
+Best-of-knowledge PASS restricted to the evaluated exact leading logarithmic coefficient simultaneously for each fixed finite real p. Kovalev (2026) already supplies the sharp maximizer, all-(p,r) norm integral, p=2 Fourier series, and global p-threshold: these are powerful antecedents, and the p=2 special asymptotic is not new. Moreover his Lemmas 2.7–2.8 give φ(s)^(p-2)B2(s) upper control near s=1, with φ(s)=1+O(1-s); summing the p=2 series gives 1-B2(s) of order (1-s)log(1/(1-s)), hence eventual return of Np(r)<r for ANY fixed finite p≥2, including supercritical p, as a corollary. Therefore radius-return is NOT independently original despite not being printed. The submitted all-finite-p SHARP 4/π² leading coefficient is not stated or evaluated in that source and requires an additional endpoint singular-integral estimate with an O_p(a) error; it is more than copying a table or changing notation. No inspected separate source proves this evaluated entire family. Indexed and semigroup coverage remains incomplete; do not mistake negative searches for novelty proof.
 
-## Limitations
+## value
 
-No explicit optimal transition radius, uniqueness of crossings, uniformity as \(p\to\infty\), complex-valued analogue, or nonzero-mean analogue is established. Classical Cauchy/Poisson heat-content formulas may encode overlapping special cases, and additional unindexed equivalent results remain possible. No independent audit or external certification has been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The sharp decay rate of the already-optimized real Poisson L∞_0→Lp norm as radial smoothing vanishes is a natural analytic invariant, for a complete fixed-finite-p family rather than an arbitrary parameter slice. Quantifying the leading logarithmic boundary layer with an explicit p-independent 4/π² coefficient and O_p(1-r) remainder is useful when differentiating/benchmarking semigroup norm sharpness and comparing fixed p. The qualitative supercritical radius return is already a consequence of Kovalev but remains an instructive geometric interpretation; value is anchored in the quantified universal coefficient, not an alleged new qualitative phase transition. This is a bounded mathematical refinement, not a new general Schwarz theorem or a paper-scale advance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

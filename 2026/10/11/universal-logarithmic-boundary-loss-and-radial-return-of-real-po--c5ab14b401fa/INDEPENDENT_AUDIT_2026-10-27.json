@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:11:24.002423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 2e38d72e00bd1850903609719cbfad1ffa58fdd3 (complete theorem/proof)",
+        "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+        "Assigned SLOGAN.txt c32cc9b100db085528cda84c2fc2e8478216ce30 and VERIFICATION.md 39929bde688d2beab5595e11468bcedec4317240",
+        "Independent independently written checker and output: independent_poisson_check.py and independent_poisson_results.json, Git tree SHA fa542011ddb8a9183320b99ea880de67c4294d40"
+      ],
+      "rationale": "For 1≤p<∞ fixed, normalized probability Haar and real mean-zero ||f||∞≤1, Kovalev Prop 2.1 gives exact sharp square-wave extremizer by conformal strip Φ=4 arctan(z)/π and Littlewood subordination of |Re Φ|^p. With a=(1-r²)/(2r), the exact moment-deficit integral is (2/π)∫_0^1 [1-(1-(2/π)atan(a/x))^p]/sqrt(1-x²) dx. On (0,a), its contribution is bounded by O(a); for a≤x≤1 use uniform 1-(1-(2/π)atan t)^p=(2p/π)t+O_p(t²), valid t∈[0,1] even p=1, because inner base≥1/2 and p fixed. The weighted error a²∫_a^1 dx/(x² sqrt(1-x²))=a sqrt(1-a²)=O(a); the main integral equals log((1+sqrt(1-a²))/a)=log(1/a)+O(1). Hence 1-Np(r)^p=(4p/π²)a log(1/a)+O_p(a); p-th root and a=1-r+O((1-r)²) establish Np(r)/r=1-(4/π²)(1-r)log(1/(1-r))+O_p(1-r). The log loss dominates O_p(1-r) so Np<r near 1. As r→0, Np/r→(4/π)||cos||_p; it exceeds 1 exactly for p>4.1095286347..., and continuity produces at least one equality radius. No claim of uniqueness, p→∞ uniformity, complex data or nonzero mean. Independently reconstructed the 7-blob Git tree and checked p=2 Fourier equality high precision plus 12 (p,epsilon) consistency cases; finite checks support, not replace, proof.",
+      "residual_risks": [
+        "No uniformity as p→∞, no assertion p=∞ or complex-valued and nonzero-mean inputs.",
+        "Finite quadrature asymptotic coefficients converge slowly because the next O_p(1-r) term creates O(1/log) drift; these are numerical diagnostics, not an infinite proof.",
+        "The sharp-norm reduction is cited from Kovalev and its conformal-strip/Schwarz/Littlewood mechanism was independently checked against the full primary proof; no independent new proof of Littlewood itself is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+          "Brevig–Ortega-Cerdà–Seip, A converse to the Schwarz lemma for planar harmonic maps, arXiv:2011.10967v2 (2020/2021), main Theorems 1–3; https://arxiv.org/abs/2011.10967",
+          "L. Acuña Valverde, On the heat content for the Poisson kernels over the unit ball in Euclidean space, arXiv:1706.09477 / BLMS 2020; arXiv abstract/publication summary only.",
+          "Frank–Ivanisvili 2021, Hypercontractivity of the semigroup of the fractional Laplacian on the n-sphere, concerns Lp→Lq hypercontractivity rather than the optimized mean-zero L∞→Lp boundary-rate constant."
+        ],
+        "reasoning": "Kovalev is a true stronger sharp-norm characterization and yields contractivity for small/large parameter regimes; however it does not evaluate the leading finite-p singular coefficient. Generic Poisson heat-content/perimeter results can imply analogous leading logarithms for discontinuous indicators, but no fully inspected theorem establishing the exact all-p optimized operator norm coefficient was found. The Acuña paper is not used as a whole-document noncoverage claim: abstract concerns Euclidean ball heat content and relevant full text not read. Unindexed general semigroup results could cover part or all; record residual risk.",
+        "searches": [
+          "Poisson semigroup indicator square wave Lp norm asymptotic perimeter logarithmic",
+          "Poisson semigroup Lp norm of sign function t log(1/t) asymptotic circle perimeter",
+          "fractional heat semigroup Poisson Lp norm characteristic function small time logarithm jumps first order",
+          "Poisson semigroup BV functions jump discontinuity Lp norm t log(1/t) asymptotics exact coefficient 1D circle",
+          "arXiv:1706.09477 Poisson heat content unit ball",
+          "arXiv:2011.10967 harmonic Schwarz converse"
+        ]
+      },
+      "checked_sources": [
+        "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+        "Brevig–Ortega-Cerdà–Seip, A converse to the Schwarz lemma for planar harmonic maps, arXiv:2011.10967v2 (2020/2021), main Theorems 1–3; https://arxiv.org/abs/2011.10967",
+        "Published finding Schwarz-gap rigidity for real Poisson extremizers (2026-10-11), full RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md",
+        "Published finding Exact endpoint deficit for the canonical complex Poisson obstruction family (2026-10-04), full RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635/RESULT.md",
+        "L. Acuña Valverde, On the heat content for the Poisson kernels over the unit ball in Euclidean space, arXiv:1706.09477 / BLMS 2020; arXiv abstract/publication summary only.",
+        "Resultary semantic search triple (actual queries recorded in four named checks); exclude assigned published self-match as novelty evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+          "Published finding Schwarz-gap rigidity for real Poisson extremizers (2026-10-11), full RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md",
+          "Published finding Exact endpoint deficit for the canonical complex Poisson obstruction family (2026-10-04), full RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635/RESULT.md",
+          "Kovalev: for p≥2, Bp(s)≤φ(s)^(p-2)B2(s) by norm interpolation, where φ(s)=1+O(1-s) near 1; Lemma 2.7 B2 series entails B2(s)=1-Θ((1-s)log(1/(1-s))).",
+          "Kovalev Theorem 1.2 makes p_R the cutoff for all-r contractivity but does not by itself prevent large-r re-entry."
+        ],
+        "reasoning": "Kovalev p=2 Fourier asymptotic plus sup-norm interpolation already FORCE eventual contractivity for every fixed finite p, even p>p_R, hence the sign-return/consequent crossing must not be counted as original. The later published square-wave extremizer rigidity concerns uniqueness/Schwarz gap, not leading radial operator-norm decay. Earlier complex obstruction p4 is an explicit different complex-valued family. The only presently surviving novelty candidate is the precise p-general leading coefficient and O_p(1-r) quantitative remainder, which need an additional weighted singular expansion and are not simply the earlier interpolation bound.",
+        "searches": [
+          "Schwarz-contractivity of the Poisson operator threshold supercritical p radius crossing return near r=1 and asymptotics",
+          "https://arxiv.org/html/2609.28938v1 Theorem 1.2 and Lemmas 2.7–2.8",
+          "Resultary: Schwarz-gap rigidity for real Poisson extremizers",
+          "Resultary: Exact endpoint deficit for canonical complex Poisson obstruction family"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+          "Kovalev (2.3)–(2.4): Np(r)/r=Bp(r²)^(1/p); this is the EXACT same sharp norm at all p,r, yet no evaluated p-general boundary rate appears in inspected §§1–5."
+        ],
+        "reasoning": "Exact integral/B_p representation is already known and stronger as a representation, but computing the leading nonanalytic (1-r)log(1/(1-r)) rate with uniform-in-x Taylor error for each fixed p is additional analysis. A p=2 boundary expansion can be extracted from the earlier explicit Fourier series; p=2 alone is covered. The full finite-p evaluated coefficient, rather than the mere existence of the integral or positive boundary defect, is the delimited originality candidate.",
+        "searches": [
+          "sharp real mean-zero Poisson L infinity to Lp norm near boundary universal logarithmic contraction sign cosine square wave first order (1-r) log(1/(1-r))",
+          "Schwarz-contractivity of the Poisson operator threshold supercritical p radius crossing return near r=1 and asymptotics",
+          "https://arxiv.org/html/2609.28938v1 §2.1 Proposition 2.1 and B_p(s)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+          "Kovalev Lemma 2.7 explicitly tabulates/represents B2(s)=8/pi² Σ_(k≥0) s^(2k)/(2k+1)², furnishing the p=2 boundary coefficient after a standard series expansion.",
+          "Resultary closest self-matching record excluded; other exact complex p=4 and extremizer-rigidity records concern distinct claims."
+        ],
+        "reasoning": "The p=2 special case is determined by known Fourier coefficients and thus not individually new. Published numeric p_R and moment C_p describe small radii, not the fixed-p boundary coefficient for all p. No independent all-p evaluated table was found; absence is not conclusive.",
+        "searches": [
+          "sharp real mean-zero Poisson L infinity to Lp norm near boundary universal logarithmic contraction sign cosine square wave first order (1-r) log(1/(1-r))",
+          "https://arxiv.org/html/2609.28938v1 Lemma 2.7 Fourier series",
+          "Resultary semantic searches: full all-finite-p coefficient and sign-cosine Poisson profile"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS restricted to the evaluated exact leading logarithmic coefficient simultaneously for each fixed finite real p. Kovalev (2026) already supplies the sharp maximizer, all-(p,r) norm integral, p=2 Fourier series, and global p-threshold: these are powerful antecedents, and the p=2 special asymptotic is not new. Moreover his Lemmas 2.7–2.8 give φ(s)^(p-2)B2(s) upper control near s=1, with φ(s)=1+O(1-s); summing the p=2 series gives 1-B2(s) of order (1-s)log(1/(1-s)), hence eventual return of Np(r)<r for ANY fixed finite p≥2, including supercritical p, as a corollary. Therefore radius-return is NOT independently original despite not being printed. The submitted all-finite-p SHARP 4/π² leading coefficient is not stated or evaluated in that source and requires an additional endpoint singular-integral estimate with an O_p(a) error; it is more than copying a table or changing notation. No inspected separate source proves this evaluated entire family. Indexed and semigroup coverage remains incomplete; do not mistake negative searches for novelty proof.",
+      "residual_risks": [
+        "Generic one-dimensional Cauchy/Poisson BV and heat-content asymptotics may provide an unindexed all-finite-p norm-loss coefficient or general formula; no decisive such primary theorem was established in this run.",
+        "Kovalev exactly determines Np(r) via a known integral for ALL p,r, and the p=2 logarithmic special case plus the qualitative supercritical radius return already follow from his published Lemmas 2.7–2.8; novelty must remain restricted to the evaluated leading coefficient family.",
+        "Same-day published nearby Resultary records have no substantiated sub-day priority ordering. Their checked conclusions are different; self-matching published result is not independent novelty evidence.",
+        "Acuña primary heat-content paper full text was not inspected; do not assert it cannot imply some broader semigroup result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides all-(p,r) sharp norm representation and all-radius exponent threshold, explicitly covers p=2 Fourier model and by interpolation yields eventual near-boundary qualitative re-entry for each fixed finite p; no evaluated all-p sharp logarithmic coefficient is stated or derived in inspected paper.",
+          "evidence": [
+            "Theorem 1.2; Proposition 2.1; Bp(s) in (2.3) and (2.4); φ in (2.6); Lemma 2.7 Fourier B2(s); Lemma 2.8 use of φ and B2 near s=1."
+          ],
+          "identifier_or_url": "L. V. Kovalev, arXiv:2609.28938v1; https://arxiv.org/html/2609.28938v1",
+          "material_read": "Original complete HTML manuscript, 493 rendered lines including §§1–5, especially Theorem 1.2, Proposition 2.1, formulas (2.1)–(2.6), Lemmas 2.7–2.8, (2.13)–(2.14); compared exact hypotheses and implied consequences.",
+          "method": "Direct original arXiv full-text HTML reading, equations/hypotheses and implication calculation; no inference of missing claims from snippets.",
+          "title": "Schwarz-contractivity of the Poisson operator",
+          "trigger": "Identical operator and complete known real sharp norm, threshold, and near-boundary p=2 Fourier series."
+        },
+        {
+          "assessment": "Inspected results constrain derivatives of harmonic maps at zero and related Hardy dual norms; they do not assert or immediately imply the assigned sharp boundary-radius L∞ mean-zero real operator norm asymptotic.",
+          "evidence": [
+            "Theorem 2 Wirtinger derivative condition; Theorem 3 finite-dimensional Hardy-duality norm inequality."
+          ],
+          "identifier_or_url": "O. F. Brevig, J. Ortega-Cerdà and K. Seip, arXiv:2011.10967v2; https://arxiv.org/abs/2011.10967",
+          "material_read": "Accessible primary manuscript introductory results, Theorems 1–3, derivative-at-origin and Hardy dual-norm hypotheses and conclusions.",
+          "method": "Full primary text obtained in earlier current-run inspection from freely accessible repository; evaluated theorem statements and relevant sections.",
+          "title": "A converse to the Schwarz lemma for planar harmonic maps",
+          "trigger": "Prior sharp harmonic Schwarz inequalities potentially covering broad Poisson operator bounds."
+        },
+        {
+          "assessment": "Classifies equality cases/strict Schwarz quotient at finite radius; does not evaluate the boundary logarithmic norm coefficient, and it explicitly takes Kovalev sharp norm as an antecedent.",
+          "evidence": [
+            "Finite-radius formula ||P_r f||_p^p ≤ M_p(q_r(f)r); normalized extremizer orbit f=sgn cos rotated."
+          ],
+          "identifier_or_url": "Published finding Schwarz-gap rigidity for real Poisson extremizers (2026-10-11), full RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-schwarz-gap-rigidity-for-real-poisson-extremizers--4283e66b4d00/RESULT.md",
+          "material_read": "Complete published RESULT.md, including hypotheses, proof, exact Schwarz quotient statement, verification and limitations.",
+          "method": "GitHub connector full file fetch and direct reading.",
+          "title": "Schwarz-gap rigidity for real Poisson extremizers",
+          "trigger": "Same exact real Poisson norm and extremizing square-wave function in published Resultary record."
+        },
+        {
+          "assessment": "The object is an explicit complex unimodular family at p=4, not the optimized real-data all-finite-p operator norm; its exact deficit does not imply the coefficient.",
+          "evidence": [
+            "Exact p=4 deficit for f_epsilon and normalized Poisson images; formula scoped to one complex family."
+          ],
+          "identifier_or_url": "Published finding Exact endpoint deficit for the canonical complex Poisson obstruction family (2026-10-04), full RESULT.md, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635/RESULT.md",
+          "material_read": "Complete published RESULT.md, theorem, algebraic formula and scope.",
+          "method": "GitHub connector full file fetch and reading.",
+          "title": "Exact endpoint deficit for the canonical complex Poisson obstruction family",
+          "trigger": "Nearby Poisson Schwarz-contractivity record with all-radii exact endpoint calculation."
+        },
+        {
+          "assessment": "Describes small-time heat content of Euclidean balls in d≥2 rather than the circle real mean-zero optimized norm; possible indirect general theorem overlap remains unresolved literature risk.",
+          "evidence": [
+            "Original abstract focuses on heat content of Euclidean unit ball and third asymptotic term for d=2,3."
+          ],
+          "identifier_or_url": "L. Acuña Valverde, arXiv:1706.09477; https://arxiv.org/abs/1706.09477",
+          "material_read": "Original public abstract and publication summary only; no full-text examination.",
+          "method": "Compared public arXiv/journal abstract; no claim of whole-document noncoverage.",
+          "title": "On the heat content for the Poisson kernels over the unit ball in the Euclidean space",
+          "trigger": "Poisson heat-content logarithms may provide wider semigroup/general perimeter analogues."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kovalev, Schwarz-contractivity of the Poisson operator, arXiv:2609.28938v1 (2026-09-24), §2.1 Proposition 2.1 and (2.1)–(2.6), §2.4 Lemmas 2.7–2.8, Theorem 1.2; https://arxiv.org/html/2609.28938v1",
+        "Assigned RESULT.md proof and assumptions; independent_poisson_results.json asymptotic diagnostics"
+      ],
+      "rationale": "The sharp decay rate of the already-optimized real Poisson L∞_0→Lp norm as radial smoothing vanishes is a natural analytic invariant, for a complete fixed-finite-p family rather than an arbitrary parameter slice. Quantifying the leading logarithmic boundary layer with an explicit p-independent 4/π² coefficient and O_p(1-r) remainder is useful when differentiating/benchmarking semigroup norm sharpness and comparing fixed p. The qualitative supercritical radius return is already a consequence of Kovalev but remains an instructive geometric interpretation; value is anchored in the quantified universal coefficient, not an alleged new qualitative phase transition. This is a bounded mathematical refinement, not a new general Schwarz theorem or a paper-scale advance.",
+      "residual_risks": [
+        "The all-p exact moment integral was already given by Kovalev, so intrinsic value is a quantitative endpoint refinement, not a new extremizer theorem.",
+        "No precise or unique crossing radius is supplied, and no uniform p→∞ bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each fixed 1≤p<∞, real mean-zero Poisson circle L∞→Lp sharp norm satisfies Np(r)/r=1-(4/π²)(1-r)log(1/(1-r))+O_p(1-r) as r→1. Eventual strict contractivity follows, and for p>p_R≈4.1095286347363 there is at least one equality radius between the small-r violating and near-boundary contractive regions; no uniqueness.",
+  "limitations": [
+    "Near-boundary expansion is for each fixed p∈[1,∞), not uniform for p growing with radius; no p∞, complex-data or nonzero-mean extension.",
+    "The p=2 log rate and qualitative near-boundary re-entry for each finite p are already implied by Kovalev exact p=2 Fourier and L∞ interpolation. Independent novelty assessment is solely for explicit sharp universal all-finite-p leading coefficient with O_p(1-r) error; unindexed primary/semigroup coverage remains a risk.",
+    "No explicit radius/number/uniqueness of crossings, global monotonicity or norm extremizer uniqueness is proved in this finding.",
+    "The original source contains public-facing operational metadata. No complete guarded sanitization staged: publication not_ready even though mathematical assessment complete.",
+    "No Github write, dispatcher closeout, schedule change, Lean certification or expert attestation."
+  ],
+  "schema_version": 1
+}
