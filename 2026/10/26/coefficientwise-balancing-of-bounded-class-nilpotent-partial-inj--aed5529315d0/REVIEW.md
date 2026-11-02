@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces all bounded-class nilpotent partial-injection subsemigroups to established complete layered maximizers; the new chain-to-partition correspondence is bijective and preserves ranks. The marked recoloring identity compares each rank and common-block stratum and strictly improves rank one when two layer sizes differ by at least two. Independent direct enumeration confirms the rank polynomial through size six, and separate recursive checks confirm the coefficientwise extrema through size twelve.
+## correctness
 
-## Originality — PASS, with historical risk
-The 2005 structural classification determines which subsemigroups are maximal by inclusion, not their coefficientwise rank extrema or a universal balancing inequality. The 2012 maximum for *commutative* nilpotent subsemigroups includes the null case and is excluded from the new contribution. The 2021 maximum-class-three work concerns noninjective full transformations and does not imply the claimed partial-injection rank profiles. Targeted prior-record and available-claim searches did not identify an equivalent rank-refined balancing result for \(k\ge3\). Earlier 1994/1995 primary texts remain incompletely accessible; historical priority is consequently not asserted as definitive.
+PASS
 
-## Value — PASS
-The largest size of a fixed-nilpotency-class subsemigroup is a natural global invariant of a finite inverse monoid. The theorem settles this invariant simultaneously for every bounded class, determines all maximizing subsemigroups, and strengthens an unweighted count to a universal coefficientwise rank inequality. It links nilpotent partial injections to restricted colored set partitions rather than merely extending a numerical table. At \(k=3\) the first maxima are \(5,10,27,87,235,778,2971,9754\).
+The previously established classification of all maximal class-<=k nilpotent subsemigroups by ordered k-layer partitions is explicitly separated from the new optimization. For a fixed ordered layer vector, an element is exactly a partial injection with all arrows strictly increasing in layer number; its rank is the number of arrows. Decompose the injection into directed chains; after forgetting direction each chain is a block meeting each layer at most once, and conversely sorting block colors supplies a unique increasing chain. This is a rank-preserving bijection to colored transversal set partitions and proves the EGF coefficient formula. Recolor a marked item between two layer sizes a>=b+2 while tracking h blocks meeting both colors; the exact ratio (b+1)(a-h)/[a(b+1-h)] >=1 in each rank/block stratum, with strict inequality when h>=1. Every intermediate imbalance is improved, and rank-one strictness excludes unbalanced maximizers. An independent direct enumeration of all partial injections for ordered layers up to n=6 matched the distinct transversal-partition recurrence and coefficientwise inequalities. The enumeration is a test, not a proof for arbitrary n,k.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: the 2005 Ganyushkin–Mazorchuk full preprint proves classification of maximal bounded-class nilpotent subsemigroups by ordered partitions, which is an indispensable prior hypothesis and is not claimed new. Araújo–Bentz–Konieczny Theorem 4.19 solves largest *commutative* nilpotent subsemigroup (balanced class-two null case) only. No inspected source derives the simultaneous all-rank coefficient inequality or k>=3 maxima and counts for arbitrary layered partial injections. Earlier 1994/1995 direct classification papers are not fully compared and remain a concrete priority risk.
+
+## value
+
+PASS
+
+Maximal cardinality at a fixed nilpotency class is a natural extremal invariant in finite transformation semigroups. A rank-preserving chain/partition bijection and simultaneous coefficientwise inequality settle every bounded class k>=3, the complete rank polynomial and all maximizing ordered-layer shapes, beyond a k=2 textbook balancing computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
