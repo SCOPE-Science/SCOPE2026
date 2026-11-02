@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:10:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen RESULT.md (Git blob a4ff7e7d488ebbae8281bb53a038419678ce5e60), SLOGAN.txt, VERIFICATION.md and verify.py; source-tree Git hash c4ce62e9a6e300d43dab23d495f9860a81a50fdd verified independently.",
+        "Exact independent script independent_lucas_check.py and results JSON; proof use of recurrence checked separately from verifier.",
+        "OEIS A000032 normalization L_0=2,L_1=1."
+      ],
+      "rationale": "For a three-term walk beginning at L_x≥3 (x≥2), write jumps k,ell and ratios u=L_{x+k}/L_x, v=L_{x+k+ell}/L_{x+k}. One-digit bounds give L_x/(L_x+1)<v/u<1+1/L_{x+k}; hence 3/4<v/u<4/3. The Lucas addition formula L_{m+j}/L_m=F_{j+1}+F_j L_{m-1}/L_m and the invariant predecessor intervals [1/3,3/4], [4/7,3/4] show ell>k would force v/u>4/3, using the exact positive difference (5/7)F_{k+1}; ell<k would force v/u≤3/4 by Fibonacci recurrence. Thus ell=k. The product identity L_{r+s}=L_r L_s−(−1)^sL_{r-s} gives d_2=(L_k−b)L_{x+k}−(−1)^k L_x. For odd k a nonzero L_k−b violates 0≤d_2<b; even k gives d_2<0 or d_2>b. Therefore k odd, b=L_k and d_2=L_x<b, forcing x<k. The first digit is d_1=−(−1)^xL_{k−x}; positivity forces odd x≥3, with digits L_{k−x},L_x, and conversely these all work. A four-value walk with second value c≥3 contradicts the necessary c<b for its last triple, whereas the first transition forces c≥b. With c=2, the sole candidate 1→2→4 in base 2 has no Lucas successor 8 or 9. Odd k≥3 produces 1→L_k→L_{2k} in base L_k since L_{2k}=L_k²+2, proving infinitely many sharp bases. Exact independently written integer search checks 1999 bases on 220 Lucas values: 8064 edges, 51 triples, 21 triples starting ≥3, no quadruple; 5382 addition and 4094 Lucas product identities and 1176 odd-family test pairs. These are finite corroborations only; the quantified conclusion rests on proof reconstruction.",
+      "residual_risks": [
+        "Finite tests check only first 220 values and bases 2..2000, not the all-base theorem.",
+        "Walk length counts numbers rather than appending transitions; allowing blocks or replacing digits would change the theorem.",
+        "The proof assumes exactly one right-appended base-b digit (including zero), one fixed integer base b≥2 and strictly increasing distinct positive values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kominers (2025), Theorem 4.2 explicitly states U_n(P,Q), and its O_{P,Q}(N log_rho b) step bound is not a uniform constant for companion V_n(1,-1).",
+          "Miller et al. (2022), Theorems 1.2 and 1.3 treat F_n in base 10, one appended digit or bounded-length decimal blocks.",
+          "No inspected stronger theorem applies to all V_n(1,-1) walks with the proposed sharp constant and exact triple parameters."
+        ],
+        "reasoning": "Checked potentially dominating general Lucas-sequence statements and their precise initial conditions and quantifiers. Neither a first-kind general theorem nor a weaker base-dependent estimate implies this sharp second-kind classification.",
+        "searches": [
+          "Resultary search: generalized Lucas sequences companion V digit-appending walk exact maximal path",
+          "https://arxiv.org/html/2512.06446v1 sections 3-4",
+          "https://arxiv.org/pdf/2204.08138 pp. 2-5",
+          "Web: \"Lucas\" \"walk to infinity\" digit append base b"
+        ]
+      },
+      "checked_sources": [
+        "Full Kominers 2025 arXiv HTML https://arxiv.org/html/2512.06446v1",
+        "Miller et al. 2022 arXiv PDF https://arxiv.org/pdf/2204.08138",
+        "Miller et al. 2024 expanded arXiv PDF https://arxiv.org/pdf/2010.14932",
+        "OEIS A000032 https://oeis.org/A000032",
+        "Three named Resultary semantic searches above and published finding hit 2026/10/11/SCOPE-a-pell-lucas-vertex-law-and-a-simplicity-cutoff-for-cyclic-three--402774cb80ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Miller et al. prove maximum two Fibonacci values for decimal appending, with explicit base-10 residue arguments; no companion V conclusion appears.",
+          "Kominers explicitly differentiates U and V at §4 lines 202-207 and applies Theorem 4.2 to U only; the bound grows with log b.",
+          "Miller et al. (2010/2024), abstract and introduction focus on prime, squarefree, perfect-square and related walks rather than the companion Lucas sequence."
+        ],
+        "reasoning": "A change of recurrence initial conditions is not a valid deduction: the V-sequence admits three-term walks (1,L_k,L_{2k}) for unbounded b. Neither prior bound, even as a corollary, determines the exact odd-index classification or universal sharp three-term maximum.",
+        "searches": [
+          "https://arxiv.org/pdf/2204.08138 Theorems 1.2-1.3 and proof pp. 2-5",
+          "https://arxiv.org/html/2512.06446v1 §4 Theorem 4.2 and discussion",
+          "https://arxiv.org/pdf/2010.14932 abstract/introduction and named topic search",
+          "Resultary search: classical Lucas numbers V_n(1,-1) arbitrary base right digit appending walks length three bound all bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Lucas numbers are V_n(1,-1), distinct from the first-kind U_n(1,-1)=F_n (OEIS and Kominers §4).",
+          "Right-truncatability relative to the Lucas value set in variable base b is the reverse form of one right-digit-appending walk; it requires a fixed base.",
+          "Resultary top hits for all three queries concern Pell-Lucas simplex vertices, split Lucas Dold parts, periodicity or other unrelated invariants, not digit walks."
+        ],
+        "reasoning": "Checked companion V versus U sequence, right-truncatable-in-a-base, and recurrence-index paths L_x→L_{x+k}→L_{x+2k}. No evidence shows the same theorem by equivalence; no-result is not a novelty certificate.",
+        "searches": [
+          "Resultary search: classical Lucas numbers V_n(1,-1) arbitrary base right digit appending walks length three bound all bases",
+          "Resultary search: base-b digit suffix consecutive Lucas recurrence numbers three term digit-appending Fibonacci second kind",
+          "Resultary search: generalized Lucas sequences companion V digit-appending walk exact maximal path",
+          "Web: \"Lucas numbers\" \"digit-appending\" walks arbitrary bases",
+          "https://oeis.org/wiki/Lucas_sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000032 tabulates L_0=2,L_1=1,L_2=3,L_3=4 etc., without giving all-base path maxima.",
+          "Independent finite search on 220 Lucas values and 1999 bases found 8064 valid edges and 51 triple paths; those finite data cannot certify the infinite theorem."
+        ],
+        "reasoning": "No exact covering all-base table was found. A finite Lucas value list cannot imply necessary and sufficient statements for all odd k or rule out arbitrarily long walks.",
+        "searches": [
+          "https://oeis.org/A000032",
+          "https://oeis.org/wiki/Lucas_numbers",
+          "Web: OEIS Lucas numbers right truncatable digit append sequence base 10 Lucas paths",
+          "Resultary search: base-b digit suffix consecutive Lucas recurrence numbers three term digit-appending Fibonacci second kind"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the universal, sharp three-value bound and complete odd-index triple classification of classical second-kind Lucas values V_n(1,-1). The initiating Fibonacci theorems concern F=U(1,-1) in decimal and the later all-base theorem formally treats U(P,Q), not companion V(P,Q), with an O(log b) rather than base-independent sharp constant. The full accessible 2025 arXiv text and the 2022 primary PDF were compared statement by statement. Three Resultary semantic searches returned unrelated Lucas-arithmetic and digit-combinatorics findings, including Pell-Lucas vertex-law id 2026/10/11/402774cb80ae; none covers right-appending V walks. OEIS A000032 lists values but no unbounded-base structural classification. Remaining priority risk is an older all-base companion-digit result under a different alias or a more recent published revision.",
+      "residual_risks": [
+        "An older companion-Lucas digit-appending result or more general second-kind recurrence statement may remain unindexed or under different terminology.",
+        "The 2026 publisher version of Kominers may differ from the fully inspected arXiv v1; lawful OA available for the same paper meant no institutional download was needed.",
+        "Search failure never proves historical novelty; the exact best-of-knowledge assessment is limited to the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves general-base O(N log b) results for U_n(P,Q), not the classical companion V_n(1,-1) sharp all-base three-term cutoff; later journal formatting/version may differ.",
+          "evidence": [
+            "§4 lines 202-207 define both first-kind U and companion V; Theorem 4.2 lines 248-267 explicitly assumes U_n; bound is C_1 N log_rho b+C_2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.06446v1",
+          "material_read": "Entire accessible 313-line arXiv HTML article: abstract, Sections 1-4, Lemmas 2.1-2.2, Theorems 3.1 and 4.2, proof sketches, discussion, references.",
+          "method": "Direct full-text reading of definitions and U/V quantifiers, including §4.1-4.3",
+          "title": "Uniform Bounds for Digit-Appending Fibonacci Walks",
+          "trigger": "Closest all-base bound with a Lucas-sequence extension"
+        },
+        {
+          "assessment": "Theorem 1.2 concerns base-ten Fibonacci numbers, not companion Lucas numbers; its modular proof does not establish the proposed theorem.",
+          "evidence": [
+            "Theorem 1.2 on p. 2 asserts at most two Fibonacci values; proof p. 3 enumerates 1→13,2→21,3→34,5→55,8→89; Theorem 1.3 is decimal variable-block Fibonacci."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.08138",
+          "material_read": "Entire six-page arXiv PDF extracted text, theorems, Lemmas 2.1-2.4, proofs, corollaries and references; screenshots visually checked on pp. 2-4.",
+          "method": "Read PDF text and rendered page screenshots; compare recurrence, base, digit rule and length definition",
+          "title": "Walking to Infinity on the Fibonacci Sequence",
+          "trigger": "Direct earlier Fibonacci right-digit analogue and claimed two-term maximum"
+        },
+        {
+          "assessment": "Discusses other arithmetic families; the inspected named results do not identify a companion-Lucas theorem. Not represented as an exhaustive proof-by-proof reading.",
+          "evidence": [
+            "Abstract pp. 1-2 lists primes, squarefree numbers, perfect squares and prime-base walks; no occurrence of Lucas in extracted searchable text."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.14932",
+          "material_read": "Abstract and introductory discussions of prime, squarefree, perfect-square and stochastic walks, plus searchable full PDF text checked for Lucas term.",
+          "method": "Opened 29-page primary PDF, inspected PDF p. 2 screenshot and opening statements; searched full extracted text for Lucas",
+          "title": "Walking to Infinity Along Some Number Theory Sequences",
+          "trigger": "Originating broader walk setting might cover companion recurrences"
+        },
+        {
+          "assessment": "Validates the sequence normalization but provides no observed all-base covering theorem.",
+          "evidence": [
+            "OEIS A000032 begins 2,1,3,4,7,11,18,29 and identifies V_n(1,-1)."
+          ],
+          "identifier_or_url": "https://oeis.org/A000032",
+          "material_read": "Sequence definition, initial terms, comments and cross-references as displayed on OEIS",
+          "method": "Inspected OEIS sequence content and searched digit-walk terms",
+          "title": "OEIS A000032: Lucas numbers",
+          "trigger": "Exact integer sequence and potential finite-data coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md Steps 1-4",
+        "Kominers arXiv:2512.06446v1 Theorems 3.1 and 4.2",
+        "Miller et al. arXiv:2204.08138 Theorem 1.2"
+      ],
+      "rationale": "The classical companion Lucas sequence V(1,-1) is a canonical recurrence directly motivated by published Fibonacci digit-walk research. A sharp universal three-value maximum independent of arbitrarily large b, infinitely many equality bases, and a necessary-and-sufficient parametrization of every non-small triple determine a natural extremal invariant rather than a mere base-ten recomputation. The odd parity, equal-gap and L_k base rigidity illuminate the mechanism and contrast the Fibonacci behavior. This is mathematically nontrivial and independently useful despite its deliberately limited single-digit and companion-recurrence scope.",
+      "residual_risks": [
+        "No claim about variable block lengths or other companion recurrences.",
+        "Structural value is specific to the one-digit graph; no extrapolation to all numeration systems is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full Kominers 2025 arXiv HTML https://arxiv.org/html/2512.06446v1",
+    "Miller et al. 2022 arXiv PDF https://arxiv.org/pdf/2204.08138",
+    "Miller et al. 2024 expanded arXiv PDF https://arxiv.org/pdf/2010.14932",
+    "OEIS A000032 https://oeis.org/A000032",
+    "Three named Resultary semantic searches above and published finding hit 2026/10/11/SCOPE-a-pell-lucas-vertex-law-and-a-simplicity-cutoff-for-cyclic-three--402774cb80ae"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A best-of-knowledge originality judgment is not certification of publication priority.",
+    "Finite computation is auxiliary to, and does not replace, the all-parameter proof.",
+    "Publication withheld because raw original public metadata contains operational provenance and replacements are incomplete."
+  ],
+  "schema_version": 1
+}
