@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:45:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read entire RESULT.md and verify.py. For synchronous three-site binary majority, every zero edge x_i=x_(i+1) persists, making fixed equal adjacent boundary pairs. In each maximal intervening alternating strip of d consecutive unequal edges, the unresolved interior erodes from both ends, last change at floor(d/2); all-one edge word is possible only on an even ring and is an already-periodic 2-cycle. Hence tau_n=floor(D/2), max floor((n-1)/2), and exactly 2n maximizers by parity and cyclic position. The 2L-state directed transfer matrix (j,p), j<L=2t+2, tracks forbidden runs and total edge parity; its closed-walk trace counts 2 spin lifts per permitted even-parity edge word. Add 2 checkerboards for n even. For rare run beginnings 0 1^L, windows of length L+1 have probability 2^(-L-1) (global parity is irrelevant for strict subsets), overlapping starts are incompatible and fixed-order separated starts independent, proving Poisson factorial moments for n*2^(-2t-3)->lambda. Geometric upper/lower tails bound E tau=(log2 n)/2+O(1). Independent newly executed checker exhaustively simulated 8184 states n=3..12, 55 exact transfer traces, sharp maxima, orbit periods; all passed. No numerical sample proves limit; that follows from moments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inokuchi/Sato transient-length setting is finite threshold automata with fixed spatial boundary conditions; graph-majority period-two theorems treat general graphs without exact ring counts."
+        ],
+        "reasoning": "More general class of majority processes does not automatically provide explicit labelled cyclic transient census or rare-run critical threshold; boundary conventions change time laws.",
+        "searches": [
+          "Elementary cellular automaton 232 majority cyclic ring transient length exact distribution Poisson limit longest alternating run",
+          "Inokuchi Sato 2000 DOI 10.5109/13492",
+          "Benjamini et al arXiv:1405.2486"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/comp-gas/9703001",
+        "https://arxiv.org/abs/1405.2486",
+        "https://doi.org/10.5109/13492",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fukś gives preimage and order parameter for two-rule density classification; Inokuchi/Sato fixed-boundary transients; Benjamini et al general period-two property."
+        ],
+        "reasoning": "The precise implication to all-n cyclic trace and Poisson window was not present in inspected source results. The probabilistic proof legitimately uses standard rare-event factorial moments without claiming the method novel.",
+        "searches": [
+          "Elementary cellular automaton 232 majority cyclic ring transient length exact distribution Poisson limit longest alternating run",
+          "arXiv:comp-gas/9703001",
+          "DOI 10.5109/13492",
+          "arXiv:1405.2486"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fukś Rule 232 addresses density-classification using rules 184 and 232; Benjamini et al prove general convergence/period-two behavior of graph majority dynamics."
+        ],
+        "reasoning": "The locally updated majority mechanism is common, but neither inspected proof establishes a per-initial-state cyclic longest-alternating-run settling identity or distribution.",
+        "searches": [
+          "Elementary cellular automaton 232 majority cyclic ring transient length exact distribution Poisson limit longest alternating run",
+          "arXiv:comp-gas/9703001",
+          "arXiv:1405.2486"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related CA records include exact Rule128 transient crossover and reversible quadratic five-site CA, not Rule232 periodic-ring settling time table."
+        ],
+        "reasoning": "Finite counts of all 2^n states might be known in cellular automata tables; no same-all-n trace or distribution found, and search failure is not novelty proof.",
+        "searches": [
+          "Elementary cellular automaton 232 majority cyclic ring transient length exact distribution Poisson limit longest alternating run",
+          "published Resultary search for cyclic rule 232 time counts"
+        ]
+      },
+      "rationale": "Qualified PASS for ring-specific exact tau formula, all-n transfer census and lattice-correct critical Poisson law. Classical Rule232 density-classification work and period-two results supply context, not this triple. Standard runs and Poisson approximation are not separately original; priority risk is earlier cyclic transient enumeration under different terms.",
+      "residual_risks": [
+        "Classical statistics of runs may encode the cyclic time distribution in another parameterization.",
+        "Fixed-boundary threshold automata work was not confirmed to full-text noncoverage; best-of-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different problem: two-stage density classification and preimages",
+          "evidence": "Abstract and model employ Rule184 then Rule232; do not furnish uniform ring transient census.",
+          "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9703001",
+          "material_read": "Full five-page arXiv paper, including model and Rule232 portion",
+          "method": "arXiv primary PDF text and page image",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "Rule232 and periodic configurations"
+        },
+        {
+          "assessment": "General qualitative convergence, no exact Rule232 ring distribution",
+          "evidence": "Theorem1.1 cites finite-graph eventual period2, not longest alternating strip exact time.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+          "material_read": "Accessible 19-page primary PDF read at abstract, introduction, named Theorem1.1 and finite/infinite generality; later random-graph proofs not read line by line",
+          "method": "arXiv primary PDF text and page image",
+          "title": "Convergence, Unanimity and Disagreement in Majority Dynamics on Unimodular Graphs and Random Graphs",
+          "trigger": "General majority dynamics and eventual two-cycles"
+        },
+        {
+          "assessment": "Explicit Rule232 erosion lemmas and transient bound known on fixed-boundary chains; this manuscript lacks the periodic all-state trace and critical Poisson law; no claim those lemmas are new",
+          "evidence": "Theorem3.90 calculates fixed-boundary CA-232 transient maxima, and Lemma3.88 proves neighboring equal pairs stable. The paper consistently uses a fixed 0/1 endpoint setting, unlike the submitted periodic ring.",
+          "identifier_or_url": "https://doi.org/10.5109/13492",
+          "material_read": "Full author-uploaded article accessible as text at ResearchGate: Sections3.13 Rule232 Lemma3.88, Proposition3.89, Theorem3.90 and the conclusion, identifying fixed boundary conditions and fixed-point/transient-max properties",
+          "method": "author-uploaded published full-text rendered in ResearchGate",
+          "title": "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+          "trigger": "Potentially exact Rule232 transient lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete all-n time-to-attractor distribution and its logarithmic typical-vs-linear-worst-case separation answers a natural dynamics question for the classical majority Rule 232 under cyclic boundary conditions. Precise parity corrected counts and lattice-subsequence Poisson critical scale are nontrivial, not just general finite period-two folklore.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact cyclic rule-232 majority transient distribution and Poisson critical window",
+  "limitations": [
+    "Poisson result along integer-lattice subsequences only, not unrestricted Gumbel weak convergence.",
+    "Special even checkerboards have transient zero rather than settling at a fixed point.",
+    "No noisy/asynchronous dynamics covered."
+  ],
+  "schema_version": 1
+}
