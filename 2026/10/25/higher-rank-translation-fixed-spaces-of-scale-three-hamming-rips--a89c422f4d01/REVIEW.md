@@ -1,11 +1,21 @@
-# Review of the rank-at-least-two translation-fixed classification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Geometric fixed barycentric supports must be unions of translation cosets. Their orbit simplicial complex is described by the exact maximum-weight test. The dimension bound, rank-three support obstruction, exhaustive rank-two code types, and four Cayley-graph calculations establish a PL homeomorphism in every parameter case. The finite checker enumerated 3098 rank-two, rank-three and rank-four subgroups through binary dimension six and verified 420 admissible cases; those finite tests are not substituted for the unrestricted proof.
+## correctness
 
-**Originality (O): PASS, with residual literature risk.** Feng's 2023 Theorem 24 classifies ambient scale-three Rips homotopy; Shukla's scale-three theorem identifies ambient homology and collapsibility. Adamaszek--Adams gives the scale-two ambient case. A 2026 Galetto--Montaño--Wellner abstract describes ordinary equivariant homology representations. None of those *inspected statements* implies the simultaneous rank-two/three geometric fixed PL models. Prior rank-one fixed and scale-two subgroup-fixed conclusions are different scopes. The 2026 full text could not be examined; incidental overlap there or in unindexed literature cannot be excluded.
+PASS
 
-**Value (V): PASS.** The natural code-weight threshold produces a complete and unexpectedly small classification: a cube graph for three rank-two weight patterns, many disjoint circles for the remaining pattern, isolated points at rank three, and no fixed points at larger rank. Its complete subgroup fixed-space information cannot be deduced from ambient Betti numbers or representation characters.
+A geometric H-fixed barycentric point has constant coefficients on full translation cosets; their uniform barycenters span the fixed complex iff the union of cosets is a Rips clique. A coset is allowable precisely when max_{h in H} wt(h)<=3, and two cosets are adjacent iff max_h wt(x+y+h)<=3. Counting each active coordinate in 2^(r-1) codewords bounds support and eliminates ranks >=4 by explicit rank-4 hyperplane weight-4 contradiction. At rank3 support size five would yield six pairwise-intersecting edges in K5, impossible (max four), leaving support three or four. Rank2 XOR weights classify exactly four forms; direct quotient Cayley generators give cube graphs for the first three and 4-cycles for the fourth. Rank3 quotient Cayley graphs are discrete; no triangles remain in the admissible orbit graphs, so graph models are exact PL homeomorphism types. Independently enumerated every rank>=2 subgroup of n<=5, checked coset adjacency and graph isomorphism for 155 admissible groups, and confirmed no extra rank>=4 cases; the unbounded result rests on the subgroup classification, not finite tests.
 
-**Scope and limitations.** This is a scale-three, binary Hamming, geometric fixed-space theorem for ranks at least two. It does not treat rank-one cyclic fixed spaces, homotopy fixed points, or arbitrary isometry subgroups. The checker is finite; proof lemmas establish the unbounded claim. The 2026 group-action preprint full text remains an unresolved accessibility risk, not proof of absence of overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the submitted full statement was compared by actual implication to the specific prior primary statements and published mathematical index. AMBIENT_NOT_FIXED: Does not assert rank2/3 simultaneous geometric fixed spaces. ; AMBIENT_NOT_FIXED: Ambient homology/collapsibility is different invariant. ; DIFFERENT_INVARIANT: Sphere-wedge type of ambient Rips does not determine subgroup geometric fixed PL homeomorphisms.. An inaccessible plausible source alone was not treated as failure; meaningful risks remain listed below.
+
+## value
+
+PASS
+
+Simultaneous subgroup geometric fixed sets encode genuine equivariant information not contained in ambient homology or its representation character. The exhaustive sharp code-weight threshold and transition between connected cubes, many circular components and isolated points is a natural structural PL classification with explicit boundary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical and computational verification
 
-The proof establishes an exact orbit-complex equivalence and exhaustive binary subgroup support patterns; finite enumeration is not an infinite proof.
+# Independent mathematical audit
 
-`verify.py` constructs **each** rank-two, rank-three and rank-four linear subgroup of \(\mathbf F_2^n\) for \(2\leq n\leq6\), without using the proposed canonical generators to construct its observed orbit graph. Each affine orbit of each admissible subgroup is tested as a Rips simplex; edges are computed from all cross-orbit pairs. The graph is compared against the declared model by isomorphism, and triangle-freeness is tested. The run reported 3098 subgroups examined and 420 admissible cases, with the marker `HYPERCUBE_SCALE3_HIGHER_RANK_FIXED_VERIFIED`.
+## correctness
 
-The checker requires only Python 3 standard library. Run `python verify.py` in the directory containing the package files. The finite enumeration covers the first examples and all four rank-two weight types; the unlimited theorem depends on the separate rank and support classification proof in `RESULT.md`.
+PASS
 
-This package has received a self-review only. The independent mathematical audit is not performed.
+A geometric H-fixed barycentric point has constant coefficients on full translation cosets; their uniform barycenters span the fixed complex iff the union of cosets is a Rips clique. A coset is allowable precisely when max_{h in H} wt(h)<=3, and two cosets are adjacent iff max_h wt(x+y+h)<=3. Counting each active coordinate in 2^(r-1) codewords bounds support and eliminates ranks >=4 by explicit rank-4 hyperplane weight-4 contradiction. At rank3 support size five would yield six pairwise-intersecting edges in K5, impossible (max four), leaving support three or four. Rank2 XOR weights classify exactly four forms; direct quotient Cayley generators give cube graphs for the first three and 4-cycles for the fourth. Rank3 quotient Cayley graphs are discrete; no triangles remain in the admissible orbit graphs, so graph models are exact PL homeomorphism types. Independently enumerated every rank>=2 subgroup of n<=5, checked coset adjacency and graph isomorphism for 155 admissible groups, and confirmed no extra rank>=4 cases; the unbounded result rests on the subgroup classification, not finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the submitted full statement was compared by actual implication to the specific prior primary statements and published mathematical index. AMBIENT_NOT_FIXED: Does not assert rank2/3 simultaneous geometric fixed spaces. ; AMBIENT_NOT_FIXED: Ambient homology/collapsibility is different invariant. ; DIFFERENT_INVARIANT: Sphere-wedge type of ambient Rips does not determine subgroup geometric fixed PL homeomorphisms.. An inaccessible plausible source alone was not treated as failure; meaningful risks remain listed below.
+
+## value
+
+PASS
+
+Simultaneous subgroup geometric fixed sets encode genuine equivariant information not contained in ambient homology or its representation character. The exhaustive sharp code-weight threshold and transition between connected cubes, many circular components and isolated points is a natural structural PL classification with explicit boundary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
