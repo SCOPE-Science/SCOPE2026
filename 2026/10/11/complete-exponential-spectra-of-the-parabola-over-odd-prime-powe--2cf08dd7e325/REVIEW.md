@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all odd primes and all positive integer exponents, the proof derives a necessary and sufficient vanishing criterion for a quadratic sum over a prime-power modulus, including all zero and boundary cases. Orthogonality forces distinct first-coordinate frequencies and strict contraction of the second coordinate. The digit-description equivalence and counting establish an exact classification; the affine subfamily is independently counted. The integer-only checker confirms the critical zero criterion exhaustively over six small moduli and verifies both constructive and independent brute-force cases. These finite checks supplement, rather than replace, the unrestricted argument.
+PASS
 
-## Originality — PASS, qualified by priority risk
+For odd p and q=p^k, the exact quadratic Gauss sum S_q(A,B) vanishes iff r=νp(A)<j=νp(B), νp(0)=k. For r<j, translation by p^(k-r−1) changes the linear phase by a nontrivial pth root and every quadratic-phase difference by an integral multiple of q. For r≥j<k, division by p^j reduces to a Gauss sum modulo p^(k−j), complete square via invertible 2B′, then invertible (t,s)↦(t−s,t+s) computes |G|²=m>0. j=k forces A=B=0, S=q. Pairwise zero forces distinct first coordinates; q orthogonal unit vectors then form a graph and ON basis. All-level congruence a≡a′ mod p^j⇒b(a)≡b(a′) mod p^(j+1) yields unique digit β_j(a mod p^j). Independent choices give p^Σ(p^j) spectra; affine ones are c+ua with p|u, count p^(2k−1). k=1, zero cases, and unquotiented distinct frequency labels included. Independent cyclotomic checks matched 1518 full coefficient cases across six moduli; an independent exhaustive small backtrack matched 81 for (3,2) and 5 for (5,1). Those computations corroborate, not replace, the uniform analytic proof.
 
-The closest materially read literature treats finite-field quadratic extension bounds (Iosevich–Koh, 2008), quadratic exponential sum evaluation (Cai–Chen–Lipton–Lu, 2010), graph and spectral constructions over prime fields (Aten et al., 2015), and spectral/tiling structure in one-dimensional prime-power groups (Fan–Fan–Shi, 2015). Their objects, hypotheses, and conclusions do not imply the exact classification of *all* exponential partner sets of the two-coordinate prime-power parabola or the stated enumerator. Broader literature on spectral matrices and \(p\)-adic graphs could still contain an equivalent formulation, so independent historical priority is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph is a canonical finite-ring quadratic surface and a natural transversal, for which at least one orthogonal exponential basis is elementary but the total space of possible bases is not. The theorem resolves the complete partner classification uniformly in both the prime and exponent, reveals its branching \(p\)-adic structure, provides an exact enumerator, and exhibits many nonlinear bases already at the first nonfield level. This is a substantive structural classification rather than a small numerical cutoff or an isolated restatement of a Gauss sum.
+Best-of-knowledge full spectrum-partner classification with exact digit-tree enumeration is not implied by inspected prior finite-field Fourier, p-adic cyclic spectra, quadratic Gauss sums, or same-ambient planar spectral⇔tiling theorems. An identical indexed copy is the assessed record itself, not earlier independent evidence. Semantic equivalence in older unindexed literature remains a genuine priority risk.
 
-## Scope and limitations
+## value
 
-Only odd prime powers and the standard quadratic graph are covered. The exact count treats distinct frequency sets without quotienting by symmetries. The numerical checks are finite corroboration; the full classification depends on the provided algebraic proof. An equivalent pre-existing formulation in older Fourier/Butson literature has not been ruled out with certainty.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The quadratic graph is a canonical finite-ring Fourier-spectral set with an obvious horizontal basis but a nontrivial landscape of all possible partners. The exact universal parametrization for every odd prime and k, its branching digit-tree shape, p^((p^k−1)/(p−1)) count and affine/nonaffine split is a natural complete classification useful in finite-ring spectral geometry, not a known-table recomputation or routine statement of a Gauss sum. Already for (p,k)=(3,2) 54 of 81 distinct bases are nonlinear. No paper-sized downstream theorem is needed for a motivated exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

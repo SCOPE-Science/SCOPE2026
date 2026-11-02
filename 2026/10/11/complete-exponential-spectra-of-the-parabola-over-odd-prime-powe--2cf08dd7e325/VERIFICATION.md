@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the quadratic ring spectral classification
+# Independent mathematical audit
 
-Run `python3 check_spectra.py` using only the Python standard library. The checker computes exact root-of-unity cancellation by coefficient divisibility by \(\Phi_{p^k}\), independently of the valuation criterion being tested. It verifies every coefficient pair for \((p,k)=(3,1),(3,2),(3,3),(5,1),(5,2),(7,1)\), a total of \(1518\) pairs. It enumerates all \(89\) digit-contraction basis sets in the small cases, samples \(64\) more at larger moduli, and independently backtracks over all valid frequency assignments to recover exactly \(81\) spectra for \((3,2)\) and \(5\) spectra for \((5,1)\).
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK exact_cyclotomic_zero_pairs=1518 all_constructed_spectra=89 sampled_deeper_spectra=64 digit_count=PASS independent_exhaustive_spectrum_census=PASS all_orthogonality=PASS`
+For odd p and q=p^k, the exact quadratic Gauss sum S_q(A,B) vanishes iff r=νp(A)<j=νp(B), νp(0)=k. For r<j, translation by p^(k-r−1) changes the linear phase by a nontrivial pth root and every quadratic-phase difference by an integral multiple of q. For r≥j<k, division by p^j reduces to a Gauss sum modulo p^(k−j), complete square via invertible 2B′, then invertible (t,s)↦(t−s,t+s) computes |G|²=m>0. j=k forces A=B=0, S=q. Pairwise zero forces distinct first coordinates; q orthogonal unit vectors then form a graph and ON basis. All-level congruence a≡a′ mod p^j⇒b(a)≡b(a′) mod p^(j+1) yields unique digit β_j(a mod p^j). Independent choices give p^Σ(p^j) spectra; affine ones are c+ua with p|u, count p^(2k−1). k=1, zero cases, and unquotiented distinct frequency labels included. Independent cyclotomic checks matched 1518 full coefficient cases across six moduli; an independent exhaustive small backtrack matched 81 for (3,2) and 5 for (5,1). Those computations corroborate, not replace, the uniform analytic proof.
 
-The proof in `RESULT.md` independently covers every odd prime and every positive exponent. The finite checker does not establish completeness at untested moduli, historical novelty, or independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge full spectrum-partner classification with exact digit-tree enumeration is not implied by inspected prior finite-field Fourier, p-adic cyclic spectra, quadratic Gauss sums, or same-ambient planar spectral⇔tiling theorems. An identical indexed copy is the assessed record itself, not earlier independent evidence. Semantic equivalence in older unindexed literature remains a genuine priority risk.
+
+## value
+
+PASS
+
+The quadratic graph is a canonical finite-ring Fourier-spectral set with an obvious horizontal basis but a nontrivial landscape of all possible partners. The exact universal parametrization for every odd prime and k, its branching digit-tree shape, p^((p^k−1)/(p−1)) count and affine/nonaffine split is a natural complete classification useful in finite-ring spectral geometry, not a known-table recomputation or routine statement of a Gauss sum. Already for (p,k)=(3,2) 54 of 81 distinct bases are nonlinear. No paper-sized downstream theorem is needed for a motivated exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
