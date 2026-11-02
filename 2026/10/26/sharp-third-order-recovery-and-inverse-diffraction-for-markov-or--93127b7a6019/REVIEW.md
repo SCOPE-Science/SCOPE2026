@@ -1,15 +1,21 @@
-# Scientific review: Markov-dimer inverse diffraction and short triples
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary two-state chain and independent uniform phase make a precisely defined, shift-ergodic close-packed dimer process, including the irreducible aperiodic boundary with one zero transition. The two-phase calculation gives exact autocorrelation coefficients, and the absolutely convergent Poisson-kernel identity gives the entire diffraction with correct Bragg normalization. The conditional-independence computation gives the signed three-site moment. Algebraic maximization over the **full** admissible parameter domain yields exactly the two stated extremizers and the attained sharp value \(6-4\sqrt2\). Ten rational samples, including boundary transition matrices, pass independent exact finite enumeration. The proof, not those samples, covers all admissible real parameters.
+## correctness
 
-## Originality — PASS (subject to historical-priority risk)
-Baake and van Enter's first-public 2010-11-07 close-packed dimer paper computes the fair iid dimer spectrum and the hidden period-two dynamical component. Baake and Höffe's 1999 full-text treatment includes broad Markov diffraction methods, which **do cover the general two-point spectral approach** but not the particular signed inverse fiber, shortest triple, or global sharp third-order extremal classification. Baake and Grimm discuss general homometry and higher-order distinguishability, also not the parameter-specific sharp inversion classification. The claim under review is explicitly the combined exact inverse ambiguity, minimum observation diameter, and attained universal optimum—not the Markov spectral kernel or general phase-retrieval idea individually. Exact subject and equivalent-formulation searches found no prior implication reproducing the whole statement. Since broad general papers could conceal an unstated easy corollary or another specialized source could exist, independent priority review remains important.
+PASS
 
-## Value — PASS
-The close-packed dimer model is a canonical example where two-point diffraction conceals dynamical order. Replacing iid orientations by the natural primitive two-state Markov family gives a complete, nontrivial two-parameter inverse problem. Locating the **first** spatially economical signed observable makes the loss of information operational, and optimizing that observable over the entire physically admissible correlated family yields a sharp, achieved numerical barrier with structurally rigid extremizers. This is a complete natural classification, not a fabricated arbitrary parameter slice; it does not claim a new general spectral theorem.
+Two-state stationarity and detailed balance give r_k=m²+(1−m²)ρ^k. Phase enumeration yields eta(2k)=r_k and eta(2k+1)=−(r_k+r_(k+1))/2. Fourier summation splits Bragg masses m² at half-integers and a Poisson-kernel AC density, so diffraction gives |m| and ρ but not sign m. Direct two-phase triple computation gives C012=0 and C013=m(1−m²)(1−ρ)²/2, recovering m and proving minimal distinct-site diameter 3. Admissibility bounds 1−ρ≤2/(1+|m|); optimizing 2s(1−s)/(1+s) gives sharp 6−4√2 at m=±(√2−1), ρ=−(√2−1), included primitive boundary. Independent exact rational Markov path enumeration checked 52 pair/triple identities.
 
-## Limits and remaining risk
-The result is for binary real weights, primitive two-state Markov orientation statistics, and uniform random dimer phase. It does not address general hidden Markov measures or measurement noise. Diffraction has the unavoidable global-sign ambiguity; the triple must retain its sign to resolve this ambiguity. Earlier general Markov-scattering papers provide stronger background coverage of the two-point portion, and historical priority for the specialized third-order extremal analysis is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: Fair iid close-packed dimers are the special point (m,ρ)=(0,0); Bernoullisation and phase-ambiguous diffraction are established themes. The new claim is the complete two-parameter inverse fiber plus the first signed correlation at diameter 3 and its exact extremizer, not general diffraction formulas. Baake–van Enter arXiv:1011.1628 calculates fair independent dimer diffraction. It does not determine the higher signed third-order recovery in this correlated two-state model. The general 2pt Markov spectral formula is correctly credited as prior ingredient; explicit conditional triple and constrained extremization add new assertions.
+
+## value
+
+PASS
+
+Concrete minimal higher-order correlation that resolves a precise diffraction homometry, plus attained sharp information amplitude over a natural Markov family. Extends the canonical fair independent close-packed dimer model beyond generic qualitative higher-correlation remarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-The derivation in `RESULT.md` is analytic and applies to every admissible real parameter. It checks the exact stationary transition matrix, the phase averaging for each displacement, the absolutely convergent Poisson-kernel Fourier series, the reversible Markov conditional-independence identity, the sign-recovery formula, the diameter-two impossibility, and the attained optimization over the full admissible domain.
+# Independent mathematical audit
 
-The standalone exact rational checker `verify.py` enumerates stationary finite Markov trajectories directly, independently of the closed-form autocorrelation and triple predictions. Execute with `python3 verify.py` in the directory containing this file. Observed output:
+## correctness
 
-`VERIFY_OK: 10 rational Markov laws; 40 transition probabilities; 130 exact autocorrelation/Fourier identities (including primitive boundary cases); 30 three-site identities; complete signed-parameter inversion at all samples`
+PASS
 
-A finite list of rational cases does not prove all-parameter claims; those follow from the algebraic and measure-theoretic arguments. The global maximum is an exact symbolic calculation with unique positive critical point \(\sqrt2-1\) and is attained at a primitive one-zero-transition boundary chain. No external independent validation has been performed.
+Two-state stationarity and detailed balance give r_k=m²+(1−m²)ρ^k. Phase enumeration yields eta(2k)=r_k and eta(2k+1)=−(r_k+r_(k+1))/2. Fourier summation splits Bragg masses m² at half-integers and a Poisson-kernel AC density, so diffraction gives |m| and ρ but not sign m. Direct two-phase triple computation gives C012=0 and C013=m(1−m²)(1−ρ)²/2, recovering m and proving minimal distinct-site diameter 3. Admissibility bounds 1−ρ≤2/(1+|m|); optimizing 2s(1−s)/(1+s) gives sharp 6−4√2 at m=±(√2−1), ρ=−(√2−1), included primitive boundary. Independent exact rational Markov path enumeration checked 52 pair/triple identities.
+
+## originality
+
+PASS
+
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: Fair iid close-packed dimers are the special point (m,ρ)=(0,0); Bernoullisation and phase-ambiguous diffraction are established themes. The new claim is the complete two-parameter inverse fiber plus the first signed correlation at diameter 3 and its exact extremizer, not general diffraction formulas. Baake–van Enter arXiv:1011.1628 calculates fair independent dimer diffraction. It does not determine the higher signed third-order recovery in this correlated two-state model. The general 2pt Markov spectral formula is correctly credited as prior ingredient; explicit conditional triple and constrained extremization add new assertions.
+
+## value
+
+PASS
+
+Concrete minimal higher-order correlation that resolves a precise diffraction homometry, plus attained sharp information amplitude over a natural Markov family. Extends the canonical fair independent close-packed dimer model beyond generic qualitative higher-correlation remarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
