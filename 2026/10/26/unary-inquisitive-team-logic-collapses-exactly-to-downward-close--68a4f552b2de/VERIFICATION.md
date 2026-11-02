@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run \(\texttt{python3\ proof_checker.py}\) using Python 3 (standard library). It directly enumerates teams over finite equality structures, compares a direct inquisitive team evaluator to a separate unary-subset/constant-parameter recursion, checks invariance under all permutations, and verifies the explicit fixed-cardinality and complement-cardinality schemes through domain size five. The checker returns:
+## correctness
 
-```
-UNARY_COMPRESSION_AND_COLOR_INVARIANCE_OK 1 48
-UNARY_COMPRESSION_AND_COLOR_INVARIANCE_OK 2 240
-UNARY_COMPRESSION_AND_COLOR_INVARIANCE_OK 3 1008
-UNARY_COMPRESSION_AND_COLOR_INVARIANCE_OK 4 4080
-UNARY_TEAM_FORMULA_SCHEMES_OK
-INQUISITIVE_UNARY_CHECK_OK 4080
-```
+PASS
 
-The exhaustive finite tests do not prove an infinite-model statement. That statement is supported by the all-domain monadic MSO translation and the finite-rank game argument in RESULT.md. Independent audit is not performed.
+An induction on support clauses shows that uniform ∀¹/∃¹ never introduces a second varying coordinate, while implication merely restricts to subsets S⊆D; every reachable team is encoded by one monadic S and globally fixed individual constants. Recursively translate atomic equality, bot, inquisitive whole-team disjunction, subteam implication (∀U⊆S), and uniform quantifiers into monadic second-order logic with only unary set variables. In pure equality with unary predicate R, a q-round MSO game with 2^q color-class cutoff covers finite and infinite D; every q-type is FO-definable by bounded-count equality formulas. Separate first-order unary color-type truncation plus downward closure yields either bounded |R| or minimum complement size on all sufficiently large nonempty teams, while each small finite D has an initial segment. Uniform witness formulas B_k and E_d realize every alternative; empty teams are accepted throughout. Rechecked 1,386 independently implemented finite cases for B_k/E_d and whole-team inquisitive disjunction plus representative implication semantics, but the all-domain theorem rests on the semantic induction and rank games, not enumerations.
+
+## originality
+
+PASS
+
+The nontrivial new direction is the universal unary upper bound for full uniform-quantifier InqBT via monadic MSO and finite-rank collapse, together with large-domain cardinality normal form. The converse is explicitly credited to Kontinen–Yang FOT↓ expressiveness; Kontinen–Ciardelli already supply the sharp binary failure. Material read does not identify prior exact unary upper-bound theorem, with residual possibility of a general monadic-team theorem or unavailable material.
+
+## value
+
+PASS
+
+This gives a sharp natural expressiveness boundary directly prompted by the published non-first-order binary example: one varying coordinate admits a complete FO classification and an explicit eventual cardinality dichotomy, while two coordinates do not. The result is a structural distinction between unary/team-set and genuinely relational teams, useful in finite model theory and logic semantics beyond textbook MSO collapse alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

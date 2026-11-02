@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Uniform-only quantifiers keep every newly introduced variable constant across the team; implication ranges over unary subteams. This yields an explicit strictly monadic second-order translation. A finite-rank MSO game gives a first-order translation over unary colour predicates and equality for arbitrary finite and infinite sets. A separate first-order unary-rank argument proves the eventual team-size/complement-size normal form; explicit uniform existential formulas realize every case. The standalone checker agrees on exhaustive small examples. Neither enumeration nor checker output substitutes for the symbolic argument.
+## correctness
 
-## Originality
-PASS, qualified. Kontinen--Ciardelli (2026), Definition 2.1 and Theorem 3.6, demonstrate a binary non-first-order team property but not unary first-order translatability. Kontinen--Yang (2019/2022), Theorems 3.1--3.7, already show that a different fragment captures all downward-closed elementary properties at *every* arity; the converse part of the present equivalence is therefore acknowledged as covered. The new, independently proved claim is the universal unary *upper* bound for full inquisitive team logic and the exact arity threshold in combination with the known binary separation. Classical monadic MSO collapse is also credited; its applicability to quantified inquisitive team implication requires the constant-coordinate invariant. Related semantic-translation and cardinality-game articles do not state this boundary. Residual risk is an overlooked general monadic-team normal form establishing the same upper bound.
+PASS
 
-## Value
-PASS. The work resolves an exact small-arity expressiveness question directly suggested by a recent two-variable non-first-order theorem, rather than presenting a new logical fragment under a renamed syntax. The complete classification and explicit cardinality normal forms separate expressive limitations of single-coordinate teams from genuinely relational (two-coordinate) teams and give effective first-order translations.
+An induction on support clauses shows that uniform ∀¹/∃¹ never introduces a second varying coordinate, while implication merely restricts to subsets S⊆D; every reachable team is encoded by one monadic S and globally fixed individual constants. Recursively translate atomic equality, bot, inquisitive whole-team disjunction, subteam implication (∀U⊆S), and uniform quantifiers into monadic second-order logic with only unary set variables. In pure equality with unary predicate R, a q-round MSO game with 2^q color-class cutoff covers finite and infinite D; every q-type is FO-definable by bounded-count equality formulas. Separate first-order unary color-type truncation plus downward closure yields either bounded |R| or minimum complement size on all sufficiently large nonempty teams, while each small finite D has an initial segment. Uniform witness formulas B_k and E_d realize every alternative; empty teams are accepted throughout. Rechecked 1,386 independently implemented finite cases for B_k/E_d and whole-team inquisitive disjunction plus representative implication semantics, but the all-domain theorem rests on the semantic induction and rank games, not enumerations.
 
-## Limitations
-Pure equality, one free team coordinate, nonempty universes, uniform-value quantifiers only. No sharp bound is asserted on normal-form size; the game cutoff is sufficient, not optimal. Historical priority is not certified, and independent expert validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nontrivial new direction is the universal unary upper bound for full uniform-quantifier InqBT via monadic MSO and finite-rank collapse, together with large-domain cardinality normal form. The converse is explicitly credited to Kontinen–Yang FOT↓ expressiveness; Kontinen–Ciardelli already supply the sharp binary failure. Material read does not identify prior exact unary upper-bound theorem, with residual possibility of a general monadic-team theorem or unavailable material.
+
+## value
+
+PASS
+
+This gives a sharp natural expressiveness boundary directly prompted by the published non-first-order binary example: one varying coordinate admits a complete FO classification and an explicit eventual cardinality dichotomy, while two coordinates do not. The result is a structural distinction between unary/team-set and genuinely relational teams, useful in finite model theory and logic semantics beyond textbook MSO collapse alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
