@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonalization gives L(t)=2z/(A-t)+log(A^2-t^2) on 0<=t<=1 with A=1+h>1 and z=b^2. Factoring L(t)-L(0) isolates J_A(t). For A>=2, a uniformly convergent power-series derivative shows J_A strictly increasing; a quadratic derivative rules out hidden interior minima when z<J_A(1), yielding the sharp endpoint trichotomy. The critical threshold is strictly increasing to 1/2 by a controlled series derivative. The all-nugget obstruction z>=1/2 follows from -log(1-x)<x/(1-x). Positive-definiteness and finite-lengthscale endpoint exclusions are explicit. The independent standard-library checker run from the actual source path passed 18374 finite assertions (exact derivative identities, boundary comparisons, numerical tests); numerical checks alone are not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karvonen and Oates, arXiv:2203.09179, §4 (regularized marginal likelihood, unsuccessful analytic investigation and numerical large-nugget interpretation)",
+        "Fosdick and Raftery, DOI:10.1080/00031305.2012.676329, §2 (known-variance bivariate correlation likelihood cubic on an unrestricted interval)",
+        "Rasmussen and Williams, Gaussian Processes for Machine Learning (2006), Chapter 5 (standard kernel-hyperparameter marginal likelihood)",
+        "A general bivariate normal MLE allows correlation of either sign and addresses all sample configurations; it is not a global optimizer for the narrower nonnegative GP correlation family."
+      ],
+      "reasoning": "General marginal-likelihood formulas and likelihood cubics cover the algebraic setup, not the exact phase law or the high-contrast exclusion at arbitrarily large nuggets. Larger Gaussian-process models are not claimed.",
+      "searches": [
+        "constrained bivariate normal correlation maximum likelihood sharp boundary phase transition antisymmetric observations known marginal variance",
+        "Gaussian process nugget large noise likelihood kernel hyperparameter infinite lengthscale discontinuous switch",
+        "\"Gaussian process\" \"two observations\" nugget maximum likelihood lengthscale infinite phase transition",
+        "bivariate normal maximum likelihood correlation single observation opposite signed equal magnitude known variances boundary maximum",
+        "\"nugget\" \"lengthscale\" \"infinite\" \"maximum likelihood\" \"Gaussian process\" 2024 2025"
+      ]
+    },
+    "checked_sources": [
+      "Karvonen and Oates, arXiv:2203.09179, §4 (regularized marginal likelihood, unsuccessful analytic investigation and numerical large-nugget interpretation)",
+      "Fosdick and Raftery, DOI:10.1080/00031305.2012.676329, §2 (known-variance bivariate correlation likelihood cubic on an unrestricted interval)",
+      "Rasmussen and Williams, Gaussian Processes for Machine Learning (2006), Chapter 5 (standard kernel-hyperparameter marginal likelihood)",
+      "Published mathematical-record semantic searches for both source titles and phase/parameter aliases",
+      "Previously accessible research claims were compared by object and consequence for Gaussian-process, nugget, lengthscale and likelihood aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karvonen and Oates, arXiv:2203.09179, §4 (regularized marginal likelihood, unsuccessful analytic investigation and numerical large-nugget interpretation)",
+        "Fosdick and Raftery, DOI:10.1080/00031305.2012.676329, §2 (known-variance bivariate correlation likelihood cubic on an unrestricted interval)",
+        "The new theorem proves that even as h increases without bound, a contrast b^2>=1/2 strictly prefers t=0; this bounds and in that subfamily negates the suggested universal large-nugget flat-limit interpretation."
+      ],
+      "reasoning": "The first paper supplies the exact likelihood and motivates an unresolved analytical question, not its sharp solution. The second supplies generic unconstrained likelihood stationarity but does not select among the GP interval endpoints. The proposed result does not claim novelty of Gaussian likelihood, diagonalization or cubic differentiation.",
+      "searches": [
+        "arxiv:2203.09179, §4, eq.(4.1), Fig.4 and accompanying text",
+        "doi:10.1080/00031305.2012.676329, §2 eq.(1) and root-selection discussion",
+        "Karvonen Oates Gaussian process nugget regularisation two locations antipodal outputs negative signs likelihood boundary lengthscale infinity zero finite noise variance dichotomy",
+        "\"Fosdick\" \"Raftery\" correlation cubic one observation constrained zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karvonen and Oates, arXiv:2203.09179, §4 (regularized marginal likelihood, unsuccessful analytic investigation and numerical large-nugget interpretation)",
+        "Fosdick and Raftery, DOI:10.1080/00031305.2012.676329, §2 (known-variance bivariate correlation likelihood cubic on an unrestricted interval)",
+        "The same bivariate problem can be written as a known-variance Gaussian likelihood with correlation rho=t/(1+h) constrained to [0,1/(1+h)]."
+      ],
+      "reasoning": "The bivariate normal cubic is an equivalent stationarity method, not an equivalent global selection theorem on the nugget-limited positive-correlation interval. The new phase comparison needs the strict crossing-order argument, which neither inspected primary source states.",
+      "searches": [
+        "Karvonen Oates Gaussian process nugget regularisation two locations antipodal outputs negative signs likelihood boundary lengthscale infinity zero finite noise variance dichotomy",
+        "Gaussian process two-point regularized marginal likelihood lengthscale only zero or infinity phase transition sharp threshold",
+        "Gaussian process correlation hyperparameter opposite sign data regularization large noise infinite lengthscale phase transition theorem",
+        "arxiv:2203.09179, §4",
+        "DOI:10.1080/00031305.2012.676329, §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record search returned unrelated results concerning Gaussian calibration, correlation summaries and likelihood ratios; no directly matching GP nugget endpoint law was identified.",
+        "The source article Section 4 and the closest known-variance Gaussian-correlation paper Section 2 were compared directly, not by titles alone."
+      ],
+      "reasoning": "No identical theorem, threshold formula or constrained two-site table was found in the actual checked records. Search noncoverage is treated as residual priority uncertainty, not mathematical proof of uniqueness.",
+      "searches": [
+        "\"Maximum Likelihood Estimation in Gaussian Process Regression is Ill-Posed\" Karvonen Oates",
+        "\"Fosdick\" \"Raftery\" correlation cubic one observation constrained zero",
+        "\"nugget\" \"Matern\" two observations marginal likelihood lengthscale high noise",
+        "Gaussian process two-point regularized marginal likelihood lengthscale only zero or infinity phase transition sharp threshold",
+        "Karvonen Oates nugget regularisation critical value two points MLE lengthscale infinite proof",
+        "Fosdick Raftery 2012 correlation known variances MLE cubic roots n=1"
+      ]
+    },
+    "rationale": "The proposal is the sharp nugget-constrained global endpoint phase law for two opposite residuals, its universally discontinuous high-noise fitting behavior, and its all-noise large-contrast obstruction. Karvonen–Oates give the underlying regularized likelihood but only numerical intuition about nugget-driven infinite lengthscale; the analytic conditional phase law is not stated there. Fosdick–Raftery give the classical unrestricted bivariate correlation MLE cubic, which overlaps with differentiation but does not optimize the positive, nugget-limited interval or imply the exact boundary law without a new constrained-global analysis. Literature/record searches found no equivalent; absolute historical novelty remains a risk.",
+    "residual_risks": [
+      "The constrained two-point optimization could occur in a less-indexed paper or textbook on Gaussian covariance hyperparameters or boundary MLEs.",
+      "General known-correlation MLE cubics are strong algebraic prior art; priority is limited to the explicit constrained phase classification and large-noise obstruction.",
+      "Results with unknown signal scale, nonzero common mean or more observation sites may behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The normalized Gaussian marginal likelihood is prior art; the two-site sharp phase, all-nugget contrast obstruction and no-finite-fit dichotomy are not given in the inspected sections.",
+        "evidence": "§4 explicitly calls regularized lengthscale behavior an interesting question and reports no proven properties, relying on a three-location numerical example.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.09179",
+        "material_read": "Full accessible HTML text of introduction and contributions, §4 regularisation (including formula (4.1), Figure 4 discussion, and displayed comments on failed analytic investigations), and relevant conclusion.",
+        "method": "Full-text HTML reading of arXiv version.",
+        "title": "Maximum Likelihood Estimation in Gaussian Process Regression is Ill-Posed",
+        "trigger": "Source establishing a recognized and analytically unresolved nugget-regularized lengthscale problem."
+      },
+      {
+        "assessment": "Provides a general cubic stationarity equation and unrestricted-correlation MLE selection methods, not the nugget-constrained endpoint-only law.",
+        "evidence": "§2 Eq.(1) and discussion of multiple roots of the unrestricted correlation likelihood.",
+        "identifier_or_url": "https://sites.stat.washington.edu/raftery/Research/PDF/Fosdick2012.pdf",
+        "material_read": "Primary full-text PDF, §§1–2 and later statistical estimator comparisons/discussion; printed page 35 visually inspected for the cubic and root-selection passage.",
+        "method": "Author-hosted primary PDF text and visual page inspection.",
+        "title": "Estimating the Correlation in Bivariate Normal Data With Known Variances and Small Sample Sizes",
+        "trigger": "Potential broader theorem for the equivalent bivariate Gaussian correlation likelihood."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dae882a5-919a-452b-a20d-79564f926455",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper raises the nugget lengthscale problem and interprets numerical experiments as suggesting all fixed data eventually select infinite lengthscale. The exact two-observation theorem exhibits a nonconstant-data phase transition and a sharp, persistent high-contrast obstruction to that interpretation; it provides a kernel-independent structural boundary and a concrete warning that positive noise does not guarantee an attained finite hyperparameter MLE. This is not a generic textbook inference from the derivative cubic or an arbitrary isolated parameter slice: opposite residuals isolate the basic conflict between data-fit and determinant terms.",
+    "status": "PASS"
+  }
+}

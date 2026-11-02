@@ -1,0 +1,19 @@
+# Scientific review: two-site nugget likelihood endpoint law
+
+## Correctness
+
+**PASS.** For unit latent marginal variance, known nugget \(h>0\), and exact opposite residuals \((b,-b)\), diagonalizing the two-site covariance gives the scalar likelihood \(\ell_h(t;b)=2b^2/(1+h-t)+\log((1+h)^2-t^2)\). The comparison threshold function is strictly increasing for all \(0<t\le1\) when \(h\ge1\), by a termwise nonnegative convergent power series. A quadratic derivative then excludes any interior minimum on the opposite side of the boundary. The monotone critical curve and the all-nugget large-contrast obstruction follow from explicit inequalities. The standalone checker passed 18,374 assertions, including exact rational identities, finite differences, critical ties, and endpoint comparisons. Those finite checks are not replacements for the proof. The result applies to kernels with the prescribed positive two-point correlation range and endpoint limits; it does not assume a particular Matérn smoothness.
+
+## Originality
+
+**PASS, qualified.** Karvonen–Oates (arXiv:2203.09179, Section 4) present the regularized likelihood, numerical evidence about an infinite-lengthscale transition and an explicit unresolved analytic question, but not the sharp two-site contrast trichotomy. Fosdick–Raftery (2012, Section 2) give the general cubic stationarity equation for known-variance bivariate normal correlation, a formula that encompasses the derivative calculation but does not evaluate the GP's nugget-constrained interval or establish the discontinuous global endpoint optimum and persistent large-contrast obstruction. Retrieved mathematical-record results about Gaussian calibration or likelihood ratios involve different estimators and objects; the retrieved prior mathematical claims do not concern GP lengthscale likelihood. The exact phase law may have appeared as an unrecognized specialization elsewhere; the record search is not a proof of absolute novelty.
+
+## Value
+
+**PASS.** The literature explicitly highlights nugget-regularized lengthscale selection as difficult and suggests from numerical evidence that sufficiently large nugget forces the flat limit for arbitrary fixed data. This theorem gives a sharp, kernel-independent, finite-sample boundary: strong opposite-signed residuals never select the flat limit, at any positive noise variance. In the high-nugget regime, *every* fit in this model is an endpoint fit, and a uniquely specified noise/contrast threshold forces a discontinuous switch. This is a substantive structural limitation on hyperparameter tuning, beyond recomputing a likelihood or an isolated numerical counterexample.
+
+## Sources and residual risks
+
+The primary basis is Karvonen and Oates, *Maximum Likelihood Estimation in Gaussian Process Regression is Ill-Posed*, arXiv:2203.09179 (first posted 17 March 2022), especially Section 4 and its regularized likelihood and conjectural interpretation. The closest general estimation precedent is Fosdick and Raftery, *Estimating the Correlation in Bivariate Normal Data With Known Variances and Small Sample Sizes*, The American Statistician 66 (2012), 34–41, especially its cubic maximum-likelihood equation. Rasmussen and Williams, *Gaussian Processes for Machine Learning*, Chapter 5, supplies the conventional marginal likelihood. Critical restrictions: exactly two sites, fixed latent variance and mean, opposite residuals, and correlations continuously ranging from zero to one; the high-nugget trichotomy requires \(h\ge1\), while the large-contrast obstruction holds for all \(h>0\). An unrelated equality can arise if the kernel is parameterized with a bounded lengthscale range; no such claim is made. Historical priority and independent validation remain unresolved.
+
+Self-review: passed. Independent audit: not yet performed.
