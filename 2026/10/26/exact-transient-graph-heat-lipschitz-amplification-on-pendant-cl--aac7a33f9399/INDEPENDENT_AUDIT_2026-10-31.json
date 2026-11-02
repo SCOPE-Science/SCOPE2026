@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:06:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at 6db591ae7c9a6e614c374bad3f6c1af68a5cf187",
+        "Own independent check script /mnt/data/scope05_checks_20261031.py"
+      ],
+      "rationale": "For the positive unnormalized graph Laplacian of a clique K_n plus one leaf at its hub, decompose heat-kernel row differences into eigenmodes 1,n,n+1 (and zero). For pendant–hub, the difference transports positive mass from the leaf to the hub at distance one and ordinary clique vertices at distance two, yielding F_n(t)=2(n−1)/n e^(−t)−(n−2)/n e^{−(n+1)t}. The hub–ordinary edge has transport cost G_n(t)=2/n e^(−t)+(n−2)/n e^{−(n+1)t}, and ordinary–ordinary has e^{−nt}; F−G=2(n−2)/n(e^(−t)−e^{−(n+1)t})≥0 and F≥e^{−t}≥e^{−nt}. Optimizing F gives t_n=(1/n)log((n−2)(n+1)/(2(n−1))) for n≥4, M_n>1 and limit 2. Independent direct matrix exponentials and primal Wasserstein LP matched exact norms for n=2..9 at three nonzero times, including norming edge.",
+      "residual_risks": [
+        "An unindexed direct heat-kernel/Lipschitz calculation for pendant cliques or an exact theorem in curvature literature might already cover the formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joulin establishes general curvature/contraction/deviation machinery, Ollivier graph-transport curvature, Lin–Lu–Yau graph Ricci for related operators; no inspected theorem evaluates the exact pendant-clique unnormalized continuous-time semigroup profile."
+        ],
+        "reasoning": "General curvature bounds can constrain contraction but do not supply the time-dependent equality F_n(t) with the sharp n=3/4 switch and all-time norming edge.",
+        "searches": [
+          "Joulin 0709.0622 Poisson-type deviation continuous time Wasserstein curvature",
+          "Ollivier curvature Markov chains graph",
+          "Lin Lu Yau Ricci curvature graphs",
+          "graph heat semigroup Lipschitz norm Wasserstein amplification lollipop pendant clique unnormalized Laplacian"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/0709.0622",
+          "material_read": "Public arXiv abstract describing Wasserstein/Γ curvature, birth-death examples, deviation inequalities; full PDF not inspected",
+          "title": "Poisson-type deviation inequalities for curved continuous-time Markov chains"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/abs/math/0701886",
+          "material_read": "Relevant general W1 contraction framework referenced by frozen source, without complete primary text reading in this run",
+          "title": "Ricci curvature of Markov chains on metric spaces"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General W1 transport duality supplies method; the leaf-to-clique row differences and cost dominance require explicit special graph diagonalization."
+        ],
+        "reasoning": "Those general theorems are compatible with the claim and may imply broad upper bounds, but do not as stated imply this equality/time optimum; narrow exact family remains a best-of-knowledge new computed result.",
+        "searches": [
+          "Joulin arxiv:0709.0622",
+          "Ollivier arxiv:math/0701886",
+          "graph heat semigroup Lipschitz norm Wasserstein amplification lollipop pendant clique unnormalized Laplacian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kantorovich duality equates Lipschitz norm to worst-edge W1 between heat-kernel rows; this is classical, not an independent new theorem."
+        ],
+        "reasoning": "The new content is closed-form evaluation on each edge orbit and exact threshold/maximum for the pendant-clique graph, not relabeling the known Wasserstein equivalence.",
+        "searches": [
+          "graph heat semigroup Lipschitz norm Wasserstein amplification lollipop pendant clique unnormalized Laplacian",
+          "Joulin 0709.0622 Wasserstein curvature graph heat Lipschitz norm",
+          "Ollivier math/0701886 contraction duality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The analytic family is indexed by arbitrary n and continuous t, not a previously published exact finite database. Independent finite LP confirms instances but cannot certify priority."
+        ],
+        "reasoning": "No exact database or graph family table implying the formula was located; this inapplicability is specific to the continuum-time parameter, not a failed literature search presented as proof.",
+        "searches": [
+          "graph heat semigroup Lipschitz norm Wasserstein amplification lollipop pendant clique unnormalized Laplacian",
+          "graph pendant clique heat norm W1 t_n"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the DELIMITED finding: Exact finite-time heat-semigroup graph-metric Lipschitz norm for K_n with a single pendant vertex, including contractivity iff n≤3 and a unique transient peak when n≥4. Those general theorems are compatible with the claim and may imply broad upper bounds, but do not as stated imply this equality/time optimum; narrow exact family remains a best-of-knowledge new computed result.",
+      "residual_risks": [
+        "An unindexed direct heat-kernel/Lipschitz calculation for pendant cliques or an exact theorem in curvature literature might already cover the formula.",
+        "Normalized-Laplacian operators or multiple leaves are outside the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY_IN_MATERIAL_READ",
+          "evidence": "No specific pendant K_n+leaf heat-Lipschitz norm in accessible abstract; does not warrant whole-document NOT_COVERING.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0622",
+          "material_read": "Public arXiv abstract describing Wasserstein/Γ curvature, birth-death examples, deviation inequalities; full PDF not inspected",
+          "method": "Abstract and references, priority qualified",
+          "title": "Poisson-type deviation inequalities for curved continuous-time Markov chains",
+          "trigger": "Same Wasserstein curvature/contraction for continuous-time Markov semigroups"
+        },
+        {
+          "assessment": "GENERAL_THEORY_INGREDIENT",
+          "evidence": "Gives W1 Markov perspective rather than exact continuous-time unnormalized pendant graph computation.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701886",
+          "material_read": "Relevant general W1 contraction framework referenced by frozen source, without complete primary text reading in this run",
+          "method": "Source citation and general abstract context",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "General duality and metric transport notions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/0709.0622",
+        "https://arxiv.org/abs/math/0701886"
+      ],
+      "rationale": "A natural minimal highly nonregular graph exhibits a sharp dimension threshold between global contraction and transient graph-Lipschitz amplification. The exact time course and peak height furnish a robust finite-time counterexample/benchmark beyond infinitesimal curvature estimates.",
+      "residual_risks": [
+        "An unindexed direct heat-kernel/Lipschitz calculation for pendant cliques or an exact theorem in curvature literature might already cover the formula.",
+        "Normalized-Laplacian operators or multiple leaves are outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed direct heat-kernel/Lipschitz calculation for pendant cliques or an exact theorem in curvature literature might already cover the formula.",
+    "Normalized-Laplacian operators or multiple leaves are outside the claim.",
+    "Scientific assessment is independent only within this run; no external peer certification, no authorship/provenance assertion, no public changes. Finite checker outputs are not an infinite proof."
+  ],
+  "schema_version": 1
+}

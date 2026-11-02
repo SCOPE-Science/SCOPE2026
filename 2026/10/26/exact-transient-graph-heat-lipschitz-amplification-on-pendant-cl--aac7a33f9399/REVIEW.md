@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof specifies the unnormalized graph Laplacian and graph-distance Lipschitz seminorm. All three symmetry classes of edges have exact signed heat-kernel decompositions and Wasserstein costs; comparison identifies the pendant edge. The derivative gives the unique expansion threshold and peak. Independent finite-dimensional checks in `verify.py` solve the transport LP directly. The 147 finite instances validate algebraic formulas but do not replace the all-time analytic proof.
+## correctness
 
-**Originality — PASS with residual risk.** Searches for pendant-clique heat Lipschitz norms, exact two-exponential profiles, aliases such as lollipop/pineapple/whiskered clique, and related published-finding corpus findings returned no implication-equivalent exact family. Joulin's continuous-time definition and Ollivier's duality are general frameworks; Lin–Lu–Yau's graph curvature treats a different operator normalization. The previous diameter-sharp graph-heat result controls all graphs but does not imply this fixed-family exact profile or first failure at clique size four. Unindexed older heat-kernel calculations remain possible.
+PASS
 
-**Mathematical value — PASS.** A complete graph alone is strongly heat contractive, but a single pendant measurement location creates a noncontractive transient. The exact first dimension of failure and explicit peak quantify how a single bottleneck changes regularity. The bound asymptotically attains the diameter-two envelope on a graph family of minimal bottleneck complexity.
+For the positive unnormalized graph Laplacian of a clique K_n plus one leaf at its hub, decompose heat-kernel row differences into eigenmodes 1,n,n+1 (and zero). For pendant–hub, the difference transports positive mass from the leaf to the hub at distance one and ordinary clique vertices at distance two, yielding F_n(t)=2(n−1)/n e^(−t)−(n−2)/n e^{−(n+1)t}. The hub–ordinary edge has transport cost G_n(t)=2/n e^(−t)+(n−2)/n e^{−(n+1)t}, and ordinary–ordinary has e^{−nt}; F−G=2(n−2)/n(e^(−t)−e^{−(n+1)t})≥0 and F≥e^{−t}≥e^{−nt}. Optimizing F gives t_n=(1/n)log((n−2)(n+1)/(2(n−1))) for n≥4, M_n>1 and limit 2. Independent direct matrix exponentials and primal Wasserstein LP matched exact norms for n=2..9 at three nonzero times, including norming edge.
 
-**Limitations.** Simple unweighted pendant cliques, unnormalized heat, real graph-distance Lipschitz seminorm; no transfer to normalized chains or multiple leaves is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the DELIMITED finding: Exact finite-time heat-semigroup graph-metric Lipschitz norm for K_n with a single pendant vertex, including contractivity iff n≤3 and a unique transient peak when n≥4. Those general theorems are compatible with the claim and may imply broad upper bounds, but do not as stated imply this equality/time optimum; narrow exact family remains a best-of-knowledge new computed result.
+
+## value
+
+PASS
+
+A natural minimal highly nonregular graph exhibits a sharp dimension threshold between global contraction and transient graph-Lipschitz amplification. The exact time course and peak height furnish a robust finite-time counterexample/benchmark beyond infinitesimal curvature estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
