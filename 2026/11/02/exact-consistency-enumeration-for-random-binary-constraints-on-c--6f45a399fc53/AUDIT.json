@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For a fixed n>=3, all 16^n independent edge truth-table choices are counted exactly. Boolean product has a diagonal one iff the cyclic constraints have a solution. Seven row/column-swap orbits cover all sixteen relations, and the displayed integer T counts uniform multipliers in all orbit representatives. The acceptance vector g has entries 16-2^(4-w), since each allowed pair forbids a distinct B entry for a zero product diagonal. Integer multiplication verifies (T-4I)(T-2I)(T^2-17T+48I)g=0, and the first four counts 12,175,2397,32377 determine the recurrence uniquely. Hence the all-n formula follows. Independent exhaustive counts and inclusion-exclusion for n=3,4 agree. No finite computation is substituted for the polynomial annihilator argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dovgal–de Panafieu–Ravelomanana model samples a global CNF clause set by fixed total m or Bernoulli p across all variable pairs; ours fixes a labelled cycle and independently samples one of 16 truth tables on each edge.",
+        "The two distributions are not equal; their global counts do not directly specify the conditional fixed-cycle relation-label counts."
+      ],
+      "reasoning": "Although any binary relation can be written as a conjunction of forbidden-assignment clauses, a global clause-count enumerator does not immediately yield fixed-support, per-edge, four-bit-uniform sampling counts. No stronger theorem with the stated all-n formula was identified in the inspected full primary texts; general finite-state CSP methods remain a historical-priority risk.",
+      "searches": [
+        "arXiv:2108.08067v2, Sections 1.1, 1.2, 4.1-4.2",
+        "random Boolean relations on cycle satisfiability probability exact transfer matrix 2026",
+        "probability satisfiable random binary CSP cycle exact enumeration uniform truth tables",
+        "Horak Semaev 2026 inconsistency probability two sparse Boolean equations cycle Conjecture 20 corrected consistency"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.24890v1, Sections 1.1, 4.3, 4.5 and references",
+      "arXiv:2108.08067v2, Abstract, contents, Sections 1.1-1.2 and described scope of Section 4",
+      "Public mathematical research-index records for six distinct queries on cyclic sparse Boolean equations, aliases, parameters and the precise 2397 count",
+      "Web searches on exact cycle CSP/Binary relations, corrections to the 2026 conjecture, and uniform truth-table models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horak–Semaev is the exact target, but its conjectured formula would give 2337/4096 at n=3 and is contradicted by 2397/4096.",
+        "Dovgal et al count formulae with global CNF clause totals, not the fixed-edge relation-system sample space."
+      ],
+      "reasoning": "The new theorem is neither a restatement nor corollary of the false proposed formula. A general Boolean-matrix semigroup transfer method is standard, but its explicit seven-orbit quotient, annihilator, correct cycle count and demonstrated refutation have not been identified as a stronger pre-existing result.",
+      "searches": [
+        "arXiv:2603.24890v1, Conjecture 20",
+        "arXiv:2108.08067v2, Sections 1.1, 1.2, 4",
+        "Horak Semaev 2026 inconsistency probability two sparse Boolean equations cycle Conjecture 20 corrected consistency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform degree-two Boolean polynomials encode all sixteen binary relations; Boolean matrix composition is an equivalent representation of cyclic consistency.",
+        "The published Conjecture 20 instead predicts an integer count of 2337 for C_3; direct exhaustive counting, inclusion-exclusion and the transfer all give 2397."
+      ],
+      "reasoning": "Compared under binary CSP, cyclic Boolean relation composition, random two-variable polynomial systems, and satisfiability language. The closest primary proposal is mathematically non-equivalent because its stated probability differs for every n>=3; it is not a proved stronger result.",
+      "searches": [
+        "uniform independent sixteen binary relations on the edges of a graph cycle satisfiability exact count",
+        "cycle CSP random binary relations over F2 transfer matrix trace 17 square root 97 4 8",
+        "cycle sparse polynomial equations two variable consistency 2397 32377 recurrence sqrt97",
+        "arXiv:2603.24890v1, Section 4.5 and equation (1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 primary paper states claimed numerical agreement for n=3 through 7 but prints a different expression; it does not publish the presently proved exact counts.",
+        "An independent, reproducible exhaustive enumeration gives 2397 of 4096 consistent C_3 relation systems and 32377 of 65536 consistent C_4 systems."
+      ],
+      "reasoning": "A claimed small-n computational check and an indexed summary are not an exact published all-n counting table or recurrence. published-finding corpus similarities do not contain these numbers or a dominating count in returned claims.",
+      "searches": [
+        "cycle sparse polynomial equations two variable consistency 2397 32377 recurrence sqrt97",
+        "2397/4096 cycle boolean random equations",
+        "uniform independent sixteen binary relations on the edges of a graph cycle satisfiability exact count",
+        "arXiv:2603.24890v1 pages 19-20"
+      ]
+    },
+    "rationale": "The exact same model in arXiv:2603.24890v1 states a different conjectured expression, not a valid prior theorem. Its n=3 prediction disagrees with both independent exhaustive counting and a proved seven-class transfer calculation. The 2023 exact 2-SAT enumerator samples global CNF clause sets rather than independent uniformly random full binary truth tables on a fixed cycle. Both full primary texts were materially inspected; matched published-finding corpus searches returned no equivalent or dominating claim. Historical priority beyond inspected sources remains a residual risk.",
+    "residual_risks": [
+      "Standard finite semigroup transfer machinery could have been applied to this exact model in earlier literature not retrieved.",
+      "A primary full-text search of every general two-constraint/CSP publication was not possible; no claim of universal priority or independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same probability model, but printed term 8^(1-n) is false already at n=3; no corrected all-n theorem in inspected source.",
+        "evidence": [
+          "arXiv:2603.24890v1, page 1 model definition, page 20 Conjecture 20 and numerical comparison claim"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.24890",
+        "material_read": "Full text sections 1.1 and 4.5, including PDF page 20 with Conjecture 20, definitions, model, and adjacent related theorems for paths",
+        "method": "Read PDF text and visually inspected PDF page 20",
+        "title": "Inconsistency Probability of Sparse Equations over F2",
+        "trigger": "Exact target conjecture on uniform two-variable equations supported by a cycle"
+      },
+      {
+        "assessment": "Enumerates 2-CNF formulae under global clause-count/probability sampling, rather than per-edge independent uniform relation truth tables on a prescribed cycle; no direct implication identified.",
+        "evidence": [
+          "arXiv:2108.08067v2, pages 2-3 model and equation-sampling distinction"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.08067",
+        "material_read": "PDF title, abstract, contents, Section 1.1 and 1.2 model definitions; Sections 4.1-4.2 headings and primary result scope",
+        "method": "Read primary PDF and visually inspected its sampling-model page 3",
+        "title": "Exact enumeration of satisfiable 2-SAT formulae",
+        "trigger": "Potential stronger general exact satisfiability enumeration under binary constraints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f45a399-fc53-4fbf-8e5b-f95688a40bab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the explicit all-cycle Conjecture 20 of Horak and Semaev (2026) in its exact intended model by supplying a corrected formula for every cycle size, not merely a finite counterexample. The discrepancy is quantified for every n and supported by a compact explicit seven-orbit transition calculation. Exact finite-domain CSP consistency counts are natural invariants connected to sparse polynomial-solving statistics; 60 of 4096 systems change classification at n=3, so even the first numerical boundary is substantively distinct. The exponential correction is lower order asymptotically but decisive for an exact enumerative conjecture.",
+    "status": "PASS"
+  }
+}
