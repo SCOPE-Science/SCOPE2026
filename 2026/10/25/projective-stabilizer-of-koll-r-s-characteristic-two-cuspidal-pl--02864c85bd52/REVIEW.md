@@ -1,15 +1,21 @@
-# Review of the geometric projective-stabilizer theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The source proves that the affine piece of the specified plane curve is \(\mathbb A^1\) and that the projective curve has a unique cusp. The local equation at the point at infinity shows its unique tangent. Every projective stabilizer therefore has an upper-triangular affine form; every induced automorphism of the normalization is affine. Direct characteristic-two coefficient comparison in distinct degrees \(q+2,q,2,1,0\) forces vanishing translation and identifies the \(q+1\)-st roots of unity. The converse is checked by substitution. The verifier independently checks the key expansion for several finite powers, but the proof itself is universal.
+## correctness
 
-## Originality
-PASS under the accessible-record comparison, with residual priority risk. Kollár's Example 3 presents the embedded cuspidal curves and proves their singularity and parametrization, but does not compute the geometric projective stabilizer. Targeted exact-equation and alias searches yielded no equivalent determination. The nearest indexed stabilizer works treat distinct complex plane curves or unrelated positive-characteristic covers and do not logically imply the formula for this family. An unindexed prior calculation cannot be excluded.
+PASS
 
-## Mathematical value
-PASS. The complete stabilizer classification solves a natural incidence-symmetry problem for an infinite family of singular plane embeddings newly used to exhibit positive-characteristic behavior. It contrasts the affine-line normalization's large affine automorphism group with the strict finite cyclic symmetry of the embedded projective model; this distinction is pertinent to the rigidity and moduli of the embeddings. It is more than a normalization identity or an isolated coordinate experiment.
+The primary curve has unique cusp at [0:1:0] and unique tangent Z=0, so every geometric projective stabilizer fixes both and acts affinely by x->Ax+C, y->Dx+By+E. The primary parametrization t->(t^q,t^(q+2)+t) identifies the affine curve with A1, whose automorphism must be t->at+b. Comparing x yields A=a^q, C=b^q. In char2, (at+b)^(q+2) contains exponents q+2,q,2,0. The t² coefficient b^q a² has no left-hand mate when q>=4, forcing b=0. Remaining coefficients give B=a and a^(q+1)=1, D=C=E=0. Conversely these diagonals preserve the equation; odd q+1 has simple roots. Independent parity expansion checks q=4..256 verified every relevant exponent, finite confirmation of a universal coefficient argument.
 
-## Boundaries
-Only the geometric points of the projective stabilizer over an algebraically closed field are classified. The group-scheme structure, abstract curve automorphism group, and case \(q=2\) are not claimed. The earliest public date of the originating arXiv submission is 2026-03-04.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kollar 2026 builds the characteristic-two rational plane-curve family and proves its affine normalization and unique double cusp; he does not state this exact geometric PGL3 stabilizer in the inspected primary text. Full stabilizer of a fixed embedding is strictly more constrained than Aut(A1), and unrelated known stabilizers of other cuspidal curves cannot imply it. Novelty is best-of-knowledge and excludes group scheme or abstract curve automorphisms.
+
+## value
+
+PASS
+
+The exact projective symmetry group and obstruction to translations are a natural invariant distinguishing this unusual large-degree positive-characteristic embedded curve from its highly symmetric affine normalization. An infinite-parameter complete group classification is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
