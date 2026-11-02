@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every nonempty arc subset is checked by two independent graph predicates; a certificate contains all thirty-eight matched covering pairs. The entire directed Hasse diagram has eighty nodes, 190 arrows and no directed cycle. This gives a Morse CW model with one cell in dimension zero, one in dimension two, and two in dimension three. The ten facets split into the five forward and five backward oriented boundaries, which supply two independent integral top cycles; therefore the CW three-boundary vanishes. As each three-cell attaches to a two-sphere, zero cellular degree is a complete nullhomotopy obstruction in this dimension. The final wedge follows. The exhaustive finite computation is evidence for the finite, exactly specified object, not for an infinite family.
+PASS
 
-## Originality
+Reconstructed the exact 10 directed arcs and independently enumerated all 1023 nonempty masks: 80 faces with f=(10,30,30,10). A separate implementation regenerated all 38 matched cover pairs from the published pivot order, the four critical masks 128/104/30/864, and verified a topological ordering of the full 80-vertex 190-arrow oriented Hasse graph. The only ten top facets support two disjoint nonzero integral signed 3-cycles. Discrete Morse yields 0,2,3,3 cells; H3 rank two forces both attaching degrees into S^2 zero; pi2(S2)=Z hence wedge S2 vee S3 vee S3. No conclusion for other polygon sizes.
 
-PASS relative to checked sources, with residual bibliographic risk. The 2026 paper arXiv:2601.05670 proves the homology but explicitly leaves the bidirected-polygon homotopy wedge question open. The 2022 preprint arXiv:2208.04656 addresses oriented polygons, expressly excluding bidirectional edges in Section 4.2. Published mathematical record searches located a dihedral *homology representation* calculation for bidirected polygons, not a corresponding homotopy equivalence. No checked record implied the specific acyclic matching, or the five-vertex homotopy splitting; the searched record's full text could not be retrieved. Bibliographic non-exhaustiveness remains a risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is an explicitly motivated boundary instance of the recent open wedge question, not an arbitrary tiny computation. Published non-shellability and homology do not determine the requisite homotopy attaching maps. The complete acyclic matching produces an independently checkable positive answer for a natural five-vertex case, demonstrates why this case has no possible nontrivial attaching degree, and supplies a finite combinatorial benchmark for larger polygons. The result does **not** claim to solve the whole conjecture or assert an iterative improvement from previous records.
+Published Caputi–Collari–Smith 2026 calculates bidirected polygon homology and poses a wedge-of-spheres homotopy question, not the five-cycle simply-connected matching. A 2024 homology-to-wedge theorem is a strong general antecedent but requires simple connectivity, which published homology does not furnish here; the new exhaustive acyclic matching proves that missing premise. Oriented-polygon wedge theorems exclude bidirectional arcs. Best-of-knowledge PASS, residual hidden treatment possible.
 
-## Scope and limits
+## value
 
-The claim applies to one bidirected cycle, with five vertices. It does not give higher-size classifications or equivariant homotopy types. The primary references are Caputi–Collari–Smith (2026), arXiv:2601.05670, and Caputi–Collari–Di Trani–Smith (2022), arXiv:2208.04656. The more general sources and unresolved comparisons are described in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A specific natural size-five test of an explicitly posed general homotopy question. The exact acyclic matching proves simple connectivity and null attachments, which are not determined by homology alone; a reproducible structural benchmark for a non-shellable complex. Small single instance, no generalization claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

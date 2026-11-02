@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:20:02.093364Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md sections Finding/Proof and VERIFICATION.md inspected directly, blobs 5aff05ecc5cedce1ddf112d512940a7dee6c9696 and e59a05d96b2d37364add08d4317fd76d4552564f.",
+        "Ma, arXiv:2610.02285, Lemma 2.3 and Section 7.2 Lemma 7.2, full arXiv text, https://arxiv.org/abs/2610.02285 .",
+        "Independent mpmath 65-digit direct integral and root check; mathematical proof analytic."
+      ],
+      "rationale": "The root is defined for 0<rho<=1 as the unique mu in (0,1] solving I(mu,rho)=int_0^((1+rho)pi) t^(mu-1)sin(t-rho*pi)dt=0. At rho=1, mu=1; the source Lemma 7.2 supplies p=1-nu(1-epsilon)=O(epsilon^2) and J0=I_mu(1,1)>0. Direct integration gives I(1,1-epsilon)=1-cos(pi epsilon)=(pi^2/2)epsilon^2+O(epsilon^4). Differentiating I_mu in rho yields I_mu,rho(1,1)=pi int_0^(2pi) log(t)cos(t)dt=-pi Si(2pi), with vanishing moving-upper-endpoint term and vanishing logarithmic-by-sine boundary term. Uniform integrable log^k(t) domination gives I_mu(1,1-epsilon)=J0+pi Si(2pi)epsilon+O(epsilon^2) and bounded I_mu,mu. Expanding I(1-p,1-epsilon) in mu: 0=I(1,1-epsilon)-p I_mu(1,1-epsilon)+O(p^2), with p^2=O(epsilon^4). Dividing by the positive J0 yields p=pi^2/(2J0)epsilon^2-pi^3 Si(2pi)/(2J0^2)epsilon^3+O(epsilon^4), exactly for rho upward to 1, with no assertion outside local endpoint. Independent 65-digit mpmath quadrature/root values agreed: J0=2.43765339305722441181..., A=2.02440683921663419963..., B=-3.69997139635880357774..., p/e^2 at e=.02,.01,.005,.0025 =1.9544759801,1.9884566081,2.0061736066,2.0152241126 and cubic residual approaches B. These samples are corroboration only, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma Theorem 1.1 gives optimal global parameter and Lemma 7.2 bounds near rho=1, but it evaluates neither I_mu,rho(1,1) nor the cubic Taylor coefficient.",
+          "Koumandos–Lamprecht Theorems 1 and 2 concern rho=1/4; source formula for mu star is global defining equation but no explicit endpoint coefficients in examined body.",
+          "Sangal–Swaminathan Theorems 2/3 address rho=2/3 and near rho=1/3, cite earlier analyticity/monotonicity, without exact rho=1 asymptotic."
+        ],
+        "reasoning": "The global implicit characterization mathematically enables routine differentiation but does not explicitly assert exact endpoint coefficients. The present statement is narrower but quantitatively sharper than the existing bracket, while its closeness to an elementary corollary remains a meaningful novelty and value risk.",
+        "searches": [
+          "arXiv:2610.02285 full Ma source Lemma 2.3 and Lemma 7.2",
+          "Koumandos Lamprecht 2010 full PDF https://www.mas.ucy.ac.cy/skoumand/Fall-2013/abstracts/KoumLamp1.pdf",
+          "arXiv:1806.06999 full Sangal–Swaminathan text"
+        ]
+      },
+      "checked_sources": [
+        "Frozen 2026/10/11 assigned RESULT.md and five other Git blob files at commit 6c379935c2e469fc18959fc6c387e31328c64bcf",
+        "Ma arXiv:2610.02285 full accessible arXiv text Theorem 1.1, Lemma 2.3, Lemma 7.2",
+        "Koumandos–Lamprecht JAT 2010 DOI:10.1016/j.jat.2009.11.007 lawful full PDF",
+        "Sangal–Swaminathan arXiv:1806.06999 full accessible arXiv text",
+        "Resultary semantic searches and the full opposite-endpoint published RESULT.md",
+        "Koumandos–Ruscheweyh 2007 abstract, Oxford inaccessible full text",
+        "Lamprecht doctoral thesis indirect bibliographic evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma source establishes exact I(mu,rho), root uniqueness and J0, with a close numerical bracket. It does not provide an evaluated I_mu,rho(1,1), and the cubic coefficient requires it.",
+          "2010 and 2018 primary papers define the same root and summarize earlier analyticity but do not report second and third endpoint derivatives.",
+          "The 2007 primary DOI full text was sought after arXiv and lawful OA searches, Oxford institutional access timed out, so whole-document noncoverage is not asserted."
+        ],
+        "reasoning": "The source implies the result upon a short implicit-function/Taylor differentiation; the assessment treats the unprinted exact coefficient/cubic correction as a narrow new computed invariant rather than a distinct general theorem. This direct deductibility is the central priority-risk qualification, not suppressed.",
+        "searches": [
+          "Ma arXiv 2610.02285 Lemma 7.2 I_mu,rho derivative bounds",
+          "Koumandos 2007 original DOI:10.1016/j.jat.2007.04.006",
+          "Lamprecht thesis Function Theory and Harmonic Analysis 2010 near rho=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma Section 7.2 states 1.99 epsilon^2<p<2.05 epsilon^2; neither coefficient is stated.",
+          "Resultary exact-match hit SCOPE-exact-quadratic-tangency-and-cubic-correction-for-the-koumandos--a66da2ad91c7 is the assigned record itself and not independent priority evidence."
+        ],
+        "reasoning": "Equivalent statements are the endpoint normalized limit of p/(1-rho)^2, one-sided second-order tangency of nu, and the derivative of the normalized deficit; searched exact special-function coefficient and cubic-correction aliases, and did not find an independently published statement.",
+        "searches": [
+          "Resultary semantic: Koumandos–Ruscheweyh critical root mu star rho exact quadratic tangency at rho=1 involving Ci(2π) and cubic Si(2π)",
+          "Web: Koumandos Ruscheweyh mu star rho rho approaches 1 asymptotic Ci Si 2pi exact limit",
+          "Web: Koumandos Lamprecht 2010 critical parameter analyticity endpoint mu* rho expansion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary finding SCOPE-second-order-small-parameter-law-for-the-koumandos-ruscheweyh-cr--b8cdb0e0d1d9 treats rho down to 0, not rho upward to 1.",
+          "No numerical table is relied upon; the coefficients are exact analytic expressions derived from the defining integral."
+        ],
+        "reasoning": "Exact constants and direct self-match were distinguished from an independently recorded table. The opposite-endpoint published formula is mathematically inapplicable at rho=1 and does not dominate this expansion.",
+        "searches": [
+          "Resultary semantic: positive trigonometric sums sharp subordination parameter ν(ρ) endpoint asymptotic rho→1",
+          "Resultary semantic: Koumandos Lamprecht root integral unique zero derivative analytic near rho=1",
+          "Web: gamma + log(2 pi) Ci(2 pi) Koumandos threshold cubic correction"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: Ma's 2026 all-parameter proof supplies the optimal implicit root, J0 and a certified quadratic bracket but not the exact limiting quadratic coefficient or cubic coefficient. The extra exact mixed derivative and reciprocal expansion have not been located in the inspected primary literature; they are short, standard-calculus refinements, a substantive priority limitation rather than a claim of a new general method. Koumandos–Lamprecht (2010) and Sangal–Swaminathan (2018) study fixed/near-interior rho values, not rho->1. An independent published Resultary result calculates the opposite rho->0 endpoint only. The original 2007 article and 2010 thesis remain residual full-text access risks, and Ma v1/v2 wording changes merit attention.",
+      "residual_risks": [
+        "Implicit-function expansion is a short deduction from Ma source, so the degree of independent mathematical originality is limited.",
+        "Ma arXiv version v1 referenced by submitted record was not separately retrieved; full accessible text appears v2, dated October 5.",
+        "The 2007 JAT original primary article could not be read in full; Oxford retriever timed out twice.",
+        "2010 Lamprecht thesis full text unavailable, though 2018 description emphasizes analyticity and monotonicity.",
+        "No exhaustive check of all unindexed earlier analytic endpoint observations is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: global optimality, exact implicit root, J0 and a two-sided 1.99–2.05 quadratic bracket; not stated exact quadratic limit or cubic correction.",
+          "evidence": "https://arxiv.org/abs/2610.02285; Lemma 7.2, lines 390–412 in retrieved full text.",
+          "identifier_or_url": "arXiv:2610.02285 (arXiv full-text view, v2 visible October 5, 2026)",
+          "material_read": "Complete arXiv HTML/full-text view as returned at https://arxiv.org/abs/2610.02285, particularly Theorem 1.1, Lemma 2.3, Section 7.2 Lemma 7.2 and endpoint derivative discussion; the v1 full PDF could not be separately fetched.",
+          "method": "Direct primary scholarly full-text line inspection",
+          "title": "A Proof of the Koumandos–Ruscheweyh Conjecture",
+          "trigger": "Same exact root curve and strongest contemporary full-parameter source"
+        },
+        {
+          "assessment": "NOT_COVERING endpoint: central sharpness theorem at rho=1/4, no rho->1 exact Taylor coefficients.",
+          "evidence": "Journal of Approximation Theory 162 (2010), pp. 1068–1084, Theorems 1 and 2, DOI.",
+          "identifier_or_url": "DOI:10.1016/j.jat.2009.11.007",
+          "material_read": "17-page lawful author-hosted full PDF; abstract, introduction/root equation, Theorems 1–4, proof sections and references; page images 1–2 checked.",
+          "method": "Web primary PDF text extraction plus page 1–2 screenshots, https://www.mas.ucy.ac.cy/skoumand/Fall-2013/abstracts/KoumLamp1.pdf",
+          "title": "On a conjecture for trigonometric sums and starlike functions, II",
+          "trigger": "Earlier primary same-root study"
+        },
+        {
+          "assessment": "NOT_COVERING: rho=2/3 and neighborhood rho=1/3, qualitative root properties only.",
+          "evidence": "Introduction, Theorems 2/3; reference to Lamprecht doctoral thesis.",
+          "identifier_or_url": "arXiv:1806.06999",
+          "material_read": "Full accessible arXiv primary text including Conjectures 1–2, Theorems 2–5, references and description of earlier analyticity/monotonicity.",
+          "method": "Direct arXiv HTML full-text inspection, https://arxiv.org/abs/1806.06999",
+          "title": "On a conjecture for trigonometric sums by S. Koumandos and S. Ruscheweyh",
+          "trigger": "Primary later work citing root analyticity and the 2010 thesis"
+        },
+        {
+          "assessment": "DIFFERENT ENDPOINT: rho->0, independent of rho->1 exact quadratic and cubic coefficients.",
+          "evidence": "Finding and Assumptions explicitly restrict to rho down to 0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-second-order-small-parameter-law-for-the-koumandos-ruscheweyh-cr--b8cdb0e0d1d9/RESULT.md",
+          "material_read": "Full mathematical RESULT.md, including theorem, normalized root equation, proof, scope and limitations.",
+          "method": "Full GitHub primary record text via read-only connector",
+          "title": "Second-order small-parameter law for the Koumandos–Ruscheweyh critical curve",
+          "trigger": "Direct Resultary same-root opposite-endpoint finding"
+        },
+        {
+          "assessment": "ACCESS_RISK, no whole-document noncoverage claim.",
+          "evidence": "ResearchGate abstract and citations as source identifiers; no full-text endpoint evidence.",
+          "identifier_or_url": "DOI:10.1016/j.jat.2007.04.006",
+          "material_read": "Abstract and publicly indexed descriptions; no original full text obtained after arXiv/OA attempts; Oxford paper job a1fc08b05f38f1a90f4da212799a619e returned timeout twice.",
+          "method": "Publisher/OA searches, then authorized institutional retrieval; no human verification bypass",
+          "title": "On a conjecture for trigonometric sums and starlike functions",
+          "trigger": "Original primary root-curve conjecture could contain overlooked endpoint remark"
+        },
+        {
+          "assessment": "ACCESS_RISK; specific priority uncertainty only.",
+          "evidence": "Sangal–Swaminathan, arXiv:1806.06999, introduction.",
+          "identifier_or_url": "Martin Lamprecht, doctoral thesis, University of Cyprus (2010)",
+          "material_read": "Citing arXiv:1806.06999 introduction; no full thesis obtained in bounded search",
+          "method": "Literature title/author discovery and indirect citation comparison",
+          "title": "Function Theory and Harmonic Analysis",
+          "trigger": "Cited by Sangal–Swaminathan as proving analyticity and monotonicity of identical root"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Source Lemma 7.2 expends nontrivial endpoint argument on a quadratic bracket for the sharp curve; new leading coefficient fixes that bracket precisely.",
+        "Cubic Si(2pi) term is nonzero and first distinguishes the asymmetry of the endpoint graph.",
+        "Scope excludes all-degree certificate and global subordination theorem; claimed exact local fact can be used as a benchmark."
+      ],
+      "rationale": "The exact optimal sharp subordination parameter curve is a natural object that Ma's all-parameter theorem uses centrally. Its own endpoint section proves only 1.99<liminf p/epsilon^2<=limsup p/epsilon^2<2.05; here the precise tangency constant and negative cubic asymmetric correction are obtained for that same canonical sharp curve, supplying a calibratable local invariant for further global and higher-order analysis. This is a small exact analytic refinement rather than an intrinsically arbitrary parameter slice, a generic Taylor-method theorem, or a new certificate of Ma's global conjecture; its short textbook-calculus derivation makes value modest and is explicitly acknowledged.",
+      "residual_risks": [
+        "The computation is short once Ma's root and bracket are known, so the independent research contribution is narrow.",
+        "A numerical benchmark use is plausible but no downstream theorem follows or is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen 2026/10/11 assigned RESULT.md and five other Git blob files at commit 6c379935c2e469fc18959fc6c387e31328c64bcf",
+    "Ma arXiv:2610.02285 full accessible arXiv text Theorem 1.1, Lemma 2.3, Lemma 7.2",
+    "Koumandos–Lamprecht JAT 2010 DOI:10.1016/j.jat.2009.11.007 lawful full PDF",
+    "Sangal–Swaminathan arXiv:1806.06999 full accessible arXiv text",
+    "Resultary semantic searches and the full opposite-endpoint published RESULT.md",
+    "Koumandos–Ruscheweyh 2007 abstract, Oxford inaccessible full text",
+    "Lamprecht doctoral thesis indirect bibliographic evidence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strong dependency on Ma 2026 theorem and ordinary differentiation, with residual priority risk.",
+    "Ma v1 primary PDF and original 2007 JAT paper not read fully; Oxford access timed out and no source unavailability was treated as rejection.",
+    "Public existing METADATA/AUDIT includes operational scope_run_id and inherited first_public_date 2026-10-01 preceding this record, requiring confidentiality-safe metadata replacements; historical evidence preserved.",
+    "No source Git writes or dispatcher report."
+  ],
+  "schema_version": 1
+}

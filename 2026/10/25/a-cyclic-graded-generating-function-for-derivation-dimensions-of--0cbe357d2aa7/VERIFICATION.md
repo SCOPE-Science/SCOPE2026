@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification and proof checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with the unmodified Python 3 standard library. The script constructs all \(n\times n\) matrices over several small prime fields, retains only invertible matrices, forms the full Leibniz constraint system for all \(n^2\) entries of a derivation, computes its kernel dimension by modular Gaussian elimination, and checks its distribution against independently implemented exact formal-series coefficients. It also checks the first two nontrivial larger-degree coefficient rows without exhaustive matrix enumeration.
+## correctness
 
-Exhaustive configurations: \((p,n)=(3,1),(3,2),(3,3),(5,1),(5,2),(7,1),(7,2),(2,1),(2,2),(2,3)\); the sum of invertible input matrices is \(13{,}963\). See `test_results.txt` for exact counts and the successful completion marker.
+PASS
 
-The mathematical proof of all \(n\), including prime-power extension fields, is the derivation-equation reduction plus the finite-field cyclic-grading and exponential-component arguments. The checker directly verifies only prime fields and small dimensions; it is not evidence that a finite search proves an infinite statement. It does not verify originality or constitute independent scholarly review.
+From invertibility the square vectors e_i^2 form a basis, so off-diagonal Leibniz coefficients vanish. Diagonal derivations obey lambda_j=2 lambda_i on every nonzero matrix entry. In odd characteristic every weakly connected support component has solution dimension 0 or 1, the latter exactly for a Z/r cyclic edge grading, r=ord_p(2); each such component has r colorings. For invertible compatible-coloring matrices all r color blocks are square of equal size m, giving g_m(q)^r. Labelled connected-component exponential formula gives G_q(x)F_{q,r}(x^r)^((u-1)/r); p=2 all derivations vanish. Good components have at least r vertices. Weighted r-cycles and diagonal leftovers realize all d<=floor(n/r); first-stratum counts use cycles and GL_{n-r}. Exact independent rational formal-series coefficients for p=q=3,5,7 reproduce 3-adic n=4 vector [24253200,7872,48]. Finite arithmetic does not prove all dimensions or prime powers; the given combinatorial proof does.
+
+## originality
+
+PASS
+
+The Elduque-Labra derivation-component resonance criterion is not new. Distinct substantive claim is full marked-matrix finite-field count as a multivariate EGF and sharp first appearance. No inspected primary study or Resultary record states a covering GL_n(q) enumeration; best-of-knowledge only.
+
+## value
+
+PASS
+
+A complete characteristic-dependent distribution of infinitesimal symmetry dimensions across the canonical model GL_n(F_q), with sharp dimension resonance onset, supplies a natural exact invariant independent of small-case brute force. It is more than rephrasing the published component criterion because weighted invertible colored matrices must be enumerated for all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

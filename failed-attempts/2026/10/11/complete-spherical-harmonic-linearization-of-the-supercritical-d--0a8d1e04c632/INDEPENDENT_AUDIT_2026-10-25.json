@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T20:12:44.821905Z",
+  "axes": {
+    "correctness": {
+      "independent_computation": "Verified directly from G(b)=sum_{|I|=k}prod_{i in I} b_i^(−1) at diagonal b, not just the bundled checker: for each index j exactly C(n−1,k−1) subsets contain j. Then derived the Fréchet derivative symbolically and used the exact all-degree sphere spectrum. Reconstructed the seven-file Git tree from actual fetched blob SHAs; assigned and computed tree both 242ffe445121a7ce61d7d283a7029ccb51782757. Finite verify.py is a consistency grid only and was read, not relied on as proof.",
+      "rationale": "For n≥1, 1≤k≤n, alpha>k+1, f0>0, beta=C(n,k) and m=alpha−k−1>0, the constant support R*=f0^(−1/m) is stationary by f0 R*^m=1. In inverse Gauss coordinates r[u]=(u^2+|∇u|^2)^(1/2), b[u]=∇²u+ug; at u=R* the first variations are δr=phi and δb=∇²phi+phi g. The curvature quotient equals sum over k-element subsets of products of inverse principal radii; differentiating at R*I gives DG[eta]=−C(n−1,k−1)R*^(−k−1)tr eta=−(k beta/n)R*^(−k−1)tr eta. Inserting into u_t=−f0 r^alpha G(b)+beta u gives Lphi=(k beta/n)Δphi−beta m phi. As ΔY_l=−l(l+n−1)Y_l, the claimed lambda_l follows for every l≥0. Degree zero alone has decay beta m; degree one is the least nonconstant rate beta(m+k)=beta(alpha−1), so the gap is beta k. Endpoint k=n and n=1 have the same binomial identity; alpha=k+1 is excluded, and no nonlinear faster-rate theorem is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lv–Wang 2021 Theorem 1.1 and Remark 1.2 cover a general contracting-curvature class including the 2020 flow, but concern nonlinear convergence rather than an explicit eigenvalue table.",
+          "The published Resultary Alexandrov–Fenchel spectrum is for a nonlocal quotient flow on geodesic spheres in the ambient unit sphere: L_R=(2/n)Delta+2csc^2 R(f−mean f), zero radius/center modes.",
+          "The published spherical sigma_k^alpha resonance treats centered spherical-space geodesic spheres with a different speed and asymptotic question."
+        ],
+        "reasoning": "Broad convergence sources and the related Resultary linearizations concern either the same already-published Euclidean support PDE or distinct flows. General-coverage claims cannot be transplanted between spherical and Euclidean ambient geometries, nor between local and nonlocal normalizations. Nevertheless, the 2020/2026 PDE itself dominates the elementary local spectrum by differentiation.",
+        "searches": [
+          "Resultary semantic search: support function curvature quotient sigma_(n-k)/sigma_n round sphere normalized flow first variation",
+          "Lv Wang 2021 arXiv:2104.05966 general inverse-concave r^alpha F^beta convergence theorem",
+          "Resultary 2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089",
+          "Resultary 2026/10/4/SCOPE-a-curvature-forced-resonance-in-normalized-spherical-sigma-k-alp--ea561adab016"
+        ]
+      },
+      "checked_sources": [
+        "Sheng–Sheng–Yang, arXiv:2609.35241v1 (2026), full-text relevant Sections 2,6,7",
+        "Li–Sheng–Wang, DOI:10.1007/s12220-019-00169-4 (2020), author-hosted full 27-page primary PDF, Sections 1,2,4",
+        "Lv–Wang, arXiv:2104.05966 (2021), relevant general Theorem 1.1 and Remark 1.2",
+        "Resultary 2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089, complete RESULT.md",
+        "Resultary 2026/10/4/SCOPE-a-curvature-forced-resonance-in-normalized-spherical-sigma-k-alp--ea561adab016, complete RESULT.md",
+        "Classical unit sphere Laplace–Beltrami harmonic eigenvalues, −l(l+n−1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At R I, G=sum_{|I|=k} product_{i in I} 1/b_i, so derivative is −C(n−1,k−1)R^(−k−1)tr eta by counting subsets; C(n−1,k−1)=k C(n,k)/n.",
+          "For u=R+eps phi, delta r=phi and delta b=Hess phi+phi g. The first variation of the published PDE is L=(k beta/n)Delta−beta(alpha−k−1).",
+          "Substituting the classical eigenvalue −l(l+n−1) gives lambda_l=−beta[(alpha−k−1)+(k/n)l(l+n−1)]; l=0 and l=1 give the alleged unique slow mode and beta k gap."
+        ],
+        "reasoning": "This is a decisive direct implication, not merely a topic/title overlap: all nonstandard geometric premises are already explicit in the 2020 and 2026 papers; only the chain rule, elementary binomial identity, and standard unit-sphere spectrum remain. The fact that those authors did not print a standalone harmonic classification does not make this elementary corollary an original result.",
+        "searches": [
+          "Sheng–Sheng–Yang 2026 arXiv:2609.35241v1 equations (2.11),(2.12),(2.21), Remark 6.1, Corollary 7.3",
+          "Li–Sheng–Wang 2020 DOI:10.1007/s12220-019-00169-4 equations (1.8),(2.13)–(2.16), Theorem 1.1, Lemma 4.1",
+          "Standard Laplace–Beltrami spectrum on unit S^n: Delta Y_l=−l(l+n−1)Y_l"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Sheng–Wang 2020 equation (2.16): u_t=−r^alpha (sigma_(n-k)/sigma_n)(nabla^2u+uI)+C(n,k)u for f=1.",
+          "Sheng–Sheng–Yang 2026 equation (2.21) is the same normalized support PDE multiplied by constant f0, with isotropic derivative (2.12)."
+        ],
+        "reasoning": "The 2020 and 2026 equations define the identical normalized isotropic PDE at f0=1; any positive constant f0 only changes equilibrium radius R and cancels from the first derivative through f0 R^(alpha-k-1)=1. The alleged new operator and harmonic spectrum are an elementary equivalent linearized formulation of the already specified flow.",
+        "searches": [
+          "Resultary semantic search: dual k-Minkowski flow alpha>k+1 constant data round sphere spherical harmonics linearization eigenvalues stability spectral gap beta k",
+          "Sheng Sheng Yang 2609.35241 linearization sphere spherical harmonics spectrum support function flow",
+          "Li Sheng Wang 2020 normalized support function Eq (2.16) and Sheng Sheng Yang 2026 Eq (2.21)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search retrieves the assessed 2026/10/11 record itself; it is not an independent antecedent.",
+          "Closest distinct Resultary entries are for different nonlocal/spherical flows, not a numerical table for this Euclidean flow.",
+          "The claim is an analytic all-harmonic spectrum, not a finite database parameter, and no separate exact table was located."
+        ],
+        "reasoning": "No independent pre-existing exact spectrum table was identified; this absence alone is not novelty evidence. What defeats originality is direct implication from the published PDE and standard spherical-harmonic spectrum, not a matching database row.",
+        "searches": [
+          "Resultary semantic search: dual k-Minkowski round sphere full linear spectrum beta k",
+          "Resultary semantic search: Sheng Sheng Yang supercritical dual k-Minkowski prescribed data sharp rate homothetic mode linearized spectrum",
+          "Exact formula web search: alpha-k-1 ell spherical harmonics curvature flow"
+        ]
+      },
+      "rationale": "The exact eigenvalue expression is not printed as a stand-alone theorem in the inspected sources, but is an immediate standard spectral consequence of the already-published normalised support PDE. Li–Sheng–Wang (2020), equations (1.8), (2.13)–(2.16), and Sheng–Sheng–Yang (2026), equations (2.11), (2.12), (2.21), supply the same scalar equation, the curvature-radius tensor and its first derivative. At an isotropic radius tensor, symmetry and binomial counting give DG[eta]=−C(n−1,k−1)R^(−k−1)tr(eta); the standard sphere-Laplacian eigenvalues then yield the full submitted spectrum with one substitution. Thus this is a direct textbook first-variation/spectral corollary of prior published identities, not a mathematically distinct new result. Absence of the precise displayed formula or title in the papers does not defeat the implication comparison. This judgment does not assert that the formula was explicitly tabulated in those papers.",
+      "residual_risks": [
+        "An unindexed paper could state the exact eigenvalues explicitly; no exhaustive priority claim is made, and explicit match is unnecessary because prior equations already imply them mechanically.",
+        "The 2020 precursor was inspected in relevant sections and visually on two pages, not all 27 pages individually. No negative whole-document novelty conclusion is based solely on a word search.",
+        "The label “shape” for all nonconstant modes is geometrically imprecise: degree-one support perturbations translate the sphere rather than deform its intrinsic shape. The stated all-nonconstant spectral gap remains algebraically correct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit PDE, isotropic derivative rule and homothetic sharpness, but no printed full mode spectrum; directly supplies its nonstandard premises.",
+          "evidence": "Equation (2.12) dot G^{ii}=−kappa_i^2 sigma_(k−1)(kappa|i); equation (2.21) u_t=−f r^alpha G(b)+beta u; Remark 6.1 global exponent beta(alpha−k−1) saturated by homotheties.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.35241 (v1, 2026-09-28)",
+          "material_read": "Full-text arXiv-rendered HTML: introduction/flow, Sections 2.2 and 2.4 equations (2.11),(2.12),(2.21), Section 6 convergence and Remark 6.1, Section 7 Corollary 7.3; searched entire rendered text for spherical-harmonic/linearization terminology.",
+          "method": "Primary lawful open-access HTML, web result , relevant sections , , , .",
+          "title": "Supercritical dual k-Minkowski flows with general prescribed data: a priori estimates and asymptotic convergence",
+          "trigger": "Exact original normalized flow, radial/support variables and claimed sharp rate."
+        },
+        {
+          "assessment": "Provides the identical f=1 normalised PDE (2.16), support tensor (2.14), and exponential convergence; no separately printed mode spectrum. Its earlier equations already allow elementary differentiation.",
+          "evidence": "Equations (1.8),(2.13)–(2.16), Theorem 1.1, Lemma 4.1, proof of Theorem 1.1, corresponding passages  and .",
+          "identifier_or_url": "https://maths-people.anu.edu.au/~liq/papers/k-flow.pdf (2019 preprint / 2020 JGA, DOI:10.1007/s12220-019-00169-4)",
+          "material_read": "27-page primary PDF text: introduction and theorem, geometry/normalization Section 2 (PDF pp. 4, 6–8), Section 4 Lemma 4.1 and proof of Theorem 1.1 (PDF pp. 17–20), plus searches for linearization/eigenvalue/spectral; visually checked PDF pp. 4 and 20.",
+          "method": "Lawful open-access author-hosted PDF, web ; PDF screenshots  and .",
+          "title": "Asymptotic Convergence for a Class of Fully Nonlinear Curvature Flows",
+          "trigger": "Earlier same-flow isotropic precursor with an exact support-function equation."
+        },
+        {
+          "assessment": "Broad convergence theorem contains the isotropic k-curvature family but does not independently state the submitted exact eigenvalue formula.",
+          "evidence": "Theorem 1.1 and Remark 1.2 specialize F=E_k^(1/k), exponent beta=k to the Li–Sheng–Wang 2020 flow.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.05966 (2021)",
+          "material_read": "Open-access full-text HTML introduction, Condition 1.1, Theorem 1.1 and Remark 1.2; searched entire rendered text for linearization, eigenvalue, Laplacian.",
+          "method": "Primary arXiv HTML, web  and –.",
+          "title": "Asymptotic Convergence for a Class of Fully Nonlinear Contracting Curvature Flows",
+          "trigger": "Potential broader result for homogeneous inverse-concave curvature functions containing k-curvature."
+        },
+        {
+          "assessment": "Different nonlocal flow, spherical ambient geometry and stationary sphere family. It is not a covering antecedent.",
+          "evidence": "L_R=2/n Delta_(S_R)+2csc^2R(f−mean f) and neutral l=0,1 modes, unlike submitted Euclidean L.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089/RESULT.md",
+          "material_read": "Full RESULT.md theorem, proof, scope and references.",
+          "method": "Published result primary text read via GitHub file connector.",
+          "title": "Exact full linearization of a spherical Alexandrov–Fenchel flow",
+          "trigger": "Closest published exact mode-by-mode linearization suggested by Resultary."
+        },
+        {
+          "assessment": "Different centered geodesic-sphere ODE in ambient unit sphere; not the Euclidean dual k-Minkowski linearization.",
+          "evidence": "Its leading correction has a=beta−k alpha−1 threshold at a=2, unrelated to the present local harmonic decay operator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-curvature-forced-resonance-in-normalized-spherical-sigma-k-alp--ea561adab016/RESULT.md",
+          "material_read": "Full RESULT.md theorem, proof, scope and references.",
+          "method": "Published result primary text read via GitHub file connector.",
+          "title": "A curvature-forced resonance in normalized spherical sigma-k-alpha flow",
+          "trigger": "Potential related asymptotic result under the same authors and curvature-exponent regime."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full local spectrum and decay gap are natural diagnostics of an important normalized curvature flow, but in this package they result only from substituting the standard first variation of the already-published support equation into the classical unit-sphere Laplacian eigenvalues. The βk gap is the immediate difference of the l=0 and l=1 eigenvalues, and the global sharpness via homotheties was already established by Sheng–Sheng–Yang. No nonstandard structural lemma, independent asymptotic theorem, motivated boundary/counterexample or new classification mechanism is proved. The computation is a routine local linearization rather than a substantively independent mathematical contribution. Degree-one modes are translation/centering directions, further qualifying the claim that this necessarily represents intrinsic shape relaxation; no nonlinear improvement is asserted or proved.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Sheng–Sheng–Yang, arXiv:2609.35241v1 (2026), full-text relevant Sections 2,6,7",
+    "Li–Sheng–Wang, DOI:10.1007/s12220-019-00169-4 (2020), author-hosted full 27-page primary PDF, Sections 1,2,4",
+    "Lv–Wang, arXiv:2104.05966 (2021), relevant general Theorem 1.1 and Remark 1.2",
+    "Resultary 2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089, complete RESULT.md",
+    "Resultary 2026/10/4/SCOPE-a-curvature-forced-resonance-in-normalized-spherical-sigma-k-alp--ea561adab016, complete RESULT.md",
+    "Classical unit sphere Laplace–Beltrami harmonic eigenvalues, −l(l+n−1)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is based on decisive implication from prior displayed equations and standard spectral facts, not on inaccessible literature or a failed search.",
+    "The 2020 published paper does not explicitly print the all-mode eigenvalues, but gives all nonstandard ingredients in its support PDE; significance/value judged separately.",
+    "No nonlinear shape-rate theorem follows from the local spectrum, and l=1 harmonics geometrically correspond to translations.",
+    "Public-facing metadata retains operational provenance; failed package and protected verification channels are preserved, so publication relocation is withheld until confidentiality-safe treatment is possible."
+  ],
+  "schema_version": 1
+}

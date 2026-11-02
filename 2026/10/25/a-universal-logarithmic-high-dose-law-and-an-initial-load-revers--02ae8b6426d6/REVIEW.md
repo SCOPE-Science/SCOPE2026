@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact variation-of-constants representation gives the dose-zero Fréchet derivative, including the positive quantities \(P\) and \(Q\). The Gaussian boundary-layer lemma is proved by a dominated-convergence change of variables, not extrapolation from finite samples. Upper and lower comparisons near time zero yield matching coefficient \(1/2\) after the small-time cutoff is sent to zero; the remaining time interval is uniformly bounded. Continuous dependence and a negative initial slope versus an unbounded high-dose response force a positive-input global minimum. The finite independent RK4 program reproduces the explicit witness slope. No statement of unique minimizers or global characterization is inferred from it.
+## correctness
 
-## Originality — PASS under inspected evidence
-The main direct source is Wafi–de Oliveira–Sontag, arXiv:2604.01573, Table 2 model 5, §4.1, Appendix B Proposition B.5 and §5; its monotonicity theorem fixes the initial output at the adapted equilibrium \(y_0=1\). The same restriction occurs in Gupta–Sontag (2025), §1.8 and §2. The source's IFFM1 numerical experiment also keeps the output pre-adapted while varying the intermediate initial state. Neither result implies monotonicity at arbitrary output preloads; conversely, neither source supplies the sharp zero-dose preload threshold or universal logarithmic high-dose response. Actual semantic searches of published research records for both these conclusions found no covering claim. The remaining risks include uncatalogued special-case calculations and wider singular-perturbation or feedforward-system theory.
+PASS
 
-## Mathematical value — PASS
-The question isolates whether an established experimentally motivated monotonic cumulative-dose guarantee survives imperfect initial preparation. It fails on an explicitly characterized open preload range, where nonmonotone response is inevitable. The universal \(rac12\log u\) scaling explains why a high-dose rebound must occur irrespective of initial load and provides a quantitative boundary-layer mechanism. This is stronger than a single numerical exception and delimits the meaningful scope of a published monotonicity phenomenon.
+For xdot=-x+u, ydot=u-xy with u≥0, x0,y0≥0 fixed and finite T, variation-of-constants gives x(t)=x0e^-t+u(1-e^-t) and exact y integral. Differentiate at u=0 to obtain C_u(0+,T)=P(T,x0)-y0Q(T,x0), with P,Q strictly positive, and verify x0=0,T=3,y0=2 gives -1/2+2e^-3<0. Near t=0, 1-e^-t is squeezed between c_delta t and t; Gaussian model u∫0^t exp[-a u(t²-s²)/2]ds has integrated asymptotic (log u)/(2a) from zH(z)→1. Bounds and O(1) contribution away from zero imply C(u,T)/log u→1/2, independently of initial loads. Negative onset and divergence imply at least one interior positive-input global minimum. Claims neither uniqueness nor a finite-dose expansion.
 
-## Limits
-Local small-input slope threshold, rather than exact global nonmonotonicity frontier; only the scalar normalized motif is covered. The result does not establish an error term in the large-dose limit or uniqueness of minima. Prior source inspection and indexed searches do not constitute independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same scalar IFFM1/IFFL1 ODE is studied by Wafi–de Oliveira–Sontag 2026 and Gupta–Sontag 2025, but their monotone cumulative-dose results impose an adapted initial output y0=1. Candidate allows arbitrary independent output preload; large preloads violate onset monotonicity, and boundary-layer coefficient 1/2 is not stated by inspected antecedents. No exact equivalent indexed Resultary claim, though singular perturbation folklore is an explicit risk.
+
+## value
+
+PASS
+
+Identifies mathematically sharp initial-slope threshold for the same experimentally motivated adaptation motif and proves a robust open family of nonmonotone dose responses without contradicting the original preadapted monotonicity theorem; high-dose 1/2 log law supplies rebound mechanism. A meaningful boundary of a published qualitative guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

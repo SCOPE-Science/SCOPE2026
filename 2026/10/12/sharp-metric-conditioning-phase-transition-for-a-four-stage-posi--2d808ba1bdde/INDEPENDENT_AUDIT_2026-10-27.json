@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T06:15:01Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Git RESULT.md Step 1–5 fully reconstructed; 4×4 tridiagonal characteristic polynomial and strict Perron monotonicity; AM–GM equality profile.",
+        "Independent Sympy derivative identity and exact generalized Lyapunov characteristic polynomial; /mnt/data/scope_worker10_20261027_0604_independent_conditioning.py.",
+        "Independent differential-evolution tests for K=1,1.01,1.2,1.5,2,2.1,3,5,16,100 corroborated but did not prove the universal minimizer."
+      ],
+      "rationale": "Reconstructed the minimization for all γ,w>0 and K≥1. With q_i=p_i/p_{i+1}, the weighted symmetric part is -γI+(w/2)T where T is a 4-path with squared off-diagonal weights q_i. Perron strict monotonicity forces p1=min p=1 and p4=max p=K at K>1; for fixed s=p3/p2 the product q1q3=s/K and q2=1/s are fixed. Characteristic polynomial λ⁴−(q1+q2+q3)λ²+q1q3 makes minimizing λ equivalent to minimizing q1+q3 at fixed product; AM–GM forces q1=q3=√(s/K), achievable by p2=√(K/s), p3=√(Ks). Put r=q1=q3 in [1/K,1], q2=1/(Kr²). The Perron root is L=(1/(√K r)+√(1/(Kr²)+4r))/2. Symbolic differentiation independently confirmed sign(L′)=sign(2Kr³−1−√(4Kr³+1)), negative until Kr³=2, positive afterward. Thus r*=1 for K≤2, and (2/K)^{1/3} for K≥2, unique, yielding exactly both branches R(K) and P*(K). Standard logarithmic norm derivative at t=0 proves semigroup nonexpansion iff μ≤0; monotonic inversion yields Kcrit in all c regimes including boundaries c=1/√2 and c=(1+√5)/4. The exact rational certificate was independently verified as det(xP−(G^TP+PG))=256x(x+1)(x+3)(x+4), with G=-I+2N and P=diag(1,2,8,16). No finite scan is treated as all-K proof.",
+      "scope": "Exactly all real γ,w>0, K≥1, positive diagonal P; only induced weighted Euclidean operator-norm nonexpansion. No general matrices, nonuniform weights, nondiagonal metrics, or ordinary Euclidean no-growth conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mason & Shorten, https://mural.maynoothuniversity.ie/id/eprint/1886/1/HamiltonSimultaneous.pdf, Theorem 4.2 and Section 5: diagonal common Lyapunov existence using A1+DA2D nonsingularity; no quantitative metric condition-number optimization in the inspected primary text.",
+          "Mason, https://mural.maynoothuniversity.ie/id/eprint/3751/1/OM_DIAGRICC_HAM.pdf, Theorem 3.1: A+B Hurwitz iff a diagonal solution to positive-delay Riccati inequality exists; unlike fixed-K logarithmic-norm optimization.",
+          "Bhatia, Kahan, Li, DOI 10.1080/03081080290011674: abstract inequality ||D^{-1}UD||≥||U|| for monotone diagonal scales of triangular U; not the sharp constrained minimizer statement.",
+          "Kaszkurewicz & Bhaya, DOI 10.1137/0614036, publisher abstract: robust stability criteria and diagonal Liapunov functions, body inaccessible."
+        ],
+        "reasoning": "Existence of some diagonal stability certificate does not logically imply its optimal κ(P), uniqueness or a phase change under a finite κ budget. The triangular pinching theorem compares an unscaled matrix norm to specific scaled ones; it does not state the required K-dependent Perron optimization. Access-limited broad antecedents remain explicitly risky rather than being declared globally noncovering.",
+        "searches": [
+          "positive systems diagonal Lyapunov condition number minimization logarithmic norm Jordan cascade optimal scaling",
+          "On the simultaneous diagonal stability of a pair of positive linear systems Mason Shorten Theorem 4.2",
+          "Diagonal Riccati Stability and Positive Time-Delay Systems Mason Theorem 3.1",
+          "Robust Stability and Diagonal Liapunov Functions Kaszkurewicz Bhaya 1993",
+          "Pinchings and Norms of Scaled Triangular Matrices Bhatia Kahan Li full pdf 2002"
+        ]
+      },
+      "checked_sources": [
+        "https://mural.maynoothuniversity.ie/id/eprint/1886/1/HamiltonSimultaneous.pdf",
+        "https://mural.maynoothuniversity.ie/id/eprint/3751/1/OM_DIAGRICC_HAM.pdf",
+        "https://www.tandfonline.com/doi/abs/10.1080/03081080290011674",
+        "https://epubs.siam.org/doi/abs/10.1137/0614036",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab/RESULT.md",
+        "Resultary:2026/9/9/SCOPE008",
+        "Resultary:2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted RESULT.md Step 2 requires for every diagonal P with κ(P)≤K a lower bound via balancing outer squared path edges q1q3=s/K and the AM–GM equality q1=q3.",
+          "Mason–Shorten Theorem 4.2 has a pair-of-systems existence conclusion and does not bound κ(P) or the logarithmic-norm optimum for any single prescribed Jordan generator.",
+          "Bhatia–Kahan–Li abstract compares matrix norms under monotone D, with no result determining the nongeometric optimizer p2=(K/2)^{1/3}, p3=(2K²)^{1/3} or transition K=2.",
+          "SCOPE weighted-shift allocation problem optimizes different (periodic infinite shift) weights subject to s+t=c, so its sharp transition is not an implication for a 4-stage metric under max p/min p≤K."
+        ],
+        "reasoning": "The conclusion needs a universal constrained minimax law and unique optimizer, not just existence, a monotonic norm bound, or an unrelated spectral phase. No inspected cited primary result implies these parameter-dependent assertions. The possibility of an uninspected general conditioned scaling theorem is a real residual risk.",
+        "searches": [
+          "doi:10.1016/j.laa.2005.07.019 Theorem 4.2",
+          "doi:10.1016/j.sysconle.2011.09.022 Theorem 3.1",
+          "doi:10.1080/03081080290011674 author full text and abstract",
+          "Resultary 2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/9/9/SCOPE008: finite-horizon unweighted Jordan transient norms on larger blocks, not optimization over diagonal metric condition budgets.",
+          "Resultary 2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab: numerical radius of a compact infinite shift optimized under s+t=c, a distinct allocation constraint; its full RESULT.md was inspected.",
+          "Mason–Shorten, LAA 413 (2006), Theorem 4.2: common diagonal quadratic Lyapunov existence; different quantifier and objective."
+        ],
+        "reasoning": "Equivalent formulations would minimize the Euclidean numerical abscissa of DGD^{-1} for the 4×4 Jordan cascade with κ(D)^2≤K, or characterize the smallest κ(P) permitting G^TP+PG≤0. The relevant published shift-budget and Jordan-peak statements do not provide either all-budget formula or metric equality conditions. Nonhits were not used as proof of originality.",
+        "searches": [
+          "Four-stage Metzler Jordan cascade optimal diagonal Lyapunov matrix condition-number budget K weighted logarithmic norm spectral abscissa phase transition",
+          "Tridiagonal weighted path four vertices minimizing Perron root under product/condition number constraints diagonal symmetrization",
+          "Positive linear systems optimally conditioned diagonal Lyapunov functions metric scaling logarithmic norm sharp contraction bounds",
+          "diagonal similarity constrained condition number optimizing logarithmic norm weighted Jordan block 4 by 4",
+          "\"diagonal Lyapunov\" \"conditioning\" \"positive systems\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The new claim is an all-real-K exact optimization with unique equality metric and a piecewise threshold, not a finite tabulation.",
+          "Existing Jordan peak record 2026/9/9/SCOPE008 gives certified finite-horizon interval values, which do not tabulate conditioned diagonal optimizers.",
+          "The rational K=16 example is an exact boundary witness, independently reproduced via det(xP-(G^TP+PG))=256x(x+1)(x+3)(x+4); a matching single witness would not establish the full continuous classification."
+        ],
+        "reasoning": "Database and exact-expression searches located related spectral results but no equivalent precomputed profile; failed searches are limited priority evidence. A known generic algorithm for finite instances would not, without a dominating theorem, imply this closed-form K phase and optimal profile.",
+        "searches": [
+          "four stage Metzler Jordan diagonal norm K=2 phase transition",
+          "Jordan block diagonal Lyapunov conditioning Kcrit 16",
+          "positive Jordan cascade 1/(4 c^6) Lyapunov condition number",
+          "Resultary semantic query: Tridiagonal weighted path four vertices minimizing Perron root under product/condition number constraints diagonal symmetrization"
+        ]
+      },
+      "rationale": "Best-of-knowledge original constrained spectral optimization: Mason–Shorten (2006) Theorem 4.2 characterizes existence of a common diagonal quadratic Lyapunov function for two Hurwitz Metzler matrices via a matrix-pencil condition; it neither imposes a finite condition budget nor identifies an optimal diagonal metric. Mason (2012) Theorem 3.1 concerns diagonal Riccati solution existence for positive delay systems. Bhatia–Kahan–Li (2002), in its accessible full abstract, compares norms of scaled triangular matrices under monotone diagonal similarities, but that published assertion does not imply the minimax weighted symmetric-part eigenvalue or the exact K=2 phase. Published related SCOPE weighted-shift and Jordan results concern distinct norm objectives. No inspected complete primary text yielded the sharp K-dependent profile, inverse-sixth-power threshold, or the all-diagonal-metrics necessity. An older differently parameterized general optimization theorem could still cover the claim; see residual risks.",
+      "residual_risks": [
+        "The seven-page complete Bhatia–Kahan–Li article was not read; its author-uploaded PDF route returned 429 and authorized institutional retrieval returned a worker error. It may contain additional results beyond the abstract.",
+        "Full text of Kaszkurewicz–Bhaya 1993 robust-diagonal paper was not accessible; whole-document noncoverage is not asserted.",
+        "An earlier general constrained diagonal similarity or matrix balancing theorem may imply the exact K phase under another formulation.",
+        "Only the diagonal-metric four-state uniform positive chain is covered: no claims for nonuniform or larger matrices or unrestricted positive metrics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING: common diagonal quadratic Lyapunov existence for two positive systems; no fixed metric condition budget or exact Jordan optimal equality profile.",
+          "evidence": "Theorem 4.2 iff A1+DA2D nonsingular for every diagonal D>0; applications Theorem 5.1 and Corollary 5.1 concern existence, not κ(P) extremization.",
+          "identifier_or_url": "doi:10.1016/j.laa.2005.07.019; https://mural.maynoothuniversity.ie/id/eprint/1886/1/HamiltonSimultaneous.pdf",
+          "material_read": "Primary 11-page author manuscript: introduction and preliminaries, Sections 3–6 including Theorem 4.2, its proof, applications and conclusion; PDF pages 1 and 8 visually inspected.",
+          "method": "Open-access full PDF, textual theorem/proof reading, two rendered page checks.",
+          "title": "On the simultaneous diagonal stability of a pair of positive linear systems",
+          "trigger": "Closely relevant primary diagonal Lyapunov study for Metzler systems."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: existence of Riccati solutions for positive time-delay systems rather than best conditioned metric for a four-state ODE.",
+          "evidence": "Theorem 3.1 characterizes diagonal solutions of A^TD+DA+Q+DBQ^{-1}B^TD<0 by the Hurwitz property of A+B.",
+          "identifier_or_url": "doi:10.1016/j.sysconle.2011.09.022; https://mural.maynoothuniversity.ie/id/eprint/3751/1/OM_DIAGRICC_HAM.pdf",
+          "material_read": "Primary 11-page manuscript: statement and proof of Theorem 3.1, Lemmas 3.1–3.3, Section 4 consequences and conclusion; PDF pages 1 and 4 visually inspected.",
+          "method": "Lawful OA repository PDF, text and visual page inspection.",
+          "title": "Diagonal Riccati Stability and Positive Time-Delay Systems",
+          "trigger": "General diagonal Lyapunov/Riccati result for positive dynamical systems."
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_PLAUSIBLE_RISK: published monotone-similarity norm inequality is mathematically distinct from exact condition-budget numerical abscissa minimization; cannot exclude additional full-body implications.",
+          "evidence": "Abstract: ||D^{-1}UD||≥||U|| for upper triangular U and nondecreasing |D_ii|, for matrix norms reduced by pinching.",
+          "identifier_or_url": "doi:10.1080/03081080290011674; https://www.researchgate.net/publication/2436793_Pinchings_and_Norms_of_Scaled_Triangular_Matrices",
+          "material_read": "Author-uploaded preprint listing, article abstract and bibliographic metadata; complete PDF download was rate-limited (429), full text not read.",
+          "method": "Publisher abstract and OA/full-text search, author-upload attempt, then authorized institutional retrieval attempt (service error).",
+          "title": "Pinchings and Norms of Scaled Triangular Matrices",
+          "trigger": "Strong plausible diagonal-similarity norm antecedent on triangular matrices."
+        },
+        {
+          "assessment": "PLAUSIBLE_ACCESS_LIMIT: abstract concerns robust stability bounds, not explicitly the sharp K-parametric 4-stage optimizer; no full-body exclusion.",
+          "evidence": "Abstract identifies diagonal Liapunov functions for robust stability and a class of perturbations; it does not display conditioned metric optima.",
+          "identifier_or_url": "doi:10.1137/0614036; https://epubs.siam.org/doi/abs/10.1137/0614036",
+          "material_read": "Publisher primary abstract, MSC 93D09 and publication information; full article not accessed.",
+          "method": "Published journal abstract and bibliographic search.",
+          "title": "Robust Stability and Diagonal Liapunov Functions",
+          "trigger": "Early primary diagonal robust Lyapunov paper, possible broad generalization."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: compact unilateral geometric shift numerical radius with s+t=c, not 4×4 positive Jordan metric under κ(P)≤K.",
+          "evidence": "Its c_*(q)=q^{-3}sqrt((1-q^4)(1-q^8)) and s+t=c allocation do not imply the submitted K=2 transition or sixth-power metric frontier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab/RESULT.md",
+          "material_read": "Entire RESULT.md finding, definitions, proof of Jacobi reduction and threshold, optimizer and asymptotics, limits/references.",
+          "method": "Repository primary scientific source inspected, comparison of exact equations and constraint.",
+          "title": "Exact allocation transition for a geometric four-periodic weighted shift",
+          "trigger": "Highest-ranked relevant published mathematical finding involving a four-site path and sharp numerical-radius allocation phase."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The spectral condition number κ(P) measures the distortion cost of a positive diagonal quadratic Lyapunov metric. Determining the least cost for a stable positive cascade to be nonexpansive is a natural finite-dimensional control/spectral optimization, not merely restating Hurwitz stability or a cheap negative test. Four stages are the first chain with interacting outer and central link allocations. The exact K=2 phase switch between two plateaus and unique nongeometric graded weights, the exact Kcrit(c) for all damping ratios, and sixth-power divergence as γ/w→0 quantify a nontrivial tradeoff; the exact rational threshold K=16 is a motivated sharp boundary. It is narrow but offers an independently useful all-parameter structural classification and witness. The conclusion is about optimal weighted log norm, not a claim about exact Euclidean transient maxima.",
+      "risks": [
+        "Specialized 4-stage uniform-rate model and diagonal metric class.",
+        "Known unconstrained diagonal stability is not new; value resides in the exact constrained phase/profile and threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://mural.maynoothuniversity.ie/id/eprint/1886/1/HamiltonSimultaneous.pdf",
+    "https://mural.maynoothuniversity.ie/id/eprint/3751/1/OM_DIAGRICC_HAM.pdf",
+    "https://www.tandfonline.com/doi/abs/10.1080/03081080290011674",
+    "https://epubs.siam.org/doi/abs/10.1137/0614036",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab/RESULT.md",
+    "Resultary:2026/9/9/SCOPE008",
+    "Resultary:2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No nondiagonal P or larger chain conclusion; all statements concern the exact specified positive cascade.",
+    "The weighted log norm is an instantaneous growth certificate, not an exact Euclidean transient peak.",
+    "Bhatia–Kahan–Li complete article not read after author-upload PDF 429 and authorized retrieval service error; no unsupported global exclusion.",
+    "Publication not_ready owing existing public operational identifiers and unsupported inherited first_public_date; no guarded public replacement operations.",
+    "The sequence cursor was recovered by server catalogue after strict old checkpoint evidence was not accepted; fresh signed checkpoint is preserved unchanged and is not scientific certification."
+  ],
+  "schema_version": 1
+}

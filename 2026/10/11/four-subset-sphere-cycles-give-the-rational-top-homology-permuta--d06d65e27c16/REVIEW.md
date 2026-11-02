@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The induced subcomplex on the six graph edges of each four-set is exactly the boundary of a five-simplex. Four-color maps preserve the covering-number-two property, act on each boundary by degree one for a rainbow four-set and zero otherwise, and Fourier averaging isolates the coefficient of any chosen four-set. Thus the cycles are rationally independent. Jonsson's published Theorem 7.1 supplies the matching dimension, and orientation parity of the six graph edges gives the permutation action. The argument is uniform in the full stated range. Finite exact tests corroborate the proof but are not substituted for it.
+## correctness
 
-**Originality — PASS, with a specific access risk.** The exact fourth Betti number and degree concentration are already established by Jonsson (2005) and are not claimed as discoveries. Biswas (2026) formulates a nonequivariant homotopy conjecture and records small cases. Neither inspected statement gives a rational geometric four-set basis or the full permutation character. Search comparisons included the equivalent covering-complex and Čech formulations, stronger homology-rank coverage, and indexed mathematical findings. The full Jonsson author copy could not be examined page-by-page, so a hidden equivariant assertion remains a residual literature risk; the accessible theorem excerpt gives ranks, not this representation.
+PASS
 
-**Value — PASS.** Complete symmetry information for an infinite class of natural covering complexes is not recoverable from the already-known Betti numbers. The proof provides explicit geometric classes, coloring tests that separate them, a closed cycle-index character, and the corresponding rational quotient invariant. These are structural features of the exact family raised in the recent Čech-complex work, not arbitrary parameter slices.
+For every m>=4 the six graph edges supported on a four-set form the boundary of a 5-simplex, since K4 requires three cover vertices but deletion of any edge leaves a two-cover. Each four-color map takes graph-edge vertices to graph-edge vertices while preserving every two-cover via the witness colors, including equal-color edges. A rainbow four-set maps all six edges bijectively with even orientation parity; a nonrainbow four-set maps at most four distinct image vertices and its H4 cycle vanishes. Complex fourth-root Fourier weighting over the four colors annihilates all T≠U and isolates -24·4^(m−4) times coefficient of z_U; hence the C(m,4) cycle classes are rationally independent for all m. Jonsson Theorem 7.1 supplies the exact H4 rank and proves they span. Every vertex relabeling induces an even permutation on each six-edge tetrahedral fiber, so g(z_T)=z_{gT} and the trace counts invariant four-subsets. Rational invariants of this finite Sn action equal H4 of the quotient after barycentric subdivision. No finite check replaces this universal chain/character argument.
 
-The result does not prove the known homotopy conjecture or an integral basis. An equivalent unindexed character calculation remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality. Jonsson already gives complete integral homology dimensions and the cited Čech paper describes the same complex; neither inspected source statement determines the top Sn-character. The audited theorem adds explicit geometrically supported rational generators, a nontrivial Fourier independence proof, unsigned permutation action and closed cycle-index trace. The closest Resultary listing was a self-match. Highly relevant primary full texts were not accessible and priority risks are explicit, but no decisive stronger covering theorem or contradictory implication was found.
+
+## value
+
+PASS
+
+The covering-number-two graph complex is a canonical family with a complete known integral Betti-rank theorem and a recent related Čech homotopy conjecture. Its full Sn-action is a mathematically natural structural invariant not determined by Betti numbers. The theorem supplies an all-m explicit geometric basis, an independent coloring/Fourier detection method, a closed character on every conjugacy class, and one-dimensional quotient rational H4. It is not simply a known rank recomputation or arbitrary finite slice; it does not purport to prove the wedge conjecture or integral-basis theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:17:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For α=2m, the real Hilbert–Schmidt pairing of rank-one Hermitian projectors P_u=uu* equals |<u,v>_F|^2, for F=R,C,H. Tensor power X_u=P_u^{⊗m} is injective on distinct projective lines, so exp(κ<X_u,X_v>) is the Euclidean Gaussian kernel times e^κ and is strictly positive definite on distinct finite sites. For every α>0 not even, restrict to embedded real projective line parameter t∈R/πZ, where kernel is e^{κ|cos(t-s)|^α}. Unique cusp at t=π/2 has local expansion 1+κ|t-π/2|^α+O_symbol(|t-π/2|^{α+min(α,2)}); Fourier asymptotic is (-1)^{n+1} κΓ(α+1)sin(πα/2)/(π2^α)n^{-α-1}+o(n^{-α-1}). Nonzero alternating leading sign forces infinitely many negative Fourier coefficients and rules out PSD by the compact abelian group positivity criterion. Independent finite Fourier integration found negative modes at α=1,3 and nonnegative α=2; this corroborates rather than proves all α,κ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spherical zonal Gegenbauer characterization and geodesic negative-type results address larger kernel categories but do not directly calculate the projective powered-affinity cusp tail."
+        ],
+        "reasoning": "General harmonic criteria are tools rather than a theorem that explicitly fixes this family at all positive concentrations.",
+        "searches": [
+          "projective absolute inner product exponentiated power kernel exp(kappa |inner product|^alpha) positive definite even integer Fourier coefficients",
+          "arXiv:1111.7077 Gneiting strict positive definite spheres",
+          "arXiv:1411.0296 geodesic exponential kernels"
+        ]
+      },
+      "checked_sources": [
+        "https://www.ryanmatzke.com/pdfs/Ryan%20William%20Matzke%20Dissertation.pdf",
+        "https://arxiv.org/abs/1111.7077",
+        "https://arxiv.org/abs/1411.0296"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exponential contains all (κ^j/j!) |cos t|^{jα} terms; negative coefficients of first summand alone do not force the total to be negative at fixed κ."
+        ],
+        "reasoning": "Candidate local singularity has leading |x|^α and every higher term smoother by min(α,2)>0; asymptotic dominance establishes infinitely many negatives for the exponentiated sum. That non-cancellation argument is new relative to inspected pure-power lemma.",
+        "searches": [
+          "projective absolute inner product exponentiated power kernel exp(kappa |inner product|^alpha) positive definite even integer Fourier coefficients",
+          "Matzke 2021 §6.2 Lemma 6.2.2 pure power Fourier signs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An embedded RP^1 is a circle group modulo π, so PSD restriction is equivalent to nonnegative every Fourier coefficient; near t=π/2 an interior cusp controls coefficient signs."
+        ],
+        "reasoning": "Compared harmonic coefficient tests, negative-type/Gaussian feature map equivalents, and pure-power antecedent, not only exact exponential wording.",
+        "searches": [
+          "projective absolute inner product exponentiated power kernel exp(kappa |inner product|^alpha) positive definite even integer Fourier coefficients",
+          "Matzke projective power Fourier signs Lemma 6.2.2",
+          "Schoenberg positive definite projective exponential affinity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query found related Fourier/geometric results, no source stating projective exp(κ overlap^α) exact all-κ table."
+        ],
+        "reasoning": "No known database entry directly covered the alternating Fourier coefficient formula; search absence is not priority proof.",
+        "searches": [
+          "projective absolute inner product exponentiated power kernel exp(kappa |inner product|^alpha) positive definite even integer Fourier coefficients",
+          "Resultary exponentiated projective inner product covariance even exponents"
+        ]
+      },
+      "rationale": "Matzke (2021) explicitly computes Fourier signs of pure projective powers and is credited for the structural obstruction, but unexponentiated coefficient signs cannot logically rule out a positive infinite exponential series at all κ. The local cusp dominant term prevents cancellation for any κ and yields the exact exponent dichotomy simultaneously for R,C,H; no equivalent full exponentiated classification identified. Best-of-knowledge with general negative-type harmonic theorem priority risk.",
+      "residual_risks": [
+        "A stronger general conditional-negative-type or generalized Schoenberg classification might imply the same projective exponent dichotomy under another representation.",
+        "Some original Gneiting and Feragen discussions were inspected only in relevant parts; no unsupported whole-document noncoverage assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_SUBSUMING: pure power Fourier sign alternating away from even p, but not exponentiated all-κ PSD theorem",
+          "evidence": "Lemma 6.2.2 supplies harmonic coefficients/signs for |<u,v>|^p, not exp(κ |<u,v>|^α).",
+          "identifier_or_url": "https://www.ryanmatzke.com/pdfs/Ryan%20William%20Matzke%20Dissertation.pdf",
+          "material_read": "Original dissertation mathematical chapter §6.2 and Lemma 6.2.2 on unexponentiated |<u,v>|^p Fourier signs, including PDF page 157",
+          "method": "opened and visually inspected actual PDF chapter/lemma",
+          "title": "Problems with a lot of Potential: Energy Optimization on Compact Spaces",
+          "trigger": "same projective inner product power Fourier coefficients"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND: positive definiteness on spheres; does not state projective exponential powered-affinity dichotomy in inspected relevant sections",
+          "evidence": "Gneiting provides zonal spherical framework, distinct projective cusp exponentiation theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "Original PDF introduction and portions describing spherical Gegenbauer/Hilbert harmonic criteria",
+          "method": "read and visually inspected PDF including theorem context",
+          "title": "Strictly and Non-Strictly Positive Definite Functions on Spheres",
+          "trigger": "general harmonic positive-definiteness classification on spheres"
+        },
+        {
+          "assessment": "DISTINCT_OBJECTIVE: geodesic-distance exponentials and negative-type metrics, rather than projective absolute inner-product powers",
+          "evidence": "Source addresses exp of geodesic distances on curved manifolds, not the present |<u,v>|^α affinity.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+          "material_read": "Accessible bibliographic summary and introduction snippets, not complete full paper",
+          "method": "abstract-level comparison only",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "related exponentiated kernels on manifolds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exponentiated absolute projective inner-product affinity is a natural orientation-invariant covariance kernel. Exact concentration-independent all-dimensional PSD classification distinguishes legal Gaussian feature constructions from kernels with infinitely many negative Fourier modes. This answers a structural kernel-design question, not an isolated numerical parameter check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.ryanmatzke.com/pdfs/Ryan%20William%20Matzke%20Dissertation.pdf",
+    "https://arxiv.org/abs/1111.7077",
+    "https://arxiv.org/abs/1411.0296"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only strictly positive κ, α>0, finite d>=2, scalar fields R,C,H; no general inner-product profile or negative κ.",
+    "A stronger general conditional-negative-type or generalized Schoenberg classification might imply the same projective exponent dichotomy under another representation.",
+    "Some original Gneiting and Feragen discussions were inspected only in relevant parts; no unsupported whole-document noncoverage assertion is made."
+  ],
+  "schema_version": 1
+}

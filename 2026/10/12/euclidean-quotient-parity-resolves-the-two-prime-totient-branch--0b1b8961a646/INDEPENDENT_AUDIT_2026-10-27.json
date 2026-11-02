@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T02:16:46Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Reconstructed both the GL2(F2) permutation-sign lemma and the normalization of the positive modular inverse without relying on saved logs.",
+        "Verified the intersection-sign deduction against Renshaw 2026 original PDF Lemma 4 and Corollary 6 (rendered relevant pages).",
+        "Independent separate Python arithmetic verification: 55,626 coprime odd pairs with p<503 and q<803, and 447 direct two-prime prime-power T(n) values through n=50,000; all matched.",
+        "Source tree recomputed from eight actual frozen Git blob identities to the exact assigned tree SHA."
+      ],
+      "limitations": [
+        "Finite independent verification is only corroborative; the all-parameter claim rests on the algebraic matrix argument and source inclusion-exclusion.",
+        "The result assumes q>p>1 odd and coprime, standard Euclidean quotient conventions, and n=p^e q^f for the T(n) conclusion; it makes no many-prime or even-n assertion.",
+        "The signed continuation is sequence evidence only, not a scientific certificate."
+      ],
+      "rationale": "For q>p>1 coprime odd, the canonical continued-fraction product M(c_0)...M(c_m) has first column (q,p) and second (u,v) with pu-qv=(-1)^m. Its penultimate convergent produces the positive solution a=u for even m, a=q-u for odd m, hence a≡u+m (mod 2). Mod 2, an even quotient gives a transposition and an odd quotient a 3-cycle in GL2(F2)≅S3; the final first column (1,1) shows u≡1+#even_quotients. Therefore a≡#odd_quotients≡Σc_i (mod2). Since ap-bq=1 and p,q odd, a,b have opposite parity. Renshaw Lemma 4 gives each cross intersection (h±1)/2, with h=n/(pq) odd; his two-prime inclusion-exclusion then yields T=(S-1+2δ)/2 where δ=+1 iff a odd, giving exactly (S+1)/2 for odd quotient sum and (S-3)/2 otherwise. All exponents e,f≥1 are included because only h changes, not its parity or the sign criterion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Xu 2023 Theorem 3.1 supplies state/convergent matrices for arbitrary coprime inputs, a general method but no parity-sum theorem.",
+          "Lägeler 2024 Lemma 2.4 concerns Γ^0(2)-type fractions whose even-indexed quotients are even, unlike arbitrary regular q/p.",
+          "Renshaw Corollary 6 predates the submitted selector and supplies only two candidate values."
+        ],
+        "reasoning": "Standard continued fractions and GL2(F2) reduction make a short new deduction feasible, but a general method does not without stated or demonstrated implication supply this specific odd-pair inverse parity and its exact two-prime T(n) selector. The nonstandard even-index hypothesis of the strongest related parity lemma prevents direct specialization to arbitrary canonical q/p.",
+        "searches": [
+          "arXiv:2310.09103v2",
+          "arXiv:2203.09834v1; DOI:10.1007/s12188-024-00283-3",
+          "continued fraction modular inverse parity least positive bezout coefficients Euclidean quotients sum",
+          "parity of sum of partial quotients finite regular continued fraction and numerator of penultimate convergent for odd numerator denominator"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.13939v1",
+        "arXiv:2310.09103v2",
+        "arXiv:2203.09834v1; DOI:10.1007/s12188-024-00283-3",
+        "Resultary mathematical-search hits for the three recorded semantic queries (closest hits were other parity/totient topics, not mathematical coverage)",
+        "Published repository code search for Renshaw and Euclidean quotient parity: no direct indexed match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renshaw Lemma 4 and Corollary 6 give (S-3)/2 or (S+1)/2 but leave the sign undetermined by the given formulas; final paragraph explicitly asks the coefficient-parity question.",
+          "The sum-of-quotients parity law is derived from permutation sign in GL2(F2) after fixing the first column (q,p)=(1,1) modulo 2; this is an additional concrete implication step.",
+          "Wu–Xu’s convergent-state matrices and Lägeler’s parity lemma are related general facts, but no read theorem independently determines δ(a) for every standard odd q/p."
+        ],
+        "reasoning": "If Renshaw already determined the coefficient parity, its Corollary would immediately fix one of the two values; the inspected Corollary does not. The proposed finite quotient selector closes precisely this gap. Established general matrix identities do imply algorithmic calculation of a, and hence of its parity after calculation, but none of the inspected stated results directly imply the candidate compact parity invariant without the additional permutation-action argument.",
+        "searches": [
+          "arXiv:2603.13939v1",
+          "arXiv:2310.09103v2",
+          "arXiv:2203.09834v1; DOI:10.1007/s12188-024-00283-3",
+          "Parity of modular inverse for coprime odd p q, least positive Bezout a p-b q=1 equals sum of Euclidean continued fraction quotients modulo two",
+          "James Renshaw 2026 totient function associated with variants of groups T(p^e q^f) two branches (S+1)/2 (S-3)/2 parity criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Renshaw PDF final question specifically asks parity of the least positive solution ap-bq=1.",
+          "The candidate is equivalent to parity of the canonical modular inverse p^{-1} mod q and to parity of the upper-right entry of the penultimate convergent matrix with a length correction.",
+          "Wu–Xu Theorem 3.1 gives general convergent-state entries but lacks the modulo-2 quotient sum identity in the material read."
+        ],
+        "reasoning": "The least-positive inverse, Bézout coefficients and penultimate convergent are exactly the same arithmetic object after reducing a modulo q; the claim is not rescued merely by renaming. The inspected papers do not identify the specific parity of that object with the full sum of ordinary Euclidean quotients for all coprime odd pairs.",
+        "searches": [
+          "Parity of modular inverse for coprime odd p q, least positive Bezout a p-b q=1 equals sum of Euclidean continued fraction quotients modulo two",
+          "parity of sum of partial quotients finite regular continued fraction and numerator of penultimate convergent for odd numerator denominator",
+          "\"sum of quotients\" \"modular inverse\" parity Euclidean algorithm odd",
+          "\"sum of partial quotients\" \"inverse\" parity odd rational",
+          "arXiv:2603.13939v1",
+          "arXiv:2310.09103v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source exact Corollary 6 records the unordered set of two T values, not a table indexed by canonical quotient-parity.",
+          "Targeted OEIS/index search results did not identify an all-parameter table or formula equal to this selector; finite packaged data are not prior literature."
+        ],
+        "reasoning": "This is an infinite parameter identity, not an isolated numerical lookup. Existing source table-like two-branch output lacks a criterion assigning a branch to any given pair. No exact covering database/table was identified; this negative search remains limited.",
+        "searches": [
+          "site:oeis.org \"sum of quotients\" \"modular inverse\" parity",
+          "site:oeis.org \"parity of the sum of partial quotients\"",
+          "\"Renshaw\" \"totient\" \"parity\" \"Euclidean\" 2026",
+          "James Renshaw 2026 totient function associated with variants of groups T(p^e q^f) two branches (S+1)/2 (S-3)/2 parity criterion"
+        ]
+      },
+      "rationale": "A best-of-knowledge qualified PASS: the direct parent source (Renshaw, 2026) explicitly leaves both the least-positive Bézout coefficient parity and the two-prime-power T(n) branch unselected. The obtained parity formula is an actual new closed selector from canonical Euclidean quotients, rather than a numerical table. Wu–Xu’s general Qin-state/continued-fraction identity and Lägeler’s distinct restricted continued-fraction parity theorem provide antecedent machinery but do not state or directly specialize to this precise selector. Search misses alone are not novelty proof; an older unindexed classical equivalent remains a genuine risk.",
+      "residual_risks": [
+        "An older or unindexed elementary continued-fraction/modular-inverse identity could express the same parity criterion; exhaustive priority is not proved.",
+        "The mathematical reduction to a GL2(F2) sign is short and uses classical facts, which bounds the distinctness of the method; the originality decision concerns the precise selector answering a documented open question.",
+        "Search-engine and semantic-index non-detection cannot exclude equivalent formulas under Dedekind/Hardy-sum or modular-group terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary premises and exact two-choice formula confirmed; checked portions explicitly leave quotient-dependent selector unproved.",
+          "evidence": "Lemma 4 states |B_p intersection C_q|=(n±pq)/(2pq) for odd coprime divisors; Corollary 6 yields only (S-3)/2 or (S+1)/2 and says selection is not obvious; the final problem asks which of a,b is even for ap-bq=1.",
+          "identifier_or_url": "arXiv:2603.13939v1; https://arxiv.org/pdf/2603.13939",
+          "material_read": "Original 17-page arXiv PDF: definition of T, Lemma 4 and its proof on PDF page 5, Theorem 3 inclusion-exclusion on pages 5-7, Corollary 6 and its proof on page 7, and final open problem on page 16; rendered screenshots of all these pivotal pages.",
+          "method": "Full PDF text retrieval and targeted theorem/proof reading, independently checked rendered page screenshots (source p.5-7,16).",
+          "title": "A Totient Function Associated with Variants of Groups",
+          "trigger": "Same new totient T and exact explicit question concerning least-positive Bezout parity."
+        },
+        {
+          "assessment": "Provides broad algorithmic inverse/continued-fraction matrix machinery but no inspected exact sum-of-canonical-quotients parity selector or new-totient formula.",
+          "evidence": "Section 3, Theorem 3.1 expresses Qin states via consecutive convergent matrices and their step-index parity. It does not give the tested GL_2(F_2) sign-to-Bézout parity identity or Renshaw branch choice.",
+          "identifier_or_url": "arXiv:2310.09103v2; https://arxiv.org/pdf/2310.09103",
+          "material_read": "Original 18-page PDF abstract/introduction, Qin algorithm and inverse state layout, Section 3 discussion and Theorem 3.1 formula for states in terms of convergent numerators/denominators; PDF page 9 rendered.",
+          "method": "Retrieved actual primary PDF and read the relevant introduction, state identities and Theorem 3.1, including screenshot; text search for parity.",
+          "title": "Qin's Algorithm, Continued Fractions and 2-dimensional Lattices",
+          "trigger": "Potential general modular-inverse algorithm or continued-fraction state matrix theorem implying the proposed quotient-parity condition."
+        },
+        {
+          "assessment": "Related but distinct parity theorem: it requires even-indexed quotients in a nonstandard expansion and tracks the numerator parity versus length; it does not imply the standard all-odd-input Bézout inverse selector without further argument.",
+          "evidence": "Lemma 2.4 proves d congruent to expansion length n modulo 2 under a_{2k} even; Renshaw question instead concerns the parity of a=p^{-1} mod q for an arbitrary canonical q/p expansion with no even-index restriction.",
+          "identifier_or_url": "arXiv:2203.09834v1; DOI:10.1007/s12188-024-00283-3; https://arxiv.org/pdf/2203.09834",
+          "material_read": "Original 24-page arXiv preprint introduction and Dedekind-Hickerson formula, Section 2.2 Lemma 2.4 and Proposition 2.5 with their proofs and adjacent modular-group discussion; PDF pages 9 and 10 rendered. The published open-access text was cross-checked.",
+          "method": "Full-text OA/preprint access with mathematical proof/statement inspection and rendered PDF screenshots.",
+          "title": "Continued Fractions and Hardy Sums",
+          "trigger": "Highly relevant parity and inverse entries in modular-group continued-fraction representations, possible stronger coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "The proof has modest complexity and adds no three-prime or general asymptotic theorem.",
+        "Classical continued-fraction and elementary finite-group tools explain the short proof; no general novel computational technique is asserted."
+      ],
+      "rationale": "The parity choice is explicitly posed as a final problem in the defining 2026 paper, and Corollary 6 gives two possible but otherwise unassigned values of a newly introduced totient on the natural two-prime-power family. The theorem supplies a canonical all-odd-coprime-pair exact Euclidean-quotient rule, independent of prime-power exponents, rather than reprinting a fixed numerical table. This is a mathematically motivated, narrow, structurally meaningful solution and a reusable exact evaluator, despite the elementary standard underlying matrix method.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.13939v1",
+    "arXiv:2310.09103v2",
+    "arXiv:2203.09834v1; DOI:10.1007/s12188-024-00283-3",
+    "Resultary mathematical-search hits for the three recorded semantic queries (closest hits were other parity/totient topics, not mathematical coverage)",
+    "Published repository code search for Renshaw and Euclidean quotient parity: no direct indexed match"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Absolute historical priority not established: older classical modulo-2 continued-fraction folklore could overlap.",
+    "Publication not ready because full guarded sanitizing replacements for public AUDIT.json and METADATA.json were not staged; their current text contains an internal provenance identifier.",
+    "METADATA.json first_public_date=2026-03-14 is the Renshaw antecedent date, not verified first-publication date of this theorem.",
+    "Source files are unchanged and no writes, private closeout upload, or publication were performed."
+  ],
+  "schema_version": 1
+}

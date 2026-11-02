@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T19:16:16.446499Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual Git RESULT.md equations (4)–(5) and sections Proof 1–5, inspected at frozen commit; original arXiv:2607.03686v1 Section II visually checked.",
+        "Independent SymPy: det=(1−eps)(1+a), trace=(1−eps)(2+a)c+eps λ, 1−T(1)+B=(1−eps)(2+a)(1−c), 1+T(−1)+B=(1−eps)(2+a)(1+c).",
+        "Exact spectra at a=1/4,mu=−2,eps=.9: N=3 radius≈0.728388, N=4 radius=1.25, N=5 radius≈1.060215, N=6 radius=1.25.",
+        "Git verify.py and VERIFICATION.md inspected as finite test code/descriptions; previous 3,263,634-check claim not independently rerun."
+      ],
+      "rationale": "Independently reconstructed the actual displayed odd-numerator map. F(0)=0, F(±1)=±1 and slopes c0=2−mu, c±=mu. At E_s the Fourier eigenmode λ=cos(2πk/N) has Jacobian [[d,B],[c_s d−1,c_s B]], d=(1−eps)c_s+eps λ, B=(1−eps)(1+a)>0; direct symbolic calculation gives det=B and trace=(1−eps)(2+a)c_s+eps λ. The quadratic Jury tests reduce to eps>a/(1+a), c_s<1, and (1−eps)(2+a)(1+c_s)+eps δ_N>0 with exact extremal λ_min=−1 for even N or −cos(π/N) for odd N. The c_s<−1 odd window has lower endpoint max{a/(1+a), A/(A+δ_N)}, positive width, and for fixed A>0 the width asymptotic π²/(2AN²). The smooth map has open locally exponentially attracting basins at strict Schur sinks. The independent SymPy check verified symbolic trace/det and both tight Jury endpoints, and exact 2N×2N spectra at N=3,4,5,6 with a=1/4,mu=−2,eps=9/10 (stable only N=3 there). Equality cases are correctly excluded; numerical finite checks are not used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Juang–Liang 2008 published abstract applies a master-stability analysis under coupling-through-individual-map assumptions; the submitted network couples only prior x neighbors and uses an advanced nonlinear y update.",
+          "Gong et al., Phys Rev E 77, 056212 (2008), concerns randomly distributed time delays and spectral reductions, not this undelayed model."
+        ],
+        "reasoning": "Fourier diagonalization and the quadratic Jury criterion are standard general tools, credited as such. Those tools give a method, not a cited theorem whose hypotheses directly imply the exact all-N coupling window for this printed model. A possibly stronger uncaptured theorem remains a qualified risk, especially with inaccessible full SIAM text.",
+        "searches": [
+          "Resultary search: Coupled map lattices ring synchronization stability equilibrium Fourier mode parity odd even determinant Jury criterion",
+          "DOI 10.1137/070705179 and same-title OA PDF search",
+          "Web: Stability of the steady state of delay-coupled chaotic maps on complex networks"
+        ]
+      },
+      "checked_sources": [
+        "Fatoyinbo & Ghosh arXiv:2607.03686v1 full PDF (18 pp., source model and phase results).",
+        "Ambika & Ambika arXiv:nlin/0606005v1 full PDF (13 pp., alternative Gumowski–Mira variant).",
+        "Juang & Liang SIAM J Appl Dyn Syst 7 (2008) 755–765 DOI:10.1137/070705179 abstract only (full-text access blocked).",
+        "Gong et al. Phys Rev E 77 056212 (2008) abstract (time-delay network, different operator).",
+        "Resultary search: three semantic queries, direct self-match excluded; distinct related ring stability/phase results assessed by summaries."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 source supplies recurrence and numeric parameter slices; the new proof derives determinant B and affine Fourier trace explicitly and minimizes exact cycle-adjacency eigenvalues.",
+          "The 2006 source differs in its local map and coupling, preventing direct specialization.",
+          "Juang–Liang abstract establishes a different synchronization criterion rather than the local fixed-point Schur region for this model."
+        ],
+        "reasoning": "The defining equations do not themselves assert the claimed exact Schur equivalence; applying elementary Fourier/Jury analysis yields an additional explicit model-specific theorem. It is a modest, possibly routine derivation from standard theory, but no checked primary statement directly entails the full specialized claim without new calculation.",
+        "searches": [
+          "arXiv:2607.03686v1 complete original PDF",
+          "arXiv:nlin/0606005v1 original PDF",
+          "doi:10.1137/070705179 publisher abstract",
+          "Resultary three semantic searches of ring equilibrium stability/parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 paper prints the same recurrence with odd-numerator F and numerical phase diagrams, not an analytic fixed-point spectrum (Sec II, IV–VIII).",
+          "The 2006 paper uses x^2-numerator F and unnormalized additive two-map coupling (Sec II, V).",
+          "Resultary closest same-object match is this assessed record, not independent evidence of prior coverage."
+        ],
+        "reasoning": "Reparameterizing an existing master-stability calculation can give equivalent algebra, but the nearest primary work does not state any equivalent all-parameter criterion for the precise map. Historical quadratic-numerator formulas cannot be substituted: the fixed points and their slopes change.",
+        "searches": [
+          "Resultary search: Exact necessary sufficient Schur stability of homogeneous fixed points in nearest-neighbor ring coupled Gumowski Mira maps parity odd even ring eigenmodes",
+          "Web: \"parity\" \"Gumowski\" \"Mira\" coupling ring fixed points stability",
+          "arXiv:2607.03686v1",
+          "arXiv:nlin/0606005v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Appendix Tables IV–V classify finite-time Lyapunov/cluster statistics and show selected numerical Lyapunov spectra, not exact Schur regions for E_0,E_±1.",
+          "Resultary direct match is the assessed record itself; different Chebyshev travelling wave and phase-network records describe different models/invariants."
+        ],
+        "reasoning": "The exact stability inequalities and open local basins do not simply reproduce a published finite table: they classify continuum parameters and all N, including N outside the numerical study.",
+        "searches": [
+          "arXiv:2607.03686v1 Sections IV–VIII Appendix Tables III–V",
+          "Resultary search: Finite ring odd even stabilization of spatially homogeneous equilibria with local slope less than negative one shrinking inverse square coupling window"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact specialization not found covered in a primary same mathematical model article: Fatoyinbo–Ghosh gives the ring recurrence and numerical collective phase diagnostics; Ambika–Ambika uses a distinct quadratic-numerator local map and unnormalized two-map coupling; general master-stability references establish methods, not the stated strict all-N ring criteria under these dynamics. Full original preprints inspected, Resultary queried three ways, and a high-relevance general theory source remained inaccessible at full-text level. Novelty qualification: routine Fourier/Jury tools, possible buried special case in generic network-spectral theory, and the Resultary self-match cannot establish priority.",
+      "residual_risks": [
+        "Generic coupled-map master-stability literature may have a stronger theorem whose exact specialization implies the criterion despite different presentation; full 2008 Juang–Liang paper not obtained (OA page required authentication, authorized Oxford reported vpn_disconnected).",
+        "The proof uses established Fourier diagonalization and degree-two Jury inequalities and has no new general dynamical-systems method; originality is strictly the complete model-specific spectral region.",
+        "The main source is the odd-numerator printed 2026 recurrence; conclusions do not transfer automatically to historical x²-numerator Gumowski–Mira variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exactly the map and two parameter bands. Its substantive conclusions concern numerical collective-state diagnostics rather than necessary/sufficient all-N local homogeneous-fixed-point Schur criteria; no such exact parity threshold or determinant condition was located in the inspected full source.",
+          "evidence": [
+            "PDF page 3 equations (1)–(7): F(x)=mu*x+2(1-mu)*x/(1+x^2); x_i^+=(1-eps)u_i+eps(x_{i-1}+x_{i+1})/2; y_i^+=-x_i+F(x_i^+).",
+            "Section II, equations (8)–(10): Case A a=.01,b=.05, Case B a=.33,b=.10, mu∈[-.6,.6], eps∈[0,.30].",
+            "Sections IV–VIII and Appendix Tables IV–V: finite-time Lyapunov/synchronization/cluster classifiers and selected sample spectra, not exact equilibrium Jacobian inequalities."
+          ],
+          "identifier_or_url": "arXiv:2607.03686v1; https://arxiv.org/pdf/2607.03686",
+          "material_read": "18-page original PDF; Section II equations (1)–(10), Sections III–VIII including Case A/B phase diagrams, conclusion, Appendix numerical methods and Tables III–V.",
+          "method": "Read searchable original PDF and visually checked page 3 (PDF page index 2) to disambiguate odd numerator and model update.",
+          "title": "Collective Phase Reorganization and Cluster Synchronization in Networks of Coupled Gumowski–Mira Maps",
+          "trigger": "Exact model-defining 2026 research manuscript with the same x-neighbor coupling and parameter bands."
+        },
+        {
+          "assessment": "The printed local nonlinearity has x^2 numerator, not the odd x numerator of the assessed 2026 model. Its two-map additive cross-coupling, periodic-cycle and synchronization results do not imply the present normalized N-site ring equilibrium criteria.",
+          "evidence": [
+            "Section 2, equation (1), PDF page 3: f(x)=mu*x+2(1-mu)*x^2/(1+x^2).",
+            "Section 5, equations (5)–(6): unnormalized additive two-map coupling epsilon*x_other and corresponding synchronization error equations."
+          ],
+          "identifier_or_url": "arXiv:nlin/0606005v1; https://arxiv.org/pdf/nlin/0606005",
+          "material_read": "13-page original PDF, Section 2 local map/fixed points/Jacobian and Section 5 full two-map mutual-coupling equations and error dynamics; conclusion; visually checked original PDF page 3.",
+          "method": "Original arXiv PDF read as text and screenshot of nonlinear formula.",
+          "title": "Intermittency and Synchronisation in Gumowski-Mira Maps",
+          "trigger": "Historical primary Gumowski–Mira fixed-point and coupled-map analysis; likely direct predecessor."
+        },
+        {
+          "assessment": "Publisher abstract states master-stability for coupling through the individual chaotic map and necessary/sufficient synchronization criteria, not this two-component advanced-y-update, x-coordinate linear coupling. Abstract cannot justify whole-document noncoverage; potential general derivation remains as residual risk.",
+          "evidence": [
+            "DOI published abstract: coupling through a nonlinear function required to equal the individual map; derives transverse Lyapunov synchronization curves and fastest synchronization coupling."
+          ],
+          "identifier_or_url": "Juang and Liang, SIAM J. Appl. Dyn. Syst. 7(3), 755–765 (2008), doi:10.1137/070705179",
+          "material_read": "Published full abstract and references; OA repository landing page returned login instead of source PDF. Full 11-page mathematical content not obtained; Oxford authorized request returned vpn_disconnected.",
+          "method": "Read publisher abstract, searched author/OA copies and attempted authorized institutional retrieval after preprint/OA search.",
+          "title": "Synchronous Chaos in Coupled Map Lattices with General Connectivity Topology",
+          "trigger": "Potential stronger general Fourier/master-stability and network spectral theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical finite ring has three explicitly given homogeneous equilibria whose local stability is a natural, interpretable invariant directly relevant to a published phase-diagram study. This exact whole-parameter classification yields a genuine odd/even structural transition for c<−1, its sharp N^−2 vanishing coupling-window size, and rigorously open basins of two distinct sinks in both source-study parameter bands. It resolves a specific mathematically motivated local-stability question rather than a random slice or mere numerical confirmation. The contribution is modest and standard-tool based; it establishes no global basin volumes, periodic/chaotic attractors, synchronization prevalence, or nonlinear behavior on Schur boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fatoyinbo & Ghosh arXiv:2607.03686v1 full PDF (18 pp., source model and phase results).",
+    "Ambika & Ambika arXiv:nlin/0606005v1 full PDF (13 pp., alternative Gumowski–Mira variant).",
+    "Juang & Liang SIAM J Appl Dyn Syst 7 (2008) 755–765 DOI:10.1137/070705179 abstract only (full-text access blocked).",
+    "Gong et al. Phys Rev E 77 056212 (2008) abstract (time-delay network, different operator).",
+    "Resultary search: three semantic queries, direct self-match excluded; distinct related ring stability/phase results assessed by summaries."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Completed C/O/V is qualified best-of-knowledge and does not certify historical priority.",
+    "Parameter-boundary unit-modulus cases and other/global attractors are explicitly outside the theorem.",
+    "Potential stronger prior master-stability coverage remains not fully excluded because Oxford VPN was disconnected.",
+    "Publication withheld: existing metadata operational provenance requires verified sanitization."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python verify_kn_signed_roman.py` and `python check_criterion.py` from the directory containing the two scripts. Both require only Python's standard library.
+## correctness
 
-The first script builds labelings exactly as defined in the theorem. For each even size from \(12\) through \(40\), it forms every Kneser vertex, explicitly enumerates its disjoint vertices, sums their assigned labels together with the vertex itself, checks the result is at least one, and independently verifies a disjoint label-\(2\) neighbor for every negative vertex. It also checks every vertex with the algebraic identity through even order \(128\) and evaluates the exact subfamily counting formula at orders \(12\) and \(14\).
+PASS
 
-The second script independently compares the proposed degree criterion with the original neighborhood and defender definition for all \(8{,}320\) internal-subgraph selections at orders \(6\) and \(8\), together with \(300\) seeded random selections at order \(12\). The small orders are used solely to test the structural criterion, which is algebraically valid beyond the theorem's size range.
+For edges uv of K_n, signed Roman closed-neighborhood sum is T-S_u-S_v+2f_uv. In the asymmetric (a,b) cut a=n/2-1,b=n/2+1 with cross -1 and internal 2 on H_A,H_B, the incident sums are -3+d_A(u),1+d_B(v), yielding the four exact degree inequalities plus cross-edge defender t>=1+Delta_A+Delta_B. At weight four, H_B matching s=floor(b/2), H_A five-cycle for n=12 or path with r=n/2+2-s edges for n>=14 meet inequalities. The lower T=1,2,3 cases in this cut class contradict the degree constraints and internal B nonedges. The bipartition is uniquely recovered by negative labels, so counting injective; n=12 and n=14 counts 997920,113513400 confirmed. Independent direct original-neighborhood checks for n=12,14,16,20 passed. This is NOT proof gamma_sR=4 among all labelings.
 
-Both checks finished with `PASS`; the raw terminal output is preserved in `verification_output.txt`. Finite checks cannot exclude a counterexample at an unchecked order or replace the all-orders proof in `RESULT.md`. The global minimum over all signed Roman functions was not computationally or theoretically determined.
+## originality
+
+PASS
+
+Zec and Grbic 2023 prove only global [2,5] for even n>=12, leaving upper bound improvable. The new uniform weight-four construction strengthens their upper bound, plus a necessary-and-sufficient degree criterion and optimality within an explicitly restricted cut-pattern family; not a claim of unrestricted optimality.
+
+## value
+
+PASS
+
+Improves a published all-even Kneser signed Roman bound from 5 to 4 uniformly over infinite family, supplies a structural method-local obstruction to 2 or 3, and an exact nontrivial constructive family count. It targets a documented mathematical optimization gap rather than a free-standing small numeric change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

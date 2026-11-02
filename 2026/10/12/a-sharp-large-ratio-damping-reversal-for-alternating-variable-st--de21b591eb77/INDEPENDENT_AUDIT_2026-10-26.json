@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T23:10:31Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen and current Git directory contain the same seven blob SHAs; reassembled sorted mode-100644 Git tree yields 2dcf70877af635f7dbfe29f267eb79cd87061aef, identical to assigned source tree.",
+        "Independent SymPy computation differentiated cubic Lagrange basis polynomials at nodes [0,-r,-r-1,-2r-1] and [0,-1,-1-r,-2-r], verified A and B entries exactly for symbolic positive r,q, and computed r->infinity limits entrywise.",
+        "Independent symbolic characteristic polynomial: z^2*(q*z+z+2)/(q+1). The sole limiting nonzero multiplier is -2/(1+q), not +2/(1+q).",
+        "Independent exact-rational evaluation of det(I+P_100(1/10)) returned -4621393451/14621500436; numerical eigenvalue -1.3083 used as a consistency check, not a proof.",
+        "All seven actual public package files were read via frozen GitHub blobs. The original verify.py and VERIFICATION.md were inspected but their recorded VERIFY_OK was not used as proof of universal quantifiers."
+      ],
+      "rationale": "On cubic physical-time interpolants with long-step nodes 0,-r,-r-1,-2r-1 and short-step nodes 0,-1,-1-r,-2-r, the exact Lagrange derivative coefficients have newest-value terms (5r^2+5r+1)/(r(r+1)(2r+1)) and (r^2+5r+5)/((r+1)(r+2)). Enforcing y'=−lambda y multiplies the first row of each zero-equation companion by d_i/(d_i+q), where q=lambda*h>0. An independent symbolic interpolation calculation reproduced every entry of both submitted 3x3 matrices for arbitrary r,q>0, and all six leading first-row limits. Hence A tends to [[2/q,-2/q,0],[1,0,0],[0,1,0]], B to [[1/(1+q),0,0],[1,0,0],[0,1,0]]. The product has exact characteristic z^2(z+2/(1+q)), yielding spectral radius 2/(1+q) by continuity of matrix spectrum, with strict eventual regimes q<1 (unstable) and q>1 (stable), while q=1 finite-r classification is deliberately excluded. At r=100,q=1/10 the independent exact determinant det(I+BA)=-4621393451/14621500436<0; the nonreal conjugate factors in det(I+P) are positive, so a negative determinant forces a real Floquet multiplier below -1. All claims are for unrestricted triples and repeated alternating periods; neither test-case checks nor zero-stability alone establish the all-r limit.",
+      "residual_risks": [
+        "No claim about q=1 at finite ratio, simultaneous q->0 and r->infinity, finite-time accuracy, arbitrary mesh, full stiff ODE stability or startup-specific global errors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guglielmi–Zennaro (2001) archive abstract: variable-step BDF3 zero-stability by joint spectral radius; no complete article retrieved after arXiv/OA checks and authorized access returned vpn_disconnected.",
+          "Skeel–Jackson (1983) abstract: step-ratio conditions for variable-stepsize Nordsieck multistep stability, no accessible theorem asserting a positive-q large-r two-period limit.",
+          "Li–Liao (2022) full preprint defines method and proves finite-ratio sufficient estimates; these hypotheses fail for r->infinity alternating steps."
+        ],
+        "reasoning": "General sufficient stability regions for bounded adjacent ratios cannot imply instability on unbounded alternating ratios. A prior general periodic stability theorem might subsume this computation, and the inaccessible historical texts are named as risks rather than certified noncoverage; the mathematical implication from inspected primary theorems is insufficient to cover the submitted limit.",
+        "searches": [
+          "https://iris.gssi.it/handle/20.500.12571/302",
+          "https://doi.org/10.1137/0720056",
+          "https://arxiv.org/pdf/2201.00527",
+          "https://arxiv.org/pdf/2204.12742",
+          "Guglielmi Zennaro 2001 On the zero-stability spectral radius approach PDF full text"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.00527",
+        "https://arxiv.org/pdf/2204.12742",
+        "https://iris.gssi.it/handle/20.500.12571/302",
+        "https://doi.org/10.1137/0720056",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14/RESULT.md",
+        "https://arxiv.org/abs/1504.04107",
+        "https://doi.org/10.1007/BF01386395"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Liao 2022 Theorem 3.1 assumes bounded ratios and small maximal timestep in its Lipschitz-stability definition, whereas the candidate lets r grow at fixed h and fixed q.",
+          "Liao–Tang–Zhou 2022 Section 5 periodic-mesh convergence is for simultaneous mesh refinement with fixed final T, unlike unbounded repeated period at fixed q.",
+          "Resultary published BDF2 finding says its positivity failure is not linear stability, explicitly distinguishing it from the BDF3 asymptotic instability studied here."
+        ],
+        "reasoning": "Neither the narrower BDF2 positivity statement nor the stronger-looking BDF3 energy/stability sufficient estimates implies the negative Floquet multiplier -2/(1+q) for arbitrary fixed q>0. The uninspected 2001 full paper is a priority risk rather than evidence for PASS; accessible descriptions specifically concern q=0 zero-stability.",
+        "searches": [
+          "https://arxiv.org/pdf/2201.00527",
+          "https://arxiv.org/pdf/2204.12742",
+          "https://iris.gssi.it/handle/20.500.12571/302",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14/RESULT.md",
+          "https://doi.org/10.1137/0720056"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Liao (2022), equations (1.1)-(1.6) and Theorem 3.1 treat third-order interpolatory BDF on variable grids but impose r_k<R3≈2.553; no repeated-period scalar damping limit.",
+          "Liao–Tang–Zhou (2022), Introduction and Section 5 explicitly describe {tau,mu*tau,tau,...}, but assess finite-time mesh-refinement errors, not infinite-period fixed-q multipliers."
+        ],
+        "reasoning": "Change of coordinates between divided-difference/Nordsieck and stored-value companions preserves relevant Floquet eigenvalues, but the inspected statements do not compute the large-r fixed-q multiplier. Constant-step BDF3 absolute stability fixes r=1 and zero stability fixes q=0; neither alone determines the order-of-limits claim.",
+        "searches": [
+          "variable-step BDF3 alternating long short steps implicit test equation y'= -lambda y Floquet spectral radius limit ratio infinity",
+          "BDF3 alternating step ratio stability monodromy multiplier 2/(1+lambda h)",
+          "\"BDF3\" \"two-periodic\" damped stability",
+          "https://arxiv.org/pdf/2201.00527",
+          "https://arxiv.org/pdf/2204.12742"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned adjacent BDF2 positivity, ODE stability, and unrelated two-cycle spectra, with no direct archived BDF3 damped two-step multiplier.",
+          "Liao–Tang–Zhou 2022 Tables 2-3 report convergence errors for periodic ratios µ=2Re and µ=4Re at refined finite time, not a table of asymptotic Floquet multipliers."
+        ],
+        "reasoning": "The sharp fixed-q spectral-radius law and rational finite witness are analytic identities on a continuous parameter domain, not lookup values from the inspected numerical tables or prior exact catalogs. Absence from searched catalogs alone does not establish novelty.",
+        "searches": [
+          "third-order backward differentiation formula periodic alternating timesteps negative real eigenvalues instability damping threshold",
+          "BDF3 alternating step ratio stability monodromy multiplier 2/(1+lambda h)",
+          "\"BDF3\" \"alternating\" \"unstable\" steps damping",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge narrow originality PASS: the inspected primary Li–Liao 2022 theorem supplies BDF3 stability under adjacent ratio <2.553, and Liao–Tang–Zhou 2022 gives energy/convergence results under ratio <1.4877; neither covers r->infinity alternating ratios. The latter paper does study periodic alternating grids experimentally at finite µ but not the fixed-q infinitely repeated scalar test-equation Floquet spectrum. Guglielmi–Zennaro (2001), Skeel–Jackson (1983), and Calvo et al. concern spectral/zero-stability or Nordsieck method bounds; for Guglielmi–Zennaro only the abstract was accessible, so historical priority remains a real explicit risk. The separate published BDF2 sign-loss result addresses positivity, not BDF3 repeated-period instability. No source that implies the exact q-dependent 2/(1+q) law or its finite certificate was identified. Search failure is not proof of priority, and the BDF interpolation/Jury/Floquet techniques are classical.",
+      "residual_risks": [
+        "Full 2001 Guglielmi–Zennaro paper may contain an overlooked positive-damping periodic test-equation analysis; OA attempts failed and authorized institutional access reported vpn_disconnected.",
+        "1983 Skeel–Jackson and 1987 Calvo–Lisbona–Montijano general variable-step/Nordsieck works were not inspected in full; they may include an equivalent periodic special case.",
+        "Search terms and Resultary embeddings are incomplete; no proof of absolute novelty. The computation uses classical interpolation and finite-matrix spectral methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same interpolatory method but sufficient r_k<2.553 and small τ condition; does not cover unbounded alternating ratio at fixed q>0",
+          "evidence": "Intro pp. 1–3 describes BDF3 nodes and 2.553 bound; Theorem 3.1 on pp. 12–14; no statement giving 2/(1+q).",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00527",
+          "material_read": "Full 20-page arXiv PDF accessible; equations (1.1)-(1.7), Introduction, Definitions and proof/theorem material in Sections 2–3, Theorem 3.1 and numerical-test discussion; PDF first and relevant pages visually inspected",
+          "method": "Primary arXiv PDF text, relevant-page screenshot and theorem/hypothesis comparison",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Direct BDF3 scheme, step ratios, and a theorem potentially dominating periodic stability"
+        },
+        {
+          "assessment": "Exact alternating mesh pattern is antecedent experimental context, but fixed-final-time mesh-convergence results and ratio<1.4877 theorems do not state fixed-q infinite-cycle large-r spectral limit",
+          "evidence": "Page 3 describes alternating µ≠1 and bounded-ratio result, Section 5 Tables 2–3 give finite periodic µ=2Re/4Re convergence errors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12742",
+          "material_read": "Full 21-page arXiv PDF accessible; introduction, equations (1.2)-(1.6), theorem scope in Sections 3–4, and Section 5 numerical periodic mesh experiments including Tables 2–3; representative pages visually inspected",
+          "method": "Primary arXiv PDF, text and page screenshots, direct comparison of limit regimes",
+          "title": "Discrete energy analysis of the third-order variable-step BDF time-stepping for diffusion equations",
+          "trigger": "Same BDF3 scheme plus explicit numerical tests on alternating periodic grids"
+        },
+        {
+          "assessment": "Zero-equation joint spectral-radius focus is distinct from q>0 Floquet limit by accessible description; incomplete full-content coverage and priority remain explicit risks",
+          "evidence": "2001 archive abstract describes zero-stability of three-step BDF through spectral radius; complete paper not available.",
+          "identifier_or_url": "https://iris.gssi.it/handle/20.500.12571/302",
+          "material_read": "University archive title and full abstract, publication metadata; no article body",
+          "method": "arXiv and OA targeted searches first; Oxford authorized DOI request subsequently returned vpn_disconnected; no retry or bypass",
+          "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+          "trigger": "Closest historical BDF3 spectral-radius study, possible hidden periodic multiplier comparison"
+        },
+        {
+          "assessment": "Provides step-ratio stability restrictions and frequency effect, not an inspected full-text result fixing positive q and r->infinity; residual broad-literature risk preserved",
+          "evidence": "SIAM J. Numer. Anal. 20(4) (1983), pp. 840–853, DOI 10.1137/0720056, abstract on ratio intervals.",
+          "identifier_or_url": "https://doi.org/10.1137/0720056",
+          "material_read": "Publisher abstract, bibliographic record, ratio-bound description and stability comparison; full article not accessible",
+          "method": "Primary SIAM publisher landing-page abstract and OA searches",
+          "title": "The Stability of Variable-Stepsize Nordsieck Methods",
+          "trigger": "Classical variable-mesh BDF bounds and step-change frequency, possible stronger general spectral theorem"
+        },
+        {
+          "assessment": "Constant-step BDF2 first sign-change index is a positivity property; distinct scheme and invariant, and it explicitly distinguishes positivity from asymptotic linear stability",
+          "evidence": "BDF2 recurrence (3+2r)z_n=4z_{n−1}−z_{n−2}; theorem addresses N_-(r), not BDF3 monodromy eigenvalue.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14/RESULT.md",
+          "material_read": "Complete RESULT.md finding, definitions, closed recurrence solution and proof",
+          "method": "GitHub Resultary public research result full-text comparison",
+          "title": "Exact delayed sign loss just beyond BDF2's positivity boundary",
+          "trigger": "Nearest related published Resultary scalar test-equation stability/positivity finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Original BDF3 variable-grid numerical-analysis literature treats neighboring ratio restrictions and alternating-step convergence tests; the present fixed-q sharp stability reversal isolates a distinct meaningful regime.",
+        "Independent symbolic interpolation and exact determinant certificate establish the specific Floquet mechanism and exact damping threshold."
+      ],
+      "rationale": "Alternating long and short steps are a natural diagnostic pattern for an adaptive BDF stiff solver. The exact Floquet multiplier limit shows a qualitative loss of negative-real-axis absolute stability despite exact ODE dissipation, and identifies the sharp fixed-q damping separation between eventual growth (0<q<1) and decay (q>1) as r becomes extreme. The exact finite unstable rational example establishes that it is not only an artifact of the limiting matrix. This gives a motivated nontrivial stability boundary for a standard numerical method rather than a table recomputation. It does not claim mesh-refinement convergence or a general nonlinear/nonperiodic theorem; the result is a narrow but independently useful counterexample/structural asymptotic.",
+      "residual_risks": [
+        "Its practical relevance to production adaptive solvers is limited because very large alternating ratios violate standard mesh controls and the limit keeps q fixed rather than decreasing h; avoid presenting it as an error or convergence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2201.00527",
+    "https://arxiv.org/pdf/2204.12742",
+    "https://iris.gssi.it/handle/20.500.12571/302",
+    "https://doi.org/10.1137/0720056",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14/RESULT.md",
+    "https://arxiv.org/abs/1504.04107",
+    "https://doi.org/10.1007/BF01386395"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The all-parameter limit is mathematical, not full absolute stability for arbitrary complex λ or nonperiodic meshes.",
+    "Guglielmi–Zennaro 2001 full text could not be obtained because Oxford VPN disconnected after OA/arXiv attempts.",
+    "Public-facing original AUDIT.json and METADATA.json contain operational run provenance and inherited first_public_date=2015-04-16 from an antecedent; guarded confidentiality-safe replacements were not staged. Scientific PASS is not authorization for public publication.",
+    "No GitHub write, repository status edit, or dispatcher closeout write was made. Historical gaps and all prior ledger bytes remain unchanged."
+  ],
+  "schema_version": 1
+}

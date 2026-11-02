@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:20:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For xdot=-x+u, ydot=u-xy with u≥0, x0,y0≥0 fixed and finite T, variation-of-constants gives x(t)=x0e^-t+u(1-e^-t) and exact y integral. Differentiate at u=0 to obtain C_u(0+,T)=P(T,x0)-y0Q(T,x0), with P,Q strictly positive, and verify x0=0,T=3,y0=2 gives -1/2+2e^-3<0. Near t=0, 1-e^-t is squeezed between c_delta t and t; Gaussian model u∫0^t exp[-a u(t²-s²)/2]ds has integrated asymptotic (log u)/(2a) from zH(z)→1. Bounds and O(1) contribution away from zero imply C(u,T)/log u→1/2, independently of initial loads. Negative onset and divergence imply at least one interior positive-input global minimum. Claims neither uniqueness nor a finite-dose expansion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2604.01573, Section 4.1 and Appendix B Proposition B.5",
+          "Gupta–Sontag 2025 section 2"
+        ],
+        "reasoning": "Source handles wider motifs but retains preadapted output, so its broader model dimension does not dominate candidate arbitrary y0 conclusion.",
+        "searches": [
+          "incoherent feedforward IFFM1 scalar cumulative dose response high-dose log asymptotic initial load y0 threshold nonmonotone",
+          "cumulative dose response monotonicity arbitrary initial conditions incoherent feedforward"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.01573 full text",
+        "Gupta–Sontag 2025 author-hosted full reprint",
+        "Resultary critical time-scale 8cba7accd8a9",
+        "Resultary memory dichotomy 7383b48da300"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2604.01573, Section 4.1/Appendix B",
+          "Gupta–Sontag 2025 doi:10.1098/rsif.2024.0877"
+        ],
+        "reasoning": "Pre-adapted monotonicity implies nothing for y0>P/Q; candidate explicitly gives initial negative slope and positive log divergence. Earlier numerics do not establish high-dose coefficient.",
+        "searches": [
+          "incoherent feedforward IFFM1 scalar cumulative dose response high-dose log asymptotic initial load y0 threshold nonmonotone",
+          "Wafi Sontag IFFM1 Proposition B.5 monotone adapted y0=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wafi–de Oliveira–Sontag arXiv:2604.01573, Table 2 model 5",
+          "Gupta–Sontag 2025 section 2"
+        ],
+        "reasoning": "Identical normalized scalar equations are compared, not merely matching biological terminology. Difference is initial output being freely fixed versus preadapted y0=1.",
+        "searches": [
+          "incoherent feedforward IFFM1 scalar cumulative dose response high-dose log asymptotic initial load y0 threshold nonmonotone",
+          "IFFL1 model xdot=-x+u ydot=u-xy cumulative dose preload output y0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-critical-1-alpha-time-scale-and-quantitative-logarithmic-integra--8cba7accd8a9",
+          "Resultary 2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300"
+        ],
+        "reasoning": "Indexed logarithmic asymptotics concern different ODEs (power relaxation or memory); no same mathematical model threshold table was identified.",
+        "searches": [
+          "incoherent feedforward IFFM1 scalar cumulative dose response high-dose log asymptotic initial load y0 threshold nonmonotone",
+          "Resultary feedforward large dose logarithm initial load nonmonotone"
+        ]
+      },
+      "rationale": "Same scalar IFFM1/IFFL1 ODE is studied by Wafi–de Oliveira–Sontag 2026 and Gupta–Sontag 2025, but their monotone cumulative-dose results impose an adapted initial output y0=1. Candidate allows arbitrary independent output preload; large preloads violate onset monotonicity, and boundary-layer coefficient 1/2 is not stated by inspected antecedents. No exact equivalent indexed Resultary claim, though singular perturbation folklore is an explicit risk.",
+      "residual_risks": [
+        "General singular-perturbation or cumulative-response methods may yield equivalent log law under different terminology.",
+        "Only finite T and constant u with input-independent nonnegative initial states; threshold sufficient for global nonmonotonicity, not necessary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves monotonicity only with adapted output y0=1; new arbitrary-preload regime not covered",
+          "evidence": "Table 2/Proposition B.5",
+          "identifier_or_url": "https://arxiv.org/abs/2604.01573",
+          "material_read": "Table 2 model 5; §4.1; Appendix B Proposition B.5; initial conditions in numerics",
+          "method": "full arXiv HTML",
+          "title": "When is cumulative dose response monotonic? Analysis of incoherent feedforward motifs",
+          "trigger": "Identical scalar IFFM1 equations and response"
+        },
+        {
+          "assessment": "Monotonicity conditional on adapted initial output, not contradicted by candidate",
+          "evidence": "§1.8/§2",
+          "identifier_or_url": "https://doi.org/10.1098/rsif.2024.0877",
+          "material_read": "Author full-text reprint §1.8 and §2, adapted initial state",
+          "method": "author-hosted full-text reprint",
+          "title": "Cumulative dose responses for adapting biological systems",
+          "trigger": "Earlier same scalar motif"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies mathematically sharp initial-slope threshold for the same experimentally motivated adaptation motif and proves a robust open family of nonmonotone dose responses without contradicting the original preadapted monotonicity theorem; high-dose 1/2 log law supplies rebound mechanism. A meaningful boundary of a published qualitative guarantee.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2604.01573 full text",
+    "Gupta–Sontag 2025 author-hosted full reprint",
+    "Resultary critical time-scale 8cba7accd8a9",
+    "Resultary memory dichotomy 7383b48da300"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General singular-perturbation or cumulative-response methods may yield equivalent log law under different terminology.",
+    "Only finite T and constant u with input-independent nonnegative initial states; threshold sufficient for global nonmonotonicity, not necessary."
+  ],
+  "schema_version": 1
+}

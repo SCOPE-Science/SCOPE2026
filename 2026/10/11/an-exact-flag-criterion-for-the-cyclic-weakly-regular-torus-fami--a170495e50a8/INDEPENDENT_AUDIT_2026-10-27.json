@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T13:15:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For n>=7 and 2<=k<=floor((n-3)/2), the triangulation faces are the two n-translation orbits from the defining paper. Their edges are precisely the six distinct differences +-1,+-k,+-(k+1). Any edge 3-cycle has nonzero oriented steps whose sum is a multiple of n. Since |x+y+z|<2n, orientation gives either 0 or +n. Zero sum gives only 1+k=k+1 (actual faces) or, if k=2, 1+1=k (n missing translates); no other signed 3-term identities are permitted. For +n, any negative step would force sum<=2(k+1)-1 <=n-2, so all steps are positive. In canonical range only step multisets {k,k,k}, {k+1,k+1,k+1}, {k,k,k+1}, {k,k+1,k+1}, {1,k+1,k+1} can sum to n; these yield n=3k,3(k+1),3k+1,3k+2,2k+3. Equal-step triangles have orbit n/3; mixed types have orbit n; distinct step multisets are distinct triangle orbits. These prove E(n,k) term-by-term and its six zero conditions. In a connected closed torus triangulation, a 4-clique with all triples facial would be a tetrahedron-boundary sphere subcomplex, impossible, so absence of missing triangles is exactly flagness. Direct finite analysis of n<=12 and n=13 verifies first possible flag n=13,k=3. A separately implemented face/1-skeleton/3-clique enumerator checked all 9,506 canonical pairs with 7<=n<=200, including first_flag=(13,3), but the universal theorem relies on the step argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brehm--Kuehnel Stuttgart 2006/013, abstract and lattice matrix model in Section 2: classification by quotients of regular triangular tessellation; no occurrence of flag or 3-cycle criterion in inspected searchable text.",
+          "Bibby et al. arXiv:1909.03303v3, Example 3.2 and Theorem 4.8: the unique globally vertex-minimal flag torus has 12 vertices."
+        ],
+        "reasoning": "A global quotient classification parameterizes the objects but does not itself provide the missing-triangle orbit-count function. The existence and uniqueness of a 12-vertex globally flag torus does not identify every flag parameter or compute E(n,k) for a different cyclic family.",
+        "searches": [
+          "Resultary: Arithmetic characterization of flag triangulations among equivelar triangular torus maps via lattice quotient congruences",
+          "web: Brehm Kühnel equivelar maps torus flag missing triangle 3 cycles cyclic triangulations",
+          "web: Bibby Odesky Wang minimal flag triangulations torus 12 vertices unique arxiv"
+        ]
+      },
+      "checked_sources": [
+        "Datta and Upadhyay, Degree-regular triangulations of torus and Klein bottle, arXiv:math/0403433v2, Example 1 and Lemma 2.1(a), https://arxiv.org/pdf/math/0403433",
+        "Brehm and Kuehnel, Equivelar maps on the torus, Stuttgart Preprint 2006/013, lattice classification, https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2006/2006-013.pdf",
+        "Bibby, Odesky, Wang, Wang, Zhang and Zheng, Minimal flag triangulations of lower-dimensional manifolds, arXiv:1909.03303v3, Example 3.2, Theorem 4.8, https://arxiv.org/pdf/1909.03303",
+        "Resultary index searches: exact flag criterion in cyclic weakly regular torus; arithmetic equivelar lattice flagness; empty 3-cliques in 6-regular cyclic torus",
+        "Resultary same-record listing 2026/10/11/SCOPE-an-exact-flag-criterion-for-the-cyclic-weakly-regular-torus-fami--a170495e50a8 (self-indexed source, not an independent antecedent)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original torus-family paper fixes the 2n face triangles and a symmetry but does not count all 3-cliques; computing the six exceptional congruences requires the independent signed-step argument.",
+          "The 12-vertex flag-torus uniqueness theorem concerns a global minimum and does not imply the first flag cyclic member is T_{13,1,3} nor E(n,k)."
+        ],
+        "reasoning": "All exact implications were compared: the candidate deductively uses prior face and symmetry data, but the universal arithmetic counting/flag theorem is not stated as or directly implied by any inspected theorem without additional classification of short step relations. An older equivalent quotient shortest-cycle theorem would change this conclusion if found.",
+        "searches": [
+          "Datta--Upadhyay arXiv:math/0403433v2, Example 1 and Lemma 2.1(a)",
+          "Brehm--Kuehnel, Equivelar maps on the torus, Section 2",
+          "Bibby et al. arXiv:1909.03303v3, Example 3.2 and Theorem 4.8",
+          "Resultary semantic search for same T_{n,1,k} flag claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Datta--Upadhyay arXiv:math/0403433v2, Example 1 and Lemma 2.1(a), give faces and parameter symmetry; its induced-three-cycle discussion located in other Klein-bottle families, not this six-relation classification.",
+          "Resultary exact hit SCOPE-an-exact-flag-criterion-for-the-cyclic-weakly-regular-torus-fami--a170495e50a8 is the same claim indexed from the assigned record, not an independent prior work."
+        ],
+        "reasoning": "Missing 2-faces, empty triangles, induced three-cycles, and flagness of the 2-complex were compared as equivalent statements; the actual cited definition is not an explicit universal arithmetic classification. The self-index does not independently establish priority.",
+        "searches": [
+          "Resultary: Exact criterion for missing triangles, induced 3-cycles, or flagness in cyclic weakly regular torus triangulations T_{n,1,k} of Datta Upadhyay",
+          "web: Datta Upadhyay degree regular triangulations torus Klein bottle T n 1 k empty triangle flag criterion 3k 2k+3",
+          "web: Datta Upadhyay torus empty triangle arithmetic k n induced 3 cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bibby et al. Example 3.2/Table 2 lists the globally minimal 12-vertex flag-torus facets, not counts E(n,k).",
+          "Resultary listing matching E(n,k) is the identical assigned 2026-10-11 candidate, not a separate computation or independently existing database table."
+        ],
+        "reasoning": "Checks tested for an independently published exact table or arithmetic formula. No distinct source was found; this is evidence of bounded search, not proof of absence from all mathematical literature.",
+        "searches": [
+          "Resultary: Empty triangular 3-cliques in cyclic 6-regular torus triangulations when n=3k,3k+1,3k+2,2k+3",
+          "web: \"T_{13,1,3}\" flag triangulation torus",
+          "web: \"T_{n,1,k}\" flag triangulation",
+          "web: \"n=2k+3\" \"T_{n,1,k}\" empty triangle"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after fresh statement-level comparison. Datta--Upadhyay give the exact face family and k-to-n-k-1 symmetry, but do not state the missing-triangle count or six-regime criterion in the inspected relevant text. Brehm--Kuehnel classify equivelar torus maps via translation-lattice quotients, yet do not state this step-relation criterion; that general geometric framework does not without new calculation imply the claimed multiplicities. Bibby et al. prove uniqueness of a global 12-vertex minimal flag torus, but do not characterize the Datta--Upadhyay family or identify its first flag parameter. Targeted searches found the exact result only as the same candidate record indexed in Resultary, not a distinct antecedent. Priority risk of an unindexed lattice-coordinate reformulation remains.",
+      "residual_risks": [
+        "An older unindexed or differently parametrized equivelar torus quotient / shortest-essential-triangle criterion might imply the six exceptional arithmetic regimes.",
+        "Searches cannot establish absolute priority; some texts were inspected at highly relevant sections rather than every page.",
+        "Resultary same-record self-index was excluded as an independent antecedent and is not priority confirmation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family and torus triangulation/symmetry established; no explicit six arithmetic regimes or exact E(n,k) in inspected portions.",
+          "evidence": "Example 1: n>=7 and canonical k; faces {i,i+k,i+k+1} and {i,i+1,i+k+1}; Lemma 2.1(a): k -> n-k-1.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0403433",
+          "material_read": "Primary PDF Example 1 (page 4); Lemma 2.1(a), statement of Theorem 4; inspected other uses of induced 3-cycle, including Klein-bottle family in later sections.",
+          "method": "Opened text-extracted primary PDF, inspected relevant text and screenshot of original page 4.",
+          "title": "Degree-regular triangulations of torus and Klein bottle",
+          "trigger": "Defining primary paper for exact T_{n,1,k} family and symmetry."
+        },
+        {
+          "assessment": "Classifies equivelar torus maps via quotient lattices; no direct universal missing-triangle formula or the six arithmetic test found in inspected material.",
+          "evidence": "Abstract: torus maps are quotients of {3,6} tessellation by translations; Section 2 lattice matrix determinant gives vertex number.",
+          "identifier_or_url": "https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2006/2006-013.pdf",
+          "material_read": "Primary PDF abstract/introduction, Section 2 associated translation-lattice matrices and vertices, inspected text occurrences of flag/3-cycle/triangle.",
+          "method": "Opened primary institutional PDF, examined searchable lines and screenshot of original preprint title/introduction.",
+          "title": "Equivelar maps on the torus",
+          "trigger": "Potential broader lattice-quotient classification could dominate a criterion on 6-regular torus maps."
+        },
+        {
+          "assessment": "Unique global minimum at twelve torus vertices established, but no T_{n,1,k} arithmetic classification or E(n,k) formula.",
+          "evidence": "Example 3.2 provides the twelve-vertex flag torus; Theorem 4.8 says globally minimal flag torus is unique on 12 vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.03303",
+          "material_read": "Primary PDF abstract/introduction, Example 3.2 and Table 2, Theorem 4.8 and its start, inspected screenshot of original first page.",
+          "method": "Text-extracted arXiv primary PDF with targeted lines and screenshot.",
+          "title": "Minimal flag triangulations of lower-dimensional manifolds",
+          "trigger": "Nearest published direct criterion for globally minimal flag torus."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Flagness is an intrinsic higher-dimensional clique-filling condition for a torus triangulation, and the Datta--Upadhyay six-regular cyclic family is a canonical infinite vertex-transitive class. The exact empty-triangle orbit census is a natural structural invariant, not an arbitrary finite slice: it classifies flagness for all canonical n,k and demonstrates the family first becomes flag at 13 vertices, distinguishing it from the unique globally minimal 12-vertex flag torus. The result is specialized and elementary but its exact all-parameter boundary and multiplicities can be reused in torus map or flag-complex studies without a downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Datta and Upadhyay, Degree-regular triangulations of torus and Klein bottle, arXiv:math/0403433v2, Example 1 and Lemma 2.1(a), https://arxiv.org/pdf/math/0403433",
+    "Brehm and Kuehnel, Equivelar maps on the torus, Stuttgart Preprint 2006/013, lattice classification, https://www.f08.uni-stuttgart.de/.content/media/downloads/Mathematik/mathematische_berichte/2006/2006-013.pdf",
+    "Bibby, Odesky, Wang, Wang, Zhang and Zheng, Minimal flag triangulations of lower-dimensional manifolds, arXiv:1909.03303v3, Example 3.2, Theorem 4.8, https://arxiv.org/pdf/1909.03303",
+    "Resultary index searches: exact flag criterion in cyclic weakly regular torus; arithmetic equivelar lattice flagness; empty 3-cliques in 6-regular cyclic torus",
+    "Resultary same-record listing 2026/10/11/SCOPE-an-exact-flag-criterion-for-the-cyclic-weakly-regular-torus-fami--a170495e50a8 (self-indexed source, not an independent antecedent)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The criterion is only for T_{n,1,k} in the canonical k range, with complementary range handled by the defining paper symmetry; it does not classify all equivelar or all torus triangulations.",
+    "The finite test n<=200 is not the proof of the universal quantifier.",
+    "Originality has residual risks of an equivalent prior lattice-coordinate formulation; exact Resultary self-index hit is not independent novelty evidence.",
+    "Publication not_ready is due to private provenance and unstaged complete guarded sanitization, not a science-axis failure.",
+    "No formal Lean or expert attestation, GitHub write, dispatcher closeout, or publication is asserted."
+  ],
+  "schema_version": 1
+}

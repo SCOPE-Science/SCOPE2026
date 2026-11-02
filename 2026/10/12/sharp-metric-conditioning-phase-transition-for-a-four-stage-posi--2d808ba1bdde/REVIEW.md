@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The weighted logarithmic norm is the largest eigenvalue of a symmetric four-vertex weighted path shifted by \(-\gamma\). The endpoint-budget reduction is justified by strict Perron monotonicity. Fixing the central weight ratio fixes the product of the two outer squared links; an exact characteristic-polynomial argument plus AM–GM proves their unique balanced optimum. A complete one-variable derivative sign analysis gives the optimal metric in two regimes separated sharply at \(K=2\). Substituting this solution into the exact logarithmic-norm threshold yields the stated piecewise sixth-power conditioning law.
+## correctness
 
-The semigroup interpretation is an equivalence because the logarithmic norm is the derivative of the induced operator norm at the identity, while a nonpositive logarithmic norm bounds the semigroup norm by one for every nonnegative time. The exact rational witness was checked by reconstructing the characteristic polynomial of the matrix congruent to the Lyapunov symmetric part. No numerical scan is being used as an infinite proof.
+PASS
 
-## Originality
-PASS, with access and terminology risks. Standard Metzler theory guarantees existence of some diagonal quadratic Lyapunov function, and classical papers study common diagonal stability and Riccati inequalities for positive systems. The full Mason–Shorten existence paper and Mason diagonal-Riccati manuscript were materially inspected; their questions are not the minimization of weighted logarithmic norm under a spectral condition-number budget. Searches for the K=2 phase, fourth-order Jordan cascade, conditioned diagonal similarity, and sixth-power threshold found no implication-equivalent result. The general triangular-similarity result of Bhatia–Kahan–Li is plausibly relevant but was only available as a public abstract; this is an explicit residual risk, not a whole-document exclusion.
+Reconstructed the minimization for all γ,w>0 and K≥1. With q_i=p_i/p_{i+1}, the weighted symmetric part is -γI+(w/2)T where T is a 4-path with squared off-diagonal weights q_i. Perron strict monotonicity forces p1=min p=1 and p4=max p=K at K>1; for fixed s=p3/p2 the product q1q3=s/K and q2=1/s are fixed. Characteristic polynomial λ⁴−(q1+q2+q3)λ²+q1q3 makes minimizing λ equivalent to minimizing q1+q3 at fixed product; AM–GM forces q1=q3=√(s/K), achievable by p2=√(K/s), p3=√(Ks). Put r=q1=q3 in [1/K,1], q2=1/(Kr²). The Perron root is L=(1/(√K r)+√(1/(Kr²)+4r))/2. Symbolic differentiation independently confirmed sign(L′)=sign(2Kr³−1−√(4Kr³+1)), negative until Kr³=2, positive afterward. Thus r*=1 for K≤2, and (2/K)^{1/3} for K≥2, unique, yielding exactly both branches R(K) and P*(K). Standard logarithmic norm derivative at t=0 proves semigroup nonexpansion iff μ≤0; monotonic inversion yields Kcrit in all c regimes including boundaries c=1/√2 and c=(1+√5)/4. The exact rational certificate was independently verified as det(xP−(G^TP+PG))=256x(x+1)(x+3)(x+4), with G=-I+2N and P=diag(1,2,8,16). No finite scan is treated as all-K proof.
 
-## Value
-PASS. Diagonal Lyapunov norms on positive systems can be arbitrarily distorted. Their conditioning is a natural scale-free cost if one wishes to interpret a weighted contraction estimate in ordinary coordinates. For the smallest chain with three independently interacting links, the optimal scaling ceases to be geometric at an exact phase boundary and the necessary budget for nonexpansion scales with the sixth power of coupling-to-damping. This sharp structural boundary goes beyond routine diagonal-stability existence.
+## originality
 
-## Closest literature and limitations
-Kaszkurewicz–Bhaya provides early diagonal-Lyapunov control context, Mason–Shorten characterizes common diagonal stability, Mason analyzes diagonal Riccati stability for positive delay systems, and Bhatia–Kahan–Li studies triangular-matrix norm behavior under diagonal similarity. The present theorem is restricted to a uniform-rate four-state positive cascade, fixed positive diagonal metrics, and exact arithmetic. Related abstract-only sources remain genuine originality risks; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original constrained spectral optimization: Mason–Shorten (2006) Theorem 4.2 characterizes existence of a common diagonal quadratic Lyapunov function for two Hurwitz Metzler matrices via a matrix-pencil condition; it neither imposes a finite condition budget nor identifies an optimal diagonal metric. Mason (2012) Theorem 3.1 concerns diagonal Riccati solution existence for positive delay systems. Bhatia–Kahan–Li (2002), in its accessible full abstract, compares norms of scaled triangular matrices under monotone diagonal similarities, but that published assertion does not imply the minimax weighted symmetric-part eigenvalue or the exact K=2 phase. Published related SCOPE weighted-shift and Jordan results concern distinct norm objectives. No inspected complete primary text yielded the sharp K-dependent profile, inverse-sixth-power threshold, or the all-diagonal-metrics necessity. An older differently parameterized general optimization theorem could still cover the claim; see residual risks.
+
+## value
+
+PASS
+
+The spectral condition number κ(P) measures the distortion cost of a positive diagonal quadratic Lyapunov metric. Determining the least cost for a stable positive cascade to be nonexpansive is a natural finite-dimensional control/spectral optimization, not merely restating Hurwitz stability or a cheap negative test. Four stages are the first chain with interacting outer and central link allocations. The exact K=2 phase switch between two plateaus and unique nongeometric graded weights, the exact Kcrit(c) for all damping ratios, and sixth-power divergence as γ/w→0 quantify a nontrivial tradeoff; the exact rational threshold K=16 is a motivated sharp boundary. It is narrow but offers an independently useful all-parameter structural classification and witness. The conclusion is about optimal weighted log norm, not a claim about exact Euclidean transient maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof has two exact components. First, the continued-fraction matrix product is reduced modulo \(2\); its action on the three nonzero vectors of \(\mathbb F_2^2\) converts the parity of the number of even Euclidean quotients into the parity of the penultimate convergent numerator, and hence into the parity of the least positive coefficient \(a\) in \(ap-bq=1\). Second, the two-prime-power formula uses the exact inclusion-exclusion decomposition from the primary source, with the two cross-intersection sizes selected by the opposite parity of \(b\).
+# Independent mathematical audit
 
-`verify.py` was replayed from the packaged path. It checks the Bézout parity theorem for every coprime odd pair in the finite box \(p\le301\), \(q\le401\), giving 15169 cases. It also computes \(T(n)\) directly from its definition and compares with the branch formula for 304 generated odd two-prime-power cases with \(n\le30000\). The recorded output is stored in `verification_output.txt`.
+## correctness
 
-These finite checks are corroborative only. They do not establish the infinite theorem; the proof in `RESULT.md` does. No statement is made about the many-prime case, and possible unindexed classical overlap remains a literature limitation.
+PASS
+
+For q>p>1 coprime odd, the canonical continued-fraction product M(c_0)...M(c_m) has first column (q,p) and second (u,v) with pu-qv=(-1)^m. Its penultimate convergent produces the positive solution a=u for even m, a=q-u for odd m, hence a≡u+m (mod 2). Mod 2, an even quotient gives a transposition and an odd quotient a 3-cycle in GL2(F2)≅S3; the final first column (1,1) shows u≡1+#even_quotients. Therefore a≡#odd_quotients≡Σc_i (mod2). Since ap-bq=1 and p,q odd, a,b have opposite parity. Renshaw Lemma 4 gives each cross intersection (h±1)/2, with h=n/(pq) odd; his two-prime inclusion-exclusion then yields T=(S-1+2δ)/2 where δ=+1 iff a odd, giving exactly (S+1)/2 for odd quotient sum and (S-3)/2 otherwise. All exponents e,f≥1 are included because only h changes, not its parity or the sign criterion.
+
+## originality
+
+PASS
+
+A best-of-knowledge qualified PASS: the direct parent source (Renshaw, 2026) explicitly leaves both the least-positive Bézout coefficient parity and the two-prime-power T(n) branch unselected. The obtained parity formula is an actual new closed selector from canonical Euclidean quotients, rather than a numerical table. Wu–Xu’s general Qin-state/continued-fraction identity and Lägeler’s distinct restricted continued-fraction parity theorem provide antecedent machinery but do not state or directly specialize to this precise selector. Search misses alone are not novelty proof; an older unindexed classical equivalent remains a genuine risk.
+
+## value
+
+PASS
+
+The parity choice is explicitly posed as a final problem in the defining 2026 paper, and Corollary 6 gives two possible but otherwise unassigned values of a newly introduced totient on the natural two-prime-power family. The theorem supplies a canonical all-odd-coprime-pair exact Euclidean-quotient rule, independent of prime-power exponents, rather than reprinting a fixed numerical table. This is a mathematically motivated, narrow, structurally meaningful solution and a reusable exact evaluator, despite the elementary standard underlying matrix method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

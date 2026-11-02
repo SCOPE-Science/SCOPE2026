@@ -1,0 +1,204 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T09:19:42.265331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the full theorem for every prime p, n>=2, 0<=s,t<n. With unitary Fourier characters and X_s=p^sG\\p^{s+1}G, F_t=p^tG\\p^{t+1}G, subgroup orthogonality gives exactly B_ab=p^{-s}1_{p^{n-s}|a-b}-p^{-s-1}1_{p^{n-s-1}|a-b}. For s+t<=n-2, (p-1)p^{n-s-t-2} coarse congruence classes each split into p fine classes of p^s elements, with compressed normalized matrix I_p-J_p/p; hence unit eigenspace dimension (p-1)^2 p^{n-s-t-2}, remaining zero. At s+t=n-1 there are p-1 fine classes of p^s elements, giving I_{p-1}-J_{p-1}/p, with eigenvalues 1 [p-2] and 1/p [1], including p=2 boundary with no eigenvalue one. For s+t>=n the frequency shell differences lie in both required annihilator congruences; B=(p-1)p^{-s-1} J_M, giving exactly β=(p-1)^2/p^{s+t-n+2} [1] and zero [M-1]. Coarse/fine indicator vectors give all nonzero eigenspaces; nulls are within-fine zero-sum directions. The largest eigenvalue and Rayleigh quotient characterize all equality cases, including p=2. Independent direct normalized DFT checks of 84 distinct (p,n,s,t) cases for p=2,3,5,7 with p^n<=343, total frequency dimension 2043, matched all eigenvalues within 2e-11; these tests corroborate the universal congruence-block proof and are not claimed exhaustive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu--Wakin Theorem 2 gives trace and asymptotic squared-trace statements as domain size grows, not all individual eigenvalues for a fixed Z/p^n and the shell pair (s,t).",
+          "Marceca--Romero--Speckbacher Theorems 1.1-1.3 bound the number of eigenvalues away from 0,1 in Euclidean and Z^d Fourier settings under boundary-regularity hypotheses; finite cyclic prime-power shells are not a parametrized instance of those exact theorems.",
+          "The published minimum-tight-frame result proves p^{|R(A)|} as the minimal cardinality of some tight frequency set for arbitrary A; this is a different optimization over freely chosen frequencies, not fixed F_t compression spectrum."
+        ],
+        "reasoning": "The closest broadly formulated Fourier concentration papers have operator-level coverage, but their estimates and asymptotic theorems do not mathematically imply the asserted complete exact eigenvalues and eigenspaces. The finite prime-power frame classification concerns the existence/minimum number of frequencies, not spectral values of a predetermined annular mask. No dominating all-parameter spectral theorem was found.",
+        "searches": [
+          "subgroup difference shell double compression time-frequency limiting complete eigenvalue multiplicity finite abelian",
+          "p-adic time band limiting operator exact spectral decomposition balls spheres Fourier",
+          "finite cyclic p power group Fourier transform p-adic spheres annuli localization operator spectrum time frequency",
+          "https://arxiv.org/abs/1711.07956",
+          "https://arxiv.org/html/2301.11685v3",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-minimum-tight-exponential-frame-size-on-cyclic-prime-power-group--b7a941dc4a7d/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        {
+          "title": "Kozyrev (2000), Wavelet analysis as a p-adic spectral analysis",
+          "url": "https://arxiv.org/abs/math-ph/0012019"
+        },
+        {
+          "title": "Zhu--Wakin (2017), Time-Limited Toeplitz Operators on Abelian Groups",
+          "url": "https://arxiv.org/abs/1711.07956"
+        },
+        {
+          "title": "Marceca--Romero--Speckbacher (2024), Eigenvalue estimates for Fourier concentration operators on two domains",
+          "url": "https://arxiv.org/html/2301.11685v3"
+        },
+        {
+          "title": "Published cyclic prime-power minimum tight-frame theorem",
+          "url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-minimum-tight-exponential-frame-size-on-cyclic-prime-power-group--b7a941dc4a7d/RESULT.md"
+        },
+        {
+          "title": "Published dyadic four-point Fourier-zero shell theorem",
+          "url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-dyadic-shell-classification-of-fourier-zeros-for-four-point-indi--68cf8ce2dd05/RESULT.md"
+        },
+        {
+          "identifier": "Resultary search results for eight distinct p-adic/finite concentration formulations, self-hit ccd67aef93b8 excluded as independent evidence",
+          "title": "Resultary semantic search"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the submitted RESULT.md, exact group-character sums yield p^{-s}1_{p^{n-s}|a-b}-p^{-s-1}1_{p^{n-s-1}|a-b}, then the three residue-class block types I_p-J_p/p, I_{p-1}-J_{p-1}/p, and rank-one J_M.",
+          "Kozyrev theorem 2 establishes a localized eigenbasis for D^alpha, whose eigenvalue parameter is p^{alpha(1-gamma)}, so it does not imply the integer multiplicity formula for B_{s,t}.",
+          "Zhu--Wakin equation (30) matches the operator type, while Theorem 2 concerns a limiting eigenvalue distribution; deriving the present exact blocks still requires new arithmetic specialization.",
+          "Published SCOPE minimum-frame and dyadic-four-point theorems use the same prime-power valuations in Gram/zero criteria but do not derive the fixed-annulus B_{s,t} spectrum."
+        ],
+        "reasoning": "General Fourier-subgroup orthogonality is a classical ingredient, but none of the inspected prior statements directly entails all three exact spectral regimes and every maximizing eigenspace without the specific congruence-class decomposition. The result is a mathematically motivated precise classification rather than simply a renamed prior theorem. Potential older annular time-band limiting results remain a material priority risk.",
+        "searches": [
+          "Fourier concentration spectrum between valuation shells finite cyclic prime power groups exact singular values",
+          "finite p-adic annular shell Fourier concentration projector exact eigenvalues 0 1 1/p prime power",
+          "subgroup difference shell double compression time-frequency limiting complete eigenvalue multiplicity finite abelian",
+          "https://arxiv.org/abs/math-ph/0012019",
+          "https://arxiv.org/abs/1711.07956",
+          "https://arxiv.org/html/2301.11685v3",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-minimum-tight-exponential-frame-size-on-cyclic-prime-power-group--b7a941dc4a7d/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-dyadic-shell-classification-of-fourier-zeros-for-four-point-indi--68cf8ce2dd05/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozyrev (2000), section 2 Theorem 2 gives p-adic wavelet eigenvectors of the Vladimirov operator D^alpha, not eigenvalues of P_{F_t}M_{X_s}P_{F_t}.",
+          "Zhu and Wakin (2017), section 3 equations (29)-(30), formulate this composition for arbitrary LCA masks, but Theorem 2 provides asymptotic spectral counts, not shell-specific finite exact multiplicities."
+        ],
+        "reasoning": "Two operators both involving Fourier characters can still have different spectra and eigenvectors: the Vladimirov multiplier is Fourier-diagonal before spatial masking; the subject is a compression by two difference-of-subgroup indicators. Defining general projections does not determine their joint spectrum. The inspected results do not give the specific one-dimensional 1/p transition or precise ranks. Older local-field wavelet formulations are a residual risk.",
+        "searches": [
+          "Fourier concentration spectrum between valuation shells finite cyclic prime power groups exact singular values",
+          "finite p-adic annular shell Fourier concentration projector exact eigenvalues 0 1 1/p prime power",
+          "p-adic wavelet basis simultaneously supported on spatial and Fourier valuation spheres annuli",
+          "p-adic time band limiting operator exact spectral decomposition balls spheres Fourier",
+          "https://arxiv.org/abs/math-ph/0012019",
+          "https://arxiv.org/abs/1711.07956"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this assessed record as its only same-object same-invariant direct hit, not as independent corroboration; nearest separate hits concerned cyclic projection norms, tight frames, Hamming and Paley shell concentration, and dyadic four-point Fourier zeros.",
+          "The complete dyadic four-point Fourier-zero RESULT.md classifies indicator Fourier zero shells for four-point supports, with no singular-spectrum/multiplicity determination of two fixed valuation shells."
+        ],
+        "reasoning": "A finite lookup table cannot prove the present uniform all-n,p,s,t statement unless it is backed by a general identity; no complete independently published database/table covering these operator spectra was located. Absence of a match is not novelty proof.",
+        "searches": [
+          "Fourier concentration spectrum between valuation shells finite cyclic prime power groups exact singular values",
+          "finite p-adic annular shell Fourier concentration projector exact eigenvalues 0 1 1/p prime power",
+          "subgroup difference shell double compression time-frequency limiting complete eigenvalue multiplicity finite abelian",
+          "Dyadic shell classification of Fourier zeros for four-point indicators 2-adic valuation shells Fourier zeros",
+          "Resultary semantic exact spectra prime power valuation shells (self-match 2026/10/11/ccd67aef93b8)"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: Compared complete theorem statements and the material relevant to the exact compression, not just titles. Zhu--Wakin defines the same general abelian time/frequency cutoff operator and studies general asymptotic concentration, without an explicit prime-power two-shell spectrum. Kozyrev diagonalizes a p-adic derivative using disk-supported wavelets, not the finite double-shell projector. Marceca--Romero--Speckbacher give spectral-deviation counts for Euclidean/discrete Fourier settings, not exact cyclic finite p-group multiplicities. The complete published minimum-tight-frame and dyadic-four-point Fourier-zero proofs determine different invariants. No independent prior statement implying the three-regime exact spectrum with optimizer classification was found; older or unindexed ultrametric spectral calculations remain a genuine priority risk. A general subgroup orthogonality identity is known and is not credited as new.",
+      "residual_risks": [
+        "Earlier p-adic, finite ultrametric wavelet or hierarchical matrix literature may record the same nested-subgroup double-projection eigenvalues under other terminology; not exhaustively ruled out.",
+        "The block diagonalization is elementary after the standard subgroup character sum; independent value depends on the useful all-parameter classification and exact threshold, not methodological novelty.",
+        "Literature comparison does not cover all non-indexed books, theses, or unpublished material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the finite cyclic double-annulus compression; spectral target is Vladimirov D^alpha",
+          "evidence": [
+            "Theorem 2 exhibits ψ_{γjn} and D^alpha ψ_{γjn}=p^{alpha(1-gamma)}ψ_{γjn}; these are Q_p wavelet eigenvectors, not P_{F_t}M_{X_s}P_{F_t} finite spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0012019",
+          "material_read": "Full accessible arXiv HTML, sections 1-2 including Lemma 1, Theorem 2, formulae (1)-(7), and discussion of Fourier transform of disks",
+          "method": "Direct primary-text reading of HTML theorem and proof statements",
+          "title": "Wavelet analysis as a p-adic spectral analysis",
+          "trigger": "Highly relevant early p-adic shell/wavelet spectral operator"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK but NOT_COVERING exact fixed prime-power shell eigenvalue multiplicities",
+          "evidence": [
+            "Equation (30) defines B_B T_A B_B generically; Theorem 2 gives sums/near-1 asymptotics, not closed finite shell arithmetic eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.07956",
+          "material_read": "Full accessible primary arXiv HTML with detailed reading of sections 1.2-1.3, 3.1 Theorem 2/equations (29)-(35), and sections 3.3 related to optimal eigenvectors",
+          "method": "Direct primary HTML and theorem/appendix-context comparison",
+          "title": "Time-Limited Toeplitz Operators on Abelian Groups: Applications in Information Theory and Subspace Approximation",
+          "trigger": "Same general abelian Fourier time-frequency limiting composition"
+        },
+        {
+          "assessment": "NOT_COVERING the claim: boundary-regularity estimates for Euclidean/Z^d settings, not exact spectra on finite Z/p^n",
+          "evidence": [
+            "Theorem 1.3 bounds the cardinality of the intermediate spectrum for a discrete Fourier transform on Z^d paired with L²(F); section 7 proves that estimate using cubical boundary geometry, not shell eigenvalue formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.11685v3",
+          "material_read": "Full accessible arXiv HTML, abstract, section 1 statements Theorems 1.1-1.3, and section 7 proof of discrete transform estimate",
+          "method": "Read open arXiv HTML primary text and exact parameter hypotheses",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "Fourier concentration plunge eigenvalues for potentially nonconvex domains"
+        },
+        {
+          "assessment": "NOT_COVERING fixed two-shell concentration spectrum; optimizing over arbitrary frequency sets differs from classifying prescribed fixed frequency shell",
+          "evidence": [
+            "Main formula p^{|R(A)|} minimizes cardinality of B with a tight exponential frame on arbitrary A; no eigenvalues for P_{F_t} M_{X_s} P_{F_t}."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-minimum-tight-exponential-frame-size-on-cyclic-prime-power-group--b7a941dc4a7d/RESULT.md",
+          "material_read": "Complete public RESULT.md: Finding, assumptions, detailed Gram/cyclotomic proof, verification, relationship to prior work and limitations",
+          "method": "Direct read-only GitHub retrieval of full primary scientific result",
+          "title": "Minimum tight exponential-frame size on cyclic prime-power groups",
+          "trigger": "Published same cyclic prime-power group and valuation-difference structure"
+        },
+        {
+          "assessment": "NOT_COVERING complete spectrum/multiplicities of annular compression; Fourier zeros for coefficient-one four-point indicators only",
+          "evidence": [
+            "Every indicator zero lies in a dyadic valuation shell determined by a balanced matching; no theorem about spectral compression between fixed X_s and F_t."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-dyadic-shell-classification-of-fourier-zeros-for-four-point-indi--68cf8ce2dd05/RESULT.md",
+          "material_read": "Complete public RESULT.md including four-unit matching lemma, valuations, shell-union classification and limitations",
+          "method": "Direct read-only GitHub primary-result retrieval and mathematical statement comparison",
+          "title": "Dyadic shell classification of Fourier zeros for four-point indicators",
+          "trigger": "Published dyadic Fourier valuation shell geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Valuation shells are canonical difference layers of the p-adic subgroup filtration, and their Fourier duals are natural fixed frequency bands. For every prime power and both scale parameters, the theorem determines the complete concentration eigenspectrum rather than only a trace or generic plunge estimate: it gives exact dimensions of perfectly doubly localized subspaces, the sharp arithmetic boundary s+t=n-1 with the p=2 exception, one explicit nontrivial intermediate eigenvalue, and all optimizer directions. These structural facts provide reusable precise localization limits for hierarchical Fourier analysis. The problem and invariant are motivated independently of small finite computations, and this all-parameter closed classification was not mechanically stated/implied by the examined prior concentration/eigenwavelet theorems. Value is limited to centered cyclic prime-power masks; no broader group claim is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "Kozyrev (2000), Wavelet analysis as a p-adic spectral analysis",
+      "url": "https://arxiv.org/abs/math-ph/0012019"
+    },
+    {
+      "title": "Zhu--Wakin (2017), Time-Limited Toeplitz Operators on Abelian Groups",
+      "url": "https://arxiv.org/abs/1711.07956"
+    },
+    {
+      "title": "Marceca--Romero--Speckbacher (2024), Eigenvalue estimates for Fourier concentration operators on two domains",
+      "url": "https://arxiv.org/html/2301.11685v3"
+    },
+    {
+      "title": "Published cyclic prime-power minimum tight-frame theorem",
+      "url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-minimum-tight-exponential-frame-size-on-cyclic-prime-power-group--b7a941dc4a7d/RESULT.md"
+    },
+    {
+      "title": "Published dyadic four-point Fourier-zero shell theorem",
+      "url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-dyadic-shell-classification-of-fourier-zeros-for-four-point-indi--68cf8ce2dd05/RESULT.md"
+    },
+    {
+      "identifier": "Resultary search results for eight distinct p-adic/finite concentration formulations, self-hit ccd67aef93b8 excluded as independent evidence",
+      "title": "Resultary semantic search"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No new Lean proof/expert-attestation claim; finite checks are not infinite proof.",
+    "Older equivalent p-adic annular compression theorems might be unindexed, leaving qualified best-of-knowledge priority risk.",
+    "Privacy-safe public metadata/review replacement not staged; publication remains not_ready and there was no GitHub write.",
+    "Historical ledger content, including earlier incomplete science/gaps, remains untouched."
+  ],
+  "schema_version": 1
+}

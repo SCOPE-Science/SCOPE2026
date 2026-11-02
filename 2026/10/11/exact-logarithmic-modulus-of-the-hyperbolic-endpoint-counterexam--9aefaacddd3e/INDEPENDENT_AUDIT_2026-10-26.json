@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T12:19:17.117698Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim concerns the bounded continuous lacunary trace F(x)=sum_{j>=1}2^{-j}sin(2^j x_1) on R^{n-1}, n>=3, and its hyperbolic Poisson extension U on the CLOSED Euclidean upper half-space. Independently reconstruct the proof: for 0<r<1/2 choose J=floor(log_2(1/r)), so 2^{-(J+1)}<r<=2^{-J}. At any horizontal increment of length <=r, each term differs by at most min(r,2^{1-j}); thus omega_F(r)<=Jr+2^{1-J}<=Jr+4r. At x=0,h=re_1, the first J normalized summands equal sin(2^jr)/(2^jr)=1+O((2^jr)^2). The total quadratic error r^2 sum_{j<=J}4^j=O(1), and the normalized tail has magnitude <=2^{-J}/r<2. Therefore F(re_1)/r=J+O(1), giving omega_F(r)=r log(1/r)/log(2)+O(r) for ALL sufficiently small radii, not only dyadic ones. For U=P_y*F, the nonnegative unit-mass kernel gives horizontal contraction |U(x+h,y)-U(x,y)|<=omega_F(|h|), and the primary source proves sup_{x,y}|d_y U|<=C_d. Splitting an arbitrary Euclidean increment of length <=r into horizontal and vertical increments gives omega_U(r)<=omega_F(r)+C_dr. Boundary continuity and admissible boundary pairs give omega_U(r)>=omega_F(r). Both limits are 1/log(2). The constant is dimension-independent only for this fixed normalization; no universal theorem is asserted. Verified the source package six files from actual pinned Git blob IDs and reconstructed its Git tree hash; the analytic bound needs no finite experiment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hardy (1916), page 311 (PDF p10), provides a uniform O(|h|log(1/|h|)) bound when ab=1; page 314 (PDF p13) establishes f(h)/h tends to positive infinity for its sine class at zero.",
+          "Li--Tan (2026) provides the exact same trace and its Poisson construction and sup |partial_y U| bound, not its logarithmic coefficient.",
+          "Positive convolution kernels contract the boundary horizontal modulus; this general mechanism transfers an established sharp boundary asymptotic with at most O(r) vertical loss."
+        ],
+        "reasoning": "Broad Weierstrass differentiability and Zygmund-space regularity control scale/order rather than this normalized exact coefficient. The hyperbolic extension part is a short consequence of the source vertical estimate plus generic positive-kernel contraction once the new sharp trace asymptotic is proved. No stronger published exact constant theorem was independently identified.",
+        "searches": [
+          "G. H. Hardy, Weierstrass's Non-Differentiable Function (1916), Sections 2.5, 2.7",
+          "web: Hardy Littlewood lacunary sine series asymptotic x log 1/x Abelian theorem",
+          "web: critical lacunary series asymptotic at zero x log 1/x sine coefficients harmonic",
+          "Li--Tan arXiv:2608.13927, accessible v2 Sections 2.2 and 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.13927 available v2 full primary PDF relevant Sections 2.2/3.2 (also package cites v1)",
+        "G. H. Hardy, Weierstrass's Non-Differentiable Function, Trans. AMS 17 (1916), pp. 301-325, Sections 2.5/2.7",
+        "A. Zygmund, On the convergence of lacunary trigonometric series, Fundamenta Math. 16 (1930), bibliographic metadata; substantive text inaccessible",
+        "R. Salem--A. Zygmund, On Lacunary Trigonometric Series, PNAS 33 (1947), bibliographic metadata only",
+        "Resultary semantic searches for exact coefficient, Weierstrass critical modulus, and hyperbolic Poisson transfer; self-hit excluded",
+        "web targeted exact series, critical Weierstrass and modulus of continuity queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li--Tan Section 3.2 equation (3.6): F(2^{-N})/2^{-N}>=c_0 N-1; source does not identify its coefficient or the uniform-in-r first-difference supremum.",
+          "Hardy Theorem 2.71 at ab=1: (f(h)-f(0))/h->+infinity; Section 2.5 gives only O(h log(1/h)) continuity bound.",
+          "The assessed full-extension statement needs a global Euclidean modulus estimate, obtained by connecting boundary modulus and uniform vertical Lipschitz control; predecessor only proves non-Lipschitz."
+        ],
+        "reasoning": "Neither lower divergent quotient nor O(r log 1/r) upper estimate logically forces the specific limit 1/log2; another argument (elementary in this case) is needed. A general positive Poisson contraction transfers a proven trace constant but does not produce it alone. Historical inaccessible literature retains a real priority risk.",
+        "searches": [
+          "Li--Tan arXiv:2608.13927, accessible v2 Proposition 1.2 and proof Section 3.2",
+          "Hardy (1916), Theorem 2.71 and page 311 critical-ab estimate",
+          "Zygmund (1930), DOI:10.4064/fm-16-1-90-107, OA PDF retrieval and authorized library attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary target self-hit 2026/10/11/SCOPE-exact-logarithmic-modulus-of-the-hyperbolic-endpoint-counterexam--9aefaacddd3e excluded as independent priority evidence.",
+          "The same boundary trace is the critical Weierstrass sine function with b=2, a=1/2 after an elementary scale change, so earlier Weierstrass results were compared, not dismissed as mere title mismatch.",
+          "Hardy 1916 Sections 2.5 and 2.7: order estimate and divergent difference quotient, not an exact leading 1/log(2) coefficient."
+        ],
+        "reasoning": "An equivalent first-difference asymptotic may be expressed as F(r)/[r log(1/r)] or as a sharp Zygmund log-Lipschitz coefficient; direct and alias searches found no independently verified same-constant theorem. Hardy is a close stronger class antecedent, but its located assertions stop at O-order and infinite derivative, rather than the precise limit.",
+        "searches": [
+          "Resultary: Exact logarithmic modulus critical lacunary sine trace sum 2^-j sin(2^j x) and hyperbolic Poisson extension 1/log2",
+          "web: critical Weierstrass function sum 2^-n sin(2^n x) modulus continuity exact log Lipschitz coefficient",
+          "web: lacunary series exact asymptotic modulus omega(h) h log(1/h) 1/log 2",
+          "web: Weierstrass type function H(x) sum b^-n sin(b^n x) asymptotic x log x constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The subject is a function-space asymptotic, not a finite tabulated object; a numerical table cannot establish a universal r->0 limit.",
+          "No relevant independently published exact-coefficient table was returned in the search results; the Resultary exact hit is the record under audit itself."
+        ],
+        "reasoning": "A database/table check is relevant to published exact constants even though no finite database is naturally associated with a continuum modulus. None retrieved supplied independent all-radii proof; failed search is not novelty proof.",
+        "searches": [
+          "Resultary: Zygmund Weierstrass Takagi function exact modulus of continuity coefficient logarithmic base 2 endpoint",
+          "web: exact modulus of continuity lacunary sine series sharp",
+          "web: hyperbolic Poisson extension lacunary endpoint logarithmic modulus of continuity exact"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: the exact ALL-radii first-difference limit with coefficient 1/log(2) and its transfer to the FULL hyperbolic Poisson extension are more precise than the two-sided-order/endpoint obstruction in inspected antecedents. Li--Tan arXiv:2608.13927 current available PDF v2, Section 3.2 and Proposition 1.2, explicitly defines the same F and U and only tests h_N=2^{-N} to prove the coarse c_0 N-1 divergent difference quotient, together with a vertical derivative bound. Hardy (1916) gives O(|h|log 1/|h|) for the critical Weierstrass sine class ab=1 and an infinite positive derivative at zero, but the inspected theorem/proofs (Sections 2.5 and 2.7) do not state the exact coefficient or a hyperbolic extension modulus. Independent Resultary searches yielded the target self-record as the only direct exact hit; self-publication does not count as independent support. Classical lacunary literature remains a material priority risk, especially Zygmund (1930), whose publicly advertised PDF was inaccessible (403) and whose authorized Oxford access returned vpn_disconnected. This is a documented access limitation, not by itself a reason to mark O failed.",
+      "residual_risks": [
+        "Classical Weierstrass/Zygmund literature may contain a differently formulated sharp coefficient; Zygmund 1930 full text was not read, and authorized library VPN is disconnected.",
+        "The publicly fetched Li--Tan arXiv is updated v2 (2026-10-14), while the assigned package cites v1; attempted v1 retrieval was unavailable. The identical series and vertical estimate appear in inspected v2.",
+        "No absolute global priority certificate is claimed. The result concerns only a fixed normalized example, not a universal class bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISES_AND_ORDER_ONLY: exact same trace and extension, divergent dyadic difference quotient, bounded vertical derivative, but no exact uniform first-difference leading coefficient.",
+          "evidence": "Equation (3.2) defines F; (3.6) only gives >=c_0 N-1; (3.7) defines U; page 27 bounds sup|partial_y U| by C_d.",
+          "identifier_or_url": "arXiv:2608.13927; accessible PDF v2 2026-10-14 https://arxiv.org/pdf/2608.13927",
+          "material_read": "Introduction, Section 2.2 Poisson convolution, and complete relevant Section 3.2 pages 25-28 (PDF indices 24-27): F definition, dyadic lower test, U construction, continuity, vertical derivative bound, endpoint failure. Primary PDF text and screenshots inspected.",
+          "method": "Primary full PDF text and visually inspected pages 25-28, not snippets alone; available updated v2; v1 fetch was blocked.",
+          "title": "Transversal Hölder Criteria and Dini–Zygmund Endpoint Regularity for Hyperbolic Harmonic Mappings",
+          "trigger": "Exact same hyperbolic Poisson model and lacunary series in the assessed package, which cites v1."
+        },
+        {
+          "assessment": "STRONG_CLOSE_ANTECEDENT_NOT_EXACT_COEFFICIENT: provides O(h log(1/h)) order and derivative tending +infinity at x=0 for ab=1 under a(b+1)<2, but not the 1/log2 limit or Poisson extension result.",
+          "evidence": "Page 311 line following ab=1 case gives O(|h|log 1/|h|); page 314 states the ab=1 tail stays bounded while first part grows, proving derivative +infinity.",
+          "identifier_or_url": "G. H. Hardy, Transactions AMS 17 (1916), 301-325; https://mate.dm.uba.ar/~umolter/materias/geo-fractal-2-11/referencias/Hardy.pdf",
+          "material_read": "Definitions and scope at start; Section 2.5 page 311 critical-ab uniform modulus order; Section 2.7 pages 313-314 Theorem 2.71 and proof including ab=1 case. Primary PDF text and screenshots inspected.",
+          "method": "Open full text, find, and PDF screenshots on pages 311, 313 and 314.",
+          "title": "Weierstrass's Non-Differentiable Function",
+          "trigger": "The very same critical-frequency sine series is a scaled case of the classical ab=1 Weierstrass sine series."
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK, not a claim of whole-document noncoverage.",
+          "evidence": "Fundamenta publisher metadata confirms 1930 volume 16 pages 90-107; OA download blocked (403); Oxford access reported vpn_disconnected.",
+          "identifier_or_url": "Antoni Zygmund, Fundamenta Math. 16 (1930), 90-107; DOI:10.4064/fm-16-1-90-107",
+          "material_read": "Publisher bibliography/metadata and archival free-download page only; attempted CC-BY and archival OA PDF but both returned 403. No substantive PDF pages read.",
+          "method": "Publisher catalogue, open-access archive discovery; authorized Oxford retrieval attempted once with valid parameters and returned vpn_disconnected.",
+          "title": "On the convergence of lacunary trigonometric series",
+          "trigger": "Direct historically plausible lacunary-series antecedent cited by the assessed package."
+        },
+        {
+          "assessment": "BACKGROUND_ONLY; not used to assert absence of a covering theorem.",
+          "evidence": "PMC confirms full bibliographic identity and six-page PDF, but accessible view did not expose its theorems.",
+          "identifier_or_url": "R. Salem and A. Zygmund, PNAS 33 (1947), 333-338; DOI:10.1073/pnas.33.11.333; https://pmc.ncbi.nlm.nih.gov/articles/PMC1079068/",
+          "material_read": "Primary PMC bibliographic page and full-text link location. PDF access demanded a browser challenge; no full mathematical text was inspected.",
+          "method": "PMC record and PDF-access test, without CAPTCHA/MFA bypass.",
+          "title": "On Lacunary Trigonometric Series",
+          "trigger": "Classical lacunary function-space context cited in the package."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Modest but motivated narrow exact invariant. The fixed lacunary sine series is not an arbitrary parameter slice: it is the canonical explicit obstruction in the 2026 hyperbolic endpoint theorem and a classical critical Weierstrass object. Its natural first-difference modulus quantifies the precise borderline between global Euclidean Lipschitz regularity and the critical Zygmund log-Lipschitz scale. The exact normalized coefficient 1/log(2), proved at every radius rather than merely a dyadic test sequence, is not supplied by the predecessor weak-order statements. A full-extension transfer proves that no extra leading logarithmic loss arises from the hyperbolic Poisson layer in any n>=3. A future comparison of sharp endpoint moduli for other kernels or counterexamples can use this explicit calibrated coefficient. The value is limited: an elementary dyadic split suffices, and there is no new class-level endpoint theorem, phase diagram, or second-order expansion. This limit is accepted as a natural exact test-example fact, not as a broad breakthrough or paper-sized result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.13927 available v2 full primary PDF relevant Sections 2.2/3.2 (also package cites v1)",
+    "G. H. Hardy, Weierstrass's Non-Differentiable Function, Trans. AMS 17 (1916), pp. 301-325, Sections 2.5/2.7",
+    "A. Zygmund, On the convergence of lacunary trigonometric series, Fundamenta Math. 16 (1930), bibliographic metadata; substantive text inaccessible",
+    "R. Salem--A. Zygmund, On Lacunary Trigonometric Series, PNAS 33 (1947), bibliographic metadata only",
+    "Resultary semantic searches for exact coefficient, Weierstrass critical modulus, and hyperbolic Poisson transfer; self-hit excluded",
+    "web targeted exact series, critical Weierstrass and modulus of continuity queries"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is best-of-knowledge, with historical priority risk in inaccessible Zygmund 1930 material and visible v1/v2 source-version discrepancy.",
+    "No author/priority certification or formal independent external expert attestation is claimed.",
+    "Source publication withheld for public operational provenance until sanitized full-file replacements are verified."
+  ],
+  "schema_version": 1
+}

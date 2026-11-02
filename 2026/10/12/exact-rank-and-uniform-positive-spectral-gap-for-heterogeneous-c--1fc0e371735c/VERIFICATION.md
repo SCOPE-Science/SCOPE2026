@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python verify.py` using Python 3, NumPy, and SymPy. The script independently constructs the entire adjacency matrix and obtains the average mixing matrix by grouping numerically equal adjacency eigenvalues, squaring their spectral projectors entrywise, and summing. It also constructs the claimed local \(-1\)-projector without using the eigenvectors of the numerical diagonalization.
+# Independent mathematical audit
 
-For six explicit heterogeneous parameter choices, SymPy confirms exactly over the rationals that the claimed projector is idempotent, solves \(AE_{-1}=-E_{-1}\), has rank equal to the multiplicity of \(-1\), and has the stated Schur-square cell eigenvectors and eigenvalues. For 77 independently constructed graph examples, NumPy checks the nullity formula, all predicted difference null directions, the positive-eigenvalue lower bound when the core size is at least two, and the exact \(1/3\) cell-difference eigenmodes when a cell has three vertices.
+## correctness
 
-Observed replay:
+PASS
 
-`VERIFY_OK exact_projectors=6 independent_graphs=77 max_null_residual=6.106e-16 max_projector_residual=2.220e-16 max_three_clique_mode_residual=1.388e-15`
+For b>=2, the Av=-v equations force each clique-cell sum to vanish, so the full -1 eigenspace projector is the block diagonal direct sum of R_t=I_t-J_t/t, including R_1=0. F=E_-1 circle E_-1 has cell constant eigenvalue (t-1)/t and cell-contrast eigenvalue (t-2)/t, producing precisely size-two pair-difference null directions and, for a=1, a possible singleton hub. Every other projector kills each pair difference because it lies entirely in the -1 eigenspace, hence all Schur squares kill them. In singleton-core case, positivity of the Perron-vector squared coordinate at the hub removes the remaining hub kernel direction; it is orthogonal to all pair differences. Thus the kernel and rank formula follow. For a>=2, F has all positive eigenvalues >=1/3 and the same kernel as Mhat; PSD addition preserves the lower bound. Size-three internal differences are exactly eigenvalue 1/3 since other spectral projectors have equal columns there. Independent code rebuilt adjacency/spectral projectors for 144 parameter settings and exact -1 eigenspace identities for four settings; these bounded tests corroborate, not prove, the universal argument. No b=1/singleton peripheral/weighted/Laplacian conclusions claimed.
 
-Floating-point tolerances are numerical comparisons, not exact certificates for infinitely many graphs. The unrestricted claim is established by the six-step analytical proof in RESULT.md. The calculations do not test publication novelty or supply any external validation.
+## originality
+
+PASS
+
+Targeted published-finding searches and comparison with original average-mixing projector, commutant, exact-arithmetic and French-windmill rank sources found no prior statement implying the complete arbitrary-core, unequal-blade rank formula AND 1/3 uniform gap. General spectral-idempotent theory supplies the proof framework, not the derived graph-specific projector and its exact cell-block spectrum. Kimmerling 2023 Theorem 5.1.2 establishes full rank for one-hub equal French windmills with blades K_m, m>=3, a strict special case. Best-of-knowledge PASS with substantial unread-dissertation and general-theorem priority risks, not an absolute novelty certificate.
+
+## value
+
+PASS
+
+Unweighted clique-cored windmills are a natural graph family with arbitrarily many possibly unequal dense blade subgraphs meeting in a common clique. The full exact kernel/rank formula identifies precisely the size-two cells losing long-time quantum average-mixing degrees of freedom, including the core-size-two anomaly, while the sharp size-independent 1/3 lower spectral bound quantifies surviving modes. This all-parameter classification is not determined by the previously published uniform one-hub full-rank theorem or by pointwise numerical computations. The contribution is narrow and uses standard projector methods but gives a motivated exact structural invariant and stability constant a researcher could need.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

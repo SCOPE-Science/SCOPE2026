@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The universal result is proved analytically in RESULT.md. The checks below provide independent computational consistency tests rather than a finite certification of the all-frequency claim.
+## correctness
 
-To reproduce: run `python verify_projective_kernel.py` with Python 3 and `mpmath` installed. The checker evaluates Fourier integrals by independent quadrature and compares against the gamma-series expansion, then verifies expected signs and finite-grid negative spectral witnesses. The checker reports: `PASS: 63 Fourier comparisons, asymptotic-sign checks and finite negative witnesses`.
+PASS
 
-The explicit spectral witness is a Fourier mode on an equally spaced projective circle, where negative continuous Fourier coefficients imply negative finite circulant eigenvalues for sufficiently fine sampling; the actual checker tests selected grids only. Symbolic Fourier asymptotics and the even-power Hilbert-space Gaussian argument are given in the proof and are not delegated to the program.
+For α=2m, the real Hilbert–Schmidt pairing of rank-one Hermitian projectors P_u=uu* equals |<u,v>_F|^2, for F=R,C,H. Tensor power X_u=P_u^{⊗m} is injective on distinct projective lines, so exp(κ<X_u,X_v>) is the Euclidean Gaussian kernel times e^κ and is strictly positive definite on distinct finite sites. For every α>0 not even, restrict to embedded real projective line parameter t∈R/πZ, where kernel is e^{κ|cos(t-s)|^α}. Unique cusp at t=π/2 has local expansion 1+κ|t-π/2|^α+O_symbol(|t-π/2|^{α+min(α,2)}); Fourier asymptotic is (-1)^{n+1} κΓ(α+1)sin(πα/2)/(π2^α)n^{-α-1}+o(n^{-α-1}). Nonzero alternating leading sign forces infinitely many negative Fourier coefficients and rules out PSD by the compact abelian group positivity criterion. Independent finite Fourier integration found negative modes at α=1,3 and nonnegative α=2; this corroborates rather than proves all α,κ.
 
-Scope limitations: positive concentration, positive exponent, finite projective dimension at least two over the three named scalar fields. The numerical checks are not an infinite sign proof. Independent audit not performed.
+## originality
+
+PASS
+
+Matzke (2021) explicitly computes Fourier signs of pure projective powers and is credited for the structural obstruction, but unexponentiated coefficient signs cannot logically rule out a positive infinite exponential series at all κ. The local cusp dominant term prevents cancellation for any κ and yields the exact exponent dichotomy simultaneously for R,C,H; no equivalent full exponentiated classification identified. Best-of-knowledge with general negative-type harmonic theorem priority risk.
+
+## value
+
+PASS
+
+Exponentiated absolute projective inner-product affinity is a natural orientation-invariant covariance kernel. Exact concentration-independent all-dimensional PSD classification distinguishes legal Gaussian feature constructions from kernels with infinitely many negative Fourier modes. This answers a structural kernel-design question, not an isolated numerical parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

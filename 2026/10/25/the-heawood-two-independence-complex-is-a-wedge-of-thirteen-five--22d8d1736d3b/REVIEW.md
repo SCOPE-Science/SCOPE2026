@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fourteen-vertex graph is explicitly the Fano-plane incidence graph, with unique point pairs on lines. Both independent predicates enumerate exactly the same 2,257 faces including the empty one. The complete Morse matching on the nonempty face poset has 1,121 disjoint pairs and only one zero-cell and thirteen five-cells critical. The full oriented-Hasse graph has 2,256 vertices and 10,150 directed arrows and passes an exact topological-sort acyclicity test. Discrete Morse theory then proves the integral wedge, since there are no intervening cell dimensions. A separate reduced boundary-rank computation returns degree-five rank 13 and zeros elsewhere.
+## correctness
 
-**Originality — PASS, with bounded bibliographic uncertainty.** Exact Heawood three-path-free, two-independence, 13-sphere and induced-subgraph queries to public mathematical search and public mathematical records returned related but logically distinct statements. Sawant's 2026 theorem covers trees. Deshpande–Singh cover other classes and supply only the general matching method; neither result implies the Heawood critical-cell count. The nearby Heawood ordinary independence complex is a one-independence vertex complex; the two-matching complex instead consists of selected *edges*. Neither is equivalent to this two-independence vertex complex. Petersen two-independence concerns another graph. These comparisons show no identified covering result, not bibliographic certainty. The main nearby primary papers were inspected in full HTML; the direct public GitHub source for two published-finding corpus records was inaccessible during this review, so their checks rest on accessible published descriptions of the underlying objects.
+PASS
 
-**Mathematical value — PASS.** The Heawood graph is the smallest cubic girth-six graph and Fano-plane incidence graph, a standard highly symmetric nonchordal test object. The first higher-independence case has thirteen generators in dimension five, in contrast to the previously computed ordinary independence sphere wedge in degree three. Exact integral homotopy, with an explicit short reproducible acyclic matching, supplies a non-tree boundary case for the emerging higher-independence literature. This is a motivated exact finite classification, not a claim of generality.
+PASS: Ind_2(H) is a simplicial complex on the 14 Fano incidence vertices defined by induced maximum degree<=1 (equivalently all induced components have at most two vertices). Fresh independent enumeration of all 2^14 subsets gives f-vector with empty face (1,14,91,322,651,728,392,58), total 2,257. Sequential vertex-matching with modified empty-face pair leaves 1,121 disjoint nonempty matched pairs and critical cells exactly one vertex plus thirteen six-vertex faces; independent full directed-Hasse topological sort verifies acyclicity on all 2,256 nonempty faces and 10,150 arrows. Forman discrete Morse gives a CW model with one zero-cell and thirteen 5-cells, so every attaching map is constant and the integral homotopy type is wedge^13 S5. This complete finite certificate proves the fixed natural graph; mere mod-two Betti ranks would not prove the integral wedge.
 
-**Limits.** No generalization across graph orders, higher parameters, automorphism modules, or field-dependent torsion; independent verification remains outstanding. Potential unindexed priority overlap is the main residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified: closest higher-independence work addresses trees, chordal graphs, complete multipartite families and matching methodology, not the nonchordal 14-vertex Heawood incidence graph. Related same-graph results concern ordinary independence, edge matching, cut or neighborhood complexes, not the same vertex-subset two-independence complex. No covering exact 13S5 theorem identified.
+
+## value
+
+PASS
+
+PASS: The Heawood graph is the canonical Fano-plane incidence graph, cubic nonchordal girth six. Its first higher vertex-independence complex is a natural stress test outside the known tree/chordal families. Complete integral homotopy (not just Betti table) with short explicit acyclic matching is a meaningful exact finite classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

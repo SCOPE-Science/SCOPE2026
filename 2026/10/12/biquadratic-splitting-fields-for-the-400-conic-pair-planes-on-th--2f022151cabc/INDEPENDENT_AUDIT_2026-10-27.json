@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T01:21:32Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Git source blobs inspected: RESULT.md, VERIFICATION.md, REVIEW.md, SLOGAN.txt, METADATA.json, AUDIT.json, verify_planes.py; actual seven blob identities reconstruct tree 07fdbe83083d5a0a53b102635c451bf2a8a9fd91.",
+        "Independent exact rational Python reconstruction: first orbit 160, third 240, intersection 0; involution fixed {(1,0):64,(0,1):160,(1,1):16}; stabilizer census {trivial:192, sigma_sqrt5:144, sigma_i:48, entire Galois:16}; four representatives checked.",
+        "Primary source arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1 supplies complete geometric conic/plane set."
+      ],
+      "limitations": [
+        "The proof assumes the published full conic classification and generator matrices. The finite computation independently checks only consequences of those premises, not the independent correctness of the entire antecedent.",
+        "The field claim is for plane equations in the displayed Q-coordinates, not individual conic components or arbitrary twists."
+      ],
+      "rationale": "Reconstructed the projective row action from four explicit matrices and H1=(1,1,1,0), H3=(0,0,1,i(1+sqrt5)/2). Exact computation over the Q-basis (1,i,sqrt5,i sqrt5), using field norm inverses, independently found disjoint normalized plane orbits of 160 and 240 elements and closed Galois action. For sigma_i, sigma_sqrt5, sigma_i*sigma_sqrt5 the 400-element fixed counts are 64,160,16. Their simultaneous fixed intersection is 16 Q-rational planes, giving 144 Q(i)-minimal, 48 Q(sqrt5)-minimal, zero Q(sqrt(-5))-minimal, and 192 full biquadratic fields. Orbit-stabilizer yields 16 one-, 96 two-, and 48 four-element Galois orbits. Four sample plane equations were independently verified to belong to the corresponding orbit and have the stated field. Exhaustiveness uses Naskręcki Theorem 1.1 and Corollary 3.1, not an unsupported extrapolation from 400 tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Degtyarev, Conics in Kummer quartics, arXiv:2108.11181v1, §1 and main complex configuration classification",
+          "Degtyarev, Conics on smooth quartic surfaces, arXiv:2407.00493v2, Theorem 1.1, §1",
+          "Bonnafé–Sarti, K3 surfaces with maximal finite automorphism groups containing M20, arXiv:1910.05955v2, §§1,4",
+          "Theorem 1.1 of Degtyarev 2024 gives a global complex classification of surfaces with >=720 conics; it is not an arithmetic descent table on the fixed Q-model."
+        ],
+        "reasoning": "A geometric complete conic classification is stronger in complex geometric scope but does not by itself report the Galois decomposition on rational hyperplane coefficient vectors. The 2024 M20 surface is projectively equivalent over C, insufficient to transfer an arithmetic field-of-definition profile without a specified Q-coordinate isomorphism.",
+        "searches": [
+          "arXiv:2108.11181",
+          "arXiv:2407.00493",
+          "arXiv:1910.05955",
+          "Resultary: Mukai quartic hyperplane reducible plane sections rational quadratic field of definition Galois orbit",
+          "Resultary: Naskrecki 800 conics supporting plane 400 field coefficients splitting field"
+        ]
+      },
+      "checked_sources": [
+        "Naskręcki, Explicit equations of 800 conics on a Barth-Bauer quartic, arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1, Appendix A",
+        "Degtyarev, Conics in Kummer quartics, arXiv:2108.11181v1, §1 and main complex configuration classification",
+        "Degtyarev, Conics on smooth quartic surfaces, arXiv:2407.00493v2, Theorem 1.1, §1",
+        "Bonnafé–Sarti, K3 surfaces with maximal finite automorphism groups containing M20, arXiv:1910.05955v2, §§1,4",
+        "Resultary semantic searches (three distinct queries listed in four checks); closest findings concern other conic or quartic invariants rather than this exact descent table."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Naskręcki: 160,160,480 conic orbits, two supporting plane seeds, projective generator matrices, and 400 geometric supporting planes.",
+          "Independent complete 400-element exact orbit computation: two plane orbits 160 and 240; involution fixed counts 64,160,16 and field strata 16,144,48,192. The additional arithmetic output is absent from the inspected antecedent's theorem and appendix."
+        ],
+        "reasoning": "Prior geometric orbit and generator data make a finite computation possible, but the numerical Galois action is not the published mathematical conclusion. This is a narrow newly evaluated arithmetic invariant, not independent construction of the 400 planes. If older full enumeration scripts explicitly contain these stabilizers it would reduce novelty; inspected source does not.",
+        "searches": [
+          "Naskręcki, Explicit equations of 800 conics on a Barth-Bauer quartic, arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1, Appendix A",
+          "Degtyarev, Conics in Kummer quartics, arXiv:2108.11181v1, §1 and main complex configuration classification",
+          "Degtyarev, Conics on smooth quartic surfaces, arXiv:2407.00493v2, Theorem 1.1, §1",
+          "Bonnafé–Sarti, K3 surfaces with maximal finite automorphism groups containing M20, arXiv:1910.05955v2, §§1,4",
+          "Resultary: Barth Bauer quartic 400 conic pair planes minimal fields of definition Galois orbit 16 144 48 192 Q(i) sqrt5",
+          "Resultary: Mukai quartic hyperplane reducible plane sections rational quadratic field of definition Galois orbit",
+          "Resultary: Naskrecki 800 conics supporting plane 400 field coefficients splitting field"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Naskręcki, Explicit equations of 800 conics on a Barth-Bauer quartic, arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1, Appendix A",
+          "Appendix A Magma constructs conic orbits, but does not state the stabilizer character of Gal(Q(i,sqrt5)/Q) on normalized cutting-plane coefficients; the target equivalently counts rational and quadratic points of the finite dual hyperplane locus."
+        ],
+        "reasoning": "Fields of projective hyperplane definitions, Galois stabilizer sizes and Gal-orbit decomposition are equivalent encodings. Inspected exact-model source gives geometric orbits, not the arithmetic profile; Resultary returned only other kinds of quartic/conic results, not a separate direct equivalent.",
+        "searches": [
+          "Resultary: Barth Bauer quartic 400 conic pair planes minimal fields of definition Galois orbit 16 144 48 192 Q(i) sqrt5",
+          "Resultary: Mukai quartic hyperplane reducible plane sections rational quadratic field of definition Galois orbit",
+          "Web: Naskręcki explicit equations 800 conics Barth Bauer quartic arxiv pdf 2108.13402 400 hyperplanes Galois fields",
+          "Web: Barth Bauer quartic 400 planes conics rational Galois Q(i) sqrt 5 fields of definition",
+          "arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1, Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Naskręcki, Corollary 3.1: exactly 400 supporting hyperplanes; Appendix A gives Magma for 800 conics; Appendix B lists a 20-conic NS basis, not a complete 400-plane Galois field table.",
+          "The published factorization variable equations include polynomials over Q, but their roots and auxiliary conic coefficient fields do not state the projective fixed-field counts of all 400 supporting hyperplanes."
+        ],
+        "reasoning": "No explicitly tabulated 16/144/48/192 distribution found in the inspected exact primary source or targeted searches. An unpublished computational file or old table could encode it implicitly, which remains residual priority risk.",
+        "searches": [
+          "Naskręcki, Explicit equations of 800 conics on a Barth-Bauer quartic, arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1, Appendix A",
+          "arXiv:2108.13402v2, Appendix A and B",
+          "Web: Barth Bauer quartic 400 planes conics rational Galois Q(i) sqrt 5 fields of definition",
+          "Resultary: Barth Bauer quartic 400 conic pair planes minimal fields of definition Galois orbit 16 144 48 192 Q(i) sqrt5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified. Naskręcki's Theorem 1.1 and Appendix A already supply the quartic, group, conic seeds and geometric orbits, and Corollary 3.1 already counts the 400 planes. They do not state the exact Galois projective fixed-point counts (64,160,16), minimal supporting-plane fields (16 Q,144 Q(i),48 Q(sqrt5),192 Q(i,sqrt5)) or 16+96+48 orbit profile. The independently checked finite Galois computation is a new arithmetic extraction rather than a new geometric conic census. Those inputs make the refinement short and potentially implicit in older calculations, so priority is qualified, not absolute.",
+      "residual_risks": [
+        "Naskręcki already provides all matrices and seeds; exact fixed-point census is an accessible finite extraction, not a new general geometric method.",
+        "Older or supplementary symbolic computations could contain an equivalent Galois stabilizer table, not established absent by targeted searches.",
+        "Inspected parts, not page-by-page entirety, of the longer Degtyarev and Bonnafé–Sarti papers; no whole-document NOT_COVERING inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING geometry and exact 400 count, but not stating the complete minimal plane-field or projective Galois-stabilizer table",
+          "evidence": [
+            "Theorem 1.1 gives conic orbits 160,160,480 and seeds C1,C2,C3; Corollary 3.1 gives exactly 400 hyperplanes.",
+            "Appendix A Magma checks conic orbit cardinalities but contains no table of Galois-fixed supporting planes; field Q(i,sqrt2,sqrt5) refers to conic equations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13402",
+          "material_read": "v2 PDF pp. 1–8: full §§1–3, Theorem 1.1, Corollary 3.1, Appendix A Magma generator/orbit code and Appendix B basis data; visually inspected pp.1,2,4",
+          "method": "Primary arXiv full text plus page images and theorem/appendix text",
+          "title": "Explicit equations of 800 conics on a Barth-Bauer quartic",
+          "trigger": "Same exact embedded Q-quartic, identical seeds and matrices, exhaustive 800-conic and 400-plane antecedent"
+        },
+        {
+          "assessment": "Complex configurations, not an arithmetic descent classification for the fixed rational coordinate model",
+          "evidence": [
+            "§1 expressly states algebraic varieties considered over C; focuses on Fano graphs and conic counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.11181",
+          "material_read": "Primary PDF Introduction §1 and mathematical setup/main complex classification descriptions, pp. 1–2",
+          "method": "Read original PDF extracted text and inspected page 1 image",
+          "title": "Conics in Kummer quartics",
+          "trigger": "Broader configurations of Barth–Bauer and Kummer quartics with maximal conics"
+        },
+        {
+          "assessment": "Sharp 800 bound and complex isomorphism classes; no displayed rational-plane fixed-field distribution in inspected material",
+          "evidence": [
+            "Theorem 1.1 classifies quartics with >=720 conics over C; the leading 800-conic model is projectively equivalent over C, which does not determine Q-coordinate field strata."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.00493",
+          "material_read": "Primary PDF 2026 v2 Introduction and Theorem 1.1, pp.1–2",
+          "method": "Read theorem and mathematical context and inspected page images 1–2",
+          "title": "Conics on smooth quartic surfaces",
+          "trigger": "Potential dominating all-quartic conic configuration theorem and real-form classification"
+        },
+        {
+          "assessment": "Automorphism K3 geometry and model, not exact Gal(Q(i,sqrt5)/Q) action on the 400 cutting planes",
+          "evidence": [
+            "Describes X_Mu and M20 automorphism group and embedding over complex projective space; does not give arithmetic 400-plane stabilizer counts in inspected passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.05955",
+          "material_read": "Original PDF Introduction pp.1–2 and summary of explicit surface equations and groups",
+          "method": "Read primary full-text relevant passages and visually inspected pp.1–2",
+          "title": "K3 surfaces with maximal finite automorphism groups containing M20",
+          "trigger": "Prior projective Mukai-model symmetry, possible stronger automorphism action"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No classification of descent for the complementary conic components, twists, or different rational embeddings.",
+        "The invariant is a finite arithmetic refinement readily computable from previously published input data."
+      ],
+      "rationale": "The whole geometrically reducible hyperplane set is a natural complete finite arithmetic configuration attached to the distinguished 800-conic K3 quartic. Minimal fields of projective plane equations and their actual Galois orbit lengths are intrinsic to the fixed Q-embedding and not determined by the geometric count 400 or by the conic component coefficient field. The full exact 16/144/48/192 classification clarifies which plane sections descend over Q and the two quadratic subfields versus requiring the biquadratic compositum. Such precise incidence/descent data are reusable without new general theory; the claim is narrow and computation-heavy, but not an arbitrary slice or isolated arithmetic curiosity. Its value is modest and relies on original arithmetic information rather than a new conic construction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Naskręcki, Explicit equations of 800 conics on a Barth-Bauer quartic, arXiv:2108.13402v2, Theorem 1.1, Corollary 3.1, Appendix A",
+    "Degtyarev, Conics in Kummer quartics, arXiv:2108.11181v1, §1 and main complex configuration classification",
+    "Degtyarev, Conics on smooth quartic surfaces, arXiv:2407.00493v2, Theorem 1.1, §1",
+    "Bonnafé–Sarti, K3 surfaces with maximal finite automorphism groups containing M20, arXiv:1910.05955v2, §§1,4",
+    "Resultary semantic searches (three distinct queries listed in four checks); closest findings concern other conic or quartic invariants rather than this exact descent table."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strong direct antecedent Naskręcki supplies geometry/matrices; originality refers only to arithmetic minimal-plane-field census.",
+    "Publication withheld pending public metadata sanitization and first-publication provenance clarification.",
+    "No GitHub write, research package modification or dispatcher closeout."
+  ],
+  "schema_version": 1
+}
