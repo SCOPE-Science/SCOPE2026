@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:06:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and computation files at assignment commit"
+      ],
+      "rationale": "For one/two update images, labeled de Bruijn graphs have 4/16 vertices encoding length-3/5 input windows. A finite output word is present iff a corresponding labeled path exists, because every finite input block extends to a bilateral configuration. Subset transitions from all vertices recognize exactly both image languages. Paired-subset BFS over the finite reachable graph either returns a provably shortest accepted-at-one/rejected-at-two word or exhausts states proving equality for every finite word and hence closed subshift equality; no unbounded experiment is inferred from a cutoff. A fresh independent implementation of all 256 rules reproduced 72 stable, 184 shrinking, the entire twelve-length histogram, two extremizers and max 252 reached subset pairs. The supplied classification.csv agrees with this independently computed result.",
+      "residual_risks": [
+        "Comparison only first and second images, not every later shrinking step.",
+        "Bilateral full shift, binary radius-one CA; no boundary convention of finite periodic rings.",
+        "Graph-construction methods and Rule126 one/two-step graphs are prior art."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ballier arxiv:1301.3790 treats general stable cellular automata and limit sets.",
+          "The Wiley paper studies process-graph complexity for elementary rules, including first and second iterations; §5 offers future difference-set research."
+        ],
+        "reasoning": "General finite-automaton representability establishes decidability but does not specify exact 72,184, histogram and 12 extremizers. Process-graph state counts alone neither imply identical languages nor minimum distinguishing length.",
+        "searches": [
+          "doi:10.1002/cplx.21686 §3–5",
+          "arxiv:1301.3790 stable cellular automata",
+          "Resultary: elementary binary cellular automata 256 rules first second image languages minimal forbidden discrepancy Rule 126 Rule 129 length 12"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1301.3790",
+        "https://doi.org/10.1142/S0218127417300282",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/cplx.21686"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Rule126 process graphs allow derivation of its witness but do not immediately determine all other 255 rules or which are stable.",
+          "The present exhaustive finite-state pair search checks every rule and all possible words."
+        ],
+        "reasoning": "The core graph algorithm is a prior general technique. The complete 256-rule decision and exact extremal distribution are additional certified results, not a claimed methodological invention.",
+        "searches": [
+          "doi:10.1002/cplx.21686 §3.2 and §4",
+          "arxiv:1301.3790",
+          "Resultary: elementary binary cellular automata 256 rules first second image languages minimal forbidden discrepancy Rule 126 Rule 129 length 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Oliveira et al. Complexity 21 (2016) §3.2 Figures 6–7 explicitly construct first and second step Rule126 process graphs.",
+          "§4 Tables 1–2 classify graph sizes/complexity, not first-versus-second accepted-word equality or minimum discrepancy length."
+        ],
+        "reasoning": "Checked aliases finite-time image subshifts, regular-language equality, difference graph and first missing blocks. The methodology and Rule126 graph ingredients are known; explicit all-256 shortest discrepancy table not present in the read article.",
+        "searches": [
+          "Resultary: elementary binary cellular automata 256 rules first second image languages minimal forbidden discrepancy Rule 126 Rule 129 length 12",
+          "doi:10.1002/cplx.21686 Rule 126 image graphs",
+          "arxiv:1301.3790"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "De Oliveira et al. Table 1–2 report first steps process graph sizes/complexity, rather than 256 earliest-image-difference words.",
+          "The source classification.csv is an actual independently checkable new table; all rows were recomputed using a separate algorithm."
+        ],
+        "reasoning": "An older all-rule language table could cover the result, but the highly relevant accessible tables encode a distinct invariant and do not supply the exact shortest-word distribution.",
+        "searches": [
+          "doi:10.1002/cplx.21686 Tables 1–2",
+          "Resultary: elementary binary cellular automata 256 rules first second image languages minimal forbidden discrepancy Rule 126 Rule 129 length 12"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: Published process-graph methods and Rule126 graphs do not supply the complete 256-rule shortest image-language discrepancy census.",
+      "residual_risks": [
+        "A previously published exhaustive image-language table under a different coding or title could contain this exact census.",
+        "Rule126 witness is derivable from previously published process graphs; priority attaches to global complete classification, not individual graph construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source graph methods and a specific extremal rule appear; global first-second equal-subshift census and minimal distinguished word lengths are not stated",
+          "evidence": [
+            "doi:10.1002/cplx.21686 §3.2 Figures6–7",
+            "doi:10.1002/cplx.21686 §4 Tables1–2; §5 future difference-set study"
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/cplx.21686",
+          "material_read": "Wiley full-text HTML §3.1-3.2 (including Figures 6-7), §4 Tables 1-2 and difference-set discussion, §5 conclusions",
+          "method": "Direct full-text reading and term locating of Rule126, difference graphs and table captions",
+          "title": "Advances in the study of elementary cellular automata regular language complexity",
+          "trigger": "first- and second-image Rule126 graphs and tables across rule space"
+        },
+        {
+          "assessment": "Studies stable CA limit sets, not an identified finite 256-rule first/second classification",
+          "evidence": [
+            "arxiv:1301.3790"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.3790",
+          "material_read": "Accessible abstract and source cited in result; not an independent full-document pass",
+          "method": "General theorem/abstract comparison",
+          "title": "Limit sets of stable Cellular Automata",
+          "trigger": "general theory potentially covering first-image stability"
+        },
+        {
+          "assessment": "Potential source for previously known specific-rule tables; unresolved residual priority risk",
+          "evidence": [
+            "doi:10.1142/S0218127417300282"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0218127417300282",
+          "material_read": "Abstract/preview only",
+          "method": "Preview comparison with scope; whole-document not assessed",
+          "title": "Inferring the Limit Behavior of Some Elementary Cellular Automata",
+          "trigger": "plausibly overlapping exact rule limit table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1301.3790",
+        "https://doi.org/10.1142/S0218127417300282",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/cplx.21686"
+      ],
+      "rationale": "This is a complete natural finite classification of the first two image subshifts for every elementary CA; a sharp 12-symbol worst-case observability threshold and equality census are useful exact invariants, not a narrow arbitrary slice. The finite family is exhaustively certified by an unbounded-language finite-state decision, not merely short-word tests.",
+      "residual_risks": [
+        "A previously published exhaustive image-language table under a different coding or title could contain this exact census.",
+        "Rule126 witness is derivable from previously published process graphs; priority attaches to global complete classification, not individual graph construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Comparison only first and second images, not every later shrinking step.",
+    "Bilateral full shift, binary radius-one CA; no boundary convention of finite periodic rings.",
+    "Graph-construction methods and Rule126 one/two-step graphs are prior art."
+  ],
+  "schema_version": 1
+}
