@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Euclidean ambient-normal Gaussian representation is exact. The variance and covariance calculations of the path Laplacian scores are checked directly. The proof derives a Gumbel limit for the variance-six bulk by independent blocks separated by two indices, and a sharp variance-two endpoint integral with explicit dominating tails. Its gamma integral yields the coefficient \(8\sqrt3\pi\), and conditional Gaussian estimates make the excluded neighboring competitions lower order. A parallel argument gives the interior-angle limit uniformly in vertex location; the star follows by the law of large numbers and Gaussian symmetry. The finite checks in `verify.py` passed. Limitations: numeric checks are not infinite proofs, and no quantitative finite-dimensional relative-error rate is claimed.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Braun and Meyer describe the Laplacian simplex and tree lattice equivalence, while Meyer and Pllaha focus on codes and Ehrhart invariants. An accessible subsequent result studies Euclidean inradii, not Gaussian exposure probabilities. Known finite-dependent Gaussian extremes supply the bulk Gumbel mechanism but not the stated geometric angular dichotomy with its evaluated rare-event constant. Indexed mathematical records and full text of the most relevant original Laplacian-simplex papers were checked. Priority risk persists for unindexed unequal-variance Gaussian argmax results; absence from retrieved records does not establish absolute novelty.
+PASS
 
-**Value — PASS.** Normal-cone angles govern which vertices a random linear objective exposes. The theorem provides a sharp all-dimensional asymptotic angular profile for a fundamental graph-polytope family, with a cubic-versus-linear separation between endpoints and immediately adjacent vertices. The star comparison shows that lattice equivalence of tree simplices masks radically different Euclidean optimization probabilities. This is a structural geometric phenomenon, not just a routine numerical evaluation.
+For each n>=5 canonical Euclidean Laplacian-column simplex, its normal cone mass is argmax probability of X=Lg with g iid N(0,1). The path Laplacian gives endpoint variance 2, bulk variance 6, correlations −2/3 at lag1 and 1/6 at lag2, all other interior pairs independent. An independent exact integer matrix calculation reconstructed those covariances for every n=5..63. The block-separation argument (block length (log n)^2 and two-index gaps) proves a Gumbel limit for the bulk maximum uniformly after bounded deletions, since adjacent joint exceedances are o(1/n). Gaussian Mills ratio at t_n(y)=sqrt6(u_n+y/u_n), u_n=Phi^{-1}(1−1/n), gives normalized endpoint density (n^3/log n)*sqrt6/u_n*phi_sqrt2(t_n(y)) ->4sqrt3*pi*e^{-3y}. Independent-index left-tail domination gives integrability. Gamma(3)=2 yields 8sqrt3*pi. Local dependent competitors X2,X3 have strictly smaller conditional regression slopes and vanish on the rare-event scale, and independent far endpoint does too; analogous bulk normal density/Gumbel integral yields sup|n omega_i−1|→0. For the star, hub argmax condition g0>(sum leaves+max leaf)/n gives limiting 1/2 and equal leaf shares. All this is asymptotic and does not claim finite-n equal angles.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Braun–Meyer path/tree Laplacian simplex lattice equivalence and Meyer–Pllaha Ehrhart coding facts do not determine Euclidean normal-cone masses. Classical finitely dependent Gaussian maxima yield Gumbel behavior but do not by themselves supply the variance-mismatched endpoint coefficient and uniform interior comparison; no direct stronger published angular theorem was identified. Unindexed special Gaussian argmax literature remains risk.
+
+## value
+
+PASS
+
+The lattice equivalence of tree Laplacian simplices hides metric cone-angle distinctions. Sharp endpoint suppression O(log n/n^3) versus uniform O(1/n) interior probability and star hub mass 1/2 provides a natural and structurally sharp Euclidean invariant distinguishing canonical embeddings; coefficient requires nontrivial correlation/rare-event control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

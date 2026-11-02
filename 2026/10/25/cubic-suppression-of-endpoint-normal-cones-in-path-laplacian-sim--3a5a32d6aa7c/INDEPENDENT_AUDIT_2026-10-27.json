@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:17:58.919367Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=5 canonical Euclidean Laplacian-column simplex, its normal cone mass is argmax probability of X=Lg with g iid N(0,1). The path Laplacian gives endpoint variance 2, bulk variance 6, correlations −2/3 at lag1 and 1/6 at lag2, all other interior pairs independent. An independent exact integer matrix calculation reconstructed those covariances for every n=5..63. The block-separation argument (block length (log n)^2 and two-index gaps) proves a Gumbel limit for the bulk maximum uniformly after bounded deletions, since adjacent joint exceedances are o(1/n). Gaussian Mills ratio at t_n(y)=sqrt6(u_n+y/u_n), u_n=Phi^{-1}(1−1/n), gives normalized endpoint density (n^3/log n)*sqrt6/u_n*phi_sqrt2(t_n(y)) ->4sqrt3*pi*e^{-3y}. Independent-index left-tail domination gives integrability. Gamma(3)=2 yields 8sqrt3*pi. Local dependent competitors X2,X3 have strictly smaller conditional regression slopes and vanish on the rare-event scale, and independent far endpoint does too; analogous bulk normal density/Gumbel integral yields sup|n omega_i−1|→0. For the star, hub argmax condition g0>(sum leaves+max leaf)/n gives limiting 1/2 and equal leaf shares. All this is asymptotic and does not claim finite-n equal angles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun–Meyer Prop. 4.1 covers lattice equivalence across trees; Jakubowski–Soja-Kukieła covers dependence techniques for maxima of stationary fields, not the rare heterogeneous endpoint argmax."
+        ],
+        "reasoning": "Neither theorem implies equality/inequality of angular cones under nonorthogonal lattice transformations; standard maxima theory supplies a premise only.",
+        "searches": [
+          "arxiv:1706.07085",
+          "arxiv:1809.02960",
+          "doi:10.1007/s10687-018-0336-6",
+          "canonical path graph Laplacian simplex vertex normal cone solid angle endpoint asymptotic Gaussian argmax variance 2 variance 6 n^-3 log n"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen Git RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py at commit 6d72467f12de6d5dbde32d9e5fdf796d2ee820b5",
+        "Resultary published index: canonical path graph Laplacian simplex vertex normal cone solid angle endpoint asymptotic Gaussian argmax variance 2 variance 6 n^-3 log n",
+        "arxiv:1706.07085",
+        "arxiv:1809.02960",
+        "doi:10.1007/s10687-018-0336-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known tree-simplex lattice equivalence allows Euclidean distortion; standard m-dependent maxima gives Gumbel limit but not endpoint mass.",
+          "The endpoint density at bulk threshold contributes n^-3 log n with Gamma(3), absent in a pure normalized maximum distribution."
+        ],
+        "reasoning": "Classical background does not immediately derive the sharp constant nor the uniform boundary-versus-interior statement; proof genuinely adds variance mismatch and local competition estimates.",
+        "searches": [
+          "arxiv:1706.07085",
+          "doi:10.1007/s10687-018-0336-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exposed-vertex mass equals an argmax probability for 2-dependent unequal-variance Gaussian scores.",
+          "Braun–Meyer tree simplex equivalence is lattice-unimodular, not orthogonal; it does not preserve solid angles."
+        ],
+        "reasoning": "An equivalent Gaussian extreme-value formulation was deliberately searched; no independently identified claim with the exact 8sqrt3*pi coefficient was found.",
+        "searches": [
+          "canonical path graph Laplacian simplex vertex normal cone solid angle endpoint asymptotic Gaussian argmax variance 2 variance 6 n^-3 log n",
+          "arxiv:1706.07085",
+          "arxiv:1809.02960"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Laplacian simplex records concern inradii/circumradii, while cone records concern regular-simplex conic intrinsic volumes."
+        ],
+        "reasoning": "No exact endpoint angular table or known invariant matched the score covariance and cone definition. Negative index result is not proof of novelty.",
+        "searches": [
+          "canonical path graph Laplacian simplex vertex normal cone solid angle endpoint asymptotic Gaussian argmax variance 2 variance 6 n^-3 log n",
+          "Resultary search: path Laplacian simplex spherical normal cone endpoint"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Braun–Meyer path/tree Laplacian simplex lattice equivalence and Meyer–Pllaha Ehrhart coding facts do not determine Euclidean normal-cone masses. Classical finitely dependent Gaussian maxima yield Gumbel behavior but do not by themselves supply the variance-mismatched endpoint coefficient and uniform interior comparison; no direct stronger published angular theorem was identified. Unindexed special Gaussian argmax literature remains risk.",
+      "residual_risks": [
+        "A specialized published Gaussian argmax/heteroscedastic finite-dependent sequence law could encode the sharp endpoint coefficient under different terminology.",
+        "Near-endpoint finite-n numerical convergence may be slow; only asymptotic statement proved.",
+        "The bound on local conditional competitor success requires correlations/regression coefficients strictly below one, verified from exact covariance but no fully independent asymptotic manuscript rederivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports tree unimodular equivalence but is not a statement about canonical Euclidean spherical cone probabilities.",
+          "evidence": "Proposition 4.1 is a nonorthogonal lattice statement; the present embedding-sensitive angle is a different invariant.",
+          "identifier_or_url": "arxiv:1706.07085",
+          "material_read": "Abstract, construction and Section 4 including Proposition 4.1 on trees and lattice equivalence, plus page image",
+          "method": "Public full PDF/text and screenshot",
+          "title": "Laplacian Simplices",
+          "trigger": "Exact same canonical graph-Laplacian polytopes"
+        },
+        {
+          "assessment": "Coding and reflexive/Ehrhart subject, no basis to infer exact Gaussian cone probability from accessible passages.",
+          "evidence": "Explicit access limitation, no full-text negative claim.",
+          "identifier_or_url": "arxiv:1809.02960",
+          "material_read": "Accessible metadata, abstract and theorem-scope descriptions; full paper not read",
+          "method": "Public arXiv abstract/search",
+          "title": "Laplacian Simplices II: A Coding Theoretic Approach",
+          "trigger": "Same polytope family"
+        },
+        {
+          "assessment": "General extreme-value results can supply the Gumbel limit, but an exact heterogeneous endpoint score formula is not identified in inspected material.",
+          "evidence": "Priority risk for Gaussian-method aliases remains.",
+          "identifier_or_url": "doi:10.1007/s10687-018-0336-6",
+          "material_read": "Abstract and bibliographic description, not full technical text",
+          "method": "Public indexing",
+          "title": "Managing local dependencies in asymptotic theory for maxima of stationary random fields",
+          "trigger": "General 2-dependent Gaussian maxima technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The lattice equivalence of tree Laplacian simplices hides metric cone-angle distinctions. Sharp endpoint suppression O(log n/n^3) versus uniform O(1/n) interior probability and star hub mass 1/2 provides a natural and structurally sharp Euclidean invariant distinguishing canonical embeddings; coefficient requires nontrivial correlation/rare-event control.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1706.07085",
+    "arxiv:1809.02960",
+    "doi:10.1007/s10687-018-0336-6"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized published Gaussian argmax/heteroscedastic finite-dependent sequence law could encode the sharp endpoint coefficient under different terminology.",
+    "Near-endpoint finite-n numerical convergence may be slow; only asymptotic statement proved.",
+    "The bound on local conditional competitor success requires correlations/regression coefficients strictly below one, verified from exact covariance but no fully independent asymptotic manuscript rederivation.",
+    "Analytical/structural proofs support the universal statements; finite tests merely corroborate examples and coefficients.",
+    "Best-of-knowledge originality comparison, not external certification or a guarantee against unindexed antecedents."
+  ],
+  "schema_version": 1
+}
