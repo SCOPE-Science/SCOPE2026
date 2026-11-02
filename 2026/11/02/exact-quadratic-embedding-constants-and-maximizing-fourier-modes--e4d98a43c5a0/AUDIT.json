@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=3 and N=2n, the graph distance profile is f(k)=min(k,n+1-k) for 0<=k<=n, extended by reflection. Directly computing its circular second difference gives two positive corners at 0,n and parity-dependent negative corners, yielding every nonconstant Fourier eigenvalue. All even frequencies have nonpositive eigenvalues; among odd positive frequencies j=3 is uniquely largest up to reflection. The exceptional n=3 1D mode and the parity expansions are checked analytically. A standalone pure-Python breadth-first-search/Fourier checker passed 298986 supplementary finite assertions for n=3..60 plus selected asymptotic tests. The finite experiments are not claimed to prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Indulal and Gutman 2008 author text Section 2 enumerates double graphs, Cartesian products, coronas and lexicographic products, not the present graph.",
+        "Aalipour et al. 2015 study unrelated distance-regular and barbell/lollipop families."
+      ],
+      "reasoning": "The general Fourier diagonalization theorem is known and is credited. To subsume this finding a prior result must give or imply the geodesic distance profile Fourier maximum on C_{2n}(1,n); the inspected broader theorems do not.",
+      "searches": [
+        "Möbius ladder graph distance spectrum circulant distance matrix Fourier eigenvalues second largest",
+        "\"Mobius ladder\" \"distance matrix\" \"spectrum\"",
+        "distance eigenvalues of antipodal cycle plus perfect matching C(2n;1,n)",
+        "supremal negative type exponent Moebius Mobius ladder graph circulant 2n vertices chord opposite diagonal distance spectrum"
+      ]
+    },
+    "checked_sources": [
+      "https://www.ejgta.org/index.php/ejgta/article/download/435/pdf_64",
+      "https://arxiv.org/pdf/2306.15589",
+      "https://arxiv.org/pdf/2306.10497",
+      "https://www.researchgate.net/publication/279546556_On_the_distance_spectra_of_some_graphs",
+      "https://arxiv.org/pdf/1509.01196",
+      "https://arxiv.org/pdf/2409.17662",
+      "https://mathworld.wolfram.com/QuadraticEmbeddingConstant.html",
+      "https://mathworld.wolfram.com/MeanDistance.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Azimi and Farrokhi, arXiv:2306.10497 Section 5 Corollary 5.2 gives effective resistance distance; different from shortest-path metric.",
+        "Młotkowski et al. arXiv:2409.17662 concerns matching-deleted bipartite and theta graphs; M_6 is already K_{3,3} prior.",
+        "Obata and Zakiyyah 2018 supply a general QEC-eigenvalue identification but not the spectral values."
+      ],
+      "reasoning": "Effective resistance distance and graph-geodesic distance are not the same matrix; the former cannot directly imply this formula. Neither full distance-spectrum determination for other graph constructions nor the general QEC characterization supplies the explicit odd/even trigonometric maximum. Known M_6 value is excluded from priority.",
+      "searches": [
+        "\"Mobius ladder\" \"distance spectrum\" \"csc\"",
+        "\"Möbius ladder\" \"distance spectrum\" \"cot\"",
+        "\"Möbius ladder\" \"distance matrix\" eigenvalue 1",
+        "arxiv 2306.10497 ladder circular ladder Mobius resistance distance matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Obata and Zakiyyah 2018: QEC defined as restricted distance Rayleigh quotient; arXiv:2306.15589: distance-spectrum equivalence.",
+        "Direct QEC/graph name searches did not produce a family-level exact formula."
+      ],
+      "reasoning": "For transmission-regular graphs QEC is the second distance eigenvalue, so a claim written only as second distance eigenvalue could cover the present result; direct comparison therefore tests this alias. The cited general equivalence does not calculate the Möbius-ladder spectrum.",
+      "searches": [
+        "Obata quadratic embedding constant Möbius ladder graph",
+        "\"Möbius ladder\" \"QE constant\" OR \"quadratic embedding\"",
+        "exact quadratic embedding constant QEC of Möbius ladder M_2n = csc(3pi/2n) odd or cot(3pi/2n) even, distance matrix eigenvectors frequency 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Quadratic Embedding Constant catalog lists complete graphs, paths, cycles, wheels and multipartite graphs, not a Möbius-ladder entry.",
+        "MathWorld Mean Distance reports a Möbius ladder mean-distance scalar, not its QEC or nonconstant Fourier eigenvalues."
+      ],
+      "reasoning": "A mean distance specifies only the constant Fourier eigenvalue, which is excluded by the QEC constraint. An adjacency spectrum is likewise not the graph-distance spectrum. Neither exact tabulation implies the maximizing geodesic QEC formula without additional calculations.",
+      "searches": [
+        "\"Wagner graph\" \"distance spectrum\" second largest",
+        "\"Mobius ladder\" \"distance energy\" eigenvalues",
+        "quadratic embedding constant Möbius ladder graph distance matrix exact spectrum largest positive eigenvalue"
+      ]
+    },
+    "rationale": "Compared the exact shortest-path QEC and top Fourier eigenspace, not only its terminology, against foundational constant-row-sum QEC results, 2023 full Möbius-ladder resistance-matrix results, general graph distance-spectrum texts, 2024 bipartite QE classifications, indexed family tables, targeted searches, and recoverable existing claims. The six-vertex complete-bipartite specialization is explicitly prior. None of the materially inspected results supplied the all-order parity formula and maximizer; historical priority remains a residual risk.",
+    "residual_risks": [
+      "An older geodesic distance-spectrum treatment of Möbius ladders with different indexing or terminology may have escaped targeted searches; novelty is best-knowledge, not exhaustive proof.",
+      "A 2026 published revision of the resistance-distance preprint could contain material not compared here; the 2023 lawful open-access original was inspected directly.",
+      "Only finite numerical checks accompany an analytic all-size proof; they do not establish independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The constant-row-sum principle applies to Möbius ladders, but the paper does not state their complete distance spectra or the frequency-three parity formula. The specialization M_6 is known through K_{3,3}.",
+        "evidence": [
+          "Obata and Zakiyyah (2018), PDF pp.37-42, QEC and constant-row-sum criterion; examples of complete bipartite and small graphs."
+        ],
+        "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/435/pdf_64",
+        "material_read": "PDF first-page statement, sections 2 and 3, finite-graph examples and constant-row-sum discussion; 24-page paper inspected by text and page image",
+        "method": "Primary open-access journal PDF; equation and example comparison",
+        "title": "Distance matrices and quadratic embedding of graphs",
+        "trigger": "Foundational QE constant and possible stronger spectrum theorem"
+      },
+      {
+        "assessment": "The paper provides tree bounds, QEC/spectrum comparison, and graph cluster formulas. Möbius-ladder geodesic distance eigenvalues are not calculated and are not immediate special cases of its named constructions.",
+        "evidence": [
+          "Choudhury and Nandi, arXiv:2306.15589, pp.1-3 main results, pp.4-9 trees, pp.9-15 clusters."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.15589",
+        "material_read": "15-page primary preprint: abstract and Section 1 main theorems; Sections 2, 3 tree/double-star discussion and Section 4 cluster constructions",
+        "method": "Primary arXiv open-access full text with the opening PDF page inspected visually",
+        "title": "Quadratic embedding constants of graphs: Bounds and distance spectra",
+        "trigger": "Explicit QE-distance-spectrum comparison and exact family formulas"
+      },
+      {
+        "assessment": "Its Möbius-ladder matrix explicitly uses effective resistance from Laplacian pseudoinverses and Kirchhoff indices. This is not the shortest-path distance matrix of this theorem; none of its stated results provides the claimed QEC.",
+        "evidence": [
+          "Azimi and Farrokhi, arXiv:2306.10497, Section 1 resistance definition and Section 5 pp.13-15, especially Corollary 5.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.10497",
+        "material_read": "16-page primary preprint: abstract/definitions and relevant Section 5, Theorem 5.1, Corollary 5.2, and its displayed Möbius-ladder formulas, with first PDF page inspected visually",
+        "method": "Primary arXiv full text; compare matrix entries, distance definition and spectral operators",
+        "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Mobius ladder graphs",
+        "trigger": "Same exact graph family, plausible equivalent matrix/spectrum coverage"
+      },
+      {
+        "assessment": "Identified graph operations are doubling, graph-Cartesian product with K2, corona, lexicographic product with K2 and extended double cover. No Möbius-ladder shortest-path distance spectrum is supplied.",
+        "evidence": [
+          "Indulal and Gutman (2008), published text pp.126-130, especially Section 2 roadmap and Theorems 3-8."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/279546556_On_the_distance_spectra_of_some_graphs",
+        "material_read": "Author-posted full article text, 2008 pp.123-131, Section 1, Theorems 1-8 and Section 2 graph-operation cases; portal journal PDF direct access returned an HTTP error",
+        "method": "Lawfully public author full-text transcription, checked actual named graph constructions; journal metadata also checked",
+        "title": "On the distance spectra of some graphs",
+        "trigger": "Older exact distance-spectrum literature possibly dominating a circulant computation"
+      },
+      {
+        "assessment": "Studied halved cubes, double-odd graphs, Doob graphs, strongly regular graphs, lollipops and barbells; no Möbius-ladder family claim located in the inspected primary material.",
+        "evidence": [
+          "Aalipour et al., arXiv:1509.01196, pp.1-2 overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.01196",
+        "material_read": "20-page primary preprint: first page, abstract, introduction, and section roadmap read; full theorem derivations not audited",
+        "method": "Open-access preprint title/theorem family comparison",
+        "title": "On the distance spectra of graphs",
+        "trigger": "General distance-spectrum results could imply formula for special graph family"
+      },
+      {
+        "assessment": "Addresses matching-deleted complete bipartite and theta graphs; the main results do not specify the geodesic QEC for every Möbius ladder.",
+        "evidence": [
+          "Młotkowski, Skrzypczyk and Wojtylak, arXiv:2409.17662, p.1 introduction and abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.17662",
+        "material_read": "21-page primary preprint: abstract, introduction, main problem, QEC definitions and named graph families; first PDF page visually inspected",
+        "method": "Open-access preprint main-result comparison",
+        "title": "On quadratic embeddability of bipartite graphs and theta graphs",
+        "trigger": "Latest eligible 2024 preprint on non-QE graph classes, possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4d98a43-c5a0-4a67-aed4-741db0703f56",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Computes an unknown-in-inspected-literature, natural quadratic embedding constant of a standard, vertex-transitive cubic graph family at every order. The exact maximizing Fourier support exhibits structural rigidity; its parity asymptotic gives two different 1/n corrections about a common linear growth law. This supplies quantitative Hilbert-embedding obstruction and a sharp benchmark when comparing graph geodesic and resistance metrics. A singleton computation or routine substitution would not supply this complete parity-resolved spectral classification.",
+    "status": "PASS"
+  }
+}
