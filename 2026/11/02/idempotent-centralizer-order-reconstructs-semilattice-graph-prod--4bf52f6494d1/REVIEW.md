@@ -1,0 +1,11 @@
+# Scientific review: idempotent-centralizer graph reconstruction
+
+**Correctness: PASS.** Support-preserving graph-product relations and the two-generator free-product retractions establish the classification of idempotents, the key centralizer-intersection lemma, and strict-inclusion witnesses. The resulting centralizer-order formula is reverse clique inclusion after removing universal vertices. The center is a Boolean semilattice on those universal vertices, permitting explicit graph reconstruction. The proof includes empty and complete graphs. The independent finite *computational checks* cover every graph on at most four vertices, but do not replace the general proof.
+
+**Originality: PASS relative to accessible evidence, with a material residual risk.** Yang and Gould (arXiv:2102.06409; full text inspected) establish graph-product normal forms and pose a centralizer question; their paper does not give the inverse reconstruction result. The relevant broader Yang–Li work, *Centralizers in graph products of semigroups* (DOI: 10.1007/s00233-022-10331-0), is explicitly acknowledged as already covering general element-centralizer descriptions. The present originality claim is **only** the unlabeled idempotent-centralizer poset as a complete defining-graph invariant when paired with center size. The Springer abstract and first-page preview of Yang–Li were readable, but the remaining full article was inaccessible through checked routes; a direct statement or immediate stronger consequence in that full text cannot be excluded. Further independent literature comparison is needed for priority.
+
+**Value: PASS.** The result identifies an intrinsic and small combinatorial invariant that completely solves the reconstruction/isomorphism problem for the entire finite-graph family of these often-infinite monoids. The extra Boolean-center size is shown to be exactly necessary to recover cone vertices, producing a sharp and natural invariant rather than an arbitrary coefficient or routine numeric specialization.
+
+**Limits.** Other vertex monoids and arbitrary centralizer-poset orders are not classified; no priority claim is made for Yang–Li's general centralizer formula. Finite enumeration through four vertices does not certify the unrestricted proof.
+
+Self-review: passed. Independent audit: not yet performed.
