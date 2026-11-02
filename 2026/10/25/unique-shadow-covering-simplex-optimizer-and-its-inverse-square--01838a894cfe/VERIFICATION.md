@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted package. Python 3.10+ standard library suffices for exact rational coefficient checks, numeric root bracketing, the Legendre recurrence, and checks of the rescaled limits. Optional NumPy/SciPy (versions declared in `requirements.txt`) enable the independent geometric convex-hull reconstruction. A core check ending with `SYMBOLIC_AND_LIMIT_CHECKS_OK` does not by itself prove the all-dimensional claims: those follow from the analytic orthant, real-rootedness, and uniform asymptotic arguments in `RESULT.md`.
+## correctness
 
-The checker constructs each polytope from all pairwise Minkowski sums of standard-simplex vertices and compares the ConvexHull volume with the independent binomial expression, using a fixed deterministic parameter grid. No sampled volume comparison can establish the universal quantifiers. The exact cubic and Legendre recurrence checks are independently recalculated from rational arithmetic; the underlying classical Legendre-root theorem and Minkowski asymmetry theorem are explicitly invoked in the proof. No independent human or external mathematical audit has been performed.
+PASS
+
+Used affine coordinates for any simplex S=conv(0,e_1,...,e_n). Every hyperplane projected simplex admits its scaled negative at factor 1/(n-1) by simplex Minkowski asymmetry; convexity then proves projection shadow-covering for all t. The difference body t*S + ((1-t)/(n-1))*(-S) decomposes disjointly by orthant (up to boundaries), giving exact volume polynomial sum_{j=0}^n binom(n,j)^2 t^(n-j)((1-t)/(n-1))^j, not a finite sample. The classical binomial-Legendre real-root identity makes the volume polynomial a product of positive real affine factors, so log-volume is strictly concave on t in (0,1); endpoint derivative signs give a unique maximizer. For t=1-z/n^2, the binomial coefficient series and its derivatives converge uniformly on bounded z to 1+(z-z^2/4)/n^2 at leading order, giving z->2 and gain 1/n^2. Independent exact SymPy reconstruction for n=2,3,4,5 confirms endpoint signs and dimension-four derivative factor -4(74t^3+57t^2-93t-11)/81 and ratio. Packaged verify.py inspected; limited samples are corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.
+
+## value
+
+PASS
+
+The family is the classical universal-dimensional shadow-hiding example. Determining its unique parameter, sharp four-dimensional benchmark and precise decay of optimal volume excess addresses a canonical geometric quantity in the previously open projection-volume comparison program. The optimization is intentionally within the family, not a claim to solve the unrestricted supremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

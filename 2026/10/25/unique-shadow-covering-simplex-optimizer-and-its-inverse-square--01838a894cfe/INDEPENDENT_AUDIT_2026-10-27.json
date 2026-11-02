@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T13:14:03.762999Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Used affine coordinates for any simplex S=conv(0,e_1,...,e_n). Every hyperplane projected simplex admits its scaled negative at factor 1/(n-1) by simplex Minkowski asymmetry; convexity then proves projection shadow-covering for all t. The difference body t*S + ((1-t)/(n-1))*(-S) decomposes disjointly by orthant (up to boundaries), giving exact volume polynomial sum_{j=0}^n binom(n,j)^2 t^(n-j)((1-t)/(n-1))^j, not a finite sample. The classical binomial-Legendre real-root identity makes the volume polynomial a product of positive real affine factors, so log-volume is strictly concave on t in (0,1); endpoint derivative signs give a unique maximizer. For t=1-z/n^2, the binomial coefficient series and its derivatives converge uniformly on bounded z to 1+(z-z^2/4)/n^2 at leading order, giving z->2 and gain 1/n^2. Independent exact SymPy reconstruction for n=2,3,4,5 confirms endpoint signs and dimension-four derivative factor -4(74t^3+57t^2-93t-11)/81 and ratio. Packaged verify.py inspected; limited samples are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2011 establishes existence of a volume-gaining interpolation and uniform general upper bounds; Chen 2012 optimizes the n=3 tetrahedron."
+        ],
+        "reasoning": "General shadow-covering inequalities constrain arbitrary pairs but do not determine the optimal parameter of this exact family in n>=4.",
+        "searches": [
+          "arxiv:1109.1619 Theorem 3.1 and its proof",
+          "arxiv:1201.2580 Theorem 2 (tetrahedron reflected tetrahedron)",
+          "arxiv:2412.05308 higher volume bounds"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1109.1619 full PDF",
+        "arxiv:1201.2580 full PDF",
+        "arxiv:2412.05308 abstract and citations",
+        "Resultary higher-order profile full RESULT",
+        "focused shadow interpolation search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The other RESULT treats a different normalized higher-order polynomial F_{n,p}(t)=sum binom(np,j)binom(n,j)t^j(1-t)^{np-j}; here the reciprocal n-1 coefficient alters the volume objective."
+        ],
+        "reasoning": "Strict unimodality of an unscaled or distinct profile does not imply the derivative zero and asymptotic of this rescaled product. n=3 source covers only a known special case.",
+        "searches": [
+          "Resultary 2026/10/4 strict unimodality of simplex higher-order unbalanced-difference profile RESULT.md full",
+          "Chen–Khovanova–Klain main shadow-cover theorem",
+          "classical Legendre zero statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial is the full mixed volume of a simplex and its reflected reciprocal-(n-1) scaling; the Legendre polynomial provides real negative roots."
+        ],
+        "reasoning": "Classical polynomial and root identities are equivalent algebraic tools, not a prior statement of the all-dimensional optimal mixing parameter or 1/n^2 extremal law.",
+        "searches": [
+          "Chen–Khovanova–Klain 2011 shadow covering reflected simplex interpolation",
+          "Legendre polynomial negative real roots sum binom(n,j)^2 x^j",
+          "Resultary semantic query shadow covering simplex optimizer inverse square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact n=3 optimum is previously tabulated; the inspected source does not give n=4 ratio 1.08176253 or general n optimizer."
+        ],
+        "reasoning": "Published isolated n=3 values do not cover a higher-dimensional full polynomial maximization or large-n inverse-square law.",
+        "searches": [
+          "Resultary exact simplex-shadow optimizer dimension 4 volume",
+          "Chen 2012 numerical tetrahedral ratio ~1.1633587"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.",
+      "residual_risks": [
+        "An earlier all-n exact optimization of this classical mixed-volume polynomial may be unindexed.",
+        "This family optimum must never be described as the unrestricted shadow-covering optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS construction and existence, not final all-dimension optimum",
+          "evidence": "Theorem 3.1 chooses some t with volume gain; it does not optimize the entire one-parameter simplex family in all n.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.1619",
+          "material_read": "Full PDF sections 1–3, Theorem 3.1 and its mixed-volume proof; later discussion of examples",
+          "method": "Read mathematical PDF text and inspected p.6 rendered page",
+          "title": "Volume bounds for shadow covering",
+          "trigger": "Foundational identical simplex/Minkowski-shadow construction"
+        },
+        {
+          "assessment": "COVERS n=3 special case, not n>=4",
+          "evidence": "Theorem 2 gives tetrahedral parameter and volume ~1.1633587; cannot deduce the dimension-four cubic or general inverse-square limits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.2580",
+          "material_read": "Full mathematical text and Theorem 2; inspected p.9 rendered page",
+          "method": "Read PDF theorem and proof",
+          "title": "Maximizing Volume Ratios for Shadow Covering by Tetrahedra",
+          "trigger": "Exactly reflected tetrahedral special case"
+        },
+        {
+          "assessment": "RELATED, different normalized profile",
+          "evidence": "Its volume coefficients binom(np,j)binom(n,j) cannot equal the present reciprocal-scaled convex body for generic n,t.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strict-unimodality-of-the-simplex-higher-order-unbalanced-differ--5026d304e448",
+          "material_read": "Complete accessible RESULT.md, including formula, proof and scope",
+          "method": "Read GitHub source file entire mathematical text",
+          "title": "Strict unimodality of the simplex higher-order unbalanced-difference profile",
+          "trigger": "Possibly dominating same-profile unimodality result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is the classical universal-dimensional shadow-hiding example. Determining its unique parameter, sharp four-dimensional benchmark and precise decay of optimal volume excess addresses a canonical geometric quantity in the previously open projection-volume comparison program. The optimization is intentionally within the family, not a claim to solve the unrestricted supremum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No unrestricted optimal volume ratio for arbitrary shadow-covering convex bodies is established.",
+    "Dimension-asymptotic claims concern the specific simplex/reflection family only.",
+    "Classical simplex projection asymmetry and Legendre-root facts are inputs, not independently new theorems."
+  ],
+  "schema_version": 1
+}

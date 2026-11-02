@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every hyperplane projection inclusion follows from the dimension-\(n-1\) Minkowski asymmetry bound and the convexity of its projected simplex. The all-dimensional volume formula follows from a disjoint orthant product decomposition of a standard simplex difference body. The Legendre identity and its simple negative polynomial roots factor the volume ratio into positive affine factors, proving strictly negative logarithmic second derivative and a unique interior maximizer. Exact rational quartic/cubic derivations establish the four-dimensional result. Uniform binomial-tail bounds establish both the derivative expansion and the inverse-square limits. The supplied checker reproduces each algebraic identity and independently compares small-dimensional convex hulls. Risks: Legendre zeros and Minkowski asymmetry are standard external theorems; the exact all-parameter and asymptotic conclusions do not rely on numerical sampling.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Chen–Khovanova–Klain introduce and motivate shadow-covering interpolation; Chen's follow-on work optimizes the three-dimensional tetrahedron only. The Artstein-Avidan–Putterman general mixed-volume formula covers an ingredient, but does not give the precise dimension-dependent maximizing parameter and inverse-square volume-gain asymptotics. The nearest published higher-order unbalanced-difference result obtains a single maximum of a *different normalized polynomial*, not the one resulting from the required reciprocal-\((n-1)\) shadow-covering scale. The dimension-four cubic and dimension-asymptotic law are neither direct restatements nor implied by those named conclusions; the classical Legendre factorization itself is not presented as novel. See the full scientific comparison in `AUDIT.json`. Risk: an unindexed treatment could contain equivalent asymptotics or optimize the same volume polynomial.
+PASS
 
-## Value — PASS
-This gives a complete sharp shape-parameter optimization for the classical simplex-reflection shadow-hiding construction in every dimension, an exact first four-dimensional benchmark, and a precise dimension-dependent decay law showing that the construction's volume advantage vanishes quadratically with dimension. These are natural requested quantities in the older open volume-ratio program, not an arbitrary numerical slice. It does **not** resolve the unrestricted best shadow-covering ratio, and it explicitly separates that conjectural global problem from the proven family optimum.
+Used affine coordinates for any simplex S=conv(0,e_1,...,e_n). Every hyperplane projected simplex admits its scaled negative at factor 1/(n-1) by simplex Minkowski asymmetry; convexity then proves projection shadow-covering for all t. The difference body t*S + ((1-t)/(n-1))*(-S) decomposes disjointly by orthant (up to boundaries), giving exact volume polynomial sum_{j=0}^n binom(n,j)^2 t^(n-j)((1-t)/(n-1))^j, not a finite sample. The classical binomial-Legendre real-root identity makes the volume polynomial a product of positive real affine factors, so log-volume is strictly concave on t in (0,1); endpoint derivative signs give a unique maximizer. For t=1-z/n^2, the binomial coefficient series and its derivatives converge uniformly on bounded z to 1+(z-z^2/4)/n^2 at leading order, giving z->2 and gain 1/n^2. Independent exact SymPy reconstruction for n=2,3,4,5 confirms endpoint signs and dimension-four derivative factor -4(74t^3+57t^2-93t-11)/81 and ratio. Packaged verify.py inspected; limited samples are corroboration only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.
+
+## value
+
+PASS
+
+The family is the classical universal-dimensional shadow-hiding example. Determining its unique parameter, sharp four-dimensional benchmark and precise decay of optimal volume excess addresses a canonical geometric quantity in the previously open projection-volume comparison program. The optimization is intentionally within the family, not a claim to solve the unrestricted supremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
