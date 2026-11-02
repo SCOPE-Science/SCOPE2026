@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical boundaries
+# Independent mathematical audit
 
-The standalone `verify.py` requires Python 3, NumPy, SciPy and SymPy. From the directory containing the supplied files, execute `python verify.py`. The script checks the matrix-square identity for each Fourier generator symbolically, the Hermitian-part off-diagonal and determinant, the unique special density, the factorized separation of modal and nonmodal boundaries, and the exact optimizer of the half-filling triangular off-diagonal envelope. It then samples two-by-two matrix exponentials in the spectrally stable/amplifying and stable/contractive regimes, and checks the nonasymptotic half-filling operator-gain bracket for representative activity values.
+## correctness
 
-The symbolic calculations verify the pivotal algebraic identities; the numerical mode checks are finite and illustrative only. The infinite-dimensional necessary-and-sufficient amplification criterion is established separately by Fourier Parseval and a modewise energy estimate covering **every** nonzero integer Fourier wave number. The asymptotic gain bound follows from an all-mode operator-triangle estimate and a maximizer of a decaying positive discrete sequence, not from numerical extrapolation. The specified norm is that of physical plus/minus species-density deviations; changing norm is outside the claim.
+PASS
 
-This package does not test finite-particle stochastic realizations, nonlinear perturbation persistence, or robustness under weighted norms. No independent scientific audit has been performed.
+PASS: Linearizing the displayed hydrodynamic PDE gives the exact 2x2 Fourier matrix with off-diagonal entries -i Pe k(1-r), -i Pe k(1-2r). Its Hermitian part has maximal eigenvalue -k²-1+sqrt(1+(Pe k r/2)²), so semigroup contractivity in every nonzero Fourier mode is equivalent to Pe²r²<=4(k_1²+2); positive numerical abscissa at k_1 produces strict norm gain for an arbitrarily small real zero-mean perturbation. Direct squared-matrix computation gives spectral eigenvalues and the independent stability condition for r>1/2; difference of two Pe² thresholds is Q(3r-2)²/[r²(1-r)(2r-1)]. At r=2/3 Fourier matrices are Hermitian and the window collapses; for r<=1/2 spectrum remains left-half-plane for all finite Pe. At r=1/2 the triangular semigroup yields Pe C_L<=G_L(Pe)<=Pe C_L+1 with C_L the attained positive maximum of an explicit decaying Fourier-mode envelope. Independent symbolic Hermitian/spectral identities and finite-time singular-value witnesses passed (C5_OK).
+
+## originality
+
+PASS
+
+PASS, qualified: Kourbane-Houssene et al already derive the exact hydrodynamic PDE and spinodal spectral criterion. Agranov et al use the same linearized Fourier propagator for steady-state fluctuation covariances. General numerical-range and pseudospectral semigroup theorems imply the contractivity test for an arbitrary given matrix, but the explicit density–activity phase diagram, density 2/3 exceptional Hermitian locus and all-Fourier-mode high-activity gain constant were not found in inspected primary materials. Earlier specialized transient-growth analysis remains possible.
+
+## value
+
+PASS
+
+PASS: Nonnormal transient amplification despite spectral stability is physically meaningful for the exact interacting active exclusion hydrodynamics and is measured in an explicitly motivated species norm. Sharp coexistence window, exceptional density and unbounded large-activity gain separate modal from nonmodal mechanisms; not claimed as microscopic or nonlinear amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
