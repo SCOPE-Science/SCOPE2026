@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Quadratic exactness is equivalent to the moment-vector hull event. A point strictly interior to the hull yields positive weights on all sample nodes by mixing any representation with uniform positive weights. Convexity of the parabola gives the necessary-and-sufficient nearest-product and extreme-product inequalities; their failure events are disjoint. Joint extreme and nearest-point density integrals yield the exact p_m formula with correct boundary terms. Laurent-power integration yields rational plus rational log3 at every m. Endpoint Laplace contributions are 1/2 and 3/2, so the total sharp failure prefactor is 1+2=3; the other contribution decays at rate no greater than (1-1/sqrt3)^m. A positive-series rational enclosure for log3 certifies the first 95% threshold m=11. The included exact-rational checker passes 4500 independent geometric comparisons plus finite algebraic/numerical checks; infinite conclusions rest on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.32699v1, Theorem 1.1 gives a general sufficient sample bound and weights in a near-importance-sampling box.",
+        "doi:10.1007/s00440-022-01186-1, Introduction and Sections 4 and 6 supply general random convex-hull and cubature probability bounds; no uniform-quadratic closed probability law is stated in inspected material."
+      ],
+      "reasoning": "The newer theorem is stronger in dimension/function-space scope and in weight-balance guarantees on its sufficient-budget event, but is not an exact equality for fixed m in this uniform quadratic case. The older convex-hull bounds are logically compatible with the formula but do not state an equality or exact leading prefactor. A yet-uninspected general theorem on convex-curve random hulls could dominate this result; priority remains provisional.",
+      "searches": [
+        "all sample sizes m probability independent uniform nodes positive quadratic exact quadrature integral over 0 1 sharp asymptotic failure 3 (2/3)^m",
+        "simplicial depth polynomial moments iid uniform points large m convex hull failure 2/3 rate prefactor",
+        "Estimating the probability that a given vector is in the convex hull of a random sample",
+        "Random nodes with positive weights Richter Tchakaloff rules optimal positive quadrature"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.32699v1 (full open preprint)",
+      "doi:10.1007/s00440-022-01186-1 (full open article)",
+      "Previously established exact three-node quadratic quadrature probability",
+      "Relevant published mathematical-result abstracts for positive quadrature, random convex hulls, moment curves, and discrete sampling",
+      "Previously recorded exact three-node uniform quadratic quadrature result (affinely equivalent special case; checked for duplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hayakawa–Lyons–Oberhauser (2023) define general convex-hull inclusion p_{n,X} and derive depth/sample bounds.",
+        "Neumayer–Schäfer–Ullrich (2026) establish high-probability positive exact quadrature but not all-m exact p_m.",
+        "A prior special-case three-node calculation covers only the m=3 instance."
+      ],
+      "reasoning": "General existence bounds cannot be specialized to the stated equality or exact prefactor. A one-sample-count identity cannot determine the next sample count because the event is a random hull of a larger set rather than repeated independent copies of a three-node success event. The new proof uses two different m-dependent joint extreme/nearest densities and endpoint asymptotics. Classical convex-hull geometry is used openly and not claimed as new.",
+      "searches": [
+        "all sample sizes m probability independent uniform nodes positive quadratic exact quadrature integral over 0 1 sharp asymptotic failure 3 (2/3)^m",
+        "random parabola hull contains first and second moments [1/2,1/3] all sample sizes failure asymptotic constant 3 times two thirds to m",
+        "simplicial depth polynomial moments iid uniform points large m convex hull failure 2/3 rate prefactor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The moment-vector event is exactly convex-hull containment of (1/2,1/3) by iid parabola points; this was compared against the random-convex-hull inclusion framework of doi:10.1007/s00440-022-01186-1.",
+        "The previously known m=3 positive-quadrature probability, (log 3)/2-1/3, matches this formula, so it is not a new consequence."
+      ],
+      "reasoning": "The probability law is invariant under affine changes from [0,1] to [-1,1], and under the equivalent centered moment coordinates. These equivalent forms were used in overlap checks. Three-node interpolation coverage does not entail the all-m nearest/extreme joint-density decomposition or the exact m-to-infinity prefactor without additional analysis.",
+      "searches": [
+        "exact probability positive interpolatory quadrature weights three independent uniform random nodes quadratic polynomials uniform measure moment curve integral",
+        "random parabola hull contains first and second moments [1/2,1/3] all sample sizes failure asymptotic constant 3 times two thirds to m",
+        "positive weights random nodes polynomial quadrature nonnegative probability degree 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked three-node quadrature result reproduces p_3=(log 3)/2-1/3, not the m>=4 probabilities or tail.",
+        "The exact m=10 and m=11 formulas use distinct rational coefficients of log 3; the strict 95% cutoff is proved by rational series bounds."
+      ],
+      "reasoning": "The three-node value is pre-existing; neither the checked published sources nor the relevant indexed mathematical records exposed an all-size tabulation including m>=4, a closed form, or the constant-three tail. This is a limited-search observation, not a global database completeness claim.",
+      "searches": [
+        "exact probability positive interpolatory quadrature weights three independent uniform random nodes quadratic polynomials uniform measure moment curve integral",
+        "all sample sizes m probability independent uniform nodes positive quadratic exact quadrature integral over 0 1 sharp asymptotic failure 3 (2/3)^m",
+        "minimum m 11 for probability 0.95 quadratic exact positive weights uniform samples"
+      ]
+    },
+    "rationale": "The existing three-node probability agrees exactly with the m=3 specialization and is explicitly excluded from novelty. The distinct claim is an all-integer probability identity, a sharp three-times-(2/3)^m failure prefactor and the resulting exact 95%-success threshold. The motivating 2026 preprint proves broad existence/weight-box estimates, not this exact distribution. The inspected open-access 2023 random-convex-hull paper gives general inclusion bounds and cubature applications rather than an exact uniform-parabola law. Semantic searches found no statement subsuming the all-m identity and leading constant. General earlier random-polytope/moment-curve literature remains a real priority risk; lack of hits is not a proof of uniqueness.",
+    "residual_risks": [
+      "An older general formula for convex hulls of i.i.d. points on convex curves might imply the same all-m identity, even without mentioning quadrature.",
+      "The open 2023 article addresses many general inclusion bounds; the literature beyond inspected sections and older random-polytope formulas is not exhaustively covered.",
+      "No independent mathematical audit or external priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state all-m exact quadratic uniform-node success probability or leading failure constant. Its weight-box control is a stronger constraint, and this result does not claim that constraint.",
+        "evidence": [
+          "arxiv:2610.32699v1, Theorem 1.1; Remark 1.2; Sections 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+        "material_read": "Open full-text arXiv HTML inspected for Introduction, Theorem 1.1, Remark 1.2, Sections 2.1–2.3 (construction and weight-box bounds), and Sections 3–4 (related applications).",
+        "method": "Read primary open preprint and compared event definitions, sampling assumptions and high-probability inequalities against exact probability claim.",
+        "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+        "trigger": "Primary recent paper defines probabilistic positive exact quadrature and suitable independent node samples."
+      },
+      {
+        "assessment": "Provides broad probability inequalities and applications; a particular closed form for m>=4 and the constant-three sharp tail are not stated in inspected text.",
+        "evidence": [
+          "doi:10.1007/s00440-022-01186-1, Sections 1, 4, 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00440-022-01186-1",
+        "material_read": "Open-access full journal HTML; inspected Introduction including cubature reduction, main random convex-hull probability/depth bounds, Sections 4 and 6, and references/appendix pertinent to convex-hull inclusion.",
+        "method": "Read lawful open full article and searched for specific uniform parabola/quadratic exact formulas and probability implications.",
+        "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+        "trigger": "Most plausible general random-convex-hull probability theorem after reducing quadratic rules to moment-vector containment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c46807d7-872b-4d83-9f2a-f6d605d95eb9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sampling positive quadratic-exact rules is the central probabilistic-quadrature problem in the motivating literature. Exact success probabilities for every sample budget, a rigorously minimal m=11 for 95% success, and the separation of extreme-node and nearest-node failure mechanisms directly inform sample-size design. The asymptotic prefactor 3 is not supplied by generic success-probability bounds and reflects two endpoint contributions. The result is a natural complete finite-sample classification rather than a changed constant in the prior three-node result; no broad numerical-analysis extension is asserted.",
+    "status": "PASS"
+  }
+}
