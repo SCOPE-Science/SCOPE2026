@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The Python 3 standard-library program `verify.py` constructs the ordered pair count directly and independently through disjoint exact logarithmic resonance windows. Across 72 small-cutoff parameter/window combinations those finite counts agree exactly. An additional 18 large-cutoff comparisons at size 50000 fall within the explicitly stated numerical tolerance of the limit function. The reproduced final line is `CERTIFICATE_OK direct_root_agreements=72 large_cutoff_agreements=18 denominator_universality=checked`.
+## correctness
 
-The limiting formula rests on the written proof, particularly the disjoint-branch bijection, its Weyl-equidistribution counting lemma, and a summable upper bound over all high branches. Floating-point counts are corroboration only. Neither finite experiments nor the referenced literature search certify originality or establish an infinite theorem on their own.
+PASS
 
-Only a self-review was conducted. An independent mathematical audit was not performed.
+For fixed nonzero reduced rational α=±a/b, the exact circle-distance inequality partitions each m<n into unique log-ratio branches j/a at sufficiently small bs/(aN). The j=0 branch has n-m=bh and normalized counts (1-ah/s)_+. For j>0, c=e^(j/a) is irrational by Hermite–Lindemann; Weyl equidistribution of the translated residue-b lattice gives unordered contribution s/(ac). The geometric sum over c=e^(j/a) converges, and the uniform O(sum_{j>J}e^(-j/a)+log N/N) estimate justifies interchange of branch sum and limit. Diagonal s=0 is excluded by transcendence. Thus F_a(s)=2s/[a(e^(1/a)-1)]+2 Σ_{h≥1}(1-ah/s)_+ (s>0), independent of b/sign, with exact threshold cusps. Independently checked finite direct pair counts at N=40000, s=1.5 for α=1,1/2,1/3,2,-1/2; these are corroboration, not convergence proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: the 2026 almost-everywhere Poissonian theorem does not imply behavior for any fixed rational dilation; the complete rational-exception pair-correlation profile is not the same statistic as published nearest-neighbor gap laws for logarithms. General lattice-superposition techniques may subsume parts; no absolute novelty guarantee.
+
+## value
+
+PASS
+
+Non-Poissonian arithmetic exceptions to an almost-everywhere Poisson theorem form a natural significant null family; exact dependence solely on reduced numerator and explicit thresholds refine mere failure of Poissonian behavior. The answer determines a full infinite limiting pair-correlation function, not a small numerical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
