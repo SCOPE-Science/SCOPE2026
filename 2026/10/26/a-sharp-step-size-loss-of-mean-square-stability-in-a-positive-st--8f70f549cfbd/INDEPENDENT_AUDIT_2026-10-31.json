@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:00:56.902013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source RESULT.md f09ebf34d1cc384d2e8a0645aa2e093961ef801d and check.py 03fec1456acc5c80d9df9e98762d2fe3b2fd9292",
+        "Independent SymPy determinant/curvature identities and exact m_* sample rational inequalities (local script, 2026-10-31 UTC)"
+      ],
+      "rationale": "Read the entire RESULT.md, check.py, and frozen six auxiliary files. Independently reconstructed B=e^(τLh) with p=(e^−x+e^−3x)/2, q=(e^−x−e^−3x)/2, noise multipliers with E d=1 and E d²=m=e^(ζx), and the exact 2×2 moment map K=[[m u,v],[m v,u]], u=(y+y³)/2,v=(y−y³)/2. Its positive Perron eigenvalue crosses one once as m increases: det(I−K)=1−u−m(u−y⁴), so m_*=(2+y+y²)/(y(1+y+2y²)). Writing F=2+g(x)/x, g=log[(2+y+y²)/(1+y+2y²)], independently verified gʺ=8y(y−1)(y+1)(y⁴+12y³+10y²+12y+1)/[(y²+y+2)²(2y²+y+1)²]<0. Limits are F(0+)=3 and F(∞)=2. The nonnegative initial covariance projects positively onto the Perron eigenvector; at λ+=1 the other eigenvalue is <1, yielding a strictly positive finite limit. Conditional E||U_{k+1}||₁≤e^(−x)||U_k||₁ and summable Markov bounds imply pathwise eventual e^(−γ k), 0<γ<x, by Borel–Cantelli even for signed initial vectors. The semidiscrete Itô second moment generator has leading sign threshold ζ=3. Independent SymPy verified the determinant, curvature factorization, and exact x=log2/log4 witness; not an infinite proof.",
+      "residual_risks": [
+        "Exact result concerns only the two-interior-node Dirichlet spatial grid, independent linear multiplicative noise and noise-first exact heat split; no mesh-refinement or nonlinear extension follows.",
+        "Unindexed long-time analysis of the same Lie–Trotter update may duplicate the derived formula; Yang–Yang–Zhang 2022 full text was not read."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The BIT spectral-radius criterion is broader in numerical discretization classes but needs an explicit spectral computation; JDE paper uses a periodic boundary/θ scheme, not this fixed Dirichlet split."
+        ],
+        "reasoning": "Neither broader source explicitly dominates the sharp ζ-versus-x phase diagram as a corollary without the new model-specific computation. Abstract instability vs pathwise stability is established background, not a new general theorem.",
+        "searches": [
+          "Lang Petersson Thalhammer BIT 2017 mean-square stability tensor operator spectral radius; DOI:10.1007/s10543-017-0684-7",
+          "Chen Dang Hong JDE 2022 theta time discretizations periodic SPDE"
+        ]
+      },
+      "checked_sources": [
+        "Bréhier–Cohen–Ulander, arXiv:2302.08858v1, sec. 3.1 formula (14) and Proposition 4; DOI 10.1051/m2an/2024032",
+        "Lang–Petersson–Thalhammer, DOI 10.1007/s10543-017-0684-7, spectral criterion",
+        "Chen–Dang–Hong, DOI 10.1016/j.jde.2022.06.009, different model",
+        "Resultary record 2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef (different SIS scheme)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original establishes the update and positivity, plus finite-T L² convergence; different logical quantification from k→∞ fixed mesh/step. Spectral method is generic, not explicit F(x)."
+        ],
+        "reasoning": "The new statement does not follow merely from fixed-T convergence, which is compatible with long-time instability at fixed h and τ. The cutoff and strict drift 3→2 are derived anew from the actual K matrix.",
+        "searches": [
+          "Bréhier Cohen Ulander arxiv:2302.08858 §3.1, Proposition 4 and convergence theorem",
+          "Lang Petersson Thalhammer mean-square stability condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2302.08858 §3.1 update noise-first then heat; positive spectral radius controls second-moment stability here, but no exact two-site F(x) in inspected original scheme theorem."
+        ],
+        "reasoning": "Equivalent characterization via lognormal random matrix products and second-moment tensor propagator was considered; the explicit 2-node recurrence, global monotonicity and critical behavior are not a simple rename of finite-horizon strong convergence.",
+        "searches": [
+          "Resultary query: mean-square stability lognormal Lie Trotter stochastic heat equation positivity preserving noise-first heat-second two Dirichlet interior grid threshold time step",
+          "web query: Bréhier Cohen Ulander positivity preserving splitting stochastic heat 2024 mean square stability long time noise-first heat-second"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary candidate concerns a balanced implicit SIS epidemic invasion threshold, with different dynamics and √step bias."
+        ],
+        "reasoning": "No exact table with the specified lognormal 2-site heat split and rational cutoff was located; absence of a hit is not proof of novelty.",
+        "searches": [
+          "Resultary query: mean-square stability lognormal Lie Trotter stochastic heat equation positivity preserving noise-first heat-second two Dirichlet interior grid threshold time step",
+          "resultary published SIS threshold record 2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef"
+        ]
+      },
+      "rationale": "The original 2023 preprint/2024 Bréhier–Cohen–Ulander forward method gives positivity and fixed-finite-horizon mean-square convergence under CFL; it does not state this repeated fixed-grid exact spectral frontier. General mean-square tensor spectral-radius criteria (Lang–Petersson–Thalhammer, BIT 2017) provide the abstract test but not this specific nontrivial rational/logarithmic formula, monotonicity, and almost-sure/second-moment mismatch; Chen–Dang–Hong concerns another boundary/θ scheme. The classical distinction between almost-sure and mean-square stability is not claimed original. Best-of-knowledge PASS with method-specific caveat; no assertion of exhaustive priority.",
+      "residual_risks": [
+        "Exact result concerns only the two-interior-node Dirichlet spatial grid, independent linear multiplicative noise and noise-first exact heat split; no mesh-refinement or nonlinear extension follows.",
+        "Unindexed long-time analysis of the same Lie–Trotter update may duplicate the derived formula; Yang–Yang–Zhang 2022 full text was not read.",
+        "The finite algebraic verification is corroboration, not a general stochastic convergence certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_METHOD_NOT_COVERING_EXACT_LONG_TIME_FRONTIER",
+          "evidence": [
+            "Equation (14) matches B(x)D_k ordering; claims concern finite-horizon positivity/CFL convergence, not explicit infinitely iterated 2-node moment threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08858",
+          "material_read": "Lawful full preprint PDF: Introduction, section 2 Dirichlet spatial discretization, §3.1 equations (10)–(14), Proposition 4 and convergence theorem passages",
+          "method": "Read rendered PDF source, inspected page image of §3.1, and compared update/quantifiers",
+          "title": "Analysis of a positivity-preserving splitting scheme for some nonlinear stochastic heat equations",
+          "trigger": "Same integrator and linear-noise specialization; closest possible coverage"
+        },
+        {
+          "assessment": "GENERAL_CRITERION_NOT_EXPLICIT_CUTOFF",
+          "evidence": [
+            "Abstract tensor/spectral-radius stability characterization requires this specific operator and nontrivial monotonicity analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-017-0684-7",
+          "material_read": "Abstract and accessible main stability-operator formulation; detailed full scheme comparison has prior review support, but only inspected material asserted here",
+          "method": "Web primary publication, compared exact propagator class and criterion",
+          "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+          "trigger": "Possible stronger general mean-square criterion"
+        },
+        {
+          "assessment": "DIFFERENT_BOUNDARY_AND_SCHEME",
+          "evidence": [
+            "Periodic θ time-stepping and intermittency indices are not the Dirichlet noise-first exact lognormal split."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jde.2022.06.009",
+          "material_read": "Accessible abstract and model description; not complete journal full text during this execution",
+          "method": "Published article and source model comparison",
+          "title": "Weak intermittency of stochastic heat equation under discretizations",
+          "trigger": "Same stochastic heat multiplicative-noise growth phenomenon"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_DIFFERENT_METHOD",
+          "evidence": [
+            "Describes backward Euler split and finite-dimensional noise; cannot assert whole-document noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.camwa.2022.05.031",
+          "material_read": "Accessible abstract, not full text",
+          "method": "Public abstract comparison",
+          "title": "Stochastic heat equation: Numerical positivity and almost surely exponential stability",
+          "trigger": "Title indicates potentially close positivity/pathwise stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bréhier–Cohen–Ulander, arXiv:2302.08858v1, sec. 3.1 formula (14) and Proposition 4; DOI 10.1051/m2an/2024032",
+        "Lang–Petersson–Thalhammer, DOI 10.1007/s10543-017-0684-7, spectral criterion"
+      ],
+      "rationale": "Long-time stability is a natural question left open by finite-horizon convergence of positivity-preserving splitting. The exact all-steps/noise classification provides a sharp demonstrable failure mode: for 2<ζ<3 increasing a time step alone destabilizes second moments although the semidiscrete SDE remains mean-square stable and the numerical scheme remains positive and almost-surely decaying. This is a structural numerical-method counterexample with a full sharp frontier, not an isolated toy simulation.",
+      "residual_risks": [
+        "Unindexed long-time analysis of the same Lie–Trotter update may duplicate the derived formula; Yang–Yang–Zhang 2022 full text was not read.",
+        "The finite algebraic verification is corroboration, not a general stochastic convergence certificate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact result concerns only the two-interior-node Dirichlet spatial grid, independent linear multiplicative noise and noise-first exact heat split; no mesh-refinement or nonlinear extension follows.",
+    "Unindexed long-time analysis of the same Lie–Trotter update may duplicate the derived formula; Yang–Yang–Zhang 2022 full text was not read.",
+    "The finite algebraic verification is corroboration, not a general stochastic convergence certificate.",
+    "SCOPE prior private self-review and VERIFY_OK statements were not used as evidence of independent correctness, novelty or value.",
+    "Confidentiality-safe public metadata not staged, so mathematical PASS is NOT publication readiness."
+  ],
+  "schema_version": 1
+}
