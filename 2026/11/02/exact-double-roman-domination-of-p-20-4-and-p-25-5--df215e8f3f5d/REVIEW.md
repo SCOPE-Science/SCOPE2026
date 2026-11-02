@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The definitions are instantiated directly on the standard generalized Petersen adjacency. Every optimal double Roman function has a no-1 representative by a local nonincreasing-label transformation. The column decomposition respects the twisted outer-cycle boundary and the independent inner 5-cycles. With the outer five-vectors fixed, the minimum legal inner cost is exactly the finite table \(B(U,D)\); all pruned outer assignments have a lower bound above the tested budget. The attached source exhaustively checks each retained assignment, rather than relying on an incomplete sampling or solver status. Replaying the source confirmed 1,912,264 retained tuples and no weight-at-most-33 solution for \(P(20,4)\); 77,570,086 retained tuples and no weight-at-most-41 solution for \(P(25,5)\). Separate direct graph-predicate tests validate the two explicit upper witnesses. Residual correctness risk is implementation or proof-review error, not a missing infinity argument: the domain consists of exactly two finite graphs.
+
+## Originality — PASS, subject to publication-priority uncertainty
+The closest paper is Rupnik Poklukar–Žerovnik (2022), doi:10.3390/math10010119. Its Theorem 6 proves only the intervals \([32,34]\) and \([40,42]\) in these cases, and its Tables 6 and 8 already supply the upper endpoints. The new result proves those upper bounds are **unimprovable** for these two graphs. The 2023 survey and relevant published mathematical sources did not identify these exact cases as settled. The complete local certificate is not implied by the earlier inequality or constructions. An unindexed prior computational determination remains possible. Available primary article material was inspected for the theorem, boundary constructions, and open-problem statement; some text outside those relevant sections was not inspected.
+
+## Mathematical value — PASS
+The 2022 primary paper explicitly asks whether its two-unit gap can be closed. These are the first two unresolved cases in its \(P(5k,k)\) family, after \(k=2,3\) are settled by the published theorem. The exact values resolve two natural boundary tests in distinct unsolved residue classes and give independently replayable evidence that the upper endpoint can be sharp. The result is deliberately finite and does not assert a global classification.
+
+Self-review: passed. Independent audit: not yet performed.

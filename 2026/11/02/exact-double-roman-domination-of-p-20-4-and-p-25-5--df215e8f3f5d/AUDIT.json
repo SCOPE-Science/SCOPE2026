@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "A no-1 transformation preserves or improves weight, the 5-column decomposition is an exact partition, and the conditional inner minimum table enumerates every local 0/2/3 assignment; pruning uses a provable lower bound. Exact C++17 replay covers 1,912,264 outer tuples for cap 33 and 77,570,086 for cap 41, with zero survivors feasible under the cap. Original-graph protection tests of weights 34 and 42 supply upper witnesses. Correctness is not inferred from numerical optimization status or a partial search.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 Theorem 6 supplies 8k<=gamma<=8k+2 for residues 0,1,4 and exact 8k for residues 2,3.",
+        "2023 survey gives broad background, not an inspected two-point equality.",
+        "Later edge-cost domination (2026) has a different objective and cannot imply unweighted exact values."
+      ],
+      "reasoning": "The two 2022 intervals are [32,34] and [40,42], so the later equality is not logically implied. No verified more general exact theorem with these cases was found.",
+      "searches": [
+        "Rupnik Poklukar Zerovnik 2022 P(5k,k) double Roman unresolved k 4 and 5 equality upper bound",
+        "web: 2024 2025 double Roman domination generalized Petersen P(5k,k) improvements bounds",
+        "web: \"double Roman domination\" \"P(5k,k)\" residues 0 1 4 solved"
+      ]
+    },
+    "checked_sources": [
+      "Rupnik Poklukar--Zerovnik (2022), doi:10.3390/math10010119, Sections 2.4, 3.2, 5; published 2022-01-01",
+      "Beeler--Haynes--Hedetniemi (2016), doi:10.1016/j.dam.2016.03.017, no-label-1 optimality as cited in 2022 primary (independently reproved here)",
+      "Rupnik Poklukar--Zerovnik (2023), doi:10.3390/math11020351, abstract/bibliographic description",
+      "Published sources on nearby Roman-domination variants and generalized Petersen graphs, compared by graph and label-protection definition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For k=4, Theorem 6 yields 32<=gamma<=34; for k=5 it yields 40<=gamma<=42.",
+        "2022 paper Section 5 asks explicitly whether remaining narrow gaps can be solved.",
+        "This finding supplies certified exclusions of weights <=33 and <=41 and uses known achievable bounds."
+      ],
+      "reasoning": "A bound between two different integers does not determine the endpoint. The complete exact finite-state lower-bound calculation is a logically additional claim; the known upper witness is not presented as new.",
+      "searches": [
+        "Rupnik Poklukar Zerovnik 2022 P(5k,k) double Roman unresolved k 4 and 5 equality upper bound",
+        "web: \"On the Double Roman Domination in Generalized Petersen Graphs P(5k,k)\" bounds exact",
+        "web: \"Double Roman Domination: A Survey\" 2023 Petersen P(25,5) exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cubic 0/2/3 label-protection formulation is equivalent for optima to 0/1/2/3 double Roman functions by an explicit no-1 transformation.",
+        "No primary equal-case theorem surfaced; nearby published statements involve other graph families or domination variants.",
+        "The 2022 graph family and its indexing agree exactly with the two cases."
+      ],
+      "reasoning": "The label change is an exact reduction, not a different parameter. A result on all P(5k,k) would dominate the two asserted instances, but the named 2022 bound leaves both unresolved. Generic combinatorial enumeration frameworks do not specify these exact two optima.",
+      "searches": [
+        "double Roman domination number of generalized Petersen graph P(20,4) equals 34 P(25,5) equals 42 exact",
+        "minimum weight double Roman dominating functions pentagon band P(25,5) 0 2 3",
+        "web: \"P(20,4)\" \"double Roman domination\" computational exact",
+        "web: \"P(25,5)\" \"double Roman domination\" 42 exact 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2022 Tables 6 and 8 explicitly exhibit configurations of weights 42 and 34 but do not prove optimality.",
+        "Exact-parameter searches found other Roman domination problems but no matching equality or exact table.",
+        "The relevant published family theorem retains a two-unit gap at both targeted parameters."
+      ],
+      "reasoning": "A table of feasible solutions is not a table of exact minima; the present lower bounds are the independently needed half. An unseen database entry remains a priority risk.",
+      "searches": [
+        "double Roman domination number of generalized Petersen graph P(20,4) equals 34 P(25,5) equals 42 exact",
+        "double Roman domination Petersen P(20,4) P(25,5) mathematical theorem finite exact enumeration",
+        "web: \"P(20,4)\" \"double Roman\" \"34\"",
+        "web: \"P(25,5)\" \"double Roman\" \"42\""
+      ]
+    },
+    "rationale": "Primary Theorem 6 bounds both values in strict two-unit intervals, and Tables 6/8 already achieve the upper endpoints. The new exhaustive lower-bound proof closes exactly those gaps, not a covered corollary of the published upper bounds. Published source and equivalent-formulation comparisons did not identify an equal/stronger exact result. Residual possibility of unindexed numerical work remains.",
+    "residual_risks": [
+      "Published searchable literature does not exclude unindexed exact computations or inaccessible later work.",
+      "The 2023 survey was not exhaustively read; its abstract is not treated as whole-document negative evidence.",
+      "Finite exhaustiveness rests on the publicly supplied C++17 source and the mathematical column partition; independent mathematical audit remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper has weight-34 and weight-42 witnesses and two-unit intervals, but not the sharp exclusions of 33 and 41 claimed here.",
+        "evidence": [
+          "Theorem 6 states 8k<=gamma<=8k+2 for k congruent 0,1,4 mod5.",
+          "Table 6 upper bound 42 at k=5 and Table 8 upper bound 34 at k=4.",
+          "Section 5 explicitly calls closing gaps an open question."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/10/1/119",
+        "material_read": "Relevant original article portions: definitions/Proposition 1, Theorem 6, captions/descriptions for Tables 6--8, and Section 5 open problems. Other portions not all inspected.",
+        "method": "Publicly indexed original article text and dated publisher record, first-public online date 2022-01-01.",
+        "title": "On the Double Roman Domination in Generalized Petersen Graphs P(5k,k)",
+        "trigger": "Identical family and domination invariant; possibility the exact values were already in the original paper."
+      },
+      {
+        "assessment": "No displayed exact value for P(20,4) or P(25,5); cannot exclude uninspected detailed sections.",
+        "evidence": [
+          "2023 survey describes known bounds and lists open questions in the subject, but abstract alone is not decisive for priority."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/11/2/351",
+        "material_read": "Abstract and 2023 bibliographic record only; no full-text negative novelty inference made.",
+        "method": "Public abstract and bibliographic page.",
+        "title": "Double Roman Domination: A Survey",
+        "trigger": "Potential stronger coverage after the 2022 specialized article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df215e8f-3f5d-44c3-b148-8dfa4006aae5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "These are the two first instances for which the 2022 family theorem left a two-unit gap, whose closure is posed as a mathematical question in its Section 5. Proving both upper endpoints are exact resolves two natural boundaries in distinct currently unsettled residue classes. It is a limited but motivated exact computation, not an arbitrary parameter sample or a routine substituted corollary.",
+    "status": "PASS"
+  }
+}
