@@ -1,0 +1,15 @@
+# Scientific review: binary-carry budgets at critical doubling
+
+## Correctness
+The exact classification is proved from Brown's subset-sum criterion, which remains valid for initial zeros and repetitions of values at distinct indices. The arithmetic identity \(a_{n+1}=2a_n+\varepsilon_n\) and the deficit recurrence \(H_{n+1}=H_n-\varepsilon_n\) hold for every tail index, not just a finite tested range. A binary fractional part has finitely many ones under the terminating convention if and only if it is dyadic. The local covering bound uses at most polynomially many length-\(L\) binary prefixes. All finite-prefix floors and the formula \(H_N=(m-1)^2\) are explicitly derived. Exact-integer verification checks the binomial counts and sampled prefix conditions, with the unrestricted proof independent of enumeration. Risk: the theorem requires eventual exact doubling; replacing it with asymptotic doubling would invalidate the carry argument.
+
+## Originality
+The closest inspected full primary source, Geneson (2026-09-20, arXiv:2609.25107v1), studies eventual completeness of floor-scaled exponential sequences, recalls Brown’s prefix criterion, and distinguishes eventual from full coverage. Its deletion threshold and exponential counterexample theorems do not classify all full-coverage scales when the tail doubles exactly, nor derive the binomial complexity strata. The 2022 Ma--Chen paper concerns eventual completeness and subcritical positive-measure bounds; only its publisher abstract was accessible. Brown's criterion is an essential known lemma and the pure-geometric special case is elementary, not independently novel. The added content is the exact finite-prefix binary Hamming-weight parameterization, zero-box-dimension law, and sharp unbounded family of polylogarithmic dyadic counts. Targeted title, synonym, binary expansion, subset-sum, and semantic research-index checks located no equivalent stronger result. Residual priority risk: old treatments of exact-doubling floor sequences could contain the same digit-budget characterization, especially in material not accessible in full.
+
+## Value
+The 2026 investigation of exponential-floor completeness does not settle the full-coverage parameter structure at the exact-doubling boundary. This theorem shows a sharp collapse to arithmetic, zero-dimensional sets at exact doubling. The binomial counting strata quantify the collapse and demonstrate that no single polylogarithmic exponent controls all finite-prefix perturbations. Those results distinguish genuine critical behavior from the positive-measure subcritical setting; they are not numerical table increments or cosmetic reformulations.
+
+## Limits and external status
+No statement is made for tails whose successive ratios merely approach two, nor is nonemptiness claimed for every finite prefix. The full 2022 Ma--Chen article remained inaccessible during this review; this is a documented historical-priority risk rather than evidence of novelty. Formal independent mathematical or historical assessment remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
