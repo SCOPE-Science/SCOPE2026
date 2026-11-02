@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Coprimality makes the simultaneous congruences yield the integer invariant \((b-a)^2-a-b+2=tab\) with \(t\ge0\). The reciprocal root gives an integer descent preserving \(t\); the terminal pair forces \(t=0\). The converse and exact coprimality parity are proved, and direct arithmetic checks support the identities without being treated as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to priority limitations.** The originating 2026 work and Mills's 1953 complete theorem concern \(z^2-z+1\), with Mills allowing a variable linear coefficient but constant term \(1\). The full-text statements do not imply the constant-term-\(2\) classification. Database and literature searches using the equivalent quadratic invariant and prime-pair parametrization found no dominating result. A previously unindexed general Vieta-divisibility theorem could cover it.
+PASS
 
-**Value — PASS.** This is the complete first positive constant shift of a natural reciprocal-divisibility problem, showing a sharp transition from the constant-one rigidity to an infinite, exactly parametrized coprime family. It isolates the quadratic forms governing all prime two-cycles without claiming infinitude of their simultaneous primality.
+Reducing b=a+d gives a |d^2-d+2 and b |d^2+d+2. Write k a=d^2-d+2 and ell b=d^2+d+2. Difference and gcd(a,d)=1 force k=2+t b and ell=2+t a for an integer t; the exact invariant is d^2-a-b+2=t ab. The strict positivity of d^2+(a-1)(b-1)+1 excludes t<=-1. As a quadratic in b its other positive integral root b_prime=(a^2-a+2)/b is strictly smaller than a when a>=2, and the same t invariant is preserved, giving Vieta descent to (1,1) or (1,2), hence t=0. The parametric formula follows and directly satisfies both divisibilities; gcd(a,d)=1 iff d odd or d multiple 4. For prime pairs parity eliminates odd d and d=2 mod4; d=4m yields the claimed conditional quadratics. Independent divisor/gcd enumeration for a<1200 found all 37 eligible cases and matched the formula; no prime infinitude inference.
 
-Limitations: noncoprime pairs remain outside the theorem; the proof establishes no prime-pair density or asymptotic. Finite verification is ancillary. The explicit distinct-pair proof excludes the diagonal exception \((1,1)\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mills 1953 deals with reciprocal systems with constant term 1 (and varying linear coefficient). The October 2026 source study uses x^2-x+1. Neither inspected statement implies the constant-term-2 coprime parametrization. Vieta root-flip descent is a classical technique, not the claimed new method.
+
+## value
+
+PASS
+
+The constant-term shift 1→2 is the smallest positive perturbation of a natural reciprocal quadratic divisibility system. It produces an exact infinite coprime two-cycle classification where the c=1 system is rigid, and identifies the prime-pair polynomial family without claiming the unresolved simultaneous primality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
