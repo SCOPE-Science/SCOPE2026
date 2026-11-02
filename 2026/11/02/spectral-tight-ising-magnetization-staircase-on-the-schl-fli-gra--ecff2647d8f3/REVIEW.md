@@ -1,0 +1,15 @@
+# Scientific review: Schläfli graph field staircase
+
+## Correctness (PASS)
+The finite graph is defined explicitly by the \(27\) line classes and checked to satisfy the strongly regular parameters \((27,16,10,8)\). The identity \(A^2=2A+8I+8\mathbf1\mathbf1^{\mathsf T}\) yields smallest eigenvalue \(-2\) and the universal lower bound \(e(T)\ge\lceil k(k-3)/3\rceil\). Fourteen explicit masks attain this bound, and complementation gives the remaining sizes. The resulting concave cut profile produces the field thresholds exactly. Multiplicities are finite exact values: an exhaustive Gray traversal and a different recursive traversal each visit every one of \(2^{27}\) subsets and agree in all sectors. Complete sector-visit binomial checks, direct cut checks, and witness checks were performed. Nothing about infinite-system criticality is inferred.
+
+## Originality (PASS on inspected evidence; priority provisional)
+The graph geometry and isolated coclique counts are classical. Saniga et al., arXiv:0903.0715, describe \(\mathrm{GQ}(2,4)\) but not a cardinality-by-cardinality Ising or cut profile. Vinci et al., arXiv:1307.1114, define general field-sensitive Ising graph invariants; their studied graphs, including their differently constructed \(27\)-vertex example, are not the Schläfli graph. Brouwer's full reference entry gives known clique/coclique and colouring data, not this full cut profile or ground-sector multiplicities. Dutour Sikirić et al. use the graph's Hoffman chromatic bound, not these sharp cardinality bounds. Searches of graph aliases, maximum-cut statements, bivariate Ising polynomials, and broader spectral-equality claims found no decisive implication of this complete theorem. Exact older specialized catalogues of induced-subgraph profiles remain a historical-priority risk; unsuccessful searches alone do not establish uniqueness.
+
+## Mathematical value (PASS)
+This identifies a distinguished finite spin cluster for which a spectral lower bound is rounded-sharp for **every** subsystem cardinality, a stronger structural property than a single maximum-cut value. That exact saturation drives a four-transition magnetization staircase with arithmetic field spacings and large, sharply different coexistence multiplicities. The full finite benchmark distinguishes geometry-induced energy envelopes from their entropy of degeneracy and can be checked without numerical floating-point optimization.
+
+## Scientific limits and closest sources
+The result is zero-temperature, classical, uniform-coupling, and specific to the \(27\)-vertex graph; it is not a positive-temperature or bulk-phase claim. Known independent triples and graph-colouring facts are credited. The closest inspected materials are Saniga et al. (2009), Vinci et al. (2013), Brouwer's Schläfli graph reference, and Dutour Sikirić et al. (2021). The remaining priority risk concerns previously tabulated full bivariate Ising or edge-isoperimetric data not located in the examined sources.
+
+Self-review: passed. Independent audit: not yet performed.
