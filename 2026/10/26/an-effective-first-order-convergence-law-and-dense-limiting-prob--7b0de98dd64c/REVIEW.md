@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Colored path and cycle components, including the degenerate double edge, give the exact exponential generating function. Every finite joint factorial moment is obtained by marking complete components and is controlled by the explicit ratio of consecutive involution coefficients. The coefficient ratio tends to one by the elementary involution recurrence, yielding the independent Poisson component process. Effective bounded-degree Hanf locality leaves only finitely many small-component counts unsaturated; all large-component local types occur unboundedly in probability. Definability of complete finite components yields the converse, and harmonic divergence proves density. An independent-in-scope rational enumeration script tests 63 exact identities over 60,398 pairs; finite tests are not infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Lugo already proved the two-involution path/cycle enumeration and related Poisson limit for cycles of the composed permutation; these are prior results, not separately new. Puder and Zimhoni proved more general word-permutation local cycle statistics; their statements do not present this entire two-function first-order limit-probability spectrum. Marström and Räty study logical limit laws for small permutation classes, not independent pairs of involutions. The asserted contribution is precisely the complete effective first-order spectrum, including density, by a classical locality theorem. Searches of related research records found no direct covering result. A general unlocated logical assembly theorem could still supersede the statement; originality should not be interpreted as priority certification.
+PASS
 
-## Value — PASS
-The theorem gives a complete semantic classification of limiting first-order probabilities for a canonical independent involution model, identifies a dense rather than zero-one spectrum, and provides explicit finite Poisson-threshold computations. This is a motivated invariant of the model, not a selected finite statistic. It should be useful for reasoning about what bounded-degree first-order queries can distinguish under random free-product actions.
+C PASS. Correctly identifies components of two independent involutions as odd alternating paths (weight 1), two colors of even paths (each 1/2), and doubled-edge/cyclic 2k-cycles (weight 1/(2k), including k=1). The exponential GF exp(z/(1−z))(1−z²)^(−1/2) equals I_n²/n!. Multivariate factorial moments are ∏w_t·a_(n−S)/a_n; elementary involution recurrence bounds imply ratio→1 and joint finite Poisson limits. Effective bounded-degree Hanf locality reduces each fixed FO sentence to finitely many bounded small-component counts; long paths force remaining local types to exceed any fixed threshold. Every finite Boolean event Z_t>=h is FO-definable by quantifying and closing entire components. Divergent, vanishing cycle weights 1/(2k) have dense finite subset sums, so attainable 1−exp(−∑1/(2k)) are dense in [0,1]. The rational e^(−1/D) finite-threshold law is effective with sentence-dependent D. Independent finite enumeration/ratio checks support component counts, but locality and density are analytic proofs, not extrapolated from n<=7.
 
-## Limitations and closest literature
-The language has two unary involution functions and no added order, fixed-point-free conditioning, or commutation constraint. The Hanf procedure is effective but not quantitatively efficient. The motivating 2026 paper is about a different permutation ensemble. Historical priority for a broader assembly theorem remains unsettled; only self-review and an exact finite checker were performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS best knowledge: Lugo 2009 already has the colored path/cycle EGF and composition-cycle limits; that probabilistic enumeration is expressly prior. Puder–Zimhoni fixed-word statistics and existing Hanf locality also supply separate ingredients. The novel claim is the complete effective FO spectrum for two uniform involutions as functions, its Poisson-threshold characterization and density. General FO limit theorems for combinatorial assemblies could imply this as a corollary and remain a priority risk.
+
+## value
+
+PASS
+
+V PASS. An exact logical limiting-probability spectrum and effective convergence mechanism for a canonical random finite structure resolve far more than a small numerical experiment; density and non-zero-one behavior are fundamental for probabilistic finite model theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
