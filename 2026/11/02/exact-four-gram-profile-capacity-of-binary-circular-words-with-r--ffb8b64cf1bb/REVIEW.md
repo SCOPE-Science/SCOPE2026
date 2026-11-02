@@ -1,0 +1,19 @@
+# Scientific review: exact bounded-run four-gram profile capacity
+
+## Correctness — PASS
+
+The ten permitted four-grams form a six-vertex directed graph. Balance of incoming and outgoing counts yields five free nonnegative parameters with three explicit inequalities. Splitting at the sign of the difference of two count coordinates gives two disjoint, bijective integer parameterizations with weighted degrees \(2,3,3,4,6\). The resulting generating function counts every nonnegative balanced profile exactly once. A complete six-cycle enumeration proves that the only disconnected positive-edge circulations are a pair of disjoint three-cycles and a disjoint four-cycle/two-cycle pair. Subtracting precisely those and the zero vector gives the theorem. Euler's theorem proves every remaining profile realizable and one representative per profile achieves the stated zero-error capacity. Symbolic denominator analysis proves the order-five pole and exact least quasipolynomial period twelve. The standalone verifier was executed from its included source and independently confirmed all binary words up to length eighteen, all feasible flow vectors up to length forty-four, and 12,596 Eulerian witnesses.
+
+## Originality — PASS, with residual priority risk
+
+Kiah–Puleo–Milenkovic, *Codes for DNA Sequence Profiles* (arXiv:1502.00517v1), provides the general sequence-profile graph and Ehrhart frameworks; it does not state the two-triple-exclusion exact cyclic four-gram profile generating function. Chee et al., *Maximum Length RLL Sequences in de Bruijn Graph* (arXiv:2403.01454v1), enumerate maximum-length sequences with distinct windows under zero-run restrictions, not the multiplicity-profile image for all circular words with both symbols restricted. Chee et al., *Constrained de Bruijn Codes* (arXiv:2005.03102v1), study local window-nonrepetition constraints and related code families. Jacquet–Knessl–Szpankowski, *Counting Markov Types* (DMTCS Proceedings 2010), develop balanced-matrix and general asymptotic type enumerations rather than this exact restricted higher-order finite-length expression. Agur–Fraenkel–Klein (1988) enumerate the **words** avoiding both constant triples, not their four-gram profile classes; only a bibliographic abstract was accessible for that source. The nearest internal work treats either cyclic length-four profiles with forbidden \(11\), which is a different constraint, or cyclic length-three profile observations. No decisive equivalent or stronger finite formula was found in the checked searches; hidden equivalents in older Markov-type literature remain possible.
+
+## Mathematical value — PASS
+
+The constraint limiting runs of **both** symbols to at most two is a natural model for bounded homopolymers and synchronization sequences. The exact rational series determines zero-error read-profile capacity for *every* source length, not merely an asymptotic rate or isolated finite examples. Two sharply characterized disconnected circulation families must be excluded, providing a structural boundary between formal flow feasibility and realizability by one cyclic source. The degree-four, period-twelve law can inform size calculations and code construction under the precise cyclic observation model. The result does not claim a general noisy-channel theorem, individual fiber sizes, or capacity for arbitrary read lengths.
+
+## Verification and limitations
+
+The proof is universal; all computer experiments are finite corroboration, not independent scientific certification. Literature comparisons include primary full-text sections from the three arXiv papers and material portions of the 2010 open-access conference paper. Exact priority against unindexed equivalences remains unproved. The result has not received independent scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
