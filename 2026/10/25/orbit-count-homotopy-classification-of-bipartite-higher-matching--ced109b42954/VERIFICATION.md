@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The self-contained `verify_rectangular_fixed.py` was executed using Python 3 standard-library functions. It enumerated all simplices of \(N_{a,b}\) for nine rectangles with \(2\le a,b\le4\), applied sequential greedy toggles, and found exactly one critical face of the predicted dimension in every case.
+## correctness
 
-It separately compared orbit-expansion face conditions against rectangular quotient face conditions for 34 products of row and column cyclic actions on three- and four-point sets. All comparisons passed. The actual successful completion marker was:
+PASS
 
-`RECTANGULAR_FIXED_ORBIT_CHECKS_OK 9 34`
+The vertex H-orbits are products of H_L row orbits and H_R column orbits. A geometric fixed point has constant barycentric coordinates on each vertex orbit, and positive orbits may be used only when their union is a simplex; this gives a simplex-wise affine PL homeomorphism to the quotient forbidden-full-row/column complex N_{s,t}. If either orbit count=1 no nonempty face exists. For s,t>=2, sequential greedy cell toggles first s-1 rows. The first-row survival partition has class A containing all first-row cells except the first, and class B with a saturated lower first column, which is eliminated by subsequent toggles. Induction leaves exactly the cell set {(i,j):i<s,2<=j<=t}, a single unmatched simplex of (s-1)(t-1) cells, with the augmented empty simplex matched. Acyclicity by standard element matching and the basepoint Morse conclusion yield S^{(s-1)(t-1)-1}, including S^0. This is homotopy, not PL-homeomorphism to the standard sphere. Independent check: Independent face-set generation and staged toggles for each of the 9 rectangles 2<=s,t<=4 left exactly the prescribed unique unmatched simplex. The quotient-orbit PL identification follows directly from coordinates for arbitrary product subgroups, not only finite checks; the repository supplies 34 additional finite orbit-action corroborations.
 
-The code does not exhaust arbitrary subgroups or dimensions; the infinite homotopy assertion rests on the general barycentric-coordinate argument and matching proof in `RESULT.md`. Accompanying self-review is not an independent audit.
+## originality
+
+PASS
+
+Singh 2020 establishes X_n~S^{(n-1)^2-1} only for the equal-sided square and the discrete Morse construction. The present fixed-space classification is over all row- and column-permutation product subgroups and all rectangular quotient sizes; neither square homotopy nor rational representation theory determines all these geometric fixed spaces. General rectangular forbidden-line complexes could be known under another dual/complex-of-arrangements name; qualified priority risk.
+
+## value
+
+PASS
+
+Geometric fixed-point spaces, not merely homology characters, are canonical equivariant invariants. The sharp empty/sphere transition, explicit dimension, and independence from orbit sizes classify a natural infinite family and all its product-subgroup fixed-point homotopy types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
