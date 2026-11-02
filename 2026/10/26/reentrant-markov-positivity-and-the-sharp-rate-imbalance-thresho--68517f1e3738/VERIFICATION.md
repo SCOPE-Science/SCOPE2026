@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The verifier computes the two-stage Radau IIA rational endpoint using a direct exact \(2\times2\) matrix inverse and independently reconstructs the stationary-projector update. It compares both matrix constructions, row sums, the exact polynomial sign criterion and strict positivity of two-step matrices for 3,360 exact-rational rate/step choices. It checks the rate-ratio threshold, critical tangency, and the exact witness \((a,b)=(19,1)\), including both endpoint steps and the negative entry at \(h=1\). This run completed with the message `PASS: 3360 direct 2x2 exact matrix reconstructions, mass/positivity, two-step checks; exact witness and critical constants`.
+## correctness
 
-The proofs of the universal assertions use the rank-one Markov projector, the exact quadratic discriminant, and inequalities for the rational amplification factor. Numerical verification is neither exhaustive over a continuum nor a substitute for the proof. The source is reproducible without external datasets. Independent mathematical audit is not performed.
+PASS
+
+For Q=[[-a,a],[b,-b]], a,b>0, the exact projector Q=-(a+b)(I-Pi) yields T=Pi+r(s)(I-Pi), r(s)=(6-2s)/(s²+4s+6), s=(a+b)h. Since 1-r=s(s+6)/(s²+4s+6)>0 for s>0, off diagonals are positive and positivity is precisely F_m(s)=m s²+(6m-2)s+6>=0, m=min(a,b)/(a+b). The discriminant 4(9m²-12m+1) and positivity of its roots yield critical m_c=(2-sqrt3)/3 (rate ratio 5+3sqrt3), two separated admissible step intervals when m<m_c, and quadratic tangency at equality. Also -1<r<1 and 0<=r²<1 give strict stationary-weighted contraction and strictly positive T². Independent direct rational inversions match 60 2x2 matrices, including a=19,b=1, h=1 diagonal -4/243 and identical matrices at h=1/5, 3/2. The infinite parameter result is proved algebraically, not inferred from samples.
+
+## originality
+
+PASS
+
+The primary energy-law theorem gives norm contractivity, not this generator-specific entrywise Markov positivity phase diagram. Complete exact published results for [1/1] Crank-Nicolson, midpoint-square SSP-SDIRK2 and [2/2] Padé use distinct rational stability functions and lack the [1/2] two-state reentrant rate threshold. The exact 5+3sqrt3 frontier and disconnected step intervals survive this implication comparison. This is best-of-knowledge, with inaccessible old RK and recent Fokker–Planck sources explicitly reserved.
+
+## value
+
+PASS
+
+Entrywise positivity is necessary for a numerical Markov propagator to preserve probability even when it contracts in energy. This is a complete sharp minimal two-rate phase classification for a canonical third-order stiff solver, including a nonmonotone gap and exact rate-imbalance boundary; it is motivated by stochastic numerical integration and is not a generic renaming or mere small numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
