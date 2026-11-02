@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The monotone weighted occupation A_t makes the exact first-entry event A_t>=C. The two-sided stationary telegraph filter has Beta(q/mu,q/mu) law by the zero-flux stationary equations. The pathwise identity B_t=U_t+exp(-mu t)B_0, with 0<=B_0<=1, gives an all-real-time tail sandwich after centering, without an independence assumption. Beta transformation proves density/Laplace/cumulants and quantile bounds; stochastic moment comparison proves finite-C mean and variance estimates. Exact no-switch clock gives the earliest-time atom. A standalone exact-clock and high-precision checker passed 22808 finite assertions; only the analytic proof establishes the infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bogachev and Ratanov, arXiv:1007.3139, analyze occupation time distributions for an integrated telegraph process; the available abstract does not furnish an inversion-time theorem for exponentially weighted negative-sign occupation.",
+        "arXiv:2409.16951v1, Appendix B, sets up a moment recursion rather than a distributional comparison and explicit uniform launch error."
+      ],
+      "reasoning": "Known stationary PDMP and telegraph occupation theory may encompass the beta invariant marginal; the claimed new assertion requires its inversion to an outside-support first-hitting time and a quantitative bound of width log(1+1/C)/mu. Such broader implication has not been located; complete earlier monograph coverage has not been ruled out.",
+      "searches": [
+        "exponential additive functional telegraph process beta distribution hitting time log",
+        "exponential occupation process telegraph noise hitting threshold logarithmic beta law",
+        "\"mean trapping time\" \"variance\" \"harmonic\" \"run-and-tumble\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2409.16951v1",
+      "https://arxiv.org/html/2602.08436v1",
+      "https://arxiv.org/abs/1007.3139"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 harmonic example has an exact mean and its large-initial-position logarithmic growth; that is implied by taking expectations of the present sandwich but does not imply its distributional convergence, quantile error or exact atom.",
+        "The 2026 stationary law is for position after long relaxation in the trap; the present random variable is the first entrance time from outside the support. The rate notation of that article concerns velocity redraw, whose effective sign-flip rate is half the redraw rate."
+      ],
+      "reasoning": "Taking the mean of this theorem recovers the earlier leading logarithmic growth, but the reverse implication fails: a mean asymptotic does not determine the distribution, all moments, or a uniform stochastic coupling. A stationary beta marginal alone does not imply the quantitative hitting-time comparison without the exact finite-time exponential-memory identity.",
+      "searches": [
+        "\"run and tumble\" \"harmonic potential\" \"first passage\" \"log beta\"",
+        "\"run and tumble\" \"harmonic\" \"trapping time\" fluctuations asymptotic digamma trigamma",
+        "arXiv:2409.16951v1 Section V.2 Eq. (63) Appendix B",
+        "arXiv:2602.08436v1 Section IV.1 stationary beta law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stationary telegraph occupation functional B_t is beta-distributed, but the first-entry event is the crossing of the monotone exponentially amplified occupation integral; an exact past-memory coupling produces a finite-launch stochastic sandwich.",
+        "arXiv:2602.08436v1, Section IV.1, recalls the beta stationary position law; arXiv:2409.16951v1, Section V.2, gives a mean entry time, not the centered distribution."
+      ],
+      "reasoning": "The theorem is equivalent to a quantile/Wasserstein-infinity estimate for an inverse exponentially weighted telegraph occupation functional, not to the pre-existing beta stationary marginal alone. No searched equivalent first-hitting-time result was identified.",
+      "searches": [
+        "\"run and tumble\" \"harmonic potential\" \"first passage\" \"log beta\"",
+        "\"integrated telegraph\" \"beta distribution\" \"first passage\"",
+        "\"run and tumble\" \"trapping time\" distribution harmonic confinement beta logarithmic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited primary first-passage article reports a generalized hypergeometric expression for the first moment (arXiv:2409.16951v1, Eq. (63)); it does not provide a table of the centered first-entry distribution or its finite-distance quantiles in the inspected passages."
+      ],
+      "reasoning": "The result is a full probability law with all fixed-moment limits and finite-distance stochastic bounds, not a recomputation of an existing exact table entry or parameter value.",
+      "searches": [
+        "\"harmonic trap\" \"run-and-tumble\" \"trapping time\" \"beta distribution\" distribution",
+        "run and tumble harmonic confining potential first entry time distribution scaled logarithmic launch distance beta law 2024 2025"
+      ]
+    },
+    "rationale": "The closest 2024 primary paper gives the harmonic mean entry time, not its distribution or finite-distance uniform comparison. The 2026 beta stationary-law paper gives an invariant position law, not the first-hitting-time transform. Actual searches for weighted-telegraph inverse occupation, log-beta hitting time, equivalent first-passage statements and stronger coverage found no direct implication. General telegraph occupation literature is acknowledged as a remaining priority risk.",
+    "residual_risks": [
+      "A broader general theorem for exponential additive functionals of telegraph/PDMP processes may imply the result under a change of variables, even if not located by the searches.",
+      "The 2010 telegraph occupation paper was compared at abstract/introduction level; theorem and appendix coverage remains unverified.",
+      "No independent publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the natural physical first-passage problem and exact first moment, but the inspected sections do not state an entire log-beta fluctuation law or a finite-distance stochastic/quantile sandwich.",
+        "evidence": [
+          "Section V.2 Eq. (63): generalized hypergeometric mean first trapping time and logarithmic large-launch behavior.",
+          "Appendix B: higher-moment recursion supplied without the present centered-law classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.16951v1",
+        "material_read": "Main text, Section II.1; Section V.2 (harmonic potential and mean trapping time, Eq. 63); Appendix B (higher-moment recursion).",
+        "method": "Open-access full HTML inspection of relevant sections and appendix, including mathematical statements and formulas.",
+        "title": "Run-and-tumble particle in one-dimensional potentials: mean first-passage time and applications",
+        "trigger": "Same harmonic outside-support first-entry object and rate parameters"
+      },
+      {
+        "assessment": "The stationary-position beta identity overlaps the invariant marginal used in proof, not the first-entry time from outside stationary support or its quantitative coupling.",
+        "evidence": [
+          "Section IV.1: beta stationary law and convention with velocity redraw as distinct from genuine sign flips."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.08436v1",
+        "material_read": "Section IV.1 on the one-dimensional position law and its switching-rate normalization.",
+        "method": "Open-access full HTML, targeted direct reading of relevant derivation.",
+        "title": "Exact stationary state of a d-dimensional run-and-tumble particle in a harmonic potential",
+        "trigger": "Potentially dominant stationary beta law in the same harmonic telegraph model"
+      },
+      {
+        "assessment": "The inspected introduction formulates positive-half-line occupation of an integrated telegraph path and extensions to occupation-type functionals. It supplies no direct first-entry log-beta theorem in the material inspected; this is not a whole-document noncoverage conclusion.",
+        "evidence": [
+          "Abstract and Section 1, Eqs. (1.1) and (1.5): unweighted positive-half-line occupation of the integral of a telegraph velocity, with limiting arcsine-law context."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1007.3139",
+        "material_read": "Abstract and introductory discussion of the occupation functional; theorem sections and appendices not materially inspected.",
+        "method": "Open-access abstract and introduction comparison: positive-half-line occupation of an integrated telegraph path versus exponentially weighted negative-sign occupation and its inverse hitting time.",
+        "title": "Occupation time distributions for the telegraph process",
+        "trigger": "Plausible broader telegraph occupation and inversion antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1c93e63-99f0-4a5f-ae43-bbe78fc3bef9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physical first-entry problem from outside a bounded active stationary support is directly studied in the motivating 2024 work. A precise nondegenerate far-launch fluctuation distribution, its explicit digamma/trigamma parameters, all-moment limits, fastest-capture atom and sharp-order uniform finite-launch quantile errors answer a mathematically natural question not settled by the known mean. The stochastic sandwich permits reliable finite-initial-distance uncertainty estimates and identifies the physical role of the telegraph switching-to-trap ratio.",
+    "status": "PASS"
+  }
+}
