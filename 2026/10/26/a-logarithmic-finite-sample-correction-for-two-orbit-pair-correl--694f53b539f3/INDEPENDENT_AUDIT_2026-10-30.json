@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:59:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For b>=2 integer and two independent Haar circle seeds X,Y, the Fourier expansion of each centered cross-hit H_r(b^i X-b^j Y) imposes two independent frequency cancellation equations. Nonzero covariance requires i'-i=j'-j and equals the Bernoulli kernel C_h(r)=[B2({(b^h-1)r})-B2({(b^h+1)r})]/b^h. Counting signed common shifts gives exact Var(Q_N)=C0(r)+2 sum_{h=1}^{N-1}(1-h/N)^2 C_h(r), r=s/N. For (b^h+1)r<1, C_h=2r b^(-h)-4r²; the global Lipschitz bound |C_h|<=2r b^(-h) controls the remaining shifts. Splitting at H=floor(log_b(N/(2s))) gives N Var(Q_N)=2s(b+1)/(b-1)-8s²(log_b N)/N+O_{b,s}(1/N), with logs and error normalized correctly. Independent exact rational interval-intersection versus Bernoulli tests succeeded in 48 cases. The two-orbit index covariance is structurally different from the previously published one-orbit covariance. No CLT or further periodic O(1/N) constant is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baker–Todd report typical two-orbit normalized pair counts; a first-order law cannot determine a second-order variance coefficient.",
+          "Lacunary Poisson correlation laws and bounds are weaker than the exact critical-window variance and log correction."
+        ],
+        "reasoning": "Existing convergence theorems and first-moment statistics do not dominate the all-b,s exact finite-variance formula; uninspected appendices are retained as risks.",
+        "searches": [
+          "arXiv:2606.17880 Theorem A pair correlation statistics for dynamical systems",
+          "arXiv:math/9912103 Rudnick–Zaharescu",
+          "arXiv:2001.08820 Rudnick–Technau",
+          "arXiv:2108.00431 Chaubey–Yesha"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published id 2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6 (full RESULT.md)",
+        "arXiv:2606.17880 (abstract, theorem characterization only)",
+        "arXiv:math/9912103",
+        "arXiv:2001.08820",
+        "arXiv:2108.00431",
+        "Frozen Git blobs RESULT.md, CHECK.py, CHECK_OUTPUT.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-orbit variance bound O(log N/N) does not determine an exact coefficient for a different two-seed model.",
+          "A Poissonian almost-sure limit does not imply the variance expansion or lack of uniform integrability."
+        ],
+        "reasoning": "The claimed second-order cross-variance law is logically stronger in a distinct model and does not follow from these prior conclusions.",
+        "searches": [
+          "arXiv:2606.17880 and full Resultary 2026/10/11 within-one-orbit record",
+          "Rudnick–Technau 2020 lacunary metric pair correlation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-orbit R_N uses a single uniform U and unordered/symmetrically ordered pair i!=j, with leading 4s(b+1)/(b-1); present Q_N counts all two-independent-seed cross pairs and has coefficient 2s(b+1)/(b-1).",
+          "Different simultaneous frequency cancellation equations cause differing covariance supports."
+        ],
+        "reasoning": "No source inspected gives an equivalent two-independent-seed exact covariance identity or explicit log coefficient; method overlap does not imply equal claims.",
+        "searches": [
+          "Resultary: expanding circle map two independent orbit cross pair correlations exact variance logarithmic correction b-adic",
+          "Full Resultary record 2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6",
+          "arXiv:2606.17880"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full mathematical one-orbit RESULT.md was read; its formula differs by factor two and provides only O(log N/N), not -8s² log_b N/N.",
+          "The independent script tested 48 finite rational intersection kernels; these are computations, not a published table."
+        ],
+        "reasoning": "The nearest exact database/source contains the distinct one-orbit model, so not an exact-match table for two seeded trajectories. No claimed exhaustive bibliographic survey.",
+        "searches": [
+          "Resultary published one-orbit exact-variance record ID d5c688b954c6",
+          "Search: two-orbit Fourier covariance exact logarithmic correction"
+        ]
+      },
+      "rationale": "The closest published Resultary record on the same expanding map was read in full at its mathematical RESULT.md: Sharp second-moment inflation for expanding circle-map pair correlations concerns distinct pairs of times within ONE orbit from a single seed, obtains leading 4s(b+1)/(b-1), and bounds its remainder by O(log N/N). That statement does not imply the present two-INDEPENDENT-seed covariance selection or the explicit negative log coefficient. Baker–Todd 2026 Theorem A describes pair-correlation convergence, not this exact critical variance; available abstract and related summaries were examined, but full primary paper remained inaccessible. Rudnick–Zaharescu, Rudnick–Technau and Chaubey–Yesha address lacunary correlations and convergence/variance bounds, not the inspected fixed-seed cross-variance formula. Originality is a best-of-knowledge determination, qualified by inaccessible primary full text and alternate Fourier-covariance presentations.",
+      "residual_risks": [
+        "Baker–Todd primary full text could not be read in this run; claims about its entire appendices are not made.",
+        "Unindexed exact two-orbit Fourier covariance calculations may predate the current paper.",
+        "The O(1/N) remainder may oscillate; no limiting constant is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for two-independent-seed logarithmic correction, since it treats within-one-orbit pair statistics",
+          "evidence": "One-orbit leading 4s(b+1)/(b-1), only an O(log N/N) bound; present two-orbit 2s(b+1)/(b-1) and explicit -8s² log_b N/N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6/RESULT.md",
+          "material_read": "Full RESULT.md: finding, assumptions, exact covariance-kernel lemma, lag decomposition, proof, limitations and references",
+          "method": "Full textual GitHub file via read-only repository fetch",
+          "title": "Sharp second-moment inflation for expanding circle-map pair correlations",
+          "trigger": "Same map, radius and unusually close variance objective"
+        },
+        {
+          "assessment": "Cannot establish full-paper NOT_COVERING; material does not state second-order logarithmic variance",
+          "evidence": "First-order typical pair-correlation convergence is logically insufficient for exact N Var expansion.",
+          "identifier_or_url": "arXiv:2606.17880",
+          "material_read": "Public abstract, Theorem A characterization from available descriptions; full paper not obtained; a protected download attempt was blocked",
+          "method": "arXiv landing/abstract and indexed mathematics summary",
+          "title": "Pair correlation statistics for dynamical systems",
+          "trigger": "Same two-orbit statistical problem and exact integer circle map"
+        },
+        {
+          "assessment": "Possible functional overlap but no exact cross-orbit finite-N logarithmic term was documented in accessed material",
+          "evidence": "Different metric lacunary sequence formulation; priority risk noted.",
+          "identifier_or_url": "arXiv:2001.08820",
+          "material_read": "Index/abstract and section descriptions, not full primary source",
+          "method": "arXiv indexed abstract and literature comparison",
+          "title": "The metric theory of the pair correlation function of real-valued lacunary sequences",
+          "trigger": "Potential stronger lacunary correlation bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-sample noise and dependence in pair correlations of two orbits are motivated by the dynamical-statistics question; the single-shift selection rule explains correlation inflation, and the nonzero logarithmic correction offers a sharp finite-size calibration not present in independent re-sampling. The result is an exact structural second-moment law for a canonical expanding system, not merely a generic variance calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary published id 2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6 (full RESULT.md)",
+    "arXiv:2606.17880 (abstract, theorem characterization only)",
+    "arXiv:math/9912103",
+    "arXiv:2001.08820",
+    "arXiv:2108.00431",
+    "Frozen Git blobs RESULT.md, CHECK.py, CHECK_OUTPUT.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Integer expansion b>=2, fixed s>0 and N>2s; independent Haar initial points, circular distance.",
+    "Independent-sample benchmark is separately resampled points, not iterates."
+  ],
+  "residual_risks": [
+    "Baker–Todd primary full text could not be read in this run; claims about its entire appendices are not made.",
+    "Unindexed exact two-orbit Fourier covariance calculations may predate the current paper.",
+    "The O(1/N) remainder may oscillate; no limiting constant is proved."
+  ],
+  "schema_version": 1
+}
