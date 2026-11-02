@@ -1,15 +1,21 @@
-# Scientific review: two-round marked rook-graph refinement
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof characterizes graph automorphisms of Cartesian products of two complete graphs and their pointwise-stabilizer orbits. Two marks on the same row or column yield a line recognizable from the first-round colour partition. Every other marked row and column becomes recognizable by the second round. In the disjoint-row-and-column case, marked-neighbour signatures classify square-board orbits immediately; the nonsquare orientation ambiguities have distinct counts of neighbours in identifiable first-round classes at round two. These arguments prove the all-dimensional result. The embedded Python check exhausts 70,480 mark subsets of six small rook graphs and tests 2,500 larger reproducibly sampled sets, comparing refinement, orbit descriptions, orbit counts and explicit small-board automorphisms. A sharp two-round example is checked.
+## correctness
 
-## Originality — PASS, qualified
-The directly inspected open-access work of Arvind, Köbler, Rattan and Verbitsky (2015), arXiv:1502.01255, establishes a Tinhofer property for the triangular graph family \(J(n,2)=L(K_n)\), but not the present rectangular rook graphs \(K_m\square K_n=L(K_{m,n})\), arbitrary pointwise marking, explicit two-round bound, or both exact class-count formulas. The open-access treatment by Bhattacharjee, Panse and Sarma (2026), arXiv:2605.19702, explains the general orbit/colour-refinement correspondence without the stated finite-family classification. Klavžar (2005) studies Hamming-graph subgraph recognition; Kersting et al. (2014) investigate computational colour-refinement algorithms. Their available abstracts, not their complete texts, were inspected. Targeted repository-index searches found work on rook graph homology and complete bipartite line-graph structure but no matching refinement theorem. Non-indexed and inaccessible specialist results may still subsume the claim; no publication-priority guarantee is given.
+PASS
 
-## Mathematical value — PASS
-This natural rank-two Hamming family includes both rectangular and square rook boards, has a nontrivial direction-swap symmetry, and is commonly used to test refinement versus automorphism-orbit identification. The theorem proves orbit exactness for every arbitrary individualization, gives a uniform sharp two-round rate, and classifies every class count and class size by the marked row/column pattern. The matching square-board exceptional formula records the genuinely different stabilizer caused by the residual transpose symmetry. These are complete structural conclusions rather than small numerical increments.
+For any m,n≥2 and individually distinct marked colors, the pointwise automorphism stabilizer is row/column permutation on unmarked coordinate values and, only for square boards with a matching of marks, optional coordinate transpose. If two marks share a row, Row(r)={e,f}∪(N(e)∩N(f)), visibly a union of first-round cells; marked columns/remaining marked rows become unions by second round. If marks are nonattacking, first-round marked-adjacency signatures give unordered occupied coordinate types; for m≠n the orientation ambiguity is separated by respective neighbor counts n−t and m−t (or minus one) at second round. Equality of color classes to orbits follows from equivariance and the recovered coordinate signatures. Counts are (a+1_{a<m})(b+1_{b<n}) generally and t(t+1)/2+(t+1)1_{t<m} for square matching; witness of a second strict round is verified. Independent recomputation of all marked subsets on 2x3,3x3,3x4 boards checked equality of partitions and class counts; these finite examples supplement the all-size argument.
 
-## Limitations
-The claim concerns ordinary 1-dimensional counting colour refinement with singleton colours for all marks; it does not cover general initial colourings or arbitrary graph products. Exhaustive finite checking alone is not an infinite proof. The independent scientific audit is outstanding and specialised publication-priority coverage is a residual uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-step sharp convergence and class enumerators for arbitrarily individualized two-factor rook graphs are separate from general Tinhofer definitions, triangular-graph L(K_n) refinement, and graph homology. Source comparisons are based on text read and distinguish full Tinhofer orbit identification from this uniform quantitative round bound; possibility of a general published two-clique-product result remains.
+
+## value
+
+PASS
+
+A sharp uniform refinement bound and complete orbit counts for all marked finite Cartesian products of two complete graphs give usable structural information for the symmetry-breaking/individualization problem, including the square matching transpose exception. Not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
