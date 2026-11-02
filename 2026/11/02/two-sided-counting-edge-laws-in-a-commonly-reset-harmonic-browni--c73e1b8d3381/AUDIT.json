@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional Gaussian and beta age laws give the finite-\\(N\\) binomial mixture and inverted CDF. Endpoint Taylor and Gaussian-tail expansions give both edge shapes. Binomial CLT with Hoeffding domination proves \\(N^{-\\theta/2}\\) finite-population rounding for every positive \\(\\theta\\); the gamma integral verifies its explicit coefficient. A two-sided elementary Tauberian sandwich proves \\(\\Pr(K_N=N)\\sim ra^2/(4D\\log N)\\). The standalone deterministic verification script passed 68 assertions over distinct parameter sets. All limits assume fixed positive parameters; numerical checks do not establish infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "de Mauro et al., arXiv:2509.06658 and Phys. Rev. E 113, 014120, explicitly establish full counting for an unconfined renewal-reset Brownian gas (https://journals.aps.org/pre/abstract/10.1103/vmhz-6h5s).",
+        "Biroli, Majumdar and Schehr, arXiv:2503.14733, establish full counting for an interacting Dyson log-gas under resetting; beta is strictly positive in their declared model (https://arxiv.org/abs/2503.14733).",
+        "de Mauro, Majumdar and Schehr, arXiv:2606.31634, analyze confined independent particles but emphasize density, correlations, extreme and gap statistics rather than counting in the accessible abstract."
+      ],
+      "reasoning": "Neither the unconfined Brownian model nor a repulsively interacting Dyson model gives an equal-parameter statement for the confined independent OU mixture with a positive equilibrium counting floor. The known CIID representation is intentionally not claimed as new. Generic theorems implying the edge scalings remain a residual risk.",
+      "searches": [
+        "\"harmonic trap\" \"resetting\" \"counting statistics\" noninteracting",
+        "\"harmonic confinement\" \"full counting statistics\" \"simultaneous resetting\" Brownian",
+        "\"Dynamically emergent correlations in Brownian particles\" \"full counting statistics\" \"interval\"",
+        "\"Resetting Dyson Brownian motion\" \"full counting statistics\" harmonic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.31634",
+      "https://www.emergentmind.com/papers/2606.31634",
+      "https://pith.science/paper/2606.31634",
+      "https://arxiv.org/abs/2509.06658",
+      "https://journals.aps.org/pre/abstract/10.1103/vmhz-6h5s",
+      "https://arxiv.org/abs/2503.14733",
+      "https://journals.aps.org/pre/abstract/10.1103/d29k-kmcs",
+      "Published research-record searches on simultaneous-reset OU counting and interval-population edges; most similar retrieved records concern different OU extrema and sampling observables."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For the confined gas, the stationary position mixture is a known consequence of a common exponential age; this implies the finite binomial-mixture formula, which is not represented as methodologically new.",
+        "For free Brownian particles, 2025 full counting work has an equilibrium-window probability tending to zero as reset age increases, whereas harmonic confinement leaves \\(p_*=\\operatorname{erf}(a\\sqrt{\\mu/(2D)})>0\\).",
+        "The new finite-\\(N\\) lower-edge event scales \\(N^{-r/(4\\mu)}\\) with an explicit Gaussian convolution and gamma coefficient. This requires the distinct \\(p_*>0\\), \\(q(y)-p_*\\sim By\\) boundary structure and does not follow as a stated special case from the accessible unconfined-gas results."
+      ],
+      "reasoning": "Compare implications at the level of quantified hypotheses, rather than parameter/name matching: standard renewal CIID gives conditional binomial structure in either model, but the specific edge profile requires controlling a Beta-type long-age singularity against binomial central-limit fluctuations. The short-age all-inside logarithm is physically shared with unconfined Brownian behavior and is not asserted as a standalone newly discovered mechanism.",
+      "searches": [
+        "\"Effects of confinement in a Brownian gas\" \"full counting statistics\"",
+        "\"full counting statistics\" \"Poisson resetting\" \"harmonic\" \"Ornstein-Uhlenbeck\"",
+        "\"large N\" \"particle number\" \"common resetting\" \"harmonic\"",
+        "simultaneously reset Ornstein Uhlenbeck particles harmonic confinement bulk interval occupancy count full counting statistics occupation fraction error function beta distribution singular edge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.31634 establishes the stationary common-reset harmonic setting and conditional-Gaussian representation, not the stated finite-population lower-edge limit in its accessible abstract (https://arxiv.org/abs/2606.31634).",
+        "arXiv:2509.06658 reports full counting statistics for unconfined Brownian particles and a general renewal-mixture method (https://arxiv.org/abs/2509.06658).",
+        "Search results contained no directly equivalent positive-equilibrium-floor counting-edge statement. Absence of a hit is not itself proof of novelty."
+      ],
+      "reasoning": "Synonyms searched included interval population, full counting statistics, occupation fraction, conditional binomial mixture, and OU common-reset gas. The former source gives the model and the latter a general technique; they supply the ingredients for an elementary CDF, but the sharp finite-\\(N\\) Gaussian rounding at a strictly positive equilibrium floor is a different, additional asymptotic statement.",
+      "searches": [
+        "full counting statistics of synchronized reset Ornstein Uhlenbeck Brownian gas finite region",
+        "simultaneously reset Ornstein Uhlenbeck particles harmonic confinement bulk interval occupancy count full counting statistics occupation fraction error function beta distribution singular edge",
+        "\"Ornstein-Uhlenbeck\" \"simultaneous resetting\" \"full counting statistics\"",
+        "\"particle count\" \"Ornstein Uhlenbeck\" \"common resetting\" interval"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record retrieval surfaced sharp random-sensor OU thresholds, OU numerical sampling, and extremes but no matching table or exact central-window counting-edge formula.",
+        "Accessible prior same-topic claims include common-reset OU maximum exceedance (item 4cd7cf34-fdd1-4fd8-9db4-e08a49c9a574), which concerns maximum statistics rather than the count at an equilibrium fraction floor."
+      ],
+      "reasoning": "The claim is an all-parameter distributional and asymptotic theorem, not a finite numerical table. No exact database entry or previously recorded same-object counting formula was identified by the executed searches; this negative result is only supporting evidence.",
+      "searches": [
+        "de Mauro Majumdar Schehr 2606.31634 full counting statistics central interval trap",
+        "Brownian gas simultaneous Poisson resetting harmonic trap fraction particles inside interval logarithmic all-inside probability \\(1/\\log N\\)",
+        "resetting conditioned independent particles particle number in an interval finite-size fluctuation edge",
+        "\"counting statistics\" \"harmonic\" \"simultaneous resetting\" stochastic"
+      ]
+    },
+    "rationale": "The novelty assessed is the paired finite-population counting-edge theorem for a common-reset, harmonic OU gas: a positive equilibrium floor with tunable \\(N^{-r/(4\\mu)}\\) Gaussian-rounded lower-edge probability and a contrasting inverse-logarithmic all-inside event. The conditional-IID mixture and the unconfined free-Brownian counting framework are prior art, explicitly credited. The identifiable 2026 confined-gas source emphasizes edge order statistics and does not claim these specific bulk counting-edge results in the accessible original abstract; a detailed scientific review reports full counting as a gap. Source-full-text access and broad-mixture subsumption remain stated risks.",
+    "residual_risks": [
+      "Full-text comparison with all sections and appendices of arXiv:2606.31634 was not possible; an uninspected passage could contain counting-edge results.",
+      "The general CIID method is known from arXiv:2509.06658, and a broader theorem for beta-binomial mixture edges could imply the present finite-population asymptotic.",
+      "Only accessible same-topic previously recorded claims were checked; partitioned historical records cannot establish global novelty.",
+      "Independent expert and publication-priority reviews are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Originality risk remains because full text was not read. The accessible abstract lists density, correlations, extremes and gaps, not the finite-population counting-edge theorem.",
+        "evidence": [
+          "arXiv:2606.31634 public abstract (2026-06-30).",
+          "https://www.emergentmind.com/papers/2606.31634, section on open counting questions; secondary, not conclusive negative full-text evidence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+        "material_read": "Public original abstract and bibliographic record, plus publicly available equation-level summary and a separately authored detailed scientific review; the full original manuscript was not available.",
+        "method": "Read the original indexed abstract; inspected a published critical review of the model, the conditional IID stationary mixture and its stated future counting question. Attempted lawful full-text access without success.",
+        "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+        "trigger": "Direct motivating paper: identical OU gas and common-reset architecture, plausibly covering bulk counts."
+      },
+      {
+        "assessment": "General mixture and unconfined FCS are credited; their stated model lacks nonzero OU stationary floor and does not state the new binomial-boundary crossover. Full-text subsumption risk remains.",
+        "evidence": [
+          "https://journals.aps.org/pre/abstract/10.1103/vmhz-6h5s",
+          "arXiv:2509.06658 first submitted 2025-09-08."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+        "material_read": "Original arXiv indexed abstract and publisher abstract; no complete primary full text obtained.",
+        "method": "Compared the explicitly stated unconfined Brownian model, renewal-clock generality and full counting observables with the harmonic OU finite-\\(N\\) equilibrium-floor theorem.",
+        "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+        "trigger": "Closest general full counting statistics for independent commonly reset Brownian particles."
+      },
+      {
+        "assessment": "The published result is not a direct equal-hypothesis statement; any singular weak-interaction limiting connection is an unresolved but nondecisive risk.",
+        "evidence": [
+          "https://journals.aps.org/pre/abstract/10.1103/d29k-kmcs",
+          "arXiv:2503.14733 first submitted 2025-03-18."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.14733",
+        "material_read": "Original indexed abstract and publisher abstract, not full primary text.",
+        "method": "Compared interacting Dyson gas with strictly positive index against the independent OU Gaussian-mixture model.",
+        "title": "Resetting Dyson Brownian motion",
+        "trigger": "Harmonic trap and resetting with large-N full counting statistics, but with Dyson interactions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c73e1b8d-3381-4d71-bb76-e7716e1ccc33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite-population occupancy of a central optical observation window is a natural bulk statistic complementary to known extreme/gap observables. The theorem gives a complete compact-support bulk law, a continuously tunable lower-edge density phase transition at \\(r=2\\mu\\) and an explicit \\(N^{-r/(4\\mu)}\\) Gaussian-rounded rare-event profile, compared against a universal \\(1/\\log N\\) all-inside event. The precise two-edge finite-size distinction is useful for distinguishing long-age equilibration from short-age common-reset intermittency; it is not a mere normalization check or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
