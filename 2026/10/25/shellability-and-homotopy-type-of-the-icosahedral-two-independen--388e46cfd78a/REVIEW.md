@@ -1,11 +1,21 @@
-# Scientific review — icosahedral two-independence complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is defined by an explicit twelve-vertex edge model. An independent breadth-first-search component test and forbidden-connected-triple criterion agree for all 4096 subsets; the resulting complex has 105 tetrahedral facets and no other maximal dimensions. The stored 105-facet order passes the direct shellability definition: at each step, all maximal faces in its intersection with the preceding complex are two-dimensional. The unique restriction-face check finds precisely twenty boundary-only attachments, proving a wedge of twenty three-spheres by the standard pure-shellability theorem. The reproducibility code was executed from the package's actual checker and order files.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest inspected 2025 paper on co-connected complexes treats the Alexander dual, and its named graph-class criteria do not classify the primal icosahedral complex. The 2025 higher-independence shellability paper gives block-graph, tree and attachment criteria, not this non-block graph. The older family computations cover different graph classes. Published records on icosahedral neighborhood and three-cut complexes define different simplicial complexes; their homotopy claims cannot entail the present shelling. Searches using the exact graph, parameter, alternate names, facet count, shellability and homotopy dimension found no statement covering this claim. Search absence is not proof of novelty; unindexed equivalent results remain possible.
+PASS
 
-**Mathematical value — PASS.** A complete integral homotopy type and the stronger shellability property are established for a classical Platonic graph outside the principal known sufficient graph classes. The 105-facet pure complex is substantially more structured than a short numerical calculation; it is an explicit 2-neighborly, shellable three-dimensional complex with twenty top sphere summands, providing a concrete benchmark for higher-independence shellability beyond trees and block graphs.
+The vertex model consists of two poles and two staggered five-cycles: 12 vertices, degree five, 30 edges. The two-independent face condition (every induced connected component has at most two vertices) is equivalent to excluding connected induced triples. Independent reconstruction by breadth-first component counting over all 2^12=4096 masks gave exactly 324 faces including empty, with count by size [1,12,66,140,105], 105 and only 105 four-vertex maximal facets, and 80 forbidden connected triples. The fetched full explicit 105-mask shelling.json was independently checked against the exact facet set. For each of its 104 noninitial facets, enumerated all prior-intersection faces, confirmed that all maximal intersection faces have exactly three vertices (nonempty pure codimension-one intersection), and verified the unique minimal newly introduced restriction face. No failures; entire complex covered; 20 restriction faces equal their full tetrahedron. Standard pure shellability yields the integral homotopy type wedge_{20} S^3; h-vector [1,8,36,40,20] and reduced Euler characteristic -20 agree. This is an exhaustive finite certificate checked independently, not merely a log or a Betti calculation.
 
-**Closest literature and limitations.** Deshpande–Roy–Sawant, arXiv:2510.25710, supplies the recent Alexander-dual motivation; Ghosh–Selvaraja, arXiv:2505.06614, supplies the adjacent shellability framework; Deshpande–Singh, arXiv:2001.05448, is the foundational restricted-family comparison. The result is finite and specific, not a claim about all regular polyhedral graphs. Published third-party summaries concerning other icosahedral complexes were not substitutes for inspecting their complete source files; priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem is the explicit primal Ind_2 of the icosahedral graph, with a complete 105-facet shelling. Previously inspected higher-independence shellability theorems constrain block/tree-like graph classes rather than this 5-regular nonchordal graph; other icosahedral neighborhood, cut, matching and ordinary independence complexes are different functors.
+
+## value
+
+PASS
+
+The regular icosahedron is a canonical small, highly symmetric, 5-regular, nonchordal graph outside the standard block/tree shellability classes. Classifying its natural induced-component-at-most-two complex by a full shelling gives an integral wedge homotopy type and a reusable explicit finite certificate, rather than a routine Euler-characteristic or mod-two Betti computation. The exact dimension, facet count and sphere number are natural invariants researchers can use when testing stronger shellability criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
