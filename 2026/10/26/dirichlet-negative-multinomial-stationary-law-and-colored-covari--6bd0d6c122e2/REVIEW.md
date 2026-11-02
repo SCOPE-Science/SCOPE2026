@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete theorem is based on two existing, inspected absorbing dualities of the same multispecies process (Casini–Frassek–Giardinà, arXiv:2607.26262v1, Theorem 5.3 and Proposition 5.8), their precisely matching normalized falling-factorial and hidden-parameter monomials, and the established stationary Dirichlet spacings of the corresponding scalar hidden chain (Giardinà–Redig–van Tol 2025, Section 3). All colored hidden updates apply one shared scalar fraction, so the affine fugacity line is invariant, and its Dirichlet law is stationary. Equality of every factorial moment plus local exponential moments transfers stationarity to the explicit negative-multinomial mixture; a quadratic-confining finite-site Foster drift and irreducibility give uniqueness. Independent generator-side exact rational calculations pass 24,480 second-order stationarity assertions. The conditional negative-multinomial covariance and Dirichlet formulas give the entire claimed tensor, including strict sign inequalities. The proof establishes an infinite-family theorem; numerical tests are supporting evidence only.
+## correctness
 
-## Originality — PASS (self-review)
-Full inspection of the source's results and appendices reveals common dualities and a hidden-parameter process but explicit deferral of the colored nonequilibrium state (source Section 4.5). The 2025 Giardinà–Redig–van Tol and Carinci et al. scalar results already establish stationary Dirichlet mixtures; these are essential acknowledged inputs, not new claims. Vanicat's earlier colored SSEP has different bounded-occupancy exclusion dynamics and does not imply the colored negative-multinomial law. No directly covering published colored harmonic stationary-mixture statement appeared in targeted literature and published-finding corpus record comparisons. Residual risk: general intertwining principles and a subsequent paper not recovered in this search might make the colored extension implicit. No failed search is treated as a proof of novelty.
+PASS
 
-## Value — PASS
-Explicit multispecies nonequilibrium steady state fills a question the originating paper deliberately leaves open; it supplies the full finite-size law, not an isolated derivative. The experimentally meaningful prediction is that opposing reservoir color gradients yield negative cross-color correlations at separated sites while same-site different-color correlations remain strictly positive, with a rank-one color tensor for all finite chain lengths. This is a structural, parameter-uniform property of unbounded batch-hopping systems and a useful benchmark for the literature's colored non-equilibrium models.
+Reconstructed the common-scalar hidden update theta_i,a <- (1-u)theta_i,a+u theta_j,a and invariant affine family theta_i,a=rho_R,a+Delta_a W_i. The scalar hidden chain preserves Dirichlet(t,...,t) spacings via conditional Beta(t,t) detailed balance. Conditional negative-multinomial factorial moments equal the hidden process dual moments; absorption, exponential-moment determinacy and Foster drift give existence/uniqueness. Total covariance yields Cov(n_i^a,n_j^b)=t² Delta_a Delta_b G_ij for i!=j; at i=j it equals t delta_ab mu_i,a+t mu_i,a mu_i,b+t(t+1)Delta_a Delta_b G_ii, with G_ij=min(i,j)(L-max(i,j))/[L²(Lt+1)]. Strict local cross-color positivity follows from (t+1)G_ii<w(1-w); separated-site sign is sign(Delta_a Delta_b). Independent rational identity tests across 8 chain lengths and exact two-color sample confirm, not replace, the unrestricted duality proof.
 
-## Residual limitations
-Only symmetric nearest-neighbor batches and the original positive stationary reservoirs, finite \(N\), finite \(M\), fixed \(t>0\). The scalar ordered-Dirichlet theorem and multispecies absorbing/hidden dualities are sourced inputs. The broad moment-mixing approach might be implied by an uncatalogued general theorem; external priority and proof audits remain open. No full spectrum or transient distribution is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Casini–Frassek–Giardinà (2026) studies exactly this multi-species process and establishes its dualities/hidden-parameter generator and equilibrium law. Giardinà–Redig–van Tol (2025) and Carinci et al. (2025) provide the scalar ordered-Dirichlet hidden stationary law. Their conjunction substantially suggests the current mixture, but the inspected primary sources do not state the full vector occupation mixture and exact color covariance rank-one reversal. This is a narrow, valuable synthesis, not a new general intertwining method; potential implicit corollary risk is serious.
+
+## value
+
+PASS
+
+The explicit unique all-color nonequilibrium stationary distribution, finite-N covariance tensor, and strict contrast of same-site positive and separated-site negative cross-color correlations resolve a natural observable left open by the published multispecies model, with direct utility for stochastic transport and cross-species fluctuation calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
