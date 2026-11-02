@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Necessary prefix capacities follow because each copy that emits a later-stage symbol has completed its preceding stage. Consecutive copy assignment of symbol occurrences proves sufficiency. All feasible count vectors have reachable prefixes and successful completions; different vectors force different remaining Parikh vectors. Counting stage-level drops and possible within-stage residues yields the exact elementary-symmetric formula for all positive block lengths and k>=0. Ten independently enumerated finite shuffle languages and 600 finite lattice-vector cases passed; the general claim rests on the explicit proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biegler–Daley–McQuillan 2009 Theorem 12: O(|u||v|) DFA size for a special two-word periodic skeleton; Theorem 10: exact two-word periodic non-repeating case.",
+        "Brzozowski et al. 2015 Theorem 3: general upper bound for two regular-language shuffles.",
+        "Hoffmann 2021: regularity conditions for unbounded iterated shuffle of commutative languages."
+      ],
+      "reasoning": "None of the inspected statements dominates the arbitrary d, k, p exact family: Theorem 12 only gives an asymptotic bound for two words, the 2015 theorem is a worst-case upper bound, and 2021 concerns an unbounded closure of commutative input classes. A general theorem implicitly covering k identical chains could exist outside the inspected sources, but no decisive coverage was identified.",
+      "searches": [
+        "arXiv:0907.5111 Theorem 10 Theorem 12",
+        "arXiv:1512.01187 Theorem 3",
+        "state complexity of shuffle powers of monotone block word with pairwise distinct letters, prefix count capacity floor and exact formula",
+        "\"iterated shuffle\" \"minimal DFA\" \"word\" \"blocks\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0907.5111 (full text, specified theorem sections)",
+      "arXiv:1512.01187 (full text, specified theorem sections)",
+      "arXiv:2103.09587 (full HTML, specified sections)",
+      "Targeted mathematical research-record and web searches on ordered block words, fixed shuffle powers, and state complexity."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2009 Theorem 10 exact but assumes two words periodic over a non-repeating underlying word; Theorem 12 covers same one-section-per-letter skeleton but only proves O(|u||v|).",
+        "2015 Theorem 3 yields a general maximum state-complexity upper bound, not an exact formula for the finite shuffle language of one repeated ordered-block word."
+      ],
+      "reasoning": "The new equality for arbitrary numbers of identical copies cannot be read off by changing parameters in the compared exact two-input periodic theorem. Even for two copies with block repetitions, the relevant theorem gives a quadratic upper bound, not the precise coefficients or permutation symmetry. The new proof constructs and minimizes a count-vector DFA and counts all feasible states; it does not rely on unproved independence from prior research.",
+      "searches": [
+        "arXiv:0907.5111 full text sections 4.1 and 4.2",
+        "arXiv:1512.01187 full text introduction, Theorem 3",
+        "iterated shuffle of identical singleton bounded language finite words Parikh vector prefix inequalities Myhill Nerode",
+        "self-shuffle of binary word a^m b^m deterministic finite automaton state complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent polynomial or capacity-prefix DFA theorem surfaced in the targeted published-record semantic searches or exact-phrase web searches.",
+        "arXiv:0907.5111, Theorems 10 and 12, concern two-word shuffles."
+      ],
+      "reasoning": "A direct equivalent may be phrased as recognizing order-preserving interleavings of k identical chains or as counting multicolored constrained lattice prefixes. The full candidate is not just a quadratic upper bound: it gives a necessary-and-sufficient prefix-language characterization and exact Myhill–Nerode count 1+sum_r e_r(p) binom(k,r). Checked nearest two-word theorem does not state this all-k equality. An equivalent under lattice-path terminology remains a residual risk.",
+      "searches": [
+        "minimal DFA of k-fold self-shuffle of one word a1^p1 a2^p2 ... ad^pd, state count sum elementary symmetric e_r(p) binomial(k,r) + 1",
+        "state complexity of shuffle powers of monotone block word with pairwise distinct letters, prefix count capacity floor and exact formula",
+        "iterated shuffle of identical singleton bounded language finite words Parikh vector prefix inequalities Myhill Nerode",
+        "\"shuffle power\" \"minimal automaton\" \"fixed word\"",
+        "\"shuffle\" \"elementary symmetric\" \"automata\" \"state complexity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic searches for exact block-shuffle state counts returned no matching invariant or fixed-parameter tables.",
+        "The main primary papers do not provide a table or database of 1+sum_r e_r(p) binom(k,r) values."
+      ],
+      "reasoning": "The formula is not a recomputation of any identified published exact table. Search limitations prevent proving that no unindexed table exists.",
+      "searches": [
+        "minimal DFA of k-fold self-shuffle of one word a1^p1 a2^p2 ... ad^pd, state count sum elementary symmetric e_r(p) binomial(k,r) + 1",
+        "state complexity of shuffle powers of monotone block word with pairwise distinct letters, prefix count capacity floor and exact formula",
+        "shuffle singleton words a^m b^m with itself DFA quotient complexity exact state complexity",
+        "\"shuffle\" \"a^m b^n\" \"state complexity\" \"power\""
+      ]
+    },
+    "rationale": "Inspected 2009 and 2015 foundational shuffle-automaton papers do not state or imply the full arbitrary-copy exact elementary-symmetric state-complexity equality, nor its stage-length permutation invariance. Related 2021 regularity results concern a distinct infinite commutative shuffle closure. Targeted published-record and bibliographic searches found no covering result, subject to alternative-terminology priority risk.",
+    "residual_risks": [
+      "Equivalent formula may exist in literature on interleavings of identical chains, Young-tableau prefix languages or parallel traces using different terminology.",
+      "Search results and inspected primary literature do not constitute an exhaustive priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact general k-fold state count: Theorem 12 yields a quadratic bound for two words, not an exact polynomial across all copy counts; Theorem 10 exact case has different periodic-input hypotheses.",
+        "evidence": [
+          "arXiv:0907.5111 pp. 84–87, Theorems 10 and 12; p. 89 closing comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0907.5111",
+        "material_read": "Full article text searched; introduction, preliminaries, Section 4 (including Theorems 10 and 12 and their proofs), and the closing discussion examined; corresponding source page images inspected.",
+        "method": "Open-access arXiv PDF text plus page-image inspection.",
+        "title": "On the Shuffle Automaton Size for Words",
+        "trigger": "Closest primary paper on minimal DFA size for shuffles of individual words, including periodic words with one section per letter."
+      },
+      {
+        "assessment": "NOT_COVERING the exact singleton block-shuffle theorem: worst-case upper bound for binary shuffle of arbitrary regular languages, rather than exact state complexity of specified finite self-shuffle powers.",
+        "evidence": [
+          "arXiv:1512.01187 pp. 1–5, Theorem 3 and the definition of worst-case state complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1512.01187",
+        "material_read": "Abstract, definitions and Theorem 3, the general upper-bound proof and reachability discussion inspected in open-access PDF text and page image.",
+        "method": "Open-access arXiv PDF text and page image.",
+        "title": "On the State Complexity of the Shuffle of Regular Languages",
+        "trigger": "Potential stronger general state-complexity bound capable of subsuming the fixed-family result."
+      },
+      {
+        "assessment": "NOT_COVERING: concerns unbounded iterated shuffle closure of commutative languages and regularity, not minimal DFA size of a fixed finite number of identical ordered noncommutative singleton words.",
+        "evidence": [
+          "arXiv:2103.09587, Introduction, Section 4, Section 5 and Conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.09587",
+        "material_read": "HTML full text introduction, Sections 4–5 and conclusion inspected.",
+        "method": "Open-access arXiv HTML full text.",
+        "title": "Regularity Conditions for Iterated Shuffle on Commutative Regular Languages",
+        "trigger": "Plausible broader coverage from the phrase iterated shuffle and parallel process languages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce52e171-8f96-4103-9f4f-6b69e5f082bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact Myhill–Nerode state count for a natural family of concurrent identical stage processes, simultaneously for any number of stages, stage lengths and processes. Unlike mere upper bounds, it identifies the full attainable quotient geometry, exact polynomial growth in process count and a hidden permutation symmetry. The exact all-parameter classification is not merely a numerical substitution or a finite-table calculation.",
+    "status": "PASS"
+  }
+}
