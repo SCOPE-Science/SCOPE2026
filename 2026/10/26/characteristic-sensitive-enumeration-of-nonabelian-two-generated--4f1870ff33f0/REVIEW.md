@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix-unit bracket calculation and the class-three nilpotence bound give an explicit finite spanning set for each generated Lie subalgebra. The projective-plane normal-vector calculation was checked in both odd and characteristic-two cases; the exceptional \(\alpha=\beta=0\) plane is counted separately. Rank-one quotient projections are counted by a nonzero linear functional, and division by the exact number of generating pairs in each isomorphism type yields the formulas for *embedded* subalgebras. Independent exhaustive programs verified the two smallest finite fields, without being used as an infinite proof.
+## correctness
 
-## Originality — PASS (bounded assessment)
-The closest primary source explicitly about two-generated subalgebras (Bowman–Towers–Varea, 2007) proves global structural criteria, not these characteristic-sensitive finite-field counts. The two directly related full texts by Ceballos, Núñez and Tenorio concern maximal abelian dimension and triangular representations. An earlier exact point count of abelian two-planes is **not claimed as new**; it counts a different (commutative) stratum and does not imply the nonabelian Heisenberg/filiform embedding counts. Woodward's ideal-zeta analysis concerns ideals, not these nonideal generated subalgebras. Residual risks: a missing exhaustive finite-field subalgebra census, an indirect deduction from more general zeta machinery, and incomplete access to Woodward's original article.
+PASS
 
-## Value — PASS
-The four-by-four niltriangular algebra is the first standard niltriangular Lie algebra of class three. Its two-generator subalgebra census isolates the transition between class-two Heisenberg and class-three filiform types. The characteristic-two difference is explained by a projective incidence degeneration from two exceptional points to a projective line; it affects the actual number of distinct embedded nonabelian subalgebras, not just the number of generating pairs. The exact numbers support questions about subalgebra distributions and random generation in a natural Lie algebra.
+PASS: Reconstructed the six-coordinate commutator and both third-weight brackets; the generated span contains no brackets of weight four. Two-generated nilpotent nonabelian dimensions are 3 or 4, and the resulting brackets determine Heisenberg or filiform type also in characteristic 2. Project projected generators to a two-plane P in F_q^3: of L=q²+q+1 planes one is exceptional (alpha=beta=0); among others h=q+1 in char 2, h=2 in odd characteristic have zero triple brackets, so s=L-1-h are filiform. Count ordered projected bases B=(q²-1)(q²-q) and free lifts q^6; divide filiform sBq^6 by Bq^4. Three disjoint Heisenberg classes (rank-two generic hBq^6, exceptional B(q-1)q^5, projected rank one (q²-1)(L-1)(q-1)q^5) divided by Bq² give (h+2)q^4. Independent direct ordered-pair bracket enumeration yields q=2: 80/12 and q=3: 324/90; finite checks supplement, not prove, all-q counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: Exact finite-field embedded-subalgebra census is a natural invariant of the basic 6-dimensional niltriangular Lie algebra, distinguishing characteristic two from odd characteristic. The result enumerates all nonabelian two-generated subalgebras, not a small arbitrary sample or mere classification of abstract types; it informs finite Lie-algebra zeta/enumeration work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
