@@ -1,0 +1,23 @@
+# Scientific review: the stationary chemical-potential passivity switch
+
+## Correctness — PASS
+
+The proposition quantifies the detuning limit at every *fixed* finite chemical potential and fixed positive hopping, temperature, dephasing and contact strengths. The proof starts from the explicitly specified four-level GKLS generator rather than an assumed classical equilibrium distribution. The high-detuning contact weights give two fast Fermi balances, while the suppressed direct detuned-state contact and the leading two symmetric dephasing exchanges force the detuned occupation to equal the arithmetic mean of the other two one-electron occupations. The off-diagonal density entries are controlled using the nonzero contact damping and separated Hamiltonian gaps; they do not affect this leading exchange law. The limiting state is normalizable, and the least-eigenvalue criterion for the passive high-energy occupation yields the two branches. The branch crossing occurs exactly when the antibonding occupancy equals the empty-state occupancy. The limiting ratio, its continuity, derivative jump and large-chemical-potential limit follow algebraically.
+
+The standalone checker solves the complete 16-dimensional complex stationary linear system, including unsecularized local dephasing, and directly computes passive energy from the density-matrix spectrum for several temperatures and finite detunings. It passed 231 deterministic tests. These finite checks support rather than replace the analytical limit proof.
+
+## Originality — PASS with bounded publication-priority risk
+
+The directly matching paper by Singh, Sánchez and Jordan (arXiv:2610.33408v1; full text including Sec. III.1 and Appendices C–E inspected) establishes a leading stationary energy and ergotropy formula **assuming the charging reservoir chemical potential lies between the bonding and antibonding energies**. Its explicit efficiency is chemical-potential independent within that domain. The new statement crosses the upper low-energy level and exhibits a different lowest passive eigenpopulation, yielding a nonconstant high-chemical-potential branch and a sharp derivative discontinuity. Thus it is neither an identical restatement nor an in-domain specialization of the printed formula. Its leading energy coefficient agrees exactly with that source, and the lower-chemical-potential branch recovers its ergotropy.
+
+The general ergotropy rule of Allahverdyan, Balian and Nieuwenhuizen (arXiv:cond-mat/0401574) includes the passive sorting principle but does not itself determine the stationary state of this detuned-dot Lindblad generator. Wang and Dou (arXiv:2512.21855v1, full HTML sections on population ordering, general bounds and higher-dimensional batteries inspected) discuss broad population-inversion consequences, not the new fixed-temperature chemical-potential boundary for this device. Targeted mathematical record and primary-literature searches did not produce a stronger result implying this classification. This search outcome is not proof of absolute priority. An unlocated broad theorem or a later revision of the motivating preprint remains a residual risk.
+
+## Value — PASS
+
+The chemical potential is a natural experimentally controlled thermodynamic parameter, and the source's stated independence of it has a precise but restricted domain. The sharp boundary answers a concrete and physically motivated question: *where does the identity of the passive high-energy occupant change, and how does that change the work fraction?* The result gives the complete asymptotic classification in that parameter, a nonanalytic threshold, and an alternative **formal** fixed-positive-temperature path toward unit ergotropic fraction that is qualitatively distinct from the paper's cooling route. These are structural features of the generator and its passive energy, not an arbitrary finite numerical slice or a mere normalization check.
+
+## Limitations and priority risks
+
+The result is exact only for the empty-plus-one-electron Markovian generator. It excludes phonons, second-electron leakage and chemical potentials that grow with detuning. The source's physical leakage calculation only tests a narrower chemical-potential interval; the broader branch therefore requires device-specific physical validation. The asymptotic stored-energy fraction is not an efficiency of converting reservoir chemical energy to useful work. No new claim is made about arbitrary batteries or finite-detuning phase boundaries. Publication priority and mathematical correctness have not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
