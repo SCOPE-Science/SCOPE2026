@@ -1,15 +1,21 @@
-# Review of the exact arithmetic of the split genus-seventeen Humbert–Edge curve
+# Independent mathematical audit
 
-## Correctness
-PASS. The five independent square classes give the full \\((\\mathbf Z/2\\mathbf Z)^5\\) cover, smoothness follows from the explicit Jacobian minors, and Riemann–Hurwitz gives genus \\(17\\). Fifteen elliptic character quotients have traces \\(\\pm2\\) by rational two-torsion and Hasse bounds, with multiplicities determined exactly by the \\(16\\) rational points. The genus-two quotient \\(y^2=t^5-t\\) has \\(6\\) points over both \\(\\mathbf F_5\\) and \\(\\mathbf F_{25}\\), forcing \\(L(T)=(1-5T^2)^2\\); its Cartier–Manin matrix is zero. The prime-to-characteristic decomposition then determines all stated invariants. Exact enumeration in `verify.py` corroborates all first three field counts. No infinite statement rests solely on samples.
+## correctness
 
-## Originality
-PASS with historical-literature risk. The classical Humbert–Edge family, six-branch description, and genus-seventeen decomposition are expressly prior knowledge. The 2019 decomposition theorem does not provide the particular \\(\\mathbf F_5\\) branch model's elliptic trace census, complete zeta polynomial, or \\(5\\)-rank/\\(a\\)-number. The 2021 type-five geometry and 2023 generalized Fermat decomposition do not give these field-specific computations. Targeted searches for equivalent Kummer/generalized Fermat descriptions, stronger arithmetic classifications, exact zeta tables, and published mathematical findings found no matching result. Residual risk: a specialized computation not indexed by these sources might give the same zeta polynomial.
+PASS
 
-## Value
-PASS. Over the smallest odd field with six rational points of the base projective line, the entire six-branch configuration is forced. For the resulting natural coordinate-split genus-\\(17\\) cover, the exact Frobenius factorization yields a particularly constrained near-ordinary Newton polygon, distinguishes superspecial genus-two behavior from the ambient Jacobian, and solves all extension-field point counts. These exact values are not numerically supplied by the known abstract decomposition.
+The five square classes (t-i) have independent valuations at i in F5, giving a connected 32-sheeted (Z/2)^5-cover of P1 branched at the five finite points and infinity. Explicit diagonal Jacobian rank shows smoothness; Riemann-Hurwitz gives genus17. Character quotient genera are 15 elliptic and one genus-two. Four rational 2-torsion points force each elliptic F5 trace +/-2; N_X(F5)=16 and genus-two trace0 give exactly five +2 and ten -2 elliptic traces. For C*:y^2=t^5-t the nonsquare norm identity in F25 gives N(F5)=N(F25)=6, so by Weil all four Frobenius eigenvalues have square 5, yielding (1-5T^2)^2. Cartier-Manin zero matrix from exponents 2,6,10 excluding 3,4,8,9 gives genus-two a=2; the prime-to-5 isogeny preserves p-divisible groups, hence p-rank15 and slopes 0^15,half^4,1^15. Independent exact finite field arithmetic recovered 16,96,16 over F5,F25,F125 and genus-two six in degrees1,2.
 
-## Limitations and relationship to literature
-The result treats a fixed split model, not arbitrary twists or all characteristic-five moduli. The 2019 decomposition and 2021 six-point model framework were used as prior results. The original books and potentially unindexed computational literature have not been exhaustively verified. Reproducibility code is finite corroboration, not independent proof of infinitely many point counts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The abstract Humbert-Edge Jacobian and genus-two/Kummer correspondences are established. The exact Frobenius multiplicities, zeta function, p-rank and a-number over the fully rational F5 branch locus are not asserted in the inspected type-five geometry text; Resultary and exact finite-field searches found no direct coverage. Confidence is limited by partial access to the original general decomposition preprint.
+
+## value
+
+PASS
+
+All six F5-rational branch points force a distinguished natural split type-five Humbert-Edge curve. Exact all-extension zeta data, near-ordinary 5-rank15 Newton polygon and a-number2 distinguish its arithmetic beyond abstract genus and character decomposition; a future arithmetic-geometry comparison can use this precise invariant without new conjectures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
