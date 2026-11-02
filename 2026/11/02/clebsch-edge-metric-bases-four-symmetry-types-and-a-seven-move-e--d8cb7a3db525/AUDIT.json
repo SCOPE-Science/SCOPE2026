@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact graph construction C=Cay(F2^4,{1,2,4,8,15}) yields 16 vertices, 40 edges and diameter two. Both verifiers separately construct the edge-distance predicate. The Python program checks all 2^16 vertex subsets with a 780-pair distinguishing-mask recurrence, proving optimum size nine with exactly 1600 minimizers; enumerates each of 63 possible swaps per minimum basis to obtain 12960 undirected edges and degree histogram 1440 of degree 15, 160 of degree 27; and computes exact shortest-path distances from every one of the 1600 states, finding all states mutually reachable and eccentricity six at 160 states, seven at 1440. An explicit enumeration of 1920 affine automorphisms partitions all minimizers into four disjoint classes of sizes 160,240,240,960 with distinct induced omitted-set degree signatures. A separately written C++ checker uses graph BFS, direct ternary edge signatures on all 50643 subsets of size at most nine, independently constructed replacement edges and all-source BFS; it reproduces minimum size, count, edge count, connectivity, radius and diameter. The universe is fully finite, no experimental extrapolation occurs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1602.00291v1 derives general edge metric bounds and formulas for selected graph families; its full HTML contains no Clebsch classification.",
+        "arXiv:2007.05808v1 uses a complete enumeration to obtain the scalar beta_E(C)=9 in Table 8 but presents no more detailed Clebsch optimum-configuration data.",
+        "published-finding corpus closest graph-family records concern crown, half, complete multipartite and chain graphs, not the folded five-cube."
+      ],
+      "reasoning": "General edge-metric inequalities and algorithms cover the *definition* and can be applied to the finite graph, but do not imply the exact four orbit sizes or the all-source shortest-path structure. The 2020 scalar is a genuine covering prior result for the minimum nine; it is explicitly not a novel part of the final claim. Results for unrelated families do not specialize to the Clebsch graph.",
+      "searches": [
+        "edge metric dimension strongly regular graphs $(16,5,0,2)$ Clebsch graph",
+        "line graph square resolving edges Clebsch graph optimal nine vertices",
+        "published-finding corpus: edge metric resolving sets of Clebsch graph 16 vertices 40 edges nine landmarks basis exchange diameter 7",
+        "arxiv:1602.00291v1 Section 4 and conclusion",
+        "arxiv:2007.05808v1 Section 4 and Table 8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1602.00291v1 (Kelenc, Tratnik, Yero, 2016; full HTML)",
+      "arXiv:2007.05808v1 (Milivojević Danas et al., 2020; full HTML, Table 8)",
+      "A. E. Brouwer, Clebsch graph, https://aeb.win.tue.nl/graphs/Clebsch.html",
+      "Published published-finding corpus record: 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8 (different graph family)",
+      "Published published-finding corpus record: 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2 (different graph family)",
+      "Published published-finding corpus record: 2026/10/4/SCOPE-correction-and-all-set-classification-for-edge-metric-dimension--ddf19947a669 (complete multipartite graph family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier scalar edge-metric dimension nine imposes neither an enumeration of size-nine bases nor a bound on their replacement-graph diameter.",
+        "Known Clebsch determining-set and perfect-matching configurations satisfy different predicates and count different spaces.",
+        "The claimed 1,600 vertices, 12,960 edges and seven-step diameter are reconstructed from 780 edge-pair constraints in the new standalone exact code."
+      ],
+      "reasoning": "A mathematical implication comparison, rather than title matching, separates prior dimension values and unrelated optimum spaces from the stated four-orbit and swap-metric classification. A source saying only that the optimum size is nine is consistent with many counts and connectivity patterns. The nearest primary literature does not force the final claim; no stronger covering result was found.",
+      "searches": [
+        "arxiv:1602.00291v1 full text",
+        "arxiv:2007.05808v1 full text",
+        "published-finding corpus query: Clebsch graph folded 5 cube edge metric dimension exactly nine edge resolving basis 1600 optimum bases reconfiguration graph 12960 edges",
+        "Related prior graph topics: Clebsch determining sets; Clebsch perfect-matching flips"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kelenc–Tratnik–Yero (arXiv:1602.00291v1) identifies the same distance-to-edge predicate: minimum of the two endpoint distances.",
+        "Milivojević Danas et al. (arXiv:2007.05808v1) Table 8 explicitly states Clebsch beta_E=9 but does not enumerate bases or exchanges.",
+        "Searches for edge resolvers, edge metric bases, edge identification, basis exchange and Clebsch aliases returned no same-object configuration-graph classification."
+      ],
+      "reasoning": "Edge-metric generator, edge resolving set, and edge-distance identification use precisely the tested predicate. In contrast, ordinary metric bases distinguish graph vertices, mixed metric bases distinguish both vertices and edges, and line-graph vertex resolution uses different distances. The 2016 source gives the definition; the 2020 table gives only the previously known scalar nine, which cannot by itself determine the number of optimum bases, their affine symmetry types, swap connectivity or exact distances.",
+      "searches": [
+        "Clebsch graph folded 5 cube edge metric dimension exactly nine edge resolving basis 1600 optimum bases reconfiguration graph 12960 edges",
+        "edge metric resolving sets of Clebsch graph 16 vertices 40 edges nine landmarks basis exchange diameter 7",
+        "edge metric dimension Clebsch graph \"Clebsch\" \"edge\"",
+        "edge metric dimension folded cube Clebsch graph metric bases",
+        "\"Clebsch\" \"edge metric\" \"bases\" 1600",
+        "\"Clebsch\" \"edge resolving\" \"reconfiguration\"",
+        "arxiv:1602.00291v1 full HTML: edge-metric generators and their alternative names",
+        "arxiv:2007.05808v1 full HTML: Clebsch graph in Table 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 8 row 3: the 16-vertex 40-edge Clebsch graph has ordinary metric dimension four and edge metric dimension nine; this confirms the known scalar.",
+        "The graph reference page identifies the 5-regular folded cube and automorphism group of order 1920 but has no edge-metric-basis count/exchange distances.",
+        "Relevant published-finding corpus entries listed edge-metric-basis classifications only for different graph families, including crown graphs and half graphs."
+      ],
+      "reasoning": "The directly relevant published table is decisive for the *scalar* dimension and is credited; it does not contain 1,600, the four orbit sizes, 12,960 swaps, or radius/diameter. The Clebsch graph reference page supplies the group but no associated optimum-resolving-set table. Searches did not reveal a table storing these new configuration metrics; this absence is only best-knowledge, not a guarantee of novelty.",
+      "searches": [
+        "arxiv:2007.05808v1 Table 8 row 3 and Table 9 row 3",
+        "A. E. Brouwer Clebsch graph reference page https://aeb.win.tue.nl/graphs/Clebsch.html",
+        "Clebsch graph folded 5 cube edge metric dimension exactly nine edge resolving basis 1600 optimum bases reconfiguration graph 12960 edges",
+        "\"Clebsch\" \"edge metric\" \"bases\" 1600"
+      ]
+    },
+    "rationale": "The 2016 foundational source defines the exact edge-resolving predicate and gives general dimension results; the 2020 published source already reports Clebsch edge metric dimension nine, and that scalar is explicitly excluded from novelty. The new claim instead gives the complete 1,600-base census, four automorphism orbits, precise basis-exchange graph and sharp diameter; the inspected primary texts, published research-record results, and available same-graph prior claims do not state or imply these further facts. No negative search is treated as a logical uniqueness proof; residual unindexed-priority risk is acknowledged.",
+    "residual_risks": [
+      "A specialized or unindexed exact Clebsch basis enumeration or swap-graph result could use terminology absent from consulted indexes.",
+      "The 2020 paper reports the minimum via total enumeration; unpublished or uninspected auxiliary computer data might contain further configuration counts, though its published theorem/table does not.",
+      "No independent scholarly literature-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_NEW_CLASSIFICATION",
+        "evidence": "Introduces d(v,e)=min endpoint distances and general results; no Clebsch basis-orbit enumeration or basis-exchange metrics in the inspected text.",
+        "identifier_or_url": "https://arxiv.org/html/1602.00291v1",
+        "material_read": "Full accessible HTML including introductory definitions, relevant sections on graph families, complexity, Section 4 bounds, conclusion and searches of the full text for Clebsch/exchange",
+        "method": "Read full HTML and searched relevant mathematical terms; compared the distance-to-edge predicate and conclusions",
+        "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+        "trigger": "Exact original 2016 definition and all-graph results for the edge-resolving property"
+      },
+      {
+        "assessment": "SCALAR_EDIM_9_KNOWN;_NEW_CONFIGURATION_AND_EXCHANGE_CLASSIFICATION_NOT_STATED",
+        "evidence": "Table 8 lists Clebsch graph 16 vertices, 40 edges, metric dimension 4, edge metric dimension 9; no counts of minimum bases, group orbits or exchange-graph path lengths reported.",
+        "identifier_or_url": "https://arxiv.org/html/2007.05808v1",
+        "material_read": "Full accessible HTML with special attention to literature review, direct comparison Section 4, Table 8 row 3, Table 9, computational methodology and conclusion",
+        "method": "Read tables and their context, searched reconfiguration and optimum-basis terminology, compared mathematical implications",
+        "title": "Some new general lower bounds for mixed metric dimension of graphs",
+        "trigger": "Exact same graph explicitly included in a published table, strong risk of scalar coverage"
+      },
+      {
+        "assessment": "STRUCTURE_AND_AUTOMORPHISMS_ONLY",
+        "evidence": "The page calls the 10-regular complement Clebsch, identifies the five-regular folded cube as its complement, and gives a 2^4:Sym(5) automorphism group of order 1920; no edge metric bases discussed.",
+        "identifier_or_url": "https://aeb.win.tue.nl/graphs/Clebsch.html",
+        "material_read": "Graph page sections on graph/complement, group, constructions and reference properties",
+        "method": "Read the graph reference and matched five-regular folded-cube convention explicitly",
+        "title": "Clebsch graph",
+        "trigger": "Check graph aliases, complement convention and full automorphism group"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8cb7a3d-b525-4d2b-ab57-a8047deddfa1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Edge-metric bases are optimal landmark deployments for identifying graph edges. The previously known scalar optimum nine leaves unanswered whether all minimum deployments can be maintained via one-vertex substitutions and how many configurations/symmetry classes exist. This natural complete classification for the canonical 16-vertex folded five-cube provides 1600 exact optimum configurations, four geometric orbit types and a sharp seven-replacement communication bound. The degree-27/high-accessibility configurations are exactly the 160 graph centers, a nontrivial connection between local flexibility and global distance. These exact structural and reconfiguration invariants are not routine consequences of the dimension value and offer a reproducible small graph benchmark. Scope deliberately excludes generalizations or unsupported applications.",
+    "status": "PASS"
+  }
+}
