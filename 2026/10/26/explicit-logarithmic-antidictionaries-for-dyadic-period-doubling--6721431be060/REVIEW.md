@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The three-occurrence lemma for \(W_{k-2}\) inside \(W_k\) follows by base inspection at level three and parity-aligned desubstitution. It supports both finite-boundary obstructions. The two global forbidden-word towers remain absent by an odd-position inverse-image argument, while exact inductively propagated positions certify both proper length-one-shorter factors. Distinctness is proved separately, including the exceptional \(k=3\) length collision. The bundled checker independently tests the exact witness definitions and first eight finite censuses; it is not substituted for the infinite proof.
+PASS
 
-## Originality
+The morphism satisfies W_k=W_{k-1}W_{k-2}W_{k-2} and an alternating final-letter recurrence. The source proves by parity-aligned desubstitution that W_{k-2} occurs in W_k only at positions 0, 2^{k-1} and 3·2^{k-2}, for all k>=3. This supports absence and both proper-factor occurrences for the two boundary obstructions. The global forbidden families arise by iterating Psi(v)=mu(v) with first symbol removed, starting from 0000 and 1001; a hereditary inverse-morphism/parity argument proves absence while separate induction tracks positions of the truncated prefix/suffix occurrences at each level. Two initial-letter towers, distinct lengths, and the k=3 exceptional collision check establish pairwise distinct 2k-1 witnesses. Independently constructed W_k and tested the three-position lemma and all specified witness absences/prefix/suffix inclusions for k=3..10, giving 5,7,9,11,13,15,17,19 witnesses. These tests do not prove the all-k lower bound; the substitution induction is the proof. No general upper bound or full antidictionary enumeration is asserted.
 
-PASS on the accessible comparisons, with residual literature risk. The 2009 paper introduces the general minimal absent-word invariant and enumeration technique. The 2014 paper gives general linear-time algorithms; neither inspected statement specializes to the finite-prefix lower bound and two boundary families. Currie's 2023 paper gives a strong desubstitution and forbidden-pattern theory for infinite period-doubling words. Its theorem concerns the infinite factor language, whereas the two boundary factors here are absent solely because of the endpoint of \(W_k\); the finite-prefix quantitative statement does not follow from its stated infinite-word classification alone. The closest retrieved published research records on dyadic prefixes concern string attractors or other finite-word invariants. Search nonhits are not considered proofs of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Minimal absent factors are the entries of the word's antidictionary; their number governs the amount of explicitly distinct negative factor information present in a finite sample. This lower bound shows that even the highly structured dyadic prefixes of a constant-length morphism require logarithmically many entries. The proof separates hereditary global prohibitions from truncation-created endpoint obstructions and supplies a closed symbolic list for every substitution level. This is a structural result, not a routine one-off numerical census.
+Currie (2023) classifies good words avoiding the infinite period-doubling factor-language patterns by a desubstitution theorem. That covers global prohibited patterns but not the two finite-prefix boundary obstructions or the quantitative at-least-2k-1 count. Pinho et al. 2009 and Barton et al. 2014 define and compute minimal absent factors for arbitrary strings, not an all-level symbolic list for the period-doubling dyadic prefixes. Nearest published result on period-doubling prefix attractors evaluates a different statistic. Best-of-knowledge original constructive bound; equivalent finite-prefix formulas in unindexed automatic-word literature remain a risk.
 
-## Limits
+## value
 
-The result is a certified all-level lower bound, not an all-level exact count; equality has been checked only at six finite levels. The literature search is bounded, and an independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimal absent factors are the finite word’s antidictionary and are a standard measure of negative substring information. Showing at least logarithmically many explicit and structurally different obstructions in highly ordered dyadic prefixes, separated into hereditary global and endpoint-generated families, is a motivated all-scale structural result. It is not a claim of complete census and not merely a finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

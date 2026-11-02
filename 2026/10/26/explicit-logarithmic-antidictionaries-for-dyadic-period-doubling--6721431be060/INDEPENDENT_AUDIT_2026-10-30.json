@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The morphism satisfies W_k=W_{k-1}W_{k-2}W_{k-2} and an alternating final-letter recurrence. The source proves by parity-aligned desubstitution that W_{k-2} occurs in W_k only at positions 0, 2^{k-1} and 3·2^{k-2}, for all k>=3. This supports absence and both proper-factor occurrences for the two boundary obstructions. The global forbidden families arise by iterating Psi(v)=mu(v) with first symbol removed, starting from 0000 and 1001; a hereditary inverse-morphism/parity argument proves absence while separate induction tracks positions of the truncated prefix/suffix occurrences at each level. Two initial-letter towers, distinct lengths, and the k=3 exceptional collision check establish pairwise distinct 2k-1 witnesses. Independently constructed W_k and tested the three-position lemma and all specified witness absences/prefix/suffix inclusions for k=3..10, giving 5,7,9,11,13,15,17,19 witnesses. These tests do not prove the all-k lower bound; the substitution induction is the proof. No general upper bound or full antidictionary enumeration is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Currie Theorems 6–7 concern good words under mu and factor/pattern avoidance, and the paper characterizes infinite good-word languages; no all-k dyadic-prefix minimal-absence lower bound stated.",
+          "Pinho and Barton provide general definitions and enumeration algorithms, not an analytic all-k count or morphic list."
+        ],
+        "reasoning": "Algorithms to compute all MAWs on a given finite word do not imply an explicit uniform lower-bound theorem without a structural analysis of this substitution family.",
+        "searches": [
+          "Currie The Analog of Overlap-Freeness for the Period-Doubling Sequence JIS 26 (2023)",
+          "Pinho et al On finding minimal absent words BMC Bioinformatics 10 137 (2009)",
+          "Barton Heliou Mouchard Pissis Linear-time computation minimal absent words 2014"
+        ]
+      },
+      "checked_sources": [
+        "Currie 2023 complete JIS PDF",
+        "Pinho et al. BMC Bioinformatics 2009 full open HTML",
+        "Barton et al. BMC Bioinformatics 2014 full open HTML",
+        "Resultary period-doubling and antidictionary semantic query",
+        "current Git RESULT.md, REVIEW.md, VERIFICATION.md and verification.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two boundary witnesses c_{k-2}W_{k-2}0 and c_{k-1}W_{k-1} cease to be absent in sufficiently longer words, so they are not consequences of the infinite forbidden-factor list.",
+          "A generic O(n) algorithm gives computed finite examples but not a closed morphic lower bound by itself."
+        ],
+        "reasoning": "Existing global-language forbidden-pattern and generic algorithmic theorems do not imply the exact displayed 2k-1 explicit witness construction as a corollary; independent all-level occurrence constraints must be proved.",
+        "searches": [
+          "Currie 2023 Theorems 6 7 and forbidden 11 1001 0000 00010100",
+          "Pinho 2009 minimal absent word definition and algorithm",
+          "Barton 2014 suffix array MAW algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimal absence is equivalent to a missing contiguous factor with both length-one-shorter immediate factors present, not merely avoidance of a pattern.",
+          "The 2k-1 explicit words include global forbidden factors and finite-prefix-only boundary absences."
+        ],
+        "reasoning": "Examined antidictionary/MAW, forbidden-pattern and substitution formulations. Currie’s infinite-language prohibition gives only part of the witness family, whereas the two boundary factors need finite occurrence positions.",
+        "searches": [
+          "minimal absent words period doubling morphism 0 to 01 1 to 00 prefix antidictionary growth explicit boundary [Resultary_Search]",
+          "dyadic prefixes W_k period doubling finite antidictionary number logarithm",
+          "Currie 2023 forbidden patterns infinite period doubling word"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved the related exact greedy string attractor of the period-doubling word (2026/10/4/...--344443ea5b69), a distinct finite-word invariant.",
+          "The source script gives finite exact totals 5,7,9,11,13,15 only at levels k=3..8, which cannot establish the all-k formula."
+        ],
+        "reasoning": "There is no identified table or published symbolic MAW witness list matching the all-k family; this is bounded search evidence only, not proof of novelty.",
+        "searches": [
+          "Resultary_Search: minimal absent words period doubling morphism 0 to 01 1 to 00 prefix antidictionary growth explicit boundary",
+          "Resultary exact greedy string attractor period doubling prefixes",
+          "finite prefix MAW counts k3 to k8"
+        ]
+      },
+      "rationale": "Currie (2023) classifies good words avoiding the infinite period-doubling factor-language patterns by a desubstitution theorem. That covers global prohibited patterns but not the two finite-prefix boundary obstructions or the quantitative at-least-2k-1 count. Pinho et al. 2009 and Barton et al. 2014 define and compute minimal absent factors for arbitrary strings, not an all-level symbolic list for the period-doubling dyadic prefixes. Nearest published result on period-doubling prefix attractors evaluates a different statistic. Best-of-knowledge original constructive bound; equivalent finite-prefix formulas in unindexed automatic-word literature remain a risk.",
+      "residual_risks": [
+        "A specialised but unindexed automatic-word/minimal-absent-factor study might contain the identical log lower bound.",
+        "The theorem proves at least 2k-1, not equality; finite exact checks k3–8 must not be extrapolated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP only global forbidden-language constraints",
+          "evidence": "Currie characterizes good infinite/finite words, and explicitly forbids 11,1001 and patterns 0000,00010100, but does not enumerate the finite-prefix endpoint MAW family.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Currie/currie16.pdf (James Currie, JIS 2023)",
+          "material_read": "entire 2023 open-access 20-page PDF introduction, Theorems 6–7 and desubstitution/factor-avoidance sections",
+          "method": "read full paper and inspected first page visually",
+          "title": "The Analog of Overlap-Freeness for the Period-Doubling Sequence",
+          "trigger": "same period-doubling morphism and forbidden patterns; strong possible coverage"
+        },
+        {
+          "assessment": "KNOWN_DEFINITION_AND_ALGORITHM not same morphic theorem",
+          "evidence": "Defines minimal absence by deletion of first or last symbol and provides a practical general generation algorithm.",
+          "identifier_or_url": "DOI:10.1186/1471-2105-10-137; Pinho et al. 2009",
+          "material_read": "full open-access article HTML abstract/results/method discussion and conclusions",
+          "method": "read publicly available source",
+          "title": "On finding minimal absent words",
+          "trigger": "canonical definition and known arbitrary-word algorithm"
+        },
+        {
+          "assessment": "KNOWN_GENERAL_ALGORITHM not same all-level explicit period-doubling family",
+          "evidence": "Linear-time suffix-array algorithm for any input word, no symbolic lower bound for substitution prefixes.",
+          "identifier_or_url": "DOI:10.1186/s12859-014-0388-9; Barton et al. 2014",
+          "material_read": "full open-access article HTML background, results and conclusions",
+          "method": "read publicly available source",
+          "title": "Linear-time computation of minimal absent words using suffix array",
+          "trigger": "strong general algorithm or table could cover exact prefix count"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Computes greedy attractor positions {2^k-1}, not minimal absent factors; potential conceptual link does not imply witness count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+          "material_read": "Resultary search summary and displayed research statement only",
+          "method": "semantic search abstract comparison",
+          "title": "Exact greedy string attractor of the period-doubling word",
+          "trigger": "closest published result with same dyadic prefix object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal absent factors are the finite word’s antidictionary and are a standard measure of negative substring information. Showing at least logarithmically many explicit and structurally different obstructions in highly ordered dyadic prefixes, separated into hereditary global and endpoint-generated families, is a motivated all-scale structural result. It is not a claim of complete census and not merely a finite computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Let mu(0)=01 and mu(1)=00, W_k=mu^k(0) of length 2^k, k>=3. The finite binary word W_k has at least 2k-1 pairwise distinct minimal absent contiguous factors, explicitly 11; for every j=0,...,k-3 the two words Psi^j(0000) and Psi^j(1001) with Psi(v)=mu(v) after deleting its initial symbol; and two finite-boundary words c_{k-2} W_{k-2}0 and c_{k-1} W_{k-1}, where c_j is the last symbol of W_j. Every witness is absent while both immediate proper prefix and suffix occur. This is an all-k constructive lower bound only; equality for all k is not asserted.",
+  "limitations": [
+    "Only a constructive lower bound for binary dyadic period-doubling prefixes k>=3, not an all-k total antidictionary classification.",
+    "Does not extend automatically to arbitrary lengths or other constant-length morphisms."
+  ],
+  "schema_version": 1
+}
