@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The backward Robin problem follows from diffusion with boundary-local-time killing. The linear boundary system gives the exact first-passage mean; differentiation produces a quadratic numerator whose derivative is strictly positive across the entire feasible interval, and whose endpoint signs are opposite. This proves a unique **interior** global optimizer for all positive physical parameters and all starts, including endpoints. A separate implicit equation proves the monotonic switching of the allocation fraction. At strong reactivity the optimized asymptotic is derived from a uniform-in-fixed-parameter expansion for interior starts and an exact separate endpoint root. The included independent tridiagonal solver and numerical optimizer support the algebra. No finite experiment substitutes for the analytic argument.
+PASS
 
-## Originality — PASS, qualified by residual literature risk
+Independently solved the backward ODE -Fyy=1 with F_y(0)=tF(0), F_y(1)=-(S-t)F(1). This yields F= -y^2/2+(1+(S-t)/2)(1+ty)/(S+t(S-t)). SymPy independently differentiated this rational expression and confirmed the claimed quadratic g/(S+t(S-t))^2 exactly, the rescaled S H(p)+K(p) relation, and H(p0)=(2y-1)^3/32. The derivative polynomial g has g(0)<0<g(S), and g_t(0)=S(1-y)+2>0 and g_t(S)=Sy+2>0, proving its derivative positive on [0,S] and a unique strict global interior optimum for all y, including endpoints. The implicit derivative and H sign establish strict budget monotonicity except y=1/2; boundary y=0 yields exact S-t*=sqrt(S+4)-2, which must be handled separately from the nonuniform interior expansion. Independently bracketed roots for 25 (S,y) pairs; no continuum result inferred from those tests.
 
-The nearest primary materials were compared by their mathematical implications, not title similarity. Erban–Chapman derives and calibrates reactive boundaries without this fixed-budget capture-time allocation. Whitehouse–Evans–Majumdar optimizes resetting in a different forward first-passage model. Nicolaou–Mulder optimizes exterior steady diffusion flux into a partially reactive body; that objective does not determine the mean capture time in a bounded interval (where eventual capture is certain). No equivalent complete theorem or stronger implication was found in the queried mathematical records or accessible prior literature. The unexamined tails of specialized design literature remain a genuine risk; search absence is not a proof of originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result addresses a natural resource-constraint question: distribute a fixed total reaction rate between two physically separate capture channels to minimize time to capture. It gives a complete optimizer, exact nontrivial weak/strong budget laws, and strict allocation monotonicity. The endpoint-start phenomenon is especially informative: the remote endpoint always receives a positive allocation; for a large budget its allocation grows like the square root of the total even though the allocated *fraction* vanishes. This is a structural, testable design principle, not just a forward mean calculation.
+Radiation/Robin boundary modeling and reaction-diffusion first-passage equations are classical; the exact fixed-sum two-endpoint allocation, unique positive optimum even at boundary start, strict budget monotonicity and remote sqrt-budget scaling are the assessed additional statements. Earlier work optimizing reset rate or exterior steady-state flux changes objective or domain; no exact overlapping Robin allocation theorem identified, but elementary BVP optimization makes historical overlap possible.
 
-## Boundaries and residual risks
+## value
 
-Point-mass start; one-dimensional constant diffusion; two Robin endpoints; fixed sum of reactivities; no noisy-inference or higher-dimensional claim. The relevant exterior reactivity optimization paper was assessed using accessible substantive text, not a claimed complete full-text reading. Equivalence under a different chemical engineering parametrization cannot be ruled out without a wider priority audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Splitting a fixed physical endpoint-reaction budget to minimize the first arrival time is a natural operational and analytic optimization. The result is a complete parametric classification, including strict interior optimality despite endpoint starts, monotone budget crossover and an unusual sqrt(S) distant-reactivity boundary layer, not an arbitrary numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

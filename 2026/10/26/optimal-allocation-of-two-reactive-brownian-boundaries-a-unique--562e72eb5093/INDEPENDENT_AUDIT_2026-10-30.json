@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:08:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py at frozen commit",
+        "Independent SymPy derivative, normalized equation, H(p0) and 25 bisection roots",
+        "Erban–Chapman radiation-boundary backward formulation"
+      ],
+      "rationale": "Independently solved the backward ODE -Fyy=1 with F_y(0)=tF(0), F_y(1)=-(S-t)F(1). This yields F= -y^2/2+(1+(S-t)/2)(1+ty)/(S+t(S-t)). SymPy independently differentiated this rational expression and confirmed the claimed quadratic g/(S+t(S-t))^2 exactly, the rescaled S H(p)+K(p) relation, and H(p0)=(2y-1)^3/32. The derivative polynomial g has g(0)<0<g(S), and g_t(0)=S(1-y)+2>0 and g_t(S)=Sy+2>0, proving its derivative positive on [0,S] and a unique strict global interior optimum for all y, including endpoints. The implicit derivative and H sign establish strict budget monotonicity except y=1/2; boundary y=0 yields exact S-t*=sqrt(S+4)-2, which must be handled separately from the nonuniform interior expansion. Independently bracketed roots for 25 (S,y) pairs; no continuum result inferred from those tests.",
+      "residual_risks": [
+        "Assumes Brownian generator D d²/dx² and boundary-local-time Robin killing, not instantaneous killing at contact.",
+        "Strong-budget expansion pointwise in fixed start y, not uniformly in moving boundary layers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erban–Chapman 2006/07 paper establishes physical interpretation of Robin reactivity",
+          "Nicolaou–Mulder 2023 Sci Rep DOI 10.1038/s41598-023-49566-4 seeks exterior-body steady-state influx, not deterministic-start bounded-interval MFPT"
+        ],
+        "reasoning": "General diffusion BVP solutions and exterior flux optimization do not directly optimize this distinct finite-interval point-start mean under sum κ0+κL fixed.",
+        "searches": [
+          "Erban Chapman partial absorbing Robin boundary MFPT",
+          "Nicolaou Mulder spatial reactivity flux optimization 2023 fixed budget",
+          "Brownian two reactive boundaries optimal mean capture"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:physics/0611251",
+        "arXiv:1301.2489 abstract",
+        "DOI:10.1038/s41598-023-49566-4 abstract",
+        "Resultary Robin resource-split query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Erban–Chapman supplies boundary equations but not their point-start optimal allocation",
+          "Whitehouse–Evans–Majumdar alters the process by resetting",
+          "Nicolaou–Mulder has different cost domain and objective"
+        ],
+        "reasoning": "The classical boundary ODE is a premise and may make the result short to derive, but its solution alone does not state strict interior uniqueness, two crossover limits, monotonicity and boundary square-root allocation. Neither alternative optimization objective dominates this claim.",
+        "searches": [
+          "arXiv physics/0611251 Robin radiation boundary killing",
+          "arXiv 1301.2489 partial absorption stochastic resetting",
+          "10.1038/s41598-023-49566-4 optimize steady-state flux"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erban–Chapman arXiv:physics/0611251 derives reactive Robin boundary models",
+          "Whitehouse–Evans–Majumdar arXiv:1301.2489 optimizes stochastic resetting with a partially absorbing boundary"
+        ],
+        "reasoning": "Robin killing, radiation boundaries, imperfect traps and boundary reaction rates are aliases of this forward diffusion model; resetting optimization is not equivalent to allocating a fixed total endpoint reactivity.",
+        "searches": [
+          "Resultary: optimal allocation fixed total Robin reactivity two partially absorbing Brownian boundaries minimum mean first passage time interior",
+          "two partially absorbing endpoints optimal reactivity allocation Brownian motion average absorption time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned unrelated fixed-sum entropy allocations and Brownian boundaries, no exact rational optimum or sqrt(S) remote-budget law",
+          "Frozen theorem gives exact quadratic g and endpoint formula"
+        ],
+        "reasoning": "No matching table or published formula found in bounded scientific searches; numerical match absence is not novelty proof.",
+        "searches": [
+          "Resultary: optimal allocation fixed total Robin reactivity two partially absorbing Brownian boundaries minimum mean first passage time interior",
+          "\"optimal\" \"Robin\" \"reactivity\" \"two endpoints\" fixed sum",
+          "two partially absorbing endpoints optimal reactivity allocation Brownian motion"
+        ]
+      },
+      "rationale": "Radiation/Robin boundary modeling and reaction-diffusion first-passage equations are classical; the exact fixed-sum two-endpoint allocation, unique positive optimum even at boundary start, strict budget monotonicity and remote sqrt-budget scaling are the assessed additional statements. Earlier work optimizing reset rate or exterior steady-state flux changes objective or domain; no exact overlapping Robin allocation theorem identified, but elementary BVP optimization makes historical overlap possible.",
+      "residual_risks": [
+        "Classical reaction-diffusion or optimal resource-allocation literature may contain an equivalent one-dimensional Robin BVP optimum under a different name.",
+        "Two related primary references were inspected at abstract/model level, not exhaustively full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Physical boundary model is prior; no fixed-total-two-endpoint optimal allocation in inspected material",
+          "evidence": [
+            "arXiv:physics/0611251, boundary equations and setup"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/physics/0611251",
+          "material_read": "24-page arXiv primary PDF abstract, boundary-condition setup and relevant derivation of reaction boundary behavior",
+          "method": "Opened primary PDF, rendered first page, inspected relevant text",
+          "title": "Realistic boundary conditions for stochastic simulations of reaction-diffusion processes",
+          "trigger": "Robin radiation-boundary model and normalization"
+        },
+        {
+          "assessment": "Optimizes resetting mechanism rather than fixed split of two Robin reactivities; hidden equivalent result not ruled out",
+          "evidence": [
+            "arXiv:1301.2489, abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.2489",
+          "material_read": "Abstract and described model with stochastic resetting and partial target absorption",
+          "method": "Primary preprint abstract and search snippets, not full PDF; assessment limited to actual reading",
+          "title": "Effect of Partial Absorption on Diffusion with Resetting",
+          "trigger": "Could cover optimum for partial absorption"
+        },
+        {
+          "assessment": "No direct implication to bounded 1D individual-particle mean time established",
+          "evidence": [
+            "Scientific Reports 13 (2023), DOI 10.1038/s41598-023-49566-4"
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-49566-4",
+          "material_read": "Abstract, identified exterior-body steady-state-flux objective and mathematical setting",
+          "method": "Publisher bibliographic/abstract reading; full text not materially inspected",
+          "title": "A probabilistic algorithm for optimising the steady-state diffusional flux into a partially absorbing body",
+          "trigger": "Fixed resource allocation might dominate the point-start optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact backward BVP and global quadratic derivative criterion",
+        "Independent 25 optimum checks and crossover symbolic identities"
+      ],
+      "rationale": "Splitting a fixed physical endpoint-reaction budget to minimize the first arrival time is a natural operational and analytic optimization. The result is a complete parametric classification, including strict interior optimality despite endpoint starts, monotone budget crossover and an unusual sqrt(S) distant-reactivity boundary layer, not an arbitrary numerical improvement.",
+      "residual_risks": [
+        "Not a result for 2D/3D targets, heterogeneous diffusion, stochastic reset clocks or realistic area-dependent cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes Brownian generator D d²/dx² and boundary-local-time Robin killing, not instantaneous killing at contact.",
+    "Strong-budget expansion pointwise in fixed start y, not uniformly in moving boundary layers.",
+    "Classical reaction-diffusion or optimal resource-allocation literature may contain an equivalent one-dimensional Robin BVP optimum under a different name.",
+    "Two related primary references were inspected at abstract/model level, not exhaustively full text.",
+    "Not a result for 2D/3D targets, heterogeneous diffusion, stochastic reset clocks or realistic area-dependent cost."
+  ],
+  "schema_version": 1
+}
