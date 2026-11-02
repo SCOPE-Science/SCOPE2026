@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(n\ge3\) and \(3\le k\le n\), the exact size-biased law is normalized by \(\mathbb E Z_{n,k}=\binom nk/k!\). Marked subsequence positions and values are independent uniform \(k\)-subsets; their order-statistic coincidence probabilities contribute \(\sum_{j,x}p_{j,x}^2\) forced fixed points. The unforced term has expectation \((n-k)/n\). These identities yield the stated covariance. A first-order-statistic support bound gives a *strict* sign even at \(k=n\). Beta integrals and a binomial convolution prove the fixed-length asymptotics. The standalone verifier makes 2,242 exact assertions including enumeration of 46,230 permutations; it is corroboration rather than a substitute for the proof.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The nearest direct predecessor, Pinsky's 2004 increasing-subsequence paper (arXiv:math/0407353), explicitly supplies the subsequence-biased measure and the marginal mean/variance context; it does not state or derive the fixed-point mixed moment, the order-statistic collision identity, its strict sign or the leading coefficient. Pinsky's 2026 fixed-point paper addresses the inversion statistic, hence the length-two pair case only; that case is excluded from the new claim. Searches for aliases including increasing patterns, fixed points, subsequence-size bias and joint moments did not find the exact higher-order formula. The Lifschitz–Pittel 1981 marginal-count paper was identified but its full text was unavailable; a broader implicit formula in earlier joint literature remains possible. Search absence does not prove priority.
+PASS
 
-## Mathematical value — PASS
-Counts of arbitrary-length increasing subsequences are canonical pattern statistics, while fixed points measure diagonal intersections of the permutation plot. The result determines the sign of their dependence uniformly over an entire two-parameter domain and gives a structural expression in terms of collisions of order statistics, a quantitative finite bound and nontrivial fixed-length leading constants. It goes beyond a single finite census or a restatement of the marginal expected subsequence count. It does not imply positive association or a longest-subsequence distributional ordering.
+For each k-subset of positions, probability that associated values increase is 1/k!, giving E Z=binom(n,k)/k!. Size-biasing by Z picks independent uniform k-subsets I and V and forces i_j -> v_j. Expected fixed points in forced positions is sum_{j,x}p_{j,x}², and in remaining positions (n-k)/n (zero when k=n), so Cov(F,Z)=E Z sum_j(sum_x p_{j,x}²−1/n). Each rank distribution has squared L2 mass >=1/n; the first rank has support n-k+1, giving strict lower bound (k-1)/(n(n-k+1)), all 3<=k<=n. For fixed k, rescale discrete order-statistic mass to beta-density f_j, sum exact beta integrals via central-binomial convolution to coefficient (4^(k-1)/(2k-1)! - k/(k!)²)n^(k-1)+O_k(n^(k-2)), with k3 coefficient 1/20. Independent full permutation enumeration for n3..7, k3..n validates exact formulas in 15 cases. Does not claim k growing asymptotics or positive association.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified: Pinsky’s original increasing-subsequence-biased permutation measure is prior, as is the k=2 inversion connection. The cross moment with fixed-point count for all k>=3, strict positivity, explicit lower bound and fixed-k constant were not identified in inspected relevant primary or indexed sources.
+
+## value
+
+PASS
+
+Gives a closed and strictly positive mixed covariance between two central permutation statistics for every 3<=k<=n, an explicit positive lower bound and the exact fixed-k asymptotic scale. It is a natural new quantitative connection between cycle structure and pattern counts, beyond marginal moment computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

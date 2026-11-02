@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:44:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 072aff41fbf012e28cf199869227de2475805a52",
+        "independent_checks.py exact rational direct permutation enumeration",
+        "Pinsky 2004/2005 primary size-bias construction"
+      ],
+      "rationale": "For each k-subset of positions, probability that associated values increase is 1/k!, giving E Z=binom(n,k)/k!. Size-biasing by Z picks independent uniform k-subsets I and V and forces i_j -> v_j. Expected fixed points in forced positions is sum_{j,x}p_{j,x}², and in remaining positions (n-k)/n (zero when k=n), so Cov(F,Z)=E Z sum_j(sum_x p_{j,x}²−1/n). Each rank distribution has squared L2 mass >=1/n; the first rank has support n-k+1, giving strict lower bound (k-1)/(n(n-k+1)), all 3<=k<=n. For fixed k, rescale discrete order-statistic mass to beta-density f_j, sum exact beta integrals via central-binomial convolution to coefficient (4^(k-1)/(2k-1)! - k/(k!)²)n^(k-1)+O_k(n^(k-2)), with k3 coefficient 1/20. Independent full permutation enumeration for n3..7, k3..n validates exact formulas in 15 cases. Does not claim k growing asymptotics or positive association.",
+      "residual_risks": [
+        "The result concerns only uniform S_n, and the fixed-k asymptotic is not uniform in k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 Pinsky article studies inversions and fixed points, which correspond to the length-two increase statistic by complementing inversions."
+        ],
+        "reasoning": "The specific k>=3 mixed moments are not direct consequences of the k2 case or the prior marginal law; no all-k joint generating theorem with the needed implication was verified.",
+        "searches": [
+          "R. G. Pinsky, Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure, arXiv:math/0407353, PDF",
+          "R. G. Pinsky, The Inversion Statistic in Derangements and in other Permutations with a Prescribed Number of Fixed Points, Electronic Journal of Combinatorics 33(2), 2026, DOI:10.37236/14250",
+          "Resultary search Resultary: permutation fixed points covariance count increasing subsequences random S_n order statistics"
+        ]
+      },
+      "checked_sources": [
+        "R. G. Pinsky, Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure, arXiv:math/0407353, PDF",
+        "R. G. Pinsky, The Inversion Statistic in Derangements and in other Permutations with a Prescribed Number of Fixed Points, Electronic Journal of Combinatorics 33(2), 2026, DOI:10.37236/14250",
+        "Resultary search Resultary: permutation fixed points covariance count increasing subsequences random S_n order statistics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinsky size-bias measure is prior, but no fixed-point mixed moment evaluated in the inspected 2004/2005 source; inverse-count relation covers k2 only."
+        ],
+        "reasoning": "The submitted formula follows from new application of the prior measure to fixed points, integrating two independent order-statistic ranks; this comparison credits the methodology and excludes k2 novelty.",
+        "searches": [
+          "R. G. Pinsky, Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure, arXiv:math/0407353, PDF",
+          "R. G. Pinsky, The Inversion Statistic in Derangements and in other Permutations with a Prescribed Number of Fixed Points, Electronic Journal of Combinatorics 33(2), 2026, DOI:10.37236/14250"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky defines measure weighted by Z_{n,k} and computes expectations/variance of increasing-subsequence counts."
+        ],
+        "reasoning": "Using the same established size-bias distribution does not itself evaluate E_mu F; the rank-collision evaluation and strict sign are additional statements.",
+        "searches": [
+          "Resultary: permutation fixed points covariance count increasing subsequences random S_n order statistics",
+          "R. G. Pinsky, Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure, arXiv:math/0407353, PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 2026/10/4 fixed-point-descent boundary localization concerns adjacent descents, not nonconsecutive increasing k-subsequences."
+        ],
+        "reasoning": "A permutation moment table for descents or inversions does not supply rank-collision sums for k>=3; no exact matching table was found.",
+        "searches": [
+          "Resultary: permutation fixed points covariance count increasing subsequences random S_n order statistics",
+          "Resultary search Resultary: permutation fixed points covariance count increasing subsequences random S_n order statistics"
+        ]
+      },
+      "rationale": "Qualified: Pinsky’s original increasing-subsequence-biased permutation measure is prior, as is the k=2 inversion connection. The cross moment with fixed-point count for all k>=3, strict positivity, explicit lower bound and fixed-k constant were not identified in inspected relevant primary or indexed sources.",
+      "residual_risks": [
+        "Older general joint generating functions for permutation fixed points and subsequences might imply the formula in disguised form.",
+        "Full 2026 Pinsky publication not inspected; claimed k>=3 is distinct from its described k2 setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior measure and marginal results, not identified mixed fixed-point covariance formula",
+          "evidence": [
+            "https://arxiv.org/pdf/math/0407353"
+          ],
+          "identifier_or_url": "arXiv:math/0407353",
+          "material_read": "Full 23-page OA PDF; inspected definitions, size-bias weighting, variance and approximation statements and searched fixed-point terminology",
+          "method": "OA PDF text plus first-page screenshot",
+          "title": "Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure",
+          "trigger": "Same Z_nk statistic and Z-size-biased measure"
+        },
+        {
+          "assessment": "Overlaps k2 only, which the assessment excludes from claimed novelty",
+          "evidence": [
+            "https://doi.org/10.37236/14250"
+          ],
+          "identifier_or_url": "DOI:10.37236/14250",
+          "material_read": "Publication abstract and accessible bibliographic account: fixed point conditional inversion moments; full article not inspected",
+          "method": "Published abstract",
+          "title": "The Inversion Statistic in Derangements and in other Permutations with a Prescribed Number of Fixed Points",
+          "trigger": "Potential direct coverage via inversion = total pairs - increasing pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "R. G. Pinsky, Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure, arXiv:math/0407353, PDF",
+        "Rank-collision derivation and all-permutation exact arithmetic checks"
+      ],
+      "rationale": "Gives a closed and strictly positive mixed covariance between two central permutation statistics for every 3<=k<=n, an explicit positive lower bound and the exact fixed-k asymptotic scale. It is a natural new quantitative connection between cycle structure and pattern counts, beyond marginal moment computations.",
+      "residual_risks": [
+        "Covariance positivity is not positive association or an LIS statement; scope stays precise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform permutations, fixed-point count has positive covariance with each increasing subsequence count of length 3<=k<=n, with the exact order-statistic rank-collision identity, sharp elementary bound and fixed-k leading asymptotics.",
+  "limitations": [
+    "Size-biased permutation measure is prior work.",
+    "Only uniform S_n and fixed k asymptotics; no higher-order association."
+  ],
+  "schema_version": 1
+}
