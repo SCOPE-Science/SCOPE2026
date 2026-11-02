@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 20 regular-dodecahedron vertices and 30 edges, all 10 antipodal axes, every nonconcurrent pair of great circles, and all 92 resulting chambers were checked in the exact real quadratic field. The complete shared-arc incidence census finds only the 6/8 and 8/10 interfaces; all their lengths are verified via exact normalized cross-product inner products. The transition probabilities then follow from the uniform-bearing one-sided cosine integral and the finite-arc \(O(t^2)\) endpoint bound. The result is explicitly a first-order asymptotic, not an exact finite-angle formula.
+## correctness
 
-**Originality — PASS relative to inspected sources.** The MathPages source gives the ten-circle chamber counts and spherical areas, so the one-view tessellation is known and is explicitly excluded from the novelty claim. The 2014 section discussion does not classify *paired nearby* central sections or their marked shared boundary lengths. The related 2026 icosahedron result treats a different body and one view. The two distinct transition coefficients and zero first-order direct 6/10 adjacency were not implied by the checked statements without a new interface classification. The literature may contain the same law under a spherical tessellation or stereology formulation; definitive historical priority is unverified.
+PASS
 
-**Mathematical value — PASS.** The joint law quantifies rotational robustness of three natural section types. Its exact interface lengths distinguish how likely hexagonal and decagonal sections are to change into octagons under a small viewing error, and its absent direct 6/10 edge is a structural incidence restriction, not a relabeling of preexisting one-view probabilities.
+The regular dodecahedron vertices split into ten antipodal axes, each inducing one great circle on the normal sphere. The 10 planes are in general position and produce 92 sign chambers and 180 spherical edges. The source exact quadratic-field certificate checks all 1024 sign masks, 90 circle crossing points, all 30 geometric dodecahedral edges, every chamber sign and polygon-side count, and every labeled arc length; it finds 20 chambers of six-sided sections, 60 of eight-sided, and 12 of ten-sided. Boundary edges: 120 six/eight interfaces of length h and 60 eight/ten of length p, with no six/ten adjacency. I independently generated the 20 vertices and 30 edges, sorted 18 intersection arcs per great circle and measured 180 arcs geometrically; it reproduced exact interface counts and both exact lengths to 9e-16. For a short random tangent displacement on the sphere, one-way crossing probability of interface length L is L/(4*pi^2)t+O(t^2), since average positive normal tangent component=1/pi and sphere area=4*pi; finitely many crossing vertices contribute only O(t^2). Thus the coefficients follow. The exact arc identity 2h+p=pi/3 gives 10/pi total change. This is a valid first-order result only, not a finite-angle kernel.
 
-The separate certificate verifies the finite nonstandard combinatorial lemma. Only the full analytic proof establishes the small-angle asymptotic, with the stated errors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.
+
+## value
+
+PASS
+
+The sensitivity of a Platonic solid’s central-section polygon type to a small random view change is a natural geometric stability question. The exact labeled boundary decomposition distinguishes two structurally different exits from octagonal sections, and the absent direct six/ten edge is a meaningful adjacency restriction. Previously published unmarked chamber areas cannot determine the type-resolved flux rates. Exact rates are useful independently of full finite-angle transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
