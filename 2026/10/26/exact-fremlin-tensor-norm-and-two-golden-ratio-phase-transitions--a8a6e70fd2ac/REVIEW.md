@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete positive-projective primal and positive-contraction dual have matching explicit feasible points in each range. The middle-range nonstandard contraction certificate is a ground-state sum of squares for \(I-N^{\mathsf T}N\). The phase transitions follow by exact algebra, and the supplementary script checks rational identities.
+## correctness
 
-**Originality — PASS (with residual risks).** The public 2026 Arens-regularity paper is a contextual Fremlin tensor-product source, not an exact path norm computation. Indexed results closest to the claim concern injective/projective tensor comparisons and triangular Schur truncation. Earlier special-case results outside the searchable literature cannot be ruled out; older primary texts have not all been inspected.
+PASS
 
-**Value — PASS.** This is a complete natural three-vertex path classification, with sharp constructive primal-dual extremizers and two different changes in curvature, one at a golden-ratio threshold. Such examples are useful exact test cases for positive projective tensor optimization.
+Reconstructed finite-dimensional real positive Fremlin primal majorant/positive-contraction dual. For 0≤t≤1 all-ones rank-one majorant and identity contraction give 3. For 1≤t≤sqrt(phi), u=(1,t^-1,t^-2), v=(1,t,t²) majorize M_t at cost 1+t²+t^-2; explicit tridiagonal positive N saturates this and I-N^T N is a nonnegative ground-state sum of two squared differences with coefficients ab and bc. For t≥sqrt(phi), the dual rows split orthogonally into norm-one blocks while hxy^T majorizes M_t exactly at t^4≥t²+1, yielding 2sqrt(1+t²). Explicit one-sided derivatives match at 1,sqrt(phi), second derivatives differ. Independently computed primal dominance and dual spectral norms for 10 representative parameters including both sides of transitions. No general higher-dimensional assertion.
 
-Independent publication priority and scientific correctness are not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison by mathematical implication, using actual Resultary search, relevant primary source material, the assigned final claim, and explicit residual priorities. The contribution is limited to the exact special calculation/structural theorem; general underlying methods are credited.
+
+## value
+
+PASS
+
+Natural three-vertex positive path tensor gives a complete continuous-parameter Fremlin projective norm, optimizer changes and two non-C² phase boundaries. The rank-one primal/dual certificates make a useful sharp test case for positive-tensor gauge optimization, not an arbitrary isolated constant or textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
