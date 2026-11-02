@@ -1,15 +1,21 @@
-# Scientific review: quadratic-character secondary terms for the ternary divisor mean
+# Independent mathematical audit
 
-## Correctness — PASS
-The prime-power generating function is an identity of rational functions, and coefficient-wise multiplication establishes \(D_3=\mathbf1*\mathbf1_{\mathrm{square}}*c\). The local correction starts at exponent three, so the absolute convergence needed at the error exponent follows for every real \(s>1/3\). The exact two-dimensional hyperbola identity handles all characters. Its principal-character \(X^{2/3}\) terms cancel; its real nonprincipal quadratic terms leave the explicit \(\sqrt X\) contribution. A convergent multiplicative convolution transfers these two terms and bounds all tails by \(O_{q,\varepsilon}(x^{1/3+\varepsilon})\). Finally, character orthogonality and positive Euler factors yield the exact two-class bias. An independent finite integer identity check for \(20{,}000\) indices returned `VERIFY_OK`. This check supplements, and does not prove, the universal asymptotic.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating 12 February 2026 paper by Meselem Karras studies exactly \(D_k\) in progressions and states a leading term with error \(O_{k,q,\varepsilon}(x^{1/2+\varepsilon})\). The earlier Karras–Derbal mean result has an error of order \(O_k(x^{1/2}(\log x)^{k-2})\). Neither stated estimate implies a coefficient or a nonzero sign for a square-root secondary term. The k=2 progression study of Bouakkaz–Derbal concerns a different local convolution. No explicit covering theorem emerged from targeted mathematical literature comparisons. A more general hyperbola or convolution theorem might imply this specialization without naming \(D_3\); this remains a residual risk, and search failures alone do not establish novelty.
+PASS
 
-## Mathematical value — PASS
-The result supplies the first nontrivial correction to the natural weighted divisor count at a fixed modulus, including a signed and explicitly nonzero discrepancy between two reduced classes. The exponent \(1/3+\varepsilon\) is strictly smaller than the size of the displayed \(\sqrt x\) term. This directly sharpens a recently studied arithmetic progression problem rather than merely changing notation or evaluating an arbitrary small example. Sharpness of the error exponent and extension to higher \(k\) remain open here.
+Checked the full fixed-q, k=3 theorem, including q=1 and principal/nonprincipal quadratic/nonquadratic characters. Prime-power D_3(p^j)=binom(j+2,2)/3 (j>=1) has exact local generating series (1-t)^(-1)(1-t^2)^(-1)[1+(4/3)t^3+(2/3)t^4/(1-t)], hence D_3=1*1_square*c. Since c(p)=c(p^2)=0 and c(p^3)=4/3,c(p^j)=2/3 for j>=4, G_chi converges absolutely for Re(s)>1/3. The two-region square-divisor hyperbola at y=z=X^(1/3) is exactly exhaustive, with subtraction of their intersection. Principal A_chi(Y)=theta_q Y+O_q(1) and periodic nonprincipal A=O_q(1); partial summation yields the L(1/2,chi) constants. For chi=chi0, the three X^(2/3) terms cancel (-1+2-1)theta_q^2. For nonprincipal chi^2=chi0 only theta_q L(1/2,chi)sqrt(X) remains; other chi yield O_q(X^(1/3)). Convolving with c and extending absolutely convergent tails gives O_{q,eps}(x^(1/3+eps)), and character orthogonality gives exactly theta_q/phi(q) factors. For chi_-3 the paired series for L(1/2,chi_-3) is strictly positive; G product is positive using (1-t^2)[1+t^2(3-2t)/(3(1-t)^2)] for t=chi(p)/sqrt(p) in [-1/sqrt(2),1/sqrt(2)]. Independent symbolic algebra verified both local identities; independent direct exact arithmetic matched all 20000 D3 coefficients with the square-divisor convolution; 42 direct hyperbola identities covered principal, quadratic and order-four characters of moduli 3,4,5. These finite tests are corroborations, not infinite proofs.
 
-## Verification and boundaries
-The proof is self-contained apart from standard elementary character orthogonality, analytic continuation of Dirichlet \(L\)-functions, and the periodic-character summation estimate; those standard facts are stated precisely where needed. The attached executable verifies exact local arithmetic and the convolution for all \(n\le20{,}000\). No numerical experiment is used to infer an infinite asymptotic. The result has not been independently mathematically validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge full-result comparison: the primary Karras 2026 Theorem 3.1 treats the same D_k and reduced arithmetic progressions, but gives only a linear main term and error O(x^(1/2+eps)). Karras–Derbal 2020 Theorem 1 gives a global linear mean with error O(x^(1/2)(log x)^(k-2)). These do not identify the signed sqrt(x) contribution or a power-saving remainder relative to it. Bouakkaz–Derbal 2023 treats k=2; Bouderbala–Karras 2022 studies a different gcd-weighted hyperbolic double sum. OEIS A308042 records the leading Euler-product constant, not the quadratic-character residue-class contrast. Searches in Resultary and the published repository found no directly dominating theorem; no universal novelty conclusion follows from search silence.
+
+## value
+
+PASS
+
+The k=3 normalized ordered-divisor mean over fixed reduced arithmetic progressions is a natural object already studied in the cited 2026 work. Showing a power-saving separation between a genuinely present sqrt(x) term and O(x^(1/3+eps)) is a nontrivial second-order arithmetic result, and the strict positive mod-3 discrepancy identifies an exact natural quadratic-character bias. This is neither a renamed leading mean nor an arbitrary small parameter slice: the square-divisor factorization explains why k=3 admits an unusually sharp explicit secondary term. No extension to growing q or error optimality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

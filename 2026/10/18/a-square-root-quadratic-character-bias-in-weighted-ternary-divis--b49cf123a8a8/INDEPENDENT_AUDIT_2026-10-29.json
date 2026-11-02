@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T11:44:16.341804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the full fixed-q, k=3 theorem, including q=1 and principal/nonprincipal quadratic/nonquadratic characters. Prime-power D_3(p^j)=binom(j+2,2)/3 (j>=1) has exact local generating series (1-t)^(-1)(1-t^2)^(-1)[1+(4/3)t^3+(2/3)t^4/(1-t)], hence D_3=1*1_square*c. Since c(p)=c(p^2)=0 and c(p^3)=4/3,c(p^j)=2/3 for j>=4, G_chi converges absolutely for Re(s)>1/3. The two-region square-divisor hyperbola at y=z=X^(1/3) is exactly exhaustive, with subtraction of their intersection. Principal A_chi(Y)=theta_q Y+O_q(1) and periodic nonprincipal A=O_q(1); partial summation yields the L(1/2,chi) constants. For chi=chi0, the three X^(2/3) terms cancel (-1+2-1)theta_q^2. For nonprincipal chi^2=chi0 only theta_q L(1/2,chi)sqrt(X) remains; other chi yield O_q(X^(1/3)). Convolving with c and extending absolutely convergent tails gives O_{q,eps}(x^(1/3+eps)), and character orthogonality gives exactly theta_q/phi(q) factors. For chi_-3 the paired series for L(1/2,chi_-3) is strictly positive; G product is positive using (1-t^2)[1+t^2(3-2t)/(3(1-t)^2)] for t=chi(p)/sqrt(p) in [-1/sqrt(2),1/sqrt(2)]. Independent symbolic algebra verified both local identities; independent direct exact arithmetic matched all 20000 D3 coefficients with the square-divisor convolution; 42 direct hyperbola identities covered principal, quadratic and order-four characters of moduli 3,4,5. These finite tests are corroborations, not infinite proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karras 2026 Theorem 3.1: S_k(x;q,a)=G_k(q)x/phi(q)+O_{k,q}(sqrt(q)x^(1/2+eps)); its Lemma 2.2 uses D_k=1*g_k where g_k is 2-full.",
+          "Karras–Derbal 2020 Theorem 1: sum_{n<=x}D_k(n)=A_k x+O(x^(.5)(log x)^(k-2)), all k>=2.",
+          "Bouderbala–Karras 2022 Theorem 1.1 is for sum_{mn<=x}D_k(gcd(m,n)), not the single-index arithmetic progression mean."
+        ],
+        "reasoning": "The published broader k-family statements have remainders at or above sqrt(x), so they cannot determine a nonzero sqrt(x) coefficient; the 2022 asymptotic governs a different object and does not directly dominate the fixed-progression result.",
+        "searches": [
+          "square-divisor convolution zeta(s) zeta(2s) G(s) x^(1/2) secondary asymptotic weighted ordered divisors",
+          "Piltz divisor quotient D_k(n) secondary asymptotics quadratic character progression",
+          "https://arxiv.org/html/2602.12371v1",
+          "https://bucket.theses-algerie.com/files/repositories-dz/2492468573132134.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Karras, On the Mean Value of D_k(n) in Arithmetic Progressions, arXiv:2602.12371v1, https://arxiv.org/html/2602.12371v1, Theorem 3.1 and Lemmas 2.2, 3.2, 3.3",
+        "Karras and Derbal, Mean value of an arithmetic function associated with the Piltz divisor function, Asian-European J. Math. 13 (2020), 2050062, DOI:10.1142/S179355712050062X, complete seven-page article reproduced at https://bucket.theses-algerie.com/files/repositories-dz/2492468573132134.pdf pages 10-16 (zero-based 9-15)",
+        "Bouakkaz and Derbal, The mean value of d(n)/d*(n) in arithmetic progressions, Notes Number Theory Discrete Math. 29 (2023), 445–453, DOI:10.7546/nntdm.2023.29.3.445-453, https://nntdm.net/papers/nntdm-29/NNTDM-29-3-445-453.pdf",
+        "Bouderbala and Karras, Asymptotic formula of a hyperbolic summation related to the Piltz divisor function, NNTDM 28 (2022), 648-655, DOI:10.7546/nntdm.2022.28.4.648-655, https://nntdm.net/papers/nntdm-28/NNTDM-28-4-648-655.pdf",
+        "OEIS A308042 https://oeis.org/A308042, leading mean constant for d3(n)/3^omega(n) only",
+        "Resultary semantic searches (four exact normalized ternary divisor secondary-term and square-divisor-convolution queries; retrieved unrelated top hits; no covering statement identified)",
+        "GitHub code search in SCOPE-Science/SCOPE2026 for d_3(n), quadratic-character, Piltz divisor and square-divisor: no matches returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Audited full fixed-q claim: A_{q,a}x+B_{q,a}sqrt(x)+O_{q,eps}(x^(1/3+eps)).",
+          "Karras 2026 Theorem 3.1 has O(x^(1/2+eps)) and no proven B_{q,a}; Karras–Derbal 2020 global O(x^(1/2)log(x)^(k-2)); Bouakkaz–Derbal 2023 only k=2 and much larger error."
+        ],
+        "reasoning": "An error of order at least sqrt(x) does not logically imply the coefficient or its strict sign, even when the first-order constant matches. The normalized k=2 progression result uses a different local prime-power series. A general special-case derivation could still exist outside these inspected sources.",
+        "searches": [
+          "https://arxiv.org/html/2602.12371v1",
+          "https://nntdm.net/papers/nntdm-29/NNTDM-29-3-445-453.pdf",
+          "Piltz divisor quotient D_k(n) secondary asymptotics quadratic character progression"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited normalized multiplicative function is exactly Karras D_3(n)=d_3(n)/3^{omega(n)}. Its twisted Dirichlet series admits L(s,chi)L(2s,chi^2)G_chi(s) with absolutely convergent G for Re(s)>1/3.",
+          "The sqrt(x) coefficient is equivalent to the contribution of the pole of L(2s,chi^2) at s=1/2 when chi^2 is principal; q=3 reduced-residue difference extracts chi_-3. Karras 2026 Theorem 3.1 has no such coefficient."
+        ],
+        "reasoning": "These formulations are mathematically equivalent as residues/Dirichlet-convolution structures, rather than mere shared words. The cited same-object published mean does not state or imply the coefficient at its error precision.",
+        "searches": [
+          "normalized ternary divisor function d_3(n)/3^{omega(n)} secondary square root term Dirichlet characters arithmetic progressions",
+          "square-divisor convolution zeta(s) zeta(2s) G(s) x^(1/2) secondary asymptotic weighted ordered divisors",
+          "https://arxiv.org/html/2602.12371v1#S3",
+          "Resultary: Piltz divisor quotient D_k(n) secondary asymptotics quadratic character progression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A308042 gives the decimal expansion of A_3≈2.2241624838 for the global mean, not a table of B_{3,q,a}.",
+          "The Karras 2026 displayed table lists first-order G_k(q)/phi(q) values only. No identified table contains L(1/2,chi_-3) G_chi(1/2) or its strictly positive two-class contrast."
+        ],
+        "reasoning": "First-order constants are not enough to reconstruct the explicit quadratic-character second coefficient. An older undiscovered table remains a stated risk.",
+        "searches": [
+          "normalized ternary divisor function d_3(n)/3^{omega(n)} secondary square root term Dirichlet characters arithmetic progressions",
+          "weighted ternary divisor mean modulo 3 positive square root bias",
+          "OEIS A308042 https://oeis.org/A308042",
+          "Karras 2026 numerical table after Theorem 3.1"
+        ]
+      },
+      "rationale": "Best-of-knowledge full-result comparison: the primary Karras 2026 Theorem 3.1 treats the same D_k and reduced arithmetic progressions, but gives only a linear main term and error O(x^(1/2+eps)). Karras–Derbal 2020 Theorem 1 gives a global linear mean with error O(x^(1/2)(log x)^(k-2)). These do not identify the signed sqrt(x) contribution or a power-saving remainder relative to it. Bouakkaz–Derbal 2023 treats k=2; Bouderbala–Karras 2022 studies a different gcd-weighted hyperbolic double sum. OEIS A308042 records the leading Euler-product constant, not the quadratic-character residue-class contrast. Searches in Resultary and the published repository found no directly dominating theorem; no universal novelty conclusion follows from search silence.",
+      "residual_risks": [
+        "An older general two-pole convolution or elementary square-divisor asymptotic, not identified by the searches, might explicitly specialize to the same coefficient; absence of a search hit does not prove priority.",
+        "The Euler-series identity and square-divisor hyperbola are standard tools. Priority is assessed for the complete fixed-progressions secondary expansion and signed nonprincipal-character bias, not those methods by themselves.",
+        "The result does not extend to growing q or higher k, and the O(x^(1/3+eps)) exponent is not claimed optimal. The code and sample ratio do not prove the asymptotic.",
+        "The numerical Euler product was truncated at primes <30000 and is illustrative; strict sign follows instead from the exact positive factorization and L-series pairing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First-order progression asymptotic only with O(x^(1/2+eps)); does not identify an explicit signed sqrt(x) secondary coefficient.",
+          "evidence": [
+            "Theorem 3.1 (14), lines 235–314: main term plus sqrt(q)x^(1/2+eps) error",
+            "Lemma 2.2 (7), lines 103–110: D_k=1*g_k with 2-full support"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.12371v1",
+          "material_read": "Complete accessible arXiv HTML including the introduction, the 2-full convolution Lemma 2.2, auxiliary estimates and Theorem 3.1 with proof (sections 1–3).",
+          "method": "Read primary full text; checked theorem parameters and error scale against both main and quadratic-character components.",
+          "title": "On the Mean Value of D_k(n) in Arithmetic Progressions",
+          "trigger": "Exactly the same normalized ordered-divisor family and residue-progressions object"
+        },
+        {
+          "assessment": "Theorem 1 is a global leading mean with O(x^(1/2)(log x)^(k-2)); no displayed sqrt(x) coefficient nor reduced-progressions discrimination.",
+          "evidence": [
+            "Theorem 1, embedded PDF page index 11",
+            "Proof of Theorem 1, PDF page index 14"
+          ],
+          "identifier_or_url": "https://bucket.theses-algerie.com/files/repositories-dz/2492468573132134.pdf (embedded 2020 seven-page article, pp. 2050062-1–2050062-7)",
+          "material_read": "Complete seven-page 2020 article as reproduced in author habilitation compilation: theorem, Lemmas 2–7, proof and bibliography; inspected rendered pages 2050062-3 and 2050062-6.",
+          "method": "Read extracted full primary article pages 9–15 (PDF page zero index), independently viewed relevant page screenshots, compared asymptotic orders.",
+          "title": "Mean value of an arithmetic function associated with the Piltz divisor function",
+          "trigger": "Same D_k function and closest global mean theorem, potential general stronger coverage"
+        },
+        {
+          "assessment": "Studies d_2/2^{omega}, and its large error does not imply the ternary character secondary term.",
+          "evidence": [
+            "Theorem 1.1 PDF p.446, page index1: A(k)x+O(x exp(-c sqrt(log x loglog x)))",
+            "Lemma 3.5 PDF pp.448–449, page indices3–4: k=2 twisted Euler product"
+          ],
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-29/NNTDM-29-3-445-453.pdf",
+          "material_read": "Complete 9-page open-access PDF, including Theorem 1.1, Lemmas 3.1–3.6, contour argument and final estimate; inspected rendered page 1.",
+          "method": "Read PDF text and rendered theorem page; compared exactly the k=2 multiplicative weight and first-order theorem.",
+          "title": "The mean value of the function d(n)/d*(n) in arithmetic progressions",
+          "trigger": "Progression mean with related normalized divisor weights, possible earlier sign result"
+        },
+        {
+          "assessment": "Its sum is over mn<=x of D_k(gcd(m,n)), giving B_k x(log x+M_k)+an error; it is not the arithmetic-progression sum of D_3(n).",
+          "evidence": [
+            "Theorem 1.1 PDF p.649, page index1",
+            "Lemma 2.1 gives a weighted divisor hyperbolic sum, PDF p.649–650"
+          ],
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-28/NNTDM-28-4-648-655.pdf",
+          "material_read": "Primary 8-page PDF statement and formula derivation, including Theorem 1.1 and initial convolution reduction; inspected rendered theorem page.",
+          "method": "Read article statement and main proof reduction and compared summands, not titles alone.",
+          "title": "Asymptotic formula of a hyperbolic summation related to the Piltz divisor function",
+          "trigger": "Identical D_k and a hyperbola in the title, potential same-object reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The k=3 normalized ordered-divisor mean over fixed reduced arithmetic progressions is a natural object already studied in the cited 2026 work. Showing a power-saving separation between a genuinely present sqrt(x) term and O(x^(1/3+eps)) is a nontrivial second-order arithmetic result, and the strict positive mod-3 discrepancy identifies an exact natural quadratic-character bias. This is neither a renamed leading mean nor an arbitrary small parameter slice: the square-divisor factorization explains why k=3 admits an unusually sharp explicit secondary term. No extension to growing q or error optimality is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Karras, On the Mean Value of D_k(n) in Arithmetic Progressions, arXiv:2602.12371v1, https://arxiv.org/html/2602.12371v1, Theorem 3.1 and Lemmas 2.2, 3.2, 3.3",
+    "Karras and Derbal, Mean value of an arithmetic function associated with the Piltz divisor function, Asian-European J. Math. 13 (2020), 2050062, DOI:10.1142/S179355712050062X, complete seven-page article reproduced at https://bucket.theses-algerie.com/files/repositories-dz/2492468573132134.pdf pages 10-16 (zero-based 9-15)",
+    "Bouakkaz and Derbal, The mean value of d(n)/d*(n) in arithmetic progressions, Notes Number Theory Discrete Math. 29 (2023), 445–453, DOI:10.7546/nntdm.2023.29.3.445-453, https://nntdm.net/papers/nntdm-29/NNTDM-29-3-445-453.pdf",
+    "Bouderbala and Karras, Asymptotic formula of a hyperbolic summation related to the Piltz divisor function, NNTDM 28 (2022), 648-655, DOI:10.7546/nntdm.2022.28.4.648-655, https://nntdm.net/papers/nntdm-28/NNTDM-28-4-648-655.pdf",
+    "OEIS A308042 https://oeis.org/A308042, leading mean constant for d3(n)/3^omega(n) only",
+    "Resultary semantic searches (four exact normalized ternary divisor secondary-term and square-divisor-convolution queries; retrieved unrelated top hits; no covering statement identified)",
+    "GitHub code search in SCOPE-Science/SCOPE2026 for d_3(n), quadratic-character, Piltz divisor and square-divisor: no matches returned"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only k=3, fixed positive q, reduced a, and eps>0; no uniform q, k>3, non-coprime a or error-exponent optimality.",
+    "Independent checker confirms finite exact coefficients/hyperbola algebra, not analytic continuation or unrestricted asymptotic itself.",
+    "Absolute priority remains conditional on unindexed broader two-pole mean expansions; no negative literature search is itself a proof of novelty.",
+    "Original package contains publication-facing private workflow provenance; no validated neutral replacements included, so publication is not ready."
+  ],
+  "residual_risks": [
+    "An older general two-pole convolution or elementary square-divisor asymptotic, not identified by the searches, might explicitly specialize to the same coefficient; absence of a search hit does not prove priority.",
+    "The Euler-series identity and square-divisor hyperbola are standard tools. Priority is assessed for the complete fixed-progressions secondary expansion and signed nonprincipal-character bias, not those methods by themselves.",
+    "The result does not extend to growing q or higher k, and the O(x^(1/3+eps)) exponent is not claimed optimal. The code and sample ratio do not prove the asymptotic.",
+    "The numerical Euler product was truncated at primes <30000 and is illustrative; strict sign follows instead from the exact positive factorization and L-series pairing."
+  ],
+  "schema_version": 1
+}
