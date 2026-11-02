@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Translating an all-positive witness leaves five binary points of weight at most two, so at most ten coordinates are relevant. The exact reduction permits projected radii zero, one and two. Exhaustive bitset enumeration of 56 candidate points and 3,072 ball parameters gives no shattered five-set. Explicit trace tables and padding give all lower bounds and boundary values. The checker runs from the included package. This is a computer-assisted proof with a finite, fully enumerated kernel, not a claim based on finite experiments alone.
+## correctness
 
-**Originality — PASS, with publication-priority risk.** The closest full-text sources are Adler--Benediktsson--Macpherson (arXiv:2007.16042), Coudert--Csikós--Ducoffe--Viennot (arXiv:2405.07588), and Chalopin--Chepoi--Mc Inerney--Ratel--Vaxès (arXiv:2206.13254). The first analyzes open distance-one Hamming adjacency, the second algorithms for arbitrary finite graphs, and the third compression of ball families. None of those inspected conclusions implies the exact closed radius-two family. Equivalent results under different names cannot be ruled out solely by search.
+PASS
 
-**Value — PASS.** Fixed-radius Hamming balls define a canonical finite logical/metric concept class; an exact uniform VC dimension governs sample complexity and trace behavior. The sharp dimension-independent threshold and the ten-coordinate reduction answer a genuine structural question beyond the previously analyzed radius-one relation.
+The all-positive shattering trace translates a hypothetical five-point sample into weight <=2 vectors, so their support has <=10 coordinates. Outside-support center bits give effective radii 2,1,0 or the empty trace; padding to ten coordinates yields an exact overapproximation. Independent exhaustive bitset trace-refinement, with 56 candidate points and all 3072 radius-center concepts, counted 1540,27720,49830,0 shattered 2-,3-,4-,5-sets. The zero at five plus support reduction proves the bound for every d; an independent anchored 4-cube exhaustive obstruction and explicit 3-point/4-point witnesses handle d=4,5; dimensions <=3 are immediate. Finite exhaustive lemma is a proved bounded kernel, not a small-dimension extrapolation.
 
-**Limits and risk.** The finite obstruction depends on the reproducible standard-library checker. The conclusion does not cover nonbinary alphabets or other radii. Existing full-text sources and bibliographic indexes cannot guarantee global priority. The theorem has not been externally audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact fixed radius-2 closed-ball VC dimension of the Boolean d-cube is not implied by the studied open distance-one Hamming-graph edge relation or a finite-graph algorithm. Direct searches of Resultary, Hamming graph neighborhood and general ball-range theory produced no stronger classification in inspected mathematical material; priority remains nonexhaustive.
+
+## value
+
+PASS
+
+Fixed radius-2 Hamming balls form a canonical finite metric range system. Their dimension-independent exact VC threshold, including the sharp low-dimensional jumps and a ten-coordinate universal obstruction, gives meaningful sample/shattering complexity beyond the classical distance-one case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

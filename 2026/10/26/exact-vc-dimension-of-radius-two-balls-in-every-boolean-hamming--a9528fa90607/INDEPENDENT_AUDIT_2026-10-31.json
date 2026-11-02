@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:40:03Z",
+  "axes": {
+    "correctness": {
+      "independent_check": "independent_checks.py vc_test: full 56-point radius {0,1,2} 10-cube trace enumeration, all 4-cube four-subsets containing 0, d4/d5 explicit witnesses",
+      "rationale": "The all-positive shattering trace translates a hypothetical five-point sample into weight <=2 vectors, so their support has <=10 coordinates. Outside-support center bits give effective radii 2,1,0 or the empty trace; padding to ten coordinates yields an exact overapproximation. Independent exhaustive bitset trace-refinement, with 56 candidate points and all 3072 radius-center concepts, counted 1540,27720,49830,0 shattered 2-,3-,4-,5-sets. The zero at five plus support reduction proves the bound for every d; an independent anchored 4-cube exhaustive obstruction and explicit 3-point/4-point witnesses handle d=4,5; dimensions <=3 are immediate. Finite exhaustive lemma is a proved bounded kernel, not a small-dimension extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2405.07588 gives an algorithm to compute VC dimension of a given graph; arXiv:2206.13254 studies compression of ball families."
+        ],
+        "reasoning": "Algorithms applicable to each finite Q_d^2 and sample-compression bounds do not supply a uniform exact closed radius-two VC formula in the inspected accessible statements.",
+        "searches": [
+          "Coudert--Csikos--Ducoffe--Viennot, arXiv:2405.07588",
+          "Chalopin--Chepoi--Mc Inerney--Ratel--Vaxes, arXiv:2206.13254"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: Boolean cube hypercube square graph fixed radius two closed balls VC dimension 4 shattered 5 points",
+        "Adler--Benediktsson--Macpherson, arXiv:2007.16042, Theorems 4.6--4.7",
+        "Coudert--Csikos--Ducoffe--Viennot, arXiv:2405.07588",
+        "Chalopin--Chepoi--Mc Inerney--Ratel--Vaxes, arXiv:2206.13254"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adler et al. Theorem 4.7 characterizes VC3 of edge relation H(d,q); no theorem in inspected text classifies closed radius-2 balls in Q_d."
+        ],
+        "reasoning": "Even the known closed radius-one VC bound concerns N[v] in Q_d, rather than N[v] in Q_d squared. No inspected result logically forces the given exact four-regime classification.",
+        "searches": [
+          "Adler--Benediktsson--Macpherson, arXiv:2007.16042, Theorems 4.6--4.7",
+          "Coudert--Csikos--Ducoffe--Viennot, arXiv:2405.07588",
+          "Chalopin--Chepoi--Mc Inerney--Ratel--Vaxes, arXiv:2206.13254"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent graph-theoretic formulation is closed-neighborhood VC dimension of Q_d squared; Adler et al. Theorems 4.6--4.7 are VC of open neighbors of Q_d, i.e. distance exactly 1, not <=2."
+        ],
+        "reasoning": "The graph-square transformation changes the incidence family, hence the earlier VC <=3 theorem does not imply the present 0,0,1,3,4,... values.",
+        "searches": [
+          "Resultary semantic: Boolean cube hypercube square graph fixed radius two closed balls VC dimension 4 shattered 5 points",
+          "Adler--Benediktsson--Macpherson, arXiv:2007.16042, Theorems 4.6--4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound is a uniform all-d theorem; the finite 10-coordinate table is part of its proof, not a previously indexed VC table."
+        ],
+        "reasoning": "No matching exact all-d values were found in queried published findings; this is limited negative search evidence and not proof of publication priority.",
+        "searches": [
+          "Resultary semantic: Boolean cube hypercube square graph fixed radius two closed balls VC dimension 4 shattered 5 points",
+          "Search: radius two VC dimension hypercube four"
+        ]
+      },
+      "rationale": "The exact fixed radius-2 closed-ball VC dimension of the Boolean d-cube is not implied by the studied open distance-one Hamming-graph edge relation or a finite-graph algorithm. Direct searches of Resultary, Hamming graph neighborhood and general ball-range theory produced no stronger classification in inspected mathematical material; priority remains nonexhaustive.",
+      "residual_risks": [
+        "An unindexed study of square hypercubes/metric radius-two ranges could contain an equivalent finite-exhaustive result.",
+        "The universal upper bound is computer-assisted, albeit independently reproduced with an exact exhaustive finite kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING radius-2 closed balls",
+          "evidence": "Their formula relation is E(x,y), precisely one differing coordinate; bound 3 for Hamming open neighborhoods.",
+          "identifier_or_url": "arXiv:2007.16042; DOI 10.1016/j.dam.2021.09.017",
+          "material_read": "University Leeds lawful OA accepted paper, introduction and Hamming section Theorems 4.6--4.7 and proofs; corroborating full-text publisher HTML",
+          "method": "OA PDF with actual page-image inspection and primary publisher HTML",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "same Hamming graphs and VC dimension"
+        },
+        {
+          "assessment": "PARTIAL_READ_NO_WHOLE_DOCUMENT_EXCLUSION",
+          "evidence": "Finite-graph algorithm context, exact uniform cube-square formula not supplied in the abstract; full-text priority uncertainty remains.",
+          "identifier_or_url": "arXiv:2405.07588",
+          "material_read": "abstract and bibliographic theorem summary; not entire paper",
+          "method": "arXiv abstract and indexed paper metadata",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "computational approach to finite graph VC dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed radius-2 Hamming balls form a canonical finite metric range system. Their dimension-independent exact VC threshold, including the sharp low-dimensional jumps and a ten-coordinate universal obstruction, gives meaningful sample/shattering complexity beyond the classical distance-one case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only q=2 and fixed closed radius 2 with all cube vertices as permitted centers.",
+    "Finite exhaustive kernel of 56 candidate samples is essential; not a paper-and-pencil closed-form obstruction."
+  ],
+  "schema_version": 1
+}
