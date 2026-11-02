@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:08:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Cr_n=K_nn minus matching, a set is total dominating iff it contains >=2 vertices from EACH side. A total-coalition partition must have every block not dominating yet some distinct partner that takes both counts to >=2. Deficit epsilon=2n-number_of_blocks bounds non-singleton sizes. For n>=5, any optimum with deficit<=4 must contain U and V singletons; each needs a distinct (1,2) or (2,1) triple, exhausting deficit and fixing all remaining blocks singleton. Cases n=3,4 require separate combinatorial finite profiles. Count n>=5 as C(n,1)C(n,2)C(n-1,2)C(n-2,1)=[n(n-1)(n-2)/2]^2. Independent exhaustive graph-adjacency partition enumeration tested all 203, 4140, 115975 unlabeled-block partitions at n=3,4,5 and recovered (TC,M)=(3,48),(4,857),(6,900). No claim finite enumeration proves all n; general proof uses deficit argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounds TC(G)>=delta(G)+1 and maximum-degree upper restrictions, total-k-coalition.",
+          "Actual primary-source comparison: arXiv:2211.11590v2: TC(G)>=delta(G)+1 for nonuniversal isolate-free G, and exact cycles include Cr_3=C_6; no complete Cr_n optimal partitions or counting formula for n>=4. ; arXiv:2301.09979: Upper bounds parameterized by degrees do not supply the labelled crown-graph M_n formula or unique two-triple optimizer profile."
+        ],
+        "reasoning": "General bounds yield n when delta=n-1, while target 2n-4 for n>4. A k=1 special case of total-k-coalitions may be relevant and was not declared noncovering on abstract alone.",
+        "searches": [
+          "https://arxiv.org/html/2211.11590v2",
+          "https://arxiv.org/abs/2301.09979",
+          "arXiv:2502.07310"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.11590v2",
+        "arXiv:2301.09979",
+        "arXiv:2502.07310",
+        "Resultary semantic search: total coalition partition crown graph exact extremal number and counts K_{n,n} minus matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cr3 cycle case covered; generic min-degree bound strictly weaker for n>=5 and does not count partitions.",
+          "Actual primary-source comparison: arXiv:2211.11590v2: TC(G)>=delta(G)+1 for nonuniversal isolate-free G, and exact cycles include Cr_3=C_6; no complete Cr_n optimal partitions or counting formula for n>=4. ; arXiv:2301.09979: Upper bounds parameterized by degrees do not supply the labelled crown-graph M_n formula or unique two-triple optimizer profile."
+        ],
+        "reasoning": "TC(Cr_n)>=n does not force equality 2n-4 or unique triple blocks. The complete exact labelled count requires new profile rigidity. For n=4 the bound may coincide in size but not count 857.",
+        "searches": [
+          "https://arxiv.org/html/2211.11590v2",
+          "https://arxiv.org/abs/2301.09979"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Total-coalition partitions of K_nn minus perfect matching, equivalently crown graph and bipartite Kneser H_{n,1}.",
+          "Actual primary-source comparison: arXiv:2211.11590v2: TC(G)>=delta(G)+1 for nonuniversal isolate-free G, and exact cycles include Cr_3=C_6; no complete Cr_n optimal partitions or counting formula for n>=4. ; arXiv:2301.09979: Upper bounds parameterized by degrees do not supply the labelled crown-graph M_n formula or unique two-triple optimizer profile."
+        ],
+        "reasoning": "The equivalent crown/C6/Cube presentations were searched; n=3=C6 scalar TC=3 is acknowledged prior, but no n>=4 optimizer-profile census was found.",
+        "searches": [
+          "https://arxiv.org/html/2211.11590v2",
+          "web: total coalition number crown graph TC(Cr_n) 2n-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search existing crown-graph labelled partition counts 48, 857 and quadratic-square formula.",
+          "Actual primary-source comparison: arXiv:2211.11590v2: TC(G)>=delta(G)+1 for nonuniversal isolate-free G, and exact cycles include Cr_3=C_6; no complete Cr_n optimal partitions or counting formula for n>=4. ; arXiv:2301.09979: Upper bounds parameterized by degrees do not supply the labelled crown-graph M_n formula or unique two-triple optimizer profile."
+        ],
+        "reasoning": "No exact profile/count table located; exhaustive checked counts new under this search, with possible unindexed prior tabulations.",
+        "searches": [
+          "total coalition partition crown graph exact extremal number and counts K_{n,n} minus matching",
+          "web: total coalition crown graphs exact TC K n n minus perfect matching"
+        ]
+      },
+      "rationale": "General total coalitions, Cr_3=C_6 scalar answer and min-degree lower bounds are old; none of the inspected total-coalition primary theorems determines complete crown upper bound and optimal partition census for all n>=4. The general k=1 specialization of later k-coalitions could be relevant, but the abstract-level source was not taken as wholly noncovering.",
+      "residual_risks": [
+        "Unindexed total-coalition results on crown graphs or hypercubes could cover the small counts or two-triple classification.",
+        "A more recent k-coalition generalization was checked at abstract level only; its possible k=1 implications remain to check in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_CYCLE_SCALAR_ONLY_NOT_CROWN_FAMILY",
+          "evidence": "TC(G)>=delta(G)+1 for nonuniversal isolate-free G, and exact cycles include Cr_3=C_6; no complete Cr_n optimal partitions or counting formula for n>=4.",
+          "identifier_or_url": "arXiv:2211.11590v2",
+          "material_read": "Complete accessible arXiv HTML, Definitions 2.1-2.2, Theorem 2.9 lower bound, and Sections 3-4 exact small-degree cases including cycles.",
+          "method": "Public full-text arXiv HTML",
+          "title": "Total coalitions in graphs",
+          "trigger": "Founding total-coalition theory, directly covers Cr_3 as C_6"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_CENSUS",
+          "evidence": "Upper bounds parameterized by degrees do not supply the labelled crown-graph M_n formula or unique two-triple optimizer profile.",
+          "identifier_or_url": "arXiv:2301.09979",
+          "material_read": "Available full arXiv text including abstract, general degree/coalition graph upper bounds and special family discussions.",
+          "method": "Public arXiv full text",
+          "title": "General sharp upper bounds on the total coalition number",
+          "trigger": "Possible general theorem implying crown upper bound"
+        },
+        {
+          "assessment": "PRIOR_GENERALIZATION_RISK_UNREAD_FULL",
+          "evidence": "General total-k-domination focuses k=2 cubic/4-regular and k=3 cubic; k=1 specialization could overlap and remains a limited residual risk without full text.",
+          "identifier_or_url": "arXiv:2502.07310",
+          "material_read": "Public abstract and published venue description, not full article.",
+          "method": "Public bibliographic abstract",
+          "title": "Total k-coalition: bounds, exact values and an application to double coalition",
+          "trigger": "More recent broad domination generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown graph is a canonical almost-complete bipartite graph; total-coalition extremal partition shape and exact count are natural open-type domination invariants. General degree bounds do not give the complete optimizer census; the 3,4 exceptions add substantive boundary cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed total-coalition results on crown graphs or hypercubes could cover the small counts or two-triple classification.",
+    "A more recent k-coalition generalization was checked at abstract level only; its possible k=1 implications remain to check in full text.",
+    "The independent crosschecks are finite where enumerative; all unbounded quantifiers rely on the reconstructed deductive proof.",
+    "Publication not staged; no external attestation and no alteration of proof text."
+  ],
+  "schema_version": 1
+}

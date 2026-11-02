@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The profile lemma is proved symbolically for all integers \(n\ge3\): total domination in a crown graph is equivalent to selecting at least two vertices from each side. A deficit argument proves optimal partition rigidity for all \(n\ge5\). The exceptional cases \(n=3,4\) admit exact profile-multiset sums using the factorial weight formula in `RESULT.md`.
+## correctness
 
-Run `python verify_coalitions.py` in a directory containing the script. It exhausts profile multisets with deficit at most four for \(3\le n\le9\), and it exhaustively generates unlabelled set partitions of the labelled graph vertices and checks the actual open neighborhoods for \(n=3,4,5\). No external libraries or data files are required. Observed outputs: optimum class numbers \(3,4,6,8,10,12,14\) and corresponding counts \(48,857,900,3600,11025,28224,63504\). The finite checks do not replace the infinite proof.
+PASS
 
-The scientific boundary is the exact crown family; the corresponding parameter on graph families with arbitrary deleted matchings is not claimed. Priority beyond inspected literature remains uncertain. No independent audit has been performed.
+For Cr_n=K_nn minus matching, a set is total dominating iff it contains >=2 vertices from EACH side. A total-coalition partition must have every block not dominating yet some distinct partner that takes both counts to >=2. Deficit epsilon=2n-number_of_blocks bounds non-singleton sizes. For n>=5, any optimum with deficit<=4 must contain U and V singletons; each needs a distinct (1,2) or (2,1) triple, exhausting deficit and fixing all remaining blocks singleton. Cases n=3,4 require separate combinatorial finite profiles. Count n>=5 as C(n,1)C(n,2)C(n-1,2)C(n-2,1)=[n(n-1)(n-2)/2]^2. Independent exhaustive graph-adjacency partition enumeration tested all 203, 4140, 115975 unlabeled-block partitions at n=3,4,5 and recovered (TC,M)=(3,48),(4,857),(6,900). No claim finite enumeration proves all n; general proof uses deficit argument.
+
+## originality
+
+PASS
+
+General total coalitions, Cr_3=C_6 scalar answer and min-degree lower bounds are old; none of the inspected total-coalition primary theorems determines complete crown upper bound and optimal partition census for all n>=4. The general k=1 specialization of later k-coalitions could be relevant, but the abstract-level source was not taken as wholly noncovering.
+
+## value
+
+PASS
+
+The crown graph is a canonical almost-complete bipartite graph; total-coalition extremal partition shape and exact count are natural open-type domination invariants. General degree bounds do not give the complete optimizer census; the 3,4 exceptions add substantive boundary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

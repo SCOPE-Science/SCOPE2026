@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The crown-specific total-domination criterion is an if-and-only-if statement, not a heuristic. Its profile version makes the coalition test exact, and the four-unit partition deficit is proved for all admissible sizes. A separate argument forces the two opposite mixed triples whenever the optimum is attained with at least five vertices per side. The factorial-weight profile census yields the two small-order counts; an independent direct neighborhood-based exhaustive partition test agrees for orders three through five. Source code is included. Neither a timeout nor an absence of counterexamples substitutes for the general proof.
+PASS
 
-## Originality — PASS, with residual risk
+For Cr_n=K_nn minus matching, a set is total dominating iff it contains >=2 vertices from EACH side. A total-coalition partition must have every block not dominating yet some distinct partner that takes both counts to >=2. Deficit epsilon=2n-number_of_blocks bounds non-singleton sizes. For n>=5, any optimum with deficit<=4 must contain U and V singletons; each needs a distinct (1,2) or (2,1) triple, exhausting deficit and fixing all remaining blocks singleton. Cases n=3,4 require separate combinatorial finite profiles. Count n>=5 as C(n,1)C(n,2)C(n-1,2)C(n-2,1)=[n(n-1)(n-2)/2]^2. Independent exhaustive graph-adjacency partition enumeration tested all 203, 4140, 115975 unlabeled-block partitions at n=3,4,5 and recovered (TC,M)=(3,48),(4,857),(6,900). No claim finite enumeration proves all n; general proof uses deficit argument.
 
-The 2022 introduction to total coalitions already determines the total coalition number of cycles. In particular the scalar invariant of the six-cycle, isomorphic to the first crown graph, is **not new**. The 2023 general sharp-bound study does not imply the exact crown-family optimizer census. Searches for crown aliases, the three-cube, total-coalition partitions and optimal multiplicities, along with comparisons to near-family records, identified no covering statement. Unindexed literature may still contain the result; this is not a certification of worldwide priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Deleting a perfect matching from a complete bipartite graph changes the attainable partition structure sharply. The result gives an exact infinite-family optimal number, a forced pair of three-vertex block types for every sufficiently large crown, and the complete number of optimal partitions. This is a structural classification with a motivated extremal census, not merely another bound for a renamed graph.
+General total coalitions, Cr_3=C_6 scalar answer and min-degree lower bounds are old; none of the inspected total-coalition primary theorems determines complete crown upper bound and optimal partition census for all n>=4. The general k=1 specialization of later k-coalitions could be relevant, but the abstract-level source was not taken as wholly noncovering.
 
-## Scope and closest work
+## value
 
-Alikhani--Bakhshesh--Golmohammadi, *Introduction to total coalitions in graphs*, arXiv:2211.11590 (first available 2022-11-21), establishes the definition and cycles. Barát--Blázsik, *General sharp upper bounds on the total coalition number*, arXiv:2301.09979 (first available 2023-01-24), provides general upper bounds but no covering crown-family statement in the inspected text. Ordinary coalitions and total restrained coalitions are different invariants. The theorem does not extend to arbitrary matching deletions; priority overlap with unindexed publications remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The crown graph is a canonical almost-complete bipartite graph; total-coalition extremal partition shape and exact count are natural open-type domination invariants. General degree bounds do not give the complete optimizer census; the 3,4 exceptions add substantive boundary cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
