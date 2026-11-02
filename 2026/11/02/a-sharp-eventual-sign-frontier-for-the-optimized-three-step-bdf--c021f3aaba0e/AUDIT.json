@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact step substitution produces the rational Green generating function. Its cubic discriminant is strictly negative for every positive parameter. The unique real root R is monotone under s=10R^3/(15R^2-6R+1), and Vieta gives |u|^2=R^2/(15R^2-6R+1). The crossing at R=2/5 is μ=15/16. The positive real residue dominates below; oscillatory complex residues dominate above. At equality, the exact amplitude ratio (2|B|/A)^2=20/17>1 and irrational phase cosθ=7/10 prove infinitely many signs of each kind. G6(187/200) is an exact negative rational below the cutoff. All roots have modulus <1, ensuring absolute summability and the strict normalized absolute-convolution gain. The independent symbolic script reproduces critical exact identities; finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General eventually-positive input-output and dominant-root criteria concern arbitrary linear systems or recurrence conditions and do not provide the method-specific equal-modulus endpoint residue comparison.",
+        "The cubic explicitly has a complex dominant pair for sufficiently large steps, where unique positive-dominant-root criteria cannot conclude its mixed-sign behavior without additional calculation."
+      ],
+      "reasoning": "The theorem does not follow merely from general eventual-positivity criteria: the parameter-dependent dominant-root exchange, sharp numerical threshold, endpoint, and transient negative coefficient are nontrivial specialized calculations.",
+      "searches": [
+        "https://doi.org/10.1049/iet-cta.2018.5231",
+        "https://arxiv.org/abs/2605.17013",
+        "\"Optimized second order backward difference four-time-level BDF2OPT Green coefficient sign change and unconditional l infinity convolution gain\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22685v1",
+      "NASA NTRS 20100002944",
+      "doi:10.1049/iet-cta.2018.5231 (abstract scope)",
+      "arXiv:2605.17013 (abstract scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 BDFL source proves/states root-location stability and second-order local accuracy; these do not imply nonnegative impulse weights, as the theorem exhibits both positive and negative coefficients.",
+        "Vatsa–Carpenter–Lockard stability analysis concerns roots and practical long-time numerical behavior; it does not supply a forced impulse-response sign classification."
+      ],
+      "reasoning": "A-/L-stability means decay of homogeneous test modes, whereas the present conclusion concerns the signs of individual coefficients of the stable resolvent series. The negative G6 below the positive-dominant-root threshold also shows that even eventual positivity is strictly weaker than all-index positivity.",
+      "searches": [
+        "https://arxiv.org/html/2610.22685v1",
+        "https://ntrs.nasa.gov/citations/20100002944",
+        "\"BDF2OPT(4) impulse response Green function positivity signs optimized BDFL3\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jensen–Ketcheson–Lóczi, arXiv:2610.22685v1, Section 3.1 and summary: exact BDFL3 coefficients and optimized A-/L-stability, but no coefficientwise Green-sign phase diagram in relevant inspected text.",
+        "The present normalized scalar Green polynomial is X^3-3sX^2/2+3sX/5-s/10; its root modulus crossing is not an A-stability/root-unit-disk condition."
+      ],
+      "reasoning": "Equivalences examined include BDFL(3_2), BDF2OPT(4), zero-prehistory forced impulse response, rational generating-function coefficients, eventual nonnegativity of third-order recurrences and coefficientwise Green positivity. These concern asymptotic signs, not merely stability of the multistep characteristic roots.",
+      "searches": [
+        "\"BDF2OPT(4) impulse response Green function positivity signs optimized BDFL3\"",
+        "\"BDF2OPT(4) 3/2 -3/5 1/10 three step response eventually nonnegative threshold 0.9375\"",
+        "https://arxiv.org/html/2610.22685v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original BDF2OPT source discusses numerical scheme choice, stability roots and long-time integration behavior, not a tabulation of the complete scalar causal Green-sign pattern.",
+        "The 2026 optimizing work tabulates method coefficients and error constants; tabulated coefficients are an input to, not an answer to, the coefficientwise positivity question."
+      ],
+      "reasoning": "The explicit cutoff 15/16, endpoint residue ratio 20/17 and rational sixth-coefficient witness were checked against published method tables and related recurrence terminology. A method coefficient table does not by itself constitute prior coverage of the sign theorem; an unlocated specialized tabulation remains possible.",
+      "searches": [
+        "\"BDFL3 BDFL4 optimized A-stable L-stable linear multistep coefficientwise positivity impulse response sharp threshold\"",
+        "\"15/16 BDF2OPT(4) BDFL3 scalar impulse response eventual positivity characteristic roots equal modulus\"",
+        "https://ntrs.nasa.gov/citations/20100002944"
+      ]
+    },
+    "rationale": "The exact positive-real/nonreal-pair modulus transition at the scalar BDFL3 test parameter 15/16, the equal-modulus endpoint sign proof, and the transient negative sixth coefficient with eventual positivity are not supplied by the inspected motivating scheme paper or its original BDF2OPT source; general recurrence positivity results do not imply their numerical values. Historical specialized priority remains a genuine risk.",
+    "residual_risks": [
+      "A specialized earlier treatment of BDF2OPT causal Green coefficients could establish the same sign threshold under another name.",
+      "The general positivity papers were not independently assessed in their entirety; their abstract-level descriptions cannot prove absence of this specific corollary.",
+      "Independent priority and mathematical validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes optimized BDFL coefficients and stability but no located exact scalar impulse eventual-sign threshold or endpoint residue result",
+        "evidence": [
+          "arXiv:2610.22685v1, Sections 3.1 and 3.3, printed BDFL(3_2) method and error constant"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22685v1",
+        "material_read": "Full open-access HTML text, especially background, Sections 2–4, Section 6, equation and coefficient tables and references",
+        "method": "Read the displayed method, stability conditions, objective, numerical analysis and references; compared actual claims to the causal coefficient-sign theorem",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Primary exact coefficient source and closest topical comparison"
+      },
+      {
+        "assessment": "Related stability and numerical experiments; no matching all-index or eventual-sign phase diagram located in inspected material",
+        "evidence": [
+          "NASA NTRS 20100002944, abstract and original paper method and stability sections"
+        ],
+        "identifier_or_url": "https://ntrs.nasa.gov/citations/20100002944",
+        "material_read": "Abstract and numerical/stability discussion in the publicly accessible full-text PDF, with selected page images examined",
+        "method": "Reviewed original coefficients, instability comparison and long-time stability claims against the forced Green-sign property",
+        "title": "Re-evaluation of an Optimized Second Order Backward Difference (BDF2OPT) Scheme for Unsteady Flow Applications",
+        "trigger": "Original BDF2OPT family and a possible stronger historical treatment"
+      },
+      {
+        "assessment": "General background only; full text not inspected, so no whole-document noncoverage inference is made",
+        "evidence": [
+          "Sootla (2019), article abstract/metadata"
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/iet-cta.2018.5231",
+        "material_read": "Public abstract and bibliographic description, not independently checked full text",
+        "method": "Compared stated general positivity topic with the precise scalar BDFL characteristic polynomial and exact modulus tie",
+        "title": "Properties of eventually positive linear input–output systems",
+        "trigger": "Possible general equivalence of positive Green responses and dominant eigenvalue properties"
+      },
+      {
+        "assessment": "General technique may assist eventual positivity below the threshold but does not by itself give the sharp tie and transient witness; full text remains a literature limit",
+        "evidence": [
+          "Li (2026), arXiv:2605.17013 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.17013",
+        "material_read": "Public abstract and bibliographic description, not independently checked full text",
+        "method": "Compared general unique-dominant-root scope with the cubic complex-dominant and equal-modulus regimes",
+        "title": "Positivity of arbitrary-order P-recursive sequences with a unique dominant root",
+        "trigger": "Possible broader sufficient criterion for eventual positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c021f3aa-ba0e-4b9b-917d-d961ec74f758",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Coefficientwise positivity and bounded-input amplification are natural strong-stability diagnostics for the optimized BDFL three-step scalar response. This exact method-specific boundary (15/16 rather than BDF2’s 1/2) and a nonempty transient-negative but eventually-positive phase distinguish asymptotic mode decay from finite-step monotonicity and provide a sharp verifiable stress benchmark, rather than an arbitrary index test.",
+    "status": "PASS"
+  }
+}
