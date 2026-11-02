@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The claim has a direct local face-pair integral proof: same-face polygon covariograms supply the negative perimeter term; for each edge the wedge change-of-variables with determinant \(\sin\theta\) gives the positive ordered cross-face term; only vertex-local \(O(r^4)\) terms remain. The six-rectangle/twelve-right-dihedral-face-pair decomposition is exact below the minimum side, giving the full quartic. Leading and cubic CDF coefficients reconstruct box area and side sum; explicit unequal triples and the rank-two implicit-function theorem provide discrete and continuous collisions. The two standalone numerical scripts were executed, checking four boxes and four wedge angles; they are consistency checks rather than universal proofs.
+
+**Originality — PASS, qualified.** The relevant pre-2016 D2 and exact cube face-pair literature were searched and compared by implication. Osada (2001) introduces shape distributions, Rea et al. (2005) numerically display D2 for cube-like shapes, Mathai et al. (1999) derive cube face-pair distributions, and planar same-region and random-Boolean models are different claims. The original unit-cube face-pair subcase is not claimed as new. No inspected primary source supplies the general angle-dependent edge coefficient or the equal-area/equal-side-sum inverse family. The inaccessible full 1999 paper is a meaningful historical-priority risk, not a claimed negative inspection.
+
+**Value — PASS.** The D2 signature is used for shape retrieval. The theorem both extracts a nontrivial dihedral-bend invariant from its local expansion and precisely characterizes what all short-distance data can and cannot recover on natural three-parameter rectangular boxes. It gives explicit false positives and an entire continuous noncongruent collision family, addressing identifiability rather than an arbitrary numeric benchmark.
+
+**Limits.** Ambient Euclidean chords from surface-uniform sampling only; fixed convex polyhedra asymptotic, box exact interval \([0,h]\); no equivalence of complete nonlocal histograms. The 1999 Mathai full text and 2001 Osada full text were not inspected. A professional independent priority review is pending.
+
+Self-review: passed. Independent audit: not yet performed.
