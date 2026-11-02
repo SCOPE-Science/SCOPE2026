@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter claim follows from the 2026 paper's uniform odd-width decomposition and contractible central subcomplex, the naturality of relative simplicial homology and of the long exact sequence, and an explicit character calculation for the cycle intersection. Invariant-simplex orientation signs are included in the reduced Lefschetz formula. Odd cycle rotations reduce to a possibly looped smaller cycle; reflections reduce to a path with one forbidden paired orbit. The subgroup and its two cosets account for every element of the full dihedral group. All group-character boundary cases and normalizations have been compared with complete direct signed-chain enumerations for widths \(3,5,7,9\), plus selected width \(11\) checks. The finite checks are independent corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with limitations
+The complete proof correctly applies the primary article’s equality X=U∪P0∪P1 and odd-n contractibility of U, both of which were checked at the actual original lemmas. The relative-chain pair splits into the two exchanged simplex summands, inducing H_{d-1}(Ind(C_n);Q) from the index-two stabilizer H. Ordinary U-contractibility suffices for rational homology without any false equivariant-contractibility claim. Signed fixed-orbit Lefschetz traces of cycle independence complexes give the full rotations and reflections, with correct augmented empty-face sign and degree d=floor((n+1)/3). Reflection quotient is path P_{(n-1)/2}; rotation quotient has g=gcd(n,j) orbit classes, including the looped g=1 convention. The resulting H character and coset-induction formula cover every element of D_{2n}; the n=3,5,7,9,11 cases and boundary congruences match independent exact direct simplicial traces.
 
-Agarwal–Basak establish nonequivariant homotopy and the relevant complex decomposition, not the full dihedral representation. Živaljević studies equivariant cycle independence complexes, not the lifted group action on a Möbius-ladder perfect-matching complex. A prior restricted half-turn computation fixes only one order-two character value and cannot recover reflection classes or the nontrivial order-three rotation traces. The present induced-module and complete-character results are stronger. Searches under representations, subgroup induction, equivariant homology, dihedral actions, and matching-complex aliases found no inspected full statement implying the claim. Unindexed equivalent treatments remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-For an infinite natural graph family, the theorem determines the *full rational automorphism-subgroup character*, not merely Betti ranks or an isolated Lefschetz number. It identifies a two-dimensional rotation representation exactly at widths divisible by three and periodic reflection signs, neither implied by a nonequivariant sphere count or half-turn character. This is a motivated structural invariant of recently determined complexes.
+Best-of-knowledge original contribution is the natural G-equivariant relative-chain identification for odd Möbius-ladder perfect-matching complexes and the resulting full induced rational G-module. The full cycle matching-complex D_n character, which exactly supplies the cycle W_n building block, is already in a separate published result; its characters and six-periodic recurrence are not claimed new. Agarwal–Basak proved nonequivariant decomposition and sphere counts but not the natural full G-action. The previously published half-turn calculation is one strict restriction of the present character. The combination via a G-equivariant relative pair is short and uses standard homological algebra, but requires establishing component stability and transitive coset permutation; no inspected prior statement explicitly supplies that induction for this graph family. Originality is limited to that structural lift and its exact-object application; precedence risk is retained.
 
-## Closest literature and boundaries
+## value
 
-The full texts of arXiv:2608.30601v1/v2 and arXiv:math/0405419v1 were inspected at their actual mathematical arguments. The new statement applies only to odd widths and rational representations; it does not assert integral character lattices or equivariant homotopy splittings. The verification program gives exact finite checks, not independent certification.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The entire dihedral rational homology module is a natural symmetry invariant of an infinite graph-complex family whose sphere ranks were recently classified. The structural induced-module statement explains the two- or four-dimensional rank, the order-three quotient behavior at 3|n, and all rotation/reflection signs, which cannot be read off from the published nonequivariant wedge count or a lone antipodal action. The cycle-character component itself is known and is not separately valued as new; the motivation is the lift to the full ladder group. No broad downstream application or paper-scale contribution is required for a motivated exact structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
