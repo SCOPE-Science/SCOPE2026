@@ -1,0 +1,196 @@
+{
+  "correctness": {
+    "rationale": "Exact transition alpha*K_t/t implies the conditional gamma-product survival formula. The probability of one prior active step cancels the n-dependent gamma coefficient; a unique first second-step event gives the explicit second coefficient. Since alpha<1, first-class 1/m error is o(m^{-2alpha}); the finite mixture settles moments. Logarithmic product errors are O(n^{-alpha}+n^{alpha-1}) on the local scale. Combining this with Bercu’s established a.s. K_n/n^alpha -> M>0 and the classical E_alpha(-z) asymptotic proves the joint mixture limit and its exponent-one tail. A fresh standalone checker passed 609 exact/numerical finite tests; finite checking alone is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bercu (2022) proves the a.s. Mittag-Leffler limit of the accumulated activity count but does not treat the forward inactivity count.",
+        "Huillet–Möhle (2022) covers the underlying count chain, not the combined forward-time theorem.",
+        "Gut–Stadtmüller (2020) concerns accumulated zeros under full and restricted memories.",
+        "Möhle 2021 publisher abstract and Huillet–Möhle Section 8 confirm a pre-existing generalized restaurant count model; its full text was unavailable, so any stronger waiting-time coverage is not ruled out.",
+        "Miyazaki–Takei 2020 Theorems 2.1–2.4: factorial moments, count limit, Gaussian count refinements; no deterministic-time forward waiting theorem in inspected sections"
+      ],
+      "reasoning": "No stronger read primary theorem directly implies the complete combined statement without new conditional mixture, rare-class and local-limit arguments. A general Pitman–Yor first-discovery result could in principle imply the claim; this is retained as an explicit historical risk rather than asserted impossible. Möhle (2021) is an inaccessible plausible broader source; abstract scope and its citation in Huillet–Möhle identify a count process, but full-document absence of waiting results cannot be concluded. This unresolved non-decisive risk is documented.",
+      "searches": [
+        "stopped elephant random walk nonzero waiting gap infinite expected length every n",
+        "Bernoulli elephant random walk activity process next success waiting tails n independent first order",
+        "triangular Polya urn first new ball waiting time Sibuya Yule Simon mixture asymptotic",
+        "forward waiting time to next nonzero step after deterministic time for elephant random walk with stops; invariant Pareto exponent alpha and coefficient 1/Gamma(1-alpha)",
+        "reforced harmonic Bernoulli count process forward residual waiting tail time n, Mittag-Leffler mixed exponential limit at n^(1-alpha)",
+        "Pitman Yor restaurant next new table waiting time at large deterministic sample time universal heavy tail crossover exponent 1",
+        "stopped elephant random walk zero run waiting time stable Mittag Leffler mixture exponential",
+        "\"elephant random walk with stops\" \"waiting time\" \"nonzero\"",
+        "\"elephant random walk with stops\" forward recurrence time next nonzero increment",
+        "\"elephant random walk with stops\" \"next nonzero\" Gamma",
+        "Pitman Yor process conditional waiting time next new table fixed n heavy tail Mittag Leffler no discovery",
+        "https://arxiv.org/abs/2203.04196",
+        "https://arxiv.org/abs/2211.17044",
+        "https://arxiv.org/abs/2005.09517"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2203.04196",
+      "https://www.math.uni-tuebingen.de/user/moehle/bernoulli.pdf",
+      "https://arxiv.org/abs/2005.09517",
+      "https://arxiv.org/abs/1906.04930",
+      "https://link.springer.com/article/10.1007/s10959-026-01517-1",
+      "https://arxiv.org/abs/2503.17586 (2025 abstract and scope; direct full text not accessible)",
+      "https://doi.org/10.1017/jpr.2021.10 (publisher abstract only)",
+      "https://arxiv.org/html/2003.04441v1 (full HTML, Results Sections 1–4 and Appendices A–C)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior K_n/n^alpha Mittag-Leffler limit is explicitly used, not relabeled as a new finding.",
+        "Huillet–Möhle Section 8 provides exact finite count probabilities; it does not quantify observation-time forward gaps.",
+        "The new invariance 1/Gamma(1-alpha), explicit second coefficient and joint limit (M,E/(alpha M)) require the conditional no-new-count product and separate asymptotic regimes.",
+        "Möhle 2021 describes occupancy and Mittag-Leffler count limits in its abstract; stronger possible full-text implications were not inspectable.",
+        "Miyazaki–Takei Corollary 2.2 and Bercu Lemma 2.1 imply the count limit used as input, but alone do not imply the asserted fixed-n forward waiting Pareto constants or observation-time conditional mixture"
+      ],
+      "reasoning": "The claimed conclusions concern future waiting after each fixed deterministic time and its n-dependent natural scale, whereas cited known results concern count distribution/growth or waiting under an independent harmonic scheme. They share the process but not the full asserted implication. Historical priority remains qualified against potentially broader species-sampling waiting theorems.",
+      "searches": [
+        "arxiv:2203.04196 sections 2–4",
+        "arxiv:2211.17044 sections 4–5 and 8",
+        "arxiv:2005.09517 sections 1–3",
+        "forward waiting time to next nonzero step after deterministic time for elephant random walk with stops; invariant Pareto exponent alpha and coefficient 1/Gamma(1-alpha)",
+        "reforced harmonic Bernoulli count process forward residual waiting tail time n, Mittag-Leffler mixed exponential limit at n^(1-alpha)",
+        "Pitman Yor restaurant next new table waiting time at large deterministic sample time universal heavy tail crossover exponent 1",
+        "stopped elephant random walk zero run waiting time stable Mittag Leffler mixture exponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The ERWS activity count K_n has transition P(K_{n+1}=k+1|K_n=k)=alpha*k/n.",
+        "Huillet–Möhle Section 8 has hazard (w1+discount*s)/(w+n); w1=alpha, w2=1-alpha, discount=alpha and s=K_n-1 produce the same count law.",
+        "Huillet–Möhle Sections 4–5 distinguish independent-hazard gap laws from their reinforced Section 8 count model.",
+        "Miyazaki–Takei arXiv:2003.04441 Eq. (2.1), q=0,s=1: exact same activity-count birth kernel; Corollary 2.2 supplies prior positive Mittag-Leffler count limit"
+      ],
+      "reasoning": "The count process is a known generalized restaurant/three-parameter harmonic Bernoulli model. The theorem expressly excludes that model and the count limit from novelty. The compared work does not state the deterministic-time mixture law, observation-time-invariant coefficient or joint rescaled forward wait. The ordinary independent harmonic success interarrival distribution is not implication-equivalent to this reinforced forward wait.",
+      "searches": [
+        "elephant random walk with stops delays nonzero steps next active step waiting time heavy-tailed survival exponent Mittag Leffler forward waiting infinite mean",
+        "elephant random walk number of zeros waiting time between nonzero steps exact Pareto exponent",
+        "Simon preferential attachment process forward waiting until next event hazard alpha count / n Mittag Leffler",
+        "forward waiting time elephant random walk with stops exponential mixture Mittag-Leffler survival heavy tail universal coefficient",
+        "arxiv:2211.17044, Section 8; arxiv:2203.04196, Lemma 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published research records returned closest unrelated results on ordinary elephant walk cover times, renewal overshoots and heavy-tail concentration, not this stop-activity forward waiting observable.",
+        "The accessible prior research records contains 90 earlier findings. Its titles and claims were searched for elephant, stops, interarrival, waiting time, harmonic, reinforced and zero gaps; the nominal overlaps concern unrelated composition gaps, random parking, urns and root broadcast counts."
+      ],
+      "reasoning": "No matching exact distribution table, established waiting-time identity, or earlier local-wait theorem was identified in the accessible research records and cited primary documents. Absence from finite indexes is not a proof of universal originality.",
+      "searches": [
+        "elephant random walk with stops delays nonzero steps next active step waiting time heavy-tailed survival exponent Mittag Leffler forward waiting infinite mean",
+        "elephant random walk number of zeros waiting time between nonzero steps exact Pareto exponent",
+        "Simon preferential attachment process forward waiting until next event hazard alpha count / n Mittag Leffler",
+        "forward waiting time to next nonzero step after deterministic time for elephant random walk with stops; invariant Pareto exponent alpha and coefficient 1/Gamma(1-alpha)",
+        "reforced harmonic Bernoulli count process forward residual waiting tail time n, Mittag-Leffler mixed exponential limit at n^(1-alpha)",
+        "Pitman Yor restaurant next new table waiting time at large deterministic sample time universal heavy tail crossover exponent 1",
+        "stopped elephant random walk zero run waiting time stable Mittag Leffler mixture exponential",
+        "Pitman Yor process conditional waiting time next new table fixed n heavy tail Mittag Leffler no discovery",
+        "Chinese restaurant process waiting time next table universal tail n alpha",
+        "species sampling next discovery waiting time after n observations n alpha heavy tail mixture",
+        "\"elephant random walk with stops\" \"inter-arrival\" \"forward\" waiting"
+      ]
+    },
+    "rationale": "Compared the precise theorem, not its title, with the original ERWS work, earlier delay-count papers, an equivalent reinforced harmonic success Markov model, and published research records. Count-chain equivalence and known Mittag-Leffler limit are explicitly conceded. The examined primary results do not yield an already-stated deterministic-time forward waiting theorem with a universal fixed-time coefficient, explicit next term and contrasting local scaling tail; prior generalized species-sampling waiting results remain a priority risk. Miyazaki and Takei (arXiv:2003.04441) also derive the exact activity birth chain and its Mittag-Leffler limit, which are credited, not claimed as original; their inspected theorems and appendices concern count variables rather than the new forward waiting law.",
+    "residual_risks": [
+      "Broad species-discovery or Pitman–Yor gap theorems may encode the combined result in different notation; cited Section 8 already contains the count birth process.",
+      "The 2025 follow-up arXiv:2503.17586 could only be compared by its abstract and available scope information; no full-document negative originality conclusion rests on it.",
+      "Search and available research records are finite and do not prove absolute historical priority.",
+      "Möhle, A restaurant process with cocktail bar, DOI:10.1017/jpr.2021.10, is a plausible related primary paper whose full text was not accessible; its exact waiting-time coverage remains unresolved, while its count-process contribution is acknowledged."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The first step, activity process, normalization and positive Mittag-Leffler limit are prior results. No forward deterministic-time waiting theorem or second-order waiting-tail coefficient occurs in the inspected theorem/proof material.",
+        "evidence": [
+          "arxiv:2203.04196, equations (1.2), (1.4), Section 2 Lemma 2.1, proof near (4.27), Section 3, and full-text search for waiting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.04196",
+        "material_read": "Introduction with equations (1.2)–(1.4), Section 2 including Definition 2.1 and Lemma 2.1, theorem statements Section 3, Section 4 proof of Lemma 2.1",
+        "method": "Read accessible arXiv full HTML text and mathematical displays",
+        "title": "On the elephant random walk with stops playing hide and seek with the Mittag-Leffler distribution",
+        "trigger": "Same full-memory stop mechanism and Mittag-Leffler activity count"
+      },
+      {
+        "assessment": "Section 8 contains a Markov model exactly equivalent to the activity count after the substitution w_1=alpha, w_2=1-alpha, reinforcement=alpha and index shift. Its count law and Mittag-Leffler limit are not novel here. Section 4 treats waits for independent harmonic Bernoulli indicators. No claimed observation-time universal waiting coefficient or joint scaled waiting limit located.",
+        "evidence": [
+          "arxiv:2211.17044; PDF p. 2 Eq. (2), pp. 19–20 Section 8 transition, Section 4 waiting-time identities for independent indicators"
+        ],
+        "identifier_or_url": "https://www.math.uni-tuebingen.de/user/moehle/bernoulli.pdf",
+        "material_read": "PDF pp. 1–2 (model), Section 4 (successive-success waits), Section 5 (first-success distribution), pp. 19–21 Section 8, including equations (2), (27), and Markov success-count transition",
+        "method": "Read publisher-author open manuscript text and rendered PDF page images, including explicit Section 8 formulas",
+        "title": "On Bernoulli trials with unequal harmonic success probabilities",
+        "trigger": "Reinforced harmonic hazard, possible exact equivalence to Chinese restaurant counts and waiting times"
+      },
+      {
+        "assessment": "Deals with asymptotics of accumulated zeros or nonzeros under delay mechanisms; does not state the forward wait from a deterministic observation time or the distinct limiting Pareto indices.",
+        "evidence": [
+          "arxiv:2005.09517, equations (1.2)–(1.4), Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.09517",
+        "material_read": "Open arXiv full HTML, introduction, model definition, Sections 2–3 and main theorem text",
+        "method": "Full-text accessible HTML search and reading relevant mathematical displays",
+        "title": "The number of zeroes in Elephant random walks with delays",
+        "trigger": "Earlier full-memory zero-count law and martingale moment results"
+      },
+      {
+        "assessment": "Covers random-walk positions under delay and restricted-memory variants. No forward inactivity-time theorem equivalent to this one is present in the inspected material.",
+        "evidence": [
+          "arxiv:1906.04930, Section 2 equations (2.1)–(2.3) and model/theorem sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.04930",
+        "material_read": "Accessible full HTML, introduction and background, model, section summaries, waiting-term inspection",
+        "method": "Read primary arXiv text and theorem topics",
+        "title": "Elephant random walks with delays",
+        "trigger": "Earlier full-memory delayed model and alternative memory rules"
+      },
+      {
+        "assessment": "Related count models and hitting times, but no directly identical deterministic-time forward wait, universal constant and joint scaling found in the material checked.",
+        "evidence": [
+          "DOI:10.1007/s10959-026-01517-1, Sections 2–4"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10959-026-01517-1",
+        "material_read": "Full open HTML, model definitions and relevant Sections 2–4, including hitting-time statements",
+        "method": "Read open-access scientific full text, compared stopped count and other-memory hitting-time claims",
+        "title": "Bernoulli Elephant Random Walks",
+        "trigger": "Potential later extension of the same activity-count model and hitting times"
+      },
+      {
+        "assessment": "The abstract establishes the prior general count-process and Mittag-Leffler framework. The full text was not accessible, so any overlap involving its waiting-time theorems remains unknown; no claim of full-paper noncoverage is made.",
+        "evidence": [
+          "DOI:10.1017/jpr.2021.10, journal abstract, 2021-11-22; Huillet–Möhle Section 8 cites [26, Eq. (14), Theorems 2 and 3]"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2021.10",
+        "material_read": "Publisher abstract, bibliographic metadata and its explicit mathematical citation and reduction in Huillet–Möhle Section 8; primary full text unavailable",
+        "method": "Open Cambridge publisher abstract and cross-checked its role through a fully read later primary paper",
+        "title": "A restaurant process with cocktail bar and relations to the three-parameter Mittag-Leffler distribution",
+        "trigger": "Earlier general restaurant process explicitly underlying Huillet–Möhle Section 8; potential broader coverage"
+      },
+      {
+        "assessment": "Prior contains exactly the same activity-count chain under p=alpha,q=0,s=1, and proves its factorial moments, Mittag-Leffler a.s. limit and Gaussian fluctuations. No theorem on the deterministic-time next-success waiting law, fixed-n Pareto coefficients, or mixed exponential forward wait appears. Thus count-chain construction and the count limit are explicitly attributed, not novelty claims.",
+        "evidence": [
+          "arXiv:2003.04441, Eq. (2.1), Theorem 2.1, Corollary 2.2, Theorems 2.3 and 2.4, Appendix A; https://arxiv.org/html/2003.04441v1"
+        ],
+        "identifier_or_url": "arXiv:2003.04441; https://arxiv.org/html/2003.04441v1",
+        "material_read": "Entire accessible HTML research text: Introduction and transition (1.1), all Results Section 2 with Theorems 2.1–2.4, count proofs Sections 3–4, percolation connection Appendix A, martingale theorems Appendix B, Mittag-Leffler Appendix C",
+        "method": "Read original arXiv HTML full text and inspected all theorems and appendices; explicit waiting/first-passage text searches",
+        "title": "Limit theorems for the “laziest” minimal random walk model of elephant type",
+        "trigger": "Exact birth-chain equivalence in the q=0,s=1 binary minimal elephant walk; strong directly relevant prior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e804bb4-5350-408b-b2e8-aedc56fec4a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Forward inactivity is a natural observable of stopped walks, distinct from activity-count growth. The universal finite-time Pareto coefficient and infinite mean hold at every observation time, while the actual local scale has a different limiting Pareto exponent. The explicit positive second coefficient shows how finite-time rare-history terms change with observation time, giving meaningful structural information beyond a known counting theorem.",
+    "status": "PASS"
+  }
+}
