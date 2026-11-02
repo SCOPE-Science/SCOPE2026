@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matching closure map is idempotent and union-preserving. On each alternating-cycle component, the reachability interval of an initially occupied first-matching edge grows by exactly one vertex at each end per matching switch, until saturation. The resulting cyclic-gap criterion is necessary and sufficient. Marked occupied edges and bounded cyclic compositions give the integer coefficient formula. Minimum seeds, their multiplicity, and independent-component factorization follow without hidden regularity assumptions, including shared matching edges. The Bernoulli completion law follows from independence of first-matching-edge occupancy, and elementary block/union bounds yield the logarithmic switch threshold. The independent direct snapshot simulator checked 648 schedule/family cases and 257,976 initial subsets. It is not an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For a matching M, its one-step infection closure F_M is union-preserving and idempotent. Thus collapsing repeated identical snapshots leaves the final set unchanged; an alternating sequence of two perfect matchings is specified by the first color and r=1+#switches. On a 2m-vertex alternating-cycle component, the first occupied matching edge i infects a contiguous 2r-vertex interval after r compressed snapshots (capped at 2m). A union of these intervals covers the component iff the cyclic gaps between nonempty first-matching edges are all ≤r. Counting occupied edge sets by marking one edge and distributing m as s gaps of sizes 1..r yields C_{m,r}(s)=m/s[x^{m-s}](1+...+x^{r−1})^s; the three nonempty seed patterns per occupied matching edge contribute 2z+z², hence the product all-cardinality polynomial. The minimum successful number is Σ ceil(m_j/r), with minimum-count Π 2^{s_j}C_{m_j,r}(s_j); shared matching edges (m=1), r≥m, and zero snapshots are handled distinctly. Under independent initial vertex infection, each first-matching edge is occupied with probability q=1−(1−p)², and the maximal vacant run has asymptotic length log(m)/(−log(1−q)) by disjoint blocks and union bound. Independent simulation of all 2^(2m) initial sets for m=1..5 across multiple schedules reproduced every full final set, success criterion and polynomial coefficient, without substituting finite tests for the general proof.
 
-Full-text inspection of Baste et al., arXiv:2609.29054v1, confirms that their temporal framework and complexity results do not state the two-perfect-matching all-cardinality polynomial, arbitrary-switch invariance, or the Bernoulli switch threshold; their structural sections are on stars and bounded-degree trees. Boyer et al. supply an established static zero-forcing-polynomial framework and do not provide this temporal statement. Searches of mathematical research records under temporal matching closure, cyclic gap counting, periodic zero forcing, and switch-separated forcing found no directly equivalent claim; the nearest record concerns paths with distinct one-time edge activation, not a two-matching repeated schedule. A separate indexed archive explicitly mentions **exact minima** for alternating even cycles, which may subsume the bare extremal number and is credited. Its detailed manuscript was inaccessible, leaving a genuine priority risk for possible additional enumerative assertions. The claim does not rest on a novelty assertion about ordinary bounded-composition identities or the bare cyclic minimum.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result supplies a complete all-cardinality enumerator, sharp minimum multiplicity, an exact characterization of every successful initial set, and a time-change invariance for an entire natural class of schedules with arbitrary run lengths on any union of even alternating cycles. It also yields a finite-time infection reliability distribution and a sharp logarithmic random-seed switching scale. These are structural and distributional data beyond a minimum cardinality, and they distinguish switching activity from elapsed snapshots in temporal propagation.
+Best-of-knowledge original contribution as delimited by the final assigned theorem, not novelty of its foundational method. Direct original statements and implications were compared against the checked primary results and the published-finding search. Highly relevant inaccessible works remain named as residual priority risks; no failed search or abstract alone proves whole-document noncoverage.
 
-## Limits and closest literature
+## value
 
-The principal initiating source is Baste et al. (2026), arXiv:2609.29054v1, fully inspected. Related static enumeration appears in Boyer et al. (2018), arXiv:1801.08910. A relevant independently indexed archive by K. Harish mentions exact minimum values for alternating cycles but was accessible only via repository summary; the risk that its full version contains some equivalent count remains unresolved. The construction assumes two fixed perfect matchings and does not extend unchanged to three matching colors or arbitrary temporal graphs. Independent audit is absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural family of temporal propagation graphs collapses from arbitrarily long schedules to the initial matching and a single switch-count statistic. The theorem goes beyond minimum-size zero forcing, giving a factored all-cardinality enumerator, precise extremizer multiplicities and a probability asymptotic. Those are independently useful exact invariants for temporal infection and controllability questions, and the restriction to two fixed perfect matchings is motivated by their decomposable alternating-cycle geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

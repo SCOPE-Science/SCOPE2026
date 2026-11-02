@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a matching M, its one-step infection closure F_M is union-preserving and idempotent. Thus collapsing repeated identical snapshots leaves the final set unchanged; an alternating sequence of two perfect matchings is specified by the first color and r=1+#switches. On a 2m-vertex alternating-cycle component, the first occupied matching edge i infects a contiguous 2r-vertex interval after r compressed snapshots (capped at 2m). A union of these intervals covers the component iff the cyclic gaps between nonempty first-matching edges are all ≤r. Counting occupied edge sets by marking one edge and distributing m as s gaps of sizes 1..r yields C_{m,r}(s)=m/s[x^{m-s}](1+...+x^{r−1})^s; the three nonempty seed patterns per occupied matching edge contribute 2z+z², hence the product all-cardinality polynomial. The minimum successful number is Σ ceil(m_j/r), with minimum-count Π 2^{s_j}C_{m_j,r}(s_j); shared matching edges (m=1), r≥m, and zero snapshots are handled distinctly. Under independent initial vertex infection, each first-matching edge is occupied with probability q=1−(1−p)², and the maximal vacant run has asymptotic length log(m)/(−log(1−q)) by disjoint blocks and union bound. Independent simulation of all 2^(2m) initial sets for m=1..5 across multiple schedules reproduced every full final set, success criterion and polynomial coefficient, without substituting finite tests for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The temporal paper describes general graph classes and hardness, not an accessible all-cardinality matching-pair theorem.",
+          "The archived related work claims minimum sizes for alternating even cycles."
+        ],
+        "reasoning": "General temporal algorithms could subsume a special case even without matching wording, but coverage cannot be established from abstracts alone. A previously known minimum-size result alone does not imply exact counts for every initial-set cardinality or switch-count invariance; retain full-paper priority risks.",
+        "searches": [
+          "Baste et al. arXiv:2609.29054",
+          "Harish temporal-zero-forcing manuscript description",
+          "Boyer et al. arXiv:1801.08910"
+        ]
+      },
+      "checked_sources": [
+        "Read complete assigned RESULT.md at Git blob fe766f8eeeaf54402551bed7e83583562a4f5136 and independent direct synchronous infection tests for all m=1..5 seeds across seven schedules per m.",
+        "Baste et al., Zero Forcing Sets in Temporal Graphs, arXiv:2609.29054, 2026-09-24, provides the temporal model and complexity results; arXiv abstract available, full PDF retrieval failed.",
+        "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910, gives static forcing enumerator rather than temporal switches.",
+        "Related Krishna Harish work Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics, repository krishnatheaverage/temporal-zero-forcing, summary refers to minimum forcing numbers of alternating cycles; full manuscript unavailable.",
+        "Resultary search returned no matching temporal pair-of-matchings full polynomial."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static forcing polynomials count repeated operations on a fixed graph.",
+          "Here the polynomial changes with r(ω) and factors over alternating M0∪M1 components."
+        ],
+        "reasoning": "A static graph polynomial is not directly a theorem about schedule-dependent temporal forcing; the earlier minimum temporal forcing sizes do not determine all cardinalities, although an unread temporal manuscript might contain stronger formulas.",
+        "searches": [
+          "Boyer et al., arXiv:1801.08910",
+          "Baste et al., arXiv:2609.29054",
+          "Harish repository description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching closure is idempotent, and alternating matchings decompose into 2m-cycles.",
+          "The success condition is bounded cyclic gaps of occupied matching edges."
+        ],
+        "reasoning": "The equivalent cyclic covering/alternating interval expansion formulation is mathematically explicit. The general temporal forcing paper uses the same rule but an abstract does not imply the exact weighted gap-composition generating function.",
+        "searches": [
+          "Resultary query: temporal zero forcing alternating two perfect matchings switch runs cyclic gap generating polynomial enumeration",
+          "Baste et al. arXiv:2609.29054"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned indexed exact table of cycle-component polynomial coefficients.",
+          "The archived description mentions possible alternating-cycle exact minima."
+        ],
+        "reasoning": "An exhaustive existing table for the weighted temporal polynomial was not verified; no unsuccessful search is treated as proof of novelty.",
+        "searches": [
+          "Resultary query as above",
+          "Related temporal zero forcing research archive DOI 10.5281/zenodo.21347118"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution as delimited by the final assigned theorem, not novelty of its foundational method. Direct original statements and implications were compared against the checked primary results and the published-finding search. Highly relevant inaccessible works remain named as residual priority risks; no failed search or abstract alone proves whole-document noncoverage.",
+      "residual_risks": [
+        "Baste et al. arXiv:2609.29054 full manuscript could not be inspected: lawful OA attempts failed and authorized institutional retrieval returned vpn_disconnected; its sections may contain specialized matching enumeration.",
+        "Harish temporal zero forcing manuscript was inaccessible at searched GitHub paths; its minimum-cycle results might extend to the all-cardinality polynomial.",
+        "Cyclic gap-composition enumeration itself is classical; only its exact interpretation and combination in the temporal forcing dynamics are claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same temporal forcing problem and considers complexity; abstract alone cannot exclude a specialization covering two matchings.",
+          "evidence": [
+            "Abstract: synchronous all-at-once corruption in temporal snapshots; publication date 2026-09-24.",
+            "Whole-document noncoverage is NOT asserted."
+          ],
+          "identifier_or_url": "arXiv:2609.29054v1",
+          "material_read": "Full accessible abstract and publication metadata; complete paper not obtained",
+          "method": "arXiv/alphaXiv/OA search and direct PDF attempts; authorized institutional request returned vpn_disconnected",
+          "title": "Zero Forcing Sets in Temporal Graphs",
+          "trigger": "Same synchronous temporal zero-forcing definition"
+        },
+        {
+          "assessment": "Counts minimum/successful sets for one static graph; no temporal word or switch-dependent final set is defined in this model.",
+          "evidence": [
+            "Static parameter does not take a schedule ω as input."
+          ],
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Abstract and relevant static polynomial definitions in accessible materials; no entire-text noncoverage assertion",
+          "method": "Public bibliographic search and comparison of theorem scope",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Closest named all-cardinality enumerator"
+        },
+        {
+          "assessment": "Plausible earlier matching-cycle minimum-count statement; full all-cardinality comparison is unresolved and retained as priority risk.",
+          "evidence": [
+            "Available summary mentions alternating even cycle minimum forcing numbers, not verified all-size polynomial."
+          ],
+          "identifier_or_url": "https://github.com/krishnatheaverage/temporal-zero-forcing",
+          "material_read": "Available archive summary and GitHub path checks; full manuscript not retrieved",
+          "method": "Repository manuscript path fetch paper/main.tex returned 404; supplementary notes path also returned 404",
+          "title": "Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics",
+          "trigger": "Mention of exact alternating-cycle forcing numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural family of temporal propagation graphs collapses from arbitrarily long schedules to the initial matching and a single switch-count statistic. The theorem goes beyond minimum-size zero forcing, giving a factored all-cardinality enumerator, precise extremizer multiplicities and a probability asymptotic. Those are independently useful exact invariants for temporal infection and controllability questions, and the restriction to two fixed perfect matchings is motivated by their decomposable alternating-cycle geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Read complete assigned RESULT.md at Git blob fe766f8eeeaf54402551bed7e83583562a4f5136 and independent direct synchronous infection tests for all m=1..5 seeds across seven schedules per m.",
+    "Baste et al., Zero Forcing Sets in Temporal Graphs, arXiv:2609.29054, 2026-09-24, provides the temporal model and complexity results; arXiv abstract available, full PDF retrieval failed.",
+    "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910, gives static forcing enumerator rather than temporal switches.",
+    "Related Krishna Harish work Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics, repository krishnatheaverage/temporal-zero-forcing, summary refers to minimum forcing numbers of alternating cycles; full manuscript unavailable.",
+    "Resultary search returned no matching temporal pair-of-matchings full polynomial."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent checks verify the stated bounded mathematical identities, not infinite generality or external formal certification.",
+    "Originality remains a best-of-knowledge priority assessment with explicit uninspected sources and possible stronger general implications.",
+    "Source public metadata retain private provenance and misleading date claims; the package is not sanitized for publication."
+  ],
+  "residual_risks": [
+    "Baste et al. arXiv:2609.29054 full manuscript could not be inspected: lawful OA attempts failed and authorized institutional retrieval returned vpn_disconnected; its sections may contain specialized matching enumeration.",
+    "Harish temporal zero forcing manuscript was inaccessible at searched GitHub paths; its minimum-cycle results might extend to the all-cardinality polynomial.",
+    "Cyclic gap-composition enumeration itself is classical; only its exact interpretation and combination in the temporal forcing dynamics are claimed."
+  ],
+  "schema_version": 1
+}
