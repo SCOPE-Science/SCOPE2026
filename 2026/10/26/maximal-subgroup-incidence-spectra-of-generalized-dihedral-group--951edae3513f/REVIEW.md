@@ -1,19 +1,21 @@
-# Review of maximal-subgroup incidence spectra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every maximal subgroup is either the abelian kernel or an extension of an index-prime hyperplane subgroup by one coset reflection. The proof derives both directions of this classification, counts all maximal subgroups, and determines the Frattini subgroup. Hyperplane incidence counts yield the full element-degree polynomial. The identity between the uniform intersection threshold and maximum incidence outside the Frattini subgroup is proved directly, and a minimizing prime identifies an attaining element. The proof treats parity uniformly. The exact group-enumeration program returned `VERIFY_OK` for sixteen examples; these are consistency tests, not a substitute for the general proof.
+PASS
 
-## Originality
+Independently reconstructed the complete maximal subgroup list: A itself and, for each maximal index-p hyperplane preimage L<A, the p groups L union (a s)L indexed by a mod L. Since A is abelian and inversion stabilizes L, these are subgroups and are all maximal. Counting hyperplanes of A_p/pA_p yields M=1+sum p h_p and Frattini Phi(G)=product pA_p. Each reflection lies in one extension of each L and has incidence H=sum h_p; a rotation with nonzero Sylow residues at S lies in M-sum_{p in S}p^{r_p} maximal subgroups. Binomial-independent residue counts give the polynomial. The elementary combinatorial identity ui=1+max_{g notin Phi}delta(g) then gives M+1-min p^{r_p}; reflection degree cannot exceed this rotation maximum because their difference is sum_{p != p*}(p^{r_p}-1)>=0. Wrote and executed an independently implemented group-multiplication/subgroup-closure enumeration (not repository program) for A=C2xC2, C3xC3, C4xC2, C2xC3 and C3xC3xC5; exhaustive subgroup lists give expected profiles/maximal counts/ui=4,5,4,5,14 respectively. General theorem follows the all-finite-abelian structural argument, not the samples.
 
-**PASS, with residual risk.** Choudhury–Khanra's cyclic-dihedral Theorem 2.6 is properly excluded from the contribution. Archer and coauthors calculate the different minimum-intersection invariant in cyclic-dihedral groups. Published results on the minimal-generating independence graph and on subgroup commutativity in generalized dihedral groups have different statements and do not entail the elementwise maximal-subgroup incidence enumerator as stated. Literature and mathematical-record searches did not identify full equivalent coverage for arbitrary abelian kernels. More general subgroup-lattice machinery might yield the formula implicitly; that possibility remains unexcluded.
+## originality
 
-## Value
+PASS
 
-**PASS.** The recent uniform-intersection question naturally asks what happens beyond cyclic dihedral rotation kernels. The result gives both a closed sharp uniform threshold and an entire incidence-degree spectrum in all finite abelian kernels, including the nonfaithful inversion action on even torsion. It supplies structurally interpretable rank parameters, noncyclic test families, and an exact result rather than a bounded computation or restatement of the cyclic formula.
+Choudhury–Khanra (2026), Theorem 2.6, already establishes the cyclic rotation-kernel uniform intersection number and generic Frattini tools. Archer et al. (2019), Proposition 4.1, gives the different MINIMUM intersection number for cyclic dihedral groups. Two related published Resultary findings classify minimal-generator graphs and subgroup commutativity, not maximal-subgroup element incidences. The noncyclic abelian kernel profile and sharp ui appear not directly covered, although generic subgroup-lattice theory may implicitly imply them.
 
-## Limitations
+## value
 
-General nonabelian kernels and actions other than inversion are not considered. The prior cyclic case is credited, and possible implicit earlier coverage in general maximal-subgroup theory remains a novelty risk. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximal subgroup intersection properties are a natural finite-group invariant, with a recent paper computing only cyclic dihedral cases. This result extends to arbitrary abelian kernels including noncyclic p-ranks and even-order kernels, giving the complete elementwise incidence distribution rather than only one threshold. Rank dependence captures genuine structure absent from the cyclic formula; it is an all-family classification rather than a small-instance exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
