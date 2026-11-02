@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "All deadlines and both starting parts are described by exact independent geometric waiting-time laws. Greedy first-visit coverage is universally deadline-optimal by count coupling. The reverse-hazard order follows from the geometric probability-generating-function splitting into an independent nonnegative delay and log-concavity of the sum-CDF. The source advantage is at most one step; equality for an unbalanced star K_{a,1} is explicitly handled. Near-balanced limits follow from a fixed-K exponential-summand convergence plus vanishing tail variance, then continuous mapping for independent Gumbels and the logistic difference. The standard-library checker independently passes 4,661 exact-rational assertions and asymptotic-mean diagnostics; finite testing is not a proof of all-order claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georgakopoulos et al. provide general upper bounds and optimal-control complexity, not an explicit all-deadline source-part ordering on complete bipartite graphs.",
+        "Xu–Tang optimize single-collector choice coupons, not two alternating independently completed collectors."
+      ],
+      "reasoning": "A general cover-time upper bound or a fixed-start greedy policy does not imply comparison of starting sides for every finite deadline. The new proof requires separate independent-delay/reverse-hazard comparison and is not merely a restatement of existing global bounds.",
+      "searches": [
+        "Optimal two-choice random walk covering complete bipartite graphs, expected cover time, optimal preference for unvisited vertices",
+        "Power of two choices random walks cover time balanced complete bipartite graph 2n coupons",
+        "Complete bipartite two-choice random walk cover time optimal all-deadline stochastic domination",
+        "https://arxiv.org/abs/1911.05170"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.05170 (full text)",
+      "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf (full text)",
+      "arxiv:2607.01463 and related long-form HTML (relevant sections)",
+      "published mathematical finding index: semantic matches listed in comparison objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source-specific CDF order is reduced to a reverse-hazard comparison between complete-collector laws indexed by different part sizes.",
+        "Classical single-stream Gumbel asymptotics imply the competing maxima after the independent-stream decomposition; that limit is credited.",
+        "A related indexed biclique discounted-hitting-domination paper concerns a distinct static invariant rather than the source-part cover-time distribution."
+      ],
+      "reasoning": "The source-order comparison and signed expectation probability difference are not corollaries of one-collector optimality, nor of known bounds for two-choice walks. The near-balanced two-bottleneck Gumbel maximum and logistic probability follow from the new exact graph-source coupling together with known Gumbel facts. If another source already proves a stronger two-collector reverse-hazard order, priority could be lost; this is retained as a residual risk.",
+      "searches": [
+        "Optimal cover time of two-choice controlled random walk on complete bipartite graph K_{a,b}, independent two-choice coupon collector processes, Gumbel crossover",
+        "Two-choice controlled random walk complete bipartite start in larger part optimal for every deadline, source initial vertex choice, reverse hazard ratio",
+        "Two-choice coupon collector independent competing collectors near-balanced part sizes logistic winner tanh source advantage",
+        "arxiv:1911.05170",
+        "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+        "arxiv:2607.01463"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cover-time CDFs differ only by alternating starting parity, with even-time products F_a(t+1)F_b(t) vs F_a(t)F_b(t+1).",
+        "The nearest indexed complete-bipartite hitting-domination work concerns static discounted coverage rather than an adaptive walk or a source CDF ordering."
+      ],
+      "reasoning": "Equivalent reversed-hazard ordering would require monotonicity of F_a(t)/F_b(t), where F_m is a two-choice coupon-completion law. The inspected two-choice walk paper does not state this ordering. Results for path covers, ordinary random walks and graph-infection dynamics do not transform to this two-choice alternating coupon law without a new argument.",
+      "searches": [
+        "Optimal cover time of two-choice controlled random walk on complete bipartite graph K_{a,b}, independent two-choice coupon collector processes, Gumbel crossover",
+        "Two-choice controlled random walk complete bipartite start in larger part optimal for every deadline, source initial vertex choice, reverse hazard ratio",
+        "Complete bipartite choice random walk comparison of initial parts source seed cover-time CDF strict stochastic domination",
+        "arxiv:1911.05170"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search returns concern catastrophe/reset nonuniform coupon collectors and unrelated two-choice statistic problems.",
+        "Exact small-graph Bellman values are independently produced in checker.py rather than transcribed from a published table."
+      ],
+      "reasoning": "The candidate asserts a quantified infinite family and logistic limit, not an isolated numeric table. No indexed exact table of these biclique source CDF differences was found; failed search by itself is not a proof of historical uniqueness.",
+      "searches": [
+        "Gumbel limiting law two-choice coupon collector 1-(k/n)^2 geometric sum logarithm 2",
+        "Two-choice coupon collector independent competing collectors near-balanced part sizes logistic winner tanh source advantage",
+        "Stochastic order of coupon collection times parameter number coupons reverse hazard order logconcave cumulative distribution",
+        "Gumbel limiting law two-choice coupon collector 1-(k/n)^2 geometric sum logarithm 2"
+      ]
+    },
+    "rationale": "The candidate contribution is the source-part finite-horizon stochastic dominance, its exact signed expected source advantage, and a source-advantage logistic critical window on bipartite two-offer walks. Already-known optimal greedy coupon policy and standard one-stream Gumbel asymptotics are explicitly separated and not claimed new. Inspected primary works and searched mathematical database hits did not state or imply the source-part theorem; priority is qualified because no search is exhaustive.",
+    "residual_risks": [
+      "A specialized stochastic-order/coupon collector theorem may imply the reverse-hazard comparison without sharing graph terminology.",
+      "The recent multi-draw coupon study was readable through long-form HTML but the arXiv PDF itself was inaccessible; a hidden appendix could require further comparison.",
+      "Finite checks and literature searches are not independent certification of mathematical originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the two-offer random-walk process and general complexity/bounds, but the inspected results do not supply all-deadline start-part stochastic ordering, exact expected signed advantage or near-balanced logistic window on complete bipartite graphs.",
+        "evidence": [
+          "arxiv:1911.05170, introduction, process definition, principal theorems and applications; first public version dated 2019-11-12.",
+          "Published version DOI:10.1017/S0963548321000183 specifies MSC 60J10."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05170",
+        "material_read": "Open-access preprint, full 30-page paper, focusing on model, strategy, cover-time statements and applications.",
+        "method": "Reviewed paper text and page images, and searched within full text for complete bipartite and source-specific statements.",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Exact process definition and strongest plausible general cover-time theorem."
+      },
+      {
+        "assessment": "Existing single-collector optimality and coupon expectations are acknowledged; the separate starting-side cover-time CDF comparison of two alternated collectors and its logistic mean difference are not provided.",
+        "evidence": [
+          "W. Xu and A. K. Tang, Journal of Applied Probability 48 (2011), 1081–1094; Sections on optimal coupon retention, first-set collection and replacement convention."
+        ],
+        "identifier_or_url": "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+        "material_read": "Open-access 14-page paper, including two-coupon choices and distinct versus with-replacement regimes.",
+        "method": "Read full PDF sections and inspected page-image material relevant to multi-coupon offers and optimal retention.",
+        "title": "A Generalized Coupon Collector Problem",
+        "trigger": "Possible domination of two-choice collector asymptotics or optimal policy."
+      },
+      {
+        "assessment": "Covers distinct offered coupons and single-stream asymptotics; classical Gumbel component is not claimed new. With-replacement bipartite alternating start-part source ordering and its signed logistic window were not identified in inspected material.",
+        "evidence": [
+          "arxiv:2607.01463, posted 2026-07-01; two different retention rules with distinct multi-draw offers.",
+          "Alternative text at https://www.researchgate.net/publication/408403711_Two_Multi--Draw_Coupon_Collector_models_with_different_retention_rules; priority comparison limited by arXiv PDF access."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+        "material_read": "Accessible extended HTML text including main theorems and relevant sections on the two different retention rules; arXiv PDF access did not succeed.",
+        "method": "Inspected scholarly long-form HTML rendering and identified model and limit theorem assumptions.",
+        "title": "Two Multi-Draw Coupon Collector Models with Different Retention Rules",
+        "trigger": "Recent alternative multi-draw Gumbel law could subsume distributional component."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b831cf9-8d8f-4b5a-ad42-2e184682390a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Optimal selection of an initial source for a deadline-constrained graph exploration is a natural finite-horizon control question. This gives an exact all-parameter source-side answer, an explicit signed finite-mean difference, and the sharp logistic-scale transition between negligible and persistent source preference. Although the total gain is at most one discrete step, the theorem determines the full source-order relation at every deadline and gives a tractable two-bottleneck benchmark. This goes beyond leading-order cover-time or a routine single-collector asymptotic.",
+    "status": "PASS"
+  }
+}
