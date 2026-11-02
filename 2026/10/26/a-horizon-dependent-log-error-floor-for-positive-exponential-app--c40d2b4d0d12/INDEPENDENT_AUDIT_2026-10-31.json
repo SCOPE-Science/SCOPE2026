@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:53:17.882961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md at tree be608dd310c3158f3d418fc813948c1417a99703",
+        "Direct derivative and three-point Jensen reconstruction",
+        "Physical Gaussian memory source equation (15)"
+      ],
+      "rationale": "Positive normalized mixtures satisfy log g(0)=0 and (log g)''=Var_t(lambda)>=0. For c=π/(4b²), F(T/2)>=−cT²/4−E and convexity gives F(T/2)<=F(T)/2<=−cT²/2+E/2, hence E>=cT²/6=πT²/(24b²). Any log-distortion with |ln ratio|>=delta forces some relative error >=1−exp(−delta), proving the corollary. Holds for all m, positive weights, nonnegative rates and T,b>0; no finite sampling is involved.",
+      "residual_risks": [
+        "A sharper coefficient may be possible; the theorem does not claim optimality, signed sums, absolute-error floor, or change in atmospheric dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loy and Anderssen, Approximation of and by completely monotone functions (2020) discusses approximation classes of completely monotone functions without a source-verified exact Gaussian finite-horizon log-error constant.",
+          "Derevianko and Plonka, Differential approximation of the Gaussian by short cosine sums with exponential error decay (2026) treats trigonometric/cosine Gaussian approximations with different sign and norm constraints.",
+          "Loy–Anderssen 2020, Section 3 Theorem 3.1 (full text): positive exponential sums lie in the closed cone of completely monotone functions, so generic nonapproximation of a non-CM Gaussian is a corollary."
+        ],
+        "reasoning": "A general sharp Chebyshev approximation theorem for concave logs by convex functions could dominate the bound; no such directly applicable explicit published theorem was independently verified. Approximation with signed/cosine sums is inapplicable to positive decaying exponentials. The generic qualitative impossibility must not be claimed as new; the surviving quantitative term-count-free lower-bound coefficient on a finite interval is not stated by that theorem.",
+        "searches": [
+          "universal lower bound relative or logarithmic approximation of Gaussian exp(-ct^2) survival function by positive mixtures of decaying exponentials complete monotonicity convex log",
+          "Gaussian not completely monotone best uniform relative exponential mixture approximation positive sums"
+        ]
+      },
+      "checked_sources": [
+        "Bourega, Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere, EGUsphere DOI:10.5194/egusphere-2026-2648 (2026)",
+        "Derevianko and Plonka, Differential approximation of the Gaussian by short cosine sums with exponential error decay (2026)",
+        "Loy and Anderssen, Approximation of and by completely monotone functions (2020)",
+        "Resultary query: universal lower bound relative or logarithmic approximation of Gaussian exp(-ct^2) survival function by positive mixtures of decaying exponentials complete monotonicity convex log"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bourega, Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere, EGUsphere DOI:10.5194/egusphere-2026-2648 (2026) equations (13)-(17) define a Gaussian memory survival and b as its integral; Section 8 Volterra comparison uses the same Gaussian.",
+          "Loy and Anderssen, Approximation of and by completely monotone functions (2020) has generic completely-monotone approximation theme without a verified numerical constant.",
+          "Loy and Anderssen (2020), Theorem 3.1: complete monotonicity is closed under pointwise limits; this implies a qualitative obstruction to approximating the non-CM Gaussian by normalized positive exponential sums, but does not establish the explicit finite-horizon coefficient."
+        ],
+        "reasoning": "The model defines the target but does not impose an error barrier when replacing the convolution by positive exponential modes. Classical log-convexity, once applied, implies the stated 3-point floor; this short deduction is credited and motivates a residual risk of prior generic coverage. In particular, the qualitative nonapproximation follows from their Theorem 3.1 because Gaussian is not completely monotone. This qualitative component is already known; the independently checked quantitative relative/log floor is the limited surviving asserted result.",
+        "searches": [
+          "universal lower bound relative or logarithmic approximation of Gaussian exp(-ct^2) survival function by positive mixtures of decaying exponentials complete monotonicity convex log",
+          "DOI 10.5194/egusphere-2026-2648 Gaussian memory survival kernel eq 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bourega, Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere, EGUsphere DOI:10.5194/egusphere-2026-2648 (2026) explicitly uses the Gaussian survival kernel in memory equations (13) and (15), not an approximation theorem.",
+          "Loy and Anderssen, Approximation of and by completely monotone functions (2020) examines generic approximation involving completely monotone functions."
+        ],
+        "reasoning": "Finite positive mixtures of nonnegative-rate exponentials form a subclass of completely monotone functions with convex logarithm, while the Gaussian has strictly concave logarithm on t>0. Thus the logarithmic convexity-gap formulation is equivalent to the original obstruction, but the quantitative coefficient has not been established as a prior quoted result.",
+        "searches": [
+          "universal lower bound relative or logarithmic approximation of Gaussian exp(-ct^2) survival function by positive mixtures of decaying exponentials complete monotonicity convex log",
+          "Bernstein complete monotone function logconvex Gaussian approximation minimax uniform log"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source exact constant is πT²/(24b²), derived by the midpoint inequality cT²/6 for c=π/(4b²).",
+          "Resultary query has only unrelated complete-monotonicity/Gamma and exponential-convexity records, no exact survival kernel fit table."
+        ],
+        "reasoning": "The claim is an analytic all-m, all-rate lower bound, not an empirical fit-table reconstruction. No exact matching benchmark or table was identified.",
+        "searches": [
+          "universal lower bound relative or logarithmic approximation of Gaussian exp(-ct^2) survival function by positive mixtures of decaying exponentials complete monotonicity convex log",
+          "Gaussian survival positive exponential mixture finite horizon log relative error pi 24"
+        ]
+      },
+      "rationale": "For the specific atmospheric memory kernel exp(-πt²/(4b²)), the supplied explicit term-independent uniform log-error obstruction for normalized positive mixtures is not stated in the inspected source model or in retrieved Gaussian cosine-sum work, which permits oscillatory/signed terms and a different norm. The derivation is short from classical log-convexity, so novelty is qualified: priority of this particular specialization of a general convex approximation inequality is not established. Full-text inspection of Loy–Anderssen (2020) now confirms that the qualitative nonapproximation of non-CM Gaussian targets already follows from closedness of CM; the assessed new component is only this explicit finite-horizon quantitative log/relative bound.",
+      "residual_risks": [
+        "A generic convex-approximation theorem may already yield cT²/6 without matching Gaussian wording; literature priority is qualified.",
+        "The lower bound is valid but not claimed optimal; no dynamical model-error estimate is derived."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines target but does not assert uniform positive-exponential logarithmic approximation floor.",
+          "evidence": [
+            "Bourega, Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere, EGUsphere DOI:10.5194/egusphere-2026-2648 (2026)",
+            "Equation (15): phi(t)=exp(-πt²/(4b²)); eq.(13) convolution and eq.(67) Volterra Gaussian"
+          ],
+          "identifier_or_url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-2648/egusphere-2026-2648.pdf",
+          "material_read": "Full 28-page primary PDF available; inspected equations (13)-(17), the Gaussian survival definition (15), stationary b normalization, and Volterra discussion equation (67) on p.23",
+          "method": "Read searchable publisher PDF and inspected page image; compared all identified kernel use to positive-mixture error assertion",
+          "title": "Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere",
+          "trigger": "Exact source of physically motivated Gaussian droplet-survival kernel"
+        },
+        {
+          "assessment": "Different approximation family and metrics: no implication to positive exponential mixture relative error.",
+          "evidence": [
+            "Derevianko and Plonka (2026), doi:10.1007/s43670-026-00124-9, Gaussian approximated by cosine sums in weighted L2, not positive normalized decaying exponential mixtures in uniform log error."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s43670-026-00124-9",
+          "material_read": "Open-access Springer full-text HTML: abstract, introduction, method and main L2 convergence theorem on Gaussian approximation by cosine sums.",
+          "method": "Read publisher primary full-text HTML sections and compared sign conditions and error norm against positive-rate exponential mixtures.",
+          "title": "Differential approximation of the Gaussian by short cosine sums with exponential error decay",
+          "trigger": "Strongly overlapping Gaussian finite-sum approximation title"
+        },
+        {
+          "assessment": "General results show complete monotonicity of sums of positive exponential decays and closure under pointwise limits; hence they imply a qualitative nonapproximability of the non-CM Gaussian, but do not provide the claimed explicit three-point numerical lower bound. This prior qualitative implication is credited.",
+          "evidence": [
+            "Loy and Anderssen (2020), Theorem 2.2 on positive Laplace representation, Section 3 Theorem 3.1 on pointwise closure of CM, p.419-421; DOI 10.1017/S1446181120000012."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/980C8FD22BFA3CC721824347C5D7538E/S1446181120000012a.pdf/approximation_of_and_by_completely_monotone_functions.pdf",
+          "material_read": "Lawfully publicly accessible entire Cambridge 15-page primary PDF; inspected Sections 1-4, Bernstein Theorem 2.2, Section 3 closure of CM, Theorem 3.1, Corollary 3.3, and related approximation/convergence remarks.",
+          "method": "Read and searched primary full PDF text and visually inspected first page; compared closure theorem and positive exponential cone with the new finite-horizon quantitative log-error floor.",
+          "title": "Approximation of and by completely monotone functions",
+          "trigger": "Broad classical approximation framework potentially containing generic no-go bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bourega, Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere, EGUsphere DOI:10.5194/egusphere-2026-2648 (2026)",
+        "Complete monotonicity and Gaussian log-concavity identities"
+      ],
+      "rationale": "Although the inequality follows from a short elementary log-convexity argument, it is motivated by a specific Gaussian survival kernel used in an actual atmospheric memory integral and gives a parameter-explicit, horizon-dependent, term-count-independent obstruction to a natural positive parallel-exponential Markovian reduction. Such a no-go bound can decisively reject uniform relative-fidelity targets before fitting and is more than a normalization/type check.",
+      "residual_risks": [
+        "Elementary convexity makes it particularly vulnerable to unrecognized generic prior coverage; no optimal constant or downstream dynamics guarantee is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md at tree be608dd310c3158f3d418fc813948c1417a99703",
+    "Direct derivative and three-point Jensen reconstruction",
+    "Physical Gaussian memory source equation (15)",
+    "Bourega, Stationary Solutions and Oscillatory Dynamics in a Mathematical Model of a Saturated Moist Atmosphere, EGUsphere DOI:10.5194/egusphere-2026-2648 (2026)",
+    "Derevianko and Plonka, Differential approximation of the Gaussian by short cosine sums with exponential error decay (2026)",
+    "Loy and Anderssen, Approximation of and by completely monotone functions (2020)",
+    "Resultary query: universal lower bound relative or logarithmic approximation of Gaussian exp(-ct^2) survival function by positive mixtures of decaying exponentials complete monotonicity convex log",
+    "Complete monotonicity and Gaussian log-concavity identities"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific conclusion is best-of-knowledge and not an external certificate. Independent finite checks only establish the explicitly described finite instances; analytically proved bounds apply to the quantified scope. Publication remains withheld for unsanitized provenance.",
+  "residual_risks": [
+    "A sharper coefficient may be possible; the theorem does not claim optimality, signed sums, absolute-error floor, or change in atmospheric dynamics.",
+    "A generic convex-approximation theorem may already yield cT²/6 without matching Gaussian wording; literature priority is qualified.",
+    "The lower bound is valid but not claimed optimal; no dynamical model-error estimate is derived.",
+    "Elementary convexity makes it particularly vulnerable to unrecognized generic prior coverage; no optimal constant or downstream dynamics guarantee is asserted.",
+    "A stronger generic uniform convex-approximation inequality may imply this specific quantitative constant; the 2020 closure theorem establishes only the qualitative obstruction."
+  ],
+  "schema_version": 1
+}
