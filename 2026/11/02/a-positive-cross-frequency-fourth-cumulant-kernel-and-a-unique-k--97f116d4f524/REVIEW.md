@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** Ordered angular Fourier correlations, Gaussian Wick expansion, and the connected four-time cumulant generate explicit elementary triple-Laplace integrals. Independent rational Fourier–Hermite generator perturbation reproduces their constant, single-rate and off-diagonal mixed-rate coefficients in exact arithmetic. Finite checks support the algebra, while the proof uses the positive spectral-gap hypothesis for arbitrary finite positive measures. The positive coefficient kernels and strictly monotone quadratic in intensity prove a single crossing; Gaussian observation noise cannot change fourth cumulants.
+
+**Originality — PASS, subject to publication-priority risk.** Shee and Chaudhuri (arXiv:2108.12228) give the closely related one-rate OU speed model and its finite-time fourth moments. Peruani and Morelli (arXiv:0705.4646) give covariance-based transport formulas. Neither inspected full text supplies the strict positive off-diagonal rate kernel or all-positive-spectrum sharp threshold. Related moment research arXiv:2112.13415 was only partially accessible; possible general full-text implications remain a concrete unresolved risk. A general theorem might also subsume part of this finding. Related local findings about trapped swimmers, chirality or resetting are not implication-equivalent to this free active-propulsion spectral theorem.
+
+**Mathematical value — PASS.** The globally positive cross-frequency rational kernel is a structural fact for heterogeneous colored propulsion and controls the exact transition from negative to positive long-time fourth cumulant. This identifies an otherwise inaccessible threshold for mixtures with continuous relaxation spectra and a nontrivial cancellation of the inverse-time excess-kurtosis term at criticality. The signed-speed Gaussian and spectral-gap assumptions are essential limitations. Nothing here asserts all-time kurtosis sign, non-Gaussian initial states or experimental confirmation.
+
+**Review boundaries.** The same mathematical model proof examination and reproducibility code do not constitute independent mathematical audit or priority certification. Finite computational checks are not a substitute for the continuum argument.
+
+Self-review: passed. Independent audit: not yet performed.
