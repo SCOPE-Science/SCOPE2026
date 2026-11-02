@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The cubic interpolation weights were independently differentiated and checked for polynomial exactness through degree 3. Their difference recurrence yields explicit A(r), B(r), whose two-period trace/determinant are verified by symbolic multiplication. The three factored Jury inequalities after scaling eigenvalues by 5 have strictly positive coefficients for every r>0. Trace and determinant limits yield the sharp supremum 1/5; fixed-ratio decay makes differences summable, and the explicit initial-data construction shows ratio-dependent transients. The packaged verifier replayed 116 symbolic and exact-rational checks. This is an infinite analytic proof, not an inference from numerical samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao (2022) gives a sufficient general-mesh ratio threshold approximately 2.553, not a theorem for all unequal two-period step ratios",
+        "2018 smooth-grid result requires r_n approaching 1",
+        "Full texts for Guglielmi–Zennaro (2001) and Grigorieff–Paes-Leme (1984) could not be recovered"
+      ],
+      "reasoning": "A general theorem covering all alternating ratios could dominate the candidate, but the accessible full results are restricted to local ratio bounds or slowly varying grids. The inaccessible older works remain explicit publication-priority risks rather than being declared noncovering.",
+      "searches": [
+        "On the zero-stability of variable stepsize multistep methods: the spectral radius approach 2001",
+        "On the zero-stability of the 3-step BDF-formula on nonuniform grids 1984",
+        "BDF three step method periodically varying step sizes positive two value arbitrary ratio zero stability",
+        "BDF three step method periodically varying step sizes positive two value arbitrary ratio zero stability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.00527 (complete accessible article text, Sections 1 and 3)",
+      "arxiv:1804.04553 (complete accessible article text, Sections 2 and 5)",
+      "https://iris.gssi.it/handle/20.500.12571/302 (abstract only)",
+      "https://identity.eurekamag.com/research/077/009/077009118.php (bibliographic/abstract only)",
+      "Published mathematical research records consulted under targeted BDF3 aliases",
+      "Related published and earlier period-step numerical method claims, including BDF2 and Adams–Bashforth"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For r>2.553, the alternating sequence has one local ratio above the Li–Liao sufficient threshold, hence that theorem gives no conclusion",
+        "For r different from 1 independently of mesh refinement, the smooth-ratio assumption of Söderlind et al. fails",
+        "The related two-step Adams–Bashforth stability calculation concerns an explicit method, not the BDF3 recurrence"
+      ],
+      "reasoning": "The new conclusion is not an immediate corollary of either inspected theorem; both lack the alternating two-step cancellation and the globally sharp spectral constant. Classical Lagrange and Schur criteria are known ingredients, not asserted new.",
+      "searches": [
+        "BDF3 variable-step alternating h,H two-period grid exact extraneous monodromy eigenvalues spectral radius at most one fifth",
+        "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "variable step BDF3 alternating h,H two-period grid exact extraneous monodromy eigenvalues spectral radius at most one fifth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Liao (2022) Section 3.1 Eq. (3.10) gives the related two-by-two recurrence but not the all-ratio two-period spectral bound",
+        "Söderlind–Fekete–Faragó (2018) treats smooth step ratios, not periodically alternating fixed unequal ratios",
+        "Adjacent indexed literature on BDF2 positivity does not establish a third-order alternating-mesh spectral bound"
+      ],
+      "reasoning": "Equivalent formulations include the characteristic equation of \\(T(1/r)T(r)\\), the Schur stability of its eigenvalues after scaling by five, and a bounded first-difference recurrence for a fixed two-period grid. Neither accessible primary full text nor the retrieved scientific records states or implies the universal bound of one fifth over \\(r>0\\).",
+      "searches": [
+        "BDF3 r 1/r step ratios Floquet matrix Schur stability",
+        "variable step BDF3 alternating step ratio period two parasitic zero stability exact threshold",
+        "BDF3 r 1/r step ratios Floquet matrix Schur stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved published results did not provide a matching exact all-ratio two-period Floquet table",
+        "The accessible Li–Liao text tabulates sufficient ratio thresholds and examples, not the candidate K(r) or scaled Jury polynomial identities"
+      ],
+      "reasoning": "The number one fifth is not a catalog lookup: it is the boundary approached by an explicit analytic two-period characteristic polynomial. Absence from retrieved records cannot by itself prove novelty.",
+      "searches": [
+        "BDF3 variable-step alternating h,H two-period grid exact extraneous monodromy eigenvalues spectral radius at most one fifth",
+        "BDF3 two-periodic time step ratio sharp zero-stability monodromy characteristic equation",
+        "third-order backward differentiation on periodic meshes sharp parasitic decay and transient"
+      ]
+    },
+    "rationale": "Compared the all-ratio two-periodic claim with general variable-step BDF3 recurrence and sufficient ratio bounds in Li–Liao (full text), smooth-grid zero-stability in Söderlind et al. (full text), and indexed older general BDF3 stability records. Searched published mathematical findings and equivalent verbal and matrix formulations. No directly covering statement found; inaccessible older primary full texts are retained as specific publication-priority risks rather than presumed noncovering.",
+    "residual_risks": [
+      "The complete texts of Guglielmi–Zennaro (2001) and Grigorieff–Paes-Leme (1984) were not available; specialized work may contain an equivalent special-case calculation.",
+      "A derivation can be implicit in established transfer matrices without being explicitly formulated as a theorem; publication priority requires independent expert literature checking.",
+      "Spectral-radius sharpness does not assert a ratio-uniform operator-norm stability constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies known first-difference companion representation and a sufficient bound on all local ratios; does not state the two-period all-ratio one-fifth spectral theorem",
+        "evidence": [
+          "Eq. (1.5) defines variable BDF3 on consecutive ratios",
+          "Eq. (3.10)-(3.11) gives general companion products",
+          "Theorem 3.1 is sufficient for ratios below approximately 2.553; its discussion says this bound is far from necessary"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Full available HTML text: introduction, Eq. (1.1)-(1.5), Section 3.1 recurrence, Section 3.2 Theorem 3.1, Remark 4, numerical discussion",
+        "method": "Statement/implication comparison using full accessible article text",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Exact variable-step BDF3 recurrence and sufficient ratio limit are central to this claim"
+      },
+      {
+        "assessment": "Requires smooth-grid modulation with consecutive ratios approaching one as the number of steps increases; a fixed unequal alternating sequence is outside these assumptions",
+        "evidence": [
+          "Equation (9) gives adjacent ratio 1+O(N^{-1})",
+          "Section 5 studies BDF3 in that smooth-grid regime"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.04553",
+        "material_read": "Full available HTML text including Section 2 smooth grids, Section 5 BDF3 illustration, and conclusion",
+        "method": "Assumption and coverage comparison",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Potential stronger general zero-stability theorem"
+      },
+      {
+        "assessment": "The abstract describes sufficient general BDF3 ratio bounds via spectral-radius methods, but available text cannot resolve whether arbitrary two-period products or a one-fifth limit were treated",
+        "evidence": [
+          "2001 Numerische Mathematik 88, 445–458; abstract names general BDF3 joint-spectral-radius bounds"
+        ],
+        "identifier_or_url": "https://iris.gssi.it/handle/20.500.12571/302",
+        "material_read": "Institutional repository abstract and bibliographic page; complete article unavailable",
+        "method": "Abstract-level comparison; no whole-document noncoverage conclusion",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Potentially dominating joint-spectral-radius analysis for variable BDF3"
+      },
+      {
+        "assessment": "General sufficient adjacent-step-ratio treatment, no accessible text determining whether the exact two-period sharp bound occurs",
+        "evidence": [
+          "1984 BIT 24, 85–91, abstract states general bounded-ratio stability question"
+        ],
+        "identifier_or_url": "https://identity.eurekamag.com/research/077/009/077009118.php",
+        "material_read": "Bibliography, author abstract in indexed discovery page; complete article unavailable",
+        "method": "Abstract-level comparison; no whole-document noncoverage conclusion",
+        "title": "On the zero-stability of the 3-step BDF-formula on nonuniform grids",
+        "trigger": "Classical zero-stability work on variable-grid BDF3"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5b48fe2-613f-4fb1-9bf2-7105c958d4e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "BDF3 ratio restrictions are central to adaptive numerical time stepping. A complete infinite class of arbitrarily unequal but repeated two-period grids is shown to have a sharp uniformly small parasitic Floquet spectral radius, beyond the range of published general-grid sufficient bounds. The example separating that bound from arbitrarily large starting-error transients is necessary for principled interpretation. The result is a usable stability benchmark, not a routine restatement of classical root criteria or an arbitrary finite parameter example.",
+    "status": "PASS"
+  }
+}
