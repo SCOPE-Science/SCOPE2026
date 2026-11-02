@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:59:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Recomputed ordered-spacings Dirichlet reparameterization, mixed E[|X1-X2|Q] using U=X1/(X1+X2) uniform and beta splitting, yielding (2m+5)/(m(m+1)(m+2)); verifies covariance (m−1)/(2m(m+1)(m+2)). Rank-gradient representation gives Var G=(m−1)/(12m²); standard Dirichlet moments give Var Q=4(m−1)/((m+1)²(m+2)(m+3)). Direct expansion T=Q−G/m−constant yields the exact rational Var T, mean and correlation. For the CLT, checked exponential-normalization influence functions a(E)=(E−3)/2+2e^(−E), b(E)=E²−4E+2 with covariance matrix [[1/12,1/2],[1/2,4]], so Var(b−a)=37/12. The m=2 boundary is valid. Independently recomputed exact rational ordered-simplex moments m=2..9; analytic proofs, not finite extrapolation, give all m and limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tung–Jammalamadaka Theorem 4 general spacings U-statistic CLT; prior distributional framework",
+          "Jammalamadaka–Goria 2004 p.183 calls out dependence as unresolved."
+        ],
+        "reasoning": "General CLT may cover existence of asymptotic normality and so is cited; no explicit finite cross-moment and finite-m variance in its inspected theorem.",
+        "searches": [
+          "published-Resultary semantic search: Dirichlet uniform spacings Gini Greenwood covariance correlation ranked order spacings discrepancy variance goodness of fit (2026-10-28; limit=15)",
+          "https://doi.org/10.1016/j.spl.2004.02.009",
+          "https://doi.org/10.1016/j.jspi.2011.09.007"
+        ]
+      },
+      "checked_sources": [
+        "Jammalamadaka–Goria 2004, DOI 10.1016/j.spl.2004.02.009 (PDF p.183)",
+        "Tung–Jammalamadaka 2012, DOI 10.1016/j.jspi.2011.09.007",
+        "Published Resultary semantic 15-hit search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Var(T)=Var(Q)+Var(G)/m²−2Cov(G,Q)/m; former decomposition known but covariance not given."
+        ],
+        "reasoning": "Exact finite-sample calibration is not mechanically implied by marginal means, variances or asymptotic CLT alone; a nontrivial mixed Dirichlet integral is essential.",
+        "searches": [
+          "published-Resultary semantic search: Dirichlet uniform spacings Gini Greenwood covariance correlation ranked order spacings discrepancy variance goodness of fit (2026-10-28; limit=15)",
+          "https://doi.org/10.1016/j.spl.2004.02.009",
+          "https://doi.org/10.1016/j.jspi.2011.09.007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jammalamadaka–Goria p.183 (10)–(11) expresses the exact same T from Greenwood V and Gini L, but does not evaluate cross covariance."
+        ],
+        "reasoning": "Compare T and G/Q with parameter m=n+1 and different Gini normalizations; the test decomposition itself is covered, unlike exact covariance.",
+        "searches": [
+          "published-Resultary semantic search: Dirichlet uniform spacings Gini Greenwood covariance correlation ranked order spacings discrepancy variance goodness of fit (2026-10-28; limit=15)",
+          "https://doi.org/10.1016/j.spl.2004.02.009",
+          "https://doi.org/10.1016/j.jspi.2011.09.007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching tabulated exact Gini–Greenwood covariance in inspected primary results; earlier marginal Greenwood tables acknowledged."
+        ],
+        "reasoning": "Marginal variance tables do not identify the covariance of two non-independent statistics; negative search is not priority proof.",
+        "searches": [
+          "published-Resultary semantic search: Dirichlet uniform spacings Gini Greenwood covariance correlation ranked order spacings discrepancy variance goodness of fit (2026-10-28; limit=15)",
+          "Jammalamadaka–Goria (2004) statistics p.183",
+          "Tung–Jammalamadaka (2012) theorem 4"
+        ]
+      },
+      "rationale": "PASS, qualified — Jammalamadaka–Goria 2004 already defines the ranked-spacing statistic and its Gini–Greenwood decomposition; those elements are prior, as the primary PDF p.183 shows. Tung–Jammalamadaka 2012 gives broad asymptotic U-statistic CLT machinery, so that method is prior too. Neither inspected theorem evaluates the exact finite-m G/Q covariance and nontrivial positive correlation or Var(T); the paper explicitly highlights dependence as a problem. Limit variance 37/12 is a specialization of known CLT framework. Unindexed finite-sample calculation remains possible.",
+      "residual_risks": [
+        "Unindexed pre-2012 spacing correlation or Dirichlet moment identities may state exactly this covariance.",
+        "General U-statistic CLT and the test statistic themselves are prior; no finite-sample null density/quantiles established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already proposes the exact T statistic and deterministic Gini–Greenwood combination; explicitly notes exact/asymptotic null distribution needs further investigation due to dependence. Does not report claimed exact covariance and finite variance.",
+          "evidence": "Jammalamadaka and Goria (2004), Statistics & Probability Letters 68, 177–187, p.183 equations (10)-(11) and following paragraph.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2004.02.009",
+          "material_read": "Complete relevant section 3, equations (9)–(11) and p.183 discussion; PDF page 7 (0-index 6) visually inspected",
+          "method": "Primary PDF full relevant section + page screenshot",
+          "title": "A test of goodness-of-fit based on Gini’s index of spacings",
+          "trigger": "Identical ranked-spacing discrepancy T, Gini and Greenwood pair"
+        },
+        {
+          "assessment": "Provides generic U-statistic limit framework, not the exact Gini-Greenwood finite covariance or closed variance of T. The existence of a CLT is not new.",
+          "evidence": "Tung and Jammalamadaka (2012), Theorem 4.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2011.09.007",
+          "material_read": "Primary full-text relevant theory, particularly Section 2 Theorem 4",
+          "method": "Author-hosted lawful PDF and theorem implication comparison",
+          "title": "U-statistics based on spacings",
+          "trigger": "Possible dominating asymptotic normality for spacing-based U-statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Finite-sample calibration for an already published goodness-of-fit test is a motivated exact statistical invariant: Gini and Greenwood remain strongly dependent (Corr→√3/2), and the mixed covariance corrects the test variance and its asymptotic constant from the independence-based incorrect 49/12 to 37/12. Exact m dependence and valid all-sample null mean/variance are useful even without a full density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jammalamadaka–Goria 2004, DOI 10.1016/j.spl.2004.02.009 (PDF p.183)",
+    "Tung–Jammalamadaka 2012, DOI 10.1016/j.jspi.2011.09.007",
+    "Published Resultary semantic 15-hit search"
+  ],
+  "disposition": "passed",
+  "limitations": "Prior introduced statistic and CLT framework are explicitly acknowledged; no exact quantile/power claim.",
+  "residual_risks": [
+    "Unindexed pre-2012 spacing correlation or Dirichlet moment identities may state exactly this covariance.",
+    "General U-statistic CLT and the test statistic themselves are prior; no finite-sample null density/quantiles established."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: Gini–Greenwood mixed moments and ranked-spacings calibration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the uniform \(m\)-spacing simplex, \(m\ge2\), including the degenerate pair-sum boundary at \(m=2\). Marginal moments follow from Dirichlet polynomial identities, while the decisive cross moment follows from the Dirichlet two-coordinate split: \(\mathbb E[|X_1-X_2|Q_m]=(2m+5)/(m(m+1)(m+2))\). The exact ranked-discrepancy identity is algebraic; combining three checked variances/covariances yields its stated variance. Standard Hoeffding/de-normalization calculations yield the two influence functions and the Gaussian limit with variance \(37/12\). All 230 exact-rational checks pass from the included source code. The infinite proof is analytic, not an extrapolation from those computations.
+PASS
 
-## Originality — PASS, with stated risk
+PASS — Recomputed ordered-spacings Dirichlet reparameterization, mixed E[|X1-X2|Q] using U=X1/(X1+X2) uniform and beta splitting, yielding (2m+5)/(m(m+1)(m+2)); verifies covariance (m−1)/(2m(m+1)(m+2)). Rank-gradient representation gives Var G=(m−1)/(12m²); standard Dirichlet moments give Var Q=4(m−1)/((m+1)²(m+2)(m+3)). Direct expansion T=Q−G/m−constant yields the exact rational Var T, mean and correlation. For the CLT, checked exponential-normalization influence functions a(E)=(E−3)/2+2e^(−E), b(E)=E²−4E+2 with covariance matrix [[1/12,1/2],[1/2,4]], so Var(b−a)=37/12. The m=2 boundary is valid. Independently recomputed exact rational ordered-simplex moments m=2..9; analytic proofs, not finite extrapolation, give all m and limit.
 
-The closest primary source, Jammalamadaka–Goria (2004), already introduces the ranked-spacing test, identifies it as a Gini–Greenwood combination, and states its distribution requires dependence analysis (Section 3, equations (10)–(11)). Those are prior facts. Tung–Jammalamadaka (2012), Theorem 4, supplies a general central limit theorem, which covers the existence of an asymptotic law for suitable linear combinations; the generic asymptotic method is also prior. The claimed new part is the explicitly evaluated exact finite-sample mixed covariance (and correlation) and resulting exact finite-sample variance, together with an explicit limiting variance specialization. Searches for both statistics and their equivalent ranked/Dirichlet formulations yielded no located covering formula. An unindexed earlier formula remains a material risk; search absence is not a proof of worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact covariance solves a specific finite-sample calibration gap for a published natural goodness-of-fit statistic: incorrectly setting the cross-covariance to zero would give leading variance \(49/12\), whereas the correct leading variance is \(37/12\). The sharp discrepancy is about 24.5% of the naive variance. The closed formula works at every admissible sample size and reveals persistent correlation even as each statistic concentrates. This is beyond a textbook marginal-moment exercise, although it is not a claim of a new general central limit theorem.
+PASS, qualified — Jammalamadaka–Goria 2004 already defines the ranked-spacing statistic and its Gini–Greenwood decomposition; those elements are prior, as the primary PDF p.183 shows. Tung–Jammalamadaka 2012 gives broad asymptotic U-statistic CLT machinery, so that method is prior too. Neither inspected theorem evaluates the exact finite-m G/Q covariance and nontrivial positive correlation or Var(T); the paper explicitly highlights dependence as a problem. Limit variance 37/12 is a specialization of known CLT framework. Unindexed finite-sample calculation remains possible.
 
-## Limitations and closest literature
+## value
 
-The model is a fully specified continuous null and produces only moment/normal calibrations, not full exact quantiles or power. The 2004 work is a particularly plausible source of equivalent calculations, but its inspected relevant sections lack this covariance. The broader 2012 theorem covers asymptotic normality in principle; that coverage is acknowledged and not misrepresented as a new framework. Publication priority remains subject to independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Finite-sample calibration for an already published goodness-of-fit test is a motivated exact statistical invariant: Gini and Greenwood remain strongly dependent (Corr→√3/2), and the mixed covariance corrects the test variance and its asymptotic constant from the independence-based incorrect 49/12 to 37/12. Exact m dependence and valid all-sample null mean/variance are useful even without a full density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
