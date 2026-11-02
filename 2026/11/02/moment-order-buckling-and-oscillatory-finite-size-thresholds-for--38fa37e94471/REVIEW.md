@@ -1,0 +1,19 @@
+# Scientific review of telegraph-tension moment order and finite-size quantization
+
+## Correctness — PASS
+
+The statement is exact for spatially uniform symmetric Poisson switching, positive mean tension, positive bending, positive flip rate, and every real moment order \(p>0\). The Fourier equation integrates explicitly, the two-state tilted generator has eigenvalues \(-r\pm\sqrt{r^2+p^2a^2|k|^4}\), and its leading coefficient is positive for a stationary switching start. Squaring the positive branch yields the strictly convex threshold function \(H_p\). The critical order is the unique minimizer of a proper one-dimensional rational function, with a strictly monotone cubic numerator. The near-threshold coefficient follows by an ordinary implicit-function expansion. Restriction to circle wave numbers gives a finite-order minimum, the single-mode geometric onset pole and the quadratic mode-quantization expansion; the latter follows by a nondegenerate Taylor minimum and nearest-lattice-point comparison. The independent standard-library checker passed 2979 deterministic assertions. Computation is not treated as proof of universal claims.
+
+## Originality — PASS (qualified best-knowledge)
+
+The motivating active-surface paper analyzes spatially correlated Gaussian tension and mean-mode buckling; it does not state an all-real-moment cubic order boundary for spatially uniform binary tension. Falkovich and Martins Afonso (2007) already give exact scalar telegraph moment-growth rates and the quenched/annealed distinction, while Bogachev and Ratanov (2010) cover occupation-time transforms; these contributions are expressly credited. Searches for the joint elastic phase model, equivalent moment-order/wave-number optimization and finite-size quantization laws returned no clearly dominating exact classification. Accessible previous findings were checked for overlap in source, claim, aliases and mode-order parameters. No broad uniqueness is inferred from a search failure. Important residual priority risk: the scalar moment exponent is directly covered by an older telegraph-strain result, and the remaining spectral optimization and lattice asymptotic may be obtainable as unstated consequences of existing general results or published elsewhere with different terminology.
+
+## Value — PASS
+
+The natural finite-wavelength instability question posed by active-surface buckling acquires an exact model benchmark that separates three notions often conflated: almost-sure mode stability, first-moment stability and high-order moment instability. The classification is complete over both positive moment orders and continuous wave numbers, including the sharp critical-order divergence, a complete periodic finite-size cutoff and its oscillatory threshold correction, and a tunable regime in which the first moment decays while the second grows. It is neither a numerical example nor an arbitrary fixed-order slice. Its limits are substantive: global dichotomous noise with occasional negative tension, not generic active tissue stress.
+
+## Closest literature and limits
+
+Ciarchi–Goychuk–Frey (2026), arXiv:2602.24272, is closest in elastic operator and physical problem, but employs spatially correlated Gaussian noise. Falkovich–Martins Afonso (2007), arXiv:nlin/0703054, directly covers scalar multiplicative-telegraph moment exponents; Bogachev–Ratanov (2010), arXiv:1007.3139, also covers integrated-telegraph functionals. These sources do not, in their inspected sections, give the bending-mode continuum optimization or circle-size onset and quadratic oscillations. Spatially local disorder, nonlinear stabilization, finite-domain allowed spectra and experimentally realistic negative tension remain outside scope. A separate priority audit is advisable.
+
+Self-review: passed. Independent audit: not yet performed.
