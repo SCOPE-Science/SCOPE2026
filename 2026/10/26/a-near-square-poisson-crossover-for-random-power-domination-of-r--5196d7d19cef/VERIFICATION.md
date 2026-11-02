@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` with Python 3.8 or later and the standard library only. The script enumerates all \(2^{mn}\) initial sensor subsets for \((m,n)\in\{(2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(4,3),(4,4)\}\). Each selected subset is simulated directly using rook-graph adjacency and ordinary power-domination propagation, then compared with the independent empty-row/empty-column test. Each coefficient of the finite power-domination polynomial is computed independently by inclusion-exclusion and compared with the exhaustive counts.
+# Independent mathematical audit
 
-The verifier also checks exact mixed factorial moments for the \(3\times4\) board under independent cell inclusion at probability \(1/3\), and under uniformly selecting exactly four cells. These checks are finite and exact. They do not empirically certify the asymptotic Poisson convergence, which is established mathematically by the displayed moment arguments and concentration estimate. The expected terminal message is `ALL_VERIFY_OK`.
+## correctness
+
+PASS
+
+After the closed-neighborhood step precisely the Cartesian product of initially empty rows and columns remains unobserved. One empty row or column admits a forcing chain; two of each strand every observed vertex with either zero or at least two unobserved neighbors. Inclusion-exclusion on 0/1 empty rows/columns gives A_mn+A_nm-B. Bernoulli factorial moments equal (m)_r(n)_s(1-p)^(nr+ms-rs); fixed-size moments substitute binomial(mn-nr-ms+rs,t)/binomial(mn,t), whose expansion is valid for m>=n and fixed r,s. These give independent Poisson limits for finite theta; for theta=infinity row mean diverges and row variance is bounded by mean (binomial independence or hypergeometric negative correlation). Direct independent adjacency propagation checked all 4,? subsets of 2x3,2x4,3x3,3x4; exact minimum and boundary cases follow.
+
+## originality
+
+PASS
+
+Soh-Koh 2014 already states scalar minimum power-domination number for rook graph. Brimkov et al 2018 develop general power-domination polynomial and some families but the accessible full HTML does not list Cartesian product or rook graph as solved family. Benson et al 2015 discuss product/zero-forcing bounds, not random sensor success. The exact all-set occupancy characterization and two independent Poisson channels with near-square aspect-ratio crossover go beyond these inspected statements. Inaccessible Soh-Koh full text remains a specific priority risk.
+
+## value
+
+PASS
+
+A complete finite reliability polynomial and a sharp shape-dependent random PMU placement transition are natural network-monitoring invariants. The m-n scale n/log n is a nontrivial coupled occupancy crossover, not merely restating the minimum sensor count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
