@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The exact infinity norm formulas follow from (DM)^(-1)=M^(-1)D^(-1). Normalizing a maximal block by a common dyadic factor and monotonically enlarging every other admissible exponent yields one of b explicit candidates. The largest circular logarithmic gap gives a 2^(1-1/b) rounding guarantee; block-diagonal equally spaced binary-log entries prove equality for each b. All quantifiers, b=1 boundary, positive group norms, and unbounded integer exponents are covered. The standard-library checker passed 168 independent exact-rational matrices, 19558 exhaustive bounded exponent assignments, and 9 supplementary diagonal sharpness cases; those finite checks are not used as a proof of the universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rump (2003), introduction and Theorem 3.1: unrestricted continuous two-sided scaling, optimal infinity-norm condition number.",
+        "Shapiro (1985), publicly accessible abstract: optimal block-diagonal l2 scaling; the full article was not available.",
+        "Lindquist et al. (2026), Corollary 2: error estimate involves other D-dependent terms besides kappa_infinity(DM)."
+      ],
+      "reasoning": "Continuous two-sided optimization is broader in allowed real scaling but does not imply the discrete global optimizer and sharp quantization penalty without a separate integer-log analysis. Block l2 optimality conditions are for another matrix norm. This work does not claim to optimize the full source error bound.",
+      "searches": [
+        "matrix splitting stationary iterations low precision block row scaling optimal power of two row normalization",
+        "matrix row equilibration powers of two best condition number 2^ (n-1)/n rounding",
+        "block row equilibration optimal powers of two infinity norm condition number theorem",
+        "optimal integer diagonal scaling minimum infinity condition number powers of radix matrix"
+      ]
+    },
+    "checked_sources": [
+      "Lindquist et al., arXiv:2610.06414v1 (full-text Corollary 2)",
+      "Rump, IMA J Numer Anal 23 (2003), doi:10.1093/imanum/23.1.1 (author full text)",
+      "Shapiro, SIAM J Numer Anal 22 (1985), doi:10.1137/0722005 (abstract only)",
+      "Braatz and Morari, doi:10.1137/S0363012992238680 (abstract only)",
+      "LAPACK DGEEQUB, https://manpages.ubuntu.com/manpages/stonking/man3/geequb.3.html (manual)",
+      "Four targeted published research-record semantic searches, plus targeted web phrase searches and existing-claim deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 Corollary 2 permits arbitrary blockwise binary D and says the error is bounded by the smallest such D; it supplies no computation of this minimum.",
+        "Rump Theorem 3.1 identifies an unrestricted two-sided continuous infinity-condition minimum via a spectral radius, not a dyadic finite-candidate minimum.",
+        "DGEEQUB is a row-and-column scaling heuristic with bounded safe exponents; its objective and admissible set differ."
+      ],
+      "reasoning": "The precise new implications are (i) b explicit candidates suffice for an unbounded integer optimization and (ii) every matrix has dyadic/continuous optimum ratio at most the attained sharp 2^(1-1/b). The source corollary and classical continuous theorems do not themselves state either integer conclusion.",
+      "searches": [
+        "exact optimal power of two or radix block row diagonal scaling minimizes matrix infinity norm condition number with b representative scalings and sharp 2^(1-1/b) rounding loss",
+        "block row equilibration optimal powers of two infinity norm condition number theorem",
+        "arxiv:2610.06414v1 Corollary 2",
+        "doi:10.1093/imanum/23.1.1 Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.06414v1, Section 2, Corollary 2: power-of-two D is admissible, but no finite b-candidate selection rule is stated.",
+        "LAPACK DGEEQUB purpose: powers-of-radix equilibration is not guaranteed to reduce the condition number.",
+        "The closest semantic research-record result on infinity equilibration treats row-coherence limitations of a different algorithm."
+      ],
+      "reasoning": "Integer-log rounding, circular gap covering, minimum spread of block log-norms, and global dyadic matrix condition number are natural aliases; no inspected source states the exact b-candidate global optimum or the attained factor 2^(1-1/b). The circle-covering lemma itself is elementary and is not claimed as independently new.",
+      "searches": [
+        "power of two row scaling optimal infinity norm condition number matrix equilibration discrete dyadic n-dimensional sharp 2^(1-1/n)",
+        "exact optimal power of two or radix block row diagonal scaling minimizes matrix infinity norm condition number with b representative scalings and sharp 2^(1-1/b) rounding loss",
+        "\"condition number\" \"dyadic\" \"row equilibration\" optimal",
+        "\"power-of-two\" \"matrix\" \"optimal scaling\" \"infinity norm\"",
+        "power of two scaled condition number infinity norm optimization quantization rounding optimal row scaling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic results concerned unrelated matrix scaling, Kaczmarz, and operator-norm problems, not an exact table of dyadic block-row condition numbers.",
+        "Available earlier ledger claims had no dyadic or power-of-two row-conditioning classification; earlier records were read only for potential overlap."
+      ],
+      "reasoning": "The statement covers every invertible matrix and prescribed partition, rather than a numerical table. No matching repository or published table was found, but absence in a finite search is not uniqueness proof.",
+      "searches": [
+        "sharp dimension dependent bound dyadic diagonal row equilibration infinity condition number circular fractional logarithms gap",
+        "exact optimal power of two or radix block row diagonal scaling minimizes matrix infinity norm condition number with b representative scalings and sharp 2^(1-1/b) rounding loss",
+        "\"2^{1-1/n}\" \"scaling\" matrix",
+        "binary scaling quantized row equilibration 2^(1-1/n) numerical analysis",
+        "power of two equilibration row norms condition number minimization exact algorithm"
+      ]
+    },
+    "rationale": "The first-public 2026 block-row mixed-precision source explicitly treats blockwise binary D and the factor kappa_infinity(DM), but offers no global discrete minimizer or block-count-sharp penalty. A 2003 full-text treatment solves classical unrestricted continuous two-sided p-norm scaling; it does not claim integer-exponent admissibility or the circular logarithm gap. LAPACK documents a bounded-radix heuristic with no guarantee of decreasing the condition number. The accessible abstract of Shapiro (1985) addresses block diagonal l2 scaling, not this dyadic infinity-norm classification. Four targeted published-record semantic searches, targeted web searches, and claims from the accessible earlier ledger found no equivalent or dominating theorem. Historical unindexed priority remains a real risk, so this is best-knowledge novelty, not proof of uniqueness.",
+    "residual_risks": [
+      "Full text of Shapiro (1985) was not available for a decisive exclusion; its abstract, however, specifies the l2 norm.",
+      "Older literature on radix rounding, matrix balancing or logarithmic-circle dispersion might contain the exact theorem under different terminology.",
+      "Even when the condition-number factor is optimal, the full mixed-precision error bound can favor a different scaling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the permitted scaling and the problem motivation but no finite-candidate optimum or attained quantization factor.",
+        "evidence": [
+          "Corollary 2 explicitly permits a fixed power of two on each block row and includes kappa_infinity(DM).",
+          "The closing text of Corollary 2 refers to the smallest such D without a minimization algorithm."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.06414v1",
+        "material_read": "Abstract, section 2 Theorem 1 assumptions, full Corollary 2 statement and proof, and adjacent convergence discussion.",
+        "method": "Direct examination of openly accessible HTML full text.",
+        "title": "A Mixed-Precision Model for Matrix-Splitting Methods",
+        "trigger": "The motivating paper uses exactly prescribed-block power-of-two scalings in a normwise error estimate."
+      },
+      {
+        "assessment": "Establishes unrestricted continuous positive two-sided optimum; no integer-exponent restriction or dyadic gap observed.",
+        "evidence": [
+          "Introduction defines the infimum over arbitrary positive diagonal matrices.",
+          "Theorem 3.1 identifies the continuous p=1 and p=infinity two-sided optimal value."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/249887298_Optimal_scaling_for_p-norms_and_componentwise_distance_to_singularity",
+        "material_read": "Author-uploaded full-text introduction, Section 2 scaling lemma and Section 3 Theorem 3.1 with proof context.",
+        "method": "Reading publicly accessible author-uploaded text extraction.",
+        "title": "Optimal scaling for p-norms and componentwise distance to singularity",
+        "trigger": "Classical continuous infinity-norm diagonal scaling could cover a weaker or stronger version."
+      },
+      {
+        "assessment": "Heuristic entrywise scaling with safe machine exponent bounds; expressly does not guarantee condition-number reduction.",
+        "evidence": [
+          "Power-of-radix scales are limited by SMLNUM and BIGNUM.",
+          "Routine is not guaranteed to reduce the condition number."
+        ],
+        "identifier_or_url": "https://manpages.ubuntu.com/manpages/stonking/man3/geequb.3.html",
+        "material_read": "Purpose and scaling-range notes for general matrix row-and-column equilibration.",
+        "method": "Direct reading of LAPACK routine manual text.",
+        "title": "DGEEQUB routine documentation",
+        "trigger": "Power-of-radix numerical equilibration is an obvious possible existing implementation."
+      },
+      {
+        "assessment": "Focuses on block diagonal Euclidean-norm scaling; cannot fully exclude an ancillary unindexed result.",
+        "evidence": [
+          "Abstract specifies optimal one- and two-sided scaling and l2 norm, plus some special cases."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Accessible journal abstract and keywords; full paper was inaccessible.",
+        "method": "Abstract-level inspection only, not a whole-paper exclusion.",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Title directly mentions block diagonal condition-number optimization."
+      },
+      {
+        "assessment": "Studies minimizing Euclidean condition number and credits the 1960s infinity/one norm continuous scaling results.",
+        "evidence": [
+          "Abstract distinguishes the classical solved infinity-norm case from Euclidean-norm optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0363012992238680",
+        "material_read": "Publisher abstract and stated historical scope.",
+        "method": "Abstract-level inspection.",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Search identified classic norm scaling and confirms the state of the infinity-norm art."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5c0a821-870d-49fb-b785-f643ccebcee2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 mixed-precision source identifies blockwise binary scaling as a meaningful error-control degree of freedom yet leaves the condition-number factor unoptimized. The result reduces an unbounded integer search to at most b explicit candidates and gives the sharp unavoidable performance loss against ideal real scaling, including extremal witnesses. These are natural conditioning design invariants, not arbitrary slices; the theorem carefully avoids unsupported claims about the entire solver error bound.",
+    "status": "PASS"
+  }
+}
