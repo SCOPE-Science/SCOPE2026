@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At the unique positive equilibrium K=r-eta*d, maximum/minimum principles force all patch values to K. Linearization simplifies to vdot_j=d(v_{j-1}-v_j)-K v_j(t-tau). Fourier eigenvalues zeta imply modal characteristic equation z=q(zeta-1)-exp(-z*s), q=d/K,s=K*tau. At a potential imaginary crossing of z=-A+iB-exp(-zs), one must have 0<=A<=1 and frequency B+sqrt(1-A^2), with first delay acos(-A)/(B+sqrt(1-A^2)); the alternative signed-frequency branch is later. The uniform delay is s=pi/2; for n=2 transverse delayed crossing is later, for n=3 s3=(pi/2+t)/(cos(t)+sin(t)/sqrt(3))>pi/2 by a positive convex comparison. For n=4 quarter-phase zeta=+/-i gives s_rot=acos(-q)/(q+sqrt(1-q^2)); strict concavity of (pi/2)(sin t+cos t-1)-t ensures exactly one interior positive switching root q*=sin(t*)~0.5814567017105. Crossings have positive real derivative (B+R)R/((1+sA)^2+s^2 R^2), and the uniform scalar crossings also go rightward, establishing stability before and instability after first crossing. Independent modal residuals and numerical unique-root check passed; their finite sampling is not the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Chen 2023 full primary PDF explores lossy dispersion Hopf in small/near-critical regimes and explicitly points out intermediate dispersal difficulty for n>=3.",
+          "Liu–Shen–Chen advective model uses finite OPEN chain, not directed periodic ring."
+        ],
+        "reasoning": "A general theorem on all circulant delay equations might imply this specialization, but the inspected primary statements do not provide the exact all-rate n<=4 first-crossing ordering or q*.",
+        "searches": [
+          "delay instability directional cyclic logistic population dispersal four patches rotating Hopf synchronization threshold",
+          "https://arxiv.org/abs/2302.01814",
+          "arXiv:1912.11780",
+          "doi:10.1017/S0956792524000342"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md c96efbf63a3a307f199709b400635bdf8d3add2f",
+        "Independent checker: FOUR_PATCH_HOPF_OK",
+        "arXiv:2302.01814 full primary PDF and screenshot page index 26",
+        "doi:10.1017/S0956792524000342",
+        "Resultary search: delay instability directional cyclic logistic population dispersal four patches rotating Hopf synchronization threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original dispersal model studies asymptotic d regimes; its stated challenge at intermediate dispersal would not be solved by simply specializing a published theorem from that paper.",
+          "Open-chain advection is not reducible to periodic cyclic-shift eigenvalues by parameter relabelling."
+        ],
+        "reasoning": "Explicit modal roots and their rightward crossings establish the full claimed all-delay result beyond perturbative literature. Stronger unlocated characteristic-equation theorems are a priority caveat.",
+        "searches": [
+          "delay instability directional cyclic logistic population dispersal four patches rotating Hopf synchronization threshold",
+          "arXiv:2302.01814 Sections 3,4 and discussion",
+          "arXiv:1912.11780",
+          "doi:10.1017/S0956792524000342"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic-shift modal decomposition is a standard reduction; the claim is first loss-of-stability ordering and the n=4 threshold, not the existence of Fourier modes or Hopf bifurcations.",
+          "Delayed neural Wilson-Cowan rings may show rotating/synchronous competition but have different local nonlinearities and delay placement."
+        ],
+        "reasoning": "Same vocabulary of rotating waves does not make the modal characteristic equations identical; checked against precise q, s and n thresholds.",
+        "searches": [
+          "delay instability directional cyclic logistic population dispersal four patches rotating Hopf synchronization threshold",
+          "arXiv:2302.01814 Eq. (2), Sections 3–4",
+          "doi:10.1098/rspa.2023.0313"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest semantic finding concerns a synthetic-drug DDE with a different modal characteristic equation and different threshold."
+        ],
+        "reasoning": "This is an infinite parameter/spectral classification, not a known finite table; searches of published records identified no matching parameter-threshold tabulation.",
+        "searches": [
+          "delay instability directional cyclic logistic population dispersal four patches rotating Hopf synchronization threshold",
+          "Resultary 2026/10/11/SCOPE-an-exact-population-mode-corrects-the-first-delay-crossing-in-a--b1a783f554e5"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): Same vocabulary of rotating waves does not make the modal characteristic equations identical; checked against precise q, s and n thresholds. A general theorem on all circulant delay equations might imply this specialization, but the inspected primary statements do not provide the exact all-rate n<=4 first-crossing ordering or q*. Explicit modal roots and their rightward crossings establish the full claimed all-delay result beyond perturbative literature. Stronger unlocated characteristic-equation theorems are a priority caveat. Specific priority and access qualifications are recorded below.",
+      "residual_risks": [
+        "The n=4 minimality is within n=2,3,4 homogeneous directed rings, not all directed graphs.",
+        "Prior general modal stability results might contain an equivalent parameter specialization under other variables.",
+        "The theorem is linearized first-instability only; no nonlinear periodic orbit or critical-delay stability is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected source studies small/critical dispersal and qualitative topology, not an explicit full-positive-d four-cycle rotating-versus-uniform first-delay threshold",
+          "evidence": [
+            "arXiv:2302.01814; PDF page 27, discussion of intermediate dispersion",
+            "web PDF screenshot evidence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01814",
+          "material_read": "Full primary PDF accessed: model hypotheses, Sections 3–4 and discussion, including the intermediate dispersal challenge on late pages; inspected page image (PDF page index 26)",
+          "method": "Read searchable PDF extracted text and relevant screenshot of page 27; compared hypotheses and regions of d",
+          "title": "Dynamics of a delayed population patch model with the dispersion matrix incorporating population loss",
+          "trigger": "Identical lossy patch-model family and potentially dominating Hopf theorem"
+        },
+        {
+          "assessment": "Different boundary geometry, so its exact theorems do not directly yield periodic n=4 modal ordering",
+          "evidence": [
+            "DOI:10.1017/S0956792524000342"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0956792524000342",
+          "material_read": "Accessible HTML abstract, introduction and displayed finite open-chain dispersion matrix; entire paper not read",
+          "method": "Compared open boundary Q-matrix with cyclic shift spectrum",
+          "title": "Hopf bifurcations for a delayed discrete single population patch model in advective environments",
+          "trigger": "Directed transport close analogy"
+        },
+        {
+          "assessment": "POTENTIAL BROAD COVERAGE RISK; the accessible abstract alone cannot exclude a hidden exact cyclic threshold",
+          "evidence": [
+            "arXiv:1912.11780"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.11780",
+          "material_read": "Abstract and bibliographic record only; complete text not read",
+          "method": "Statement/hypothesis level comparison",
+          "title": "Hopf bifurcation in a delayed single population model with patch structure",
+          "trigger": "Possible broad patch-size coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Gives explicit minimal directed homogeneous ring size for a rotating mode to destabilize before synchronization and a complete sharp all-dispersal mode-order diagram in a natural delay-patch family. Distinguishes spatial phase pattern rather than merely generic Hopf existence, without claiming nonlinear oscillations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The n=4 minimality is within n=2,3,4 homogeneous directed rings, not all directed graphs.",
+    "Prior general modal stability results might contain an equivalent parameter specialization under other variables.",
+    "The theorem is linearized first-instability only; no nonlinear periodic orbit or critical-delay stability is proved.",
+    "All current publication actions withheld due confidentiality-safe content replacement blocker."
+  ],
+  "schema_version": 1
+}
