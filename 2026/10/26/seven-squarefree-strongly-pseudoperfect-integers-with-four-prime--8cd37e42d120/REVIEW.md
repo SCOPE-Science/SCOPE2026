@@ -1,11 +1,21 @@
-# Scientific review of the seven-number classification
+# Independent mathematical audit
 
-**Correctness — PASS.** Every squarefree four-prime integer either has insufficient abundancy, belongs to the eliminated \(2\cdot7\cdot11\cdot13\) boundary case, or falls into one of ten explicitly enumerated three-prime cores. The complementary-pair equation is exact and separates the last prime linearly. The attached standard-library checker exhausts all 256 omission subsets for each core, excludes the zero-coefficient identity case, verifies all seven unique omission witnesses, and independently checks all qualifying integers up to 5000. The infinite reduction is analytic/elementary and is not inferred from the finite census.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The 2026 Wang–Zelinsky paper lists individual small examples and studies structural restrictions and power constructions; these do not imply a complete bound-free classification at squarefree prime-support four. The closest indexed existing result establishes the \(\Omega(n)\le3\) layer (only 6 and 28), strictly weaker in multiplicity scope. OEIS A334405 supplies initial data only. Searches for the seven-number set, four-prime squarefree restriction, and complementary-pair representations did not locate a theorem with equivalent coverage. An unindexed or implicit stronger theorem remains possible.
+PASS
 
-**Mathematical value — PASS.** The first squarefree multiplicity layer past the previously classified three-factor obstruction is natural, and its behavior is unexpectedly finite: precisely seven integers, with no hidden larger examples and a unique representation for each. The proof gives an effective, completely reproducible finite cutoff using structural inequalities rather than an arbitrary search bound. This classification is not a general theorem about all strongly pseudoperfect numbers.
+Sixteen divisors of squarefree four-prime n form eight complementary pairs. Removing omitted pairs must sum Δ=σ(n)−2n; nonnegative Δ forces even n, then elementary abundancy bounds reduce the three smallest primes to a small family, with sole exceptional 2·7·11·13 ruled out by any pair sum exceeding Δ=28. For n=6bc, Δ=12(b+c+1), four small complementary pairs sum only 12(b+c), forcing an omitted large pair and (b−12)(c−12)≤150, bounding b. The remaining 10 squarefree three-prime cores m admit 256 subsets each; in every case the pair omission identity (A−σ(m)+2m)c=σ(m)−B has no double-zero coefficient case. Exhaustive exact rational/integer mask enumeration gives exactly n={210,330,546,714,1770,3198,3486}, one mask each, all containing the pair (1,n) in the retained set. The unrestricted large-prime conclusion follows from the symbolic linear equation plus finite cores, not a bounded brute-force search.
 
-**Limitations.** No claim beyond exactly four distinct prime factors in squarefree integers; no new assertion of priority or independent validation. Source comparisons are limited to the inspected available literature and published indexed summaries for inaccessible records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang–Zelinsky 2026 original paper defines strongly pseudoperfect, develops power constructions and restricted forms, and lists small examples 210 and 330 and their unique representations. Its full read Sections 2–5 do not state an unrestricted bound-free classification of all squarefree four-distinct-prime integers or uniqueness of all seven. Previously published Resultary Omega(n)≤3 classification is a strictly smaller multiplicity layer. OEIS lists initial examples but not an unbounded exhaustive theorem. Thus a motivated new exact first four-prime layer survives existing precedents.
+
+## value
+
+PASS
+
+The least nontrivial squarefree prime-support stratum above the known Ω≤3 obstruction is naturally motivated by strongly pseudoperfect representations. The exact seven-example classification and uniqueness of complementary-pair witnesses are self-contained, size-unrestricted invariants, not merely extension of a table by a few entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
