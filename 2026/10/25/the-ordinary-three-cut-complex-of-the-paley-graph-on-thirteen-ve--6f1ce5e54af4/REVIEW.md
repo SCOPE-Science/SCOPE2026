@@ -1,15 +1,21 @@
-# Review of the Paley thirteen-vertex three-cut classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim uses precisely the ordinary three-cut complex, whose facets are complements of disconnected induced triples. The Alexander dual has all pairs and exactly the connected induced triples and their eligible extensions. The complete face vector is \((13,78,143,78)\). Its geometric three-dimensional upper bound follows from the degree constraint and cyclic vertex neighborhoods. Signed integral boundary ranks are \((12,66,76)\); exact unimodular elimination leaves no nonunit Smith invariants. The fundamental group is killed by an exhaustive set of triangle relations. Hurewicz and Whitehead, with the integral attaching-degree classification for a simply connected three-complex, establish \(K\simeq S^2\vee2S^3\). Combinatorial Alexander duality then gives reduced homology ranks \(2\) and \(1\) in original degrees \(7\) and \(8\). The checker rebuilds the signed matrices and verifies each finite assertion, including the graph and group presentation.
+## correctness
 
-## Originality — PASS against checked literature
-The closest same-graph work computes a *Lovász neighborhood complex*, not the ordinary cut complex or its Alexander dual. The primary cut-complex papers treat other classes and give no calculation for this highly four-cycle-rich Paley graph. The published four-cycle-free theorem excludes the present graph, which has \(39\) four-cycles. Closely related three-cut examples on cuboctahedral and icosahedral graphs do not imply the displayed ranks. Targeted published-finding corpus queries, exact aliases, primary papers, published comparison records, and other accessible mathematical claims found no dominating result. This is a source-limited originality judgment, not uniqueness certification.
+PASS
 
-## Value — PASS
-The \(13\)-vertex Paley graph is a distinguished, highly symmetric strongly regular graph and a natural next example beyond the five-cycle. The calculation gives complete integral homology and an exact dual homotopy type for a canonical graph not covered by the previously inspected families. Two distinct non-top homology degrees furnish a concrete nonshellability phenomenon and are explained by a simply-connected, mixed-dimensional dual wedge. The result is a motivated finite classification, not an arbitrary numerical slice or merely a computational consistency check.
+The correct ordinary three-cut facets are complements V minus T for disconnected triples T, not independent triples (total cut). Its Alexander dual K consists of subsets whose every three vertices induce a connected triple. Independent exhaustive enumeration through all 2^13 masks finds K f-vector (13,78,143,78), no size-five face. Independently assembled signed integral boundary operators have Smith factors all 1 with ranks ∂1=12, ∂2=66, ∂3=76, and consecutive boundary products zero. A star spanning tree in the complete 1-skeleton leaves 66 edge-path generators; 33 are trivial by triangles through vertex0 and the other 33 by triangular relators with precisely one remaining edge; hence π1(K)=1. Thus H2(K)=Z, H3(K)=Z², with no torsion or other reduced groups. Since K is simply connected and 3-dimensional, attaching 3-cells to a wedge of 2-spheres and integral unit Smith cancellations yields S²∨S³∨S³. Combinatorial Alexander duality on 13 vertices gives H_i(Δ3)≅H^{10−i}(K), so degrees 7 and 8 with ranks 2 and 1. Every original facet has 10 vertices (dimension9); nonzero lower-dimensional homology obstructs pure shellability. No statement about original Δ3 homotopy type or all Paley q.
 
-## Remaining scientific limits
-The homotopy type of the original cut complex, equivariant structures, and other Paley orders are not determined. The proof uses an exhaustive integer certificate, not only field-valued ranks. Independent validation is still outstanding. Unindexed equivalent work is a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary cut-complex construction and some general family formulas are prior work; this Paley-13 exact dual homotopy and integral homology pattern are not implied by those formulas. Distinguishing ordinary from total cut and Lovász neighborhood complexes resolves the principal naming ambiguities.
+
+## value
+
+PASS
+
+An ordinary 3-cut complex is a canonical graph topological invariant, and Paley(13) is the smallest natural nontrivial quadratic-residue strongly regular graph with this local six-cycle link structure. Its mixed-dimensional Alexander-dual wedge and original pure non-shellability supply a finite exact structural example where general sphere-wedge criteria fail. The classification, torsion-freeness and shellability obstruction are useful for comparing ordinary and total cut constructions; this is not a gratuitous tiny arithmetic test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
