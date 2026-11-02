@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is about the symmetric two-state GeCo2 map with exactly defined normalization and positive states. Starting with the published two-stage formula rather than the local stability multiplier, the proof establishes \(W=-(b/z)AY\), the exact scalar signed map, and strict endpoint bounds for its amplitude multiplier. These give convergence from every positive initial state at the critical boundary, where a telescoping reciprocal proves \(n|x_n|\to1/b_c\). The monotone multiplier gives exactly one symmetric positive amplitude for every supercritical step; its explicit derivative has magnitude strictly below one, making the 2-cycle locally attracting. Implicit differentiation and exponential bounds complete the two limit laws. The standalone verifier checks both direct componentwise and reduced implementations but is not used as an infinite proof. Boundary cases \(x=0\), \(|x|\uparrow1\), \(z=z_c\) and \(z\to\infty\) are explicitly distinguished.
+## correctness
 
-## Originality — PASS, qualified
-Izgin, Kopecz, Martiradonna and Meister (arXiv:2301.10658, 2023) already define GeCo2, prove its positivity/conservation and hyperbolic local spectral criterion, and show numerical postcritical oscillation. Those are not asserted as original. Their accessible Sections 4.1 and 5.1 do not state the globally attracting nonhyperbolic boundary law, a proved attracting primitive 2-cycle for all supercritical steps, its exact multiplier, or onset/stiff limit. published-finding corpus queries for exact recurrence, aliases and period-two/critical-relaxation theorems did not find a covering indexed claim. Related rational positive maps are inapplicable without a conjugacy, not supplied. The original 2020 GeCo publisher/repository full text could not be inspected, and other uncatalogued covering sources remain a residual risk. The assessment is a substantive comparison, not a claim that absence from search proves novelty.
+PASS
 
-## Value — PASS
-The natural application is a nonlinear, positivity-preserving second-order integrator whose strict linear stability region was already studied and whose postcritical oscillations were seen numerically. The equality point is globally stable despite a \(-1\) derivative, with sharp slow \(1/n\) relaxation; supercritical oscillation is an exact locally attracting orbit rather than merely persistent simulated noise. Its amplitude grows linearly after onset and tends to a physical fraction \(1/3\) for arbitrarily stiff steps. These answer concrete step-choice and dynamical-interpretation questions motivated directly by the method and literature. The result is limited to symmetric two-state exchange and is not a high-dimensional/global-cycle convergence theorem.
+Starting from the original two-stage GeCo2 update for symmetric A=[[-1,1],[1,-1]], A^2=-2A and z=2h give x_{n+1}=x_n[1-t(z)phi(b(z)|x_n|/(1+|x_n|))] with t=z(1+e^-z)/2 and b=z(1+e^-z)-2(1-e^-z)>0. The unique threshold t(zc)=2 is zc~3.922359502743079. At zc, p(r)=tphi(br/(1+r))-1 decreases strictly from 1 to a value between 0 and 1; hence all positive amplitudes tend to zero with alternating sign and p(r)=1-bc r+O(r²) gives n r_n->1/bc. For z>zc, p(0)>1>p(1)>0, so unique r_z in (0,1) with p=1 creates a primitive symmetric two-cycle, and derivative mu=1-(2-t exp(-v))(1-v/b) lies strictly inside (-1,1), giving local attraction. Implicit differentiation at threshold proves linear onset; z->infty root squeezing gives r_z->1/3 and mu->-1/2. Independently recomputed roots and multipliers at z=4,5,7,50,200 and critical constant; the analytic proof, not finite samples, establishes every step and all initializations at criticality.
 
-## Prior coverage and risks
-Closest primary: arXiv:2301.10658, full relevant Sections 4.1 and 5.1 read. Historical 2020 GeCo original DOI:10.1016/j.apnum.2019.12.004 bibliographic metadata located but full text unavailable. Nearest semantic results on nonlinear rational-map critical relaxation and inverse-power two-cycles use different update maps. Remaining uncertainty is specialist publication priority, not a missing step in the presented analytical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the source Izgin–Kopecz–Martiradonna–Meister 2023 establishes the GeCo2 recurrence, hyperbolic local stability function, and numerical post-threshold oscillations. Materially inspected sections do not give a global critical 1/n law, a proved locally attracting symmetric two-cycle for all supercritical steps, exact Floquet multiplier, onset or stiff limit; the current contribution is method-specific nonlinear dynamics. General flip bifurcation theory is acknowledged; the nonsmooth x|x| onset is not a generic analytic square-root claim.
+
+## value
+
+PASS
+
+This positivity-preserving conservative numerical integrator is routinely studied through a linear stability boundary; showing global slow relaxation at that nonhyperbolic threshold and proving real attracting oscillatory states after it is a natural interpretation and step-size selection problem. Exact Floquet multiplier, linear onset, and asymptotic physical 1/3 amplitude provide quantitative predictions beyond the source’s numerical plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

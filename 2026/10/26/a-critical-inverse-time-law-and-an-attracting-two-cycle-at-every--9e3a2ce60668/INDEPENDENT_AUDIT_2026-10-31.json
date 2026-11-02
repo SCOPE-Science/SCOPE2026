@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the original two-stage GeCo2 update for symmetric A=[[-1,1],[1,-1]], A^2=-2A and z=2h give x_{n+1}=x_n[1-t(z)phi(b(z)|x_n|/(1+|x_n|))] with t=z(1+e^-z)/2 and b=z(1+e^-z)-2(1-e^-z)>0. The unique threshold t(zc)=2 is zc~3.922359502743079. At zc, p(r)=tphi(br/(1+r))-1 decreases strictly from 1 to a value between 0 and 1; hence all positive amplitudes tend to zero with alternating sign and p(r)=1-bc r+O(r²) gives n r_n->1/bc. For z>zc, p(0)>1>p(1)>0, so unique r_z in (0,1) with p=1 creates a primitive symmetric two-cycle, and derivative mu=1-(2-t exp(-v))(1-v/b) lies strictly inside (-1,1), giving local attraction. Implicit differentiation at threshold proves linear onset; z->infty root squeezing gives r_z->1/3 and mu->-1/2. Independently recomputed roots and multipliers at z=4,5,7,50,200 and critical constant; the analytic proof, not finite samples, establishes every step and all initializations at criticality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original 2023 stability paper includes a fixed-point criterion and numerical tests, but not a universal two-cycle existence theorem for this exact symmetric update.",
+          "Classical one-dimensional flip theory applies near a generic smooth nondegenerate flip, whereas this map is only piecewise smooth at x=0 and the onset is linear."
+        ],
+        "reasoning": "No inspected general theorem specializes directly to every supercritical GeCo2 step; such a theorem would need a verified equality to the given amplitude function.",
+        "searches": [
+          "GeCo2 geometric conservative second order schemes symmetric exchange nonhyperbolic -1 critical step globally attracting two cycle",
+          "nonlinear positive conservative numerical integrator global flip bifurcation cycle all step sizes",
+          "arxiv:2301.10658 Theorem stability nonhyperbolic"
+        ]
+      },
+      "checked_sources": [
+        "assigned Git RESULT.md, REVIEW.md and verify.py at original tree SHA",
+        "Izgin et al. arXiv:2301.10658v2 primary PDF Sections 4.1 and 5.1",
+        "Martiradonna et al. 2020 DOI:10.1016/j.apnum.2019.12.004 (metadata)",
+        "Resultary query GeCo2 geometric conservative second order schemes symmetric exchange nonhyperbolic -1 critical step globally attracting two cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source establishes GeCo2 second-order formula and local stability threshold; Figure discussions show persistent oscillations in a different 5-state test system.",
+          "It does not prove every supercritical z supports a symmetric 2-cycle with |mu|<1 or give critical all-start relaxation."
+        ],
+        "reasoning": "The present exact scalar derivation and monotonicity make the difference: a plot and derivative cannot certify existence/attraction at arbitrarily stiff z.",
+        "searches": [
+          "Izgin et al arxiv:2301.10658v2 Sections 4.1 and 5.1",
+          "GeCo2 geometric conservative second order schemes symmetric exchange nonhyperbolic -1 critical step globally attracting two cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Izgin et al. derive the same two-stage numerical map and linear stability multiplier R(-z)=1-z(1+exp(-z))/2.",
+          "Their investigated stability map and numerical post-boundary plots do not give the exact nonlinear 1D conjugate amplitude map or two-cycle root and multiplier."
+        ],
+        "reasoning": "A local derivative crossing -1 identifies potential period doubling but is logically insufficient for a unique locally attracting cycle at every z>zc or for the global boundary n^-1 law.",
+        "searches": [
+          "GeCo2 geometric conservative second order schemes symmetric exchange nonhyperbolic -1 critical step globally attracting two cycle",
+          "GeCo2 symmetric two-component exchange map critical stability 2023 Izgin Kopecz exact period 2 cycle",
+          "arxiv:2301.10658 Sections 4.1 5.1 equations 50 51 GeCo2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits included a positive rational flip map, e.g. 2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b, a distinct update with different coefficient and state space.",
+          "No indexed exact GeCo2 r_z multiplier table was found."
+        ],
+        "reasoning": "The claimed universal nonlinear phase diagram is neither a finite parameter table nor mechanically derived from the unrelated rational-map values; no recurrence conjugacy was established.",
+        "searches": [
+          "GeCo2 geometric conservative second order schemes symmetric exchange nonhyperbolic -1 critical step globally attracting two cycle",
+          "Resultary GeCo2 period two critical inverse time",
+          "published SCOPE nonlinear numerical bifurcation flip map"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the source Izgin–Kopecz–Martiradonna–Meister 2023 establishes the GeCo2 recurrence, hyperbolic local stability function, and numerical post-threshold oscillations. Materially inspected sections do not give a global critical 1/n law, a proved locally attracting symmetric two-cycle for all supercritical steps, exact Floquet multiplier, onset or stiff limit; the current contribution is method-specific nonlinear dynamics. General flip bifurcation theory is acknowledged; the nonsmooth x|x| onset is not a generic analytic square-root claim.",
+      "residual_risks": [
+        "Original 2020 GeCo full text and obscure dynamical-systems analyses not inspected, so equivalent specialized bifurcation law may exist.",
+        "Global attraction to supercritical cycle is NOT established or claimed; only local attraction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies scheme, stability function and oscillation numerics, not inspected exact all-step nonlinear bifurcation theorem",
+          "evidence": "Izgin, Martiradonna, Kopecz, Meister; Section 5.1 describes numerical GeCo2 runs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.10658",
+          "material_read": "2023 arXiv PDF v2: introduction, linear stability section, GeCo2 update formulas around equations 50–51, and Section 5.1 numerical experiments",
+          "method": "primary 31-page PDF text, screenshots page 14 and page 22",
+          "title": "On the Dynamics of First and Second Order GeCo and gBBKS Schemes",
+          "trigger": "Exact same integrator and sharp linear threshold"
+        },
+        {
+          "assessment": "Cannot justify whole-document noncoverage; original GeCo construction acknowledged as prior",
+          "evidence": "Martiradonna, Colonna, Diele (2020).",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2019.12.004",
+          "material_read": "Bibliographic identification only; original full publisher text not available in this pass",
+          "method": "title/DOI, not fully read",
+          "title": "GeCo: Geometric Conservative nonstandard schemes for biochemical systems",
+          "trigger": "Origin of integrator; possible stronger old results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This positivity-preserving conservative numerical integrator is routinely studied through a linear stability boundary; showing global slow relaxation at that nonhyperbolic threshold and proving real attracting oscillatory states after it is a natural interpretation and step-size selection problem. Exact Floquet multiplier, linear onset, and asymptotic physical 1/3 amplitude provide quantitative predictions beyond the source’s numerical plots.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned Git RESULT.md, REVIEW.md and verify.py at original tree SHA",
+    "Izgin et al. arXiv:2301.10658v2 primary PDF Sections 4.1 and 5.1",
+    "Martiradonna et al. 2020 DOI:10.1016/j.apnum.2019.12.004 (metadata)",
+    "Resultary query GeCo2 geometric conservative second order schemes symmetric exchange nonhyperbolic -1 critical step globally attracting two cycle"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Original 2020 GeCo full text and obscure dynamical-systems analyses not inspected, so equivalent specialized bifurcation law may exist.",
+    "Global attraction to supercritical cycle is NOT established or claimed; only local attraction."
+  ]
+}
