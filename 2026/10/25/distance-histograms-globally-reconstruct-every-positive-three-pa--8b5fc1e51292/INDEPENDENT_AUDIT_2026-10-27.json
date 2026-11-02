@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:11:40.863748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Inspected RESULT.md blob 5647db90ae9d92c1d0c7a0ef167ba0f22636ebde",
+        "Inspected exact rational polygon checker verify_theta_reconstruction.py blob c05dea0cae08e910d7bfdb570fd9ac6fc37dbc76",
+        "Independent algebraic analysis of four path inequalities and onset coefficient"
+      ],
+      "rationale": "For small r, the length measure of metric balls gives P(D<=r)=2r/L+O(r^2), recovering L. Four simple endpoint/other-arm routes bound the diameter by (b+c)/2, attained by midpoints on those two arms, hence a=L-2d*. Set epsilon=d*-r. On b,c arms, variables p=x+y-(b+c)/2 and q=x-y-(b-c)/2 satisfy |p|<epsilon, |q|<a+epsilon plus domain |p+q|<b, |p-q|<c, with Jacobian 1/2. For epsilon<=(b-a)/2 the rectangle is uncut and both orders have tail measure 4epsilon(a+epsilon). At the first onset h=(b-a)/2 the same-long-arm and short-long-arm contributions enter with positive linear 2(a+c)delta (doubled when b=c); old b,c corner-clipping affects only O(delta^2), making the threshold sharp. For a=b<c the distinct-arm and same-arm leading slope is 2c+6a, and for a=b=c it is 12a, both >4a. Thus the slope classifies ties and the first exact-law breakpoint identifies b otherwise, completing inversion for all real triples. Inspected rational polygon-clipping verifier checks finite parameter cases, but proof is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General point-cloud metric reconstruction uses labeled sample geometry and estimates, not only one unmarked scalar distance distribution.",
+          "The abstract of Mémoli--Needham mentions local injectivity for graphs and counterexamples in other categories."
+        ],
+        "reasoning": "Neither stronger data algorithms nor local-injectivity assertions mathematically imply this global triple inversion, including tie strata; absent full text, stronger hidden implication cannot be excluded.",
+        "searches": [
+          "Mémoli--Needham Studies in Applied Mathematics 149(2022)943-1001",
+          "Aanjaneya et al. DOI:10.1145/1998196.1998203",
+          "Lecci--Rinaldo--Wasserman arXiv:1305.1212"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.09646",
+        "DOI:10.1111/sapm.12526",
+        "DOI:10.1002/net.21919",
+        "Resultary theta-histogram semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Mémoli--Needham claim is local injectivity, whereas this theorem constructs global inversion via d* and a sharp first tail-law failure.",
+          "The reconstructed formula remains valid when a=b or b=c, which generic local injectivity does not settle."
+        ],
+        "reasoning": "The source proof has a mathematical additional step: from L,d*,terminal slope and the exact first polynomial-break point it retrieves all three lengths; this does not follow merely from knowing a forward distribution.",
+        "searches": [
+          "arXiv:1810.09646 abstract",
+          "DOI:10.1002/net.21919 forward network distance law",
+          "Resultary theta histogram semantic query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mémoli--Needham abstract explicitly claims a local injectivity result for metric graphs, not a global three-arm theta theorem.",
+          "Wei et al. compute distance between events on a known network in forward direction."
+        ],
+        "reasoning": "The same observable appears as distance histogram/shape distribution; inverse use is related but local injectivity at generic parameters does not by itself settle all positives and equality loci. Full precursor remains uninspected.",
+        "searches": [
+          "Resultary: theta graph distance distribution reconstruct arm lengths globally Mémoli Needham distance histograms",
+          "arXiv:1810.09646",
+          "Wei--Walteros--Batta DOI:10.1002/net.21919"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched published-result set returned theta graph Rips homology and other distance invariants, not an exact all-positive histogram inversion table.",
+          "Forward network formulas are parametrized by known edge lengths and do not supply inverse uniqueness."
+        ],
+        "reasoning": "Finite graph distance tables and forward formulas are not exact global inverse certificates for arbitrary positive continuous parameters; no comparable lookup table found, and search nondetection alone is not novelty evidence.",
+        "searches": [
+          "Resultary semantic query: theta graph distance distribution reconstruct arm lengths globally Mémoli Needham distance histograms",
+          "Mémoli--Needham metric graph distance distributions",
+          "Wei et al. network random distance formula"
+        ]
+      },
+      "rationale": "Published distance-distribution inverse geometry includes local injectivity in metric-graph classes, stronger in some other senses but not identified as globally injective for all three-arm positive theta metrics including ties. Forward network-distance formulas and noisy point-cloud graph reconstruction do not imply global injectivity of one scalar unmarked pair-distance histogram. The closest full Mémoli--Needham text could not be read, so priority risk remains substantive.",
+      "residual_risks": [
+        "Complete Mémoli--Needham text inaccessible because Oxford VPN disconnected; an uninspected theorem/appendix could imply or reproduce the specific theta case.",
+        "A network-theory special-case inversion may exist under alternate names (banana network, multi-edge theta) not surfaced by semantic search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract asserts metric-graph local injectivity; full 943-1001 text inaccessible, so no whole-paper noncoverage conclusion is made.",
+          "evidence": "Publisher abstract phrases local injectivity for metric graphs; explicit VPN access failure.",
+          "identifier_or_url": "arXiv:1810.09646; DOI:10.1111/sapm.12526",
+          "material_read": "Published Wiley abstract, reference listing and arXiv abstract; full article text NOT accessed",
+          "method": "web turn736786academia24,  and ; OA/arXiv full-text attempts unsuccessful; Oxford attempt status vpn_disconnected",
+          "title": "Distance distributions and inverse problems for metric measure spaces",
+          "trigger": "Most relevant same invariant and metric-graph inverse problem"
+        },
+        {
+          "assessment": "Forward distribution calculations for fixed networks do not alone imply invertibility.",
+          "evidence": "Forward problem is random distances on networks.",
+          "identifier_or_url": "DOI:10.1002/net.21919",
+          "material_read": "Bibliographic citation and abstract/summary, not full text",
+          "method": "Metadata/web search and source manuscript references",
+          "title": "On the distance between random events on a network",
+          "trigger": "Possible exact forward formula for theta pair-distance distributions"
+        },
+        {
+          "assessment": "Data-rich sampled graph reconstruction has different observation model from one scalar distance histogram.",
+          "evidence": "Title and mathematical scope of metric graph reconstruction.",
+          "identifier_or_url": "arXiv:1305.1212",
+          "material_read": "ArXiv bibliographic and summary material, not full text",
+          "method": "Source reference and searched abstract",
+          "title": "Statistical Analysis of Metric Graph Reconstruction",
+          "trigger": "Potential stronger reconstruction theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1810.09646",
+        "DOI:10.1111/sapm.12526",
+        "DOI:10.1002/net.21919",
+        "Resultary theta-histogram semantic query"
+      ],
+      "rationale": "A global inverse theorem is mathematically meaningful because distance histograms fail injectivity on arbitrary metric-measure spaces. This exact three-arm classification and constructive inversion, including collisions of arm lengths, is a distinct natural finite-dimensional identifiability result; no downstream theorem is needed to justify the classification.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three strictly positive arms and normalized arclength; no stability claim for finitely sampled histograms.",
+    "Cannot extend from local injectivity to global uniqueness without the explicit breakpoint proof."
+  ],
+  "schema_version": 1
+}
