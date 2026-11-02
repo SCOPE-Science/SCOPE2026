@@ -1,15 +1,21 @@
-# Scientific review: adjacent ternary-quotient types
+# Independent mathematical audit
 
-## Correctness — PASS
-For arbitrary integer \(n\ge5\), distinctness of the exponent sets proves both polynomials are Newman. An exact coefficient multiplication establishes the only nontrivial base-three carries; the middle coefficients \(3,2,2\) combine to a single leading \(3^{n+3}\). Evaluation at \(1\) yields \(9/5\), so the denominator cannot divide the numerator over \(\mathbb Z[x]\). The trivial universal representation is immediate. Independently written exact tests checked 200 cases, but the proof—not the tests—is infinite.
+## correctness
 
-## Originality — PASS within inspected evidence
-The motivating 2023 paper gives the two individual mixed examples \(31\) and \(247\) but no explicit arbitrary-\(n\) local formula for \(3^n+4\). Its Theorem 2.4(1) is the opposite-type theorem for \(3^n+1\). A later study of Newman polynomial *factors* does not determine this numerical quotient family. Targeted public and mathematical-record searches and a 110-claim accessible historical comparison found no stronger implied coverage. The preliminary 2015 lecture and possible unindexed general constructions pose residual risks; originality is a best-knowledge statement, not a priority guarantee.
+PASS
 
-## Mathematical value — PASS
-The smallest admissible increment from the known only-universal number \(3^n+1\) leads to the mixed-type \(3^n+4\) for every \(n\ge5\). The explicit witnesses use only five denominator and nine numerator monomials, regardless of parameter size. This addresses a stated open classification direction and supplies a structural infinite family rather than an isolated computation.
+For n≥5 all nine Pn and five Qn exponent positions are distinct. Direct multiplication of (x^n+x+1)Qn gives nonunit middle coefficients 3x^n+2x^(n+1)+2x^(n+2); at x=3 their sum is exactly 3^(n+3), producing Pn(3)=(3^n+4)Qn(3). Since Pn(1)=9 and Qn(1)=5, polynomial divisibility Qn|Pn in Z[x] is impossible (would force integer quotient evaluation at 1). Q=1 yields universal type. The prior only-universal assertion for 3^n+1 is clearly attributed to Anders et al Theorem 2.4(1). Independent exact integer checks for n=5,6,7,11,52 corroborate, with all-n identity a symbolic proof, not a finite extrapolation.
 
-## Limits
-The claim does not determine shortest possible witnesses or all possible quotient types outside this family. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Anders et al define universal/local, prove 3^n+1 only universal, and exhibit isolated mixed examples 31=3³+4 and 247=3⁵+4; they do not in the inspected complete primary text state or derive the explicit all-n nine/five sparse local construction. The symbolic carry identity yields genuine uniform infinite-family coverage beyond the examples. Alternative carry-template formulations remain a priority risk.
+
+## value
+
+PASS
+
+A natural sharp-type boundary next to a known rigid family: the least positive admissible increment from 3^n+1 to 3^n+4 creates local representations for every exponent, with the same nine/five support budget. This supplies a concrete reusable infinite arithmetic witness rather than recomputing one integer table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
