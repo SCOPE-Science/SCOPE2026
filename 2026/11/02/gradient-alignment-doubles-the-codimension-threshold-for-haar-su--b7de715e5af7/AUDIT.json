@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Proved from the Haar beta law, Sherman--Morrison inversion, exact transverse spherical symmetry, explicit tail integrals and rational beta second moments. Strictly positive constants justify both necessity and sufficiency of every moment threshold, including the boundary. Ridge asymptotics follow from beta density rescaling; finite matrix checks only corroborate algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://link.springer.com/article/10.1007/s10107-022-01836-1, intro/subspace algorithms with trust region",
+        "https://arxiv.org/pdf/2211.09873, pp. 1--3 explicitly discuss trust-region or quadratic regularization",
+        "https://doi.org/10.1137/22M1530264, results on high-dimensional sketched inverse equivalents"
+      ],
+      "reasoning": "The quoted safeguarded algorithms constrain or regularize local steps and therefore do not imply heavy-tailed unsafeguarded steps. Asymptotic proportional-sketch spectral equivalents do not yield fixed-finite d,k exact beta tails or gradient-orientation-dependent moment divergence, and may impose inverse regularity assumptions absent here. No stronger covering theorem was identified in inspected material.",
+      "searches": [
+        "published-finding corpus: random subspace quadratic model gradient aligned nullspace versus orthogonal inverse solution norm tail power codimension",
+        "published-finding corpus: rank deficient random subspace solve pseudo inverse exact beta finite sample divergence threshold",
+        "Web: random projected Gauss Newton singular Jacobian unbounded step distribution orthogonal Haar kernel finite second moment"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2021/02/8264/",
+      "https://link.springer.com/article/10.1007/s10107-022-01836-1",
+      "https://arxiv.org/pdf/2211.09873",
+      "https://doi.org/10.1137/22M1530264",
+      "https://doi.org/10.1137/15M1021106",
+      "published-finding corpus 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "published-finding corpus 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cartis--Roberts, https://optimization-online.org/2021/02/8264/ (trust-region DFO)",
+        "Cartis--Fowkes--Shao, https://arxiv.org/abs/2211.09873 (global complexity for safeguarded random subspace)",
+        "LeJeune et al., https://doi.org/10.1137/22M1530264 (sketched pseudoinverse high-dimensional asymptotics)"
+      ],
+      "reasoning": "The claim is a local, unsafeguarded, finite-dimensional step law at rank deficiency, including an if-and-only-if split for aligned versus consistent gradients. General subspace convergence guarantees use explicit safeguards and do not entail its tail constants. High-dimensional random-equivalence results do not provide its exact finite-dimensional constants as stated. This comparison supports an originality assessment but not a proof of publication priority.",
+      "searches": [
+        "published-finding corpus: random subspace quadratic model gradient aligned nullspace versus orthogonal inverse solution norm tail power codimension",
+        "published-finding corpus: rank deficient random subspace solve pseudo inverse exact beta finite sample divergence threshold",
+        "Web: sketched quadratic singular Hessian random Stiefel subspace finite inverse moments gradient aligned rank deficiency beta distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2211.09873, Sections 1 and 4 (regularization/safeguards)",
+        "https://doi.org/10.1137/22M1530264 (asymptotic sketched pseudoinverse treatment)",
+        "published-finding corpus 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 (first-order stochastic subspace descent)"
+      ],
+      "reasoning": "The sketched-pseudoinverse operator of LeJeune et al. explicitly equals the Haar-frame compression U(U^T A U)^{-1}U^T when the sketch has rank at most rank(A); hence the present operator is not itself new. Their stated main theorems concern proportional-dimensional asymptotic equivalents, whereas this claim is a fixed-d exact gradient-conditioned inverse-step tail and moment law. The random-subspace source frameworks prove safeguarding/global complexity or asymptotic equivalent pseudoinverses. The first-order Haar second-moment computation has a different update without the singular projected inverse; it does not imply the exact inverse step-moment phase split.",
+      "searches": [
+        "published-finding corpus: finite dimensional Haar Stiefel compressed rank-one singular Hessian inverse random Newton step critical codimension 5 second moment",
+        "published-finding corpus: unregularized sketched pseudoinverse kernel aligned vector heavy tail beta projector moment threshold",
+        "Web: sketched quadratic singular Hessian random Stiefel subspace finite inverse moments gradient aligned rank deficiency beta distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a (deterministic row-coherence bound)",
+        "published-finding corpus 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af (weak-form Gram conditioning)",
+        "https://doi.org/10.1137/22M1530264 (asymptotic sketched pseudoinverse operator)"
+      ],
+      "reasoning": "The closest published and private records involve other operators: sampled rows, deterministic frame distortion, or Gaussian nonorthonormal reduced least-squares pseudoinverse with a constraint rank and oversampling reserve. The present result concerns Haar-orthonormal compression of a rank-one-singular Hessian, decomposition of the gradient into kernel/range components, and the exact step-norm tail; the identified tables are not exact tables for these parameters.",
+      "searches": [
+        "published-finding corpus: finite dimensional Haar Stiefel compressed rank-one singular Hessian inverse random Newton step critical codimension 5 second moment",
+        "published-finding corpus: unregularized sketched pseudoinverse kernel aligned vector heavy tail beta projector moment threshold",
+        "Web: Haar random subspace Hessian rank deficient Newton step inverse moment codimension orientation"
+      ]
+    },
+    "rationale": "Compared the exact finite-dimensional local subproblem against random subspace DFO with trust-region safeguards, nonconvex random subspace Newton methods with regularization, high-dimensional sketched pseudoinverse asymptotics, and related published records. None of the inspected statements implies the gradient-aligned versus kernel-orthogonal exact tail/moment split. Classical beta projection and rank-one inversion are acknowledged as tools, not discoveries. Remaining specialized inverse-distribution literature is an explicit priority risk.",
+    "residual_risks": [
+      "Specialized finite-dimensional random matrix inverse and multivariate beta literature may have equivalent formulations beyond searched material.",
+      "Only opening sections and stated main theorem areas, not every appendix, were inspected in some long primary sources.",
+      "Publication priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses safeguarded subspace DFO and complexity, not exact singular reduced inverse step tails",
+        "evidence": "Random low-dimensional subspaces, trust-region model management and Gauss--Newton extension; first public preprint https://optimization-online.org/2021/02/8264/ dated 2021-02-23",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10107-022-01836-1",
+        "material_read": "Full-text Introduction, Section 1.1, subspace-model and trust-region discussion and stated contributions",
+        "method": "Open-access HTML scientific text",
+        "title": "Scalable Subspace Methods for Derivative-Free Nonlinear Least-Squares Optimization",
+        "trigger": "Primary earliest motivating framework for random subspace model minimization"
+      },
+      {
+        "assessment": "Explicitly safeguards local models; finite-dimensional unrestricted rank-one Hessian inverse-moment law is not stated in the examined portions; remaining appendix is a residual priority risk",
+        "evidence": "Abstract and contribution statement describe trust region or quadratic regularization and O(epsilon^-2) complexity",
+        "identifier_or_url": "https://arxiv.org/pdf/2211.09873",
+        "material_read": "PDF title/abstract, introduction and stated contributions pp. 1--3; trust-region and quadratic-regularization guarantees",
+        "method": "arXiv full PDF text and page images",
+        "title": "Randomised subspace methods for non-convex optimization, with applications to nonlinear least-squares",
+        "trigger": "High-priority source on randomized subspace local quadratic models"
+      },
+      {
+        "assessment": "Has the same sketched inverse operator as an exact finite-matrix specialization, but its proportional-dimensional asymptotic first/second-order theorems do not supply the asserted fixed-d gradient-orientation moment and tail constants",
+        "evidence": "The paper identifies U(U^T A U)^{-1}U^T as the unregularized operator for q<=rank(A), while Theorem 4.8 imposes a proportional-asymptotic sketch-rank condition for zero ridge",
+        "identifier_or_url": "https://doi.org/10.1137/22M1530264",
+        "material_read": "Open-access full HTML introduction, unregularized Haar-frame operator identity near Theorem 4.1, Theorem 4.8 and its second-order assumptions, and discussion of inverse equivalents",
+        "method": "Open-access journal HTML, mathematical theorem inspection",
+        "title": "Asymptotics of the Sketched Pseudoinverse",
+        "trigger": "Strongest potentially broader matrix-inverse coverage"
+      },
+      {
+        "assessment": "Strongly convex/self-concordant convergence guarantees are not the singular local law; uninspected full text a residual risk",
+        "evidence": "SIAM abstract assumes classical Newton sketch optimization regimes",
+        "identifier_or_url": "https://doi.org/10.1137/15M1021106",
+        "material_read": "Abstract and methodological description only",
+        "method": "Abstract-level reading; restricted full text",
+        "title": "Newton Sketch: A Near Linear-Time Optimization Algorithm with Linear-Quadratic Convergence",
+        "trigger": "Possible stronger historical result in sketched Newton methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7de715e-5af7-43e5-b90a-0ab961abae3b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural singular Gauss--Newton normal matrix has a consistent gradient in its range, but numerical/model mismatch adds a kernel component. At codimensions three or four this arbitrarily small mismatch turns a finite mean-square unrestricted reduced step into an infinite one, even while the compressed Hessian is positive definite almost surely. The sharp codimension and ridge laws inform modeling safeguards without asserting algorithmic divergence.",
+    "status": "PASS"
+  }
+}
