@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:09:35.691223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed B,y>0, f_{B,y}(z)=sin(pi B(z-iy))/(pi(z-iy)) has Fourier transform e^(2 pi y xi) on [-B/2,B/2], is in PW_{B/2}, and has genuine zeros a_n=n/B+iy. Set x=n/B. The unit-modulus multiplier splits as R_x(t)exp(2iyt/(x²+y²)) with R_x(t)-1=-2iyt/[conj(a)(a-t)]. For the t=x+s layer, x²|f(x+s)|² tends [sin²(pi Bs)+sinh²(pi By)]/pi² and m tends (s+iy)/(s-iy); integrating yields 2y/pi[cosh(2pi By)-exp(-2pi By)]. On the t=x²u scale away from zero, the oscillatory numerator averages to cosh(2pi By)/2 and the exponential contributes 2y/pi cosh(2pi By). Cutoff bounds rule out other order-x^-2 scales. Since Im⟨m f,f⟩=O(log x/x²), optimized phase changes squared distance only o(x^-2). Thus n² coefficient = B² times sum of two terms. Independently numerically evaluated both limiting integrals for three distinct (B,y), with finite truncation tolerances; these checks do not prove the two-scale convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 bounds ||F_a f−cf|| for a general PW_L function via an L2 modulus of continuity; Theorem 3.8 bounds double flips as a→b.",
+          "Neither general estimate supplies this exact x^-2 distance or both separate scale constants."
+        ],
+        "reasoning": "The antecedent integral representation may permit derivation after evaluating the specific spectrum, but the two-scale asymptotic is additional analysis not directly a stated bound.",
+        "searches": [
+          "Jaming–Kellay–Perez Theorem 3.3/3.8 and proof eq. (10)-(11)",
+          "Resultary: sharp Paley Wiener phase flipping stability"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2103.05937",
+        "https://doi.org/10.1007/s00605-022-01716-y",
+        "Resultary semantic phase-retrieval search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General formulas relate phase distance to overlap integrals and yield bounds, but the shifted-sinc formula requires two distinct x and x² scaling limits and phase-error control."
+        ],
+        "reasoning": "The exact constant is not logically supplied by the stated inequalities alone; a specialized analysis of the inner-product integral is needed.",
+        "searches": [
+          "arXiv:2103.05937 §3.2 Theorem 3.3 Eq. (10)–(11)",
+          "arXiv:2103.05937 Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jaming et al. define precisely the zero-flip multiplier in Section 3.1 and establish general phase-optimized stability bounds (Theorem 3.3).",
+          "The source theorem fixes f to a shifted sinc and takes real zero positions n/B to infinity, computing a profile-specific positive coefficient."
+        ],
+        "reasoning": "Same operator and phase-optimized norm, different theorem: finite-index upper bounds are not equal to this sharp high-index coefficient.",
+        "searches": [
+          "Resultary: Paley Wiener phase retrieval distant zero flipping shifted sinc asymptotic n",
+          "Jaming–Kellay–Perez arXiv:2103.05937 Theorems 3.3 and 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed results concern generic zero-flipping stability and other Fourier phase retrieval variants, not a table of n-indexed shifted-sinc distances."
+        ],
+        "reasoning": "This is an asymptotic operator invariant, not a finite database question; no tabulated exact coefficient identified, without treating search absence as proof.",
+        "searches": [
+          "Resultary semantic zero-flip shifted sinc",
+          "Jaming–Kellay–Perez Section 3 examples"
+        ]
+      },
+      "rationale": "Qualified originality concerns the exact leading order and positive constant for a canonical genuine-zero flip moving to infinity, including a nontrivial far-field exponential contribution, not the zero-flip operation or generic phase retrieval bounds.",
+      "residual_risks": [
+        "Related exact asymptotics under alternate zero-flip normalizations could be unindexed.",
+        "Convergence only fixed B>0,y>0; proof gives no uniformity as y→0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANTECEDENT: general estimates rather than same profile sharp asymptotic",
+          "evidence": "Eq. (4) multiplier, Theorem 3.3 generalized L2 stability, Theorem 3.8 two-flip bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.05937",
+          "material_read": "Primary PDF pages 3–12: §3.1 flip definition, Theorem 3.3 and proof equations (10)–(11), Theorem 3.8; actual relevant mathematical material and screenshots read",
+          "method": "Primary arXiv PDF text and page-4 visual inspection",
+          "title": "On the effect of zero-flipping on the stability of the phase retrieval problem in the Paley–Wiener class",
+          "trigger": "Exact same zero-flip operation, phase-optimized distance, possible dominating stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The profile gives a concrete sharp high-index instability/stability rate in an infinite-dimensional phase retrieval problem. Both boundary-layer and long-range phase terms contribute at leading order, and the exact nonzero coefficient supplies a useful sharp benchmark against general modulus-of-continuity bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2103.05937",
+    "https://doi.org/10.1007/s00605-022-01716-y",
+    "Resultary semantic phase-retrieval search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed B,y>0, not all PW functions or y tending to zero.",
+    "Two-scale integral quadrature is corroborative; analytic estimates establish asymptotic.",
+    "Source RESULT.md states an independent audit had not previously occurred; this historical status text requires reconciliation before publication."
+  ],
+  "schema_version": 1
+}
