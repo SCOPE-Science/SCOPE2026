@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The resistance metric on the star reduces exactly to the maximum sum of two reciprocal edge conductances. The homogeneous change of variables reduces the constrained original problem to minimizing a separable reciprocal-price objective subject to pair-sum inequalities. The proof exhausts all feasible vectors: either every normalized resistance is at most one half or exactly one exceeds one half. It verifies the boundary, the square-root stationary point, strict equality conditions, and the globally attained budget lower bound. Hence the optimizer is unique without assuming edge symmetry. Deterministic exact-matrix, constrained numerical, and competitor checks support the normalization and formulas. Numerical tests are supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For star K_{1,m}, m>=2, conductance budget sum c_i w_i<=B, every pairwise leaf resistance is 1/w_i+1/w_j; the normalized x_i=(Delta w_i)^{-1} satisfy x_i+x_j<=1. Minimizing F=sum c_i/x_i splits into all x_i<=1/2 (unique all-half minimizer) and a single x_j>1/2. In the latter case all other x_i=1-x_j, and strict convexity of c_j/u+(C-c_j)/(1-u) gives its unique square-root optimum iff c_j>C/2. Thus Delta*=2C/B if max price<=sum others, otherwise (sqrt(a)+sqrt(C-a))^2/B; equality and the sharp <2 improvement factor follow. Independently minimized smooth normalized cost on five price families and sampled competitors; an earlier direct nonsmooth SLSQP formulation returned a suboptimal stationary numerical point, a solver limitation not counterevidence to the convex proof.
 
-The closest inspected primary paper is Ghosh–Boyd–Saberi (2006; 2008), which derives tree effective resistances, convexity and a semidefinite framework for minimizing maximum pairwise resistance, but does not state the unique heterogeneously priced star optimizer, the dominant-price threshold, or its nearly twofold equal-weight gap. The authors' analytical star result addresses total effective resistance under equal prices. Dedicated meaning-based searches for star resistance diameter and price-constrained maximization were also compared with indexed records, without a covering claim. This is a best-knowledge mathematical comparison rather than proof of literature-wide uniqueness. The broad convex formulation is acknowledged, and a previously unindexed equivalent calculation is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The maximum pairwise resistance is a natural robustness/latency design objective, distinct from average resistance. The theorem gives an exact optimizer for every positive price vector and every star size, exhibits a nonobvious equality regime despite heterogeneous prices, identifies the unique sharp price-imbalance transition, and quantifies a sharp improvement factor approaching two. It solves a complete infinite natural design family, rather than presenting a numerical example or a known-table recomputation.
+The contribution is an exact and unique heterogeneous-price minimax resistance-diameter design law on a star, with a sharp dominant-price transition, not the known path-resistance formula, convex feasibility, or general SDP solvability. Full relevant sections of Ghosh--Boyd--Saberi distinguish their optimized total pairwise resistance from maximum pairwise resistance, for which they describe an SDP without this explicit threshold. No reviewed Resultary hit covers the formula; less indexed minimax resource-allocation formulations remain possible.
 
-## Limitations and neighboring literature
+## value
 
-The proof applies only to fixed star graphs and linear positive unit conductance prices. The inspected conference and journal papers solve a different aggregate-resistance objective and merely formulate the maximum-resistance SDP. Independent literature review and independent proof audit have not been performed. The 2006 conference date is used as the earliest positively verified public date for the focal source, not inferred from a journal acceptance or revision date.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Choosing edge conductances to limit worst-case electrical resistance is a natural network-design objective. The exact all-price threshold and uniform-weights-versus-price-dominant optimizer classify all m>=2 cases and give a sharp approaching-two performance gap; they distinguish minimax from known total-resistance allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

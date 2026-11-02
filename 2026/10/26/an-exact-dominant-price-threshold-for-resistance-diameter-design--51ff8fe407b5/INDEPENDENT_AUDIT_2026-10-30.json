@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:54:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For star K_{1,m}, m>=2, conductance budget sum c_i w_i<=B, every pairwise leaf resistance is 1/w_i+1/w_j; the normalized x_i=(Delta w_i)^{-1} satisfy x_i+x_j<=1. Minimizing F=sum c_i/x_i splits into all x_i<=1/2 (unique all-half minimizer) and a single x_j>1/2. In the latter case all other x_i=1-x_j, and strict convexity of c_j/u+(C-c_j)/(1-u) gives its unique square-root optimum iff c_j>C/2. Thus Delta*=2C/B if max price<=sum others, otherwise (sqrt(a)+sqrt(C-a))^2/B; equality and the sharp <2 improvement factor follow. Independently minimized smooth normalized cost on five price families and sampled competitors; an earlier direct nonsmooth SLSQP formulation returned a suboptimal stationary numerical point, a solver limitation not counterevidence to the convex proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General maximum resistance is posed as convex/SDP-tractable; this does not determine its piecewise unique optimizer in the constrained star."
+        ],
+        "reasoning": "Broader SDP solvability does not logically imply the stated exact optimizer, threshold and gain without solving its specialized inequalities.",
+        "searches": [
+          "star graph effective resistance diameter minimizing maximum pairwise resistance under heterogeneous linear conductance costs optimal edge weights",
+          "Ghosh-Boyd-Saberi 2008, extension on maximum effective resistance SDP"
+        ]
+      },
+      "checked_sources": [
+        "A. Ghosh, S. Boyd, A. Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008) 37-66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf; DOI 10.1137/050645452",
+        "SCOPE Git RESULT.md and verify.py at frozen tree f8baf12064bcfa2674958e6b31769586a9dae46e",
+        "Resultary semantic search: star graph effective resistance diameter minimizing maximum pairwise resistance under heterogeneous linear conductance costs optimal edge weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited paper establishes path series resistance, convex total-resistance design, and general minimax SDP; the claim additionally proves a unique scalar transition at a>C-a."
+        ],
+        "reasoning": "The prior premises enable setting up the problem but do not settle the final piecewise minimax and unique equality cases.",
+        "searches": [
+          "DOI 10.1137/050645452",
+          "star graph effective resistance diameter minimizing maximum pairwise resistance under heterogeneous linear conductance costs optimal edge weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent minimax variable x_i=1/(Delta w_i) obeys x_i+x_j<=1; prior star calculation concerns sum rather than maximum of these terms."
+        ],
+        "reasoning": "A star with heterogeneous linear cost is not the same optimization as the published total effective-resistance star. No exact equivalent dominant-price formula was found in reviewed primary material.",
+        "searches": [
+          "star graph effective resistance diameter minimizing maximum pairwise resistance under heterogeneous linear conductance costs optimal edge weights",
+          "Ghosh-Boyd-Saberi 2008, sections on tree/star networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary responses primarily concerned unrelated weighted graph extremal geometry and quantum walk transport; none supplied a star minimax price-threshold table."
+        ],
+        "reasoning": "The result is a continuous-parameter classification, not a finite table; potential alternate nonlinear-programming sources remain an explicit risk.",
+        "searches": [
+          "star graph effective resistance diameter minimizing maximum pairwise resistance under heterogeneous linear conductance costs optimal edge weights",
+          "Resultary semantic search 2026-10-30"
+        ]
+      },
+      "rationale": "The contribution is an exact and unique heterogeneous-price minimax resistance-diameter design law on a star, with a sharp dominant-price transition, not the known path-resistance formula, convex feasibility, or general SDP solvability. Full relevant sections of Ghosh--Boyd--Saberi distinguish their optimized total pairwise resistance from maximum pairwise resistance, for which they describe an SDP without this explicit threshold. No reviewed Resultary hit covers the formula; less indexed minimax resource-allocation formulations remain possible.",
+      "residual_risks": [
+        "Unindexed earlier convex-resource-allocation results could imply the same star formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact heterogeneous-price star minimax optimizer in the inspected full-text material; objective and results differ.",
+          "evidence": "SIAM Review 50(1) (2008), pp. 37-66; total resistance objective and maximum-resistance SDP extension.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Reviewed full-text sections defining total pairwise objective, tree and star example, and extension mentioning maximum pairwise resistance.",
+          "method": "Lawful open full-text PDF; text and relevant PDF page inspection",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same weighted conductance design and a star example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing edge conductances to limit worst-case electrical resistance is a natural network-design objective. The exact all-price threshold and uniform-weights-versus-price-dominant optimizer classify all m>=2 cases and give a sharp approaching-two performance gap; they distinguish minimax from known total-resistance allocations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A. Ghosh, S. Boyd, A. Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008) 37-66, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf; DOI 10.1137/050645452",
+    "SCOPE Git RESULT.md and verify.py at frozen tree f8baf12064bcfa2674958e6b31769586a9dae46e",
+    "Resultary semantic search: star graph effective resistance diameter minimizing maximum pairwise resistance under heterogeneous linear conductance costs optimal edge weights"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only connected star topology m>=2, strictly positive prices, independent conductances, fixed linear budget; no other graph topologies or nonlinear costs.",
+    "Numeric optimizer convergence tolerances and finite sampled examples support but do not prove the infinite-parameter statement."
+  ],
+  "residual_risks": [
+    "Unindexed earlier convex-resource-allocation results could imply the same star formula under different terminology."
+  ],
+  "schema_version": 1
+}
