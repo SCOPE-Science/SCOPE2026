@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Factorization \\(x^{3\\cdot2^k}-1=(x+1)^{2^k}(x^2+x+1)^{2^k}\\) plus \\(f(1)=1\\) restricts common factors to \\(g\\). Residues modulo 3 characterize g divisibility. The 2-adic common difference and a nonvanishing derivative give exact root multiplicity 2^s. CRT counts exact strata, and the quotient generator gives d independent even parity triples repeated r times. Projected subcode support establishes all generalized weights. The standalone checker exhaustively computed gcds for 19561 triples and codeword weight spectra for 66112 words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei and Zou, DOI:10.22108/toc.2025.138779.2097 (rank enumeration for unrestricted coefficients)",
+        "Choi and Hur, arXiv:2610.30830v1, Introduction and Section 3 (polynomial gcd criterion, circulant rank)"
+      ],
+      "reasoning": "Wei–Zou gives rank enumeration over all finite-field circulants, but its unrestricted counts do not state the distribution restricted to exactly three nonzero coefficients, nor the explicit ordered chain of kernel subcodes and weight enumerators. The Choi–Hur polynomial rank identity is used as an acknowledged standard input and does not independently provide the joint claim.",
+      "searches": [
+        "finite field circulant first row Hamming weight three matrix singular ranks roots cube units",
+        "small weight cyclic codes circulant 3-term polynomial gcd x^n-1 rank",
+        "circulant matrix weight three over GF(2) order 3 2^k power gcd root unity",
+        "binary circulant matrices exactly three nonzero entries rank weight n 3 power 2"
+      ]
+    },
+    "checked_sources": [
+      "Choi and Hur, arXiv:2610.30830v1, Introduction and Section 3 (polynomial gcd criterion, circulant rank)",
+      "Wei and Zou, DOI:10.22108/toc.2025.138779.2097 (rank enumeration for unrestricted coefficients)",
+      "Charpin, Tietäväinen and Zinoviev (2001), IEEE Trans. IT 47(1) (weight-three binary cyclic codewords for other lengths)",
+      "Published record: Complete three-tap Fourier-rank census on elementary generalized dihedral groups (nonabelian group, different field)",
+      "Published record: Exact three-level convolution nullity census on ternary Heisenberg groups (nonabelian group, different field)",
+      "Zhu, Yue and Hu, FFA 31 (2015), DOI:10.1016/j.ffa.2014.07.005"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Choi and Hur, arXiv:2610.30830v1, Introduction and Section 3 (polynomial gcd criterion, circulant rank)",
+        "Wei and Zou, DOI:10.22108/toc.2025.138779.2097 (rank enumeration for unrestricted coefficients)",
+        "Charpin, Tietäväinen and Zinoviev (2001), IEEE Trans. IT 47(1) (weight-three binary cyclic codewords for other lengths)",
+        "Published record: Complete three-tap Fourier-rank census on elementary generalized dihedral groups (nonabelian group, different field)",
+        "Published record: Exact three-level convolution nullity census on ternary Heisenberg groups (nonabelian group, different field)"
+      ],
+      "reasoning": "The gcd criterion entails that computing the gcd determines rank, but the prior statement does not enumerate the restricted supports or identify/code-classify every kernel. Nonabelian three-tap Fourier-rank results concern representations of generalized dihedral or ternary Heisenberg groups, so neither their hypotheses nor conclusions imply this char-two cyclic repeated-root census. Repeated-root coding theory may still contain a broader theorem that implies the coding part; this is a recorded priority risk.",
+      "searches": [
+        "binary circulant matrices length three times power of two with exactly three nonzero entries full rank nullity distribution",
+        "weight-three binary cyclic convolution kernel three times a power of two complete rank spectrum weight enumerator repeated even parity [3,2,2]",
+        "trinomials cyclic matrices F2 order 3*2^k nullity code support hierarchy",
+        "three-term cyclic convolution singularity exact multiplicities nullspace codes parity ternary blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Choi and Hur, arXiv:2610.30830v1, Introduction and Section 3 (polynomial gcd criterion, circulant rank)",
+        "Charpin, Tietäväinen and Zinoviev (2001), IEEE Trans. IT 47(1) (weight-three binary cyclic codewords for other lengths)",
+        "Exact Gaussian elimination and polynomial gcd both capture the binary circulant nullity; one root class is repeated."
+      ],
+      "reasoning": "Checked the equivalent cyclic polynomial-gcd, repeated-root code, three-tap convolution and even-weight-code viewpoints. The proposed statement counts precisely the weight-three coefficient shell across all lengths \\(3\\cdot2^k\\) and identifies each kernel code and its higher supports; the older cyclic weight-three paper addresses codewords and a different length regime.",
+      "searches": [
+        "binary circulant matrices length three times power of two with exactly three nonzero entries full rank nullity distribution",
+        "weight-three binary cyclic convolution kernel three times a power of two complete rank spectrum weight enumerator repeated even parity [3,2,2]",
+        "trinomials cyclic matrices F2 order 3*2^k nullity code support hierarchy",
+        "binary cyclic codes length 3*2^m even weight repeated code weight enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact fixed-three-support rank histogram or kernel support hierarchy appeared in the inspected tables or matching search results.",
+        "Wei and Zou, DOI:10.22108/toc.2025.138779.2097 (rank enumeration for unrestricted coefficients)"
+      ],
+      "reasoning": "The only directly relevant complete rank table is unrestricted over coefficient words and is not an exact-three-tap table. No directly matching database entry or OEIS-like table with the parameterized formulas was found. Failed retrieval is not proof of uniqueness.",
+      "searches": [
+        "binary circulant matrices length three times power of two with exactly three nonzero entries full rank nullity distribution",
+        "three-term cyclic convolution singularity exact multiplicities nullspace codes parity ternary blocks",
+        "binary circulant matrices weight 3 3*2^k ranks nullity",
+        "binary weight three circulants rank spectrum closed form"
+      ]
+    },
+    "rationale": "The full support-restricted nullity counts, literal cyclic-ideal kernel chain and generalized support hierarchy for all order \\(3\\cdot2^k\\) binary weight-three circulants were not located among inspected direct and stronger published statements. Classical gcd and coding ingredients are explicitly credited; the complete joint census is distinguished by fixed coefficient weight, repeated roots and coding consequences. An older disguised equivalent remains a residual priority risk.",
+    "residual_risks": [
+      "The broad circulant-rank enumeration of Wei–Zou might admit this sparse specialization without stating it explicitly; this does not establish priority.",
+      "Other historic repeated-root code treatments may contain a more general kernel weight spectrum and hierarchy.",
+      "Literature discovery was targeted rather than exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the classical polynomial-gcd criterion and new sufficient trace methods; does not state the joint exact weight-three rank census or the code hierarchy at order three times a power of two.",
+        "evidence": [
+          "arXiv:2610.30830v1, §§1,3",
+          "https://arxiv.org/abs/2610.30830"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30830v1",
+        "material_read": "Abstract, Introduction and section 3 on polynomial gcd, rank and special coefficient cases",
+        "method": "Full HTML manuscript and PDF section reading",
+        "title": "Arithmetic Conditions for the Invertibility of Circulant Matrices over Finite Fields",
+        "trigger": "Current combinatorics work on invertibility of circulants over finite fields"
+      },
+      {
+        "assessment": "Counts circulants by rank without enforcing exactly three ones, and does not give the repeated-root kernel support hierarchy. A general enumeration formula could possibly be specialized; independent novelty lies in the explicit restricted census and code classification.",
+        "evidence": [
+          "DOI:10.22108/toc.2025.138779.2097",
+          "Trans. Comb. 15(4), 235–250"
+        ],
+        "identifier_or_url": "https://doi.org/10.22108/toc.2025.138779.2097",
+        "material_read": "Accessible article material on rank enumeration across coefficient words, methods and special families",
+        "method": "Publisher open-access material and related author bibliographic record",
+        "title": "Circulant Matrices of Each Rank over Finite Fields",
+        "trigger": "Potential broader rank census that may subsume the support-restricted counts"
+      },
+      {
+        "assessment": "Studies weight-three cyclic-codewords and sequence conditions mainly in other length regimes, not this complete order-\\(3\\cdot2^k\\) matrix rank census and kernel hierarchy.",
+        "evidence": [
+          "IEEE Trans. Inform. Theory 47(1) (2001)"
+        ],
+        "identifier_or_url": "IEEE Transactions on Information Theory 47(1) (2001), Charpin–Tietäväinen–Zinoviev",
+        "material_read": "Introduction and selected sections describing codeword weight-three conditions and cyclic lengths",
+        "method": "Accessible full-document material and keyword inspection",
+        "title": "On Binary Cyclic Codes with Codewords of Weight Three and Binary Sequences with the Trinomial Property",
+        "trigger": "Likely terminology alias: weight-three cyclic trinomials"
+      },
+      {
+        "assessment": "The family treated has pure prime-power lengths, whereas \\(3\\cdot2^k\\) for \\(k\\ge1\\) is not a prime power. Does not decide the fixed-sparsity rank census.",
+        "evidence": [
+          "Finite Fields and Their Applications 31 (2015), 241–257"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ffa.2014.07.005",
+        "material_read": "Abstract, hypotheses (pure prime-power lengths and dual zero conditions)",
+        "method": "Accessible publisher abstract and scope",
+        "title": "Weight distributions of cyclic codes of length prime powers",
+        "trigger": "Broad cyclic-code weight enumerator theorem might imply the kernel enumerators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f66a006a-f0b4-41a5-b520-f2fc0da491bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This infinite, structurally defined sparse-circulant class has a natural rank and kernel-spectrum question raised by recent invertibility work. The result provides a complete fine-grained rank distribution (including exact multiplicities), determines exactly which of k+1 kernel codes occur, and supplies full Hamming enumerators plus all generalized Hamming weights, information not furnished by the unrestricted rank totals or binary invertibility tests. It is a classification of useful invariants, not an arbitrary single finite example.",
+    "status": "PASS"
+  }
+}
