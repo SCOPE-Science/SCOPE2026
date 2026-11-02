@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification and limitations
 
-Run `python3 verify.py` next to `certificate.json` using Python 3 (standard library only). The program rebuilds every arc, valid face, maximal face, discrete-Morse pairing and critical cell from the graph definition, independently re-enumerates parent-selection faces, and compares all these objects with the embedded complete certificate. It verifies acyclicity by checking all 10,192 incidences, exactly computes the signed Morse boundary between the six- and five-cells, checks ordinary mod-two ranks independently, and checks rational top homology under bitwise complement using a separate boundary-kernel elimination and signed Lefschetz formula. The included output file is from an actual successful execution.
+# Independent mathematical audit
 
-The finite verifications and standard topological implications establish the exact assertion for this eight-vertex graph. They do not establish an all-orders result or a comprehensive claim that no earlier unindexed theorem exists. In particular, some historically relevant full texts could not be checked comprehensively. Independent scientific audit has not been performed.
+## correctness
+
+PASS
+
+The final assertion is for exactly the eight length-three binary-word vertices and fourteen nonloop shift-register arcs, faces being directed acyclic arc sets with indegree at most one at every target. Independently generated all 2^14 masks: precisely 2,186 nonempty faces with f-vector (14,84,280,560,672,448,128), 132 facets (four size 6, 128 size 7). Reconstructed indexed greedy matching: 1,091 pairs and critical faces 0x1 (dimension 0), 0x348a (dimension 5), 0x2cd2 and 0x32cc (dimension 6); independent Kahn traversal visits all 2,186 vertices across all 10,192 oriented Hasse incidences. Direct signed elimination of matched faces gives zero integral 6-to-5 Morse boundary for both critical 6-cells, seven cancellations apiece. Thus CW model has one 0-cell, one 5-cell, two 6-cells, trivial attaching degree in pi_5(S^5)=Z, hence S^5 ∨ S^6 ∨ S^6, not just homology. The fetched verifier gives a separate ordinary boundary rank calculation and exact rational complement action (H6 matrix swaps two top generators, H5 Lefschetz trace -1); checked program algorithm and signed conventions, no nonfinite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact binary order-three de Bruijn directed-forest homotopy and bit-complement representation, after statement-level comparisons with directed-tree complexes and published small-complex homotopy results. This strongly cyclic shift-register digraph is not a doubled underlying tree, not a DAG and not the tree-source families in the inspected prior results; none yields the concrete invariants from an applicable theorem. Inaccessible full texts remain risks rather than fabricated noncoverage.
+
+## value
+
+PASS
+
+A canonical binary order-three de Bruijn shift-register network yields a complete integral homotopy and nontrivial automorphism-module invariant for its full natural directed-forest complex. The mixed dimension-5/6 cell structure and sign representation are not determined by f-vector or standard results for acyclic/bidirected tree families. It is one motivated finite graph, not a general classification; finite exact results can have standalone value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

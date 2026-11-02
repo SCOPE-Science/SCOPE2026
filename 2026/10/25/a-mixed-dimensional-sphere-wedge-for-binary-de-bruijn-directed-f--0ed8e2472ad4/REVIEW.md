@@ -1,15 +1,21 @@
-# Scientific review: binary de Bruijn directed forests
+# Independent mathematical audit
 
-## Correctness — PASS
-The fourteen eligible arcs of the explicitly defined de Bruijn digraph give 2,186 nonempty acyclic indegree-at-most-one faces by two exhaustive independent enumeration schemes. The delivered explicit matching has 1,091 face pairs, with critical cells in dimensions zero, five, six, six; the entire reversed Hasse digraph has 2,186 vertices and 10,192 edges and is acyclic by a complete topological sort. Exact integer gradient-path elimination produces zero for both six-to-five attaching degrees, whence the Morse CW model is \(S^5\vee S^6\vee S^6\). Rational exact top-chain kernel and signed fixed-simplex Lefschetz computations establish the two stated involution representations. The explicit certificate and verifier reproduce these results, with independent mod-two boundary rank checks; the computations do not extrapolate beyond the finite graph.
+## correctness
 
-## Originality — PASS, qualified
-Kozlov's arXiv:math/0210045v1 concerns fully double-directed strings and trees; Engström's arXiv:math/0508148v1 gives shellability for directed acyclic graphs; Jojić's arXiv:1109.4475 treats complete-source, complete double-directed, and essentially-tree situations. The order-three binary de Bruijn digraph is strongly cyclic, not an underlying tree, and has no complete source. Their stated applicable results do not imply this exact mixed-dimensional homotopy type or bit-complement module. Actual indexed searches for de Bruijn directed-forest/branching-complex aliases yielded related but different graphs, complexes, and parameters. The historical 1999 Kozlov article and the 2020 Cayley-graph thesis could not be inspected fully; absence of an indexed theorem does not establish global uniqueness.
+PASS
 
-## Value — PASS
-The de Bruijn shift-register digraph is a canonical small network with both cycles and a nontrivial bit-complement automorphism, beyond standard fully bidirected or acyclic families. An exact integral homotopy classification for its entire natural directed-forest complex is a meaningful invariant: the pure top skeleton coexists with dimension-five facets, and the nontrivial involution action distinguishes the two top-dimensional classes, information not determined by the face vector. The specific finite result is reproducible without claiming a general theorem.
+The final assertion is for exactly the eight length-three binary-word vertices and fourteen nonloop shift-register arcs, faces being directed acyclic arc sets with indegree at most one at every target. Independently generated all 2^14 masks: precisely 2,186 nonempty faces with f-vector (14,84,280,560,672,448,128), 132 facets (four size 6, 128 size 7). Reconstructed indexed greedy matching: 1,091 pairs and critical faces 0x1 (dimension 0), 0x348a (dimension 5), 0x2cd2 and 0x32cc (dimension 6); independent Kahn traversal visits all 2,186 vertices across all 10,192 oriented Hasse incidences. Direct signed elimination of matched faces gives zero integral 6-to-5 Morse boundary for both critical 6-cells, seven cancellations apiece. Thus CW model has one 0-cell, one 5-cell, two 6-cells, trivial attaching degree in pi_5(S^5)=Z, hence S^5 ∨ S^6 ∨ S^6, not just homology. The fetched verifier gives a separate ordinary boundary rank calculation and exact rational complement action (H6 matrix swaps two top generators, H5 Lefschetz trace -1); checked program algorithm and signed conventions, no nonfinite extrapolation.
 
-## Closest literature and limitations
-The closest inspected primary sources are Kozlov (2002), Engström (2005), and Jojić (2011). The full 1999 Kozlov paper and relevant thesis may carry unobserved special-case coverage. No independent audit or external certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact binary order-three de Bruijn directed-forest homotopy and bit-complement representation, after statement-level comparisons with directed-tree complexes and published small-complex homotopy results. This strongly cyclic shift-register digraph is not a doubled underlying tree, not a DAG and not the tree-source families in the inspected prior results; none yields the concrete invariants from an applicable theorem. Inaccessible full texts remain risks rather than fabricated noncoverage.
+
+## value
+
+PASS
+
+A canonical binary order-three de Bruijn shift-register network yields a complete integral homotopy and nontrivial automorphism-module invariant for its full natural directed-forest complex. The mixed dimension-5/6 cell structure and sign representation are not determined by f-vector or standard results for acyclic/bidirected tree families. It is one motivated finite graph, not a general classification; finite exact results can have standalone value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
