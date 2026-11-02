@@ -1,0 +1,182 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md sections Proof 1-3",
+      "verify_direct.py: DIRECT_EXHAUSTIVE_LADDER_PASS",
+      "verify_templates.py: SYMBOLIC_TEMPLATE_AND_EXCHANGE_PASS"
+    ],
+    "rationale": "Exact graph definitions and quantifiers (all even n=2k with k>=4, plus the separately stated odd and n=6 cases) are explicit. Each selected vertex has a closed neighborhood of at most four; the overlap identity Omega=4|S|-e-2n excludes 00 for all claimed even lengths and odd lengths. A gap count forces exactly the A(r,j,s), L_s and R_s words and proves they dominate; a complete symbolic comparison derives every edge and exactly two twin double-brooms plus isolates. Direct exhaustive subset enumeration for n=5..12 and separate symbolic all-pair adjacency verification for k=4..26 both passed. Infinite coverage is from the algebraic word proof, not finite sampling.",
+    "residual_risks": [
+      "Proof is handwritten case analysis, not independently peer reviewed; finite tests are noncertifying for the infinite family."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fricke et al. (2011) introduced general gamma-graph theory; a general definition cannot alone imply the classified family.",
+        "Haas and Seyffarth (2012), arXiv:1209.5138v1, sections 1-3: add/delete allows intermediate cardinality changes, unlike minimum-cardinality token sliding.",
+        "Suzuki et al. (2014), arXiv:1401.5714, abstract and model definition: studies D_k with add/delete operations.",
+        "Anusuya and Kala (2020), title and abstract: modified gamma graph uses arbitrary one-token replacement (no adjacency requirement)."
+      ],
+      "reasoning": "Broad graph transformation theorems about connectedness under additional slack or unrestricted jumps cannot imply the asserted disconnected exact slide graph. Known classification of minimum sets by cardinality/count does not fix the slide relation, branch degrees or number of isolates.",
+      "searches": [
+        "ladder graph minimum domination exchange connectivity degree enumeration",
+        "reconfiguration of minimum dominating sets of cartesian product P2 Pn",
+        "dominating-set reconfiguration outerplanar ladder graphs frozen token sliding minimum cardinality",
+        "arxiv:1209.5138v1",
+        "arxiv:1401.5714v1"
+      ]
+    },
+    "checked_sources": [
+      "Fricke et al., DOI 10.7151/dmgt.1562",
+      "Haas and Seyffarth, arxiv:1209.5138v1",
+      "Suzuki et al., arxiv:1401.5714v1",
+      "Lakshmanan and Vijayakumar (2010) AKCE 7:53-59",
+      "Anusuya and Kala (2020) Palestine J. Math. 9(2)",
+      "Bhatt and Bhatt (2024), DOI 10.58414/SCIENTIFICTEMPER.2024.15.spl-2.03",
+      "Bhatt (2024), DOI 10.58213/8jee9p96",
+      "OEIS A347558"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lakshmanan/Vijayakumar gamma graph regards any one-vertex replacement as adjacent, which can join configurations separated in the token-sliding graph; it does not determine the induced slide edges.",
+        "Bhatt and Bhatt 2024, full text main result sections about M(L_n): different underlying graph and unconstrained exchange.",
+        "Bhatt 2024 Some Results on Gamma Graphs, abstract: unrestricted gamma graph of Cartesian products of cycles and paths; full text not available to compare possible related lemmas.",
+        "Fricke et al. 2011, DOI 10.7151/dmgt.1562: exact same slide definition but full article inaccessible; risk retained."
+      ],
+      "reasoning": "A theorem for unrestricted jumps or for the middle graph has no formal implication to the finer adjacency-constrained components on L_n without substantial additional information. The 2011 founding work is a direct potential prior and cannot be declared noncovering from its abstract; indexed searches show no exact ladder statement, but that absence is not a novelty proof. Best-knowledge originality applies with explicitly acknowledged residual risk.",
+      "searches": [
+        "Fricke Hedetniemi Hutson 2011 gamma graphs P2 x Pn",
+        "gamma graph ladder graph P2 cartesian Pn minimum dominating sets token sliding reconfiguration graph",
+        "Some Results on Gamma Graphs Bhatt 2024 Cartesian products paths cycles gamma graphs",
+        "\"Modified γ-graph\" ladder graph Anusuya Kala 2015 2018",
+        "doi:10.58414/SCIENTIFICTEMPER.2024.15.spl-2.03"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fricke et al., DOI 10.7151/dmgt.1562: graph vertices are gamma-sets; adjacent swaps require adjacency of the removed and added ladder vertices (same reconfiguration semantics).",
+        "Haas and Seyffarth, arXiv:1209.5138v1, Introduction: explicitly contrasts adjacent-swap Fricke gamma graphs with unrestricted exchange and with add/delete dominating graph D_k.",
+        "2024 Bhatt and Bhatt paper available full text: the ladder theorem concerns the middle graph M(L_n), not L_n."
+      ],
+      "reasoning": "Aliases gamma graph, minimum dominating set reconfiguration, token sliding, adjacent-vertex exchange and optimal guard moves describe the same candidate. The 2011 paper is genuinely self-review; accessible material defines it but does not state the all-ladder decomposition. Other compared works do not establish the same edge relation and underlying graph simultaneously.",
+      "searches": [
+        "minimum dominating sets of ladder graphs P_2 square P_n token jumping reconfiguration exact connected components",
+        "token sliding minimum dominating sets on ladder graphs P_2 square P_n: two double-broom tree components and isolated configurations",
+        "gamma graph of ladder strip P2 x Pn under adjacent-vertex exchange; immobilized optimal dominating sets",
+        "Fricke Hedetniemi Hutson 2011 gamma graphs P2 x Pn",
+        "doi:10.7151/dmgt.1562"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A347558 minimum dominating set counts for ladder graphs includes the even family 4k+4; this count is preexisting and excluded from novelty.",
+        "Symbolic and brute-force code check each edge and component rather than only retrieving counts."
+      ],
+      "reasoning": "Preexisting tabulation of total optimal-set counts is not a table of adjacency-constrained reconfiguration components. No retrieved exact reconfiguration table supplies the twin double-brooms, isolate count or degree multiset.",
+      "searches": [
+        "ladder graph minimum domination exchange connectivity degree enumeration",
+        "minimum dominating sets of ladder graphs P_2 square P_n token jumping reconfiguration exact connected components",
+        "gamma graph ladder graph P2 cartesian Pn minimum dominating sets token sliding reconfiguration graph"
+      ]
+    },
+    "rationale": "Published foundational gamma-graph work introduces the same adjacent-exchange operation but inspected accessible material does not identify the present double-broom decomposition; other candidate papers use unrestricted token jumping, addition/deletion, or the middle graph of a ladder. The older bare number of minimum dominating sets is expressly not claimed new. All published-finding corpus searches and accessible own-claim history were compared on implication, not title alone. A missing full text of the 2011 founding paper and a 2024 product-focused paper is named as substantive residual priority risk, not classified as definitely noncovering.",
+    "residual_risks": [
+      "The Fricke et al. 2011 paper is exactly the same reconfiguration model; its full text was not recovered. It might contain unindexed ladder examples.",
+      "Bhatt 2024 paper on Cartesian products of paths and cycles was only accessible as an abstract; an unrecognized equivalent or stronger result remains possible.",
+      "No claim that semantic search absence demonstrates mathematical uniqueness; inaccessible previous-week prior research claim files cannot be fully excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MODEL_UNRESOLVED_FULL_TEXT",
+        "evidence": [
+          "Discussiones Mathematicae Graph Theory 31 (2011), 517-531; abstract specifies adjacent swapped vertices.",
+          "Searchable accessible portion describes general gamma-graph problem, not an explicit even-ladder double-broom theorem."
+        ],
+        "identifier_or_url": "doi:10.7151/dmgt.1562",
+        "material_read": "Publisher/journal abstract and publicly indexed text including exact definition and references; whole PDF not obtained.",
+        "method": "Journal landing and publication-index searches; lawful publisher PDF URL tried but timed out.",
+        "title": "Gamma-Graphs of Graphs",
+        "trigger": "Introduces precisely the adjacent-swap optimal domination reconfiguration graph."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_MOVE",
+        "evidence": [
+          "Introduction defines D_k(G) using add/delete one vertex; explicitly notes Fricke is the adjacent-swap gamma graph, distinct from D_k.",
+          "First publicly posted 2012-09-24."
+        ],
+        "identifier_or_url": "arxiv:1209.5138v1",
+        "material_read": "Public arXiv full-text HTML Introduction including definitions and comparison to both gamma-graph exchange models.",
+        "method": "Inspected arXiv parsed full text, especially introduction and definitions.",
+        "title": "The k-Dominating Graph",
+        "trigger": "Seminal dominating-set reconfiguration source with dated archival preprint."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_MOVE",
+        "evidence": [
+          "Vertices of D_k have sizes at most k; legal steps add/delete one vertex instead of sliding a token between minimum sets."
+        ],
+        "identifier_or_url": "arxiv:1401.5714v1",
+        "material_read": "arXiv abstract and model description.",
+        "method": "Inspected arXiv primary abstract and stated adjacency definition.",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Extends the known reconfiguration frameworks on planar and bounded-treewidth graphs."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_BASE_GRAPH",
+        "evidence": [
+          "Main results section defines M(G) as vertex-edge incidence/edge-intersection graph.",
+          "Ladder theorem begins with V(M(L_n)) and concludes gamma graph of M(L_n) is null; no determination of gamma graph of L_n."
+        ],
+        "identifier_or_url": "doi:10.58414/SCIENTIFICTEMPER.2024.15.spl-2.03",
+        "material_read": "ResearchGate lawful full-text reproduction, Introduction, middle graph definition, ladder theorem, conclusion and references.",
+        "method": "Read full-text HTML transcription of PDF content and compared mathematical object M(L_n) with L_n.",
+        "title": "Certain findings on the gamma graph of some graphs",
+        "trigger": "Title and abstract mention ladder gamma graphs."
+      },
+      {
+        "assessment": "UNCERTAIN_POSSIBLE_COMPETING_PRODUCT_RESULT",
+        "evidence": [
+          "The abstract defines gamma adjacency by sets differing in one vertex, with no original-edge adjacency restriction.",
+          "The full statement of Cartesian-product theorems could not be compared."
+        ],
+        "identifier_or_url": "doi:10.58213/8jee9p96",
+        "material_read": "Published abstract and references; full text not accessible.",
+        "method": "Publisher and public ResearchGate bibliographic searches; full-text retrieval unavailable.",
+        "title": "Some Results on Gamma Graphs",
+        "trigger": "Abstract explicitly lists Cartesian products of paths and cycles."
+      },
+      {
+        "assessment": "NOT_COVERING_UNRESTRICTED_EXCHANGE",
+        "evidence": [
+          "Modified gamma graph declares neighboring sets if they differ by one vertex, without adjacency restriction on the two exchanged vertices."
+        ],
+        "identifier_or_url": "Palestine Journal of Mathematics 9(2) (2020), 691-697",
+        "material_read": "Publisher-indexed abstract and definition excerpt.",
+        "method": "Primary PDF discovery and indexed abstract reading.",
+        "title": "Modified gamma graph G(gamma_m) of some grid graphs",
+        "trigger": "Explicit grid and modified gamma graph in title."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4780aa0-e814-4d68-aeb0-1961ae0df2a2",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "RESULT.md complete component classification for all k>=4",
+      "Complete node and edge lists in symbolic formulas",
+      "Direct and symbolic independently checked examples"
+    ],
+    "rationale": "The natural reconfiguration question asks whether minimum guards on a basic Cartesian grid can be moved without adding guards or losing coverage. A sharp entire-family decomposition into two mobile double-brooms and a linearly growing frozen stratum is a substantive graph invariant; exact component diameters, degrees and counts are not implied by the known domination number or minimum-set count. This determines feasible optimal transformations and exact obstructions.",
+    "residual_risks": [
+      "No theorem for wider grids is implied or claimed."
+    ],
+    "status": "PASS"
+  }
+}
