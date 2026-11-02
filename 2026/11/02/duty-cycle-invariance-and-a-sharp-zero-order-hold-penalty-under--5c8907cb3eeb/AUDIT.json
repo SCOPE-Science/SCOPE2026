@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Exact variation-of-constants gives a Gaussian one-period multiplier. Conditional Itô isometry yields \\(R(K)=(G+\\int_S v)^2+\\sigma^2\\int_S v^2\\); decomposition into mean and centered \\(L^2\\) parts gives the global minimum and unique exponential waveform. Independent period increments give skeleton decay exactly when \\(R<1\\), and bounded intermediate-period multiplier extends equivalence to continuous time. Completing the square for constant \\(K\\) gives the exact \\(I^2/J=(2/a)\\tanh(a\\tau/2)\\) ZOH duration and strict margin ratio. The standalone checker passed 23,700 arithmetic, alternative-control and Gaussian moment tests. Its finite checks are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng and Chen give a general necessary-and-sufficient Riccati-type criterion for unconstrained periodic sampled feedback with control-linear noise. Their criterion is broader in state dimension and *does* cover the unrestricted scalar existence question abstractly.",
+        "Wang and Fridman study stochastic PDE observers with zero-order and generalized holds but sufficient LMIs; Kabamba treats generalized holds, control robustness and noise rejection in a different deterministic framework."
+      ],
+      "reasoning": "General unrestricted feedback existence does not settle whether a waveform forced to vanish off a specified measurable subset stabilizes or whether only total support length matters. The current constrained support theorem also covers periodically nonconstant a,b, outside the constant-matrix setup of the motivating criterion. A specific derivation from a more general pre-existing input-constrained theorem has not been identified.",
+      "searches": [
+        "arxiv:2609.30438v1",
+        "doi:10.1137/22M1538247",
+        "doi:10.1109/TAC.1987.1104711",
+        "sampled stochastic linear system control dependent noise generalized sampled data hold optimal noise margin scalar stability"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "General unrestricted periodic sampled control-linear noise result; existence criterion already established, no checked support-window or ZOH formula",
+        "source": "Cheng and Chen (2026), arXiv:2609.30438v1"
+      },
+      {
+        "comparison": "Sample-and-hold stochastic Lyapunov conditions; not exact actuator-noise waveform optimality",
+        "source": "Osinenko and Yaremenko (2021), arXiv:2105.07152"
+      },
+      {
+        "comparison": "Sufficient LMIs for PDE observer feedback, distinct setting",
+        "source": "Wang and Fridman (2024), doi:10.1137/22M1538247"
+      },
+      {
+        "comparison": "Communication SNR constraint; input-noise placement differs",
+        "source": "Rojas et al. (2018), doi:10.23919/ACC.2018.8431714"
+      },
+      {
+        "comparison": "Foundational generalized deterministic hold; no verified control-linear Brownian optimum",
+        "source": "Kabamba (1987), doi:10.1109/TAC.1987.1104711"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior general sampled feedback stabilizability theorem logically supports a broader unrestricted existence framework but does not itself assert a constrained active-window frontier.",
+        "The sample-and-hold stochastic stabilization source uses Lyapunov sufficiency, not exact all-parameter minimax second-moment contraction.",
+        "The comparison formula distinguishes two admissible controller classes for one identical scalar actuator-noise SDE; previously reported generalized-hold advantages in stochastic PDEs arise under a different model and sufficient LMI conditions."
+      ],
+      "reasoning": "It would be incorrect to relabel the previously proved general stabilizability criterion as original. The distinct final claim is the explicit constrained duty-window optimizer, support-location invariance for periodic coefficients, and exact strict ZOH threshold penalty. Existing theorems do not entail these quantities without additional substantive functional optimization and specific support constraints.",
+      "searches": [
+        "arxiv:2609.30438v1",
+        "arxiv:2105.07152",
+        "doi:10.1137/22M1538247",
+        "sampled-data stochastic control multiplicative actuator noise optimal hold window sampling period mean-square stability scalar",
+        "zero order hold stochastic actuator noise sampling shaped hold tanh(a tau/2) mean square stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A sampled interval's noisy multiplier is Gaussian with second moment (G+integral v)^2+sigma^2 integral v^2. The present claim optimizes this expression subject to a prescribed on-window and proves its invariance under arbitrary measurable window rearrangements.",
+        "The source's sampled-control Riccati fixed-point formulation does not state the support-restricted, time-varying scalar frontier or an active-window location-invariance equivalence."
+      ],
+      "reasoning": "Potential aliases include generalized sampled-data hold, input-dependent diffusion, actuator-noise control, duty-cycle sampling, and Brownian input gain. Published comparators use general Riccati criteria, Lyapunov conditions or different noise channels, without an explicit equivalent statement in the material read.",
+      "searches": [
+        "sampled-data stochastic control multiplicative actuator noise optimal hold window sampling period mean-square stability scalar",
+        "control-linear noise sampled actuation window support measure optimal waveform stability",
+        "arxiv:2609.30438v1",
+        "arxiv:2105.07152"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is an all-positive-real-parameter and all-measurable-support functional optimization theorem, not a pre-existing finite lookup table or a tabulated numerical constant.",
+        "No inspected source tabulates the hyperbolic cotangent-shaped versus constant-hold margin or the exact window-duration cutoff for Brownian actuator noise."
+      ],
+      "reasoning": "This check concerns exact quoted formulas and precomputed control-design threshold tables; the object is an analytic continuum law rather than a finite data object. No matching published exact table appeared in the performed searches.",
+      "searches": [
+        "control-linear noise sampled actuation window support measure optimal waveform stability",
+        "zero order hold stochastic actuator noise sampling shaped hold tanh(a tau/2) mean square stability",
+        "arxiv:2609.30438v1",
+        "doi:10.23919/ACC.2018.8431714"
+      ]
+    },
+    "rationale": "The source's broad Riccati existence criterion is acknowledged as prior coverage of the unconstrained constant-plant existence question. No checked work was found to state or imply directly the exact support-restricted time-varying scalar actuator-noise minimum, active-set placement invariance, and the explicit strictly positive shaped-versus-constant-hold noise-margin ratio. Related stochastic PDE generalized-hold results provide sufficient LMIs, not this sharp scalar identity. This remains best-knowledge priority, not proof of uniqueness in the literature.",
+    "residual_risks": [
+      "The scalar unrestricted part is a direct specialization of a published general Riccati criterion and is not separately claimed to be new.",
+      "Older generalized-hold noise-rejection papers, especially the inaccessible full texts of Kabamba (1987) and Rojas et al. (2018), might contain a translated equivalent; their accessible abstracts describe different models but are not exhaustive priority checks.",
+      "No independent literature-priority assessment was performed; absence of search hits is not a mathematical novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad unrestricted sampled-feedback existence is prior; no exact prescribed arbitrary support-set threshold or time-varying scalar placement invariance, and no closed-form shaped versus ZOH margin was located",
+        "evidence": "Cheng and Chen, arXiv:2609.30438v1, submitted 2026-09-24, main theorem and discussion of critical sampling/noise frontiers",
+        "identifier_or_url": "https://arxiv.org/html/2609.30438",
+        "material_read": "HTML introduction, dynamical model, main Riccati stabilizability theorem and numerical example; searched for scalar and support-restricted formulas",
+        "method": "Read available open-access HTML sections and compare mathematical hypotheses and conclusions",
+        "title": "Feedback Stabilization for Sampled Linear Systems with Control-linear Noise",
+        "trigger": "Same input-linear Itô diffusion and periodically sampled measurement as the candidate theorem"
+      },
+      {
+        "assessment": "Addresses practical stochastic sample-and-hold stabilization with Lyapunov criteria, not exact Brownian control-linear waveform optimization",
+        "evidence": "Osinenko and Yaremenko, arXiv:2105.07152, source introduction and central stability results",
+        "identifier_or_url": "https://arxiv.org/pdf/2105.07152",
+        "material_read": "Open-access PDF text of setup, main Lyapunov framework and stability conclusions; checked opening page visually",
+        "method": "Read paper text and inspect PDF page image, compare noise and controller class",
+        "title": "On stochastic stabilization of sampled systems",
+        "trigger": "Potentially covering general sample-and-hold stochastic stabilization"
+      },
+      {
+        "assessment": "Results concern stochastic PDE and observer-based LMI sufficient conditions; no verified exact scalar Brownian actuator-noise threshold; full-text priority remains unverified",
+        "evidence": "SIAM J. Control Optim. 62 (2024), abstract",
+        "identifier_or_url": "https://doi.org/10.1137/22M1538247",
+        "material_read": "Publisher abstract and bibliographic metadata only; article body not accessible",
+        "method": "Compared published abstract's noise class and sufficient LMI conclusions",
+        "title": "Sampled-Data Finite-Dimensional Observer-Based Control of 1D Stochastic Parabolic PDEs",
+        "trigger": "Same qualitative distinction between generalized and zero-order holds under stochastic disturbances"
+      },
+      {
+        "assessment": "Described channel-noise/data-rate setting differs from the current diffusion control law; inaccessible full text retains modest priority uncertainty",
+        "evidence": "Rojas, Haimovich and Sbarbaro, ACC 2018 abstract",
+        "identifier_or_url": "https://doi.org/10.23919/ACC.2018.8431714",
+        "material_read": "Abstract and bibliographic metadata only; complete primary text not obtained",
+        "method": "Compared network-channel SNR constraints with input-multiplicative Brownian SDE",
+        "title": "On the Effect of Sampled-Data Hold and Discretization in Signal-to-Noise Ratio Constrained Control",
+        "trigger": "Potential prior exact hold-shape versus noise-margin comparison"
+      },
+      {
+        "assessment": "Foundational hold synthesis but no verified identical stochastic actuator-noise threshold; full-text priority uncertainty remains",
+        "evidence": "Kabamba, IEEE Trans. Autom. Control (1987), abstract synopsis",
+        "identifier_or_url": "https://doi.org/10.1109/TAC.1987.1104711",
+        "material_read": "Abstract-level synopsis and bibliographic metadata only; primary full text not obtained",
+        "method": "Compared deterministic pole assignment and noise-rejection scope",
+        "title": "Control of Linear Systems Using Generalized Sampled-Data Hold Functions",
+        "trigger": "Foundational generalized-hold and noise-rejection mathematics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c8907cb-3eeb-4406-8b6e-1955e3d42a68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp actuator-on duration \\(\\ell>\\sigma^2(G^2-1)\\), regardless of on-window location or periodic coefficient profile, directly solves a meaningful duty-budget design problem not determined by a generic Riccati existence test. The precise strictly larger noise margin of shaped holds, relative to implementable constant holds, creates nonempty parameter regimes with proven stabilization by one class and impossibility by the other; for \\(a=\\tau=b=1\\) and \\(\\sigma^2=0.15\\) these minima are respectively 0.9637899 and 1.031766. The scope excludes peak-actuator constraints, higher-dimensional models and observation noise; such restrictions can invalidate placement invariance.",
+    "status": "PASS"
+  }
+}
