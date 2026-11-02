@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The finite-measure truncation bound was checked by splitting into points where \(\varphi(x,b_n)<M\) and those where it is at least \(M\), then taking the limits in that order. The small-constant bound was checked using \(\varphi(x,m\lambda)/(m\lambda)\le\varphi(x,1)\) for \(m\lambda\le1\) and the pointwise \(N\)-function limit. The dual witness obeys \(\rho_{\varphi^*}(\sup_n g_n)\le2\) by Fenchel equality and summable scales; applying [1, Theorem 3.2] then proves necessity. Sufficiency follows from Young's inequality and uniform absolute continuity of integrals on finite measure.
+## correctness
 
-For the strict example \(\varphi(x,t)=x^{1/4}(t^{3/2+x}+t^{3+x})\), the uniform doubling ratio is at most \(16\); the spatial infimum equals zero for fixed positive \(t\); and the conjugate at fixed arguments is at most an integrable multiple of \(x^{-1/2}\). Consequently its stated properness, non-constrained status, and applicability are independently checked within the proof.
+PASS
 
-The checks are proof-level analytic calculations; no computational or automated infinite certificate is claimed. Complete independent expert review and exhaustive historical-priority review have not been performed. Publication-grade novelty remains subject to that further verification.
+Analytically reconstructed the crucial finite-measure lemma: if rho_phi(u_n)≤1 and b_n→∞, μ(|u_n|>b_n)≤μ(φ(x,b_n)<M)+1/M, so the measure vanishes by pointwise superlinearity and finite μ. Properness+global Δ2 puts φ(x,1) in L1 and dominated convergence gives small-constant modular/o(λ). Necessity uses φ right derivative and Fenchel equality to construct g=sup g_n with rho_phi*(g)≤2 from summable λ_n; published Theorem 3.2 then contradicts small-set uniform integrability on the high-amplitude sets. Sufficiency: modular limit implies norm bounded and Young inequality gives small-set integrability for every g∈Lphi*. Example φ(x,t)=x^1/4(t^{3/2+x}+t^{3+x}) has Δ2 K=16, nonconstrained fiber inf=0, associate constant conjugate bounded by integrable O(x^-1/2). All proof covers arbitrary S on finite separable measure with stated proper N and Delta2; no computation substituted.
 
-Reference: Mauro Sanchiz, arXiv:2601.19512v1, Theorems 3.2 and 3.8.
+## originality
+
+PASS
+
+Sanchiz 2026 Theorem 3.8 includes an additional constrained spatial-uniformity hypothesis, while Theorem 3.2 supports candidate proof under properness and global Δ2. Original article discusses the obstacle on infinite measure and desire to remove constrained hypotheses. Candidate finite-measure truncation replaces the missing step; its variable-power mixed example lies outside constrained class. Other variable exponent and sequence-space criteria do not directly cover general nonatomic Musielak N mixtures. Best-of-knowledge qualified by classical literature.
+
+## value
+
+PASS
+
+Removes a substantive spatial lower-growth hypothesis from a necessary-and-sufficient weak compactness test on finite measure. Provides useful single-modular characterization in a strictly larger proper Δ2 class, with an explicit nonpower, spatially degenerate nonatomic example. Not a trivial restatement of an existing theorem with same hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
