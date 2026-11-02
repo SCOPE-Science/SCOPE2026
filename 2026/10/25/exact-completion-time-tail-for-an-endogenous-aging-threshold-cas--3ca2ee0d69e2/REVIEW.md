@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite-chain reduction follows from the invariant single arc, with transition rates two before the last nonadopter and one at the last nonadopter. The simple eigenvalue \(-1\) has explicit left/right eigenvectors giving amplitude \(2^{m-1}\); the remaining \(-2\) Jordan modes decay one power faster up to logarithms. A gamma-function product proves the \(t^{-1}\) coefficient and the moment boundary. The accompanying exact-rational checker independently verifies 63 finite-time chains and the first three closed forms; these checks are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The original 2022/2023 aging-threshold paper explicitly observes reciprocal nonadopter density and computes single-vertex nonactivation. It does not state the exact absorption-time law for seeded cycles, the two-front spectral amplitude, or the all-positive-moments cutoff. Relevant search records and older non-Markovian opinion/aging literature did not identify a dominating theorem. Known density decay and classical matrix spectral machinery are credited. Full priority cannot be established by finite search; older related full texts were not all accessible.
+PASS
 
-## Value — PASS
-The exact completion time addresses an identifiable mismatch between apparently rapid near-total adoption and arbitrarily long rare final holdouts. The natural observable \(T_m\) is mathematically central to full-consensus questions, and the explicit family of gamma amplitudes captures the influence of the original number of nonadopters beyond mere decay order. The infinite mean, despite almost sure completion, is relevant to when averaged times should be censored or replaced with quantiles.
+For adjacent initial adopters and threshold 0<theta<1/2, the nonadopter set remains one contiguous arc. Given k≥2 remaining, two boundary sites are eligible; for k=1 exactly one. During sweep s there are N=m+2 independent with-replacement draws and per-draw activation probability 1/(s+2), so the one-draw transition is I+Q/[N(s+2)] and the exact t-sweep survival is e_m^T F_t(Q)u. The transient lower-bidiagonal generator has simple eigenvalue -1, right eigenvector v_k=2^(k-1), left e_1, and all others -2, hence leading spectral projection amplitude 2^(m-1). Gamma product identity gives F_t(z)=t^z/Gamma(2+z/N)^N(1+O(t^-1)); its derivatives at -2 contribute only O(t^-2 log^(m-2)t). Thus tail exactly 2^(m-1)/Gamma(2-1/N)^N /t, almost sure absorption, E[T^q]<infinity iff q<1. Independent exact rational Markov simulation checked 63 (m,t) instances m=1..7, t=0..8, and m=2,3 closed forms. The distinction between synchronous per-sweep aging and node-specific attempt aging is explicit in hypotheses.
 
-## Limits and citations
-The model fixes synchronous-in-sweep aging, adjacent seeds, a cycle, and threshold \(\theta<1/2\). It does not classify arbitrary graphs or exogenous aging. The closest model source is Abella et al., arXiv:2209.05990, especially Appendix A and Fig. 4; Richter et al., DOI:10.1103/PhysRevE.102.042308, and Takaguchi–Masuda, DOI:10.1103/PhysRevE.84.036115, are different aging or voter formulations, with only abstracts inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 Abella–San Miguel–Ramasco primary paper introduces the endogenous-aging threshold activation p_A(j)=1/(j+2), and observes reciprocal-time nonadopter density; it does not state a finite seeded cycle full-completion hitting-time distribution or sharp Gamma-amplitude. The new model explicitly synchronizes the age of remaining nonadopters at each complete sweep, a restricted but materially different clock convention from some source asynchronous aging implementations. Standard absorbing Markov spectral methods are not new. The exact finite-chain law and order-one heavy tail amplitude provide the surviving specialized result; literature on time-inhomogeneous absorption may implicitly cover it.
+
+## value
+
+PASS
+
+Full adoption time on a finite graph is a natural observable distinct from density relaxation or time to 90% adoption. The exact all-m finite-time law, positive 1/t tail with explicit geometry-dependent amplitude, and universal moment cutoff show almost-sure completion can coexist with an infinite mean; the two-front factor 2^(m-1) has structural meaning. The synchronized clock is a specific exactly solvable aging variant, not a theorem for every asynchronous aging implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

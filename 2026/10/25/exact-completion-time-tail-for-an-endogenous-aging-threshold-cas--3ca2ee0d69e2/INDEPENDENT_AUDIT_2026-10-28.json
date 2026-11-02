@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:56:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For adjacent initial adopters and threshold 0<theta<1/2, the nonadopter set remains one contiguous arc. Given k≥2 remaining, two boundary sites are eligible; for k=1 exactly one. During sweep s there are N=m+2 independent with-replacement draws and per-draw activation probability 1/(s+2), so the one-draw transition is I+Q/[N(s+2)] and the exact t-sweep survival is e_m^T F_t(Q)u. The transient lower-bidiagonal generator has simple eigenvalue -1, right eigenvector v_k=2^(k-1), left e_1, and all others -2, hence leading spectral projection amplitude 2^(m-1). Gamma product identity gives F_t(z)=t^z/Gamma(2+z/N)^N(1+O(t^-1)); its derivatives at -2 contribute only O(t^-2 log^(m-2)t). Thus tail exactly 2^(m-1)/Gamma(2-1/N)^N /t, almost sure absorption, E[T^q]<infinity iff q<1. Independent exact rational Markov simulation checked 63 (m,t) instances m=1..7, t=0..8, and m=2,3 closed forms. The distinction between synchronous per-sweep aging and node-specific attempt aging is explicit in hypotheses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abella et al study random networks/lattices and mean fractional nonadopter density (and practical 90% threshold), not exact t-sweep C_N completion distribution.",
+          "General finite Markov spectral theory covers methods but not the specific weighted amplitude without evaluating Q and F_t."
+        ],
+        "reasoning": "Neither empirical/mean-field asymptotics nor general Markov spectral calculus logically implies the exact event distribution absent the special arc-state reduction.",
+        "searches": [
+          "arxiv:2209.05990 original aging threshold model",
+          "Richter Henkel Böttcher 2020 aging equilibration",
+          "Resultary semantic: time-inhomogeneous finite Markov absorption polynomial generator"
+        ]
+      },
+      "checked_sources": [
+        "Abella–San Miguel–Ramasco arxiv:2209.05990 / PRE 107 024101 (2023)",
+        "Richter–Henkel–Böttcher PRE 102 042308 (2020)",
+        "Resultary aging cascade exact completion semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean density ~const/t may be consistent with, but does not specify, the distribution of the final adoption time, its positive tail amplitude or moment criterion.",
+          "A t^-1 mean-density law does not by itself yield a P(T>t) ~const/t completion law because density and last-survivor event are distinct, especially at finite N."
+        ],
+        "reasoning": "The specialization is not just a corollary of prior mean-density results; exact finite-state reduction and spectral coefficient are necessary. Classical Markov algebra is fully credited.",
+        "searches": [
+          "Abella San Miguel Ramasco (2023) figures of nonadopter density and time to 90%",
+          "standard time-inhomogeneous absorbing Markov chains gamma products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source paper employs per-attempt aging, threshold eligibility and approximate mean-density relaxation, rather than exact synchronous-sweep aging and complete adoption-time law.",
+          "Resultary returned other threshold models and age-structured population models, not this finite absorbing-chain statistic."
+        ],
+        "reasoning": "Compared both the stochastic update schedule and observable rather than relying on shared words; a cycle with synchronized per-sweep clock is a precise variant, and no equivalent complete hitting-time formula was located.",
+        "searches": [
+          "web query: aging threshold contagion cycle completion time exact survival reciprocal time infinite mean",
+          "Abella San Miguel Ramasco arxiv:2209.05990 2023 endogenous aging p_A(j)",
+          "Resultary query: endogenous aging threshold contagion on cycles exact full adoption tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Appendix computes a nonactivation product for one agent; not the 2^(m-1) weighted spectral projection of m-stage completion.",
+          "Own closed forms m=2: 2F_t(-1)-F_t(-2); m=3 includes -2F_t prime(-2), and rational finite checks reproduced them."
+        ],
+        "reasoning": "No accessible same-distribution table was found. A single-agent activation probability is a component of the process but not a full completion-time law.",
+        "searches": [
+          "Abella et al 2023 Appendix A no-activation product",
+          "Resultary query: exact full adoption time cycle aging 1/t tail coefficient"
+        ]
+      },
+      "rationale": "The 2023 Abella–San Miguel–Ramasco primary paper introduces the endogenous-aging threshold activation p_A(j)=1/(j+2), and observes reciprocal-time nonadopter density; it does not state a finite seeded cycle full-completion hitting-time distribution or sharp Gamma-amplitude. The new model explicitly synchronizes the age of remaining nonadopters at each complete sweep, a restricted but materially different clock convention from some source asynchronous aging implementations. Standard absorbing Markov spectral methods are not new. The exact finite-chain law and order-one heavy tail amplitude provide the surviving specialized result; literature on time-inhomogeneous absorption may implicitly cover it.",
+      "residual_risks": [
+        "Earlier general time-dependent absorbing birth–death-chain formula may already imply this sharp cycle special case.",
+        "Source uses sometimes node-attempt age while the result assumes synchronous sweep-wide aging; never conflate the two models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state this explicit synchronized-cycle finite completion law; distinction in age clock is important",
+          "evidence": [
+            "Sec II p_A(j)=1/(j+2), numerical reciprocal-time nonadopter density, 90% adoption horizon figure; Appendix A single-node product"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.05990",
+          "material_read": "Full primary open PDF (12 pages), including mathematical model §II, activation probability, sequential asynchronous update rules, numerical density plots and Appendix single-site products",
+          "method": "Read substantive full text and PDF page rendering; compared update convention, initial state and adoption-time statistic",
+          "title": "Aging in binary-state models: The Threshold model for complex contagion",
+          "trigger": "Introduces same aging activation mechanism p_A(j) and numerical diffusion observations"
+        },
+        {
+          "assessment": "Different bistable process; no assertion about whole unread document",
+          "evidence": [
+            "Abstract concerns aging and equilibration in bistable contagion"
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.102.042308",
+          "material_read": "Bibliographic page and accessible abstract; not a complete full-text reading",
+          "method": "Compared model class and published abstract only",
+          "title": "Aging and equilibration in bistable contagion dynamics",
+          "trigger": "Background on aging-induced slowing of contagion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full adoption time on a finite graph is a natural observable distinct from density relaxation or time to 90% adoption. The exact all-m finite-time law, positive 1/t tail with explicit geometry-dependent amplitude, and universal moment cutoff show almost-sure completion can coexist with an infinite mean; the two-front factor 2^(m-1) has structural meaning. The synchronized clock is a specific exactly solvable aging variant, not a theorem for every asynchronous aging implementation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Abella–San Miguel–Ramasco arxiv:2209.05990 / PRE 107 024101 (2023)",
+    "Richter–Henkel–Böttcher PRE 102 042308 (2020)",
+    "Resultary aging cascade exact completion semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "N=m+2≥3, adjacent seeds, theta strictly between 0 and 1/2, independent with-replacement N draws per sweep, synchronized age p_s=1/(s+2).",
+    "No prediction for nonsynchronized node-age update conventions, larger thresholds or arbitrary networks."
+  ],
+  "residual_risks": [
+    "Earlier general time-dependent absorbing birth–death-chain formula may already imply this sharp cycle special case.",
+    "Source uses sometimes node-attempt age while the result assumes synchronous sweep-wide aging; never conflate the two models."
+  ],
+  "schema_version": 1
+}
