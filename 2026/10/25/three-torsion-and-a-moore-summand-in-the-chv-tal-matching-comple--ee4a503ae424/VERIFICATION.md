@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Use Python 3.10 or newer and run `python3 verify.py`. The source embeds the complete graph edge list and deterministic face-poset matching procedure; it does not download data, invoke optional libraries, or require remote services. The captured `verify_output.txt` comes from executing that exact file.
+## correctness
 
-The verifier independently reconstructs all matching faces, checks 24 edges and graph regularity/triangle-freeness, counts face incidences and matched/critical faces, proves matching acyclicity by exhausting all 2835 Hasse vertices, recomputes the signed 34-by-6 Morse boundary, computes 5-by-5 and 6-by-6 determinants with exact integer arithmetic, checks its ranks modulo 2, 3 and 5, and computes boundary ranks directly on the raw complex over fields with 2, 3, 5 elements. The 5-by-5 determinant -1 and 6-by-6 determinant 3 together with rank five modulo three prove integral invariant factors (1,1,1,1,1,3). Forman's discrete Morse equivalence and the homotopy classification in `RESULT.md` are mathematical deductions from these checked finite data.
+PASS
 
-Limits: The script tests this one fully specified finite graph and does not itself confirm any external literature's uniqueness or provide independent scientific certification. The original Chvátal note's full text could not be inspected. The independent audit status remains not performed.
+The exact 12-vertex, 24-edge Chvatal graph is specified without a library labeling. A new, separately written enumerator reconstructed the 2,835 nonempty matchings, face vector (24,204,752,1175,628,52), 1,397 disjoint discrete-Morse pairs and an acyclic orientation of all 10,816 nonempty Hasse incidences. The surviving one-vertex CW complex has 34 cells in dimension 3 and 6 in dimension 4. An independent signed gradient-boundary computation recovered the exact 5x5 unimodular minor -1, 6x6 determinant 3, rank 5 modulo 3 and rank 6 modulo 2 and 5; hence the Smith factors are (1,1,1,1,1,3). The three-skeleton is a wedge of 34 three-spheres and is 2-connected; Hurewicz classifies all four-cell attaching maps by the columns of this integral boundary, and unimodular bases yield 28 free three-spheres plus a Moore M(Z/3,3). This is exhaustive finite mathematics, not partial search; no other graph is claimed.
+
+## originality
+
+PASS
+
+The final assertion is a graph-specific *homotopy equivalence*, not a generic statement that matching complexes have torsion. Jonsson analyzes matching complexes of complete graphs; Bayer–Jelic Milutinovic–Vega assume outerplanarity, impossible for a four-regular outerplanar graph; the indexed icosahedral and Grotzsch findings concern other graphs. No examined theorem entails the Chvatal Moore summand with 28 free three-spheres. Unindexed older calculations and the inaccessible original 1970 note remain genuine priority risks.
+
+## value
+
+PASS
+
+The Chvatal graph is a classical smallest triangle-free 4-regular 4-chromatic object, so the matching complex is an intrinsic and motivated topological invariant. Its exact Z/3 torsion and Moore summand distinguish it from the torsion-free Grotzsch matching complex and cannot be inferred from ordinary rational Betti numbers. A complete homotopy classification is useful even for this single canonical graph; this is not an unmotivated tiny parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
