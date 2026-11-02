@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full theorem is reduced to an exact edge-incidence identity for the fifteen edges, a five-threshold order in a fundamental azimuth sector, and integration of the Haar polar variable with the displayed inverse-sine antiderivative. Generic degeneracies are null sets; exact conditional values and positivity are proved for every positive height. The independent endpoint-angle mean identity, a second numerical quadrature, 1,200 threshold grids, and 240,000 sampled orientations corroborate the derivations. The code is not substituted for an infinite proof.
+## correctness
 
-**Originality — PASS relative to evidence, subject to historical risk.** The own accessible history was inspected for implication and duplicate claims, including a result for maximal sections of *even*-sided prisms, which does not imply a full four-type law for the five-sided prism. Targeted published-record searches and full texts of the nearest uniform-prism width and rectangular-box section laws do not cover the new object/observable combination. Lonke addresses central cube sections, not pentagonal prisms. The older Voss and Ohser–Mücklich stereological papers were available only in abstract; their inaccessible complete statements leave a concrete historical priority risk. Gulbin's accessible prism stereology uses affine cuts rather than central planes and cannot imply the theorem merely by substituting parameters. Failure to locate an exact older law does not prove global novelty.
+PASS
 
-**Value — PASS.** This determines a complete, natural four-atom distribution for central slices of the canonical uniform pentagonal prism and extends it across all positive prism aspects. The nonzero heptagonal mass and its two sharply different degeneration exponents distinguish genuine geometry not supplied by an expectation, width moment, or mere side-count bound; the formulas can be used in central-section stereology and orientation-sensitive polyhedral analysis.
+Verified the original five cosine thresholds are E<C<D<B<M in a 0<phi<pi/10 chamber; vertical edge crossing plus 0/2 crossings per pentagonal cap gives interval counts (4,5,6,7,6,5). Haar z=|u3| uniform on [0,1], conditional t=h z/sqrt(1-z²) CDF q/sqrt(h²+q²). Its primitive is F_h(theta)=asin(sin(theta)/sqrt(1+h²)); integration gives all four Δ_j formulas and total 1 with strictly positive interval measures for every h>0. Independently implemented original fifteen prism-edge intersection test and 210,000 random Gaussian normals at each h=0.15, sin(pi/5), 2.2; histograms agreed within ~0.0032, and only 4–7 sides observed. Exact edge-angle mean and endpoint Taylor coefficients agree. Monte Carlo supports but does not prove continuous/unbounded h or positivity; those follow from threshold/analytic derivation.
 
-**Closest literature and limitations.** Lonke (1998) supplies central cube methods. Voss (1982) and Ohser–Mücklich (1995) are potentially adjacent stereological precedents but their full texts were inaccessible; Gulbin (2008) distinguishes random-offset section sampling. Other exact polytope section laws and prism widths cannot algebraically recover the four pentagonal-prism masses. This work does not study affine-plane cuts, irregular bases, or the exact maximum of the heptagon probability.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lonke calculates central cube section expectations, and known regular-prism widths are a different random variable. Published rectangular-box section laws and polyhedral mean counts do not imply a pentagonal prism four-atom distribution for every h. Older Voss (1982) and Ohser–Mücklich (1995) could conceivably contain comparable pentagonal-prism formulas: abstracts/metadata only, neither whole-document coverage nor novelty can be concluded; institutional full-text request encountered disconnected VPN and must not be bypassed. Best-of-knowledge O PASS qualified on this actual priority risk.
+
+## value
+
+PASS
+
+A regular pentagonal prism is a canonical uniform solid. The entire four-mass central section-type law for all positive aspect ratios distinguishes quadrilateral/pentagon/hexagon/heptagon cases; the strictly positive heptagon probability has nontrivial different flat/tall degeneration exponents. The exact function is useful for random-section combinatorics and orientation stereology and is not mechanically determined by known expected side counts or solid widths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
