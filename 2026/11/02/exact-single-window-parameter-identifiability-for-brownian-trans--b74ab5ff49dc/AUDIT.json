@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Stationary Poisson age mixing gives Var(omega²)=20 Lambda⁴/alpha², exponential mobility-square covariance, a Gaussian-mixture fourth cumulant and exact closed form K(z). Strict derivative negativity proves the global inverse; integration over disjoint squared increments proves positive clustering. Feynman–Kac and renewal equations are explicitly resolved with correct equilibrium/fresh distinction and zero-frequency boundary. Standalone symbolic, quadrature, and independently simulated checks passed. CLT is weak only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miyaguchi–Akimoto–Yamamoto (2016) Appendix E derives a general relation between normalized fourth cumulants and diffusivity correlations.",
+        "Olsen–Löwen (2024) establishes a general partial-reset Fourier–Laplace identity for spatially homogeneous coupled systems.",
+        "These stronger general structures are explicitly treated as established ingredients, not new findings."
+      ],
+      "reasoning": "The general covariance-to-kurtosis and partial-renewal maps subsume their abstract steps. They do not state an explicit stationary squared-reset-Brownian covariance, its strictly monotone one-window fourth-order range, or this particular physical-parameter inverse. The exact-evaluated inverse theorem is narrower than the general formulas but requires additional model-specific deductions; it is assessed as an explicit natural inverse invariant, with residual risk of a broader inverse theorem.",
+      "searches": [
+        "arxiv:1605.00106v1 Appendix E",
+        "arxiv:2401.12685v1 Eq.(5)",
+        "stochastic volatility independent noise Gaussian mixture integrated square of resetting Brownian, variance and fourth cumulant",
+        "Exact Fourier-Laplace characteristic function of Brownian motion with diffusion coefficient given by square of Brownian motion, only the diffusivity Brownian driver is reset while the position remains unreset; renewal kernel cosh and Laplace resolvent"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2205.00549v1",
+      "arxiv:2401.12685v1",
+      "arxiv:1605.00106v1",
+      "arxiv:2506.08876v1 (abstract only)",
+      "published-finding corpus semantic searches: 8 actual queries",
+      "Accessible same-slot prior claims through current ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 model resets both position and mobility; its §7 explicitly proposes alternatives that reset only one.",
+        "The 2024 Eq.(5) covers generic quotient, not evaluated one-time inverse observability.",
+        "The 2016 Appendix E covers generic fourth-moment/covariance relation, not evaluated strict bijection for this model.",
+        "Santra–Olsen (2025) concerns stochastic kinetic energy renewals for underdamped Langevin particles, physically distinct."
+      ],
+      "reasoning": "The final claim does not require novelty of the first-reset transform or the integrated covariance functional. The closest sources provide these as lemmas; evaluating the mobility equilibrium fourth moment, all-time strict monotonicity and uniqueness of physical parameter inversion supplies a separate exact question not asserted in those texts. Stronger general frameworks are candidly identified, with priority limitation.",
+      "searches": [
+        "arxiv:2205.00549v1 §7",
+        "arxiv:2401.12685v1 §2 Eq.(5)",
+        "arxiv:1605.00106v1 Appendix E",
+        "arxiv:2506.08876v1 abstract",
+        "Exact identifiability of a Poisson resetting rate from single-time normalized kurtosis of Brownian displacement when only an unobserved squared-Brownian diffusivity is reset, with diffusivity volatility clustering exponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Santra–Basu–Sabhapandit (2022) Eq.(14) solves reset-free harmonic-oscillator kernel and §7 discusses diffusivity-only resetting as an alternative.",
+        "Olsen–Löwen (2024) Eq.(5) gives a generic Fourier–Laplace partial-reset quotient, which already covers the transform architecture; this is not novelty.",
+        "No evaluated bijective model-specific one-window fourth-order inverse map was found in the inspected primary texts."
+      ],
+      "reasoning": "Spatially homogeneous hidden-variable partial-reset propagators reduce to Olsen–Löwen Eq.(5), so the renewal quotient is equivalent to established theory. The checked 2022 joint-reset model has a stationary position; the studied partial reset has unbounded position and stationary increments. The asserted new invariant is the evaluated strictly one-to-one variance/kurtosis map with its exponential squared-increment law; neither direct renaming nor matching the generic quotient supplies the necessary model-specific covariance and global monotonicity.",
+      "searches": [
+        "Brownian motion with stochastically evolving diffusivity that is reset jointly with position: stationary temporal covariance, exact two-time correlations and diffusion coefficient",
+        "Santra Basu Sabhapandit 2022 Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient; resetting diffusion coefficient omega alone instead of resetting position, exact kurtosis 30(alpha t -1 + exp(-alpha t))/(alpha t)^2",
+        "Santra Basu Sabhapandit 2205.00549 diffusivity-only resetting of Brownian diffusivity; a priori propagator complete solution and diffusion Gaussianization",
+        "Exact identifiability of a Poisson resetting rate from single-time normalized kurtosis of Brownian displacement when only an unobserved squared-Brownian diffusivity is reset, with diffusivity volatility clustering exponential",
+        "arxiv:2205.00549v1 §7",
+        "arxiv:2401.12685v1 §2 Eq.(5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2016 Appendix E presents a generic non-Gaussianity parameter and a two-state diffusivity case, not a table of the evaluated reset-Brownian inverse map.",
+        "2022 gives the no-reset reset-free propagator and full-reset stationary position distributions, not values for diffusivity-only reset."
+      ],
+      "reasoning": "An extensive exact database of this continuous parameter-pair inverse is not applicable in the form of finite classifications or tables. The published exact formulas inspected do not give the two observed moment values, one-to-one inversion, or disjoint squared-increment covariance for this specific law.",
+      "searches": [
+        "Brownian yet non-Gaussian motion with diffusing diffusivity ω_t² where ω follows Brownian motion reset to zero at Poisson rate while particle position never resets: exact normalized kurtosis time crossover, normal diffusivity",
+        "Exact identifiability of a Poisson resetting rate from single-time normalized kurtosis of Brownian displacement when only an unobserved squared-Brownian diffusivity is reset, with diffusivity volatility clustering exponential",
+        "arxiv:2205.00549v1 §2, §7",
+        "arxiv:1605.00106v1 Appendix E"
+      ]
+    },
+    "rationale": "Original evaluated invariant is the full strictly invertible one-window variance/kurtosis map in a squared-Brownian mobility-only reset process, plus its exact disjoint squared-increment correlation signature; no equivalent evaluated map in primary text or accessible prior records. Generic 2024 partial-reset quotient and generic 2016 non-Gaussian covariance relation directly cover the general architecture and are expressly excluded from novelty. The primary 2022 paper leaves this partial-reset alternative open. Unrecognized broader inverse coverage remains possible.",
+    "residual_risks": [
+      "The generic partial-reset transform is covered by Olsen–Löwen (2024) and generic covariance-to-non-Gaussianity by Miyaguchi et al. (2016); neither ingredient is claimed as original.",
+      "Specialization may be recognized as a corollary of a broader not-identified inverse-identification theorem.",
+      "2025 kinetic-energy renewal paper compared at abstract level, not full text.",
+      "No exhaustive publication priority or independent scientific validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the evaluated partial-reset single-time inverse theorem; COVERS reset-free characteristic kernel.",
+        "evidence": [
+          "2022 Eq.(14): cosh reset-free Gaussian-mobility kernel.",
+          "2022 §7: future problems include resetting only position or only diffusion coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2205.00549v1",
+        "material_read": "Abstract, Sections 1–3 model and reset-free characteristic function Eq.(14), Sections 4–6 full resetting, Section 7 concluding open question.",
+        "method": "Read primary full text in HTML; compared reset maps and observed variables.",
+        "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+        "trigger": "Source model and authors explicitly identify diffusivity-only resetting as an open alternative."
+      },
+      {
+        "assessment": "COVERING generic renewal quotient; NOT IDENTIFIED as covering specific evaluated single-window kurtosis inverse and volatility-increment identity.",
+        "evidence": [
+          "2024 §2 Eq.(5): generic observed Fourier–Laplace renewal quotient under hidden-coordinate resetting.",
+          "2024 §3 application: position/velocity dynamics, not squared Brownian stochastic diffusivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.12685v1",
+        "material_read": "Sections 1–2, especially entire general propagator derivation Eq.(1)–(5) and spatial homogeneity; Section 3 transport applications and conclusion.",
+        "method": "Read primary full HTML and compared generic result to the special-case transform and inverse moments.",
+        "title": "Dynamics of inertial particles under velocity resetting",
+        "trigger": "General hidden-variable partial-reset propagator that could dominate the current formula."
+      },
+      {
+        "assessment": "COVERING generic conditional-Gaussian covariance-to-kurtosis functional; NOT IDENTIFIED as covering model-specific monotone inverse law.",
+        "evidence": [
+          "2016 Appendix E: general non-Gaussian parameter and diffusivity covariance relation.",
+          "2016 model: two-state fast/slow diffusivity, distinct from reset-Brownian squared diffusivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.00106v1",
+        "material_read": "Abstract, model/propagator analysis, Appendix E non-Gaussian parameter Eq.(163) and subsequent covariance-functional comparison.",
+        "method": "Read primary full HTML and inspected generic moment relations and two-state assumption.",
+        "title": "Langevin equation with fluctuating diffusivity: a two-state model",
+        "trigger": "Possible stronger fourth-moment/non-Gaussian covariance formula."
+      },
+      {
+        "assessment": "Abstract implies a different kinetic-energy renewal model; material full-text comparison not performed, residual risk stated.",
+        "evidence": [
+          "2025 abstract: kinetic energy renewed to fixed value, underdamped Langevin dynamics, non-Boltzmann stationary energy and effective diffusivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.08876",
+        "material_read": "Title, complete abstract and model comparison; full text not inspected.",
+        "method": "Read arXiv abstract and publisher/public abstract describing underdamped Langevin kinetic energy renewals.",
+        "title": "Brownian motion with stochastic energy renewals",
+        "trigger": "Plausible more recent nearby partial-energy resetting paper by an originating author."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b74ab5ff-49dc-45b9-a074-3e353acb63ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mean-square slope alone identifies only the ratio Lambda²/alpha. The exact, dimension-universal one-window fourth-cumulant shape has sharp full range (0,5), strict monotonicity, and uniquely separates both physically motivated reset parameters. Independent nonoverlap squared-displacement clustering yields a measurable rate signature. This exact natural inverse theorem addresses the diffusivity-only reset alternative from the original model, beyond generic renewal formulas; no finite-sample accuracy or statistical stability claimed.",
+    "status": "PASS"
+  }
+}
