@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 2025 torus-grid homotopy theorem supplies the exact rational homology concentration for every integer \(k\ge2\). The proof reconstructs the coordinate-orbit diameter bound, classifies every nontrivial translation fixing a simplex, counts the \(3k^2\) axial fixed triangles including orientation signs, and applies Lefschetz and the permutation-module character formula. Direct finite checks for \(k=2,3\) reproduce the character values. The independently validated 432-pair Morse certificate proves the known \(k=2\) homotopy claim; the infinite step explicitly relies on the published theorem. No unproved infinite extrapolation is made.
+## correctness
 
-**Originality — PASS, with residual risk.** The exact same-object 2025 theorem of Adams et al. already covers the entire nonequivariant sphere-wedge type; that result is not attributed to this finding. Inspection of its accessible primary full text, especially Theorem 5.10 and the facet and homotopy sections, found no result describing the translation module. The 2015 circle result concerns one-dimensional cycles, and the 2016 torus thesis uses the maximum-product metric rather than the graph shortest-path sum metric. Searches of research records on toroidal Rips symmetry, order-three translations, character multiplicities and equivalence to coset permutation modules showed no direct coverage. A currently inaccessible full research-record item or unindexed treatment may have equivalent formulas; summaries and search failure do not prove uniqueness.
+PASS
 
-**Value — PASS.** The result identifies the complete symmetry organization of \(6k^2-1\) homology generators in an infinite family at the first critical torus scale. The natural two-direction coset decomposition, unusual trace jumps on only four order-three translations, and exactly one translation-invariant two-cycle are invisible to the known rank/homotopy count and provide computable quotient-topology and symmetry information. This is a structural invariant, not another small table entry or a mere restatement of the wedge-sphere formula.
+The published same-object Theorem 5.10 of Adams–Adetowubo–Barriga-Acosta–Feng–Sterling states nonequivariant K_k≈vee^(6k²-1)S² for k>=2, so only H0 and H2 occur rationally. A nonidentity translation preserving a simplex must have coordinate orders 1 or 3; nonzero entries in both coordinates yield orbit distance 2k>k. Exactly four axial translations ±(k,0), ±(0,k) remain; a fixed clique must be one three-point axial orbit triangle, of which 3k² exist, each orientation-preserving, giving Lefschetz L=3k². All other nonzero shifts fix no nonempty simplex, L=0; subtract trace H0=1. The resulting class function is the character of Q[G/Hx]+Q[G/Hy]-trivial, semisimple over Q, giving multiplicity 1_{3|u}+1_{3|v}-1_{(u,v)=0}; exactly one G-invariant line. Independent enumeration of all 888 faces and all 36 translations for k=2 yielded traces {23:1,11:4,-1:31}; the original verifier also checks k=3 and original Morse certificate covers only k=2. Infinite k uses the published theorem and a general orbit argument, not finite extrapolation.
 
-**Scientific limits.** Only rational translation modules and rational quotient homology are determined. No integral representation, full automorphism-group module, independent human review or claim of novelty beyond accessible literature is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete rational *translation* character and two coset-permutation module formula. The 2025 original toroidal-grid Rips paper proves the entire nonequivariant sphere wedge and 6k²-1 rank and is credited; its complete primary text does not state the translation module. Other published toroidal cut complexes or scale-two grids use different functors/metrics.
+
+## value
+
+PASS
+
+A closed equivariant representation for every critical torus size gives exact character multiplicities, four exceptional translations, and the quotient rational homology, all mathematically natural structure unavailable from the published Betti number alone; its clean coset decomposition is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

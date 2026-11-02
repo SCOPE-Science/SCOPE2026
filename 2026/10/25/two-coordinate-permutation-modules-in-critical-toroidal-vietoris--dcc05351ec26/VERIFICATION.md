@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof's uniform input is the published homotopy theorem for \(\operatorname{VR}_{\le k}((\mathbb Z/3k\mathbb Z)^2)\), \(k\ge2\), together with the directly proved orbit-diameter and fixed-simplex lemmas. The character calculation uses the oriented simplicial Lefschetz formula; the group-module identification uses finite-group rational semisimplicity. No integral splitting or equivariant homotopy equivalence is verified.
+# Independent mathematical audit
 
-Execute `python3 verify.py` from this directory with `morse_certificate.json` beside it. This requires only Python's standard library. The verifier reconstructs the full simplex sets for \(k=2,3\), their Euler characteristics, all 36/81 translations, fixed oriented simplices, predicted traces and Fourier multiplicity totals. It also validates an exhaustive 432-pair acyclic discrete-Morse matching for \(k=2\), with critical vector \((1,0,23,0,0)\), proving the known 23-sphere homotopy type independently in that finite case. The recorded run is in `verification_output.txt`.
+## correctness
 
-Finite enumeration is not offered as a proof for arbitrary \(k\). The all-\(k\) claim is obtained by the general published homotopy theorem and the elementary proof in `RESULT.md`. No independent scientific audit has been performed.
+PASS
+
+The published same-object Theorem 5.10 of Adams–Adetowubo–Barriga-Acosta–Feng–Sterling states nonequivariant K_k≈vee^(6k²-1)S² for k>=2, so only H0 and H2 occur rationally. A nonidentity translation preserving a simplex must have coordinate orders 1 or 3; nonzero entries in both coordinates yield orbit distance 2k>k. Exactly four axial translations ±(k,0), ±(0,k) remain; a fixed clique must be one three-point axial orbit triangle, of which 3k² exist, each orientation-preserving, giving Lefschetz L=3k². All other nonzero shifts fix no nonempty simplex, L=0; subtract trace H0=1. The resulting class function is the character of Q[G/Hx]+Q[G/Hy]-trivial, semisimple over Q, giving multiplicity 1_{3|u}+1_{3|v}-1_{(u,v)=0}; exactly one G-invariant line. Independent enumeration of all 888 faces and all 36 translations for k=2 yielded traces {23:1,11:4,-1:31}; the original verifier also checks k=3 and original Morse certificate covers only k=2. Infinite k uses the published theorem and a general orbit argument, not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete rational *translation* character and two coset-permutation module formula. The 2025 original toroidal-grid Rips paper proves the entire nonequivariant sphere wedge and 6k²-1 rank and is credited; its complete primary text does not state the translation module. Other published toroidal cut complexes or scale-two grids use different functors/metrics.
+
+## value
+
+PASS
+
+A closed equivariant representation for every critical torus size gives exact character multiplicities, four exceptional translations, and the quotient rational homology, all mathematically natural structure unavailable from the published Betti number alone; its clean coset decomposition is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
