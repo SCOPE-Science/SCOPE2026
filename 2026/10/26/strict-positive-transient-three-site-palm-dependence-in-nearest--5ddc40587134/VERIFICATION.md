@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytical and executable verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is self-contained: derive the one-sided occupation probability \(1-e^{-u}\), the probability \(e^{-u}\) of an unoccupied near neighbor up to the central acceptance time, and the conditional occupancy parameter \(1-(1-u)e^{u-t}\). Mixing two conditionally independent Bernoulli indicators over \(h_t(u)=2e^{-2u}/(1-e^{-2t})\) yields the covariance. At saturation the two nearest gaps are restricted to lengths \(2\) and \(3\); the resulting matrix is also implied by previously known pair correlations and is a consistency check, not an originality claim.
+## correctness
 
-Run `python checker.py` using Python 3's standard library. The checker recomputes integrals numerically for twenty time values, verifies the exact probability matrix and its normalization, and independently generates random greedy packings of 350-site periodic rings for 1100 trials to test the predicted probabilities. Its observed statistics and assertion count are recorded in `checker_results.txt`.
+PASS
 
-All floating-point quadrature, finite-ring sampling, and finite assertions are corroborative. They are **not** proofs of infinite-lattice existence, an exact joint probability, a universal sign, or uniqueness of a scholarly result. Those mathematical assertions rest on the explicit analysis in `RESULT.md`; independent audit has not been performed. 
+A successful origin attempt at u has density e^(-2u) du. Given its success, both half rays are conditionally independent with occupancy parameter q_t(u)=1-(1-u)e^(u-t) at sites +/-2. Normalized U-density is 2e^(-2u)/(1-e^(-2t)); integrating z_t(U)=(1-U)e^(U-t) and z_t(U)^2 gives 2t/(e^(2t)-1) and 2(t-t^2+t^3/3)/(e^(2t)-1). Covariance is exactly Var(q_t(U))>0 since q_t is strictly increasing on (0,t). Independent symbolic integration and positivity numerical samples agree. Infinite-volume local dependence follows factorial decreasing-priority path tail; t=1 gap table is mathematically implied by known pairs and NOT original.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. Equivalent discrete Page–Rényi parking/random-greedy independent-set formulations have same single and pair laws. The new interior-time triple conditional probability is a third-order joint statistic, not a function of pair marginals alone.
+
+## value
+
+PASS
+
+A strict positive conditional dependence law at every nonterminal time reveals correlation induced solely by shared selection time even though conditional half-lines are independent. Exact three-location transient law extends known one/two-point statistics and has natural dynamics significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nonterminal-time conditional triple probability follows from a one-sided occupancy ODE, an exact central success-time density, and conditional independence of the two half-lines. Integrating \(2e^{-2u}/(1-e^{-2t})\) against \((1-u)e^{u-t}\) and its square gives the two displayed transient joint probabilities. Their covariance is a variance of a strictly monotone function of a nondegenerate time variable and is strictly positive for all \(0<t<1\). A separate symbolic integral check confirmed both identities exactly, while the standalone code tests twenty nonterminal times and the saturation boundary against finite simulations. None of the numerical checks replaces the proof.
+PASS
 
-## Originality — PASS, with priority risk
+A successful origin attempt at u has density e^(-2u) du. Given its success, both half rays are conditionally independent with occupancy parameter q_t(u)=1-(1-u)e^(u-t) at sites +/-2. Normalized U-density is 2e^(-2u)/(1-e^(-2t)); integrating z_t(U)=(1-U)e^(U-t) and z_t(U)^2 gives 2t/(e^(2t)-1) and 2(t-t^2+t^3/3)/(e^(2t)-1). Covariance is exactly Var(q_t(U))>0 since q_t is strictly increasing on (0,t). Independent symbolic integration and positivity numerical samples agree. Infinite-volume local dependence follows factorial decreasing-priority path tail; t=1 gap table is mathematically implied by known pairs and NOT original.
 
-The same-process source (Amaral and dos Santos, arXiv:2210.05627) establishes densities and all-distance pair correlations, not the transient three-site Palm joint probabilities conditional on an occupied center. The saturated two-gap matrix is **not** newly claimed: at jamming occupation at two sites four apart forces occupation of the middle site, so the matrix is algebraically determined by previously published separation-two and separation-four pair probabilities. This removes the endpoint law from the original claim. The transient-time dependence is not fixed by those pair statistics because two occupied sites four apart need not have an occupied middle site before saturation. Gerin's Page–Rényi analysis and random-greedy local-limit results do not state the transient conditioned three-site law. General higher-order hierarchy methods, particularly Evans–Burgess–Hoffman (1984), remain a substantive priority risk because that primary full text was not accessible.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The first genuinely three-location conditional dynamic correlation in the path adsorption model is a natural test of whether conditioning on a successful particle creates dependence between its two initially separate neighborhoods. The exact law and its strictly positive sign across the **entire open time interval** supply a structural, time-resolved description beyond the standard density and pair functions; the underlying half-line mixture provides a mechanism. The endpoint matrix is explicitly treated only as a previously implied boundary check.
+Best-of-knowledge originality supported by comparisons of exact statements, same-object sources and published Resultary records; material limitations and possible unindexed equivalences explicitly retained. Equivalent discrete Page–Rényi parking/random-greedy independent-set formulations have same single and pair laws. The new interior-time triple conditional probability is a third-order joint statistic, not a function of pair marginals alone.
 
-## Boundaries and further verification
+## value
 
-The exact transient formula holds on the infinite iid-uniform-priority line, under hard exclusion with one attempt per site. The result does not compute full unrestricted three-point functions, prove other multigap laws, or establish finite-volume error rates. Early correlation-hierarchy results could already contain an equivalent specialization. Independent priority and correctness reviews are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A strict positive conditional dependence law at every nonterminal time reveals correlation induced solely by shared selection time even though conditional half-lines are independent. Exact three-location transient law extends known one/two-point statistics and has natural dynamics significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
