@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem is proved symbolically and analytically in `RESULT.md`. The standalone Python 3 program `CHECK.py` uses only the standard library, runs without internet access, and prints `CHECK_OK` if its tests pass. It verifies that the exact Gamma-factor monomial weights have the asserted asymptotic leading coefficient at four distinct parameter sets, including noninteger ellipsoid exponents. It also reconstructs finite-degree optimal coefficients and checks the equality of the calculated residual norm and the inverse partial-weight sum, and tests the normalization and phase constraint of sample boundary-circle points.
+## correctness
 
-Observed output: `CHECK_OK`.
+PASS
 
-**Analytic checks:** The phase-group annihilator is taken for the *full* kernel of \((\eta_1,\eta_2)\mapsto\eta_1^a\eta_2^b\), including all components when \(\gcd(a,b)>1\). Weighted Cauchy–Schwarz gives the exact unrestricted finite-dimensional optimum. Haar character orthogonality both supplies the energy minimizer and proves that every competitor has at least the same energy. Stirling and series comparison prove the limit laws for all fixed admissible parameters.
+For p>1 and a,b>=1, weighted AM-GM shows w=lambda z1^a z2^b maps open ellipsoid inside unit disk and w=1 on boundary occurs on gcd(a,b) phase circles. The full, possibly disconnected, kernel H of the torus character (a,b) acts unitarily; Haar averaging a total-degree<=L multiplier removes every monomial except nonnegative integer multiples of (a,b), so unrestricted Q reduces to P(w) with degree <=floor(L/(a+b)). A residual polynomial e(w) of degree N+1 has e(1)=1; orthogonality gives diagonal weights M_n and weighted Cauchy-Schwarz exactly achieves inverse S_(N+1), including explicit optimizer. Stirling establishes M_n~sqrt(2*pi*p*a*b)*(a+b)^(beta-3/2)*n^(beta-1/2), proven for all fixed parameters, giving beta<=3/2 cyclicity and three error regimes. Bounded coordinate multipliers transfer approximation of 1 to cyclicity. On boundary, every probability measure has forced (an,bn) moments lambda^-n; Haar over full H suppresses others and attains exact energy S_infty, hence kernel capacity 1/S_infty. Independent numeric asymptotic checks at four parameter tuples supplement analytic proof; exact kernel normalization and disconnected H are essential.
 
-**Limits:** Numerical samples do not prove infinite-dimensional optimality, the asymptotics, or historical novelty. The proof assumes the specified normalized Poletsky–Stessin coefficient norm and classifies only the stated monomial family. No independent audit has been performed.
+## originality
+
+PASS
+
+The ellipsoid paper defining the spaces explicitly leaves one-dimensional boundary zero sets as Open Problem 2; ball cyclicity threshold 3/2 and diagonal reductions are known, but neither gives the exact nonball p,a,b,beta total-degree error and capacity. Novelty does not rest on numerical threshold 3/2 alone.
+
+## value
+
+PASS
+
+A parameterized natural family of zero-free ellipsoid polynomials with one-dimensional boundary zero sets addresses a specific open case for Poletsky-Stessin coefficient spaces. The exact unrestricted ideal distance, optimizing polynomials, rates and capacity give independently useful analytic invariants even though the ball threshold is familiar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
