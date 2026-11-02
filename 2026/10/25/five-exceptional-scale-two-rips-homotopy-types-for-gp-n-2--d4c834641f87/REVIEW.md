@@ -1,9 +1,21 @@
-# Scientific review of the five exceptional generalized Petersen Rips types
+# Independent mathematical audit
 
-**Correctness — PASS.** The defined graph and inclusive radius-two flag complex are reconstructed directly in `verify_gp_small.py`. Each of the five explicitly embedded matchings covers every simplex once, uses only codimension-one incidences, and reverses a set of Hasse edges that leaves the whole directed incidence graph acyclic. Critical-cell counts are respectively one 0-cell plus one 2-cell, one 0-cell plus one 1-cell, one 0-cell plus one 2-cell, one 0-cell plus one 1-cell, and one 0-cell plus three 2-cells. Discrete Morse theory then proves the actual integral homotopy types; independent mod-two boundary ranks agree. The arithmetic computations do not substitute for the acyclic matching proof.
+## correctness
 
-**Originality — PASS against inspected records.** The closest public generalized Petersen result treats \(n\ge13\) and gives only mod-two degree-two information at \(n=12\). Its assertions do not determine the five lower parameter homotopy types or the fundamental group/integral attachment structure at \(n=12\). Adamaszek's graph-square stability conditions do not apply to these five-cycle-containing graphs, and Feng–Nukala's Boolean-subset scale-two computations are for different metric spaces. A historical dodecahedral symmetry study concerns the individual \(n=10\) member and does not imply the five-case classification. Unindexed prior calculations remain possible; this is not a uniqueness certificate.
+PASS
 
-**Value — PASS.** The exact five cases exhaust the natural boundary interval immediately below the established stabilization threshold \(n=13\), rather than an arbitrary numerical slice. They show alternating circle/sphere behavior before stabilization, and they resolve whether the three known mod-two classes at the last exceptional parameter arise from actual simply connected integral spheres. The result is deliberately a complete natural finite boundary classification, not a claim about other radii or all graph parameters.
+For n=8,9,10,11,12, I independently rebuilt all GP(n,2) shortest-path distances and clique faces of the graph square from the three original edge families, then separately loaded MORSE_CERTIFICATE.json and checked the entire matching: each pair is a codimension-one face/coface, each simplex exactly once matched or critical, and a complete reversed-edge Hasse topological sort is acyclic. Exact face totals were 254,288,342,352,388 and matched/critical partitions 126/2,143/2,170/2,175/2,192/4. Critical-cell counts respectively 0-cell plus one 2-cell, one 1-cell, one 2-cell, one 1-cell, and three 2-cells; no higher critical cells. Forman discrete Morse theorem supplies a CW complex with these cells: a single 0-cell plus k 2-cells gives wedge k S2, and a single 0- and 1-cell gives S1. This is integral homotopy, not an inference from mod-two homology.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the entire five-point *integral homotopy* boundary classification. Earlier published matching-family work proves collapse to S1 only for n≥13 and mod-two H2 dimension 3 at n=12. Neither mod-two homology nor stable-range collapses force π1 or integral homotopy in the exceptional range.
+
+## value
+
+PASS
+
+Exactly exhausts the five nonstable integers below an already established n≥13 Rips circle-collapse threshold, resolves the n12 three mod-two classes as actual integral two-sphere wedge classes, and identifies the alternating lower behavior. This is a natural complete boundary classification and a useful finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
