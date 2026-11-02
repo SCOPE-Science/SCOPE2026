@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact directed error balls yield six-neighbor triangular confusability for every n>=2, including boundaries. Residue i+2j mod 3 gives pairwise-disjoint error images. The explicit three-row partition into m disjoint triangles, an edge and a singleton bounds an independent set by m+2; color 2 meets it for all m. Exact bases at n=2,3,4 and recurrence M(n)=M(n-3)+n-1 imply floor(n(n+1)/6). Standalone verifier checks direct error images through length 50, partitions through m=150, and independently computes exact finite maxima n=2..9. Infinite theorem rests on proof, not experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Vu–Tan theorem addresses coding redundancy for asymmetric swaps with deletions across unrestricted or constrained sets; it does not supply the sharp layer-2 maximum.",
+        "Kovačević studies asymptotic shift-code rates with runlength limits rather than exact all-n weight-two optima.",
+        "Kløve 1995 bibliographic record concerns insertion/deletion of zero or peak-shift correction; its full proof was unavailable."
+      ],
+      "reasoning": "A stronger general exact code construction or finite-length sphere-packing theorem might imply this formula. None appeared in inspected material. Unavailable older peak-shift proof creates residual risk but no decisive coverage from accessible evidence.",
+      "searches": [
+        "exact maximum binary constant-weight two codes correcting one asymmetric adjacent transposition left shift one zero-one swap n(n+1)/6",
+        "one-sided peak shift weight 2 constant weight binary strings optimal code length n",
+        "arxiv:2301.11680",
+        "doi:10.1109/18.370100",
+        "arxiv:1803.06117"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.11680",
+      "arxiv:1711.03682",
+      "doi:10.3934/math.2024571",
+      "arxiv:1803.06117",
+      "doi:10.1109/18.370100",
+      "OEIS:A085680"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new statement is floor(n(n+1)/6) for every n>=2 under a one-direction swap, constructed by i+2j=2 (mod 3) and bounded by n-1 cliques in every final three rows.",
+        "Bidirectional two-token packings have a different graph and a smaller maximum at n=4.",
+        "The compared record with asymmetric binary 1-codes concerns Hamming 0->1 errors, not adjacent 01->10 swaps.",
+        "Mixed deletion-and-swap code results and inverse list sizes do not establish this single-swap layer optimum."
+      ],
+      "reasoning": "Neither same words nor stronger-channel upper bounds establish the target formula. The displayed construction meets an original clique-partition upper bound for the exact directional confusability graph; no inspected source entails both the lower and sharp upper bound.",
+      "searches": [
+        "exact maximum binary constant-weight two codes correcting one asymmetric adjacent transposition left shift one zero-one swap n(n+1)/6",
+        "asymmetric adjacent transposition single left-shift two marker bitstrings triangular graph coding packing",
+        "one-sided peak shift weight 2 constant weight binary strings optimal code length n",
+        "arxiv:1711.03682",
+        "arxiv:2301.11680"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-direction condition means error balls B(i,j) = {(i,j),(i-1,j) if i>0,(i,j-1) if j>i+1}.",
+        "Gómez Soto et al. use a two-token graph and bidirectional adjacent moves with different length-four optimum 2; the present one-sided length-four optimum is 3.",
+        "Wang–Vu–Tan define asymmetric adjacent transpositions 01->10 and show general coding redundancy bounds, without an exact fixed-weight-two all-n expression in the inspected HTML."
+      ],
+      "reasoning": "Equivalent descriptions as independent sets in the triangular nearest-neighbor region and directional weight-two peak-shift codes were compared. Bidirectional packing is a stronger channel and not equivalent; its optimum does not imply the one-direction optimum.",
+      "searches": [
+        "exact maximum binary constant-weight two codes correcting one asymmetric adjacent transposition left shift one zero-one swap n(n+1)/6",
+        "asymmetric adjacent transposition single left-shift two marker bitstrings triangular graph coding packing",
+        "directed 01 to 10 single swap binary two-one code optimal floor n(n+1)/6 three-color triangles",
+        "arxiv:2301.11680",
+        "arxiv:1711.03682"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A085680 and Gómez Soto et al. tabulate the distinct bidirectional adjacent-transposition two-token packing problem.",
+        "Retrieved database matches concerned two-gram read profiles, mixed channels, and asymmetric Hamming errors rather than one-direction adjacent shifts."
+      ],
+      "reasoning": "Matching early terms alone is inadequate. The compared sequence has different fourth-length optimum, and no exact single-direction table or expression was found.",
+      "searches": [
+        "triangular staircase lattice packing 3 color clique partition exact floor n(n+1)/6",
+        "directed 01 to 10 single swap binary two-one code optimal floor n(n+1)/6 three-color triangles",
+        "OEIS A085680",
+        "one-sided peak shift weight 2 constant weight binary strings optimal code length n"
+      ]
+    },
+    "rationale": "Research-record searches, comparison with accessible preceding claims, and material inspection of primary literature found no source whose theorem or stronger parameters imply the exact one-direction, at-most-one-swap, weight-two capacity floor(n(n+1)/6) for every n and a matching three-row clique partition. The closest weight-two packing theorem treats both directions and differs already at n=4. The 2023 direction-specific coding paper proves general redundancy guarantees instead. Limited access to Kløve 1995 remains a priority risk and search absence is not an absolute novelty certificate.",
+    "residual_risks": [
+      "Kløve (1995) full text was not accessed and might contain an equivalent specialization.",
+      "Other older peak-shift or geometric-packing sources may encode the same triangular-region independence result under alternate terminology.",
+      "Search absence is not proof of absolute novelty or publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Correct channel convention, but constructions/redundancy results do not give exact weight-two all-length maximum or three-row clique partition",
+        "evidence": [
+          "arxiv:2301.11680v2 asymmetrical transposition definition 01->10",
+          "Theorem 1 concerns general error-correcting redundancies"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.11680v2",
+        "material_read": "HTML full main paper including channel model, main theorems, related work and appendix passages",
+        "method": "Read full accessible HTML with targeted searches for weight, adjacent transposition and theorems",
+        "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Same directed error convention and likely stronger general coding statements"
+      },
+      {
+        "assessment": "Solves both swap directions and the two-token path graph, not the one-sided triangular adjacency graph; length-four maxima differ",
+        "evidence": [
+          "arxiv:1711.03682 main theorem and table",
+          "Length-four symmetric optimum 2 versus directional optimum 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.03682",
+        "material_read": "Accessible primary preprint main definitions, results, table and proof discussion",
+        "method": "Read parsed full text and compare confusability adjacency with directed channel",
+        "title": "The packing number of the double vertex graph of the path graph",
+        "trigger": "Exact weight-two adjacent-transposition packing number could dominate target"
+      },
+      {
+        "assessment": "Bidirectional weight-three problem, no evidence of same one-sided layer-two claim",
+        "evidence": [
+          "AIMS Mathematics 2024 volume 9 pp.11644-11659"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/math.2024571",
+        "material_read": "Accessible journal abstract, metadata, references and displayed results index",
+        "method": "Inspected journal HTML overview and references",
+        "title": "On the packing number of 3-token graph of the path graph",
+        "trigger": "Later higher-weight token-graph generalizations could imply layer two"
+      },
+      {
+        "assessment": "Asymptotic rate framework, not an inspected exact finite-weight-two formula",
+        "evidence": [
+          "arxiv:1803.06117 abstract describes asymptotic analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.06117",
+        "material_read": "Abstract and accessible text preview, not complete source",
+        "method": "Read arXiv abstract and accessible author manuscript preview",
+        "title": "Runlength-Limited Sequences and Shift-Correcting Codes: Asymptotic Analysis",
+        "trigger": "Constrained asymmetric peak-shift channel and possible equivalent exact result"
+      },
+      {
+        "assessment": "Material insufficient to rule out implicit exact one-direction layer-two result; retained as explicit residual risk",
+        "evidence": [
+          "Kløve, IEEE Transactions on Information Theory 41 (1995), 279–283"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/18.370100",
+        "material_read": "Bibliographic description only; full text unavailable",
+        "method": "Checked bibliographic record and abstract-level description",
+        "title": "Codes correcting a single insertion/deletion of a zero or a single peak-shift",
+        "trigger": "Older closest terminology and possibility of hidden exact specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9d82a09-4709-44b4-9c98-693d24bc105b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Directional peak-shift correction is a motivated error channel; exact optimal zero-error capacity for every length in the weight-two layer is not supplied by published bidirectional two-token bounds. The all-n sharp clique-packing technique, transparent residue code and constant-size candidate decoder are mathematically and operationally useful; it is neither a narrow arbitrary numeric slice nor a straightforward corollary of a stronger known optimum.",
+    "status": "PASS"
+  }
+}
