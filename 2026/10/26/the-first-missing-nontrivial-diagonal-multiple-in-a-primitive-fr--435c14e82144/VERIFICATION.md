@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact proof reduces every \(mab=ax+by\) to \((x,y)=(bj,a(m-j))\) and proves the universal sharp classification by complete elementary case splits. For the finite auxiliary check, run `python3 verify.py` with Python 3 and no third-party packages.
+## correctness
 
-The actual execution returned `VERIFY_OK state_assignments=729 coprime_pairs=13416 diagonal_range=2..16`. In the prime-state check, each prime at most \(13\) is independently assigned to divide only the first generator, only the second, or neither. All 729 mutually exclusive patterns were checked at every multiplier from 2 through 16. This is exhaustive for the finite-index obstruction pattern; it does **not** independently prove the infinite arithmetic theorem without the reduction in the proof. A separate direct-integer gcd comparison checked 13,416 coprime ordered generator pairs within \(2\le a,b\le150\) and the exceptional pair \((55,273)\).
+PASS
 
-The classification makes no claim about multipliers beyond 16, general non-diagonal numbers, or exact values of the full primitive Frobenius function. No independent mathematical audit has been performed.
+For coprime a,b>=2, modular reduction of ax+by=mab forces (x,y)=(bj,a(m-j)), 0<=j<=m; endpoints are nonprimitive. The local obstruction p|gcd(bj,a(m-j)) separates primes dividing a, dividing b, or neither. Checking indices j for m=2,...,15 as in RESULT.md gives universal representability. For m=16 every even j is obstructed; j=1,15 force 3 and 5 on opposite factors, and j=3,9,11 force 13 and 7 on one factor and 11 on the other. Thus failure iff (55|a and 273|b) or reversed. Independently enumerated all 3^6 disjoint statuses of p=2,3,5,7,11,13, confirming each of 729 statuses at 2..16 and the exact m=16 failure locus; finite prime-state verification is exhaustive here because j,m-j<=15.
+
+## originality
+
+PASS
+
+The gcd-restricted Frobenius problem is in the Jaffe 2026 paper, but its checked denominator/Stern-Farey equivalence and primitive Frobenius bounds do not explicitly imply the exact universal first failing diagonal multiplier and complete 55/273 locus. Classical unrestricted Frobenius formulas do not impose gcd(x,y)=1. Priority is qualified, not guaranteed.
+
+## value
+
+PASS
+
+The smallest diagonal multiplier with a primitive-coefficient obstruction is a natural sharp boundary for two-generated numerical semigroups with primitive coefficients. The universal m<=15 theorem plus exact complete failure locus at 16 is motivated structural information, not an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

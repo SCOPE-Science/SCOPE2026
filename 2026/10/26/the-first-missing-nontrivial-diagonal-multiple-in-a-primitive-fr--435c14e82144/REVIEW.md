@@ -1,19 +1,21 @@
-# Review of the first missing nontrivial diagonal multiple
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The modular reduction of every representation \(mab=ax+by\) to \((x,y)=(bj,a(m-j))\) is exhaustive. Cases \(2\le m\le15\) are covered by an explicit finite list of witnesses, with the \(m-1\) prime-power argument handling ten of them. The \(m=16\) necessity is forced by six odd-index prime obstructions; sufficiency is proved at all fifteen interior indices. The accompanying verifier independently enumerates every small-prime assignment and tests actual gcds. There is no extrapolation from finite data to unbounded \(a,b\).
+PASS
 
-## Originality — PASS with residual risk
+For coprime a,b>=2, modular reduction of ax+by=mab forces (x,y)=(bj,a(m-j)), 0<=j<=m; endpoints are nonprimitive. The local obstruction p|gcd(bj,a(m-j)) separates primes dividing a, dividing b, or neither. Checking indices j for m=2,...,15 as in RESULT.md gives universal representability. For m=16 every even j is obstructed; j=1,15 force 3 and 5 on opposite factors, and j=3,9,11 force 13 and 7 on one factor and 11 on the other. Thus failure iff (55|a and 273|b) or reversed. Independently enumerated all 3^6 disjoint statuses of p=2,3,5,7,11,13, confirming each of 729 statuses at 2..16 and the exact m=16 failure locus; finite prime-state verification is exhaustive here because j,m-j<=15.
 
-The motivating 2026 full-text article discusses the same primitive representation problem but not the universal diagonal threshold or the exact two-pattern locus; its numerical table stops at generators of size 200. Public mathematical records and targeted literature searches revealed no covering proposition. Earlier CRT-offset gap bounds and fixed-generator asymptotic lower bounds do not imply this statement about **unshifted** diagonal multiples. A generic primitive-visible-lattice reformulation or an unstated result in broader literature could still subsume it, which remains an external-review risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact first attainable nontrivial failure is a natural boundary for representability along the scale set by the product of two coprime generators. The theorem settles all generator pairs at once, provides a sharp multiplier and a complete exceptional locus, and gives an infinite family of explicit primitive gaps. It complements large-gap bounds rather than merely reproving a numerical lower bound.
+The gcd-restricted Frobenius problem is in the Jaffe 2026 paper, but its checked denominator/Stern-Farey equivalence and primitive Frobenius bounds do not explicitly imply the exact universal first failing diagonal multiplier and complete 55/273 locus. Classical unrestricted Frobenius formulas do not impose gcd(x,y)=1. Priority is qualified, not guaranteed.
 
-## Limits
+## value
 
-The theorem is not a formula for the entire primitive Frobenius number. The finite verifier supports the proof; it is not an independent infinite certificate. Residual implicit-literature coverage and independent review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest diagonal multiplier with a primitive-coefficient obstruction is a natural sharp boundary for two-generated numerical semigroups with primitive coefficients. The universal m<=15 theorem plus exact complete failure locus at 16 is motivated structural information, not an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
