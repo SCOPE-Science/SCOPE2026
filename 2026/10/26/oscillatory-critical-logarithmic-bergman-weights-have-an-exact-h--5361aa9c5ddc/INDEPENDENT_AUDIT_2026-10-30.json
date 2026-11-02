@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:08:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json and VERIFICATION.md",
+        "Independent reconstruction of Schur tail ratios, Hilbert–Schmidt square summability, weakly null window construction",
+        "Independent finite-window Copson discretizations at four lengths for plausibility only"
+      ],
+      "rationale": "Reconstructed input monomial moments v_n=int_0^1 t^n w(t)dt and orthonormal-coordinate operator K_{mn}=1/[(m+n+1)sqrt((m+1)v_n)]. Laplace substitution gives v_n=(log n)^2 a(loglog n)^2/n (1+O(1/log n)), using bounded positive a and bounded derivative; tail effects integrated against e^-y. The low triangular m>n and upper m<=n error squared sums between K and P_d, P_{mn}=1_(n>=m)/(sqrt(mn) log n), d_n=1/a(loglog n), are finite since sum 1/(n log²n)<infty. A Schur weight h_n=(n log n)^(-1/2) gives essential norm <=2 for P; weakly null loglog coordinate windows produce lower norm approaching 2. For P_d upper <=2 limsup d and lower use a_prime->0 to keep d nearly constant over each fixed additive u-window, then send window width to infinity. The example has liminf a=3/4 and derivative tending to zero, giving 8/3. Independent approximate finite-window Copson integral singular values for lengths 4,8,16,32 approached 2 with expected coarse-grid bias; not cited as proof of infinite essential norm.",
+      "residual_risks": [
+        "Exact result is an essential norm between two different Bergman spaces, not the unweighted coefficient operator norm nor Fredholm spectrum.",
+        "Slow derivative and uniform positive bounds essential to the localized lower bound; rapid oscillations or liminf zero excluded.",
+        "Numerical finite windows do not certify the infinite-dimensional norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Norrbo Theorem 3.4 critical boundedness/logarithmic weights",
+          "Lindström–Miihkinen–Norrbo 2022 generalized Hilbert operators on classical analytic spaces",
+          "Resultary 45336ee10f3a gives Hilbert–Schmidt discrete-Copson model with exact constant 2 and essential Fredholm circle at fixed coefficient weights"
+        ],
+        "reasoning": "Existing general analytic operator essential norms are different domains/codomains; the constant unmodulated coefficient model does not cover nonconvergent input-weight multiplier without an added slow-oscillation analysis.",
+        "searches": [
+          "arXiv 2610.00252 Norrbo The Hilbert matrix operator into the Bergman space",
+          "arXiv 2201.09591 exact essential norm generalized Hilbert analytic spaces",
+          "Resultary Copson Hilbert Schmidt Fredholm circle logarithmic endpoint"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00252",
+        "arXiv:2201.09591",
+        "published Resultary 45336ee10f3a full RESULT",
+        "published Resultary c5f873897cc1 full RESULT",
+        "Resultary semantic Bergman/Hilbert/slow query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Copson reduction proves P has essential norm 2, a necessary but not sufficient lemma for the varying d_n result",
+          "The one-space ℓp slow multiplier theorem shows a limsup principle but its bounded Mellin kernel is not the triangular log-normalized two-space matrix",
+          "Norrbo boundedness at critical power does not give essential norm for nonconvergent weights"
+        ],
+        "reasoning": "One can adapt the preceding ideas, but a quantitative moment asymptotic plus compact perturbation under varying a and local-window lower bound are additional necessary steps. Generic limit-operator theorems might contain them as special cases; no decisive coverage identified.",
+        "searches": [
+          "Resultary 45336ee10f3a Hilbert Schmidt Copson model constant 2",
+          "Resultary c5f873897cc1 generalized Hilbert slow weight limsup",
+          "Norrbo 2026 critical Hilbert operator boundedness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/11 Copson model 45336ee10f3a gives coefficient two-space unmodulated essential norm 2",
+          "Resultary slow generalized Hilbert ℓp theorem c5f873897cc1 gives π/sin(...) limsup |g_k|",
+          "Norrbo arXiv:2610.00252 critical boundedness"
+        ],
+        "reasoning": "Diagonal normalization links weighted Bergman Hilbert matrix to a coefficient map. Existing Copson model is unmodulated, and generalized ℓp formula applies a different one-space kernel/scale; neither literally states weighted Bergman double-log oscillatory formula.",
+        "searches": [
+          "Resultary: Hilbert matrix essential norm logarithmic critical Bergman weights slowly oscillating a(log log n) 2 limsup",
+          "Bergman Hilbert matrix slowly varying logarithmic weights essential norm nonconvergent multiplier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full inspected published Resultary Copson model states constant 2, not 8/3 example",
+          "Full inspected published generalized ℓp Hilbert matrix theorem c5f873897cc1 uses a different kernel and space",
+          "Primary arXiv Norrbo and Lindström papers do not exhibit the exact 8/3 Bergman example in inspected passages"
+        ],
+        "reasoning": "No same operator exact oscillatory multiplier table found. Similar constants and oscillatory examples in other spaces are not exact claim coverage.",
+        "searches": [
+          "Resultary: Hilbert matrix essential norm logarithmic critical Bergman weights slowly oscillating a(log log n) 2 limsup",
+          "\"Bergman\" \"oscillating\" \"essential norm\" \"Hilbert matrix\"",
+          "\"logarithmic Bergman endpoint\" \"liminf\" multiplier"
+        ]
+      },
+      "rationale": "Norrbo 2026 establishes critical logarithmic boundedness, while a published same-weight coefficient-space Copson model gives exact unmodulated essential norm 2, and a separate published one-space generalized ℓp Hilbert matrix theorem gives limsup under slow oscillation. These substantially motivate the claimed formula but are different operators/weight placements. Exact nonconvergent multiplier at a double-log scale in two-weight analytic Bergman mapping is not supplied by the inspected theorems; possible limit-operator/Hardy general result dominating the formula remains a concrete risk.",
+      "residual_risks": [
+        "A general weighted Hardy–Copson/localized-limit-operator theorem could make this slow-modulation formula an immediate corollary without matching titles.",
+        "The closely related published constant-2 result and general ℓp slowly oscillating result substantially reduce standalone novelty; priority and exact match of domains deserve expert follow-up."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes critical power and boundedness, not exact oscillatory essential norm",
+          "evidence": [
+            "arXiv:2610.00252, Theorem 3.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00252",
+          "material_read": "Primary arXiv 5-page PDF abstract, statements including Theorem 3.4 on boundedness at critical weight, relevant proof setting",
+          "method": "Opened primary PDF and inspected rendered first page and theorem passages",
+          "title": "The Hilbert matrix operator into the Bergman space",
+          "trigger": "Same input/output Bergman map at logarithmic critical power"
+        },
+        {
+          "assessment": "Different endomorphism-domain families; no direct double-log two-space result",
+          "evidence": [
+            "arXiv:2201.09591, main theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.09591",
+          "material_read": "Primary PDF introduction, operator definition, main exact essential norm statements and their setting",
+          "method": "Opened arXiv PDF and inspected rendered first page/sections",
+          "title": "Exact essential norm of generalized Hilbert matrix operators on classical analytic function spaces",
+          "trigger": "Prior analytic Hilbert operator essential-norm methods"
+        },
+        {
+          "assessment": "The a≡1 case is covered and explicitly credited; no variable input-weight multiplier statement",
+          "evidence": [
+            "Published Resultary record 45336ee10f3a, full RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a",
+          "material_read": "Complete published RESULT.md including exact Hilbert–Schmidt reduction, constant-2 essential norm proof and Fredholm circle",
+          "method": "Read complete primary published Git blob baab4a49694fbea452699499d5cf83dfb055592e",
+          "title": "Hilbert–Schmidt Copson model and Fredholm circle at the logarithmic Hilbert-matrix endpoint",
+          "trigger": "Closest same normalized model at constant weight"
+        },
+        {
+          "assessment": "Lim sup method is close, but output-side multiplication on ℓp with different Hilbert kernel is not literal two-Bergman-space theorem",
+          "evidence": [
+            "Published Resultary record c5f873897cc1, full RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-essential-norm-for-slowly-oscillating-generalized-hilbert--c5f873897cc1",
+          "material_read": "Complete published RESULT.md, Schur upper and logarithmic-window lower proof, example of nonconvergent block means",
+          "method": "Read complete primary published Git blob f40ae8156190c76e9e419e77b59084a2daa0eb32",
+          "title": "Exact essential norm for slowly oscillating generalized Hilbert matrices on ℓp",
+          "trigger": "Possible dominating limsup theorem for oscillatory coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Complete triangular Hilbert–Schmidt reduction and window-vector proof",
+        "Published Copson model clarifies known unmodulated constant and the added slow-modulation problem"
+      ],
+      "rationale": "The critical logarithmic Bergman mapping is a natural operator-theoretic endpoint; the exact essential norm for every admissible *nonconvergent* double-log slow multiplier describes persistent noncompactness and distinguishes liminf envelope from an average. It is an infinite-family exact essential invariant, not a known-table recomputation or a numerical perturbation; existing coefficient model supplies a starting lemma but does not state the oscillatory formula.",
+      "residual_risks": [
+        "No claim on full operator norm, quickly oscillating/vanishing multipliers, or exact Fredholm spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact result is an essential norm between two different Bergman spaces, not the unweighted coefficient operator norm nor Fredholm spectrum.",
+    "Slow derivative and uniform positive bounds essential to the localized lower bound; rapid oscillations or liminf zero excluded.",
+    "Numerical finite windows do not certify the infinite-dimensional norm.",
+    "A general weighted Hardy–Copson/localized-limit-operator theorem could make this slow-modulation formula an immediate corollary without matching titles.",
+    "The closely related published constant-2 result and general ℓp slowly oscillating result substantially reduce standalone novelty; priority and exact match of domains deserve expert follow-up.",
+    "No claim on full operator norm, quickly oscillating/vanishing multipliers, or exact Fredholm spectrum."
+  ],
+  "schema_version": 1
+}
