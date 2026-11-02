@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "In any cyclic cover, every constant palindrome requires two loop-edge appearances and each pair of opposite nonconstant palindromes requires two distinct adjacent equal-pair labels, hence at least three traversals of its unordered edge. For even alphabets the baseline edge multigraph has odd degrees at every vertex and forces at least q/2 extra off-diagonal edges. A connected complete looped graph, augmented by a perfect matching for even q, has an Euler circuit. Expanding every first nonloop traversal a-b to a-b-a-b and every loop to a-a-a realizes all palindromes at the lower bound. Saturation proves that excess edges form a perfect matching. A real standalone verifier constructs and checks q=2..30 and independently brute-force searches q<=4; those finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen, Kitaev, Sun, arXiv:1908.01116 (v1, 2019-08-03), https://arxiv.org/abs/1908.01116; 2020 full text https://strathprints.strath.ac.uk/72338/1/Chen_etal_Mathematics_2020_Lower_bounds_and_exact_enumeration_in_particular_cases.pdf",
+        "Mucha, Lyndon Words and Short Superstrings, arXiv:1205.6787; https://arxiv.org/abs/1205.6787",
+        "Gabrić and Sawada, Efficient Construction of Long Orientable Sequences, https://doi.org/10.4230/LIPIcs.CPM.2024.15"
+      ],
+      "reasoning": "General SCS approximation algorithms and universal-cycle Euler conditions apply algorithmically to finite inputs but supply neither the explicit all-q minimum nor the equality structure. Strict universal cycles require exactly-once windows without extraneous factors, unlike the present problem. Orientable sequences forbid reverse-duplicate windows, the opposite orientation constraint. A general polynomial algorithm would not by itself imply this closed-form identity without its specializing calculation.",
+      "searches": [
+        "parity correction perfect matching Euler tour minimal circular word containing every palindrome aba including aaa"
+      ]
+    },
+    "checked_sources": [
+      "Chen, Kitaev, Sun, arXiv:1908.01116 (v1, 2019-08-03), https://arxiv.org/abs/1908.01116; 2020 full text https://strathprints.strath.ac.uk/72338/1/Chen_etal_Mathematics_2020_Lower_bounds_and_exact_enumeration_in_particular_cases.pdf",
+      "Mucha, Lyndon Words and Short Superstrings, arXiv:1205.6787; https://arxiv.org/abs/1205.6787",
+      "Gabrić and Sawada, Efficient Construction of Long Orientable Sequences, https://doi.org/10.4230/LIPIcs.CPM.2024.15",
+      "2026 research records for cyclic palindrome superstrings (four direct all-q semantic queries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen, Kitaev, Sun, arXiv:1908.01116 (v1, 2019-08-03), https://arxiv.org/abs/1908.01116; 2020 full text https://strathprints.strath.ac.uk/72338/1/Chen_etal_Mathematics_2020_Lower_bounds_and_exact_enumeration_in_particular_cases.pdf",
+        "Mucha, Lyndon Words and Short Superstrings, arXiv:1205.6787; https://arxiv.org/abs/1205.6787",
+        "Record Exact binary closed-rich maxima at lengths 25-27"
+      ],
+      "reasoning": "Theorem 3/4 and 7/8 in Chen--Kitaev--Sun bound existence probabilities for exact factor-set universal cycles with few forbidden words, not the shortest relaxed cover of all q² palindromic triples or the parity-rigid adjacency equality case. Mucha treats approximate SCS. Closed-rich binary maxima concern counts of closed factors in fixed binary word lengths, not this all-q cyclic requirement. Binary Fibonacci cycle covers concern avoiding 11 and vary factor length; neither direction implies the present all-palindrome family.",
+      "searches": [
+        "exact shortest circular common superstring of all length three palindromes aba for all q letters",
+        "parity correction perfect matching Euler tour minimal circular word containing every palindrome aba including aaa",
+        "three-letter palindromes cyclic cover optimal adjacency pair multiplicity 3 2 shortest",
+        "universal cycle of palindromic triples allowance of extra substrings optimal length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen, Kitaev, Sun, arXiv:1908.01116 (v1, 2019-08-03), https://arxiv.org/abs/1908.01116; 2020 full text https://strathprints.strath.ac.uk/72338/1/Chen_etal_Mathematics_2020_Lower_bounds_and_exact_enumeration_in_particular_cases.pdf",
+        "Related published record Exact length-three single-deletion covering number for odd alphabets (different one-deletion channel)"
+      ],
+      "reasoning": "Rephrased as circular shortest common superstring for the reversal-fixed length-three language and as a closed-walk minimum on unordered letter pairs. No located claim addresses the q-ary family with all ordered palindromic triples and exact even-alphabet perfect-matching excess. Deletion covering is a different channel; constrained Fibonacci covers use a different target set.",
+      "searches": [
+        "exact shortest circular common superstring of all length three palindromes aba for all q letters",
+        "universal cycle of palindromic triples allowance of extra substrings optimal length",
+        "shortest cyclic word containing all length 3 palindromic factors aba over q letter alphabet universal palindrome triples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct calculation returns exact minimum 8,15,28 for q=2,3,4; constructed all-q formula gives 8,15,28,40,60.",
+        "Targeted published search results contained no named table with the corresponding object/semantics."
+      ],
+      "reasoning": "No verified exact table of the target invariant was located; a numerical sequence coincidence alone would not establish coverage unless its underlying object or proof implies the circular-palindrome problem.",
+      "searches": [
+        "three-letter palindromes cyclic cover optimal adjacency pair multiplicity 3 2 shortest"
+      ]
+    },
+    "rationale": "The all-alphabet shortest-length identity and equality-case perfect-matching rigidity were compared with the full text of Chen--Kitaev--Sun (2019/2020), the relevant general shortest-superstring and orientable-sequence formulations, published research-record semantic searches, and related mathematical results previously inspected. The universal-cycle literature imposes exact factor occurrence and no filler, while this problem is at-least-once cyclic coverage with unrestricted fillers. No equivalent quantitative implication or stronger result was found in the inspected material. Historical graph-walk literature may contain an implicit specialization; independent search remains a residual risk, not a proof of absolute novelty.",
+    "residual_risks": [
+      "An earlier minimum Eulerian superwalk or special palindrome-superstring calculation could imply the closed form under an unrecognized alias.",
+      "The approximation-oriented shortest-superstring and orientable-sequence papers were compared at abstract/summary level only, not full-text theorem-by-theorem.",
+      "No exhaustive bibliographic or historical novelty certification; external independent validation not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in the inspected theorems: studies exact-once cycles of sets obtained by deleting words from a full de Bruijn language, and probabilities of existence, not shortest at-least-once cyclic covers of all palindromic triples",
+        "evidence": [
+          "arxiv:1908.01116 public initial date 2019-08-03",
+          "PDF pp.1-3 definitions and Section 1 statement; pp.3-6 Theorems 3-5; pp.8-10 Theorems 7-8 and conclusions"
+        ],
+        "identifier_or_url": "arxiv:1908.01116; https://strathprints.strath.ac.uk/72338/1/Chen_etal_Mathematics_2020_Lower_bounds_and_exact_enumeration_in_particular_cases.pdf",
+        "material_read": "2019 v1 initial-posting record and 2020 full-text PDF, including complete problem definitions, section summaries, Theorems 3-5 and 7-8, their mathematical scopes, and concluding directions",
+        "method": "Read the publisher-authorized open PDF text and visually inspected its first page; compared quantifiers and required factor occurrences",
+        "title": "On the probability of existence of a universal cycle or a universal word for a set of words / Lower Bounds and Exact Enumeration",
+        "trigger": "Directly nearest subject: universal cycles for sets of q-ary fixed-length words"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND_ONLY, no exact palindrome family in material inspected; full primary text not inspected, remaining uncertainty disclosed",
+        "evidence": [
+          "arxiv:1205.6787 problem statement and approximation scope"
+        ],
+        "identifier_or_url": "arxiv:1205.6787",
+        "material_read": "Public arXiv abstract and bibliographic summary describing approximation via Max-ATSP path",
+        "method": "Compared problem type (linear approximation) to exact cyclic palindrome-set minimum",
+        "title": "Lyndon Words and Short Superstrings",
+        "trigger": "General shortest-superstring reductions could dominate this special optimization"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE from the abstract; no full-text noncoverage inference claimed",
+        "evidence": [
+          "LIPIcs CPM 2024 article abstract defines orientable sequence"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2024.15",
+        "material_read": "Publisher open landing-page abstract, keywords and article scope; no full body read",
+        "method": "Compared orientability (avoid repeated windows up to reversal) to requiring every palindrome",
+        "title": "Efficient Construction of Long Orientable Sequences",
+        "trigger": "Cyclic word constructions with reversal-related constraints could cover palindrome variants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb316cc2-5802-4619-b23a-0c4676d9bea6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shortest cyclic coverage length for a natural reversal-fixed test language is a complete all-alphabet optimization invariant, with exact q/2 parity overhead for even alphabets and a necessary-and-realizable classification of optimal adjacency profiles. These identify the unique type of obstruction and yield an explicit construction for all alphabets, beyond a routine finite census. The exact alphabet-parity effect matters for minimal cyclic test patterns and restricted universal covering words.",
+    "status": "PASS"
+  }
+}
