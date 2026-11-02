@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every labelled vertex permutation of the fourteen-vertex Fano Levi graph, the prefix-cut identity and the rigorously derived minimum cut profile give a cost lower bound of 69. The paired disjoint six-cycle construction reaches equality, and equality forces exactly those endpoint cycles, their internal arc orders, and the two middle vertices. There are 28 first cycles, three disjoint mates, 96 arc orders each, and two middle orders, giving exactly 1,548,288 distinct optimum permutations. Two independently represented finite verifiers exhaust all 16,384 vertex subsets, independently count all optimal chains, enumerate all disjoint cycle pairs, and agree on the result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.2 of Horton–Parker–Borie applies to every finite graph but is an equality criterion conditional on constructing nested minima; it does not calculate the Heawood constrained cuts or their chains.",
+        "Harper (1964) concerns general optimal number assignments, not an inspected Heawood optimizer count."
+      ],
+      "reasoning": "General theorems for graph layout do not entail this concrete multiplicity without additional Heawood cut-chain classification, proved here.",
+      "searches": [
+        "Horton Parker Borie On minimum cuts and linear arrangement problem July 15 2000 abstract 103 127 139",
+        "doi:10.1137/0112012",
+        "Exact edge isoperimetric profiles, nested optimal vertex orderings, minimum linear arrangements of Heawood graph, Desargues graph, Möbius-Kantor graph"
+      ]
+    },
+    "checked_sources": [
+      "Horton, Parker, Borie, Discrete Applied Mathematics 103 (2000), DOI 10.1016/S0166-218X(00)00173-6",
+      "Baez, Heawood Graph, AMS Visual Insight, 1 August 2015",
+      "Dejter, From the Coxeter graph to the Klein graph, arXiv:1002.1960 (v1, 9 February 2010)",
+      "Harper, Optimal Assignments of Numbers to Vertices, 1964 (bibliographic and abstract-level background)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general prefix-cut sum lower bound is known from Horton–Parker–Borie.",
+        "Dejter gives the 28-by-three hexagon disjointness data and focuses on Coxeter/Klein graph 7-cycle configurations.",
+        "The new proof additionally requires the exact cut minima at each cardinality, the forced endpoint hexagons, and all arc-extension orders."
+      ],
+      "reasoning": "Neither the earlier general theorem nor the earlier hexagon count, alone or in combination, logically implies that each cost-optimal ordering is a paired-hexagon arc order, or that exactly 1,548,288 orders attain it. The fresh necessary/sufficient classification supplies those missing steps.",
+      "searches": [
+        "doi:10.1016/S0166-218X(00)00173-6",
+        "arxiv:1002.1960",
+        "https://blogs.ams.org/visualinsight/2015/08/01/heawood-graph/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horton–Parker–Borie (2000) expresses arrangements as nested constrained-cut chains; it does not give the Heawood-specific equality chains.",
+        "Dejter arXiv:1002.1960 identifies the cubic disjointness graph of the 28 Heawood hexagons; no linear-layout census is asserted in the inspected article."
+      ],
+      "reasoning": "The characterization was compared in its equivalent forms: permutations minimizing sum of edge spans, nested sequences of minimum edge boundaries, six-cycle endpoint pairs, and a count of 1,548,288 labelled arrangements. No inspected source supplies the same optimizer characterization.",
+      "searches": [
+        "Heawood graph minimum linear arrangement 69",
+        "Fano plane Levi graph nested edge-isoperimetric sets 28 six-cycles 84 disjoint hexagon pairs optimal orderings",
+        "exact 1548288 Heawood",
+        "Heawood graph 28 six-cycles exact minimum linear arrangement 69 1548288 optimal vertex orderings cutwidth 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The AMS account reports 28 six-cycles; this is a known input, not an optimizer-count table.",
+        "The classical Coxeter graph is cubic on the 28 hexagons, so the factor of three disjoint mates is preexisting; the complete 1,548,288 arrangement count was not located in the inspected records."
+      ],
+      "reasoning": "Counts of six-cycles, their disjoint pairs, or scalar graph invariants are not equivalent to a census of the 14! vertex permutations attaining minimum arrangement cost.",
+      "searches": [
+        "Heawood graph cutwidth seven minimum linear arrangement 69 and number of optimizers",
+        "exact 1548288 Heawood",
+        "site:oeis.org \"1548288\" \"Heawood\"",
+        "Coxeter graph disjoint 6-cycles Heawood graph 28 triangles references"
+      ]
+    },
+    "rationale": "The claim classifies and counts all Heawood minimum linear arrangements. The classical general minimum-cut/arrangement equivalence does not fix the Heawood profile or enumerate its nested optimal chains. The previously known 28 six-cycles and their cubic disjointness graph do not imply that precisely these paired hexagons and arc orders characterize every optimum. The searched primary and secondary sources provide no covering optimizer enumeration, though global priority cannot be guaranteed.",
+    "residual_risks": [
+      "A historical paper, computational database, dissertation, or unpublished enumeration may contain the exact 1,548,288 count or an equivalent optimal-order theorem without indexed wording.",
+      "The publisher PDF for Horton–Parker–Borie was not separately retrieved; its relevant full-text HTML theorem statements and proofs were accessible. No claim of exhaustive global literature coverage is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General theorem is credited, but it calculates neither the Heawood constrained minima nor the count of optimizing orders.",
+        "evidence": [
+          "Theorem 3.1: the sum of constrained minimum-cut sizes lower-bounds arrangement cost.",
+          "Theorem 3.2: equality iff a nested set of minimum cuts exists."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00173-6",
+        "material_read": "Publisher indexed full-text Sections 1–4, including exact statements and proofs of Theorems 3.1 and 3.2 and the examples; publisher PDF itself was not downloaded.",
+        "method": "Read searchable publisher full-text HTML and compared mathematical hypotheses and conclusions.",
+        "title": "On minimum cuts and the linear arrangement problem",
+        "trigger": "General cut-profile lower bound and nested-minimum equality criterion could subsume a minimum-arrangement theorem."
+      },
+      {
+        "assessment": "Known 14-vertex, 21-edge Fano incidence graph and 28 six-cycles; the source does not assert layout minima or optimal permutations.",
+        "evidence": [
+          "The graph is the Levi graph of the Fano plane.",
+          "It has 28 six-cycles corresponding to noncollinear Fano triangles."
+        ],
+        "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/08/01/heawood-graph/",
+        "material_read": "The complete accessible AMS article including the Fano construction and 28 six-cycle statement.",
+        "method": "Read primary mathematical exposition in HTML.",
+        "title": "Heawood Graph",
+        "trigger": "The Fano incidence representation and exact six-cycle count are essential inputs."
+      },
+      {
+        "assessment": "The 28-hexagon disjointness graph is preexisting and explicitly excluded from novelty. Its results concern ultrahomogeneous graph-cycle geometry, not minimum linear arrangements or their permutation count.",
+        "evidence": [
+          "Section 1 identifies the cubic Coxeter graph with the disjointness graph on Heawood six-cycles.",
+          "No statement about optimizing sums of edge lengths or counting vertex orderings is present in the inspected text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1002.1960v9",
+        "material_read": "Accessible complete arXiv HTML article, especially Section 1 on Heawood 6-cycles and Coxeter graph cubic incidence; remaining Sections 2–4 on Coxeter 7-cycles and Klein graph checked for layout relevance.",
+        "method": "Read author-hosted arXiv full text in HTML and compared graph objects/invariants.",
+        "title": "From the Coxeter graph to the Klein graph",
+        "trigger": "The hexagon disjointness relation in the classification is a classical construction, requiring an implication comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc3e8243-75f5-4522-a41c-9ec31aab5161",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical fourteen-vertex incidence graph, the theorem completely enumerates optimal linear layouts instead of merely reporting one optimum. It connects the natural minimum edge-isoperimetric profile to the classical Coxeter graph on Heawood six-cycles, yields all attaining permutations without testing 14! orders, and supplies an exact benchmark for constrained-cut and optimal-layout enumeration. This complete optimizer classification is intrinsically motivated by the graph and the layout problem, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
