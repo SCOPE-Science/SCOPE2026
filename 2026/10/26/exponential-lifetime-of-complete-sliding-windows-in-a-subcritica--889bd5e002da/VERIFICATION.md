@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`. Independent future validation is not represented as performed here.
+## correctness
 
-Run `python3 verify.py` alongside `RESULT.md` with standard Python 3. No third-party packages are needed. The recorded output is in `verify_output.txt`: `VERIFY_OK 98 exact finite-state / combinatorial assertions`.
+PASS
 
-The program enumerates onto words and short future sequences under genuine entry conditioning for small alphabets and lengths, checks the conditional survival sandwich, solves finite-state rational mean equations, and checks the exact Stirling-number identity. These checks validate the finite recurrences and several boundary cases only. They do not prove the asymptotic singleton hazard, the Fourier local limit, or global historical novelty; these are supported by the argument and primary-literature comparisons separately.
+At entry the newly appearing color is absent from the M-1 previous common positions; conditional on its identity the common word is uniform onto over N=n-1 symbols. For u<=M-1 the survival probability is sandwiched between Q_N(m-u)/Q_N(m) and that plus (u/n)E[R_u], where R_u is the number of formerly present colors absent from the surviving suffix. Zero-truncated Poisson exact conditioned occupancy law and uniform lattice local CLT give singleton deletion hazard h_N(k)=n^-alpha(1+o(1)) for k=m-O(n^alpha); summing hazards yields exp(-t). Conditional count/suffix estimate E[R_u]=O(u*n^-alpha)=O(1) for u=O(n^alpha), so repair probability O(n^(alpha-1))->0. Exact mean uses stationary on-set mass divided by entry flux, with same singleton-hazard estimate. Independent Fraction enumeration for n,M=(2,3),(3,4),(4,5), u=0,1,2 checks complete entry conditioning and both finite sandwich inequalities. The asymptotic is proved using the uniform local CLT, not finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge contribution is the stationary entry-conditioned full exponential episode-lifetime limit and a repair-error comparison. Long 2026 already implies the exact finite mean from its flux and mass, and states a clump-length heuristic; mean alone is prior and is not independently novel. Complete source comparisons did not identify a proved distributional clump law in Long; other scan-statistic declumping general results might imply it.
+
+## value
+
+PASS
+
+The persistence duration of a newly born rare complete window is a natural Palm/clump statistic, distinct from the huge first-coverage waiting time. Proving an Exp(1) distribution on n^alpha time scale and negligible fresh-draw repairs supplies meaningful scan-statistic structure beyond the previously known stationary mean, and may inform other expiring-resource models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
