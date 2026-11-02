@@ -1,0 +1,203 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T10:47:09.861303Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/verification_output.txt"
+      ],
+      "rationale": "The exact finite theorem dFl(P31) ≃ wedge^960 S4 has been reconstructed for the ordinary unordered complex of transitive vertex subsets of the Paley tournament on Z/31, with residues explicitly verified. Independent fresh Python enumeration reproduced all 27,931 faces, dimension face vector (31,465,3255,9765,10695,3255,465), and all 126,015 nonempty Hasse covers. An independently coded repeated-toggle matching in the recorded 31-pivot order has 13,396 disjoint pairs and exactly one critical 0-cell, 89 critical 3-cells and 1,049 critical 4-cells. Independently built reversed-matched Hasse graph topologically sorted all 27,931 nodes, proving acyclicity. Independent signed boundary reduction gives D of shape 89x1049, 16,282 nonzero entries and |entry|<=8; exact ranks are 89 modulo 2,3,5,7,101,601. The 89 pivot columns selected modulo 2 have an exact Bareiss-equivalent determinant -601, while full rank modulo 601 means the greatest common divisor of maximal minors is coprime to 601, therefore equals 1. All nonzero integral Smith factors are 1, with free kernel rank 960. The CW model has cells only in dimensions 0,3,4; the 3-skeleton is wedge^89 S3, where Hurewicz identifies pi3 with H3, and integral Smith changes of basis give a wedge^960 S4 homotopy cofiber. Finite exhaustive verification is sufficient for this fixed 31-vertex object, not a universal family. Independent code was kept separate from repository verify.py.",
+      "residual_risks": [
+        "Enumeration and Morse boundary are finite but computation-intensive; independent implementation shares the underlying mathematics and input pivot sequence, so common conceptual mistakes are possible.",
+        "The abstract CW-to-homotopy inference uses standard Forman discrete Morse theory, Hurewicz in dimension three and integer changes of degree bases on wedge^89 S3; no Lean formalization or expert external attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Govc Proposition 3.4 covers n<=27, not 31, and is an enumeration, not a dimension-free Paley theorem.",
+          "Deniz 2021 Theorems 4.10/4.12 require recursively sectionable decompositions; no verified hypothesis applies to P31 or establishes a wedge of 960 S4.",
+          "Published lexicographic infinite family is not doubly regular and has order divisible by 3; P19 affine result is a distinct smaller prime order."
+        ],
+        "reasoning": "General terminology or a common tournament parameter does not imply a strong all-Paley homotopy theorem. None of the inspected stronger-looking theorems supplies both verified applicability to P31 and its exact 960-fold S4 conclusion.",
+        "searches": [
+          "Govc arXiv:2006.05333 Proposition 3.4",
+          "https://arxiv.org/pdf/2104.05839",
+          "Resultary: doubly regular tournament order 31 directed flag homology Smith normal form",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-lexicographic-infinite-family-of-regular-tournament-flag-compl--5676bac86420/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-affine-symmetry-identifies-the-paley-19-directed-flag-complex-an--9f50497a76ce/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2006.05333",
+        "https://link.springer.com/article/10.1007/s41468-021-00068-0",
+        "https://arxiv.org/pdf/2104.05839",
+        "https://doi.org/10.1007/s00200-014-0245-0",
+        "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-affine-symmetry-identifies-the-paley-19-directed-flag-complex-an--9f50497a76ce/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-lexicographic-infinite-family-of-regular-tournament-flag-compl--5676bac86420/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-single-adjacent-reversal-contracts-the-cyclic-tournament-flag--8f4d1ced82e2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paley-19 result gives wedge^154 S3 vee S4 using Govc order-19 list and affine characters; it does not force P31 chain data or Smith form.",
+          "Lexicographic regular family is not doubly regular and has different join decomposition and wedge dimensions.",
+          "One-edge reversal theorem concerns modified cyclic tournament, not P31.",
+          "Govc–Levi–Smith provides a larger tournaplex construction and filtrations, not a classification of transitive-subset homotopy at P31."
+        ],
+        "reasoning": "Direct implications, specializations, or dualities were checked: no inspected known theorem carries P31 to the stated exact integral homotopy. The required 89x1049 integral boundary with primitive image is additional object-specific evidence, not simply a restatement of an old table.",
+        "searches": [
+          "Resultary semantic query: homotopy type directed flag complex Paley tournament cyclic 7 11 19 prime order spheres",
+          "Resultary: Paley tournament P31 acyclic complex wedge 960 spheres homotopy",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-affine-symmetry-identifies-the-paley-19-directed-flag-complex-an--9f50497a76ce/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-lexicographic-infinite-family-of-regular-tournament-flag-compl--5676bac86420/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-single-adjacent-reversal-contracts-the-cyclic-tournament-flag--8f4d1ced82e2/RESULT.md",
+          "https://link.springer.com/article/10.1007/s41468-021-00068-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a tournament directed flag simplex = a vertex set inducing a transitive subtournament = acyclic complex Acy(T) (Govc Definition 1.2 and tournament discussion; Deniz 2021 introduction).",
+          "Searches also covered quadratic-residue/P31/QR31, doubly regular tournament and homotopy/homology aliases; closest exact hit was the assigned result itself."
+        ],
+        "reasoning": "The same underlying unordered simplicial complex has several names; inspecting the equivalence and searching aliases avoids mistaking a renamed invariant for novelty. Neither aliased term produced an inspected P31 exact homotopy theorem.",
+        "searches": [
+          "Resultary semantic query: Paley tournament P31 acyclic complex wedge 960 spheres homotopy",
+          "Resultary: transitive subtournament complex quadratic residue graph tournament 31 topological type",
+          "web: acyclic complex Paley tournament 31 wedge spheres",
+          "arXiv:2006.05333 Definition 1.2, Section 1 tournament discussion",
+          "https://arxiv.org/pdf/2104.05839"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKay table lists DRTs completely up to 27 and 31 vertices: 5 incomplete; it is an isomorphism catalogue, not a topology table.",
+          "Govc Proposition 3.4 topology list ends at n=27 and includes no order-31 case."
+        ],
+        "reasoning": "Neither the enumeration database nor the homotopy table is an exact source for the 31-vertex P31 claim. An incomplete classification is not evidence of novelty by itself; the other implication searches and actual proof comparison are necessary.",
+        "searches": [
+          "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+          "Govc Section 3.2 Table in arXiv:2006.05333",
+          "web: Paley tournament 31 directed flag complex homotopy wedge 960 4 spheres"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact integral homotopy computation for the canonical Paley tournament P31. Govc Proposition 3.4 covers doubly regular tournaments only through 27, McKay lists order 31 incompletely without topology, and inspected Paley-19, cyclic and lexicographic findings do not imply the 31-vertex wedge. No exhaustive-priority guarantee; inaccessible original Deniz 2015 full text is a specific bibliographic risk rather than automatic scientific rejection.",
+      "residual_risks": [
+        "The 2015 original article by Deniz was available only through the abstract; authorized full-text retrieval returned vpn_disconnected. No claim that the full paper excludes P31 is made.",
+        "A poorly indexed earlier Paley-31 homology/homotopy calculation, thesis or unpublished data file under acyclic-complex terminology could escape bounded searches.",
+        "Published Paley-19 and P31 findings were in the same 2026-10-11 collection; no chronological discovery priority between research items is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its complete DRT catalogue and homotopy list stop at order 27; no order-31 result or all-Paley formula implies the assigned wedge of 960 fourth spheres.",
+          "evidence": "Govc Proposition 3.4 expressly says 3<=n<=27, n≡3 mod4, and Table n=3,7,11,15,19,23,27; it reports mixed Moore/sphere types at 23 and 27.",
+          "identifier_or_url": "arXiv:2006.05333v1; https://arxiv.org/pdf/2006.05333",
+          "material_read": "PDF abstract/introduction and definitions of directed flag/tournament complexes, Section 3.1, Section 3.2 including the full Proposition 3.4 table and its proof (PDF pp. 1-5, 13-15); page images 14-15 also inspected.",
+          "method": "Open-access arXiv PDF extracted text and PDF-page screenshot inspection",
+          "title": "Computing Homotopy Types of Directed Flag Complexes",
+          "trigger": "Closest original integral-homotopy classification of doubly regular tournaments"
+        },
+        {
+          "assessment": "Defines the directed flag complex as the transitive-tournament subcomplex of a larger tournaplex; the article studies directionality filtrations and does not determine the specific Paley-31 homotopy type.",
+          "evidence": "Article Definitions 1.2 and 1.8: dFl(G) consists of transitive tournaments and is included in tFl(G); Section 3 treats filtration and examples rather than Paley-31.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41468-021-00068-0",
+          "material_read": "Open-access full-text HTML abstract, introduction, Definition 1.2/1.8 and discussion of transitive tournaments, tournaplex and filtration examples.",
+          "method": "Springer open-access article HTML",
+          "title": "Complexes of tournaments, directionality filtrations and persistent homology",
+          "trigger": "Foundational directed-flag/tournaplex text that might contain the same object under another construction"
+        },
+        {
+          "assessment": "The formulas require a recursively sectionable tournament R_m(P_1,...,P_m) and give critical-cell depth/coloring information. No derivation for Paley-31 or 89x1049 Morse matrix is supplied, nor has applicability of the restrictive hypothesis to Paley-31 been established.",
+          "evidence": "Theorem 4.12 explicitly assumes sectionability and gives a maximum of block depths; the paper says beyond m=3 even a wedge decomposition is not known in general.",
+          "identifier_or_url": "arXiv:2104.05839v2; https://arxiv.org/pdf/2104.05839",
+          "material_read": "PDF introduction, definition of sectionable/inductive tournament families, theorems 4.10, 4.12 and 5.5 statements plus theorem 4.12 proof paragraphs, pages 1-2 and 12-16 relevant text; inspected PDF page image 2.",
+          "method": "Open-access arXiv full PDF relevant-section inspection",
+          "title": "Sectionable Tournaments: Their topology and Coloring",
+          "trigger": "Full lawful related paper on acyclic complexes and general-looking Morse constructions"
+        },
+        {
+          "assessment": "Accessible abstract proves a sphere-wedge statement for trisectionable tournaments but does not report any P31 multiplicity. Whole-document exclusion is NOT asserted.",
+          "evidence": "Abstract quantifies over trisectionable T and provides acyclic chromatic bounds; original text was not read; residual priority risk recorded.",
+          "identifier_or_url": "https://doi.org/10.1007/s00200-014-0245-0",
+          "material_read": "Indexed abstract and bibliographic metadata only. Original complete article unavailable in arXiv/OA searches; Oxford DOI request encountered vpn_disconnected.",
+          "method": "Bibliographic abstract; preprint and lawful OA searches; single authorized institutional attempt",
+          "title": "Topology of acyclic complexes of tournaments and coloring",
+          "trigger": "Earlier paper with exact older alias Acy(T), potentially containing the same theorem"
+        },
+        {
+          "assessment": "Covers DRT isomorphism data completely through 27, but explicitly flags the order-31 list of five as incomplete; it does not list any homotopy types.",
+          "evidence": "The page says five 31-vertex tournaments incomplete; hence the census does not supply exact dFl(P31) data.",
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+          "material_read": "The complete visible section titled Regular and Semi-regular Tournaments, including DRT completeness annotations for orders 3-51.",
+          "method": "Primary public database table HTML",
+          "title": "Combinatorial Data: Digraphs",
+          "trigger": "Actual tournament classification/database coverage through first order beyond Govc census"
+        },
+        {
+          "assessment": "Identifies P19 as Govc order-19 homotopy type and derives affine character; it does not imply the P31 type, which could have different torsion and critical-dimensional behavior.",
+          "evidence": "The P19 statement is wedge^154 S3 vee S4; its proof relies on Govc order-19 classification, which does not extend to 31.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-affine-symmetry-identifies-the-paley-19-directed-flag-complex-an--9f50497a76ce/RESULT.md",
+          "material_read": "Complete published RESULT.md, including theorem, proof, limitations and references.",
+          "method": "Public Resultary GitHub exact file read",
+          "title": "Affine symmetry identifies the Paley-19 directed flag complex and its homology character",
+          "trigger": "Closest published Paley-family directed-flag result in the published results index"
+        },
+        {
+          "assessment": "Its infinite family consists of lexicographic 3-block tournaments explicitly not doubly regular; its fixed mixed-dimensional wedge conclusion does not apply to Paley-31.",
+          "evidence": "The paper proves T_n=C3[R_n] is regular but not doubly regular, with homotopy S1 vee 3S2 vee 3S3, and orders divisible by 3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-lexicographic-infinite-family-of-regular-tournament-flag-compl--5676bac86420/RESULT.md",
+          "material_read": "Complete published RESULT.md proof, scope and limitations.",
+          "method": "Public Resultary GitHub exact file read",
+          "title": "A lexicographic infinite family of regular tournament flag complexes",
+          "trigger": "Potential broader every-order regular-tournament homotopy theorem"
+        },
+        {
+          "assessment": "Applies to cyclic interval tournament R_n after one reversed adjacent edge and predicts contractibility; Paley-31 residue edges are a different orientation and no edge reversal is part of the claimed object.",
+          "evidence": "R_n uses all differences 1,...,(n-1)/2, whereas Paley-31 uses quadratic residues 1,2,4,5,7,8,9,10,14,16,18,19,20,25,28.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-single-adjacent-reversal-contracts-the-cyclic-tournament-flag--8f4d1ced82e2/RESULT.md",
+          "material_read": "Complete published RESULT.md including nerve-complex identification and homotopy proof.",
+          "method": "Public Resultary GitHub exact file read",
+          "title": "A single adjacent reversal contracts the cyclic tournament flag complex",
+          "trigger": "Another universal cyclic-tournament directed-flag theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2006.05333",
+        "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-affine-symmetry-identifies-the-paley-19-directed-flag-complex-an--9f50497a76ce/RESULT.md"
+      ],
+      "rationale": "The Paley tournament P31 is a canonical quadratic-residue doubly regular tournament of the first permissible size beyond the completed 27-vertex DRT homotopy census. Unlike an arbitrary small-instance slice, this is a natural test object at the first uncovered order, where prior smaller doubly regular examples exhibit both torsion and mixed-dimensional Moore-space phenomena. The exact integral wedge multiplicity and full primitive Morse-boundary certificate provide a sharp benchmark and a reusable reference for tournament-topology comparisons. It is an exact finite invariant with motivation independent of an all-order theorem. It neither classifies every 31-vertex DRT nor implies all Paley orders are wedges.",
+      "residual_risks": [
+        "The result is only for a single specified finite tournament and does not settle the full order-31 census or a general structural theorem; its value is the natural exact benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-homotopy-type-of-the-directed-flag-complex-of-the-paley-to--e960fd7ad6c9/verify.py",
+    "https://arxiv.org/pdf/2006.05333",
+    "https://link.springer.com/article/10.1007/s41468-021-00068-0",
+    "https://arxiv.org/pdf/2104.05839",
+    "https://doi.org/10.1007/s00200-014-0245-0",
+    "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-affine-symmetry-identifies-the-paley-19-directed-flag-complex-an--9f50497a76ce/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-lexicographic-infinite-family-of-regular-tournament-flag-compl--5676bac86420/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-single-adjacent-reversal-contracts-the-cyclic-tournament-flag--8f4d1ced82e2/RESULT.md"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only one finite Paley tournament, no all-order or all-DRT classification.",
+    "Deniz 2015 full text inaccessible through the attempted authorized routes; originality is best-of-knowledge with explicit residual risk.",
+    "No external formal certification is claimed."
+  ]
+}
