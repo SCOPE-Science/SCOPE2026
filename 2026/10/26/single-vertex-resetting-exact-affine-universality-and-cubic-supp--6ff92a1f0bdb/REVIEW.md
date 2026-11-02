@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exact affine shift of the one-vertex reset generator reduces arbitrary intrinsic-frequency profiles to a universal centered process determined by their sum. The stationary covariance follows by applying the quadratic generator; mean-square coupling proves existence/uniqueness. The positive killed-pair-walk resolvent and the grounded-Lyapunov singular expansion prove the sign and cubic asymptotics. The standalone code independently solved finite-dimensional equations and checked the two-site closed formula.
+## correctness
 
-**Originality — PASS (qualified).** The October 2026 source treats the graphwise grounded Laplacian primarily at infinite reset speed; the 2024 and April 2026 Kuramoto resetting studies treat nonlinear continuum mean-field order parameters. The exact finite-rate single-site frequency-sum universality and strictly positive never-reset covariance asymptotic were not identified there or in targeted published-record searches. General Poisson jump/consensus theorems could imply part of the method and remain a priority risk.
+PASS
 
-**Value — PASS.** The theorem distinguishes rate-independent mean relative phases from rate-sensitive stationary noise, gives an exact deterministic boundary at zero total frequency, and identifies a sharp extra power of high-rate attenuation for never-reset vertices. These statements answer a natural quantitative network-control question rather than merely reporting small numerical examples.
+The grounded Laplacian B=L_(M,M) is positive definite for connected G and h_r=0,h_M=c^-1 B^-1 omega_M satisfies cLh=omega-Omega e_r. Translating Y=theta-h yields universal drift Omega e_r and the same reset map, proving the whole stationary-law affine identity. Synchronous coupling contracts in mean square under positive 2cL+lambda e_re_r^T, establishing unique finite-second-moment stationary law. The stationary generator gives mean h+Omega/lambda 1 and c(LC+CL)+lambda(C-JCJ)=Omega² e_re_r^T/lambda. Its matrix operator is the killing resolvent for two independent graph walks with strictly positive Green entries from (r,r). Block equations imply C_rr=Omega²/lambda²+O(lambda^-3), C_rM=cOmega² a^T/lambda³+O(lambda^-4), C_MM=2cOmega²/lambda³ int_0^inf e^-Bt aa^T e^-Bt dt+O(lambda^-4). All entries of the coefficient are positive because each grounded component meets a reset neighbor. Independent graph-by-graph linear solves and scalar two-vertex identity passed.
 
-**Closest sources and limitations.** Paramero-Arias–Riascos, arXiv:2610.21842v1 (hard-pinning graph model); Majumder–Chattopadhyay–Gupta, arXiv:2402.14921 (nonlinear globally coupled subsystem resetting); Majumder–Acharya–Gupta, arXiv:2604.04769 (generalized nonlinear Fourier framework). The result is exact for unwrapped linear phases only, with fixed finite undirected connected graph and a single reset vertex. No independent priority audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original network-resetting papers establish the underlying model and hard-pinning limit; the reviewed finite-reset law and cubic cross-site fluctuation profile are not direct stated corollaries of their reported simulations or nonlinear mean-field formulas. Possible generic linear jump-system Lyapunov theory remains a mathematical priority risk.
+
+## value
+
+PASS
+
+The universal translation identifies a complete stationary-law equivalence class indexed only by total natural frequency, and the nonzero positive cubic covariance of distant unreset nodes contrasts with quadratic reset-site variance. Both are motivated stochastic-fluctuation invariants for network synchronization, not just model simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
