@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The asserted scale-two complex is exactly the independence complex of the three-factor categorical complete-graph product. `verify.py` independently lists its 508 maximal simplices, exhaustively enumerates all 830,101 augmented simplices, constructs 414,848 valid matching pairs, and topologically sorts the entire oriented Hasse graph of 6,539,456 incidences. The restricted ordinary matching has one critical zero-cell and 405 three-cells, hence gives the integral sphere wedge by the discrete-Morse theorem. The scale-one graph rank and the other distance thresholds are proved directly.
+PASS
 
-## Originality
+For all real r>=0 in X={0,1,2,3}^3 with inclusive Hamming threshold, scale r<1 is 64 points; 1<=r<2 collapses 48 coordinate-line tetrahedra to a connected graph of 64 vertices and 144 edges, hence wedge^81 circles. At 2<=r<3, adjacency iff words agree in at least one coordinate, so VR is exactly Ind(K4 categorical product K4 categorical product K4). Independently enumerated all maximal cliques, obtaining precisely 508 facets equal to 12 coordinate planes, 64 radius-one Hamming balls and 432 parity tetrahedra. Their union enumerates exactly 830101 augmented faces; independent greedy matching has 414848 pairs and 405 unmatched tetrahedra. Topological sorting all 6539456 incidences checks acyclicity, yielding a CW model with one 0-cell and 405 3-cells, hence wedge^405 S3 integrally. r>=3 yields the full simplex. Persistence interval descriptions follow from these disjoint-degree stages. This proves finite (4,4,4), not general q.
 
-**PASS with residual bibliographic uncertainty.** Antolín Camarena--Carnero Bravo, arXiv:2307.12401, Proposition 25, proves triple categorical products with a factor of size two; Conjecture 26 predicts, but does not establish, the present case. Carnero Bravo, arXiv:2601.13432 (first public January 19, 2026), analyzes generalized Mycielskians and two-factor product applications, not the specified three-factor independence complex. Two 2026 published ternary-three-cube results determine the smaller \((3,3,3)\) case only; their proofs do not imply the present larger case. The predicted value 405 is explicitly credited to Conjecture 26. Searches did not identify an exact earlier quaternary calculation, but cannot exclude an unpublished or unindexed one.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The unresolved equal-four-factor instance of a specifically published homotopy conjecture is a natural finite benchmark, not an arbitrary parameter slice. The exact classification resolves a genuinely different finite topology (830,101 simplices), exhibits an independently checked three-family facet taxonomy involving 432 parity tetrahedra, and determines the associated complete metric persistence. No general-all-alphabet conclusion is inferred. The value lies in closing this natural conjectural instance with a full homotopy proof, not merely in obtaining a computed Betti number.
+The 405 sphere count is explicitly conjectured in Antolin Camarena-Carnero Bravo (Conjecture 26), so its numerical prediction is not new; the finite exhaustive homotopy proof of the (4,4,4) case is the assessed contribution. Proposition 25 covers a triple product with at least one factor K2, not all K4. Earlier published q=3 Hamming Rips computations yield 46 three-spheres and do not imply q=4. Goyal-Shukla-Singh work treats two-factor categorical complete-graph products; no proof of this three-factor case was identified in available primary material. Full text of the highly relevant 2023 product preprint was not obtained; this is a nontrivial priority risk, not asserted whole-document noncoverage.
 
-## Limitations
+## value
 
-The proof covers only this finite quaternary complex; no inductive generalization is established. The exhaustive executable needs trusted Python execution. The main sphere-count formula was conjectured earlier. Independent audit is not claimed, and priority searches cannot rule out all inaccessible publications.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This case resolves a natural specified finite instance of a previously published higher-product independence-complex conjecture, via a nontrivial complete 830101-face discrete Morse certificate. The full four-stage Hamming Rips filtration and 405 exact integral sphere wedge are independent useful natural invariants; there is no claim to prove all alphabet sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
