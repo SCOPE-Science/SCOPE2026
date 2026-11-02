@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantified domain is uniform random mappings on all positive finite state counts with independent labels of fixed rates in \((0,1)\). Functional-graph CTL semantics reduces global eventuality to hitting every cycle. The labelled-tree cycle decomposition and inclusion-exclusion establish the finite generating function. Joint factorial moments for finitely many cycle lengths, plus a uniform geometric bound on omitted failing cycles, justify the all-size limit. For two labels, a partial-fraction identity reduces the coefficient ratio to the cyclic-vertex count, whose exact birthday-collision distribution and strict stochastic increase prove the claimed interpolation. Exact independent exhaustive checks cover two labels up to four states and three labels up to three states; the proof, not those tests, carries the infinite claims.
+PASS
 
-## Originality — PASS (historical priority not certified)
+For a deterministic finite total transition function, all-state AF P_j holds exactly iff every directed cycle hits each marked set. A cycle of length ℓ succeeds with probability ∏_j(1-(1-p_j)^ℓ); mapping components are cycles of rooted labelled trees with T=ze^T, so the weighted set-of-cycles EGF is exp(∑w_ℓT^ℓ/ℓ). Inclusion–exclusion gives the stated product and normalization n!/n^n. Joint falling factorial moments E∏(C_{ℓ,n})_{m_ℓ}=(n)_M/(n^M∏ℓ^{m_ℓ}) give independent Poisson(1/ℓ) limits for any fixed lengths; the missing-cycle tail ≤∑_{ℓ>L}ℓ^{-1}∑_j(1-p_j)^ℓ is uniformly small. Thus the infinite product limit is justified. For r=1 positive coefficients give p_1 identically. For r=2 the exact partial fraction F=1+λ((1-T)^-1-(1-cT)^-1), c=(1-p)(1-q), λ=pq/(1-c), reduces P_n=λ(1-Ec^{K_n}) with P(K_n=k)=(k/n)(n)_k/n^k. Survival P(K_n≥k)=(n)_k/n^k increases strictly for k≥2 in n; c∈(0,1) gives strict increase from pq to λ. Checked boundary n=1, and nondegenerate p_j∈(0,1).
 
-The specific object is global satisfaction of several independently labelled CTL eventualities in a uniform one-successor random transition system, with a finite coefficient identity, correlated limit, and strict two-event size law. The 2026 motivating arXiv paper analyzes independent-edge Kripke systems with \(\Theta(\log n)\) outdegree, not functional digraphs. The 2025 comparison article studies independent-edge models. Classical random-mapping enumeration by Flajolet–Odlyzko provides broad techniques and may dominate parts of the generating-function identity by specialization, but the inspected accessible descriptions and targeted mathematical-record searches did not establish coverage of the **joint-eventuality and strict monotonicity** statement. Closest search records concern unary algebra enumeration and general model-theoretic 0–1 laws, neither states or implies the entire specialized probability profile on the examined evidence. The stronger-method subsumption risk remains material and documented; source abstracts are not asserted to prove the absence of a theorem within an inaccessible full text.
+## originality
 
-## Value — PASS
+PASS
 
-The result provides a natural finite-state model-checking benchmark where a conjunction of two global eventuality obligations has a size-varying, nontrivial success probability, while either individual obligation has a size-independent success probability. The exact two-event interpolation and the general multi-label correlated limit supply quantifiable non-0–1 behavior missing from qualitative high-degree frame analyses; this is not just a numerical table.
+Best-of-knowledge support for the complete combined statement: the independent-edge CTL literature studies a different probability space; classical random-mapping species and Poisson cycle laws already cover the core enumeration machinery and could give parts by specialization, but none of the actually inspected primary statements establishes the joint CTL all-n r-label law together with strict two-label finite-size interpolation. This is qualified novelty, not a claim to invent cycle EGFs, small-cycle Poisson convergence or the one-label identity.
 
-## Closest literature and limitations
+## value
 
-Lopuhaä-Zwakenberg, arXiv:2607.15029 (2026), full HTML mathematical content inspected; Dong–Lopuhaä-Zwakenberg–Stoelinga (2025), abstract and bibliographic record inspected; Flajolet–Odlyzko, *Random Mapping Statistics* (1990), abstract and bibliographic record inspected but original full text inaccessible. No claim to invent the cycle-index method, the rooted-tree EGF, or the single-label identity. The historical possibility that a general classical theorem subsumes the weighted-cycle specialization remains. The strict monotonicity assertion is only for two labels.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Several natural CTL eventuality obligations on uniformly random deterministic transition systems exhibit a nontrivial correlation and a precise size law: each one-label global requirement has probability p_j, yet two together increase strictly from pq to pq/(p+q-pq), and all r have an explicit non-0–1 limiting law. These are exact finite-state model-checking benchmark quantities for a canonical sparse transition class, and a motivated contrast with high-degree independent-edge 0–1 laws. The underlying mapping species is standard, so value is assigned to the complete joint-probability/interpolation classification, not to rebranding the exponential formula or a few finite checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

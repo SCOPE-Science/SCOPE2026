@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:05:05.613704Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Exactly one independent uniform outgoing successor per state; fixed points allowed, and all n states initial; independent Bernoulli label incidences with fixed 0<p_j<1.",
+        "Strict finite-n monotonicity is proved only for r=2, not for r≥3.",
+        "Finite checks corroborate numerical coefficients but do not prove the all-size result."
+      ],
+      "rationale": "For a deterministic finite total transition function, all-state AF P_j holds exactly iff every directed cycle hits each marked set. A cycle of length ℓ succeeds with probability ∏_j(1-(1-p_j)^ℓ); mapping components are cycles of rooted labelled trees with T=ze^T, so the weighted set-of-cycles EGF is exp(∑w_ℓT^ℓ/ℓ). Inclusion–exclusion gives the stated product and normalization n!/n^n. Joint falling factorial moments E∏(C_{ℓ,n})_{m_ℓ}=(n)_M/(n^M∏ℓ^{m_ℓ}) give independent Poisson(1/ℓ) limits for any fixed lengths; the missing-cycle tail ≤∑_{ℓ>L}ℓ^{-1}∑_j(1-p_j)^ℓ is uniformly small. Thus the infinite product limit is justified. For r=1 positive coefficients give p_1 identically. For r=2 the exact partial fraction F=1+λ((1-T)^-1-(1-cT)^-1), c=(1-p)(1-q), λ=pq/(1-c), reduces P_n=λ(1-Ec^{K_n}) with P(K_n=k)=(k/n)(n)_k/n^k. Survival P(K_n≥k)=(n)_k/n^k increases strictly for k≥2 in n; c∈(0,1) gives strict increase from pq to λ. Checked boundary n=1, and nondegenerate p_j∈(0,1).",
+      "status": "PASS",
+      "verification": [
+        "Independently recomputed Git tree object from seven Git blob identities: SHA-1 exactly 0b41609adc1757e87e325ffbcfb01c9111505936; frozen RESULT.md blob c2d5668b19cd3acc79ca04600ac04d0ec2bf40d7.",
+        "Fresh independent Fraction arithmetic enumerated all successor maps and compared direct cycle-label integration against independently built truncated EGF: r=1, n≤5; r=2, n≤5; r=3, n≤4; all exact matches.",
+        "Fresh explicit CTL Boolean-label enumeration for r=2,n=1,2,3 independently matched 1/3,13/36,181/486 at rates (1/2,2/3); birthday finite formula also matched n≤5.",
+        "Analytically re-derived arbitrary-n cycle-count factorial moments and the uniform geometric tail, independent of finite experiments."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Soria, The Cycle Construction (1991), full 2-page author text, equations (0),(3a),(3b) and multiset formula: general cycle/multiset GF calculus, not a CTL theorem.",
+          "Flajolet–Odlyzko, Random Mapping Statistics (1990), publisher abstract: broad uniform mapping EGF methods for many statistics; full source unavailable via author-hosted ps.gz and authorized Oxford attempt (VPN disconnected).",
+          "Arratia–Tavaré, Limit Theorems for Combinatorial Structures via Discrete Process Approximations (1992), abstract treats random-map core Poisson limits and joint component structure."
+        ],
+        "reasoning": "The finite EGF is an explicit specialization of classical weighted cycle/set species, so no originality attaches to the general construction. The assessed combined claim also gives the exact two-label closed probability and strict n-monotonicity, which the inspected general-method statements do not provide as a theorem. Stronger hidden coverage in unavailable original full text remains a material priority risk, not an assertion of noncoverage.",
+        "searches": [
+          "Web: Flajolet Odlyzko Random Mapping Statistics 1990 pdf full text",
+          "Web: site:algo.inria.fr/flajolet/Publications random mapping statistics pdf",
+          "Web: Flajolet Soria The Cycle Construction 1991 exponential formula weighted cycle generating functions",
+          "Resultary: birthday collision cyclic vertices random mapping generating function 1/(1-cT(z)) strictly stochastic increasing",
+          "Web: functional graphs random 2 color every cycle contains both colors probability"
+        ]
+      },
+      "checked_sources": [
+        "Full 2026 arXiv extracted source, arXiv:2607.15029, §§1, 3, 4, 6 and CTL appendix",
+        "Flajolet–Soria, The Cycle Construction (1991), full two-page PDF; screenshots checked",
+        "Flajolet–Odlyzko, Random Mapping Statistics (1990), publisher abstract and author OA listing; full text unavailable",
+        "Dong–Lopuhaä-Zwakenberg–Stoelinga, 0-1 Laws for LTL and CTL (SPIN 2025), university abstract; OA PDF 403",
+        "Arratia–Tavaré (1992) publisher abstract",
+        "Resultary published corpus: four direct semantic/weighted-cycle/birthday queries with ranked results; no direct matching theorem among examined hits",
+        "Web targeted searches: random-map colored cycles, random-mapping statistics and recent CTL models"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lopuhaä-Zwakenberg, arXiv:2607.15029, §§1.0.2, 3.1, 4, 6.3–6.4: independently present edges with typical outdegree proportional to log n, and 0–1 or convergence laws; not row-sum-one uniform mappings.",
+          "Dong–Lopuhaä-Zwakenberg–Stoelinga, SPIN 2025, author abstract: Erdős–Rényi random Kripke structures; not the uniformly sampled functional-digraph law.",
+          "Flajolet–Soria 1991 establishes cycle/multiset construction; substituted weights yield EGF after a further calculation but the work does not state the two-event stochastic-order comparison.",
+          "Standard birthday/cyclic-vertex distribution P(K_n≥k)=(n)_k/n^k and two-label partial fraction yield strict n-monotonicity; this simple derivation is not presented as a new stochastic-order technique."
+        ],
+        "reasoning": "Conditioning an independent-edge model to exactly one outgoing edge per state changes the law, so the model-checking 0–1 theorems do not imply this target theorem. General mapping cycle formulas mathematically entail the enumerative setup by specialization, but the complete combined theorem includes the explicit correlation law and strict size monotonicity, not established in an examined prior result. Hidden direct coverage is a genuine residual risk.",
+        "searches": [
+          "Web: Lopuhaä Zwakenberg 2026 towards realistic large random models labeled transition systems arxiv",
+          "Web: Dong Lopuhaä Zwakenberg Stoelinga 0-1 Laws LTL CTL random transition systems pdf",
+          "Web: joint eventuality random mappings independently labeled vertices every cycle two colors probability monotone",
+          "Web: Flajolet Odlyzko Random Mapping Statistics 1990 pdf full text",
+          "Web: site:algo.inria.fr/flajolet/Publications random mapping statistics pdf",
+          "Web: Flajolet Soria The Cycle Construction 1991 exponential formula weighted cycle generating functions",
+          "Resultary: birthday collision cyclic vertices random mapping generating function 1/(1-cT(z)) strictly stochastic increasing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semantics is precisely the event that every functional directed cycle intersects each independent Bernoulli-marked vertex set.",
+          "Resultary ranked returns included random-greedy laws and directed-cycle graph statements but no matching finite random-mapping joint-cycle-hitting theorem among examined results.",
+          "No directly matching primary theorem arose in the targeted random-mapping/colored-cycle searches."
+        ],
+        "reasoning": "The equivalent formulations are random mapping cycle-hitting by multiple independent marked subsets and a probability-weighted mapping species. The title alone is not the novelty criterion. Results for existence of a rainbow cycle or for arbitrary random graphs do not imply that every cycle of a uniform random functional graph is multi-marked; a failed search is not a novelty certificate.",
+        "searches": [
+          "Resultary: exact probability in random functional graph that every directed cycle contains at least one vertex with each of two independent Bernoulli labels CTL eventuality",
+          "Resultary: joint eventuality probabilities uniformly random one-successor functional digraph random mapping reachability vertices exact correlations",
+          "Web: random mapping every cycle contains each color colored vertices probability two colors enumeration",
+          "Web: random mapping no monochromatic cycle bicoloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is a continuous-parameter probability identity for all n and r, not a numerical table or unknown integer sequence.",
+          "Direct checked rational examples for (p,q)=(1/2,2/3): n=1,2,3,4,5 give 1/3,13/36,181/486,2617/6912,38731/101250; these are verification checks, not novelty evidence."
+        ],
+        "reasoning": "An exact table is not a decisive comparator for a parametric theorem. Targeted exact-formula and related published-finding searches were performed; failure to locate a table proves nothing about precedence.",
+        "searches": [
+          "Resultary: exact probability in random functional graph that every directed cycle contains at least one vertex with each of two independent Bernoulli labels CTL eventuality",
+          "Web: random mapping cycles hitting set random Bernoulli marks probability"
+        ]
+      },
+      "rationale": "Best-of-knowledge support for the complete combined statement: the independent-edge CTL literature studies a different probability space; classical random-mapping species and Poisson cycle laws already cover the core enumeration machinery and could give parts by specialization, but none of the actually inspected primary statements establishes the joint CTL all-n r-label law together with strict two-label finite-size interpolation. This is qualified novelty, not a claim to invent cycle EGFs, small-cycle Poisson convergence or the one-label identity.",
+      "residual_risks": [
+        "The Flajolet–Odlyzko full paper was not read; its general framework or less visible applications may imply more of the claimed formula or monotonicity than the accessible abstract shows.",
+        "The finite multivariate EGF is a direct weighted-cycle species specialization of classical techniques; originality cannot rest on this construction alone.",
+        "The 2025 SPIN paper PDF and some historical functional-graph literature were inaccessible; their abstracts are not treated as evidence of whole-text noncoverage.",
+        "Only bounded Resultary and internet searches were performed; no exhaustive priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different model; its logarithmic-degree independent-edge theorems do not imply deterministic uniform one-successor mapping formulas.",
+          "evidence": [
+            "Section 1.0.2 declares independent arcs; §3.1 typical degree proportional to log n; §6.4 CTL simplification uses strong connectivity under its edge law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.15029",
+          "material_read": "ArXiv full extracted text: introduction/model definition and §1.0.2, §§3.1, 6.3–6.4, CTL appendix passages, using full-document text search.",
+          "method": "Read open arXiv text and compare independent-arc probability space, typical outdegree, temporal property semantics and theorem scope.",
+          "title": "Towards realistic large random models of labeled transition systems and their 0-1 laws",
+          "trigger": "Closest recent CTL/labeled-transition-system model, cited by finding"
+        },
+        {
+          "assessment": "Covers general combinatorial cycle and multiset generating-function methods; does not itself state exact Bernoulli-labeled random-mapping CTL probability or its strict two-label size law.",
+          "evidence": [
+            "Page 1 eq. (0) cycle GF; page 2 eq. (3b) and multiset GF. It concerns ordinary combinatorial cycle classes, not joint temporal eventuality."
+          ],
+          "identifier_or_url": "https://oeis.org/A008965/a008965.pdf",
+          "material_read": "Both pages of the full paper, including mathematical formulas (0), (1)–(3), multiset construction, and references.",
+          "method": "Read PDF extracted text and independently inspected screenshots of both pages.",
+          "title": "The Cycle Construction",
+          "trigger": "Potentially dominant classical general cycle/multiset EGF theorem"
+        },
+        {
+          "assessment": "INCONCLUSIVE_FULL_TEXT; broad mapping methods definitely prior, possible exact higher-level coverage unresolved as a risk.",
+          "evidence": [
+            "The abstract describes a general generating-function and singularity-analysis framework for approximately twenty random-mapping parameters."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+          "material_read": "Publisher bibliographic details and abstract; original author-hosted postscript listed but web could not render gzip and runtime download failed; no whole text read.",
+          "method": "Located author-hosted OA postscript, tried to obtain; after failing arXiv/OA access, attempted authorized Oxford retrieval, which reported disconnected VPN (no bypass/retry).",
+          "title": "Random Mapping Statistics",
+          "trigger": "Highest-priority classical exact random-mapping-statistics source potentially implying the calculation"
+        },
+        {
+          "assessment": "The abstract explicitly gives Erdős–Rényi random Kripke systems rather than uniform one-successor systems; full-text content remains uninspected.",
+          "evidence": [
+            "Author abstract: independent-edge random transition models and CTL/LTL 0–1 or convergence laws."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-06847-7_4",
+          "material_read": "University of Twente author-hosted complete abstract and bibliographic record; the listed OA PDF returned HTTP 403, so no full article was read.",
+          "method": "Read author-hosted abstract and checked its full-paper access link.",
+          "title": "0-1 Laws for LTL and CTL over Random Transition Systems",
+          "trigger": "Earlier closely cited CTL study"
+        },
+        {
+          "assessment": "Classical random-mapping limit machinery is prior; no claim of whole-text noncoverage.",
+          "evidence": [
+            "Abstract includes Poisson limit law for random-map core and approximations to smallest cycle lengths."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240030310",
+          "material_read": "Publisher abstract and literature references only.",
+          "method": "Read abstract and identify its random-mapping core Poisson limits and cycle-law examples.",
+          "title": "Limit Theorems for Combinatorial Structures via Discrete Process Approximations",
+          "trigger": "Potential stronger small-cycle Poisson/random-mapping coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Several natural CTL eventuality obligations on uniformly random deterministic transition systems exhibit a nontrivial correlation and a precise size law: each one-label global requirement has probability p_j, yet two together increase strictly from pq to pq/(p+q-pq), and all r have an explicit non-0–1 limiting law. These are exact finite-state model-checking benchmark quantities for a canonical sparse transition class, and a motivated contrast with high-degree independent-edge 0–1 laws. The underlying mapping species is standard, so value is assigned to the complete joint-probability/interpolation classification, not to rebranding the exponential formula or a few finite checks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git record: RESULT.md blob c2d5668b19cd3acc79ca04600ac04d0ec2bf40d7; verify_joint_liveness.py blob 000b27c8cd0a05b92e1066b225b1bc3bb2412384",
+    "Frozen Git source package: SLOGAN.txt, METADATA.json, AUDIT.json, REVIEW.md, VERIFICATION.md; exact seven-blob tree verified",
+    "Full 2026 arXiv extracted source, arXiv:2607.15029, §§1, 3, 4, 6 and CTL appendix",
+    "Flajolet–Soria, The Cycle Construction (1991), full two-page PDF; screenshots checked",
+    "Flajolet–Odlyzko, Random Mapping Statistics (1990), publisher abstract and author OA listing; full text unavailable",
+    "Dong–Lopuhaä-Zwakenberg–Stoelinga, 0-1 Laws for LTL and CTL (SPIN 2025), university abstract; OA PDF 403",
+    "Arratia–Tavaré (1992) publisher abstract",
+    "Resultary published corpus: four direct semantic/weighted-cycle/birthday queries with ranked results; no direct matching theorem among examined hits",
+    "Web targeted searches: random-map colored cycles, random-mapping statistics and recent CTL models"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one independent uniform outgoing successor per state; fixed points allowed, and all n states initial; independent Bernoulli label incidences with fixed 0<p_j<1.",
+    "Strict finite-n monotonicity is proved only for r=2, not for r≥3.",
+    "Finite checks corroborate numerical coefficients but do not prove the all-size result.",
+    "The 1990 classical mapping-statistics article was not available in full text; high-level originality comparison is qualified, not certified.",
+    "No public Git changes or external scientific certification have been made."
+  ],
+  "residual_risks": [
+    "The Flajolet–Odlyzko full paper was not read; its general framework or less visible applications may imply more of the claimed formula or monotonicity than the accessible abstract shows.",
+    "The finite multivariate EGF is a direct weighted-cycle species specialization of classical techniques; originality cannot rest on this construction alone.",
+    "The 2025 SPIN paper PDF and some historical functional-graph literature were inaccessible; their abstracts are not treated as evidence of whole-text noncoverage.",
+    "Only bounded Resultary and internet searches were performed; no exhaustive priority guarantee."
+  ],
+  "schema_version": 1
+}
