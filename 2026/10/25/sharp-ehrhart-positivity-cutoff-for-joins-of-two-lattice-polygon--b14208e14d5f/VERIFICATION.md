@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Use \(\texttt{python3 verify.py}\), requiring Python 3 and standard-library modules only. The verifier constructs coefficient vectors two ways (Ehrhart-numerator binomial expansion and convolution of Pick Ehrhart counts with independent forward-difference interpolation), checks six test parameter tuples, and exhaustively evaluates every eligible integer Pick-data tuple with normalized-volume product at most \(168\) in a conservative superset of actual polygon pairs. This includes **14,438** states strictly below the cutoff and **14,838** through the cutoff. It confirms strict coefficient positivity in the lower range, a single offending Ehrhart-data tuple at the boundary, and two realizable, different negative-coefficient types.
+## correctness
 
-Actual execution output:
+PASS
 
-```text
-EXACT_OK below_168_states=14438 min_U=5 min_V=45 upto_168_states=14838 unique_bad=(12, 14, 0, 0, -4, 142) coeff_linear=-1/15 quadratic_only=-1/24 independent_convolutions=6
-```
+Pick's theorem gives h*_P=1+a z+b z^2 with a-b=B_P-3>=0, and similarly Q. The standard join series has h*=h*_P h*_Q over (1-z)^6. Direct binomial-basis expansion shows n=U/60 and n^2=V/24, with U=137+12(a+c)-3ac+2ad+2bc-3bd-3b-3d and V=45+10(a+c)-ac+bd-b-d. Cubic=((a-b)(c-d)+7(a+c)+b+d+17)/24>0, quartic=(ac-bd+2(a+c)+b+d+3)/24>0, leading NM/120>0, constant 1. The exhaustive relaxed integer Pick-data domain includes every realizable polygon pair: N<=M, NM<=168, 0<=b<=(N-1)/2, 0<=d<=(M-1)/2, a=N-1-b,c=M-1-d. Independent exact enumeration found all 14,438 states below 168 with min U=5,min V=45, and among 14,838 states up to 168 only (N,M,b,d)=(12,14,0,0) with U=-4,V=142. Explicit empty triangles of normalized areas 12 and 14 realize n=-1/15; a primitive-boundary triangle of normalized area 157 realizes the independent n^2=-1/24 pattern. The all-volume criterion is algebraic, not extrapolated from the cutoff search.
 
-The proof of the general sign criterion is symbolic; the bounded exhaustive calculation is invoked only for the sharp finite-volume minimum. The verifier uses exact integers/rationals and performs no extrapolation to larger normalized volumes. No external or independent audit has been performed. Unindexed prior literature remains a priority risk.
+## originality
+
+PASS
+
+The general join formula and failure of Ehrhart positivity are established by Liu–Tao–Xin (2026); the novelty under assessment is the sharp two-polygon parameter classification, volume threshold and two independent sign mechanisms. The inspected join theorem and generic operation survey do not state the exact bound or uniqueness; search absence is not absolute priority proof.
+
+## value
+
+PASS
+
+A sharp first-size obstruction for the smallest equal-dimensional polygon factors addresses the natural follow-up to general failure of Ehrhart positivity under joins. The all-parameter sign criterion, uniquely first failing Ehrhart data, sharp realizable threshold 168, and separated linear/quadratic failures are structurally useful and not merely table recomputation. The result makes no unjustified claim about all 5-polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
