@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The mathematical argument in `RESULT.md` proves the output characterization by a monotonicity-of-transitions lemma and an explicit preimage construction. Counting output words with prescribed transitions gives the exact finite-length formula, while a two-term recurrence and its characteristic roots prove the asymptotic rate. These are all-length deductions for every integer alphabet size \(q\ge2\).
+## correctness
 
-Run `python3 verify.py` with Python 3 standard library only. The checker enumerates the channel image and the inequality-defined image by separate methods; evaluates the closed count; and reconstructs input preimages for short lengths. Its observed counts were:
+PASS
 
-- \(q=2\), lengths \(1\)–\(14\): `2, 4, 8, 14, 24, 40, 66, 108, 176, 286, 464, 752, 1218, 1972`.
-- \(q=3\), lengths \(1\)–\(9\): `3, 6, 15, 30, 63, 126, 255, 510, 1023`.
-- \(q=4\), lengths \(1\)–\(7\): `4, 8, 24, 52, 128, 288, 676`.
-- \(q=5\), lengths \(1\)–\(6\): `5, 10, 35, 80, 225, 550`.
+For x length n, exactly t(x) first symbols of noninitial runs are deleted; y is subsequence, t(y)<=t(x), so |y|+t(y)<=n. Conversely each y with m+t(y)<=n is realized by duplicating the first symbol of every noninitial output run; append alternating singleton runs whose first symbol is deleted to pad to any n, possible for q>=2. Distinct channel outputs bound a zero-error code from above and one preimage for each attains the count. Counting output words by transitions yields the GF and characteristic-root capacity (including q=2 and n=1). Independent exhaustive direct input map for q=2 n<=11, q=3 n<=7, q=4 n<=5 matched every binomial count and allowed output condition; all n follow from explicit construction.
 
-The program terminated with `VERIFY_OK`. Exhaustive computation is finite evidence, not an independent certificate of the unrestricted statement; the unrestricted result rests on the explicit proof. No separate independent audit or formal verification has been performed.
+## originality
+
+PASS
+
+Chen–Milenkovic–Ribeiro–Sima 2026 define exactly the original-input contextual deletion model and develop capacity bounds for the extremal p=1 channel, with numerical Table I restricted to k=2,..,8. The threshold k=1 has a different simple exact output criterion, absent from their inspected theorem/table; the binary golden-ratio capacity matches a previously known baseline restricted-word rate at k=2, not an exact threshold-one capacity theorem. Con–Ribeiro 2025 covers different input-correlated synchronization error models. Originality is for exact finite-n output range, optimum and q-ary extension, not the Fibonacci recurrence as a method.
+
+## value
+
+PASS
+
+Exact capacity and optimal all-blocklength code size for a natural deterministic boundary case of a current contextual nanopore deletion model is a meaningful extremal classification. The elementary proof is independently useful and not an arbitrary small length sample; it supplies explicit preimages and covers arbitrary alphabets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

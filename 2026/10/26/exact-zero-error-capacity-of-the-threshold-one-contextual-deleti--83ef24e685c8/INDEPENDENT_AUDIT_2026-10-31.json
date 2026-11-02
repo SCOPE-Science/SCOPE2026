@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:46:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x length n, exactly t(x) first symbols of noninitial runs are deleted; y is subsequence, t(y)<=t(x), so |y|+t(y)<=n. Conversely each y with m+t(y)<=n is realized by duplicating the first symbol of every noninitial output run; append alternating singleton runs whose first symbol is deleted to pad to any n, possible for q>=2. Distinct channel outputs bound a zero-error code from above and one preimage for each attains the count. Counting output words by transitions yields the GF and characteristic-root capacity (including q=2 and n=1). Independent exhaustive direct input map for q=2 n<=11, q=3 n<=7, q=4 n<=5 matched every binomial count and allowed output condition; all n follow from explicit construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General k≥2 extremal channel capacity bounds and correlated synchronization frameworks."
+        ],
+        "reasoning": "Thm. 6 bounds do not directly imply the exact threshold-one output image and q-ary finite-n optimum; the generic correlated model may include it as boundary but no exact coverage found.",
+        "searches": [
+          "arXiv:2602.05072 Thm. 6 and Table I",
+          "arXiv:2504.14087"
+        ]
+      },
+      "checked_sources": [
+        "Chen, Milenkovic, Ribeiro, Sima, Correcting Contextual Deletions in DNA Nanopore Readouts, arXiv:2602.05072, Defs. 1–3, Thm. 6, Table I, Appendix A.",
+        "Con & Ribeiro, Channels with Input-Correlated Synchronization Errors, arXiv:2504.14087 (different general channel setting)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known p=1 deterministic channel and generic run-language enumeration do not alone tell which nonempty outputs are realized at length n."
+        ],
+        "reasoning": "New minimal-cost characterization with constructive preimages yields exact optimum; if source paper has an uninspected implicit k=1 lemma this could preempt originality, explicitly retained as risk.",
+        "searches": [
+          "arXiv:2602.05072 Definition 3 and Theorem 6",
+          "arXiv:2602.05072 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "k=1,p=1 deletes every first symbol of each noninitial constant run, with tests on original positions."
+        ],
+        "reasoning": "Model is an exact boundary specialization, not a different deletion convention; output range is expressed by minimal cost |y|+t(y).",
+        "searches": [
+          "contextual deletion threshold one all noninitial runs first symbols deleted exact image Fibonacci zero error capacity",
+          "arXiv:2602.05072 Definitions 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table I does not list k=1; at k=2 a golden-ratio expression occurs as rate for avoiding 0010,1101 patterns, not exact k=1 image."
+        ],
+        "reasoning": "Coincidental identical numerical golden-ratio base is not statement coverage; finite range q sum and all n not found as table entries.",
+        "searches": [
+          "contextual deletion threshold one all noninitial runs first symbols deleted exact image Fibonacci zero error capacity",
+          "arXiv:2602.05072 Table I k=2..8 Appendix A"
+        ]
+      },
+      "rationale": "Chen–Milenkovic–Ribeiro–Sima 2026 define exactly the original-input contextual deletion model and develop capacity bounds for the extremal p=1 channel, with numerical Table I restricted to k=2,..,8. The threshold k=1 has a different simple exact output criterion, absent from their inspected theorem/table; the binary golden-ratio capacity matches a previously known baseline restricted-word rate at k=2, not an exact threshold-one capacity theorem. Con–Ribeiro 2025 covers different input-correlated synchronization error models. Originality is for exact finite-n output range, optimum and q-ary extension, not the Fibonacci recurrence as a method.",
+      "residual_risks": [
+        "The q=2 numerical asymptotic rate is shared with a prior forbidden-word k=2 lower-bound construction, so novelty depends on the new exact channel characterization and all-n optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRIOR_BOUNDARY_NOT_EXACTLY_STATED",
+          "evidence": "Defines deletion of first symbol after a preceding run length at least k; Table I starts k=2; does not give closed image criterion or exact q-ary finite-block optimum at k=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.05072",
+          "material_read": "Full accessible arXiv HTML primary source; Definitions 1–3, Theorem 6, Table I lines 103–135, algorithm/appendix on forbidden runs, numerical boundary k>=2.",
+          "method": "Read channel definition and compare exact k=1 regime with k=2,3 listed capacities and theorem formulations.",
+          "title": "Correcting Contextual Deletions in DNA Nanopore Readouts",
+          "trigger": "Introduces exactly threshold-one contextual deletions as boundary of studied channel"
+        },
+        {
+          "assessment": "RESIDUAL_PRIOR_RISK",
+          "evidence": "General correlated error framework may include special deterministic endpoint; no decisive exact k=1 equivalence identified.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.14087",
+          "material_read": "Abstract/model overview only; complete original text not substantively inspected.",
+          "method": "Compare stated channel abstraction only; do not infer whole-paper noncoverage.",
+          "title": "Channels with Input-Correlated Synchronization Errors",
+          "trigger": "Broader contextual synchronization channel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact capacity and optimal all-blocklength code size for a natural deterministic boundary case of a current contextual nanopore deletion model is a meaningful extremal classification. The elementary proof is independently useful and not an arbitrary small length sample; it supplies explicit preimages and covers arbitrary alphabets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The deterministic q-ary contextual deletion of every symbol after an original input run change (threshold k=1, deletion p=1) has output set exactly y nonempty with |y|+t(y)<=n, all-length maximal zero-error block count q sum_{m,t, m+t<=n} binom(m-1,t)(q-1)^t, GF qz/((1-z)(1-z-(q-1)z²)), and capacity log_q((1+sqrt(4q-3))/2).",
+  "limitations": [
+    "Channel deletes every noninitial run-start in original input; not random, partial, higher-k or adversarial deletion.",
+    "The q=2 numerical asymptotic rate is shared with a prior forbidden-word k=2 lower-bound construction, so novelty depends on the new exact channel characterization and all-n optimum.",
+    "This is a qualified best-of-knowledge originality assessment. Originality search included Resultary query: 'contextual deletion threshold one all noninitial runs first symbols deleted exact image Fibonacci zero error capacity'.",
+    "No publication or independent external/formal attestation is asserted."
+  ],
+  "schema_version": 1
+}
