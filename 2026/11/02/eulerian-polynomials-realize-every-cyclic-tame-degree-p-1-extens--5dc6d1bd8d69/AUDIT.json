@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Eulerian inclusion–exclusion and Fermat give E_p=Phi_p mod p; the exact Eulerian differential recurrence inductively yields E_{p+t}=Phi_p E_{t+1} mod p. Factor coprimality follows from E_{t+1}(1)=(t+1)! nonzero mod p; monic Hensel lifting is unique. Wilson and factorial quotient give F(1)/p=-1/(t+1) mod p, so translated F is Eisenstein. The root uniformizer has p-adic unit class 1/(t+1), and principal-unit Hensel adjustment yields a root of Y^{p-1}=p/(t+1). All p-1 classes are distinct by Kummer valuation-plus-residue classes and exhaust cyclic total tame extensions of degree p-1. The included verifier reconstructs polynomial coefficients and one Hensel step independently for p=3,5,7,11,13, 34 pairs. Finite checks are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General tame Kummer theory lists radical types Q_p((p u)^{1/(p-1)}) but does not assign these types to Eulerian-polynomial factors.",
+        "Sharma–Straus (1974) Theorems 6–8 establish a family of Eisenstein irreducibility results, but not all Eulerian prime-block Hensel factors or their residue-unit class bijection.",
+        "Iijima et al. (2019) focus on characteristic-zero polynomial congruences modulo powers of X-1 and their converse."
+      ],
+      "reasoning": "Abstract classification has broader coverage of local fields but not the combinatorially specified realization. The theorem uses Eulerian prime-block reduction and a nontrivial constant-term unit computation not furnished by the cited broader statements.",
+      "searches": [
+        "all tamely ramified cyclic degree p-1 extensions Q_p Eulerian number polynomials factorization",
+        "Euler-Frobenius polynomials p-adic fields Kummer classes tame local extensions, Eisenstein translated by one",
+        "On a polynomial congruence for Eulerian polynomials Gessel 2021",
+        "Eulerian polynomials and polynomial congruences Iijima Sasaki Takahashi Yoshinaga"
+      ]
+    },
+    "checked_sources": [
+      "Sharma and Straus (1974), https://doi.org/10.4153/CMB-1974-052-x",
+      "Cao and Pan (2006), https://arxiv.org/abs/math/0608564",
+      "Iijima et al. (2019), https://cdm.ucalgary.ca/article/download/62485/53775/201267",
+      "Gessel (2021), https://arxiv.org/abs/2101.07384 (abstract: different earlier polynomial congruence)",
+      "Published records on Artin–Schreier prime-power factors, local cyclotomic prime-extraction, and tame Kummer extensions: similar methods but no implication for the Eulerian prime block."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Sharma–Straus local-translated Eisenstein method could imply the t=0 irreducible factor, but its stated determinant-family hypotheses do not provide this theorem’s t=1,...,p-2 Hensel factors with field class p/(t+1).",
+        "Cao–Pan valuations of residue class sums do not provide a polynomial factorization in Z_p[X] or its field generators.",
+        "The polynomial-variable congruence studied by Iijima et al. is modulo (X-1)^{n+1}, whereas the key congruence here is coefficientwise modulo the rational prime p."
+      ],
+      "reasoning": "None of these checked statements dominates the indexwise field realization. Combining a derived prime-block coefficient congruence, the exact unit residue of the local Eisenstein constant term, and Kummer classification provides the missing implication; the constituent elementary identities are not claimed as independent novel theorems.",
+      "searches": [
+        "doi:10.4153/CMB-1974-052-x, pp. 265-273",
+        "arxiv:math/0608564, Theorem 1.1",
+        "doi:10.55016/ojs/cdm.v14i1.62485, Theorems 1.1-1.2",
+        "Eulerian polynomial prime n irreducible Eisenstein polynomial X+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharma–Straus, Canadian Mathematical Bulletin 17 (1974), Theorems 6-8: translated Eisenstein tests for determinant-defined Euler–Frobenius polynomials; no local Kummer class enumeration in the read text.",
+        "Cao–Pan (2006), Theorem 1.1: valuations of residue-class sums of Eulerian numbers, not Eulerian-indexed ramified extension fields.",
+        "Iijima et al. (2019), Theorems 1.1-1.2: congruence in the polynomial variable modulo (X-1)^{n+1}, not reduction of index blocks modulo p."
+      ],
+      "reasoning": "The theorem remains different after moving between standard normalizations A_n(X)=X E_n(X), reciprocal symmetry, and the radical/Kummer equivalent statement: it identifies exact nonisomorphic field classes for p-1 particular Eulerian indices. Prior polynomial irreducibility at the single index p is the t=0 background case, not this census.",
+      "searches": [
+        "Eulerian polynomials p-adic splitting field tame ramified cyclic extension complete local fields",
+        "Eulerian polynomial A p plus t mod p cyclotomic polynomial Eulerian local field",
+        "\"Eulerian polynomials\" \"Kummer\" field",
+        "arxiv:math/0608564, sections 1-2",
+        "doi:10.4153/CMB-1974-052-x, Theorems 6-8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Neither the inspected combinatorial congruence papers nor the 1974 determinant-irreducibility article contains a table assigning all p-1 tame totally ramified Q_p extension classes to the consecutive Eulerian indices.",
+        "Finite explicit verification covers p=3,5,7,11,13 only; it is not used to infer exact originality or infinite-field behavior."
+      ],
+      "reasoning": "A table of local-field radical types is not itself the asserted Eulerian index-to-class correspondence; matching dimension or cardinality would not imply it. No exact earlier database/table of this correspondence was identified.",
+      "searches": [
+        "Eulerian polynomial local fields Kummer classes tables p-adic",
+        "Eulerian descent polynomial prime block congruence A_{p+t} = cyclotomic Phi_p times A_{t+1} modulo p, and local factor root p-adic field",
+        "arxiv:math/0608564",
+        "doi:10.55016/ojs/cdm.v14i1.62485"
+      ]
+    },
+    "rationale": "The final statement is the all-classes local-field realization by the family E_{p+t}, not previously known prime-index Eisenstein irreducibility, ordinary Eulerian identities, or abstract tame Kummer classification. Full text of Sharma–Straus 1974 and Iijima et al. 2019, and the whole accessible arXiv text of Cao–Pan 2006, were compared at theorem and proof level. They do not state this field realization or supply the combination of the prime-block Hensel factor and its exact Kummer class. Public-record comparisons returned adjacent arithmetic Hensel/Kummer results in different objects, not a dominating implication. Residual possibility of unlocated coverage remains.",
+    "residual_risks": [
+      "Any unidentified older specialist source may contain the same Eulerian-index-to-tame-Kummer correspondence in a different notation.",
+      "Related historical B-spline/Euler–Frobenius theory could have an unstated corollary providing some local factor classes.",
+      "General local Kummer classification is standard and cannot itself establish originality; the Eulerian explicit realization is the distinctive claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Substantial background overlap at prime-index Eisenstein techniques; does not state or imply the full Eulerian prime-block Kummer-class bijection as a theorem.",
+        "evidence": [
+          "Theorems 6-8 treat determinant-defined Euler–Frobenius polynomials and shifted Eisenstein irreducibility; pp. 267-273, without tame field-class identification."
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1974-052-x",
+        "material_read": "Original nine-page PDF, pp. 265-273, including Theorems 6-8 and proof via translated Eisenstein; all pages examined as extracted PDF text and principal equations checked in page images.",
+        "method": "Original lawful public full text, equation and theorem comparison",
+        "title": "On the Irreducibility of a Class of Euler Frobenius Polynomials",
+        "trigger": "Earlier source on exactly Euler–Frobenius/Eulerian irreducibility and translated Eisenstein criteria"
+      },
+      {
+        "assessment": "Eulerian residue sums and Stirling congruences, not local Eulerian factor fields.",
+        "evidence": [
+          "Theorem 1.1 bounds p-valuations of residue-class sums of Eulerian numbers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0608564",
+        "material_read": "Full accessible arXiv-rendered text, introduction, Theorems 1.1-1.3, Sections 2-4 and proofs.",
+        "method": "Original open-access primary manuscript with theorem-to-claim comparison",
+        "title": "Congruences on Stirling numbers and Eulerian numbers",
+        "trigger": "Verified archival first-public date and matching classical Eulerian congruence object"
+      },
+      {
+        "assessment": "The principal congruence is modulo a power of X-1 in characteristic zero; not the coefficientwise prime-index Hensel/Kummer classification.",
+        "evidence": [
+          "Theorem 1.1, equation (1.2), and Theorem 1.2, pp. 47-48: A_n(X^m) congruence modulo (X-1)^{n+1}."
+        ],
+        "identifier_or_url": "https://cdm.ucalgary.ca/article/download/62485/53775/201267",
+        "material_read": "All nine original journal PDF pages: introductory Theorems 1.1-1.2; normalizations, recurrence and proof Sections 2-5.",
+        "method": "Original lawful open journal full text, direct theorem/formula inspection",
+        "title": "Eulerian polynomials and polynomial congruences",
+        "trigger": "Apparently plausible prior theorem naming Eulerian-polynomial congruences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5dc6d1bd-8d69-446f-bf1a-4873d25d84ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an explicit, uniform, and exhaustive correspondence between a natural consecutive family of Eulerian descent polynomials and the entire intrinsic classification of cyclic totally tamely ramified degree-(p-1) Q_p extensions, including the exact Kummer unit class for each index. This is a motivated structural interpretation of polynomial arithmetic, not just an irreducibility restatement or an arbitrary finite calculation. The result covers every odd prime and all p-1 local isomorphism classes.",
+    "status": "PASS"
+  }
+}
