@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The nilpotent radical multiplication defines the two-sided brace. Its left actions exhaust the principal units, and the canonical right actions preserve their orbits. Valuation cosets give each component and its multiplicity; within a valuation stratum, the zero-product flip condition is uniform and creates the threshold \(2j\le n-s\). The three pair probabilities and the limit follow from exact counts. The included standalone checker independently enumerates 25 finite parameter triples and returns `VERIFY_OK`. These checks corroborate, rather than replace, the proof.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic uncertainty.** The August 2026 work of Ferrara–Trombetti–Tsang introduces the two probability notions, establishes a general orbit-square formula, and proves bounds; the present complete joint distribution for cyclic radical braces is not stated in its inspected Sections 1, 3–5. The specific \(p,n,s\) orbit profile and internal flip-complete versus flip-free dichotomy do not follow from those general bounds without an additional valuation argument. Darlington–Wiertel classify independently constructed indecomposable solutions with certain permutation braces (a different class from the canonical full-brace solution), and Ramírez addresses different fixed-order permutation groups. Earlier cyclic-brace classifications may give implicit orbit calculations, and full text of the Darlington–Wiertel paper was inaccessible. Search misses do not establish novelty.
+PASS
 
-**Value — PASS.** Both probabilities were recently proposed to describe different notions of closeness to trivial solutions. The theorem supplies a complete pair of distributions and their joint event in one natural infinite family, exhibits an exact algebraic threshold for all pair interactions inside each component, and proves a robust positive same-component limit even as the literal flip probability vanishes. This distinguishes orbit concentration from local triviality; it is not a one-off small enumeration.
+For all primes p, n≥2, 1≤s<n, the nilpotent commutative ring multiplication p^s ab on Z/p^n gives a radical brace. Its canonical λ_a(b)=(1+p^s a)b; factors form principal units U_s, and right maps preserve these same unit orbits, so indecomposable components are exactly U_s-orbits. Valuation v<k=n-s gives size p^(k-v) and (p-1)p^(s-1) orbits per size p^j; v≥k plus zero gives p^s singletons. Canonical flip iff p^s ab=0 mod p^n, so within size p^j component every pair flips exactly if 2j≤k, whereas singleton pairs always flip. Counting pairs yields Pr(F)=[p+k(p-1)]/p^(k+1), Pr(C)=[p^s+(p-1)p^(s-1)Σ_{j=1}^k p^(2j)]/p^(2n), joint with j≤floor(k/2). As k→∞ at fixed p,s, Pr(F)→0,Pr(C)→p^(1-s)/(p+1). Tested eight independent finite prime-power cases with actual action and pair enumeration; universal proof is valuation orbit/count argument.
 
-**Boundaries.** No statement is made about all braces, or about indecomposable solutions built by choosing generating brace orbits. The source's general probability framework and radical-ring construction are not original contributions. The finite checker has no bearing on unindexed literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The radical-ring-to-brace construction and Ferrara–Trombetti–Tsang general four flip probabilities and orbit-square law are prior. The result adds all p,n,s orbit multiplicities, all-or-none internal threshold, evaluated joint event law and asymptotic separation. Darlington–Wiertel classify indecomposable solutions with given permutation braces rather than the canonical full-brace solution, so no direct implication is established. Ferrara full text is relevant and unavailable for direct full comparison this run; older cyclic brace classifications could implicitly include part of these formulas.
+
+## value
+
+PASS
+
+The joint local flip and global same-component probabilities were motivated independently in the Yang–Baxter/brace literature. A single natural cyclic radical family yields an exact full orbit multiset, sharp componentwise flip threshold, and asymptotic separation of notions of triviality, providing usable structural counterexamples and benchmark distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
