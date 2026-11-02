@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For a real invertible symmetric planar system with two distinct eigenvalues and a non-eigenvector starting residual, the exact update is a scalar multiple of the perpendicular of each new Gaussian sketch. This makes future residual directions fresh and uniform while logarithmic increments are one-dependent. Exact circle-log integrals and a strong law give the claimed logarithmic exponent. Conditional decomposition into independent Gaussian coordinates proves that each positive-time residual norm has divergent moments of every order at least one. Symbolic and independent numerical checks are supplied, without treating finite experiments as a universal proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The original 2021 sketched GMRES method and two subsequent inspected primary papers emphasize subspace embeddings, projection properties and convergence when sketches retain sufficient information. Their inspected statements do not imply a fresh scalar sketch's exact Lyapunov exponent with infinite moments. Related earlier deterministic planar GMRES(1) bounds concern an unsparsed true-residual minimization; a previously studied Gaussian *correction-direction* residual line search has a different update and decay formula. Related Gaussian Galerkin moment blow-up does not determine the pathwise exponential rate of the independent resampling process. The checked literature and mathematical-record results yielded no covering claim, but absence of a match is not a proof of publication priority.
+PASS
 
-## Value — PASS
-The theorem resolves a concrete underembedding stress test for a central randomized numerical linear-algebra method. Its exact factor equals a classical stable deterministic rate in the definite case while its mean-based diagnostics fail as badly as possible. This sharp separation explains how near-zero sketch denominators can coexist with typical exponential residual decay, and delineates a risky, exact-arithmetic limiting regime outside standard subspace-embedding guarantees.
+Diagonalizing symmetric A preserves Gaussian sketches. Direct algebra gives r^+=((b-a)uv/(aXu+bYv))(Y,-X), a.s. nonzero and never aligned with an eigenspace; its direction is perpendicular to a fresh isotropic Gaussian sketch. Hence the postfirst-step orientations are iid uniform modulo pi, log norm multipliers are stationary 1-dependent (separated even/odd subsequences iid), and logarithmic singularities are integrable. The circular integral E log|c cos t+d sin t|=log(sqrt(c^2+d^2)/2) gives the exact average log multiplier. For the moments, the denominator is ||Ar||T with T normal and independent perpendicular W contributes at least a constant |W/T|, whose pth moment diverges p>=1; conditioning at each step proves all positive times. The probability-zero zero-denominator/eigenspace events and definite/indefinite cases are handled. Independent SymPy identity proof and 300000 angle-pair samples for each of (1,3),(-1,-3),(-1,2) gave observed means -0.692714,-0.691933,0.000583 against targets -0.693147,-0.693147,0; numerical tests are corroboration only.
 
-## Limits and risks
-The statement is only about independently redrawn scalar Gaussian sketches in dimension two. The indefinite case has zero exponent without a convergence conclusion. Similar calculations could occur in specialized random projection or matrix-product literature not accessed. It is not a practical algorithm recommendation; floating-point overflow and safeguards are outside its scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nakatsukasa–Tropp (2021 preprint, 2024 SIAM) introduced sketched GMRES. Burke–Güttel–Soodhalter (2023/2024) established its projector and convergence theory. The latter complete 24-page paper was inspected, especially Sections 3–5: assumption (3.1) requires an epsilon-subspace embedding with m<s and epsilon<1; Sections 4–5 give true/sketched residual bounds conditional on this approximation. The fresh Gaussian 1x2 row in the assessed one-dimensional restart is intentionally not a uniform embedding on R2. No read theorem implies the exact two-eigenvalue pathwise Lyapunov exponent jointly with infinite true-residual moments at every positive time. The deterministic optimal Richardson rate is prior mathematics, not claimed new. The former Nakatsukasa–Tropp full text was unavailable after arXiv and lawful repository PDF failures; authorized institutional access returned vpn_disconnected, leaving a specific priority risk, as does possibly unindexed random-matrix product literature.
+
+## value
+
+PASS
+
+The finding sharply separates pathwise linear convergence and divergent unconditional Euclidean residual moments for a natural minimal stochastic residual-minimization experiment. It gives an exact Lyapunov exponent and a concrete failure mode of inadequate sketch dimension, with a nonconvergent-exponent boundary for opposite-sign eigenvalues. These are meaningful structural facts rather than a tiny arbitrary numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
