@@ -1,19 +1,21 @@
-# Scientific review: minimal total domination in complete-graph direct products
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every cell \((i,j)\), total domination is equivalent to a selected incidence edge avoiding both its row and column. A three-edge matching directly witnesses domination, while Kőnig's theorem forces an incidence edge set without a three-edge matching into a two-vertex cover. Mixed covers fail, and two-same-side covers yield exactly the two-plus-two minimality rule. The three structural classes give the stated labeled coefficients by independent choices and inclusion--exclusion. All eleven exhaustive small-parameter checks of the original open-neighborhood definition passed. The proof, not the finite sample, supports every integer \(2\le p\le q\).
+PASS
 
-## Originality — PASS, with residual risk
+PASS: Identify cells with incidence edges in K_{p,q}. A selected set totally dominates iff no row+column pair covers all selected edges, including checks at selected cells. If a matching of size three occurs, those three edges dominate and all larger selected sets are nonminimal; any two-edge subset fails via a mixed cover. Otherwise Konig matching-cover duality supplies a vertex cover of size at most two, which may be neither a single vertex nor a mixed row/column pair, so must consist of two rows or two columns. Exactly two distinct edges per supported row/column are necessary and sufficient for inclusion minimality. Inclusion-exclusion subtracts full 2x2 intersections from the two four-cell families, giving 6*C(p,3)*C(q,3) z^3 plus [C(p,2)C(q,2)^2 + C(q,2)C(p,2)^2 - C(p,2)C(q,2)] z^4 (p>=3), or C(q,2)^2 z^4 (p=2). Direct open-neighborhood exhaustive checks over 2x2,2x3,2x5,3x3,3x4,4x4 gave exactly predicted coefficients (e.g. 3x3 {3:6,4:45}, 4x4 {3:96,4:396}). The 2x2 disconnected boundary gives one four-cell minimal set.
 
-The minimum total domination number of \(K_p\times K_q\) is known from Henning--Kazemi (2012), and the \(K_n\times K_2\) upper parameter is known from Kazemi (arXiv:1603.02428). This result is instead the **complete inclusion-minimal set polynomial**, plus the all-factor upper value and the WTD classification. Kazemi's Question 1 asks the all-factor upper equality, and its \(k=1\) instance was not answered by the inspected text. Bahadır--Ekim--Gözüpek (arXiv:2010.02341) study WTD graphs; Burcroff--O'Brien (arXiv:2110.00709) study ordinary, rather than minimal total, domination polynomials for these products. Accessible published results and indexed mathematical records did not show the same statement or a stronger one implying it. Full-text and database coverage is not exhaustive; an independently published equivalent may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The polynomial exactly counts all irredundant total-dominating configurations of a natural product family, not merely an optimum. The structural matching/vertex-cover dichotomy establishes a sharp two-versus-three factor-size transition in WTD behavior. The upper parameter also settles the \(k=1\) case of an explicit earlier question; no contribution for \(k>1\) is claimed. These consequences would not follow from the known scalar minimum, ordinary domination polynomial, or the special two-row upper result.
+PASS, qualified: Henning–Kazemi 2012 establishes the *minimum* k-tuple total domination of direct complete-graph products; Kazemi 2018 Proposition 7 establishes upper 2k+2 for K_n x K_2 and explicitly asks Question 1 for general factors. The present k=1 all-factor upper value and complete inclusion-minimal polynomial answer a nontrivial special case, while k>1 remains open. Iswadi 2011 studies metric-locating-total domination, a stronger and different property. Bahadir et al. study general well-totally-dominated graphs, not this full labeled polynomial. No earlier source located enumerating all minimal open total dominating sets in the exact product family.
 
-## Verification and limits
+## value
 
-The bundled `check_minimal_total.py` reconstructs adjacency and checks every subset for eleven product graphs using open neighborhoods and one-vertex deletions. The argument uses Kőnig's matching--vertex-cover theorem for finite bipartite graphs. Remaining originality risk arises from unindexed or uninspected alternative literature, and the mathematical theorem is restricted to two complete factors and one-fold total domination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: An explicit open question concerning the upper k-tuple parameter is resolved at its natural k=1 boundary, and the full inclusion-minimal size distribution is much stronger than the known minimum domination parameter. The classification and well-totally-dominated criterion are mathematically motivated complete results for a standard categorical graph product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

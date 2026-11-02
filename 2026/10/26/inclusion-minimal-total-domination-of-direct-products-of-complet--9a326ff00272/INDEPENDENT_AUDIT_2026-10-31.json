@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:10:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Identify cells with incidence edges in K_{p,q}. A selected set totally dominates iff no row+column pair covers all selected edges, including checks at selected cells. If a matching of size three occurs, those three edges dominate and all larger selected sets are nonminimal; any two-edge subset fails via a mixed cover. Otherwise Konig matching-cover duality supplies a vertex cover of size at most two, which may be neither a single vertex nor a mixed row/column pair, so must consist of two rows or two columns. Exactly two distinct edges per supported row/column are necessary and sufficient for inclusion minimality. Inclusion-exclusion subtracts full 2x2 intersections from the two four-cell families, giving 6*C(p,3)*C(q,3) z^3 plus [C(p,2)C(q,2)^2 + C(q,2)C(p,2)^2 - C(p,2)C(q,2)] z^4 (p>=3), or C(q,2)^2 z^4 (p=2). Direct open-neighborhood exhaustive checks over 2x2,2x3,2x5,3x3,3x4,4x4 gave exactly predicted coefficients (e.g. 3x3 {3:6,4:45}, 4x4 {3:96,4:396}). The 2x2 disconnected boundary gives one four-cell minimal set.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henning–Kazemi Theorem 14 concerns minimum k-tuple total domination of complete multipartite products.",
+          "Kazemi 2018 Question 1 asks whether upper k-tuple total domination of K_n x K_m equals 2k+2."
+        ],
+        "reasoning": "Minimum parameter coverage alone never determines all inclusion-minimal sets nor their upper cardinality. The k=1 upper bound is specifically a positive answer to the earlier question, without pretending to solve k>1.",
+        "searches": [
+          "doi:10.1007/s10878-011-9389-z",
+          "arXiv:2010.02341",
+          "arXiv:1603.02428 Question 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1603.02428 p8 Proposition 7 and Question 1",
+        "doi:10.1007/s10878-011-9389-z",
+        "https://repository.ubaya.ac.id/274/1/hazrul_Locating%20and%20Total%20Dominating%20Sets_2011.pdf",
+        "arXiv:2010.02341 (abstract)",
+        "Resultary semantic comparison of complete-product total domination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2018 source proves Gamma for one factor of order two and poses both factors general as a question.",
+          "The 2012 source gives gamma_t for general complete-graph factors, not Gamma_t or enumeration."
+        ],
+        "reasoning": "Neither prior result implies the classification of all size-three coordinate matchings and size-four 2+2 support sets. The new Konig/cover proof fills that precise gap.",
+        "searches": [
+          "arXiv:1603.02428 p7 Proposition 7 / Question 1",
+          "doi:10.1007/s10878-011-9389-z Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open-neighborhood minimal total domination differs from ordinary closed-neighborhood domination polynomial and from the paired domination or Cartesian-product analogues.",
+          "Kazemi Proposition 7 covers K_n x K_2 but not arbitrary K_p x K_q."
+        ],
+        "reasoning": "The target is upper total domination and inclusion-minimal-set generating polynomial for categorical products, not ordinary domination or Cartesian products. The special factor-2 theorem does not imply the classified p,q>=3 cases.",
+        "searches": [
+          "Resultary semantic query: categorical direct product complete graphs inclusion minimal total dominating sets upper total domination number",
+          "arXiv:1603.02428 Section 5",
+          "arXiv:2110.00709 Section 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index results are adjacent total/secure domination of other graph families; full primary Kazemi paper contains no minimal-set size polynomial for K_p x K_q."
+        ],
+        "reasoning": "No exact all-factor enumerator of three- and four-cell minimal sets found. Absence of retrieval does not prove universal novelty.",
+        "searches": [
+          "Resultary semantic query: categorical direct product complete graphs inclusion minimal total dominating sets upper total domination number",
+          "web search: inclusion minimal total dominating sets categorical product complete graphs counting polynomial"
+        ]
+      },
+      "rationale": "PASS, qualified: Henning–Kazemi 2012 establishes the *minimum* k-tuple total domination of direct complete-graph products; Kazemi 2018 Proposition 7 establishes upper 2k+2 for K_n x K_2 and explicitly asks Question 1 for general factors. The present k=1 all-factor upper value and complete inclusion-minimal polynomial answer a nontrivial special case, while k>1 remains open. Iswadi 2011 studies metric-locating-total domination, a stronger and different property. Bahadir et al. study general well-totally-dominated graphs, not this full labeled polynomial. No earlier source located enumerating all minimal open total dominating sets in the exact product family.",
+      "residual_risks": [
+        "An unindexed earlier labeled minimal-total-dominating-set enumeration may exist; no absolute priority certification.",
+        "The all-k extension of the published upper parameter question remains unresolved; the result is only k=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_WITH_EXPLICIT_OPEN_CASE",
+          "evidence": "Gamma_{k,t}(K_n x K_2)=2k+2 is prior; asks whether Gamma_{k,t}(K_n x K_m)=2k+2 for general factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02428",
+          "material_read": "Full source sections on categorical products, Proposition 7 and Question 1 on PDF page 8 (zero-index page 7)",
+          "method": "Lawful arXiv primary PDF text and page-image reading",
+          "title": "Upper k-tuple total domination in graphs",
+          "trigger": "Identical upper total domination parameter for categorical complete-graph products"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER",
+          "evidence": "Determines minimum gamma_{k,t} for products, not largest inclusion-minimal set or its complete polynomial.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-011-9389-z",
+          "material_read": "Full author-uploaded manuscript as rendered web text, abstract, product theorems including Theorem 14",
+          "method": "Author-hosted full primary text",
+          "title": "k-tuple total domination in cross products of graphs",
+          "trigger": "Exact minimum for same categorical product"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Studies metric-locating total dominating sets with extra distance-distinguishing property, not arbitrary minimal total dominating sets.",
+          "identifier_or_url": "https://repository.ubaya.ac.id/274/1/hazrul_Locating%20and%20Total%20Dominating%20Sets_2011.pdf",
+          "material_read": "Abstract, definitions and section 2, Proposition 1, page 3",
+          "method": "Institutional open repository full primary PDF with page image",
+          "title": "Locating and Total Dominating Sets of Direct Products of Complete Graphs",
+          "trigger": "Plausible title with same graph family"
+        },
+        {
+          "assessment": "INSUFFICIENT_FULLTEXT_TO_RULE_OUT_ALL_COVERAGE",
+          "evidence": "General WTD families and constraints; not verified full text on this run, residual risk explicitly noted.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.02341",
+          "material_read": "Abstract, definitions and stated scope",
+          "method": "Lawful open-access indexed primary abstract",
+          "title": "Well-Totally-Dominated Graphs",
+          "trigger": "General classification of same WTD notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An explicit open question concerning the upper k-tuple parameter is resolved at its natural k=1 boundary, and the full inclusion-minimal size distribution is much stronger than the known minimum domination parameter. The classification and well-totally-dominated criterion are mathematically motivated complete results for a standard categorical graph product.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two categorical complete-graph factors, each size >=2; ordinary or Cartesian products excluded.",
+    "k-tuple total domination for k>1 is not solved."
+  ],
+  "schema_version": 1
+}
