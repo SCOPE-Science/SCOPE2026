@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T12:54:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer m>=3, a generic centroidal hyperplane intersects exactly the simplex edges joining normal coordinates with opposite signs. If K is the number of positive coordinates, N_m=K(m-K)=m²/4-(K-m/2)². A Haar normal on the zero-sum space is the direction of Y_i=Z_i-mean(Z), iid Z_i~N(0,1). Its off-diagonal correlation is -1/(m-1), so the bivariate Gaussian opposite-sign probability is arccos[-1/(m-1)]/pi and summing over C(m,2) edges yields the stated mean exactly. Expanding arcsin at 1/(m-1) yields m²/4-sigma² m+O(1/m), sigma²=1/4-1/(2pi). The source grid/Chebyshev argument correctly establishes empirical-CDF stochastic equicontinuity at the random sample mean; the independent influence representation is m^-1/2 sum [1{Z_i>0}-1/2-phi(0)Z_i]+o_p(1), with variance sigma². The iid CLT, continuous mapping and Slutsky give the two asserted chi-square limits. m=3 gives N_3=2 deterministically and the exact formula agrees. Independent Gaussian simulation m=3,4,8,32,256,1000 agreed with expectation within sample fluctuation and normalized K variance approached sigma²; finite data are corroboration only, not proof of limit. All normalization, quantifiers, genericity and boundary cases checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distinct published Resultary Eq.(1) gives the entire face vector for j=0,...,m-3, while Eq.(2) gives joint rank-one chi-square fluctuations and Eq.(4) reproduces the exact vertex mean.",
+          "De Loera–Lopez-Campos–Torres Theorem 1.1 determines a maximum over polytope sections, not their Haar random expectation. Affentranger–Schneider and Baryshnikov–Vitale concern projections/Gaussian convex hulls rather than centroidal sections."
+        ],
+        "reasoning": "The Resultary joint face-vector theorem is strictly stronger than this single-vertex-count claim: its j=0 specialization and exact expectation cover all asserted formulas, regardless of whether the words and presentation differ. Projection and deterministic section results are contextual, not required for decisive coverage.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+          "Resultary semantic: joint chi square face vector fluctuations random central regular simplex sections",
+          "https://www.researchgate.net/publication/387140853_On_the_Number_of_Vertices_in_a_Hyperplane_Section_of_a_Polytope",
+          "https://kyushu-u.elsevierpure.com/en/publications/regular-simplices-and-gaussian-samples/",
+          "https://doi.org/10.1007/BF02187839"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+        "https://www.researchgate.net/publication/387140853_On_the_Number_of_Vertices_in_a_Hyperplane_Section_of_a_Polytope",
+        "https://arxiv.org/abs/2609.12714",
+        "https://kyushu-u.elsevierpure.com/en/publications/regular-simplices-and-gaussian-samples/",
+        "https://doi.org/10.1007/BF02187839",
+        "https://doi.org/10.1073/pnas.2108031118",
+        "https://arxiv.org/abs/2412.12419"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary stronger theorem Eq.(1) at j=0 gives K(m-K) exactly; Eq.(4) equals the focal mean term by term; Eq.(2) at j=0 yields [floor(m^2/4)-N_m]/m=>sigma^2 chi^2_1.",
+          "Difference between floor(m^2/4) and m^2/4 is bounded by 1/4. From Eq.(4), [m^2/4- E N_m]/m -> sigma^2, so [N_m-E N_m]/m=>sigma^2(1-chi^2_1)."
+        ],
+        "reasoning": "The complete original mathematical statement follows as a direct corollary of a distinct published theorem for every admissible m (m=3 also elementary and covered by its exact Gaussian signs; the broad theorem states m>=4, so handle m=3 via N_3=2). There is no remaining independent asymptotic or expectation formula; identical publication date does not establish chronological priority, but exact mathematical coverage is decisive.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+          "https://www.researchgate.net/publication/387140853_On_the_Number_of_Vertices_in_a_Hyperplane_Section_of_a_Polytope",
+          "Web: random central regular simplex section expected vertices Gaussian sample centered signs asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned N_m=K(m-K) where K counts iid Gaussian observations above sample mean. Distinct published Resultary joint-face-vector RESULT Eq.(1) sets f_0=C(m,2)-C(K,2)-C(m-K,2)=K(m-K).",
+          "The distinct Resultary Eq.(4) states exactly the assigned finite-dimensional expected-vertex formula; its Eq.(2) with j=0 establishes the chi-square limit for the balanced-vertex deficit."
+        ],
+        "reasoning": "A genuinely equivalent formulation was found, not merely overlapping terminology: under N=m, f_0=N_m in distribution, and floor(m^2/4)-N_m differs from m^2/4-N_m by at most 1/4, negligible after division by m. The mean is identical. The assigned centered chi-square limit follows from the known mean and the published j=0 limit by Slutsky. All principal assertions are expressly covered.",
+        "searches": [
+          "Resultary semantic: Haar random central regular simplex sections number vertices exact expectation chi square fluctuations",
+          "Resultary semantic: number iid Gaussian observations above sample mean CLT 1/4 minus 1/(2pi)",
+          "Web: random sections simplex number vertices expected Gaussian mean sample signs above sample mean",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed published Resultary entry SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90 includes exact Eq.(4), with mean = m(m-1)/4 +m(m-1)/(2pi) arcsin[1/(m-1)], and Eq.(2) includes j=0 chi-square scaling.",
+          "De Loera et al. Table 1 instead concerns attainable slice vertex counts of hypercubes through dimension six."
+        ],
+        "reasoning": "This is not a negative search: an explicit exact prior formula and associated more general theorem were found. It obviates any claim of an uncomputed mean or fluctuation invariant, independently of the 2024 hypercube enumeration table.",
+        "searches": [
+          "Resultary semantic: Haar random central hyperplane regular simplex vertex count chi square expectation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+          "https://www.researchgate.net/publication/387140853_On_the_Number_of_Vertices_in_a_Hyperplane_Section_of_a_Polytope"
+        ]
+      },
+      "rationale": "A distinct already published result, Joint chi-square face-vector fluctuations of random central regular-simplex sections (Resultary published 2026-10-11), provides exactly the full face-vector law, exact focal vertex mean (its Eq.(4)), and joint chi-square deficits for all fixed ranks (its Eq.(2)). Setting j=0 gives the assigned vertex deficit limit and applying its exact mean gives the centered limit. The assigned m=3 boundary is elementary, while the stronger result covers m>=4. Thus every nontrivial assertion of the focused claim is explicitly stated or immediately implied; neither different title nor naming changes the mathematical coverage. Exact chronological priority within 2026-10-11 is not asserted; the documented separate full-source mathematical overlap is decisive.",
+      "residual_risks": [
+        "Both overlapping findings are published in the 2026-10-11 collection, so this audit does not establish fine chronological priority or dependence; it establishes exact mathematical coverage by the separately published stronger finding.",
+        "Original full text of Ambrus–Gárgyán arXiv:2609.12714 was not obtained; authorized institutional retrieval reported VPN disconnected, no bypass or further attempt. This access limitation is NOT the basis of the scientific rejection.",
+        "Some older projection and Gaussian sample works were available only in abstract; they cannot support a whole-document noncoverage claim. Exact overlap is established from the completely inspected Resultary source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY_COVERING the assigned exact expectation and both weak limits, up to the trivial m=3 boundary and at most 1/4 centering adjustment.",
+          "evidence": [
+            "Eq.(1): f_0=C(m,2)-C(K,2)-C(m-K,2)=K(m-K).",
+            "Eq.(2) j=0: [floor(m²/4)-f_0]/m => (1/4-1/(2pi)) chi²_1.",
+            "Eq.(4): same exact mean and asymptotic, with centered limit immediate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+          "material_read": "Complete original RESULT.md: finding Eqs.(1)-(5), assumptions, six proof steps, verification, relationship and limitations.",
+          "method": "Fetched full published source from Resultary GitHub and checked algebraic j=0 specialization and asymptotic implication.",
+          "title": "Joint chi-square face-vector fluctuations of random central regular-simplex sections",
+          "trigger": "Distinct same-object result with a priori stronger full face-vector law"
+        },
+        {
+          "assessment": "Not a dominating Haar distribution theorem; Theorem 1.1 gives sharp maximum floor(m²/4) for d>3, used here only as context.",
+          "evidence": [
+            "Introduction defines nu(P) as maximum |V(P∩H)|; Theorem 1.1 upper bounds it by floor(n/2)ceil(n/2) for d>3.",
+            "No orientation probability or high-dimensional chi-square limit follows from that maximum statement."
+          ],
+          "identifier_or_url": "arXiv:2412.12419; https://www.researchgate.net/publication/387140853_On_the_Number_of_Vertices_in_a_Hyperplane_Section_of_a_Polytope",
+          "material_read": "Author-posted public manuscript text: abstract, introduction, Theorems 1.1-1.5, and Section 2.1 proof of the extremal count theorem.",
+          "method": "Read the source text and compared maximum-over-all-hyperplanes bound to Haar expectation and limit.",
+          "title": "On the Number of Vertices in a Hyperplane Section of a Polytope",
+          "trigger": "Same hyperplane-section vertex invariant and potentially broader bound."
+        },
+        {
+          "assessment": "Its abstract does not imply focal vertex-count law; uninspected details remain a risk, but rejection is independently established by the distinct published exact theorem.",
+          "evidence": [
+            "Abstract states minimum-volume central slices are facet-parallel, with critical-normal variational analysis."
+          ],
+          "identifier_or_url": "arXiv:2609.12714; https://arxiv.org/abs/2609.12714",
+          "material_read": "Public abstract and version metadata (submission 2026-09-11) only. Full text unavailable through tested arXiv/OA routes and institutional retrieval; no claim to have read it.",
+          "method": "Checked stated result on minimizers of volume against the required random count invariant.",
+          "title": "Minimal central slices of the regular simplex",
+          "trigger": "Same regular simplex and centroidal hyperplane sections, but volume rather than vertices."
+        },
+        {
+          "assessment": "No demonstrated coverage from abstract; projection-to-Gaussian convex-hull result is not directly a random central section.",
+          "evidence": [
+            "Abstract identifies affine-equivalence between projected regular simplex vertices and Gaussian samples."
+          ],
+          "identifier_or_url": "Baryshnikov and Vitale (1994), https://kyushu-u.elsevierpure.com/en/publications/regular-simplices-and-gaussian-samples/",
+          "material_read": "Publisher/university-hosted abstract and bibliographic details, not full original article.",
+          "method": "Compared randomized projections and Gaussian sample convex hull equivalence with central hyperplane sections.",
+          "title": "Regular simplices and Gaussian samples",
+          "trigger": "Potential Gaussian alias/reduction."
+        },
+        {
+          "assessment": "The abstract treats expected faces of random orthogonal projections, not the same centroidal-section statistic.",
+          "evidence": [
+            "Abstract states expected k-face asymptotics of projections onto random isotropic subspaces."
+          ],
+          "identifier_or_url": "Affentranger and Schneider (1992), https://doi.org/10.1007/BF02187839",
+          "material_read": "Published abstract and bibliographic data, not complete article.",
+          "method": "Checked whether stated expected k-faces are projections or sections and their dimension regime.",
+          "title": "Random projections of regular simplices",
+          "trigger": "Classical expected face counts and possible dual interpretation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A Haar-random central simplex section vertex count is intrinsically natural, and its exact expectation and chi-square scaling are meaningful invariants. However, the separately published stronger joint face-vector theorem already computes this exact mean and j=0 fluctuation law, including an explicit full proof. The present statement adds no new exact invariant, generalization, distinguished case, counterexample, or necessary structural lemma beyond that known mathematical coverage. It is an instructive specialization but not an independent valuable research contribution under the shared C/O/V standard.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90/RESULT.md",
+    "https://www.researchgate.net/publication/387140853_On_the_Number_of_Vertices_in_a_Hyperplane_Section_of_a_Polytope",
+    "https://arxiv.org/abs/2609.12714",
+    "https://kyushu-u.elsevierpure.com/en/publications/regular-simplices-and-gaussian-samples/",
+    "https://doi.org/10.1007/BF02187839",
+    "https://doi.org/10.1073/pnas.2108031118",
+    "https://arxiv.org/abs/2412.12419"
+  ],
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Originating theorem only covers regular simplices, centroidal Haar hyperplanes, m>=3; limit not exact finite-m distribution.",
+    "The stronger covering theorem is separately published on the same calendar date; exact time priority was not determined.",
+    "Some older original primary literature accessible only through abstracts; independently sufficient exact Resultary overlap drives scientific rejection."
+  ]
+}
