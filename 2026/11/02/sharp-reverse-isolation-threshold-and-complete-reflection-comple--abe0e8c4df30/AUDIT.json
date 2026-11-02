@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The 37-letter iterate has a directly reproducible 17-word F8 set, closed under every 8-factor of all 17 substitution images (119 windows). Every 8-window of an image has an 8-letter preimage covering block, proving infinite factor closure by induction. No 8-factor has its reversal; shorter profiles are exhaustive subword computations, with exact class counting and published factor complexity for all n. verify.py executed from the current package and returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.09302 Theorem 11: eventual absence of reflected factors under uniform recurrence/non-reversal-closure, but with no explicit bound.",
+        "arXiv:2206.01776 Theorem 14: forbidden-factor characterization of the word, not an explicit reflection-profile theorem."
+      ],
+      "reasoning": "The broader general theorem implies eventuality, not the exact minimal threshold eight or the finite exception table. The 2022 factor characterization may algorithmically facilitate such a computation but does not state or directly imply its exact 17-word closure and reflection sequence without additional nontrivial work.",
+      "searches": [
+        "exact palindromic factor complexity of ternary fixed point morphism 0->01 1->21 2->0 Currie Ochem Rampersad Shallit",
+        "reflection complexity of the fixed point 0->01 1->21 2->0: first no mutually reversed factors at length eight, values 3 3 6 7 10 12 15",
+        "arXiv:2406.09302 Theorem 11",
+        "arXiv:2206.01776 Theorems 1, 6, 14"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.01776 (Theorems 1,6,14, inspected primary PDF)",
+      "arXiv:2406.09302 (Theorem 11, inspected HTML)",
+      "published-finding corpus semantic searches matching six listed queries; closest records on unrelated combinatorial objects",
+      "current prior research records (recoverable titles/claims for deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2206.01776, Theorem 1: factor count 2n+1; Theorem 6: exactly nine palindromes; Theorem 14: a forbidden-factor characterization.",
+        "arXiv:2406.09302, Theorem 11: eventual, non-quantified loss of reflected factors.",
+        "This result explicitly pairs 0121 and 1210 at length 4 and provides the 17-factor closure at length 8."
+      ],
+      "reasoning": "The prior theorems are used as inputs/qualitative context, not asserted new. Factor and palindrome counts do not uniquely determine nonpalindromic reversal coincidences, so they do not entail the exact reflection counts. Eventuality does not establish the sharp value eight. The new proof supplies precisely those missing comparisons.",
+      "searches": [
+        "exact palindromic factor complexity of ternary fixed point morphism 0->01 1->21 2->0 Currie Ochem Rampersad Shallit",
+        "reflection complexity of the fixed point 0->01 1->21 2->0: first no mutually reversed factors at length eight, values 3 3 6 7 10 12 15",
+        "https://arxiv.org/pdf/2206.01776 Theorems 1, 6, 14",
+        "https://arxiv.org/html/2406.09302v4 Theorem 11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 11 of arXiv:2406.09302 defines reflected factors and guarantees an unspecified eventual cutoff for uniformly recurrent non-reversal-closed words.",
+        "The complete same-word palindromic factors are listed in Theorem 6 of arXiv:2206.01776."
+      ],
+      "reasoning": "Ordinary reversal-equivalent factors, oriented reflected factors and reflection complexity were compared as equivalent formulations. Neither inspected source supplies the exact 8 cutoff or all nonpalindromic reverse pairs; Theorem 6 covers only palindromes, which have single-word reversal classes.",
+      "searches": [
+        "reflection complexity of the fixed point 0->01 1->21 2->0: first no mutually reversed factors at length eight, values 3 3 6 7 10 12 15",
+        "Pisot ternary word p 012102101021 reverse factors, reflection complexity, reverse-isolation threshold 8",
+        "\"012102101021\" \"reflection complexity\"",
+        "\"012102101021\" \"reversal\" complexity",
+        "https://arxiv.org/html/2406.09302v4 (lookups: Pisot, 012102, Currie)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published arXiv:2206.01776 Theorem 6 lists the nine palindromes, not the mutually reversed nonpalindromic factors.",
+        "Relevant published-finding corpus hits include 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6, which concerns finite binary words, a different object.",
+        "No matching table was found in the targeted OEIS/web searches; this is not a proof of absence."
+      ],
+      "reasoning": "The exact sequence of reflection counts, sharp cutoff and explicit reverse-pair lists were queried by object and numbers; no inspected database result reproduces them. Other recorded reflections concern different words or coding objects.",
+      "searches": [
+        "complete list nine palindromic factors 0 1 2 010 101 121 01210 21012 1012101 fixed point 0->01 1->21 2->0",
+        "palindromic complexity of ternary word A287072 012102101021012 factor complexity 2n+1",
+        "Pisot ternary word p 012102101021 reverse factors, reflection complexity, reverse-isolation threshold 8",
+        "exact reversal paired factors 012102101021 01021012 morphism 01 21 0",
+        "\"3,3,6,7,10,12,15\" reflection complexity",
+        "site:oeis.org \"3,3,6,7,10,12,15,17\" ternary"
+      ]
+    },
+    "rationale": "Same-word 2022 primary source establishes factor complexity and all palindromes but does not provide nonpalindromic reflected factors or full reflection complexity; 2024 general theory ensures eventuality without the explicit least cutoff. All 17 length-8 words and their exact closure yield the new sharp threshold and exception profile. Targeted published-finding corpus/web searches found no equivalent; unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed publication or a result not surfaced by focused semantic/primary-text queries may give the same exact reflection spectrum.",
+      "A forbidden-factor characterization could permit another derivation of the threshold; it is not the same as an explicit published threshold.",
+      "External independent validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 6 ALREADY lists all nine palindromes; that claim is excluded from novelty. No explicit full reflection-complexity profile, reverse-pair table, or least reverse-isolation threshold is given in inspected results.",
+        "evidence": [
+          "Theorem 1 asserts factor complexity 2n+1",
+          "Theorem 6 lists exactly nine palindromes",
+          "Theorem 14 characterizes factors via forbidden words"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.01776",
+        "material_read": "ArXiv full-text PDF: relevant introduction and Theorems 1, 6, 14, their proof paragraphs and the adjacent sections; compared actual results rather than relying on abstract.",
+        "method": "Opened primary PDF and inspected sections on factor complexity (page 7), palindrome classification (page 16) and avoided-factor characterization (page 19).",
+        "title": "Properties of a Ternary Infinite Word",
+        "trigger": "Primary same-word source; most plausible direct coverage of palindrome/reversal profile"
+      },
+      {
+        "assessment": "Qualitative eventual absence of mutually reflected factors for non-reversal-closed uniformly recurrent words; no numerical cutoff or complete exceptional spectrum for this fixed point.",
+        "evidence": [
+          "Theorem 11 alternatives: reversal-closed, or r(n)=rho(n) for all sufficiently large n",
+          "No match for 012102, Pisot, Currie in inspected HTML"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.09302v4",
+        "material_read": "Full-text HTML, especially definition and Theorem 11 with proof; checked same-word identifiers.",
+        "method": "Inspected definitions, Theorem 11 and proof; searched text for the word, its name and primary-paper author.",
+        "title": "The Reflection Complexity of Sequences over Finite Alphabets",
+        "trigger": "Defining and broader general reference for the precise invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abe0e8c4-df30-4d2f-b17e-e6013a12926c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete, motivated calculation of standard reflection complexity on a natural, well-studied primitive ternary morphic word. The nontrivial reverse-pair exception profile and sharp cutoff eight add exact quantitative information not entailed by the previously known palindromes or qualitative eventual-reflection theorem; the compact substitution closure is a structural certificate rather than a routine sampled prefix.",
+    "status": "PASS"
+  }
+}
