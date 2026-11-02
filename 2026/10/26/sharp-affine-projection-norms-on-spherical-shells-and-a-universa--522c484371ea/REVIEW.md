@@ -1,21 +1,21 @@
-# Scientific review: affine projection on concentric spherical shells
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result fixes integer dimensions at least two, normalized Euclidean shell measure and the finite-rank orthogonal projection onto affine functions. Direct moment integration gives the covariance \(q_d(r)\) and the symmetric reproducing kernel \(1+(x\cdot y)/q_d(r)\). Rotational invariance and convexity locate the sharp kernel absolute row sum at the outer boundary, where a sign-valued test datum establishes equality; kernel symmetry gives the \(L^1\) identity. Slicing the signed cap proves the all-dimensional exact formula. The monotone difference \(r-q_d(r)\) proves a unique contact radius. A local cap expansion proves a positive one-sided term of order \((d+3)/2\) with its stated coefficient and the precise differentiability loss. Direct planar cap integration yields \(2-\sqrt3\). No finite computation is used in place of these proofs.
+PASS
 
-The provided executable passed 205 cap/quadrature checks in dimensions two through nine and eight high-precision contact-scaling checks in dimensions two through five. These do not constitute exhaustive or independent verification of the infinite family.
+Radial covariance gives E[y_i y_j]=q_d delta_ij, making the reproducing kernel exactly K(x,y)=1+x dot y/q_d. Symmetry and radial convexity of integral |K| put the sharp output at outer |x|=1; sign of K gives extremizing input and symmetric kernel gives matching L1 norm. Kernel has unit signed mass, so endpoint norm is one plus twice the negative cap moment, outer ball minus inner ball, with correct volume normalization. A uniform-shell radius coupling proves 0<=q_d’(r)<=r/d<1, so r-q_d(r) has exactly one zero in (1/(d+2),1/d). At inner-ball contact, h=r-q_d(r)>0 small and the cap beta integral has order h^((d+3)/2) with coefficient 4 omega_{d-1} 2^((d-1)/2) r_d^((d-3)/2)/((d+1)(d+3)). Multiplication by 2/(omega_d(1-r_d^d)) and h’=1-q_d’ yields claimed C_d>0. This term is one-sided, so its derivative order is ceil((d+3)/2). Planar q2=(1+r²)/4 yields r2=2-sqrt3; independently checked numerical cap moments and elementary circular formula at five radii. Computations do not substitute for all-d proof.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The author-hosted text of Hansen–Atkinson–Chien, doi:10.1093/imanum/drm052, concerns polynomial/hyperinterpolation norms on a filled disk and does not state a moving inner-hole contact theorem. The full available texts of Wade, arXiv:1209.4328, and Li–Xu, arXiv:1310.2283, develop weighted-ball hyperinterpolation and ball spectral approximation, not the sharp concentric-shell \(L^1/L^\infty\) affine norm and its contact singularity. Other research-record comparisons concerned simplexes, radial holomorphic spaces, and finite Fourier projectors; their objects and conclusions do not imply the present contact law. Known full-disk and circular-boundary constants, and the covariance-kernel identity, are explicitly treated as benchmarks/standard tools, not as discoveries. A bibliographic residual risk is an unindexed annulus-specific projector calculation; absence from searches is not a proof of priority.
+PASS
 
-## Value — PASS
+Degree-one projection covariance is elementary and pre-existing filled-ball polynomial projection/weighted hyperinterpolation is established. The inspected primary treatments do not give sharp punctured-shell endpoint norm, unique inner-hole contact, or universal one-sided fractional cusp as dimension varies. These specific shape parameters are essential, not a mere renaming of filled-ball asymptotics.
 
-Least-squares affine projection is a basic approximation operator whose sharp \(L^\infty\) and \(L^1\) norms measure worst-case data amplification. A concentric hole is a natural geometric domain perturbation. The new exact formula controls all hole radii in every dimension, while the unique contact and its dimension-dependent nonsmoothness identify where negative kernel regions first encounter the moving domain boundary. The coefficient and differentiability threshold distinguish this statement from a routine kernel calculation or an arbitrary finite example.
+## value
 
-## Scope and remaining risks
+PASS
 
-These are self-review assessments, not third-party validation. Source inspection does not exclude all earlier or unindexed literature. The proof does not cover higher-degree approximation, nonconcentric geometry or globally monotone dependence on the hole radius.
+Sharp endpoint stability under a concentric drilled hole is a natural geometric perturbation of an elementary polynomial projection. A unique contact point changes exactly which kernel-negative cap is removed, producing a dimension-universal first nonsmooth derivative and explicit threshold, a meaningful shape-sensitivity invariant.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

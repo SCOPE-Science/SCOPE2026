@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:45:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md reproducing kernel, cap integral, derivative and cusp proof sha 2fd50400acd3bd2f0956fc348e13662c842ffc97",
+        "Assigned CHECK.py independent quadrature script sha c5725929ffdd2dba602f19ea58f0125d518572b5",
+        "Independent planar cap moment calculations (five radii)"
+      ],
+      "rationale": "Radial covariance gives E[y_i y_j]=q_d delta_ij, making the reproducing kernel exactly K(x,y)=1+x dot y/q_d. Symmetry and radial convexity of integral |K| put the sharp output at outer |x|=1; sign of K gives extremizing input and symmetric kernel gives matching L1 norm. Kernel has unit signed mass, so endpoint norm is one plus twice the negative cap moment, outer ball minus inner ball, with correct volume normalization. A uniform-shell radius coupling proves 0<=q_d’(r)<=r/d<1, so r-q_d(r) has exactly one zero in (1/(d+2),1/d). At inner-ball contact, h=r-q_d(r)>0 small and the cap beta integral has order h^((d+3)/2) with coefficient 4 omega_{d-1} 2^((d-1)/2) r_d^((d-3)/2)/((d+1)(d+3)). Multiplication by 2/(omega_d(1-r_d^d)) and h’=1-q_d’ yields claimed C_d>0. This term is one-sided, so its derivative order is ceil((d+3)/2). Planar q2=(1+r²)/4 yields r2=2-sqrt3; independently checked numerical cap moments and elementary circular formula at five radii. Computations do not substitute for all-d proof.",
+      "residual_risks": [
+        "Statement does not claim global monotonicity of norm as r changes.",
+        "Outer-boundary extremizer uses essential-supremum continuity rather than a positive-volume boundary evaluation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wade Theorem 3.1 estimates increasing-degree hyperinterpolation growth on ball, rather than sharp d-dependent shell norms.",
+          "Li–Xu arXiv:1310.2283 treats spectral approximation on a filled ball."
+        ],
+        "reasoning": "A general projection norm inequality or filled-domain benchmark does not determine the positive cap contribution removed when the hole radius crosses q_d(r), hence does not imply cusp C_d.",
+        "searches": [
+          "weighted ball hyperinterpolation L∞ norm degree one Wade arXiv:1209.4328",
+          "Hansen Atkinson Chien hyperinterpolation norm unit disc DOI:10.1093/imanum/drm052",
+          "spherical shell affine projection endpoint norm perforation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.4328 full eight-page PDF, Theorem 3.1",
+        "doi:10.1093/imanum/drm052 benchmark identification",
+        "arXiv:1310.2283 primary statement",
+        "Resultary semantic search for shell/annulus projection cusp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The filled disk r=0 specialization is included in existing norm contexts but does not imply r_d contact or differentiability loss.",
+          "The new cusp depends on subtracting an inner negative cap; no hole parameter is present in inspected filled-ball theorems."
+        ],
+        "reasoning": "The complete punctured-shell family, contact radius and exact cusp coefficient are not corollaries of the inspected filled-ball or large-degree statements; generic integrals themselves remain elementary.",
+        "searches": [
+          "Wade arXiv:1209.4328 theorem3.1 weighted ball",
+          "Hansen Atkinson Chien disk hyperinterpolation norm",
+          "Li Xu spectral approximation on unit ball arXiv:1310.2283"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wade arXiv:1209.4328 considers weighted filled balls and discrete hyperinterpolation of increasing polynomial degree.",
+          "Hansen–Atkinson–Chien is a filled disk projection/hyperinterpolation benchmark, not a hole-contact family."
+        ],
+        "reasoning": "Compared affine/linear polynomial least squares, Lebesgue constants, shell/annulus perforation and hyperinterpolation aliases; no inspected equivalent cap-contact law.",
+        "searches": [
+          "Resultary: Affine L1 Lebesgue projection norm annulus spherical shell radial hole contact singularity",
+          "orthogonal affine polynomial projection annulus Lebesgue constant hole contact",
+          "Wade On hyperinterpolation on the unit ball 2012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic matches address different Poisson, weighted Bergman, and convex-projection operators.",
+          "The planar full disk value is an old benchmark, but not the entire r-dependent shell formula."
+        ],
+        "reasoning": "No relevant exact annular degree-one table found; related operator norm tables concern different domains/measure geometries.",
+        "searches": [
+          "Resultary affine shell projection max norm annulus",
+          "Resultary spherical affine projection Lebesgue constant",
+          "table annulus affine least squares projection hole contact"
+        ]
+      },
+      "rationale": "Degree-one projection covariance is elementary and pre-existing filled-ball polynomial projection/weighted hyperinterpolation is established. The inspected primary treatments do not give sharp punctured-shell endpoint norm, unique inner-hole contact, or universal one-sided fractional cusp as dimension varies. These specific shape parameters are essential, not a mere renaming of filled-ball asymptotics.",
+      "residual_risks": [
+        "A classic approximation-theory treatment of degree-one least squares on annuli could include the same cap formula.",
+        "General convex/symmetric kernel folklore may reproduce part of the computation; new candidate novelty is explicit all-d cusp."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING punctured shells or their singularity",
+          "evidence": "Weighted filled unit ball hyperinterpolation norm growth in polynomial degree is not an annular shape-variation theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.4328",
+          "material_read": "Eight-page primary PDF; abstract, statement of Theorem 3.1, hypotheses on weight and degree and proof outlines",
+          "method": "Opened PDF text and screenshots p1 and p5",
+          "title": "On hyperinterpolation on the unit ball",
+          "trigger": "Primary weighted-ball polynomial-projection analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact kernel/negative-cap construction in assigned RESULT.md",
+        "Prior polynomial projection stability studies on filled disk and balls"
+      ],
+      "rationale": "Sharp endpoint stability under a concentric drilled hole is a natural geometric perturbation of an elementary polynomial projection. A unique contact point changes exactly which kernel-negative cap is removed, producing a dimension-universal first nonsmooth derivative and explicit threshold, a meaningful shape-sensitivity invariant.",
+      "residual_risks": [
+        "Restricted to affine projection and concentric uniform Euclidean shells."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform Euclidean shells A_{d,r} with integer d>=2 and 0<=r<1, affine L2-orthogonal projection has sharp L1/L∞ norm 1+2(F_d(1,q_d(r))-F_d(r,q_d(r)))/(omega_d(1-r^d)), with q_d=(1-r^(d+2))/((d+2)(1-r^d)); unique contact r_d=q_d(r_d), cusp exponent (d+3)/2 with explicit positive coefficient; planar contact 2-sqrt(3).",
+  "limitations": [
+    "Statement does not claim global monotonicity of norm as r changes.",
+    "Outer-boundary extremizer uses essential-supremum continuity rather than a positive-volume boundary evaluation.",
+    "A classic approximation-theory treatment of degree-one least squares on annuli could include the same cap formula.",
+    "General convex/symmetric kernel folklore may reproduce part of the computation; new candidate novelty is explicit all-d cusp.",
+    "Restricted to affine projection and concentric uniform Euclidean shells.",
+    "Scientific acceptance is a best-of-knowledge completed assessment, not a publication, certification, or approval to disclose unsanitized public files."
+  ],
+  "schema_version": 1
+}
