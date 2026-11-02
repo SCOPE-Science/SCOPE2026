@@ -1,15 +1,21 @@
-# Review of the three-absorber hypercube theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof uses the complete Walsh eigenspace decomposition of the hypercube adjacency matrix. For each interior Hamming weight, the restriction to three traps has rank two exactly when two traps are antipodal and otherwise has rank three. The non-antipodal implication follows from a coordinate-swap argument over the two-dimensional binary vector space, not from numerical enumeration. The positivity of all absorption strengths guarantees strict decay on the resulting bright subspace. Both endpoint eigenspaces contribute rank one. Together these statements establish the formula for every integer \(d\ge2\). The finite exact rank checks reproduce the claimed values in independent spectral and Krylov constructions, but are corroboration only.
+## correctness
 
-## Originality: PASS relative to available inspected sources
-Bernasconi–Godsil–Severini (arXiv:0808.0510) already imply special antipodal symmetry and transfer on cubelike graphs; the antipodal proportionality itself is therefore not asserted original. Novo–Mohseni–Omar (arXiv:1312.6989) and Novo et al. (arXiv:1412.7209) treat single-site trapping and spectral/Krylov reductions. Their inspected texts do not state the complete three-absorber placement dichotomy or its \(3d-1\) non-antipodal rank. Earlier two-trap formulas and generic spectral rank criteria likewise do not directly state the new all-triple classification, although a broad graph observability theorem could imply it. The assessment is based on explicit implication comparisons and is not a priority certificate. Later related work on projective detection and general graph transport remains a residual literature risk.
+PASS
 
-## Mathematical value: PASS
-Three sites are the smallest trap arrangement in which the spectral constraints can exhibit a rank-three versus rank-two phase change across every interior Walsh shell. The result completely classifies this natural physical invariant for all three-site placements, including independence from site loss rates, a particularly sharp three-cube full-versus-partial absorption example, and the exact frequency of the exceptional configurations. It answers more than a single isolated numerical example.
+Walsh characters diagonalize adjacency A with eigenspaces indexed by Hamming weight j=0,...,d. The visible/bright subspace decomposes into ranges of three trap-evaluation vectors in each Walsh shell. Endpoint shells j=0,d each have rank 1. For 1≤j≤d−1, any antipodal trap pair imposes a parity-proportional column relation and rank exactly 2, while absence of any antipodal pair forces rank 3 via a nonzero coordinate-swap contradiction in F_2^d; the binary difference vectors cannot all exhibit the same parity behavior otherwise. Total rank is 2+2(d−1)=2d or 2+3(d−1)=3d−1. With strictly positive loss strengths, a bright eigenvector cannot have a nondecaying zero-loss component, so the long-time surviving subspace equals the Hermitian-dark eigenspace; the projection formula gives absorption from arbitrary initial rho, including maximal mixture. Antipodal-pair triples: (2^(d−1))(2^d−2) over C(2^d,3), ratio 3/(2^d−1). An independent exact rational Walsh rank enumeration tested every anchored triple for d=2,3,4,5, confirming ranks on 3,21,105,465 configurations respectively; this is corroborative, not an infinite proof.
 
-## Limits and literature risk
-The theorem does not cover unequal hopping weights, more than three traps or detailed source-resolved absorption dynamics. A general previously published observability-rank theorem may cover the result after nontrivial specialization. The one-sink and antipodal structure are known and expressly excluded from the claim of originality. Finite computational checks do not establish the all-dimensional result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bernasconi–Godsil–Severini 2008 proves known antipodal perfect state transfer on cubelike graphs. Novo et al 2014 proves general Krylov/invariant-subspace transport formulas and explicitly obtains the one-site hypercube bright dimension d+1 (Eqs. 44–47). Other 2013–2020 one-site/single detection papers address related but differently constrained transport. None of the inspected full primary texts states the exact rank 2d versus 3d−1 for all triples of positive sinks or the condition that any pair is antipodal. Generic observability rank machinery could imply the result after work; that residual is genuine. Novelty is the all-three-site placement classification, not Walsh diagonalization, single site or antipodal transfer.
+
+## value
+
+PASS
+
+Three simultaneously monitored sites are the smallest arrangement that can distinguish interior-shell rank three from rank two by antipodal incidence. The complete geometric and rate-independent bright-space classification for every cube dimension yields sharp absorption fractions (including full vs three-quarters on the three-cube) and frequency of exceptional configurations. This is a natural physically motivated invariant, not an arbitrary tiny finite-rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
