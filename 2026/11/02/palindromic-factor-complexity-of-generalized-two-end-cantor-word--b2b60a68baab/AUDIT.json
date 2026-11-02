@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The base-b positions of ones are the binary index digits recoded as digits 0 and b−1. Taking consecutive differences proves exact zero-gap lengths (b−2)b^{v2(i)}. Every palindrome with at least two ones must center on a gap; valuations v2(i±h)=v2(h) for h<2^{v2(i)} give a mirrored central block mu_b^{j+1}(1), and the next neighboring gaps of lengths g_{j+1} and >=g_{j+2} give a sharp maximal symmetric extension (achieved at gap index 3*2^j). One-centered palindromes have at most 2(b−2)+1 symbols, and all-zero words occur at every length. Central zero-gap lengths distinguish different nonzero palindrome words. These prove the claimed formula and uniform sharp bound. Standalone verify.py returned VERIFY_OK on 745 (base,length) tests with independent digit, gap and core checks; tests are explicitly nonproof regressions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche–Baake–Cassaigne–Damanik (2001), arXiv:math/0106121, Theorems 9–10: the regularity theorem explicitly requires a primitive uniform class-P morphism, whereas the binary two-end Cantor substitution has mu(0)=0^b and is not primitive. Their result does not state the interval formula.",
+        "Allouche–Campbell–Li–Shallit–Stipulanti (2024), arXiv:2406.09302, Sections 2 and 6: the paper gives reflection-class complexity and generic computable regularity for automatic sequences, not the explicit palindrome-factor spectrum of the nonprimitive two-end Cantor family."
+      ],
+      "reasoning": "Generic automaticity of complexity does not evaluate a closed form; a general upper bound without the exact scale thresholds cannot imply the classification. The published theorem for primitive substitutions is inapplicable because 0 never maps to 1. Published b=3 structural information alone cannot imply the new b>=4 formula without additional reasoning.",
+      "searches": [
+        "Cantor word palindromic complexity three odd one even",
+        "generalized Cantor sequence palindrome complexity b-ary palindrome counting factors substitution 1 0^(b-2) 1",
+        "arXiv:math/0106121 Theorems 9 and 10",
+        "arXiv:2406.09302 Theorem 56"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1703.04063",
+      "https://arxiv.org/abs/1307.1838",
+      "https://arxiv.org/html/math/0106121v1",
+      "https://arxiv.org/abs/2406.09302",
+      "https://oeis.org/ (targeted query results only, not a comprehensive table audit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Lü–Wu (2017), arXiv:1703.04063: the object is the ternary Cantor word, but the invariant is k-Abelian factor-class count and the results are about 3-regularity, not palindrome-word counts in every base.",
+        "Morfonios–Schmelcher–Kalozoumis–Diakonos (2013), arXiv:1307.1838, Section III.5: the object is the classical 3-adic Cantor lattice; the measured quantities are axes and spacing distributions of maximal-palindrome occurrences, not the distinct palindromic-factor count per length.",
+        "Allouche–Baake–Cassaigne–Damanik (2001), arXiv:math/0106121, Theorems 9–10: the regularity theorem explicitly requires a primitive uniform class-P morphism, whereas the binary two-end Cantor substitution has mu(0)=0^b and is not primitive. Their result does not state the interval formula.",
+        "Allouche–Campbell–Li–Shallit–Stipulanti (2024), arXiv:2406.09302, Sections 2 and 6: the paper gives reflection-class complexity and generic computable regularity for automatic sequences, not the explicit palindrome-factor spectrum of the nonprimitive two-end Cantor family."
+      ],
+      "reasoning": "The claimed new theorem gives, for all b>=4 and n>=1, P_b(n)=1+one-center indicator+gap-level interval/parity indicators, and classifies every distinct palindrome. The closest b=3 paper gives k-Abelian equivalence classes, not this count. The b=3 local-symmetry study gives positions and lengths of maximal occurrences, which cannot recover distinct factor words. The two generic complexity papers give either non-applicable primitive substitution assumptions or regularity of reflection classes; neither implies the exact numerical evaluation. The b=3 boundary is not claimed new.",
+      "searches": [
+        "arXiv:1703.04063 Introduction, Sections 2–4",
+        "arXiv:1307.1838 Section III.5",
+        "arXiv:math/0106121 Section 6",
+        "arXiv:2406.09302 Sections 2 and 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Morfonios–Schmelcher–Kalozoumis–Diakonos (2013), arXiv:1307.1838, Section III.5: the object is the classical 3-adic Cantor lattice; the measured quantities are axes and spacing distributions of maximal-palindrome occurrences, not the distinct palindromic-factor count per length.",
+        "Allouche–Baake–Cassaigne–Damanik (2001), arXiv:math/0106121, Theorems 9–10: the regularity theorem explicitly requires a primitive uniform class-P morphism, whereas the binary two-end Cantor substitution has mu(0)=0^b and is not primitive. Their result does not state the interval formula.",
+        "Allouche–Campbell–Li–Shallit–Stipulanti (2024), arXiv:2406.09302, Sections 2 and 6: the paper gives reflection-class complexity and generic computable regularity for automatic sequences, not the explicit palindrome-factor spectrum of the nonprimitive two-end Cantor family."
+      ],
+      "reasoning": "Ordinary palindrome words, maximal palindromic intervals, reflection equivalence classes and k-Abelian factor equivalence are different invariants. The two-end Cantor word is a nonprimitive b-uniform morphic fixed point; primitive-class-P results do not give its exact interval thresholds. No equivalent formulation of the explicit all-b, all-n cardinality was identified.",
+      "searches": [
+        "exact palindromic complexity generalized Cantor morphism 1 to 1 0^(b-2) 1 and 0 to 0^b, all b",
+        "Cantor automatic binary digits {0,b-1} number of distinct palindrome factors of each length three-valued",
+        "arXiv:1307.1838 Section III.5",
+        "arXiv:math/0106121 Sections 4 and 6",
+        "arXiv:2406.09302 Sections 2 and 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant public result titles included “Translation stabilizers and exact orbit census of even-base Cantor spectra” (finite Fourier-spectrum translation groups) and “All smallest attractors in two exceptional antipalindromic pseudostandard families” (minimum attractors in different words). Both claims and their implied consequences are different from the present lengthwise palindrome-factor count.",
+        "Targeted OEIS/web searches did not surface a table of the claimed two-end Cantor palindromic complexity. No negative-search result is considered proof of novelty."
+      ],
+      "reasoning": "The first database result concerns spectral translation stabilizers of finite Cantor sets; the second counts smallest attractors in different pseudostandard words. Neither object or invariant determines the palindromic-factor spectrum. A missing table in search results is an unresolved discoverability limit, not uniqueness evidence.",
+      "searches": [
+        "exact palindromic complexity generalized Cantor morphism 1 to 1 0^(b-2) 1 and 0 to 0^b, all b",
+        "Cantor automatic binary digits {0,b-1} number of distinct palindrome factors of each length three-valued",
+        "2-adic valuation gap hierarchy Cantor word palindromes central substitution core formula",
+        "OEIS Cantor sequence palindrome complexity palindromic factors",
+        "Cantor word palindromic complexity number of distinct palindromic factors 3 odd 1 even"
+      ]
+    },
+    "rationale": "On inspected substantive source material, the exact all-base b>=4 palindrome-factor enumeration and central-core classification are not implied by the published classical Cantor k-Abelian factor counts, 3-adic maximal-symmetry occurrence dynamics, generic primitive-morphism palindrome automaticity or reflection-classes regularity. Targeted semantic queries yielded different invariants and objects; search absence is not proof of priority. Known b=3 information is excluded from novelty scope. Unindexed equivalent work remains an acknowledged residual risk.",
+    "residual_risks": [
+      "An unindexed palindrome-factor formula for this nonprimitive Cantor family could exist without appearing in semantic searches.",
+      "Exact general published-priority classification remains subject to external specialist literature inspection; none is asserted.",
+      "No independent external scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING explicit generalized-bases palindromic-factor spectrum; classical b=3 object and k-Abelian complexity only",
+        "evidence": [
+          "Theorem 2 asserts 3-regularity for k-Abelian complexity at b=3.",
+          "Theorem 1 classifies k-Abelian equivalence for factors with matching boundaries.",
+          "Lemma 4 uses 3-adic zero-gap structure, not a count of distinct palindrome words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+        "material_read": "Introduction; Theorems 1 and 2; Section 2 abelian-complexity propositions; Section 3 gap-related factor lemmas; section outline and paper claims",
+        "method": "Accessible arXiv HTML full-text examination",
+        "title": "On the k-Abelian complexity of the Cantor sequence",
+        "trigger": "Same classic Cantor word and factor-complexity invariant, with verified first-public date 2017-03-12"
+      },
+      {
+        "assessment": "NOT_COVERING the b>=4 all-length count of distinct palindrome words; study is standard b=3 maximal-axis dynamics",
+        "evidence": [
+          "Equation (67) uses A->ABA, B->BBB at base three.",
+          "Section III.5 studies positions, ranges and spacings of maximal palindromes, numerical local symmetry dynamics.",
+          "No per-length numerical formula for distinct palindrome factors over arbitrary b is given in the inspected Cantor section."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.1838",
+        "material_read": "Definitions of palindromic factors and maximal axes, full Section III.5 on Cantor lattice, conclusion, comparison with general complexity",
+        "method": "Accessible arXiv full HTML; compared distinct-factor cardinality against occurrence-axis spacing quantities",
+        "title": "Local symmetry dynamics in one-dimensional aperiodic lattices",
+        "trigger": "Direct study of maximal palindromes in standard Cantor lattice"
+      },
+      {
+        "assessment": "NOT_COVERING exact generalized Cantor spectra: nonprimitive morphism falls outside primitive hypothesis; no Cantor word discussed",
+        "evidence": [
+          "Theorem 9 assumes primitive substitution explicitly.",
+          "Theorem 10 automaticity result has the same primitiveness and extra assumptions.",
+          "The text has no named Cantor sequence or generalized b-adic digit construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0106121v1",
+        "material_read": "Complete introduction and definitions; survey categories; Section 6 hypotheses and Theorems 9–10 on primitive class-P morphisms",
+        "method": "Accessible arXiv experimental HTML full text",
+        "title": "Palindrome complexity",
+        "trigger": "Foundational title with general palindrome-complexity theorem for uniform class-P substitutions"
+      },
+      {
+        "assessment": "NOT_COVERING explicit P_b(n) for generalized two-end Cantor words",
+        "evidence": [
+          "Theorem 56 concerns computable regularity of reflection complexity for automatic sequences.",
+          "Section 6 examples include Thue–Morse, period-doubling, paperfolding and Baum–Sweet; not the generalized Cantor family.",
+          "Its reflection complexity r_x counts reversal equivalence classes, not exactly the fixed points of reversal at each length."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+        "material_read": "Introduction; definitions; Sections 2 and 6, particularly Theorems 17 and 56, applications listed in Section 6",
+        "method": "Accessible arXiv HTML full-text examination",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Modern theory connecting palindrome counts, reversal equivalence classes, and automatic sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2b60a68-baab-438c-b63e-5d361b32b4ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-end Cantor sequence is a natural self-similar automatic word family; its palindromic-factor complexity is a standard combinatorial invariant. The theorem gives a complete and explicit all-length, all-base b>=4 function, a sharp universal three-valued bound with all three values attained, and a structural description via 2-adic gap axes and substitution cores. General automatic regularity, classical b=3 maximal symmetry, and k-Abelian factor complexity do not determine these exact quantitative transitions. The result is not an arbitrarily selected finite example.",
+    "status": "PASS"
+  }
+}
