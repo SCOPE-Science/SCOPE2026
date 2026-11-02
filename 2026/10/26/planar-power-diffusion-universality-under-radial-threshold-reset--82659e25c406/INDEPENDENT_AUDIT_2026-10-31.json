@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:15:36.685126Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Set γ=α+2, u=(r/L)^γ and κ=L^γ/γ². Chain rule gives ℒu=γ(d+α)/L^γ and carré-du-champ coefficient γ²u/L^γ, yielding κℒ=u∂²+b∂. The process is explicitly defined via this nonsticky BESQ extension at zero, preventing ambiguous b<1 boundary behavior; identical transformed paths include reset times. E_0τ=1/b from m(u)=(1-u)/b and stationarity follows from regenerative occupation p_b(u)=b(1-u^{b-1})/(b-1), b→1:-log u, normalized to one, adjoint flux b, plus Jacobian γz^{γ-1}. For d1 Beta(α+1,2), d2 -log(u) product uniforms/Gamma, d≥3 Beta power law. In d2 the hitting-time ODE yields Laplace 1/I0(2√s), mean1 variance1/2; standard iid renewal CLT yields count Fano1/2 and functional limit. Independently verified planar first ten moments ∫u^k(-log u)du=(k+1)^{-2}, tested drift/diffusion coefficients algebraically, and inspected source symbolic checks. Scope excludes alternative noise interpretations and sticky/absorbing origin.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamana–Matsumoto derive general Bessel process first hitting time distributions (classical Laplace-transform framework).",
+          "Das–Majumdar–Pal investigate renewal/Green theory for drift-diffusion threshold resets; the exact radial heterogeneous generator and planar b cancellation are not located in accessible summary."
+        ],
+        "reasoning": "General hitting/Green renewal theory provides ingredients; inspected sources do not explicitly state α-independent full planar reset paths and Fano1/2 in the normalized clock. Full generic-theorem implication remains a residual priority risk.",
+        "searches": [
+          "Resultary search: radial power-law diffusion first exit threshold resetting planar universal BESQ stationary product uniforms",
+          "arXiv:1106.6132",
+          "arXiv:2609.24438"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 24994101963c38cb133d3bafa8922c119c4b95db RESULT.md and verify.py",
+        "arXiv:2610.21962v1 full HTML §§3-5,7",
+        "arXiv:2609.24427v1 relevant HTML sections",
+        "arXiv:1106.6132 Bessel hitting theorem",
+        "arXiv:2609.24438 abstract/secondary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-dimensional threshold-reset result implies only d1 density and reset mean, not dimensional cancellation at d2.",
+          "Poissonian planar resetting has independent exponential reset times and therefore cannot give threshold hitting-time law 1/I0(2√s) as an immediate special case.",
+          "General Bessel first-passage and standard renewal CLT can derive noise once b=1 conjugacy is recognized."
+        ],
+        "reasoning": "Prior machinery plus a new exact conjugacy yields the result, but no inspected prior theorem already explicitly identifies dimension-two exponent universality and the complete reset process for the present model.",
+        "searches": [
+          "arXiv:2610.21962v1 §4.2",
+          "arXiv:2609.24427v1",
+          "arXiv:1106.6132"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frimpong–Bresque–Roldán d=1 threshold restarting gives Beta(α+1,2) stationary radius; this coincides with a stated d=1 corollary and is explicitly prior-covered.",
+          "Sandev et al. model planar heterogeneous diffusion under independent Poisson clocks, which is not a hitting-radius threshold."
+        ],
+        "reasoning": "Changing variables to BESQ is an exact equivalence to a classical process; novelty can only be claimed for the specified transformed-and-rescaled reset universality and combined exact laws, not BESQ itself or d1.",
+        "searches": [
+          "Resultary search: radial power-law diffusion first exit threshold resetting planar universal BESQ stationary product uniforms",
+          "arXiv:2610.21962v1",
+          "arXiv:2609.24427v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known d=1 stationary density is ((α+1)(α+2))z^α(1-z), exactly coincident with a claim branch; flagged as covered rather than novel.",
+          "No inspected table gives p_1(u)=-log u, all-d radial densities AND planar reset-count noise jointly for this radial-threshold model."
+        ],
+        "reasoning": "The d1 data/table is known; the claimed novel scope must be read as the d2 pathwise universality and explicit all-d reset classification, not recomputation of that row.",
+        "searches": [
+          "Resultary search: radial power-law diffusion first exit threshold resetting planar universal BESQ stationary product uniforms",
+          "Frimpong–Bresque–Roldán 2026 §4.2",
+          "Hamana–Matsumoto 2011 first hitting times"
+        ]
+      },
+      "rationale": "PASS, qualified with acknowledged prior branches: Frimpong–Bresque–Roldán arXiv:2610.21962v1 Sec.4.2 already gives the d=1 threshold-reset beta profile; this specific branch is NOT new. Hamana–Matsumoto BESQ first-hitting formulas and general renewal identities are established. Sandev et al. arXiv:2609.24427 treat planar heterogeneous diffusion with Poissonian (exogenous) resets, not radial first-exit threshold reset. The assessed distinctive combination is the entire planar transformed reset path law independent of α, the dimension-indexed d≥2 stationary laws, and the explicit universal count noise. General Bessel/regenerative theorems could imply these after specialization; exact historical priority remains qualified.",
+      "residual_risks": [
+        "d=1 Beta density and Bessel/renewal ingredients are already prior; do not claim these isolated formulas new.",
+        "Potential equivalent general BESQ threshold/reset specialization, especially inaccessible Das–Majumdar–Pal full text, could dominate broader originality.",
+        "Canonical radial Itô and nonsticky entrance/reflecting boundary essential; angular dynamics not analyzed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers d1 beta density, so that branch is prior; does not study planar radial first-exit universality",
+          "evidence": "Their process is one-dimensional with thresholds ±L and stationary density proportional |x|^α(L-|x|).",
+          "identifier_or_url": "https://arxiv.org/html/2610.21962v1",
+          "material_read": "Accessible complete HTML, especially §§3.2,4.2,5.1.2,7.2 and equation (27), corresponding d1 stationary law",
+          "method": "Read arXiv primary HTML section text and equations",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Same power-law slow diffusion and threshold resetting"
+        },
+        {
+          "assessment": "Poissonian reset times differ from endogenous hitting L, so no threshold cycle law implication",
+          "evidence": "Their model resets with constant Poisson rate rather than at radial exit.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24427",
+          "material_read": "ArXiv HTML text including model/setup and resetting protocol (Poissonian)",
+          "method": "Read accessible full article sections relevant to stochastic clock",
+          "title": "Heterogeneous planar diffusion with axisymmetric power-law decaying diffusion coefficient under stochastic resetting",
+          "trigger": "Same planar radial power-law diffusion, different reset mechanism"
+        },
+        {
+          "assessment": "The underlying BESQ hitting ODE is prior machinery; model-specific planar resetting universality is separate",
+          "evidence": "Bessel hitting transforms supply hypergeometric/I0 factor after conjugacy and normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/1106.6132",
+          "material_read": "Accessible primary HTML introduction and first-passage Laplace formulas",
+          "method": "Read relevant classical Bessel hitting-time theorem in full text",
+          "title": "The probability distributions of the first hitting times of Bessel processes",
+          "trigger": "Potential classical hitting-time identity covering transform"
+        },
+        {
+          "assessment": "Not adjudicated as non-covering; general framework may imply renewal equations",
+          "evidence": "Known drift-diffusion threshold resetting, no accessible decisive exact planar radial power exponent theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24438",
+          "material_read": "Abstract/secondary citation only; full primary body unavailable",
+          "method": "Metadata and cited formula comparison",
+          "title": "Non-equilibrium dynamics of drift-diffusion process under threshold resetting",
+          "trigger": "Strong candidate general regenerative threshold theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Dimension two is singled out by ∂α b=(2-d)/(α+2)²=0, a natural critical-dimension universality across a continuum of slowing exponents. The result identifies both complete finite-time reset process law and product-uniform/Gamma stationary distribution, contrasts adjacent beta-law dimensions and derives universal Fano1/2. It answers a natural higher-dimensional first-exit-reset counterpart of established one-dimensional and Poissonian studies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "d=1 Beta density and Bessel/renewal ingredients are already prior; do not claim these isolated formulas new.",
+    "Potential equivalent general BESQ threshold/reset specialization, especially inaccessible Das–Majumdar–Pal full text, could dominate broader originality.",
+    "Canonical radial Itô and nonsticky entrance/reflecting boundary essential; angular dynamics not analyzed.",
+    "No GitHub write, publication sync, Lean proof or expert attestation was performed. Scientific PASS is best-of-knowledge, not an external mathematical or priority certificate."
+  ],
+  "schema_version": 1
+}

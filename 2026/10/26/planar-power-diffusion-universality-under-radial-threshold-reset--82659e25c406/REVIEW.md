@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Conjugacy follows directly from both drift and quadratic-variation coefficients, for all stated dimensions and exponents; the zero-boundary extension is defined via the non-sticky BESQ generator, avoiding ambiguity. The candidate invariant density is normalized, solves the adjoint equation and carries exactly the regenerative flux \(b\), with cycle mean \(1/b\); the renewal-reward construction and boundary conditions certify it. The density transformations give the Beta–Gamma cases. The planar hypergeometric hitting-time transform and two moments come from an exact boundary-value equation, and the renewal CLT uses iid finite-variance cycles. Symbolic and numerical verification is ancillary, not a proof by enumeration.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 one-dimensional motivating manuscript studies a distinct dimension, while the 2026 heterogeneous planar study uses Poisson rather than first-passage resetting. Known squared-Bessel hitting-time and regenerative identities are explicitly credited. No inspected relevant statement, targeted research-record search or accessible primary literature supplied the simultaneous planar pathwise parameter cancellation, full dimension-indexed law, and count-noise universality for the model as stated. Residual risk: a general historical squared-Bessel reset/Green theorem could imply the result after specialization, and the related drift-diffusion manuscript was not exhaustively accessible; priority is not established absolutely.
+PASS
 
-## Value — PASS
-The planar cancellation \(b\equiv1\) singles out a natural dimension for every slowing exponent, not an arbitrary finite example. It transfers every scaled finite-time and event-count distribution across the entire family and identifies an explicit product-of-uniforms/Gamma stationary distribution and universal half-Poisson renewal-count dispersion. The adjacent dimensions obey power-law Beta stationary densities, making the logarithmic planar case a mathematically motivated critical boundary. These facts address the higher-dimensional threshold-reset direction beyond previously analyzed one-dimensional and Poissonian variants.
+PASS: Set γ=α+2, u=(r/L)^γ and κ=L^γ/γ². Chain rule gives ℒu=γ(d+α)/L^γ and carré-du-champ coefficient γ²u/L^γ, yielding κℒ=u∂²+b∂. The process is explicitly defined via this nonsticky BESQ extension at zero, preventing ambiguous b<1 boundary behavior; identical transformed paths include reset times. E_0τ=1/b from m(u)=(1-u)/b and stationarity follows from regenerative occupation p_b(u)=b(1-u^{b-1})/(b-1), b→1:-log u, normalized to one, adjoint flux b, plus Jacobian γz^{γ-1}. For d1 Beta(α+1,2), d2 -log(u) product uniforms/Gamma, d≥3 Beta power law. In d2 the hitting-time ODE yields Laplace 1/I0(2√s), mean1 variance1/2; standard iid renewal CLT yields count Fano1/2 and functional limit. Independently verified planar first ten moments ∫u^k(-log u)du=(k+1)^{-2}, tested drift/diffusion coefficients algebraically, and inspected source symbolic checks. Scope excludes alternative noise interpretations and sticky/absorbing origin.
 
-## Closest literature and limitations
-Frimpong–Bresque–Roldán, arXiv:2610.21962 (one-dimensional threshold and Poisson resetting); Sandev–Fumeron–Henkel–Lenzi, arXiv:2609.24427 (planar power diffusion with Poisson resetting); Das–Majumdar–Pal, arXiv:2609.24438 (general threshold Green identity, incomplete full-text inspection); Hamana–Matsumoto, arXiv:1106.6132 (classical Bessel first passage). The result is limited to the stated canonical Itô radial construction, non-sticky zero boundary and reset on first passage of radius \(L\). General theorem coverage remains possible; no claim of independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified with acknowledged prior branches: Frimpong–Bresque–Roldán arXiv:2610.21962v1 Sec.4.2 already gives the d=1 threshold-reset beta profile; this specific branch is NOT new. Hamana–Matsumoto BESQ first-hitting formulas and general renewal identities are established. Sandev et al. arXiv:2609.24427 treat planar heterogeneous diffusion with Poissonian (exogenous) resets, not radial first-exit threshold reset. The assessed distinctive combination is the entire planar transformed reset path law independent of α, the dimension-indexed d≥2 stationary laws, and the explicit universal count noise. General Bessel/regenerative theorems could imply these after specialization; exact historical priority remains qualified.
+
+## value
+
+PASS
+
+PASS: Dimension two is singled out by ∂α b=(2-d)/(α+2)²=0, a natural critical-dimension universality across a continuum of slowing exponents. The result identifies both complete finite-time reset process law and product-uniform/Gamma stationary distribution, contrasts adjacent beta-law dimensions and derives universal Fano1/2. It answers a natural higher-dimensional first-exit-reset counterpart of established one-dimensional and Poissonian studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
