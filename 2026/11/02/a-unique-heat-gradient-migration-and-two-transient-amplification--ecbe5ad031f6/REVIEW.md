@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Direct gradient intertwining gives the exact sharp norm as a positive matrix row-sum maximum, attained by affine ramps. The symmetric-Jacobi Perron and real-exponential zero-count arguments prove the unique switch on an open parameter cone and all equality cases; exact rational degree-26 Taylor enclosures certify the critical negative middle-edge slope for conductances \((1,3,9)\). The three-exponential zero bound then proves exactly two strict peaks and one cusp. The accompanying self-contained Python verifier executes strict rational inequalities. No finite numerical search is substituted for an all-parameter argument.
+
+**Originality — PASS, with publication-priority risk.** Chafaï–Joulin's 2010 birth-death intertwining implies the general gradient/transport representation but does not state the novel all-time maximizing-edge switch or two-peak weighted four-site example in the inspected text. Ollivier's transport-curvature work and Münch–Wojciechowski's curvature-gradient implications also do not give these exact statements. Compared against accessible earlier finite-graph and weighted-tree claims and multiple published-finding corpus searches for heat-gradient migration, weighted paths, birth-death chains, and two transient peaks. Unindexed equivalent derivations remain a residual risk; novelty is a documented best-knowledge conclusion, not an absolute priority assertion.
+
+**Value — PASS.** Four vertices is provably the smallest path where the active edge can migrate at positive time. A single symmetric, positivity-preserving heat semigroup can have a nonunimodal exact Lipschitz operator norm with two strict transient peaks; the open cone and rationally certified cusp make this a structural rather than arbitrary numerical example. It exposes the limits of viewing semigroup heat-gradient amplification as a single transient relaxation peak.
+
+**Limits.** Unit graph-metric lengths and variable heat conductances; the two-peak part concerns the specific triple \((1,3,9)\); no claims for other Banach norms or all weighted graphs. Published full-text comparisons were bounded by accessible material. No independent verification or publication priority is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
