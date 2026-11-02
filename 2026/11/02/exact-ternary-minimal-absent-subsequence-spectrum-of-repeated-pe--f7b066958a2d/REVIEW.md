@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** Greedy subsequence embedding in \((012)^m\) has an exact nonincrease-count statistic. Every possible single deletion changes that statistic by zero or one; endpoint and local triple tests therefore characterize the entire minimal absent antichain. The weighted nine-state transfer expression enumerates its elements once each, and an embedded polynomial-vector certificate verifies the closed bivariate fraction symbolically over the integers. Literal small-host enumeration and independent transfer coefficients provide consistency evidence, not a substitute for proof.
+
+**Originality: PASS with specific residual risk.** The closest full-text primary reference, Kosche et al. (arXiv:2108.13968), covers generic MAS characterizations and exponential lower bounds for related repeating permutations, but its inspected pages 203–208 give no exact ternary full length spectrum. Adamson et al. (arXiv:2407.18599) treat counts of all absent subsequences, not the minimal absent antichain, and Manea et al. (arXiv:2504.21471) give generic enumeration methods. A previously recorded binary repeating-permutation rational identity covers the binary specialization only. The 2023 Tronícek paper, DOI:10.1007/978-3-031-49614-1_26, could not be inspected in full and remains an identifiable originality risk.
+
+**Value: PASS.** Beyond general-purpose MAS enumeration, the result gives an all-length, all-repetition ternary enumerator, a short exact structural recognition test and a finite algebraic certificate. This resolves the first nonbinary periodic permutation family after the known binary case, a mathematically natural missing-pattern benchmark. It is a complete bivariate classification rather than a narrow or arbitrary finite table.
+
+Self-review: passed. Independent audit: not yet performed.
