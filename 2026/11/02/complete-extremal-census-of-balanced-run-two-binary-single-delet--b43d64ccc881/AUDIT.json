@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "All balanced words for n=4,6,8,10 are generated exactly; full deletion-shadow comparisons establish all graph edges; an alternative descendant-bucket construction agrees pairwise. Exhaustive bitset Bron–Kerbosch maximal-clique enumeration yields 4,4,1,20 maximum codebooks and full maximal-clique totals 4,16,520,675239; independent NetworkX enumeration agrees. Full certificate lists, disjoint shadows, symmetries and syndromes are replay-checked with VERIFY_OK. No infinite statement is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5.1 in arxiv:1211.3128 provides general constrained-source inequalities; Sec V-A treats a one-symbol-1-run (d,k) model rather than simultaneous balanced words avoiding 000/111.",
+        "Theorem 5 of arxiv:1211.4056 establishes a chromatic number and cliques in the deletion-conflict graph; its coloring does not classify all optimum codes under added run constraints.",
+        "Kracht–Schober (2015) studies watermark-based quaternary DNA barcodes, not enumeration of maximum binary balanced run-two single-deletion sets."
+      ],
+      "reasoning": "A broader graph formalism or general bound does not determine the extremal-codebook multiplicity and orbit classification in this induced source. No inspected stronger result logically covers the four exact maxima counts.",
+      "searches": [
+        "arxiv:1211.3128v1 Sec V constrained run-length-limited deletion code bounds",
+        "arxiv:1211.4056v1 Sec IV optimal constant-weight colorings",
+        "2015 watermark DNA insertion deletion barcode constraints"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT.2012.6284242",
+      "arxiv:1211.4056v1",
+      "arxiv:1211.3128v1",
+      "doi:10.1186/s12859-015-0482-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published modified-VT coloring guarantees that each fixed syndrome forms a correcting code.",
+        "At length ten, two such constrained syndrome classes have fifteen members; exhaustive enumeration yields twenty total optima, eighteen with more than one syndrome.",
+        "A chromatic-number identity is not an extremal-independent-set-count identity."
+      ],
+      "reasoning": "The existing coloring proves feasibility of the two pure-syndrome optima but does not force their optimality within the induced source or exclude hybrid solutions. The additional upper bounds, multiplicities, uniqueness at eight, and orbit splitting require new finite classification.",
+      "searches": [
+        "modified VT constant weight modulus n over 2 plus one length ten size fifteen",
+        "optima non-syndrome deletion correcting code under homopolymer constraints",
+        "arxiv:1211.4056v1 Theorem 5 versus exact number of maximum independent sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Single-deletion codes are independent sets in deletion-conflict graph; taking its complement gives the compatibility-clique formulation.",
+        "Cullina–Kulkarni–Kiyavash Lemma 8 gives a proper modified-VT coloring of the full constant-weight graph, not an enumeration of its optimal independent sets after the triple-avoidance restriction."
+      ],
+      "reasoning": "The natural equivalence to independent sets and the syndrome construction are explicitly credited. Neither is a count of maximum cliques in the induced balanced run-two graph, nor implies the eight symmetry orbits or eighteen nonsyndrome optima.",
+      "searches": [
+        "single deletion shadow disjointness constant weight no 000 111 maximum codebook",
+        "arxiv:1211.4056v1 Section II and IV; 2012 deletion conflict graph and modified VT coloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full 2012 preprints have frameworks and construction bounds, but no located table simultaneously enumerating maximum balanced run-two length-ten codebooks.",
+        "A 2014 constant-composition thesis lists a chapter on exact sizes of codes; only its catalogue/contents were accessible, not its full code table.",
+        "The new maxima.json enumerates all actual candidate optima, checked by the exact recursion."
+      ],
+      "reasoning": "The inspected primary material and targeted literature results show no exact covering table, but an inaccessible thesis and unindexed catalogues remain genuine priority risks. Lack of hits alone is not treated as proof of novelty.",
+      "searches": [
+        "binary length ten weight five maximum run two one deletion 20 maximum codebooks",
+        "balanced runlength limited deletion code enumeration n=8 n=10 000 111",
+        "constant composition deletion correcting codes 2014 thesis exact code sizes"
+      ]
+    },
+    "rationale": "Exact extremal-codebook enumeration under simultaneous exact balance and forbidden length-three constant runs is not implied by the published 2012 constant-weight coloring or constrained-source bounds. Length ten has 18 nonsyndrome maxima and eight symmetry classes, beyond the two modified-VT constructions. Material primary text was inspected and relevant overlap sought; earlier thesis and unindexed literature are acknowledged risks.",
+    "residual_risks": [
+      "2014 constant-composition thesis unavailable in full; a covering constrained-census table cannot be ruled out.",
+      "Unindexed old finite codebooks or modern databases could duplicate these optimum counts.",
+      "Historical novelty and mathematical reasoning have not received independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes deletion graph and proper syndrome coloring; no located constrained run-two census or count of all optimal codebooks.",
+        "evidence": [
+          "arxiv:1211.4056v1, introduction and Section IV, Lemma 8, Theorem 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+        "material_read": "First-page abstract/introduction; Sections II and IV, including Definition 7, Lemma 8 and Theorem 5; PDF rendered pages 1 and 9.",
+        "method": "Full-text line inspection and page-image inspection of relevant portions",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Closest constant-Hamming-weight one-deletion construction, potentially covering optimum codebooks"
+      },
+      {
+        "assessment": "Bound framework rather than the exact enumeration; its RLL model forbids adjacent ones and constrains zero gaps, unlike the present balanced run-two class.",
+        "evidence": [
+          "arxiv:1211.3128v1, Theorem 5.1 and Section V-A"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Abstract/introduction and Sections V and V-A, including Theorem 5.1 and the distinct (d,k)-run-limited model; rendered pages 1 and 13.",
+        "method": "Full-text line inspection and page-image inspection of relevant portions",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Explicit upper-bound theory for deletion coding with run-length-limited sources"
+      },
+      {
+        "assessment": "Concatenated watermark code and quaternary context model rather than exact binary balanced run-two one-deletion codebook census.",
+        "evidence": [
+          "Kracht and Schober (2015), abstract and Methods"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s12859-015-0482-7",
+        "material_read": "Abstract, background, Methods and barcoding model, including code restrictions and watermark method",
+        "method": "Publisher open-access full-text HTML inspection",
+        "title": "Insertion and deletion correcting DNA barcodes based on watermarks",
+        "trigger": "Short deletion-resistant DNA barcode motivation and possible code-list coverage"
+      },
+      {
+        "assessment": "Not treated as NOT_COVERING. Potential unexamined exact tables remain an originality risk.",
+        "evidence": [
+          "2014 thesis catalogue and chapter headings, Section 3.4"
+        ],
+        "identifier_or_url": "https://www.ideals.illinois.edu/items/73103/bitstreams/193445/data.pdf",
+        "material_read": "Catalogued title and table-of-contents excerpt only; full PDF could not be accessed",
+        "method": "Attempted institutional repository full-text retrieval and targeted scholarly search",
+        "title": "Constant Composition Deletion Correcting Codes (2014 thesis)",
+        "trigger": "Plausible thesis with exact-code-size chapter and neighboring terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b43d64cc-c881-4c7c-aaa4-47fc525abebe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact catalogues of all optimal constrained deletion codes at short realistic lengths determine design freedom rather than just one code size. Unique n=8 optimum versus twenty n=10 optima (eighteen not full syndrome classes) and eight symmetry types are a natural complete finite classification with code-selection relevance; no paper-sized or asymptotic contribution is claimed.",
+    "status": "PASS"
+  }
+}
