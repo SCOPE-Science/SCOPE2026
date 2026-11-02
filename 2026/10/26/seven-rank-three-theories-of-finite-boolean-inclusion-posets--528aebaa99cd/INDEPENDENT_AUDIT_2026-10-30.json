@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:45:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md finite type recursion and EF proof sha f913ab07929d77e7135a2c92f4c04757f760452f",
+        "Assigned verify.py actual exhaustive orbit- and raw-subset solvers sha daf8bc7d51e6eaeb0725aa4a59f88049b46086fd",
+        "Assigned verification_output.txt finite sequence n0..9, not treated as independent proof",
+        "Independent finite Hintikka implementation n0..8 (13,419 memoized states)"
+      ],
+      "rationale": "For k chosen subsets, Venn-cell size vectors classify tuples under base-atom permutations. Complete rank-r Hintikka types recursively record order atoms and the *set* of successor types under all possible cell splits; multiplicity of successor realizations does not matter. This recursion gives seven different rank-3 empty types for n=0..6 and equality n=6,7,8,9. Independently implemented finite orbit recursion through n=8, returning seven types, rather than treating verification_output.txt as proof. For n,m>=2^q an explicit q-round EF strategy maintains corresponding cell counts equal or both >=2^(q-j), recursively matches split counts; when q=3, all n>=8 are equivalent. Since P_6 equivalent P_8 by exact finite recursion, transitivity yields the infinite tail n>=6. The language omits Boolean operations/constants so separating formulas from the richer language cannot be silently reused. Boundary n=0 and equality inclusion atoms addressed. Finite n<=9 exact recursion plus infinite EF game is the complete proof.",
+      "residual_risks": [
+        "No analogous sharp rank-q formula for arbitrary q in pure inclusion language is claimed.",
+        "Finite recursion provides exact n6~8 bridge, not infinite stabilization without the stated EF lemma."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Boolean signature has sharp 8-atom threshold; general theorem shows equivalence for n,m>=8 in pure order but NOT separation at 6/7.",
+          "Kuncak–Rinard gives decision procedure/cardinality truncation in a richer logic, not sharp class boundary for the reduct."
+        ],
+        "reasoning": "Stronger-signature coverage provides an upper tail but does not dominate the lower sharp inclusion-reduct theorem; no published broader implication found.",
+        "searches": [
+          "Resultary Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+          "Kuncak Rinard The First-Order Theory of Sets with Cardinality Constraints is Decidable 2004",
+          "finite Boolean algebras pure inclusion relation three-round EF games"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cs/0407045 complete relevant section",
+        "Resultary 2026/10/4/...938cb5f89dc7 full RESULT.md",
+        "Resultary semantic search on pure inclusion poset rank 3",
+        "Assigned rank-three exact finite-type checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forgetting operations maps equivalence classes together and can collapse distinctions; P6~P7 in reduct is consistent with their difference in full language.",
+          "The EF 2^q tail establishes n>=8 only; the n=6/7 bridge needs explicit finite types."
+        ],
+        "reasoning": "No inspected stronger theorem implies the sharp collapse at n=6 in the weaker signature; rank3 finite Hintikka data plus infinite game supplies new boundary.",
+        "searches": [
+          "Resultary 2^q full Boolean operations quantifier rank three",
+          "arXiv:cs/0407045 cardinality Venn quantifier elimination",
+          "finite model theory rank3 inclusion reduct sharp 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pure order signature has only binary subseteq and equality; full Boolean algebra has constants, meet, join and complement.",
+          "Published Resultary full-language theorem says cutoff min(n,2^q); at q3 cutoff eight, which cannot prove pure-order inequivalence."
+        ],
+        "reasoning": "Searched rank3 pure inclusion poset, atomic Boolean lattice reduct and EF type aliases. No inspected equivalent seven-class reduct result; language reduction is mathematically substantive.",
+        "searches": [
+          "Resultary: Ehrenfeucht Fraisse quantifier rank three equivalence classes power set posets inclusion 6 atoms",
+          "finite Boolean subset inclusion order EF equivalence rank 3 6 atoms",
+          "Kuncak Rinard arXiv:cs/0407045 quantifier elimination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7 is a different signature.",
+          "Assigned finite class IDs 4,17,44,66,77,80,82 are implementation labels rather than standard published numerical invariants."
+        ],
+        "reasoning": "No matching authoritative table of the seven pure-order rank3 types was identified. The published full-language table cannot replace it.",
+        "searches": [
+          "Resultary exact Boolean poset rank-three 6 atoms",
+          "Resultary exact full Boolean algebra 2^q visibility threshold",
+          "finite model theory Hintikka type database Boolean lattice posets"
+        ]
+      },
+      "rationale": "Earlier sharp 2^q visibility theorem concerns the Boolean algebra operations/constants, where rank3 cutoff is eight. Agreement in the stronger language implies agreement in its inclusion reduct, but richer-language disagreement does NOT imply reduct disagreement. Hence the pure-order cutoff six and seven-class census are not a parameter-only restatement. Kuncak–Rinard Venn cardinality method supplies a technique, not an inspected exact rank3 reduct classification.",
+      "residual_risks": [
+        "A textbook finite-model-theory exercise or unindexed pure-order reduct analysis could already state the seven types.",
+        "The mathematical method is standard; novelty is restricted to the exact reduct cutoff."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact pure-inclusion rank-three seven classes in inspected statements",
+          "evidence": "Decision procedures and Venn constraints in a richer signature do not list pure-order cutoff six.",
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0407045",
+          "material_read": "18-page paper title, definitions, section 5.2 cardinality cell elimination, and quantifier-elimination statements",
+          "method": "Opened PDF text and page images p1 and p8, compared formula languages",
+          "title": "The First-Order Theory of Sets with Cardinality Constraints is Decidable",
+          "trigger": "Primary foundational set/Venn quantifier elimination theorem"
+        },
+        {
+          "assessment": "NOT_DOMINATING pure inclusion-reduct theorem",
+          "evidence": "Quantifier-rank3 cutoff is 8 in {0,1,meet,join,neg}; separation formula uses operations omitted from pure subseteq.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7/RESULT.md",
+          "material_read": "Complete published RESULT.md read, including language, EF game, separating formula and limitations",
+          "method": "GitHub full file via read-only repository connector",
+          "title": "Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+          "trigger": "Nearest published Resultary EF theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned complete EF recursion and strict pure-order signature",
+        "Resultary full Boolean-algebra threshold benchmark"
+      ],
+      "rationale": "The weaker signature changes the exact logical visibility threshold and smallest terminal equivalence representative. The full seven-class classification is a natural sharp small-rank invariant of the canonical powerset poset family, useful for finite-model and descriptive-complexity benchmarks.",
+      "residual_risks": [
+        "Specific to quantifier rank three, not a general formula in every rank."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the pure relational inclusion language, finite Boolean inclusion posets P_n=(power set of [n], subseteq), n>=0, have exactly seven quantifier-rank-three theories: P_n equivalent_3 P_m iff min(n,6)=min(m,6). The first representative of the terminal class is P_6 with 64 vertices.",
+  "limitations": [
+    "No analogous sharp rank-q formula for arbitrary q in pure inclusion language is claimed.",
+    "Finite recursion provides exact n6~8 bridge, not infinite stabilization without the stated EF lemma.",
+    "A textbook finite-model-theory exercise or unindexed pure-order reduct analysis could already state the seven types.",
+    "The mathematical method is standard; novelty is restricted to the exact reduct cutoff.",
+    "Specific to quantifier rank three, not a general formula in every rank.",
+    "Scientific acceptance is a best-of-knowledge completed assessment, not a publication, certification, or approval to disclose unsanitized public files."
+  ],
+  "schema_version": 1
+}
