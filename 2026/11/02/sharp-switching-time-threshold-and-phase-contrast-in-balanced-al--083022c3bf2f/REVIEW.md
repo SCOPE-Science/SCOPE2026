@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The exact monodromy polynomial follows from the normalized three-coordinate star representation; the remaining within-group contrast modes have recovery multipliers. Strict positivity of the second power of the period propagator, monotonicity and strict sublinearity of the nonlinear return map, and Perron-vector comparison prove the global extinction/persistence trichotomy including the equality boundary. Strict convexity of the scalar hyperbolic function gives the unique threshold and the two endpoint asymptotics. Half-cycle group-swap symmetry and exact exponential decay on inactive leaves force the finite-amplitude switch ratio. A standalone checker reproduces 72 spectral comparisons and nonlinear symmetry checks. Numerical tests are supporting evidence, not a substitute for the universal proof.
+
+## Originality — PASS (qualified)
+The original timescale-separation study examines general temporal NIMFA convergence and its static approximations. Speidel and collaborators' 2016 full text already gives the general matrix-exponential Floquet criterion (equation (3)) and explores a randomized star-snapshot approximation; it does not state the particular analytic threshold curve, sharp endpoint laws, all-state critical classification, or exact nonlinear phase contrast of this deterministic common-hub alternating family. Ait Rami et al. establish general switched-system conditions for periodic persistence, and their general existence framework is acknowledged as background. The novelty is the combined **explicit** quantitative law for this natural family, not that matrix products or periodic NIMFA theory exist. Risk: a general published result could subsume one or more portions of the statement, or an unindexed special-case analysis could contain the same constants; this assessment is not independent peer review.
+
+## Value — PASS
+The averaged contact graph and instantaneous contact stars have different invasion thresholds. The theorem resolves the complete intervening residence-time phase diagram, including a uniquely determined transition and sharp divergence/vanishing regimes, rather than asserting that slower switching generally helps infection. The nonlinear switching phase-contrast identity shows that the observable difference between two leaf populations can be fixed by recovery and residence time alone, a useful signal for alternating-contact surveillance. The full all-initial-state classification and equality treatment distinguish the finding from a finite linearization experiment.
+
+## Boundaries
+Deterministic mean field, homogeneous rates, balanced equal-duration star switching; no stochastic long-term survival assertion, no arbitrary temporal network conclusion. Exact absolute endemic prevalence is not provided. Related source coverage is strong at the level of general Floquet principles, so publication novelty of specializations requires independent scrutiny.
+
+Self-review: passed. Independent audit: not yet performed.
