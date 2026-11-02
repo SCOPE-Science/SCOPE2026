@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:57:46.205308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 256 vertices 2^a3^b5^c7^d (0≤a,b,c,d<4) are distinct. Exact integer square-root testing exhausts all C(256,2)=32640 potential edges and yields exactly 408 forbidden Pythagorean pairs (unrestricted positive integer hypotenuse). An independent reimplementation using arbitrary-precision integer square roots checked the package CERTIFICATE.json blob 98ed409b09047a1950d23bc6cb581e93fb0d4c9b: it contains 144 distinct indices containing no forbidden edge and 112 true graph edges on 224 mutually different endpoints. This is a genuine finite exhaustive certificate: independent set yields f(4)≥144, disjoint-edge matching requires omitting at least one endpoint per pair, f(4)≤256−112=144. No numerical approximation, SAT proof assumption or non-exhaustive random search enters the equality. The prior verify.py checker was inspected as code, not executed opaquely.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiao arXiv:2610.11965 Theorem 1.1 establishes an asymptotic bound for sufficiently large N.",
+          "Xiao arXiv:2610.20311 Theorem 1.1 supplies an asymptotic lower bound."
+        ],
+        "reasoning": "These large-N bounds need not give an exact N=4 value, especially not the matching/independent witness; an undiscovered table in source appendices remains possible.",
+        "searches": [
+          "Pythagorean pair free subsets first four prime powers box exact f(4) 144 independence matching"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.11965 full-text main theorem",
+        "arxiv:2610.20311 abstract/main theorem excerpt (full text inaccessible)",
+        "Resultary 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+        "Assigned Git RESULT.md,CERTIFICATE.json,verify.py actual frozen blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior same-definition f(N) papers obtain upper/lower estimates for large N, not an exact finite certificate at N=4.",
+          "112 disjoint true square-sum edges and 144 independent vertices are independently verified for the exact assigned box."
+        ],
+        "reasoning": "A strictly stronger exact independence theorem would cover this as a special case, but none was identified; asymptotic bounds do not establish the stated sharp finite equality.",
+        "searches": [
+          "Pythagorean pair free subsets first four prime powers box exact f(4) 144 independence matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xiao arXiv:2610.11965 introduces precisely f(N) for the same prime-power boxes; the claim is equivalently α(G_4)=144 for the 256-vertex square-sum graph.",
+          "Resultary 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098 is a matching result for F2^4, not square-sum adjacency."
+        ],
+        "reasoning": "The original exact equality is not implied merely by the definition of f(N) or a matching in another graph.",
+        "searches": [
+          "Pythagorean pair free subsets first four prime powers box exact f(4) 144 independence matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same graph independence/matching entry surfaced in Resultary; prior papers’ inspected main results state no f(4)=144 table."
+        ],
+        "reasoning": "Exact f(4) could be tabulated in unindexed numerical appendices or code; not found is not proof of novelty.",
+        "searches": [
+          "Pythagorean pair free subsets first four prime powers box exact f(4) 144 independence matching"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison with primary literature, published results and a new Resultary search; foundational premises credited; no negative-search priority inference. The original exact equality is not implied merely by the definition of f(N) or a matching in another graph.",
+      "residual_risks": [
+        "Small-N exact values or graph codes could appear in unindexed research supplements.",
+        "Second Xiao preprint was not examined in complete full text during this run; inspected main asymptotic theorem is not enough for blanket whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PRIOR_BOUNDS_ONLY in inspected results; no complete-document priority guarantee",
+          "evidence": "Theorem 1.1 is an asymptotic density upper result for sufficiently large N",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11965",
+          "material_read": "The public full-text presentation, introduction, §1.2 Theorem 1.1 and later main bound discussion; searched for explicit N=4 values.",
+          "method": "OA full-text rendering with theorem examination",
+          "title": "Pythagorean pairs in boxes of prime powers",
+          "trigger": "Exactly the same parameter f(N) and objects"
+        },
+        {
+          "assessment": "SAME_MODEL_ASYMPTOTIC_LOWER_BOUND in material read, not whole-document NOT_COVERING",
+          "evidence": "Theorem 1.1 bounds the same parameter asymptotically",
+          "identifier_or_url": "https://arxiv.org/abs/2610.20311",
+          "material_read": "Abstract and available main theorem/intro excerpts; full-body retrieval returned restricted access.",
+          "method": "OA search excerpts; full text not obtained",
+          "title": "Quantitative lower bound for Pythagorean pairs in boxes of prime powers",
+          "trigger": "Exact same f(N), plausible stronger coverage"
+        },
+        {
+          "assessment": "Different vertex objects and adjacency; no implication",
+          "evidence": "Matching profiles over a finite vector space, not prime-product Pythagorean legs",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+          "material_read": "Resultary title and substantive scientific summary about prescribed differences in F2^4.",
+          "method": "Semantic index summary",
+          "title": "Complete prescribed-difference matching multiplicity spectrum in dimension four",
+          "trigger": "Closest Resultary numerical matching hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-prime exponent box is the first natural four-dimensional small parameter of Xiao’s explicitly motivated extremal f(N). Its exact independence number 144 and matching witness give a sharp finite benchmark for asymptotic Pythagorean-pair avoidance. A finite fact can be independently useful even without a general f(N) formula: it resolves a genuine discrete optimization problem, with a short auditable upper certificate. The result does not claim general N or asymptotic density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.11965 full-text main theorem",
+    "arxiv:2610.20311 abstract/main theorem excerpt (full text inaccessible)",
+    "Resultary 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+    "Assigned Git RESULT.md,CERTIFICATE.json,verify.py actual frozen blobs",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/44ae2b9060bafd7ccaac2bd95bf387d413371148/2026/10/26/the-exact-four-prime-pythagorean-pair-free-extremum--a4280362f2ce/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only N=4 with four first primes and exponent bound 4; hypotenuse unrestricted.",
+    "No general extremum f(N) or asymptotic density follows from this finite certificate."
+  ],
+  "residual_risks": [
+    "Small-N exact values or graph codes could appear in unindexed research supplements.",
+    "Second Xiao preprint was not examined in complete full text during this run; inspected main asymptotic theorem is not enough for blanket whole-document noncoverage."
+  ],
+  "schema_version": 1
+}

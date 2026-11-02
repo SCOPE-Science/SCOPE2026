@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete four-prime exponent box contains \(4^4=256\) distinct integers. An integer-square test over all \(32640\) unordered pairs constructs the entire forbidden-leg graph (408 edges). The supplied 144-vertex independent set and 112 vertex-disjoint forbidden edges prove matching lower and upper bounds of \(144\). The verifier uses standard-library exact arithmetic, not approximate numerics. The exhaustive finite checker has been run against the attached files.
+## correctness
 
-## Originality
-PASS at the available-literature evidence level. The two closest full-text primary papers are R. Xiao's arXiv:2610.11965v1 and arXiv:2610.20311v1. Both define this same natural extremal function; their inspected theorems give asymptotic upper/lower bounds for large parameters rather than the exact \(N=4\) value. Mathematical record queries about an exact four-prime prime-power-box value, graph independence, aliases and tables located no covering computation. Residual risk: an unpublished or unindexed finite graph census could contain this value. A negative search does not certify uniqueness or publication priority.
+PASS
 
-## Mathematical value
-PASS. This is an exact value of the natural \(f(N)\) invariant appearing in current number-theory research, at the four-prime box with a large nontrivial graph component, not a gratuitously defined statistic. The sharp 144 versus the elementary 128-element subset bound is a concrete small-parameter benchmark and the complete certificates permit comparison of future constructions. This is a finite classification and not a general improvement of the recent asymptotic estimates.
+The 256 vertices 2^a3^b5^c7^d (0≤a,b,c,d<4) are distinct. Exact integer square-root testing exhausts all C(256,2)=32640 potential edges and yields exactly 408 forbidden Pythagorean pairs (unrestricted positive integer hypotenuse). An independent reimplementation using arbitrary-precision integer square roots checked the package CERTIFICATE.json blob 98ed409b09047a1950d23bc6cb581e93fb0d4c9b: it contains 144 distinct indices containing no forbidden edge and 112 true graph edges on 224 mutually different endpoints. This is a genuine finite exhaustive certificate: independent set yields f(4)≥144, disjoint-edge matching requires omitting at least one endpoint per pair, f(4)≤256−112=144. No numerical approximation, SAT proof assumption or non-exhaustive random search enters the equality. The prior verify.py checker was inspected as code, not executed opaquely.
 
-## Scope and limitations
-The result is restricted to the first four primes with exponents below four; the hypotenuse is unrestricted. No claim concerning larger \(N\) or the asymptotic rate follows. Earlier implicit coverage is a possibility; independent verification remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison with primary literature, published results and a new Resultary search; foundational premises credited; no negative-search priority inference. The original exact equality is not implied merely by the definition of f(N) or a matching in another graph.
+
+## value
+
+PASS
+
+The four-prime exponent box is the first natural four-dimensional small parameter of Xiao’s explicitly motivated extremal f(N). Its exact independence number 144 and matching witness give a sharp finite benchmark for asymptotic Pythagorean-pair avoidance. A finite fact can be independently useful even without a general f(N) formula: it resolves a genuine discrete optimization problem, with a short auditable upper certificate. The result does not claim general N or asymptotic density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
