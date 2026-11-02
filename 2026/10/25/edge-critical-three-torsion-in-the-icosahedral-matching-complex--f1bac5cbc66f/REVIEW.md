@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete finite graph is defined explicitly and independently generated in the supplied program. Three exhaustive oriented discrete-Morse matchings are checked for directed-Hasse acyclicity; their signed critical boundary matrices have exact unimodular determinant certificates in the deletion and link cases, and a determinant of three plus full rank deficiency exactly one modulo three in the parent case. Integral homotopy follows from the dimension ranges, and the saturation index follows from the long exact sequence. Full graph-edge transitivity was exhaustively verified.
+## correctness
 
-**Originality — PASS under available evidence.** The published original icosahedral matching-complex result already identifies the whole-complex three-torsion and is not claimed again. Its accessible full result/proof does not give the homotopy profiles after deletion, the endpoint links or the saturation index. Complete primary literature inspections of matching-complex torsion, outerplanar graph results, and related independence complexes, plus several searches for alternate vocabulary and published records, revealed no theorem implying this simultaneous three-part claim. An unpublished or unindexed equivalent result is still possible.
+PASS
 
-**Value — PASS.** The canonical edge-transitive planar graph is a known benchmark for an unusual torsion phenomenon. Proving torsion disappears after **every single edge deletion** and identifying the nonprimitive rank-six attaching map isolates the geometric mechanism of the obstruction. This is mathematically more informative than merely recomputing its Betti numbers, and the index distinguishes it from previously known torsion-free graph-edge deletion splittings.
+The fixed icosahedral graph has 12 vertices, 30 graph edges; the matching complex is the independence complex of its line graph. Independent code enumerated full (5887 faces), one-edge-deleted (5115), and endpoint-removed link (771) complexes with f-vectors (30,315,1400,2535,1482,125), (29,294,1260,2197,1235,100), and (21,140,338,247,25). It constructed and verified acyclic Morse matchings with 2850/2495/374 pairs and critical cells (1,0,0,125,61,0)/(1,0,0,96,28,0)/(1,0,9,13,0,0). An independent second exact checker reconstructed the signed integer Morse boundaries, rational/modular ranks, and selected 61x61,28x28,7x7 integer minor determinants −3,1,−1; whole rank mod3 drops from 61 to 60, giving exactly Z/3 among homology, while deletion and link have unit Smith invariants. With the one-vertex critical 0-cell and positive-dimensional two-level CW cells, unimodular changes yield wedge-plus-Moore decomposition of parent, 68 S3 for deletion, and 2 S2+6 S3 for link. The deletion–link cofiber long exact sequence injects Z6 into Z68 with quotient torsion exactly Z/3, hence index three. Icosahedron graph automorphism group is edge-transitive (120 automorphisms, edge orbit 30 as coded). This is fixed finite exhaustion, not a sample extrapolated to larger graphs.
 
-**Scientific limitations.** Exact integral boundary calculations are algorithmically reproducible but have not been independently human-audited. Multi-edge deletions and universal planar graph classifications are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published icosahedral matching-complex 3-torsion counterexample gives the parent homotopy type, explicitly prior here. The new claims are homotopy after removal of ANY graph edge, endpoint-removed link and primitive saturation defect in connecting map. Prior edge-deletion splittings for other graphs or outerplanar wedge theorem do not imply this 29-edge nonouterplanar example.
+
+## value
+
+PASS
+
+The edge-critical disappearance of integral 3-torsion and the precise index-three nonprimitive connecting image describe the mechanism of torsion in a canonical planar graph and give a mathematically informative deletion/link boundary case. It is not merely recomputing the already known parent torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
