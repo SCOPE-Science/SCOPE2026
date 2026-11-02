@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Full proof gives unique Stieltjes renewal pole, positive prefactor via key renewal, analytic strictly convex scaled CGF, complete compact-support LDP and exact q-branch endpoint cusp. Tested the actual standard-library verifier with 298 deterministic checks; finite tests are supporting evidence, not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meylahn et al. 2015 describe the generic reset-renewal route to time-additive large deviations.",
+        "Den Hollander et al. 2018 prove a general variational principle and derive the Brownian positive occupation rate; their paper describes general diffusion extensions as possible but not undertaken.",
+        "Bressloff 2020 treats a velocity-switching run-and-tumble particle and Brownian limit, not the spatially sluggish diffusion."
+      ],
+      "reasoning": "Generic renewal/LDP theorems supply part of the proof mechanism and are prior art, but neither the one-parameter Lamperti pole for the 2026 nonconstant-diffusion model nor the sharp continuously varying near-endpoint exponent and coefficient were identified in the inspected coverage. General frameworks make the residual prior-implication risk material.",
+      "searches": [
+        "Web: Large deviations for Markov processes with resetting 2015 Meylahn Sabhapandit Touchette",
+        "Web: Properties of additive functionals of Brownian motion with resetting 2018",
+        "Web: Occupation time of a run-and-tumble particle with resetting 2020",
+        "Published research-index search: Lamperti positive occupation resetting scaled cumulant generating function edge power law"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21962v1",
+      "arxiv:1801.09909",
+      "arxiv:1510.02431",
+      "arxiv:2009.01968",
+      "https://www.paperpeel.com/paper/2610.21962",
+      "https://www.eurandom.tue.nl/reports/2018/002-report.pdf",
+      "Published research-index semantic search, three targeted actual queries documented in the four comparison checks",
+      "Previously recorded mathematical results, checked at the recoverable claim level for topical overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 sluggish source derives Gaussian core variance (1-mu)/(2rT), corresponding to the new SCGF second derivative; this alone does not determine higher cumulants or order-one deviations.",
+        "The 2018 Brownian rate r(1-2 sqrt(u(1-u))) coincides exactly with the stated mu=1/2 boundary and is credited.",
+        "A previously recorded sluggish occupation claim instead uses threshold-triggered reset at finite interval edges and only a central-limit coefficient."
+      ],
+      "reasoning": "The evaluated output is exact for each 0<mu<1/2 with full Legendre rate and a new edge exponent mu, strictly below the known Brownian exponent 1/2. The generic theorem ensures an LDP exists, but no inspected prior statement supplies this specialized rate and cusp constants. The possibility that general renewal theory implicitly yields the result is acknowledged.",
+      "searches": [
+        "arxiv:2610.21962v1 Section 6.1 and conclusion",
+        "arxiv:1801.09909 PDF Section IV and theorem II.1",
+        "arxiv:1510.02431 abstract",
+        "arxiv:2009.01968 abstract",
+        "Previously recorded mathematical result adbf7ee7-c24f-4d20-a120-6f97c85fe4ef"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frimpong et al. 2026 Section 6.1 states the Gaussian core and a double Laplace transform; it does not state the all-deviation Lamperti pole or sluggish endpoint cusp in inspected material.",
+        "Den Hollander et al. 2018 Section IV gives the Brownian occupation rate at mu=1/2 exactly, but no spatially sluggish mu<1/2 calculation."
+      ],
+      "reasoning": "The Brownian case is a limiting specialization of the current formulas and is expressly excluded from the novelty claim; the non-Brownian Lamperti exponent and coefficient differ in mathematical implication. The source transform is related to the new root, but the derived full rate and sharp edge asymptotics are not explicitly established in the inspected source.",
+      "searches": [
+        "Published research-index search: sluggish random walk resetting occupation fraction Lamperti large deviation rate function",
+        "Web: \"Sluggish random walks with resetting\" occupation time large deviations Lamperti",
+        "Full text: arxiv:2610.21962v1, Section 6.1",
+        "Full text: arxiv:1801.09909, Section IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published findings titled 'Sharp power-correlation range for stationary renewal age and residual life' and 'Balanced non-uniform reset coupon collectors' concern different stochastic objects and do not imply a sluggish-diffusion occupation rate.",
+        "A historical result on sluggish diffusion under first-exit *threshold* resetting proves a central-limit variance, not a Poisson-reset non-Gaussian rate or edge cusp."
+      ],
+      "reasoning": "Searches compared objects, reset protocols, fluctuation scale and parameter regimes. No exact database item or table with the current Poisson-reset Lamperti cusp was identified. An incomplete indexed corpus cannot establish uniqueness.",
+      "searches": [
+        "Published research-index search: sluggish random walk resetting occupation fraction Lamperti large deviation rate function",
+        "Published research-index search: occupation fraction renewal resetting heavy tailed random walks Poisson rate function",
+        "Previously recorded scientific claims, including threshold-reset occupation CLT item adbf7ee7-c24f-4d20-a120-6f97c85fe4ef"
+      ]
+    },
+    "rationale": "Best-knowledge novelty is restricted to the exact sluggish mu<1/2 Lamperti pole/SCGF and the complete non-Gaussian occupation rate with its sharp mu-dependent endpoint cusp. The 2026 source double-Laplace machinery, the 2015 generic reset-renewal LDP and the 2018 Brownian formula are explicit prior art. Source-specific full text and claim implications were compared; residual broader-framework priority risk is recorded.",
+    "residual_risks": [
+      "General Markov-resetting LDP machinery predates this specialization and might imply the pole formula as a corollary; the edge-cusp exponent and coefficient are the distinguished additional result.",
+      "Full primary text of Meylahn et al. (2015) and Bressloff (2020) was not inspected; this is a genuine bounded-access limitation.",
+      "The motivating source arXiv PDF was inaccessible, but its full HTML rendering including the relevant sections was read.",
+      "Search noncoverage is not a proof of novelty; independent priority certification has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers free Lamperti law, Poisson-reset double Laplace transform, and central Gaussian variance, but inspected material does not explicitly give the full mu<1/2 occupation rate or endpoint exponent.",
+        "evidence": "arxiv:2610.21962v1, Sections 6.1.1 and 8; https://www.paperpeel.com/paper/2610.21962",
+        "identifier_or_url": "arxiv:2610.21962v1; https://www.paperpeel.com/paper/2610.21962",
+        "material_read": "Accessible complete HTML rendering: introduction/model, Section 6.1 (free Lamperti and Poisson reset), conclusions and method synopsis; original arXiv PDF was not retrievable.",
+        "method": "Read source text and compare exact observables, limits and established formulas.",
+        "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+        "trigger": "Same continuum sluggish model and positive occupation observable."
+      },
+      {
+        "assessment": "Contains generic renewal approach and exact Brownian rate; does not discuss the mu<1/2 spatially sluggish diffusion.",
+        "evidence": "EURANDOM report 2018-002, Section IV Eq. (IV.17)-(IV.18).",
+        "identifier_or_url": "arxiv:1801.09909; https://www.eurandom.tue.nl/reports/2018/002-report.pdf",
+        "material_read": "Full PDF: Section II renewal theorem and LDP overview (pages 2-4); Section IV Brownian occupation formula and explicit rate (pages 9-11); viewed source page images.",
+        "method": "Read equations II.3, IV.6-IV.18 and compare pole to mu=1/2 limit.",
+        "title": "Properties of additive functionals of Brownian motion with resetting",
+        "trigger": "Potential earlier full LDP and Brownian specialization."
+      },
+      {
+        "assessment": "General framework is prior work; no direct specialized Lamperti edge coefficient confirmed from available material.",
+        "evidence": "Phys. Rev. E 92 (2015) 062148 abstract.",
+        "identifier_or_url": "arxiv:1510.02431; doi:10.1103/PhysRevE.92.062148",
+        "material_read": "Abstract and publisher/bibliographic overview; not entire primary full text.",
+        "method": "Checked stated scope and renewal identity implications.",
+        "title": "Large deviations for Markov processes with resetting",
+        "trigger": "General LDP/renewal framework could subsume method."
+      },
+      {
+        "assessment": "Different persistent velocity-switching dynamics; Brownian limit present; complete full-text noncoverage is not claimed.",
+        "evidence": "arxiv:2009.01968 abstract.",
+        "identifier_or_url": "arxiv:2009.01968; doi:10.1103/PhysRevE.102.042135",
+        "material_read": "Accessible abstract and research summary, not full paper.",
+        "method": "Scope and model comparison.",
+        "title": "Occupation time of a run-and-tumble particle with resetting",
+        "trigger": "Related positive-occupation LDP and pole method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8779913-87f6-4e09-bd6c-b8fa3a94be9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A Gaussian central limit for sluggish reset occupation cannot characterize rare near-total positive/negative occupancy. The exact non-Gaussian rate and exponent mu=1/(alpha+2), with sharp coefficient, resolve a naturally motivated missing tail regime and distinguish spatially sluggish dynamics from the known Brownian result.",
+    "status": "PASS"
+  }
+}
