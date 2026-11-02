@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The three construction branches exhaust all parameters; the crossing-prefix lower-quota bound follows from t<=a_1 and B<n, giving sum ceil(a_i/2)<=n<=sum a_i. Feasible integer quotas produce each selected part entirely as singleton/pair classes. Each class is independent; all unassigned goods are in unselected parts and conflict with every nonempty class, hence maximality. All class sizes differ by at most one, hence unit EF1. K3,3,3 impossibility of complete equitable 4-coloring follows from necessary 3,2,2,2 color sizes and indivisible three-item parts. Checker independently tested 7517 cases including 5118 with leftovers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Equbal et al. 2026 Theorem 5.6 covers trees; Hummel and Hetland 2021 Proposition 5 covers n>Delta complete coloring; Haviv 2026 abstract covers degree-dependent complete allocation.",
+        "Previous accessible three-agent complete-multipartite monotone result covers exactly the n=3 case, not the n>=4 claim."
+      ],
+      "reasoning": "The K_{3,3,3} four-agent no-complete-coloring witness lies outside all of those implications; it is not a tree, has maximum degree 6>=4, and the new result concerns partial allocations with every unassigned item blocked.",
+      "searches": [
+        "web: fair allocation conflict constraints identical additive goods complete multipartite graph maximal EF1",
+        "web: arxiv 2607.01059 complete multipartite maximal EF1 uniform",
+        "published-finding corpus: For every complete multipartite conflict graph with any number of agents k, identical unit additive valuations admit maximal envy-free up to one allocation, maximal equitable k-coloring"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.09930 Sections 1, 3 and 5.3",
+      "doi:10.1007/s10458-021-09537-3 Section 3.1",
+      "arxiv:2607.01059 abstract",
+      "Published mathematical index hits on majority C-coloring and forced coloring of complete multipartite graphs",
+      "Accessible earlier three-agent monotone complete-multipartite claim (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hummel and Hetland 2021, Proposition 5: n>Delta suffices for complete unit EF1; example K_{3,3,3}, n=4 has Delta=6 and is not completely equitably colorable.",
+        "Equbal et al. 2026 Theorem 5.6 covers trees rather than all complete multipartite graphs.",
+        "Existing stronger three-agent monotone result leaves n>=4 unproved."
+      ],
+      "reasoning": "The present theorem is a nontrivial extension in the n>=4 and n<=Delta regime. It does not claim a new result for n=3 or an all-graphs theorem; unrestricted complete-coloring results cannot imply the exhibited example.",
+      "searches": [
+        "web: \"complete multipartite\" \"maximal EF1\" allocation",
+        "web: \"maximal equitable\" \"multipartite\" fair allocation",
+        "published-finding corpus: For every complete multipartite conflict graph with any number of agents k, identical unit additive valuations admit maximal envy-free up to one allocation, maximal equitable k-coloring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.09930 section 5.3 explicitly equates maximal EF1 unit division with maximal equitable partial coloring.",
+        "Relevant published coloring title: Majority C-colorings of complete multipartite graphs (different notion)."
+      ],
+      "reasoning": "Searched equivalent graph-coloring, partial-coloring and unit fair-allocation language. A majority C-coloring is a different graph invariant and cannot ensure almost-equal independent color classes with every leftover vertex blocked.",
+      "searches": [
+        "published-finding corpus: maximal equitable partial colorings every complete multipartite graph any number k of colors classes sizes differ by at most one",
+        "published-finding corpus: maximal equitable partial graph coloring k partite equitable maximal independent sets 1 2 classes",
+        "web: \"maximal equitable\" \"complete multipartite\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published mathematical index records include Majority C-colorings of complete multipartite graphs (2026/10/4), Forced colourings of complete multipartite graphs at the chromatic palette size (2026/10/4), and Exact prescribed color-class sizes for graphs of maximum degree two (2026/9/17)."
+      ],
+      "reasoning": "These concern majority local degrees, forcing partial precolorings, and maximum-degree-two prescribed *complete* colorings respectively. None provides maximal equitable partial allocations for every complete multipartite graph and all numbers of colors.",
+      "searches": [
+        "published-finding corpus: maximal equitable partial colorings every complete multipartite graph any number k of colors classes sizes differ by at most one",
+        "published-finding corpus: fair allocation conflict constraints complete multipartite graphs identical unit valuations four agents maximal EF1 2026",
+        "published-finding corpus: maximal equitable partial graph coloring k partite equitable maximal independent sets 1 2 classes"
+      ]
+    },
+    "rationale": "The new n>=4 all-complete-multipartite maximal-partial EF1 existence theorem is not implied by the examined tree theorem, the older n>Delta complete-coloring theorem, the degree-threshold strong-colorability result, or the accessible earlier n=3 monotone theorem. The explicit K_{3,3,3}, n=4 instance proves that complete-coloring guarantees cannot subsume the partial theorem. No exact equivalent emerged from recorded published-finding corpus and targeted mathematical-literature searches; unindexed antecedents remain a substantive priority risk.",
+    "residual_risks": [
+      "Possible equivalent elementary construction in unindexed equitable-coloring literature.",
+      "Full text of arxiv:2607.01059 could not be inspected, although its reported complete-coloring implication does not cover the exhibited impossible-complete case.",
+      "Publication priority has not received independent assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No complete-multipartite general-all-agent result in inspected text; tree theorem does not imply non-tree multipartite cases.",
+        "evidence": [
+          "https://arxiv.org/abs/2605.09930#section.5.3",
+          "Section 5.3: maximal equitable n-coloring definition, tree Theorem 5.6 and open general-graph extension."
+        ],
+        "identifier_or_url": "arxiv:2605.09930; https://arxiv.org/abs/2605.09930",
+        "material_read": "Full accessible arXiv HTML main text, especially definitions and section 5.3 and Theorem 5.6; full preprint PDF relevant portions cross-checked.",
+        "method": "Read and compared the stated maximal equitable partial-coloring criteria and tree construction to the multipartite all-agent prefix-quota theorem.",
+        "title": "Fair Allocation under Conflict Constraints",
+        "trigger": "Exact maximally fair constrained-division problem; tree theorem and open arbitrary-graph question."
+      },
+      {
+        "assessment": "Proposition 5 guarantees complete EF1 only above maximum degree; its complete-coloring conclusion is impossible in the new example. Positive heterogeneous weights can block EF1.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s10458-021-09537-3",
+          "Section 3.1 Proposition 5; Example 1 K3,3 with weights 2 and 3."
+        ],
+        "identifier_or_url": "doi:10.1007/s10458-021-09537-3; https://link.springer.com/article/10.1007/s10458-021-09537-3",
+        "material_read": "Open-access full HTML, particularly Introduction and Section 3.1 Propositions 1–5 and Example 1.",
+        "method": "Compared complete vs maximal-partial allocation and the n>maximum-degree condition with K_{3,3,3} and n=4.",
+        "title": "Fair allocation of conflicting items",
+        "trigger": "Earlier equitable-coloring guarantees, value-heterogeneity obstructions and complete-bipartite graphs."
+      },
+      {
+        "assessment": "The reported complete-allocation guarantees do not cover a case in which complete equitable coloring is impossible. Exact full-text overlap remains an access-related residual risk.",
+        "evidence": [
+          "https://arxiv.org/abs/2607.01059",
+          "Original abstract: full partition and degree-dependent agent thresholds."
+        ],
+        "identifier_or_url": "arxiv:2607.01059; https://arxiv.org/abs/2607.01059",
+        "material_read": "Original arXiv abstract and bibliographic record; full 32-page source was not accessible through inspected access route.",
+        "method": "Compared stated complete coloring/strong-colorability sufficient conditions, n at least 3 Delta - 1, to partial-coloring theorem including n=4 K3,3,3.",
+        "title": "Fair Allocation under Conflict Constraints via Strong Colorability",
+        "trigger": "Related post-motivating study of fair allocations through strong colorability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df0a902f-3dda-49e5-8e1d-442585fd4dbd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Theorem settles a natural infinite graph family for the maximal-equitable-partial-coloring existence problem explicitly posed in Equbal et al. Section 5.3, for every number of agents including n<=maximum degree where prior generic complete-coloring guarantees are inapplicable. K3,3,3 with four agents proves partial maximality is essential rather than a trivial complete-coloring corollary. The explicit linear-after-sorting construction isolates the role of exactly uniform item values against the known weighted bipartite obstruction.",
+    "status": "PASS"
+  }
+}
