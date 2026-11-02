@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hadamard intersection array yields exactly five spectral sectors; their direct substitution gives the two sharp exponent inequalities and a closed quadratic covariance cutoff. The symbolic proof covers every existing order, while the reproducibility script checks orders \(4\), \(8\), and \(16\). Numerical tests do not substitute for the proof.
+## correctness
 
-**Originality — PASS (bounded).** Sánchez (2011) gives a general negative-type criterion; Ma–Koolen (2014) gives the family and intersection array; DeVille (2017) studies generalized-distance matrices including exponential kernels, so the covariance calculation is partly a specialization of its framework. The located full texts do not give the combined exact Hadamard powered-distance inequalities or endpoint embedding-rank formula. Equivalent older specializations cannot be excluded.
+PASS
 
-**Value — PASS.** A natural family of distance-transitive graphs has two distinct spectral obstructions governing metric negative type. The exact rank losses and closed exponential cutoff sharpen adjacency-spectrum data into embedding and covariance statements.
+The Hadamard graph has intersection array {n,n-1,n/2,1;1,n/2,n-1,n}. From the five adjacency sectors n, sqrt(n),0,-sqrt(n),-n with multiplicities 1,n,2n-2,n,1, the distance-j eigenvalues are (1,n,2n-2,n,1), (1,sqrt(n),0,-sqrt(n),-1), (1,0,-2,0,1), (1,-sqrt(n),0,sqrt(n),-1), and (1,-n,2n-2,-n,1). Weighted d^p eigenvalues yield exactly p<=1 and the two nontrivial inequalities. Centered Gram rank subtracts equality-sector multiplicities, including the n=4 Hamming special case. Exponential eigenvalues factor into (1-z²)(1±sqrt(n)z+z²), (1-z²)², and (1-z)²(1-(n-2)z+z²); n-2>=sqrt(n) makes the last the binding condition, leading to arcosh threshold. Distinct embedded points ensure strict PD of Gaussian powered distance for positive scale. Independently reconstructed Sylvester Hadamard graphs n=4,8,16 and numerically matched spectral sectors.
 
-Limits: existence of a Hadamard matrix at each putative order is not claimed; no independent verification of the universal proof has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.
+
+## value
+
+PASS
+
+Sharp conditional-negative-type exponents and covariance cutoffs on a canonical infinite distance-regular graph family are motivated metric-embedding and kernel-positivity invariants. Multiplicity-aware endpoint rank losses provide more information than the general spectral algorithm alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

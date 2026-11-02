@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:04:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Independent finite checks: Independent Sylvester-Hadamard graphs for n=4,8,16: BFS distance layers and eigvalsh of exp(-a d) at z=.1,.45 agree with sector polynomials and multiplicities."
+      ],
+      "rationale": "The Hadamard graph has intersection array {n,n-1,n/2,1;1,n/2,n-1,n}. From the five adjacency sectors n, sqrt(n),0,-sqrt(n),-n with multiplicities 1,n,2n-2,n,1, the distance-j eigenvalues are (1,n,2n-2,n,1), (1,sqrt(n),0,-sqrt(n),-1), (1,0,-2,0,1), (1,-sqrt(n),0,sqrt(n),-1), and (1,-n,2n-2,-n,1). Weighted d^p eigenvalues yield exactly p<=1 and the two nontrivial inequalities. Centered Gram rank subtracts equality-sector multiplicities, including the n=4 Hamming special case. Exponential eigenvalues factor into (1-z²)(1±sqrt(n)z+z²), (1-z²)², and (1-z)²(1-(n-2)z+z²); n-2>=sqrt(n) makes the last the binding condition, leading to arcosh threshold. Distinct embedded points ensure strict PD of Gaussian powered distance for positive scale. Independently reconstructed Sylvester Hadamard graphs n=4,8,16 and numerically matched spectral sectors.",
+      "residual_risks": [
+        "Numerical n<=16 tests are not proof for all Hadamard orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeVille (2017) gives a generalized-distance spectral procedure for distance-regular graphs and z^j profiles.",
+          "Ma–Koolen (2014) describe the Hadamard intersection array but do not state these kernel positivity thresholds in inspected text."
+        ],
+        "reasoning": "The general method plus the known array supplies all raw ingredients; nontrivial sign comparisons, competing powered-distance constraints, exceptional rank and binding exponential sector form the specific final claim. A stronger earlier specialization is a priority risk.",
+        "searches": [
+          "\"Hadamard graph powered distance negative type generalized distance spectrum exponential covariance positive semidefinite\"",
+          "DeVille The generalized distance spectrum of a graph and applications arxiv:1708.02294",
+          "Ma Koolen Twice Q-polynomial distance-regular graphs diameter 4 arxiv:1405.2546"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md complete spectral calculation and boundary n=4",
+        "CHECK.py graph construction and finite spectral check",
+        "DeVille arxiv:1708.02294",
+        "Ma–Koolen arxiv:1405.2546",
+        "Sánchez arxiv:1108.0451"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-sector polynomials arise by substituting the Hadamard graph eigenvalues; rank and threshold follow only after exact factorization and sector-by-sector comparison.",
+          "Sánchez gives general p-negative-type criteria but not this Hadamard family cut-off."
+        ],
+        "reasoning": "The finding is a substantive explicit spectral classification, although it is an application of known general theory and much of the calculation is mechanical once the eigenmatrix is established.",
+        "searches": [
+          "DeVille arxiv:1708.02294 generalized spectral sector framework",
+          "Sánchez arxiv:1108.0451 supremal p-negative type finite metric space"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CND powered distance is equivalent to the all-bandwidth positive definiteness of exp(-t d^p), but differs from positive definiteness of exp(-a d) at one bandwidth."
+        ],
+        "reasoning": "Schoenberg equivalence translates only the universal all-t statement; it does not by itself provide the explicit p inequalities, finite-a cutoff and ranks.",
+        "searches": [
+          "\"Hadamard graph powered distance negative type generalized distance spectrum exponential covariance positive semidefinite\"",
+          "Schoenberg conditionally negative type distance radial kernels Hadamard association scheme"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact Hadamard-graph p-threshold or exponential kernel PSD table surfaced in the targeted mathematical searches and Resultary matches."
+        ],
+        "reasoning": "Generic graph distance spectra are algorithms, not a table of the critical inequalities for this named family. Failed search alone does not certify novelty.",
+        "searches": [
+          "\"Hadamard graph powered distance negative type generalized distance spectrum exponential covariance positive semidefinite\"",
+          "Hadamard graph negative type exponent distance",
+          "Hadamard graph exponential positive definite shortest path"
+        ]
+      },
+      "rationale": "Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.",
+      "residual_risks": [
+        "An association-scheme table or prior specialization of DeVille could make the result a routine already-known corollary; the source survey is bounded.",
+        "Hadamard matrices are not assumed to exist at all n divisible by four; all statements conditional.",
+        "Numerical n<=16 tests are not proof for all Hadamard orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General procedure covers the method; inspected text did not explicitly state these family-specific thresholds.",
+          "evidence": "DeVille (2017), generalized-distance matrix spectral framework.",
+          "identifier_or_url": "arxiv:1708.02294",
+          "material_read": "Accessible PDF, opening and methodological sections with examples and exponential profiles.",
+          "method": "Read PDF relevant sections and examined Hadamard term search.",
+          "title": "The generalized distance spectrum of a graph and applications",
+          "trigger": "Closest general theorem that might already dominate both distance kernels"
+        },
+        {
+          "assessment": "Provides graph parameters, not p-negative-type or positive-kernel cutoff.",
+          "evidence": "Ma–Koolen (2014), diameter-four Hadamard intersection array.",
+          "identifier_or_url": "arxiv:1405.2546",
+          "material_read": "Accessible full-text HTML relevant introduction and Hadamard-case statement.",
+          "method": "Read relevant theorem/definition passages.",
+          "title": "Twice Q-polynomial distance-regular graphs of diameter 4",
+          "trigger": "Specifies Hadamard intersection array"
+        },
+        {
+          "assessment": "Generic negative-type criterion; no explicit Hadamard calculation in inspected passages.",
+          "evidence": "Sánchez 2011, negative type and metric-space thresholds.",
+          "identifier_or_url": "arxiv:1108.0451",
+          "material_read": "Accessible HTML general definitions and main statements.",
+          "method": "Read relevant text.",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General characterization might cover powered metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md complete spectral calculation and boundary n=4",
+        "CHECK.py graph construction and finite spectral check",
+        "DeVille arxiv:1708.02294",
+        "Ma–Koolen arxiv:1405.2546",
+        "Sánchez arxiv:1108.0451"
+      ],
+      "rationale": "Sharp conditional-negative-type exponents and covariance cutoffs on a canonical infinite distance-regular graph family are motivated metric-embedding and kernel-positivity invariants. Multiplicity-aware endpoint rank losses provide more information than the general spectral algorithm alone.",
+      "residual_risks": [
+        "An association-scheme table or prior specialization of DeVille could make the result a routine already-known corollary; the source survey is bounded.",
+        "Hadamard matrices are not assumed to exist at all n divisible by four; all statements conditional.",
+        "Numerical n<=16 tests are not proof for all Hadamard orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An association-scheme table or prior specialization of DeVille could make the result a routine already-known corollary; the source survey is bounded.",
+    "Hadamard matrices are not assumed to exist at all n divisible by four; all statements conditional.",
+    "Numerical n<=16 tests are not proof for all Hadamard orders."
+  ],
+  "schema_version": 1
+}
