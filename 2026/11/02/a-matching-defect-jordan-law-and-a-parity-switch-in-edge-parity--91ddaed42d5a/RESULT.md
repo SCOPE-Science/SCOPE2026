@@ -38,7 +38,7 @@ The maximum is three except when \(k=0\) or \((n,k)=(4,2)\), in which case it is
 
 ## Assumptions and scope
 
-All graphs are finite, simple, undirected, and labelled. The graph \(G_{n,k}\) is connected for the stated parameter range, including the smallest boundary examples. The local rule excludes the edge's prior state: no self-loop is used in the line graph. The field cardinality \(q\) is an arbitrary positive power of two; the matrix and its Jordan forms are interpreted over that field, not over the real numbers. An attraction basin includes the periodic states themselves. An initial state first reaches its periodic orbit at time \(T=0\) precisely when it is periodic already. \(J_s(\lambda)\) denotes a single size-\(s\) Jordan block with eigenvalue \(\lambda\). Graphs arising from different choices of the deleted matching are isomorphic, so all counts are independent of that choice.
+All graphs are finite, simple, undirected, and labelled. The graph \(G_{n,k}\) is connected for the stated parameter range, including the smallest boundary examples. The local rule excludes the edge's own current state: no self-loop is used in the line graph. The field cardinality \(q\) is an arbitrary positive power of two; the matrix and its Jordan forms are interpreted over that field, not over the real numbers. An attraction basin includes the periodic states themselves. An initial state first reaches its periodic orbit at time \(T=0\) precisely when it is periodic already. \(J_s(\lambda)\) denotes a single size-\(s\) Jordan block with eigenvalue \(\lambda\). Graphs arising from different choices of the deleted matching are isomorphic, so all counts are independent of that choice.
 
 ## Proof
 
