@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Verification notes
-The proof has three independent checks: (i) the chord-length integration identity and exact support norm, (ii) the equal-endpoint cubic and asymptotic Taylor expansion, and (iii) the monotonicity derivative and large-parameter root expansion. Numerical verification solves the full quartic endpoint equations, not the asymptotic equations alone. Test parameters \(\lambda=0,0.2,1,5,20\) at \(t=0.30,0.20,0.12\) approach the integral coefficient; for instance at \(\lambda=1\) the integral equals approximately \(0.2360193622\), while the exact-geometry numerical quotient is approximately \(0.23607905\) at \(t=0.12\). The numerical tests neither certify all real parameters nor replace the analytic uniform-convergence proof. Run `python verification.py` with NumPy and SciPy installed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For centrally symmetric convex K, the exact chord formula w*t-area_loss = 2 int_0^t (h-z_s) ds uses short-chord level sets. At theta=lambda*t^3, the upper support graph rescales to f_lambda(u)=u^4/4+lambda*u and its minimum is -3|lambda|^(4/3)/4. Equal-height endpoints spaced by r give the unique cubic midpoint m^3+(r^2/4)m+lambda=0. Uniform strict-convex localization supports integration of the rescaled support deficit and produces the F integral. The implicit-derivative positivity proves strict monotonicity; expansion of the cubic solution gives -7/480, and axial slicing F(0)=1/160. Independently implemented actual two-dimensional overlap quadrature with all thin endpoint intervals separated agreed with F at lambda=0,0.2,1 as t decreased, and checked F(1)=0.236019362175881.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
+
+## value
+
+PASS
+
+The quartic norm ball is a canonical convex body with zero curvature at coordinate supports. The cubic-angle scaling and explicit monotone fifth-order profile quantify a singular transition that fixed nonzero-curvature t^3 overlap formulas fail to describe uniformly; the exact coefficient is a meaningful covariogram boundary-layer invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
