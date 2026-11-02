@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A standalone exact integer verifier enumerates the entire 742-face flag complex; constructs and acyclicity-checks 367 toggle pairs on 2,816 Hasse incidences; reconstructs all signed integer boundaries and exact unit Morse cancellations; computes the printed 7-by-8 coordinate matrix, all eight maximal determinants ±1, unique primitive relation, and checks the signed chain action of each of 384 cube automorphisms. The sharp support lemma is proved by a flag-link Mayer–Vietoris induction. The preexisting wedge homotopy and computed Morse complex agree, but neither alone substitutes for the integral orbit-basis proof.
+PASS
 
-All 742 faces are enumerated, the 367-pair acyclic matching leaves one zero-cell and seven three-cells, and all signed cancellation steps are performed with unit pivots over the integers. The 8 crosspolytope generators project to an explicit 7-by-8 matrix with maximal determinants \((-1,-1,-1,-1,1,1,1,1)\), and the 384 symmetry actions are checked on integer chains. The abstract support bound is independently proved, not extrapolated from enumeration.
+Standard flag complex support induction by deletion/link Mayer–Vietoris gives 2d+2 minimum induced support and perfect matching complement at equality. Independently enumerated all four disjoint-edge carriers among 32 cube edges, found exactly eight. Independent enumeration of 742 nonempty simplices gives f-vector (16,88,208,228,128,56,16,2). Inspected exact unit-pivot Morse verifier: 367 acyclic pairs and seven critical 3-cells; independently checked all eight integral 7x7 determinants of displayed projection M are ±1 and its kernel r=(1,-1,1,-1,-1,1,-1,1), so any seven yield a Z-basis assuming certified cancellation. Verified source checks chain-level action for each of 384 automorphisms; the explicit carrier-label permutation and sign give Z[B4] permutation quotient by diagonal.
 
-## Originality — PASS
+## originality
 
-The same-object prior exact seven-sphere homotopy calculation has been inspected in full, and specifically does not determine equivariant homology. Jonsson already tabulates the rank seven and studies crosspolytopal cycles on periodic grids; this result adds an exhaustive eight-carrier census, the integral deletion-minor basis and relation, and the full rank-seven integral B4-lattice, none implied by a Betti number or construction of some cycles. Bousquet-Melou et al treat open/cylindrical boundary conditions, and Barmak proves general suspension results. Exact targeted searches found no directly covering statement, with unindexed material a residual risk.
+PASS
 
-Closest original literature: Jonsson’s 2010 article already studies crosspolytopal cycles and tabulates the rank-seven homology of the exact 4-by-4 toroidal grid. The earlier same-object seven-sphere homotopy calculation also covers the nonequivariant homology. Neither inspected statement implies saturation of the eight natural carrier cycles or their complete integral symmetry action. The bibliographic residual risk is that a specialized unindexed calculation could already contain the stronger claims.
+Best-of-knowledge PASS only for exact primitive eight-cycle relation/basis and integral hyperoctahedral action; nonequivariant Betti/homotopy results and general cross-cycle theory are previously known.
 
-## Value — PASS
+## value
 
-For the smallest fully periodic four-by-four grid/four-dimensional cube, fundamental crosspolytopal sphere cycles are the natural explicit geometric homology representatives. Prior literature explains that cross-cycles need not generate the whole integral homology. Here their exact minimum-support census, any-seven unimodular generation, sole primitive relation, and full integral group module answer that nontrivial representability and symmetry question. The result distinguishes the integral quotient lattice from rational character or rank and is useful for equivariant topology of periodic-grid independence complexes, rather than a rerun of its known Betti number.
+PASS
 
-## Scope and limitations
+The natural four-dimensional cube has previously known rank-seven independence homology but its explicit minimal-support geometric generators and integral symmetry were not determined by those results. Any-seven unimodular basis and integral quotient lattice answer a mathematically motivated equivariant representability question beyond rerunning the known Betti number.
 
-Only this 16-vertex graph and its ordinary independence complex are covered; no equivariant homotopy splitting or uniform-grid theorem is inferred. The finite code can be rerun without third-party packages. There has been no independent scientific audit.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

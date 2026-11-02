@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of the exact finite claims
+# Independent mathematical audit
 
-Run `python3 verify_q4_integral.py` using Python 3.10 or later and only the standard library. The script builds its entire object from the four-bit graph definition; it uses no tables or files from prior computations.
+## correctness
 
-The expected terminal acceptance marker is `VERIFY_OK_Q4_INTEGRAL_CROSSCYCLE_AUGMENTATION_QUOTIENT`. The checker asserts the 742-face vector, every one of 2,816 oriented Hasse incidences, the exact 367-pair Morse matching and directed acyclicity, all simplicial boundary-squared identities, all eight minimum-carrier octahedral cycles, the exact seven-by-eight integer projection matrix, the eight exact unit maximal minors, the unique primitive integral relation, and all 384 signed automorphism actions on the original simplicial cycles.
+PASS
 
-The key finite outputs are an integer Morse zero differential, a 7-by-8 coordinate matrix with all maximal determinants equal to ±1, and the integral signed-permutation action specified in `RESULT.md`. The universal flag-complex minimum-support assertion is proved in the text and is **not** claimed to follow from the finite enumeration of this graph alone. The previously known seven-sphere homotopy type is acknowledged; this verification pertains to the new geometric integral module.
+Standard flag complex support induction by deletion/link Mayer–Vietoris gives 2d+2 minimum induced support and perfect matching complement at equality. Independently enumerated all four disjoint-edge carriers among 32 cube edges, found exactly eight. Independent enumeration of 742 nonempty simplices gives f-vector (16,88,208,228,128,56,16,2). Inspected exact unit-pivot Morse verifier: 367 acyclic pairs and seven critical 3-cells; independently checked all eight integral 7x7 determinants of displayed projection M are ±1 and its kernel r=(1,-1,1,-1,-1,1,-1,1), so any seven yield a Z-basis assuming certified cancellation. Verified source checks chain-level action for each of 384 automorphisms; the explicit carrier-label permutation and sign give Z[B4] permutation quotient by diagonal.
 
-No independent audit or external certification is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS only for exact primitive eight-cycle relation/basis and integral hyperoctahedral action; nonequivariant Betti/homotopy results and general cross-cycle theory are previously known.
+
+## value
+
+PASS
+
+The natural four-dimensional cube has previously known rank-seven independence homology but its explicit minimal-support geometric generators and integral symmetry were not determined by those results. Any-seven unimodular basis and integral quotient lattice answer a mathematically motivated equivariant representability question beyond rerunning the known Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
