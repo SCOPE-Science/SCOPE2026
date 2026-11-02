@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof covers all 1<=a<=b and 1<=n<=a+b. Proposition 4.8 of arXiv:1908.05433 covers 2<=n<=a for arbitrary monotone values; n=1 trivial. For n>=b, t=N-n<=a permits injective opposite-part matching for every leftover subset; greedy singleton choices dominate every leftover singleton for every agent, so removal of each recipient’s picked vertex gives EF1_outer. For a<n<b, an R-only singleton exists; unit-additive EF1 forces all bundles to size<=2 and at most a size-2 bundles, contradiction N>n+a. Independent exact-integer checker passed 58546 matching subset tests, 11100 high-band profiles and 116 obstruction parameter instances. The proof, not finite experiments, establishes the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen and Zwicker general n=N-1 and conditional n=N-2 positive results, arxiv:2402.05884 Section 5",
+        "2026 Bousquet et al. abstract describes EF1_outer on a family of nontraceable graphs and tree spectra, but its theorem statements were not accessible",
+        "Bei et al. Proposition 4.8 already covers n<=a"
+      ],
+      "reasoning": "The 2024 high-agent generic bounds do not reach n=b=N-a when a>=3. In the 2026 abstract, a family of graphs is said to have universally outer EF1, but no explicit theorem covering all imbalanced bicliques at every n>=b is given; abstract-only evidence is insufficient to exclude such coverage. Specific priority residual is retained.",
+      "searches": [
+        "matched leftovers greedy singleton picking algorithm EF1 outer fair division graph robust neighbor matching Hall expansion",
+        "envious connected allocation biclique many agents no fair middle gap complete bipartite spectral characterization",
+        "connected EF1 outer fair partition of biclique exact spectrum n gap a<n<b",
+        "arxiv:2402.05884 Theorem 5 and Observation 2",
+        "arxiv:2608.29902 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1908.05433",
+      "https://arxiv.org/html/2402.05884v1",
+      "https://arxiv.org/abs/1808.09406",
+      "https://arxiv.org/abs/2608.29902",
+      "published-finding corpus published-record semantic searches (eight actual queries recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 Bei Prop 4.8 n<=a, Thm 4.9 n=3 bicliques",
+        "2024 Chen-Zwicker Thm 1 cutset negative and Sec 5 high-n partial"
+      ],
+      "reasoning": "Lower n and middle no cases have established antecedents and are not claimed independently novel. Their union does not imply the upper range n>=b for n<N-2 when a>=3. Thus the specific new high-band construction and resulting full spectrum are not logical corollaries of examined sources.",
+      "searches": [
+        "connected fair division vertex allocation bipartite complete K_{r,m} balanced binary valuations matching EF1",
+        "connected EF1 outer spectrum complete bipartite graph K_{a,b} all agent numbers n <= a or n >= b, greedy preferred singleton matching allocation arbitrary monotone valuations",
+        "arxiv:1908.05433 Prop 4.8 Thm 4.9",
+        "arxiv:2402.05884 Thm 1 Obs 2 Thm 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bei et al. Proposition 4.8: a,b>=n suffices, arxiv:1908.05433",
+        "Chen-Zwicker spectrum means universal connected EF1_outer at each agent count, arxiv:2402.05884 Section 5",
+        "The public result titled Two-point sequence b-spectrum of crown graphs concerns a different graph sequence invariant"
+      ],
+      "reasoning": "The equivalent wording is the all-monotone connected EF1/EF1_outer agent-number spectrum for K_{a,b}, plus the best-singleton/opposite-part matching high-band construction. The matching mechanism gives all n>=b even when n exceeds the smaller bipartition size, unlike Bei Proposition 4.8. published-finding corpus crown b-spectrum concerns a graph-sequence invariant and has no EF1 implication.",
+      "searches": [
+        "connected EF1 common identical binary additive valuations complete bipartite graph K_{a,b} exact agent-number spectrum forbidden interval",
+        "exact universal EF1 spectrum complete bipartite K a b agents 1..a and b..a+b arbitrary monotone valuations",
+        "connected EF1 outer spectrum complete bipartite graph K_{a,b} all agent numbers n <= a or n >= b, greedy preferred singleton matching allocation arbitrary monotone valuations",
+        "arxiv:1908.05433 Proposition 4.8",
+        "arxiv:2402.05884 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result titled Exact uniform released packing on complete bipartite graphs concerns a packing invariant, not EF1 allocation",
+        "Chen and Zwicker (2024) establish some other graph spectra but not the complete biclique spectrum in their inspected Section 5"
+      ],
+      "reasoning": "No inspected published indexed result is a table or classification of universal connected EF1 agent counts on K_{a,b}. Matching parameter names in other graph results do not imply fair-division coverage. Failure of database search is only supporting evidence, not a proof of uniqueness.",
+      "searches": [
+        "connected EF1 common identical binary additive valuations complete bipartite graph K_{a,b} exact agent-number spectrum forbidden interval",
+        "exact EF1 allocation spectrum bicliques cutset no valuation one",
+        "exact universal EF1 spectrum complete bipartite K a b agents 1..a and b..a+b arbitrary monotone valuations",
+        "connected EF1 outer spectrum complete bipartite graph K_{a,b} all agent numbers n <= a or n >= b, greedy preferred singleton matching allocation arbitrary monotone valuations"
+      ]
+    },
+    "rationale": "Exact source-implication comparison credits prior positive low band (Bei et al. Prop 4.8) and general cutset negative band (Chen-Zwicker Theorem 1). The new high band n>=b for all heterogeneous monotone valuations is not implied by either: when a>=3 the range b<=n<N-2 lies beyond Chen-Zwicker general high-agent bounds, while Bei requires n<=a. published-finding corpus searches of published records found no theorem with the new universal high-agent biclique quantifiers. A relevant 2026 EF1_outer paper could not be inspected in full; remaining priority risk is recorded, rather than treated as novelty proof.",
+    "residual_risks": [
+      "Full text of arxiv:2608.29902 not available; its unspecified new nontraceable-graph family could overlap despite no explicit biclique theorem in abstract.",
+      "Specialist graph EF1 literature may contain a separately stated equivalent high-agent matching argument; no finite set of searches establishes absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known n<=a and n=3 are credited; no coverage of all n>=b for a>=3, b<=n<N-2",
+        "evidence": [
+          "Proposition 4.8 assumes both side sizes at least n",
+          "Theorem 4.9 characterizes n=3 only"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.05433",
+        "material_read": "Full HTML rendered manuscript, especially Proposition 4.8, its full proof, Theorem 4.9 and concluding remarks",
+        "method": "Direct primary-text reading and parameter/quantifier comparison",
+        "title": "The Price of Connectivity in Fair Division",
+        "trigger": "Same K_{a,b} objects, exact three-agent classification and possible dominance"
+      },
+      {
+        "assessment": "Provides cutset negative implications and general high-n cases n>=N-2; does not state all biclique high-band classification",
+        "evidence": [
+          "Theorem 1 critical cutset interval",
+          "Section 5 Observation 2, Theorem 5 and Lemma 3 list other graph spectra"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.05884v1",
+        "material_read": "Full accessible HTML, Introduction, Theorem 1, Section 5 Theorem 5 and examples, conclusion",
+        "method": "Full-text navigation, reading theorem assumptions and proof statements",
+        "title": "Cutsets and EF1 Fair Division of Graphs",
+        "trigger": "Direct spectral framework, cutset obstruction and high-n guarantees"
+      },
+      {
+        "assessment": "Traceable/low-agent context; cannot infer novel high-band biclique coverage from abstract",
+        "evidence": [
+          "Abstract emphasizes paths, traceable graphs, and two-agent characterization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.09406",
+        "material_read": "Publication abstract and main stated results accessible through original scholarly listings; not full manuscript inspected",
+        "method": "Abstract/description comparison, corroborated by the 2019 and 2024 papers",
+        "title": "Almost Envy-Free Allocations with Connected Bundles",
+        "trigger": "Foundational EF1_outer and path/traceable graph results"
+      },
+      {
+        "assessment": "Priority comparison incomplete, no definitive NOT_COVERING classification",
+        "evidence": [
+          "2026 abstract reports new nontraceable EF1_outer family and tree spectrum results, no explicit K_{a,b} parameter statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.29902",
+        "material_read": "Abstract, metadata, scholarly indexes; full text not accessible",
+        "method": "ArXiv and open-access full-text attempts followed by authorized institutional access attempt, without success; abstract-only comparison",
+        "title": "Fair Division of Graphs: Beyond Traceability",
+        "trigger": "Later directly related EF1_outer work, possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a444bb42-185d-464c-b75d-4b5463f70741",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact all-parameter universal spectrum for complete bipartite graph-constrained fair division is a natural classification prompted by the published spectral conjecture, with arbitrarily long missing agent counts and a new sharp high-band constructive guarantee. The core matching argument works for arbitrary heterogeneous monotone nonadditive preferences and ensures EF1_outer, not merely ordinary EF1. The high-band threshold n=b may be arbitrarily far below the previously stated general threshold N-2 when the smaller side grows; the contribution is not a small constant tweak, numerical census or restatement of published lower-range facts.",
+    "status": "PASS"
+  }
+}
