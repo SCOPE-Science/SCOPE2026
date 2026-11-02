@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The ten distinct finite branch points for parameters away from zero and one give a smooth genus-four hyperelliptic curve in each allowed characteristic. The standard Cartier coefficient rule has four sparse entries, paired under coefficient reciprocity, and hence only Cartier ranks four, two and zero occur. An explicit second-order polynomial identity proves squarefreeness and excludes the boundary points for each relevant coefficient polynomial. The binomial factorization in characteristic \(23\) was recomputed from first principles; its six quadratic factors are all irreducible and disjoint. Single-cycle semilinear Frobenius at \(p=23\) establishes rank zero at all thirteen exceptional roots. The inversion quotient and reciprocal factor products give exactly seven moduli roots. The independent finite checker verifies all numerical factor and degree assertions and checks general symbolic identities in multiple primes.
+
+## Originality — PASS, with residual risk
+Ohashi--Kudo, arXiv:2312.16858, Section 3.3, already give the family, Cartier sparsity, the two-coefficient gcd criterion for **superspeciality**, and the isomorphism relation. Their Table 2 reports zero superspecial curves of this type at \(p=23\), which does **not** imply the thirteen non-superspecial nonordinary members or their seven moduli classes. The existing classification of four-or-zero \(p\)-rank for this same family in characteristics congruent to two or three modulo five is explicitly excluded from novelty. The contribution is the precise full \(a\)-number parameter stratification for arbitrary primes and its exact characteristic-23 root/moduli classification; the primary text, an adjacent general paper on \(a\)-numbers of nonhyperelliptic genus-four curves, accessible prior claims, and targeted published-record searches did not supply this statement. An undiscovered equivalent calculation remains possible.
+
+## Mathematical value — PASS
+The lowest nontrivial case \(p=23\) beyond the small-characteristic precursor has no superspecial members but has thirteen \(p\)-rank-zero, \(a\)-number-two members. This establishes the complete arithmetic exceptional locus and its moduli-field distribution for a natural automorphism-constrained family, distinguishing the geometry of the nonordinary stratum from the previously counted superspecial locus. The universal two-polynomial formula gives a reasoned approach to such stratifications in further characteristics; no unproved claims about all Ekedahl--Oort types are made.
+
+## Limits and sources
+The full isomorphism and standard Cartier facts come from Ohashi--Kudo, arXiv:2312.16858, not from this result. Camacho-Navarro, arXiv:2012.08705, concerns a different nonhyperelliptic family. Neither generic historical priority nor complete torsion group-scheme classification is certified. The finite checker is corroborative; the algebraic proof supplies the all-prime implication.
+
+Self-review: passed. Independent audit: not yet performed.
