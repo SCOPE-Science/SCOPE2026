@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The selected-neighbor formula accounts for the single missing cross-edge at each matched vertex. It forces a mixed dissociation set into one of four shore-size cases, counted without overlap; pure-shore sets are handled separately. The one-vertex extension argument enumerates exactly the inclusion-maximal classes. The resulting polynomial supports prove the unique well-dissociated member and the crown-family gap, including the \(m,n=3\) boundary. The independent adjacency-based subset enumerator agrees with all coefficients for 130 parameter triples, while the proof supplies the infinite quantifiers. Risk: finite enumeration cannot certify parameters outside that range; the proof must stand alone.
+
+## Originality — PASS (best-knowledge)
+The closest published framework is Bock–Pardey–Penso–Rautenbach (2022), which treats dissociation number and induced matchings rather than all-set and maximal-set polynomials. Tu–Xiao–Lang (2023) defines the dissociation polynomial and proves a cubic extremal theorem, which covers neither the general matching-deleted bipartite family nor the maximality profile. An exact published complete-multipartite dissociation polynomial covers only the \(t=0\) specialization, and a generalized-windmill maximal-set classification concerns a different graph class. The published count of non-CIS pairs in matching-deleted bipartite graphs concerns maximal cliques and independent sets, not dissociation. Searches for crown graphs, matching-deleted bicliques, induced-degree-one subsets, 3-path-cover duality, and inclusion-maximal dissociation polynomial variants found no equivalent formula. Risk: nonindexed equivalent counting work cannot be ruled out; no independence or definitive priority assertion.
+
+## Mathematical value — PASS
+The object is a canonical three-parameter graph family obtained by minimal structural perturbation of complete bipartite graphs. The theorem determines two complete counting invariants simultaneously, exposes why the first added cross-shore dissociation possibilities occur exactly at sizes three and four, isolates the unique well-dissociated member of the family, and yields an unbounded minimal/maximal dissociation gap in regular connected graphs. Unlike an isolated numerical value, this is a full parametric structural classification. The proof is elementary, and the significance claimed is confined to this natural graph family.
+
+## Closest literature and limitations
+The formulas specialize at \(t=0\) to the known complete-bipartite dissociation polynomial, a non-novel boundary case; the novelty assessment concerns the general \(t>0\) terms plus maximality classification. The Bock et al. dissociation inequalities do not enumerate maximal sets; the cubic extremal bound does not imply coefficient equality for these dense graphs. Other published results for the same deleted-matching graph construction concern different predicates. Only the best-knowledge priority conclusion is supported. Verification consists of self-checks and is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
