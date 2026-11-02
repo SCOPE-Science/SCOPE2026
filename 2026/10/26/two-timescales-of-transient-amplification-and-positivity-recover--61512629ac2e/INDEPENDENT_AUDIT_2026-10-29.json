@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:54:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers m>=2, n>=32m on unit-conductance K_{m,n} with unnormalized graph Laplacian L, the four orthogonal spectral subspaces have L-eigenvalues 0,n,m,N=m+n. Taking e^{-tL^2} gives off-diagonal same-part entries -F_A/(mN) and -F_B/(nN) and nonnegative cross-part entries (1-e^{-N^2t})/N; diagonal entries stay positive by positive definiteness. Every row sums to one, hence its absolute row sum is 1+2 times the mass in negative off-diagonals, proving the exact attained l1/linfinity norm. Differentiating F_A,F_B yields one positive peak and one positive zero each. The proof bounds sup d_A<3m/(4n) for n>=32m, whereas the F_B peak exceeds this bound, proving unique global maximization at log((m+n)/m)/[n(n+2m)]. At 2/n^2, F_A<0<F_B, so the last negative entries recover exactly at the unique positive F_B root. The root bracketing t=c/(mn), with F_B/m ->1-c, gives tau~1/(mn); the explicit peak yields theta~log(n/m)/n^2 and norm excess~2m/n for arbitrary m>=2 with n/m->infinity. Independently constructed actual Laplacian matrices on four distinct (m,n) pairs and compared 56 double-precision kernel/norm statements at seven times per graph; maximum absolute kernel discrepancy 7.67e-14. These tests corroborate, but do not replace, the all-parameter spectral and inequality proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General eventual-positivity theorems give qualitative eventual sign conditions and local PDE positivity, not the exact l1/linfinity maximizing time and positivity-root ratio on the finite unbalanced graph family."
+        ],
+        "reasoning": "General spectral simplicity/strong-positivity criteria imply eventual positivity for this connected finite graph but do not imply the explicit transient peak, exact root equation, or growing-ratio asymptotics without a nontrivial four-eigenspace calculation.",
+        "searches": [
+          "Daners Glück Kennedy Eventually and asymptotically positive semigroups arXiv:1511.05294",
+          "Daners Glück Mui Local uniform convergence and eventual positivity of solutions to biharmonic heat equations arXiv:2111.02753"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.05294 full-text eventual positivity",
+        "H. Yamagishi Mathematical Journal of Okayama University 64 (2022) primary PDF with rendered pages",
+        "arXiv:2111.02753 abstract on fourth-order local positivity",
+        "Resultary semantic search of squared graph-Laplacian semigroup and bipartite graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Daners/Glück/Kennedy establish eventual positivity under dominance conditions, not sharp peak/profiling constants.",
+          "Yamagishi derives unsquared kernels for balanced complete bipartite graphs; the four-level unbalanced squared generator has different signs and scales."
+        ],
+        "reasoning": "An eventual-positivity theorem supplies existence of some late nonnegative time; it cannot derive the specified sharp tau nor the l1 norm maximum. Conversely, an ordinary-heat kernel is nonnegative from t>0 and does not give the fourth-order negative window. The exact final claimed conjunction is not implied by the inspected premises.",
+        "searches": [
+          "arXiv:1511.05294 full text, positivity theorems",
+          "Yamagishi 2022 publisher primary PDF",
+          "Resultary query K_m,n squared Laplacian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Potential aliases considered: fourth-order graph heat flow, bi-Laplacian semigroup, eventual positivity, maximum absolute row-sum amplification.",
+          "Resultary adjacent records on eventually positive self-adjoint semigroups and two-step Lanczos positivity concern different operators; the exact K_{m,n} two-scale identity was not found."
+        ],
+        "reasoning": "An equivalent presentation could state maximum signed mass or total variation of a row of exp(-tL²). The audit compared that quantity through the spectral projectors and found no established result in the inspected sources, without treating failed search as proof of novelty.",
+        "searches": [
+          "Resultary: Semigroup matrix exponential of negative graph Laplacian squared on complete bipartite K_m,n eventual positivity l infinity norm transient amplification exact maxima and positivity recovery times",
+          "web: biharmonic heat kernel complete bipartite graph e^-t L squared eventual positivity exact supremum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Yamagishi treats K_{N,N}, ordinary graph heat kernels/Green matrices; the claimed formulas depend on unequal m,n and e^{-tL²}.",
+          "No exact table of these endpoint maxima and positivity thresholds was identified among inspected sources."
+        ],
+        "reasoning": "This is an infinite analytic family, not a fixed census; the plausible known-table version is a compiled explicit symmetric graph kernel. Balanced ordinary heat-kernel entries do not dominate the novel unequal-part squared evolution.",
+        "searches": [
+          "H. Yamagishi The best constant of the discrete Sobolev inequalities on the complete bipartite graph Math J Okayama 64 (2022)",
+          "Resultary query as above"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the simultaneous sharp endpoint norm, unique attained maximum, precise final positivity horizon, and divergent timescale separation in squared-Laplacian flows on unbalanced K_{m,n}. Existing eventual-positivity theorems prove qualitatively different hypotheses/conclusions; the inspected complete-bipartite heat-kernel calculation concerns balanced graphs and the ordinary unsquared heat semigroup. Full text was read where accessible. An equivalent formula could be mechanically derived in broader spectral heat-kernel literature; no absolute priority claim.",
+      "residual_risks": [
+        "Potential older exact K_{m,n} squared-heat-kernel computations may produce the same endpoint norm and positivity crossing as a corollary.",
+        "The n>=32m regime is a sufficient selected-peak cutoff, not claimed optimal; no wider regime is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_NOT_COVERING_EXACT_CLAIM",
+          "evidence": [
+            "Qualitative spectral positivity statements; no sharp unbalanced complete-bipartite fourth-order endpoint peak and recovery-scale theorem in inspected text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Full lawful arXiv manuscript HTML, theorem descriptions concerning individually/eventually positive semigroups and spectral conditions",
+          "method": "primary open-access arXiv full text",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "Strongest identified generic eventual-positivity theorem"
+        },
+        {
+          "assessment": "NOT_COVERING_EXACT_OPERATOR_OR_GRAPH",
+          "evidence": [
+            "Uses balanced complete bipartite setting and conventional first-power graph Laplacian heat kernel; not exp(-tL²) with n/m→∞."
+          ],
+          "identifier_or_url": "https://www.math.okayama-u.ac.jp/mjou/mjou64/_03_yamagishi.pdf",
+          "material_read": "Primary publisher PDF including first and subsequent kernel/Green-function formulas, with rendered pages inspected",
+          "method": "primary publisher PDF with page image examination",
+          "title": "The best constant of the discrete Sobolev inequalities on the complete bipartite graph",
+          "trigger": "Same graph object and heat kernels, strongest plausible exact formula overlap"
+        },
+        {
+          "assessment": "INSUFFICIENT_FOR_WHOLE_DOCUMENT_NONCOVERAGE",
+          "evidence": [
+            "Abstract proves local eventual positivity on Euclidean/cylindrical PDE domains; full theorem not inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.02753",
+          "material_read": "Title, abstract and publisher-linked description of eventual local positivity for biharmonic PDEs",
+          "method": "abstract and bibliographic read",
+          "title": "Local uniform convergence and eventual positivity of solutions to biharmonic heat equations",
+          "trigger": "Relevant general fourth-order positivity analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model provides a sharply quantified counterpoint to the positivity of ordinary graph heat flow: a small transient norm excess of order m/n coexists with negative entries lasting order 1/(mn), far longer than the unique norm peak of order log(n/m)/n². The exact norm and positivity horizon are motivated operator-theoretic observables for graph biharmonic diffusion, and the divergence holds for the whole natural class of growing imbalance ratios, not an arbitrary one-off parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1511.05294 full-text eventual positivity",
+    "H. Yamagishi Mathematical Journal of Okayama University 64 (2022) primary PDF with rendered pages",
+    "arXiv:2111.02753 abstract on fourth-order local positivity",
+    "Resultary semantic search of squared graph-Laplacian semigroup and bipartite graph"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite unweighted K_{m,n}, counting-measure endpoint norms and squared unnormalized Laplacian; n>=32m is sufficient not necessary.",
+    "Independent 56 numerical comparisons on four pairs are finite and not a proof of all n,m.",
+    "No statement for other graph families, weights or spectral powers.",
+    "Historical priority remains best-of-knowledge, not certified."
+  ],
+  "residual_risks": [
+    "Potential older exact K_{m,n} squared-heat-kernel computations may produce the same endpoint norm and positivity crossing as a corollary.",
+    "The n>=32m regime is a sufficient selected-peak cutoff, not claimed optimal; no wider regime is established."
+  ],
+  "schema_version": 1
+}

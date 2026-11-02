@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four mutually orthogonal spectral projectors for \(K_{m,n}\) reconstruct all matrix entries of \(\exp(-tL^2)\). Diagonal and cross-part entries are positive, leaving exactly two possible signed off-diagonal types. Row absolute sums yield an equality-attained exact norm. Differentiation proves one unique positive peak/root per negative-mass function. The explicit inequality at n>=32m separates the candidate peak heights; the signs at 2/n^2 order their recovery roots. Bracketing F_B(c/(mn))/m -> 1-c proves the asymptotic recovery horizon for arbitrary m>=2 with n/m->infinity; exact peak formulas give the remaining limits. Verify script independently tests small matrices and root/order calculations; it is not used to justify infinite cases.
+PASS
 
-## Originality — PASS, with priority risks
+For all integers m>=2, n>=32m on unit-conductance K_{m,n} with unnormalized graph Laplacian L, the four orthogonal spectral subspaces have L-eigenvalues 0,n,m,N=m+n. Taking e^{-tL^2} gives off-diagonal same-part entries -F_A/(mN) and -F_B/(nN) and nonnegative cross-part entries (1-e^{-N^2t})/N; diagonal entries stay positive by positive definiteness. Every row sums to one, hence its absolute row sum is 1+2 times the mass in negative off-diagonals, proving the exact attained l1/linfinity norm. Differentiating F_A,F_B yields one positive peak and one positive zero each. The proof bounds sup d_A<3m/(4n) for n>=32m, whereas the F_B peak exceeds this bound, proving unique global maximization at log((m+n)/m)/[n(n+2m)]. At 2/n^2, F_A<0<F_B, so the last negative entries recover exactly at the unique positive F_B root. The root bracketing t=c/(mn), with F_B/m ->1-c, gives tau~1/(mn); the explicit peak yields theta~log(n/m)/n^2 and norm excess~2m/n for arbitrary m>=2 with n/m->infinity. Independently constructed actual Laplacian matrices on four distinct (m,n) pairs and compared 56 double-precision kernel/norm statements at seven times per graph; maximum absolute kernel discrepancy 7.67e-14. These tests corroborate, but do not replace, the all-parameter spectral and inequality proof.
 
-Directly inspected Daners-Glück-Kennedy finite-dimensional/eventual-positive semigroup theory and Yamagishi complete-bipartite heat-kernel/Sobolev constants do not supply the sharp squared-generator endpoint norm or a divergent recovery/peak ratio. Published-result searches for square-Laplacian, unbalanced biclique and synonym formulations did not reveal an implication-equivalent finding. The closest searchable three-spectral-value positivity theorem addresses a different (three-level) hypothesis and qualitative positivity-time structure; the present unbalanced spectrum has four values and quantifies explicit sharp norms. Residual risk remains for unindexed or differently described fourth-order graph-kernel calculations and because the relevant recent three-level source was accessible only as a result summary.
+## originality
 
-The closest primary works are Daners, Glück and Kennedy, *Eventually and asymptotically positive semigroups on Banach lattices* (arXiv:1511.05294), and Yamagishi, *The best constant of the discrete Sobolev inequalities on the complete bipartite graph* (Mathematical Journal of Okayama University 64, 2022, 31–45). A recent published three-spectral-value positivity result was compared at the summary level only and has an inapplicable spectral-level hypothesis. Historical priority remains provisional.
+PASS
 
-## Value — PASS
+Best-of-knowledge PASS for the simultaneous sharp endpoint norm, unique attained maximum, precise final positivity horizon, and divergent timescale separation in squared-Laplacian flows on unbalanced K_{m,n}. Existing eventual-positivity theorems prove qualitatively different hypotheses/conclusions; the inspected complete-bipartite heat-kernel calculation concerns balanced graphs and the ordinary unsquared heat semigroup. Full text was read where accessible. An equivalent formula could be mechanically derived in broader spectral heat-kernel literature; no absolute priority claim.
 
-Eventual positivity can coexist with transient endpoint amplification for fourth-order diffusion. The complete bipartite family has an independently motivated imbalance parameter and four eigenvalues, allowing a natural quantitative stability test. A sharp maximum-norm peak, an exact positivity threshold and their divergent asymptotic time ratio show a genuinely nontrivial distinction: norm amplification vanishes while the last negative entries persist much longer. The result applies to infinitely many graphs and gives exact extremizing sign input, not an isolated small numerical case or a tautological restatement of general semigroup convergence.
+## value
 
-## Scientific limitations
+PASS
 
-The numerical imbalance cutoff is sufficient, not proved best. Weighted graphs, alternative Laplacian conventions and other fractional powers are outside scope. The scalar recovery root is defined implicitly. The executable small-graph checks support but do not replace the analytic proof.
+The model provides a sharply quantified counterpoint to the positivity of ordinary graph heat flow: a small transient norm excess of order m/n coexists with negative entries lasting order 1/(mn), far longer than the unique norm peak of order log(n/m)/n². The exact norm and positivity horizon are motivated operator-theoretic observables for graph biharmonic diffusion, and the divergence holds for the whole natural class of growing imbalance ratios, not an arbitrary one-off parameter substitution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
