@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact 2×2 Gram eigenvalues reduce the event to almost aligned iid phases. Rotational invariance leaves L-1 independent angles; localization excludes other vanishing loci; a positive-definite Hessian matrix with determinant 1/L yields an exact ellipsoid-volume coefficient by dominated convergence. Layer cake yields the sharp integrability threshold. The Gaussian comparison follows from a gamma-distributed Schur complement. The attached verifier checks finite consequences, but the proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lynch-Davies and Webb, arXiv:2610.31333v1, Section 4.2 pp. 29–30: explicit isotropic low-entropy Fourier functional and qualitative near-collinearity; no fixed-two-mode tail law or inverse-moment classification stated.",
+        "Ryan and Debbah, arXiv:0802.3570, Introduction and Section III Theorems 1–2: positive Gram moments with joint large dimension, not a fixed-two-row boundary law or negative moments.",
+        "Kunis and Nagel, arXiv:1907.07119v1, Introduction/Definition 2.1: deterministic clustered-node minimum-singular-value estimates with number of nodes smaller than coefficient dimension."
+      ],
+      "reasoning": "The 2026 paper bounds other sketch distributions but says its sub-Gaussian bounds do not cover this example. The 2008 paper takes L,N to infinity together and derives positive moments; these do not imply fixed L small-tail constants or inverse moments. The 2019 theorem explicitly assumes M<N frequencies and controls deterministic node separation; our matrix has only two frequencies and L>=2 samples, with M=L>=N=2.",
+      "searches": [
+        "infinite-dimensional randomized SVD Rademacher isotropic subGaussian sketch functional exact failure probability finite-rank diagonal operator rank deficiency oversampling",
+        "random Fourier Vandermonde matrix two rows iid uniform phases smallest singular value tail probability asymptotic",
+        "arXiv:0802.3570 asymptotic Vandermonde moments",
+        "arXiv:1907.07119 clustered nodes smallest singular value"
+      ]
+    },
+    "checked_sources": [
+      "Lynch-Davies and Webb, arXiv:2610.31333v1, Section 4.2 pp. 29–30: explicit isotropic low-entropy Fourier functional and qualitative near-collinearity; no fixed-two-mode tail law or inverse-moment classification stated.",
+      "Ryan and Debbah, arXiv:0802.3570, Introduction and Section III Theorems 1–2: positive Gram moments with joint large dimension, not a fixed-two-row boundary law or negative moments.",
+      "Kunis and Nagel, arXiv:1907.07119v1, Introduction/Definition 2.1: deterministic clustered-node minimum-singular-value estimates with number of nodes smaller than coefficient dimension.",
+      "Related published record on exact cyclic two-character harmonic-frame erasure spectra: deterministic finite cyclic masks, not iid continuous angles."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lynch-Davies and Webb, arXiv:2610.31333v1, Section 4.2 pp. 29–30: explicit isotropic low-entropy Fourier functional and qualitative near-collinearity; no fixed-two-mode tail law or inverse-moment classification stated.",
+        "Ryan and Debbah, arXiv:0802.3570, Introduction and Section III Theorems 1–2: positive Gram moments with joint large dimension, not a fixed-two-row boundary law or negative moments.",
+        "Kunis and Nagel, arXiv:1907.07119v1, Introduction/Definition 2.1: deterministic clustered-node minimum-singular-value estimates with number of nodes smaller than coefficient dimension.",
+        "Related published record on exact cyclic two-character harmonic-frame erasure spectra: deterministic finite cyclic masks, not iid continuous angles."
+      ],
+      "reasoning": "The source paper explicitly observes that close phases cause near-collinearity but does not imply a coefficient C_L or the integrability border, since arbitrarily different edge-tail exponents are compatible with qualitative ill-conditioning. Fixed-dimensional Gaussian inverse moments do not apply to dependent circular features. The older positive Gram moment limits cannot determine negative moments of a fixed two-row sketch.",
+      "searches": [
+        "infinite-dimensional randomized SVD Rademacher isotropic subGaussian sketch functional exact failure probability finite-rank diagonal operator rank deficiency oversampling",
+        "random Fourier Vandermonde 2 rows unit circle iid random phases smallest eigenvalue Gram exact small ball tail epsilon (ell-1)/2 constant inverse moment threshold low-entropy isotropic sketch",
+        "planar random walk endpoint near maximal length sharp volume ellipsoid probability independent uniform angles inverse moments",
+        "arXiv:2610.31333v1 Section 4.2",
+        "arXiv:0802.3570 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The event is equivalent to the radius of an L-step planar unit-vector walk approaching its maximum L; source arXiv:2610.31333v1 identifies the Fourier functional but not the radius tail.",
+        "arXiv:0802.3570 studies random unit-circle Vandermonde matrices and is not restricted to fixed two-frequency inverse moments."
+      ],
+      "reasoning": "Rotational reduction converts the same claim into an endpoint probability for the mean resultant length, so literature search cannot rely on Fourier wording. No inspected source gives this fixed-L coefficient plus the inverse-moment consequence.",
+      "searches": [
+        "planar random walk endpoint near maximal length sharp volume ellipsoid probability independent uniform angles inverse moments",
+        "random uniform unit vectors planar mean resultant length close to 1 asymptotic cumulative probability coefficient",
+        "Fourier feature two-mode random Vandermonde conditioning close samples spectral minimum probability exact ell columns",
+        "circular mean resultant length near one edge distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The related published cyclic two-character Fourier-frame result concerns deterministic erasures on a finite group and computes exact erasure spectra, not continuous iid phases.",
+        "The accessible historical numerical claims include exact quadrature with iid unit-circle nodes, but concern feasible weights and a central-limit scaling, not near-maximal resultant length or inverse Gram moments."
+      ],
+      "reasoning": "No exact precomputed table or published result inspected contains the proposed exponent, constant, or the L=3 vs L=4 inverse-moment transition for this continuous sketch. Search failure alone does not prove uniqueness.",
+      "searches": [
+        "random Fourier Vandermonde 2 rows unit circle iid random phases smallest eigenvalue Gram exact small ball tail epsilon (ell-1)/2 constant inverse moment threshold low-entropy isotropic sketch",
+        "random phasor sum near N finite-dimensional Fourier sketch Gram smallest eigenvalue inverse moment threshold two-row Vandermonde phase alignment",
+        "two-character cyclic harmonic frame erasure spectra",
+        "circular random walk resultant length near maximum"
+      ]
+    },
+    "rationale": "The paper introducing precisely this low-entropy sketch addresses near-linear dependence qualitatively. The proven sharp fixed-two-mode ellipsoid constant and exact inverse-moment and condition-number thresholds are not implied by the inspected prior statements; the spectral/Gaussian comparison adds a materially different conditioning conclusion. Coverage risk from classical circular-statistics edge laws remains explicit.",
+    "residual_risks": [
+      "An older directional-statistics or planar random-flight edge law might yield the same maximal-resultant exponent and coefficient; not all classical monographs were inspected.",
+      "Some unpublished work or inaccessible specialist spectral-analysis literature could independently contain an equivalent small-ball statement.",
+      "No inference is made from a partitioned publication database to global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact quantitative tail or fixed-sample inverse-moment cutoff in the inspected relevant sections",
+        "evidence": [
+          "Lynch-Davies and Webb, arXiv:2610.31333v1, Section 4.2 pp. 29–30: explicit isotropic low-entropy Fourier functional and qualitative near-collinearity; no fixed-two-mode tail law or inverse-moment classification stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.31333",
+        "material_read": "Full PDF introduction and Section 4.2 pages 29–30 including the Fourier-functional formula, pseudoinverse warning, and conclusion",
+        "method": "Full-text PDF rendered and inspected, including page images",
+        "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+        "trigger": "Defines the exact circular low-entropy sketch and pseudoinverse concern"
+      },
+      {
+        "assessment": "NOT_COVERING: studies joint-large-dimensional positive Gram moments, not fixed two-frequency small eigenvalue tails",
+        "evidence": [
+          "Ryan and Debbah, arXiv:0802.3570, Introduction and Section III Theorems 1–2: positive Gram moments with joint large dimension, not a fixed-two-row boundary law or negative moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0802.3570",
+        "material_read": "Full text accessible; inspected abstract, Introduction, Section III main Theorem 1, Proposition 1, Theorem 2, conclusion scope",
+        "method": "Rendered primary PDF and inspected page 1 image and relevant sections",
+        "title": "Asymptotic Behaviour of Random Vandermonde Matrices with Entries on the Unit Circle",
+        "trigger": "Same unit-circle random Vandermonde matrix model"
+      },
+      {
+        "assessment": "NOT_COVERING: deterministic M<N regime differs from two frequencies with L>=2 sampled phase columns",
+        "evidence": [
+          "Kunis and Nagel, arXiv:1907.07119v1, Introduction/Definition 2.1: deterministic clustered-node minimum-singular-value estimates with number of nodes smaller than coefficient dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.07119",
+        "material_read": "Full text accessible; inspected abstract, Introduction, Definition 2.1 and its explicit dimension hypothesis, and described theorem scope",
+        "method": "Rendered primary PDF including page 1 screenshot; compared dimensions and hypotheses",
+        "title": "On the smallest singular value of multivariate Vandermonde matrices with clustered nodes",
+        "trigger": "Plausible stronger clustered-node singular-value coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5fb2ea54-9d24-4c6f-8f6d-454bbc52a716",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source paper explicitly introduces this isotropic sketch but identifies poor linear dependence only qualitatively. Its structural bound contains a pseudoinverse. The theorem gives a sharp, all-L fixed-sample asymptotic and an exact actionable oversampling threshold for finite expected squared pseudoinverse norm, separating low-entropy isotropic and Gaussian sketches at three columns; this motivated spectral boundary is not a routine parameter renaming or arbitrary slice.",
+    "status": "PASS"
+  }
+}
