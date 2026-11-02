@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:51:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For n>=1 and r>=2 weak ordered compositions, the Φ_d exponent of each Gaussian multinomial is floor(n/d)-sum_i floor(k_i/d), the nonnegative residue carry. Maximizing ∑(k_i mod d) subject to r residues each <d and sum n gives E_d=min(floor(n/d),floor((r(d-1)-n mod d)/d)); attainability follows by filling bounded digits and adding remaining multiples of d. This yields polynomial lcm factorization for all d=2..n. For a fixed p, carry vectors obey 0<=n_j+p c_{j+1}-c_j<=r(p-1) with zero endpoints; reconstructing digits proves realizability and a crossing-coordinate comparison proves closure under componentwise maximum. Therefore one tuple attains all p^j maxima simultaneously and Legendre's formula yields the integer lcm p-adic exponent ∑E_{p^j}; cyclotomic Φ_{p^j}(1)=p proves exact q=1 specialization. An independently written integer enumeration checked all compositions for n<=11 and 2<=r<=5 against E_d and simultaneous p-carry maxima; finite checks do not prove the all-n result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Hou Lemma 1 is a broader one-coefficient factorization result but not an all-row LCM theorem",
+          "Howard studies valuation distributions and Bergman gcd rather than r>=3 Gaussian LCM"
+        ],
+        "reasoning": "No inspected general theorem gives both maximal E_d and exact evaluation-at-one commutation. If a general multinomial carry-profile theorem subsumed the lattice lemma, novelty would require reassessment.",
+        "searches": [
+          "Chen–Hou Factors of the Gaussian Coefficients",
+          "Howard 1974 p-adic multinomial divisibility",
+          "Guo 2009 q-binomial row lcm",
+          "Bergman 2008 common divisors multinomial"
+        ]
+      },
+      "checked_sources": [
+        {
+          "material_read": "Primary PDF abstract, Lemma 1 (individual q-multinomial cyclotomic factors), Theorems 2–4 and q=1 values",
+          "title": "Factors of the Gaussian Coefficients",
+          "url": "https://cfc.nankai.edu.cn/_upload/article/files/c6/e1/a2c52bf04b1896f59003b5993582/1d2d8342-0162-4350-83c4-f37e2aaa9b73.pdf"
+        },
+        {
+          "material_read": "Primary PDF Theorem 2 and Section 3, polynomial LCM and q=1 interpretation",
+          "title": "On the least common multiple of q-binomial coefficients",
+          "url": "https://arxiv.org/pdf/0907.2870"
+        },
+        {
+          "material_read": "Primary PDF theorem framework and formulas counting prescribed p-power divisibility",
+          "title": "The number of multinomial coefficients divisible by a fixed power of a prime",
+          "url": "https://msp.org/pjm/1974/50-1/pjm-v50-n1-p12-s.pdf"
+        },
+        {
+          "material_read": "Abstract, mathematical object and related divisor statements",
+          "title": "On common divisors of multinomial coefficients",
+          "url": "https://arxiv.org/abs/0806.0607"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By Chen–Hou Lemma 1 local Φ exponents are classical, and optimizing residues yields (1)",
+          "The specialization (2) additionally requires simultaneous maximizing carries; independent direct calculations verify nonautomatic compatibility"
+        ],
+        "reasoning": "The original Gaussian factors make the first part accessible but do not alone assert the integer lcm commuting with q=1. The proof depends on a separate feasible-carry lattice lemma absent from inspected prior formulas.",
+        "searches": [
+          "Chen–Hou Lemma 1",
+          "Guo Theorem 2/Section 3",
+          "Howard 1974 multinomial frequencies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Hou Lemma 1 already gives the Φ_d exponent for each individual q-multinomial",
+          "Guo gives polynomial LCM formula only for q-binomials r=2"
+        ],
+        "reasoning": "The exact equivalent problem is maximizing floor deficits across all weak compositions simultaneously at all prime powers, not merely factoring one coefficient. The proof supplies additional carry-lattice compatibility.",
+        "searches": [
+          "Resultary: least common multiple q-multinomial coefficients Gaussian multinomial polynomial cyclotomic exponents specialization q=1 multivariate carry",
+          "Chen–Hou Factors of the Gaussian Coefficients Lemma 1",
+          "Guo arXiv:0907.2870 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing q-binomial row identities are for two parts",
+          "No returned table or database of general r-part polynomial and integer row-LCM exponents"
+        ],
+        "reasoning": "This is a symbolic infinite two-parameter identity, not a numerical sequence obtainable directly from known r=2 tables.",
+        "searches": [
+          "Resultary published records q multinomial lcm",
+          "Guo 2009 q-binomial LCM data",
+          "Chen–Hou Gaussian factors"
+        ]
+      },
+      "rationale": "PASS, with explicit acknowledgment of more relevant prior primary Chen–Hou. The cyclotomic factorization of *individual* q-multinomials is already Chen–Hou Lemma 1, with Guo's LCM theorem for r=2. The claim surviving is the sharp simultaneous r-part row LCM exponents and the nontrivial q→1 specialization through coordinatewise maximal carry vectors. Howard's ordinary multinomial valuation-frequency theorem supplies a potential general counting framework, not the stated polynomial LCM/specialization. This is a qualified new parameterized invariant despite use of classical factors.",
+      "residual_risks": [
+        "An unindexed r-part Gaussian row-LCM theorem or stronger general carry-maximum result might subsume the exact formulas.",
+        "The q=1 statement is not asserted for q=2,3 or other numeric specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes each polynomial factor exponent but not the maximal r-part row LCM or simultaneous carry profile",
+          "evidence": "Lemma 1, pp.2–4; cyclotomic value Φ_d(1)",
+          "identifier_or_url": "https://cfc.nankai.edu.cn/_upload/article/files/c6/e1/a2c52bf04b1896f59003b5993582/1d2d8342-0162-4350-83c4-f37e2aaa9b73.pdf",
+          "material_read": "Primary PDF abstract, Lemma 1 (individual q-multinomial cyclotomic factors), Theorems 2–4 and q=1 values",
+          "method": "Full PDF text and original page-2 screenshot",
+          "title": "Factors of the Gaussian Coefficients",
+          "trigger": "Exactly same Gaussian q-multinomial factorization objects"
+        },
+        {
+          "assessment": "Two-part specialization included; not an all-r Gaussian multinomial row theorem",
+          "evidence": "Guo 2009 Theorem 2 and Section 3",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.2870",
+          "material_read": "Primary PDF Theorem 2 and Section 3, polynomial LCM and q=1 interpretation",
+          "method": "Full PDF text and original page screenshot",
+          "title": "On the least common multiple of q-binomial coefficients",
+          "trigger": "Direct row LCM predecessor, r=2"
+        },
+        {
+          "assessment": "Prior ordinary p-adic divisibility-counting machinery, no q-polynomial LCM statement",
+          "evidence": "Howard 1974 multinomial divisibility framework",
+          "identifier_or_url": "https://msp.org/pjm/1974/50-1/pjm-v50-n1-p12-s.pdf",
+          "material_read": "Primary PDF theorem framework and formulas counting prescribed p-power divisibility",
+          "method": "Full primary PDF selected mathematical sections and original page screenshot",
+          "title": "The number of multinomial coefficients divisible by a fixed power of a prime",
+          "trigger": "Same integer multinomial valuation statistic"
+        },
+        {
+          "assessment": "GCD/common divisors rather than lcm across all compositions; does not imply claimed q=1 commuting identity by itself",
+          "evidence": "Bergman 2008 gcd focus",
+          "identifier_or_url": "https://arxiv.org/abs/0806.0607",
+          "material_read": "Abstract, mathematical object and related divisor statements",
+          "method": "Open arXiv bibliographic material",
+          "title": "On common divisors of multinomial coefficients",
+          "trigger": "Potential gcd/lcm duality overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Polynomial LCM for a natural Gaussian multinomial row across arbitrary r is an exact all-parameter invariant with prime-power exponents possibly exceeding one, unlike r=2. Specialization to the integer multinomial LCM is NOT automatic for arbitrary integer polynomials; the carry-lattice closure exhibits a structural compatibility with arithmetic interest beyond a routine restatement of a Gaussian factorization lemma.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cfc.nankai.edu.cn/_upload/article/files/c6/e1/a2c52bf04b1896f59003b5993582/1d2d8342-0162-4350-83c4-f37e2aaa9b73.pdf",
+    "https://arxiv.org/pdf/0907.2870",
+    "https://msp.org/pjm/1974/50-1/pjm-v50-n1-p12-s.pdf",
+    "https://arxiv.org/abs/0806.0607"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed r-part Gaussian row-LCM theorem or stronger general carry-maximum result might subsume the exact formulas.",
+    "The q=1 statement is not asserted for q=2,3 or other numeric specializations."
+  ]
+}

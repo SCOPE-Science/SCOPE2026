@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact checks and limits
+# Independent mathematical audit
 
-`python3 verify_multinomial_lcm.py` was executed in the package directory using Python 3 without third-party packages. Output:
+## correctness
 
-```
-VERIFY_OK row_compositions=42310 q_factorizations=2610
-```
+PASS
 
-The first exhaustive loop covers all ordered compositions for \(1\le n\le18\) and \(2\le r\le\min\{5,n\}\). For each modulus \(2\le d\le n\), it compares the actual maximal floor deficit with the closed exponent. For every prime \(p\le n\), it compares the actual largest valuation of the ordinary multinomials with the sum of the predicted prime-power exponents. A separate exact-integer loop directly evaluates q-factorials and cyclotomic factors at \(q=2,3\) for \(n\le10\), checking factorization of each selected Gaussian multinomial.
+PASS. For n>=1 and r>=2 weak ordered compositions, the Φ_d exponent of each Gaussian multinomial is floor(n/d)-sum_i floor(k_i/d), the nonnegative residue carry. Maximizing ∑(k_i mod d) subject to r residues each <d and sum n gives E_d=min(floor(n/d),floor((r(d-1)-n mod d)/d)); attainability follows by filling bounded digits and adding remaining multiples of d. This yields polynomial lcm factorization for all d=2..n. For a fixed p, carry vectors obey 0<=n_j+p c_{j+1}-c_j<=r(p-1) with zero endpoints; reconstructing digits proves realizability and a crossing-coordinate comparison proves closure under componentwise maximum. Therefore one tuple attains all p^j maxima simultaneously and Legendre's formula yields the integer lcm p-adic exponent ∑E_{p^j}; cyclotomic Φ_{p^j}(1)=p proves exact q=1 specialization. An independently written integer enumeration checked all compositions for n<=11 and 2<=r<=5 against E_d and simultaneous p-carry maxima; finite checks do not prove the all-n result.
 
-Finite computations do not establish (1) or (2) for arbitrary \(n,r\). The proof of (1) depends on residue-sum attainment; that of (2) depends on the digit-inequality closure lemma and Legendre's formula. There was no independent validation or external certification.
+## originality
+
+PASS
+
+PASS, with explicit acknowledgment of more relevant prior primary Chen–Hou. The cyclotomic factorization of *individual* q-multinomials is already Chen–Hou Lemma 1, with Guo's LCM theorem for r=2. The claim surviving is the sharp simultaneous r-part row LCM exponents and the nontrivial q→1 specialization through coordinatewise maximal carry vectors. Howard's ordinary multinomial valuation-frequency theorem supplies a potential general counting framework, not the stated polynomial LCM/specialization. This is a qualified new parameterized invariant despite use of classical factors.
+
+## value
+
+PASS
+
+PASS. Polynomial LCM for a natural Gaussian multinomial row across arbitrary r is an exact all-parameter invariant with prime-power exponents possibly exceeding one, unlike r=2. Specialization to the integer multinomial LCM is NOT automatic for arbitrary integer polynomials; the carry-lattice closure exhibits a structural compatibility with arithmetic interest beyond a routine restatement of a Gaussian factorization lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
