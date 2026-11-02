@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary independent conductance variables the Kirchhoff index is a strictly convex inverse-Laplacian trace under connected support. This enforces classwise symmetric weights, not merely an ansatz. Direct cut-vertex resistance addition gives K=sum[(N-m)/x+N(m-1)/(x+my)]. The scalar shape derivative has a unique minimizer and an exact endpoint inequality at Q/P=2N/M; the inequality A+C=mM is checked. Cauchy–Schwarz gives a sharp globally unique budget split and exact value. Exact grounded-inverse calculations and phase/KKT checks passed 480 assertions; they supplement an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh et al. full text Section 5 discusses trees, wheels and a two-clique barbell, not arbitrary shared-hub clique bouquets (https://stanford.edu/~boyd/papers/pdf/eff_res.pdf).",
+        "Tovar et al., arXiv:2610.03627, Sections II–IV, supplies an arbitrary-graph KKT marginal-price condition and a single triangle closure threshold but not multi-blade exact weights or budget shares.",
+        "The earlier equal-blade case with a common spoke and peripheral price pair gives threshold 2+2/M only in the homogeneous subclass."
+      ],
+      "reasoning": "General convex optimization and marginal KKT conditions establish existence and necessary/sufficient inequalities, not the closed heterogeneous optimizer. The full theorem is not a corollary of the equal-blade formula by parameter substitution because differing blade sizes and price classes break blade-transitivity, permit any mixture of edge supports and require an additional global budget coupling.",
+      "searches": [
+        "budget-constrained Kirchhoff index minimization of heterogeneous clique bouquets windmills with hub spokes and leaf clique edges optimal exact conductances and activation price cutoff",
+        "\"windmill\" \"optimal conductance\" \"Kirchhoff\" budget",
+        "\"friendship graph\" \"resistance\" \"edge\" \"budget\" optimize"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i1p25/pdf/",
+      "https://arxiv.org/abs/2610.03627",
+      "https://www.benthamscience.com/article/141453"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior equal-size clique-windmill allocation gives a common-price subcase of the new formula; it does not state or directly determine arbitrary heterogeneous blade budgets or partial support.",
+        "The triangle case in Tovar et al., arXiv:2610.03627, Section III, gives price ratio three for a single three-vertex clique; this is excluded as a separate novelty claim.",
+        "Theorem 2.3 in Nikseresht–Sepasdar, DOI:10.37236/3508, implies the structural resistance decomposition, but does not optimize the conductances."
+      ],
+      "reasoning": "The new statement strictly contains acknowledged special cases; those special cases alone neither imply the heterogeneous minimizer nor the arbitrary mixed-support realization. Combining published general principles with the new blockwise scalar and budget equality calculations yields the result, but no inspected publication gives the resulting complete formula or independent price-phase law. Claim is confined to exactly that additional theorem, without re-claiming the antecedent pieces.",
+      "searches": [
+        "common-hub clique friendship windmill graph optimal conductance distribution square-root budgets universal price threshold",
+        "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi 2008 wheel barbell",
+        "On the Kirchhoff and Wiener Indices of Graphs and Block Decomposition Nikseresht Sepasdar 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi, SIAM Review 50 (2008), Section 2.7 and Section 5, DOI:10.1137/050645452, gives convex effective-resistance design and symmetry but not the heterogeneous clique-bouquet formula.",
+        "Nikseresht–Sepasdar, Electronic Journal of Combinatorics 21 (2014), Theorem 2.3, DOI:10.37236/3508, gives resistance block decomposition, not conductance-budget optimization."
+      ],
+      "reasoning": "The resistance network problem is equivalently an A-optimal trace-inverse weighted-Laplacian design; the general convex formulation alone does not give the explicit active-edge support or classwise budget. The block decomposition plus a separate sharp scalar minimization and cross-block Cauchy equality are needed. No searched equivalent already states the mixed-support law.",
+      "searches": [
+        "one-point union of complete graphs resistance optimal edge weight design with heterogeneous edge costs",
+        "\"block graph\" \"optimal\" \"effective resistance\" edge weights clique"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sardar and Xu, DOI:10.2174/0115701794299562240606054510, abstract describes unweighted resistance distance and Kirchhoff indices of windmill families; no cost-optimal weights appear in the accessible abstract. Full text was not available.",
+        "Nikseresht and Sepasdar 2014, Theorem 2.3, presents a general graph-block formula, not a numerical/design table of optimal heterogeneous conductances."
+      ],
+      "reasoning": "A table of unweighted resistance indices or a block decomposition cannot itself determine which freely weighted peripheral edges optimally vanish at heterogeneous prices. No exact table containing this design family and active-set thresholds was found; inaccessible specialist full text is explicitly a residual risk.",
+      "searches": [
+        "\"Resistance Distance and Kirchhoff Index in Windmill Graphs\" Sardar Xu pdf",
+        "\"friendship graph\" \"resistance\" \"edge\" \"budget\" optimize"
+      ]
+    },
+    "rationale": "The inspected general convex-design, block-Kirchhoff and power-cost literature provides separate ingredients but no stated all-dimensional, per-blade heterogeneous optimum with arbitrary mixed peripheral-edge support and the exact coupled spending formula. A previously established equal-size/common-price windmill theorem and a published single-triangle price threshold cover special cases and are expressly not the assessed novel contribution. The novel statement concerns the full family of differently sized blades with independently variable price pairs; residual historical equivalence risk remains.",
+    "residual_risks": [
+      "A 2024 specialist windmill-index paper was accessible only as an abstract; although its described objective is unweighted index calculation, its full contents were not compared.",
+      "An unindexed graph-design note may state an equivalent heterogeneous support/budget formula; a negative search is not a uniqueness proof.",
+      "Independent mathematical review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general SDP/convexity and wheel/barbell/tree examples; does not state heterogeneous clique-bouquet phase law",
+        "evidence": "The text explicitly lists trees, wheels and barbells in Section 5; Section 2.7 proves strict convexity.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Full-text introduction, Sections 2.5–2.7 on trace identity and strict convexity, Section 5 on symmetric examples, and examples/conclusion",
+        "method": "Publisher-author lawful full PDF; inspected mathematical text and first page rendering",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational unrestricted edge-conductance allocation and potential dominating exact graph examples"
+      },
+      {
+        "assessment": "Supplies exact block resistance identity but not an edge-budget design minimizer or mixed support criterion",
+        "evidence": "Theorem 2.3 expresses the Kirchhoff index as block-level sums; no prices, budget or optimization variables occur in its statement.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i1p25/pdf/",
+        "material_read": "Full-text abstract, definitions, Lemmas 2.1–2.2 and Theorem 2.3 and its proof in Section 2",
+        "method": "Lawful open-access full PDF; inspected mathematical text and theorem page rendering",
+        "title": "On the Kirchhoff and the Wiener Indices of Graphs and Block Decomposition",
+        "trigger": "Direct potential coverage via one-vertex unions"
+      },
+      {
+        "assessment": "Provides general marginal KKT and the one-triangle example, not heterogeneous clique-bouquet closed-form design",
+        "evidence": "Section III states the three-vertex triangle closure at peripheral price three and general KKT; Section IV studies global reference designs.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+        "material_read": "Abstract and HTML full-text Sections II–IV including the explicit triangle support threshold",
+        "method": "Public full arXiv HTML read",
+        "title": "Cost convexity controls the architecture of resistance-optimal networks",
+        "trigger": "Contemporary potentially stronger cost-weighted network design and triangle edge-closure condition"
+      },
+      {
+        "assessment": "Abstract describes unweighted resistance values, not conductance-price optimization; full-document noncoverage is not certified",
+        "evidence": "Publisher abstract and DOI page, online dated 2024-07-04; institutional full-text service returned disconnected VPN.",
+        "identifier_or_url": "https://doi.org/10.2174/0115701794299562240606054510",
+        "material_read": "Public abstract, method and conclusions only; full text not obtained",
+        "method": "Public abstract and OA/arXiv search; authorized institutional retrieval unavailable",
+        "title": "Resistance Distance and Kirchhoff Index in Windmill Graphs",
+        "trigger": "Same graph-family title, possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66129dc9-0e7c-4bf0-9119-618aae3bcbb6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The independently selectable presence or absence of every differently priced clique interior and the universal threshold depending on total peripheral count make a complete, implementable resource-design classification. The coupled square-root global spending formula is needed when blade sizes and prices vary and is not supplied by the existing common-price equal-size special case. This is a natural heterogeneous block-network problem rather than a fixed arbitrary-size numerical slice.",
+    "status": "PASS"
+  }
+}
