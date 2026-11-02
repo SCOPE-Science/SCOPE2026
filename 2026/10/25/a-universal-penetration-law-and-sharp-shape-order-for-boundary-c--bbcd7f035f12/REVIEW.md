@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The condition on two distinct sides reduces affinely to two independent uniform unit-interval variables. The exact min/max values of the chord's defining affine functional over the inner triangle establish two disjoint failure sets, each integrated explicitly with boundaries and antiderivatives supplied in `RESULT.md`. Adding the same-side atom completes the full law. Geometrically independent barycentric clipping experiments verified 20 frequencies within their expected simulation uncertainty. No finite test is treated as an infinite proof.
+## correctness
 
-**Originality — PASS, with meaningful bibliographic risk.** published-finding corpus searches for arclength-uniform triangular boundary chords, homothetic-core penetration and affinity found no implication-equivalent indexed theorem. A directly relevant 2016 triangle-secant author full text was inspected, establishing that it studies a different slope-sampled chord-length threshold. The strongest neighboring classical sources concern secant length, interior-generated chords and containment functions; only their abstracts or bibliographic information were accessible. Consequently an inaccessible older equivalent law remains possible, and no blanket uniqueness claim is made. Conditional universality and sharp distributional extremality are not implied by a mere secant-length calculation.
+PASS
 
-**Mathematical value — PASS.** This gives the complete exact law of a natural continuously varying geometric penetration statistic under an experimentally meaningful endpoint sampling model. The conditionally universal factorization leads to a sharp *simultaneous* stochastic bound for all nondegenerate triangles, geometric rigidity at the equilateral case, and a concrete two-shape non-identifiability phenomenon. These are substantive global structures rather than a single arbitrary numeric probability.
+From exact RESULT.md: conditioning on different sides gives independent u,v uniform on [0,1] after affine reduction; the chord supporting line x/v+y/u=1 intersects the homothetic barycentric core iff a(1/u+1/v)<=1<=(1-2a)/min(u,v)+a/max(u,v), with a=(1-t)/3. The two disjoint failure areas are A=2a+2a^2 log((1-a)/a) and B=3a^2-2a(1-2a) log((1-a)/(1-2a)); integrating the regions gives Q=1-A-B. Same-side segments miss every proper core and give atom sigma. The perimeter weights satisfy 1/3<=sigma<1/2 by Cauchy, convexity and strict triangle inequalities. Independently integrated the two failure regions by numerical quadrature at five thresholds t=0.05,0.2,0.5,0.8,0.95, agreeing with the analytic closed form. The all-triangle result rests on exact integration, not Monte Carlo. Example side triples (2,2,1),(4,4,7) have equal sigma 9/25 and different shape.
 
-Limitations: The normalization, center choice and endpoint sampling measure are essential. Full texts of Ehlers–Enns (1981), Enns–Ehlers (1988) and Ren (2014) were unavailable. Some historically equivalent formulations cannot be ruled out without wider expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full penetration CDF, its affine-universal different-side factorization, sharp shape-order envelope and non-identifiability are not shown by the inspected length-only or containment formulations. No identified Resultary finding dominates this exact statistic. Inaccessible old secant sources present a genuine possible prior-equivalence risk.
+
+## value
+
+PASS
+
+The full distribution and universal conditional factorization are intrinsic geometric-probability data for a natural two-boundary-endpoint sampling law; simultaneous sharp stochastic shape order, equilateral rigidity and explicit nonsimilar equal-law examples are substantive all-triangle structural facts rather than a routine isolated probability. A future researcher can use the exact law to benchmark chord penetration and shape identifiability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
