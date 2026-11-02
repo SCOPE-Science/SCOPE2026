@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The word parametrization, complete one-deletion output classification, and two independent shadow-packing upper bounds hold for all n>=2. The proposed loop-and-nonloop code has provably disjoint outputs and attains the exact integer upper bound. Direct standalone brute-force graph computation for n<=10 and literal code checks through n=200 corroborate boundary cases; neither is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cullina–Kulkarni–Kiyavash, arXiv:1211.4056, Section IV gives chi(L_{1,n,k})=max(k,n-k)+1 and acknowledges chromatic optimum is not maximum independent set.",
+        "No (2019) derives general numerical upper bounds and studies full-alphabet code sizes, without an all-length fixed-weight-two independence theorem."
+      ],
+      "reasoning": "A general code bound or a proper coloring does not fix the largest independent set inside the two-one induced subgraph. In particular the 2012 color theorem gives chi(L_{1,n,2})=n-1; the numerical quantity alpha(L_{1,n,2}) is distinct and requires matching packing bounds. A potential hidden stronger statement elsewhere remains a residual risk.",
+      "searches": [
+        "constant weight subgraphs optimal coloring deletion correcting codes weight 2 size",
+        "A coloring approach to constructing deletion correcting codes from constant weight subgraphs pdf Kulkarni Kiyavash 2012",
+        "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming arxiv A No 2019"
+      ]
+    },
+    "checked_sources": [
+      "Cullina, Kulkarni, Kiyavash (2012), arXiv:1211.4056",
+      "Cullina, Kulkarni, Kiyavash (2012), DOI:10.1109/ISIT.2012.6284242",
+      "No (2019), DOI:10.3390/e21121202",
+      "Publicly indexed research findings on deletion-confusability graphs, unrestricted small-n deletion codes, and coding bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 theorem solves minimum coloring of L_{1,n,k} but explicitly says optimal graph coloring is not equivalent to largest independent-set computation.",
+        "The 2019 MILP approach provides an upper bound for unrestricted codes at n=11; it has neither the fixed-weight-two closed form nor the parity-plus-pairing construction."
+      ],
+      "reasoning": "The claimed formula is not a renaming of the prior chromatic number or a consequence of known unrestricted n-specific numerics. Their published results give a framework for formulating the exact independent-set problem, not a matching all-n upper/lower solution for weight two.",
+      "searches": [
+        "optimal weight two one deletion correcting code 3n/4",
+        "VT codes weight two optimal independent set induced constant weight subgraphs",
+        "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming arxiv A No 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cullina et al., arXiv:1211.4056, Section IV: graph notation L_{s,n,k} and optimal colorings; text explicitly distinguishes colorings from maximum independent sets.",
+        "No, DOI:10.3390/e21121202, Sections 1–3: single-deletion graph maximum-independent-set formulation."
+      ],
+      "reasoning": "The claim is equivalently alpha(L_{1,n,2})=floor((3n-2)/4), an optimum fixed-weight-one-deletion code, or the maximum packing of one-deletion shadows of all binary words with exactly two ones. None of the inspected results states or entails the exact alpha formula from its own numerical or chromatic assertions.",
+      "searches": [
+        "Optimal binary single-deletion-correcting constant-weight-two codes all block lengths exact floor((3n-2)/4), adjacent ones and spaced distant pairs",
+        "weight two single deletion code maximum size",
+        "L_{1,n,2} independence number code Hamming weight 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record searches for the exact formula and its first ten values produced related unrestricted small-n code tables and graph statistics, but no exact all-n weight-two table.",
+        "A fresh independently computed exact small-n profile for n=2..10 is 1,1,2,3,4,4,5,6,7."
+      ],
+      "reasoning": "A fixed small-n table—even if it contained these values—would not entail the all-n equality unless accompanied by a general covering theorem. No such source was found in the inspected primary materials.",
+      "searches": [
+        "Single deletion weight two optimal packings non-adjacent runs and singleton loops",
+        "constant weight 2 single deletion code maximum size n",
+        "deletion channel fixed weight 2 induced confusability graph independence number"
+      ]
+    },
+    "rationale": "No inspected primary result or returned published finding states the exact all-length weight-two one-deletion independence number. The closest 2012 fixed-weight theorem gives chromatic number, which is not the required independence number, and the 2019 general-code MILP results are numerical/bounding rather than the exact restricted formula. Explicit residual risk: an unlocated elementary historical specialization may give the same optimum.",
+    "residual_risks": [
+      "An older combinatorial code paper may contain the all-n weight-two independence formula under a different notation or as an implicit special case.",
+      "A search not returning an exact formula is not itself proof of novelty; independent literature review remains unperformed.",
+      "The 2019 publisher HTML full reload was rate limited; accessible main sections support the comparison, but no whole-document negative finding is claimed for that source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact fixed-weight-two maximum independent set; chromatic number and independent set are explicitly distinguished.",
+        "evidence": "The paper defines L_{s,n,k}, proves chi(L_{1,n,k})=max(k,n-k)+1, and warns that an optimal coloring need not contain a maximum independent set.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+        "material_read": "Accessible complete HTML paper used to inspect the graph definitions, weight-partition arguments, Section IV fixed-weight coloring theorem, and discussion distinguishing coloring from independence.",
+        "method": "Read rendered complete primary article and examined the fixed-weight theorem and graph implications.",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Directly studies the same one-deletion fixed-weight induced graphs."
+      },
+      {
+        "assessment": "NOT_COVERING exact independent-set formula; theorem is about the chromatic number.",
+        "evidence": "Theorem 2 supplies chi(L_{1,n,k})=max(k,n-k)+1, with no general exact alpha(L_{1,n,2}) formula.",
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2012.6284242",
+        "material_read": "Primary five-page PDF text inspected around the definitions and constant-weight theorem; page three visually inspected at full-page resolution.",
+        "method": "Full primary conference PDF text and visible page image comparison.",
+        "title": "A Coloring Approach to Constructing Deletion Correcting Codes from Constant Weight Subgraphs",
+        "trigger": "Conference version of the closest constant-weight result."
+      },
+      {
+        "assessment": "No matching formula appears in the inspected main statements; the uninspected portions remain a source-specific residual risk.",
+        "evidence": "The paper bounds unrestricted single-deletion codes using MILP, with 173 as an upper bound at n=11, not an exact formula for the weight-two induced graph.",
+        "identifier_or_url": "https://doi.org/10.3390/e21121202",
+        "material_read": "Accessible publisher HTML excerpts containing the abstract, introduction, exact graph formulation, MILP method, and conclusions; an attempted direct full-page reload returned a 429 rate-limit response.",
+        "method": "Read first-public publisher article including its formal problem and reported computed bounds.",
+        "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+        "trigger": "Guiding 2019 source for finite-length exact coding questions and the deletion-confusability graph method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c6dd937-21d4-48c3-8157-e75374d9422c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact maximum of a natural fixed-composition deletion channel is determined for every block length, with a constructive optimal code and a matching graph-theoretic upper bound. The result is a useful precise benchmark for synchronization-error coding and improves on mere small-n census or generalized color-class bounds; it does not claim a new unrestricted code-capacity theorem.",
+    "status": "PASS"
+  }
+}
