@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs noncrossing closure via geometric connected components, establishes the iff for every Boolean trace by an all-others-positive witness and monotonicity, and checks boundaries n=1 and crossing chords. The forest and extremal spanning-tree conclusions, general equivalence-query Littlestone induction, and exact three-edge obstruction count are derived rather than guessed from computation. Independently represented exhaustive finite algorithms confirm all stated counts to n=7, with geometric plus closure checks also at n=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2012.07212, proofs of lattice/NBC properties and open problems",
+        "arXiv:2306.08119, Theorem A and Narayana rank counts",
+        "arXiv:1905.10526, abstract on k-noncrossing enumerators"
+      ],
+      "reasoning": "These primary results cover Catalan enumeration, bond-poset lattice properties and partition counts, not which sets of pair-equality queries have all Boolean traces. No inspected stronger theorem subsumes the chord-deletion iff.",
+      "searches": [
+        "VC dimension Littlestone dimension noncrossing set partitions Boolean equivalence query on pairs of vertices, shattering pair supports and online learning",
+        "Noncrossing partition lattice pair co-membership VC shattering criterion, shattered subsets of chord equality queries, noncrossing spanning trees maximum supports",
+        "noncrossing bond posets edge closure irredundant chord sets forest"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2012.07212",
+      "https://arxiv.org/abs/2306.08119",
+      "https://arxiv.org/abs/1905.10526",
+      "https://oeis.org/A001764",
+      "https://oeis.org/A094040",
+      "Published record item 2203ea0d-dc4a-4a02-a754-b381968c2a9e",
+      "Published record item 1a75a2c4-be87-42f7-946e-7e11b97b1903"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "item 2203ea0d-dc4a-4a02-a754-b381968c2a9e concerns refinement-closed families",
+        "item 1a75a2c4-be87-42f7-946e-7e11b97b1903 concerns noncrossing perfect matchings, a fixed-block-count subclass",
+        "arXiv:2012.07212, noncrossing bond poset combinatorics"
+      ],
+      "reasoning": "A theorem for arbitrary refinement-closed partition families cannot imply the exact NC support criterion, since the NC family is not refinement-closed. Matching-specific query support criteria also do not imply the full NC partition case. The bond-poset results do not turn crossing pairs into nonshattered pairs; there is no covering statement in inspected sources.",
+      "searches": [
+        "VC dimension Littlestone dimension noncrossing set partitions Boolean equivalence query on pairs of vertices, shattering pair supports and online learning",
+        "Noncrossing partition lattice pair co-membership VC shattering criterion, shattered subsets of chord equality queries, noncrossing spanning trees maximum supports",
+        "shattering pair equalities by noncrossing partitions, chord crossing closure independent edge sets",
+        "Exact VC shattering supports of graph edge co-membership predicates for noncrossing set partitions, geometry of crossing chords and Catalan spanning trees"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Farmer–Hallam–Smyth, arXiv:2012.07212, §§1–3 and §6",
+        "Cohen–Dougherty–Harsh–Martin, arXiv:2306.08119, introduction and §§1–3",
+        "Published partition-shattering result item 2203ea0d-dc4a-4a02-a754-b381968c2a9e"
+      ],
+      "reasoning": "Noncrossing bond posets concern ordinary graph connectivity and NBC noncrossing independent edge sets; pair-query shattering includes two intersecting chords, so is not the usual noncrossing-forest complex. General refinement-closed partition-concept theorem is inapplicable because NC partitions are not closed under all refinements.",
+      "searches": [
+        "VC dimension Littlestone dimension noncrossing set partitions Boolean equivalence query on pairs of vertices, shattering pair supports and online learning",
+        "VC dimension Littlestone dimension of noncrossing matchings and partitions pair co-membership query",
+        "VC dimension Littlestone dimension of equivalence relations noncrossing partitions Catalan numbers",
+        "shattering pair equalities by noncrossing partitions, chord crossing closure independent edge sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001764: a(k)=binomial(3k,k)/(2k+1), counting noncrossing spanning trees",
+        "OEIS A094040: noncrossing forest layer, a different object",
+        "Computed shattered support f-vectors n=4..8 confirmed independently by embedded programs"
+      ],
+      "reasoning": "The maximum-support layer coincides with the previously tabulated noncrossing spanning-tree sequence and is not claimed as a new enumeration. Intermediate support layers differ from noncrossing-forest counts because a crossing pair can be shattered; exhaustive counts alone do not establish literature uniqueness.",
+      "searches": [
+        "Noncrossing partition lattice pair co-membership VC shattering criterion, shattered subsets of chord equality queries, noncrossing spanning trees maximum supports",
+        "Exact VC shattering supports of graph edge co-membership predicates for noncrossing set partitions, geometry of crossing chords and Catalan spanning trees",
+        "OEIS A001764 noncrossing spanning tree count",
+        "OEIS A094040 noncrossing forest count"
+      ]
+    },
+    "rationale": "Seven actual semantic queries of published published-finding corpus records, detailed inspections of the full arXiv texts for noncrossing bond posets and planar-configuration NC lattices, and comparison with the known tree sequence and accessible prior partition-shattering result found no stronger statement implying the geometric deletion characterization or intermediate support counts. These comparisons support a best-knowledge novelty judgment, not universal historical certification.",
+    "residual_risks": [
+      "Possible equivalent published result under geometric closure, VC independence or planar convexity terminology not caught by inspected queries",
+      "2019 Lin–Kim text inspected only at abstract level; its stated enumerative problem is not a decisive overlap",
+      "The known top-layer noncrossing spanning-tree formula is not original; only exact geometric support criterion and additional consequences are claimed new",
+      "Independent external priority and correctness validation not performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for pair-query shattering; describes NC bonds and crossing-free forest-type NBC systems",
+        "evidence": [
+          "Introduction distinguishes NC bond poset of a graph from ordinary bond lattice",
+          "Descriptions of NBC sets count graph-theoretic noncrossing independent edge sets, unlike support complex that contains crossed pairs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.07212",
+        "material_read": "Full accessible arXiv HTML: introduction, definitions and graph-crossing lemmas in sections 1–2, NBC constructions in section 3, final remarks/open questions in section 6",
+        "method": "Direct primary-text reading and implications comparison",
+        "title": "The Noncrossing Bond Poset of a Graph",
+        "trigger": "Closely related noncrossing bonds, no-broken-circuit complexes and crossing edges"
+      },
+      {
+        "assessment": "NOT_COVERING: enumerates and studies lattice rank structure, not Boolean pair-query shattering",
+        "evidence": [
+          "Theorem A gives Narayana rank numbers for general planar configurations",
+          "Definition uses disjoint convex hulls; no query-support shattering criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.08119",
+        "material_read": "Full accessible arXiv HTML: introduction, noncrossing partition definitions in §1, geometry and main results in §§2–3",
+        "method": "Primary-text reading and comparison of theorem implications",
+        "title": "Noncrossing Partition Lattices from Planar Configurations",
+        "trigger": "Convex position, NC lattice and Catalan/Narayana enumeration"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY, not used to assert full-document absence; result states an enumerative transformation, so plausible but low overlapping risk",
+        "evidence": [
+          "First arXiv posting 2019-05-25",
+          "Abstract gives binomial transformation for k-noncrossing partitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.10526",
+        "material_read": "Abstract and metadata; full text not inspected",
+        "method": "Abstract inspection and date verification",
+        "title": "A combinatorial bijection on k-noncrossing partitions",
+        "trigger": "Earliest verified dated public source for two-noncrossing/Catalan objects"
+      },
+      {
+        "assessment": "COVERS the known top-layer count, explicitly credited; not evidence for intermediate support layers",
+        "evidence": [
+          "a(k)=binomial(3k,k)/(2k+1)",
+          "Interpreted as noncrossing spanning trees"
+        ],
+        "identifier_or_url": "https://oeis.org/A001764",
+        "material_read": "Sequence formula, interpretations and references on OEIS entry",
+        "method": "Database/formula comparison",
+        "title": "OEIS A001764",
+        "trigger": "Exact sequence match for maximum-size shattered supports"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5f99d85-cb8a-4ee3-8644-8b2a05a06513",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a polynomial-time structural characterization of every shattered query support in a classical Catalan concept class, not merely a dimension or arbitrary census. The crossed-pair phenomenon separates it from standard crossing-free forest complexes, while three-edge and minimal four-edge obstructions and nonmatroid exchange failure elucidate the true support structure. Known top-layer enumeration is credited.",
+    "status": "PASS"
+  }
+}
