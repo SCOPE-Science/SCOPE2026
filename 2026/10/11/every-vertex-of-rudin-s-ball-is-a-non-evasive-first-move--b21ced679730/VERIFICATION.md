@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` with a standard Python 3 interpreter. The script has no external dependencies.
+# Independent mathematical audit
 
-It checks the published Rudin complex has 41 tetrahedral facets and face vector \((14,66,94,41)\). It then implements the recursive definition of non-evasiveness directly, with a one-vertex complex as the base case and with exact canonical deletion and link operations.
+## correctness
 
-For each of the fourteen vertices it verifies both required first-step branches, \(R-v\) and \(\operatorname{lk}_R(v)\). It then tests every remaining vertex in every first deletion to obtain the exact second-step profile. The expected terminal line is:
+PASS
 
-`VERIFY_OK facets=41 f=14,66,94,41 roots=14/14 second_profile=11x6,9x4,5x4 second_total=122 memo_states=28708`
+From the exact 41 tetrahedra displayed in Benedetti--Lutz §6, the independently written bitmask maximal-face recursion calculates the face vector (14,66,94,41), every first vertex 1..14 has non-evasive deletion AND link, and second-step admissible counts are (11,11,11,11,11,11,9,9,9,9,5,5,5,5). Exactly 122 ordered first-two deletion-query prefixes follow. The recursion memoizes exact canonical finite face sets, with 28,708 visited states; its one-vertex base and empty-face-only exclusion are correct. The full 41-facet source tree and verify.py source were read; no opaque code was executed. The separate checker is provided with complete source/results and recovers the original 28,708-state count. Finite exhaustive enumeration is a proof here because the claim concerns precisely the specified finite 14-vertex complex; it does not imply an infinite-family theorem.
 
-The computation is exhaustive. It does not use random choices, approximate arithmetic, external solvers, or timeout-based conclusions. The result proves only the stated first- and second-step admissibility facts; it does not enumerate complete recursion trees.
+## originality
+
+PASS
+
+The closest primary full text, Benedetti--Lutz Theorem 6.3, only supplies an existence witness for non-evasiveness beginning at vertex 3. Requiring all fourteen roots and counting exactly 122 admissible two-step prefixes is strictly stronger, not implied by that witness or by vertex-decomposability theorems (Rudin is not vertex-decomposable). Resultary finds the same evaluated record, which is excluded as independent prior art, and a separate eight-vertex-ball root result, which is not a general domination. Hachimori and Macaulay2 exact-object pages provide facets and global properties, not this profile. No published prior statement implying this exact classification was identified after actual full-text inspection of the closest theorem. Best-of-knowledge qualified PASS, not priority certification.
+
+## value
+
+PASS
+
+Rudin’s non-shellable, non-vertex-decomposable yet non-evasive 3-ball is a classic computational/topological test case. Whether all vertices may initiate a recursive non-evasiveness proof is a natural robustness invariant directly related to the property distinguishing this object. The exact multiset (11^6,9^4,5^4) and 122 admissible ordered first-two queries quantify the earliest loss of uniform choice. The finite classification is exact for a standard object, not an arbitrary unmotivated small slice; no general theorem or downstream paper-sized consequence is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
