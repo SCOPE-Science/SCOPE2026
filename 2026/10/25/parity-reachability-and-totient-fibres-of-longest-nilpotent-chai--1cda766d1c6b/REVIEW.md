@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-\(n-1\) nilpotent condition is equivalent to a spanning directed chain, with a unique cyclic shift parameter for each prescribed pair of omitted endpoints. Extension to a full permutation yields a sign obstruction when \(n\) is even, an explicit single-cycle construction for every allowed parity, reflection for the odd-\(n\) complementary offsets, and a cyclic-translation contraction proving exactly \(\varphi(n-1)\) neighbors. Independent exhaustive finite and constructive checks agree. The proof, not enumeration, establishes all quantified cases.
+## correctness
 
-**Originality — PASS relative to inspected sources, with residual risk.** Full-text comparison with Fernandes–Jesus–Singha (arXiv:1806.08440), Li–Fernandes (arXiv:2207.12823) and Li–Fernandes (arXiv:2401.02185) found their central results to concern the monoid's structure, endomorphisms, and restricted-range rank, not these maximal-chain endpoint fibres. A narrower cyclic inverse monoid allows only offsets coprime to \(n\), unlike the present sharp odd-offset range for even \(n\). However the earlier Fernandes article with DOI:10.1080/00927870008827033 was not verified in complete full text; equivalent priority under alternative terminology remains possible.
+PASS
 
-**Value — PASS.** Prescribing the omitted domain and omitted range is a natural boundary invariant of nilpotent partial transformations. The parity exclusion is sharp and changes with ground-set size; adjacent-endpoint fibres exhibit a nontrivial totient law and clarify exactly how the larger orientation-preserving monoid exceeds the familiar restrictions-of-rotations submonoid.
+PASS: An injective rank n−1 nilpotent partial map is one directed Hamiltonian chain. Orientation preservation means the increasing domain and image lists correspond by a cyclic index shift t. Rotate terminal omitted domain a to n−1; extend by mapping a to missing image b to get π_t=π_0 (0 1 … n−2)^t with π_0=(b b+1 … n−1). For even n, parity forces b even, equivalent to odd circular separation d. Explicit t=1 orbit forms an n-cycle whenever b has parity n, and a reflection fills the remaining offsets for odd n; sign restriction is therefore sufficient and necessary. At adjacent endpoints, contracting the prescribed arrow yields an (n−1)-point cyclic translation by t+1, single cycle iff gcd(t+1,n−1)=1, giving φ(n−1) per neighbor. Independently enumerated all n! directed Hamiltonian paths for 3≤n≤7, confirming attainable pairs and exact neighboring fibres. The all-n result relies on the permutation proof.
 
-**Scientific limits.** The exact counts for other attainable endpoint separations remain open in this analysis. The result is not extended to noninjective or reversing transformations. Finite program tests are corroborative, not an infinite proof. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Standard oriented partial injection semigroup structure, endomorphisms, and restricted-range variants are published. In inspected originals these do not give the maximal-nilpotent-chain ordered-endpoint parity and neighboring totient fibres. A narrow submonoid of restrictions of global rotations has only coprime offsets, not this all-odd-offset classification. A 2000 monoid paper on exactly the original object was inaccessible in full and remains a specific priority risk.
+
+## value
+
+PASS
+
+PASS: Prescribing omitted source/target points is the natural boundary invariant for maximal nilpotent chains; the sharp even/odd obstruction and φ(n−1) adjacent-fibre classification reveal nontrivial structure that differs from whole-set rotations, including allowed nonprimitive separations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
