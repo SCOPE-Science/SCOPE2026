@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For all k>=1,h>=0, ordered-car min-plus recurrence p_i(t+1)=min(p_i(t)+1,p_(i+1)(t)-1) yields exact prefix-gap maximum w_i. The full-cycle deficit -h<=0 bounds the range, so all delay is finite. The zero-containing cyclic Lindley solution is unique and bijective with nonnegative gap vectors plus surplus-hole weak compositions; counting each car as a root proves the factor (2k+h)/k. Maximal staircase workloads yield D<=k(k-1)/2, with exactly n contiguous-block optimizers. Direct finite site updates and independent gap-prefix tests reproduce every histogram and both extremes in 32 complete parameter pairs via the packaged verify.py; computations corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fukś 1997 Proposition 1: temporal local 00-preimage ballot law; Proposition 2: finite-ring convergence bound.",
+        "Fukś 1999: time-dependent mean flow from local preimages in iid/infinite density ensembles.",
+        "2025: finite-size sampled total jam area; 2026: exact one-car stop statistics."
+      ],
+      "reasoning": "Known stronger general-traffic dynamical frameworks are considered; they do not state an exact fixed-density whole-ring sum distribution. Marginal mean flow or per-car stop distributions do not imply a full correlated aggregate law without additional joint enumeration. The candidate explicitly does not claim the older convergence or per-car results.",
+      "searches": [
+        "Exact results for deterministic cellular automata traffic models Henryk Fuks 1999",
+        "First-passage processes in a deterministic one-dimensional cellular automaton model of traffic flow arxiv 2026",
+        "Rule 184 cyclic traffic elementary cellular automata exact relaxation time distribution fixed density binary rings finite-size convergence ballot and jam duration",
+        "arxiv:comp-gas/9703001",
+        "arxiv:comp-gas/9902001",
+        "arxiv:2501.08417",
+        "arxiv:2605.19023"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/comp-gas/9703001",
+      "https://arxiv.org/abs/comp-gas/9902001",
+      "https://arxiv.org/abs/2501.08417",
+      "https://arxiv.org/abs/2605.19023"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present claim counts the entire distribution of sum of stopped-car events across all k cars and all times for every finite n=2k+h.",
+        "1997/1999 results concern preimages and local-time marginals; 2025 gives a per-configuration jam algorithm and sampled scaling; 2026 studies an individual car."
+      ],
+      "reasoning": "The new formula is not a corollary of a stated numerical table, nor a mere substitution in local block-preimage results: obtaining aggregate distribution requires a cyclic joint workload bijection and weak-composition enumeration. A general per-configuration algorithm would allow brute force, but does not logically specify or simplify this closed histogram. This comparison does not establish independence from all possible alternative path/queue models.",
+      "searches": [
+        "arxiv:comp-gas/9703001 section II Propositions 1–2",
+        "arxiv:comp-gas/9902001 sections 2–4",
+        "arxiv:2501.08417 sections II–III and Appendix B",
+        "arxiv:2605.19023 section VI",
+        "Cyclic exclusion process deterministic parallel update queue workload vector delayed cars binomial surplus holes Dyck-path q enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jha et al. define the total delay as sum of cluster areas and implement a Dyck-path evaluation; Biham et al. characterize individual car stop counts.",
+        "No inspected primary text gives the indexed-ring all-car cumulative-delay distribution or the binomial surplus-hole coefficient law."
+      ],
+      "reasoning": "Identical physical total-delay definitions are acknowledged. An algorithm computing a statistic on each configuration is not a closed distribution over every fixed-cardinality configuration; a one-car marginal is not a law for the sum across correlated cars. Non-obvious mapping to older queueing excursion area enumerators remains a specific historical risk.",
+      "searches": [
+        "Exact finite-ring Rule 184 total integrated traffic delay distribution by particle number and extra vacancies using cyclic Lindley workload, q-polynomial Łukasiewicz path enumeration",
+        "Rule 184 deterministic traffic cellular automaton sum of stopped-car time steps, total travel-time delay on periodic rings, cyclic ballot path area distribution",
+        "\"rule 184\" car waiting-time workload cyclic q Catalan enumerator",
+        "binary deterministic TASEP periodic ring total time delay generating function q Catalan",
+        "arxiv:2501.08417",
+        "arxiv:2605.19023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly available Rule-184 sources listed in source_inspections do not tabulate the fixed-density all-car total-delay histogram.",
+        "An earlier one-step Rule-184 image/density enumeration concerns immediate reachability and does not imply the integrated transient-delay distribution.",
+        "The nearest publicly indexed research results in the semantic comparison concerned a different cellular-automaton rule and unrelated numerical delay, not this cyclic traffic invariant."
+      ],
+      "reasoning": "The actual checked scientific records and primary source statements do not provide the proposed joint fixed-density histogram; neither search failure nor a narrow source classification proves absolute global uniqueness.",
+      "searches": [
+        "\"rule 184\" \"total delay\" exact cyclic distribution",
+        "\"rule 184\" first-passage delay integrated finite ring",
+        "Rule 184 exact enumeration total delay generating function periodic boundary deterministic traffic model"
+      ]
+    },
+    "rationale": "The 1997 and 1999 primary papers establish ballot/preimage and averaged-flow facts; the 2025 work measures total jam area per configuration and samples its scaling, and the 2026 work derives single-car first-passage/stopping distributions. Direct comparison of their actual formulas does not supply the all-integer exact finite fixed-(n,k) system-total delay polynomial, its cyclic workload bijection, or its sharp attained maximum as a combined result. Accessible prior claims include the Rule-184 one-step image spectrum, not integrated transient area. This is a qualified best-knowledge originality assessment, with unindexed queueing-equivalence risk.",
+    "residual_risks": [
+      "An older unindexed queueing, deterministic-exclusion, or Dyck-area enumeration could be equivalent by a non-obvious change of variables.",
+      "Source inspection was limited to the specified relevant statements and sections rather than every historical publication.",
+      "The later 2025 and 2026 sources have more recent public dates than the archive anchor and are used only for comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES earlier local ballot block-preimage and convergence facts, but does not state a finite-ring fixed-car-count distribution of the sum of all stopped-car updates nor the cyclic-workload polynomial. Its local-time marginals are not the joint system-area law.",
+        "evidence": [
+          "1997-03-07 arXiv submission timestamp",
+          "Section II Proposition 1: local preimage of 00; Proposition 2: finite periodic convergence bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/comp-gas/9703001",
+        "material_read": "HTML full-text introduction; section II Rule 184, including Propositions 1 and 2, preimage characterization and finite periodic-boundary relaxation; section III connection to Rule 232.",
+        "method": "ArXiv HTML full-text reading and in-document section/term inspection.",
+        "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+        "trigger": "Foundational Rule-184 cyclic dynamics and ballot/preimage counting could cover the proposed cyclic-delay law."
+      },
+      {
+        "assessment": "CALCULATES time-dependent mean flow and local block preimages under infinite random initial conditions; not a coefficient formula for the finite periodic aggregate total delay at fixed car count.",
+        "evidence": [
+          "1999-02-04 first arXiv submission",
+          "Section 2 equations for per-car instantaneous velocity and mean flow; section 4 uses iid initial data on infinite lattice."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/comp-gas/9902001",
+        "material_read": "HTML full-text abstract, sections 1–4; explicit vehicle velocity update, density/flow definitions, preimage ballot Proposition 2 and flow formulas.",
+        "method": "ArXiv HTML full-text reading at cited definitions and propositions.",
+        "title": "Exact results for deterministic cellular automata traffic models",
+        "trigger": "A stronger traffic-model exact enumeration might dominate the candidate finite-ring aggregate distribution."
+      },
+      {
+        "assessment": "SAME aggregate statistic is defined and a per-initial-state algorithm is given; aggregate results are sampled scaling laws. No exact all-(n,k,d) fixed-density histogram or cyclic workload binomial enumerator is stated. The definitions and computational motivation are prior work.",
+        "evidence": [
+          "First arXiv submission 2025-01-14",
+          "Section II equation A=sum cluster areas; section III states X-sampled initial configurations; appendix B computes jam lengths from Dyck paths."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.08417",
+        "material_read": "HTML full-text introduction, section II definitions of cluster area and total delay, section III finite-size sampled ensemble analysis, appendix B Dyck-path algorithm for jam lengths.",
+        "method": "ArXiv HTML full-text section and appendix inspection, including equations and methodology.",
+        "title": "Evidence of Non-Equilibrium Critical Phenomena in a Simple Model of Traffic",
+        "trigger": "Explicitly studies whole-system total jam delay on periodic Rule 184; strongest potential covering source."
+      },
+      {
+        "assessment": "Gives first/last stopping times and marginal/joint observables for a randomly selected car in a random initial environment. It does not give the joint all-car finite-ring sum at exactly k cars; one-car marginals do not determine that distribution.",
+        "evidence": [
+          "First arXiv submission 2026-05-18",
+          "Section VI P(T_LS=t,N_S=n) and P(N_S=n) describe a single car, with simulated large-ring comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.19023",
+        "material_read": "ArXiv HTML full-text introduction, finite-ring model definitions, section VI formulas for the single-car joint law and number of stopping events, and surrounding discussion.",
+        "method": "ArXiv HTML full-text targeted statements and formula inspection.",
+        "title": "First-passage processes in a deterministic one-dimensional cellular automaton model of traffic flow",
+        "trigger": "Recent exact distributional work on stopping events could imply the proposed whole-system law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9cbcbf38-ec73-4a90-a61f-a60fae05fcf4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Total stopped-car updates is the whole space-time jam area, an explicitly motivated quantity in the 2025 Rule-184 literature. The finding determines the entire fixed-particle-count finite-ring delay distribution for every circumference at density <=1/2, through a finite k-state workload enumerator with an exact surplus-hole polynomial, not just a simulation, mean or one-car marginal. The sharp n-extremizer classification follows structurally and is useful for worst-case queueing. This natural complete classification is valuable independently of large-n asymptotic claims.",
+    "status": "PASS"
+  }
+}
