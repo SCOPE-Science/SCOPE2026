@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The individually rational coalitions are exactly cross-class cliques: any same-class pair produces utility at most \(-2\) for its members. A positive Nash product therefore forces disjoint mixed pairs/triples. Counting the largest class proves the majority obstruction and the tight triplet bound \(T\le n-2a\); the explicit complete assignment attains equality. Equality forces every coalition to contain exactly one largest-class agent, determining all three coalition-type multiplicities. Bijections between labeled agents and these positions prove the exact formula for the number of optimizers, including the two-class and balanced boundaries. The standalone independently structured enumerators corroborate these steps on 715 feasible-profile cases and 161 literal-payoff cases; the proof is analytical and applies at every population size.
+
+## Originality — PASS
+Pagano–Schlenga, *Nash Welfare in Additively Separable Hedonic Games* (arXiv:2605.19030v1), defines the model, relates positive welfare to clique factors, and establishes general hardness/approximation, but the inspected main theorems and appendices do not provide this exact tripartite optimum or the complete labeled-optimizer count. Bullinger–Chatziafratis–Shahkar, *Welfare Approximation in Additively Separable Hedonic Games* (arXiv:2503.06017v1), treats utilitarian welfare in multipartite friendship networks; its objective does not imply the Nash optimum (for instance a four-triplet plus singleton utilitarian configuration at \((5,4,4)\) has zero Nash welfare). The OEIS maximum-matching sequence A297527 is a distinct combinatorial count. Searches of published mathematical records and literature yielded no matching assertion; absence of indexed results alone is not proof of priority. Residual risk is an unindexed, differently phrased, or unpublished complete-tripartite clique-factor census.
+
+## Value — PASS
+The source model is computationally hard in general; complete tripartite friendship networks are a natural structured graph family. The theorem supplies the complete exact positive-versus-zero threshold, welfare magnitude, equality classification, and a nontrivial closed count of labeled optimum partitions. It separates the Nash objective from the known utilitarian multipartite theory and yields a reusable structural reduction based on the largest class. The zero-welfare regime's optimizer count and arbitrary multipartite graphs remain outside the result.
+
+Self-review: passed. Independent audit: not yet performed.

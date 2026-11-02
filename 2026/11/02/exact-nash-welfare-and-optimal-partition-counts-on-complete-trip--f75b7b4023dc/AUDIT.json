@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The within-role minus-population penalty excludes repeated role members from every individually rational coalition; the positive welfare case is therefore an exact packing by cross-role edges and triangles. The maximum-role capacity gives T <= n-2a; the explicit t=b+c-a triplets, a-c AB pairs and a-b AC pairs attain it, and equality characterizes all maximizers. Counting bijections produces a!b!c!/(t!(a-c)!(a-b)!). Verified by two independently designed exact enumeration modes: 715 clique-partition profiles and 224935 unrestricted game partitions over 161 small profiles. Finite checks are corroboration, not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2605.19030v1 Theorem 3.1 (general NP-hardness), Theorem 3.3 (n-1 approximation)",
+        "arxiv:2503.06017v1 section 5.2 (utilitarian welfare)"
+      ],
+      "reasoning": "General hardness and approximation do not imply an exact optimal value or multiplicity on every complete tripartite instance. Utilitarian welfare is a different aggregate, and can select singleton-containing configurations with Nash product zero.",
+      "searches": [
+        "Nash Welfare in Additively Separable Hedonic Games Pagano Schlenga 2026",
+        "aversion-to-enemies symmetric hedonic games geometric mean welfare on complete multipartite networks",
+        "Nash welfare in additively separable hedonic games complete tripartite optimum",
+        "complete multipartite Nash social welfare coalition partition"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.19030v1",
+      "https://arxiv.org/html/2503.06017v1",
+      "https://oeis.org/A297527",
+      "published-finding corpus six semantic queries listed in the four comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2605.19030v1, Section 3, clique factors, hardness, general guarantee",
+        "arxiv:2503.06017v1, Section 5.2, multipartite utilitarian objective",
+        "https://oeis.org/A297527, graph matchings"
+      ],
+      "reasoning": "The known positive-if-K2/K3-factor statement provides feasibility, not maximal triangle number or count of optimizers. Neither an n-1 approximation nor a utilitarian optimum yields the exact factor 2^(3(b+c-a)/(a+b+c)) and its labeled multiplicity. The new equality classification bridges that gap.",
+      "searches": [
+        "exact Nash social welfare complete tripartite aversion to enemies AEG clique partition triangle pair factor count optimal coalitions",
+        "tripartite friendship graph optimal Nash welfare maximum coalition counts",
+        "Pagano Schlenga Nash welfare aversion to enemies clique factor exact tripartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.19030v1, section 3 and appendix (clique-factor characterization but no exact tripartite formula)",
+        "arxiv:2503.06017v1, section 5.2 (multipartite utilitarian optimizers, different objective)"
+      ],
+      "reasoning": "Equivalent formulations include maximizing triangles in a spanning K2/K3 factor of complete tripartite friendship graphs and counting all triangle-maximal factors. The capacity argument gives the exact result; the inspected papers did not state that formula or count.",
+      "searches": [
+        "exact Nash social welfare complete tripartite aversion to enemies AEG clique partition triangle pair factor count optimal coalitions",
+        "complete 3-partite symmetric friends and enemies game Nash welfare sharp formula geometric mean and optimal partitions",
+        "complete multipartite hedonic games Nash welfare optimizer enumeration parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A297527 (number of maximum graph matchings of K_{n,n,n})",
+        "At class sizes (2,2,2), A297527 gives eight maximum matchings, whereas Nash-optimal mixed-coalition partitions number four."
+      ],
+      "reasoning": "Graph matchings partition into edges and cannot encode three-person mixed coalitions; the exact table has different objects and numbers. No exact Nash-optimal tripartite partition-count table was identified.",
+      "searches": [
+        "OEIS complete tripartite maximum matching A297527",
+        "complete multipartite hedonic games Nash welfare optimizer enumeration parity"
+      ]
+    },
+    "rationale": "The May 2026 Nash-hedonic paper supplies the IR/clique framework, general hardness and approximate algorithms, not exact tripartite welfare and labeled optimizer enumeration. The 2025 multipartite network paper optimizes utilitarian rather than Nash welfare; its result cannot imply the present all-positive equilibrium welfare. The closest OEIS table counts maximal graph matchings, not partitions into mixed edges and triangles. Indexed literature and mathematical records examined gave no equivalence, with residual priority risks acknowledged.",
+    "residual_risks": [
+      "An equivalent triangle-maximal K2/K3-factor enumeration may appear under a graph-theoretic formulation in unindexed literature.",
+      "A relevant unpublished or later revised version of the source paper may contain an equivalent specialization.",
+      "Independent review of the theorem and priority has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines general setting, but does not contain the explicit tripartite optimum or count",
+        "evidence": [
+          "Lemma 1 IR iff cliques; Lemma 2 positive Nash welfare iff spanning K2/K3 factor",
+          "Theorem 3.1 NP-hardness; Theorem 3.3 approximation guarantee"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.19030v1",
+        "material_read": "Abstract; Definitions and model in Section 2; Section 3 clique-factor lemmas, NP-hardness and approximation theorem; relevant Appendix proofs",
+        "method": "Inspected public full-text HTML, traced statements and assumptions",
+        "title": "Nash Welfare in Additively Separable Hedonic Games",
+        "trigger": "Identical valuation model and Nash product; most decisive source"
+      },
+      {
+        "assessment": "Studies utilitarian aggregate; cannot imply the exact positive Nash product or optimizer census",
+        "evidence": [
+          "Section 5.2 multipartite friendship networks",
+          "Its welfare optimum can have singleton members, unlike a positive Nash optimum"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.06017v1",
+        "material_read": "Abstract, definitions, Section 5.2 and multipartite welfare discussion",
+        "method": "Inspected public full-text HTML and compared objective and extremizer claims",
+        "title": "Welfare Approximation in Additively Separable Hedonic Games",
+        "trigger": "Earlier multipartite friendship model with possible stronger graph-specific optimization"
+      },
+      {
+        "assessment": "Not covering: graph matchings contain only edges; the Nash optimum may contain triangles",
+        "evidence": [
+          "Balanced K_{2,2,2}: maximum graph-matching count eight; optimal Nash mixed-coalition partitions four"
+        ],
+        "identifier_or_url": "https://oeis.org/A297527",
+        "material_read": "Sequence description and displayed counts",
+        "method": "Inspected public database page and compared the counted combinatorial objects",
+        "title": "OEIS A297527: Number of maximum matchings in the complete tripartite graph",
+        "trigger": "Plausible exact database/table for closely related tripartite partition enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f75b7b40-23dc-4f26-a358-63ece0b420ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural structured family of the source hedonic-game model has a complete optimum and equality characterization in terms of the largest role class. The formula also exactly enumerates all labeled optimal coalition structures, providing information absent from the general hardness, approximation, and utilitarian multipartite results. Sharp majority threshold and exact multiplicity are mathematically motivated invariants; the result is not a routine table lookup.",
+    "status": "PASS"
+  }
+}
