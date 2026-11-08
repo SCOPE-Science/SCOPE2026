@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition uses ordinary forcing by blue vertices, not skew forcing. An initial force with four blue seeds requires a three-vertex path in a cubic triangle-free prism. The two symmetry types of path have exactly four viable fourth vertices each. Every viable extension creates two fully blue neighboring columns, after which forcing propagates around the cycle; all other cases stall. Three initial seeds cannot complete forcing. This establishes the complete five-orbit classification and the count \(13n\) for every \(n\ge7\). Orbit–stabilizer gives the five multiplicities. Three-common-vertex comparisons give the token-exchange neighbor table, whose orbit-weighted degree sum gives \(48n\) edges; explicit exchanges establish connectivity. No representative permits a legal token slide to another minimum set. The relative-column bound handles all \(n\ge11\), and smaller permitted orders are checked separately. The included independent-rule enumerator completed with `VERIFY_OK` for the stated finite ranges. These experiments corroborate rather than replace the proof.
+PASS
 
-## Originality — PASS, with risk
+The forcing rule, cubic triangle-free local path necessity, H/V fourth-vertex lists and two-full-column propagation are spelled out. Five disjoint dihedral/layer-swap orbits of cardinalities 2n,4n,4n,n,2n give 13n. The five-by-five local exchange-neighbor matrix gives weighted degree 96n and 48n undirected edges; explicit exchange paths connect both layers, and local token slides leave the minimum-set family. Independent first-principles exhaustive computation for n=7,8,9,10 obtained respectively (91,336),(104,384),(117,432),(130,480) minimum-sets/exchange-edges, degree counts {5:4n,8:8n,12:n}, and zero slides. The all-n conclusion relies on finite relative-column classification and wraparound proof, not those four samples.
 
-Premodkumar–Dominic–Chacko (2020), Proposition 22, and Alameda et al. (2017) already establish or use the scalar four-vertex forcing optimum. Geneson–Haas–Hogben, arXiv:2009.00220, develop reconfiguration graphs but do not supply the complete circular-ladder orbit classification and both token-exchange and token-sliding graphs in the inspected full text. Related PSD/skew forcing work uses different coloring rules and does not imply the ordinary-forcing census. Relevant mathematical-record searches and accessible claims did not identify an implication covering the present exact \(13n\) classification and all adjacency data. Full publication priority cannot be guaranteed against unindexed work, especially equivalent results under the name generalized Petersen graph \(P(n,1)\).
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Knowing a minimum of four sensors does not describe their possible locations, symmetry types, or allowable local modifications. The classification counts every minimum ordinary forcing arrangement in a natural infinite cubic graph family, and its connected token-exchange/edgeless token-sliding dichotomy is a structural reconfiguration result; the detailed orbit degrees and \(48n\) count strengthen it. The phenomenon is not a substitution into the known scalar optimum or a routine small-instance extension.
+The novelty assessed is the all-n orbit and two-reconfiguration-graph classification, not established scalar Z=4 or general reconfiguration definitions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a canonical infinite cubic graph family, a scalar forcing number does not identify feasible sensor placements or reconfiguration accessibility. The five-orbit census and exchange-connected/sliding-disconnected dichotomy are structural and useful for studying local moves among optimal seed sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

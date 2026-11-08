@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` from a directory containing the embedded standalone verifier. The script uses only the Python standard library and reconstructs graph adjacency and legal ordinary-blue forcing from first principles. It compares every three- and four-vertex subset at prism lengths \(7\) through \(12\), computes all five dihedral/layer-switch orbits, confirms the \(13n\) count, computes exchange/sliding neighbors and exchange connectivity, and checks the representative exchange-neighbor matrix. It also checks the complete two-path/fourth-vertex local success lists at lengths \(7\) through \(24\).
+## correctness
 
-Observed result: `VERIFY_OK`. At \(n=7\) the script finds 91 minimum sets and 336 exchange edges; at \(n=12\) it finds 156 minimum sets and 576 exchange edges; sliding edges are zero in every tested instance. Finite tests are not certificates for every order. The proof in `RESULT.md` supplies the all-order necessity/sufficiency argument and explains why the reconfiguration comparisons reduce to finitely many bounded relative-column patterns. This is not an independent mathematical audit.
+PASS
+
+The forcing rule, cubic triangle-free local path necessity, H/V fourth-vertex lists and two-full-column propagation are spelled out. Five disjoint dihedral/layer-swap orbits of cardinalities 2n,4n,4n,n,2n give 13n. The five-by-five local exchange-neighbor matrix gives weighted degree 96n and 48n undirected edges; explicit exchange paths connect both layers, and local token slides leave the minimum-set family. Independent first-principles exhaustive computation for n=7,8,9,10 obtained respectively (91,336),(104,384),(117,432),(130,480) minimum-sets/exchange-edges, degree counts {5:4n,8:8n,12:n}, and zero slides. The all-n conclusion relies on finite relative-column classification and wraparound proof, not those four samples.
+
+## originality
+
+PASS
+
+The novelty assessed is the all-n orbit and two-reconfiguration-graph classification, not established scalar Z=4 or general reconfiguration definitions.
+
+## value
+
+PASS
+
+For a canonical infinite cubic graph family, a scalar forcing number does not identify feasible sensor placements or reconfiguration accessibility. The five-orbit census and exchange-connected/sliding-disconnected dichotomy are structural and useful for studying local moves among optimal seed sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
