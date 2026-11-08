@@ -1,11 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Massri's complete-intersection theorem supplies the codimension-three hypothesis; the symplectic moment-map differential proves the singular support is precisely the pure-power rational normal curve; pivot elimination and a nondegenerate transvectant antidiagonal give a single-parameter Morse germ. Positive weights force its critical value to be a scalar multiple of \(t^{m+1}\), and the global one-dimensional singular-support calculation forces that scalar to be nonzero. The local Jacobian ideal then gives transverse length \(m\). Exact arithmetic checks in odd degrees \(5,7,9,11,13\) corroborate the formulas; finite cases are not substituted for the uniform proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Massri 2013 [2, Theorem 12] already established three quadrics, degree eight and the inclusion of the rational normal curve in the singular locus. Massri 2026 [1] gives the complete-intersection theorem and a tangent cone, but neither inspected work gives the exact global singular-support equality, uniform analytic \(A_m\) classification or transverse Jacobian length. The other inspected stable-range treatment [3] does not dominate these claims. Targeted semantic and keyword searches for binary transvectants, moment-map zero fibers and transverse ADE singularities found no equivalent statement; this is evidence of an unresolved literature gap, not proof of absolute novelty.
+PASS
 
-**Value — PASS.** The exact singularity type and its nilpotent singular-scheme multiplicity are natural geometric invariants for an infinite, uniform class of complete intersections recently studied via their tangent cones. The result distinguishes their local analytic geometry for every rank and refines an older partial singular-support statement. It is not a mere dimension/degree recalculation.
+For every m≥2 over C, r=2m+1, the highest order-(r−1) transvectant gives three quadratic equations defining the codimension-three complete-intersection quadratic hull (Massri known premise). The odd-degree invariant alternating SL2 form yields the quadratic moment map dμ_f(e)(ξ)=ω(ξf,e), so Jacobian rank equals SL2-orbit dimension. Semisimple Lie elements have only nonzero odd weights; nilpotent stabilizers occur precisely at pure powers, giving exact reduced singular support C_r. At a0=1 choose the a1 orbit slice, eliminate a_(r−1),a_r with two unit linear pivots, and let t=a2, z=a3..a_(r−2). The antidiagonal Hessian of the residual at t=0 is nonsingular. Parametric holomorphic Morse reduction and positive weighted equivariance force h(t)=c t^(m+1); c≠0 since c=0 produces a second singular-support dimension, contradicting the global rank computation. The germ is A1 × {sum_(2m−3) z_i²+t^(m+1)=0}; Jacobian transverse quotient has length m. Uniform argument is analytic, not inferred from finite samples.
 
-**Closest literature and limits.** Sources [1]–[3] as fully specified in RESULT.md. The argument is characteristic-zero and local analytic, and does not classify even-degree analogues. Some older local result implicit in representation-theoretic literature could subsume this finding. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The codimension-three osculating-curve quadratic hull and the inclusion of the rational normal curve in its singular set were established by Massri; this assessment claims only exact singular support and its transverse analytic A_m/Jacobian-length classification. Exact equivalence with an older moment-map or analytic-singularity formulation was not located. Massri's closely related October 2026 paper could not be fully read and is a specifically preserved substantial priority risk; its inaccessible contents are not called non-covering.
+
+## value
+
+PASS
+
+A natural stable family of binary-form osculating quadratic hulls receives an exact singular-support classification and transverse analytic ADE type, together with scheme-theoretic Jacobian multiplicity m. These structural invariants are not determined by codimension, degree or a known inclusion of C_r in the singular locus, and identify all singularities uniformly for m≥2. A future algebraic geometer could use the precise transverse type and length when studying resolutions and singular schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
