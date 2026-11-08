@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All two-by-two Sylvester corrections reconstructed symbolically from S^2, derivative derived explicitly on full 4D real matrix space, characteristic polynomial and singular values checked; indefiniteness follows from opposite-signed diagonal entries, not numerical eigensolvers. Rational witness evaluated exactly; quantified statements follow analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao–Kressner–Shao, arXiv:2607.12430v1, §3.1 provides a conditional norm contraction estimate with an absolute smallness hypothesis.",
+        "Higham 1986 investigates a different un-frozen derivative and inverse iterations; its instability theorem concerns finite-precision error of those schemes."
+      ],
+      "reasoning": "General Newton–Kantorovich convergence theorems are sufficient conditions, not positivity guarantees based on small relative error or a spectral radius; the constructed family violates their absolute smallness uniformly. Known nonnormal amplification does not supply this exact matrix-root iteration, closed forms and cone exit.",
+      "searches": [
+        "web: \"matrix square root\" \"frozen\" \"sylvester\" \"noncommuting\" SPD convergence",
+        "web: \"approximate Newton\" \"matrix square root\" \"nonnormal\" transient",
+        "Scientific-record search: Newton Kantorovich matrix square roots frozen Jacobian nonnormal locally stable but relative perturbation diverges"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.12430v1 full text (algorithm, convergence, accuracy)",
+      "Higham 1986 Mathematics of Computation full PDF",
+      "Sra 2016 paper accessible method and introduction",
+      "Scientific-record semantic queries listed in individual originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source algorithm and norm bound do not prove a converse or the claim under relative error constraints.",
+        "Higham 1986 §2 eqs. (1.3)–(1.6) recomputes the Sylvester operator or uses inverse-based forms.",
+        "The exact example is a noncommuting SPD matrix with fixed inverse Sylvester solve, distinct from the classical commuting initialization."
+      ],
+      "reasoning": "Prior claims about sufficient convergence, classical iteration stability, or other methods do not imply the exact transient/indefiniteness theorem. Residual risk remains of another broader theorem not discovered; no assertion of absolute uniqueness is made.",
+      "searches": [
+        "arxiv:2607.12430v1 §2.1 and §3.1",
+        "doi:10.2307/2007992 §§1–6",
+        "Scientific-record search: mixed precision matrix square root frozen Jacobian approximate Newton nonnormal transient Frobenius amplification condition number example"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao–Kressner–Shao (arXiv:2607.12430v1), §2.1 defines frozen Sylvester recurrence and §3.1 gives sufficient norm estimates rather than counterexample.",
+        "Higham, Newton’s Method for the Matrix Square Root (1986), full text §§1–6 explicitly uses recomputed Newton and inverse-based variants."
+      ],
+      "reasoning": "Equivalent Newton-like phrasing does not suffice: the same frozen operator at all steps, noncommuting SPD root, exact first and second iterates, local spectrum and operator norm would need to be implied. Neither compared source states or implies this conjunction.",
+      "searches": [
+        "Scientific-record search: frozen Sylvester matrix square root SPD exact arithmetic two step iterate indefinite nonnormal spectral radius t Frobenius growth K",
+        "web: \"frozen Jacobian\" \"matrix square root\" \"positive definite\" divergence",
+        "web: \"frozen\" \"matrix square root\" \"two iterations\" error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared published finding “Spectral width is the sharp second-iterate positivity threshold for good Broyden” addresses good Broyden, not matrix square roots.",
+        "The compared published finding “Sharp stagewise-safe Richardson frontier and a no-acceleration barrier” addresses Richardson, not the frozen Sylvester map."
+      ],
+      "reasoning": "The searches returned no exact matrix family, Jacobian norm, or threshold. A negative search is not an exhaustive database or novelty certificate. No exact published table was identified.",
+      "searches": [
+        "Scientific-record search: matrix square root Gao Kressner Shao approximate Newton fixed Jacobian noncommuting initial approximation positivity 2x2",
+        "Scientific-record search: frozen Sylvester matrix square root SPD exact arithmetic two step iterate indefinite nonnormal spectral radius t Frobenius growth K",
+        "web: \"linearized\" \"frozen\" \"Sylvester\" \"square root\" norm"
+      ]
+    },
+    "rationale": "Inspected the primary full frozen-Sylvester paper and classical Newton-square-root sources, compared exact hypotheses/implications, and queried mathematical-record indexes and literature for equivalent nonnormal transient/cone-loss claims. None of the examined published claims covers the fixed-operator two-step family; historical priority uncertainty acknowledged.",
+    "residual_risks": [
+      "Unindexed published or classical nonnormal fixed-Jacobian counterexample could be equivalent.",
+      "The source’s sufficient norm hypothesis does not apply uniformly to this ill-conditioned family, so this is not a contradiction.",
+      "The example need not arise from an actual low-precision Schur square-root approximation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces exact recurrence and norm-sufficient convergence, but no local-nonnormality/first-error amplification/second-indefiniteness family; not direct covering",
+        "evidence": "§2.1 fixed operator, §3.1 eqs. (7), (8), convergence theorem and proof, §3.2 SPD assumptions",
+        "identifier_or_url": "https://arxiv.org/abs/2607.12430",
+        "material_read": "Full HTML text of algorithm §§2.1–2.3 and proof/convergence and accuracy §§3.1–3.3; equations and hypotheses",
+        "method": "Read source article HTML at https://academ.us/article/2607.12430/ and arXiv full text",
+        "title": "A mixed precision algorithm for the matrix square root",
+        "trigger": "Exact same frozen Jacobian iteration under analysis"
+      },
+      {
+        "assessment": "Different recomputed-derivative Newton and inverse-based variants; finite precision stability phenomenon does not imply exact frozen-Jacobian two-step cone exit",
+        "evidence": "Eqs. (1.3)–(1.6), Theorem 1, §§3 and 6",
+        "identifier_or_url": "https://doi.org/10.2307/2007992",
+        "material_read": "Full 13-page PDF text §§1–6, including explicit iterations, convergence, stability analysis and examples; inspected original page 538 screenshot",
+        "method": "Read lawful OA PDF at https://webspace.science.uu.nl/~zegel101/NUMWISb/Higham1986.pdf",
+        "title": "Newton’s Method for the Matrix Square Root",
+        "trigger": "Foundational square-root Newton methods and potential instability coverage"
+      },
+      {
+        "assessment": "Geometric optimization and related iterations, not fixed-Sylvester correction with frozen initial guess",
+        "evidence": "Geometric optimization formulation and comparison of existing square root approaches",
+        "identifier_or_url": "https://arxiv.org/abs/1507.08366",
+        "material_read": "Accessible PDF introductory statements and method formulation, original page 3 inspected",
+        "method": "Read accessible article and PDF page image",
+        "title": "On the Matrix Square Root via Geometric Optimization",
+        "trigger": "Alternate SPD matrix-square-root iterative methods and potential broader comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b038228-1fc5-46e2-b833-6801a0c4482e",
+  "value": {
+    "rationale": "For a concrete modern matrix-function refinement, the example separates local spectral contraction, fixed Loewner comparability and vanishing relative initial root error from norm-safe transient behavior and positivity preservation. Exact amplification and a finite-step indefiniteness threshold make a genuine basin-of-attraction limitation, rather than a textbook substitution or a numerical anecdote.",
+    "status": "PASS"
+  }
+}
