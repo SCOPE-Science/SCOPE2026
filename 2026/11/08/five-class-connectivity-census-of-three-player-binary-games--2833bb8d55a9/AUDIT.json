@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Twelve independent binary comparisons realize every directed cube; exact reachability definitions apply. A geometric proof treats one, two, and at least three sinks and shows that any cyclic orientation with a sink is connected. A source/sink parity argument proves that no acyclic cube orientation is super-connected. Exact exhaustive 4096-orientation code gives all five class counts and independently cross-checks reverse reachability, DFS versus Kahn cycle tests, Burnside orbit totals, and sink factorial moments; all assertions executed successfully. Neither finite sampling nor unproved infinite extrapolation is invoked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnston et al., arXiv:2309.10609, Theorem 1 and Propositions 1–2: asymptotic bounds, Appendix H: 10,000-game random samples.",
+        "Fabrikant et al. (2013), Lemma 5: the known weak-acyclicity implication.",
+        "Bosshard and Gärtner, arXiv:1704.08481, abstract: unique sink in every cube face is a different restriction."
+      ],
+      "reasoning": "The large-player probability bounds and simulation figures do not algebraically determine the full fixed-three-player joint table; a pure-equilibrium implication does not decide connectedness to each sink or super-connectedness to each non-source. Cube unique-sink-orientation results constrain faces and are not a dominating all-orientations classification. Publication priority is not guaranteed beyond the inspected materials.",
+      "searches": [
+        "\"Game Connectivity and Adaptive Dynamics\" finite exact enumeration three players two actions",
+        "\"2x2x2\" game \"super-connected\" connected acyclic",
+        "\"Counting Unique-Sink Orientations\" cube"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2309.10609v1 (initial publication verified 2023-09-19; full available v6 text inspected)",
+      "Fabrikant–Jaggard–Schapira (2013), complete relevant lemma read",
+      "arxiv:1704.08481 (unique-sink-orientation abstract, topic-distinct)",
+      "arxiv:math/9907078 (acyclic sink enumeration abstract, topic-distinct)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnston et al. (2023 v1, inspected in the available v6 full text): §3 Definitions 1–4, §4 asymptotics, Appendix H sampling.",
+        "Fabrikant et al. (2013), p.10, Lemma 5 and proof."
+      ],
+      "reasoning": "The 2013 lemma implies the all-equilibrium-orientations-are-weakly-acyclic component, and is expressly credited. Neither its result nor the asymptotic probability theorems entails a finite exact distribution over connected, super-connected, acyclic, and symmetry-orbit classes. The restrictions cyclic+equilibrium => connected and acyclic => not super-connected have independent Q3 proofs, not mere rewordings of the prior weak-acyclicity statement.",
+      "searches": [
+        "\"Game Connectivity and Adaptive Dynamics\" Appendix H simulations",
+        "\"On the Structure of Weakly Acyclic Games\" \"Lemma 5\"",
+        "\"game connectivity\" \"three players\" \"super-connected\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fabrikant–Jaggard–Schapira (2013), Lemma 5, weak acyclicity for strict 2x2x2 games with equilibrium.",
+        "Johnston–Savery–Scott–Tarbush (arXiv:2309.10609), §3 formal reachability definitions."
+      ],
+      "reasoning": "An arbitrary strict three-player binary game yields an arbitrary oriented Q3. Search terms covered this equivalent graph formulation as well as all four connectivity predicates. The weak-acylcity implication is fully prior; none of the located material yielded the exact joint counts or orbit partitions.",
+      "searches": [
+        "\"super-connected\" \"acyclic\" \"three\" \"game\" best response graph",
+        "\"cube\" \"orientation\" \"super-connected\" games",
+        "\"112\" \"nonisomorphic orientations\" \"cube\"",
+        "\"2492\" \"super-connected\" \"game\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Johnston et al., arXiv:2309.10609, Appendix H expressly describes random samples rather than exhaustive finite tables.",
+        "Gebhard and Sagan (1999), arXiv:math/9907078, abstract: acyclic orientations with specified sink counts are a separate marginal graph-enumeration topic."
+      ],
+      "reasoning": "The searched phrases did not locate an exact table containing the five joint class counts and the 48-automorphism orbit counts. Absence from search results does not prove priority; known acyclic-orientation counts or sink-count tables alone would not settle the combined claim.",
+      "searches": [
+        "\"2492\" \"384\" \"cube\" orientation game connectivity",
+        "\"4096\" \"super-connected\" \"connected\" game",
+        "\"112\" \"cube\" \"orientations\" 4096 automorphism",
+        "\"orientations of a cube\" \"112\""
+      ]
+    },
+    "rationale": "The 2013 Lemma 5 already establishes weak acyclicity given an equilibrium and is excluded as a novelty claim. The 2023 game-connectivity article establishes definitions and asymptotics but reports finite-size simulation rather than a complete exact three-cube joint table. Our inspected sources did not give the simultaneous five-row connectivity/superconnectivity/acyclicity census, the orbit distribution, or the two proved cube-specific exclusions. Unindexed equivalent graph-orientation tables remain a specific publication-priority risk.",
+    "residual_risks": [
+      "Graph-orientation enumeration papers or unindexed datasets might already contain the same complete five-class table; online search and inspected texts do not establish publication priority.",
+      "Some individual marginals (weak acyclicity, acyclic orientation counts, independent-set sink moments) are prior deductions; only the joint census, orbit stratification and combined cube-specific restrictions are assessed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides definitions and asymptotic theorems; Appendix H uses 10,000-game sampling for small games, not the stated exhaustive joint cube table",
+        "evidence": [
+          "§3 definitions of weakly acyclic, connected and super-connected",
+          "§4 large-player Theorem 1 and Propositions 1–2",
+          "Appendix H, sample-size and method descriptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.10609v6",
+        "material_read": "Sections 2–4 (definitions, main results and their scope), Appendix H and references",
+        "method": "Opened HTML full text and examined exact definitions, theorem statements and the numerical appendix",
+        "title": "Game Connectivity and Adaptive Dynamics",
+        "trigger": "Exact classes and small-game data in the initiating 2023 research"
+      },
+      {
+        "assessment": "Lemma 5 proves weak acyclicity when a pure equilibrium exists; it does not enumerate the five current connectivity classes or their symmetry orbits",
+        "evidence": [
+          "Lemma 5, strict 2x2x2 + pure equilibrium implies weak acyclicity",
+          "Lemma 2, local separation of nontrivial terminal components from a pure equilibrium"
+        ],
+        "identifier_or_url": "https://www.cs.yale.edu/homes/schapira/weakly-acyclic-full.pdf",
+        "material_read": "Summary table, Section 4 around Lemmas 2–5 and their proofs, especially PDF page 10",
+        "method": "Read extracted PDF text and directly inspected the relevant page image",
+        "title": "On the Structure of Weakly Acyclic Games",
+        "trigger": "Precise possible stronger coverage for 2x2x2 games with pure equilibrium"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2833bb8d-55a9-49ac-b729-417d3da80e5a",
+  "value": {
+    "rationale": "Finite three-player binary games are the first cubic action-profile graph, directly testing new game-connectivity notions beyond asymptotic predictions. The complete exact distribution determines 2492/3134 connected and 384/3134 super-connected probabilities conditional on equilibrium and classifies 112 symmetry types; the structural incompatibility of acyclicity with super-connectedness and the forced connectivity of cyclic equilibrium games are meaningful boundaries unavailable from weak-acyclicity alone. These are motivated natural invariants of the standard game class rather than arbitrary slices.",
+    "status": "PASS"
+  }
+}
