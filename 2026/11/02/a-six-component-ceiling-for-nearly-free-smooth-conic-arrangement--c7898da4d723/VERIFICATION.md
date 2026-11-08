@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The scientific argument is elementary after invoking the published nearly-free syzygy identities, Dimca--Sernesi lower bound, and Zieliński orbifold inequality, all stated with precise domains in RESULT.md. Exact symbolic elimination gives the necessary inequality \(271u+333n+462s\le2800k-458k(k-1)\). At \(k=8\) the right side is negative. At \(k=7\), all compatible nonnegative pairs \((u,n)\) fail the required residue identity.
+## correctness
 
-The independent verifier `verify_cutoff.py` is standard-library Python, requires no external input and inspects the finite, rigorously bounded weak-combinatorics integer cases at \(k=7,8\). Executing `python3 verify_cutoff.py` on the packaged file produced:
+PASS
 
-```
-k=7: certificate_rhs=364, preliminary_pairs=[(0, 0), (0, 1), (1, 0)], admissible_count=0
-k=8: certificate_rhs=-3248, preliminary_pairs=[], admissible_count=0
-CONIC_CEILING_EXACT_OK
-```
+Pokora bound k<=8 plus Dimca–Sernesi mdr>=5k/4−2 and near-free mdr<=k force mdr=k for k=7,8. Nearly-free tau and Bezout yield q=u+2v−n and 3u+5v=k(k−1)+n−s. Applying Zielinski orbifold BMY yields 271u+333n+462s<=2800k−458k(k−1). At k=8 RHS−3248; at k=7 RHS364 forces s=0 and only (u,n)=(0,0),(1,0),(0,1), each violating 3u+5v=42+n modulo5. Independently recomputed elimination and exhaustive necessary integer-count census, not geometric realizability.
 
-The enumeration is a secondary exact arithmetic check, not a computation over arbitrary geometric arrangements. No numerical sampling certifies the published foundational theorems; their stated hypotheses and formulas were examined in the primary full-text articles. No external independent audit has been performed.
+## originality
+
+PASS
+
+Pokora Remark 2.7 proves only k<=8 and identifies absence of known examples for k=5..8; Zielinski separately supplies the exact orbifold inequality. The present integer elimination of their distinct constraints excludes k=7 and8; checking claims by implication shows k<=8 alone does not force k<=6, while the 2026 plus-one-generated inequality is not the same decisive coefficient. Resultary conic-line arrangement is outside pure smooth-conic class.
+
+## value
+
+PASS
+
+Closes two explicitly open component-count possibilities in a natural classification problem, with an all-arrangement numerical obstruction and clear limitation: k=5,6 existence still unknown. This is more than a cheap arithmetic observation because it solves a motivated near-freeness exclusion using a nontrivial independent orbifold inequality and modular obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
