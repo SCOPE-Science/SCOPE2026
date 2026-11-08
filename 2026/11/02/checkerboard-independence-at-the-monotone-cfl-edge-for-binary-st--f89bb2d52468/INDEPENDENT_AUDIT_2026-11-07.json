@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The matrix B=(1-2h)I+hA_path is nonnegative for 0<h<=1/2 and positive Perron vector w_i=sin(pi i/(m+1)) has 0<rho=1-2h+2h cos(pi/(m+1))<1. Common-uniform coupling contracts weighted Hamming distance; finite-state existence, uniqueness, geometric convergence follow. At stationarity Es=0, C=BCB+D with diagonal D>=0; boundary D11>0. The positive path series Σ B^t D(B^t)^T proves all off-diagonal signs and parity zeros at h=1/2. Two-step transition kernel then splits by parity, and uniqueness for P² proves full block independence. For m=2 exact two-spin stationary moment q satisfies q=2h(1-2h)+((1-2h)^2+h^2)q, hence covariance formula. Independently computed 2-site Markov transition and stationary covariance at h=1/6,1/2,3/5 and checked endpoint case. These finite checks do not establish all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The infinite/error-control heat results are about numerical error norms; the quasi-stationary voter model is conditioned on survival and uses a complete bipartite graph, not finite Dirichlet heat reservoirs."
+        ],
+        "reasoning": "The broader Markov-chain contraction/covariance series tools apply as methods but do not supply this exact two-step parity factorization or two-cell h>1/2 continuation. Similar noisy-voter constructions may require additional priority inspection.",
+        "searches": [
+          "Croci Giles arxiv:2010.16225 section error estimates",
+          "Gastner arxiv:1502.02883 voter Ising constrained chain",
+          "Ben-Ari et al arxiv:2004.10187 complete bipartite quasi stationary"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2010.16225",
+        "https://arxiv.org/abs/2004.10187",
+        "https://arxiv.org/abs/1502.02883",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C=BCB+D and positivity require this chain conditional independence and boundary forcing; the h=1/2 two-step kernel product is stronger than pairwise covariance zeros."
+        ],
+        "reasoning": "The cited heat error estimates cannot be specialized to the fixed-binary stationary law merely by replacing machine epsilon; the very state-space and observables change.",
+        "searches": [
+          "arxiv:2010.16225 full stochastic floating-point heat paper",
+          "arxiv:2004.10187 voter quasi-stationary distributions",
+          "arxiv:1502.02883 constrained Ising model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Croci-Giles analyzes arithmetic floating-point stochastic rounding errors and convergence; the record concerns exact binary fixed-grid state updates, ergodic stationary parity-block factorization."
+        ],
+        "reasoning": "The same phrase stochastic rounding denotes two different stochastic numerical schemes. Stationary product of odd/even subconfigurations does not follow from conditionally uncorrelated rounding errors at a time step.",
+        "searches": [
+          "Resultary: independent Bernoulli rounding heat equation forward Euler binary grid stationary checkerboard bipartite independence correlation",
+          "Croci Giles 2022 stochastic heat equation rounding arxiv:2010.16225"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary hit about backward-Euler filtered Crank–Nicolson concerns deterministic lattice positivity, a different update and statistic."
+        ],
+        "reasoning": "No located numerical table lists these exact stationary binary-grid covariance signs; this is not proof of worldwide novelty.",
+        "searches": [
+          "Resultary stationary checkerboard stochastic heat binary rounding correlations",
+          "published exact m=2 stochastic rounding correlation (1-2h)/(2(4-5h))"
+        ]
+      },
+      "rationale": "The claimed object is a coarse fixed-binary lattice Bernoulli quantization, not IEEE stochastic rounding; Croci and Giles analyze floating-point heat-solver error propagation, not stationary joint binary laws. No located published specialist result gives this precise finite-reservoir block-independence and two-cell sign reversal. Synchronous noisy-voter similarities make broader covariance and sublattice factorization precedents a residual historical risk.",
+      "residual_risks": [
+        "Specialized noisy voter, probabilistic cellular automaton and sublattice-factorization results beyond inspected references might imply part of the endpoint law.",
+        "The theorem is for independently rounded ideal binary grid updates, not hardware stochastic rounding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ROUNDING_AND_OBSERVABLE",
+          "evidence": "Its stochastic floating-point arithmetic obtains numerical error bounds, not a stationary Bernoulli finite-state law or two-parity independence.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.16225",
+          "material_read": "Full accessible PDF, especially model definitions, arithmetic rounding assumptions, error estimates and conclusions",
+          "method": "Read PDF text and inspected rendered pages",
+          "title": "Effects of round-to-nearest and stochastic rounding in the numerical solution of the heat equation in low precision",
+          "trigger": "Same heat discretization and stochastic rounding phrase"
+        },
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_PROCESS",
+          "evidence": "Absorbing voter chain conditioned on nonabsorption on complete bipartite graphs, unlike ergodic finite path with half-valued reservoirs.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.10187",
+          "material_read": "Accessible introductory model and main theorem statements; not comprehensive full-document review",
+          "method": "Compare process graph, absorption and stationary versus quasi-stationary regimes",
+          "title": "Quasi-Stationary Distributions for the Voter Model on Complete Bipartite Graphs",
+          "trigger": "Potentially same bipartite Markov dependence"
+        },
+        {
+          "assessment": "NOT_SAME_MODEL",
+          "evidence": "No stationary rounded Bernoulli law in the stated positivity theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Resultary published title and mathematical summary only",
+          "method": "Contrast deterministic linear filters and random complete-step binary quantization",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+          "trigger": "Published SCOPE heat-lattice positivity match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The numerical-stability boundary h=1/2 acquires a nontrivial stochastic stationary independence structure and m=2 changes correlation sign while deterministic Euler is still spectrally stable. This is a meaningful structural contrast between monotone CFL positivity and numerical stochastic dependence, not a routine moment calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2010.16225",
+    "https://arxiv.org/abs/2004.10187",
+    "https://arxiv.org/abs/1502.02883",
+    "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+  ],
+  "disposition": "passed",
+  "final_claim": "For m>=2 interior sites with boundaries held at 1/2 and independent complete-step Bernoulli rounding of the heat Euler stencil, for 0<h<=1/2 the stationary law is unique, has Bernoulli(1/2) marginals and positive off-diagonal covariances except that at h=1/2 opposite-parity blocks are fully independent while within-block pairs remain positively correlated. In m=2 the model remains valid 0<h<2/3 with exact covariance (1-2h)/(2(4-5h)), negative beyond h=1/2.",
+  "limitations": [
+    "m>=2 with constant half reservoirs, 0<h<=1/2; only m=2 extends to 0<h<2/3.",
+    "No claim for IEEE stochastic rounding, correlated random streams or higher-dimensional PDE meshes."
+  ],
+  "residual_risks": [
+    "Specialized noisy voter, probabilistic cellular automaton and sublattice-factorization results beyond inspected references might imply part of the endpoint law.",
+    "The theorem is for independently rounded ideal binary grid updates, not hardware stochastic rounding."
+  ],
+  "schema_version": 1
+}
