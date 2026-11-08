@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For the exact labelled Kneser graph and single-vertex recolouring definitions, all 1,048,576 four-colour assignments were examined; every legal edge is generated and its reverse verified. All 12,960-source breadth-first searches certify connectivity, radius 13, diameter 14, 3,360/9,600 eccentricity split, 44,400 diametral unordered pairs and the full fourteen-distance vector. A second independently structured recursive-state and S5 x S4 orbit program reconstructs the 11 symmetry orbits, shell profiles, complete pair counts and an explicit 14-step shortest path. Both programs were executed and passed; finite exhaustiveness applies only to P=KG(5,2).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feghali--Johnson--Paulusma, arXiv:1501.05800, Theorem 2: at most one nontrivial component in Δ+1 colouring and a polynomial diameter bound.",
+        "Bonamy--Bousquet, arXiv:1302.3486: diameter/mixing estimates in terms of graph parameters, no sharp Petersen values."
+      ],
+      "reasoning": "The generic connectivity information already dominates the connectivity-only part; it is explicitly credited. Neither broad result supplies radius=13, exact diameter=14, 44,400 farthest pairs, or eleven eccentricity-orbit profiles; those remain the claimed contribution.",
+      "searches": [
+        "\"A Reconfigurations Analogue of Brooks' Theorem\" Petersen diameter",
+        "\"Recoloring bounded treewidth graphs\" Petersen metric",
+        "arxiv:1501.05800",
+        "arxiv:1302.3486"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/jgt.20514",
+      "arxiv:1302.3486",
+      "arxiv:1403.6347",
+      "arxiv:1501.05800",
+      "https://cameroncounts.wordpress.com/2012/04/12/counting-colourings-of-graphs/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Petersen chromatic counts imply only the number of legal vertices, not transitions.",
+        "General Δ+1 recolouring results imply a component bound and broad polynomial diameter, not an exact fourteen-move extremum.",
+        "The primary shortest-path study supplies general algorithmic framework, not the enumerated Petersen profiles."
+      ],
+      "reasoning": "This work narrows novelty to the exact labelled reconfiguration metric and symmetry strata. The weaker general connectivity claim is not treated as a new finding, and the new precise metric is neither a logical corollary of cited bounds nor a known-table substitution.",
+      "searches": [
+        "arxiv:1501.05800 Theorem 2 Δ+1 colouring components polynomial diameter",
+        "arxiv:1403.6347 shortest paths recolouring",
+        "\"Petersen graph\" \"coloring graph\" exact eccentricity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-vertex move equals the graph of homomorphisms P -> K4 restricted to changes at one vertex; also called the 4-colouring graph or recolouring graph.",
+        "Johnson et al. arXiv:1403.6347 treats shortest paths between graph colourings, but its inspected main results are algorithms/complexity statements, not the 12,960-state Petersen distance census."
+      ],
+      "reasoning": "Alternative naming and exact-parameter searches did not show an equivalent all-pairs metric theorem. Equal graph count or palette size alone does not imply the claimed diameter/eccentricities.",
+      "searches": [
+        "\"Petersen graph\" \"reconfiguration\" \"diameter\" \"4-colouring\"",
+        "\"Petersen graph\" \"recoloring graph\" \"14\"",
+        "\"Petersen graph\" \"colouring graph\" \"12960\"",
+        "arxiv:1403.6347"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "P. J. Cameron records proper-colouring counts 120 and 12960 without recolouring metric information.",
+        "The 11-orbit eccentricity counts and the fourteen-entry distance distribution were reconstructed by two distinct exhaustive algorithms rather than read from any known table."
+      ],
+      "reasoning": "Only the classical state counts were located in an exact published source; such enumeration does not determine any reconfiguration distances or antipode counts.",
+      "searches": [
+        "\"Petersen graph\" \"chromatic polynomial\" \"12960\"",
+        "\"Petersen\" \"recolouring\" \"distance distribution\"",
+        "\"Petersen\" \"recoloring\" \"44400\"",
+        "https://cameroncounts.wordpress.com/2012/04/12/counting-colourings-of-graphs/"
+      ]
+    },
+    "rationale": "The exact metric theorem is distinct from classical chromatic counts and from Feghali--Johnson--Paulusma's general Δ+1-colouring component/diameter bounds. Full primary texts inspected for the most relevant same-operation and broader theorems; no diameter 14, radius 13, eleven orbit eccentricity table, or all-pairs distance spectrum appears in the material checked. Targeted exact-parameter, aliases, equivalent-recolouring and broader-theory searches returned no decisive prior implication. Priority remains qualified by potentially unindexed computations, so PASS is best-knowledge rather than a mathematical uniqueness certificate.",
+    "residual_risks": [
+      "An unindexed, unpublished, differently named or later exact Petersen recolouring enumeration might contain the same metric; lack of an indexed match is not proof of historical priority.",
+      "The primary 2007 CDAM report has only month-level dated evidence, so the conservative first-public-date field uses the exact 2010-12-16 online date of its associated article.",
+      "This is not an independent human review; two computational implementations can share modelling assumptions, mitigated by explicit Kneser and move definitions and separately structured enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies three-colour path connectivity. Does not give the four-colour Petersen diameter, orbit eccentricities, or pair-distance distribution.",
+        "evidence": [
+          "CDAM research report LSE-CDAM-2007-31, December 2007 (month evidence only).",
+          "DOI 10.1002/jgt.20514; first published online 2010-12-16."
+        ],
+        "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf",
+        "material_read": "Research-report introduction, statement and proof of main connectivity criterion, section context and in-document occurrence searches for Petersen; bibliographic dating separately cross-checked with DOI online date.",
+        "method": "Read accessible primary PDF text and its opening page; examined relevant theorem statements and recolouring definitions.",
+        "title": "Finding Paths Between 3-Colourings",
+        "trigger": "Same recolouring operation and classical three-colour reachability setting; inspect possible coverage of Petersen and its four-colour metric."
+      },
+      {
+        "assessment": "Gives general upper bounds and mixing conditions. Their implications do not specify the exact finite radius, fourteen-step diameter, eleven orbit profiles or 44,400 diametral pairs.",
+        "evidence": [
+          "Initial submission arXiv:1302.3486, 2013-02-14; the inspected theorem statements are general parameter bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.3486",
+        "material_read": "Primary preprint PDF opening material, Theorems 1 and 2 and relevant discussion of Grundy number, treewidth and diameter estimates; searched Petersen occurrence.",
+        "method": "Read primary arXiv HTML, accessible full PDF passage and opening-page image.",
+        "title": "Recoloring bounded treewidth graphs",
+        "trigger": "Potential stronger generic theorem covering Petersen recolouring metric."
+      },
+      {
+        "assessment": "Algorithmic complexity and decidability for general graph-colouring reconfiguration, without the eleven-orbit or all-pairs distance census for this Petersen graph.",
+        "evidence": [
+          "Initial submission arXiv:1403.6347, 2014-03-25; the original shortest-path object matches but results are not this specific exact table."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.6347",
+        "material_read": "Introduction, definitions, central algorithmic and complexity results in primary PDF; searched Petersen occurrence.",
+        "method": "Read primary arXiv record and PDF opening page plus relevant theorem text.",
+        "title": "Finding Shortest Paths between Graph Colourings",
+        "trigger": "Direct treatment of shortest colouring paths may contain an equivalent exact metric."
+      },
+      {
+        "assessment": "The general Δ+1-colour theorem already establishes at most one nontrivial component (plus frozen configurations), and polynomial diameter; the present claim credits this and asserts only sharper exact finite metric and orbit counts. No stated theorem fixes the diameter at 14 or the counts.",
+        "evidence": [
+          "Initial submission arXiv:1501.05800, 2015-01-23.",
+          "Theorem 2: universal structural coverage with polynomial but not Petersen-specific exact distance bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.05800",
+        "material_read": "Primary preprint introduction, Theorem 2 and proof discussion, its component and diameter statements, and targeted search for Petersen.",
+        "method": "Read primary arXiv record and relevant PDF text and inspected opening-page image.",
+        "title": "A Reconfigurations Analogue of Brooks' Theorem and its Consequences",
+        "trigger": "Most decisive broader theorem on degree-plus-one colouring components; prevent rediscovery of known connectivity."
+      },
+      {
+        "assessment": "Confirms previously known 120 proper three-colourings and 12,960 four-colourings; these numbers explicitly excluded from novelty. No reconfiguration distances provided.",
+        "evidence": [
+          "Article dated 2012-04-12; Petersen chromatic evaluations 120 and 12960."
+        ],
+        "identifier_or_url": "https://cameroncounts.wordpress.com/2012/04/12/counting-colourings-of-graphs/",
+        "material_read": "Article and tabulated/quoted evaluations of the chromatic polynomial of the Petersen graph.",
+        "method": "Read public mathematical discussion with dated entry.",
+        "title": "Counting colourings of graphs",
+        "trigger": "Exact database/table duplication check for known chromatic counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83b04951-2d48-45e6-bbf1-d887dcc18901",
+  "value": {
+    "rationale": "The Petersen graph, a standard cubic girth-five graph, is the canonical benchmark at the chromatic-plus-one/degree-plus-one recolouring palette. General graph-recolouring theory covers connectivity and polynomial upper bounds but not these sharp distances. The exact radius, diameter, symmetry-stratified eccentricities and full pair-distance spectrum quantify intrinsic optimal transformation costs and furnish an independently reproducible model benchmark. This is a motivated natural complete finite metric classification, not a parameter substitution into a known formula; its value is local and no general-family theorem is claimed.",
+    "status": "PASS"
+  }
+}
