@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For each petal, the exponential metric infection exploration has independent holding times of exact rates i(k+1-i); two endpoint rates agree. Their exponential tilt yields the exact residue (k-1)^2 and mean 2k H_{k-2}/(k-1). Uniform lower bounds on all tilted rates and a bounded tilted variance give a uniform Chernoff bound, proving the stated rare-event expansion and Gumbel/marked-Poisson limits. The k=1 boundary is independently exact. A standalone finite checker confirms the algebra and examples; it is not used to justify the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leskelä--Ngo study sparse random degree-sequence graphs, require bounded degree moment and minimum degree at least three, and give leading logarithmic laws, not an exact root-specific Gumbel or marked PPP.",
+        "Mountford--Saliba study random configuration model with bounded (2+delta)-moment degree and first-order high-probability flooding asymptotics. A clique bouquet has a deterministic hub of degree mk and degree-moment divergence in the growing regimes.",
+        "Janson gives complete-graph flooding scales for one large clique, not unrestricted max over independent cliques.",
+        "Asimit--Jones Proposition 1 obtains standard Gumbel for a fixed PH absorption law with a repeated dominant eigenvalue, with norming b_n=(log(nc)+loglog n)/eta in the index-two case. This directly covers fixed k but no uniform error for k=k_m.",
+        "Asimit--Jones Proposition 1 obtains standard Gumbel for a fixed PH absorption law with a repeated dominant eigenvalue, with norming b_n=(log(nc)+loglog n)/eta in the index-two case. This directly covers fixed k but no uniform error for k=k_m."
+      ],
+      "reasoning": "Asimit--Jones is mathematically stronger than generic extreme-value theory for fixed k; that component is therefore known. Its proof fixes the phase-type subgenerator A and leading coefficient c, whereas here A and c=(k-1)^2 may vary with m without limit. The source does not establish uniform-in-dimension asymptotics or the designated independent uniform marks. The sparse random graph works remain inapplicable.",
+      "searches": [
+        "arxiv:1806.09568 Theorem 2.1, hypotheses (2.1)-(2.3), introduction and discussion",
+        "arxiv:1909.04563 Condition 1 and Theorem 3.1, sections 2-3",
+        "web: maxima phase-type triangular array distribution repeated slowest eigenvalue varying number phases uniform",
+        "doi:10.1017/S0963548399003892",
+        "Asimit--Jones (2007), Proposition 1, Equations (10)-(13), complete open-access manuscript https://openaccess.city.ac.uk/13144/1/Asimit_Jones_2006_revised.pdf",
+        "Asimit--Jones (2007), Proposition 1, Equations (10)-(13), complete open-access manuscript https://openaccess.city.ac.uk/13144/1/Asimit_Jones_2006_revised.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1806.09568",
+      "https://arxiv.org/pdf/1909.04563",
+      "https://www.stat.berkeley.edu/~aldous/260-FMIE/Papers/janson_123.pdf",
+      "https://openaccess.city.ac.uk/13144/1/Asimit_Jones_2006_revised.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first two papers use random sparse graph assumptions absent here and state first-order flooding scales; no sharp double-log correction or limiting marked point process is reported in the inspected theorems.",
+        "Janson (1999) considers complete graph shortest paths rather than maxima across arbitrary numbers of clique petals.",
+        "Asimit--Jones (2007) concerns componentwise maxima of iid multivariate phase-type vectors; its accessible abstract does not assert this exact growing-dimension hypoexponential triangular-array result.",
+        "The direct substitution of this petal PH law into Asimit--Jones Proposition 1 gives the claimed Gumbel centering whenever k is fixed; neither the remainder nor arbitrary k_m follows without additional uniform concentration.",
+        "The direct substitution of this petal PH law into Asimit--Jones Proposition 1 gives the claimed Gumbel centering whenever k is fixed; neither the remainder nor arbitrary k_m follows without additional uniform concentration."
+      ],
+      "reasoning": "The fixed-k limit is implied by Asimit--Jones Proposition 1 and is not an originality contribution. The formula here supplies uniformity for k_m→∞/oscillating and a quantitative second-order expansion, plus a marked PPP; the earlier PH asymptotic is not uniform in matrix dimension. The single-complete-graph Janson limit and random sparse network first-order results also do not imply that full claim.",
+      "searches": [
+        "arxiv:1806.09568 Theorem 2.1 and Section 3.1",
+        "arxiv:1909.04563 Theorem 3.1 and Condition 1",
+        "doi:10.1017/S0963548399003892 abstract and complete-graph results",
+        "web: extreme behavior of multivariate phase-type distributions Asimit Jones 2007",
+        "Asimit--Jones full text, Section 3 Proposition 1, formula (12), fixed PH matrix hypothesis",
+        "Asimit--Jones full text, Section 3 Proposition 1, formula (12), fixed PH matrix hypothesis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complete-graph single-petal exploration is classical (Janson 1999). Under the present law, the bouquet case becomes a maximum of iid, growing-order phase-type sums, not a single graph.",
+        "General Gumbel maxima require a verified triangular-array rare-event tail; they do not supply the specific uniform residue, exact centering and growing-size error by title alone.",
+        "Asimit--Jones (2007) Proposition 1 explicitly proves fixed-phase-type Gumbel centering with a log-log term for a double dominant pole, covering the fixed-k Gumbel component here.",
+        "Asimit--Jones (2007) Proposition 1 explicitly proves fixed-phase-type Gumbel centering with a log-log term for a double dominant pole, covering the fixed-k Gumbel component here."
+      ],
+      "reasoning": "A clique petal is a hypoexponential absorption time, so the fixed-k Gumbel assertion is an application of Asimit--Jones Proposition 1 and is not new. Their fixed-matrix result does not control triangular arrays in which k may grow arbitrarily and the phase-type dimension and pole residue vary. The current claim is the explicit k-uniform second-order tail with a fully marked extreme process.",
+      "searches": [
+        "research-index query: first-passage percolation friendship graph bouquets of cliques flooding time universal loglog Gumbel",
+        "web: first passage percolation bouquet of complete graphs extreme flooding times",
+        "web: maximum of iid hypoexponential random variables with repeated smallest rate Gumbel log log m"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest research-index topical hit describes dissociation polynomials of generalized windmills, a deterministic combinatorial invariant, not exponential flooding.",
+        "Accessible prior research records includes one SIR process on friendship graphs with recovery and a push-pull process on complete bipartite graphs, neither the same FPP claim.",
+        "No exact CDF table of the stated triangular-array law was identified in searched records."
+      ],
+      "reasoning": "No matching exact record or known table was found. A search miss is not proof of absence; source-level implications are evaluated in the other comparisons.",
+      "searches": [
+        "research-index query: maxima exponential weighted shortest-path radius windmill graph K1 join m copies complete graph k Poisson point process",
+        "research-index query: extremal flooding times for clique bouquets triangular array",
+        "prior findings: exact claims for first passage, flooding, petal, windmill, Gumbel"
+      ]
+    },
+    "rationale": "Full-text analysis found that Asimit and Jones (2007), Proposition 1, already covers the fixed-k Gumbel law and logarithmic-logarithmic centering for maxima of a phase-type variable with a repeated dominant eigenvalue. This covered fixed-k result is explicitly excluded from the novelty claim. Janson (1999) gives the underlying single-clique pure-birth and large-clique limit; Leskelä--Ngo and Mountford--Saliba study distinct sparse configuration models. No inspected source directly establishes the quantitative, k-uniform two-parameter triangular-array tail expansion with arbitrary k growth and endpoint-marked Poisson limit. Historical priority remains uncertain.",
+    "residual_risks": [
+      "General triangular-array phase-type extreme-value theorems not retrieved may imply the k-uniform statement after verifying additional hypotheses.",
+      "Semantic research-record searches and source coverage cannot certify global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in its theorem: random sparse graph with bounded degree moments and first-order flooding scales, no deterministic bouquet or centered point-process limit",
+        "evidence": [
+          "Theorem 2.1 conditions include bounded degree moment and minimum degree >=3.",
+          "Theorem 2.1 provides ratios to log n in probability, not Gumbel or exact second-order tails."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.09568",
+        "material_read": "Abstract, introduction, definitions, hypotheses (2.1)-(2.3), Theorem 2.1, Section 3.1, pages 1-5",
+        "method": "Open accessible arXiv full-text PDF, inspect extracted pages and rendered theorem page",
+        "title": "First passage percolation on sparse random graphs with boundary weights",
+        "trigger": "Shared exponential first-passage flooding and primary middle-period source"
+      },
+      {
+        "assessment": "NOT_COVERING in its stated model and assumptions: random configuration graph with finite higher degree moments, not fixed clique bouquet",
+        "evidence": [
+          "Condition 1 requires degree moment uniformity and minimum degree >=3.",
+          "The paper studies first-order flooding and diameter in configuration models."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1909.04563",
+        "material_read": "Abstract, introduction, Condition 1, graph exploration setup, Theorem 3.1 introduction, pages 1-4",
+        "method": "Open accessible arXiv full-text PDF and inspect rendered assumptions and theorem introductory pages",
+        "title": "Flooding and Diameter in General Weighted Random Graphs",
+        "trigger": "Plausible general flooding theorem with exponential-tail weights"
+      },
+      {
+        "assessment": "COVERING the single-petal exponential exploration and large-k limit; NOT_COVERING arbitrary-k bouquet maxima, uniform second-order tail or the marked PPP",
+        "evidence": [
+          "Theorem 1(ii) gives single-complete-graph root-flooding scale 2log n/n.",
+          "Section 2 computes the exact independent Exp(i(n-i)) waiting times.",
+          "Theorem 4(ii) gives the limiting distribution of nY_i-2log n at one large clique."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003892",
+        "material_read": "Full lawful manuscript: introduction and Theorems 1-4, especially Section 2 independent exponential infection increments, Section 3 large-n flooding distribution",
+        "method": "Read full open-access author manuscript at the Berkeley probability archive, including exact infection sum and Section 3 asymptotic distribution; inspected rendered pages",
+        "title": "One, Two and Three Times log n/n for Paths in a Complete Graph with Random Weights",
+        "trigger": "Direct source for the within-clique part of exponential flooding"
+      },
+      {
+        "assessment": "COVERING the fixed-k Gumbel specialization and log-log correction; NOT_COVERING the k-uniform second-order triangular-array estimate or the endpoint-marked point process",
+        "evidence": [
+          "Proposition 1 formula (12) explicitly supplies Gumbel centering with loglog n for fixed index-two PH law.",
+          "The proof of Proposition 1 uses n→∞ for a single, fixed matrix and constant pole coefficient c; no quantification uniform as the matrix dimension grows."
+        ],
+        "identifier_or_url": "https://openaccess.city.ac.uk/id/eprint/13144/",
+        "material_read": "Full lawful author accepted manuscript, Sections 1-3 including phase-type absorption matrices, dominant-eigenvalue index and Proposition 1 (Equations (10)-(13)); Section 4 multivariate setup",
+        "method": "Read open-access accepted PDF and inspected the rendered page containing Proposition 1",
+        "title": "Extreme behavior of multivariate phase-type distributions",
+        "trigger": "Possible generic maxima theorem that could dominate a phase-type special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b38bb38e-62e1-4b61-881e-19a80759d5e9",
+  "value": {
+    "rationale": "A clique bouquet gives a natural hub-starting first-passage flooding reliability observable. The double-log term for fixed clique size is already a phase-type extreme-value result (Asimit--Jones), so value here rests on a nontrivial uniform extension across *arbitrarily large or oscillating* clique size: an explicit quantitative survival-tail correction with k-independent error and a marked Poisson point process. Uniformity matters because neither a fixed-phase-type limit nor the single-clique limit handles jointly growing populations and petal sizes. The one-edge star boundary cleanly distinguishes one from two tied bottlenecks.",
+    "status": "PASS"
+  }
+}
