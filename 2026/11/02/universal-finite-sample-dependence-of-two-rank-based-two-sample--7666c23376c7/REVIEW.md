@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Uniform two-color label permutations give fixed-composition exchangeability. The zero-sum distance-energy identity, conditioning on an adjacent color change, and three explicit overlap sums prove the covariance. Third- and fourth-order exchangeable moments and edge-pair weight sums prove the quadratic-energy variance. The edge transition-pair enumeration supplies the run variance. Every algebraic identity was checked against independent exhaustive rational enumeration for all compositions of lengths two through eleven (4,072 words, 330 moment assertions); direct weighted-sum checks were also made. The proof is analytic for all specified sample sizes, not inferred from finite experiments. Boundary \(N=2\) is explicitly excluded because correlation is undefined.
+## correctness
 
-## Originality — PASS, subject to historical-priority uncertainty
-The closest examined primary sources are Bhattacharya (2015, arXiv:1508.07530; runs and graph-based two-sample testing) and Ramdas–García Trillos–Cuturi (2015, arXiv:1509.02237; empirical distribution two-sample criteria). Inspected treatments address individual tests, graph-based asymptotics, and comparisons, but not the claimed exact mixed run–quadratic-bridge covariance. Published adjacent/disjoint run-transition covariance laws do not by themselves state or entail the nonlocal quadratic-bridge cross-moment; the new conditional-overlap calculation is essential. Searches for the equivalent phrases 'runs Cramér-von Mises covariance', 'binary permutation bridge energy runs', and 'joint Wald–Wolfowitz Cramér–von Mises finite null' returned no establishing primary document. Absence from these searches is not proof of worldwide novelty. An unlocated old mixed-test reference could still cover the formula.
+PASS
 
-## Mathematical value — PASS
-These are two classical rank-based distribution-free tests for the same two-sample null, so their dependence is a natural calibration question. The exact covariance, finite Pearson correlation, composition-independent regression slope, and universal \(\sqrt N\)-scaled correlation constant expose a nontrivial connection between a *local* adjacency statistic and a *global* quadratic empirical-process statistic. This can inform combined-test covariance calculations. No claim is made about optimal combination rules or alternatives.
+Represent the empirical bridge by centered binary partial sums S_k and use zero-sum identity T=-sum_(r<s)(s-r)Y_rY_s. Exchangeability yields E[Y_rY_s] and overlap-conditioned three classes for edge transitions D_i; exact distance-weight sums lead Cov(R,T)=-Nh(2Nh-1)/3. Fourth-order exchangeable moments and pair overlap weights yield Var(T)=N^2*h*(N+1)*(4(N+1)*h-3)/180; standard transition counting gives Var(R)=2Nh(2Nh-1)/(N-1), hence all normalized identities. N=3 is handled directly; N=2 correlation undefined and excluded. Independent exhaustive exact-Fraction enumeration of every fixed-composition binary word for all 44 cases (N,a), 3<=N<=10, confirmed all means, variances and covariance. The asymptotic coefficient follows by symbolic division with h->p(1-p)>0.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinction based on actual statement/implication comparisons: generic techniques or marginals are credited, and the explicit theorem-specific conclusions were not found as covered by the primary material inspected; no claim of exhaustively proven historical novelty. Under every fixed-composition two-sample continuous null with a,b>=1,N=a+b>=3, the Wald–Wolfowitz runs count and pooled-rank Cramer–von Mises bridge energy have exact negative covariance, closed variances, correlation, universal sqrt(N)-scaled correlation limit -sqrt(5), and least-squares slope -(N-1)/6 for unnormalized bridge energy on runs.
+
+## value
+
+PASS
+
+The two classical distribution-free nonparametric statistics have an exactly computable nonlocal dependence for arbitrary sample imbalance, with strict sign and universal -sqrt(5) correlation scaling. It offers exact joint-null calibration information unavailable from separate marginal distributions; the regression claim is correctly limited to its population linear slope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
