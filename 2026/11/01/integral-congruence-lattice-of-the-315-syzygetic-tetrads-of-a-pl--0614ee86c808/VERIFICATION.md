@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-`VERIFY.py` uses only the Python 3 standard library and exact integer arithmetic. It reconstructs all 28 odd theta coordinates and enumerates all \(315\) XOR-zero four-sets. It checks that each coordinate occurs in \(45\) tetrads and every unordered pair occurs in \(5\) tetrads, as predicted by the classical design. It verifies that the augmented binary rank is \(7\), which makes the congruence map onto \(\mathbb Z/4\mathbb Z\oplus\mathbb F_2^6\) surjective after an even-vector adjustment.
+## correctness
 
-The file then selects the \(28\) columns by the precise zero-based indices in `RESULT.md` and applies fraction-free Bareiss elimination to their integer incidence matrix, asserting exact determinant \(-256\). The index equality follows by algebra from these two certificates and generator containment. A successful invocation prints `VERIFY_OK`.
+PASS
 
-The finite exhaustive enumeration is of the *complete* 28/315 incidence configuration, not a bounded search over possible lattice coefficients. Historical novelty remains qualified; this verifier does not independently audit authorship, priority, or the classical theta-to-bitangent geometric identification.
+For smooth nonhyperelliptic genus-three curves over an algebraically closed field of characteristic not 2, the 28 odd theta characteristics are q(v)=1 in F2^6; syzygetic tetrads are exactly distinct XOR-zero four-subsets. Independent enumeration yields precisely 315 tetrads; every incidence column obeys total coefficient ≡0 mod4 and vector sum=0 mod2. The augmented binary rank 7 establishes surjectivity to Z/4+(Z/2)^6 (correct total lift by 2e_v). A specifically selected 28×28 submatrix has exact integer determinant -256 in independent SymPy computation, so the generated lattice has index ≤256 and hence equals the congruence kernel of index 256. It has Smith factors 1^21,2^6,4. The finite enumeration is of the complete incidence system; the infinite integer-lattice equality follows by the index sandwich, not bounded coefficients.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: exact theorem/implication compared against the stated accessible primary work and semantic published-finding records. Inaccessible plausible literature is identified as risk rather than assumed not covering.
+
+## value
+
+PASS
+
+Determining the actual integral incidence module, all congruence membership conditions and Smith cokernel of the canonical 315-tetrad bitangent configuration is a natural invariant beyond the already known design parameters. The exact index witness makes the answer usable for subsequent integral-lattice calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

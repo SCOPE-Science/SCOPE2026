@@ -1,15 +1,21 @@
-# Scientific review: integral syzygetic-tetrad incidence lattice
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is specified over an algebraically closed field of characteristic distinct from two, with theta coordinates and the definition of the full integer incidence lattice. A syzygetic tetrad is an affine isotropic plane of four odd vectors; polarization proves that the four-sum condition is equivalent to isotropy. All 315 sets are enumerated without omissions by choosing four out of 28 and imposing XOR zero. Every generator lies in the kernel of the seven congruence conditions. The augmented binary column rank is seven; adding an even basis vector corrects any fourth-order total lift, so the congruence kernel has index 256. The explicitly indexed integer 28-by-28 witness has determinant -256 by an exact, reproducible, fraction-free algorithm. The upper and lower index bounds coincide. The finite certificate establishes the integer lattice theorem for all integral combinations, not merely experimental evidence for a small coefficient range.
+## correctness
 
-## Originality — PASS, qualified
-Manivel's 2005 paper and Bergvall's syzygetic-tetrad section determine the geometric objects and their number. Crnković–Mikulić Crnković (2011) constructs the corresponding 2-(28,4,5) design and its group action; this is the closest direct incidence prior. The new claim is *not* the design, its parameters, theta encoding, or rational rank: it is its exact integral span, membership criterion, and Smith cokernel. Searches of available publications and the mathematical finding database under syzygetic tetrad, 315 blocks, bitangent, Smith normal form, lattice and 2-(28,4,5) did not uncover an equivalent integral statement. Two accessible preceding calculations on the same 28 bitangents involve 63 twelve-member Steiner complexes (with distinct Smith invariants) and 288 seven-member Aronhold heptads (index seven). Neither statement determines the integral span of these 315 four-member syzygetic tetrads; their block classes and lattice groups differ. Residual risk: a historical coding-theory treatment of this precise design may contain the same integral invariants, and not every potentially relevant older monograph was inspected end to end.
+PASS
 
-## Mathematical value — PASS
-Syzygetic tetrads are a distinguished incidence configuration on the 28 geometric bitangents. Computing the exact formal integral span resolves the natural reconstruction problem: which combinations of individual bitangents can be obtained integrally from the conic tetrads? The answer is complete, exposes a genuine order-four obstruction alongside six independent order-two obstructions, and is stronger than the known block counts or rational incidence properties. No downstream theorem about divisor classes is claimed or needed for this finite but structurally motivated algebraic-geometric invariant.
+For smooth nonhyperelliptic genus-three curves over an algebraically closed field of characteristic not 2, the 28 odd theta characteristics are q(v)=1 in F2^6; syzygetic tetrads are exactly distinct XOR-zero four-subsets. Independent enumeration yields precisely 315 tetrads; every incidence column obeys total coefficient ≡0 mod4 and vector sum=0 mod2. The augmented binary rank 7 establishes surjectivity to Z/4+(Z/2)^6 (correct total lift by 2e_v). A specifically selected 28×28 submatrix has exact integer determinant -256 in independent SymPy computation, so the generated lattice has index ≤256 and hence equals the congruence kernel of index 256. It has Smith factors 1^21,2^6,4. The finite enumeration is of the complete incidence system; the infinite integer-lattice equality follows by the index sandwich, not bounded coefficients.
 
-## Sources and limitations
-Relevant materials inspected: Manivel (arXiv:math/0507118v1), relevant E7/bitangent sections; Bergvall's open preprint syzygetic-tetrad section and later published article section; and the full-text 2011 Crnković–Mikulić Crnković paper, especially its Sp(6,2) design and Table 4. The claim remains unaudited independently and depends on the classical theta-characteristic correspondence. The residue of historical-priority uncertainty is explicitly disclosed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: exact theorem/implication compared against the stated accessible primary work and semantic published-finding records. Inaccessible plausible literature is identified as risk rather than assumed not covering.
+
+## value
+
+PASS
+
+Determining the actual integral incidence module, all congruence membership conditions and Smith cokernel of the canonical 315-tetrad bitangent configuration is a natural invariant beyond the already known design parameters. The exact index witness makes the answer usable for subsequent integral-lattice calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
