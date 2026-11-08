@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient ring, collision convention, automorphism action, and homology degree are explicit. The reduced Świątkowski theorem identifies the graph-configuration homology. Integer chain compositions vanish exactly. Ranks over the prime field with three elements give lower bounds; these are matched by dimension and a six-dimensional surjection from particle cycles to graph cycles, avoiding the invalid inference that finite-field equality alone proves rational rank equality. A signed oriented-edge character determines degree one. Two independent chain-Lefschetz computations match on all seven conjugacy classes; exact character orthogonality gives the degree-two decomposition. The checker is standalone; it is not independent mathematical certification.
+PASS
 
-## Originality — PASS, with risks
+The Petersen graph is KG(5,2), with 10 vertices/15 edges, and the weight-three reduced Świątkowski model has chain ranks (680,2400,2700,960), which I independently verified by its basis formula. I read the entire supplied verification code: it constructs oriented integer boundaries, checks both ∂² identities, and calculates ranks (679,1715,960) modulo 3,5,7 and (679,1714,960) modulo 2. Modular ranks are only lower bounds for rational rank. The proof supplies upper bounds for ∂1 by augmentation, ∂3 by its 960-column dimension, and ∂2 from the equivariant total-motion map onto H1(P;Q) of dimension 6: two parked particles permit representatives of twelve Petersen five-cycles, whose graph cycles span rank 6. Hence the rational ranks are exact. Signed chain Lefschetz traces for all seven S5 classes, cross-checked against the independent orbit-product formula, give H2 character (25,-3,1,-2,0,1,0). Murnaghan–Nakayama inner products produce the claimed Specht multiplicities; averaging rational chains under the finite group proves the quotient-homology assertion. This is not an inference of integral torsion from finite fields. The code was inspected but complete large matrix ranks were not independently re-executed.
 
-Ko–Park (2011) addresses graph-braid first homology; An–Drummond-Cole–Knudsen supplies the chain model; Maciążek–Sawicki (2019) discusses Petersen-family higher-homology ranks and torsion. These do not, in their inspected relevant passages, state the complete natural symmetric-group character in degree two for three particles. The closest previously available same-graph equivariant statement concerns **two** particles, hence cannot imply the stated three-particle character without an additional theorem. The 2019 table body was not fully available as extractable text, so the scalar rank is deliberately not asserted as a new numerical invariant. Residual risk: an equivalent character calculation could occur in unindexed work or a portion of relevant literature not checked.
+## originality
 
-## Value — PASS
+PASS
 
-The Petersen graph is a canonical 3-connected symmetric nonplanar graph. Its three-particle space has a 25-dimensional second homology, and the full irreducible symmetry structure is not determined by that rank, nor by known first-homology formulas. The decomposition gives the exact action of every graph automorphism and proves that the full-symmetry configuration quotient is rationally acyclic, a natural qualitative topological distinction relevant to identifying globally symmetric motion cycles.
+The related published Petersen two-particle S5 module refers to B2(P), not B3(P); separate graph cut complexes are different functors. Ko–Park characterize graph braid H1, not this three-particle H2 symmetry character. Maciążek–Sawicki 2019 gives nonequivariant Petersen-family homology and higher graph configurations but not the seven-class S5 character for B3(P) in the inspected article sections/table. Betti numbers alone are not claimed as new. Exact three-particle rational degree-two S5 decomposition and absence of invariants remain a motivated, best-of-knowledge symmetry refinement.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The full automorphism action on three-particle Petersen configuration homology is a natural equivariant invariant with a clear application to B3(P)/S5; the 25-dimensional H2 symmetry decomposes into four Specht types and has zero invariants. The distinct particle number makes this nontrivial beyond known two-particle and graph-H1 calculations; it provides a concrete test case for equivariant graph-configuration theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
