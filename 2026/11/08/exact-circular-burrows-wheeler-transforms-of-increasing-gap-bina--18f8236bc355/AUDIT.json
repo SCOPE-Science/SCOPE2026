@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Cyclic rotations are distinct by unique maximal zero gap. For each t, rotations 0^t1 index exactly gaps g_j>=t, sorting by the unique following circular gap g_{j+1}; this fixes each BWT letter as 1 iff t=g_j. Descending t-buckets and the separate one-starting rows yield zero counts d_k-1, (k-j+1)d_j, k*d1 and a final zero. Direct independent BWT sorting passes 21,840 exhaustive difference vectors and 17 radix-prefix cases. Counts match the word length and ones; no finite test is substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 18 states polynomial-gap r asymptotics, and its proof gives a particular r=2i count (plus the linear-gap boundary).",
+        "Frosini et al. study O(log n) and Theta(log n) bounds for morphic prefixes."
+      ],
+      "reasoning": "Neither r asymptotics nor special polynomial exact run counts dominate the individual all-gap-vector BWT symbols. The underlying bucket-order observation is credited and reused, but the current parameterization and complete output have separate unclaimed content.",
+      "searches": [
+        "Full text: https://link.springer.com/article/10.1007/s00224-024-10212-9 Section 4 Proposition 18",
+        "Full text: https://arxiv.org/abs/2202.02609",
+        "Mathematical research index query: exact increasing zero gaps Burrows Wheeler formula"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2202.02609",
+      "https://arxiv.org/abs/2404.10426",
+      "https://link.springer.com/article/10.1007/s00224-024-10212-9",
+      "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+      "https://flore.unifi.it/retrieve/e398c380-dd2e-179a-e053-3705fe0a4cff/BWT-morphism_%20Last.pdf",
+      "Public mathematical research records: search strings documented above",
+      "Accessible prior mathematical claim summaries, checked for substantive equivalence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest predecessor counts BWT runs for j^h zero gaps, stating a sorting principle but not arbitrary-gap run lengths.",
+        "The present conclusion fixes every zero-run exponent by the difference vector; knowing 2i runs alone cannot recover these exponents."
+      ],
+      "reasoning": "The published proposition supplies a useful mechanism and a special count, so the same polynomial-subfamily count is covered and expressly excluded from novelty. A proof of the full statement requires classifying every t-bucket including the terminal marker and deriving all multiplicities; neither the general formula nor the phase transition is stated as a published implication of the result inspected.",
+      "searches": [
+        "Full text: https://link.springer.com/article/10.1007/s00224-024-10212-9 Proposition 18",
+        "Full text: https://arxiv.org/abs/2404.10426 Section 4",
+        "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+        "https://arxiv.org/abs/2202.02609"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Giuliani et al. Proposition 18 concerns the number of BWT runs for polynomial gaps, not the complete RLE for all vectors.",
+        "Nearest indexed records about automatic words concern string attractors, not BWT-output formulas."
+      ],
+      "reasoning": "A complete last-column word implies every run length and hence the total count; the converse from a count or asymptotic theorem does not recover the last column. The arbitrary gap vector has no fixed polynomial parameter, and its adjacent-one boundary differs from the cyclic polynomial-gap examples.",
+      "searches": [
+        "Mathematical research index query: Burrows-Wheeler transform number of runs of sparse binary power of radix markers automatic words",
+        "Mathematical research index query: Burrows Wheeler transform cyclic rotations powers of two sparse indicator bwt-runs",
+        "Mathematical research index query: An exact Burrows Wheeler transform formula for binary words 1 0^g1 1 0^g2 ... 1 0^gk 1 with strictly increasing zero gaps, including BWT run lengths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic search returned unrelated automata, attractors, and subsequence findings, with no table or complete BWT RLE of increasing-gap words.",
+        "Earlier accessible mathematical claims discussed automatic-word attractors, radix-marker parsing and subsequences, not the complete BWT formula."
+      ],
+      "reasoning": "No exact cited table was found matching the all-gap bivariate output; absence of an indexed record does not certify uniqueness. The formula is an infinite class rather than an isolated precomputed table.",
+      "searches": [
+        "Mathematical research index query: Burrows Wheeler transform of lacunary power position indicator words with ones at b^j - 1 and exact 2(k+1) runs",
+        "Mathematical research index query: Circular BWT of sparse words with strictly increasing run lengths 1 0^{g1} 1 0^{g2} ..."
+      ]
+    },
+    "rationale": "Full accessible primary text of Giuliani et al. Proposition 18 provides polynomial-gap run-count examples and a next-gap ordering argument, but not an explicit complete circular BWT formula for an arbitrary strictly increasing integer gap vector; Frosini et al. give growth bounds and Fici et al. other morphic effects. The claim is a strictly broader exact output description and a sharp last-increment phase boundary, not a recycled specialized run count. Searches cannot exclude unindexed generalizations.",
+    "residual_risks": [
+      "The elementary ordering observation in Giuliani et al. might be extended in unpublished literature to a full arbitrary-gap formula; an unindexed equivalent is possible.",
+      "The present claim is a full RLE theorem, not novel polynomial-gap run-count bounds, so any stronger known full-output lemma would supersede it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSE_ANTECEDENT_NOT_DOMINATING",
+        "evidence": [
+          "Proposition 18 constructs w_{i,h}=product_j a b^{j^h}, proves r=Theta(i), and derives r=2i in degree at least 2; for degree 1 gives an output example. It does not give the arbitrary-gap full RLE."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-024-10212-9",
+        "material_read": "Open-access complete article, Section 4 Proposition 18 and proof, Introduction and immediately neighboring statements",
+        "method": "Full article HTML with exact in-page text and proposition inspection",
+        "title": "Bit Catastrophes for the Burrows-Wheeler Transform",
+        "trigger": "Polynomial-gap BWT-run result with same rotation-ordering mechanism"
+      },
+      {
+        "assessment": "CLOSE_RELATED_PREPRINT",
+        "evidence": [
+          "First public date 2024-04-16; preprint researches bit catastrophes and BWT run sensitivity. Related 2025 journal Proposition 18 is the closest documented result."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.10426",
+        "material_read": "Abstract and introductory sections of accessible arXiv HTML; detailed related Proposition 18 inspected in full 2025 journal text",
+        "method": "Open-access arXiv HTML inspection",
+        "title": "Bit catastrophes for the Burrows-Wheeler Transform (preprint)",
+        "trigger": "Earliest public version of closest journal source"
+      },
+      {
+        "assessment": "RELATED_BOUNDS_NOT_COVERING",
+        "evidence": [
+          "Proves O(log n) BWT runs for purely morphic binary finite words and Theta(log n) for a class; no arbitrary strict-gap full output theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+        "material_read": "Complete accessible arXiv HTML including introduction, definitions, main structural arguments; PDF pages inspected visually",
+        "method": "Read HTML and inspected PDF page images",
+        "title": "Logarithmic Equal-Letter Runs for BWT of Purely Morphic Words",
+        "trigger": "Guiding BWT complexity paper for binary morphic words"
+      },
+      {
+        "assessment": "RELATED_MORPHIC_RESULTS_NOT_COVERING",
+        "evidence": [
+          "Studies how morphisms alter BWT runs rather than prescribing full transforms for all strictly increasing gaps."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+        "material_read": "Complete open-access conference PDF including methods and examples; a PDF page was inspected visually",
+        "method": "Read PDF and visual page inspection",
+        "title": "On the Impact of Morphisms on BWT-Runs",
+        "trigger": "Related exact BWT-run transformations"
+      },
+      {
+        "assessment": "OTHER_MORPHIC_FAMILIES",
+        "evidence": [
+          "Analyzes BWT of morphic (e.g. Fibonacci/Thue-Morse) words rather than arbitrary increasing zero gaps."
+        ],
+        "identifier_or_url": "https://flore.unifi.it/retrieve/e398c380-dd2e-179a-e053-3705fe0a4cff/BWT-morphism_%20Last.pdf",
+        "material_read": "Accessible full paper with visual PDF page inspection",
+        "method": "Full OA PDF reading and page screenshot",
+        "title": "Burrows-Wheeler Transform of Words Defined by Morphisms",
+        "trigger": "Earlier exact results for morphically generated words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "18f8236b-c355-43cc-a081-246d3a793c16",
+  "value": {
+    "rationale": "A complete transform on an unrestricted increasing-gap class is a natural, reusable exact output result: the O(k) run-length representation avoids constructing an arbitrarily long word; the one-unit gap threshold changes the BWT run count from 2k to 2k+2; sparse radix-power prefixes form a motivated specialization. This yields new information not implied by preceding special-case run-count tables.",
+    "status": "PASS"
+  }
+}

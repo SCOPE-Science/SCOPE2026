@@ -1,0 +1,11 @@
+# Scientific self-review
+
+**Correctness — PASS.** The proof uniquely orders each cyclic-rotation bucket by the length of its next zero run, reconstructs the complete output including the one-starting final rows, and counts all zero stretches with exact boundary conditions. No unproved structural lemma is assumed. Exhaustive comparison of 21,840 strict gap increment vectors and 17 radix-marker instances passed against a directly sorted full-rotation implementation.
+
+**Originality — PASS, qualified.** Frosini et al. (2022) prove BWT-run growth bounds and Fici et al. (2023) analyze morphic effects. The materially closest result is Giuliani et al., *Bit Catastrophes for the Burrows–Wheeler Transform* (2024 preprint, 2025 journal), Section 4 Proposition 18, which treats increasing polynomial gaps and derives run counts; its ordering observation is explicitly credited. The current statement computes all BWT symbols and run lengths for an arbitrary strictly increasing integer gap vector with adjacent endpoint markers, rather than reproducing the specialized run-count result. Searches of the relevant public full texts, semantic research record, and previously recorded mathematical claims did not identify an exact dominating formula. An unindexed equivalent/generalization remains a residual risk; absence of search hits is not proof of novelty.
+
+**Value — PASS.** The problem is a natural exact compression/indexing invariant, not an arbitrary finite slice: the theorem computes the full transform on an infinite variable-dimensional class with unrestricted gap differences in time proportional to the compact input vector, and isolates a sharp one-unit transition in the run count. It specializes naturally to the sparse radix-power indicator prefixes. The simple ordering mechanism is a feature of the structural classification, not merely a numerical recomputation.
+
+**Limitations.** The theorem is specifically about circular no-sentinel BWT, strictly increasing positive gaps, and the indicated end boundary. It is not a general theorem for arbitrary words or transformations with sentinel. Finite verifier runs are supplemental to the proof.
+
+Self-review: passed. Independent audit: not yet performed.
