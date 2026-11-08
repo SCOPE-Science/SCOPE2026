@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified for a unit-interval diffusion, and nondimensionalization restores general interval length and diffusivity. The local-time normalization gives \(\mathbb E L_d=d\) and the exact second moment \(2\int_0^d(d-s)H_s(0,0)\,ds\). The Neumann heat-kernel bound yields \(\mathbb E L_d^2\le3d^{3/2}\); Cauchy–Schwarz then gives the lower pulse-removal envelope \(kd/(1+3k\sqrt d)\), while a reflection-principle hit bound supplies the upper envelope. Uniformly positive Neumann heat kernels during every gap sandwich each conditional removal probability between constants times the isolated-pulse probability. Elementary infinite-product analysis then proves the necessary-and-sufficient survival series, not merely a sufficient condition. The independent half-line Robin boundary calculation gives the short-pulse crossover; a right-endpoint excursion requires an exponentially unlikely round-trip. The standalone verifier reproduces 254 finite numerical/algebraic checks but is not the source of the infinite-horizon proof.
+PASS
 
-## Originality — PASS, qualified
+PASS. Reconstructed reflected Brownian motion with generator D dxx, uniform initial position, Robin boundary rate kappa_n during windows delta_n<=min(T/4,L^2/(4D)), fixed period and positive free-reflection mixing gaps. In dimensionless form the pulse removal p(d,k)=E[1-exp(-k L_d)] has mean local time E L_d=d and second moment 2 int_0^d(d-s)H_s(0,0)ds<=3d^(3/2); Cauchy-Schwarz gives p>=kd/(1+3k sqrt d)>=1/4 min(kd,sqrt d). Reflection-principle boundary hitting and 1-exp(-x)<=x give p<=4 min(kd,sqrt d). Every inter-pulse reflecting heat kernel for gap g>=g0>0 has uniform positive lower and finite upper density bounds, so conditional pulse loss lies between m p_n and M p_n. Positivity of the infinite survival product is equivalent to summability of p_n, producing the sharp iff sum min(kappa_n delta_n/L,sqrt(D delta_n)/L)<infinity; rescaling checked. For one pulse the half-line Robin boundary transform yields F(z)=2/sqrt(pi)-(1-exp(z^2)erfc(z))/z; Gaussian round-trip estimates give uniform exponentially small finite-interval correction as stated. Independent Robin-Neumann spectral series versus half-line erfcx on five (duration,rate) pairs found agreement at short pulses and verified finite envelope; this numerical work does not prove the all-sequence theorem. The power-law criterion is exact exponent algebra p<=2 and q>=p-1.
 
-Grebenkov and Ye (arXiv:2610.23017, publicly posted 2026-10-16) provide the weighted boundary-local-time formulation, discuss piecewise-constant reactivities, and analyze smooth time dependence through adiabatic approximations. Their finite-integrated-reactivity implication is not the equivalence for shrinking finite-rate pulses: these regimes need not have small reaction rate, and pulse width separately caps exposure. Grebenkov (arXiv:1909.07677) studies local-time distribution and constant reactivity; Bressloff (arXiv:2205.13985) studies *randomly* switching reactive states. Guillaume (doi:10.3390/appliedmath4030058) studies a finite-time intermittent *perfect* barrier; only its abstract could be inspected. Comparison against retrieved research records identified no statement whose hypotheses entail the sharp pulse series. This is a best-knowledge comparison, not a uniqueness proof. Residual risk: a general parabolic potential/capacity or dynamically gated reaction theorem not located in accessible sources might already imply the result.
+## originality
 
-## Value — PASS
+PASS
 
-The problem of whether a bounded-volume diffusing reactant eventually reacts on a temporally gated surface is physically natural. The sharp series gives a constructive design rule and a non-adiabatic phase diagram, exposing a qualitative failure of an extrapolation from integrated reactivity: even \(\sum\kappa_n\delta_n=\infty\) may leave permanent survivors. Conversely, a finite total reactive open time may nevertheless suffice for almost-sure eventual capture. The exact limiting crossover separates reaction-limited exposure \(\kappa\delta\) from the diffusion-limited cap \(\sqrt{D\delta}\) without assuming slow parameter changes.
+Best-of-knowledge, theorem/implication-based comparison of relevant primary literature; a failed search by itself does not prove historical priority. Closest known published results address different parameters/objects or only more general frameworks.
 
-## Limits and priority risk
+## value
 
-The statement does not cover arbitrarily close pulses, nonlinear boundary mechanisms, unbounded domains or higher-dimensional geometries. The motivation's full accessible primary text has been assessed, but a complete priority guarantee over every earlier result is impossible; an inaccessible relevant abstract and general heat-equation literature remain residual risks. Numerical tests do not establish the theorem and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The model is a natural time-dependent reactive-boundary diffusion with intermittent windows and positive mixing gaps. The sharp necessary-and-sufficient sequence criterion identifies a diffusion-limited exposure cap, in particular survival with divergent total integrated reactivity, extending the prior one-sided finite-integral observation. The exact pulse crossover and sharp p/q exponents provide independently reusable analytic facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

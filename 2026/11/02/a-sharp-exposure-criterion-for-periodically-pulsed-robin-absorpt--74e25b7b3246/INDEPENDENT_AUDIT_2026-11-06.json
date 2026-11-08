@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:00:07.160703Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-exposure-criterion-for-periodically-pulsed-robin-absorpt--74e25b7b3246/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-exposure-criterion-for-periodically-pulsed-robin-absorpt--74e25b7b3246/verify.py",
+        "independent_math_checks.py"
+      ],
+      "rationale": "PASS. Reconstructed reflected Brownian motion with generator D dxx, uniform initial position, Robin boundary rate kappa_n during windows delta_n<=min(T/4,L^2/(4D)), fixed period and positive free-reflection mixing gaps. In dimensionless form the pulse removal p(d,k)=E[1-exp(-k L_d)] has mean local time E L_d=d and second moment 2 int_0^d(d-s)H_s(0,0)ds<=3d^(3/2); Cauchy-Schwarz gives p>=kd/(1+3k sqrt d)>=1/4 min(kd,sqrt d). Reflection-principle boundary hitting and 1-exp(-x)<=x give p<=4 min(kd,sqrt d). Every inter-pulse reflecting heat kernel for gap g>=g0>0 has uniform positive lower and finite upper density bounds, so conditional pulse loss lies between m p_n and M p_n. Positivity of the infinite survival product is equivalent to summability of p_n, producing the sharp iff sum min(kappa_n delta_n/L,sqrt(D delta_n)/L)<infinity; rescaling checked. For one pulse the half-line Robin boundary transform yields F(z)=2/sqrt(pi)-(1-exp(z^2)erfc(z))/z; Gaussian round-trip estimates give uniform exponentially small finite-interval correction as stated. Independent Robin-Neumann spectral series versus half-line erfcx on five (duration,rate) pairs found agreement at short pulses and verified finite envelope; this numerical work does not prove the all-sequence theorem. The power-law criterion is exact exponent algebra p<=2 and q>=p-1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grebenkov-Ye Sections III.2–III.3 study adiabatic smooth power-law reactivities, and identify finite-integral sufficiency; their III.4 allows time-dependent hazard in general but no pulsed separated-window summability theorem"
+        ],
+        "reasoning": "General Robin PDE and boundary local-time Feynman-Kac frameworks encompass the model, yet formalism alone does not yield the sharp iff criterion. A capacitary theorem for arbitrary pulsed boundary killing could dominate and remains a meaningful residual risk.",
+        "searches": [
+          "Grebenkov Ye 2026 diffusion-controlled reactions with time-dependent surface reactivity full article Sections III.1–III.4",
+          "Grebenkov 2019 boundary local time",
+          "Bressloff 2022 stochastically switching partially reactive surfaces"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.23017 full HTML transcription",
+        "arxiv:1909.07677 foundational abstract",
+        "arxiv:2205.13985 stochastic switching abstract",
+        "Resultary two targeted semantic queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grebenkov-Ye claims finite int kappa dt can imply nonreaction; here delta_n=n^-4/4, k_n=n^6 gives divergent int kappa but summable width cap, hence positive survival; stochastic boundary switching has different pulse mechanism"
+        ],
+        "reasoning": "The previous one-way sufficient criterion does not imply the new converse or the divergent-integrated-reactivity counterregime. General local time representation is a proof input, not the exact new infinite-product classification.",
+        "searches": [
+          "Grebenkov Ye 2026 Sections III.2–III.4 full text and appendix on varying reactivity",
+          "Bressloff 2022 stochastic boundary switching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grebenkov and Ye arxiv:2610.23017 Section III.4 gives weighted accumulated boundary local time stopping condition for arbitrary time-dependent Robin coefficient; manuscript specializes this to deterministic separated pulses and an exact infinite-series exposure criterion"
+        ],
+        "reasoning": "Local-time hazard and Robin boundary PDE are equivalent formulations already prior. The final claim is the nonadiabatic per-window min(kd,sqrt d) iff series, not the known correspondence itself.",
+        "searches": [
+          "Resultary: reflected Brownian boundary local time time dependent Robin pulsed reactivity separated windows finite survival criterion summability",
+          "web: pulsed boundary local-time killing compact interval summability pulse width sqrt duration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned an impulsive mackerel population pulse-survival condition; that concerns a different deterministic biological dynamical system, not reflected boundary local time"
+        ],
+        "reasoning": "No exact prior table/source supplying the reaction vs survival cutoff was found. The output is a theorem for arbitrary positive sequences, not a small numerical-table entry.",
+        "searches": [
+          "Resultary: pulse survival obstruction permanence time dependent Robin boundary Grebenkov summability separated pulse widths",
+          "web: reflected diffusion periodic Robin absorption pulse exponent phase diagram"
+        ]
+      },
+      "rationale": "Best-of-knowledge, theorem/implication-based comparison of relevant primary literature; a failed search by itself does not prove historical priority. Closest known published results address different parameters/objects or only more general frameworks.",
+      "residual_risks": [
+        "A general parabolic boundary-capacity or renewal-killing theorem may already imply the full width-capped condition despite not being found in targeted literature.",
+        "Uniform-in-k half-line exponentially small error is argued via a coupling and long excursion, with independent numerical corroboration only; it was not formally mechanically verified.",
+        "Requires uniform positive free diffusion gap; cannot transfer as stated to overlapping or accumulating pulses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FORMULATION_NOT_DIFFUSION_LIMITED_PULSE_IFF",
+          "evidence": [
+            "Sections III.2–III.3 give an adiabatic description of smooth reactivity and one-sided finite-integral survival statement; III.4 weighted boundary-local-time functional matches model but not separated-pulse sharp series."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.23017",
+          "material_read": "Full arXiv manuscript HTML transcription via paperpeel.com: Sections I–V, III.1–III.4 and appendix/conclusion overview",
+          "method": "Read article and compare assumptions, asymptotic regimes and stopping condition",
+          "title": "Diffusion-controlled reactions with time-dependent surface reactivity",
+          "trigger": "Same Robin PDE and weighted boundary-local-time reaction mechanism"
+        },
+        {
+          "assessment": "FOUNDATIONAL_SOURCE_PARTIAL",
+          "evidence": [
+            "Local time framework is known; no claim of first inventing this machinery."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.07677",
+          "material_read": "Title, accessible abstract and source description, not complete independently reread paper",
+          "method": "Bibliographic/summary search; no whole-document not-covering judgment",
+          "title": "Probability distribution of boundary local time of reflected Brownian motion in Euclidean domains",
+          "trigger": "Foundational local-time normalization and distribution"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_SWITCHING_PARTIAL",
+          "evidence": [
+            "Time-random boundary changes rather than fixed deterministic pulse schedule; full model theorem comparison remains a risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.13985",
+          "material_read": "Title, abstract and model overview, full paper not independently reread",
+          "method": "Bibliographic and abstract check",
+          "title": "Stochastically switching diffusion with partially reactive surfaces",
+          "trigger": "Possible closely allied intermittent reaction model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2610.23017 full HTML transcription",
+        "arxiv:1909.07677 foundational abstract",
+        "arxiv:2205.13985 stochastic switching abstract",
+        "Resultary two targeted semantic queries"
+      ],
+      "rationale": "PASS. The model is a natural time-dependent reactive-boundary diffusion with intermittent windows and positive mixing gaps. The sharp necessary-and-sufficient sequence criterion identifies a diffusion-limited exposure cap, in particular survival with divergent total integrated reactivity, extending the prior one-sided finite-integral observation. The exact pulse crossover and sharp p/q exponents provide independently reusable analytic facts.",
+      "residual_risks": [
+        "A general parabolic boundary-capacity or renewal-killing theorem may already imply the full width-capped condition despite not being found in targeted literature.",
+        "Uniform-in-k half-line exponentially small error is argued via a coupling and long excursion, with independent numerical corroboration only; it was not formally mechanically verified.",
+        "Requires uniform positive free diffusion gap; cannot transfer as stated to overlapping or accumulating pulses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform initial law, compact interval, finite positive pulse strengths, uniformly positive free-reflection inter-pulse time; no arbitrary moving/overlapping boundary windows."
+  ],
+  "schema_version": 1
+}
