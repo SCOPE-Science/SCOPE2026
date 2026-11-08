@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The selected path eigenvalues are nonnegative on the stated parameter domain, with at least \(k-1\) strictly positive. In the bipartite spider, all walk counts at a fixed vertex-pair distance have one parity, so every summand of the specified adjacency polynomial has the same sign and the shortest-walk term is nonzero. The path-eigenvector arm contrasts are independent and in the kernel. The known upper bound on zero forcing yields the exact kernel dimension. Bounded numerical verification checked 24 parameter triples; it is not the proof.
+
+**Originality — PASS, provisional.** Abiad et al. (2026), Theorem 20, give a *conditional* spectral-polynomial lower bound; the explicit polynomial and signed nonvanishing on all distance layers are supplied here. The separately released general spider-power theorem already establishes the entire numerical zero-forcing formula, and its directed weighted tree can be symmetrized, so the numerical maximum nullity is **covered**, not presented as novel. Its specified matrix is a parameter-tuned nonuniform Jacobi construction, not the claimed canonical unweighted adjacency polynomial. Chang–Lin resolve square-of-tree nullity and DeAlba et al. cover path ordinary powers and strict tree powers, not this higher-power signed unweighted certificate. published-finding corpus queries on analogous spectral matrices and accessible prior claims showed no exact corresponding statement, but searchable coverage is incomplete.
+
+**Mathematical value — PASS.** A parameter-free, exact-support spectral filter whose sign on every off-diagonal distance layer is prescribed is a reusable structural certificate for a whole family of graph powers. It avoids the generic nonzero-parameter choice needed in the previously released proof and exhibits a concrete optimum-rank matrix, rather than simply restating an already determined scalar invariant. The longest-arm hypothesis is essential to the positivity argument; outside it no assertion is made.
+
+**Residual risks.** An unindexed spectral construction may coincide with this polynomial. Scalar ranks and zero-forcing numbers themselves are known. There is no independent validation.
+
+Self-review: passed. Independent audit: not yet performed.

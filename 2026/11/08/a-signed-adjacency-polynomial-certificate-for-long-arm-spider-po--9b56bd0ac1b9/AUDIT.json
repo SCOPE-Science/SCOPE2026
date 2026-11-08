@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All terms of p(A) at tree distance d have the common sign (-1)^(k-d), because bipartite walks use one parity and the k selected path eigenvalues are nonnegative with at least k-1 strictly positive. The distance-d monic coefficient is nonzero, and nonedges beyond k have no walks. An explicit (m-1)-dimensional arm contrast for each of k distinct path eigenvalues gives k(m-1) kernel vectors. Upper bound M<=Z<=(m-1)k proves exact nullity. No finite experiments are used as infinite proof; 24 parameter triples were independently checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Released theorem settles Z(S_m(ell)^k)=(m-1)k for all ell>=k+1; weighted tree matrix can be symmetrized, so M follows. Chang–Lin covers square of every tree only."
+      ],
+      "reasoning": "All numerical Z and M claims are subsumed and explicitly NOT called new; only the canonical unweighted spectral signed witness is retained. The full-domain proof does not specify this polynomial or its exact sign matrix.",
+      "searches": [
+        "minimum rank spider third power 05C50 M(S_m(ell)^k) equals (m-1)k spectral eigenvalues",
+        "https://www.trureturing.org/research/abiad-equal-legged-spider-power-zero-forcing/",
+        "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03892",
+      "doi:10.13001/1081-3810.1511",
+      "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf",
+      "https://www.trureturing.org/research/abiad-equal-legged-spider-power-zero-forcing/",
+      "published-finding corpus:2026/10/4/SCOPE-power-domination-polynomials-of-spider-trees-and-extremal-arm-ba--453d578dc82f",
+      "published-finding corpus:2026/10/4/SCOPE-all-minimal-zero-forcing-sets-and-the-upper-zero-forcing-number--243a67e5cc7b",
+      "published-finding corpus:2026/10/4/SCOPE-zero-forcing-and-minimum-rank-of-ideal-intersection-graphs-of-pr--37fc468c05c3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known Z upper and released Z equality yield upper nullity bound; a symmetrizable weighted matrix also yields M. Theorem 20 requires proving polynomial support nonvanishing."
+      ],
+      "reasoning": "The new statement supplies the missing, specific nonvanishing, exact layerwise signs and unweighted p(A); the preceding numerical invariants imply existence of some optimal matrix, not this specific polynomial identity. The only claimed implication from prior work is its upper bound, duly credited.",
+      "searches": [
+        "https://arxiv.org/abs/2610.03892 Proposition 9 and Theorem 20",
+        "https://github.com/the-omega-institute/trureturing/.../SpiderPowerZeroForcing.md lines 223-233",
+        "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf Theorem 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 20 allows any qualifying adjacency polynomial; blueprint uses a parameter-dependent nonuniform Jacobi matrix and nonsymmetric row-kernel argument."
+      ],
+      "reasoning": "The final statement concerns a specified p(A_unweighted), not just existence of some minimum-rank matrix; equivalent scalar statements do not establish sign of its entries or exact spectral factor.",
+      "searches": [
+        "maximum nullity minimum rank powers of equal leg spiders long arms third power or kth power real symmetric matrices",
+        "positive adjacency path eigenvalues polynomial maximum nullity spider graph powers",
+        "https://arxiv.org/abs/2610.03892 Theorem 20",
+        "https://github.com/the-omega-institute/trureturing/.../SpiderPowerZeroForcing.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Abiad et al. finite experiments concern Z only; published-finding corpus closest snippets concern spider power domination and other graph forcing quantities."
+      ],
+      "reasoning": "No inspected table reports the complete signed p(A_unweighted) entry pattern or gives the all-parameter spectral kernel formula. No inference of novelty is made from a null database search alone.",
+      "searches": [
+        "maximum nullity minimum rank powers of equal leg spiders long arms third power or kth power real symmetric matrices",
+        "minimum rank spider third power 05C50 M(S_m(ell)^k) equals (m-1)k spectral eigenvalues",
+        "positive adjacency path eigenvalues polynomial maximum nullity spider graph powers",
+        "arxiv:2610.03892 experimental spider values m=2..5 ell=4,5 k<=3"
+      ]
+    },
+    "rationale": "The final claim is the explicit canonical polynomial p(A_unweighted) with exact distance-dependent signs and an explicit optimum kernel, not the already-known scalar zero forcing or nullity value. The 2026 Theorem 20 only gives conditional spectral support, and the released full-domain resolution uses different parameter-dependent, nonuniform Jacobi weights. Symmetrizing that older matrix covers M but does not imply the claimed actual p(A_unweighted) sign identities. The checked 2012/Chang–Lin literature does not exhibit this certificate for k>=3. The three actual published-finding corpus query sets returned no corresponding signed unweighted polynomial claim; this negative search is not a priority proof.",
+    "residual_risks": [
+      "Other spectral polynomial literature could already contain this exact unweighted filter and distance sign pattern.",
+      "The known general theorem plus elementary nonnegative-root sign observations might diminish independent value; value is assigned to the unified parameter-free signed certificate, not scalar M or Z.",
+      "Results indexed through accessible sources only; scholarly priority cannot be certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 9 gives Z upper bound; Theorem 20 is conditional on offdiagonal support. Neither states the canonical top-leg-eigenvalue polynomial or exact signs.",
+        "evidence": [
+          "Proposition 9 and proof: upper Z<= (m-1)k for ell>=k+1",
+          "Theorem 20 lines ~317–330: p(A) spectral multiplicity under explicit support nonvanishing condition",
+          "2026-10-02 arXiv first public"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+        "material_read": "Full HTML sections 1–4.2, Proposition 9 proof, Conjecture 10, Theorem 20 and proof; original arXiv PDF sampled visually.",
+        "method": "Compared quantified spider bound and general conditional eigenvalue lemma with explicit unweighted-adjacency polynomial and layerwise sign assertion.",
+        "title": "The Zero Forcing Number of Graph Powers",
+        "trigger": "Same family; 2026 source of spider zero-forcing bound and spectral polynomial technique"
+      },
+      {
+        "assessment": "Full Z is known and the weighted directed tree matrix has positive opposite-edge products, implying a symmetric M certificate after diagonal conjugacy. Thus numerical M is treated as fully covered; released result does not specify p(A_unweighted) built from top path eigenvalues nor its fixed distance signs.",
+        "evidence": [
+          "Blueprint line 225 uses nonuniform directed Jacobi weights and a nontrivial center parameter, unlike unweighted A",
+          "Blueprint lines 227–232 prove a support-preserving parameter choice with large kernel",
+          "Theorem 1.4 covers all m>=2, k>=1, ell>=k+1 for Z"
+        ],
+        "identifier_or_url": "https://github.com/the-omega-institute/trureturing/blob/55c338ce15b88ed3349bc7bfe8080eb8be356cf5/Blueprint/D5/S3/Combinatorics/SpectralGraph/SpiderPowerZeroForcing.md",
+        "material_read": "Dossier full relevant problem, proof and limitations; blueprint lines 223–233 and theorem statement.",
+        "method": "Compared the actual polynomial base matrix, edge weights, center parameter, kernel and support signs to the proposed unweighted adjacency polynomial. Checked easy diagonal-symmetrization implication to numerical M.",
+        "title": "Zero forcing the ordinary powers of equal-legged spiders; released resolution and blueprint",
+        "trigger": "Decisive broader-domain proof of Z and potentially M from a nonsymmetric matrix"
+      },
+      {
+        "assessment": "Theorem 4.1 determines maximum nullity of squares of all trees, not this k>=3 canonical polynomial.",
+        "evidence": [
+          "Section 4 heading and Theorem 4.1: scc(T^2)=M(T^2)=Z(T^2)=p_2(T)"
+        ],
+        "identifier_or_url": "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf",
+        "material_read": "Full introduction, preliminaries, section 4 theorem and proof on tree squares; visual PDF page inspection.",
+        "method": "Distinguished ordinary powers k>=3 from k=2 and from general path/cycle formulas.",
+        "title": "Minimum Rank of Powers of Cycles and Trees",
+        "trigger": "Possible general higher-power symmetric-rank theorem"
+      },
+      {
+        "assessment": "General tree results concern strict powers, while ordinary power rank formulas concern paths; no present general k>=3 unweighted spider spectral certificate.",
+        "evidence": [
+          "Definition 2.1 ordinary powers vs Definition 2.2 strict powers",
+          "Sections 3 and 4 scoped to path powers and strict tree powers"
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.1511",
+        "material_read": "Original 2012 full PDF introduction and definitions plus ordinary path-power and strict tree-power sections; visual PDF inspection.",
+        "method": "Matched distinction between ordinary graph powers (distance<=k) and strict powers (walk length exactly k).",
+        "title": "Minimum Rank of Powers of Trees",
+        "trigger": "Earlier theorem on powers of trees possibly subsuming spectral certificate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b56bd0a-c1b9-407c-9f39-93422ed15cd3",
+  "value": {
+    "rationale": "This provides a deterministic, completely specified, real symmetric optimum-rank matrix as an explicit degree-k polynomial of the natural unweighted adjacency matrix for an infinite three-parameter family, plus a sign law on every distance layer. Unlike generic-parameter Jacobi constructions, it involves no tuned weights or zero avoidance and directly certifies the nonvanishing condition in the 2026 general spectral method; the signed filter can be reused in spectral graph constructions. It is not presented as a new numerical zero-forcing or maximum-nullity invariant; its utility is the canonical spectral certificate. The k>=3 long-arm restriction excludes the known square-of-tree case.",
+    "status": "PASS"
+  }
+}
