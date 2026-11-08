@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-Run `python checker.py` from the directory containing the standalone checker. Python 3 is required; NumPy and SciPy are optional additions for independently optimizing all six real Fourier coefficients by linear programming.
+## correctness
 
-The recorded execution produced `CHECK_PASS orders=5..90 grid_modes= 86 Fourier_inequalities= 247035 LP_instances= 17`. The checker enumerates all \(86\) moduli from \(N=5\) through \(N=90\), and for each checks every \(N^2\) Fourier mode, the exact set of minimizing frequencies, and the positivity and complete zero set of the invariant optimizer. It also compares exact optimum formulas against separate numerical linear programs for \(N=5,\ldots,21\), including unconstrained complex Fourier coefficients represented by six real variables, and checks the signed cubic asymptotics at four larger orders.
+PASS
 
-The proof for arbitrary \(N\) does **not** depend on finite enumeration: cosine gap smoothing proves the all-order minimum, the support symmetry gives optimality, two nonsingular three-by-three matrices give full complex uniqueness for nonmultiples of three, and the two Fourier-zero equalities plus strict positivity of every other Fourier mode give the four-dimensional resonant face. The trigonometric expansions control the remainder terms. Numerical calculations use floating point and appropriate tolerances; they do not imply exact all-order positivity without this proof.
+On G_N=(Z/N)^2 with support {0,+/-e1,+/-e2,+/-(e1-e2)}, positive definiteness iff all Fourier modes nonnegative. Sixfold lattice symmetry average reduces optimal mass to 1+6a with 1+2aS_N(u,v)>=0; balanced-three-gap minimization gives sigma_N and T_N=1-3/sigma_N. Strict gap-smoothing identity, with the exceptional (0,N/2,N/2) even-order case handled by second shift, identifies all two or six minima for every N>=5. Every optimizer vanishes at each minimizing Fourier contact; in nonresonant orders the 3-by-3 cosine and sine coefficient matrices are separately invertible, proving unique complex optimizer. If 3|N only two real constraints remain and invariant optimum is strictly positive off contacts, giving relative dimension four. Expansion near equilateral phases gives correct signed N^-3 residue term. Independent Fourier LP for 19 small N matches exact masses and contact/optimizer constraints; finite checking not used to prove all-order claims.
 
-Public-source overlap searches were necessarily bounded. The full text of two plausible older sources (toroidal-graph spectral preprint and continuous-hexagon Turán work) was not available in the inspection pathway. No independent mathematical audit or validation is claimed.
+## originality
+
+PASS
+
+Classical finite-group Turán and edge-transitive graph spectral bounds explain the invariant mass optimization principle, especially the resonant 3 benchmark. The exact nonresonant cosine minima, *all complex-valued* optimizer uniqueness, resonant four-dimensional optimizer face, and signed cubic residue correction were not located as a combined existing theorem in inspected primary full text and Resultary records. Arestov--Berdysheva continuous hexagon and John--Sachs toroidal spectra could still encode parts; these remain explicit risks, not automatic failures.
+
+## value
+
+PASS
+
+A natural extremal positive-definite mass for the minimal triangular/hexagonal root neighborhood on finite tori, with a complete and dimension-jumping complex optimizer face. Exact contact sets, strict uniqueness away from threefold resonance, and residue-sensitive cubic asymptotics reveal arithmetic rigidity not supplied by a generic spectral upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

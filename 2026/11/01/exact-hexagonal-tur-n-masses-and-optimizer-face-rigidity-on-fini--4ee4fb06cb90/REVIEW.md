@@ -1,15 +1,21 @@
-# Scientific review: hexagonal Turán optimization
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-group Fourier-positivity equivalence reduces admissibility to nonnegative sampled Fourier values. The sixfold support automorphism gives a sharp upper bound through a single real coefficient. The cosine three-gap smoothing identity strictly lowers every unbalanced gap triple, with the sole even-order neutral case eliminated by a second strict move. This proves all minimizers for every order. Vanishing at all minimum modes of every optimizer and nonsingularity of two explicit three-by-three cosine and sine matrices force all six real coefficients uniquely when three does not divide the modulus. At resonant orders the only two zero constraints leave a four-dimensional feasible affine neighborhood. Taylor expansion proves the second- and third-order constants. Direct checker verification covered 247,035 Fourier nonnegativity instances and optional six-variable LPs for seventeen orders, but is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS (bounded search)
-Kolountzakis–Révész establishes the general finite-group positive-definite Turán setting and spectral packing. The classical edge-transitive graph/Lovász theta spectral principle can supply the invariant mass **given** the least triangular-torus eigenvalue; the spectral ratio itself is not claimed novel. Neither that general principle nor the inspected full finite-group primary source establishes the complete all-complex optimizer-face rigidity, the dimension-four resonant face, or the signed residue correction on this exact root-hexagon family. Ivanov–Ivanov concerns the one-dimensional periodic setting. Closest published nonidentical formulas treat the thirteen-point square Lee ball and one-dimensional five-point cyclic supports; their mathematical hypotheses cannot be specialized to this root hexagon. The complete theorem distinguishes exact mass, complex optimizer rigidity, face dimensions, and a signed cubic arithmetic correction. An equivalent theorem in old toroidal-graph spectral work or the earlier continuous-hexagon literature is possible and is explicitly not ruled out by bounded search.
+PASS
 
-## Mathematical value — PASS
-This is an exact all-order, explicitly computable solution of a natural two-dimensional finite-abelian positive-definite extremal problem. The discontinuous dimension jump in the optimizer face between resonant and nonresonant orders and the sign-changing third-order correction clarify how finite Fourier-grid contacts control rigidity. Neither an arbitrary finite table nor a routine reparametrization provides these conclusions; the result supplies global structural and asymptotic information in a canonical family.
+On G_N=(Z/N)^2 with support {0,+/-e1,+/-e2,+/-(e1-e2)}, positive definiteness iff all Fourier modes nonnegative. Sixfold lattice symmetry average reduces optimal mass to 1+6a with 1+2aS_N(u,v)>=0; balanced-three-gap minimization gives sigma_N and T_N=1-3/sigma_N. Strict gap-smoothing identity, with the exceptional (0,N/2,N/2) even-order case handled by second shift, identifies all two or six minima for every N>=5. Every optimizer vanishes at each minimizing Fourier contact; in nonresonant orders the 3-by-3 cosine and sine coefficient matrices are separately invertible, proving unique complex optimizer. If 3|N only two real constraints remain and invariant optimum is strictly positive off contacts, giving relative dimension four. Expansion near equilateral phases gives correct signed N^-3 residue term. Independent Fourier LP for 19 small N matches exact masses and contact/optimizer constraints; finite checking not used to prove all-order claims.
 
-## Literature comparison and limitations
-Full scientific text inspected: M. N. Kolountzakis and S. Gy. Révész, arXiv:math/0312218v1; V. I. Ivanov and A. V. Ivanov, 2010 open-access PDF; and published full results on the 13-point Lee ball, one-dimensional five-point cyclic Turán mass, and three-frequency Riesz conditioning. General edge-transitive graph theta/eigenvalue comparison: Sason (2023), arXiv:2301.02820, abstract and indexed statements, not a complete primary-text inspection. John–Sachs, *Spectra of toroidal graphs*, was identified but its primary preprint download was inaccessible; its relevant spectral scope may overlap with the cosine-minimum component. Arestov–Berdysheva's earlier continuous-hexagon Turán treatment was identified through bibliography but not inspected in full. This work treats only the seven-point support on equal-sided square tori and uses finite computational checks as corroboration, not proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical finite-group Turán and edge-transitive graph spectral bounds explain the invariant mass optimization principle, especially the resonant 3 benchmark. The exact nonresonant cosine minima, *all complex-valued* optimizer uniqueness, resonant four-dimensional optimizer face, and signed cubic residue correction were not located as a combined existing theorem in inspected primary full text and Resultary records. Arestov--Berdysheva continuous hexagon and John--Sachs toroidal spectra could still encode parts; these remain explicit risks, not automatic failures.
+
+## value
+
+PASS
+
+A natural extremal positive-definite mass for the minimal triangular/hexagonal root neighborhood on finite tori, with a complete and dimension-jumping complex optimizer face. Exact contact sets, strict uniqueness away from threefold resonance, and residue-sensitive cubic asymptotics reveal arithmetic rigidity not supplied by a generic spectral upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

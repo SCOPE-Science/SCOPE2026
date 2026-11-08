@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:16:50Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 084cb52e5fa952bb1de9a1f36712fe2a0f336763; Git tree 240466025803d3cc36bcab4bcb8109c952fc5c44; inspected checker.py blob eea2f45aeea6ae71343498f0493697b3435be400.",
+        "Independent SciPy LP for N=5..23 matched 1-3/sigma_N; checked Fourier minimizer cosines analytically and integer-gap equalization.",
+        "Explicit determinant nonvanishing with A!=B and s!=t proves uniqueness even for complex-valued positive-definite functions, not only symmetric averages."
+      ],
+      "rationale": "On G_N=(Z/N)^2 with support {0,+/-e1,+/-e2,+/-(e1-e2)}, positive definiteness iff all Fourier modes nonnegative. Sixfold lattice symmetry average reduces optimal mass to 1+6a with 1+2aS_N(u,v)>=0; balanced-three-gap minimization gives sigma_N and T_N=1-3/sigma_N. Strict gap-smoothing identity, with the exceptional (0,N/2,N/2) even-order case handled by second shift, identifies all two or six minima for every N>=5. Every optimizer vanishes at each minimizing Fourier contact; in nonresonant orders the 3-by-3 cosine and sine coefficient matrices are separately invertible, proving unique complex optimizer. If 3|N only two real constraints remain and invariant optimum is strictly positive off contacts, giving relative dimension four. Expansion near equilateral phases gives correct signed N^-3 residue term. Independent Fourier LP for 19 small N matches exact masses and contact/optimizer constraints; finite checking not used to prove all-order claims.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolountzakis--Révész Theorem 2 is packing bound |G|/|Lambda| and Theorem 4 gives spectral-set bound; examples use other supports."
+        ],
+        "reasoning": "General group inequalities and theta equality characterize some optimal values but do not determine all optimizer coefficients or the four-dimensional resonant face without contact-mode analysis.",
+        "searches": [
+          "Kolountzakis Revesz 2003 Thms 2 and 4/full PDF",
+          "Sason Lovasz theta edge transitive graphs arxiv:2301.02820",
+          "Resultary semantic: Turán positive definite functions hexagonal support finite Z_N squared optimizer uniqueness Fourier theta"
+        ]
+      },
+      "checked_sources": [
+        "Kolountzakis and Revesz arxiv:math/0312218",
+        "Sason arxiv:2301.02820",
+        "Ivanov and Ivanov periodic Turan 2010",
+        "John and Sachs DOI:10.1016/j.disc.2008.06.034",
+        "Arestov and Berdysheva (2001) hexagon-support Turan",
+        "Resultary finite Turan cosine-semantic hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published theorem 2 upper bounds mass by lattice packing ratio and theorem 4 by spectral-set cardinality; they do not specify the residue-dependent mass or complex-face dimension."
+        ],
+        "reasoning": "Even an exact value from Hoffman/theta would not by itself force uniqueness of every nonsymmetric complex optimizer or the resonant four-dimensional affine face; those depend on full minimum modes and determinant tests.",
+        "searches": [
+          "Kolountzakis Revesz arxiv:math/0312218 Theorems 2,4",
+          "arxiv:2301.02820 graph theta spectral equality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Averaged invariant Fourier optimization is a least eigenvalue/edge-transitive theta-type calculation; Kolountzakis--Révész define finite-group positive-definite mass with counting-measure normalization."
+        ],
+        "reasoning": "The exact mass may be a spectral specialization; however the claim additionally classifies the full complex extremal face and nonresonant uniqueness, not entailed by merely knowing theta value.",
+        "searches": [
+          "Resultary semantic: Turán positive definite functions hexagonal support finite Z_N squared optimizer uniqueness Fourier theta",
+          "Lovasz theta Hoffman least adjacency eigenvalue edge-transitive toroidal triangular graph",
+          "Kolountzakis Revesz arxiv:math/0312218 finite group Fourier Turan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed exact Turan for cyclic five-point support and Hamming radius-two shells, not the 7-point root hexagon on square Z_N^2. John--Sachs full text not obtained."
+        ],
+        "reasoning": "Known adjacency spectra might imply the cosine minimum but absent a verified exact six-frequency contact classification cannot establish the complete optimizer-face theorem; this is a recorded priority risk.",
+        "searches": [
+          "Resultary semantic: Turán positive definite functions hexagonal support finite Z_N squared optimizer uniqueness Fourier theta",
+          "John and Sachs Spectra of toroidal graphs 2009",
+          "Arestov Berdysheva Turan problem supports in a hexagon 2001"
+        ]
+      },
+      "rationale": "Classical finite-group Turán and edge-transitive graph spectral bounds explain the invariant mass optimization principle, especially the resonant 3 benchmark. The exact nonresonant cosine minima, *all complex-valued* optimizer uniqueness, resonant four-dimensional optimizer face, and signed cubic residue correction were not located as a combined existing theorem in inspected primary full text and Resultary records. Arestov--Berdysheva continuous hexagon and John--Sachs toroidal spectra could still encode parts; these remain explicit risks, not automatic failures.",
+      "residual_risks": [
+        "John--Sachs 2009 complete toroidal graph spectral tables not available; could imply the discrete minima.",
+        "Arestov--Berdysheva continuous hexagon paper inaccessible; although group/support differ, some argument may specialize.",
+        "If a prior edge-transitive theta theorem supplies full equality-case rigidity for this graph, the face theorem may be covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds and packing/spectral methods; inspected statements/examples do not provide the seven-point finite-square-torus mass/complex optimizer face",
+          "evidence": "arxiv:math/0312218 pp.2,3,11,16; Thms 2/4, Section 4.2",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312218",
+          "material_read": "Full accessible 18-page PDF, especially definition counting measure, Section 0.4 Theorems 2/4, proof Section 3.1, comparison Section 4.2, examples",
+          "method": "PDF text and page-2 screenshot",
+          "title": "Turán's extremal problem for positive definite functions on groups",
+          "trigger": "Exact same optimization on finite abelian group and support normalization"
+        },
+        {
+          "assessment": "Potential Euclidean continuous-hexagon coverage; no assertion of whole-document noncoverage",
+          "evidence": "Arestov--Berdysheva cited as [AB01]/[AB02] in arxiv:math/0312218, full source inaccessible",
+          "identifier_or_url": "2001 Arestov--Berdysheva",
+          "material_read": "Bibliographic title and citations in Kolountzakis--Révész; PDF full-text attempt failed",
+          "method": "Bibliographic citation and attempted OA access",
+          "title": "Turán's problem for positive definite functions with supports in a hexagon",
+          "trigger": "Hexagonal support name may imply stronger theorem"
+        },
+        {
+          "assessment": "Possible prior discrete minimum; unknown full implication for optimizer face",
+          "evidence": "John--Sachs, Discrete Mathematics 309 (2009) 2663-2681",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2008.06.034",
+          "material_read": "Abstract/bibliographic description only; full text unavailable",
+          "method": "Publisher bibliographic search",
+          "title": "Spectra of toroidal graphs",
+          "trigger": "Potentially identical triangular-torus discrete cosine spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Specific natural mathematical object/invariant and non-implied exact classification, including complete natural family or sharp boundary."
+      ],
+      "rationale": "A natural extremal positive-definite mass for the minimal triangular/hexagonal root neighborhood on finite tori, with a complete and dimension-jumping complex optimizer face. Exact contact sets, strict uniqueness away from threefold resonance, and residue-sensitive cubic asymptotics reveal arithmetic rigidity not supplied by a generic spectral upper bound.",
+      "residual_risks": [
+        "John--Sachs 2009 complete toroidal graph spectral tables not available; could imply the discrete minima.",
+        "Arestov--Berdysheva continuous hexagon paper inaccessible; although group/support differ, some argument may specialize.",
+        "If a prior edge-transitive theta theorem supplies full equality-case rigidity for this graph, the face theorem may be covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kolountzakis and Revesz arxiv:math/0312218",
+    "Sason arxiv:2301.02820",
+    "Ivanov and Ivanov periodic Turan 2010",
+    "John and Sachs DOI:10.1016/j.disc.2008.06.034",
+    "Arestov and Berdysheva (2001) hexagon-support Turan",
+    "Resultary finite Turan cosine-semantic hits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All N>=5 equal side lengths, seven-point root support; different supports/groups not treated.",
+    "Fourier LP on finitely many N is corroboration; all N claims require smoothing, contact and determinant proofs.",
+    "Some highly relevant historical full text inaccessible, retained as scientific risk."
+  ],
+  "residual_risks": [
+    "John--Sachs 2009 complete toroidal graph spectral tables not available; could imply the discrete minima.",
+    "Arestov--Berdysheva continuous hexagon paper inaccessible; although group/support differ, some argument may specialize.",
+    "If a prior edge-transitive theta theorem supplies full equality-case rigidity for this graph, the face theorem may be covered."
+  ],
+  "schema_version": 1
+}
