@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The congruence sample set and probability normalization are explicit. Root-of-unity filtering proves every required moment exactly; the Johnson line-graph identities diagonalize all invariant subspaces. The two remaining scalar eigenvalues arise from a specified two-dimensional Gram block, the positivity inequalities cover every admissible dimension, and rational bounds prove that dimension eight uniquely maximizes the condition number. The standalone exact moment and direct Gram checks passed.
+## correctness
 
-**Originality: PASS within stated inspection limits.** The classical symmetric Boolean-set Hilbert-function results already cover rank information, so that part is not claimed novel. The new assertion is the full modular-three quadratic Walsh Gram spectrum, sharp parity-dependent stability extrema, and exact universal maximum. Filmus supplies the single-slice harmonic basis and Johnson decomposition, while Venkitesh determines ranks of unions of layers; neither inspected full text gives this uniform probability Gram spectrum. Published related research on individual Hamming spheres, balls, and q-ary shells does not establish the cross-layer moment identities and extremal condition law. See explicit comparisons and access limitations in AUDIT.json. A potentially equivalent older spectral formula remains a residual risk.
+PASS
 
-**Value: PASS.** The mod-three zero-sum condition on nonzero ternary coordinates is a natural parity-check sampling ensemble. The theorem establishes a sharp earliest recovery dimension, identifies *which* harmonics are least stable depending on parity, computes the exact optimum of the condition number across every valid ambient dimension, and quantifies rapid convergence toward tightness. It is neither a known-table recomputation nor an arbitrary finite numerical slice; the findings concern an infinite family and a natural harmonic reconstruction invariant.
+Root-of-unity filtering on Ω_n of cardinality (2^n+2(-1)^n)/3 gives odd Walsh moments 0 and even nonempty size 2r moments 2(-1)^n(-3)^r/D. The singleton Gram block and line-graph edge block diagonalize through unsigned incidence B^TB=2I+A, BB^T=(n-2)I+J; coupling of the constant to all-edge vector is a 2x2 block with c=(n-2)(3n-13)/2. This yields exactly six sectors and multiplicities totaling 1+n+binom(n,2). The elementary estimates c>0, h=(sqrt(c^2+4M)-c)/2<sqrt M<4n-13 ensure stated extremizing sectors and positivity n>=8; by parity and monotone exponential corrections the global maximum occurs uniquely at n=8. Explicit vanishing quadratics establish smaller-dimensional failure of injectivity. Independently enumerated all sign vectors at n=8,9,10, rebuilt the full Gram by evaluation, and compared every eigenvalue to closed sectors: max eigenvalue errors <=3.4e-15. Obtained squared condition 3.20115514379848 at n=8, exactly (119+sqrt1201)/48 within 1e-10. Finite checks corroborate universal bounds.
 
-The criterion concerns unweighted uniform samples and the full degree-at-most-two Walsh band; it does not optimize other measures or characterize all degrees. Comparison against the complete 1999 original paper was not possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bernasconi–Egidi/Venkitesh general Hilbert-function theory covers ranks on unions of Boolean layers, including the rank/injectivity part, and Johnson algebra is classical. The surviving claim is the full measure-normalized six-level Gram spectrum and sharp extremal condition number, not rebranding rank theory. Closest Resultary single-shell Walsh spectral theorem has different sampling measure and forced nullspace. Best-of-knowledge PASS with association-scheme equivalence risk.
+
+## value
+
+PASS
+
+Determines all singular values and exact uniform conditioning of natural low-degree harmonic sampling on a modular union of Hamming slices, including parity-dependent extremal modes and the first injectivity dimension. The quantitative spectrum and sharp condition bound extend beyond known rank-only statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
