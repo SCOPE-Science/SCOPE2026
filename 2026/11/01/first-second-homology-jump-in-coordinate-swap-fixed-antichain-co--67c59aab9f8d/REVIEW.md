@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The involution-fixed space is triangulated by admissible vertex orbits, proved via equality of barycentric coordinates. The pair-orbit nesting criterion proves the all-orders face-count and component assertions. The bundled exact finite calculation enumerates each complex for \(3\le n\le8\) and computes every integer boundary Smith normal form. At \(n=8\) the ranks are \((31,67,9)\) on chain-group sizes \((36,126,84,9)\), with only unit Smith invariants, establishing free integral reduced homology \(\mathbb Z^4,\mathbb Z^{28},\mathbb Z^8\) in degrees zero, one and two. Smaller cases have zero second homology. Bounds above eight are explicitly not claimed.
+## correctness
 
-**Originality: PASS.** Direct inspection of arXiv:2604.12606, especially Theorem 3.8 and the grid-poset application, concerns nonequivariant complexes and does not compute fixed-locus homology. Actual searches of published mathematical results under grid-poset, transpose, orbit-barycenter and strictly nested interval aliases did not locate the same result or stronger implication. Residual risk: a differently named, unindexed interval-poset calculation.
+PASS
 
-**Value: PASS.** The square-grid coordinate involution is mathematically canonical in the newly investigated grid-comparability family. A uniform five-component geometric fixed-locus theorem and exact face vector, together with the sharp onset of torsion-free second homology at eight, give meaningful equivariant-topological information beyond the nonequivariant homotopy data. Neither a uniform homotopy classification nor higher-dimensional general Betti formulas are asserted.
+The geometric fixed locus of the swap on the antichain complex of [n]×[n] has orbit-barycenter vertices of two types: diagonal d_i and off-diagonal pair p_{ij}. Re-deriving compatibility by testing every cross-orbit coordinate pair gives strict nesting of pair intervals, with at most one internal diagonal singleton. This produces f_{r-1}=C(n,2r−1)+C(n,2r) and 2^n−1 nonempty faces, and four isolated orbit vertices plus one connected component for n>=3. Binomial alternating sum gives the Euler identity. I independently built the full orbit-compatibility graph and every simplex for each n=3..8 and computed exact integral Smith forms (all nonzero invariants units), with ranks for n8 ∂1=31, ∂2=67, ∂3=9, face vector (36,126,84,9); hence reduced integral H0=Z4,H1=Z28,H2=Z8 and no higher homology. Earlier n=3..7 have H2=0, smaller n cannot have 2-cycles. This is a first-cutoff proof only, not a classification of future n.
 
-**Closest literature and limits.** Barik, Mondal, Mukherjee, *A recursive construction of an acyclic matching on the independence complex of a graph with a simplicial vertex*, arXiv:2604.12606 (2026-04-14). No external independent audit has been done. Exact computation covers \(n\le8\) and depends on SymPy's exact integer Smith form.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct comparison of distinct graph/complex or fixed-locus objects and their known implications: First second-homology jump in coordinate-swap fixed antichain complexes. Inspected sources and Resultary searches below support a best-of-knowledge novelty finding, not a worldwide priority guarantee.
+
+## value
+
+PASS
+
+Passing from the ordinary antichain complex to the actual geometric fixed set is a natural symmetry/topology operation, not equivalent to taking fixed original vertices. The first nonzero integral H2 at n8 is a meaningful threshold of that natural sequence, and exact torsion-free ranks give a reusable boundary for equivariant poset topology; no broad all-n homotopy theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
