@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "All four caps cover exactly when their convex hull contains the origin-centred ball of radius \\(\\cos w\\). Euler’s tetrahedral inequality fixes the unique two labelled rotation orbits at \\(w_0=\u0007rccos(1/3)\\). A regular-tetrahedron local chart has five symmetric trace-free deformations and three rotations, with verified nonsingular Gram determinant \\(J=2048/243\\). Facet offsets have derivative \\(8L_i/27\\) and common diagonal quadratic loss \\(2Q/9\\); the small event forces off-diagonal modes \\(O(\\delta)\\) and diagonal modes \\(O(\\sqrt\\delta)\\). Integrating the exact limiting tetrahedral region yields \\(19683\\sqrt3\\pi\\delta^4/512\\) and normalized probability coefficient \\(81\\sqrt3/(4\\pi)\\). The exact conversion from \\(\\delta\\) to angular excess yields \\(16\\sqrt3/\\pi\\). A separately implemented geometric-face checker reproduces the tangent Jacobian, Taylor coefficients and convergence of rescaled event volumes. The argument explicitly separates finite numerics from the analytic limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bürgisser–Cucker–Lotz, arXiv:0712.2816: exact above-hemisphere cap coverage and lower/upper bounds outside that regime.",
+        "Maehara, A threshold for the size of random caps to cover a sphere (1988): random number-of-caps threshold, an asymptotic in sample size.",
+        "Reznikov–Saff, The Covering Radius of Randomly Distributed Points on a Manifold (published 2015-12-17): large-sample covering-radius expectation rather than four-cap fixed-sample onset."
+      ],
+      "reasoning": "General coverage theorems about large numbers of random centers or hemisphere-sized caps do not dominate the fixed \\(N=4\\), radius-\\(\u0007rccos(1/3)\\) small-excess fourth-order local law.",
+      "searches": [
+        "sphere covering 4 random caps small excess radius angular optimal four sites fourth power density finite sample",
+        "random spherical tetrahedron geometry angles volumes exact distributions",
+        "random polytope projections intrinsic volume distance distribution 2015"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.06931 (Finch 2015 full accessible text)",
+      "arXiv:0712.2816 (Bürgisser–Cucker–Lotz 2007 full accessible text)",
+      "arXiv:1404.0525 (Milne 2014 full accessible text)",
+      "public spherecover repository README",
+      "Gilbert (1965) bibliographic record and residual risk",
+      "Maehara (1988) abstract only; large-sample threshold",
+      "available published claim-index records on simplex-centred cap overlaps and spherical coverings",
+      "accessible previous geometry finding claims, not historical audits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch (2015) arXiv:1502.06931: bounds stated for \\(w>84^\\circ\\) and full expression unknown in \\(70^\\circ<w<90^\\circ\\).",
+        "Milne (2014), arXiv:1404.0525: Grace–Danielsson inequality establishes tetrahedral sharp-covering threshold but not a probability mass or its asymptotic.",
+        "Bürgisser–Cucker–Lotz (2007), arXiv:0712.2816: exact hemisphere-plus coverage, bounds below."
+      ],
+      "reasoning": "The classical sharp threshold and regular tetrahedron uniqueness give only \\(p(w_0)=0\\), not a quantitative distribution near it. Finch’s lower bound below 84 degrees is zero; it cannot imply the nonzero quartic coefficient. The local measure/Jacobian calculation supplies the missing five-dimensional asymptotic.",
+      "searches": [
+        "Finch covering sphere four random circular caps 2015 exact probability lower limit tetrahedron",
+        "four random circular caps sphere coverage probability near minimum tetrahedron asymptotic power 4",
+        "spherical covering four caps tetrahedral near threshold small probability anisotropic perturbation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch, arXiv:1502.06931: same probability \\(p(w)\\), near the optimal regular-tetrahedral threshold; source discusses difficulty of obtaining positive bounds below ~84 degrees.",
+        "Bürgisser–Cucker–Lotz, arXiv:0712.2816: covers the same random-cap model but does not calculate the fixed-four tetrahedral lower-tail coefficient."
+      ],
+      "reasoning": "The covering-radius distribution, containment of the radius-\\(\\cos w\\) ball in the convex hull, and a random tetrahedron inradius tail are mathematically equivalent formulations. The full inspected Finch and BCL statements do not yield the fourth-order coefficient, and their cap-radius regimes are not sufficient to imply it.",
+      "searches": [
+        "four random circular caps sphere coverage probability near minimum tetrahedron asymptotic power 4",
+        "four random caps cover sphere near optimal tetrahedral radius arccos one third probability fourth power onset",
+        "near regular tetrahedron four random spherical points covering radius probability small excess asymptotic coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest available published record: 2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7 describes deterministic simplex-centred cap union areas at a first triple-overlap threshold.",
+        "Public spherecover repository README offers small-cap finite-sample certified brackets, not the four-cap tetrahedral onset coefficient."
+      ],
+      "reasoning": "Checked fixed coefficient, exponent, radius, dual random tetrahedral interpretation and known simplex-centred cap overlap formulas. The nearest listed record concerns deterministic centres, a different probability object. Search nonretrieval alone is not evidence of uniqueness; the source statement comparison supports noncoverage.",
+      "searches": [
+        "p(w) ~ 16 sqrt(3)/pi (w-arccos(1/3))^4 four iid uniform spherical caps covering S2",
+        "four i.i.d. spherical cap centers near tetrahedron optimal covering probability quartic fourth-order exact leading coefficient",
+        "random convex polygon chord internal intersection distribution geometric probability integral geometry"
+      ]
+    },
+    "rationale": "The closest full primary source, Finch (arXiv:1502.06931, 2015), explicitly treats this same four-random-cap coverage probability below a hemisphere but gives no lower-endpoint asymptotic and states the global exact expression remains unknown; its available lower bounds start near 84 degrees. Bürgisser–Cucker–Lotz (arXiv:0712.2816, 2007) give exact expressions for caps at least hemispherical and upper bounds for smaller caps, not a sharp tetrahedral onset. The independent five-parameter localization and coefficient \\(16\\sqrt3/\\pi\\) are not implied by those stated results. The general deterministic tetrahedral inequality is prior mathematics used as input. Overlap with available records was checked at the statement/implication level. An older formula or unindexed calculation could still yield the claim, so historical priority is provisional.",
+    "residual_risks": [
+      "Gilbert (1965) original text unavailable; an uninspected classical equivalent calculation could imply the onset coefficient.",
+      "The spherecover repository companion research may contain details beyond its inspected README.",
+      "Full historical coverage is impossible from searched indices; prior priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed sharp tetrahedral coefficient; addresses same observable but provides bounds at larger radius.",
+        "evidence": [
+          "Abstract and paper explicitly state global exact expression unknown, improvements on zero lower bound only near 84 degrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.06931",
+        "material_read": "Full accessible arXiv HTML research text, including stated problem, range, bounds, and discussion of tetrahedral dual.",
+        "method": "Read accessible full textual article and compared the cap-radius and probability statements.",
+        "title": "Covering a Sphere with Four Random Circular Caps",
+        "trigger": "Exactly the same four-random-cap model and unknown below-hemisphere coverage law."
+      },
+      {
+        "assessment": "NOT_COVERING: exact law begins at the hemisphere; smaller caps get bounds without this endpoint asymptotic.",
+        "evidence": [
+          "Exact coverage for radius at least \\(\\pi/2\\), bound below \\(\\pi/2\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0712.2816",
+        "material_read": "Accessible full preprint HTML, including the main coverage theorem and exact-formula domain.",
+        "method": "Read coverage-model assumptions and theorem statements, compare exact radii and required asymptotic.",
+        "title": "Coverage processes on spheres and condition numbers for linear programming",
+        "trigger": "Potential general random spherical-cap coverage distribution which could subsume fixed N=4."
+      },
+      {
+        "assessment": "A supporting deterministic theorem, not a random-cap small-excess law.",
+        "evidence": [
+          "Euler/Grace–Danielsson tetrahedral inequality; used only for support of sharp threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.0525",
+        "material_read": "Accessible full arXiv HTML proof material for the nested-tetrahedra inequality.",
+        "method": "Checked the statement \\(R\\ge3r\\) and its role in tetrahedral inradius normalization.",
+        "title": "The Euler and Grace-Danielsson inequalities for nested triangles and tetrahedra",
+        "trigger": "Classical rigidity necessary to establish unique optimal cap arrangements."
+      },
+      {
+        "assessment": "Public README presents bounds below \\(\\pi/2\\), not a fourth-order tetrahedral onset constant.",
+        "evidence": [
+          "README describes exact large-cap coverage and certified two-sided brackets for small caps."
+        ],
+        "identifier_or_url": "https://github.com/gmboquet/spherecover",
+        "material_read": "Public README and repository metadata, not full companion manuscripts.",
+        "method": "Read README explicit claims about exact radius regime and bounded small-radius regime.",
+        "title": "spherecover: finite-sample formulas for random spherical cap coverage",
+        "trigger": "Possible recent exact finite-sample formulas for four caps below hemisphere."
+      },
+      {
+        "assessment": "UNRESOLVED historical priority risk, not a contradiction with inspected Finch 2015 account.",
+        "evidence": [
+          "Gilbert, Biometrika 52 (1965) 323–330; full article not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/52.3-4.323",
+        "material_read": "Article bibliographic metadata only; full text not accessible in checked source.",
+        "method": "Identified the older source and evaluated possible coverage risk rather than asserting absence.",
+        "title": "The probability of covering a sphere with N circular caps",
+        "trigger": "Classic 1965 fixed-N cap-coverage publication and potential earlier exact formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e87ccc2-abc2-4005-9539-4a349be3d213",
+  "value": {
+    "rationale": "Four caps is the minimum number capable of covering \\(S^2\\), and the tetrahedral covering radius is the natural sharp geometric threshold. The result resolves the previously zero-known lower-endpoint probability to leading order, with an exact nontrivial coefficient and exponent. The quartic exponent reflects a geometrically meaningful rank split (three first-order and two second-order shape modes) rather than a routine substitution, arbitrary truncation or numerical approximation.",
+    "status": "PASS"
+  }
+}
