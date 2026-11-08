@@ -1,19 +1,21 @@
-# Review of a sharp uniqueness threshold in randomized apportionment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly three different lower-quota strata with strictly ordered residues within each. Zero envy is equivalent to selecting top-residue suffixes in each stratum. The normalized probability vector obeys an explicit zero-one marginal matrix. For all four possible three-part size patterns with at most five parties, all nontrivial surplus sizes are covered by thirteen nonzero maximal minors, each of determinant \(+1\) or \(-1\). Boundary surplus sizes admit only one deterministic outcome. The six-party witness uses two distinct probability tables; exact marginal checks give low/high round-up probabilities \((1/5,4/5)\) in every block. Both an independent computer algebra rank check and the packaged standard-library exact-rational verifier corroborated the determinants. No infinite-size assertion is made.
+PASS
 
-## Originality — PASS, with residual priority risk
+With distinct floors, a larger floor cannot be overtaken by a smaller floor under quota rounding. Within each floor block strict fractional orders force a top-residue suffix selection; outcomes thus correspond exactly to count triples 0≤tb≤mb, sum=k. The 0–1 marginal matrix M has one normalization row plus party-specific suffix indicators. Up to permutations, all positive three-part size triples with total n≤5 are (1,1,1),(2,1,1),(2,2,1),(3,1,1), and 13 displayed ±1 minors certify full column rank for all nontrivial k (endpoints have one column). At n=6 triple (2,2,2), k=3 matrix has rank six on seven outcomes; two distinct distributions (central probability 2/5 with either six balanced permutations weight 1/10 or three cyclic permutations weight 1/5) give each block counts (0,1,2) with probabilities (1/5,3/5,1/5), hence party marginals (1/5,4/5). This is uniqueness conditional on feasibility, not existence.
 
-La Commare, Tucker-Foltz and Verdugo (arXiv:2610.24217), especially Sections 2.2 and 4.2 and Proposition 4.2, provide the correct block-flow existence formulation but neither the complete below-six rank classification nor the minimum size for failure of distributional uniqueness. Earlier exact two-block uniqueness and six-party three-pair feasibility/transportation results are adjacent but do not supply the universal five-party three-stratum uniqueness theorem; the six-party behavior is acknowledged as established context. The claim is not new polynomial-time feasibility, and the overlapping block-specific existence criteria are not claimed as new. Unindexed equivalent work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Uniqueness is an operationally relevant feature: when a perfectly fair proportional quota lottery exists, it is determined by the parties' marginal entitlements, without any further choice of correlation policy. The result determines the first possible party count at which multiple such choices can exist with precisely three lower-quota strata. The sharp, finite structural cutoff distinguishes a rigid small market from a genuine transportation degree of freedom, rather than merely presenting one numerical counterexample.
+Full primary paper on envy-free randomized apportionment supplies top-suffix outcomes and existence flow/LP, not a universal three-stratum uniqueness cutoff at n=5 or explicit minimal six-party nonunique distribution; prior generic transportation cycles are credited.
 
-## Scope and limitations
+## value
 
-The theorem is conditional on existence and requires exactly three distinct floor values, strictly ordered residues within each stratum, quota-respecting roundings, integer total seats, and exact ex-ante proportionality. It does not characterize models with ties, more floor levels, or nonzero unavoidable envy. Scientific priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp universal minimal size for failure of uniqueness of a natural envy-free proportional lottery identifies the first nontrivial transportation-cycle degree of freedom. The exact rank and explicit two-lottery witness clarify what the existence-only flow formulation leaves undecided and can inform apportionment mechanism design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

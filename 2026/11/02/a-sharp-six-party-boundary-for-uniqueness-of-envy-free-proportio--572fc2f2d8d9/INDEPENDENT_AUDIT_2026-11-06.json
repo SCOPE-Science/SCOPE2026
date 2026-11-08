@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:16:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact thirteen minors and witness; Git blob 86d0d3758547ff6759c858ef92e8fa116452ca95",
+        "verify_rank.py Git blob 3ee94e68cbea8eb8dfa6e188f232f8c4198406f0"
+      ],
+      "rationale": "With distinct floors, a larger floor cannot be overtaken by a smaller floor under quota rounding. Within each floor block strict fractional orders force a top-residue suffix selection; outcomes thus correspond exactly to count triples 0≤tb≤mb, sum=k. The 0–1 marginal matrix M has one normalization row plus party-specific suffix indicators. Up to permutations, all positive three-part size triples with total n≤5 are (1,1,1),(2,1,1),(2,2,1),(3,1,1), and 13 displayed ±1 minors certify full column rank for all nontrivial k (endpoints have one column). At n=6 triple (2,2,2), k=3 matrix has rank six on seven outcomes; two distinct distributions (central probability 2/5 with either six balanced permutations weight 1/10 or three cyclic permutations weight 1/5) give each block counts (0,1,2) with probabilities (1/5,3/5,1/5), hence party marginals (1/5,4/5). This is uniqueness conditional on feasibility, not existence.",
+      "residual_risks": [
+        "The theorem needs exactly three distinct floor levels and strict within-block residues; not a general all-strata result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Proposition 4.2 uses a network flow to characterize existence; no universal low-n uniqueness theorem or sharp first counterexample appears in the inspected relevant sections."
+        ],
+        "reasoning": "Generic flow feasibility does not logically imply full-column rank in all ≤5 strata cases; the explicit minor census supplies additional information.",
+        "searches": [
+          "arXiv:2610.24217 Proposition 4.2 and Section 4.2",
+          "Published transportation-polytope methods"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/4/SCOPE-complete-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952 distinct assignment model",
+        "RESULT.md explicit exact 13-minor certificate table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.2 determines whether a flow exists, not whether every feasible flow distribution is unique. Explicit rank checks show uniqueness through five and dependent columns at six with positive feasible margin."
+        ],
+        "reasoning": "The finding adds a sharp complete finite uniqueness threshold rather than rebranding the published existence theorem.",
+        "searches": [
+          "arXiv:2610.24217 Proposition 4.2",
+          "Resultary randomized apportionment and three-agent lottery queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-block lottery is a nonnegative solution of a finite transportation-type marginal matrix with quota-respecting top-suffix outcomes; uniqueness iff restricted matrix columns have no feasible positive null direction."
+        ],
+        "reasoning": "Envy-free existence of fractional weights and uniqueness of feasible weights are different linear-algebraic questions, even with same outcome graph.",
+        "searches": [
+          "La Commare–Tucker-Foltz–Verdugo arXiv:2610.24217 Sections 2.2,4.2",
+          "Resultary apportionment uniqueness 3 stratum query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits cover random serial dictatorship preferences and Webster/Jefferson quota violations, not count-triple rank matrices; 13 minors are given explicitly in this claim and independently recomputed."
+        ],
+        "reasoning": "No covering table seen, but historic three-pair transportation-polytope examples may match the 6-party witness without its universal minimality.",
+        "searches": [
+          "Resultary envy-free randomized apportionment three quota floor strata uniqueness query",
+          "arXiv:2610.24217 related results"
+        ]
+      },
+      "rationale": "Full primary paper on envy-free randomized apportionment supplies top-suffix outcomes and existence flow/LP, not a universal three-stratum uniqueness cutoff at n=5 or explicit minimal six-party nonunique distribution; prior generic transportation cycles are credited.",
+      "residual_risks": [
+        "Historical transportation-polytope literature may indirectly classify these particular six-party strata even if not using apportionment terms.",
+        "Some feasible six-party instances remain unique; witness shows failure of universal uniqueness, not all-instance nonuniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers feasibility and nested outcomes; does not assert sharp uniqueness cutoff as inspected",
+          "evidence": [
+            "Proposition 4.2 flow feasibility, not unique distribution; three-stratum rank is new calculation."
+          ],
+          "identifier_or_url": "arXiv:2610.24217",
+          "material_read": "Sections 2.2 and 4.2, especially Proposition 4.2 and top-residue suffix/flow formulation",
+          "method": "primary full-text relevant sections inspected",
+          "title": "Envy-Free Randomized Apportionment",
+          "trigger": "Same quota-respecting envy-free randomized apportionment model and three floor strata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "La Commare–Tucker-Foltz–Verdugo Proposition 4.2 feasibility LP",
+        "Exact n≤5 rank certificates and n=6 nullity-one witness"
+      ],
+      "rationale": "A sharp universal minimal size for failure of uniqueness of a natural envy-free proportional lottery identifies the first nontrivial transportation-cycle degree of freedom. The exact rank and explicit two-lottery witness clarify what the existence-only flow formulation leaves undecided and can inform apportionment mechanism design.",
+      "residual_risks": [
+        "The cutoff is a finite theorem, but meaningful because it completely classifies uniqueness up to the first possible counterexample in a canonical three-floor model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly 3 floor strata, strict residues and quota-respecting exact marginals.",
+    "Uniqueness is conditional on existence; not an existence result.",
+    "Potential public operational provenance scope_run_id in METADATA and AUDIT; first_public_date points to earlier cited paper."
+  ],
+  "schema_version": 1
+}
