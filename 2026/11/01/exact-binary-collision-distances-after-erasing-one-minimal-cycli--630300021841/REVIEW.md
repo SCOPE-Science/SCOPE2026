@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any binary pair the signed difference is a ternary vector and vice versa; its Fourier zeros at the sampled primitive roots extend to entire cyclotomic classes by rational Galois conjugacy. Prime-power order shells consist precisely of periodic sequences with zero-sum blocks, and their minimum supports are \(p^a\) at local order one and \(2p^{a-b}\) at positive order \(p^b\). The tensor-product argument proves the converse lower bound, and a product of signed two-site local witnesses attains it without exceeding the binary-difference alphabet. The corollary about worst deletion follows by minimizing the local factors. The included checker reproduces 103 exact shell checks, including exhaustive differences for lengths up to 10. Finite checks are not the infinite proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-Pei--Chang's 2022 binary DFT uniqueness theorem and ambiguity-pair existence are prior results. Levinson--Viviano's arXiv:2510.11949, Lemma 2.2, supplies an explicit witness for the primitive shell, extended in Lemma 3.5; it does not, in the inspected text, rule out *shorter* shell-supported signed vectors. Iosevich--Mayeli's 2023 sparse-recovery bounds do not imply the sharp arithmetic distance formula. The current claim establishes the complementary lower bound for every omitted order. Searches found no exact database table covering this classification. The original 2022 full text could not be inspected, creating a meaningful historical-priority risk; nor does absence in a search certify novelty.
+PASS
 
-## Mathematical value — PASS
-The distance is a natural robustness invariant of a minimal exact Fourier sampling design: after one coefficient is lost, it is the smallest number of binary pixels that can change invisibly. It depends sharply on the omitted character order and prime factorization, and the optimal guaranteed distance across all erasures is \(2^{\omega(N)}\), unlike the known qualitative statement that the design loses uniqueness. The theorem is a nontrivial exact minimum supported by a universal lower bound and an attaining construction, not an arbitrary finite slice or a mere rewording of a known nonuniqueness witness.
+For every integer N>=2 and one exact complex labelled DFT measurement from each additive-character order d|N, removing the order-d sample permits a binary pair x,y with signed difference h=x-y∈{-1,0,1}^N. Galois conjugacy of primitive roots makes zero at one sampled frequency equivalent to vanishing on its entire character-order shell, so h must have Fourier support in V_{N,d}. On p^a the local order-p^b shell has constant-vector minimum support p^a when b=0, or is periodic mod p^b with zero-sum p-class blocks and minimum support 2p^(a-b) when b>0. CRT identifies the order-d rational space as a tensor product. Minimum nonzero Hamming support of linear tensor-product codes is multiplicative by row/column support argument, with attaining rank-one tensors. The local signed ±1 constructions attain all products as binary differences, proving Δ(N,d)=(N/d)2^ω(d), not merely an upper bound. Each local factor >=2 and setting b_i=a_i gives min_d Δ=2^ω(N). Exact DFT complex values (not magnitudes), one erasure, and all N are explicit.
 
-## Limitations and priority risk
-No numerical-noise robustness, reconstruction algorithm, multi-erasure bound, or full classification of minimizing pairs is claimed. The full 2022 ambiguity-pair paper is materially relevant but was unavailable; an unindexed stronger theorem in cyclotomic coding may cover the sharp formula. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the sharp lower bound and exact all-divisor deletion-distance classification, not for the previously known minimal sampling design, Galois reduction, or sparse ambiguity witness. Pei–Chang 2022 has high-priority overlap and complete text unavailable; no decisive covered theorem identified in material actually read.
+
+## value
+
+PASS
+
+For the natural minimal cyclic DFT mask this is the exact Hamming-distance robustness invariant after one lost coefficient: the fewest binary positions that can change invisibly. Arithmetic dependence on the deleted order and sharp constructive lower bound supply information unobtainable from mere uniqueness failure or an example ambiguity pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
