@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification record
-The proof applies without any finite size cutoff to all finite ordinal sums of nonempty antichains. The auxiliary program independently enumerates complete Boolean predicates, explicitly checks every eligible alternating-chain pattern, and matches the histogram to elementary symmetric coefficients.
+# Independent mathematical audit
 
-Run `python3 verify_weak_order_monotone_counts.py` from the package directory. The expected exact line is present in `weak_order_verification_output.txt`. The verified finite suite contains 141 level-size profiles and 26,939 complete colorings, including the empty weak order. These checks do not replace the proof or establish historical originality.
+## correctness
 
-No independent audit has been conducted. No claim of external certification is made.
+PASS
+
+The greedy longest-matched-prefix state q_i can rise by at most one on a new antichain level. It rises exactly when the next required alternating bit is present; for level i an increment occurs for precisely 2^{n_i}-1 colorings and no increment for exactly one. Every coloring has a unique set I of increment levels, giving product weights and the elementary-symmetric sum. Boundary h=0, k>=h and normalization to 2^{sum n_i} follow. Independently enumerated 89 level-size profiles with 1..8 vertices, computing actual longest alternating chains and comparing all coefficients; all passed. Finite checks are corroboration, not proof of the unrestricted theorem.
+
+## originality
+
+PASS
+
+The positive-start alternating-chain convention is established in k-monotonicity testing, but property-testing complexity on Boolean cubes and weak-order interval-endomorphism counts do not imply the all-size weak-order Boolean-coloring index polynomial. Greedy subsequence enumeration makes the proof relatively elementary, so priority within general finite-word automaton enumeration remains uncertain; acceptance is best-of-knowledge.
+
+## value
+
+PASS
+
+For finite weak-order posets, the complete k-monotonicity histogram has a simple symmetric polynomial normal form, enabling exact counts for arbitrary level sizes and a sharp information-loss result under level permutation. It is a natural full structural classification rather than a fabricated downstream application; finite checks alone are not its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

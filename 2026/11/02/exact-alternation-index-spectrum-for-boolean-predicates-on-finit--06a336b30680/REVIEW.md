@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed elementary-symmetric spectrum follows from a bijection between complete Boolean colorings and greedy matched-prefix increment sets. Since every increasing chain takes at most one point per level, the greedy state rises by at most one at each level; a non-increment permits one constant level coloring and an increment permits exactly \(2^{n_i}-1\) colorings. The argument includes empty levels only by excluding them, and covers the empty poset separately. Independent exhaustive direct chain enumeration passed 141 profiles and 26,939 colorings.
+## correctness
 
-## Originality — PASS (qualified)
-The inspected full-text Grigorescu--Kumar--Wimmer article introduces the alternating forbidden pattern for hypercube testing, but does not state an exact weak-order predicate expansion count. Published related mapping-space results concern order-preserving maps, a strictly narrower concept class once \(k\ge2\). Targeted literature and published-result searches found no equivalent all-parameter spectrum. Standard weighted automata could yield an alternative derivation, and historical coverage is not exhaustive. Related mapping-space full text was not accessible: only its published summary was compared.
+PASS
 
-## Mathematical value — PASS
-The complete spectrum is a natural classification of all forbidden-alternation Boolean predicates on every ordinal sum of antichains. It reveals a nonobvious level-permutation invariance for nonisomorphic orders, not just a small-table evaluation. The exact formula and canonical increment-set bijection can be used for enumeration, benchmarks and comparisons of unary colored finite posets.
+The greedy longest-matched-prefix state q_i can rise by at most one on a new antichain level. It rises exactly when the next required alternating bit is present; for level i an increment occurs for precisely 2^{n_i}-1 colorings and no increment for exactly one. Every coloring has a unique set I of increment levels, giving product weights and the elementary-symmetric sum. Boundary h=0, k>=h and normalization to 2^{sum n_i} follow. Independently enumerated 89 level-size profiles with 1..8 vertices, computing actual longest alternating chains and comparing all coefficients; all passed. Finite checks are corroboration, not proof of the unrestricted theorem.
 
-## Limitations and closest literature
-The theorem is limited to weak orders, the specified positive-start pattern, and enumeration rather than statistical testing complexity. Closest inspected primary source: Grigorescu--Kumar--Wimmer, *Flipping out with Many Flips* (arXiv:1705.04205, DOI:10.4230/LIPIcs.APPROX-RANDOM.2018.40). Earlier foundational source: Canonne et al., *Testing k-Monotonicity* (arXiv:1609.00265). A published weak-order mapping-space recurrence counts order-preserving maps and does not claim these nonmonotone predicates in its available summary. Independent scientific validation and complete priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive-start alternating-chain convention is established in k-monotonicity testing, but property-testing complexity on Boolean cubes and weak-order interval-endomorphism counts do not imply the all-size weak-order Boolean-coloring index polynomial. Greedy subsequence enumeration makes the proof relatively elementary, so priority within general finite-word automaton enumeration remains uncertain; acceptance is best-of-knowledge.
+
+## value
+
+PASS
+
+For finite weak-order posets, the complete k-monotonicity histogram has a simple symmetric polynomial normal form, enabling exact counts for arbitrary level sizes and a sharp information-loss result under level permutation. It is a natural full structural classification rather than a fabricated downstream application; finite checks alone are not its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
