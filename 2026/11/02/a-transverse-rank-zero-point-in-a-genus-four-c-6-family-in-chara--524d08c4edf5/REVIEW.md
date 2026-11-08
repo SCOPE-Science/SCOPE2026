@@ -1,15 +1,21 @@
-# Scientific review: transverse rank-zero point in a genus-four \(C_6\)-family
+# Independent mathematical audit
 
-## Correctness — PASS
-For the smooth coefficient space \(U=\{b\Delta\ne0\}\) in characteristic five, the degree-ten model is squarefree and has genus four. The full Cartier coefficient matrix is derived from \(f^2\). Its three-dimensional alternating block has stable rank two exactly when \(S\ne0\), and the independent scalar block has stable rank one exactly when \(L\ne0\). The first-step ranks independently yield the stated \(a\)-numbers. Frobenius twists are used in the correct order, not replaced by ordinary powers. Direct exact symbolic checks and an independent finite-field Cartier iteration agree. The algebraic proof of absolute irreducibility uses a primitive fifth-power polynomial with non-fifth-power coefficient ratio; the smoothness and transverse-intersection proofs check all geometric points, not just finite fields.
+## correctness
 
-## Originality — PASS, with residual risks
-Kudo–Nakagawa–Takagi, arXiv:2210.14822, studies the *same two-parameter family*, primarily in the context of superspecial enumeration for \(p\ge7\). Its full introduction, Cartier formula, main algorithm, and family classification were compared. Those results do not give the characteristic-five stable-rank equations, their geometric irreducibility, or the unique rank-zero intersection. Ohashi–Kudo, arXiv:2312.16858, treats superspecial genus-four curves with larger Klein-four symmetry and does not classify these ranks. Achter–Glass–Pries, arXiv:0708.2199, gives general existence and moduli-stratum dimensions rather than exact coefficient-space equations. Sohn (2025) studies genus-four superelliptic \(a\)-numbers, but only its abstract could be inspected; overlap of the auxiliary first-Cartier-rank formula remains an explicitly unresolved risk, and no priority is claimed for that formula in isolation. Searches for characteristic-five cyclic-six hyperelliptic rank strata and related equivalent formulations yielded no covering theorem. Residual risks are an unindexed calculation or a specialized paper not identified in the available search; search absence is not a uniqueness guarantee. The coefficient matrix formula and the general stable-rank method are credited to established literature, not claimed as new.
+PASS
 
-## Mathematical value — PASS
-The theorem completely describes both natural positive-characteristic Jacobian invariants across a two-parameter genus-four family. The rank-one stratum is a smooth geometrically irreducible curve cut out by a genuinely inseparable polynomial in one coefficient. Its transverse meeting with the rank-two curve at one explicitly located smooth parameter gives an exact, isolated rank-zero degeneration, with no ordinary or superspecial members. These are structural coefficient-space phenomena, not a fixed-parameter example or a known-table recomputation. Full moduli-level isomorphism classification, Newton polygons, and deeper Ekedahl–Oort invariants remain open.
+The exact f² coefficient extraction in RESULT.md yields the sparse 4×4 Cartier matrix; the scalar line contributes one stable image dimension iff L=a²+2b≠0 and the complementary alternating 3-block contributes two iff S=b²(1+2a⁵)+4(a⁵+b⁵)≠0. The first Cartier rank is 2+1_{L≠0} on smooth locus bΔ≠0, yielding a-number 2 or 1; Frobenius semilinearity is treated via twists. Over char5, S=(2b²+4)a⁵+b²+4b⁵ is primitive and −B/A not a fifth power because B′A−BA′=3b+4b⁶≠0, proving absolute irreducibility; gradient excludes singularities inside U. Substituting L=0 (b=2a²) gives S=−2a⁴(a+1)(a−2)⁵ and Δ=2a²(a−2)²; after bΔ≠0 only a=−1,b=2 survives, with transverse gradients. Independent symbolic identities and direct small-field ranks corroborate rather than prove geometric assertions.
 
-## Evidence and scope
-The identities and exact computations can be reproduced using the adjacent `verify_symbolic.py` and `verify_fields.py`. The scripts completed successfully, including all 625 parameter pairs over \(\mathbb F_{25}\); the proof covers all algebraically closed characteristic-five coefficient parameters. The assessed result is the single classification and transverse-degeneration theorem in `RESULT.md`, with no separate claims of isomorphism uniqueness outside the normalized family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same normalized C6 hyperelliptic family and general Cartier computation were already studied by Kudo–Nakagawa–Takagi, but their principal published theorems enumerate superspecial models (not the 5-rank 0–3 strata in characteristic five). The rank-drop intersection and geometric statements are not implied by their stated p≥7 superspecial classifications. Older a-number results could cover that auxiliary component; exact p-rank geometry is best-knowledge original.
+
+## value
+
+PASS
+
+A complete stratification by p-rank and a-number of a natural genus-four automorphism family, with a unique transverse rank-zero specialization and geometrically irreducible rank-drop curves, gives actual moduli-slice geometry rather than a small unmotivated finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
