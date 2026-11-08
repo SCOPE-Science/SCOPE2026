@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Componentwise proof of the sharp 4e/3 closable-vertex bound; strategy-independent hazard product; explicit P4 construction and O(m/n+m^3/n^2) error estimate for m=O(sqrt(n)). Standalone exhaustive checker validates 6,228 small triangle-free graphs; seeded paths validate P4 invariants; finite checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 expected-triangle-count proof uses at most 2j potentially offered vertices, whereas sharp number is 4j/3 for triangle-free graphs.",
+        "The 2026 high-probability theorem addresses variable candidate sets but not fixed-probability optimal profiles.",
+        "The 2024 pre/post-positional comparison proves threshold-order equivalence for target classes, not optimal sharp quantiles."
+      ],
+      "reasoning": "Even when evaluated at full choice s=n-1, the strongest stated bounds leave constant factors and fixed-size probability profile undetermined. None logically dominates the exact limit.",
+      "searches": [
+        "arXiv:1805.02259 Theorem 1.10 Theorem 1.11 Claim 5.1",
+        "arXiv:2610.33854 Theorem 2 Theorem 3 Section 4.1",
+        "DOI:10.1002/jgt.23202 Section 4.2.3",
+        "In semi-random graph process where each round exposes random vertex and adaptive choice of other endpoint, optimal first triangle hitting time has Rayleigh law at square root n, constant 2/3 arising from packing four vertex paths P4 as optimal wedge eligible vertices per edge.",
+        "sharp limiting distribution early triangle creation online random vertex semi random graph process, 4/3 closeable vertices per edge, optimal strategy P4 path components"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.33854",
+      "https://arxiv.org/abs/1805.02259",
+      "https://doi.org/10.1002/jgt.23202"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 result permits a bound proportional to 2j/n, yielding no 4/3 optimality.",
+        "The 2026 scale estimate yields times of size sqrt(n) up to arbitrarily slowly growing multipliers, not the cdf 1-exp(-2x^2/3)."
+      ],
+      "reasoning": "The proposed fixed-x cdf is stronger than scale-only upper and lower bounds; conversely it implies the order-of-magnitude first-triangle scale. Neither inspected earlier claim implies it without a new sharp extremal lemma and attaining construction.",
+      "searches": [
+        "arXiv:1805.02259 lines 85-95 and Section 5.1",
+        "arXiv:2610.33854v1 Theorem 3 and Section 4.1",
+        "Online semi-random graph process full choice: optimal limiting first triangle probability 1-exp(-2*x*x/3) at t=x sqrt(n) via vertex-disjoint P4 components and four-thirds active vertices per edge",
+        "Sharp Rayleigh hitting time of triangle in semi-random graph, optimal adaptive strategy uses disjoint four-vertex paths and extremal 4 e/3 closeable vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The limit infimum of survival is equivalent to a supremum over time-t triangle construction probabilities, uniformly on bounded sqrt(n) horizons.",
+        "Neither of the two inspected primary papers reports a Rayleigh survival profile or an extremal active-vertex ratio 4/3."
+      ],
+      "reasoning": "The fixed-quantile first-triangle formulation and the Rayleigh survival formulation are equivalent complements. A scale theorem only bounds the event in regimes separated by unbounded factors and does not imply the constant-profile statement.",
+      "searches": [
+        "Online semi-random graph process full choice: optimal limiting first triangle probability 1-exp(-2*x*x/3) at t=x sqrt(n) via vertex-disjoint P4 components and four-thirds active vertices per edge",
+        "Sharp Rayleigh hitting time of triangle in semi-random graph, optimal adaptive strategy uses disjoint four-vertex paths and extremal 4 e/3 closeable vertices",
+        "arXiv:1805.02259, Section 5.1",
+        "arXiv:2610.33854v1, Section 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic-index nearest findings concerned triangle-free hypergraph types and independent percolation component-triangle covariance, not an online optimal first-triangle hitting law.",
+        "Accessible own ledger claims keyword-scanned; related occurrences concerned different random graph models or unrelated observables."
+      ],
+      "reasoning": "The sought object is an asymptotic online optimal probability function rather than a finite enumerative table; neither the indexed result descriptions nor accessible claim data contained a covering theorem. Search incompleteness remains a risk.",
+      "searches": [
+        "Online semi-random graph process full choice: optimal limiting first triangle probability 1-exp(-2*x*x/3) at t=x sqrt(n) via vertex-disjoint P4 components and four-thirds active vertices per edge",
+        "Sharp Rayleigh hitting time of triangle in semi-random graph, optimal adaptive strategy uses disjoint four-vertex paths and extremal 4 e/3 closeable vertices",
+        "accessible ledger claim keyword searches: semi-random, triangle, Rayleigh, P4 packing"
+      ]
+    },
+    "rationale": "Theorem 3 and Section 4.1 of 2610.33854 only give order of the triangle hitting time, while 1805.02259 Claim 5.1 provides the weaker 2m/n exposure bound; the new statement determines the exact optimum quantile profile and its sharp exposure constant. published-finding corpus and accessible earlier-claim overlap checks had no direct implication; absolute historical uniqueness is not guaranteed.",
+    "residual_risks": [
+      "No comprehensive review of all older online triangle games or unpublished preprints; exact profile could have been established under another process name.",
+      "Published source comparisons are only as broad as the inspected sections and searches; an unknown stronger theorem could subsume the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Order-of-growth result, not exact Rayleigh optimal profile at s=n-1",
+        "evidence": [
+          "Theorem 3: triangle hitting scale max{n s^{-2/3}, sqrt(n)} up to growing multiplicative factor; Section 4.1 uses star construction for bounded-away success."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.33854",
+        "material_read": "Model definitions, introduction, statements Theorems 2–3, relevant Section 4.1, and cited references",
+        "method": "Primary full-text HTML and PDF page 13 screenshot comparison",
+        "title": "Between the Semi-Random Process and G(n,p)",
+        "trigger": "Same random-vertex process, direct triangle-hitting theorem"
+      },
+      {
+        "assessment": "The proofs establish sqrt(n) scale and expected count bounds, not an optimal fixed-probability Rayleigh law",
+        "evidence": [
+          "Claim 5.1 counts no more than 2m active candidate endpoints per round for a triangle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.02259",
+        "material_read": "Model definitions, Theorems 1.10–1.11, Section 5.1 Claim 5.1 and proof",
+        "method": "Primary open-access HTML full-text inspection",
+        "title": "Semi-random graph process",
+        "trigger": "Original full-choice model; possible stronger triangle result"
+      },
+      {
+        "assessment": "Compares two process variants on threshold order, does not describe a triangle sharp profile",
+        "evidence": [
+          "Abstract concerns asymptotic equal construction speed for fixed-degenerate H and k-connectivity."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.23202",
+        "material_read": "Abstract and accessible full-text passages on fixed-degenerate targets and connectivity",
+        "method": "Open-access journal full text search and abstract inspection",
+        "title": "On the Pre- and Post-Positional Semi-Random Graph Processes",
+        "trigger": "Broader online fixed-degenerate subgraph construction theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f7ee943-c2f2-4aa1-9860-73e9c52eee37",
+  "value": {
+    "rationale": "The result closes a natural constant-order probability gap in first-triangle hitting for fully adaptive semi-random graphs, including the sharp Rayleigh constant and an optimal universal structure for making vertices eligible. Its information is not implied by the previously known high-probability scale.",
+    "status": "PASS"
+  }
+}
