@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A Prüfer deletion bijection and exact occupancy moments give all mixed/individual moments. Separate diagonal and disjoint cherry pairs yield the second moment. Exponential inequalities prove strict positivity for all n>=5. The variance expansion is positive definite, and the published bounded-perturbation Gaussian criterion applied by Cramér–Wold gives the joint limit. Independent enumeration and the packaged standard-library checker agree across 282379 exact and diagnostic checks; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.1 and Theorem 2.8 of Isaev–Southwell–Zhukovskii prove normal approximation for local tree parameters and individual patterns.",
+        "Ekhad–Zeilberger (2022) discuss degree counts, not centers with two leaf neighbors."
+      ],
+      "reasoning": "The published normal criterion implies Gaussian convergence once the relevant variance form and its positive definiteness are independently computed. It does not already report that explicit matrix. A generic tree-forest enumeration can in principle be specialized to the required mixed counts, a genuine residual priority risk rather than grounds to invent noncoverage.",
+      "searches": [
+        "joint Gaussian leaves and cherries in uniform labeled Cayley tree positive covariance explicit",
+        "2019 1912.09838 pattern counts Cayley tree mixed leaf cherry covariance 0.289966",
+        "random labeled trees cherry counts variance covariance leaves 2019 2021"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.02952",
+      "arxiv:1912.09838",
+      "doi:10.1007/s00013-020-01476-x",
+      "arxiv:2201.07326",
+      "doi:10.1007/s00285-021-01667-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Choi–Kaur–Wu (2021), Sections 2–3: binary phylogenetic trees under YHK/PDA processes, different sample space.",
+        "Isaev–Southwell–Zhukovskii (2019), Theorem 1.1: proof tool; no explicit leaf–degree-three-cherry limiting covariance stated in inspected text.",
+        "Junk–Schmidt–Weber (2020), Section 3: one- and two-cherry expectations, not the mixed leaf–cherry quantity."
+      ],
+      "reasoning": "The theorem credits and uses established marginal statistics and Gaussian tools. The combination of a new mixed moment, strict sign, variance diagonal correction and explicit nondegenerate bivariate covariance goes beyond the inspected reported conclusions; implicit derivability from general tree counting remains a limitation.",
+      "searches": [
+        "random labeled trees cherry automorphism versus leaves joint fluctuations",
+        "Prüfer code leaf and degree three cherry joint Gaussian covariance matrix",
+        "Cayley random labelled tree cherry number leaf pairs common neighbor covariance number leaves 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Junk–Schmidt–Weber (2020), Section 3: degree-three cherry indicator and marginal occurrence enumeration.",
+        "Isaev–Southwell–Zhukovskii (2019), Theorem 1.1: generic Gaussian criterion, and Section 2: local tree patterns."
+      ],
+      "reasoning": "The joint covariance can be expressed as a mixed factorial moment and a two-dimensional Gaussian covariance matrix. The closest inspected sources treat the marginal cherry pattern or general convergence, not the exact mixed leaf–cherry moment or explicit positive correlation.",
+      "searches": [
+        "uniform Cayley labeled tree covariance cherry count and number of leaves asymptotic correlation",
+        "leaves cherries Cayley covariance labelled random trees",
+        "arxiv:1912.09838"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Junk–Schmidt–Weber (2020), Lemmas 3.5–3.9 and Equation 3.1: exact marginal cherry counts.",
+        "Direct independent labelled-tree Prüfer enumeration for n=5,6,7,8 matches the new five moment expressions."
+      ],
+      "reasoning": "The inspected primary marginal table and proofs do not provide a two-statistic leaf–cherry covariance table. The double-cherry diagonal is counted independently; an apparent diagonal-multiplicity mismatch in the marginal second-moment display is not assumed away.",
+      "searches": [
+        "2020 Junk Schmidt Weber cherry count second moment labeled tree leaves Gaussian covariance",
+        "leaf cherry covariance uniformly random labeled tree",
+        "number of leaves number of cherries correlation random trees"
+      ]
+    },
+    "rationale": "The available primary full texts cover cherry marginals, generic local-pattern CLTs, degree-count marginals or different binary-phylogenetic models. None inspected states the exact mixed leaf–degree-three-cherry covariance and its nondegenerate explicit bivariate Gaussian covariance matrix. General forest enumerators could contain the result implicitly; historical priority is qualified.",
+    "residual_risks": [
+      "Unindexed older combinatorial moment identities may implicitly or explicitly provide the same cross covariance.",
+      "The arXiv:2201.07326 full text was not obtained; the available abstract only establishes degree-count coverage.",
+      "The general forest enumerator of arxiv:1912.09838 makes related mixed moments algorithmically accessible, so originality rests on the explicit complete joint statement and nontrivial correlation calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_COVERAGE_NOT_MIXED",
+        "evidence": [
+          "Defines degree-three cherries; gives first and purported second moment and uses variance to prove cherry abundance. The mixed leaf count is not present.",
+          "The initial arXiv version was publicly posted 2019-11-07 (arxiv:1911.02952), preceding the May 2020 journal article; full original scientific text was inspected through the open-access publisher."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00013-020-01476-x",
+        "material_read": "HTML complete article Sections 3–4, especially Definition 3.1, Lemmas 3.5–3.9, Theorem 3.10",
+        "method": "Compared one- and two-cherry indicator enumerations and corresponding moment display with the mixed-statistic theorem",
+        "title": "Almost all trees have quantum symmetry",
+        "trigger": "Exactly the same degree-three-cherry statistic in uniform Cayley trees"
+      },
+      {
+        "assessment": "GENERAL_LIMIT_TOOL_USED_NO_EXPLICIT_MATRIX",
+        "evidence": [
+          "Theorem 1.1 covers fixed local tree functionals under variance and bounded perturbations; Theorem 2.8 covers individual pattern counts; no matching explicit mixed covariance matrix located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.09838",
+        "material_read": "Publisher HTML full text, Theorem 1.1, Theorems 2.1, 2.2, 2.8, Lemma 2.3, Sections 2 and 5",
+        "method": "Checked how general pattern counts and Lipschitz superposition imply CLTs, and whether the leaf–cherry cross covariance is tabulated",
+        "title": "Distribution of tree parameters by martingale approach",
+        "trigger": "Possible general dominating tree-pattern Gaussian theorem"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL",
+        "evidence": [
+          "Studies rooted/unrooted binary phylogenetic trees generated by YHK/PDA processes, not uniformly labelled Cayley trees and their variable leaf counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-021-01667-2",
+        "material_read": "Open full-text HTML, model definitions in Section 2 and main joint urn results in Sections 3–6",
+        "method": "Compared probability spaces and the meaning of cherry/leaf",
+        "title": "On asymptotic joint distributions of cherries and pitchforks for random phylogenetic trees",
+        "trigger": "Plausible joint cherry statistic theorem"
+      },
+      {
+        "assessment": "ABSTRACT_RELATED_NO_COVERAGE_CONCLUSION",
+        "evidence": [
+          "Abstract states asymptotic independence of degree-one and degree-three counts, without stating a cherry statistic; full-document priority remains unverified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.07326",
+        "material_read": "ArXiv abstract and publication metadata; complete text not accessed",
+        "method": "Compared degree statistics to the neighbor-sensitive cherry statistic",
+        "title": "Automated Counting and Statistical Analysis of Labeled Trees with Degree Restrictions",
+        "trigger": "Same-model degree-one/degree-three Gaussian dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a294a38b-b52a-407a-a952-30d0eb0c9542",
+  "value": {
+    "rationale": "Degree-three cherry counts quantify local tree automorphisms, and leaf count is a canonical global tree-shape statistic. The exact strict positive covariance at every n>=5 and its explicit nonzero Gaussian-limit correlation reveal dependence invisible to degree-one/degree-three marginal asymptotic independence. A full natural all-order invariant and 2D fluctuation classification, rather than a small enumerative slice.",
+    "status": "PASS"
+  }
+}
