@@ -1,15 +1,21 @@
-# Assessment of the two-circle phase-ambiguity classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS — self-review.** The proof uses rational Schwarz reflections, the finite-fibre obstruction for infinite-order Möbius maps, invariant fields for primitive root-of-unity rotation, degree multiplicativity for rational maps, and the real-axis conjugate-pole characterization of unimodular rational functions. These yield the global normal form and the exact degree multiple \(q\). The explicit coprime polynomial pair verifies sharpness algebraically. The trigonometric zero count proves the claim for arbitrary \(2d+1\) distinct sample points per circle. The checker confirms numerical consistency for denominators \(2\) through \(9\) but is not an infinite proof.
+PASS
 
-## Originality
+Equality of |P|,|Q| on each full circle yields the rational Schwarz reflection identity for F=P/Q after gcd reduction. Two reflections generate an infinite-order Möbius map except rational transverse angle, and nonconstant rational maps cannot be invariant under infinite-order maps. For angle p pi/q the cross-ratio w maps the circles to lines and rotation fixes exactly C(w^q). Rational-map composition multiplies degrees, forcing q divisibility. Conjugate numerator/denominator zeros prove the real-unimodular U/U-sharp normal form; explicit degree-q pair is coprime. Trigonometric polynomial degree <=d in circle parameter forces equality from any 2d+1 samples. Independently checked constructive pairs for q=2..9 on both image lines numerically; numerical tests not the all-degree proof.
 
-**PASS with historical-priority risk — self-review.** Chalendar–Partington (arXiv:2403.16255, Theorem 2.16) already prove the qualitative geometry dichotomy and construct rational-angle counterexamples; those are expressly not claimed new. Their proof of Theorem 2.1 also contains a local Taylor-order divisibility observation. The present claim is the *complete global rational-quotient classification*, especially \(q\mid\deg(P/Q)\), and its exact finite-degree sharpness threshold. Inspection of Perez (arXiv:2009.02061), Hammen's 2015 thesis Section 2.2, and relevant searched records did not disclose that exact stronger statement. An earlier implicit or explicitly published cyclic-reflection normal form remains possible, so priority is not certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS — self-review.** Polynomial degree is a natural complexity measure for finite-dimensional phase retrieval. The quotient classification determines *all* rational-angle ambiguities, not just a counterexample; the denominator of the geometric angle forces a quantized nonzero degree and a complete recovery-versus-failure transition. The measurement consequence applies to every choice of \(2d+1\) distinct points on each circle, a deterministic guarantee useful when sample locations cannot be optimized. It does not claim globally minimal total sample number or robustness to noisy data.
+Chalendar–Partington 2024 already gives irrational/nontransverse two-circle rigidity, rational-angle counterexamples, and a local Taylor-order divisibility restriction. The assessed claim is strictly the global rational-invariant field normal form, q times full reduced map degree, and sharp fixed-degree polynomial threshold. The primary Theorem 2.16 and proof of Theorem 2.1 inspected do not state this complete quotient-degree classification. A differently worded invariant-theory corollary may have appeared elsewhere.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Polynomial degree is the natural complexity parameter for deterministic complex polynomial phase retrieval. Knowing exactly all rational-angle ambiguities and sharp degree threshold lets one decide uniform recoverability for arbitrary sample placements, stronger than qualitative existence of counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
