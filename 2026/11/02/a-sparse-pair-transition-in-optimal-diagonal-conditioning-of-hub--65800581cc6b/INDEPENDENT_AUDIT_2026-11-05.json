@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:06:50.389936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2, 0<b<1, a>0, 2ma²=c²<1+b=v, decompose the matrix into eigenvalue 1−b (m antisymmetric paired modes), v (m−1 pair-symmetric difference modes), and 2x2 hub block [[1,c],[c,v]], establishing SPD. Existence of a scaling D with κ(DAD)<=K is equivalent to a diagonal S satisfying S<=A<=KS, a convex feasibility set. Averaging under pair-swaps and pair-permutations proves the existence of an orbit-constant optimum; Perron positivity of the top generalized eigenvector and PSD sandwich force each optimal diagonal to be orbit-constant, giving uniqueness modulo common scale. For D(t)=diag(sqrt(t),1,..), λ±(t)=(t+v±sqrt((t−v)^2+4c²t))/2, and κ=λ+/min(λ−,1−b). The λ+/λ− part uniquely minimizes at t=v; if c²<=4b²/v then λ− crosses 1−b at t_c=2b(1−b)/(2b−c²)<=v, giving t*=t_c; otherwise t*=v. Substitute to obtain both exact κ branches and Jacobi iff ma²=b². Independently minimized representative m=3,b=0.4,c²=0.12, yielding t≈0.705882353 and κ≈2.509803922; source verify.py tests 126 cases, but proof is all real parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "van der Sluis 1969 Section 4 exact Jacobi optimum when Young property A; graph contains triangles so not property A.",
+          "Shapiro 1985 and Kolotilina 2002 broad block scaling titles/abstracts, full text inaccessible."
+        ],
+        "reasoning": "General convex algorithms and a bipartite-specific Jacobi theorem do not state the exact sparse-pair phase boundary; inaccessible potentially dominating full articles remain residual risks.",
+        "searches": [
+          "optimal condition number diagonal scaling for correlation matrix friendship graph hub matched pairs"
+        ]
+      },
+      "checked_sources": [
+        "van der Sluis (1969), DOI:10.1007/BF02165096 full text",
+        "Shapiro (1985), DOI:10.1137/0722005 (abstract only)",
+        "Braatz–Morari (1994), DOI:10.1137/S0363012992238680 (abstract)",
+        "Kolotilina (2002), DOI:10.1016/S0024-3795(01)00412-8 (abstract only)",
+        "Resultary: 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "van der Sluis Section 4 gives bounds and property A optimality, whereas the hub graph has 3-cycles.",
+          "New scalar minimax crosses λ−(t)=1−b when c²=4b²/(1+b); Perron rigidity addresses unrestricted optimizer uniqueness."
+        ],
+        "reasoning": "A general feasibility criterion may calculate the optimum case by case, but the explicit two-branch formula, sharp Jacobi condition and uniqueness do not follow from the cited property-A theorem alone.",
+        "searches": [
+          "optimal condition number diagonal scaling for correlation matrix friendship graph hub matched pairs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched-pair hub is a weighted friendship-graph correlation matrix; optimizing DAD equals a two-sided Loewner diagonal sandwich S<=A<=KS.",
+          "Shapiro (1985) optimal block-diagonal l2 scaling general problem."
+        ],
+        "reasoning": "Compared friendship graph, block arrowhead and convex conditioning formulations, distinguishing congruence scaling from one-sided nonsymmetric equilibration.",
+        "searches": [
+          "Optimal diagonal scaling spectral condition number hub with paired leaves arrowhead block graph Jacobi scaling transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary weighted-Jacobi damping result concerns 2x2 SPD iterations, not global positive diagonal congruence minimization of a 2m+1 hub matrix.",
+          "Numerical 126-case verifier checks but does not define an existing table of optimal t."
+        ],
+        "reasoning": "The result is a continuous all-m,b,c² piecewise closed form, not a computed finite table or lookup.",
+        "searches": [
+          "Optimal diagonal scaling spectral condition number hub with paired leaves arrowhead block graph Jacobi scaling transition",
+          "Resultary 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for an exact phase diagram and uniqueness among ALL positive diagonal congruences in the matched-leaf hub/triangular graph, not for abstract diagonal scaling algorithms, Loewner feasibility, or known property-A optimality. Van der Sluis 1969 exact Jacobi optimality for Young property A is inapplicable here because the hub with each paired leaf triangle is not bipartite. Braatz–Morari generic condition-number minimization does not present the explicit t*(b,c²) transition. Relevant Shapiro 1985 and Kolotilina 2002 full papers were unavailable, therefore possible broad characterization reducing to this explicit case remains a documented priority risk.",
+      "residual_risks": [
+        "Full Shapiro 1985 and Kolotilina 2002 articles inaccessible via authorized Oxford VPN; possible general-specialization coverage cannot be excluded.",
+        "Assumes strictly positive identical hub couplings and paired-leaf b and strict SPD; no negative b or arbitrary irregular pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Property-A exact Jacobi results not applicable to triangles in this structured graph",
+          "evidence": "Graph has each hub paired to two mutually adjacent leaves, violating bipartite/property A hypothesis.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02165096",
+          "material_read": "Accessible full primary PDF, especially Section 4 on bounds and Young property A",
+          "method": "Read full open PDF and compare hypotheses",
+          "title": "Condition Numbers and Equilibration of Matrices",
+          "trigger": "Closest classical diagonal scaling and Jacobi optimality"
+        },
+        {
+          "assessment": "Cannot conclude whole text does not cover a general characterization implying this family",
+          "evidence": "Residual risk, not treated as disproof.",
+          "identifier_or_url": "https://doi.org/10.1137/0722005",
+          "material_read": "Publisher abstract and metadata only; full text not obtained",
+          "method": "Read abstract; authorized Oxford retrieval blocked by VPN",
+          "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+          "trigger": "Broad general scaling may subsume precise case"
+        },
+        {
+          "assessment": "Potential dominating exact general theorem cannot be ruled out",
+          "evidence": "The closest block-matrix title warrants further full-text comparison.",
+          "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+          "material_read": "Bibliographic abstract only; full text inaccessible",
+          "method": "Read abstract; Oxford retrieval returned disconnected VPN",
+          "title": "Optimally conditioned block matrices",
+          "trigger": "Broad optimally conditioned block-matrix class"
+        },
+        {
+          "assessment": "Generic optimization formulation does not explicitly provide this matched-pair t frontier",
+          "evidence": "No whole-document noncoverage asserted.",
+          "identifier_or_url": "https://doi.org/10.1137/S0363012992238680",
+          "material_read": "Accessible abstract and reported general formulation",
+          "method": "Primary publisher abstract comparison",
+          "title": "Minimizing the Euclidean Condition Number",
+          "trigger": "Generic condition-number minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Diagonal conditioning is a canonical preconditioning problem and matched pairs with one hub are natural sparse correlation matrices. A sharp switch between an eigenvalue-crossing optimizer and the balanced hub mode, plus an exceptional precise Jacobi-optimality curve and uniqueness unrestricted by symmetry, are meaningful and reusable exact results rather than arbitrary small-dimensional tabulations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Shapiro 1985 and Kolotilina 2002 articles inaccessible via authorized Oxford VPN; possible general-specialization coverage cannot be excluded.",
+    "Assumes strictly positive identical hub couplings and paired-leaf b and strict SPD; no negative b or arbitrary irregular pairs."
+  ],
+  "schema_version": 1
+}
