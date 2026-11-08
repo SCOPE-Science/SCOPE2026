@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exchangeable r-face Dirichlet mixture gives E B_i=1/m, E B_i^2=2/[m(r+1)], E B_i B_j=(r-1)/[m(m-1)(r+1)]. Explicit inversion of its two-eigenvalue Gram matrix gives K=1+delta^{-1}(sum_i lambda_i(x)lambda_i(y)-1/m). Convexity and strict sign conflict localize norm to vertices for r>=2; the beta-tail identity integrates the positive vertex kernel exactly and gives Lambda=2I-1 and sharp positivity defect. Differentiation of I in u proves universal strict m monotonicity and optimal ceiling r; separate limits prove proportional-r asymptotic. The standalone exact rational verifier passed 135 parameter pairs, but finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hangelbroek et al., arXiv:1005.2424, introduction and §§4-5, prove uniform bounds for smooth manifold kernel spaces, no sharp simplex face skeleton.",
+        "Crouzeix-Thomée 1987, introduction and theorem on globally coupled finite-element Lp stability, gives no singular measure exact constant.",
+        "Białas-Cież et al., arXiv:2311.18656, abstract, introduction and §2-3 give polynomial-mesh numerical projector Lebesgue bounds, not this closed formula."
+      ],
+      "reasoning": "A theorem for all relevant singular face-mixture measures with an exact norm formula or the sharp ceiling would subsume the claim. The inspected general stability results bound different projectors or give nonsharp/numerical estimates; even the prior exact full-volume simplex case has only rank r=m and cannot dominate r<m.",
+      "searches": [
+        "published-finding corpus: joint (m,r) simplex face-skeleton affine projection operator norm and maximal vertices",
+        "published-finding corpus: general theorem Lebesgue constant for all exchangeable barycentric measures on a simplex exact affine projections",
+        "web: simplex boundary skeleton least squares affine orthogonal projection norm Lebesgue constant",
+        "web: polytope skeletal measure least squares projector"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1005.2424",
+      "doi:10.1090/S0025-5718-1987-0878688-2",
+      "arxiv:2311.18656",
+      "published-result:99c2b9dd9b34",
+      "published-result:92b027220722",
+      "accessible prior claim:e3c1e45a-62d9-4398-9e29-6150754e5c35"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior exact result at r=m: norm 2m(m/(m+1))^(m-1)-1; new formula gives this only when r=m.",
+        "Prior volume-plus-vertex-atom model samples the interior with positive mass (or pure vertices in a degeneracy), unlike intermediate face-balanced rank 2<=r<m.",
+        "The new fixed-r ceiling r for m->infty is outside the prior fixed volume-rank regime, and the proportional-r limit 2theta*exp(-theta)/(2-theta) is likewise not a consequence of the r=m limit."
+      ],
+      "reasoning": "The prior endpoint agrees as it must; it supplies no differential identity in varying m at fixed intermediate rank. The lower-dimensional sampling measure is mutually singular with full volume and the kernel depends on the additional independent parameter r. Neither a title match nor a shared Gram method is coverage.",
+      "searches": [
+        "published-finding corpus: joint (m,r) simplex face-skeleton affine projection operator norm and maximal vertices",
+        "published-finding corpus: Dirichlet mixture uniform random r-face simplex affine L2 projector explicit exact norm m r beta tail",
+        "published-finding corpus: orthogonal projection onto affine functions with exchangeable barycentric distribution vertex kernel norm bound",
+        "GitHub full RESULT.md: published-result 99c2b9dd9b34"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text of public volume-simplex record 99c2b9dd9b34 computes only Dirichlet(1,...,1) volume and m=m rank; its Gram vector has no r-varying atom at zero.",
+        "published-finding corpus skeletal-convexification record 92b027220722 concerns Minkowski sums of supports, not projection norm.",
+        "Crouzeix-Thomée (1987) §§1-2 use global FE spaces."
+      ],
+      "reasoning": "The alternative descriptions \"skeleton quadrature\", \"Dirichlet mixture\", \"balanced face measure\" and \"least-squares Lebesgue constant\" were searched. The singular face selection changes the moment matrix and kernel: for r<m the law has coordinate atoms at 0, while r=m is absolutely continuous. No located alternate statement computes the resulting two-parameter norm.",
+      "searches": [
+        "published-finding corpus: simplicial skeleton least squares projection affine functions sharp L infinity norm all k-dimensional faces of simplex",
+        "published-finding corpus: uniform r-skeleton simplex measure projection onto barycentric affine polynomials exact Lebesgue constant k m",
+        "published-finding corpus: Dirichlet mixture uniform random r-face simplex affine L2 projector explicit exact norm m r beta tail",
+        "published-finding corpus: general theorem Lebesgue constant for all exchangeable barycentric measures on a simplex exact affine projections",
+        "published-finding corpus: orthogonal projection onto affine functions with exchangeable barycentric distribution vertex kernel norm bound",
+        "web: \"simplex\" \"skeleton\" \"least squares\" \"Lebesgue constant\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-results record 99c2b9dd9b34 has the distinct volume-only formula.",
+        "Searches returned 92b027220722 for simplex skeleton geometric convexification, which has no projection-norm table.",
+        "No exact (m,r) face-balanced projection table surfaced in searches."
+      ],
+      "reasoning": "The exact two-integer parameter formula was checked against the publicly indexed volume formula, the candidate mesh/skeleton aliases and relevant published-result index hits. Lack of a result is not proof of novelty; unindexed tables remain possible.",
+      "searches": [
+        "published-finding corpus: simplicial skeleton least squares projection affine functions sharp L infinity norm all k-dimensional faces of simplex",
+        "published-finding corpus: uniform r-skeleton simplex measure projection onto barycentric affine polynomials exact Lebesgue constant k m",
+        "published-finding corpus: joint (m,r) simplex face-skeleton affine projection operator norm and maximal vertices",
+        "published-finding corpus: Dirichlet mixture uniform random r-face simplex affine L2 projector explicit exact norm m r beta tail",
+        "web: \"orthogonal projection\" \"skeleton\" \"simplex\" \"norm\""
+      ]
+    },
+    "rationale": "After searches of the published-results index, accessible prior claims and relevant full/partial primary texts, the closest known volume-only simplex formula covers exactly r=m but not the intermediate skeleton operators. Global FE and kernel-network bounds neither calculate nor imply sharp constants for face-balanced singular simplex observations. The new simultaneous all-(m,r) formula, fixed-rank ceiling and proportional-rank limit are not found in inspected material. Unknown differently named skeletal quadrature sources remain a documented priority risk.",
+    "residual_risks": [
+      "Unindexed skeletal quadrature, simplex mass-lumping or singular-measure least-squares articles could contain equivalent formula under different terminology.",
+      "Only selected sections, not every page, of some long primary articles were read.",
+      "One primary PDF did not permit visual page inspection; comparison relies on accessible textual material.",
+      "Independent external priority and mathematical review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers only r=m full-volume endpoint; not a dominating all-skeleton theorem.",
+        "evidence": "Volume Dirichlet law, norm 2m(m/(m+1))^(m-1)-1; states scope solely uniform volume and one simplex.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+        "material_read": "Entire public RESULT.md: theorem, hypotheses, Gram proof, limitations and references",
+        "method": "Full-file fetch using read-only GitHub access",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Exact full-dimensional endpoint and possible stronger covering formula"
+      },
+      {
+        "assessment": "General kernel-network projector stability; no exact equal-face Dirichlet mixture formula.",
+        "evidence": "Theorem 5.1 controls manifold projector norm for kernel bases; no barycentric (m,r) face-skeleton parameter.",
+        "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+        "material_read": "Abstract, introduction, selected proof sections 4 and 5, including theorem 5.1, original PDF pages 1 and 15 visually checked",
+        "method": "Open-access arXiv PDF full-text reading with selected page inspection",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity Norm of the L2 Projector",
+        "trigger": "Relevant archival primary MSC 41A63 norm-stability literature"
+      },
+      {
+        "assessment": "Global finite element projector on meshes, not singular face-balanced observation measure or its sharp all-(m,r) formula. Whole-document novelty exclusion is not asserted.",
+        "evidence": "Mesh and Lp stability hypotheses differ; no exact face-rank norm in inspected sections.",
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1987-0878688-2",
+        "material_read": "Introduction and first two sections including principal Lp stability theorem in accessible extracted full text; PDF image rendering was unavailable",
+        "method": "Read searchable article PDF text; screenshot request blocked at source",
+        "title": "The Stability in Lp and W1p of the L2-Projection onto Finite Element Function Spaces",
+        "trigger": "Potential general FEM projector theorem covering affine splines"
+      },
+      {
+        "assessment": "Numerical/computational upper and lower bounds for projectors on standard full-dimensional bodies, not exact balanced-skeleton formula.",
+        "evidence": "Polynomial mesh approach and domains cube/simplex/ball; no two-index face-observation parameter.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.18656",
+        "material_read": "Open-access abstract, introduction, sections 2 and 3, plus PDF pages 1 and 10 visually checked",
+        "method": "Read paper PDF and selected page images",
+        "title": "Evaluating Lebesgue Constants by Chebyshev Polynomial Meshes on Cube, Simplex and Ball",
+        "trigger": "Potential broader polynomial projector Lebesgue constants on simplices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01d7455e-1c6e-4f8c-8145-8f92aa245f63",
+  "value": {
+    "rationale": "Canonical equal-probability face-skeleton observations interpolate vertices, all intermediate faces and volume while retaining affine invariance. One formula resolves the exact stability and positivity defect for every face rank and every simplex dimension. The sharp face-rank (not ambient-dimension) ceiling and proportional-face-rank law identify distinct structural high-dimensional regimes; the classification of all norming locations supplies complete sharpness witnesses. This is more than an arbitrary parameter slice or textbook reparametrization.",
+    "status": "PASS"
+  }
+}
