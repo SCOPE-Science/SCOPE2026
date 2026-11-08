@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Stationary log-time CRP functional convergence is established in arxiv:2209.12781 Theorem 6. The proof gives the exact marked-Poisson multitime zero-state probability for total service max of k exponentials, integrates over ordered chronology, factorizes with the correct ratio-coordinate Jacobian, and derives q_j=1-theta/j+O(j^-2). The convergent positive product and Karamata Tauberian theorem prove the precise theta-power endpoint constant. For k=1, q_1=(1-exp(-theta))/theta yields the stated variance. Standalone code confirms 101 independent finite/symbolic/numeric assertions; it is not claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 point-process convergence includes the CRP limiting count path as an image, hence already provides the existence of the limiting chronological occupation law on finite windows.",
+        "The 2022 Theorem 6 supplies the same count-process convergence without formulas for all occupation moments or upper-endpoint asymptotics."
+      ],
+      "reasoning": "The broad functional convergence itself is known and excluded from the novelty claim. Neither stronger source result states an explicit distribution/endpoint theorem; obtaining this one requires integrating multi-time Poisson void events and then proving regular variation of the full moment sequence. An unidentified published specialization remains a residual risk.",
+      "searches": [
+        "arxiv:2502.05578 Theorem 2.1 and Section 4.2",
+        "arxiv:2209.12781 Theorem 6",
+        "Ewens Chinese restaurant process derangement chronological occupation fraction limiting distribution moment product near-one upper endpoint power theta"
+      ]
+    },
+    "checked_sources": [
+      "Gnedin and Stark (2022), arxiv:2209.12781v1, Section 3, Section 8, Theorem 6",
+      "Galganov and Ilienko (2025), arxiv:2502.05578v1, Theorem 2.1, Section 4.2",
+      "da Silva, Jamshidpey and Tavaré (2020), arxiv:2006.04840v1, Sections 1--3",
+      "Publicly indexed related findings on permutation cycle-count dependence, random occupancy and stationary queue functionals, compared at statement level; none matched the claimed invariant."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gnedin--Stark Section 3 proves limsup-one/liminf-zero for chronological fractions; a known functional limit at a geometric time scale does not assert an explicit entire moment sequence.",
+        "Galganov--Ilienko Proposition 4.2 gives joint Poisson representations for fixed-time singleton counts; the manuscript does not compute the weighted all-time indicator integral or its near-unit tail.",
+        "The present proof derives e^{-theta H_k} times a product of beta-integrals and then a strictly positive endpoint constant, neither read off from the cited results as a printed theorem."
+      ],
+      "reasoning": "The underlying weak convergence is genuinely implied by prior results. The precise new claim is the derived product and asymptotic endpoint law. It is an explicit nontrivial strengthening of knowledge about a natural statistic, not an assertion of independent proof of older functional limits. The unresolved risk is a prior specialty queueing calculation with equivalent high-moment asymptotics.",
+      "searches": [
+        "Chinese restaurant process derangement time average empirical frequency random limit distribution variance exact e^-2(e-2) logarithmic time immigration death queue",
+        "All-order moments of empirical fraction of derangements in a Chinese restaurant process, 2022 Gnedin Stark, limiting discounted idle occupation of M/M/infinity queue and near-one probability tail exponent theta",
+        "arxiv:2209.12781 Section 3 and Theorem 6",
+        "arxiv:2502.05578 Theorem 2.1, Proposition 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2209.12781 Section 8 equates truncated-cycle total with M/G/infinity occupancy with service cdf (1-exp(-t))^k; Section 10 gives a functional limit, not the discounted idle-occupation moment product.",
+        "arxiv:2502.05578 Section 4.2 gives stationary time-changed counts and Poisson point-process representation, but its stated consequences concern block-count and first-singleton characteristics.",
+        "A targeted search for exponentially discounted M/G/infinity idle time and product moments surfaced no equivalent result."
+      ],
+      "reasoning": "Chronological averaging becomes exponential discounting of stationary empty-queue indicators under log time. Such a representation is part of prior coverage. What must be compared is the exact factorization of all Mellin moments and the sharp positive near-one constant and exponent; these are not explicit consequences claimed in the compared passages and require a fresh void-intensity and Tauberian computation.",
+      "searches": [
+        "M G infinity queue exponentially discounted idle time functional high moments Tauberian near one tail exponent arrival rate theta",
+        "Scale-invariant Poisson intervals logarithmic-time uncovered fraction moments no small cycles Ewens permutations",
+        "arxiv:2209.12781 Section 8 multivariate excursions and Section 10 functional limit",
+        "arxiv:2502.05578 Section 4.2 count process functional limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2006.04840 Sections 1--3 tabulate and derive cycle counts conditioned on derangements at one fixed size; they do not count correlated no-small-cycle times across a growing CRP.",
+        "Targeted scientific-record search returned no exact table or previously published sequence for the proposed moments or high-fraction tail."
+      ],
+      "reasoning": "The natural invariant here is a continuous limiting occupation distribution, not a known finite table. The exact variance at parameter one is derived from the new all-moment product and is not offered as an isolated novelty claim.",
+      "searches": [
+        "Uniform Ewens CRP no small cycles of length at most K: moment product for limiting fraction of time, universal epsilon^theta near 1 tail",
+        "random permutation no small cycles occupation empirical proportions all moments k short cycles Chinese restaurant",
+        "arxiv:2006.04840 Sections 1--3"
+      ]
+    },
+    "rationale": "The new statement is a sharp, explicit product-moment law and near-one power-law tail for a chronological CRP occupation fraction. The original functional convergence is correctly credited to arXiv:2209.12781 and arXiv:2502.05578. A full comparison of the relevant accessible primary passages found no matching product/tail, and targeted independent literature and indexed-claim searches found no same-strength assertion. Novelty is best-knowledge and historical priority remains qualified.",
+    "residual_risks": [
+      "An existing queueing or renewal-theoretic study may already contain the same Mellin-product or Tauberian near-one law under discounted idle-time terminology, even if the searched CRP literature does not.",
+      "The 2025 point-process theorem is stronger in the foundational convergence sense; the present originality hinges only on the substantive explicit product and sharp tail calculation, not on the weak limit.",
+      "Independent literature-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALREADY covers no a.s. chronological limit, embedding and functional convergence; does not state the moment product or sharp endpoint asymptotics.",
+        "evidence": "Section 3 Theorem 1 and immediately following variance remark; Section 8 equation (27) for M/G/infinity service; Section 10 Theorem 6.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.12781",
+        "material_read": "Accessible full-text HTML, Section 3, Sections 5--8, Theorem 6 and proof in Section 10, and statements concerning variance and queue service.",
+        "method": "Section-level reading and within-document searches for proportion, moment and chronological occupation.",
+        "title": "Random Permutations and Queues",
+        "trigger": "Same CRP chronological derangement fraction and tandem infinite-server queue; essential nearest source."
+      },
+      {
+        "assessment": "General small-block point-measure and count functional limits are already known; proposed explicit integrated-product moment and upper-endpoint law were not located.",
+        "evidence": "Section 4.2 lines around Theorem 6 attribution and Proposition 4.2; Section 4.1 joint Poisson block counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2502.05578",
+        "material_read": "Accessible full-text HTML, abstract, Theorem 2.1, Sections 4.1--4.2, Propositions 4.1--4.3; document searches for occupation and moments.",
+        "method": "Primary text comparison at theorem and proof level, including the strong point-process construction and consequences.",
+        "title": "Scaling limit for small blocks in the Chinese restaurant process",
+        "trigger": "Plausibly dominating stronger point-measure construction of same small-cycle dynamics."
+      },
+      {
+        "assessment": "NOT_COVERING the dynamic product/tail as formulated; source measures fixed-size conditioned derangements, not the empirical chronological no-small-cycle fraction.",
+        "evidence": "Introduction equation (5) and Section 2 equations (6)--(8), explicitly fixed-size conditioned Ewens moments.",
+        "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+        "material_read": "Accessible original 2020 HTML, introduction, static derangement probabilities and Section 2 factorial cycle-count moments, Table of Contents and coupling sections.",
+        "method": "Read original article primary sections and compare conditioned static permutation measure with chronological CRP time occupations.",
+        "title": "Random derangements and the Ewens Sampling Formula",
+        "trigger": "Potential matching derangement calculations using the Ewens law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43a4c8e8-c591-49d4-adad-882411085679",
+  "value": {
+    "rationale": "The statistic is the central chronological derangement-time fraction from the 2022 source, whose almost-sure irregularity motivates a genuine distributional characterization. Exact all-moment factorization determines its law, and a positive near-one constant with exponent independent of the cutoff is a structural rare-event asymptotic, not a relabeling of static Ewens means or a finite tabulation. The explicit exact variance resolves the source’s stated nonvanishing-variance check as a byproduct.",
+    "status": "PASS"
+  }
+}
