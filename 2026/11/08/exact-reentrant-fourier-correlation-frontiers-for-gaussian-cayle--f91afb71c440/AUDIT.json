@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Proof begins with an exact unitary Cayley rotation, obtains the correct normal/chi-square Fourier integral, and uses an explicitly proved exponential Chebyshev-system lemma to bound the number of distinct positive roots. For modes one and two, Gaussian integration by parts and the exact erfc identity give exact formulas. The alternating-series inequality proves \\(\\lambda_2(4)<-1/75\\), and endpoints plus zero count establish the one-root/two-root classification. Invariance and large-step asymptotics follow from the exact increment distribution. 151 deterministic checks replay, but numerical tests are not used as global proof. Roots displayed in decimals remain approximate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Armstrong and King (doi:10.1098/rspa.2021.0785), abstract and indexed theorem discussion, concern manifold-respecting SDE convergence, not fixed-step character multipliers or step-dependent sign changes.",
+        "The original Muniz preprint explicitly identifies the exponential as its implemented group projection and Cayley as a possible alternative."
+      ],
+      "reasoning": "General convergence, strong-order, and manifold invariance do not imply the global-in-stepsize sign pattern for Fourier eigenvalues: a Markov operator may preserve the exact invariant measure and still exhibit negative correlation eigenvalues. No inspected primary theorem provided stronger specific coverage. Older specialist literature remains a residual risk.",
+      "searches": [
+        "stochastic Lie group Gaussian Cayley numerical integrator spectral nonmonotonicity Brownian motion",
+        "Higher Strong Order Methods for Itô SDEs on Matrix Lie Groups",
+        "Curved schemes for stochastic differential equations on or near manifolds Armstrong King",
+        "Geometric Euler-Maruyama schemes SO(n) SE(n) Piggot Solo"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1810.02881",
+      "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf",
+      "https://doi.org/10.3390/math9010094",
+      "https://doi.org/10.1098/rspa.2021.0785",
+      "published-finding corpus 2026/10/11/SCOPE-exact-resonance-spectrum-of-the-barker-larman-tangent-chord-tran--3146b93dda04",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "Accessible original own historical claim ids 72d3d420-8838-4ef5-a8e6-8644f0b8ae56, 6b800a29-3f32-4872-9ed8-63efa831ec0c, a3c5aa12-93de-4a96-a934-8924c616ed3b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An accessible earlier Ornstein-Uhlenbeck BDF2-Maruyama claim (id 72d3d420-8838-4ef5-a8e6-8644f0b8ae56) gives a stationary autocovariance sign transition for a two-step linear multistep SDE method, not Fourier eigenvalues of a Cayley Gaussian circle walk.",
+        "An accessible earlier Crank-Nicolson claim (id 6b800a29-3f32-4872-9ed8-63efa831ec0c) characterizes entrywise nonnegativity of a rational finite-state generator map, not the sign of a Fourier eigenvalue of a positive transition kernel.",
+        "published-finding corpus record 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns positivity of Padé transition matrices on finite Markov chains."
+      ],
+      "reasoning": "The earlier claims have different state spaces, randomization, operators, and quantifiers. They do not imply the second-harmonic negative-then-positive intervals at the specified Cayley Gaussian stepsizes, nor the all-mode zero count. In particular entrywise kernel nonnegativity does not force Fourier eigenvalues nonnegative.",
+      "searches": [
+        "Gaussian Cayley Brownian circle SO(2) Fourier transition eigenvalues sign reentrant second harmonic two roots",
+        "random rotation by 2 arctan Gaussian variate circle Markov Fourier coefficient sign changes Laplace Chebyshev",
+        "stochastic Lie group Gaussian Cayley numerical integrator spectral nonmonotonicity Brownian motion",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "own historical claim id 72d3d420-8838-4ef5-a8e6-8644f0b8ae56",
+        "own historical claim id 6b800a29-3f32-4872-9ed8-63efa831ec0c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new Gaussian angle increment is exactly 2 arctan(sqrt(h) Z/2), and its m-th Fourier eigenvalue is the Laplace transform of y^-1/2 T_m((1-y)/(1+y)); both formulations were searched.",
+        "Jauch, Hoff and Dunson (arXiv:1810.02881), introduction and sections on Cayley distributions and Gaussian parameter approximations, address manifold densities rather than a repeated Gaussian Cayley Brownian transition spectrum.",
+        "Muniz, Ehrhardt and Günther (BUW-IMACM 20/05), Section 3, describe stochastic Lie-group integration with the exponential map and explicitly mention the Cayley map as an alternative."
+      ],
+      "reasoning": "The Cayley parametrization, Gaussian density change-of-variables, and diagonalization on circle characters are all pre-existing ingredients; the exact two-root second harmonic and the all-mode positive-zero bound are not implied by their distributional formulae or convergence statements without further analysis. Search found no exact same-statements record; absence of search hits is not a uniqueness proof.",
+      "searches": [
+        "Gaussian Cayley Brownian circle SO(2) Fourier transition eigenvalues sign reentrant second harmonic two roots",
+        "random rotation by 2 arctan Gaussian variate circle Markov Fourier coefficient sign changes Laplace Chebyshev",
+        "Cayley Gaussian Fourier transition SO(2) Brownian circle",
+        "arxiv:1810.02881",
+        "BUW-IMACM-20/05"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus exact-parameter queries returned geometrical Fourier or stochastic-integrator records with different objects, not a table for these Gaussian Cayley second-mode roots.",
+        "The nearest record 2026/10/11/SCOPE-exact-resonance-spectrum-of-the-barker-larman-tangent-chord-tran--3146b93dda04 concerns a deterministic tangent-chord transform and its resonance frequencies."
+      ],
+      "reasoning": "No same-distribution exact database or tabulation was located. This negative search is bounded evidence, not a proof that no such table exists.",
+      "searches": [
+        "Gauss Cayley stochastic Brownian circle 1.489832571 36.820960094 spectral",
+        "Chebyshev rational Gaussian expectation Laplace transform finite zero count Fourier mode",
+        "Cayley Gaussian second Fourier mode 1.489832571 36.820960094",
+        "published-finding corpus query: Gaussian Cayley Brownian circle SO(2) Fourier transition eigenvalues sign reentrant second harmonic two roots"
+      ]
+    },
+    "rationale": "The assessed result is the exact all-mode Gaussian-Cayley Fourier zero-count and the complete reentrant second-harmonic positive/negative/positive stepsize classification, not Cayley parametrization, Fourier diagonalization, the Gaussian erfc integral, or the classical exponential Chebyshev-system lemma. Inspected 2018 Cayley-distribution and 2020 stochastic SO(n) integrator papers concern different statements; a 2022 general invariant-manifold SDE article is partly access-limited. published-finding corpus/own-ledger nearest records concern different state spaces and implications. Novelty remains subject to specialist literature risk.",
+    "residual_risks": [
+      "Unindexed older specialized literature might contain the same Gaussian Cayley mode thresholds under an alternate circular-statistics or Lie-group random-walk formulation.",
+      "The 2022 Armstrong–King article was available through substantive publisher-indexed material but full text could not be directly inspected; no categorical no-overlap conclusion is drawn for it.",
+      "The exact formulas use classical Gaussian integrals and variation-diminishing tools; novelty is the specific sharp modewise classification, not those ingredients.",
+      "Negative published-finding corpus or title/text searches are bounded comparison evidence, not uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Cayley parametrizations and changes of measure, not Fourier eigenvalue zero-counts for independent Gaussian increments of planar Brownian Cayley steps.",
+        "evidence": [
+          "arXiv:1810.02881v1 page 1 stamped 5 Oct 2018, introduction pages 2-3 list main contributions as parametrization, Jacobians, MCMC, normal approximations.",
+          "Text search found no Fourier discussion; Brownian appears in a bibliography citation, not the assessed scheme."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.02881",
+        "material_read": "Full preprint introduction, mathematical objects and claimed contributions, sections on Cayley change of variables and high-dimensional Gaussian approximations; title/abstract and PDF first-page image; searches within its text for Fourier and Brownian.",
+        "method": "Lawful arXiv original preprint PDF with page-level text and first-page screenshot.",
+        "title": "Random orthogonal matrices and the Cayley transform",
+        "trigger": "Same Cayley mapping of random orthogonal matrices, Gaussian parameter asymptotics, and plausible first-public source."
+      },
+      {
+        "assessment": "Describes exponential-projection SDE integration and explicitly suggests Cayley as an alternative. Its reported simulation does not compute or classify Gaussian Cayley-circle Fourier eigenvalues or reentrant stepsizes.",
+        "evidence": [
+          "Section 3 after Algorithm 3.2 describes Cayley \\(\\operatorname{cay}(\\Omega)=(I-\\Omega)^{-1}(I+\\Omega)\\) as a possible replacement to exp.",
+          "Section 4 constructs covariance flows and projects sampled Lie-algebra averages using the exponential map.",
+          "Original preprint dated March 2020, predating the January 2021 journal version."
+        ],
+        "identifier_or_url": "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2020/imacm_20_05.pdf",
+        "material_read": "Original March 2020 preprint cover and manuscript date March 13 2020; sections 2, 3 (including Algorithm 3.2 and Cayley alternative), and section 4 implementation/simulation; first page screenshot.",
+        "method": "Lawful university-hosted preprint PDF, page text and screenshot; corresponding 2021 open journal page cross-checked.",
+        "title": "Approximating correlation matrices using stochastic Lie group methods",
+        "trigger": "Stochastic SO(n) Lie-group integrator with explicit Cayley suggestion, including planar rotation generator."
+      },
+      {
+        "assessment": "Addresses finite-time convergence and manifold proximity; the observed available text does not settle specific fixed-step Cayley Brownian Fourier root classification. Full-text overlap cannot be excluded.",
+        "evidence": [
+          "Abstract identifies invariant-manifold numerical schemes and convergence as main problem, not circle Fourier spectra.",
+          "Publisher article access returned an inaccessible redirect; no whole-document negative coverage claim is made."
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.2021.0785",
+        "material_read": "Abstract, theorem/discussion excerpt, publication date 29 June 2022 from indexed publisher text and university record; full publisher article could not be opened.",
+        "method": "Publisher-indexed excerpts and institutional publication listing; full-body access attempt failed.",
+        "title": "Curved schemes for stochastic differential equations on, or near, manifolds",
+        "trigger": "Geometric and invariant-manifold approximation of SDEs; potential broader theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f91afb71-c440-447f-83b0-fa5d4fb8ad06",
+  "value": {
+    "rationale": "The natural long-time Fourier test of a geometry-preserving numerical Brownian scheme detects a sharp, analytically certified phenomenon that invariant-measure preservation and weak finite-time consistency cannot imply: the second harmonic becomes negatively correlated and then positively correlated again as steps grow. The exact first and second mode thresholds and all-mode upper bound are structurally motivated numerical maximum-fidelity diagnostics and give reproducible benchmarks; they are not arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
