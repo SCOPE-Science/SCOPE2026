@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:06:30.109608Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Complete Poisson resetting yields stationary age E/r, E~Exp(1), independent of excursion noise. Exact OU variation-of-constants and Brownian scaling give joint (r²X,rV)→(aE²e+√(2η)∫_0^E(E−s)dB_s,2aEe+√(2η)B_E), a=γv/2, whenever rκ_r→η∈[0,∞), with polynomial moment convergence by Gaussian bounds and Exp age moments. If rκ_r→∞, propulsion divided by √(rκ_r) vanishes, yielding noise-only random-acceleration limit. Given E=u, independent-coordinate covariance η[[2u³/3,u²],[u²,2u]] has determinant η²u^4/3>0; independent calculation checked η=0.4,u=0.5 and η=2,u=3. Gaussian integration yields planar position density for η>0. For x=ρn, u=√ρ t reduces Laplace integral to phase Φ_z(t)=ct+bt^-3−d_z t^-1 with unique positive critical t² solving c q²+d_z q−3b=0, positive Hessian; one-dimensional Laplace method gives prefactor ρ^-5/4 exp(−I(z)√ρ) and strict rate decrease with z. Limit is first r→∞, then ρ→∞; no finite-rate uniform tail asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel–Shee Section II defines same inertial model; the paper derives second and fourth stationary moments at fixed noise, rather than the moving κ_r/r law.",
+          "Kumar–Sadekar–Basu is overdamped, no inertial OU position/velocity pair."
+        ],
+        "reasoning": "None of the examined source statements implies the joint finite-η Gaussian-age crossover and exact directional far-field saddle as an explicit result.",
+        "searches": [
+          "arxiv:2602.21134v2 Sections II V VII",
+          "arxiv:2007.05576",
+          "arxiv:2008.03294"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2602.21134v2 (full PDF model, results, conclusion)",
+        "arxiv:2007.05576 (PDF §§2–3.1 Eq.(16))",
+        "arxiv:2008.03294 (published abstract)",
+        "Resultary semantic query inertial active Brownian particle resetting thermal noise crossover angular stretched exponential density"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited η=0 position support lies on a ray and P(e·Z>x)=exp(−√(x/a)), while η>0 has a planar density with anisotropic rate.",
+          "Noise-dominated limit recovers the force-free Brownian random-acceleration reset law; finite η retains the active quadratic drift."
+        ],
+        "reasoning": "Published moment formulas or 1D force-free law do not determine this full two-dimensional joint crossover and directional rare-event shape without additional work.",
+        "searches": [
+          "arxiv:2602.21134v2 Section VII",
+          "arxiv:2007.05576",
+          "inertial active Brownian particle resetting thermal noise crossover angular stretched exponential density"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The noise-only η→∞ limit is an integrated Brownian random acceleration process stopped at Exp(1) age.",
+          "For finite η, active propulsion yields nonzero mean (aE²e,2aEe), absent from zero-force random acceleration."
+        ],
+        "reasoning": "Equivalent Gaussian-age/renewal representation yields the claimed distribution, but older force-free law represents only a boundary specialization.",
+        "searches": [
+          "inertial active Brownian particle resetting thermal noise crossover angular stretched exponential density",
+          "integrated Ornstein Uhlenbeck Poisson reset exponential age joint Brownian acceleration",
+          "arxiv:2007.05576"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stationary moment checks and high-rate scaling appear in Patel–Shee 2026.",
+          "The audited f_η(x)=3/(4πη)∫u^-3 exp(−u−3|x−au²e|²/(4ηu³))du differs from published scalar-moment tables."
+        ],
+        "reasoning": "No matching tabulated angular rate I_η(z) or prefactor found; inherited OU and Gaussian covariance formulas are not claimed novel.",
+        "searches": [
+          "inertial active Brownian particle resetting thermal noise crossover angular stretched exponential density",
+          "inertial resetting active Brownian position density angular tail exp sqrt radius critical noise strength",
+          "arxiv:2602.21134v2"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Patel–Shee 2026 investigates the same full-reset inertial active particle and exact stationary low moments, but the inspected text does not establish moving thermal noise κ_r~η/r, the joint position/velocity Gaussian-age law, or angular saddle tails. Singh 2020 treats 1D force-free random acceleration and contributes the η→∞ boundary, not the active drift crossover. Kumar–Sadekar–Basu 2020 treats overdamped ABP resetting, without inertia. A broad renewal-Laplace saddle theorem might encompass components and remains a priority risk.",
+      "residual_risks": [
+        "A general multidimensional random-acceleration renewal-mixture theorem may specialize to the Gaussian-age density and saddle.",
+        "The complete-reset section of the 2020 force-free random acceleration paper was read, but the overdamped ABP source was examined only by abstract; no whole-document priority assertion on that source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model overlap; covers moments and fixed-noise high-rate exponent but does not state the moved κ_r~η/r joint law or angular saddle density.",
+          "evidence": [
+            "Sections II and VII and appendix moment formulas; high-rate r^-3 mean-squared displacement."
+          ],
+          "identifier_or_url": "arxiv:2602.21134v2",
+          "material_read": "Full 29-page arXiv PDF, including Section II model, stationary moments, high-rate discussion and Section VII conclusion; relevant page visually inspected.",
+          "method": "PDF original text and p13 screenshot, compared SDE/reset assumptions and main reported observables.",
+          "title": "Controlling inertial active Brownian motion via stochastic resetting",
+          "trigger": "Same stochastic differential model and complete Poisson resetting protocol."
+        },
+        {
+          "assessment": "COVERS 1D force-free complete-reset joint stationary law and large-deviation tail, not a nonzero active 2D drift or κ_r~η/r crossover.",
+          "evidence": [
+            "Noise-only η→∞ is explicitly acknowledged as known limiting mechanism."
+          ],
+          "identifier_or_url": "arxiv:2007.05576",
+          "material_read": "Author 25-page arXiv PDF, focusing on §§2–3.1: Gaussian joint propagator Eq.(7), complete-reset stationary joint law Eq.(16), and initial model; not every page read.",
+          "method": "Author PDF text, p0 visual screenshot, §§2–3.1 distribution comparisons.",
+          "title": "Random acceleration process under stochastic resetting",
+          "trigger": "Potential dominating renewal distribution of integrated Brownian motion."
+        },
+        {
+          "assessment": "Different overdamped model, not the inertial velocity SDE.",
+          "evidence": [
+            "Phys Rev E 102 052129 reports 2D overdamped active position laws for three reset protocols."
+          ],
+          "identifier_or_url": "arxiv:2008.03294; DOI:10.1103/PhysRevE.102.052129",
+          "material_read": "Publisher abstract and high-level protocol description only.",
+          "method": "Published abstract comparison: overdamped ABP and complete/partial reset options.",
+          "title": "Active Brownian motion in two dimensions under stochastic resetting",
+          "trigger": "Same active resetting phenomenon and possible density results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Critical thermal forcing separates deterministic directed inertial propulsion from planar noise-dominated random acceleration; exact joint Gaussian mixture, η=0 ray law, and direction-dependent stretched-exponential tail prefactor/rate give natural observables beyond moments in a current physical model. This is not merely reproducing known noise-only reset variance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2602.21134v2 (full PDF model, results, conclusion)",
+    "arxiv:2007.05576 (PDF §§2–3.1 Eq.(16))",
+    "arxiv:2008.03294 (published abstract)",
+    "Resultary semantic query inertial active Brownian particle resetting thermal noise crossover angular stretched exponential density"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general multidimensional random-acceleration renewal-mixture theorem may specialize to the Gaussian-age density and saddle.",
+    "The complete-reset section of the 2020 force-free random acceleration paper was read, but the overdamped ABP source was examined only by abstract; no whole-document priority assertion on that source.",
+    "No publication attempted; public-bound confidentiality sanitation not staged."
+  ],
+  "schema_version": 1
+}

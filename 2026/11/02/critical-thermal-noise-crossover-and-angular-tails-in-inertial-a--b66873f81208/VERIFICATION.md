@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic claim was checked against the exact complete-reset stationary renewal representation and the Itô variation-of-constants formulas for the physical model. Conditional on the exponential reset age, the limiting translational noise has the positive-definite two-variable covariance stated in the proof. The density is a Gaussian mixture, and the directional saddle equation has exactly one positive root and a positive second derivative. The large-radius asymptotic is for the limiting stationary law, not for a uniform joint limit in radius and reset rate.
+## correctness
 
-Execute `python3 verify.py` in the directory containing the embedded files. This run returned `PASS 650 deterministic algebra, covariance, angular-tail and quadrature checks`. Checks include the exact conditional covariance determinant, analytic saddle equation and angular order, exact high-rate mean identity, finite-reset thermal covariance and direct numerical integration of the limiting radial density. The test code is supplemental: it does not establish generality beyond the analytical derivation and does not constitute independent validation.
+PASS
 
-Source inspection covered the relevant full-text sections of the 2026 inertial resetting study and two earlier full-text studies of unforced random acceleration and overdamped active resetting. The previously known zero-force law and the known \(r^{-3}\) mean-squared-displacement regime are not claimed as discoveries. Broader priority coverage has not been independently certified.
+PASS. Complete Poisson resetting yields stationary age E/r, E~Exp(1), independent of excursion noise. Exact OU variation-of-constants and Brownian scaling give joint (r²X,rV)→(aE²e+√(2η)∫_0^E(E−s)dB_s,2aEe+√(2η)B_E), a=γv/2, whenever rκ_r→η∈[0,∞), with polynomial moment convergence by Gaussian bounds and Exp age moments. If rκ_r→∞, propulsion divided by √(rκ_r) vanishes, yielding noise-only random-acceleration limit. Given E=u, independent-coordinate covariance η[[2u³/3,u²],[u²,2u]] has determinant η²u^4/3>0; independent calculation checked η=0.4,u=0.5 and η=2,u=3. Gaussian integration yields planar position density for η>0. For x=ρn, u=√ρ t reduces Laplace integral to phase Φ_z(t)=ct+bt^-3−d_z t^-1 with unique positive critical t² solving c q²+d_z q−3b=0, positive Hessian; one-dimensional Laplace method gives prefactor ρ^-5/4 exp(−I(z)√ρ) and strict rate decrease with z. Limit is first r→∞, then ρ→∞; no finite-rate uniform tail asserted.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Patel–Shee 2026 investigates the same full-reset inertial active particle and exact stationary low moments, but the inspected text does not establish moving thermal noise κ_r~η/r, the joint position/velocity Gaussian-age law, or angular saddle tails. Singh 2020 treats 1D force-free random acceleration and contributes the η→∞ boundary, not the active drift crossover. Kumar–Sadekar–Basu 2020 treats overdamped ABP resetting, without inertia. A broad renewal-Laplace saddle theorem might encompass components and remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Critical thermal forcing separates deterministic directed inertial propulsion from planar noise-dominated random acceleration; exact joint Gaussian mixture, η=0 ray law, and direction-dependent stretched-exponential tail prefactor/rate give natural observables beyond moments in a current physical model. This is not merely reproducing known noise-only reset variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

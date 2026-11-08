@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The joint convergence follows from the stationary Poisson age law, exact variation-of-constants formulas, Brownian time change, uniform-on-compacts rotational convergence, Itô isometry and an integrable exponential-age bound. The limiting coordinatewise covariance has determinant \(\eta^2u^4/3>0\). The planar Gaussian mixture has the stated normalization. An exact substitution turns its radial tail into a Laplace integral with a unique positive algebraic saddle and strictly positive second derivative. The unique saddle gives the full \(\rho^{-5/4}\) prefactor; the angular order follows by pointwise comparison of saddle objectives. The fixed-noise case requires the separately stated noise normalization. The 650 recorded deterministic checks passed using the embedded script, without treating them as a proof of universal limits.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+PASS. Complete Poisson resetting yields stationary age E/r, E~Exp(1), independent of excursion noise. Exact OU variation-of-constants and Brownian scaling give joint (r²X,rV)→(aE²e+√(2η)∫_0^E(E−s)dB_s,2aEe+√(2η)B_E), a=γv/2, whenever rκ_r→η∈[0,∞), with polynomial moment convergence by Gaussian bounds and Exp age moments. If rκ_r→∞, propulsion divided by √(rκ_r) vanishes, yielding noise-only random-acceleration limit. Given E=u, independent-coordinate covariance η[[2u³/3,u²],[u²,2u]] has determinant η²u^4/3>0; independent calculation checked η=0.4,u=0.5 and η=2,u=3. Gaussian integration yields planar position density for η>0. For x=ρn, u=√ρ t reduces Laplace integral to phase Φ_z(t)=ct+bt^-3−d_z t^-1 with unique positive critical t² solving c q²+d_z q−3b=0, positive Hessian; one-dimensional Laplace method gives prefactor ρ^-5/4 exp(−I(z)√ρ) and strict rate decrease with z. Limit is first r→∞, then ρ→∞; no finite-rate uniform tail asserted.
 
-Patel–Shee (arXiv:2602.21134v2, Secs. II–VII, App. B–E) derives fixed-parameter second/fourth moments and notes distributional analysis as a future direction, but not a simultaneous strong-reset and weak-thermal-noise joint law. Singh (arXiv:2007.05576, Secs. 2–3) already derives the one-dimensional zero-force random-acceleration reset law, which is included only as an explicitly credited boundary regime; no claim of priority for it is made. Kumar–Sadekar–Basu (arXiv:2008.03294, Secs. II–IV and appendices) calculates high-reset anisotropy for **overdamped** active Brownian particles, not the inertial critical thermal competition. Direct published-record searches for the equivalent Gaussian-age mixture, moving thermal scale, directed acceleration, angular density rate and earlier accessible claims found no exact statement or stronger published implication among inspected records. This is qualified best-knowledge, not proof of novelty. A general forced random-acceleration renewal theorem might indirectly imply the result and requires independent examination.
+## originality
 
-## Value — PASS
+PASS
 
-The competition is at the natural critical scale \(r\kappa_r\asymp1\): the reset-age propulsion shift is \(O(r^{-2})\), while integrated thermal acceleration is \(O(\sqrt{\kappa_r}r^{-3/2})\). The theorem resolves the full physical crossover instead of merely fitting moments, including a degenerate directional ray, a nondegenerate joint Gaussian-age mixture and a noise-dominated isotropic law. It gives an explicit anisotropic far-field decay rate and prefactor for every angle, identifying a measurable directional bias in rare displacements. Such a complete critical-limit classification is useful even though all its ingredients use standard stochastic calculus.
+PASS best of knowledge. Patel–Shee 2026 investigates the same full-reset inertial active particle and exact stationary low moments, but the inspected text does not establish moving thermal noise κ_r~η/r, the joint position/velocity Gaussian-age law, or angular saddle tails. Singh 2020 treats 1D force-free random acceleration and contributes the η→∞ boundary, not the active drift crossover. Kumar–Sadekar–Basu 2020 treats overdamped ABP resetting, without inertia. A broad renewal-Laplace saddle theorem might encompass components and remains a priority risk.
 
-## Closest work and scientific limits
+## value
 
-The 2020 random-acceleration renewal calculation covers the noise-only endpoint; the 2026 inertial active-particle paper covers low moments at fixed thermal strength. Neither inspected full text supplied the new double scaling and angular saddle. No claim of independent proof certification is made. The far-field formula applies to the limiting crossover law, not uniformly in the original finite resetting rate. Wider implicit coverage is the principal residual scientific risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Critical thermal forcing separates deterministic directed inertial propulsion from planar noise-dominated random acceleration; exact joint Gaussian mixture, η=0 ray law, and direction-dependent stretched-exponential tail prefactor/rate give natural observables beyond moments in a current physical model. This is not merely reproducing known noise-only reset variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
