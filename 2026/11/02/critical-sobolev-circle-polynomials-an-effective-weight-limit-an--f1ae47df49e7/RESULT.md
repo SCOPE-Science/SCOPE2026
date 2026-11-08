@@ -1,92 +1,93 @@
 # Critical Sobolev circle polynomials: an effective-weight limit and a sharp first correction
 
 ## Finding
-Fix \(\lambda>0\) and \(0<c<1/2\). Give the unit circle normalized Haar measure \(dm=d\theta/(2\pi)\), and let \(d\nu(e^{i\theta})=(1+2c\cos\theta)\,dm\). For each integer \(n\ge1\), let \(Q_n\) be the degree-\(n\) monic polynomial orthogonal to all lower-degree polynomials under
+
+Fix real parameters \(\lambda>0\) and \(0<c<1/2\). Equip the unit circle with normalized Haar measure \(dm=d\theta/(2\pi)\) and the strictly positive probability measure \(d\nu(e^{i\theta})=(1+2c\cos\theta)\,dm\). For each \(n\ge1\), let \(Q_n\) be the monic polynomial of degree \(n\) orthogonal to polynomials of lower degree in
 \[
 \langle f,g\rangle_n=\int f\overline g\,dm+\frac{\lambda}{n^2}\int f'\overline{g'}\,d\nu.
 \]
-Set
+Define
 \[
 \Delta=\sqrt{(1+\lambda)^2-4\lambda^2c^2},\qquad
 \rho=\frac{1+\lambda-\Delta}{2\lambda c},\qquad
 A=-\frac1\Delta,\qquad B=1-\frac{1+\lambda}{\Delta^2}.
 \]
-Then \(0<\rho<1\). Uniformly for each fixed \(R>1\) and all \(|z|\ge R\),
+Then \(0<\rho<1\), and, for every fixed \(R>1\), uniformly for \(|z|\ge R\), with \(q=-\rho/z\),
 \[
-\boxed{\frac{Q_n(z)}{z^n}=\frac1{1-q}+\frac1n\left[ A\frac{q(1+q)}{(1-q)^3}+B\frac q{(1-q)^2}\right]+O_{\lambda,c,R}(n^{-2}),\qquad q=-\frac\rho z.}
+\boxed{\frac{Q_n(z)}{z^n}=\frac1{1-q}+\frac1n\left[A\frac{q(1+q)}{(1-q)^3}+B\frac q{(1-q)^2}\right]+O_{\lambda,c,R}(n^{-2}).}
 \]
-The correction is nonzero as a rational function, so the order \(n^{-1}\) is sharp at every exterior point outside its zero set. The limit \(z/(z+\rho)\) varies strictly with \(\lambda\) for fixed \(c\); it is the normalized exterior Szegő function for the effective weight \(1+2\lambda c(1+\lambda)^{-1}\cos\theta\), not for the derivative weight \(d\nu\) alone.
+In particular the limit is \(z/(z+\rho)\), determined by the effective weight \(1+2\lambda c(1+\lambda)^{-1}\cos\theta\). It depends strictly on \(\lambda\) for fixed \(c\), rather than depending only on \(\nu\). The rational first-order correction is not identically zero, and its order is sharp at every exterior point where it does not vanish.
 
-A stronger coefficient statement holds. Writing
+More strongly, let \(Q_n(z)=\sum_{k=0}^{n-1}(-1)^ku_{n,k}z^{n-k}\), where \(u_{n,0}=1\). There exists \(C_{\lambda,c}>0\), independent of \(n\), such that
 \[
-Q_n(z)=\sum_{k=0}^{n-1}(-1)^ku_{n,k}z^{n-k},\quad u_{n,0}=1,
-\]
-there is a constant \(C_{\lambda,c}\) independent of \(n\) such that
-\[
-\max_{0\le k\le n-1}\left|u_{n,k}-\rho^k\left(1+\frac{Ak^2+Bk}{n}\right)\right|\le \frac{C_{\lambda,c}}{n^2}.
+\boxed{\max_{0\le k\le n-1}\left|u_{n,k}-\rho^k\left(1+\frac{Ak^2+Bk}{n}\right)\right|\le C_{\lambda,c}n^{-2}.}
 \]
 
-## Assumptions and scope
-All parameters are real with \(\lambda>0\), \(0<c<1/2\); \(n\) is any positive integer. The derivative is the complex polynomial derivative. Both measures are probability measures, continuous and bounded above and below by positive constants, and belong to the Szegő class. The inner product changes with polynomial degree, so this is not the fixed-penalty Sobolev problem. The asymptotic statement is uniform on unbounded exterior regions \(|z|\ge R>1\) after division by \(z^n\). The coefficient bound is uniform even for indices of order \(n\), without claiming a relative error there.
+## Assumptions and precise scope
+
+The derivative is the usual complex polynomial derivative. Both circle measures have bounded, strictly positive densities and belong to the Szegő class. The norm depends on \(n\), with penalty \(\lambda/n^2\); this is not a fixed-penalty Sobolev problem. The first formula holds for all exterior \(|z|\ge R>1\) after division by \(z^n\), and the coefficient bound is absolute even when \(k\) is comparable with \(n\). We make no assertion about relative errors for exponentially small coefficients, nor arbitrary pairs of Szegő-class measures.
 
 ## Proof
-**1. Exact banded Gram equations.** For nonnegative integers \(j,k\), Fourier orthogonality gives
+
+**1. Exact orthogonality equations.** Fourier orthogonality for nonnegative \(j,k\) gives
 \[
-\langle z^j,z^k\rangle_n=\delta_{jk}+\frac{\lambda jk}{n^2}\bigl(\delta_{jk}+c\delta_{j,k+1}+c\delta_{j,k-1}\bigr).
+\langle z^j,z^k\rangle_n
+=\delta_{jk}+\frac{\lambda jk}{n^2}\bigl(\delta_{jk}+c\delta_{j,k+1}+c\delta_{j,k-1}\bigr).
 \]
-Since \(1\) is orthogonal to every positive power, the constant coefficient of \(Q_n\) vanishes. Thus the displayed coefficient representation exists. Orthogonality to \(z^{n-k}\), \(1\le k\le n-1\), yields
+In particular \(1\) is orthogonal to each positive power, so the constant coefficient of \(Q_n\) is zero, giving the asserted representation. Orthogonality to \(z^{n-k}\), \(1\le k\le n-1\), yields
 \[
 \left(1+\lambda(1-k/n)^2\right)u_{n,k}
 -\lambda c(1-k/n)(1-(k-1)/n)u_{n,k-1}
--\lambda c(1-k/n)(1-(k+1)/n)u_{n,k+1}=0.
-\tag{1}
+-\lambda c(1-k/n)(1-(k+1)/n)u_{n,k+1}=0.\tag{1}
 \]
-Here \(u_{n,0}=1\), while the term involving \(u_{n,n}\) has coefficient zero and is omitted.
+Here \(u_{n,0}=1\). At \(k=n-1\), the formal \(u_{n,n}\) term has zero coefficient and is absent.
 
-**2. Stable operator.** Regard (1) as a linear system for \(u_{n,1},\ldots,u_{n,n-1}\). Its real tridiagonal matrix has positive diagonal, nonpositive neighboring entries, and diagonal excess at least
+**2. Uniform inverse estimate.** The system in \(u_{n,1},\dots,u_{n,n-1}\) has positive diagonal, nonpositive off-diagonal entries, and row diagonal excess at least
 \[
-1+\lambda(1-2c)(1-k/n)^2\ge1.
+1+\lambda(1-2c)(1-k/n)^2\ge1;
 \]
-The omitted boundary entries only increase this excess. By the elementary maximum-component argument, its inverse has \(\ell^\infty\)-operator norm at most one: at an index of maximal absolute value of a vector \(x\), the corresponding absolute value of the matrix-vector product is at least \(\|x\|_\infty\). This also proves existence and uniqueness independently of the positive Gram form.
+the missing end neighbors can only increase this excess. At a component of maximum absolute magnitude of an arbitrary vector \(x\), the corresponding matrix-vector product has magnitude at least \(\|x\|_\infty\). Thus the system is invertible and the inverse satisfies \(\|M_n^{-1}\|_{\infty\to\infty}\le1\), uniformly in \(n\). This is a direct estimate, not a spectral approximation.
 
-**3. Root and exact cancellation.** The number \(\rho\) is the small root of
+**3. Correct first-order cancellation.** The number \(\rho\) is the unique root in \((0,1)\) of
 \[
-\lambda c(\rho+\rho^{-1})=1+\lambda.
+\lambda c(\rho+\rho^{-1})=1+\lambda,
 \]
-Consequently \(\Delta=\lambda c(\rho^{-1}-\rho)>0\). Let \(h(k)=Ak^2+Bk\) and insert
+with \(\Delta=\lambda c(\rho^{-1}-\rho)>0\). Let \(h(k)=Ak^2+Bk\) and define the comparison vector
 \[
-v_{n,k}=\rho^k\bigl(1+h(k)/n\bigr)
+v_{n,k}=\rho^k\left(1+\frac{h(k)}n\right),\qquad k\ge0.
 \]
-into the left side of (1). The coefficient of order \(n^0\), after division by \(\rho^k\), vanishes by the root identity. The coefficient of order \(n^{-1}\) is
+Substitute this into the left side of (1) and divide by \(\rho^k\). The coefficient of \(n^0\) is zero by the characteristic-root identity. **The correct coefficient of \(n^{-1}\)** is
 \[
-(1+\lambda)h(k)-\lambda c\bigl(\rho^{-1}h(k-1)+\rho h(k+1)\bigr)+\Delta-2k.
+(1+\lambda)h(k)-\lambda c\bigl(\rho^{-1}h(k-1)+\rho h(k+1)\bigr)+\boxed{2k-\Delta}.\tag{2}
 \]
-For the linear operator in this expression, its action on \(k\) is \(\Delta\), and on \(k^2\) is \(2\Delta k-(1+\lambda)\). With \(A=-1/\Delta\) and \(B=1-(1+\lambda)/\Delta^2\), the whole first-order expression is identically zero for every integer \(k\). The remaining terms of the exact substitution have the form \(\rho^k n^{-2}P_2(k)+\rho^k n^{-3}P_3(k)\), where \(P_2,P_3\) are polynomials (depending on \(\lambda,c\), not on \(n\)). Since \(0<\rho<1\) and \(n\ge1\), their supremum over all indices is \(O_{\lambda,c}(n^{-2})\). At \(k=n-1\) the nonexistent final neighbor has zero prefactor, so the same estimate applies. The boundary data \(v_{n,0}=u_{n,0}=1\) agree.
+To evaluate it, introduce \(\mathcal Lh(k)=(1+\lambda)h(k)-\lambda c(\rho^{-1}h(k-1)+\rho h(k+1))\). Then \(\mathcal L(k)=\Delta\) and \(\mathcal L(k^2)=2\Delta k-(1+\lambda)\). Consequently the stated \(A=-1/\Delta\) and \(B=1-(1+\lambda)/\Delta^2\) give \(\mathcal Lh(k)=\Delta-2k\), which cancels the actual forcing \(2k-\Delta\) in (2). Note that reversing this forcing sign would *not* yield cancellation; equation (2) explicitly fixes that sign in the earlier proof.
 
-Subtract the equations for the true vector and the comparison vector. Step 2 bounds the maximum coefficient error by the maximum residual, giving the coefficient claim. For \(n=1\) the claim is immediate because \(Q_1=z\).
-
-**4. Exterior summation and sharpness.** Divide the polynomial by \(z^n\), insert the coefficient estimate, and set \(q=-\rho/z\). For \(|z|\ge R>1\), the sum of \(n\) coefficient errors divided by \(|z|^k\) is bounded by \(O_{\lambda,c,R}(n^{-2})\) since \(\sum_{k\ge0}R^{-k}<\infty\). The tails beyond \(k=n-1\) in the explicit geometric, first- and second-moment series are \(O_{\lambda,c,R}(n^{-2})\), in fact exponentially small. Using
+After cancellation, the exact residual has the form
 \[
-\sum_{k\ge0}q^k=(1-q)^{-1},\quad
-\sum_{k\ge0}kq^k=q(1-q)^{-2},\quad
-\sum_{k\ge0}k^2q^k=q(1+q)(1-q)^{-3}
+\rho^k\left[n^{-2}P_2(k)+n^{-3}P_3(k)\right],
 \]
-proves the announced formula. Because \(A\ne0\), its rational correction cannot vanish identically; away from its finite zero set, multiplying the difference from the limit by \(n\) gives a nonzero limit.
+where \(P_2,P_3\) are fixed polynomials with coefficients depending only on \(\lambda,c\). Since \(0<\rho<1\), \(\sup_{k\ge0}\rho^k(|P_2(k)|+|P_3(k)|)<\infty\); hence the residual is bounded by \(C_{\lambda,c}/n^2\) uniformly for \(0\le k\le n-1\). The omitted last neighbor has coefficient zero, so this reasoning remains valid at \(k=n-1\). The boundary value \(v_{n,0}=1=u_{n,0}\) agrees with the exact one. The uniform inverse estimate in Step 2 proves the boxed coefficient approximation. For \(n=1\), the polynomial is exactly \(Q_1=z\) and the coefficient statement is immediate.
 
-Finally, \(\lambda c/(1+\lambda)\) increases strictly with \(\lambda\), and \(\rho\) is the unique solution in \((0,1)\) of \(\rho/(1+\rho^2)=\lambda c/(1+\lambda)\); hence \(\rho\) increases strictly with \(\lambda\). This proves that the exterior limit cannot depend only on the fixed derivative measure.
+**4. Exterior sum and sharpness.** Divide \(Q_n\) by \(z^n\). The coefficient error contributes at most \(C n^{-2}\sum_{k\ge0}R^{-k}=O_{\lambda,c,R}(n^{-2})\) for \(|z|\ge R>1\). The discarded tails in the geometric and the first two power-moment series beyond \(k=n-1\) are exponentially small uniformly in that region. Using
+\[
+\sum_{k\ge0}q^k=\frac1{1-q},\qquad
+\sum_{k\ge0}kq^k=\frac q{(1-q)^2},\qquad
+\sum_{k\ge0}k^2q^k=\frac{q(1+q)}{(1-q)^3}
+\]
+proves the stated exterior expansion. Since \(A\ne0\), the correction is a nonzero rational function, and so the order \(1/n\) cannot generally be improved. Finally, \(\rho/(1+\rho^2)=\lambda c/(1+\lambda)\). The right side increases strictly with \(\lambda\), and the left side increases on \((0,1)\); hence \(\rho\) and the limiting exterior function vary strictly with \(\lambda\).
 
-## Verification
-The standalone standard-library script `verify.py` constructs and solves the full finite Gram equations **in exact rational arithmetic** for two parameter triples with rational \(\rho\), checks orthogonality and the tridiagonal recurrence for degrees \(2\) through \(12\), checks comparison residuals, and independently runs a degree-\(300\) floating-point tridiagonal solution against the first-order coefficient prediction. Successful execution prints `FINITE_CHECKS_OK`. The uniformly valid operator bound and the polynomial cancellation above, not numerical extrapolation, prove the infinite statements.
+## Verification and literature comparison
 
-## Relationship to prior work
-Majumder and Swaminathan, *Sobolev Orthogonal Polynomials on the unit circle with varying inner product*, arXiv:2610.31994v1 (public October 22, 2026), consider the same critical coefficient \(\lambda/n^2\) for two measures. Their Theorem 3.2 and Corollary 3.2 state a limit determined only by the derivative measure. The example proved here falls under their printed measure hypotheses but has an exactly computed, nonconstant \(\lambda\)-dependent limit. In this family, the second-measure-only formula is therefore not the correct limiting expression. The present statement also provides an explicit sharp first correction and uniform coefficient control, not merely a limiting comparison. This is a precise mathematical comparison of assertions, not an assertion that their entire framework is invalid.
+The accompanying unchanged `verify.py` independently solves finite Gram equations in exact rational arithmetic, checks orthogonality for \(n=2,\dots,12\) and large-degree approximants; these checks are supplementary to the proof. An additional exact rational evaluation at \((\lambda,c,\rho)=(1,5/13,1/5)\) gives \(\mathcal Lh(1)=-2/13\) and \(2-\Delta=2/13\), confirming the corrected first-order cancellation. The earlier displayed sign \(\Delta-2k\) on the forcing itself is erroneous, although the theorem and its coefficients remain unchanged.
 
-Castillo, Garza and Marcellán (2013) treat balanced Sobolev orthogonality with a **single common measure**, which cannot imply the two-distinct-measure example. Marcellán and Sri Ranga (2017) investigate coherent pairs with a **fixed Sobolev multiplier**; that setting does not imply this degree-dependent critical asymptotic or its first correction. Older fixed-penalty unit-circle and real-line Sobolev asymptotics also use materially different scaling.
+Majumder and Swaminathan, *Sobolev Orthogonal Polynomials on the unit circle with varying inner product*, arXiv:2610.31994v1 (2026), Theorem 3.2 and Corollary 3.2, consider the same critical Sobolev scaling but give a derivative-measure-only limiting expression. For the admissible two-measure example here, exact Gram equations instead produce the nonconstant \(\lambda\)-dependent limit. This is a comparison with the printed 2026 theorem, not a claim about subsequent corrected versions. Castillo, Garza and Marcellán (2013) consider a single common circle measure; Marcellán and Sri Ranga (2017) consider coherent measure pairs with a fixed multiplier. Neither directly gives the balanced two-measure first correction. A general tridiagonal asymptotic theorem or an unindexed older result could provide equivalent formulas; no absolute historical-priority claim is made.
 
 ## Limitations
-This is an exact two-measure, one-Fourier-mode model, not a theorem for all Szegő-class measure pairs or other critical exponents. The result concerns monic polynomial normalization, not orthonormal leading-coefficient asymptotics. The comparison with the October 2026 source is based on the stated theorem and its hypotheses; potential future corrections to that source are unknown. Coverage by obscure earlier tridiagonal/Toeplitz asymptotic treatments cannot be excluded definitively. No independent mathematical audit has been performed.
+
+The result concerns this explicit first-Fourier-mode weight and only monic normalization. It does not establish a general theorem for arbitrary two-measure Szegő pairs, other scaling exponents, relative coefficient error, or asymptotics within the closed unit disk. The correction to the earlier algebraic sign does not change the original exact theorem or its advertised value.
 
 ## References
-1. S. Majumder and A. Swaminathan, *Sobolev Orthogonal Polynomials on the unit circle with varying inner product*, arXiv:2610.31994v1, October 22, 2026, Sections 1 and 3, particularly Theorem 3.2. https://arxiv.org/html/2610.31994v1
-2. K. Castillo, L. E. Garza and F. Marcellán, *Asymptotic behaviour of Sobolev orthogonal polynomials on the unit circle*, Integral Transforms and Special Functions **24** (2013), 23–38. DOI: 10.1080/10652469.2011.649751.
-3. F. Marcellán and A. Sri Ranga, *Sobolev Orthogonal Polynomials on the Unit Circle and Coherent Pairs of Measures of the Second Kind*, Results in Mathematics **71** (2017), 1127–1149. DOI: 10.1007/s00025-016-0631-y. Open manuscript: https://repositorio.unesp.br/bitstreams/301c5e4c-5839-4538-82d5-7150f4f63184/download
+
+1. S. Majumder and A. Swaminathan, *Sobolev Orthogonal Polynomials on the unit circle with varying inner product*, arXiv:2610.31994v1 (2026), especially Theorem 3.2 and Corollary 3.2, https://arxiv.org/html/2610.31994v1.
+2. K. Castillo, L. E. Garza and F. Marcellán, *Asymptotic behaviour of Sobolev orthogonal polynomials on the unit circle*, Integral Transforms and Special Functions 24 (2013), 23–38, DOI 10.1080/10652469.2011.649751.
+3. F. Marcellán and A. Sri Ranga, *Sobolev Orthogonal Polynomials on the Unit Circle and Coherent Pairs of Measures of the Second Kind*, Results in Mathematics 71 (2017), 1127–1149, DOI 10.1007/s00025-016-0631-y.

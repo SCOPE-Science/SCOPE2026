@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:06:30.109601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS FOR THE REPAIRED FINAL CLAIM. Original RESULT.md Step 3 has an incorrect sign in its n^-1 residual: it prints +Δ−2k where expansion of (1) actually gives +2k−Δ. The printed expression does not cancel for its advertised A,B; independently at λ=1,c=5/13,ρ=1/5 and k=1, it gives −4/13 instead of zero. The complete new RESULT.md fixes the forcing to +2k−Δ, proves Lh=Δ−2k with A=−1/Δ, B=1−(1+λ)/Δ², and then exact cancellation. Gram orthogonality yields tridiagonal M-matrix with row excess ≥1 and l∞ inverse bound ≤1; remaining residual ρ^k n^-2P2(k)+ρ^k n^-3P3(k) is uniformly O(n^-2). Thus all-k coefficient and uniform |z|≥R>1 exterior expansion follow. Independent rational k=1..6 checks gave zero corrected n^-1 coefficient; independent tridiagonal solves for n=30,150,600 gave n² absolute first-coefficient errors around 0.095. The corrected first-order term is a nonzero rational function and all hypotheses λ>0,0<c<1/2 are retained. Full replacement RESULT.md bytes are staged with verified current blob guard and SHA-256; old proof evidence preserved unchanged in Git.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 theorem uses λ/n² and two measures, but printed expression omits λ and disagrees with exact recurrence for this admissible case.",
+          "2017 coherent pairs use a fixed Sobolev multiplier, not λ/n²; 2013 treatment uses same/common measure."
+        ],
+        "reasoning": "No valid stronger result with the same correct λ-dependent formula or explicit sharp 1/n correction found; the faulty printed broader claim cannot logically imply the repaired statement.",
+        "searches": [
+          "arxiv:2610.31994v1 Theorem 3.2 Corollary 3.2",
+          "DOI:10.1007/s00025-016-0631-y",
+          "DOI:10.1080/10652469.2011.649751"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.31994v1 (full HTML Theorem 3.2 Remark 3.2)",
+        "DOI:10.1007/s00025-016-0631-y (introductory manuscript)",
+        "DOI:10.1080/10652469.2011.649751 (abstract)",
+        "Resultary semantic query Sobolev orthogonal polynomials unit circle varying inner product n squared derivative critical effective Szego weight"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed derivative weight 1+2c cosθ, a derivative-only limit predicts ρ_ν=(1−√(1−4c²))/(2c), whereas exact Gram limit ρ satisfies ρ/(1+ρ²)=λc/(1+λ).",
+          "With λ=1,c=5/13 the actual ρ=1/5; it differs from derivative-only ρ_ν."
+        ],
+        "reasoning": "The theorem contradicts the printed source conclusion in one admissible model and gives new quantitative coefficient control. The valid parts of broader literature remain acknowledged.",
+        "searches": [
+          "arxiv:2610.31994v1 Theorem 3.2 and Remark 3.2",
+          "Sobolev orthogonal polynomials unit circle varying inner product n squared derivative critical effective Szego weight"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent effective weight 1+2λc/(1+λ)cosθ has root ρ; Q_n/z^n→z/(z+ρ).",
+          "Majumder–Swaminathan v1 printed µ2-only normalized Szegő factor has different root for finite λ."
+        ],
+        "reasoning": "The tridiagonal Jacobi asymptotic and effective-Szegő descriptions are equivalent to the new λ-dependent limit; the 2026 µ2-only expression is not equivalent.",
+        "searches": [
+          "Sobolev orthogonal polynomials unit circle varying inner product n squared derivative critical effective Szego weight",
+          "arxiv:2610.31994v1 Theorem 3.2",
+          "balanced varying Sobolev circle Gram Toeplitz tridiagonal asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two exact rational-root test cases are (λ,c,ρ)=(1,5/13,1/5), (2,6/17,1/4).",
+          "Published paper Section 4 illustrates a different Bernstein–Christoffel measure family with derivative-only asserted limit."
+        ],
+        "reasoning": "No matching coefficient table or precomputed 1/n rational correction located. Finite test cases verify algebra only, not novelty.",
+        "searches": [
+          "Sobolev orthogonal polynomials unit circle varying inner product n squared derivative critical effective Szego weight",
+          "first cosine Sobolev unit circle varying n^-2 penalty exact coefficient rational rho",
+          "arxiv:2610.31994v1 Section 4"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Majumder–Swaminathan arxiv:2610.31994v1 Theorem 3.2/Cor 3.2 gives an exterior leading function depending only on derivative measure μ2 for λ/n². The audited admissible Haar/first-cosine two-measure family instead yields λ-dependent root ρ/(1+ρ²)=λc/(1+λ), with rigorous 1/n correction. The earlier broad theorem printed conclusion is incompatible in this special case, so does not cover the correct claim. Earlier fixed-penalty two-measure and common-measure problems lack this correction; possible earlier Toeplitz recurrence coverage retained.",
+      "residual_risks": [
+        "Unknown older tridiagonal asymptotic theory might imply the sharp correction.",
+        "The 2026 paper may be corrected subsequently; comparison is to v1 only.",
+        "Access to full older common-measure journal source was limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED THEOREM INCOMPATIBLE WITH ADMISSIBLE MODEL; its predicted λ-independent µ2-only factor differs from exact λ-dependent factor.",
+          "evidence": [
+            "Theorem 3.2 explicitly states µ2 Szegő factor; Remark 3.2 says limit depends on µ2; revised theorem does not assume degenerate λ."
+          ],
+          "identifier_or_url": "arxiv:2610.31994v1",
+          "material_read": "Full arXiv HTML Sections 1–4, especially Theorem 3.2, proof, Corollary 3.2, Remark 3.2 and example.",
+          "method": "Full HTML statement and hypotheses comparison, with independent coefficient recurrence calculation.",
+          "title": "Sobolev Orthogonal Polynomials on the unit circle with varying inner product",
+          "trigger": "Exactly identical critical two-measure scaling λ/n² and exterior normalization."
+        },
+        {
+          "assessment": "Fixed-parameter model does not state the n^-2 critical first-order correction.",
+          "evidence": [
+            "Published version uses fixed s penalty rather than λ/n²."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00025-016-0631-y",
+          "material_read": "Open manuscript introductory definitions, including fixed multiplier in inner product (1.5); not entire paper.",
+          "method": "Comparison of penalty scaling and measure setting.",
+          "title": "Sobolev Orthogonal Polynomials on the Unit Circle and Coherent Pairs of Measures of the Second Kind",
+          "trigger": "Related distinct-measure circle Sobolev asymptotics."
+        },
+        {
+          "assessment": "Common-measure setting differs; unresolved priority of narrow exact recurrence retained.",
+          "evidence": [
+            "Description concerns common measure rather than separate Haar and first-cosine derivative weights."
+          ],
+          "identifier_or_url": "DOI:10.1080/10652469.2011.649751",
+          "material_read": "Bibliographic abstract; full journal article not available.",
+          "method": "Abstract and model assumptions comparison.",
+          "title": "Asymptotic behaviour of Sobolev orthogonal polynomials on the unit circle",
+          "trigger": "Potential older strong-Szegő theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exactly soluble one-Fourier-mode model yields a sharp critical-scale asymptotic and uniform all-coefficient remainder, and supplies a concrete admissible counterexample to the published derivative-measure-only limit. Such a boundary correction matters for strong asymptotics of varying Sobolev orthogonality; not just a routine parameter substitution. The one-sign correction repairs a real proof gap without changing the valuable theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.31994v1 (full HTML Theorem 3.2 Remark 3.2)",
+    "DOI:10.1007/s00025-016-0631-y (introductory manuscript)",
+    "DOI:10.1080/10652469.2011.649751 (abstract)",
+    "Resultary semantic query Sobolev orthogonal polynomials unit circle varying inner product n squared derivative critical effective Szego weight"
+  ],
+  "disposition": "repaired",
+  "limitations": [
+    "Unknown older tridiagonal asymptotic theory might imply the sharp correction.",
+    "The 2026 paper may be corrected subsequently; comparison is to v1 only.",
+    "Access to full older common-measure journal source was limited.",
+    "No publication attempted; public-bound confidentiality sanitation not staged."
+  ],
+  "schema_version": 1
+}
