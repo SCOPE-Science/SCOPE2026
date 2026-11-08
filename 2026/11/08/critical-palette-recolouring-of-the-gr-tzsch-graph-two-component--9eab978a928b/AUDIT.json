@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "C++ all-assignment backtracking enumerates exactly 12,480 proper colourings of the specified 11-vertex graph, builds all 45,240 legal undirected edges and performs all-source BFS for 12,480 sources. A logically different Python pentagon/apex/shadow enumeration reconstructs the same graph, checks move reversal, components, D5×S4 orbit partition, all orbit-root distance histograms and unique antipodes, and replays a 17-move witness. Both pass and give complete exact finite results; exhaustive breadth-first search is sufficient and does not extrapolate to other graph orders. Residual code/model specification risks remain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cereceda, van den Heuvel, Johnson (LSE-CDAM-2005-11), connectedness theorem for d-degenerate graphs at k≥d+2; here d=3 and k=4, so hypothesis fails.",
+        "Johnson et al., Finding Shortest Paths between Graph Colourings (arXiv:1403.6347v1) treats shortest-path algorithms and complexity but does not supply this eleven-vertex metric census."
+      ],
+      "reasoning": "The 2005 theorem DOES already cover connectivity for k=5, explicitly excluded from this claimed contribution. It neither implies connectivity nor exact distances for k=4. Algorithmic solvability of shortest paths does not state the graph-specific answers without carrying out the computation.",
+      "searches": [
+        "chromatic reconfiguration Grötzsch graph Mycielski graph exact connectivity four colors five colors",
+        "triangle-free four-chromatic Grötzsch graph 5 color recoloring connectivity single-vertex transition diameters",
+        "Connectedness of the Graph of Vertex-Colourings Cereceda van den Heuvel Johnson degeneracy d+2 shortest paths"
+      ]
+    },
+    "checked_sources": [
+      "LSE-CDAM-2005-11, Connectedness of the Graph of Vertex-Colourings, selected main-text theorem",
+      "arxiv:1403.6347v1, Finding Shortest Paths between Graph Colourings, 2014-03-25",
+      "arxiv:2504.19783v1, Determining a graph from its reconfiguration graph",
+      "Cereceda, Mixing Graph Colourings (2007 thesis), targeted sections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cereceda et al. (2005) proves general connectivity only for k≥d+2, which is k≥5 here.",
+        "Johnson et al. (2014) presents shortest recolouring path complexity/algorithms but not these numerical component diameters.",
+        "Later work Determining a graph from its reconfiguration graph (arXiv:2504.19783) studies graph reconstruction rather than this finite distance profile."
+      ],
+      "reasoning": "None of the stated broader published theorems directly implies two 6,240-state components, their radius and diameter, or the 60 antipodal pairs. Exact computations are independently supplied here. The covering statement k≥5 was separated as a known result instead of being reasserted as new.",
+      "searches": [
+        "Grötzsch graph Mycielski C5 proper four five vertex coloring recoloring reconfiguration components graph diameter 12480 574200",
+        "4-colouring mixing graph Grötzsch Mycielski 12480 vertex recoloring states 2 components",
+        "Finding Shortest Paths between Graph Colourings arxiv 1403.6347 Grötzsch diameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The critical four-colour recolouring graph is equivalent to the one-coordinate graph on homomorphisms from the Grötzsch graph to the complete graph on four vertices; no direct matching exact componentwise metric statement was located.",
+        "The 2005 connectedness report proves a palette threshold of degeneracy plus two, not this critical-palette metric."
+      ],
+      "reasoning": "The statement was compared under the names Grötzsch graph, Mycielskian of the 5-cycle, four-colouring graph and Hom-to-complete-graph recolouring. Graph homomorphism and proper colouring are equivalent here; the local rule is a one-vertex recolour. Available inspected statements do not give the same connected components and metric, although absence from searches does not establish priority.",
+      "searches": [
+        "Grötzsch graph proper 4-colouring reconfiguration two components each 6240 vertices radius 15 diameter 17 and antipodal 120 colorings",
+        "4-colouring mixing graph Grötzsch Mycielski 12480 vertex recoloring states 2 components",
+        "Grötzsch graph 4 coloring reconfiguration components Hom(G,K4) recoloring diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The count 12,480 proper named four-colourings is prior chromatic-polynomial data, not included as a new claim.",
+        "No examined exact-count source presented the 45,240 switch edges, two 6,240 components, radius 15, diameter 17, or unique-antipode orbit as a previously tabulated joint classification."
+      ],
+      "reasoning": "Equality of total colouring counts would not imply any reconfiguration distances. Searches sought both numerical and verbal equivalent tables; an unidentified archived exhaustive table remains a residual risk.",
+      "searches": [
+        "Grötzsch graph four colouring 12480 recolouring 45240 6240 component diameter 17",
+        "Grötzsch recolouring 60 antipodal pairs radius 15",
+        "11 vertex Mycielskian of C5 recolouring distance 17 eight distinct eccentricity spectra and unique antipodes"
+      ]
+    },
+    "rationale": "The original scientific content is strictly the critical four-colour componentwise shortest-path classification and unique-antipode orbit, not the classical graph, 12,480 colouring count, or the covered five-colour connectivity. The 2005 d+2 theorem is inapplicable at k=4; the 2014 shortest recolouring algorithms do not give graph-specific exact metrics; 2025 reconstruction work is distinct. Equivalent-name searches did not reveal direct stronger coverage, with non-indexed precedent still possible.",
+    "residual_risks": [
+      "Unindexed, unpublished, or insufficiently inspected older finite reconfiguration calculations could cover the same claim.",
+      "An older relevant report is dated July 2005 only; its exact day of first public availability is not verified.",
+      "A 2007 thesis was checked in selected sections and by targeted text search, not read cover to cover."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers k≥5 for the 3-degenerate graph, not k=4 or exact four-colour metric",
+        "evidence": [
+          "The d+2 theorem gives connectivity for 5-colourings but does not apply at four colours.",
+          "Document labelled July 2005, without verified exact public day."
+        ],
+        "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+        "material_read": "Report abstract, introduction, connectivity theorem on d-degeneracy and relevant implications; searched for Grötzsch and Mycielski.",
+        "method": "Inspected public PDF text and first page",
+        "title": "Connectedness of the Graph of Vertex-Colourings",
+        "trigger": "General mixing result might dominate proposed connectivity claim"
+      },
+      {
+        "assessment": "Addresses complexity/algorithms rather than this fixed graph metric",
+        "evidence": [
+          "Arxiv first-submission timestamp 2014-03-25.",
+          "No matching four-colour Grötzsch distance/antipode theorem in material inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.6347",
+        "material_read": "ArXiv abstract, introduction and full public HTML text searched for the graph names and exact parameter",
+        "method": "Inspected public manuscript and searched its text",
+        "title": "Finding Shortest Paths between Graph Colourings",
+        "trigger": "Potential graph-specific shortest reconfiguration path theorem"
+      },
+      {
+        "assessment": "Reconstruction from reconfiguration graphs, not an exact four-colour metric of Grötzsch graph",
+        "evidence": [
+          "The problem asks about determination/reconstruction, not 6,240-vertex connected-component distances."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.19783",
+        "material_read": "Public HTML introduction and early sections, with text searches for the graph name and Mycielski",
+        "method": "Selected-section text review",
+        "title": "Determining a graph from its reconfiguration graph",
+        "trigger": "Recent adjacent graph-colouring reconfiguration results"
+      },
+      {
+        "assessment": "No exact matching statement established from material reviewed; residual uncertainty remains",
+        "evidence": [
+          "The work addresses general recolouring connectivity and mixing."
+        ],
+        "identifier_or_url": "https://etheses.lse.ac.uk/131/1/Cereceda_Mixing_graph_colourings.pdf",
+        "material_read": "Public thesis abstract, table of contents and targeted name searches; full chapters not exhaustively read",
+        "method": "Targeted document inspection",
+        "title": "Mixing Graph Colourings",
+        "trigger": "Possible older exact examples or chromatic mixing obstructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9eab978a-928b-4c54-b50b-8054a0931a9a",
+  "value": {
+    "rationale": "The Grötzsch graph is the canonical smallest triangle-free four-chromatic graph, so its minimum permissible palette k=4 is a natural boundary case below an established five-colour connectedness guarantee. Two distinct large components, exact sharp radius/diameter, full distances and a unique-antipode orbit give a substantively motivated finite reconfiguration benchmark, not a raw or renamed known colouring count. No general-family or downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
