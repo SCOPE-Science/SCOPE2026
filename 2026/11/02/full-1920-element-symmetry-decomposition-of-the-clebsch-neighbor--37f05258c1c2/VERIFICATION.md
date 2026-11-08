@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-Run `python verify.py` using Python 3.8 or newer and the standard library. The program generates the Clebsch graph as even-weight vectors of five bits with Hamming-four adjacency and computes all simplicial faces.
+# Independent mathematical audit
 
-The actual checks give \(16\) vertices, \(352\) nonempty faces and face vector \((16,80,160,80,16)\). All signed consecutive boundary compositions vanish. Elimination modulo \(2\), \(3\), \(5\) and \(101\) gives boundary ranks \((15,65,64,16)\), with the rational ranks forced to the same numbers by rank saturation. The complete generated group has \(1920\) distinct graph automorphisms and exhausts the theoretical upper bound. Signed cellular Lefschetz traces are checked on every group element; their sum is zero and the sum of squares is \(5760\). The Fourier projections are compared for each permutation in the stabilizers of the zero-, one-, and two-element dual subsets. Dimensions of the three resulting rational irreducibles are \(6,15,10\), with no invariant line.
+## correctness
 
-The success marker is `CLEBSCH_NEIGHBORHOOD_FULL1920_THREE_IRREDUCIBLES_VERIFIED`.
+PASS
 
-The verification is a fully finite exact computation; it establishes neither a unique bibliographic origin nor an integral/equivariant homotopy classification. Independent audit has not been performed.
+Rebuilt the even-vector Cayley model, 352 faces with f-vector (16,80,160,80,16), and four boundary ranks (15,65,64,16) using exact modular elimination and dimension-saturating chain inequalities. An independently written group-action computation enumerated all 1920 signed simplicial Lefschetz traces, finding character sum 0 and squared sum 5760. Fourier projection onto the three translation-dual orbits of sizes 1,5,10 identifies wedge^2 U5 (dim 6), epsilon4 tensor U4 (induced dim 15), and sign3 (induced dim 10); their Clifford little-group irreducibility and dimensions exhaust b2=31. Rational transfer after barycentric subdivision gives acyclic reduced G-quotient; no integral assertion is inferred.
+
+## originality
+
+PASS
+
+The same Clebsch neighborhood complex is already known non-equivariantly to be a wedge of 31 two-spheres. The full 1920-element homology character, three nonisomorphic rational constituents and vanished invariant subspace are not fixed by that homotopy type. Applicable primary neighborhood-complex theory provides the construction, not the group representation. A different exact character calculated under an alias remains possible.
+
+## value
+
+PASS
+
+The 5-regular Clebsch graph is a canonical strongly regular symmetric graph. Computing its complete equivariant rational H2 and quotient invariants distinguishes group actions invisible to the already known Betti numbers, a naturally motivated finite structural classification rather than a recomputation of homology rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
