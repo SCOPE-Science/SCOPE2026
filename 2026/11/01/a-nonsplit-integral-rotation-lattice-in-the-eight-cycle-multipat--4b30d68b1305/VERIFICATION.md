@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the finite rotation obstruction
+# Independent mathematical audit
 
-Run `python3 bp8_integral_rotation.py` in Python 3 with no third-party dependencies. The script generates all 65,535 nonempty arc subsets and retains all 196 valid simplices. It constructs exact mod-two cochain coboundaries by simplex inclusion, checks their ranks, computes the cohomology quotient, and verifies the 3-by-3 rotation matrix and its invariant dimension. The assertion checks are part of the executed program; the final printed line is `VERIFY_OK`.
+## correctness
 
-The finite exact computation establishes the mod-two assertion only for the stated eight-vertex graph. The rational constituents require the published integral Betti numbers and the separate Lefschetz trace argument. The integral non-splitting then follows without further computation from the explicit two-dimensional fixed-space implication of any integral splitting. There is no independent audit or external certification.
+PASS
+
+PASS: Exact finite cochain computation establishes a three-dimensional modulo-two invariant with only one fixed vector. The published integral homology theorem and direct rotation Lefschetz arguments determine the rational constituents. The UCT applies because integer homology is free in relevant degrees. The contradiction proves the specified integral nonsplitting, not a full lattice classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Same-family original primary source computes nonequivariant Betti groups, and the closest published dihedral result computes full rational character but expressly excludes integer group-ring lattice identification. The exact mod-two Jordan extension is a new invariant not implied by either.
+
+## value
+
+PASS
+
+PASS: The naturally symmetric bidirected eight-cycle first has a rank-three lower homology lattice with mixed rational rotation eigentypes. The exact mod-two Jordan extension demonstrates concrete integral equivariant gluing invisible to ordinary homology and rational characters, a motivated invariant for later all-cycle representation classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
