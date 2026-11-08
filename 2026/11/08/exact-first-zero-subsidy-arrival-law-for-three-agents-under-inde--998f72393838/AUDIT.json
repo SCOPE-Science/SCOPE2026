@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies every envy-free assignment through unique top choices on a selected triple, rigorously discards a house favored by two agents, proves a uniform conditional next-choice law for each possible unresolved history, and multiplies exact conditional survival factors. Monotonicity yields the first-hitting distribution; gamma product and summation yield tail and mean. Exhaustive independently implemented subset and deletion tests for every normalized profile through six houses agree, without treating a finite census as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 paper §§2, Theorems 2.2–2.3: general Hall-violator decision algorithm and high-probability result for m≥3n log n as n→∞",
+        "2026 preprint arxiv:2609.29691v1 abstract/introduction: recourse, bounded-subset offline optimum, competitive online subsidy minimization"
+      ],
+      "reasoning": "The 2019 algorithm covers the deterministic *decision problem* for all agent counts, and this is acknowledged, but its statements do not provide a finite three-agent probability law. The newer online-subsidy paper targets worst-case algorithms and competitiveness. Neither examined material states a stronger random-stream law from which the displayed exact product and first-hitting distribution follow immediately.",
+      "searches": [
+        "Envy-free house allocation random strict preferences n=3, arbitrary number of houses, Hall collision deletion stopping time",
+        "Online house allocation with subsidy preference ranking zero-subsidy matching feasibility threshold under random housing preferences",
+        "independent random preferences exact envy-free matching probability fixed number agents arbitrary houses",
+        "\"Online House Allocation with Subsidy\" \"offline\" \"zero\" \"subsidy\" Teh Cohen"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.00468 (full text)",
+      "https://arxiv.org/abs/2609.29691 (abstract/introduction, incomplete)",
+      "https://arxiv.org/abs/2610.34434 (introduction)",
+      "Targeted published-finding corpus semantic search, six actual queries and closest record identifiers",
+      "Targeted public-literature phrase/formula/alias searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 Algorithm 1 provides a generic deletion procedure but not probability transitions",
+        "2026 online house allocation paper studies a different online optimization target"
+      ],
+      "reasoning": "Specializing Hall-violator deletion to exactly three strict-ranking agents yields a one-house deletion. The substantive probabilistic step is a history-uniform conditional regeneration law yielding p_s=(s-1)(s-2)/s²; neither examined theorem gives this as an explicit quantitative consequence. The older algorithm is not claimed as new; the new claim is restricted to the resulting distribution and expectation.",
+      "searches": [
+        "Three agents m houses independent uniformly random strict preferences exact probability envy-free matching exists product (3r-2)/r^2, factorial law",
+        "Envy-free house allocation random strict preferences n=3, arbitrary number of houses, Hall collision deletion stopping time",
+        "exact probability that a three-person envy-free house assignment exists among m iid random houses, success 1-product_{r=3}^m (3r-2)/r^2, first arrival",
+        "\"Envy-Freeness in House Allocation Problems\" probability three agents exact 7/9 35/72"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gan–Suksompong–Voudouris (2019), Theorem 2.2 and Algorithm 1, https://arxiv.org/abs/1905.00468",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-three-agent-cycle-law-for-top-trading-cycles--7a476eab1d11"
+      ],
+      "reasoning": "The exact terminal probability and first-arrival stopping law are equivalent through monotonicity of feasibility; these aliases were searched together. The closest three-agent housing published-finding corpus result is a top-trading-cycles distribution, which has fundamentally different feasible outcomes.",
+      "searches": [
+        "Three agents m houses independent uniformly random strict preferences exact probability envy-free matching exists product (3r-2)/r^2, factorial law",
+        "Envy-free house allocation random strict preferences n=3, arbitrary number of houses, Hall collision deletion stopping time",
+        "Impartial culture 3 agents 4 houses probability envy free 37/72, 5 houses 269/360, 6 houses 719/810",
+        "\"envy-free assignment\" \"three agents\" probability random houses",
+        "\"3r-2\" \"envy-free\" houses",
+        "\"37/72\" \"house allocation\" envy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest indexed records: 2026/10/4/SCOPE-complete-three-agent-lottery-shape-classification-for-random-ser--7ae5a1139952 and 2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+        "Gan et al (2019) random-model discussion, pages/text §2, no exact three-agent table"
+      ],
+      "reasoning": "Searches for the exact early fractions 37/72, 91/360 and product (3r-2)/r² did not identify an existing table. Enumerations here independently calculate those probabilities; absence of a search hit alone cannot prove novelty.",
+      "searches": [
+        "Impartial culture 3 agents 4 houses probability envy free 37/72, 5 houses 269/360, 6 houses 719/810",
+        "exact probability that a three-person envy-free house assignment exists among m iid random houses, success 1-product_{r=3}^m (3r-2)/r^2, first arrival",
+        "three-agent envy free house allocation random preferences collision deletion 35/72 91/360 sharp first success arrival distribution",
+        "\"3r-2\" \"envy-free\" houses",
+        "\"37/72\" \"house allocation\" envy"
+      ]
+    },
+    "rationale": "A statement-level comparison against the accessible full 2019 Gan–Suksompong–Voudouris algorithm/theorems, the 2026 online-subsidy preprint abstract/introduction, 2026 random-valuation literature, and targeted published-finding corpus/literature searches did not identify the new exact finite-m product, first-arrival distribution, or expectation. The prior general deterministic elimination theorem is explicitly credited. The partial access to the 2026 preprint and unindexed literature are material residual publication-priority risks, not evidence of uniqueness.",
+    "residual_risks": [
+      "The full text and appendices of arxiv:2609.29691v1 could not be completely re-opened; an undiscovered directly covering statement there remains possible.",
+      "Unindexed or differently phrased exact distributions for fixed three-agent house allocation may exist, including combinatorial treatments not surfaced by searches.",
+      "The 2019 deterministic algorithm is stronger in scope for feasibility; only the exact iid probability and arrival law, not collision deletion itself, is claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Deterministic algorithm subsumes collision-deletion decision step; probability result is an n→∞ high-probability theorem, not exact n=3 distribution.",
+        "evidence": [
+          "Algorithm 1 and Theorem 2.2, https://arxiv.org/abs/1905.00468",
+          "Theorem 2.3 m≥3n log n under iid uniform rankings, https://arxiv.org/abs/1905.00468"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.00468",
+        "material_read": "Complete arXiv HTML text as parsed (introduction; Lemma 2.1; Algorithm 1; Theorems 2.2 and 2.3; proof through end of paper).",
+        "method": "Opened arXiv textual representation and read sections and proof lines 5–73.",
+        "title": "Envy-Freeness in House Allocation Problems",
+        "trigger": "Same exact house-allocation object and independent random strict-preference model; plausible dominating theorem."
+      },
+      {
+        "assessment": "The visible text emphasizes online competitive subsidy minimization and recourse; exact iid n=3 stopping law not identified in accessible material. Cannot certify absent from unseen appendix.",
+        "evidence": [
+          "arxiv:2609.29691v1 first public 2026-08-31, https://arxiv.org/abs/2609.29691"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.29691",
+        "material_read": "Abstract plus accessible opening HTML introduction/structure; later full text and appendices unavailable on retry.",
+        "method": "ArXiv abstract and initial HTML rendering; full HTML and PDF retrieval attempted and blocked.",
+        "title": "Online House Allocation with Subsidy",
+        "trigger": "Recent origin of online sequential house arrivals, recourse and subsidy benchmark."
+      },
+      {
+        "assessment": "Balanced non-additive goods partitions and their random valuations rather than three single-house injections with leftover houses and exact arrival distribution.",
+        "evidence": [
+          "arxiv:2610.34434, https://arxiv.org/abs/2610.34434"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34434",
+        "material_read": "Opening ~70 lines of available arXiv HTML/text, including introduction and model specification.",
+        "method": "Read accessible initial HTML textual rendering.",
+        "title": "Envy-Free Allocations for Random Non-Additive Valuations",
+        "trigger": "Plausible broader random-envy-free existence result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "998f7239-3838-4210-a924-40c07bcf72bb",
+  "value": {
+    "rationale": "An exact all-horizon first-zero-subsidy feasibility distribution is a natural service-level benchmark in sequential housing models, directly quantifying the number of arrivals necessary before subsidies can be avoided when complete terminal reassignment is allowed. It resolves an entire infinite family and a finite expected waiting horizon; this precision is not supplied by prior asymptotic high-probability results. The small fixed number of agents is the smallest case with nontrivial collision types and a full law, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
