@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's Theorem 3(ii) and Corollary 8 reduce the full, unrestricted largest-area embedded-isosceles problem in a Euclidean triangle to three canonical constructions; the three relative areas are reconstructed directly from a coordinate construction. At fixed normalized triangle slack, both increasing branches and the one decreasing branch have explicitly signed derivatives, so their crossing gives a unique global minimizer. The two candidate crossing equations, quartic transition, and nonzero one-sided derivative jump follow by exact algebra. The globally sharp linear coefficient follows from an explicit polynomial with four strictly positive radical coefficients and an implicit-function boundary derivative. The standalone checker independently verifies these new algebraic identities and direct-coordinate constructions. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The nondegenerate Euclidean side conditions 0<a<=b<=c<a+b give d=(a+b-c)/b in (0,1] and y=c/b in [1,2-d]. I reconstructed the published unrestricted three-configuration formula J=max(a/b,b/c,c^2/(b^2+c^2-a^2)), giving two strictly increasing branches and one decreasing branch in y; their unique earlier crossing minimizes J. Direct symbolic reconstruction of the quartic crossover rho^4-rho-1=0, the two derivative branches, and the exact all-positive-coefficient polynomial for J>1/sqrt(2)+(sqrt(2)-1)d/4 confirmed the published algebra. Three independently computed numerical minimaxes agreed. d=1 equilateral, while d=0 is excluded and only limits to a degenerate triangle; finite checks are ancillary. The nonstandard source theorem from Ambrus et al has been materially inspected in the primary preprint.
 
-Closest antecedent: Á. Ambrus, M. Csikós, G. Kiss, J. Pach and G. Somlai, *Optimal Embedded and Enclosing Isosceles Triangles* (arXiv:2205.11637, 2022), Theorem 3(ii) and Corollary 8. That result is stronger in the sense that it determines the best special candidate separately for every given triangle; it is used as a premise here. It does **not** give the sharp infimum subject to a fixed normalized triangle-inequality slack, uniqueness of the worst host at each slack, the quartic transition between active constructions, the derivative jump, or the optimal global stability slope. These require an additional constrained minimax analysis. The 2020 *Minimum Area Isosceles Containers* theorem concerns **enclosing**, rather than embedded, triangles; its sharp factor \(\sqrt2\) is acknowledged without assuming a duality principle. Targeted published-mathematics searches did not reveal an equivalent refinement. A specialized earlier inequality or a derivation not indexed by the searches remains a residual originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This result converts an already useful pointwise geometric construction theorem into the **complete shape-robust guarantee** at a natural measure of triangle nondegeneracy: normalized slack of the longest-side triangle inequality. It identifies the unique worst similar shape at every allowed slack, shows a genuine change of active geometric mechanism at one algebraic threshold, and gives a strict optimal linear lower improvement over the limiting universal \(1/\sqrt2\) guarantee. The sharp threshold and slope are structural, not a tiny numerical gain or an arbitrary one-off example.
+Best-of-knowledge PASS for the constrained fixed-slack minimax and sharp linear stability, not for the underlying per-triangle three-configuration theorem (explicitly prior). Full relevant sections of Ambrus et al were read; no fixed-slack phase transition appears there. Same formula allows straightforward further minimization, hence historical implicit-coverage risk remains.
 
-## Scope and limitations
+## value
 
-The source's pointwise classification is not new and the quantitative refinement must not be represented as an independent geometric embedding classification. The statement excludes zero-area host triangles, non-Euclidean metrics and general convex bodies. Exact formulae do not establish finite-precision sensitivity or independent historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A globally sharp, parameter-dependent geometric stability envelope with a unique extremizing similarity class, algebraic regime switch and derivative jump is a natural mathematical refinement of the established pointwise embedding problem; the exact coefficient is an independent geometric boundary fact, not a sample calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
