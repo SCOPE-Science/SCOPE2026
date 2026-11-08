@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The 2-by-2 nilpotents exponentiate exactly. Their independently averaged Gram matrix is exactly s²(1+u²/2)I and their mean is a scaled planar rotation with squared factor s²(1+u²/4). Iterated conditioning gives both all-n identities. The sole interior minimum of F(t)=2(expm1(2t))/t² follows from strict convexity of H=t-1+exp(-2t), with t*=1-exp(-2t*) and F(t*)=2/[t*(1-t*)]. All strict/neutral h and k/a cases follow, with a concrete instance checked exactly/approximately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1098/rspa.1999.0498 §2 Eq. (2.12) has damped upper/lower shears under deterministic alternation; Eq. (2.13) has a step-dependent growth interval, and later sections treat symmetry-related switching",
+        "doi:10.1007/s00332-018-9497-3 sections 2–4 characterize exponent bounds for iid shear random products",
+        "arxiv:2109.13798 Remark 9 considers exponential-in-time error estimates"
+      ],
+      "reasoning": "Gog et al. already imply the broad phenomenon that damped nonnormal shear switching can have intermediate unstable step durations; that generic phenomenon is explicitly excluded from novelty. Their deterministic alternation and stochastic symmetry model does not directly imply the specific iid one-choice mean-versus-mean-square threshold; the known general theory of random products could imply it after a nontrivial calculation. This residual risk is acknowledged.",
+      "searches": [
+        "randomized switching damped shears positive Lyapunov exponent mean square random Lie Trotter stable mean generator",
+        "variance explosion in randomized time splitting random shear matrices stability threshold",
+        "Sturman Thiffeault random two shears exact second moment decay threshold damped independent switching",
+        "doi:10.1098/rspa.1999.0498 §2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2109.13798 Example 1, Assumption 1, Theorem 1, Remark 9",
+      "doi:10.1007/s00332-018-9497-3 §§2–4",
+      "doi:10.1098/rspa.1999.0498 §§1–3 including Eq. (2.12)",
+      "doi:10.1103/PhysRevE.98.062115 abstract only",
+      "Exact L^p contractivity phase diagram for planar triangular shears (published research finding)",
+      "Sharp mean-square stability frontier for two-client Loopless SVRG (published research finding)",
+      "Sharp mean-square stability frontier for two-component PAGE (published research finding)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source time-splitting convergence as h->0 at fixed T is logically compatible with a bounded region of fixed h causing growth as n->infinity",
+        "Generalized Lyapunov exponent bounds for random negative shears can envelop this exact q=2 calculation but do not explicitly imply the sharp damping phase portrait without additional equal-magnitude, isotropic moment computation",
+        "The 1999 deterministic alternating spectral multiplier is not the iid second-moment multiplier (1+k²h²/2)exp(-2ah)"
+      ],
+      "reasoning": "The new statement fixes a different quantifier order: h is fixed and n goes to infinity, whereas the primary splitting source fixes terminal T and shrinks h. The result gives exact recurrence multipliers for every vector, unlike generic spectral/growth bounds; related instability windows in earlier work limit its scope of novelty.",
+      "searches": [
+        "e^{-2 a h}(1+(k h)^2/2) random upper lower triangular shear mean-square stable numerical time splitting",
+        "fixed-step randomized subflow sampling of two damped opposite triangular shear generators exact first versus second moment thresholds critical 3.514699 reentrant",
+        "iid sign-alternating orthogonal shears mean norm contraction despite divergent second moments",
+        "arxiv:2109.13798 Example 1 and Remark 9",
+        "doi:10.1007/s00332-018-9497-3 Theorems 4–5",
+        "doi:10.1098/rspa.1999.0498 Eqs. (2.12)–(2.14)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1007/s00332-018-9497-3 §2.3 Theorems 4–5 provide bounds for negative-shear random-product exponents; §3.3 gives numerical bounds for generalized exponents, not exact formula",
+        "arxiv:2109.13798 Example 1 supplies the iid generator sampling convention and Remark 9 its less clean non-dissipative error regime"
+      ],
+      "reasoning": "The same q=2 generalized Lyapunov exponent for the undamped shear product can be written log(1+u²/2) for any fixed vector here. This simple special moment is not itself novel. The new claim is its exact damping-dependent two-transition criterion jointly with the different first-moment criterion for an unbiased randomized generator, including all boundaries. The sources examined did not state that coupled phase diagram; a general p-radius formula might subsume it.",
+      "searches": [
+        "randomized time splitting linear quadratic control two opposite shear matrices mean square instability exponential shears reentrant stability exact threshold",
+        "e^{-2 a h}(1+(k h)^2/2) random upper lower triangular shear mean-square stable numerical time splitting",
+        "\"Veldman\" \"Zuazua\" randomized time splitting non-dissipative stable shear exact threshold",
+        "doi:10.1007/s00332-018-9497-3 §§2.3,3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding titled \"Exact L^p contractivity phase diagram for planar triangular shears\" concerns contractivity of a deterministic continuous-time triangular matrix across exponents p",
+        "The published finding titled \"Sharp mean-square stability frontier for two-client Loopless SVRG\" concerns sampled scalar gradient updates, not two exponential shears"
+      ],
+      "reasoning": "Neither retrieved published record is a table or exact formula for the iid balanced random time-splitting thresholds and stable/unstable windows. Searches are evidence of comparison, not proof that no equivalent exists.",
+      "searches": [
+        "randomized time splitting linear quadratic control two opposite shear matrices mean square instability exponential shears reentrant stability exact threshold",
+        "fixed-step randomized subflow sampling of two damped opposite triangular shear generators exact first versus second moment thresholds critical 3.514699 reentrant",
+        "\"Veldman\" \"Zuazua\" randomized time splitting non-dissipative stable shear exact threshold"
+      ]
+    },
+    "rationale": "The per-cell randomization is from Veldman–Zuazua, but the exact all-step squared-norm/mean pair and critical all-step phase diagram are not stated in the source inspected at Example 1, Assumption 1, Theorem 1 and Remark 9. Sturman–Thiffeault consider precisely related random negative-shear products, and Gog et al. demonstrate nonnormal switching instability, but the checked theorem formulations concern generalized growth bounds, pathwise rates or alternating/noisy switching, not this complete iid balanced-generator mean-square blind spot. The boundary is derived independently from a scalar exact Gram-matrix identity. Precedence remains uncertain because the second moment is within general product-moment theory.",
+    "residual_risks": [
+      "General moment-product or p-radius literature might imply the exact q=2 formula and its damping threshold after a specialization; this possibility remains a genuine priority risk.",
+      "Gog et al. previously discovered shear switching instability windows, so that broad phenomenon is not new.",
+      "Saakian (2018) full text was not inspected; abstract alone cannot justify a noncoverage verdict.",
+      "No independent literature precedence review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same iid sampling rule, but no sharp joint mean/mean-square phase boundaries in inspected sections",
+        "evidence": [
+          "Example 1: two submatrices sampled with probability one-half, each scaled by two",
+          "Remark 9: without individual dissipativity, exponential-in-time bounds replace uniform dissipative estimates",
+          "MSC classification 65C99; initial public submission 2021-09-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.13798",
+        "material_read": "HTML full text: §2.1 Example 1/Assumption 1, §3.2 Theorem 1 and Remark 9, article framing",
+        "method": "Full-text reading and comparison of quantified convergence with fixed-step asymptotics",
+        "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+        "trigger": "Primary algorithm and admissible exact subflow sampling"
+      },
+      {
+        "assessment": "Related negative-entry random products and moment-growth bounds; did not identify explicit two-threshold damped split claim; general moment framework could dominate",
+        "evidence": [
+          "§2.3: negative-shear conditional exponent bounds rather than the exact balanced q=2 isotropic identity",
+          "§3.3: numerical generalized-exponent bounds for negative entries",
+          "published online 2018-09-21"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00332-018-9497-3",
+        "material_read": "Open-access HTML: abstract, §§1–4 including §2.3 Theorems 4–5, §3.3 and generalized exponents discussion",
+        "method": "Read actual equations and comparison of moment exponent/parameter settings",
+        "title": "Lyapunov Exponents for the Random Product of Two Shears",
+        "trigger": "Likely equivalent q=2 random shear moment"
+      },
+      {
+        "assessment": "Establishes prior nonnormal shear instability and reentrant duration behavior, not the iid fixed-step second-moment vs mean threshold pair",
+        "evidence": [
+          "Eq. (2.12): damped upper/lower shears",
+          "Eq. (2.13): growth-rate condition for deterministic alternation",
+          "Eq. (2.14): randomly perturbed symmetry-related switching"
+        ],
+        "identifier_or_url": "https://doi.org/10.1098/rspa.1999.0498",
+        "material_read": "Full OA PDF: introduction, §§2–3; visually inspected scanned pages 6 and 8 including equations (2.12)–(2.14)",
+        "method": "Read PDF text and page images to distinguish deterministic alternating product vs iid sampled generator",
+        "title": "Destabilization by noise of transverse perturbations to heteroclinic cycles: a simple model and an example from dynamo theory",
+        "trigger": "Potential broader nonnormal-switching instability coverage"
+      },
+      {
+        "assessment": "General exact functional-equation framework may overlap with exact moment special cases; no claim of noncoverage",
+        "evidence": [
+          "Abstract describes arbitrary choices between matrices and exact transition points by functional equations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.98.062115",
+        "material_read": "Abstract only; full text not obtained in this run",
+        "method": "Abstract-level comparison only, no coverage determination from unread body",
+        "title": "Semianalytical solution of the random-product problem of matrices and discrete-time random evolution",
+        "trigger": "Potential broader exact random matrix-product solution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "edde9382-082a-4af4-b07f-4a4dd3a820c2",
+  "value": {
+    "rationale": "The exact thresholds distinguish long-time reliability from decay of a mean trajectory for unbiased time-splitting of a dissipative system. Even when both sampled generators are individually Hurwitz, there is a genuine open interval of fixed step sizes with exploding expected squared norm; for 3.514699...<k/a<4.970535... the mean always decays. This is a relevant noncommutative stability-design boundary, not a routine one-step normalization and not a claim for general matrices.",
+    "status": "PASS"
+  }
+}
