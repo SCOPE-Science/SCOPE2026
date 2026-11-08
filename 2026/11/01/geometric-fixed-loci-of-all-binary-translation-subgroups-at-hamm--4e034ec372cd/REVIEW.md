@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orbit-barycenter fixed-space lemma is proved explicitly in the result. A double-counting argument excludes all admissible translation codes of rank three or more; distinct cosets of an admissible rank-two code cannot form an edge because that would create an admissible rank-three affine span. Both rank-one weight cases admit an explicit coordinate map to the lower-dimensional cube graph. Edge and vertex counts yield the circle rank, with all boundary cases covered for every \(n\ge3\). The bundled checker exhausts all subspaces through dimension six; the unrestricted conclusion follows from the proof rather than the finite computations.
+## correctness
 
-## Originality — PASS, with residual risk
-The original nonequivariant cube-Rips homotopy classification does not determine geometric fixed loci. The recent hyperoctahedral homology-representation work studies character decompositions; its accessible abstract does not assert the classification here. Direct title/claim/equivalence comparisons found no fixed-locus theorem covering all pure translation subgroups. The full text of the recent representation paper could not be inspected, so implicit coverage is a residual risk and novelty is not independently certified.
+PASS
 
-## Value — PASS
-The translation subgroup lattice is a natural family of symmetries central to binary-cube topology. The theorem gives the actual fixed spaces simultaneously for all its subgroups in every ambient dimension, exhibiting a sharp transition from a graph with exponentially many cycles to discrete fixed points and then to emptiness. These spaces carry geometric information that ambient homology characters alone do not determine, and the dimension-independent codeword weight bound explains the transition.
+The barycentric orbit-realization lemma identifies fixed geometric points with admissible coset barycenters, with all positive support coefficients orbit-constant. For H of rank k, coordinate functional double counting yields s 2^(k-1)=sum_h wt(h)<=2(2^k-1), so s<=3; k=3 forces the full 3-cube and a weight-three codeword, contradiction, ruling out all k>=3. Rank-two distinct cosets would span a forbidden rank-three space if compatible, hence the orbit complex is discrete of the stated size. Rank-one weight-one cosets give the (n-1)-cube; weight-two cosets indexed by (p,y) give opposite parity adjacency at d(y,z)<=1 and the parity relabeling (p,y)->(p+sum y,y) gives exactly Q_(n-1), with no triangles/higher faces. Independent enumeration generated all binary subspaces for n=3..5 and verified each eligible orbit graph against the cube or isolated points (rank-one cases 6,10,15; rank-two cases 4,10,20). This corroborates but is not the infinite proof. Boundaries n=3 and empty fixed complexes addressed.
 
-## Closest literature and limitations
-Galetto–Montaño–Wellner (arXiv:2606.20784) treats representations; Adamaszek–Adams (arXiv:2103.01040) treats ordinary homotopy. The new result does not classify fixed spaces for coordinate permutations, nonbinary alphabets or other scales. The recent paper's full text remained inaccessible. The result has not received independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PL fixed-locus claim is not the same invariant as ambient homotopy or an equivariant homology representation. Uniform subgroup-rank/weight classification with actual PL types is not deduced from the checked sources. Full paper arXiv:2606.20784 remains inaccessible; there is an explicit possible implicit-coverage priority risk, not automatic rejection.
+
+## value
+
+PASS
+
+For the natural full lattice of pure translation symmetries of binary cubes, one uniform theorem determines *actual* geometric fixed spaces rather than homology traces, with a sharp code-weight/rank phase boundary and exponentially large cube-graph cycle rank. A researcher studying equivariant Rips geometry needs these exact subspace types; it is not a cosmetic change to the ambient homotopy theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
