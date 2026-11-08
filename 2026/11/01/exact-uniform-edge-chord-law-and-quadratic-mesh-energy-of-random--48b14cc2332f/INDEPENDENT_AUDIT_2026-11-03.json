@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:17:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and verify_random_edge_law.py",
+        "Akopyan–Edelsbrunner–Nikitenko arXiv:2007.07783 §§4,6 primary full text",
+        "Independent scipy quadrature of angular factor"
+      ],
+      "rationale": "Read actual RESULT.md and numerical verifier and inspected the Akopyan–Edelsbrunner–Nikitenko spherical Blaschke–Petkantschin primary decomposition. A uniformly selected facet and uniformly selected one of its three edges samples each of the deterministic 3n-6 edges uniformly. The two circumcap branches t=4b(1-b) yield independent B~Beta(n-1,2) and area-weighted unit-circle triangle shape. Integrating third angle gives I(alpha)=4sin²(alpha/2)+(pi-alpha)sin(alpha), with integral 6pi; the two-to-one chord substitution produces the stated nonnegative U density. E U²=5/2, E[4B(1-B)]=8(n-1)/((n+1)(n+2)), yielding E L²=20(n-1)/((n+1)(n+2)) and expected total energy 60(n-1)(n-2)/((n+1)(n+2)); expected area separately supplied by prior source gives 15/pi for the ratio of expectations. Beta-to-Gamma convergence proves weak scaling. Independent quadrature verified U moments 1, 128/(27pi), 5/2, 70/9, and the exact expected energy for n=4,5,9,20; these are checks, not finite-n evidence for all n.",
+      "residual_risks": [
+        "Correct conditioning requires edge-uniform conditional on the realized hull, not length weighted; deterministic edge count makes facet-to-edge sampling unbiased."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akopyan et al. provide BP facet intensity and first moments, which imply radius beta and area-weighted shape once reprocessed, not evaluated U density or full L_n law.",
+          "Bonnet–O’Reilly computes facet height laws; Muche concerns Poisson–Voronoi edges of a different process."
+        ],
+        "reasoning": "Prior general decomposition is credited as input; explicit shape integration and squared length moment are not stated as prior corollaries with evaluated exact values.",
+        "searches": [
+          "arXiv:2007.07783 Theorem 15, equations 9-10 and 42-44",
+          "Bonnet O Reilly Facets of spherical random polytopes 2022",
+          "Muche Poisson Voronoi typical edge"
+        ]
+      },
+      "checked_sources": [
+        "Akopyan–Edelsbrunner–Nikitenko arXiv:2007.07783, full manuscript",
+        "Bonnet–O’Reilly DOI 10.1002/mana.202000314",
+        "Muche DOI 10.1002/mana.19961780113 abstract only",
+        "Resultary semantic query spherical random inscribed polytopes uniform edge chord length distribution expected squared edge energy Akopyan Edelsbrunner Nikitenko"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original spherical BP formula separates radius and angle but leaves the specific chord density and all its moments as an integral.",
+          "The prior total edge length is only one moment, insufficient to deduce second moment or distribution."
+        ],
+        "reasoning": "The claim requires a new evaluation of the angular integral; the ratio 15/pi uses an already known expected area but a newly evaluated quadratic edge energy.",
+        "searches": [
+          "Akopyan Edelsbrunner Nikitenko arXiv:2007.07783 Theorem 15",
+          "Bonnet O Reilly spherical facets DOI 10.1002/mana.202000314"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph of spherical convex-hull edges is the spherical Delaunay triangulation; sampled edge is by count.",
+          "Known first-power expected total length is not a full size-biased or count-uniform length distribution."
+        ],
+        "reasoning": "Compared chord vs geodesic distances, edge by count vs length sampling, and Delaunay language; none of the inspected equal-object formulations supplies this full product law.",
+        "searches": [
+          "spherical random inscribed polytopes uniform edge chord length distribution expected squared edge energy Akopyan Edelsbrunner Nikitenko",
+          "random spherical Delaunay triangulation typical edge chord length distribution",
+          "Akopyan Edelsbrunner Nikitenko expected edge length squared"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary high-ranking findings concerned other random polytopes and geometric samples, not this count-uniform edge law.",
+          "The source tables give surface area and first-power edge length, not the squared-edge moment."
+        ],
+        "reasoning": "No matching exact expected energy table located; general moment integrals may have appeared under alternative geometric probability formulations.",
+        "searches": [
+          "Resultary search: spherical random inscribed polytopes uniform edge chord length distribution expected squared edge energy Akopyan Edelsbrunner Nikitenko",
+          "quadratic edge energy random convex hull S2 expected 60(n-1)(n-2)",
+          "spherical Delaunay edge length beta shape density"
+        ]
+      },
+      "rationale": "The main 2020 spherical-polytope source provides general facet radius/shape decomposition, expected area and total first-length edge expectation, but it does not evaluate this explicit normalized angular chord density or the squared-edge energy. The calculation is a substantive application rather than merely paraphrasing an existing first-moment table.",
+      "residual_risks": [
+        "Earlier Delaunay/stochastic geometry work may have evaluated the same angular density under a different typical-edge convention.",
+        "Muche (1996) abstract only; separate Voronoi model is not directly covering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides shape-radius factorization, area, first-power edge length; does not give evaluated count-uniform edge U density or quadratic energy",
+          "evidence": "Akopyan–Edelsbrunner–Nikitenko (2020), Theorem 15 first-power length; Eq. (2) expected surface area.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07783",
+          "material_read": "Original full primary PDF, §§4 and 6 including (9)-(10),(42)-(44), expected area formula and edge-length theorem",
+          "method": "Read PDF text, relevant equations and page screenshot",
+          "title": "The Beauty of Random Polytopes Inscribed in the 2-sphere",
+          "trigger": "Same sampling model, exact geometry, known decomposition and surface area"
+        },
+        {
+          "assessment": "Height distributions do not specify the area-biased angular chord law of edge by count",
+          "evidence": "Bonnet–O’Reilly (2022) results on spherical random facet height.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.202000314",
+          "material_read": "Available primary paper statements on typical facet heights and asymptotics",
+          "method": "Publisher/open article reading",
+          "title": "Facets of spherical random polytopes",
+          "trigger": "Plausible broader law for facets under same S2 sample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original spherical BP source §§4,6",
+        "Exact angular density proof and mesh inequality in assigned RESULT.md"
+      ],
+      "rationale": "Uniformly sampled graph-edge lengths are a natural mesh statistic for random inscribed spherical polytopes; the full finite-n law enables every moment and the large-n Gamma scaling. The exact expected sum of squared chord lengths relative to already known mean surface area yields a universal mesh-quality benchmark, sharper than a first-length average and distinct from the deterministic equilateral triangle lower bound.",
+      "residual_risks": [
+        "Ratio is E[energy]/E[area], explicitly not E[energy/area]; interpretation must be preserved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No length-weighted edge selection or nonuniform sphere sampling; ratio of expectations not random ratio.",
+    "Finite-n distribution on S2 only; no higher-dimensional generalization."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The fixed Euler face and edge counts make facet-uniform then side-uniform sampling equivalent to edge-uniform sampling. The cited spherical Blaschke–Petkantschin intensity yields the beta radial factor through an explicit two-branch change of variables; the angular integral is performed independently, with both inverse-sine branches and a normalized density. The second moment follows by direct trigonometric integration. At \(n=4\), the entire numerical CDF agrees with the independently known two-point chord law. Convex-hull reconstruction checks additional sample sizes. The analytical proof, not numerical experiments, covers the full infinite integer range.
+PASS
 
-## Originality
+Read actual RESULT.md and numerical verifier and inspected the Akopyan–Edelsbrunner–Nikitenko spherical Blaschke–Petkantschin primary decomposition. A uniformly selected facet and uniformly selected one of its three edges samples each of the deterministic 3n-6 edges uniformly. The two circumcap branches t=4b(1-b) yield independent B~Beta(n-1,2) and area-weighted unit-circle triangle shape. Integrating third angle gives I(alpha)=4sin²(alpha/2)+(pi-alpha)sin(alpha), with integral 6pi; the two-to-one chord substitution produces the stated nonnegative U density. E U²=5/2, E[4B(1-B)]=8(n-1)/((n+1)(n+2)), yielding E L²=20(n-1)/((n+1)(n+2)) and expected total energy 60(n-1)(n-2)/((n+1)(n+2)); expected area separately supplied by prior source gives 15/pi for the ratio of expectations. Beta-to-Gamma convergence proves weak scaling. Independent quadrature verified U moments 1, 128/(27pi), 5/2, 70/9, and the exact expected energy for n=4,5,9,20; these are checks, not finite-n evidence for all n.
 
-PASS, with residual historical priority uncertainty. Akopyan–Edelsbrunner–Nikitenko, arXiv:2007.07783v1, Section 4 and Theorem 15, give the generic decomposition and first edge-length expectation but not the explicit normalised chord-density or the exact quadratic-edge energy. Bonnet–O'Reilly gives facet-height information and does not evaluate the angle law. The related planar Poisson–Voronoi edge law concerns a different graph statistic. Actual semantic search comparisons and accessible prior finding claims did not reveal a statement implying the full new claim. This does not establish global historical uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A complete finite-sample chord distribution is a natural statistic of a randomly triangulated sphere, and it provides all edge moments and a nondegenerate local scaling law. The squared-length sum is a standard mesh-energy diagnostic. Its exact ratio \(15/\pi\) to expected surface area, and its fixed multiplicative gap from the sharp equilateral-triangle benchmark, offer a concrete and sample-size-independent measure of mean mesh quality; this is not merely another unsupported numerical constant.
+The main 2020 spherical-polytope source provides general facet radius/shape decomposition, expected area and total first-length edge expectation, but it does not evaluate this explicit normalized angular chord density or the squared-edge energy. The calculation is a substantive application rather than merely paraphrasing an existing first-moment table.
 
-## Limits and closest work
+## value
 
-The essential decomposition and surface-area formula are due to [1], and the typical-facet height theory to [2]. Only the extra evaluated law and consequences are assessed here. The model does not address realization-wise ratios, edge-length weighting, nonuniform samples or other dimensions. Bibliographic priority is provisional, particularly for older tessellation literature indexed under Delaunay rather than spherical convex hulls.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniformly sampled graph-edge lengths are a natural mesh statistic for random inscribed spherical polytopes; the full finite-n law enables every moment and the large-n Gamma scaling. The exact expected sum of squared chord lengths relative to already known mean surface area yields a universal mesh-quality benchmark, sharper than a first-length average and distinct from the deterministic equilateral triangle lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
