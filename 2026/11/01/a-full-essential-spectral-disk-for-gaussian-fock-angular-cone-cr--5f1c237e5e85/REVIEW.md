@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gaussian normalization makes squared coordinate moduli independent integer-shape gamma variables, so the Toeplitz eigenvalues are beta tails and binomial cumulative probabilities. Pascal's identity gives the exact positive coordinate-shift weights. A uniform Stirling expansion near the binomial peak, together with an exponential large-deviation estimate away from it, gives the exact escaping-weight constant \(R_t=\sqrt{(1-t)/(2\pi)}\) and arbitrary finite blocks of weights approaching that constant. This proves bounded extension and the essential norm. Each fixed second-coordinate fiber is a compact quasinilpotent forward shift. Uniform fiber resolvents exist outside the disk, while the finite near-peak blocks force unbounded inverse norms, non-Fredholmness throughout its interior, and the closed-disk essential spectrum. The absence of eigenvalues follows coefficientwise. The optional checker passed 1,838 finite assertions, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+For each 0<t<1, Gamma/Beta factorization of radial Fock monomials gives the exact binomial tail diagonal and Pascal weight w_(n,m)=(1-t)sqrt(n+1) Bin(n+m+1,n+1)t^(n+1)(1-t)^m. Reconstructed the large-deviation/Stirling argument: escaping limsup and arbitrarily long consecutive near-peak weights both equal R=sqrt((1-t)/(2pi)). Fixed-m unilateral fibers are compact quasinilpotent; uniform Neumann resolvents outside |lambda|>R and unbounded inverse norms on increasingly long near-peak blocks inside 0<|lambda|<R show the direct sum is non-Fredholm on the full disk. At zero cokernel is infinite-dimensional; all point eigenvalues absent by forward-shift recursion. Independently checked 98 exact rational Pascal identities, peak convergence, and w_(1,0)(4/5)=16sqrt(2)/125>1/sqrt(10pi). Finite checks do not prove the infinite operator claims.
 
-Dewage and Ólafsson, *Toeplitz operators on the Fock space with quasi-radial symbols* (arXiv:2107.01465, first posted 2021-07-03), establish quasi-radial Toeplitz diagonalization and identify the Toeplitz spectral algebra; their displayed results concern the Toeplitz operators rather than the commutator with an unbounded creation operator. Wu and Zheng (arXiv:2103.03458) develop Fourier representation and boundedness criteria for Toeplitz operators, while Hagger (arXiv:2002.02344) treats the Fock Toeplitz algebra and essential commutants; neither inspected paper supplies this cone commutator's complete Fredholm spectral disk. Dong's 2020 article, DOI:10.1007/s13226-020-0395-7, addresses monomial-type Toeplitz commutators and semi-commutators; only abstract-level material was available, so any assertion of whole-paper exclusion is expressly withheld. An earlier related bisector calculation determined an operator norm and concentration traces but not the full spectrum. A separately studied weighted-Bergman cone commutator is compact; its conclusion does not imply the full disk here. A potentially equivalent older weighted-shift theorem remains an unresolved historical-priority risk, despite no matching explicitly published assertion found in the checked scientific sources.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem classifies the spectrum, essential spectrum, point spectrum, and sharp essential norm of a natural nonnormal operator assembled from a discontinuous quasi-radial Toeplitz symbol and coordinate creation. It identifies the full-disk essential spectrum despite every individual fiber being compact and quasinilpotent, and gives an explicit nonnormal norm/spectral-radius separation. These are operator-theoretic structural facts not supplied by mere diagonalization or known norm estimates. The result is not a claim of a full classification of arbitrary symbols or all Fock creation commutators.
+General quasi-radial Toeplitz diagonalization precedes this work, but the available full-text spectral results for the Toeplitz operators do not furnish the creation commutator’s Fredholm spectrum, its nonnormal full disk, or absence of point spectrum. The direct-sum compact-fiber mechanism is specific. Two real semantic Resultary searches returned neighboring Fock shifts/Toeplitz topics but no containing theorem; that absence alone is not novelty proof. The relevant Dong 2020 finite-rank monomial Toeplitz-commutator article remained inaccessible in full; a broad equivalent weighted-shift theorem is a genuine historical risk.
 
-## Remaining limitations
+## value
 
-The Fredholm essential spectrum uses the standard closed-range finite-kernel/cokernel definition. The ordinary operator norm is not determined for general aperture. Finite test results do not verify infinite-dimensional invertibility, which relies on the proof. A historical-priority comparison against inaccessible complete Dong (2020) text remains incomplete. Independent mathematical review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural nonnormal commutator of an angular-cone Toeplitz projection and Fock creation displays a sharp essential norm, full-disk ordinary/Fredholm essential spectra but no eigenvalues, even though every fixed fiber is compact quasinilpotent. This exact geometric/spectral dichotomy and strict operator-norm separation are independently useful operator invariants beyond routine diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
