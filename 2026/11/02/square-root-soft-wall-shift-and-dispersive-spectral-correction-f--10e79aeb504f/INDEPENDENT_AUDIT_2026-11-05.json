@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T11:44:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conjugate the invariant diffusion generator f''−n(x−P_ax)f' to Schrödinger form with confining quadratic exterior: compact resolvent and 1D Sturm simplicity. Exterior scaled eigenfunction e^(z²/4)D_ν(z) has logarithmic derivative R(ν)=ν Γ((1−ν)/2)/(√2 Γ(1−ν/2)) at zero; parity matching gives ak+atan(√n R(k²/n)/k)=jπ/2 for fixed j and large n. The small-ν gamma quotient R=β ν(1+ν log2+O(ν²)) and arctan expansion yield θ=βk n^-1/2+d k³ n^-3/2+O(n^-5/2), d=β(log2−π/6)>0, hence λ_j=κ_j²/A_n²−2dκ_j⁴/(A_n⁵ n^3/2)+O_{a,j}(n^-5/2). Sturm nodal count identifies j and rules out extra exterior zeros for ν<1. Independent 24 mpmath root/gamma tests checked the coefficient, several a,j,n and phase; not evidence of uniform-in-j expansion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mane–Boukardagha Section 3 bound in W2 concerns stationary distributions; general mixing and sampling complexity do not determine each fixed eigenmode.",
+          "Gürbüzbalaban–Hu–Zhu JMLR 25(263) 2024 proves penalty-based sampler bounds."
+        ],
+        "reasoning": "A general convergence estimate could imply order bounds but not the signed coefficient −2dκ_j⁴/A_n⁵ without explicit boundary logarithmic derivative.",
+        "searches": [
+          "Resultary semantic search: penalized reflected Brownian interval squared distance soft wall Ornstein Uhlenbeck spectral eigenvalue correction Gamma",
+          "https://jmlr.org/papers/v25/22-1443.html"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.00386 PDF, especially §3 convergence theorem",
+        "JMLR 2024 25(263) publisher publication description",
+        "DLMF 12.2 parabolic cylinder special functions",
+        "Resultary: diffusion/reflection spectral correction semantic search, 12 returned different objects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mane Theorem 3.5 and Wasserstein results yield invariant-measure control, not spectral asymptotic coefficient.",
+          "No named prior theorem observed specifying the n^-3/2 dispersive correction for each fixed j."
+        ],
+        "reasoning": "Stationary weak/Wasserstein convergence cannot be algebraically substituted into the present eigenvalue expansion; nevertheless a specialized piecewise-OU eigenfunction literature result may be equivalent.",
+        "searches": [
+          "Resultary semantic search: penalized reflected Brownian interval squared distance soft wall Ornstein Uhlenbeck spectral eigenvalue correction Gamma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mane–Boukardagha arXiv:2512.00386, penalized metric-projection diffusion and invariant-measure Wasserstein convergence, not exact low-lying λ_j asymptotics.",
+          "DLMF §12.2 supplies parabolic-cylinder derivative identities underlying the matching ratio, not this all-j fixed-index penalized-interval asymptotic."
+        ],
+        "reasoning": "The same stochastic model may occur with temperature T=1/n and a time rescaling; direct comparison requires accounting for the 1/n eigenvalue scaling. No exact n^-3/2 term found in inspected main results.",
+        "searches": [
+          "Resultary semantic search: penalized reflected Brownian interval squared distance soft wall Ornstein Uhlenbeck spectral eigenvalue correction Gamma",
+          "https://arxiv.org/pdf/2512.00386",
+          "https://dlmf.nist.gov/12.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No closed coefficient table for fixed modes appears among the twelve Resultary hits; independently tested d≈0.21249741289772498582 and 24 root cases."
+        ],
+        "reasoning": "Special-function constants are known; novelty lies in their assembly into the full sharp low-index spectral expansion, not in a new gamma identity.",
+        "searches": [
+          "Resultary semantic search: penalized reflected Brownian interval squared distance soft wall Ornstein Uhlenbeck spectral eigenvalue correction Gamma"
+        ]
+      },
+      "rationale": "Mane/Boukardagha study Wasserstein convergence of penalized projected Langevin invariant measures; Gürbüzbalaban–Hu–Zhu study penalty sampling complexity. Their available primary main theorems do not derive fixed-index spectral corrections, though the parabolic-cylinder boundary ratio is classical. Darapaneni's later paper on metric projection potentials is a plausible same-model priority risk; an accessible complete HTML version was not obtained. Qualified best-of-knowledge O PASS, without claiming all-special-function treatments have been excluded.",
+      "residual_risks": [
+        "Other piecewise-Ornstein–Uhlenbeck diffusion spectral work could already express the same gamma determinant and expansion.",
+        "Darapaneni arXiv:2610.35145 was not accessible in full during this run; same potential is a specific priority risk.",
+        "Only fixed a>0 and fixed low j; uniform high-mode asymptotic is unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same penalization framework, proves invariant-measure convergence not fixed-mode spectral corrections.",
+          "evidence": "https://arxiv.org/pdf/2512.00386",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.00386",
+          "material_read": "Full 16-page primary PDF available, inspected title/abstract, SDE setup, penalization and Section 3 Wasserstein theorem (page image), searched eigenvalue keyword",
+          "method": "Open-access primary PDF: text, mathematical section inspection and page-image cross-check",
+          "title": "Convergence of Reflected Langevin Diffusion for Constrained Sampling",
+          "trigger": "Exactly related metric-projection penalty model"
+        },
+        {
+          "assessment": "Sampling complexity antecedent; no whole-document exclusion inferred from abstract.",
+          "evidence": "https://jmlr.org/papers/v25/22-1443.html",
+          "identifier_or_url": "https://jmlr.org/papers/v25/22-1443.html",
+          "material_read": "Publisher publication page and mathematical abstract only; not full main text",
+          "method": "Publisher publication page and abstract",
+          "title": "Penalized Overdamped and Underdamped Langevin Monte Carlo Algorithms for Constrained Sampling",
+          "trigger": "Earlier related constrained Langevin algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact effective-boundary enlargement and first dispersive mode-dependent correction quantify finite-penalty relaxation rates for a natural soft reflection approximation. The n^-3/2 term distinguishes true boundary dynamics from a simple enlarged Neumann interval; a motivated sharp spectral asymptotic rather than a generic textbook calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other piecewise-Ornstein–Uhlenbeck diffusion spectral work could already express the same gamma determinant and expansion.",
+    "Darapaneni arXiv:2610.35145 was not accessible in full during this run; same potential is a specific priority risk.",
+    "Only fixed a>0 and fixed low j; uniform high-mode asymptotic is unproved."
+  ],
+  "schema_version": 1
+}

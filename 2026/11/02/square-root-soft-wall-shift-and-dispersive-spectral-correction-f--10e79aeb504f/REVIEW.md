@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic normalization \(\sqrt2\) makes the generator \(f''-n(x-P_ax)f'\), with invariant density proportional to \(e^{-n\operatorname{dist}^2/2}\). The conjugated Schrödinger potential is coercive; one-dimensional Sturm oscillation gives discrete simple eigenvalues indexed by zeros. The exterior square-integrable solution is \(e^{z^2/4}D_\nu(z)\). Its derivative at zero gives the explicit gamma quotient. Matching value and derivative against trigonometric solutions inside the interval yields an exact low-mode phase equation. A uniform Taylor expansion of the gamma quotient for bounded positive mode number produces the square-root effective half-width and a mode-fourth-power \(n^{-3/2}\) correction. The bound \(O_{a,j}(n^{-5/2})\) follows from the remainder in the arctangent and implicit-function inversion, retaining the effective half-width in the denominators. The checker passes 378 numerical assertions, including an independent finite-difference eigensystem. Infinite-dimensional claims use analysis, not numerical enumeration.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+Conjugate the invariant diffusion generator f''−n(x−P_ax)f' to Schrödinger form with confining quadratic exterior: compact resolvent and 1D Sturm simplicity. Exterior scaled eigenfunction e^(z²/4)D_ν(z) has logarithmic derivative R(ν)=ν Γ((1−ν)/2)/(√2 Γ(1−ν/2)) at zero; parity matching gives ak+atan(√n R(k²/n)/k)=jπ/2 for fixed j and large n. The small-ν gamma quotient R=β ν(1+ν log2+O(ν²)) and arctan expansion yield θ=βk n^-1/2+d k³ n^-3/2+O(n^-5/2), d=β(log2−π/6)>0, hence λ_j=κ_j²/A_n²−2dκ_j⁴/(A_n⁵ n^3/2)+O_{a,j}(n^-5/2). Sturm nodal count identifies j and rules out extra exterior zeros for ν<1. Independent 24 mpmath root/gamma tests checked the coefficient, several a,j,n and phase; not evidence of uniform-in-j expansion.
 
-The strongest relevant primary source, Mane (arXiv:2512.00386, 2025), analyzes invariant-measure Wasserstein convergence and Euler discretization for penalized reflected diffusion; its inspected discussion does not state the gamma-ratio spectral equation or fixed-mode asymptotic coefficient. Darapaneni (arXiv:2610.35145, 2026) describes the same quadratic projection potential and general mixing rates, but its inspected introductory main results do not supply the exact interval eigenvalue expansion. The earlier Gürbüzbalaban–Hu–Zhu sampling work supplies convergence and complexity guarantees rather than an inspected explicit spectrum. Classical parabolic-cylinder formulas alone do not imply the implicit-root expansion without the domain matching and spectral indexing. Targeted searches, including semantic published-finding searches, found no equivalent statement, but a differently indexed piecewise-OU spectral formula remains a genuine priority risk. No uniqueness certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Penalization converts reflected constrained sampling into unconstrained diffusion, but the effect of finite penalty on relaxation eigenvalues matters separately from convergence of invariant measures. The result provides a complete fixed-mode asymptotic comparison with reflecting Brownian motion, a universal thermal boundary width, and the first nontrivial *dispersive* departure from pure length renormalization. The last coefficient depends on the fourth power of the spectral mode and has a strict sign, so it captures a dynamical effect that cannot be obtained by simply replacing the interval length. Its benchmark value is limited to a solvable one-dimensional model.
+Mane/Boukardagha study Wasserstein convergence of penalized projected Langevin invariant measures; Gürbüzbalaban–Hu–Zhu study penalty sampling complexity. Their available primary main theorems do not derive fixed-index spectral corrections, though the parabolic-cylinder boundary ratio is classical. Darapaneni's later paper on metric projection potentials is a plausible same-model priority risk; an accessible complete HTML version was not obtained. Qualified best-of-knowledge O PASS, without claiming all-special-function treatments have been excluded.
 
-## Closest literature and residual risks
+## value
 
-The directly relevant papers are Mane (2025, arXiv:2512.00386), Gürbüzbalaban–Hu–Zhu (2024, arXiv:2212.00570), and Darapaneni (2026, arXiv:2610.35145). Only the first and third were materially read in mathematical detail for this assessment; the 2024 paper was compared from its author/publisher summary and is not certified absent of a specialized appendix. Some special-function and piecewise-Ornstein–Uhlenbeck spectral literature may contain an equivalent formula under a different model name. The result is not independently validated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact effective-boundary enlargement and first dispersive mode-dependent correction quantify finite-penalty relaxation rates for a natural soft reflection approximation. The n^-3/2 term distinguishes true boundary dynamics from a simple enlarged Neumann interval; a motivated sharp spectral asymptotic rather than a generic textbook calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
