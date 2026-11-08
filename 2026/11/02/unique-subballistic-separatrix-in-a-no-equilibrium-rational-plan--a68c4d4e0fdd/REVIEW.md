@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The change of coordinates is algebraically exact. The monotone positive variable gives two disjoint open ballistic initial-condition sets. A finite-crossing argument proves downward escape, while a summable multiplier bootstrap proves upward escape and its openness. Connectedness supplies a critical boundary; an order-preserving ratio argument proves uniqueness. The positive tail-sum lower bound controls the second-order term in the exact difference quotient, and the resulting telescoping and Cesàro limits rigorously yield the \(2/3\)-power law. The proof covers all parameters and initial heights stated in the theorem. Numerical critical shooting is supplementary only.
+## correctness
 
-**Originality — PASS within inspected evidence.** The complete defining article describes the rational family, fixed-point cases and numerical attractors, but does not give this global escape separatrix or algebraic asymptotics. The closest recorded zero-offset result proves ballistic scattering for \(d=0\); it does not cover the nonzero vertical drift or the critical zero-speed orbit. Searches by the rational-map formula, the separatrix, equivalent normalized recurrence and \(2/3\) critical scaling did not locate a covering publication or recorded theorem. The remaining risk is prior unindexed equivalent dynamics.
+PASS
 
-**Value — PASS.** A no-fixed-point parameter regime can still support a dynamically sharp boundary between opposite escape directions. Establishing its uniqueness for every nonnegative initial height and the exact fractional escape exponent is a substantial global dynamical classification, not a numerical bifurcation observation or a fixed-point calculation. The critical rate identifies a physically distinct, nonballistic phase that ordinary positive/negative escape diagnostics miss. The theorem is intentionally limited to a motivated sign sector.
+The map is exactly conjugate under u=-cx/d to u_next=u(1+a/(1+y²)), y_next=y+d(1-u). u increases; finite crossing u>=1 yields y->-infinity and limiting u=U>1, while u<1 forever yields y->+infinity. A small-u ballistic-up orbit and the finite-crossing down set give two nonempty open classes. At a boundary orbit U=1; order-preservation on y>=0 makes the ratio of distinct critical u-orbits strictly above 1, excluding two. On the critical orbit w=1-u and telescoping show w>=C/y and w²y->2a/d; then increments of y^(3/2) give y~(9ad/2)^(1/3)n^(2/3), x=-d/c+(2/(3c))(9ad/2)^(1/3)n^(-1/3)+o(n^(-1/3)). The infinite proof uses monotonicity, summation, and asymptotic comparison, not finite shooting.
 
-The nearest primary source is Zhang et al., *Chinese Physics B* (2022), DOI: 10.1088/1674-1056/ac4025. The exact original numerical claims are not overstated, and neither this review nor the finite diagnostics constitute an external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new global critical separator and sharp subballistic scaling for the positive-drift zero-horizontal-forcing natural slice; distinguish from the defining numerical fixed-point/attractor regimes and other rational-map phenomena.
+
+## value
+
+PASS
+
+Global escape-basin classification and unique nonballistic boundary at infinity for a canonical no-equilibrium rational map are structural dynamical information not visible in phase plots; the universal 2/3 law identifies sharp critical scaling that could serve as a test case for nonhyperbolic discrete escape.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
