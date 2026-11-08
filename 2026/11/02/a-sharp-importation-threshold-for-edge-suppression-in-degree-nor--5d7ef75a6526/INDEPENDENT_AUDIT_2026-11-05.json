@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:51:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-importation-threshold-for-edge-suppression-in-degree-nor--5d7ef75a6526/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-importation-threshold-for-edge-suppression-in-degree-nor--5d7ef75a6526/verify.py",
+        "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC"
+      ],
+      "rationale": "Constructed CTMC on infected subsets with rate alpha+beta sum_{infected neighbor u}1/deg(u) to infect susceptible v, recovery rate 1. Quotient generator by automorphism orbits (6 for C4, 9 for diamond), solve stationary linear equations symbolically. Difference is -alpha beta²F(alpha,beta)/(UV) with U,V positive-coefficient polynomials and beta degree-8 numerator F. Coefficients c0..c4 each have exactly one positive alpha root r4<r3<r2<r1<r0=7/8; c5..c8 positive. Thus for alpha>=7/8 F>0; for lower alpha coefficient signs have exactly one negative-to-positive change giving unique positive beta root by Descartes and endpoint signs. For connected n<=3 only possible edge addition P3->K3 has exact positive prevalence difference. Independent 16-state stationary-generator solver confirms 8 parameter/graph checks, including negative difference at alpha=beta=1 and smaller-n cases. Full universal sign proof uses exact polynomial and rational sign brackets in inspected verify.py, not numerical sampling.",
+      "residual_risks": [
+        "Unbounded alpha,beta conclusion depends on the exact generated numerator/denominator polynomial identity and Descartes sign proof; independent finite spot checks alone do not establish it.",
+        "Rate model is per-infected-source normalized by source degree; standard per-edge constant transmission lacks this edge-reallocation mechanism."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic contact-process monotonicity in fixed-rate graphs is inapplicable since existing rates change.",
+          "Degree-penalized process paper addresses survival on random large graphs and symmetric penalties rather than finite four-node positive-importation stationary prevalence."
+        ],
+        "reasoning": "No inspected broader theorem implies sharp 7/8 and unique beta crossing with this rate normalization.",
+        "searches": [
+          "Gomez arxiv:0907.1313",
+          "Foxall DOI:10.1239/aap/1401369707",
+          "Bartha Komjathy Valesin arxiv:2310.07040"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: degree normalized SIS contact process edge addition reduces stationary prevalence spontaneous infection diamond cycle four",
+        "https://arxiv.org/abs/0907.1313",
+        "https://doi.org/10.1239/aap/1401369707",
+        "https://arxiv.org/abs/2310.07040",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-importation-threshold-for-edge-suppression-in-degree-nor--5d7ef75a6526/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first source provides a modeling law but no exact positive-importation stationary four-graph inequality.",
+          "The second source standard coupling fails because source degrees change, creating rate decreases on old edges."
+        ],
+        "reasoning": "Neither model definition nor standard stochastic ordering proves the sharp sign reversal; a new exact rational stationary comparison is needed.",
+        "searches": [
+          "Gomez 2009 contact attempt Eq.(1)-(3)",
+          "Foxall 2014 monotonicity results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gomez et al 2009 introduce source-degree-based contact attempts, primarily a discrete-time approximation.",
+          "Foxall 2014 standard monotonicity requires ratewise comparison, violated here because adding an edge reduces existing directed rates."
+        ],
+        "reasoning": "The mechanism is shared but exact stationary comparison C4 vs diamond and the importation threshold are distinct mathematical statements.",
+        "searches": [
+          "Resultary: degree normalized SIS contact process edge addition reduces stationary prevalence spontaneous infection diamond cycle four",
+          "arxiv:0907.1313v1",
+          "arxiv:2310.07040v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary hits concern deterministic multi-strain equilibria and SIRS/SLEIRS thresholds rather than exact four-node CTMC stationary distribution."
+        ],
+        "reasoning": "Finite 16-state enumeration is reproducible but not an obvious known-table recomputation; exact full-parameter sign diagram gives it mathematical content.",
+        "searches": [
+          "Resultary: degree normalized SIS contact process edge addition reduces stationary prevalence spontaneous infection diamond cycle four",
+          "C4 diamond finite contact process exact stationary infection polynomial"
+        ]
+      },
+      "rationale": "Exact source-normalized four-site finite stochastic stationary comparison and the alpha=7/8/unique-beta frontier are not stated in source-degree contact-model mean-field literature or generic monotone infection processes with unchanged old directed edge rates.",
+      "residual_risks": [
+        "A specialist finite-state contact-process computation could have previously identified the four-node threshold under a different epidemic terminology.",
+        "Full text of every older degree-normalized epidemic paper not exhaustively checked; originality remains best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MECHANISM_DIFFERENT_THEOREM",
+          "evidence": "Discrete-time contact-based epidemic modeling, not the exact continuous-time finite stationary diamond/cycle phase diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.1313",
+          "material_read": "Primary PDF model definitions, equations and approximation context",
+          "method": "Read PDF text and inspect introductory model screenshot",
+          "title": "Discrete-time Markov chain approach to contact-based disease spreading in complex networks",
+          "trigger": "Same total-per-source contact attempt mechanism"
+        },
+        {
+          "assessment": "RELATED_NOT_DIRECT",
+          "evidence": "Old-edge infection rates decrease under source degree renormalization, defeating naive monotone coupling; incomplete full paper priority risk.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1401369707",
+          "material_read": "Article abstract and monotonicity framework; full exact proof not confirmed",
+          "method": "Compare transition-rate ordering prerequisites",
+          "title": "Convergence and Monotonicity for a Model of Spontaneous Infection and Transmission",
+          "trigger": "Potential generic positivity/edge-monotonicity coverage"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_OBJECTIVE",
+          "evidence": "Focus on survival and growing random graphs with different edge penalties; not the claimed exact finite-stationary threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.07040",
+          "material_read": "Accessible primary abstract and main scope",
+          "method": "Compare penalty exponents/finite stationary vs survival regime",
+          "title": "Degree-penalized contact processes",
+          "trigger": "Graph-degree penalization and epidemic transmission"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-importation-threshold-for-edge-suppression-in-degree-nor--5d7ef75a6526/RESULT.md",
+        "https://arxiv.org/abs/0907.1313",
+        "https://doi.org/10.1239/aap/1401369707",
+        "https://arxiv.org/abs/2310.07040"
+      ],
+      "rationale": "A sharp, surprising edge-addition suppression threshold in a natural finite epidemic model with fixed per-infected-source contact capacity; includes exact one-crossing phase and minimum network size. Gives a substantive counterexample to naive edge-monotonicity intuition.",
+      "residual_risks": [
+        "Future literature may establish stronger or equivalent prior coverage.",
+        "A specialist finite-state contact-process computation could have previously identified the four-node threshold under a different epidemic terminology.",
+        "Full text of every older degree-normalized epidemic paper not exhaustively checked; originality remains best of knowledge."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-importation-threshold-for-edge-suppression-in-degree-nor--5d7ef75a6526/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-importation-threshold-for-edge-suppression-in-degree-nor--5d7ef75a6526/verify.py",
+    "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC",
+    "https://arxiv.org/abs/0907.1313",
+    "https://doi.org/10.1239/aap/1401369707",
+    "https://arxiv.org/abs/2310.07040"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialist finite-state contact-process computation could have previously identified the four-node threshold under a different epidemic terminology.",
+    "Full text of every older degree-normalized epidemic paper not exhaustively checked; originality remains best of knowledge.",
+    "Unbounded alpha,beta conclusion depends on the exact generated numerator/denominator polynomial identity and Descartes sign proof; independent finite spot checks alone do not establish it.",
+    "Rate model is per-infected-source normalized by source degree; standard per-edge constant transmission lacks this edge-reallocation mechanism."
+  ],
+  "schema_version": 1
+}
