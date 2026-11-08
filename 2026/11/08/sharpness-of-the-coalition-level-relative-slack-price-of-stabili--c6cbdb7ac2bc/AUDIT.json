@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For 0<δ<1, all coalition surpluses are nonnegative, and applying the per-coalition cap to each pair yields v_ij≥0; hence the grand coalition is Nash stable. Summing W(S)≤2P(S)/(1−δ) over partition blocks proves W(grand)≥(1−δ)SW(opt). A three-player family has only r({1,2})=δ; its five partition welfares are 1−δ+2ε, 1, ε, ε, 0. Positive v_ij make every nongrand partition unstable via a singleton entry. Thus PoS=1/(1−δ+2ε) tending to the universal bound. Two-player case has grand coalition welfare optimum. The standalone exact rational checker passed 2245 instances but the proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hasan Corollary 5.12 proves a general upper bound, but explicitly identifies the stronger-hypothesis tightness as unsettled.",
+        "Donahue and Kleinberg (2021) use mean-squared error and a cost-based price of anarchy of nine."
+      ],
+      "reasoning": "An upper bound cannot imply its sharpness. The 2021 result is not about this coalition-level pair-transfer slack model. No stronger covering statement was identified among inspected relevant sources.",
+      "searches": [
+        "arxiv:2607.26788 Cengis Hasan coalition-level tightness condition 39 retained slack Nash price stability",
+        "\"coordinator-retained\" \"coalition\" \"asymptotically tight\" \"stronger\"",
+        "Donahue Kleinberg Optimality Stability Federated Learning Game Theoretic Approach 2021 full text pdf"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21203/rs.3.rs-10405564/v1",
+      "arxiv:2607.26788v1",
+      "arxiv:2106.09580v1",
+      "Contemporaneous public mathematical research-index semantic results",
+      "Accessible previous research ledger claims (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hasan Proposition 5.13 has W({3})=δ and r({3})=δ, violating r({3})≤δW({3})=δ² when 0<δ<1; it cannot imply the sharper claim.",
+        "The new family sets W({3})=0, W({1,2})=1, r({1,2})=δ, and all remaining coalition slacks zero."
+      ],
+      "reasoning": "The earlier construction establishes only sharpness with slack bounded on the optimal partition. The stronger all-coalitions hypothesis does not follow, because positive singleton slack fails it. Conversely the new construction obeys every coalition bound and proves sharpness for that strictly smaller class.",
+      "searches": [
+        "Stable and Budget-Feasible Coalition Formation for Clustered Federated Learning Hasan coalition-level condition (39) open tight bound construction",
+        "\"coalition-level\" \"relative slack\" \"price of stability\" bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hasan (2026) Section 5.3 names r(S)=W(S)-2P(S), Corollary 5.12 and its stronger per-coalition condition.",
+        "No database hit in the actual queried results stated an equivalent per-coalition sharp witness; the closest cooperative-game results used different objects."
+      ],
+      "reasoning": "Compared also the equivalent upper bound SW(grand)≥(1−δ)SW(opt), not only the phrase price of stability. The new pair-slack construction satisfies all coalition bounds whereas the source’s singleton-slack example does not. Search absence is not proof of global novelty.",
+      "searches": [
+        "coalition-level relative slack condition 0≤r(S)≤δ W(S) price of stability asymptotically tight 1/(1−δ), three participants symmetric pairwise transfers",
+        "Stable and Budget-Feasible Coalition Formation for Clustered Federated Learning Hasan coalition-level condition (39) open tight bound construction",
+        "\"r_v(S)\" \"delta W(S)\" \"tight\" \"price of stability\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked semantic index results were led by stochastic pollution-control coalition dynamics and deferred-acceptance efficiency, both mathematically distinct from coalition-wise retained-slack bounds.",
+        "Inspected current and previous accessible own research-ledger claims and source IDs; none uses arXiv:2607.26788 or the corresponding coordinator-slack question."
+      ],
+      "reasoning": "There is no numerical pre-existing table to subsume a uniform-in-δ theorem. Database queries were semantic and returned no equivalent; this is not a uniqueness guarantee and does not substitute for full-text comparison.",
+      "searches": [
+        "coalition-level relative slack condition 0≤r(S)≤δ W(S) price of stability asymptotically tight 1/(1−δ), three participants symmetric pairwise transfers",
+        "Stable and Budget-Feasible Coalition Formation for Clustered Federated Learning Hasan coalition-level condition (39) open tight bound construction",
+        "arxiv:2607.26788 Cengis Hasan coalition-level tightness condition 39 retained slack Nash price stability",
+        "pairwise coalition formation Nash stability efficiency surplus price of stability coordinator budget",
+        "three-agent symmetric pairwise coalition surplus price stability upper bound under coalition-wise proportional budget slack"
+      ]
+    },
+    "rationale": "The main 2026 source states the coalition-level tightness question open immediately after Proposition 5.13. Its construction is not coalition-level feasible because a positive singleton slack cannot be at most δ times itself for 0<δ<1. The new explicit three-agent pair-slack witness satisfies all seven coalitional constraints and reaches the previously established sharp bound in the limit. Contemporaneous public-source and semantic database checks found no equivalent; unindexed or later-work risk remains.",
+    "residual_risks": [
+      "Search incompleteness: a separate or later unindexed resolution of the same open sharpness question may exist.",
+      "The theorem does not cover subclasses requiring monotone, submodular, or empirically realizable coalition-surplus functions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Corollary 5.12 provides the bound but Proposition 5.13 fails the coalition-level condition; the source explicitly states the sharper-condition tightness question is open. Does not contain the new pair-slack witness.",
+        "evidence": [
+          "https://arxiv.org/abs/2607.26788",
+          "Section 5.3 equations (31)-(39), Corollary 5.12, Proposition 5.13 and subsequent paragraph"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.26788",
+        "material_read": "Full accessible paper text, especially Sections 4.2, 5.1, 5.2 and 5.3, Theorem 5.8, Corollary 5.12, Proposition 5.13 and following limitation paragraph",
+        "method": "Read full-text HTML served from the arXiv source and compared definitions and inequalities directly",
+        "title": "Stable and Budget-Feasible Coalition Formation for Clustered Federated Learning: A Hedonic Potential-Game Approach",
+        "trigger": "Identical symmetric pairwise utility and coordinator-slack setup; explicit open sharpness question"
+      },
+      {
+        "assessment": "Same conclusion as arXiv source; the earliest publicly evidenced source date is July 21, 2026. No equivalent coalition-level witness appears in the inspected portion.",
+        "evidence": [
+          "https://www.researchgate.net/publication/410646305_Stable_and_Budget-Feasible_Coalition_Formation_for_Clustered_Federated_Learning_A_Hedonic_Potential-Game_Approach",
+          "Posted Date: July 21st, 2026; Proposition 5.13 says the stronger coalition-level condition remains open"
+        ],
+        "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-10405564/v1",
+        "material_read": "Research Square preprint text displayed in an accessible public full-text copy; dated July 21, 2026; Section 5.3 Corollary 5.12 and Proposition 5.13",
+        "method": "Read public full-text page, explicit posted-date line, and the exact earlier construction and open-question text",
+        "title": "Stable and Budget-Feasible Coalition Formation for Clustered Federated Learning: A Hedonic Potential-Game Approach, earlier public preprint",
+        "trigger": "Verify first public date and check that an earlier full-text version also states the open condition"
+      },
+      {
+        "assessment": "Price-of-anarchy nine concerns agent error-cost optimization in a nontransferable, differently normalized model; it does not imply the present price-of-stability sharpness for pair transfers and retained coordinator slack.",
+        "evidence": [
+          "https://arxiv.org/abs/2106.09580",
+          "NeurIPS 2021 Sections 1–3: agent-specific error costs, not arbitrary coalition W and pair-transfer slack"
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper/2021/file/09a5e2a11bea20817477e0b1dfe2cc21-Paper.pdf",
+        "material_read": "First-page abstract and Sections 1–3 (including Equation 2 defining prediction-error-based coalitional costs), with first page visually inspected",
+        "method": "Read accessible PDF text and checked its first page image; compared utility and social objective definitions",
+        "title": "Optimality and Stability in Federated Learning: A Game-theoretic Approach",
+        "trigger": "Nearby primary literature on optimal versus stable federated learning coalitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6cbdb7a-c2bc-4f31-a4eb-2a64bb13e9a5",
+  "value": {
+    "rationale": "The precise stronger hypothesis is identified as an unresolved tightness problem after Proposition 5.13 of the motivating 2026 paper. Resolving whether all-coalition proportional retained slack improves the universal stability-efficiency factor is natural for economic transfer design. The result supplies an explanatory nonnegative-pair structural lemma and a minimal three-agent sharp witness rather than only a routine numerical example.",
+    "status": "PASS"
+  }
+}
