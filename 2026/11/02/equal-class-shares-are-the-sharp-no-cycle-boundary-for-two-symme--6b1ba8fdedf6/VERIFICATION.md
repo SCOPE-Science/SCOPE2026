@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Scientific verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` covers all finite alternative sets of size at least three and all continuous strictly increasing symmetric links with the stated endpoint limits. The crucial identity is odd-monotonicity of \(F-1/2\); the existence argument uses the inverse link at a cutoff strictly above \(1/2\) and a finite, sufficiently large first-class score spread. Boundary equality, ties, extreme shares and the strict-cycle construction are addressed separately.
+## correctness
 
-To reproduce the exact arithmetic checks, run `python3 checker.py` in the directory containing that script. It requires only the Python standard library and outputs `PASS: 25215 exact rational assertions; analytic universal proof is in RESULT.md`. These checks separately verify a rational three-alternative strict cycle, the explicit construction at both orientations of 127 imbalanced rational weight values, and the full \(4^6\) configurations of worth configurations for the 50:50 product ranking including tied products. These finite calculations test, but do not prove, the continuum theorem.
+PASS
 
-The numerical consequence does not assert identifiability from samples or that every score assignment cycles at imbalanced weights. Historical novelty remains provisional against unlocated equivalent results. No external independent scientific audit has been performed.
+For F continuous, strictly increasing, symmetric with F(-z)=1-F(z), write G=F-1/2. G is odd strictly increasing; sign(G(a)+G(b))=sign(G(a)-G(-b))=sign(a+b), including ties. For w=1/2 this is an additive weak order in u_i+v_i; endpoints are individual score orders. For 0<w<1/2 choose z=F^{-1}(1/[2(1-w)]), z/2<d<z, u=(2K,K,0), v=(0,d,2d): for finite large K the AB and BC majorities exceed 1/2, while CA exceeds 1/2 for all K>0. Swap classes for w>1/2. Three alternatives and two classes are minimal for strict cycles. Independent rational reconstruction gives P_AB=P_BC=52/99 and P_CA=271/505 at w=1/3, and verifies 2187 exact equal-share sign comparisons, including ties.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the universal iff boundary of this precisely constrained two-class, common symmetric link mixture. General mixture paradoxes and transitivity testing are known, but do not imply the equal-share additive-utility sign law or cycles for every other fixed interior weight across all symmetric increasing links. The statement concerns population-majority signs, not equivalence of the entire mixture to a single BTL model.
+
+## value
+
+PASS
+
+Identifies a sharp phase boundary in a natural two-population random-utility model. The transitive equal-share regime and minimal three-alternative counterexamples at every other share distinguish structural population aggregation from generic Condorcet paradox constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
