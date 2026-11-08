@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For each fixed richness, collision counts have sharp integer-convexity bounds. For all sample sizes n=2,...,6, adjacent richness ranges do not overlap in the wrong direction, so a pointwise monotone-pair inequality and the independent-copy identity prove nonnegative covariance under arbitrary joint laws. For n>=7, two exchangeably permuted 3-label count profiles have opposite ordering of richness and diversity, producing a strictly negative exact covariance, with even/odd gaps proved algebraically. On two labels the result is distribution-free. An explicit 3-label de Finetti mixture yields the exact negative sample-22 rational, independently reproduced by finite multinomial summation, and an analytic -63/800 limit by bounded convergence. The standalone Python3 checker passes 313 exact assertions and does not substitute finite checks for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Favaro–Lijoi–Prünster arXiv:1309.1335 develops exchangeable Gibbs-type partition conditional formulas, with a family restriction not covering every arbitrary finite exchangeable occupancy law.",
+        "published-finding corpus iid richness–Gini–Simpson result gives a stronger iid lower bound but not covariance under mixing over parent laws.",
+        "Lande 1996 provides sample diversity estimation formulas, not this robustness statement in inspected material."
+      ],
+      "reasoning": "De Finetti mixture arguments and sharp integer-convexity count bounds are general standard machinery that imply the displayed formulas when combined, but no inspected source states or proves the n=6 universal/n=7 negative and 3-category minimal transition or supplies a dominating all-exchangeability covariance inequality.",
+      "searches": [
+        "In de Finetti mixtures with three categorical species, covariance of number of observed species and pair diversity becomes negative, exact mixture boundary",
+        "exchangeable categorical sampling richness diversity covariance law total covariance under random measures",
+        "2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+      "https://arxiv.org/html/0902.0879v1",
+      "https://arxiv.org/abs/1309.1335",
+      "https://pdodds.w3.uvm.edu/files/papers/others/1996/lande1996a.pdf",
+      "https://doi.org/10.1002/ece3.70275"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published iid result formula is c_n(p)=sum_i p_i(1-p_i)^(n-2)[2s2-(1+s2)p_i], and is used as a conditional identity for each mixture component.",
+        "Its hypothesis is a fixed iid categorical law, whereas the present negative examples use dependent exchangeable samples.",
+        "The finite n<=6 result is distribution-free and therefore holds beyond the iid claim, without violating it."
+      ],
+      "reasoning": "The conditional iid covariance is necessarily nonnegative, but covariance under a nondegenerate mixing law also includes the between-component covariance of conditional richness and diversity, which may be negative and dominate. Thus neither result implies the other as a whole: the present theorem uses the known conditional covariance while giving a sharp new exchangeability boundary.",
+      "searches": [
+        "2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+        "Sharp seven observations and three categories is minimal for negative covariance of observed richness and unbiased Gini Simpson diversity under arbitrary exchangeable sample",
+        "In de Finetti mixtures with three categorical species, covariance of number of observed species and pair diversity becomes negative, exact mixture boundary",
+        "arxiv:0902.0879v1",
+        "arxiv:1309.1335"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0 proves fixed iid positive covariance of observed richness and unbiased pair diversity; this theorem supplies finite and infinite exchangeability boundary laws.",
+        "Barbour arXiv:0902.0879v1 models independent occupancy draws, not a freely exchangeable joint law."
+      ],
+      "reasoning": "Equivalent forms sought: distinct-category count versus pair collision U-statistic; observed richness versus Gini–Simpson index; exchangeable occupancy-profile mixtures; de Finetti random discrete frequency vectors. Since pair diversity equals one minus collision fraction, a positive richness–collision covariance corresponds to our negative richness–diversity outcome. The published iid positivity cannot cover these counterexamples without contradicting its own independence hypothesis.",
+      "searches": [
+        "Sharp seven observations and three categories is minimal for negative covariance of observed richness and unbiased Gini Simpson diversity under arbitrary exchangeable sample",
+        "In de Finetti mixtures with three categorical species, covariance of number of observed species and pair diversity becomes negative, exact mixture boundary",
+        "Richness Simpson diversity covariance under exchangeability occupancy composition counterexample n=7",
+        "exchangeable occupancy richness Simpson index negative covariance under random frequency profile",
+        "2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source-specific exact table or database of this richness–diversity exchangeability boundary was identified in published-finding corpus semantic searches or the read literature.",
+        "The full values for n=2..6 are derived from sharp collision bounds, not imported from a known table."
+      ],
+      "reasoning": "A finite n=7 rational counterexample is not claimed novel by numerical value alone. The mathematical contribution is the sharp universal boundary with all-n counterexamples and the infinite-exchangeable two-/three-label distinction. The absence of a search hit is not a proof of priority.",
+      "searches": [
+        "Sharp seven observations and three categories is minimal for negative covariance of observed richness and unbiased Gini Simpson diversity under arbitrary exchangeable sample",
+        "Richness Simpson diversity covariance under exchangeability occupancy composition counterexample n=7",
+        "covariance observed species Simpson concentration exchangeable n=7 table"
+      ]
+    },
+    "rationale": "Published iid positive covariance assumes a fixed categorical parent law; it neither implies a universal arbitrary-law threshold n<=6 nor rules out exchangeable n>=7 negative examples. Relevant primary texts on iid occupancy, Gibbs exchangeable partitions, and diversity indices were read to the material extent documented. Semantic searches for exchangeable and de Finetti versions did not find an implication-equivalent exact boundary. Basic deterministic bounds are mathematical tools, not claimed as original. Historical implicit coverage remains a recorded risk.",
+    "residual_risks": [
+      "An unlocated older ecology, exchangeability, or sampling-without-replacement source may give an equivalent inequality or counterexample under other notation.",
+      "The broad de Finetti literature contains general conditional covariance principles; these yield the mixture identity when specialized but no inspected statement supplied the sharp finite-n threshold.",
+      "This review is not independent verification or a certification of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers iid conditional positivity and moment identity; does not give unrestricted finite-exchangeability threshold or infinite mixture negative case",
+        "evidence": [
+          "iid theorem states fixed positive masses with independent identical draws",
+          "notes no general conditional association claimed",
+          "exact c_n(p) shared with present conditional calculation"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+        "material_read": "Complete RESULT.md including finding, hypotheses, equations (4)–(8), proof, relationship and limitations; REVIEW.md also examined",
+        "method": "Direct GitHub file reading; compared fixed iid assumptions and claim implications",
+        "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+        "trigger": "Potential exact-statistic dominating theorem"
+      },
+      {
+        "assessment": "Independent allocations and occupancy distribution approximations; did not find sample-level richness–diversity covariance threshold in inspected material",
+        "evidence": [
+          "arXiv:0902.0879 submitted 2009-02-05",
+          "iid occupancy weights and frequency counts are primary objects"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0902.0879v1",
+        "material_read": "Abstract, introduction, main theorem statements and relevant model/number-of-occupied-boxes discussion in HTML",
+        "method": "Read accessible public preprint HTML, compared sampling model and statistic",
+        "title": "Univariate approximations in the infinite occupancy scheme",
+        "trigger": "Old primary occupancy reference spanning arbitrary species probabilities"
+      },
+      {
+        "assessment": "Conditional Gibbs-family partition counts and species predictions, not an unrestricted fixed-n covariance sign robustness boundary",
+        "evidence": [
+          "arxiv:1309.1335 first public 2013-09-05",
+          "specific exchangeable Gibbs-type partition families"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.1335",
+        "material_read": "Accessible preprint full-text sections on exchangeable partition and de Finetti setting, conditional occupancy/frequency formulae",
+        "method": "Read accessible full-text material; searched for Simpson and covariance concepts and compared hypotheses/results",
+        "title": "Conditional formulae for Gibbs-type exchangeable random partitions",
+        "trigger": "Potentially broader exchangeable random partition results"
+      },
+      {
+        "assessment": "Estimation and partitioning of diversity quantities, not sample exchangeability covariance sign transition in inspected pages",
+        "evidence": [
+          "Oikos 76 (1996), pp. 5–13",
+          "richness expectation and Simpson estimator identities present"
+        ],
+        "identifier_or_url": "https://pdodds.w3.uvm.edu/files/papers/others/1996/lande1996a.pdf",
+        "material_read": "Main sample richness and unbiased Simpson index formulas, variance, and diversity partitioning from the beginning of the full PDF, including visual page inspection",
+        "method": "Read PDF text and verify relevant page screenshot",
+        "title": "Statistics and partitioning of species diversity, and similarity among multiple communities",
+        "trigger": "Original ecological richness and Simpson estimator treatment"
+      },
+      {
+        "assessment": "Empirical across-profile richness/evenness correlations, rather than exact n-sample richness versus unbiased pair-diversity covariance under exchangeability",
+        "evidence": [
+          "published September 23, 2024",
+          "abstract reports no significant correlation across generated abundance distributions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.70275",
+        "material_read": "Public abstract, introduction and conclusion; no claim of full-article coverage",
+        "method": "Open-access publisher HTML relevant sections",
+        "title": "Diversity analysis: Richness versus evenness",
+        "trigger": "Later study explicitly linking richness and Simpson quantities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "57973d38-ac29-460f-97c0-a786bb9c7a39",
+  "value": {
+    "rationale": "Sample richness and unbiased pair Gini–Simpson diversity are natural ecological and occupancy statistics. The exact n=6/n=7 and 2/3-label sharp robustness transition answers whether the classical positive-covariance phenomenon persists under finite exchangeability, a fundamentally different sampling assumption; the explicit infinitely exchangeable 3-label counterexample shows the failure is not an artifact of finite nonextendibility, with nonzero limiting covariance. These are structural sharp boundary statements, not an arbitrary low-dimensional table or merely the known iid identity.",
+    "status": "PASS"
+  }
+}

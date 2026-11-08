@@ -1,0 +1,19 @@
+# Mathematical review: Sharp exchangeability boundaries for richness–pair-diversity covariance
+
+## Correctness — PASS
+
+The collision-count bounds at fixed sample richness follow by convexity of the integer function \(u\mapsto\binom u2\); the explicit complete list for sample sizes two through six implies ordered, nonoverlapping ranges of diversity across distinct richness values. The independent-copy covariance identity then proves the universal finite-sample assertion without exchangeability. For larger sizes, the two count profiles yield strictly reversed diversity and richness and a negative exact covariance; the even and odd collision differences are positive for every size at least seven. On two labels, conditional diversity is zero on richness one, which proves nonnegative covariance for every sample law. The infinite three-label model is an explicit de Finetti mixture, and its two-component total-covariance formula is checked by independent exact multinomial summation. Bounded convergence yields the displayed limiting covariance. These arguments cover all stated quantifiers and boundary cases.
+
+## Originality — PASS (qualified)
+
+Published iid positivity of richness–unbiased Gini–Simpson covariance explicitly assumes independent identically distributed categorical observations. It does not imply the distribution-free sample-size-six threshold, the exchangeable seven-draw reversal, or the infinitely exchangeable three-category counterexample. The read primary literature addresses iid occupancy, exchangeable Gibbs partitions, and ecological diversity summaries; none of the material read establishes the sharp combined sign robustness boundary. Actual meaning-based record searches for these aliases returned the iid result as closest but did not surface a dominating or equivalent boundary theorem. Standard elementary count bounds are used in the proof, not claimed as new. A different occupancy, ecological or exchangeability presentation might contain the same threshold; priority is not independently certified.
+
+## Value — PASS
+
+Richness and pairwise Gini–Simpson diversity are established sample summaries. A universal positive covariance under iid sampling is a natural baseline, so determining the exact smallest sample and alphabet where positive dependence fails under exchangeability is a meaningful robustness boundary. The n=7 sample is sharp, not an arbitrarily selected parameter; the infinitely exchangeable mixture shows the failure survives projective consistency and has a nonzero asymptotic limit. This settles a precise structural distinction between unconditional, finite-exchangeable and de Finetti-mixture sampling, with no claim that the chosen infinite-mixture n=22 is globally optimal.
+
+## Literature and limits
+
+Closest: the published iid richness–Gini–Simpson theorem (https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0); Barbour, arXiv:0902.0879v1 (iid occupancy, distribution approximations); Favaro, Lijoi and Prünster, arXiv:1309.1335 (conditional Gibbs-type random partitions); Lande, *Oikos* 76 (1996), pp. 5–13 (ecological richness and Simpson estimators). Kvålseth, *Ecology and Evolution* 14 (2024), doi:10.1002/ece3.70275, treats richness and evenness across abundance distributions, not the exact sample-level exchangeability threshold (abstract, introduction and conclusion inspected). The two-label conclusion is simpler than the three-label obstruction and is not presented as a separate novel result. The finite-exchangeability counterexample is not generally infinitely extendible; n=22 is only an explicit example for infinite exchangeability. All mathematical conclusions remain self-reviewed, not independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
