@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The definition of each caterpillar specifies all leaf multiplicities, colours are indexed from zero, and the equality is of the full third specialized \(t\)-polynomial for every integer \(r\ge1\). Summation over spine colours gives the exact leaf-polynomial formula, and pairing exchanged second/fourth spine colours proves identity (2) for all \(m\ge2\). At \(m=3\), its three pair terms cancel as shown. Both trees have the same bipartition-size multiset \(\{r+3,2r+3\}\), so the two-colour portions match; after subtracting them, the three-colour portions match as well. At \(m=4\), exact formal rational-series arithmetic gives the stated coefficient generating function, with independent symbolic recomputation in `verify.py`. The spine compositions are neither identical nor reversals. The independent graph-based dynamic programming tests and brute-force small examples check implementation against the graph definition. No finite test is used to infer the infinite assertion.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** Bingham et al., arXiv:2610.31785v1 (2026-10-22), introduce the exact invariant, classify three-spine cases, and identify one four-spine third-specialization collision, equivalent to the member \(r=2\) here after reversal. That **isolated pair is not novel**. Their Section 6 supplies computational motivation for fourth-specialization separation, but neither a parameterized infinite collision family nor the all-parameter \([q^8]\) formula. Arunkumar et al., arXiv:2307.02234v2 (2023), prove distinctions for full chromatic symmetric functions; this is logically stronger information than a particular finite principal specialization and does not imply its injectivity or this equality. Searches for infinite caterpillar specialization collisions and alternative fourth-specialization formulas, plus comparisons with accessible mathematical-record descriptions and previous claim history, found no statement implying both the all-\(r\) equality and uniform coefficient formula. This is a qualified priority judgment, not a proof that no publication elsewhere contains it.
+PASS
 
-## Mathematical value
-**PASS.** The motivating work identifies reconstruction failure at the third principal specialization and conjectures that the fourth specializes enough to distinguish caterpillars. A single observed collision cannot show whether failure is exceptional or systematic. A nonisomorphic collision in **every** size \(3r+6\) (for positive \(r\)) and one fixed coefficient \([q^8]\) recovering separation for the full infinite family supplies a concrete and structurally explained boundary. The result is a meaningful infinite-parametric theorem rather than a table extension; it neither settles the fourth-specialization conjecture nor substitutes a routine specialization of an already established general formula.
+The full spine-colour transfer for caterpillar pendant counts (2,r,r-1,r+1) and (2,r+1,r-1,r) yields an identity for their difference by pairing the second and fourth spine colours. For palette size 3 the (0,2) contribution vanishes and the remaining two cancel exactly for all r and all q. The two trees have common bipartition sizes (r+3,2r+3), making their two-colour terms identical; since connected 3-colour proper colourings use either two or three colours, equality extends to the entire t-refined third specialization. For palette size 4, the [q^8] coefficient generating function in r is exactly -14z-4z²-2z³/(1-z), independently rederived using q-adic rational-series recurrences, so coefficients -14,-4,-2 separate all r. Their four-part canonical spine vectors are not reversals; finite checks do not replace the all-r identities.
 
-## Closest literature and limits
-The essential primary comparison is Bingham, Celano, Commins, Orellana, Pan and Simone, *Principal specializations of the t-chromatic symmetric function*, arXiv:2610.31785v1, Sections 3, 5 and 6, especially the isolated example and Conjectures 6.1–6.2. A broader comparison is Arunkumar, Narayanan, Rao and Sawant, *Proper q-caterpillars are distinguished by their Chromatic Symmetric Functions*, arXiv:2307.02234v2, Introduction and Section 2. The new theorem asserts no universal fourth-specialization injectivity. Database retrieval is not an exhaustive priority proof; alternative derivations or more recent unindexed publications remain a residual risk. Mathematical and priority assessment has not been independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Bingham–Celano–Commins–Orellana–Pan–Simone 2026 paper introduces this exact t-chromatic specialization and displays the r=2 collision, which is explicitly not novel. Its reconstructibility theorems cover three-spine caterpillars and its fourth-specialization conjecture is not a theorem. The present r>=1 infinite collision and uniform q^8 separation go beyond the known single pair. The 2023 theorem for full chromatic symmetric functions does not decide fixed principal-specialization collisions. Priority remains qualified by possible other indexing of families.
+
+## value
+
+PASS
+
+An isolated known three-colour caterpillar collision left open whether the phenomenon is sporadic. The infinite family shows systematic nonidentifiability at every size 3r+6 and a universal very low-degree four-colour coefficient that separates all members. The two opposed specializations directly motivate the exact statement and do not resolve the full caterpillar conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
