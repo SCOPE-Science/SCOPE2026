@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any nonempty cross-bifix-free family has one common endpoint orientation because all first/last bits differ and mixed orientations cause length-one conflict. Reversing if needed, every word has interior ones i<j and a final one. If a=min i and b=min j over the family, overlap constraints imply a+b>n: if not, prefix 0^(a-1)1 of a witness equals suffix of another ending at its second interior one. Conversely when a+b>n, every prefix ending at its first/second interior one has fewer 1s than the corresponding suffix (1 versus ≥2, or 2 versus 3); prefixes ending in zero cannot match a suffix ending in one. Every valid family is contained in the threshold family F_{n,a}, whose size (a-1)(2n-3a)/2 is a concave quadratic, giving exact maximum and forcing equality with full F. Integer vertex a=n/3+1/2 gives ties only when n=3m and the stated four (else two) labeled optima after reversal. Independent exhaustive oriented subset enumeration at n=4..8 returned sizes 1,2,3,5,7 and oriented maximizer counts 1,1,2,1,1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General q-ary code cardinality bounds and constructions are for unrestricted weight; variable-length size and capacity concern a different feasible family."
+        ],
+        "reasoning": "Unrestricted-code upper bounds are not by themselves sharp at weight exactly three nor do they determine all labeled extremizers, though specialization of a strong construction may overlap.",
+        "searches": [
+          "https://arxiv.org/abs/2108.06934",
+          "https://arxiv.org/abs/2402.18896",
+          "https://arxiv.org/abs/1209.0236"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2108.06934",
+        "https://arxiv.org/abs/2309.08915",
+        "https://arxiv.org/abs/2402.18896",
+        "https://arxiv.org/abs/1209.0236",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold count (a−1)(2n−3a)/2 and its integer vertex n/3+1/2 force the all-n period-three law and equality classification.",
+          "Non-expandability (cannot add a word) does not force globally maximum size or family rigidity."
+        ],
+        "reasoning": "A general non-overlap construction alone cannot prove these constrained exact cardinalities or that no other labeled maxima exist without the separate necessity and equality argument.",
+        "searches": [
+          "https://arxiv.org/abs/2108.06934",
+          "https://arxiv.org/abs/2309.08915",
+          "https://arxiv.org/abs/2402.18896"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cross-bifix-free is exactly the non-overlapping condition on all proper prefix/suffix pairs, including self-pairs.",
+          "For weight three after endpoint normalization, the property is equivalent to min(first interior 1)+min(second interior 1)>n."
+        ],
+        "reasoning": "Renamed 'non-overlapping code' sources were checked to avoid a title-only novelty claim; their general constructions do not explicitly classify every weight-three maximizer.",
+        "searches": [
+          "binary constant weight three cross bifix free nonoverlapping codes exact maximum classification optimal families",
+          "https://arxiv.org/abs/2108.06934",
+          "https://arxiv.org/abs/2309.08915"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby Resultary weight-three entry concerns unions of supports in 2-cover-free families, not prefix-suffix overlap constraints.",
+          "No retrieved table has the three residue-class formula with 2/4 labeled maximizers."
+        ],
+        "reasoning": "The precise combinatorial relation differs; no exact prior table identified in these results, not a global novelty assertion.",
+        "searches": [
+          "binary constant weight three cross bifix free nonoverlapping codes exact maximum classification optimal families",
+          "Resultary record 'Exact weight-three 2-cover-free families are maximum triple packings'"
+        ]
+      },
+      "rationale": "Wang–Wang's q-ary generating-function work derives general non-overlapping code constructions/sizes, while Qin–Chen–Luo discusses non-expandability and other Wang–Wang work treats variable lengths. They do not state the exact all-n constant-weight-3 optimum and complete labeled maximizer classification in inspected results. Classical construction principles may contain this as a special case and are included as a residual risk.",
+      "residual_risks": [
+        "A general non-overlapping-code theorem or classic prefix-suffix construction may imply the constant-weight-3 special case; full specialist literature not exhausted.",
+        "Resultary weight-three 2-cover-free sets have a different forbidden union relation, so they are not direct prior coverage.",
+        "Does not address larger fixed weights, variable length, or distance-constrained codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General q-ary constructions are not a complete fixed-weight-three labeled rigidity classification",
+          "evidence": [
+            "A bound for all compositions does not determine constant-weight extremizer identities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.06934",
+          "material_read": "Accessible preprint introduction, construction section, size bounds and visual PDF page inspection",
+          "method": "read mathematical full-text sections and compared constrained domains",
+          "title": "Q-ary non-overlapping codes: a generating function approach",
+          "trigger": "General non-overlapping code results could dominate specialized theorem"
+        },
+        {
+          "assessment": "Nonexpandability is a different condition from maximum size; cannot exclude hidden weight-three corollary",
+          "evidence": [
+            "Unexamined specialized construction could encode the threshold family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.08915",
+          "material_read": "Bibliographic and abstract-level material only; full paper not independently read",
+          "method": "abstract-level only",
+          "title": "On non-expandable cross-bifix-free codes",
+          "trigger": "Possibly equivalent extremality under nonexpandability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-weight-3 synchronization codes form a natural first nontrivial sparse binary layer. The theorem gives infinite-length exact zero-error capacity, all labeled optimum codebooks and a residue-three rigidity phenomenon; it is neither a tiny isolated case nor ordinary unrestricted-code size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general non-overlapping-code theorem or classic prefix-suffix construction may imply the constant-weight-3 special case; full specialist literature not exhausted.",
+    "Resultary weight-three 2-cover-free sets have a different forbidden union relation, so they are not direct prior coverage.",
+    "Does not address larger fixed weights, variable length, or distance-constrained codes."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each fixed \(n\ge4\), the normalization to a common endpoint orientation is forced by length-one overlaps. The exact criterion \(\min i+\min j>n\) has been proved in both directions by comparing one-counts of possibly matching prefix/suffix pairs. It yields a complete containing-family upper bound; an elementary integer quadratic maximization proves the size and, by equality rigidity, the complete optimum classification. The independent finite code `verify.py` rechecks pairwise overlap, every oriented subset through length nine, and the general construction through length thirty. Finite checks do not replace the all-length proof.
+PASS
 
-## Originality — PASS, qualified
+Any nonempty cross-bifix-free family has one common endpoint orientation because all first/last bits differ and mixed orientations cause length-one conflict. Reversing if needed, every word has interior ones i<j and a final one. If a=min i and b=min j over the family, overlap constraints imply a+b>n: if not, prefix 0^(a-1)1 of a witness equals suffix of another ending at its second interior one. Conversely when a+b>n, every prefix ending at its first/second interior one has fewer 1s than the corresponding suffix (1 versus ≥2, or 2 versus 3); prefixes ending in zero cannot match a suffix ending in one. Every valid family is contained in the threshold family F_{n,a}, whose size (a-1)(2n-3a)/2 is a concave quadratic, giving exact maximum and forcing equality with full F. Integer vertex a=n/3+1/2 gives ties only when n=3m and the stated four (else two) labeled optima after reversal. Independent exhaustive oriented subset enumeration at n=4..8 returned sizes 1,2,3,5,7 and oriented maximizer counts 1,1,2,1,1.
 
-Relevant primary works on unrestricted non-overlapping code sizes, generating functions, and non-expandability were inspected at material level. They address unrestricted code design or other extremality notions; none of the inspected main results gives a weight-three optimum for every \(n\) and a complete labeled classification. The closest known length-five unrestricted size of two does not imply the theorem at all other lengths and cannot establish rigidity. The two-interior-one threshold reduction is a direct new derivation rather than an application of an asserted prior classification. The residual risk is that an equivalent constant-composition result is embedded in unsurveyed literature or obtainable as a special instance of a sufficiently strong general characterization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Fixed Hamming-weight synchronization codes are a natural sparse signaling constraint, and weight three is the first nontrivial interior-pair layer after endpoint normalization. The result determines a whole infinite-family exact zero-error capacity, all labeled maximum codebooks and an explicit period-three size law. It is not a mere finite example or a recomputation of the unrestricted binary result.
+Wang–Wang's q-ary generating-function work derives general non-overlapping code constructions/sizes, while Qin–Chen–Luo discusses non-expandability and other Wang–Wang work treats variable lengths. They do not state the exact all-n constant-weight-3 optimum and complete labeled maximizer classification in inspected results. Classical construction principles may contain this as a special case and are included as a residual risk.
 
-## Constraints and external review
+## value
 
-The theorem does not cover higher weights, mixed-weight words, or unrestricted optimal code size. The finite verification uses exhaustive enumeration only for specified bounded lengths. The review is not an independent peer assessment, and the possibility of unindexed equivalent claims remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-weight-3 synchronization codes form a natural first nontrivial sparse binary layer. The theorem gives infinite-length exact zero-error capacity, all labeled optimum codebooks and a residue-three rigidity phenomenon; it is neither a tiny isolated case nor ordinary unrestricted-code size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
