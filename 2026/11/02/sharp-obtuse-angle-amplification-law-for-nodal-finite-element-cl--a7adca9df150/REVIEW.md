@@ -1,13 +1,21 @@
-# Review of the sharp nodal-clipping energy amplification law
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof works for every nondegenerate planar triangle, real nodal data, and every constant SPD diffusion tensor. Ordering nodal values makes each clipped slope a separate factor in \([0,1]\). Convexity bounds the resulting two-slope energy by its four vertices, and completion of the square gives the sharp \(\csc^2\Theta\) factor on an obtuse metric triangle. Explicit two-sided and one-sided clipping configurations meet the bound, including a rational-stiffness \(120^\circ\) witness. The included numerical verifier reproduces the witness and additional anisotropic tests. No enumerated finite cases are treated as a proof of the all-triangle statement.
+## correctness
 
-**Originality — PASS (qualified).** The precise operation is nodal truncation followed by affine *reinterpolation*. Yang, Yuan and Zhou prove a one-dimensional \(H^1\) contraction for analogous nodal cut-off; Kreuzer's general energy diminution concerns the spatially pointwise truncated function, not its nodal \(P_1\) reinterpolant. Huang's anisotropic mesh results concern maximum-principle stiffness sign criteria, rather than the proposed quantitative sharp local ratio. Those related implications do not subsume the theorem. Related research-record searches on H1 nodal truncation, obtuse angles, and local stiffness amplification did not identify direct coverage. Remaining risk: an equivalent sharp elementary estimate may appear in specialized finite-element postprocessing texts not surfaced by the searches. The negative literature search is not a priority proof.
+PASS
 
-**Value — PASS.** Maximum-bound-preserving cut-off is routinely used in numerical PDE methods, while energy stability requires control of the gradient term. The exact angle-dependent constant resolves the structural boundary between energy-safe and potentially energy-increasing nodal projection, and quantifies its blow-up on nearly flat elements. The diffusion-metric version supplies an actionable local diagnostic for anisotropic elements, complementing qualitative nonobtuse-mesh conditions. The result has mathematical utility as a rigorous finite-element energy estimate even without a convergence theorem for a complete time-stepping algorithm.
+Apply affine spatial change z->D^{-1/2}z to reduce fixed SPD diffusion to Euclidean metric and sort three nodal values x_i<=x_j<=x_k. Gradients are v=-r grad lambda_i,w=s grad lambda_k with nonnegative r,s; middle-vertex angle theta_j between v,w. For monotone 1-Lipschitz g, new slopes are alpha v+beta w with alpha,beta∈[0,1]. Convexity of squared norm on square bounds by its four corners. For obtuse theta, completing squares proves ||v+w||²>=||v||²sin²theta and >=||w||²sin²theta; nonobtuse theta gives contraction. Explicit clipped sharpness chooses r,s so W=-V cos theta and saturates csc²theta; bounded and one-sided clipping can choose small preserved gaps. Exact 120° stiffness witness ratio4/3 verified independently, along with sampled nodal inequalities. Distinguish pointwise clipping (always contraction) and local P1 nodal clipping; no globally attained mesh coefficient asserted.
 
-**Closest primary literature and differences.** Li–Yang–Zhou (arXiv:2010.08789v1) gives maximum-principle nodal cut-off; Yang–Yuan–Zhou (arXiv:2102.13271v1) gives 1D \(P_1\) \(H^1\) contraction; Kreuzer (arXiv:1208.3958v1) studies spatial pointwise truncation; Huang (arXiv:1008.0562v1) gives Delaunay/anisotropic maximum-principle geometry. None of these reviewed results contains the exact single-triangle operator norm proved here.
+## originality
 
-**Limitations and risks.** Only planar affine triangles and constant SPD element tensors are proved. Global mesh sharpness, higher dimensions and higher-order elements remain unproved; equivalent unpublished or uncatalogued results remain possible. Independent review and publication-priority evaluation are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Previously proved 1D nodal cutoff H1 contraction uses ordered adjacent differences; planar angle geometry is not covered. Kreuzer pointwise FE cutoff is a different transform; Huang anisotropic D-metric mesh criteria address discrete maximum principles not the energy amplification supremum. The present sharp csc²θ law and explicit local attainability across SPD tensors survive statement-level comparisons. Older obscure local stiffness norm lemmas remain possible.
+
+## value
+
+PASS
+
+Nodal truncation for maximum principles is standard, yet local energy stability on obtuse anisotropic triangles differs sharply from one-dimensional or pointwise-truncation contraction. A complete dimensionless csc²(metric angle) law and attainable worst case quantify mesh deterioration and provide an exact local finite-element stability guarantee. It does not assert global sharpness on assembled meshes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

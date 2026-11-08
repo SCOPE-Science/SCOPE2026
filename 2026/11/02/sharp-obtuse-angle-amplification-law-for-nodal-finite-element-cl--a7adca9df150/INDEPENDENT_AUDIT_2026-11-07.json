@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:50:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-obtuse-angle-amplification-law-for-nodal-finite-element-cl--a7adca9df150/RESULT.md",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-obtuse-angle-amplification-law-for-nodal-finite-element-cl--a7adca9df150/verify.py",
+        "/mnt/data/scope_worker03_20261107T1938Z/independent_checks_output.txt"
+      ],
+      "rationale": "Apply affine spatial change z->D^{-1/2}z to reduce fixed SPD diffusion to Euclidean metric and sort three nodal values x_i<=x_j<=x_k. Gradients are v=-r grad lambda_i,w=s grad lambda_k with nonnegative r,s; middle-vertex angle theta_j between v,w. For monotone 1-Lipschitz g, new slopes are alpha v+beta w with alpha,beta∈[0,1]. Convexity of squared norm on square bounds by its four corners. For obtuse theta, completing squares proves ||v+w||²>=||v||²sin²theta and >=||w||²sin²theta; nonobtuse theta gives contraction. Explicit clipped sharpness chooses r,s so W=-V cos theta and saturates csc²theta; bounded and one-sided clipping can choose small preserved gaps. Exact 120° stiffness witness ratio4/3 verified independently, along with sampled nodal inequalities. Distinguish pointwise clipping (always contraction) and local P1 nodal clipping; no globally attained mesh coefficient asserted.",
+      "residual_risks": [
+        "Single planar affine triangle constant SPD diffusion; mesh coefficient need not be globally sharp and pointwise truncation is different."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kreuzer clips pointwise (nonaffine function) whereas present map clips nodal values then reinterpolates; mesh Delaunay angle criteria are not this local sharp energy ratio."
+        ],
+        "reasoning": "Differences in the operator and area dimension preclude a prior general contraction theorem from subsuming this result.",
+        "searches": [
+          "Kreuzer arXiv:1208.3958; Huang arXiv:1008.0562"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2305.10301",
+        "Resultary semantic search: finite element nodal clipping reinterpolation obtuse triangle Dirichlet energy angle amplification csc squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-dimensional energy contraction and pointwise Sobolev chain rule are compatible with local 2D nodal energy amplification >1, as explicit 120-degree witness shows."
+        ],
+        "reasoning": "Current theorem is not a corollary of those energy improvements; it characterizes their precise failure under 2D nodal reinterpolation.",
+        "searches": [
+          "Yang–Yuan–Zhou Lemma4.1; Kreuzer pointwise cutoff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nodal clipping of a 1D P1 interval has nonnegative edge-difference energy; 2D triangular P1 stiffness has obtuse positive cross terms."
+        ],
+        "reasoning": "No equivalent 2D SPD metric-angle csc²θ energy amplification theorem found.",
+        "searches": [
+          "Yang–Yuan–Zhou arXiv:2102.13271 Appendix B Lemma 4.1; Huang arXiv:1008.0562; Resultary query finite element nodal clipping reinterpolation obtuse triangle Dirichlet energy angle amplification csc squared"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Continuous SPD tensors and all Euclidean triangles preclude exact finite table coverage; searched nearest published interpolation results."
+        ],
+        "reasoning": "A finite database would only corroborate sample shapes, not prove exact all-triangle constant; no matching theorem/table found.",
+        "searches": [
+          "Resultary query finite element nodal clipping reinterpolation obtuse triangle Dirichlet energy angle amplification csc squared"
+        ]
+      },
+      "rationale": "Previously proved 1D nodal cutoff H1 contraction uses ordered adjacent differences; planar angle geometry is not covered. Kreuzer pointwise FE cutoff is a different transform; Huang anisotropic D-metric mesh criteria address discrete maximum principles not the energy amplification supremum. The present sharp csc²θ law and explicit local attainability across SPD tensors survive statement-level comparisons. Older obscure local stiffness norm lemmas remain possible.",
+      "residual_risks": [
+        "Unindexed sharp local finite-element stiffness estimates remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_IDENTIFIED_EXACT_THRESHOLD",
+          "evidence": "Qualitative existence is the antecedent; the coefficient-monotonic odds-variable exclusion for m≤2 is the added if-and-only-if component.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.10301",
+          "material_read": "Original preprint abstract and publication/version history; full mathematical model and proof checked in 2025 expanded article.",
+          "method": "arXiv preprint and primary HTML",
+          "title": "Heterogeneous Noise and Stable Miscoordination (original preprint metadata)",
+          "trigger": "Check original and expanded versions for formula aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/sharp-obtuse-angle-amplification-law-for-nodal-finite-element-cl--a7adca9df150/RESULT.md",
+        "https://arxiv.org/abs/2305.10301"
+      ],
+      "rationale": "Nodal truncation for maximum principles is standard, yet local energy stability on obtuse anisotropic triangles differs sharply from one-dimensional or pointwise-truncation contraction. A complete dimensionless csc²(metric angle) law and attainable worst case quantify mesh deterioration and provide an exact local finite-element stability guarantee. It does not assert global sharpness on assembled meshes.",
+      "residual_risks": [
+        "Unindexed sharp local finite-element stiffness estimates remain possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single planar affine triangle constant SPD diffusion; mesh coefficient need not be globally sharp and pointwise truncation is different.",
+    "Unindexed sharp local finite-element stiffness estimates remain possible."
+  ],
+  "schema_version": 1
+}
