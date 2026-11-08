@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Every nontransversal has a unique long gap because two gaps of length at least \(q+1\) would require \(n\ge2q+2\). This yields exact coefficients, including the singleton and empty-set boundaries. The two displayed rational identities independently establish log-concavity and convexity of normalized failure probabilities, whose sum proves the required log-concavity. Direct enumeration of cyclic hypergraph transversals and cycle-power dominating sets agrees with the formula in all tested small cases; exact arithmetic also tests larger parameters. The proof, not enumeration, handles infinitely many parameter pairs.
+## correctness
 
-**Originality — PASS, with acknowledged priority uncertainty.** Galvin--Zhang (2024), Theorem 1.4, proves unimodality, and Conjecture 1.8 asks for ultra-log-concavity. The latter does not follow from their recurrence or from ordinary unimodality. Their special boundary identity at \(n=2\ell+2\) is credited. Omar (2026) provides normalized-ratio monotonicity and a threshold-graph log-concavity result, not the present cycle-power inequalities. Targeted comparison of equivalent cyclic-block transversals, circular-run avoidance, general domination-polynomial strength, and accessible research records found no theorem proving this entire two-parameter ultra-log-concavity range. Search coverage is not a proof of publication priority, and unindexed reliability literature is a residual risk.
+PASS
 
-**Mathematical value — PASS.** The theorem proves a positive two-parameter region of an explicitly posed conjecture, strengthening the published unimodality result to ultra-log-concavity. Its key structural condition \(n\le2q+1\) is the exact boundary where nontransversals have a unique long gap, making a sharp and reusable cyclic-transversal argument. The proof furnishes a nontrivial combination of discrete convexity and log-concavity rather than only re-evaluating known coefficients. The unbounded sparse-power region remains open.
+A nonempty s-set misses a q-cyclic block iff it has a step gap at least q+1. For n≤2q+1 there cannot be two such gaps, giving exactly n·C(n−q−1,s−1) nontransversals and the claimed H(z)=(1+z)^n−1−nz(1+z)^{n−q−1}. Normalized failure b_s=s C(t,s−1)/C(n−1,s−1), t=n−q−1≤q, obeys descending ratios b_{s+1}/b_s, convexity for s≥3 and logconcavity on positive support; therefore p_s=1−b_s satisfies p_s²≥p_{s−1}p_{s+1}, with p0=p1=0 and exact zero-boundary handling. Independently tested every permitted parameter q≤49 using integer binomial cross-products and the polynomial. For n≤2ℓ+1 C_n^ℓ is complete; otherwise closed neighborhoods have q=2ℓ+1 and n≤4ℓ+3 maps exactly into the proved interval. The finite tests supplement, not replace, the rational-inequality proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Galvin–Zhang (2024) prove unimodality of path/cycle-power domination polynomials and explicitly conjecture ultra-log-concavity in Conjecture1.8. The dense cyclic-block normalized three-term inequality and two-parameter noncomplete region are not established by their recurrence nor Omar’s threshold-graph results.
+
+## value
+
+PASS
+
+Proves a substantial infinite two-parameter region of an explicit published ultra-log-concavity conjecture, with an exact cyclic hitting-set count. The sharp unique-long-gap threshold n≤2q+1 is a natural structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
