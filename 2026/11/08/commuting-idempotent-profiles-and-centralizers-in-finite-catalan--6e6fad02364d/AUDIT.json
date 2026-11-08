@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "Every decreasing order-preserving idempotent is exactly a floor map onto its fixed set. A pair fails to commute precisely when a common-point gap contains both exclusive fixed-point colors, as proved by evaluating the composites at a later exclusive fixed point. Gap products yield B/(1-wB); an independent endpoint-bit argument yields each commuting-idempotent centralizer. Rational partial fractions give the count and decay. The self-contained verifier independently composes all idempotent pairs for n<=9, matches each trivariate coefficient and all centralizers, enumerates all Catalan maps for n<=7, and exits VERIFY_OK. Finite checks supplement, rather than replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Andrenšek, arXiv:2604.15497, Sections 3–5: commutation predicates and homomorphism descriptions of Hecke–Kiselman monoids, with Catalan-monoid application.",
+        "Pantazi–Spircu, Relations between consecutive Catalan monoids, Section 4: idempotent descriptions; earlier section gives commuting relations for specific segment idempotents.",
+        "Toker (2021), Zero-divisor graphs of Catalan monoid, DOI:10.15672/hujms.702478: graph adjacency is the strict condition xy=0=yx among nonzero two-sided zero divisors, rather than unrestricted idempotent commutation.",
+        "Ayık–Ayık–Koç (2011), publisher abstract: counts Catalan transformations by a prescribed fixed-point set, but does not specify the pair-commutation relation; full text inaccessible."
+      ],
+      "reasoning": "General structural decision methods cover whether specified idempotents commute but do not give the all-pairs trivariate enumerator, their individual centralizer sizes, or the uniform-pair asymptotic. The searched structural results and segment-specific commutations do not imply these enumerations without further nontrivial gap-counting.",
+      "searches": [
+        "\"Catalan monoid\" \"commuting\" \"idempotents\" count",
+        "number of idempotents commuting with given Catalan monoid projection fixed point subset centralizer",
+        "arXiv:2604.15497 Sections 3–5",
+        "\"commuting graph idempotents order preserving regressive transformations catalan monoid\"",
+        "\"Combinatorial results for order-preserving and order-decreasing transformations\" commuting idempotents"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.12952v1/v3",
+      "Pantazi–Spircu Relations between consecutive Catalan monoids",
+      "arXiv:2604.15497",
+      "OEIS A007070",
+      "Published mathematical research records: eight topical semantic searches (actual query strings recorded in the four check objects)",
+      "Toker (2021), DOI:10.15672/hujms.702478, full PDF",
+      "Ayık–Ayık–Koç (2011), DOI:10.3906/mat-1010-432, publisher abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sapir–Volkov, arXiv:2211.12952, Catalan-vs-i-Catalan idempotent commutativity contrast, not enumerative statistics.",
+        "Pantazi–Spircu, Section 4: fixed-point and idempotent classification and count, no identified three-parameter pair profile.",
+        "Andrenšek, arXiv:2604.15497, Corollary 3.9: generic commutation predicate, not a rational coefficient identity.",
+        "OEIS A007070: unrefined recurrence only.",
+        "Toker (2021), Sections 3–4: zero-product adjacency in the Catalan monoid, a different and more restrictive relation than arbitrary e_S e_T=e_T e_S."
+      ],
+      "reasoning": "The claim is a closed formula in independent variables for both exclusive fixed-point counts and number of common fixed points, with an all-idempotent centralizer specialization. Known fixed-set classifications alone do not impose commutation, a generic commutation predicate alone does not count by statistics, and matching the OEIS specialization at u=v=w=1 cannot recover the refined coefficients. No relevant published-record search hit asserted a dominating formula. Remaining unsearched literature risk is acknowledged.",
+      "searches": [
+        "number of commuting idempotent pairs in Catalan monoid of order-preserving order-decreasing transformations, recurrence 4a(n-1)-2a(n-2), eigenvalues 2+sqrt 2",
+        "finite Catalan monoid ordered commuting idempotent pairs exact trivariate generating function common fixed set and exclusive fixed points",
+        "multivariate composition generating function (1+u)^(d-1)+(1+v)^(d-1)-1, Catalan monoid commuting idempotents",
+        "\"Catalan monoid\" \"commuting idempotent pairs\" generating",
+        "Catalan monoid commuting idempotents exact multivariate generating function exclusive fixed points shared fixed points 1-4z+2z^2 centralizer",
+        "order preserving decreasing transformation monoid centralizer of idempotent floor map fixed point sets commuting pairs colored gap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sapir–Volkov, arXiv:2211.12952v3, Section 2: classical extensive Catalan monoid and partial-injective analogue; order reversal identifies the decreasing convention.",
+        "Andrenšek, arXiv:2604.15497, Corollary 3.9: generic pairwise commutation condition for Hecke–Kiselman idempotents."
+      ],
+      "reasoning": "Reversing the chain turns extensive Catalan transformations into regressive ones, so this is not a distinct algebra. The Hecke–Kiselman test is prior coverage of a general decision criterion; the refined rational count and fixed-idempotent centralizer cardinalities require additional enumeration and are not stated by that criterion.",
+      "searches": [
+        "\"Catalan monoid\" \"commuting idempotent pairs\"",
+        "\"commuting idempotent\" \"order-preserving\" \"decreasing\" map",
+        "commuting idempotents Catalan monoid nondecreasing regressive transformations finite chains count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007070, https://oeis.org/A007070, lists recurrence a(n)=4a(n-1)-2a(n-2), entries 1,4,14,48,164,... and a weighted-compositions interpretation."
+      ],
+      "reasoning": "The univariate marginal coefficients and its recurrence are exactly covered by OEIS, so their novelty is rejected. The database sequence does not specify the Catalan pair correspondence, the u/v/w refinement, fixed-idempotent centralizer statistics, or asymptotic conditional common-fixed-point count. The final claim centers these non-implied refinements, not the numerical sequence.",
+      "searches": [
+        "OEIS 1,4,14,48,164,560,1912 sequence",
+        "OEIS A007070 page, comments and references",
+        "\"4, 14, 48, 164\" \"idempotents\" monoid"
+      ]
+    },
+    "rationale": "The existing normal form, known unrefined OEIS A007070 sequence, and general Hecke-Kiselman idempotent commutation test are explicitly credited. No inspected source states or implies the full u/v/w-weighted Catalan commuting-idempotent enumerator together with the idempotent centralizer formula. The refinement is not determined by the OEIS marginal or by the cited generic decision predicate alone. Literature priority remains provisional.",
+    "residual_risks": [
+      "A broader Catalan/Hecke–Kiselman idempotent-pair enumeration may exist under terminology not reached by search.",
+      "OEIS already contains the unrefined recurrence, which must not be advertised as a new integer sequence.",
+      "The 2026 generic commutation criterion is prior information; originality concerns the joint enumeration and centralizer specialization, not a generic commutativity decision.",
+      "Some earlier-week own-ledger parts were unavailable locally; their absence does not establish uniqueness.",
+      "The plausible Ayık–Ayık–Koç (2011) full text was inaccessible (HTTP 403); only its declared single-map fixed-set results were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates commutation question but no identified trivariate profile or idempotent centralizer formula",
+        "evidence": [
+          "First public preprint November 23, 2022.",
+          "The paper explicitly remarks that idempotents commute in the i-Catalan version."
+        ],
+        "identifier_or_url": "arXiv:2211.12952v3; https://arxiv.org/html/2211.12952v3",
+        "material_read": "Full accessible HTML, particularly Section 2 comparison, discussion of C5 and IC4, applications and appendix",
+        "method": "Read mathematical statements and tested their implications for weighted commuting-idempotent pair enumeration",
+        "title": "Catalan monoids inherently nonfinitely based relative to finite R-trivial semigroups",
+        "trigger": "Same Catalan monoid and explicit contrast with the idempotent-commutative i-Catalan variant"
+      },
+      {
+        "assessment": "Idempotent classification and total number already known, but no identified refined commutation-pair enumeration",
+        "evidence": [
+          "Section 4 explicitly states 2^(n-1) idempotents.",
+          "Earlier segment lemma gives commutation only for suitable special segments."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/330567006_Relations_between_consecutive_Catalan_monoids",
+        "material_read": "Accessible full-text rendering, particularly Sections 2, 4 and 5 and structural segment relations",
+        "method": "Inspected available text and section statements, compared the exact fixed-set and pair-count claims",
+        "title": "Relations between consecutive Catalan monoids",
+        "trigger": "Same object and explicit idempotent classification; possible enumeration overlap"
+      },
+      {
+        "assessment": "Covers a general commutativity decision condition, acknowledged as prior; does not state the three-parameter enumerator or centralizers",
+        "evidence": [
+          "Corollary 3.9 asserts simultaneous predicate equivalence for commuting idempotents.",
+          "This paper first appeared April 16, 2026, so is supporting comparison literature, not the 2022 source driving the dated scope."
+        ],
+        "identifier_or_url": "arXiv:2604.15497; https://arxiv.org/abs/2604.15497",
+        "material_read": "Full accessible HTML, Sections 2–5 including Corollary 3.9",
+        "method": "Compared generic idempotent pair conditions and subsequent homomorphism theorems with the complete multivariate enumeration",
+        "title": "Homomorphisms of Hecke–Kiselman Monoids Associated to Simple Oriented Graphs",
+        "trigger": "General idempotent commutation test and Catalan monoid endomorphism results"
+      },
+      {
+        "assessment": "Exact univariate sequence covered as prior; color-refined Catalan commuting profile not identified",
+        "evidence": [
+          "Entry A007070 gives 1,4,14,48,164,... with recurrence 4a(n-1)-2a(n-2).",
+          "A weighted generalized composition interpretation exists, but no Catalan-idempotent pair parametrization was listed in the inspected entry."
+        ],
+        "identifier_or_url": "https://oeis.org/A007070",
+        "material_read": "Sequence, recurrence, comments, and referenced interpretations on full entry page",
+        "method": "Matched offset-shifted initial values and recurrence and tested implications for colored statistics",
+        "title": "OEIS A007070",
+        "trigger": "Exact unrefined coefficient match"
+      },
+      {
+        "assessment": "Its adjacency relation requires both compositions equal the zero map, strictly stronger than commuting; no stated trivariate enumeration of all commuting idempotent pairs.",
+        "evidence": [
+          "The abstract and Section 4 define graph edges only when alpha beta=zero=beta alpha.",
+          "Its degree formula is for vertices among nonzero two-sided zero divisors, not for each Catalan idempotent centralizer."
+        ],
+        "identifier_or_url": "https://doi.org/10.15672/hujms.702478; https://dergipark.org.tr/en/download/article-file/1002929",
+        "material_read": "Lawfully accessible ten-page PDF; introduction, Sections 3–4, theorem statements and proofs of zero-divisor and adjacency counts",
+        "method": "Inspected PDF text and page images, compared its xy=0=yx relation to arbitrary idempotent commutation and the u/v/w fixed-set weights",
+        "title": "Zero-divisor graphs of Catalan monoid",
+        "trigger": "Same Catalan transformation monoid; related two-sided commuting zero-product pair graph and its degrees"
+      },
+      {
+        "assessment": "The abstract describes single-map fixed-point counts, not commuting-pair counts; no claim of full-text noncoverage is made",
+        "evidence": [
+          "Publisher abstract explicitly defines C_{n,Y} as transformations having fixed set Y and states counts by number of fixed points.",
+          "Full paper was not accessible in the attempted publisher download; possible unadvertised overlap is a residual risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.3906/mat-1010-432; https://journals.tubitak.gov.tr/math/vol35/iss4/3/",
+        "material_read": "Publisher landing-page title, authors, abstract, keywords and bibliographic details; full PDF access returned HTTP 403",
+        "method": "Compared the declared single-transformation fixed-set marginal with the joint commutation-and-three-fixed-set profile; full paper not inspectable",
+        "title": "Combinatorial results for order-preserving and order-decreasing transformations",
+        "trigger": "Counts transformations by exact fixed-point set in the same Catalan monoid, plausible broader coverage of fixed-point statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e6fad02-364d-4221-8583-fabcbca6f0f1",
+  "value": {
+    "rationale": "The finite Catalan monoid is a natural transformation semigroup, and pairwise commutativity of its idempotents is a structurally motivated distinction from the partial-injective i-Catalan variant. The trivariate formula computes every natural fixed-set interaction statistic of commuting ordered pairs for all n, while the centralizer transfer gives individual-idempotent information. The exponential rarity law and linear conditional common-fixed-point scale quantify the obstruction. This family-level refinement is not a routine table lookup, arbitrary slice or mere substitution into a known recurrence.",
+    "status": "PASS"
+  }
+}
