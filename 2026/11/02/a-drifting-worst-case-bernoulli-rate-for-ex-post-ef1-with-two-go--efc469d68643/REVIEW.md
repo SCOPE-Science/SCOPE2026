@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All participant-level violation events are reduced to one own-zero event and one rival-double-one event. Full independence over participant–good pairs justifies the product over participants. The sign of the derivative is governed by a strictly increasing geometric-average function, yielding an exact unique minimizer and monotone population dependence. The logarithmic optimality equation is expanded only after bounding the scale and proving the remainder is negligible. A standalone exact-rational verifier checks explicit small cases and finite numerical boundaries; the proof, not computation, establishes the all-size statement.
+## correctness
 
-## Originality — PASS, qualified
-The September 20, 2026 Chen–Long paper studies ex-post fairness over the internal randomness of fully online algorithms on fixed adversarial valuation inputs; it neither fixes a balanced allocation ex ante under random utilities nor computes the unique worst Bernoulli rate. The October 9, 2024 Bu–Li–Liu–Lu–Tao paper designs lotteries over allocations with known utility profiles, again a different randomness source. Their results do not imply the present formula or the rare-rate asymptotics. Relevant prior work involving fixed allocations and random utility realizations could still exist outside the indexed and inspected sources, so independent priority validation remains necessary.
+PASS
 
-## Mathematical value — PASS
-Two goods are the first bundle size at which EF1 can fail for nonnegative additive binary utilities. The exact worst-parameter law, its strict population drift and the second-order logarithmic rate quantify an identifiable robustness failure for the natural simplest balanced, nonadaptive assignment. The tail is not merely exponentially small but has a leading \(-\tfrac12 n\log n\) exponent despite exact ex-ante symmetry. This is a structural probabilistic threshold result, not a numerical special-case computation.
+With a fixed 2-item bundle per participant and independent Bernoulli(p) values on all ordered participant-good pairs, a participant violates EF1 iff both own values are zero and some other bundle values two ones for that participant. Independence of rival pairs gives failure f_m=(1-p)²[1-(1-p²)^m] (m=n-1), and independence of entire participant rows gives P_n=(1-f_m)^n. The derivative sign is determined by 1-G_m(p), where G_m= p/[m(1-p)]·sum_{j=0}^{m-1}(1-p²)^(-j), strictly increases 0→infinity; hence a unique p_n in (0,1) minimizes P_n, and increasing m strictly increases G_m at fixed p so p_n decreases, p_2=1/2. At the critical root t=mp_n² tends infinity but is O(log m); logarithmic equation yields 2t=log m+log log m-log 2+o(1). Also 1-f_m(p_n)=2p_n(1+o(1)), giving log P_min=-n/2 log n+n/2 log log n+n/2 log 2+o(n). Inspected actual verify.py exact binary enumerator and root checks; finite n tests are not the all-n asymptotic proof.
 
-## Closest literature and limits
-The closest primary literature is Chen–Long, arXiv:2609.23577v1, Sections 2 and 4, and Bu et al., arXiv:2410.06877v1, Sections 1 and 2. Neither randomizes the same underlying variable or proves the stated conclusion. Correlated utilities and allocations adapted to observed values are excluded, and unindexed equivalent analysis remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for exact frozen two-good allocation EF1 chance, unique drifting worst Bernoulli rate and precise logarithmic asymptotic. Prior randomized online and known-valuation best-of-both-worlds EF1 papers concern distinct randomness and conditioning, rather than the fixed-allocation ex-post probability.
+
+## value
+
+PASS
+
+The smallest equal-bundle size capable of failing EF1 yields a natural stochastic fairness risk, with a unique least-favorable distribution parameter that changes with population size and a nontrivial log-log extremal law. Exact result can inform nonadaptive fair-division reliability without claiming policy optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

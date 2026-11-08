@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:16:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a fixed 2-item bundle per participant and independent Bernoulli(p) values on all ordered participant-good pairs, a participant violates EF1 iff both own values are zero and some other bundle values two ones for that participant. Independence of rival pairs gives failure f_m=(1-p)²[1-(1-p²)^m] (m=n-1), and independence of entire participant rows gives P_n=(1-f_m)^n. The derivative sign is determined by 1-G_m(p), where G_m= p/[m(1-p)]·sum_{j=0}^{m-1}(1-p²)^(-j), strictly increases 0→infinity; hence a unique p_n in (0,1) minimizes P_n, and increasing m strictly increases G_m at fixed p so p_n decreases, p_2=1/2. At the critical root t=mp_n² tends infinity but is O(log m); logarithmic equation yields 2t=log m+log log m-log 2+o(1). Also 1-f_m(p_n)=2p_n(1+o(1)), giving log P_min=-n/2 log n+n/2 log log n+n/2 log 2+o(n). Inspected actual verify.py exact binary enumerator and root checks; finite n tests are not the all-n asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General randomized EF1 existence or high-probability allocation guarantees do not determine the probability a predetermined fixed allocation is EF1 for i.i.d. Bernoulli values."
+        ],
+        "reasoning": "Known-valuation adaptive guarantees cannot be applied after reversing the randomness and conditioning; the exact product formula uses row independence absent from the prior theorem hypotheses.",
+        "searches": [
+          "Bernoulli binary additive fair division fixed two goods each ex post EF1 probability worst success parameter asymptotic",
+          "Chen Long randomized online fair division high probability expected realized fairness",
+          "Bu Li Liu Lu Tao best of both worlds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.23577",
+        "https://arxiv.org/abs/2410.06877",
+        "Resultary semantic search: Bernoulli binary additive fair division fixed two goods each ex post EF1 probability worst success parameter asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The online randomized allocation and welfare-lottery existence statements cannot imply the exact event 00-own and 11-rival under fully random utilities, and do not give derivative critical equation."
+        ],
+        "reasoning": "The claimed formula and asymptotic are proved from a distinct stochastic model; no established prior implication was identified on the inspected descriptions.",
+        "searches": [
+          "arxiv:2609.23577 2026 Chen-Long",
+          "arxiv:2410.06877 Bu et al",
+          "Bernoulli binary additive fair division fixed two goods each ex post EF1 probability worst success parameter asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Long randomizes an online allocation against fixed input values; Bu et al choose a lottery in a known-valuation model. The present allocation is deterministic and utilities random independent Bernoulli cells."
+        ],
+        "reasoning": "Ex-ante EF and ex-post EF1 in these allocation models are different experiments; equal terms do not imply identical probabilities.",
+        "searches": [
+          "Bernoulli binary additive fair division fixed two goods each ex post EF1 probability worst success parameter asymptotic",
+          "arxiv:2609.23577",
+          "arxiv:2410.06877"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned Bernoulli tail and balancing probabilities on other combinatorial objects, not the fixed-allocation EF1 likelihood.",
+          "Enumerated small binary valuation rows merely corroborate finite n; root asymptotics require analysis."
+        ],
+        "reasoning": "The all-n unique extremal rate and asymptotic are not a lookup table; absence from semantic hits is not proof of novelty.",
+        "searches": [
+          "Bernoulli binary additive fair division fixed two goods each ex post EF1 probability worst success parameter asymptotic",
+          "Resultary semantic Bernoulli ex post EF1 fixed allocation"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for exact frozen two-good allocation EF1 chance, unique drifting worst Bernoulli rate and precise logarithmic asymptotic. Prior randomized online and known-valuation best-of-both-worlds EF1 papers concern distinct randomness and conditioning, rather than the fixed-allocation ex-post probability.",
+      "residual_risks": [
+        "Full current versions of recent Chen–Long and Bu et al were not completely re-read, so a specialized corollary to this stochastic experiment cannot be ruled out absolutely.",
+        "Heterogeneous or correlated valuation distributions, unequal bundles and adaptive allocations are outside the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_RANDOMNESS on inspected material; no whole-document noncoverage claimed",
+          "evidence": "Online allocation is randomized, input valuation instance deterministic and nonadaptive adversary assumed.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+          "material_read": "Primary abstract and available account of model/Sections 2 and 4; full arXiv HTML unavailable during this run",
+          "method": "Compared what is randomized (online allocation versus valuations) and whether deterministic partition is fixed",
+          "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+          "trigger": "Recent directly related realized-EF1 probability terminology"
+        },
+        {
+          "assessment": "DIFFERENT_EXPERIMENT on inspected material, with uninspected detailed bounds a risk",
+          "evidence": "Guaranteed ex-post fairness from a designed lottery does not give success probability of an arbitrary fixed partition.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.06877",
+          "material_read": "Primary abstract and theorem/model summary; no complete fresh full-text inspection",
+          "method": "Contrasted known deterministic valuations plus suitable lottery with exogenous random Bernoulli utility matrix",
+          "title": "Best-of-Both-Worlds Fair Allocation of Indivisible and Mixed Goods",
+          "trigger": "Ex ante/ex post fairness guarantees for allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest equal-bundle size capable of failing EF1 yields a natural stochastic fairness risk, with a unique least-favorable distribution parameter that changes with population size and a nontrivial log-log extremal law. Exact result can inform nonadaptive fair-division reliability without claiming policy optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.23577",
+    "https://arxiv.org/abs/2410.06877",
+    "Resultary semantic search: Bernoulli binary additive fair division fixed two goods each ex post EF1 probability worst success parameter asymptotic"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Common i.i.d. Bernoulli utility cells, fixed nonadaptive deterministic 2-good bundles with n>=2, nonnegative additive values, p in [0,1]. No policy optimality, correlated utilities or uniform finite-n error for the asymptotic.",
+    "Full current versions of recent Chen–Long and Bu et al were not completely re-read, so a specialized corollary to this stochastic experiment cannot be ruled out absolutely.",
+    "Heterogeneous or correlated valuation distributions, unequal bundles and adaptive allocations are outside the proof."
+  ],
+  "schema_version": 1
+}
