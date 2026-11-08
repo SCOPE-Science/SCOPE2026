@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every mixed edge with mutant count a and resident count b, directly summing parent choices gives drift r^{-i}G_{a,b}(r)/(dZ); G(1)=G'(1)=0 and G''(r)=ab[(b-1)r^{-b-1}+(a-1)r^{a-2}]>0 for a+b>=3. Each mixed configuration crosses some hyperedge, so Y_t=r^{-I_t} is bounded with strictly positive conditional drift. Connected finite-state chain absorbs a.s. by positive-probability mutant-spreading paths. At absorption, E[Y_tau]=(1-p)+p r^{-N}, implying strict Moran inequality with sign correct on both sides of 1. Neutral mutant count is a martingale. Ordinary regular pairwise graphs yield zero drift and equality. Exact rational verifier.py completed 8112 assertions, including exact absorption and published 4-5 vertex values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sheng et al. 2026, arxiv:2605.23444, full accessible §2.1-2.2, updates a single focal node under death-birth/complex contagion and derives weak-selection approximations, not this model",
+        "Liu and Masuda 2023, §3.1 treats complete/cyclic/star 3-uniform instances and §5 discusses numerical evidence instead of universal regular coverage"
+      ],
+      "reasoning": "A general theorem for arbitrary regular higher-order full-overwrite fixation would dominate the present theorem, but no such implication was located. Later approximation for different local adoption rules does not specialize to the exact one-parent overwrite rule.",
+      "searches": [
+        "Uniform hypergraph fixation all r regular degree suppressor supermartingale Moran optional stopping Liu Masuda theorem",
+        "Fixation probability suppressor of selection evolutionary hypergraphs birth death constant selection exact regular finite hypergraph versus isothermal graph",
+        "\"regular hypergraphs\" \"fixation probability\" evolutionary",
+        "\"hypergraph\" \"suppressor of selection\" theorem all"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.05343 (main plus accessible supplementary text)",
+      "doi:10.1371/journal.pcbi.1011494",
+      "doi:10.1137/23M1620144",
+      "arxiv:2605.23444",
+      "doi:10.1038/nature03204 (secondary theorem citation, not full original text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source arxiv:2301.05343 introduces the identical full-overwrite process and gives evidence on three families, but does not derive strict inequality for every regular hypergraph",
+        "Lieberman–Hauert–Nowak 2005 isothermal theorem applies to pairwise regular graph and gives Moran equality, the boundary case here",
+        "2024 multilayer and 2026 focal-update papers have different stochastic transition kernels"
+      ],
+      "reasoning": "The all-initial-state, all-population-size, all-fitness pointwise inequality implies the source’s regular complete/cyclic examples, not vice versa. Their nonregular star example is outside this claim. Pairwise equality is not a stronger statement about higher-order group overwriting. Distinct dynamics in later sources do not entail the claim. Priority outside inspected literature remains uncertain.",
+      "searches": [
+        "fixation probability evolutionary dynamics hypergraphs hyperstar overlap groups Liu Masuda 2023 weak selection suppressors exact formula",
+        "On any connected vertex-regular hypergraph with full-hyperedge birth-death copying, r^{-number mutants} is submartingale and fixation probability universally suppressed below the Moran formula for r>1; k-uniform hypergraph",
+        "Rigorous all-fitness suppression relative to Moran fixation probability for regular uniform hypergraphs under Liu Masuda Model 1 simultaneous entire hyperedge copying; exponential mutant-count submartingale",
+        "Liu Masuda 2023 Fixation dynamics on hypergraphs full text 3.1 and SI",
+        "Liu Masuda 2024 multilayer networks §4.2 Lemma 4.3",
+        "Sheng McAvoy 2026 hyperedge approximation §2.1 model"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu and Masuda 2023, arxiv:2301.05343, main §2 and §3.1, full-group overwrite; no global incidence-regular supermartingale statement in full accessible source",
+        "Liu and Masuda 2024, DOI 10.1137/23M1620144, §4.2 Lemma 4.3, gives exponential submartingale for a two-layer graph, not a hypergraph group overwrite"
+      ],
+      "reasoning": "Compared exact chain generator and mutant-count drift, not the shared keyword martingale. The two-layer generator changes a replica at a time and uses coupled fitness, so its implication does not reach complete hyperedge conversion. No equivalent formulation of the regular-group theorem was found in the checked material.",
+      "searches": [
+        "On any connected vertex-regular hypergraph with full-hyperedge birth-death copying, r^{-number mutants} is submartingale and fixation probability universally suppressed below the Moran formula for r>1; k-uniform hypergraph",
+        "Rigorous all-fitness suppression relative to Moran fixation probability for regular uniform hypergraphs under Liu Masuda Model 1 simultaneous entire hyperedge copying; exponential mutant-count submartingale",
+        "\"hypergraph\" \"fixation\" \"supermartingale\" \"Moran\"",
+        "\"hypergraphs\" \"suppressors\" \"regular\" \"fixation\" \"proof\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu and Masuda 2023, arxiv:2301.05343, eqs. (20)-(21), (35)-(36), SI Text A: exact small-size values for select symmetric hypergraphs",
+        "The package verification cross-checks the known 4- and 5-vertex complete-triple formulas exactly"
+      ],
+      "reasoning": "Finite tables and small explicit formulas are covered for their listed instances and not claimed as new. The accepted result is the universal inequality for arbitrary regular higher-order hypergraphs and initial states. No exact database table giving that theorem was located.",
+      "searches": [
+        "fixation probability evolutionary dynamics hypergraphs hyperstar overlap groups Liu Masuda 2023 weak selection suppressors exact formula",
+        "Hypergraph fixation proof convexity edge mutant counts parent fitness r state all edges size 3 suppression",
+        "Fixation probability suppressor of selection evolutionary hypergraphs birth death constant selection exact regular finite hypergraph versus isothermal graph",
+        "Liu Masuda hypergraphs complete cyclic star N=4 N=5 explicit fixation formula"
+      ]
+    },
+    "rationale": "The accessible motivating full text provides numerical/special-family results for the same group-overwrite mechanism, but not a theorem for every incidence-regular mixed-rank hypergraph and arbitrary initial mutant sets. The exact convex edgewise potential and full-parameter optional-stopping inequality are not supplied by the relevant older or newer analyzed papers. Multiple published-literature searches and implication comparisons identified no dominating claim. This is a best-knowledge priority judgment, not absolute uniqueness certification.",
+    "residual_risks": [
+      "Unindexed or differently named stochastic population-process theorem could imply the same result",
+      "Not every secondary/classical source full text was independently accessible or inspected",
+      "Search indexing and terminology may miss equivalences; a failed search is not novelty proof",
+      "The irregular-incidence setting is explicitly excluded"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same update; only special-family calculations and empirical/numerical suppression, no universal regular-hypergraph strict theorem found",
+        "evidence": [
+          "2023-01-13 first arXiv date; §2 Model 1; §3.1 equations (20)-(41), §5 discussion; S1 Text A etc"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.05343",
+        "material_read": "Full web-accessible manuscript sections 1–5 and detailed accessible supporting Text A–K; especially model specification §2, eqs. (20)–(41), numerical claims §3 and §4, discussion §5, supplements",
+        "method": "Read full web HTML/text and compare stochastic transition kernel, domains and theorem quantifiers",
+        "title": "Fixation dynamics on hypergraphs",
+        "trigger": "Exact same model and motivating suppression evidence"
+      },
+      {
+        "assessment": "Exponential submartingale on coupled two-layer graph model; group-overwrite transition and scalar convex edge identity not covered",
+        "evidence": [
+          "2024 SIAM Journal Applied Mathematics §4.2 and §7; DOI 10.1137/23M1620144"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1620144",
+        "material_read": "Full accessible main text, especially §4.2 Lemma 4.3 equations (4.1)-(4.10), §§4.3–4.4, discussion §7",
+        "method": "Read HTML full text and compare state space, fitness rule, selection and propagation events",
+        "title": "Fixation Dynamics on Multilayer Networks",
+        "trigger": "Closest analytic exponential-submartingale method and same authors"
+      },
+      {
+        "assessment": "One focal individual changes per step under death–birth/complex contagion, unlike global parent changing all hyperedge members; approximate weak-selection result not dominating exact all-r claim",
+        "evidence": [
+          "2026-05-22 arXiv version; §2 equations (1)-(4), §3 and methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.23444",
+        "material_read": "Full accessible model §2.1–2.2 and applications §§3.1–3.3, methods on fixation approximation",
+        "method": "Read web HTML; inspect update probabilities (1)-(2), weak-selection equation (4) and exact dynamics comparison",
+        "title": "Hyperedge approximation for stochastic processes on higher-order networks",
+        "trigger": "2026 work explicitly treats regular hypergraphs and fixation probability"
+      },
+      {
+        "assessment": "Known regular pairwise equality; no group-overwrite theorem. Residual risk that later generalized graph theory covers an equivalent",
+        "evidence": [
+          "Nature 433 (2005) 312–316; explicit reference/description in arxiv:2301.05343 §3.1.2 and DOI 10.1137/23M1620144"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/nature03204",
+        "material_read": "Accessible secondary descriptions and the isothermal statement as quoted in primary hypergraph and 2024 multilayer literature; original full text not independently inspected",
+        "method": "Cross-check theorem statement through source quotations and SIAM main text",
+        "title": "Evolutionary dynamics on graphs",
+        "trigger": "Classical regular-graph isothermal comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b03e084a-cda6-483b-a54f-f2d4186fc055",
+  "value": {
+    "rationale": "The new universal theorem replaces case-by-case numerical evidence for regular higher-order full-group selection suppression with a structural all-fitness/all-configuration guarantee, including nonuniform group sizes and a sharp ordinary-graph equality boundary. It answers an explicit mechanism-driven mathematical issue in the initiating 2023 study and eliminates exponential Markov solving for determining suppression sign on an entire natural graph class. This is not a mere recomputation of a finite known table.",
+    "status": "PASS"
+  }
+}
