@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every maximal independent set I of S(G) is uniquely determined by U, the omitted original vertices: subdivision vertex s_uv is selected iff both u,v lie in U; every u in U is dominated iff G[U] has positive degree at u. Thus for all finite simple G the weight is |V|-|U|+|E(G[U])|. For K_ab nonempty admissible U meet both shores with sizes p,q and pq edges, giving the exact double binomial sum and its support a+b-1+(p-1)(q-1). The empty U term coincides with product 1 when a,b>=2; boundaries a=1 and n=2 are explicitly handled. Ford’s known multiplication-table order, not a new proof, yields sparse support; independent adjacency-based brute force checked five small bicliques including stars.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babikir–Dettlaff–Henning–Lemańska define the independent-domination subdivision number: minimum count of *selected* edge subdivisions needed to raise a minimum invariant."
+        ],
+        "reasoning": "The operation of fully subdividing every edge and enumerating all maximal independent sets differs from optimizing the number of subdivided edges; no implication of full biclique polynomial follows from their theorem.",
+        "searches": [
+          "independent domination polynomial maximal independent sets fully subdivided complete bipartite graph K_ab multiplication table degree support",
+          "https://doi.org/10.1007/s00373-020-02269-3"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 515426ee4569c71a3241a07eec3af22ef6fb1a3e",
+        "Babikir et al. (2021), DOI 10.1007/s00373-020-02269-3",
+        "Jahari–Alikhani, arXiv:1808.07369",
+        "Ford, arXiv:math/0401223 and Annals of Mathematics (2008)",
+        "Resultary semantic query: independent domination polynomial maximal independent sets fully subdivided complete bipartite graph K_ab multiplication table degree support"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ford 2008 gives M(N) asymptotics, not its appearance as a maximal independent-set spectrum of S(K_nn); Babikir et al. study a different extremal subdivision invariant."
+        ],
+        "reasoning": "Combining Ford’s classical bound with the newly proved exact graph support count yields sparse support, but these prior results alone do not supply D_i(S(G);z) for all simple G or the biclique coefficient formula.",
+        "searches": [
+          "https://doi.org/10.1007/s00373-020-02269-3",
+          "https://arxiv.org/abs/math/0401223",
+          "independent domination polynomial maximal independent sets fully subdivided complete bipartite graph K_ab multiplication table degree support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent domination polynomial is the maximal-independent-set cardinality enumerator; each full-subdivision MIS corresponds bijectively to an omitted-original-vertex set U whose induced graph has no isolates (unless U empty)."
+        ],
+        "reasoning": "The Jahari–Alikhani polynomial framework defines this invariant but their cited path, join and lexicographic-product identities do not directly yield the all-graphs edge-subdivision transform or the complete biclique specialization.",
+        "searches": [
+          "independent domination polynomial maximal independent sets fully subdivided complete bipartite graph K_ab multiplication table degree support",
+          "https://arxiv.org/abs/1808.07369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "M(N) counts distinct products ij for 1≤i,j≤N; the balanced full-subdivision cardinality spectrum is {2n-1} plus shifted product table of order n-1. Ford’s asymptotic is known prior mathematics."
+        ],
+        "reasoning": "The classical multiplication table is precisely the support of the new graph polynomial after an explicit index shift, not a new integer-multiplication-table formula. The graph-specific bijection and exact coefficient weights remain independently substantive.",
+        "searches": [
+          "independent domination polynomial maximal independent sets fully subdivided complete bipartite graph K_ab multiplication table degree support",
+          "https://arxiv.org/abs/math/0401223"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-graph complete-subdivision transform and exact all-shore-size biclique polynomial with arithmetic support gaps. Known independent domination subdivision number and known multiplication-table estimates are acknowledged as distinct prior components.",
+      "residual_risks": [
+        "An unindexed preexisting full-subdivision maximal-independent-set enumerator could imply the transform.",
+        "Jahari–Alikhani full paper was not independently inspected; source comparison is bounded.",
+        "The multiplication-table asymptotic is entirely imported from Ford (2008), not a novel analytic-number-theory result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+          "evidence": [
+            "Its sd_i(G) is the minimum number of edges to subdivide to *increase the minimum independent dominating set size*. It does not evaluate the maximal-independent-set polynomial after subdividing every edge."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-020-02269-3",
+          "material_read": "Open-access publisher full-text article including definitions, theorem sections, and complete-bipartite discussion",
+          "method": "Publisher HTML full-text inspection and invariant comparison",
+          "title": "Independent Domination Subdivision in Graphs",
+          "trigger": "Same independent-domination and graph-edge-subdivision terminology, biclique discussions"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_ANCESTOR_NOT_DECISIVE",
+          "evidence": [
+            "Standard polynomial definition and graph-product identities do not by themselves establish the edge-subdivision transform; incomplete full-text inspection retained as risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+          "material_read": "ArXiv abstract and source results as cited in inspected record; complete article not independently read",
+          "method": "Abstract and model/operation comparison",
+          "title": "On the independent domination polynomial of a graph",
+          "trigger": "Definition and potential general enumerator formula"
+        },
+        {
+          "assessment": "PRIOR_COMPONENT",
+          "evidence": [
+            "Ford supplies the classical estimate M(N)≈N²/((log N)^delta (log log N)^(3/2)); only its graph-theoretic application is asserted new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0401223",
+          "material_read": "Bibliographic and stated Corollary 3 multiplication-table order with exponent delta; no full independent reproof of analytic estimate",
+          "method": "Source theorem statement comparison",
+          "title": "The distribution of integers with a divisor in a given interval",
+          "trigger": "Multiplication-table cardinality asymptotic used in corollary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete transformation for independent-domination enumerators and a nontrivial full family with extensive structured missing cardinalities connect graph extremal enumeration to the multiplication-table problem; exact coefficients and support can inform further graph-polynomial classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 515426ee4569c71a3241a07eec3af22ef6fb1a3e",
+    "Babikir et al. (2021), DOI 10.1007/s00373-020-02269-3",
+    "Jahari–Alikhani, arXiv:1808.07369",
+    "Ford, arXiv:math/0401223 and Annals of Mathematics (2008)",
+    "Resultary semantic query: independent domination polynomial maximal independent sets fully subdivided complete bipartite graph K_ab multiplication table degree support"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed preexisting full-subdivision maximal-independent-set enumerator could imply the transform.",
+    "Jahari–Alikhani full paper was not independently inspected; source comparison is bounded.",
+    "The multiplication-table asymptotic is entirely imported from Ford (2008), not a novel analytic-number-theory result."
+  ],
+  "residual_risks": [
+    "An unindexed preexisting full-subdivision maximal-independent-set enumerator could imply the transform.",
+    "Jahari–Alikhani full paper was not independently inspected; source comparison is bounded.",
+    "The multiplication-table asymptotic is entirely imported from Ford (2008), not a novel analytic-number-theory result."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_INVARIANT_NOT_COVERING",
+      "evidence": [
+        "Its sd_i(G) is the minimum number of edges to subdivide to *increase the minimum independent dominating set size*. It does not evaluate the maximal-independent-set polynomial after subdividing every edge."
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/s00373-020-02269-3",
+      "material_read": "Open-access publisher full-text article including definitions, theorem sections, and complete-bipartite discussion",
+      "method": "Publisher HTML full-text inspection and invariant comparison",
+      "title": "Independent Domination Subdivision in Graphs",
+      "trigger": "Same independent-domination and graph-edge-subdivision terminology, biclique discussions"
+    },
+    {
+      "assessment": "POSSIBLE_GENERAL_ANCESTOR_NOT_DECISIVE",
+      "evidence": [
+        "Standard polynomial definition and graph-product identities do not by themselves establish the edge-subdivision transform; incomplete full-text inspection retained as risk."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1808.07369",
+      "material_read": "ArXiv abstract and source results as cited in inspected record; complete article not independently read",
+      "method": "Abstract and model/operation comparison",
+      "title": "On the independent domination polynomial of a graph",
+      "trigger": "Definition and potential general enumerator formula"
+    },
+    {
+      "assessment": "PRIOR_COMPONENT",
+      "evidence": [
+        "Ford supplies the classical estimate M(N)≈N²/((log N)^delta (log log N)^(3/2)); only its graph-theoretic application is asserted new."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/math/0401223",
+      "material_read": "Bibliographic and stated Corollary 3 multiplication-table order with exponent delta; no full independent reproof of analytic estimate",
+      "method": "Source theorem statement comparison",
+      "title": "The distribution of integers with a divisor in a given interval",
+      "trigger": "Multiplication-table cardinality asymptotic used in corollary"
+    }
+  ]
+}
