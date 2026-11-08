@@ -1,19 +1,21 @@
-# Scientific review: fixed-content multiletter rotation spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from four explicit steps: the concatenation identity for scattered ordered-pair counts; the proportional-Parikh criterion for equal profiles of two rotations; the gcd lower bound and its periodic equality case; and the sharp multiletter grouped-word upper endpoint together with an adjacent-exchange intermediate-value argument. The moving-prefix coordinates \(\mathbf H_i=N\mathbf P_i-i\mathbf c\) preserve exactly the same equality relation as the full \(2\)-binomial signatures. Under a linear adjacent exchange, exactly one of the \(N\) moving-prefix coordinates changes. The grouped-word argument crucially uses at least three occurring letters, because a proper circular interval cannot partially meet three monochromatic runs. Boundary cases with content gcd one, with exactly three letters, or with repeated rotations are explicitly accounted for. `checker.py` independently agrees with direct subsequence signatures over 18,666 fixed-content labeled words across eight compositions; this is corroboration, not a proof for all lengths.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For arbitrary positive content c on k>=3 symbols, B_ab(vu)-B_ab(uv)=c_a s_b-c_b s_a, so equal scattered ordered-pair profiles iff the intervening segment Parikh vector is length*c/N. Coprime p=c/d forces segment length a multiple of L=N/d. Hence the L residue classes of indexed rotation starts are distinct; equality L forces all length-L windows balanced, so successive window differences force w=v^d. A grouped word with k>=3 monochromatic runs cannot have a proper circular interval containing a strict fraction of each run (only two boundary runs), attaining N. For arbitrary w, centered prefix counts H_i=N P_i-i c have equalities exactly the collision equivalence; a neighboring transposition changes only H_{t+1}, so distinct-count changes by at most one while sorting v^d into grouped form, realizing the entire interval. Cases d=1 and repeated literal rotations follow. Independent direct/prefix enumerations corroborate, not replace, the all-content proof.
 
-Rigo–Salimov's 2013/2015 work introduces \(m\)-binomial equivalence and studies factor complexity of infinite words; its 2015 proof of rational symbol frequencies uses cyclic shifts but does not present an all-content spectrum of equivalence classes within one conjugacy orbit. Rao–Rigo–Salimov (2013) studies avoidance of binomial powers rather than cyclic-orbit spectra. Poovanandran–Simpson–Teh (2021) counts *averaged* subsequence occurrences over conjugates of a circular word and studies ambiguity between circular words, not the count of distinct pair-subsequence signatures of individual conjugates. The binary two-letter case behaves differently (for content \((2,2)\), its four rotations yield at most three profiles), which neither implies the grouped-word upper endpoint \(N\) for three or more letters nor classifies the new alphabet regime. Statement-level comparisons, checks for alternate terminology and exact tables, and available mathematical-result searches did not reveal stronger covering results. An undiscovered general multinomial-conjugacy theorem remains possible; absence from searches is not novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a natural and exact all-parameters answer, not a modest numerical increment: for every positive multiletter composition it characterizes the entire attainable class-count spectrum, both sharp endpoints, and collisions via balanced circular segments. The abrupt change from the binary upper endpoint to the full \(N\)-rotation endpoint as soon as three letters occur is structurally explained by the geometry of runs on a circle. The result supplies constructive fixed-composition witnesses for every intermediate complexity and a direct criterion for maximal distinguishability of rotation signatures. No downstream conjecture is required for this complete classification to be useful.
+Originality concerns the all-positive-multiletter, all-content attainable spectrum and equality/collision characterization. Rigo–Salimov introduce binomial-equivalence methods and address infinite-word factors plus binary cyclic shifts, not a general distinct-signatures-within-one-rotation-orbit spectrum. Poovanandran–Simpson–Teh average subword counts over conjugates of circular words, a genuinely different operation from counting distinct signatures per conjugate. Published semantic Resultary hits such as fixed-content dihedral bracelet orbit profiles treat different invariants. No inspected primary theorem implies the all-integer interval with its upper endpoint k>=3, subject to unindexed Parikh-matrix/conjugacy priority risk.
 
-## Closest literature and limits
+## value
 
-The most relevant sources are Rigo and Salimov's available WORDS 2013 preprint and 2015 extended article, Rao–Rigo–Salimov (2013), and Poovanandran–Simpson–Teh (2021). The definition of binomial equivalence, general concatenation identities, and the elementary idea of tracking statistics under cyclic shifts are not new. The accepted claim is specifically the full-spectrum multiletter theorem. The work does not address higher-order binomial equivalence, words with fewer than three occurring letters, or counts of maximizers. It has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-composition rotation orbit is natural in combinatorics on words; classification of which 2-binomial signatures are distinct is a nontrivial invariant. The exact interval, gcd lower equality and maximal balanced-arc avoidance solve a complete family, explaining the sharp k=2 versus k>=3 difference. Adjacent-swap witnesses make intermediate spectra constructive, not arbitrary finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

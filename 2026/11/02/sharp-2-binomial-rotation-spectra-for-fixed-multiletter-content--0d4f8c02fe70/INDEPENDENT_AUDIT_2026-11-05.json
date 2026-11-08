@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:09:35.860654Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-2-binomial-rotation-spectra-for-fixed-multiletter-content--0d4f8c02fe70/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-2-binomial-rotation-spectra-for-fixed-multiletter-content--0d4f8c02fe70/checker.py",
+        "Independent check: Independent exhaustive rotations for contents (2,2,2), (3,3,3), (2,2,4), (1,2,3): each direct scattered-pair rotation count equals balanced-prefix-vector count, all required spectra realized. Frequencies for (2,2,2): 6,18,54,12. Underlying checker.py inspected, not blindly executed."
+      ],
+      "rationale": "For arbitrary positive content c on k>=3 symbols, B_ab(vu)-B_ab(uv)=c_a s_b-c_b s_a, so equal scattered ordered-pair profiles iff the intervening segment Parikh vector is length*c/N. Coprime p=c/d forces segment length a multiple of L=N/d. Hence the L residue classes of indexed rotation starts are distinct; equality L forces all length-L windows balanced, so successive window differences force w=v^d. A grouped word with k>=3 monochromatic runs cannot have a proper circular interval containing a strict fraction of each run (only two boundary runs), attaining N. For arbitrary w, centered prefix counts H_i=N P_i-i c have equalities exactly the collision equivalence; a neighboring transposition changes only H_{t+1}, so distinct-count changes by at most one while sorting v^d into grouped form, realizing the entire interval. Cases d=1 and repeated literal rotations follow. Independent direct/prefix enumerations corroborate, not replace, the all-content proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf",
+          "https://arxiv.org/abs/2110.14858"
+        ],
+        "reasoning": "Infinite-word factor complexity and averaged circular Parikh matrices do not imply the number of distinct rotation profiles of an individual fixed-composition word; objects and quantifiers differ.",
+        "searches": [
+          "2-binomial equivalence all factors infinite word Rigo Salimov 2015",
+          "Poovanandran Simpson Teh 2021 circular Parikh matrices"
+        ]
+      },
+      "checked_sources": [
+        "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf (Rigo–Salimov 2015, Theorem 16: binary cyclic shifts and frequencies)",
+        "https://arxiv.org/abs/2110.14858 (Poovanandran et al. circular averaged subwords)",
+        "Resultary semantic query: fixed content multiletter word 2-binomial equivalence cyclic rotation collision spectrum necklace",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fixed-content-bracelet-orbit-profiles-for-simon-s-circular-finit--087e4dd04736"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior binary cyclic-shift observations do not establish k>=3 full upper bound N",
+          "Frozen RESULT.md combines balanced-arc obstruction with adjacent-swap intermediate-value argument"
+        ],
+        "reasoning": "The submitted combination is not a trivial relabeling or numerical corollary of an inspected statement. General concatenation identities themselves are standard.",
+        "searches": [
+          "Rigo Salimov 2015 cyclic shifts",
+          "Poovanandran Simpson Teh 2021 ambiguity between circular words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact equivalence B_ab(vu)-B_ab(uv)=c_a s_b-c_b s_a in frozen RESULT.md Step1",
+          "Rigo–Salimov 2015 Theorem 16 deals with cyclic shifts for rational frequencies"
+        ],
+        "reasoning": "Equivalent language is balanced circular segments or centered Parikh-prefix collisions; prior papers define associated invariants but do not state the all-values k>=3 spectrum.",
+        "searches": [
+          "fixed-content multinomial word scattered subsequence Parikh matrix cyclic conjugacy orbit equality",
+          "Rigo Salimov 2015 Theorem 16 cyclic shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary hit: fixed-content bracelet orbit profiles of Simon’s circular finite-cover quotients, a different dihedral orbit invariant",
+          "Frozen checker (2,2,2) table {3:6,4:18,5:54,6:12} independently reproduced"
+        ],
+        "reasoning": "No matching all-composition table or precomputed spectrum found in the actual queries; isolated small histograms do not dominate an all-parameter theorem.",
+        "searches": [
+          "Resultary semantic fixed content multiletter 2-binomial rotation spectrum",
+          "2-binomial rotation necklace fixed-content distribution OEIS"
+        ]
+      },
+      "rationale": "Originality concerns the all-positive-multiletter, all-content attainable spectrum and equality/collision characterization. Rigo–Salimov introduce binomial-equivalence methods and address infinite-word factors plus binary cyclic shifts, not a general distinct-signatures-within-one-rotation-orbit spectrum. Poovanandran–Simpson–Teh average subword counts over conjugates of circular words, a genuinely different operation from counting distinct signatures per conjugate. Published semantic Resultary hits such as fixed-content dihedral bracelet orbit profiles treat different invariants. No inspected primary theorem implies the all-integer interval with its upper endpoint k>=3, subject to unindexed Parikh-matrix/conjugacy priority risk.",
+      "residual_risks": [
+        "A general conjugacy/Parikh-matrix or discrete lattice-walk theorem unindexed in the searches might already imply the all-content spectrum.",
+        "Not a claim for two occurring letters, higher binomial order or counts of words at each spectrum value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING on examined theorem: binary rotation argument concerns frequencies and infinite-word factor complexity, not all k>=3 fixed-Parikh count spectra",
+          "evidence": [
+            "Theorem 16 treats periodicity/frequencies via binary conjugates, not the number of 2-binomial signatures of every rotation of one multiletter word."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf",
+          "material_read": "Accessible full 2015 author manuscript, especially binomial factor complexity and proof of Theorem 16 discussing binary cyclic shifts and rational frequencies",
+          "method": "Read mathematical sections and visually inspected relevant PDF page",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Closest original source introducing binomial equivalence and discussing cyclic shifts"
+        },
+        {
+          "assessment": "NOT_COVERING: average counts over all rotations and compare two circular words, not count distinct signatures among one word’s rotations",
+          "evidence": [
+            "Averaged Parikh matrix discards exactly the indexed-rotation distinction central to C2(w)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.14858",
+          "material_read": "Accessible full preprint, relevant definitions and sections on circular Parikh matrix averages and ambiguity",
+          "method": "Read relevant primary manuscript sections and inspected the circular-invariant PDF page",
+          "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+          "trigger": "Same circular words, scattered subword counts"
+        },
+        {
+          "assessment": "DIFFERENT_QUESTION: avoidance of binomial powers rather than complete conjugacy-class spectra",
+          "evidence": [
+            "No exact all-composition orbit-spectrum theorem identified in accessible cited material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.4743",
+          "material_read": "Primary abstract and accessible descriptions of avoidance results",
+          "method": "Read title/abstract/central stated problem; no whole-document absence claim",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "Potential matching two-binomial combinatorial framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-2-binomial-rotation-spectra-for-fixed-multiletter-content--0d4f8c02fe70/RESULT.md",
+        "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf (Rigo–Salimov 2015, Theorem 16: binary cyclic shifts and frequencies)",
+        "https://arxiv.org/abs/2110.14858 (Poovanandran et al. circular averaged subwords)"
+      ],
+      "rationale": "The fixed-composition rotation orbit is natural in combinatorics on words; classification of which 2-binomial signatures are distinct is a nontrivial invariant. The exact interval, gcd lower equality and maximal balanced-arc avoidance solve a complete family, explaining the sharp k=2 versus k>=3 difference. Adjacent-swap witnesses make intermediate spectra constructive, not arbitrary finite tabulation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general conjugacy/Parikh-matrix or discrete lattice-walk theorem unindexed in the searches might already imply the all-content spectrum.",
+    "Not a claim for two occurring letters, higher binomial order or counts of words at each spectrum value."
+  ],
+  "schema_version": 1
+}
