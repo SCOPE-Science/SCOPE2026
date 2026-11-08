@@ -1,15 +1,21 @@
-# Scientific review — projective uniqueness of binary minimal space-filling complete intersections
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof first identifies the unique cubic equation of each complete-intersection ideal and proves that smoothness forces its Frobenius-alternating coefficient matrix to have rank four. A full binary linear-algebra computation enumerates every class in the resulting \(16\)-dimensional quartic-section quotient and verifies that rational smoothness restricts all \(65536\) classes to two \(\operatorname{Sp}_4(\mathbb F_2)\)-orbits of size \(144\). Four-chart exact Gröbner bases certify that precisely one of those orbits is geometrically smooth, while a degree-five closed singular point excludes the other. Independently traversing the full \(720\)-element symplectic group verifies one smooth orbit of size \(144\) and rational projective stabilizer \(C_5\). A concrete order-five matrix and polynomial identity, together with Riemann–Hurwitz, establish the genus-three quotient and its four branch points. The enumeration is finite and exhaustive for exactly the domain specified.
+## correctness
 
-## Originality
-**PASS, with residual historical risk.** The original 2023 space-filling-curve paper constructs examples and establishes the minimum complete-intersection degree, rather than classifying the projective equivalence classes or automorphism structures over \(\mathbb F_2\). Its author-supplied code searches for sample examples. An earlier numerical census already obtained \(144\) geometrically smooth quartic sections on the fixed cubic; that count and its ordinarity information are expressly **not** new here. The new statements require and receive a complete group orbit computation, an exact stabilizer determination, and a four-point ramification argument not implied by the count. Searches did not identify the same projective transitivity theorem. Unindexed work, or previously unpublished details accompanying the census, remain possible overlap risks.
+PASS
 
-## Mathematical value
-**PASS.** The result provides the complete embedded projective moduli classification for the smallest complete-intersection space-filling curves over the binary field, reducing thousands of equations to a unique coordinate class. The order-five projective symmetry and genus-three quotient connect this concrete finite-field extremal construction to the geometry of tame cyclic coverings. These are structural conclusions rather than routine restatements of earlier numerical totals.
+Every cubic through the 15 rational points is an alternating Frobenius cubic; smoothness of a (3,4) complete intersection forces its 4x4 alternating matrix full rank, hence 28 possible cubics and Sp4(F2) stabilizer of order720 for a fixed one. Quartic vanishing sections modulo G times linear forms form F2^16. Independently built 35-monomial evaluation kernel, dimension20, quotient dimension16, and traversed all 65536 classes via 15 symplectic transvections: 128 orbits, 288 classes smooth at all rational points in exactly two size-144 orbits, reps 13387 and 13394. Exact four-chart Groebner ideals in characteristic2 show 13394 geometrically smooth and 13387 singular; the packaged degree-five singular point further witnesses exclusion. Thus 28*144=4032 smooth embedded ideals in one orbit; stabilizer order720/144=5 cyclic. Independent symbolic reduction verified G and F vanish at all 15 rational points, A of order5 preserves G and F modulo G. Its irreducible degree4 characteristic polynomial Φ5 gives four fixed eigenlines; homogeneous eigenvalue scaling forces their incidence with C. Tame RH with genus19 and four totally ramified points gives quotient genus3. Exhaustive finite computations cover the precisely finite domain; not all fields or all types.
 
-## Boundaries
-The group is the full rational **projective** stabilizer; the abstract automorphism group over an algebraic closure is not classified. No statement about lower-degree noncomplete-intersection curves or nonbinary fields is made. All Gröbner and orbit calculations are exact, but an external independent audit of their implementation or the world literature has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for unique projective class and cyclic projective automorphism/quotient structure, while explicitly crediting the original minimal-degree construction and earlier count of 144 smooth quartic sections on one cubic. Neither a count of smooth sections nor an existence example alone implies transitivity or ramification.
+
+## value
+
+PASS
+
+Complete classification of minimal-degree binary projective complete-intersection space-filling curves is a natural finite moduli problem. An exact unique orbit, its C5 stabilizer and genus-three quotient give structural geometry beyond a known finite tally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
