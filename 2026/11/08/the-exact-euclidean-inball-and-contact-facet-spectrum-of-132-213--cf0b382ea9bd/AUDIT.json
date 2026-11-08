@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For all d>=2, the known complete facet normals have Euclidean lengths sqrt2 and sqrt(k(d-k)/d). The strictly positive explicit Dirichlet path Green matrix yields a sharp upper bound on any inball radius from the first coordinate, with parabolic deficit vector attaining it. The first Green row strictly positive proves center uniqueness. Exact facet distances prove contact classification; antipodal monotone permutations and strictly convex squared norm prove unique circumcenter and exclusively vertex contacts. Standard-library 23044 checks and separate 31 linear programs confirm, but do not replace, the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full permutahedron formula H_d/2 from published-finding corpus record applies to the larger orbit polytope; both have the same outer radius R_d but only the avoidance polytope has the strict chamber walls.",
+        "The de Castro 2026 paper uses combinatorial/lattice models and enumerative rather than Chebyshev-radius theorems.",
+        "published-finding corpus records on chain polytopes and Hochschild polytopes concern different object families."
+      ],
+      "reasoning": "The inradius of a containing polytope is only an upper bound for the subpolytope and cannot imply equality; indeed the new radius is strictly smaller for d>=3. Generic optimization methods do not provide a closed form or classify equality and the unique incenter.",
+      "searches": [
+        "inradius incenter chain poset permutahedron Weyl chamber permutohedron metric inscribed ball",
+        "chamber permutohedron intersection Weyl chamber circumscribed inscribed radius incenter all facets",
+        "Euclidean inradius and contact facets of 132 213 avoiding permutahedron",
+        "published-finding corpus 2026/10/11/SCOPE-loday-s-three-canonical-polytopes-share-one-exact-euclidean-inra--8445e531fd9f"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.06096v2 Sections 1-3 and main results",
+      "Tamayo Jiménez thesis 2017 Section 3.5 Appendix B.1",
+      "Davis and Sagan arxiv:1608.08525 Sections 1-3",
+      "Black Rehberg Sanyal Poset Permutahedra accessible scope via de Castro",
+      "published-finding corpus semantic records on full permutahedron, chain polytope, partial permutohedra and Hochschild polytope"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tamayo Jiménez and de Castro establish the facet system, which is explicitly cited and taken as a premise; they do not optimize the intrinsic Euclidean margins.",
+        "Davis–Sagan focus on structure and Ehrhart properties, with cubicality originally conjectural.",
+        "A known facet system yields an LP algorithm for an incenter but does not itself state or solve the exact parametric LP and all equality cases."
+      ],
+      "reasoning": "The original claim would imply the prior facet inequalities, but the reverse implication requires solving a nontrivial family of Chebyshev-center linear programs. The strictly positive Green inverse, sharp first-coordinate bound, explicit parabolic optimizer, and uniqueness argument supply the missing implication. The theorem is not a plain reformulation of the cited results.",
+      "searches": [
+        "arxiv:2609.06096v2 Theorem 7 Theorem 8 and conclusion",
+        "Tamayo Jiménez 2017 Proposition 3.5.2",
+        "Davis Sagan Pattern-Avoiding Polytopes 2018 Section 3",
+        "published-finding corpus 2026/10/11/SCOPE-the-euclidean-inradius-of-a-chain-polytope-depends-only-on-poset--04e5ecb8aad2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.06096v2 Theorem 8 gives Psi_d with linear part -I, so it is an isometry between P_d and twice a translated chain-poset permutahedron; no inradius statement in Sections 1-3.",
+        "Tamayo Jiménez 2017 Proposition 3.5.2 already has the paired facets.",
+        "The discriminant Newton polytope equivalence of arxiv:2609.06096v2 Proposition 9 is an integral affine map that is not established as an isometry."
+      ],
+      "reasoning": "The claim was compared under the exact intrinsic isometry to the chain-poset realization and under the weaker discriminant affine-lattice equivalence; no previously inspected statement computes the same Euclidean Chebyshev center or contact spectrum. A result about the ordinary full permutahedron is not an equivalent statement about its chamber subpolytope.",
+      "searches": [
+        "Euclidean inradius and contact facets of 132 213 avoiding permutahedron",
+        "inradius incenter chain poset permutahedron Weyl chamber permutohedron metric inscribed ball",
+        "(132,213)-avoiding permutahedron facet normals prefix deficits 2u_k-u_(k-1)-u_(k+1) inball maximal Euclidean insphere",
+        "Chebyshev center permutohedron intersect fundamental Weyl chamber",
+        "arxiv:2609.06096v2 Sections 2-3",
+        "Tamayo Jiménez 2017 Section 3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tamayo Jiménez Appendix B.1 tabulates Ehrhart coefficients and ordinary polytope facets for d=3 to 6, not Euclidean inball data.",
+        "de Castro Table 1 gives Ehrhart numerator vectors and normalized volume, not inball radii.",
+        "published-finding corpus closest summaries do not contain matching avoidance-pattern incenter/contact results."
+      ],
+      "reasoning": "Known tables consist of lattice-point enumeration and facet coefficients. The stated infinite closed form and contact law are not table lookups or restatements of a finite numeric entry.",
+      "searches": [
+        "(132,213)-avoiding permutahedron facet normals prefix deficits 2u_k-u_(k-1)-u_(k+1) inball maximal Euclidean insphere",
+        "maximal inscribed ball discriminant Newton polytope chain-poset permutahedron",
+        "Tamayo Jiménez thesis Appendix B.1 Pn(132,213)",
+        "arxiv:2609.06096v2 initial Ehrhart numerator table"
+      ]
+    },
+    "rationale": "Tamayo Jiménez 2017 and de Castro 2026 supply the underlying facet and lattice description and are expressly credited. Comparison of the exact isometric chain-poset formulation and relevant earlier articles found no result that implies the unique incenter, closed radius or sharp contact-facet spectrum. Closest published-finding corpus entries are for other polytopes or the full permutahedron. Priority remains provisional due to possible unindexed formulations.",
+    "residual_risks": [
+      "Unindexed Euclidean Chebyshev-center treatments of chamber-intersected permutahedra or dominant-weight polytopes may cover a stronger equivalent theorem.",
+      "Black–Rehberg–Sanyal full text was not independently checked end to end; no covering metric claim appeared in accessible secondary treatments.",
+      "Search absence cannot prove absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "INPUT FACETS COVERED; NEW METRIC CLAIM NOT COVERED",
+        "evidence": "Theorem 7 Section 2: irredundant 2(d-1) facet inequalities and cube face structure; Theorem 8 Section 3: chain-poset model with -I linear part; listed results on volume, Ehrhart, zeros, no radii or incenter.",
+        "identifier_or_url": "https://arxiv.org/html/2609.06096v2",
+        "material_read": "Abstract, introduction, main theorems, complete relevant Section 2, complete Section 3 and its statements, related work, conclusions and metric term checks",
+        "method": "Open primary full HTML and inspect vertex and facet theorems and their proofs, plus lattice equivalence and related-work discussion",
+        "title": "On the real-rootedness of Ehrhart h*-polynomials of (132,213)-avoiding permutahedra",
+        "trigger": "Exact target polytope with primary 52B20, explicit facets, and an isometric chain-poset model"
+      },
+      {
+        "assessment": "INPUT FACETS COVERED; NEW METRIC CLAIM NOT COVERED IN RELEVANT SECTIONS",
+        "evidence": "Propositions 3.5.1 and 3.5.2 describe reverse-layered vertices, cubicality and facets; Appendix B.1 gives Ehrhart and facet tables for d=3..6; no inradius/circumball metric formula.",
+        "identifier_or_url": "https://repositorio.uniandes.edu.co/bitstreams/c815ce77-06dc-441f-ab37-9f7ad22e7c98/download",
+        "material_read": "Introduction, Section 3.5 (pages 29-30), Appendix B.1 (pages 35-36) and full-text metric term searches",
+        "method": "Primary PDF full text inspected at the exact proposition, its proof, and Appendix B.1 finite tables.",
+        "title": "Pattern Avoiding Subpolytopes of the Permutahedron",
+        "trigger": "Earlier thesis supplying the exact paired inequalities and all generating vertices"
+      },
+      {
+        "assessment": "DEFINITIONS AND CONJECTURE, NOT METRIC-COVERING",
+        "evidence": "Conjecture 3.19 deals with cubicality/normalized volume of (132,213)-avoiding hull; no inball contact-spectra result in the relevant section.",
+        "identifier_or_url": "https://arxiv.org/abs/1608.08525",
+        "material_read": "Abstract, introduction, Sections 1-3 including Conjecture 3.19 and metric term searches; PDF cover inspected by screenshot",
+        "method": "Full-PDF text inspection and screenshot of page zero",
+        "title": "Pattern-Avoiding Polytopes",
+        "trigger": "Foundational primary original definition and earlier geometry of pattern-avoidance hulls"
+      },
+      {
+        "assessment": "NO IDENTIFIED COVERAGE, WITH ACCESS-LIMIT RISK",
+        "evidence": "Cited model introduces poset permutahedra, a lattice equivalence to discriminant polytope, volume/enumerative geometry, not an indexed inradius/contact result.",
+        "identifier_or_url": "https://arxiv.org/search/?query=Poset+Permutahedra&searchtype=title",
+        "material_read": "Search/abstract and de Castro Sections 1 and 3 citations for its scope; no independent complete manuscript inspection",
+        "method": "Accessible abstract and relevant statements cited and reproduced in the directly inspected primary manuscript.",
+        "title": "Poset Permutahedra",
+        "trigger": "Possible stronger treatment of the chain-poset realization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf0b382e-a9bd-4e7e-ab39-fd5dd065d1dc",
+  "value": {
+    "rationale": "The result completely identifies the unique Euclidean inball and exactly which facets touch it throughout a natural infinite family. The bounded-radius/large-circumsphere separation shows a genuine asymptotic shape collapse compared with the full permutahedron sharing its outer sphere, despite unchanged cubical combinatorics. Both precise contact spectrum and uniqueness require a nontrivial sharp Green-kernel argument; neither a generic trivial normalization nor a finite unmotivated computation.",
+    "status": "PASS"
+  }
+}
