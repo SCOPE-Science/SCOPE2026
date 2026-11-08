@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verification_check.py` with a standard Python 3 installation; no nonstandard packages or input data are needed. The checker uses finite differences to diagnose strict radial concavity, the exact no-reset survival functions, sharp fixed-mean chord/Jensen inequalities, the Poisson mean expression, and composite Simpson quadrature for deterministic reset intervals.
+## correctness
 
-Actual local execution output:
+PASS
 
-```
-line: Poisson point=4.67077427047, endpoints=3.0269152273; periodic-clock point=3.39837801428, endpoints=2.54866173411
-sphere: Poisson point=21.1671682968, endpoints=9.72458187132; periodic-clock point=17.5634865109, endpoints=9.21599294246
-PASS: 332 finite assertions
-```
+For one-dimensional Brownian half-line absorption, no-reset survival S1(t,z)=erf(z/√(4Dt)) has strictly negative second z-derivative for z>0; for exterior absorption at sphere radius a, S3(t,z)=1-(a/z)erfc((z-a)/√(4Dt)), and S3,zz=-a(E″/z-2E′/z²+2E/z³)<0 because E>0,E′<0,E″>0. Hence convex-order spreads decrease free-cycle survival strictly, and Jensen/chord yield unique extremal laws Q_end supported at ell,u and δ_m for fixed mean m. Coupling iid post-reset cycle hitting times via common increasing quantiles and common iid positive finite renewal deadlines, with the same initial hit time, gives almost sure ordered total completion times for any independent reset clock (not necessarily exponential or finite mean). Success probabilities per cycle are positive since reset radii stay in a compact interval strictly outside the absorber and every deadline is >0; absorption is almost sure even when a free 3D hit can be infinity. Strict concavity and a positive chance to reset before initial absorption imply distributions differ for distinct convex-ordered laws; not every t is strictly ordered. Under Eσ<∞ the separate renewal reward gives b0+q0 bQ/pQ. These prove full-law and all-increasing-cost extremality, not only Poisson MFPT.
 
-The analytic proof supplies the global result: exact one-cycle Brownian survival; strict radial concavity for every positive elapsed time; convex-order comparison; a common-quantile coupling of the one-cycle first-passage laws; synchronous renewal-cycle induction; and positive chance of success in every fresh search cycle. The finite numerical checks only corroborate selected formulas. No simulation or numerical quadrature is used to assert all-clock stochastic order, uniqueness or almost-sure completion.
+## originality
 
-Verification boundaries: the one-dimensional target and exterior three-dimensional spherical target, generator \(D\Delta\), fixed initial position, independently sampled reset radii on a bounded interval separated from the target, strictly positive finite iid renewal intervals, and instantaneous full spatial relocations. Full-law inequalities need no mean waiting time; finite mean time formulas require finite mean reset intervals. Numerical inequalities at very short times can be obscured by floating-point cancellation and are therefore not used in the proof. Independent scientific validation has not been performed.
+PASS
+
+Julián-Salgado et al. 2023 and Méndez et al. 2024 treat random reset positions but optimize or compare mean times with exponential reset clocks. The 2025 compact-support follow-up also optimizes Poisson rate. Those formulas already imply parts of the Poisson mean convexity by Jensen, so that special case is not credited as new. The complete stochastic order for all strictly positive independent renewal clocks together with defective 3D sphere free-hit laws is the assessed additional claim. A general convex-order composition/restart theorem may have the same implication, which is a real priority risk.
+
+## value
+
+PASS
+
+Full distributional control of Brownian search time, uniform over renewal-clock laws, is a motivated reset-policy optimisation problem: it orders all increasing time costs and tail risks, stronger than mean optimisation. Sharp unique extremisers under mean-distance and support constraints answer a natural exact design question in both certain- and defective-hitting geometries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

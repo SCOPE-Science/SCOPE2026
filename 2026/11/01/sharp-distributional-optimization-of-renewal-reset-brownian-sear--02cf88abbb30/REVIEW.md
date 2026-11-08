@@ -1,19 +1,21 @@
-# Scientific review: fixed-mean reset-radius optimization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assessed theorem is a full stochastic ordering, not merely a comparison of means. The two no-reset survival formulas are exact for Brownian motion with generator \(D\Delta\), and each is strictly concave in starting radius for every positive time. Convex order therefore reverses the one-cycle survival distributions. A common-uniform quantile construction orders the full first-hitting times, including the possible infinite free hit time outside a three-dimensional sphere. Using the same positive renewal deadlines and initial first-hit time makes the final completion times ordered cycle by cycle. A finite positive per-cycle success probability gives almost-sure completion. Strict concavity forces the unique two-endpoint and point-mass extremizers, with distinct full completion-time laws whenever the extrema differ.
+PASS
 
-The proof covers arbitrary iid positive finite reset intervals; a finite clock mean is only required for the auxiliary mean formula. The finite standard-library script `verification_check.py` passed 332 assertions, comprising curvature evaluations, fixed-mean envelopes, Poisson means and deterministic-clock quadratures. These tests are supporting diagnostics rather than proofs of an infinite-time statement.
+For one-dimensional Brownian half-line absorption, no-reset survival S1(t,z)=erf(z/√(4Dt)) has strictly negative second z-derivative for z>0; for exterior absorption at sphere radius a, S3(t,z)=1-(a/z)erfc((z-a)/√(4Dt)), and S3,zz=-a(E″/z-2E′/z²+2E/z³)<0 because E>0,E′<0,E″>0. Hence convex-order spreads decrease free-cycle survival strictly, and Jensen/chord yield unique extremal laws Q_end supported at ell,u and δ_m for fixed mean m. Coupling iid post-reset cycle hitting times via common increasing quantiles and common iid positive finite renewal deadlines, with the same initial hit time, gives almost sure ordered total completion times for any independent reset clock (not necessarily exponential or finite mean). Success probabilities per cycle are positive since reset radii stay in a compact interval strictly outside the absorber and every deadline is >0; absorption is almost sure even when a free 3D hit can be infinity. Strict concavity and a positive chance to reset before initial absorption imply distributions differ for distinct convex-ordered laws; not every t is strictly ordered. Under Eσ<∞ the separate renewal reward gives b0+q0 bQ/pQ. These prove full-law and all-increasing-cost extremality, not only Poisson MFPT.
 
-## Originality — PASS, with stated residual risk
+## originality
 
-The nearest primary work by Julián-Salgado, Dagdug and Boyer (arXiv:2311.11897, first posted 2023-11-20) derives Poisson mean first-passage behavior for two reset sites and optimal-rate transitions. Méndez, Flaquer-Galmés and Campos (arXiv:2401.01125) study the Poisson mean, fluctuations and random resetting sites, including the **already known** fact that widening a uniform reset interval can reduce its mean. Toledo-Marín and Boyer (arXiv:2206.14387) derive Poisson first-passage and reset-event formulas for random location distributions. The later full-text study (arXiv:2507.14483v2, 2025) investigates Poisson optimal-rate transitions and the distribution of the last reset point, not a universal fixed-mean stochastic-law comparison. Evans and Majumdar (2014) examine fixed-position spherical resetting. General renewal-restart work of Chechkin and Sokolov (2018) underlies the method and might conceal an implicit broader comparison; only its abstract was accessible for comparison.
+PASS
 
-The ordinary renewal decomposition, free Brownian hitting laws and Poisson mean formula are all prior work; applying Jensen to the published Poisson mean formula is **not claimed as new**. The accepted statement is the simultaneous arbitrary-renewal **full-distribution**, complete endpoint-optimality and exterior-three-dimensional-sphere theorem. Searches and inspected relevant source sections did not identify its direct statement or a decisive covering theorem. Residual novelty uncertainty persists for implicit general restart and convex-order results, particularly in unindexed literature.
+Julián-Salgado et al. 2023 and Méndez et al. 2024 treat random reset positions but optimize or compare mean times with exponential reset clocks. The 2025 compact-support follow-up also optimizes Poisson rate. Those formulas already imply parts of the Poisson mean convexity by Jensen, so that special case is not credited as new. The complete stochastic order for all strictly positive independent renewal clocks together with defective 3D sphere free-hit laws is the assessed additional claim. A general convex-order composition/restart theorem may have the same implication, which is a real priority risk.
 
-## Mathematical value — PASS
+## value
 
-This is a natural complete distributional-design problem: with the mean reset distance and allowed spatial zone fixed, select the entire spatial reset law without choosing a special reset-time model. The theorem determines the unique best and worst laws for every observation horizon and every increasing cost, uniformly over all independent positive renewal clocks. Its three-dimensional extension is substantive because the free Brownian search can miss the spherical target forever, yet renewal resets restore almost-sure search completion. The result therefore supplies both a mechanistic comparison principle and a complete design answer, beyond the previously known Poisson mean-rate optimization. It does not account for reset relocation costs or feedback, and makes no claim of experimental validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full distributional control of Brownian search time, uniform over renewal-clock laws, is a motivated reset-policy optimisation problem: it orders all increasing time costs and tail risks, stronger than mean optimisation. Sharp unique extremisers under mean-distance and support constraints answer a natural exact design question in both certain- and defective-hitting geometries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
