@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:55:17.609092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gradient g_i=f(i+1)−f(i) is exactly a zero-sum edge vector, and it evolves by the same nearest-neighbor cycle Markov generator Q. Any zero-sum g is a positive transport combination of dipoles e_i−e_j preserving weighted l1 cost, so it suffices to test all dipoles. The exact right derivative F_ij=−(2+a_ij)(w_i+w_j)+sum_{k!=i,j}w_k|a_ki−a_kj| is both necessary (positive F gives strict small-time increase) and sufficient (for h<1/3 Euler step exactly decreases weighted l1 on all dipoles; powers converge to e^{tQ}). Counting adjacent/distance-two/distance-three/four cases gives stated n<=5 inequalities and n=6 pair-sum S and distance-two condition. For n>=7, nonpositive distance-three dipole derivatives have total zero, forcing w_i+w_i+3=S; n=7 gives w_i=w_i+6 and hence equality; n>=8 distance-four analogue gives w_i+w_i+4=T, and cyclic constant consecutive difference forces all weights equal. I independently computed F from raw Qg, without using package gain formula, and exhaustively matched classification on exact integer profiles at n=3..9 with totals 64,256,243,729,2187,256,512, including stable hexagon. These finite profiles corroborate, but universal result rests on transport/Euler identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Gennip et al. treats graph TV, threshold curvature/MBO and Allen–Cahn; Grasmair–Lenzen treats anisotropic TV regularization; Cremers–Strekalovskiy circle-valued signals."
+        ],
+        "reasoning": "These concern different evolution functionals or domain/codomain structures; no inspected theorem gives all-times heat contractivity for independent w on unit-conductance simple cycles.",
+        "searches": [
+          "arxiv:1307.0045 / doi:10.1007/s00032-014-0216-8",
+          "doi:10.1007/s00245-010-9105-x",
+          "doi:10.1007/s10851-012-0396-1",
+          "Resultary: weighted total variation contraction heat semigroup cycle graph edge weights rigidity n seven"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s00032-014-0216-8 (OA HTML, full PDF unavailable)",
+        "doi:10.1007/s00245-010-9105-x",
+        "doi:10.1007/s10851-012-0396-1",
+        "Resultary: weighted total variation contraction heat semigroup cycle graph edge weights rigidity n seven",
+        "Resultary weighted-cycle numerical index finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known general generator l1 contractivity criteria support the reduction, but the distance-three/four zero-slack identity and n=7 cutoff are specialized deductions."
+        ],
+        "reasoning": "An arbitrary positive contraction theorem in a full l1 space does not cover the zero-sum subspace with independent variation weights; the exceptional six-cycle family is not a mechanical corollary.",
+        "searches": [
+          "van Gennip et al 2014 graph TV/MBO paper",
+          "General finite-dimensional Euler semigroup dissipativity",
+          "Resultary weighted cycle numerical-index-one rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contraction of J_w on vertex functions is equivalent to contraction of weighted l1 on the gradient zero-sum hyperplane; full unconstrained l1 contraction is stronger and not equivalent."
+        ],
+        "reasoning": "The zero-sum restriction is the critical equivalence and explains nonuniform stable small-cycle weights that ordinary stochastic-weight invariance would wrongly exclude.",
+        "searches": [
+          "Resultary: weighted total variation contraction heat semigroup cycle graph edge weights rigidity n seven",
+          "Resultary: cycle heat semigroup edge total variation anisotropic contraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published cycle results concern numerical index or quartic energy, not the dipole right-derivative cone for TV smoothing."
+        ],
+        "reasoning": "No exact earlier admissible positive-weight cone table was located; potential rediscovery through classical matrix-measure tables is acknowledged.",
+        "searches": [
+          "Resultary: weighted total variation contraction heat semigroup cycle graph edge weights rigidity n seven",
+          "Resultary: cycle heat semigroup edge total variation anisotropic contraction",
+          "Resultary numerical-index-one rigidity for weighted cycles"
+        ]
+      },
+      "rationale": "The graph TV/cut framework and MBO heat-threshold dynamics of van Gennip et al. are known; anisotropic continuum TV regularization and total cyclic variation of circle-valued signals are different mathematical operations. General Markov/semigroup l1 contraction does not imply weighted contraction on the constrained zero-sum gradient hyperplane for arbitrary independent positive edge weights. Targeted Resultary retrieval located weighted-cycle numerical index and quartic heat/energy invariants, not this exact 3..6 admissible cone / n=7 rigidity theorem. A classical logarithmic-norm classification may implicitly subsume it and remains a risk.",
+      "residual_risks": [
+        "Open-access 2014 graph TV original PDF timed out; whole-document noncoverage is not asserted.",
+        "A more general logarithmic norm/dissipativity theorem may imply the finite inequalities implicitly, although no such exact result was identified.",
+        "Exhaustive integer profiles only validate finite slices; all positive real weights/all lengths/times require proof of dipole and cycle rigidity steps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_EVOLUTION_WITH_ACCESS_LIMIT",
+          "evidence": "The inspected paper studies curvature, thresholding and phase field, not explicit unthresholded cycle-weight cones; full text was not read.",
+          "identifier_or_url": "arxiv:1307.0045 / doi:10.1007/s00032-014-0216-8",
+          "material_read": "Full open-access bibliographic and abstract/intro article text, relevant MBO/AC graph TV focus; downloadable original 63-page PDF timed out",
+          "method": "Springer OA HTML, PDF attempt (timeout), arXiv metadata",
+          "title": "Mean Curvature, Threshold Dynamics, and Phase Field Theory on Finite Graphs",
+          "trigger": "Graph heat and total variation on same finite graphs"
+        },
+        {
+          "assessment": "CONTINUUM_VARIATIONAL_METHOD",
+          "evidence": "The smoothing operation is an anisotropic TV minimization, not an independently weighted finite graph heat linear semigroup.",
+          "identifier_or_url": "doi:10.1007/s00245-010-9105-x",
+          "material_read": "Accessible abstract/bibliographic description of continuum TV variational filtering; complete article not read",
+          "method": "Scholarly search and original link identification",
+          "title": "Anisotropic Total Variation Filtering",
+          "trigger": "Same anisotropic TV terminology"
+        },
+        {
+          "assessment": "DIFFERENT_CODOMAIN",
+          "evidence": "Cyclic variation concerns values on a circle rather than domain graph being a simple cycle.",
+          "identifier_or_url": "doi:10.1007/s10851-012-0396-1",
+          "material_read": "Article title/abstract and source supplied distinction of cyclic signal values",
+          "method": "Scholarly search plus source work discussion",
+          "title": "Total Cyclic Variation and Generalizations",
+          "trigger": "Possible terminological alias"
+        },
+        {
+          "assessment": "DIFFERENT_NUMERICAL_INDEX",
+          "evidence": "Describes Lipschitz-free numerical index, not TV semigroup contraction.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-numerical-index-one-rigidity-for-weighted-cycles-and-positive-cu--aa457cec74ea",
+          "material_read": "Ranked finding title and exact summary",
+          "method": "Resultary semantic retrieval",
+          "title": "Published weighted cycle numerical-index-one rigidity",
+          "trigger": "Potential stronger rigidity theorem on weights of cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Anisotropic edge TV monotonicity under a canonical graph smoother is a natural stability/design question. The complete finite-weight cone conditions for small cycles, an explicit nonconstant stable 6-cycle family, and sharp 7-edge rigidity offer a structural boundary and constructive small-time witnesses rather than routine contraction for uniform weights.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1007/s00032-014-0216-8 (OA HTML, full PDF unavailable)",
+    "doi:10.1007/s00245-010-9105-x",
+    "doi:10.1007/s10851-012-0396-1",
+    "Resultary: weighted total variation contraction heat semigroup cycle graph edge weights rigidity n seven",
+    "Resultary weighted-cycle numerical index finding"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Open-access 2014 graph TV original PDF timed out; whole-document noncoverage is not asserted.",
+    "A more general logarithmic norm/dissipativity theorem may imply the finite inequalities implicitly, although no such exact result was identified.",
+    "Exhaustive integer profiles only validate finite slices; all positive real weights/all lengths/times require proof of dipole and cycle rigidity steps."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Open-access 2014 graph TV original PDF timed out; whole-document noncoverage is not asserted.",
+    "A more general logarithmic norm/dissipativity theorem may imply the finite inequalities implicitly, although no such exact result was identified.",
+    "Exhaustive integer profiles only validate finite slices; all positive real weights/all lengths/times require proof of dipole and cycle rigidity steps."
+  ]
+}

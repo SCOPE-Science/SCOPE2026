@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On a unit-conductance cycle the oriented-gradient space is exactly the zero-sum hyperplane, and heat evolution intertwines with the cycle Markov generator on that space. Every weighted-variation unit vector is a cost-preserving positive mixture of edge dipoles. The proof computes the exact one-sided derivative on each dipole, then uses finite Euler estimates and the semigroup limit to justify the all-time quantifier. The distance-three and distance-four inequalities have zero total slack, forcing the harmonic two-edge-sum identities that yield the seven-edge rigidity threshold. At six edges the distance-two inequalities imply the remaining adjacent inequalities. The exact-rational combinatorial tests and independent matrix-exponential diagnostics passed; the computations corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS, with stated residual risk
+The gradient g_i=f(i+1)−f(i) is exactly a zero-sum edge vector, and it evolves by the same nearest-neighbor cycle Markov generator Q. Any zero-sum g is a positive transport combination of dipoles e_i−e_j preserving weighted l1 cost, so it suffices to test all dipoles. The exact right derivative F_ij=−(2+a_ij)(w_i+w_j)+sum_{k!=i,j}w_k|a_ki−a_kj| is both necessary (positive F gives strict small-time increase) and sufficient (for h<1/3 Euler step exactly decreases weighted l1 on all dipoles; powers converge to e^{tQ}). Counting adjacent/distance-two/distance-three/four cases gives stated n<=5 inequalities and n=6 pair-sum S and distance-two condition. For n>=7, nonpositive distance-three dipole derivatives have total zero, forcing w_i+w_i+3=S; n=7 gives w_i=w_i+6 and hence equality; n>=8 distance-four analogue gives w_i+w_i+4=T, and cyclic constant consecutive difference forces all weights equal. I independently computed F from raw Qg, without using package gain formula, and exhaustively matched classification on exact integer profiles at n=3..9 with totals 64,256,243,729,2187,256,512, including stable hexagon. These finite profiles corroborate, but universal result rests on transport/Euler identities.
 
-Primary-source comparison distinguished the unthresholded heat evolution and independent variation weights from the graph-MBO/graph-total-variation framework of van Gennip et al. (arXiv:1307.0045), continuum anisotropic TV regularization of Grasmair–Lenzen (2010), and circle-valued signals of Cremers–Strekalovskiy (2012/2013). Mathematical research database searches about cycle heat semigroups, anisotropic edge variation, zero-sum \(\ell_1\) dissipativity and the six-/seven-cycle exceptions did not surface an implication covering this classification. Existing general semigroup contraction principles support the methodology; their mere availability does not identify the precise exceptional positive cones and finite-length threshold. Residual risk: the calculation could be implicit in older matrix-measure or finite-difference literature not located by these searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural graph signal-smoothing operator, this is an exact classification of all anisotropic edge variation norms in which diffusion is globally variation-nonincreasing. The sharp distinction between nonuniform stable small cycles (including a nontrivial six-cycle family) and complete uniform-weight rigidity from seven edges is a structural phenomenon, not merely a renamed general contraction theorem. It provides an exact design test and a dipole witness for every failure; neither numerical evidence nor a marginal bound improvement is being offered as the central result.
+The graph TV/cut framework and MBO heat-threshold dynamics of van Gennip et al. are known; anisotropic continuum TV regularization and total cyclic variation of circle-valued signals are different mathematical operations. General Markov/semigroup l1 contraction does not imply weighted contraction on the constrained zero-sum gradient hyperplane for arbitrary independent positive edge weights. Targeted Resultary retrieval located weighted-cycle numerical index and quartic heat/energy invariants, not this exact 3..6 admissible cone / n=7 rigidity theorem. A classical logarithmic-norm classification may implicitly subsume it and remains a risk.
 
-## Limitations and status
+## value
 
-The heat generator has fixed unit conductances and counting vertex measure. The classification need not extend to weighted diffusion, nonlinear TV flow, or graphs beyond simple cycles. Originality remains conditional on the coverage of accessible and indexed literature; no independent scientific assessment has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Anisotropic edge TV monotonicity under a canonical graph smoother is a natural stability/design question. The complete finite-weight cone conditions for small cycles, an explicit nonconstant stable 6-cycle family, and sharp 7-edge rigidity offer a structural boundary and constructive small-time witnesses rather than routine contraction for uniform weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
