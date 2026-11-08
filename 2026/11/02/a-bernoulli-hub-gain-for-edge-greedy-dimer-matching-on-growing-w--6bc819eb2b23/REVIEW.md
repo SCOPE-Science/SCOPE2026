@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The new assertion is a simultaneous deterministic and asymptotic statement. A fixed-priority vertex-deletion induction proves that the shared-priority wheel-minus-cycle matching difference is always zero or one. A first-edge recursion yields the exact path mean, and its generating function yields the known dimer constant \(\rho=(1-e^{-2})/2\) and a uniformly bounded, vanishing path error. Until the first hub spoke, the probability of a rim-edge choice is at most one half. The number of early dimers therefore has a geometric tail; with high probability their occupied blocks and the hub's occupied rim endpoint are widely separated. The conditional post-hub mean is an explicit sum of path means, in which the constant correction cancels when those blocks are separated. Geometric domination controls the exceptional contribution. This proves the expected hub increment converges to \(\rho\), and the deterministic two-point support upgrades it to a total-variation Bernoulli limit. The standalone executable checker passed 49,615 assertions/diagnostics, including rational Markov recursions and complete tiny edge-order enumerations. Finite checks are not claimed as an infinite proof.
+PASS
 
-## Originality: PASS, with historical risk
+For common-edge-priority greedy matching on cycle C_n and its wheel W_{n+1}, reconstructed the exact one-vertex deletion coupling invariant: unmatched vertex sets remain nested with singleton symmetric difference after every processed edge, implying a deterministic matching-size difference in {0,1}. The path recurrence g_m=1+2/(m-1) sum_{j<=m-2}g_j yields G(z)=z(1-e^-2z)/(2(1-z)^2) and g_m=ρm-e^-2+o(1), ρ=(1-e^-2)/2. Before the accepted hub spoke, each step favors a spoke with conditional probability >=1/2, giving geometric rim-dimer tail; with high probability finitely many early occupied rim blocks separate by distances growing in n. Conditional fresh eligible-edge priorities decompose remaining rim into long paths, cancelling the constant deficits and proving EW=ρ(n+1)+o(1). The Bernoulli total variation limit then follows from {0,1}-valued difference and converging expectation. Independently solved exact rational state recursions for 3<=n<=12 on both cycle and wheel and checked 0<=EW-EC<=1 and convergence trends; not a proof of arbitrary n.
 
-Dyer–Frieze (1991) treats the same edge-greedy process in general graphs but its accessible abstract describes universal approximation bounds and forest results, not the coupled wheel-cycle Bernoulli limit; the entire paper was unavailable, so its stronger hidden results remain a concrete priority risk. Hertz and coauthors (2022), especially their wheel Section 5.1, treat the *uniform average of maximal matchings* and explicitly distinguish this from the edge-greedy output law in the introduction. Those statements do not imply the present result. Pasinetti and coauthors (2019) investigate dimer random sequential adsorption and jamming on Euclidean/fractal substrates and ER/regular random networks, rather than the fixed wheel/cycle edge-priority coupling. Their random-network sampling rule first samples a vertex and then a neighbor, which is not equivalent to uniform edges on a nonregular wheel. Published mathematical index comparisons for random-greedy matching, wheels, dimers and vertex-deletion effects returned no claim equivalent to a coupled limiting Bernoulli gain. Failure to locate one is not a proof of uniqueness. The one-dimensional density and the elementary vertex-deletion stability idea are not asserted to be independently novel.
+## originality
 
-## Value: PASS
+PASS
 
-The question is motivated by stability of jamming under a singular graph perturbation: attaching one vertex with degree growing linearly in graph size changes the matching count by a bounded but genuinely random amount. The exact \(\rho\)-Bernoulli increment quantifies the finite effect that leading-order jamming coverage conceals, distinguishing a coupled perturbation distribution from mere first-order density. The result is a natural graph-specific stochastic comparison, not a small arbitrary parameter slice or an isolated number. It can benchmark hub sensitivity of irreversible matching procedures; no unproved downstream implication is claimed.
+Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.
 
-## Closest published literature and limits
+## value
 
-The specific earlier wheel formula in Hertz et al. is for uniformly averaged maximal matchings and is **not** a theorem about greedy-edge sample probabilities. Dyer–Frieze is the closest general-process antecedent but complete historical coverage is not certified because its full text was inaccessible. Available lawful full-text routes did not yield the complete 1991 source. The proof concerns edge-priority matching only, not vertex-priority sampling or independent-sample differences. Self-review does not establish independent priority or independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The high-degree hub is a natural finite graph perturbation of one-dimensional irreversible dimer deposition. Showing its effect is deterministically only one edge yet probabilistically survives with a nonzero exactly identifiable Bernoulli limit is a mathematically motivated and potentially useful coupling stability law; it is not merely the already known density formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

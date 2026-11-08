@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:15:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen Git tree",
+        "assigned proof/checker and independent arithmetic/BFS/enumeration as recorded"
+      ],
+      "rationale": "For common-edge-priority greedy matching on cycle C_n and its wheel W_{n+1}, reconstructed the exact one-vertex deletion coupling invariant: unmatched vertex sets remain nested with singleton symmetric difference after every processed edge, implying a deterministic matching-size difference in {0,1}. The path recurrence g_m=1+2/(m-1) sum_{j<=m-2}g_j yields G(z)=z(1-e^-2z)/(2(1-z)^2) and g_m=ρm-e^-2+o(1), ρ=(1-e^-2)/2. Before the accepted hub spoke, each step favors a spoke with conditional probability >=1/2, giving geometric rim-dimer tail; with high probability finitely many early occupied rim blocks separate by distances growing in n. Conditional fresh eligible-edge priorities decompose remaining rim into long paths, cancelling the constant deficits and proving EW=ρ(n+1)+o(1). The Bernoulli total variation limit then follows from {0,1}-valued difference and converging expectation. Independently solved exact rational state recursions for 3<=n<=12 on both cycle and wheel and checked 0<=EW-EC<=1 and convergence trends; not a proof of arbitrary n.",
+      "residual_risks": [
+        "This law is explicitly under shared common rim edge priorities, not independent wheel and cycle matchings or a uniform draw from all maximal matchings. Uniform-tightness and separation estimates carry the all-n argument, not the finite recursion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1991 abstract proves general sparse-graph performance bounds; 1995 algorithm selects a random vertex then neighbor (not uniform eligible edge); Hertz et al 2022 explicitly distinguishes uniform maximal matchings from greedy edge process."
+        ],
+        "reasoning": "General expected approximation ratios do not imply a sharp wheel-minus-cycle coupled limit; no inspected broader statement specializes to Bernoulli((1-e^-2)/2).",
+        "searches": [
+          "Dyer–Frieze 1991 published abstract",
+          "Aronson–Dyer–Frieze–Suen 1995 doi:10.1002/rsa.3240060107",
+          "Hertz–Bonte–Devillez–Mélot 2022 full PDF",
+          "uniform random greedy matching wheel graph cycle hub matching difference Bernoulli limit"
+        ]
+      },
+      "checked_sources": [
+        "Dyer–Frieze 1991 published abstract",
+        "Hertz et al 2022 full relevant sections",
+        "Aronson et al 1995 published abstract",
+        "Resultary: uniform random greedy matching wheel graph cycle hub matching difference Bernoulli limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dimer density ρ is classical. The deterministic one-vertex perturbation lemma and separation of early hub-affected rim blocks are needed to identify ρ as limiting Bernoulli success probability."
+        ],
+        "reasoning": "Knowing only the one-dimensional density and/or separate averages over all maximal matchings cannot yield the coupled Bernoulli statement without the specific coupling and asymptotic hub proof.",
+        "searches": [
+          "Dyer–Frieze 1991 abstract",
+          "Hertz et al arXiv:2204.10236 Section 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dyer–Frieze randomized eligible-edge matching defines the same stochastic algorithm; Hertz et al average uniformly across all maximal matchings, a provably different measure."
+        ],
+        "reasoning": "The exact object is the difference of two outputs under one shared-edge coupling, not each graph’s maximum matching or uniform maximal-matching average. Binary hub increment is an actual new stochastic coupling claim.",
+        "searches": [
+          "uniform random greedy matching wheel graph cycle hub matching difference Bernoulli limit",
+          "Dyer–Frieze 1991 doi:10.1002/rsa.3240020104",
+          "Hertz et al arXiv:2204.10236"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational wheel/cycle expected gains checked n3..12; Hertz wheel tables use a distinct sampling law."
+        ],
+        "reasoning": "The limiting one-bit distribution is not a known graph-table entry in the checked evidence; finite expected matching counts alone do not imply the total variation limit.",
+        "searches": [
+          "uniform random greedy matching wheel graph cycle hub matching difference Bernoulli limit",
+          "Hertz et al wheel Section 5.1",
+          "direct exact rational wheel/cycle recursion n3..12"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.",
+      "residual_risks": [
+        "The full 1991 Dyer–Frieze paper and other older graph-specific random sequential matching literature could not be inspected; this is a material historical-priority limitation, not itself a negative scientific verdict.",
+        "Numerical means at n<=12 do not settle the n→∞ statement independently of the separation argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same eligible-edge process and global sparse-graph performance, but full-document noncoverage cannot be asserted",
+          "evidence": "Abstract explicitly describes choosing next random remaining edge and bounds for general graphs and forests",
+          "identifier_or_url": "doi:10.1002/rsa.3240020104",
+          "material_read": "Primary 1991 journal abstract and bibliographic metadata; full article not accessible after bibliographic OA search",
+          "method": "publisher abstract; lawful access attempts",
+          "title": "Randomized greedy matching",
+          "trigger": "Introduces exact edge-first algorithm in the claim"
+        },
+        {
+          "assessment": "Measures uniform average over all maximal matchings rather than greedy edge-priority outcome; no comparable coupled-limit result",
+          "evidence": "Introduction distinguishes measures, Section 5.1 treats wheels",
+          "identifier_or_url": "arXiv:2204.10236",
+          "material_read": "Relevant full 28-page arXiv PDF including introductory distinction and Section 5.1 wheel analysis",
+          "method": "full-text PDF and page screenshot",
+          "title": "The average size of maximal matchings in graphs",
+          "trigger": "Wheel graph formulas might imply mean"
+        },
+        {
+          "assessment": "Random vertex then random neighbor, not the eligible-edge ordering of the claim",
+          "evidence": "Abstract describes vertex-first, neighbor-second selection",
+          "identifier_or_url": "doi:10.1002/rsa.3240060107",
+          "material_read": "Publisher abstract and precise algorithm definition",
+          "method": "publisher journal abstract",
+          "title": "Randomized greedy matching II",
+          "trigger": "Plausible stronger same-line algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "reviewed exact mathematical final theorem and motivation in assigned RESULT.md"
+      ],
+      "rationale": "The high-degree hub is a natural finite graph perturbation of one-dimensional irreversible dimer deposition. Showing its effect is deterministically only one edge yet probabilistically survives with a nonzero exactly identifiable Bernoulli limit is a mathematically motivated and potentially useful coupling stability law; it is not merely the already known density formula.",
+      "residual_risks": [
+        "Does not supply a full joint CLT or independent-graph difference law; result is one coupling and one sequence of graph families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This law is explicitly under shared common rim edge priorities, not independent wheel and cycle matchings or a uniform draw from all maximal matchings. Uniform-tightness and separation estimates carry the all-n argument, not the finite recursion.",
+    "Does not supply a full joint CLT or independent-graph difference law; result is one coupling and one sequence of graph families.",
+    "The full 1991 Dyer–Frieze paper and other older graph-specific random sequential matching literature could not be inspected; this is a material historical-priority limitation, not itself a negative scientific verdict.",
+    "Numerical means at n<=12 do not settle the n→∞ statement independently of the separation argument."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The scientific claim is checked at the following levels:
+# Independent mathematical audit
 
-1. The vertex-deletion coupling is proved for every fixed finite graph and edge ordering by induction on processed edges. In a wheel, it gives the exact binary range of the matched-edge increment for each common-priority realization.
-2. The first-edge path recurrence is solved by a generating function. The coefficient formula and the exponential remainder are derived analytically, not inferred from numerical experiments.
-3. The early hub-spoke event has an elementary geometric tail bound. A conditional uniform-position bound makes the early removed blocks separate with high probability. The exact remaining-path expectation identity then gives the wheel constant, with rare-event contributions controlled by uniform integrability.
-4. The standard-library script `checker.py`, executed on the files packaged with this result, passed 49,615 exact rational and deterministic enumeration assertions and numerical asymptotic diagnostics. It checks the path coefficient formula for lengths up to 64, wheel Markov recursions for rim orders up to 12, exhaustive common-priority edge orders on three- and four-vertex rims, and the deletion lemma over the enumerated finite graph/order cases. It also reports wheel-minus-cycle mean gains at rim orders 8, 10 and 12.
+## correctness
 
-A finite enumeration is not evidence of the general limit without Steps 1–3. No formal proof assistant or external mathematical audit has been used. This check does not establish worldwide priority: one highly relevant 1991 paper was available only as an abstract. The result applies to the *coupled* difference, not to differences of independent samples.
+PASS
+
+For common-edge-priority greedy matching on cycle C_n and its wheel W_{n+1}, reconstructed the exact one-vertex deletion coupling invariant: unmatched vertex sets remain nested with singleton symmetric difference after every processed edge, implying a deterministic matching-size difference in {0,1}. The path recurrence g_m=1+2/(m-1) sum_{j<=m-2}g_j yields G(z)=z(1-e^-2z)/(2(1-z)^2) and g_m=ρm-e^-2+o(1), ρ=(1-e^-2)/2. Before the accepted hub spoke, each step favors a spoke with conditional probability >=1/2, giving geometric rim-dimer tail; with high probability finitely many early occupied rim blocks separate by distances growing in n. Conditional fresh eligible-edge priorities decompose remaining rim into long paths, cancelling the constant deficits and proving EW=ρ(n+1)+o(1). The Bernoulli total variation limit then follows from {0,1}-valued difference and converging expectation. Independently solved exact rational state recursions for 3<=n<=12 on both cycle and wheel and checked 0<=EW-EC<=1 and convergence trends; not a proof of arbitrary n.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.
+
+## value
+
+PASS
+
+The high-degree hub is a natural finite graph perturbation of one-dimensional irreversible dimer deposition. Showing its effect is deterministically only one edge yet probabilistically survives with a nonzero exactly identifiable Bernoulli limit is a mathematically motivated and potentially useful coupling stability law; it is not merely the already known density formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
