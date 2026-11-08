@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-Execute `python3 verify_distortion.py` from the directory containing this report and the script. No third-party dependencies are needed. The observed output was:
+## correctness
 
-```
-CHECK_OK orders=3..11 pairwise_exact_inequalities= 12006 bfs_orders=3..10 algebraic_n4=Q(sqrt(19))
-```
+PASS
 
-The script uses exact rational arithmetic and represents \(\mathbb Q(\sqrt{19})\) as pairs of fractions with exact algebraic sign comparisons. It enumerates all pairs of singleton and doubleton vertices for \(3\le n\le11\), checks both sides of the claimed sharp squared-distance ratio bounds, and compares breadth-first-search graph distances to Hamming distances for \(3\le n\le10\). It verifies the exceptional defining polynomial exactly.
+PASS: The graph S(K_n) is exactly the singleton/doubleton incidence graph, whose metric on its two Boolean layers is Hamming |U triangle V| with five pair classes. Averaging Gram forms over S_n reduces the unrestricted Hilbert problem to two standard modes, the doubleton extra irreducible, and a centroid offset, with A,B,D,T>=0 and C²<=AB. For n>=5 a completed-square inequality gives delta_I >= (n-2)/(4(n-1)) delta_DD; since disjoint doubletons have distance 4, c2²>=4(n-2)/(n-1). For n=4, optimizing B>=4 and the nonincident distance>=9 gives the sharp quadratic root (43-8sqrt19)/3; for n=3 standard mode gives 9/4. The centered coordinate realization matches each bound. An independent construction and pairwise distortion test verified 6,003 unordered pairs through n=11; it does not replace the all-n Gram lower bounds.
 
-The lower-bound claims for every integer \(n\ge5\), the universal symmetrization step, the representation-theoretic Gram decomposition, and the \(n=4\) minimax inequality are proved analytically in `RESULT.md`; the script is not an exhaustive proof for all dimensions. No independent or external validation has been conducted.
+## originality
+
+PASS
+
+Best-knowledge PASS, qualified. The known hypercube isometric embedding of S(K_n) establishes its Hamming metric, not its optimal least *Hilbert* distortion. The known sharp Euclidean distortion paper on distance-regular graphs does not apply directly to this two-degree-class graph. The older exact same-graph Hamming paper's complete text was inaccessible, leaving a material risk of an unmentioned Euclidean consequence; the available abstract only proves partial-cube classification.
+
+## value
+
+PASS
+
+PASS: Complete-graph subdivisions are canonical partial-cube/two-Boolean-layer metric spaces. An explicit c2 formula for all n with a genuinely exceptional n=4 algebraic regime and a sharp n→∞ limit identifies geometric distortion not determined merely by their Hamming isometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

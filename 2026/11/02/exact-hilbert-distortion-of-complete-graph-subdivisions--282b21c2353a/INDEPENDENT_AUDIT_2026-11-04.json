@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:04:35.851429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The graph S(K_n) is exactly the singleton/doubleton incidence graph, whose metric on its two Boolean layers is Hamming |U triangle V| with five pair classes. Averaging Gram forms over S_n reduces the unrestricted Hilbert problem to two standard modes, the doubleton extra irreducible, and a centroid offset, with A,B,D,T>=0 and C²<=AB. For n>=5 a completed-square inequality gives delta_I >= (n-2)/(4(n-1)) delta_DD; since disjoint doubletons have distance 4, c2²>=4(n-2)/(n-1). For n=4, optimizing B>=4 and the nonincident distance>=9 gives the sharp quadratic root (43-8sqrt19)/3; for n=3 standard mode gives 9/4. The centered coordinate realization matches each bound. An independent construction and pairwise distortion test verified 6,003 unordered pairs through n=11; it does not replace the all-n Gram lower bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 exact Euclidean graph distortion results are for distance-regular families; S(K_n) has two vertex degrees when n>=4. The 2008 work classifies partial-cube subdivisions, not known from available text to optimize Hilbert distortion."
+        ],
+        "reasoning": "Do not import a sharp distortion of the entire Hamming cube or Johnson layer to a selected bipartite union of layers; submetric least distortion may be smaller. The specialized invariant Gram bound is not supplied by cited stronger results.",
+        "searches": [
+          "Cioaba Gupta Ihringer Kurihara arXiv:2109.09708 full PDF",
+          "Beaudou Gravier Meslem 2008 SIAM DOI:10.1137/070681909",
+          "Vallentin Hamming/Johnson full-graph Euclidean distortion"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 6fcf34e235e725dc9d7aebd8564f86154b56566c",
+        "Git verify_distortion.py 528060abfce21d5844f27510cdb17c9cf2458bdd",
+        "arXiv:2109.09708 full PDF",
+        "SIAM DOI:10.1137/070681909 abstract",
+        "Resultary least Euclidean distortion subdivided complete graph incidence graph two Boolean layers graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hypercube embedding establishes d=|U triangle V|; published distance-regular distortion theorems require a different graph hypothesis; negative type and distance-matrix M-constants for cube subsets are not the same two-sided squared-distance optimization."
+        ],
+        "reasoning": "The prior Hamming isometry is a key input to this proof but does not imply sharp Hilbert distortion. The all-symmetric Gram block and explicit n=4 polynomial furnish the missing quantitative result.",
+        "searches": [
+          "Beaudou et al 2008 primary abstract and available related exposition",
+          "Cioaba et al 2021 full PDF",
+          "Doust and Wolf arXiv:2109.07052"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S(K_n) is the incidence graph of the 1- and 2-subsets of [n], an isometric subgraph of the n-cube; its Hilbert distortion is the least C with squared Euclidean distance between d² and C²d² for these two layers."
+        ],
+        "reasoning": "A Hamming isometric embedding is not a Hilbert isometry because Hamming squared Euclidean distances do not equal Hamming metric squared. The two-layer optimization differs from the entire Hamming cube distortion.",
+        "searches": [
+          "least Euclidean distortion subdivided complete graph incidence graph two Boolean layers graph",
+          "Beaudou Gravier Meslem 2008 DOI:10.1137/070681909",
+          "Cioabă et al arXiv:2109.09708"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact Euclidean distortion for two consecutive Boolean layers or S(K_n) was identified; boundary n=3 C6 value is classical and excluded from originality."
+        ],
+        "reasoning": "All-order c2² family is not a finite tabular recomputation; exact n=4 exception could have appeared under incidence graph language, which remains a specific residual risk.",
+        "searches": [
+          "Resultary least Euclidean distortion subdivided complete graph incidence graph two Boolean layers graph",
+          "arXiv:2109.09708 Euclidean distortion table families",
+          "Beaudou et al 2008 abstract"
+        ]
+      },
+      "rationale": "Best-knowledge PASS, qualified. The known hypercube isometric embedding of S(K_n) establishes its Hamming metric, not its optimal least *Hilbert* distortion. The known sharp Euclidean distortion paper on distance-regular graphs does not apply directly to this two-degree-class graph. The older exact same-graph Hamming paper's complete text was inaccessible, leaving a material risk of an unmentioned Euclidean consequence; the available abstract only proves partial-cube classification.",
+      "residual_risks": [
+        "The 2008 exact-same-graph SIAM article complete text was inaccessible (Oxford vpn_disconnected); although its abstract addresses Hamming rather than Hilbert, an unadvertised quantitative corollary cannot be ruled out.",
+        "A broad association-scheme or two-Boolean-layer Euclidean distortion theorem may imply the formula, including n=4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "classifies isometric Hamming/hypercube embeddings, not demonstrated to contain Hilbert distortion; priority risk remains",
+          "evidence": "abstract characterizes S(K_n) as partial cube among clique subdivisions and gives embedding into a Hamming hypercube",
+          "identifier_or_url": "https://doi.org/10.1137/070681909",
+          "material_read": "publisher abstract and bibliography available; complete original article PDF inaccessible",
+          "method": "publisher primary abstract and open-access attempts; Oxford returned vpn_disconnected",
+          "title": "Isometric Embeddings of Subdivided Complete Graphs in the Hypercube",
+          "trigger": "exact same subdivision graph; potential direct prior coverage"
+        },
+        {
+          "assessment": "does not directly specialize to S(K_n) for n>=4, where vertex degrees differ",
+          "evidence": "distance-regular hypothesis requires regularity; S(K_n) has degrees n-1 and 2",
+          "identifier_or_url": "https://arxiv.org/abs/2109.09708",
+          "material_read": "full preprint PDF relevant graph-family statements and theorem hypotheses",
+          "method": "full PDF inspected",
+          "title": "The least Euclidean distortion constant of a distance-regular graph",
+          "trigger": "general prior c2 exact theory"
+        },
+        {
+          "assessment": "studies negative type and M-constant of subsets, not shown to determine two-sided least Euclidean distortion",
+          "evidence": "different spectral objective from minimizing c2 metric distortion",
+          "identifier_or_url": "https://arxiv.org/abs/2109.07052",
+          "material_read": "abstract and theorem summary; full text not verified",
+          "method": "bibliographic abstract search",
+          "title": "A problem on distance matrices of subsets of the Hamming cube",
+          "trigger": "same Hamming-subset ambient metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Complete-graph subdivisions are canonical partial-cube/two-Boolean-layer metric spaces. An explicit c2 formula for all n with a genuinely exceptional n=4 algebraic regime and a sharp n→∞ limit identifies geometric distortion not determined merely by their Hamming isometry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 2008 exact-same-graph SIAM article complete text was inaccessible (Oxford vpn_disconnected); although its abstract addresses Hamming rather than Hilbert, an unadvertised quantitative corollary cannot be ruled out.",
+    "A broad association-scheme or two-Boolean-layer Euclidean distortion theorem may imply the formula, including n=4."
+  ],
+  "schema_version": 1
+}

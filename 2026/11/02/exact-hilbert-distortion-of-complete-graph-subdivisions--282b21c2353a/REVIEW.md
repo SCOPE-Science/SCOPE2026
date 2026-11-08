@@ -1,19 +1,21 @@
-# Scientific review: exact Hilbert distortion of complete-graph subdivisions
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The graph metric is exactly the Hamming distance restricted to singleton and doubleton indicators. Symmetrizing a Euclidean Gram matrix preserves the relevant linear inequalities, so no nonsymmetric embedding can evade the lower bounds. The two-orbit permutation representation decomposes into trivial, standard, and the doubleton-only orthogonal component, yielding a positive-semidefinite parameterization with \(C^2\leq AB\). The inequality between an incident singleton–doubleton squared distance and a disjoint-doubleton squared distance proves the infinite-dimensional bound for every \(n\geq5\). For \(n=4\), the nonincident singleton–doubleton constraint and disjoint-doubleton constraint jointly yield an algebraic minimax lower bound. At \(n=3\), the same covariance method gives \(9/4\); at \(n=2\) the metric is a path. Explicit centered-coordinate embeddings attain every bound. A standard-library exact checker tests 12,006 pairwise inequalities and independent graph-distance recurrences for small orders. All-order correctness comes from the written inequalities, not from the finite tests.
+PASS
 
-## Originality
+PASS: The graph S(K_n) is exactly the singleton/doubleton incidence graph, whose metric on its two Boolean layers is Hamming |U triangle V| with five pair classes. Averaging Gram forms over S_n reduces the unrestricted Hilbert problem to two standard modes, the doubleton extra irreducible, and a centroid offset, with A,B,D,T>=0 and C²<=AB. For n>=5 a completed-square inequality gives delta_I >= (n-2)/(4(n-1)) delta_DD; since disjoint doubletons have distance 4, c2²>=4(n-2)/(n-1). For n=4, optimizing B>=4 and the nonincident distance>=9 gives the sharp quadratic root (43-8sqrt19)/3; for n=3 standard mode gives 9/4. The centered coordinate realization matches each bound. An independent construction and pairwise distortion test verified 6,003 unordered pairs through n=11; it does not replace the all-n Gram lower bounds.
 
-**PASS, qualified.** The result determines least Euclidean distortion of the metric \(S(K_n)\), unlike the published classification of its isometric embedding into a Hamming cube. The distance-regular graph theory of Cioabă et al. does not apply to \(S(K_n)\) for \(n\geq4\), whose two vertex classes have distinct degrees. The Hamming-subset distance-matrix theorem of Doust and Wolf concerns an \(M\)-constant rather than a sharp least-distortion value. Results on uniform subdivision edge-flow projection constants and on partial subdivision negative-type exponents do not imply least Hilbert distortion. The value for \(n=3\) is a known six-cycle boundary, not a new standalone claim. No covering formula for \(n\geq4\) was identified in the searches, but failure to find one does not prove priority. The original full text of Beaudou et al. could not be inspected; its abstract and a detailed contemporary discussion concern Hamming embeddings, and it remains a qualified historical source risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The object is a canonical non-distance-regular partial cube with two natural rank layers; the target invariant is the least Hilbert distortion, not a chosen embedding's distortion. The result gives an all-order sharp invariant with an unexpected isolated algebraic exception at \(n=4\), rational formulas for every larger order, an exact limit, and optimal embeddings of dimension at most \(n-1\). The lower bound is attained using a local configuration of an incident singleton–doubleton pair and disjoint doubletons, giving a reusable symmetry/semidefinite technique. This is a structurally motivated exact invariant rather than an arbitrary small-instance table.
+Best-knowledge PASS, qualified. The known hypercube isometric embedding of S(K_n) establishes its Hamming metric, not its optimal least *Hilbert* distortion. The known sharp Euclidean distortion paper on distance-regular graphs does not apply directly to this two-degree-class graph. The older exact same-graph Hamming paper's complete text was inaccessible, leaving a material risk of an unmentioned Euclidean consequence; the available abstract only proves partial-cube classification.
 
-## Sources and limitations
+## value
 
-Primary motivating research: Cioabă–Gupta–Ihringer–Kurihara, arXiv:2109.09708 (2021-09-20); Doust–Wolf, arXiv:2109.07052 (2021-09-15). The closest same-object reference is Beaudou–Gravier–Meslem, DOI 10.1137/070681909, whose accessible abstract proves a Hamming-embedding classification rather than the stated Hilbert distortion theorem. Available historical records were checked for implication overlap. Remaining risks include an older equivalent result phrased as two-rank Boolean metric distortion, a hidden lemma in the inaccessible full text, or a more general finite-metric distortion result specializing to this formula. Weighted and nonuniform subdivisions are not treated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Complete-graph subdivisions are canonical partial-cube/two-Boolean-layer metric spaces. An explicit c2 formula for all n with a genuinely exceptional n=4 algebraic regime and a sharp n→∞ limit identifies geometric distortion not determined merely by their Hamming isometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
