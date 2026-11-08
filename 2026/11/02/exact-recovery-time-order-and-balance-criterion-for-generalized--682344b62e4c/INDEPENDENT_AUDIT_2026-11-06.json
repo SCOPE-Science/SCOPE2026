@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:16:45.879911Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the actual theta-graph RESULT.md and verifying its finite subset checker: deleting target edge e leaves endpoint connectivity iff every other edge of its own terminal path AND every edge of at least one other full path has appeared. Poissonization gives independent edge states with x=1-exp(-t/N), so E_i=N integral_0^1 [1-x^(ell_i-1)(1-product_{j != i}(1-x^ell_j))] dx, yielding the given rational sum. Difference E_j-E_i=N integral (x^(ell_i-1)-x^(ell_j-1))(1-product_{k != i,j}(1-x^ell_k)) dx, strictly signed by lengths when r>=3. All equal yields rank r*ell-r+1. At r=2 the difference is zero: sharp boundary. Independently enumerated all subsets for (2,3,4), exact fractions E=(67/10,242/35,101/14) by paths, matching theory; finite tests are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bar-Lev et al., arxiv:2610.28820, defines recovery-balanced matroids and gives general subset-count expectations plus duality, covering the problem framework for every matroid."
+        ],
+        "reasoning": "Its universal finite algorithm is not itself the strict order theorem for arbitrary theta path lengths, which requires a connectivity factorization and positive integral. A hidden explicit corollary remains possible.",
+        "searches": [
+          "matroid random access recovery expectation generalized theta graph series parallel graph balance path length",
+          "arxiv:2610.28820 Matroidal Framework random access, sections II-V"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.28820 mirrored sections I-V (not complete PDF)",
+        "arxiv:2401.15722 abstract/context",
+        "Resultary query matroid random access recovery expectation generalized theta graph series parallel graph balance path length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior mean-rank identity determines average recovery expectation but not each path-specific expectation or strict ordering. The general subset formula requires an all-size theta evaluation to yield the exact result."
+        ],
+        "reasoning": "Equal balanced-path rank is old as a consequence of recovery balance; new part is iff lengths equal and a universal pairwise direction.",
+        "searches": [
+          "\"recovery balanced\" \"series\" \"parallel\" matroid",
+          "arxiv:2610.28820 Matroidal Framework random access, sections II-V"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graphic matroid closure is exactly endpoint connectivity, so the theta result can be rephrased as coded random-access recovery of the associated regular matroid. The recent matroid framework covers the invariant but not this exact family ordering."
+        ],
+        "reasoning": "The equivalence of closure and graph connectivity is standard and not itself novel; novel candidate is the evaluated family/order classification.",
+        "searches": [
+          "matroid random access recovery expectation generalized theta graph series parallel graph balance path length",
+          "\"recovery balanced\" \"series\" \"parallel\" matroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query returned theta homology, gnarledness and matroid-polytope results with other invariants, not a theta recovery-time table. Primary 2026 paper has sparse-paving and duality examples, no displayed theta table in accessible rendered source."
+        ],
+        "reasoning": "Absence in a limited search is not a novelty certificate; the older general matroid formula is accepted as prior.",
+        "searches": [
+          "matroid random access recovery expectation generalized theta graph series parallel graph balance path length",
+          "\"recovery balanced\" \"series\" \"parallel\" matroid"
+        ]
+      },
+      "rationale": "Qualified PASS on infinite theta-family closed formula, strict length-order equivalence and if-and-only-if balance criterion; not on matroid recovery expectation as an invariant. Universal matroid counting formulas are prior art and do calculate any fixed finite instance in principle.",
+      "residual_risks": [
+        "A theta/series-class specialization in unindexed graph or code literature could directly imply the ordering.",
+        "Recent 2026 source primary PDF not fully retrievable; mirror presentation may omit an appendix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL FRAMEWORK. No explicit generalized-theta comparison in inspected material; full-document negative certainty withheld.",
+          "evidence": [
+            "The source says Section III provides matroid subset-count expectations, Section IV duality, Section V sparse-paving, whereas present claim evaluates path lengths."
+          ],
+          "identifier_or_url": "arxiv:2610.28820; https://www.paperpeel.com/paper/2610.28820",
+          "material_read": "Public mirrored rendered text of Sections I-V including definitions, general matroid coordinate formula, duality, sparse-paving results; direct arXiv HTML/PDF unavailable in this run",
+          "method": "Read substantive source body exposed via search index; not claiming independent inspection of every original PDF page",
+          "title": "A Matroidal Framework for Random Access in Linear Codes",
+          "trigger": "Same exact matroid random-access invariant"
+        },
+        {
+          "assessment": "Foundational mean-rank result is prior, not evidence of theta-length classification",
+          "evidence": [
+            "Recovery-balanced codes general theorem distinguishes balanced average from theta coordinate ordering."
+          ],
+          "identifier_or_url": "arxiv:2401.15722",
+          "material_read": "Paper description and prior definitions from primary reference context; full text not independently read this run",
+          "method": "Bibliographic/abstract-level contrast only",
+          "title": "A Combinatorial Perspective on Random Access Efficiency for DNA Storage",
+          "trigger": "Origin of recovery balance and mean rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural graph family with multiple internally disjoint paths gives a complete all-size structural classification of coordinate recovery efficiency, not a one-off calculation. The strict pairwise ordering survives changes to all other path lengths and exactly characterizes balance; the concise sign integral is a meaningful graph/matroid structural law beyond generic evaluation or mean rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform with-replacement edge draws, simple generalized theta with r>=3 and each length>=2.",
+    "r=2 cycle loses strict order; weighted sampling or arbitrary series-parallel graphs not covered."
+  ],
+  "schema_version": 1
+}

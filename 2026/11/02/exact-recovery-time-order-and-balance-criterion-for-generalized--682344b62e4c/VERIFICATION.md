@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_theta_recovery.py` using standard Python 3.9 or later. No third-party dependencies are required. The script independently builds the graph and for each target edge enumerates all subsets of edges not including the target, determines endpoint connectivity by traversal, computes its exact recovery expectation using a subset-size probability identity, and compares this value with the closed rational formula. It also tests the identity \(\sum_e\mathbb E\tau_e=N(N-r+1)\) and the exact strict comparisons. The tested graph length vectors are listed in the source and span three to five paths.
+## correctness
 
-Expected final output begins `VERIFY_OK`. A successful replay from the embedded script is evidence for these finite tests alone. Universal validity rests on the alternate-route characterization, Poisson thinning and the sign-definite integral identity in `RESULT.md`. No independent external audit has been performed. Earliest source dates are verified from the cited arXiv version-one submission records, rather than any revision dates.
+PASS
+
+From the actual theta-graph RESULT.md and verifying its finite subset checker: deleting target edge e leaves endpoint connectivity iff every other edge of its own terminal path AND every edge of at least one other full path has appeared. Poissonization gives independent edge states with x=1-exp(-t/N), so E_i=N integral_0^1 [1-x^(ell_i-1)(1-product_{j != i}(1-x^ell_j))] dx, yielding the given rational sum. Difference E_j-E_i=N integral (x^(ell_i-1)-x^(ell_j-1))(1-product_{k != i,j}(1-x^ell_k)) dx, strictly signed by lengths when r>=3. All equal yields rank r*ell-r+1. At r=2 the difference is zero: sharp boundary. Independently enumerated all subsets for (2,3,4), exact fractions E=(67/10,242/35,101/14) by paths, matching theory; finite tests are corroboration only.
+
+## originality
+
+PASS
+
+Qualified PASS on infinite theta-family closed formula, strict length-order equivalence and if-and-only-if balance criterion; not on matroid recovery expectation as an invariant. Universal matroid counting formulas are prior art and do calculate any fixed finite instance in principle.
+
+## value
+
+PASS
+
+A natural graph family with multiple internally disjoint paths gives a complete all-size structural classification of coordinate recovery efficiency, not a one-off calculation. The strict pairwise ordering survives changes to all other path lengths and exactly characterizes balance; the concise sign integral is a meaningful graph/matroid structural law beyond generic evaluation or mean rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
