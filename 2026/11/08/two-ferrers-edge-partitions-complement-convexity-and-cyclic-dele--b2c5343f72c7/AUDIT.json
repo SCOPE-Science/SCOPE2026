@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A precise proof of necessity shows that Ferrers red and blue row-neighborhood chains must be strict and in opposite order when the host rows form an inclusion antichain; otherwise the host row neighborhoods would be comparable. An isolated 1 between two 0 entries in any column would violate red or blue nesting. Conversely, partition each column into edges before and after its interval of missing positions; these yield nested Ferrers supports for any host. For G_n, all n cyclic missing-row pairs cannot be embedded in only n-1 adjacent pairs of one row order, implying fp>=3; the two triangular Ferrers classes and a single star partition all permitted edges, implying fp<=3. An induced matching of size 3 would force a triangle in C_n, impossible n>=4, while a size-2 witness exists. The reproducible verifier exhaustively checks 996 antichain-row small binary matrices and n=3..100 constructive instances. These finite runs supplement, do not replace, proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.00593 Theorems 9,10,17,18 and Problems 23,26; Theorem 18 removes a matching, not a Hamiltonian spanning cycle.",
+        "Takaoka, arXiv:1605.07322: restricted two-chain-subgraph cover uses overlap-allowing covers."
+      ],
+      "reasoning": "General Dilworth width upper bounds give fp(G_n)<=n and induced matching gives fp(G_n)>=2 for n>=4; neither gives exact three. G_3 is a matching and G_4 is C_8, which are previously covered and not claimed as novel. For n>=5, G_n has min degree n-2 and is neither a single cycle nor matching-deleted biclique. No published stronger all-parameter partition theorem covering the new criterion or dense family was found.",
+      "searches": [
+        "Ferrers partition number 3 for complement of a spanning even cycle K_{n,n} minus C_{2n}, induced matching two; no two-Ferrers decomposition",
+        "arxiv:2603.00593 Theorem 10 even cycles Theorem 17 crown graphs Theorem 18 matching-deleted bicliques Problem 26",
+        "2-chain subgraph cover convex bipartite graphs Klemz Rote 2022 Takaoka 2016"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.00593 full text, including matrix sections and open problems",
+      "DOI:10.61091/ars166-02 journal accessible text",
+      "DOI:10.1007/s00453-021-00904-w accessible full text",
+      "arXiv:1605.07322 accessible manuscript",
+      "DOI:10.1006/jagm.1994.1034 bibliographic/abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "London 2026 §4: nu_ind(G)<=fp(G)<=min(width of the two neighborhood inclusion posets); §10 Problem 26 asks about the two-part decision problem.",
+        "London 2026 §6: disjoint unions of C_8 realize larger gaps, but this does not entail a dense connected graph family with fp=3 and nu_ind=2.",
+        "Ma and Spinrad (1994), DOI:10.1006/jagm.1994.1034, bibliographic/abstract evidence only, studies 2-chain *cover*, not edge *partition*."
+      ],
+      "reasoning": "The earlier bounds do not imply the exact if-and-only-if characterization, since lower and upper bounds for an antichain-row host can remain 2 and |U|, respectively. The new proof uses opposition of strict row-neighborhood chains under an edge-disjoint two-color assignment. The cyclic pair obstruction gives fp>=3 even though induced matching is 2; triangular+star construction gives <=3. These steps are additional, not corollaries of the cited general bounds.",
+      "searches": [
+        "Ferrers partition number of trees and spiders: partition edges into chain graphs (induced 2K2-free bipartite subgraphs), relation to induced matching and bistar partition",
+        "Ferrers partition number of 3-by-n rectangular grid graphs Cartesian products paths; exact formula and induced matching",
+        "two-chain subgraph cover overlapping edge cover versus edge-disjoint Ferrers partition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.00593 §§3,8,9: Ferrers parts mean nested row neighborhoods; paper states only matrix support partition characterization, without complement column consecutive ones equivalence.",
+        "Klemz--Rote (2022), DOI:10.1007/s00453-021-00904-w: ordinary minimum chain covers allow overlaps and concern convex input graphs, not an edge partition of the complement."
+      ],
+      "reasoning": "Complement columns missing consecutive rows is equivalent to a single row ordering in which two nested colored Ferrers supports can be separated. The antichain hypothesis forces the opposing strict color orders, providing the nontrivial necessity. Overlapping chain covers can retain a shared edge; reassigning such an edge may spoil nestedness, so they cannot be assumed to imply an edge partition.",
+      "searches": [
+        "Two Ferrers chain graph edge partition characterization by consecutive ones property of bipartite complement for pairwise incomparable row neighborhoods; convex bipartite complement",
+        "partition bipartite graph edges into two chain graphs iff missing-neighborhood sets form intervals under row permutation",
+        "arxiv:2603.00593 section 8 matrix viewpoint Theorem 18"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "London 2026 §5 computes paths and even cycles, and §6 computes matching-deleted bicliques; no Hamiltonian-cycle-deleted biclique table."
+      ],
+      "reasoning": "A table of fp(C_8)=3 covers the n=4 case only. The exact values and structural criterion for n>=5 are not a row of or implication from the published formulas and tables inspected; absence of an index hit is not by itself proof of novelty.",
+      "searches": [
+        "Ferrers partition number 3 for complement of a spanning even cycle K_{n,n} minus C_{2n}, induced matching two; no two-Ferrers decomposition",
+        "exact counting bistar edge partitions of ladder graph optimal Ferrers partitions",
+        "arxiv:2603.00593 host-induced conflict graph lower bound matrix viewpoint"
+      ]
+    },
+    "rationale": "Full text of London 2026 studies precisely the edge-disjoint Ferrers invariant but only covers paths, cycles, crown graphs, matching-deleted bicliques, general bounds, and explicitly leaves the two-part decision complexity unresolved. The new antichain-row/complement-column-consecutive-ones equivalence supplies a natural genuine structural subclass, and for n>=5 the Hamiltonian-cycle-deleted complete bipartite families are not special cases of the known matching-deleted/cycle results. Covering literature permitting edge overlaps is not equivalent to a disjoint partition. Comparisons with accessible published research did not reveal a stronger covering statement. Historical priority remains provisional, with the inaccessible original Ma--Spinrad full text and unindexed literature noted.",
+    "residual_risks": [
+      "The 1994 foundational two-chain-cover paper could not be inspected in full; an equivalent unpublished or differently formulated result might exist.",
+      "The new criterion is limited to antichain row-neighborhood hosts; it does not solve general two-Ferrers edge partition recognition.",
+      "The n=3 matching and n=4 C8 special cases are old; the new natural family starts at n=5.",
+      "No independent third-party mathematical or priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest primary source; does not state or imply the antichain/complement-convex characterization or exact Hamiltonian-cycle-deletion family beyond already covered n=3,4 cases",
+        "evidence": [
+          "arXiv:2603.00593 §§4–10",
+          "DOI:10.61091/ars166-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.00593",
+        "material_read": "Full accessible article text, sections 1 through 10, including statements, proofs, matrix viewpoint and open problems",
+        "method": "Read arXiv full-text rendering and journal open-access article material",
+        "title": "Edge partitions into induced-2K2-free bipartite graphs",
+        "trigger": "Exact same edge-partition invariant and closely related matching-deleted complete bipartite graphs"
+      },
+      {
+        "assessment": "Overlapping edge covers, rather than edge-disjoint Ferrers edge partitions; no contradiction or implication to the new if-and-only-if",
+        "evidence": [
+          "DOI:10.1007/s00453-021-00904-w"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-021-00904-w",
+        "material_read": "Accessible full text discussing cover model, convexity and algorithmic structure",
+        "method": "Read Springer open-access article full text",
+        "title": "Linear-Time Algorithms for Maximum-Weight Induced Matchings and Minimum Chain Covers in Convex Bipartite Graphs",
+        "trigger": "Possible prior equality of chain covers and partitions for convex bipartite graphs"
+      },
+      {
+        "assessment": "Uses overlapping Ferrers covers in a graph-recognition reduction, not disjoint edge partitions of antichain-row graphs",
+        "evidence": [
+          "arXiv:1605.07322"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.07322",
+        "material_read": "Accessible full arXiv manuscript text including model definition and cover construction",
+        "method": "Read preprint full-text rendering",
+        "title": "Recognizing Simple-Triangle Graphs by Restricted 2-Chain Subgraph Cover",
+        "trigger": "Prior 2-chain cover decision and known characterizations"
+      },
+      {
+        "assessment": "Unresolved historical-priority risk; the cover formulation differs from the disjoint-partition formulation and abstract alone cannot settle overlap",
+        "evidence": [
+          "DOI:10.1006/jagm.1994.1034"
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jagm.1994.1034",
+        "material_read": "Bibliographic and abstract-level material only; full text unavailable",
+        "method": "Checked arXiv and lawful open-access sources; full-text institutional access required unavailable intervention",
+        "title": "On the 2-Chain Subgraph Cover and Related Problems",
+        "trigger": "Foundational two-chain-cover paper most plausibly containing equivalent matrix reductions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2c5343f-72c7-4f7e-a15b-6a4b1f4a8a40",
+  "value": {
+    "rationale": "The paper introducing the parameter explicitly asks for recognition of two-Ferrers edge partitions. The antichain-neighborhood subclass is broad, structurally natural and recognizable by a one-sided consecutive-ones algorithm. Its characterization is exact, not only a sufficient construction. The cycle-deleted biclique application yields an entire dense connected family with a strict induced-matching gap for n>=5, naturally distinct from prior paths/cycles and matching-deleted constructions. The mathematical motivation precedes and exceeds small finite computations.",
+    "status": "PASS"
+  }
+}
