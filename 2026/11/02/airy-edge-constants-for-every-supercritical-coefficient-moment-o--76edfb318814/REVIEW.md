@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-For fixed distinct \(0<a_1<\cdots<a_m<1\) and fixed finite \(p>4\), differentiation of the Poisson representation gives the two and only two cubic folds with curvatures \(U,V>0\). Cubic normal forms at both folds yield the correctly normalized Airy limits. Global stationary-phase and first-derivative bounds make the coefficient tails negligible after multiplying by \(n^{(p-1)/3}\): inside, the cutoff error is \(O(M^{1-p/4})\), and outside, \(O(M^{1-p})\). The two Airy windows are disjoint and their Riemann sums give the stated sum of two contributions. The proof is for every fixed finite \(p>4\); numerical tests are checks of normalization, not a replacement for the estimates. The principal analytic risk is whether dyadic stationary-phase estimates are applied uniformly close to the moving folds; the argument specifies the relevant scales and the derivative comparabilities.
+## correctness
 
-## Originality: PASS (provisional priority)
-Szehr–Zarouf's 2017 work obtains sharp single-factor norm orders but not an exact multi-zero constant. Borichev–Fouchet–Zarouf's 2021 factor paper gives Airy profiles for one factor and flags exact constants as separate work; the 2024 finite-product study proves sharp maximum-coefficient decay, not the finite-\(p\) sum. A related recorded mathematical result is the exact fourth-power logarithmic constant (ID \(ae09b2ab-9a1f-4729-80c8-de0b7a72cdcc\)): its statement cannot imply the supercritical Airy constant. Several semantic searches were used for aliases and stronger implications. No direct covering statement was located in the inspected text, but unpublished or indirectly formulated extensions of the cited authors' work could cover the claim. Failure to find one is not proof of novelty.
+PASS
 
-## Value: PASS
-The coefficient norm for Blaschke powers undergoes a transition at \(p=4\). The present result computes, for all finite \(p>4\), the precise constant for a natural and nontrivial multi-zero family, separating both phase-edge contributions. It sharpens a growth-order result to an explicit stable invariant depending on root geometry, and it locates exactly the regime in which bulk coefficients cease to contribute at leading order. The constant is not supplied by the known \(p=4\) logarithmic law or by a pointwise supremum estimate.
+The boundary phase derivative is a sum of Poisson kernels strictly decreasing on (0,π), giving exactly two cubic folds, with F''(0)=-U and F''(π)=V>0. The ± fold orientations and scales (2/(nU))^(1/3), (2/(nV))^(1/3) yield standard Airy integrals with correct signs; independent exact rational evaluation at a1=1/5,a2=1/2 verified U=207/16,V=1/3 and extreme velocities 9/2,1. The proof separates compact fold windows and uses cubic van der Corput n^-1/3, away-from-fold interior bound (n d)^-1/4 and outside 1/d to obtain normalized remainders O(M^(1-p/4)) and O(M^(1-p)), both vanishing exactly when p>4. Riemann sums supply both positive Airy masses; standard oscillatory Airy negative tail |s|^-1/4 is integrable to p-power for p>4. Independent finite-n Fourier coefficients trend correctly but do not prove the asymptotic limit. Assumptions exclude root collisions, noncollinear roots, p=4 and p=∞.
 
-## Scope and residual risks
-No assertion is made for noncollinear zeros, colliding roots, the critical exponent, variable exponents or higher-order phase degeneracies. The most important priority risk is a theorem implicit in a comprehensive asymptotic analysis not uncovered by available searches. The proof uses established asymptotic machinery rather than introducing a fundamentally new method. Independently audited verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one-factor sharp order and coefficientwise Airy asymptotics are prior (Szehr–Zarouf 2017, Borichev–Fouchet–Zarouf 2021). The latter explicitly says on its PDF page 3 that exact cp moment constants are not studied and are left to forthcoming work; it concerns a single Blaschke factor. BFZ 2024 finite-product work treats sharp max-coefficient/l∞ decay in the accessible abstract, not this all-fixed finite-p two-fold moment formula. The paper's full body was inaccessible, and authorized institutional retrieval could not proceed because of a disconnected VPN. The present global tail argument is needed to upgrade local Airy profiles to exact summed p-moment constant. Higher-order stationary-phase general theory might implicitly cover the statement; originality remains best-of-knowledge.
+
+## value
+
+PASS
+
+Explicit sharp finite-p>4 coefficient-moment constants are natural spectral/analytic invariants; two distinct cubic folds in finite radial products and rigorous bulk control make the constant geometry-sensitive. The result advances known norm orders/maximum estimates and does not inflate a finite check into asymptotic proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
