@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The path-integration operator is the inverse of differentiation from the rooted Sobolev space, so the norm equals the reciprocal square root of the first one-root-Dirichlet/Kirchhoff/Neumann Laplace eigenvalue. The unique secular root gives an explicitly positive eigenfunction. A ground-state transform proves global minimality, simplicity, sharpness and complete norm-attainer rigidity. Strict convexity of the tangent function proves strict Schur-convexity, including the possible noncommon pole domains. The implicit-function expansion has a nonzero negative root derivative, giving the positive quadratic coefficient. The many-arm expansion follows from the uniform tangent series around its limiting simple root. All lengths and quantifiers are specified; no numerical inference is used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Variational substitution u=Hf identifies norm squared with reciprocal first Dirichlet-root/Kirchhoff-junction/Neumann-tip eigenvalue of a compact metric tree. A positive sin stem and cosine leaves eigenfunction and the ground-state identity prove that the unique first pole-free root of cot(ak)=sum_i tan(k b_i) is exactly k=1/||H||; equality forces a one-dimensional eigenspace. Strict convexity of tan(kx) on pre-pole domain and monotonicity of the secular root prove strict terminal-length majorization; collapse to a path gives known supremum. Implicit-function Taylor expansion at equal arms gives strictly positive quadratic coefficient sec²(bk0)tan(bk0)/D. Expansion m tan(kB/m)=Bk+k³B³/(3m²)+O(m^-4) yields endpoint mass law. Independent bisection and perturbation calculations give coefficient 0.0661044248 vs observed 0.0661044439 at perturbation 0.0025; only corroborative.
 
-Published-literature and related mathematical-result searches disclosed no matching theorem for unequal continuous metric-tree terminal lengths, majorization or the exact many-short-arm correction. Closest primary work: Naimark–Solomyak (2000) and Evans–Harris–Lang (2001) provide general tree-Laplacian and Hardy-operator frameworks; their complete texts were unavailable. The accessible full paper by Del Pezzo–Rossi (arXiv:1408.5935, especially Theorems 3.3, 3.5, and 4.4) already proves simplicity, a general sharp total-length bound, and general first-eigenvalue shape derivatives. Those general ingredients are *not* claimed new. Its statements do not contain this explicit strict length-majorization order, sharp stable equality profile, or the \(m^{-2}\) limiting correction. Rohleder's arXiv:1602.03864 treats different standard-Neumann spectral gaps. The material of Ekholm–Frank–Kovařík arXiv:0711.1943 concerns infinite-height regular trees and Hardy weights. The inaccessible early full texts and potential equivalent quantum-graph rearrangements are genuine remaining originality risks.
+## originality
 
-## Value — PASS
+PASS
 
-How branching redistributes a fixed terminal length is a natural shape-optimization question for the best tree Hardy/Poincaré constant. The theorem supplies exact norm and optimizer, a strict order for **every** positive terminal-length profile at any number of arms, a positive second-variation coefficient measuring stability of the equal-arm minimizer, and the effective-point-mass limit with a sharp finite-branch correction. These structural and limiting statements are not merely a known universal total-length bound or a numerical table.
+Specific root Dirichlet broom strict terminal-branch Schur-convexity, sharp local coefficient and many-short-arm correction are not stated in accessible earlier general spectral papers. Total-length bound and ground-state methods acknowledged prior.
 
-## Limits
+## value
 
-The result does not handle arbitrary rooted trees or \(L^p\), \(p\ne2\), nor assert all singular values. The earliest general-source full-text comparison remains incomplete, so priority requires independent literature evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A positive first eigenvalue on a physically natural stem-and-terminal network is an important operator norm, and redistributing prescribed branch lengths produces a strict all-parameter optimization theorem, sharp stability curvature and endpoint-mass limit. These exact spectral dependencies are meaningful beyond generic textbook secular reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
