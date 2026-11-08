@@ -1,9 +1,21 @@
-# Review: Katz centrality under player-dependent link costs
+# Independent mathematical audit
 
-**Correctness (PASS).** The statement fixes undirected OR-sponsorship and an admissible common attenuation before comparing player-specific costs. Exact resolvent equations yield the triangle, path and pendant benefits. Four strategically distinct moves for a triangle sponsor and the isolate's supermodular symmetric benefit determine the entire best-response set. Positive explicit algebraic gaps prove the full attenuation interval and a nonempty open strict region. Every triangle orientation has some sponsor with a cost ceiling; joining all three bounds the isolate cost below, giving the attained minimum ratio. The unique non-core–periphery three-player graph is analytically excluded. The standalone checker independently confirmed 392 unilateral comparisons and related exact rational identities at seven attenuation values. Computation is supplementary, not the infinite proof.
+## correctness
 
-**Originality (PASS, conditional on accessible literature).** The closest source is Arieli et al. (arXiv:2609.02357), fully examined in its accessible manuscript sections 2–9 and relevant appendix. Theorem 1 assumes a common link cost. Example 1 already gives the triangle-plus-isolate as a strict equilibrium in a **different nonlinear benefit** model: graph shape alone is therefore known, and novelty is not claimed for the shape. Neither that example nor the common-cost theorem yields a Katz equilibrium with arbitrarily small *player-specific* cost dispersion, the exact cost interval, or the sharp three-versus-four boundary. Related Katz resource-allocation, shortest-path cost-heterogeneity, and bilateral pairwise-stability papers use different payoffs or mechanisms. Focused search results and accessible earlier local claims did not identify the exact statement; this is not proof of absolute priority. Residual risk: unindexed or inaccessible equivalent treatments.
+PASS
 
-**Value (PASS).** A universal network-shape conclusion for a current model has a quantitative robustness boundary. The exact cost ratio separates admissible support from impossibility for a natural four-player disconnected architecture, tends to one, and is approached by a region of strict equilibria; the three-player obstruction is sharp. This answers a motivated structural question rather than simply changing a numerical example. It does not assert general graph classification or a result for fixed attenuation with vanishing cost dispersion.
+With OR-sponsorship, player-specific linear cost and common 0<q<1/3, the three triangle sponsors can each delete, add the isolated link, switch, or redundantly sponsor existing edges; their exact Katz gains reduce to ell(q)<=a<=U(q). The isolate has a strictly convex/supermodular centrality benefit in the number of links to the triangle, so no deviation is profitable iff b>=V(q)=q/(1-3q). Symbolic rational sign checks establish ell<U<V for all 0<q<1/3; exact independent rational-resolvent computations enumerated every unilateral strategy at q=1/4. A triangle graph in any equilibrium cannot contain duplicate sponsors, and deleting an owner edge gives some triangle sponsor cost<=U; the isolate requires cost>=V. A cyclic three-sponsor profile attains V/U, establishing the sharp minimum ratio, approached strictly. The only non-core-periphery graph with <=3 vertices is K2 plus an isolate, excluded because the edge owner could profitably attach the isolate. This proves n=4 minimality without conflating finite checks with the universal rational argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.
+
+## value
+
+PASS
+
+A common-cost core–periphery theorem is naturally stress-tested by minimal heterogeneity. The four-agent counterexample, necessary and sufficient support window, exact minimum dispersion R(q)=V/U and asymptotic 1+q+O(q²) show quantitative fragility of that structural theorem. This motivated parameter boundary is more than just a familiar triangle-plus-isolate graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
