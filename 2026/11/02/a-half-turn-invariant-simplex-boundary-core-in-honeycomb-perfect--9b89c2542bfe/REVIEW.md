@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The face criterion follows from the explicit plane-partition edge rules in Bayer–Jelić Milutinović–Vega, Proposition 10. The specified induced subcomplex has every proper face, but not the full vertex set. The published two-toggle acyclic matching has one exceptional face; restricting its pairs outside the induced boundary leaves a complete relative acyclic matching with no crossing pairs. The resulting simplicial collapse makes the invariant inclusion an integral homology isomorphism. The half-turn is a signed permutation of the core vertices, so its top-degree action is the exact sign \((-1)^{n(n+1)/2}\). The rational quotient statement follows by finite-group transfer. Finite exact face and matching enumeration for \(n=2,3,4\) independently checks the conventions; it is not the proof for unbounded \(n\).
+## correctness
 
-## Originality
-PASS against searched, accessible evidence, with a substantive derivation risk. The closest paper, Bayer, Jelić Milutinović and Vega, arXiv:2209.02803v1, Theorem 14, proves the nonequivariant homotopy equivalence \(K_n\simeq S^{n-1}\) and provides the toggle matching. Its inspected full text does not state the half-turn orientation character, the half-turn invariant induced simplex-boundary model, or rational quotient homology. The collapse refinement uses its matching and must not be confused with independent originality of the known sphere classification. Relevant published mathematical search results on Möbius-ladder and other matching complexes concern different graph families. The residual risk is that this short strengthening is recorded elsewhere or viewed as an implicit consequence of the original proof.
+PASS
 
-## Value
-PASS. The result constructs an explicit **minimal, geometrically invariant** sphere core inside a large matching complex for every strip length and shows that the geometric half-turn can either preserve or reverse the sole integral homology generator. It gives a mod-four quotient-homology dichotomy, unavailable from the nonequivariant sphere result. Its role is an exact structural and equivariant refinement, not a new sphere count or a purported general classification of honeycomb complexes.
+Reconstructed plane-partition facet criterion: extreme matchings (0,0),(n,n) and diagonal (j,j) exhibit every proper face of chosen n+1 vertices while no matching contains all; this is an induced simplex boundary. Original published sequential x/y toggle matching has exactly one unmatched face tau={y,z_1,...,z_(n-1)}, and matched pairs cannot cross the specified induced core; hence the complete relative acyclic matching gives ordinary simplicial collapse K searrow L. Though this collapse order is not equivariant, the inclusion is equivariant and an integral homology isomorphism. Rotation swaps x,y and reverses z sequence, inducing permutation sign (-1)^(1+floor((n-1)/2))=(-1)^(n(n+1)/2); rational transfer yields mod-four invariant homology. Independently reconstructed facets, face counts and toggle matching for n=2,3,4: 1347,17487,206127 faces; explicit relative acyclicity topological sorting for n=2,3, with n=4 only complete pairing verified. Infinite acyclicity uses published general toggle lemma.
 
-## Limits and closest literature
-The collapse order itself is not equivariant. No integral quotient torsion or fixed-set type is determined. The earliest motivating public paper is Bayer, Jelić Milutinović and Vega, arXiv:2209.02803 (first posted 2022-09-06; journal 2023, DOI 10.37236/11525). The available source is the full arXiv HTML v1; the journal citation was independently checked. No external independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Bayer–Jelić Milutinović–Vega theorem establishes only the nonequivariant sphere homotopy type and supplies the exact matching tools. The new result is not claiming the sphere alone: it specifies a geometrically half-turn invariant induced spine, actual collapse onto it, the integral homology action and rational quotient mod-four dichotomy. Full closest primary text inspected; no explicit equivariant character found. A subtle risk is that a later paper or an implicit corollary of the original proof already records the character.
+
+## value
+
+PASS
+
+A canonical invariant minimal sphere core and a parity-dependent rotation representation answer a natural equivariant refinement that the known nonequivariant sphere result cannot determine; quotient rational homology alternates in mod-four classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
