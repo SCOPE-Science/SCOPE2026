@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every k>=1 the cubic factorization is exact modulo 2^k. Odd-s slices have exactly two Hensel branches; even-s slices reduce with correct 2^v lifting factor to a square map at depth k−v. B_m=m2^m is proved using odd/even pair decomposition and Q_m by square-image recursion. Both global sums and the probability-normalized Fourier fourth moment follow algebraically. Exhaustive integer checks through k=10 corroborate each coefficient.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hickman–Wright, arXiv:1801.03176, Problem 2.2 concerns uniform restriction bounds for polynomial varieties over residue rings and highlights the paraboloid rather than exact cubic convolution.",
+        "Dehnavi et al., NNTDM 25 (2019), Section 3 gives a general algorithm for all quadratic equations modulo powers of two, including the quadratic congruences obtained after fixing the first sum coordinate."
+      ],
+      "reasoning": "The general quadratic-congruence classification dominates individual solution-fiber counts after substitution, but does not supply the aggregate evaluation across all first-coordinate valuations or the closed energy and support formulas. A genuine prior direct aggregate result would defeat novelty; none found in the compared primary texts.",
+      "searches": [
+        "dyadic cubic polynomial graph x x cubed modulo 2^k complete twofold sum representation counts exact additive energy 2^{2k}(k^2-k+8)/4",
+        "arxiv:1801.03176 §§1–2,5",
+        "doi:10.7546/nntdm.2019.25.1.75-83 §§2–3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1401.7152",
+      "arxiv:1911.12262",
+      "arxiv:1801.03176",
+      "doi:10.7546/nntdm.2019.25.1.75-83",
+      "OEIS:A214763"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.4 of Hughes–Wooley is a tenth-moment bound for two integer polynomials; the fourth-moment proof in §4 concerns univariate polynomial sums on integer intervals.",
+        "The 2019 quadratic-root paper directly covers local root counts but not the sum over all parameters that yields the two global closed expressions.",
+        "A published results-corpus query returned exact finite-field fifth-power graph two-sums, which do not encompass dyadic residue-ring cubic graphs."
+      ],
+      "reasoning": "No inspected theorem gives the numerical energy N²(k²−k+8)/4, the two-branch support size, or a stronger statement with those identities as an immediate parameter specialization. The pointwise congruence solver is not being asserted as an original component. Exact priority is bounded, not certified.",
+      "searches": [
+        "arxiv:1911.12262 Theorems 1.2,3.4,4.1",
+        "arxiv:1801.03176 Problem 2.2",
+        "doi:10.7546/nntdm.2019.25.1.75-83 Lemma 3.1 and square-map analysis",
+        "exact additive energy and fourth Fourier moment of the cubic moment curve graph x to (x,x^3) over prime power rings Z/p^k; cubic sum collisions and triple product congruence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hughes–Wooley, arXiv:1911.12262 §§3–4, bounds integer-interval discrete restriction moments rather than complete dyadic finite-ring sums.",
+        "Wooley, arXiv:1401.7152 §1, estimates ninth and related integer moments; no modular twofold histogram."
+      ],
+      "reasoning": "A fourth Fourier moment, additive energy, and two-sum collision count are equivalent through orthogonality, and these formulations were queried. Existing integer interval fourth-moment bounds do not imply the exact residue-ring formula at arbitrary depth. Standard square-root solvers do imply the *pointwise intermediate quadratic step*, which is expressly not claimed new.",
+      "searches": [
+        "exact additive energy and fourth Fourier moment of the cubic moment curve graph x to (x,x^3) over prime power rings Z/p^k; cubic sum collisions and triple product congruence",
+        "complete pair-sum convolution distribution of cubic graph over finite cyclic rings and prime-power modular quadratic discriminants",
+        "fourth moment two-variable cubic Weyl sum over 2-power modulus, sum of |∑ e((a x + b x^3)/2^k)|^4",
+        "arxiv:1911.12262 §4",
+        "arxiv:1401.7152 §1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A214763 shares the short energy prefix 8,40,224,1280,7168 but its next term is 40000, whereas the verified dyadic cubic energy at k=6 is 38912; thus it is a different sequence.",
+        "No matched exact dyadic cubic two-sum support sequence was identified in the recorded searches."
+      ],
+      "reasoning": "A short numerical sequence match is not sufficient: the closest table is provably divergent at the next tested term. These searches do not prove novelty and may miss other databases.",
+      "searches": [
+        "\"2, 7, 23, 83, 307, 1187\" cubic sumsets",
+        "\"8, 40, 224, 1280, 7168\" cubic sums",
+        "site:oeis.org \"8, 40, 224, 1280\"",
+        "site:oeis.org \"2, 7, 23, 83, 307\""
+      ]
+    },
+    "rationale": "The assessed claim is the exact pair of aggregated dyadic cubic Fourier energy and twofold-support laws. Published-result queries and inspected primary sources yielded no equivalent aggregate theorem. General modular quadratic solvers *do* cover individual fiber solutions, and that component is explicitly not claimed as new; the novelty comparison concerns the valuation-wide closed summations.",
+    "residual_risks": [
+      "General dyadic quadratic-congruence algorithms settle the local fiber problem; it is not novel by itself.",
+      "Unlocated older treatments of 2-adic local densities or cubic Weyl sums might explicitly provide the same global energy or sumset formula.",
+      "No exhaustive all-publisher or all-language priority determination is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Concerns asymptotic integer interval mean values, not exact complete modular fourth moment.",
+        "evidence": [
+          "arxiv:1401.7152, page 1, Theorem 1.1 and equation (1.2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.7152",
+        "material_read": "Full-text PDF introduction and main theorem statements, with discussion of integer moment counting and method.",
+        "method": "Read PDF text and rendered first page; compared integer-variable moment hypotheses to finite residue ring.",
+        "title": "Mean value estimates for odd cubic Weyl sums",
+        "trigger": "Earliest archived motivating source on the two-variable odd cubic phase"
+      },
+      {
+        "assessment": "The explicit fourth-moment proof handles arbitrary integer sets and divisor estimates, not an exact complete dyadic ring average.",
+        "evidence": [
+          "arxiv:1911.12262, pp. 1, 7, 11; §4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.12262",
+        "material_read": "PDF introduction, theorem 1.2, theorem 3.4 and proof, section 4 fourth-moment proof on page 11.",
+        "method": "Examined searchable full PDF and rendered pages 1, 7, 11.",
+        "title": "Discrete restriction for (x,x^3) and related topics",
+        "trigger": "Same cubic moment curve, restriction and moment claims"
+      },
+      {
+        "assessment": "Provides uniform ring restriction inequalities, not an exact cubic-graph additive-energy/sumset evaluation.",
+        "evidence": [
+          "arxiv:1801.03176, pp. 1–4, Problem 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.03176",
+        "material_read": "Full PDF introduction and basic setup, Problem 2.2, polynomial graph definitions and principal paraboloid example.",
+        "method": "Examined searchable full PDF and rendered pages 3 and 4; searched for cubic and fourth-moment claims.",
+        "title": "The Fourier restriction and Kakeya problems over rings of integers modulo N",
+        "trigger": "Most relevant general framework at prime-power moduli"
+      },
+      {
+        "assessment": "Indeed covers pointwise quadratic root counting; no global cubic-curve aggregation or fourth-moment/sumset formula identified in the inspected results.",
+        "evidence": [
+          "NNTDM 25 (2019), pp. 75–83, §3, Lemma 3.1 and square-map count"
+        ],
+        "identifier_or_url": "https://nntdm.net/papers/nntdm-25/NNTDM-25-1-075-083.pdf",
+        "material_read": "Full-text PDF abstract, section 3 including Lemma 3.1 and subsequent square-map root case analysis.",
+        "method": "Read PDF text and rendered the relevant pages 77 and 80.",
+        "title": "Complete solving the quadratic equation mod 2^n",
+        "trigger": "Possible stronger result covering the polynomial fibers after fixing the first cubic-curve sum coordinate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f0699e1-421a-47f5-b1f7-c48b596fc973",
+  "value": {
+    "rationale": "A canonical nonquadratic harmonic-analysis curve has a complete two-sum arithmetic description at every dyadic depth; the exact fourth moment has quadratic depth amplification while the two-sum support has nontrivial stable density 5/18. These are natural global invariants relevant to detecting additive concentration and the constant-input Fourier restriction benchmark, not an ad hoc finite table. No unrestricted weighted extension conclusion is claimed.",
+    "status": "PASS"
+  }
+}
