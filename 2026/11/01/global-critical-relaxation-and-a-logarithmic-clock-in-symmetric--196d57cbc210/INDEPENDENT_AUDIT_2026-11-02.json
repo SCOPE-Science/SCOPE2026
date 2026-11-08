@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:02:59.439741Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix 0<γ<1, positive x,y, symmetric Ricker map at r=s=2. The previously proved global convergence-to-a-fixed-point theorem of Baigent–Hou–Elaydi–Balreira–Luís applies at endpoint; coordinate growth near origin and missing-species invasion factor exp[2(1−γ)]>1 at each axial equilibrium rule out noncoexistence limits for positive orbits. For q=(1+γ)(x+y)/2−2 and w=(1+γ)(x−y)/2, exact update qʹ=e^(−q)[(2+q)cosh(κw)−w sinh(κw)]−2, wʹ=e^(−q)[w cosh(κw)−(2+q)sinh(κw)], κ=(1−γ)/(1+γ), η=1−2κ=(3γ−1)/(1+γ), |η|<1. Transverse w contracts exponentially on late tails. Inverting the scalar map f(q)=(2+q)e^(−q)−2 and solving weighted backward errors via a contraction with Lipschitz Lρ²<1 yields local C³ scalar phase π(q,w)=q+O(w²), invariant strong-stable phase-zero curve and exponentially small scalar shadowing. Analytic nonzero Jacobian off a measure-zero critical locus implies countable backward preimages of this C³ curve remain null. Independent exact symbolic composition gives f²(z)=z−z³/3+z⁵/30+z⁶/72+O(z⁷) and inverse-square step U_{n+1}−U_n=2/3+(4/15)U_n^−1+O(U_n^−3/2). Summation yields U_n=(2/3)n+(2/5)log n+C+o(1); exponential shadowing transfers the constant-level asymptotic to every nonexceptional planar orbit. Eigenvalue and exchange symmetry give even ψ(w) with curvature −γ(1−γ)/(1−2γ+5γ²). Finite trajectory samples do not prove global convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baigent et al. prove all orbits converge to a fixed point for a broad Ricker region r,s≤2; Balreira et al. investigate global stability from local conditions."
+        ],
+        "reasoning": "Convergence and stability do not imply convergence rate, precise 2/5 logarithmic clock or curvature; full content of two older possible sources not independently ruled out, retained as risks.",
+        "searches": [
+          "doi:10.1080/10236198.2023.2222855 Theorem 3.4",
+          "doi:10.3934/dcdsb.2014.19.323",
+          "doi:10.1007/BF00275495",
+          "critical Ricker competition two species r=s=2 logarithmic relaxation inverse square 2/5 stable manifold"
+        ]
+      },
+      "checked_sources": [
+        "Baigent–Hou–Elaydi–Balreira–Luís, J. Difference Equ. Appl. 29 (2023) 575–591, Theorem 3.4",
+        "Kulakov–Neverova–Frisman, Mathematics 10 (2022) 1076",
+        "Balreira–Elaydi–Luís, DCDS-B 19 (2014), abstract only",
+        "Jiang–Rogers, J. Math. Biol. 25 (1987), abstract only",
+        "Resultary critical-relaxation and synchronous Ricker Floquet records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 global fixed-point convergence supplies only the first step. 2022 dynamic modes and 2014 stability criteria do not state two-step asymptotic coefficients."
+        ],
+        "reasoning": "A nonhyperbolic fixed point with multiplier −1 requires a quintic Taylor jet and a transverse nonlinear phase construction; neither follows from global convergence or Floquet formulas.",
+        "searches": [
+          "Baigent et al. 2023 Theorem 3.4",
+          "Kulakov et al. Mathematics 10 2022 1076",
+          "Balreira et al. 2014 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At γ∈(0,1), diagonal scalar map is f(q)=(2+q)e^−q−2 with multiplier −1 and two-step cubic parabolic drift; ambient dynamics adds transverse stable phase."
+        ],
+        "reasoning": "Standard one-dimensional parabolic flip theory is an equivalent normal-form mechanism, but does not state global attraction, the specific log coefficient and exceptional planar geometry in original variables.",
+        "searches": [
+          "critical Ricker competition two species r=s=2 logarithmic relaxation inverse square 2/5 stable manifold",
+          "Baigent Hou Elaydi Ricker map r=s=2 flip critical relaxation inverse square",
+          "symmetric planar Ricker map log correction strong stable manifold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One Resultary finding derives a log critical clock for a positive rational flip map; another derives Floquet spectra for synchronous Ricker cycles."
+        ],
+        "reasoning": "Distinct map formula and objective prevent implication of the exact Ricker 2/5 rate, phase-zero curve or global null exceptional class.",
+        "searches": [
+          "critical Ricker competition two species r=s=2 logarithmic relaxation inverse square 2/5 stable manifold",
+          "Resultary:2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b",
+          "Resultary:2026/9/20/SCOPE-synchronous-ricker-spectral-floquet-reduction--5261a9c6ad45"
+        ]
+      },
+      "rationale": "Baigent et al. 2023 prove global convergence but not a two-term critical rate or exceptional preimage geometry. Kulakov et al. 2022 analyze dynamic modes; older Balreira et al. 2014 and Jiang–Rogers 1987 address stability/competition but full relevant texts were inaccessible in this review (Balreira repository PDF returned 403). Similar published Resultary logarithmic clocks concern different rational/flow systems and do not reduce to this Ricker map; prior spectral Floquet reduction covers synchronous cycles, not the nonhyperbolic coexistence fixed point. Best-of-knowledge originality with named risks.",
+      "residual_risks": [
+        "2014 Balreira–Elaydi–Luís postprint download returned HTTP 403; 1987 Jiang–Rogers complete text unavailable; same-object priority comparison remains bounded.",
+        "C³ differentiability of the phase construction uses contraction of derivative equations; complete numerical verification cannot replace this analytic argument.",
+        "No uniform-in-γ bound as γ→1 and no global topological census of exceptional preimages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves global convergence to some fixed point; no identified two-term endpoint rate or curved exceptional phase-set classification",
+          "evidence": "Theorem 3.4 applies at r=s=2 and positive cross-couplings; no explicit log n coefficient in the inspected global theorem.",
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2023.2222855",
+          "material_read": "Full accessible repository primary manuscript main fixed-point convergence theorem (Theorem 3.4) and stated parameter hypotheses, with surrounding results",
+          "method": "Read open-access institutional author manuscript, relevant full sections",
+          "title": "A global picture for the planar Ricker map: convergence to fixed points and identification of the stable/unstable manifolds",
+          "trigger": "Exactly same planar model, broad r=s=2 endpoint convergence"
+        },
+        {
+          "assessment": "Focuses dynamic modes/cycles, not precise critical endpoint relaxation",
+          "evidence": "Numerical bifurcation and multistability emphasis is different from a global n^−1/2 law.",
+          "identifier_or_url": "https://doi.org/10.3390/math10071076",
+          "material_read": "Accessible indexed full article dynamics and bifurcation statements, including relevant model scope",
+          "method": "Open-access journal full HTML relevant sections",
+          "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+          "trigger": "Same ecological difference system"
+        },
+        {
+          "assessment": "Cannot conclude full document lacks special boundary-rate theorem; priority risk preserved",
+          "evidence": "Abstract: under geometric assumptions local coexistence stability implies global stability on positive quadrant.",
+          "identifier_or_url": "https://digitalcommons.trinity.edu/math_faculty/73/; doi:10.3934/dcdsb.2014.19.323",
+          "material_read": "Publisher/repository abstract and metadata only; postprint download attempted but returned 403, so full text NOT read",
+          "method": "Author repository landing abstract and attempted protected file",
+          "title": "Local Stability Implies Global Stability for the Planar Ricker Competition Model",
+          "trigger": "Potential older same-object general stability theorem"
+        },
+        {
+          "assessment": "Potential indirect coverage unverified; no negative whole-paper conclusion",
+          "evidence": "Historical symmetric competition study predates the exact Ricker family analysis.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00275495",
+          "material_read": "Abstract and bibliographic metadata only; complete manuscript not accessible",
+          "method": "Indexed abstract/bibliographic record",
+          "title": "The discrete dynamics of symmetric competition in the plane",
+          "trigger": "Older identical symmetry/competition potential priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the exact flip boundary r=s=2 of a globally convergent ecological discrete map, this gives an all-positive-initial-state rate classification beyond convergence: a universal logarithmically corrected algebraic clock, signed √3 amplitude, null exponentially fast exceptional family, and explicit coupling-dependent curvature. The boundary and invariant are natural, and the logarithmic coefficient is not forced by linear stability or a routine hyperbolic estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Baigent–Hou–Elaydi–Balreira–Luís, J. Difference Equ. Appl. 29 (2023) 575–591, Theorem 3.4",
+    "Kulakov–Neverova–Frisman, Mathematics 10 (2022) 1076",
+    "Balreira–Elaydi–Luís, DCDS-B 19 (2014), abstract only",
+    "Jiang–Rogers, J. Math. Biol. 25 (1987), abstract only",
+    "Resultary critical-relaxation and synchronous Ricker Floquet records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2014 Balreira–Elaydi–Luís postprint download returned HTTP 403; 1987 Jiang–Rogers complete text unavailable; same-object priority comparison remains bounded.",
+    "C³ differentiability of the phase construction uses contraction of derivative equations; complete numerical verification cannot replace this analytic argument.",
+    "No uniform-in-γ bound as γ→1 and no global topological census of exceptional preimages."
+  ],
+  "residual_risks": [
+    "2014 Balreira–Elaydi–Luís postprint download returned HTTP 403; 1987 Jiang–Rogers complete text unavailable; same-object priority comparison remains bounded.",
+    "C³ differentiability of the phase construction uses contraction of derivative equations; complete numerical verification cannot replace this analytic argument.",
+    "No uniform-in-γ bound as γ→1 and no global topological census of exceptional preimages."
+  ],
+  "schema_version": 1
+}
