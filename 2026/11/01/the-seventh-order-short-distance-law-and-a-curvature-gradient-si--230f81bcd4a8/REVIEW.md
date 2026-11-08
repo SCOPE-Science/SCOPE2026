@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the covariogram from directional chord lengths and exactly identifies two endpoint correction integrals. A fourth-order local graph expansion is inverted to give the chord-depth expansion through fourth order, with the cubic asymmetry term retained. Uniform positive curvature makes the remainder uniform in direction. The Gauss-map and periodic integration-by-parts reductions yield the seventh-order coefficient with normalization checked on the disk and four affine ellipses. The complete harmonic-family integral is verified both algebraically and numerically; its numerator has a unique sign-changing zero. The standalone verifier passes 33 exact/numerical checks. Numerical checks support but do not substitute for the argument.
+PASS
 
-## Originality — PASS with residual historical-priority risk
+PASS. For C^6 strictly convex planar body K with positive curvature, the displacement density of two independent uniform points is g_K(z)/A² where g is covariogram. For fixed direction its exact chord representation is ∫(ell(v)-t)_+dv. At each tangency, Frenet local boundary has coefficients b2=κ/2,b3=κ_s/6,b4=(κ_ss+3κ³)/24; independent root-series reversion checked inward chord depth δ(q)=κ q²/8+[9κ^4+3κ κ_ss-5κ_s²]q^4/(1152κ)+o(q^4). Integrating δ from 0 to t and over all directions yields t³ term ∫κ²/12 and t^5 term ∫(9κ^4-8κ_s²)/2880 after Gauss map and by-parts. Radial t dt, density normalization, and equal-area radius r=ρ sqrt(A/π) give the stated ρ²,ρ³,ρ⁵,ρ⁷ coefficients, especially A^(3/2)/(20160 π^(7/2)) times the invariant. Independently evaluated ∫[9/(1+a cos kθ)^3-8k²a²sin²(kθ)/(1+a cos kθ)^5]dθ for k=2,3,4 and amplitudes 0,.2,.5,.9 and verified exact π[18-(9+8k²)a²-(9+2k²)a⁴]/(1-a²)^(7/2). Its numerator is strictly decreasing in a² and changes sign once for every k>=2; k=3,a=1/2 gives -56π/(3√3), disk ρ⁷ coefficient 1/(1120π). Numeric finite checks corroborate, while local uniform-in-direction Taylor remainder and analytic proof handle continuum of K.
 
-The first perimeter correction and the covariance representation are in Wang's October 2026 paper; the curvature-squared lower-order contribution has antecedents in isotropic autocorrelation literature, and neither is claimed as new. Closest accessible published short-distance work concerns polygons with angle-only fourth coefficients rather than smooth curvature-gradient seventh coefficients. The examined older measure-covariogram and distance-distribution records do not display the new seventh-order combination. A relevant Heidelberg thesis could not be read in full and is explicitly acknowledged as a residual risk; searches cannot prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The seventh-order coefficient is the first displayed smooth-body term involving curvature variation and can have either sign. The complete threshold in every harmonic mode distinguishes an energy competition from the positive fifth-order coefficient, furnishes explicit natural test bodies, and provides a precise new shape statistic directly tied to normalized interpoint distances. It is not an isolated numerical constant or mere renaming of the perimeter expansion.
+PASS, best-of-knowledge. Wang’s primary 2026 convex-body pair-distance paper defines the same equal-area normalized D_K and its perimeter first correction, not the seventh-order curvature-gradient invariant in inspected theorem sections. A prior polygon result has a fourth-order exact term in a disjoint nonsmooth class. Older isotropic autocorrelation/curvature literature (Brazke thesis and related studies) can cover lower-order curvature terms and potentially stronger expansions; its full thesis was inaccessible and is a named historical-priority risk, not proof of novelty. The exact seventh-order derivative-energy term and sign-changing support-function family are not implied by the inspected first- and third-order results.
 
-## Limitations
+## value
 
-A fixed planar body must have \(C^6\) strictly positive curvature; no statement is made for general nonsmooth or higher-dimensional convex bodies. The harmonic threshold concerns one coefficient rather than the probability. Further priority review of inaccessible older sources and independent verification remain appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. This derives a universal new-order geometric coefficient of the natural distribution of random pairwise distances for any sufficiently smooth strictly convex planar body. The curvature-gradient energy 9κ^4-8κ_s² changes sign within explicit smooth harmonic-support families, a structural boundary absent from perimeter and positive curvature-square coefficients. The all-body formula plus sharp one-crossing sign phenomenon is mathematically informative, not arbitrary numeric slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
