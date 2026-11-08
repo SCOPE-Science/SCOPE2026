@@ -1,15 +1,21 @@
-# Scientific review: root–terminal dependence in the Moran forest
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete assertion is conditional on the precise stationary Moran law and its proven uniform-attachment representation. A root indicator for arrival \(j\) depends on only \(U_j\), while the terminal indicator of vertex \(i\) depends on choices with later indices. Direct joint probabilities give the triangular kernel and the finite covariance. Conditional independent Bernoulli root flags supply a monotone deletion coupling; the product-measure covariance inequality proves association for every increasing pair of transforms. The variance computation uses exact two-terminal probabilities; its limiting Riemann sums have uniform error controls. A separate exhaustive enumeration of 50,068 forests verified 425 exact statements. The general result does not rely on extrapolating these finite checks.
+## correctness
 
-## Originality
-PASS on the accessible mathematical record, with explicit priority uncertainty. The 2019 source [1], fully inspected in its sampling, component-count and degree sections, establishes the forest law and its marginals, not the joint root–zero-child-terminal covariance, association theorem, or positive limiting correlation. The closest published mathematical-result records on root attachment/leaves concern a different *single* uniform recursive tree or a uniform Cayley tree, and do not imply a claim for the stationary Moran forest. The 1994 uniform recursive-forest paper [2] addresses a different distribution and was available only at the abstract level. Since the source construction contains all probabilities, earlier implicit derivation remains a real historical-priority risk.
+PASS
 
-## Value
-PASS. Component count measures fragmentation of the stationary genealogical forest, whereas zero-child terminals measure lineages with no surviving descendants in its sampled rooted structure. Their marginal laws alone do not determine joint fluctuations. The theorem supplies the entire local cross-covariance geometry, a distribution-wide increasing-function association, and an explicit nonzero asymptotic correlation (about 0.631) despite order-\(n\) marginal variances. The contrasting negative dependence between distinct terminal indicators demonstrates a nontrivial interaction between edge competition and fragmentation, rather than merely renaming a univariate moment.
+Proposition 2.1 attachment representation is conditioned on: U_j independently uniform among other vertices; root A_j=1{U_j>j}, terminal B_i=product_{j>i}1{U_j!=i}. For j>i, a new root forces U_j>j>i and gives Cov(A_j,B_i)=(n-j)q^(n-i-1)/(n-1)^2; j<=i gives zero. Finite geometric sums establish the exact aggregate (n-2)-(5n-8)q^(n-1)/2. Using independent root Bernoullis and, when nonroots, independent lower-parent choices V_j, deleting a parent edge by turning A_j on cannot reduce terminal count. Product-measure Harris inequality proves all monotone transforms nonnegatively associated; A_2 under an explicit positive-probability parent profile gives strictness. Pair-terminal probabilities and uniform Taylor Riemann sums yield the correlation (e-5/2)*sqrt(6/(e-2)). Fresh independent exhaustive choice-array enumeration n=3..6 checked every cross-kernel entry, moment, all upper-threshold covariances. The asymptotic theorem follows from uniform analytic estimates, not the finite checks.
 
-## Sources and limitations
-[1] Bienvenu, Duchamps, Foutel-Rodier, *The Moran forest*, arXiv:1906.08806, 2019; full author manuscript https://www.normalesup.org/~bienvenu/articles/BienvenuRSA2021.pdf . [2] Balińska, Quintas, Szymański, *Random recursive forests*, doi:10.1002/rsa.3240050103, 1994; abstract only. Historical-priority uncertainty concerns formulas potentially derivable from broader previous enumerators. The result is confined to the stationary model and does not claim a bivariate central limit theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bienvenu–Duchamps–Foutel-Rodier derive the stationary attachment construction, root marginal and degree distribution; the precise zero-child terminal definition and root-terminal joint association are a new combination, not identical to total graph-theoretic degree-one count. Random recursive trees and their root-degree/leaf covariances have a different attachment law. Existing representation strongly motivates the result and makes computation possible; unexplored derivative observables remain a priority risk.
+
+## value
+
+PASS
+
+Component count and zero-child terminal count are intrinsic, combinatorially meaningful Moran-forest statistics. Their universal increasing association, strictly triangular local influence kernel and persistent nonzero limit correlation supply a structural joint law, sharper than computing an isolated covariance. This distinguishes dependent root/leaf fluctuations in a dynamic forest equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

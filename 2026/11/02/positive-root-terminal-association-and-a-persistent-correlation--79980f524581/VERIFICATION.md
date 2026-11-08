@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The script enumerates all \((n-1)^{n-1}\) vectors of relevant attachment choices for each \(n=3,4,5,6,7\), constructs the actual rooted forests and computes raw sums, pair indicators and exact rational moments. Its output from the packaged version was:
+## correctness
 
-```
-n=3: enumerated=4, E(C)=3/2, E(L)=7/4, Cov(C,L)=1/8, Var(L)=3/16
-n=4: enumerated=27, E(C)=2, E(L)=65/27, Cov(C,L)=2/9, Var(L)=230/729
-n=5: enumerated=256, E(C)=5/2, E(L)=781/256, Cov(C,L)=159/512, Var(L)=27735/65536
-n=6: enumerated=3125, E(C)=3, E(L)=11529/3125, Cov(C,L)=1236/3125, Var(L)=5135284/9765625
-n=7: enumerated=46656, E(C)=7/2, E(L)=201811/46656, Cov(C,L)=1655/3456, Var(L)=1363543895/2176782336
-PASS: 425 independent exact-rational identities; 50068 exhaustively enumerated configurations.
-```
+PASS
 
-All computations use Python's `fractions.Fraction`, and the tree construction is independent of the derived identities. Assertions include the full root–terminal cross-covariance kernel and the joint probabilities of terminal events, not just the aggregate formula; upper-quadrant association is also checked for every nonconstant integer threshold in the tested sizes. The general covariance identity is proved through the independent-choice factorization and finite geometric derivatives in `RESULT.md`. The nonnegative-covariance assertion for all monotone transforms follows analytically from Bernoulli product-measure association, and the limiting constant follows from uniformly controlled Riemann sums. **No finite enumeration is claimed to establish these infinite-parameter facts.**
+Proposition 2.1 attachment representation is conditioned on: U_j independently uniform among other vertices; root A_j=1{U_j>j}, terminal B_i=product_{j>i}1{U_j!=i}. For j>i, a new root forces U_j>j>i and gives Cov(A_j,B_i)=(n-j)q^(n-i-1)/(n-1)^2; j<=i gives zero. Finite geometric sums establish the exact aggregate (n-2)-(5n-8)q^(n-1)/2. Using independent root Bernoullis and, when nonroots, independent lower-parent choices V_j, deleting a parent edge by turning A_j on cannot reduce terminal count. Product-measure Harris inequality proves all monotone transforms nonnegatively associated; A_2 under an explicit positive-probability parent profile gives strictness. Pair-terminal probabilities and uniform Taylor Riemann sums yield the correlation (e-5/2)*sqrt(6/(e-2)). Fresh independent exhaustive choice-array enumeration n=3..6 checked every cross-kernel entry, moment, all upper-threshold covariances. The asymptotic theorem follows from uniform analytic estimates, not the finite checks.
 
-Scientific limitations: the model must be stationary and use uniformly chosen ordered pairs of distinct vertices; terminal means zero children, including isolated roots. No bivariate CLT and no full joint distribution are claimed. Independent audit or independent validation has not been performed.
+## originality
+
+PASS
+
+Bienvenu–Duchamps–Foutel-Rodier derive the stationary attachment construction, root marginal and degree distribution; the precise zero-child terminal definition and root-terminal joint association are a new combination, not identical to total graph-theoretic degree-one count. Random recursive trees and their root-degree/leaf covariances have a different attachment law. Existing representation strongly motivates the result and makes computation possible; unexplored derivative observables remain a priority risk.
+
+## value
+
+PASS
+
+Component count and zero-child terminal count are intrinsic, combinatorially meaningful Moran-forest statistics. Their universal increasing association, strictly triangular local influence kernel and persistent nonzero limit correlation supply a structural joint law, sharper than computing an isolated covariance. This distinguishes dependent root/leaf fluctuations in a dynamic forest equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
