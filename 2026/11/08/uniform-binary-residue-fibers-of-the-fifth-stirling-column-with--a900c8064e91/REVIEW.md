@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (PASS).** Inclusion-exclusion produces an exact two-parity decomposition. Both odd-base functions have differences whose first summand has valuation exactly one below the second; after division by 120 they preserve every 2-adic distance. This proves a bijection of each parity branch at every modulus. The even-base correction has exact valuation one less than the original index minus one, determining the precise onset. Minimality of the known period follows from the difference valuations, and early failure is exhibited at the threshold predecessor. Direct recurrence and modular-power checks were performed through exponent twelve.
+
+**Originality (PASS, subject to historical risk).** Kwong's 1989 theorem already supplies the eventual period length; it is not counted as new. Amdeberhan–Manna–Moll describe 2-adic valuations, while Bennett–Mosteig classify valuation classes, and Zhao–Hong–Zhao study dyadic-index differences. These results do not imply the exact count for *each output residue*, one-per-parity preimage, or sharp first index; the value of a valuation alone leaves odd-unit distribution undetermined. Searches of available literature, semantic publication records found no stronger complete covering theorem. The possibility of a historical equivalent not located remains.
+
+**Mathematical value (PASS).** Fixed-column Stirling congruences are a longstanding topic. This result goes beyond the previously known least eventual period and valuation profiles to completely determine the full output distribution and the exact transient bound for every power of two. The fifth column is the smallest positive fixed column with this uniform full-support phenomenon; the first four have restricted support already modulo four. The 2-adic isometry method additionally explains the phenomenon structurally.
+
+**Closest literature and limits.** Primary comparisons: Kwong (1989), Amdeberhan–Manna–Moll (2007/2008), Bennett–Mosteig (2013), and Zhao–Hong–Zhao (2014). The proof treats only the fifth Stirling column and binary-power moduli. Computational verification is finite and no independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

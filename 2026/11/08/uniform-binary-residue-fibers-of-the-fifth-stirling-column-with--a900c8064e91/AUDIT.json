@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Inclusion-exclusion yields S(n,5)=G_r((n−r)/2)−(2^(2n−3)+2^(n−2))/3. For nonzero h∈Z_2, the first summand in 120(G_r(t+h)−G_r(t)) has valuation v2(h)+3, the second v2(h)+4; dividing by 120 gives v2(G_r(t+h)−G_r(t))=v2(h). The induced finite maps are bijections, giving once per parity, while the correction has exactly valuation n−2 and vanishes at n≥k+2. The mod-two 1100 pattern excludes odd periods, the isometry excludes shorter even periods, and at n=k+1 the period shift fails for k≥4. All domains and edge exponents are covered. A standalone recurrence-based verifier checked exponents 1–12; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kwong 1989, Theorem 3.6, Fibonacci Quarterly 27:217–221, gives least eventual period of the fixed fifth column as 2^(precision+1).",
+        "Zhao–Hong–Zhao 2014, J. Number Theory 140, Theorem 1.3, addresses valuation of selected differences at dyadic multiples, not all index pairs or exact fibers."
+      ],
+      "reasoning": "Kwong does cover the minimal-period conclusion and that subclaim is explicitly prior work. A period of length 2^(precision+1) does not imply that every residue appears twice; many periodic sequences have unbalanced or missing output classes. Special-index difference valuations do not give full parity-class bijectivity or earliest onset.",
+      "searches": [
+        "Stirling numbers second kind fixed column residue image modulo powers of two complete distribution p-adic",
+        "Kwong minimum periods S(n,k) 1989 Bennett Mosteig valuation splits residue fiber",
+        "Stirling number fixed column 5 modulo 2^k each residue twice period 2^(k+1)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0707.3104 (preprint first public 2007-07-20)",
+      "Kwong, Fibonacci Quarterly 27 (1989), Theorem 3.6",
+      "Bennett and Mosteig, Journal of Integer Sequences 16 (2013), Article 13.3.6",
+      "Zhao, Hong and Zhao, J. Number Theory 140 (2014), DOI 10.1016/j.jnt.2014.01.005",
+      "OEIS A000481 (sequence listing)",
+      "Greinecker, Spatial equidistribution of combinatorial number schemes (array rather than fixed column)",
+      "Semantic literature/database searches on fixed fifth-column congruences and fibers; exact queries appear in the scientific comparison objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Amdeberhan–Manna–Moll Theorem 4.1 splits positive valuations and is compatible with the asserted fiber law, but does not control odd-unit residues.",
+        "Bennett–Mosteig Proposition 13 is an equivalence about constancy of Stirling values on index classes at precision below their level, not full output-image bijection.",
+        "Kwong Theorem 3.6 supplies only the minimum eventual period, which is explicitly removed from the novelty claim."
+      ],
+      "reasoning": "The new content is the universal exact per-residue fiber count, once for each index parity, plus an explicit 2-adic isometry and sharp first valid index N=max(5,k+2). Valuation and period theorems do not logically imply the first two; the prior results checked do not determine the last.",
+      "searches": [
+        "Stirling numbers second kind fixed column residue image modulo powers of two complete distribution p-adic",
+        "fixed fifth Stirling column two-adic isometry on even and odd indices valuation S(n,5)-S(m,5)",
+        "Kwong minimum periods S(n,k) 1989 Bennett Mosteig valuation splits residue fiber"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Amdeberhan–Manna–Moll 2007, arXiv:0707.3104, Sections 3–4: statement concerns valuations and their congruence classes, not all output residues.",
+        "Bennett–Mosteig 2013, JIS 13.3.6, Sections 2, 4, 6.1: same fifth column, valuation profiles and stabilization, not an exact per-output fiber census."
+      ],
+      "reasoning": "A valuation-stratification result identifies the power of two dividing each sequence value but does not determine which odd unit classes occur with what multiplicity. The asserted pair of isometric parity branches is stronger: it identifies one preimage per output class and parity.",
+      "searches": [
+        "Stirling numbers second kind S(n,5) modulo 2^m complete residue spectrum uniform two-to-one all residue classes",
+        "fixed fifth Stirling column two-adic isometry on even and odd indices valuation S(n,5)-S(m,5)",
+        "Stirling numbers second kind S(n,5) equidistribution mod powers 2 all residues uniform frequency bijection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000481 lists fifth-column Stirling values, with no identified all-exponents exact multiplicity table.",
+        "The closest semantic-database entries concerned Thue–Morse odd parts and fibers of a pentagonal-exponent map, neither of which treats the fifth Stirling column."
+      ],
+      "reasoning": "Finite sequence tables can show examples but do not state the unrestricted one-per-parity preimage theorem or the exact optimal transient. No stronger covering table was identified in the actual searches; lack of a match is not a claim of historical uniqueness.",
+      "searches": [
+        "Stirling numbers second kind S(n,5) modulo 2^m complete residue spectrum uniform two-to-one all residue classes",
+        "fixed fifth Stirling column two-adic isometry on even and odd indices valuation S(n,5)-S(m,5)",
+        "Stirling numbers S(n,5) 2-adic permutation modulo 2^n odd even index"
+      ]
+    },
+    "rationale": "Primary inspections distinguish existing exact eventual periods and fifth-column valuation statements from full parity-resolved output fibers and exact least onset. Specific semantic-literature queries on fixed fifth Stirling column, isometries, fibers and equivalences returned no covering finding. The possibility of an unlocated equivalent remains.",
+    "residual_risks": [
+      "A historically unlocated theorem about exact output residues for the fifth column might dominate the result despite negative targeted searches.",
+      "Full text of the 2014 difference-valuation publisher article was not materially inspected; available abstract and theorem were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior valuation splits and congruence patterns; not a complete fiber distribution for every output residue modulo every two-power.",
+        "evidence": [
+          "Theorem 4.1 gives exactly two splitting positive-valuation classes, one having valuation m−2, but no individual odd-residue counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0707.3104",
+        "material_read": "Introduction, Section 3 parity and fifth-column formula, Section 4 Theorem 4.1 and Lemmas 4.2–4.5 and proof discussion",
+        "method": "Full open preprint HTML, substantive text around the named results",
+        "title": "The 2-adic valuations of Stirling numbers",
+        "trigger": "Primary 2007 archival source about exactly the fifth Stirling column"
+      },
+      {
+        "assessment": "Exact least eventual period already known, including the case of fifth column. Neither uniform output fibers nor first index is stated.",
+        "evidence": [
+          "Theorem 3.6 yields period 2^(precision+1) for column 5; this is acknowledged, not claimed as new."
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/27-3/kwong.pdf",
+        "material_read": "Definition and period theorems in Sections 1–3, particularly Theorem 3.6 on page 220 and surrounding proof",
+        "method": "PDF textual extraction crosschecked visually with the page-220 screenshot",
+        "title": "Minimum Periods of S(n,k) Modulo M",
+        "trigger": "Potentially stronger 1989 theorem on fixed Stirling column periodicity"
+      },
+      {
+        "assessment": "Shows valuations/constancy on dyadic index classes; no full unit-residue distribution or all-moduli one-per-parity law.",
+        "evidence": [
+          "Proposition 13 concerns constancy of classes modulo 2^(m−bk+ell); Section 6.1 is a fifth-column valuation example."
+        ],
+        "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Mosteig/mosteig4.pdf",
+        "material_read": "Abstract, Sections 2–3, Proposition 13, Section 6.1 on columns 5 and 6, and concluding remarks",
+        "method": "PDF textual extraction; visual check of Proposition 13 on page 13",
+        "title": "Congruence Classes of 2-adic Valuations of Stirling Numbers of the Second Kind",
+        "trigger": "Valuation congruence classification might dominate the fiber law"
+      },
+      {
+        "assessment": "The displayed theorem applies to indices on dyadic-multiple progressions, not all even/odd index differences. No decisive coverage was identified; incomplete full-text access is a residual risk.",
+        "evidence": [
+          "Theorem 1.3 restricts index arguments to a·2^n, b·2^n with k≤2^n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jnt.2014.01.005",
+        "material_read": "Publisher-supplied abstract and visible introduction and Theorem 1.3",
+        "method": "Accessible publisher HTML textual content; complete article not available",
+        "title": "Divisibility by 2 of Stirling numbers of the second kind and their differences",
+        "trigger": "Difference valuation theorems could imply injectivity of each parity chart"
+      },
+      {
+        "assessment": "Concerns distribution in entire initial triangular schemes modulo a prime; not a fixed Stirling column modulo all powers of two.",
+        "evidence": [
+          "Statement refers to first n lines and nonzero residue classes modulo p."
+        ],
+        "identifier_or_url": "https://ems.press/content/serial-article-files/37276",
+        "material_read": "Introduction and stated equidistribution property in accessible PDF extract",
+        "method": "Available published-paper text",
+        "title": "Spatial equidistribution of combinatorial number schemes",
+        "trigger": "Superficially related equidistribution terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a900c806-4e91-4ef7-90f1-96fdd75c8b18",
+  "value": {
+    "rationale": "This is a natural and complete fixed-column modular distribution invariant for a classical combinatorial sequence; it sharpens known eventual periodicity and fifth-column valuation analysis to exact equal output fibers at every precision, one-per-parity uniqueness, and a sharp transient boundary. Column five is the first fixed positive column whose tail can achieve full uniform 2-power residue support, unlike columns one through four already modulo four. The arithmetic isometry supplies a reusable conceptual explanation rather than a new tabulation or weak period corollary.",
+    "status": "PASS"
+  }
+}
