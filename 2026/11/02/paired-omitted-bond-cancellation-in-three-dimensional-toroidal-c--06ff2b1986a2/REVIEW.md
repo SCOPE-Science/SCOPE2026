@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about a fully specified family of simple three-dimensional periodic cluster graphs, a fixed even/odd partition, and two disjoint correlated controlled-\(Z\) omissions. The complete proof establishes the base binary adjacency rank using truncated group algebra, proves every isolated-bond rank increase using nonzero translation-symmetric left and right nullspaces, and explicitly factors the paired-bond perturbation into two invertible binary shears. The crucial \(T_3^4+I=M^2T_3^2\) identity is correct because the two length-four directions disappear on squaring, and the three vanishing scalar products follow from length-two separation in the long coordinate and the short-direction orientation of the chosen edge. Thus the paired rank remains exactly unchanged for every power-of-two long circumference. Independent bit-matrix construction checked 112 pairs and 339 exact rank assertions in three sizes; these finite checks are corroboration, not an all-size proof.
+PASS
 
-## Originality — PASS on examined evidence, provisional
+Reconstructed graph-state binary cross-adjacency Schmidt-rank theorem and unperturbed full-adjacency M=Σ_i(T_i+T_i^-1) over F2. Truncated group algebra on 4×4×2^a identifies M with multiplication by (u1+u2+u3)^2, giving rank M=16L-32 and rank B=8L-16. Because even translations preserve and transitively act on each checkerboard class, nonzero left/right kernels imply every endpoint coordinate lies outside the opposite image: each isolated edge toggle increases rank one. Verified translation T3^4+I=M²T3² and explicit b,c satisfy Bc=p+p′, Bᵀb=q+q′ and bᵀp=q′ᵀc=bᵀBc=0 by layer separation; therefore B′=(I+pbᵀ)B(I+cq′ᵀ), invertible F2 shears, exactly same rank. Independent newly written GF2 elimination confirms L=8 and 16, 12 paired-bond locations in each, baseline ranks 48 and 112, each separate deletion +1 and paired 0. All L proof is algebraic, not inferred from finite checks.
 
-Hein, Eisert and Briegel (2003, Section III.2) and Hein et al. (2006, Section 8.3) supply the general Schmidt-rank machinery, not a correlated two-bond cancellation on this periodic family. Norman (2008) and Barry (2021) supply broad Kronecker-Jordan algorithms, which could yield the unperturbed rank but do **not** analyze the two specific coordinate-edge perturbations or their rank-preserving shear factorization. Vadali and Turner (2025, Sections 5–6) discuss unperturbed higher-dimensional binary parity automata and Jordan sizes, not deleted-bond graph-state entanglement. Accessible prior claims on two-dimensional checkerboard entropy and on a single deleted bond are explicitly not being reclaimed; their statements do not imply that two disjoint omissions revert the entropy to baseline. Targeted published-finding corpus and literature searches found no equivalent two-edge periodic cancellation. Unknown more specialized edge-perturbation literature is the primary residual risk; independent historical priority review remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Single missing entangling bonds are known to *increase* the fixed-checkerboard entanglement of certain graph states, making multi-bond monotonicity a natural and physically motivated open design question. Here a **correlated pair** at finite nonzero separation exactly cancels both changes on an infinite family of increasingly large three-dimensional cluster networks. The explicit factorization shows a structurally rigid mechanism, rather than merely repeating a finite-rank table or restating generic Jordan theory. It gives an exact cautionary example for interpreting separate entangling-bond faults additively.
+General Hein–Eisert–Briegel graph-state entropy equals cross-adjacency rank (prior). Modular Jordan tensor-sum theory and toroidal binary automata concern unperturbed matrices; they do not by themselves imply the correlated two-edge rank-restoring shears. No same C4×C4×C2^a four-layer pair cancellation found in Resultary or checked literature. Historical prior graph-state error-tolerance enumerations remain possible.
 
-## Limitations and risk
+## value
 
-The theorem is restricted to two four-site periodic directions, a power-of-two third direction at least eight, and a specific four-step pair translation. Other pairs can behave differently. Only the ideal pure-state checkerboard spectrum is addressed; neither noise robustness nor Hamiltonian dynamics is proved. The closest historical priority comparison is not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nonadditivity of two graph-state bond omissions is a conceptually significant correlated-error effect: either defect increases checkerboard entanglement but both cancel exactly. The nontrivial all-circumference binary shear mechanism is independent of finite graph size and provides a precise graph-state robustness example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
