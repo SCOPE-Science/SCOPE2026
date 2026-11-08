@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact witness \((\{x,b\},\{y\},\{c,d,p,q\},\{a,e\})\) has the stated utilities and every EFX comparison is handled by the explicit integer matrix of maximum deletion values. Equality occurs for agent \(3\) versus agent \(1\); all other comparisons are at least as favorable when \(K\ge6\). An integer-welfare-gap argument proves Pareto optimality without enumeration by excluding welfare-maximizing dominators. The opposing bound for \(\alpha>2/3+1/K\) is stated and proved in the original paper's Theorem 2. Verification code independently evaluates comparisons and exhaustive finite dominance checks.
+PASS
 
-## Originality — PASS (provisional priority)
+The RESULT.md exact 4x9 valuation matrix yields witness bundles A1={x,b}, A2={y}, A3={c,d,p,q}, A4={a,e}, utility vector (4K,3K,2K+3,2K), and exact maximum-other-bundle-after-single-deletion table. Agent 3 against agent 1 achieves equality, all twelve ratios obey alpha=(2K+3)/(3K) for K>=6. Welfare maximum is 11K+4, the witness is 11K+3, and a dominating allocation would maximize each good individually: agent 1 must own x, then agent 3 all of c,d,e, agent 2 y, leaving agent 4 no more than K+2<2K; contradiction. The upper bound for strictly greater alpha is imported from Theorem 2 of arXiv:2610.29201v1. Independently checked rational ratios for K=6,7,8,12 and exhaustive 4^9 candidate dominators for K=6; finite checks are corroboration.
 
-The October 21, 2026 source was inspected through its complete accessible Section 4 and theorem proof. It proves an *upper bound excluding strictly larger factors*, rather than the existence of Pareto-optimal allocations at equality. The proposed boundary witness and one-unit welfare-gap argument furnish the missing existence direction, hence their conjunction is stronger. The related nine-good EFX existence theorem is not a Pareto-optimality statement. Targeted literature and mathematical-record searches did not locate the same witness and exact boundary statement. Absence from retrieved records is not a proof of uniqueness; the recent source or another independent treatment may be updated.
+## originality
 
-## Value — PASS
+PASS
 
-The result exactly calibrates the finite-parameter obstruction central to a new impossibility theorem. It distinguishes a strict impossibility threshold from an attained optimal approximation factor, using a simple structural Pareto-optimality certificate; no general approximation guarantee is claimed.
+The October 2026 paper gives strict impossibility above alpha=(2K+3)/(3K), but a strict upper exclusion is not the boundary-attainment statement. The new explicit full Pareto-optimal witness fills the sharpness gap; four-agent nine-good complete EFX existence without Pareto optimality does not imply this. Priority remains subject to an unindexed equality construction.
 
-## Limits and risks
+## value
 
-The result applies only to this nine-good family. The source supplies the upper bound and has priority for the obstruction. Publication-priority checks are incomplete for unindexed or future manuscripts; full independent examination is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise attainable boundary of a published nine-good obstruction is a natural exact instance invariant; a one-welfare-unit gap together with an explicit nondomination certificate separates strict impossibility from its attained optimum, a useful fact for calibration of the EFX-versus-PO frontier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
