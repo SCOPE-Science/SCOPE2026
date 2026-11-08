@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:19:44.139286Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual RESULT.md: increasing-tree root decomposition with F(x;u,z)=sum x^n E[u^R z^K]/n gives F_x=u(1-x)^(-z(1-p))(1-u+u(1-x)^p)^(-z). Direct parent/edge conditional expectations yield C_{n+1}=(1+p/n)C_n+p/n-p a_n/n^2; telescoping after dividing by a_n gives exact covariance and positivity for n>=3. L2-bounded R_n/a_n martingale and independent late root-attachment indicators after m_n=floor(exp(sqrt(log n))) establish joint Gaussian/Mittag-Leffler independence, not finite-n independence. Independently checked exact recurrence rationally for p=1/4,1/2,3/4 and n<=9 and checked actual verify.py code; bounded checks are corroborative only. Deterministic p=0,1 excluded from stated asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Desmarais–Holmgren–Wagner arXiv:2110.15050 and Random Structures & Algorithms 63 (2023), 364–405",
+          "Kürsten arXiv:1512.05275 Section IV/Appendix B (cited; full appendix not materially read)"
+        ],
+        "reasoning": "General random recursively grown tree percolation and root-cluster distributions cover R alone, while the proposed joint original-degree mark and asymptotic normal independence require an added coupling argument.",
+        "searches": [
+          "\"uniform random recursive tree bond percolation root cluster size root degree joint generating function covariance independent Gaussian limit\"; \"root cluster random recursive tree joint root degree percolation generating function Desmarais Holmgren Wagner\""
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1002/rsa.21142 Section 4",
+        "arXiv:2110.15050",
+        "arXiv:1512.05275 limited",
+        "Resultary root-degree versus leaves and path length records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous Section 4 generating function is F(x;u,1), not F(x;u,z)",
+          "Original-root-degree mark z counts every parent choice to root, including deleted edges"
+        ],
+        "reasoning": "Setting z=1 recovers prior work, but reverse inference to arbitrary z cannot be made from the marginal without proving the new increasing-tree decomposition.",
+        "searches": [
+          "\"uniform random recursive tree bond percolation root cluster size root degree joint generating function covariance independent Gaussian limit\"; \"root cluster random recursive tree joint root degree percolation generating function Desmarais Holmgren Wagner\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Desmarais–Holmgren–Wagner 2023, Section 4, root cluster marginal generating function, DOI 10.1002/rsa.21142",
+          "Resultary: SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+        ],
+        "reasoning": "Marking original root attachments differs from marking leaf count, total first-generation cluster sizes, and marginal retained root size; none of those statistics determines E[u^R z^K].",
+        "searches": [
+          "\"uniform random recursive tree bond percolation root cluster size root degree joint generating function covariance independent Gaussian limit\"; \"root cluster random recursive tree joint root degree percolation generating function Desmarais Holmgren Wagner\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches for root outdegree/percolation returned root-degree/leaf and root-degree/path-length covariance, not the same cluster observable",
+          "Related n-specific marginal cluster counts in root-percolation papers"
+        ],
+        "reasoning": "No exact database for the combined R,K joint distribution was encountered; failure to find one is not novelty proof.",
+        "searches": [
+          "\"uniform random recursive tree bond percolation root cluster size root degree joint generating function covariance independent Gaussian limit\"; \"root cluster random recursive tree joint root degree percolation generating function Desmarais Holmgren Wagner\""
+        ]
+      },
+      "rationale": "The marked original root outdegree K_n and retained root cluster R_n joint generating function, covariance, and independent normalized joint limit are absent from the materially inspected 2023 marginal treatment; nearby published counts of fringe clusters or root degree versus leaves do not directly imply them. Qualified best-of-knowledge novelty, not priority certification.",
+      "residual_risks": [
+        "Kürsten Appendix B has not been materially read and may imply a joint degree statistic after transformation.",
+        "Unindexed recursive-tree joint marks might cover or subsume the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers root cluster alone; no identified original-root-degree joint mark",
+          "evidence": "Section 4, Proposition 4.1: log generating expression -(1/p)log(1-u+u(1-x)^p)",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21142",
+          "material_read": "Section 4 marginal root-cluster generating function, its transformations, and limit identification",
+          "method": "Read published HTML and cross-check arXiv 2110.15050 abstract",
+          "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+          "trigger": "Same root percolation distribution"
+        },
+        {
+          "assessment": "Possible related jointly marked first-generation cluster totals; whole-document noncoverage NOT asserted",
+          "evidence": "Kürsten (2016) first generation percolation-cluster observables",
+          "identifier_or_url": "https://arxiv.org/abs/1512.05275",
+          "material_read": "Abstract and indexed section synopsis only, not full Appendix B",
+          "method": "Bibliographic search / limited text",
+          "title": "Random recursive trees and the elephant random walk",
+          "trigger": "Potential alias through first-generation clusters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite dependence and simultaneous asymptotic independence are a meaningful structural distinction for a canonical growth/percolation model, rather than a routine scalar moment: the marked transform specifies every joint mixed moment and the covariance order differs from the normalized Gaussian limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal/independent expert certification; finite checks do not prove n->infinity.",
+    "p fixed strictly between zero and one; joint asymptotic independence does not imply finite-n independence."
+  ],
+  "schema_version": 1
+}

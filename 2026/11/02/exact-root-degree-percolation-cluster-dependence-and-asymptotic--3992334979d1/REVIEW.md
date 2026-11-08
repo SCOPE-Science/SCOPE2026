@@ -1,19 +1,21 @@
-# Review of exact root-degree and percolation-cluster dependence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The increasing-tree decomposition supplies the bivariate joint generating series, and the one-step conditional increment identities yield the closed covariance by telescoping. A second-moment recursion proves square-integrable martingale convergence for the normalized root component; original root attachment indicators split at a subpolynomial logarithmic scale into an asymptotically independent Gaussian tail. This proves the joint limit without confusing finite positive covariance with limiting independence. The standalone checker passed 345 independently generated exact-rational comparisons, including exhaustive original-parent/retention enumeration through six vertices. Finite checks corroborate rather than replace the all-size proofs.
+PASS
 
-## Originality — PASS, historically qualified
+From actual RESULT.md: increasing-tree root decomposition with F(x;u,z)=sum x^n E[u^R z^K]/n gives F_x=u(1-x)^(-z(1-p))(1-u+u(1-x)^p)^(-z). Direct parent/edge conditional expectations yield C_{n+1}=(1+p/n)C_n+p/n-p a_n/n^2; telescoping after dividing by a_n gives exact covariance and positivity for n>=3. L2-bounded R_n/a_n martingale and independent late root-attachment indicators after m_n=floor(exp(sqrt(log n))) establish joint Gaussian/Mittag-Leffler independence, not finite-n independence. Independently checked exact recurrence rationally for p=1/4,1/2,3/4 and n<=9 and checked actual verify.py code; bounded checks are corroborative only. Deterministic p=0,1 excluded from stated asymptotics.
 
-Desmarais, Holmgren and Wagner (arXiv:2110.15050; DOI 10.1002/rsa.21142) give a marginal generating function for the percolated root-cluster size and its limiting law. The present extra mark counts the original root children, regardless of edge retention; their marginal theorem does not determine a joint covariance or distribution. Kürsten (arXiv:1512.05275; DOI 10.1103/PhysRevE.93.032111), in Section IV and Appendix B, studies first-generation descendant-cluster sizes under percolation; that count differs from original root degree and has no identified implication covering the claimed joint formula. Targeted searches compared equivalent formulations, stronger literature and potential exact tables; no covering result was identified. Historical priority is not guaranteed by negative searches.
+## originality
 
-## Value — PASS
+PASS
 
-The exact transform gives all finite mixed moments of a natural local-versus-global pair in the same random tree. The positive covariance of order \(n^p\) and asymptotic Gaussian/Mittag–Leffler independence show precisely how local root attachment dependence survives in finite size but disappears at the central-limit scale, a distinction not obtainable from the two marginals. This is a structural dependence statement, not a routine parameter substitution.
+The marked original root outdegree K_n and retained root cluster R_n joint generating function, covariance, and independent normalized joint limit are absent from the materially inspected 2023 marginal treatment; nearby published counts of fringe clusters or root degree versus leaves do not directly imply them. Qualified best-of-knowledge novelty, not priority certification.
 
-## Scientific limitations
+## value
 
-Uniform random recursive trees, independent fixed-parameter percolation \(0<p<1\), and original rather than retained root degree are essential. No finite convergence rate, variable-parameter uniformity, or general preferential-attachment extension is established. Independent assessment of mathematical validity and priority is still required.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite dependence and simultaneous asymptotic independence are a meaningful structural distinction for a canonical growth/percolation model, rather than a routine scalar moment: the marked transform specifies every joint mixed moment and the covariance order differs from the normalized Gaussian limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
