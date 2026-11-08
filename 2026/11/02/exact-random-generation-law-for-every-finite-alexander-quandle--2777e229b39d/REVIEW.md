@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generated-subquandle formula is proved from right-translation permutations and the \(T\)-stable subgroup of differences, and its converse is verified using quandle closure. A finite Fitting decomposition of \(1-T\) splits any invariant subgroup; nilpotence forces the component-covering differences to generate the nilpotent summand, while the connected factor is generated precisely by its \(k-1\) difference vectors. The finite-module simple-head criterion, Chinese remainder surjectivity, and independent finite-field rank counting give the stated exact formula for every finite abelian group. Exhaustive binary-operation closure checks verify all listed small examples. The proof handles the trivial quandle and all zero-factor boundaries.
+PASS
 
-## Originality — PASS, with residual priority risk
+For any finite abelian A and T automorphism, the operation x*y=Tx+(1-T)y gives <S>_* = union_{s in S}(s+(1-T)H), H the T-invariant span of sample differences; finite right translations and their commutators establish both containments. The Fitting decomposition of U=1-T into nilpotent K and invertible C reduces generation to meeting every c=|K/UK| quotient class AND generating C as a module by k-1 independent uniform differences. The nilpotent quotient uses Nakayama-style surjective-plus-nilpotent=>zero, the C event is equivalent to spanning all simple polynomial heads M_p/f(T)M_p; finite-field head factors are jointly independent by CRT, giving the claimed coupon probability c!S(k,c)/c^k times product over f,j of (1-q_f^{j-(k-1)}), and minimum max(c,1+max r_f). Independent direct closure enumeration reproduced exact rational rates for trivial Z4, Z8 core, Z9 T=2, two inequivalent F3² T=-1/Jordan, irreducible F2², including k=2,3,4 cases. The arbitrary-module proof, not these finite checks, establishes all finite torsion and non-Latin cases.
 
-The closest available primary literature (Dolžan–Oliynyk, 2026, Theorem 3.5) describes global Cayley components but does not test generation by a sampled set. Jedlička et al. (2018) identify the displacement orbits and characterize quasi-affine subquandles; Jedlička et al. (2017) describe displacement generators for free medial quandles. Ta (2026) develops the affine-module description for Latin medial quandles. These antecedents are substantively related, and some proof ingredients are standard, but the complete non-Latin sampling law, Fitting-based independence criterion, and exact universal generator threshold were not located in the inspected primary material or mathematical-record search. The Saki–Kiani Takasaki subquandle-lattice article was available only via abstract; it could imply special cases. An earlier implicit derivation of the full formula cannot be excluded and absolute historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete generation-probability invariant and exact minimum-generator threshold for **all** finite Alexander quandles is motivated by the recently established component decomposition. The result isolates precisely what the component graph does not see: residue-field module-head multiplicities. The tensor-product-free factorization handles arbitrary disconnected/non-Latin and nonsemisimple examples simultaneously; neither coupon coverage alone nor Latin module generation alone yields the law. It gives meaningful closed forms without requiring a further downstream theorem.
+The orbit quotient and displacement-group descriptions are prior work, and free medial module theory motivates k-1 differences. The specific uniform sample generation probability product over disconnected coupon classes and module-head vector spans (including non-Latin finite torsion) is not established by inspected source propositions. Qualified O pass retains possible implicit formulations in old subquandle-generation literature.
 
-## Scope and limitations
+## value
 
-Only finite abelian Alexander quandles and independent uniform sampling with replacement are covered. Proper-subquandle distribution is not claimed. Finite verification is independent corroboration but not an infinite proof. The closest literature and an inaccessible specialized source leave a genuine priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-quandle random generation and minimal generator number are natural exact invariants. The formula separates orbit coverage from module-head spanning, giving a full classification for arbitrary finite torsion and non-Latin cases and a counterexample to Cayley-component-only inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

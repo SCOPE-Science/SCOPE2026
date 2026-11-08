@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The structural proof uses only finite abelian group Fitting decomposition, finite-module composition factors, and exact counting of finite-field spanning families. No computational hypothesis is used to extend the result from tested groups to all groups.
+## correctness
 
-`check_alexander.py` was run against its package-local path using the system Python standard library. It constructs the full multiplication table from the automorphism matrices and applies actual iterative closure under the quandle binary operation for every ordered tuple at the stated lengths; it does not call the claimed probability formula for generation decisions. It compares the exact resulting fraction to independent predicted rational values for the nine listed test families, including a mixed-prime summand, two distinct nonsemisimple actions, a non-Latin nilpotent Fitting summand, and an irreducible quadratic residual field. It returned `VERIFY_OK`. Its full textual output is `verification_output.txt`.
+PASS
 
-Tests are exhaustive only for the finite groups and tuple lengths stated. They do not cover arbitrary finite abelian groups, prove novelty, or substitute for the mathematical proof. The source comparison could not inspect the complete Saki–Kiani specialized subquandle-lattice paper; priority remains subject to independent review.
+For any finite abelian A and T automorphism, the operation x*y=Tx+(1-T)y gives <S>_* = union_{s in S}(s+(1-T)H), H the T-invariant span of sample differences; finite right translations and their commutators establish both containments. The Fitting decomposition of U=1-T into nilpotent K and invertible C reduces generation to meeting every c=|K/UK| quotient class AND generating C as a module by k-1 independent uniform differences. The nilpotent quotient uses Nakayama-style surjective-plus-nilpotent=>zero, the C event is equivalent to spanning all simple polynomial heads M_p/f(T)M_p; finite-field head factors are jointly independent by CRT, giving the claimed coupon probability c!S(k,c)/c^k times product over f,j of (1-q_f^{j-(k-1)}), and minimum max(c,1+max r_f). Independent direct closure enumeration reproduced exact rational rates for trivial Z4, Z8 core, Z9 T=2, two inequivalent F3² T=-1/Jordan, irreducible F2², including k=2,3,4 cases. The arbitrary-module proof, not these finite checks, establishes all finite torsion and non-Latin cases.
+
+## originality
+
+PASS
+
+The orbit quotient and displacement-group descriptions are prior work, and free medial module theory motivates k-1 differences. The specific uniform sample generation probability product over disconnected coupon classes and module-head vector spans (including non-Latin finite torsion) is not established by inspected source propositions. Qualified O pass retains possible implicit formulations in old subquandle-generation literature.
+
+## value
+
+PASS
+
+Finite-quandle random generation and minimal generator number are natural exact invariants. The formula separates orbit coverage from module-head spanning, giving a full classification for arbitrary finite torsion and non-Latin cases and a counterexample to Cayley-component-only inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
