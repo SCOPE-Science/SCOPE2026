@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Disjoint same-vertex events, exact conditional Bin(n-2,p) parity for distinct vertices, and summation give the finite covariance. Strict monotonicity of q^(n-2)(n-1+nq) proves unique crossing; logarithmic expansion gives critical window and root asymptotics. Twenty-five exact rational graph enumerations and sixteen numerical window checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2303.05138 Sect. III computes covariance of numerical degrees for two marked vertices, rather than covariance of an isolation count and parity-sum count.",
+        "doi:10.1002/rsa.70034 Sect. 3 uses degree-parity conditioning at p=1/2 but does not evaluate an all-p covariance sign crossing."
+      ],
+      "reasoning": "General joint-degree generating functions could, in principle, produce this covariance by summing over degree classes, but the specifically examined published results do not present such a theorem or evaluated sign analysis. A broad formula that explicitly implied the root-phase behavior would defeat priority; none was located.",
+      "searches": [
+        "Published-claims search: G(n,p) degree parity count isolated vertices covariance finite sample phase sign n parity",
+        "web: joint node degree distribution Erdos Renyi 2023 Alarfaj Taylor Bogachev",
+        "web: random graph parity of degree and isolated vertices correlation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1005.4390",
+      "https://arxiv.org/abs/1106.0048",
+      "https://arxiv.org/abs/2303.05138",
+      "https://doi.org/10.1002/rsa.70034"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh et al. arXiv:1106.0048 Eq. (2) quotes the mean and variance of the isolated count only.",
+        "Goldstein arXiv:1005.4390 Theorem 2.1 concerns normal approximation for vertices of a fixed degree.",
+        "Janzer–Yip at p=1/2 discusses odd-degree constraints, not the threshold as p approaches 1."
+      ],
+      "reasoning": "Existing marginal moments and degree-correlation results do not by themselves state the displayed nonlinear mixed covariance or its unique crossing. The new argument uses conditional degree parity and a strict monotonicity comparison; it does not assert novelty of the standard binomial degree law.",
+      "searches": [
+        "Published-claims search: Erdos Renyi graph isolated vertices odd-degree count covariance sign",
+        "arxiv:1005.4390 introduction and random-graph application",
+        "arxiv:1106.0048 introduction, theorem and proof",
+        "doi:10.1002/rsa.70034 Sections 1 and 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finite mixed covariance equals the isolation-conditioned shift of expected odd-degree count multiplied by the expected number of isolates.",
+        "Goldstein 2010 arXiv:1005.4390 studies fixed-degree marginal counts; Ghosh et al. arXiv:1106.0048 studies isolations only."
+      ],
+      "reasoning": "Equivalent restatements include covariance of a given isolate indicator with global odd-degree count, and change in mean odd count when one vertex is known isolated. Neither appeared as an evaluated sign-phase theorem in the inspected sources or semantic hits.",
+      "searches": [
+        "Published-claims search: Erdős–Rényi G(n,p) isolated vertices odd-degree count covariance sign",
+        "Published-claims search: random graph expected number of odd vertices conditional on a given isolated vertex",
+        "web: \"isolated vertices\" \"odd degree\" \"covariance\" \"random\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact finite covariance table or critical-window boundary found in the queried repositories.",
+        "Own records ff25b078-f5de-476b-a753-bab9e363ac68 and d786b488-2981-4d18-bd27-2d6b648028d8 concern isolated vertices with other occupancy/component counts, not odd-degree parity."
+      ],
+      "reasoning": "The exact object is a joint statistic in the independent-edge simple graph model; nearby tables on degree distributions or isolated counts alone do not tabulate this conditional odd-degree response.",
+      "searches": [
+        "Published-claims search: parity of vertex degrees conditional isolated vertex threshold p 1-log(2n)/(2n)",
+        "web: \"odd-degree vertices\" \"isolated vertices\" \"G(n,p)\"",
+        "own claims: odd-degree; degree parity; isolated vertices"
+      ]
+    },
+    "rationale": "Semantic searches of published mathematical claims for isolated/odd-degree counts, degree-parity correlations, threshold aliases and dense Erdős–Rényi graphs returned no implication-equivalent record; all 99 recoverable same-slot historical claims were screened. Goldstein 2010 and Ghosh–Goldstein–Raič 2011 address marginal or fixed-degree concentration, Alarfaj–Taylor–Bogachev 2023 analyzes numerical-degree correlation, and Janzer–Yip 2025 addresses parity constraints for a different graph property. The new evaluated mixed-count sign boundary and logarithmic profile are not visibly subsumed in inspected material, but further historical equivalence remains a risk.",
+    "residual_risks": [
+      "A general multivariate degree-count generating-function identity may yield the mixed covariance after specialization, although no explicit full sign phase classification was identified.",
+      "No exhaustive literature census is claimed; the sign reversal occurs at extremely small absolute covariance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal fixed-degree count approximation and moments; no mixed parity/isolated-count covariance or dense unique crossing found",
+        "evidence": [
+          "arxiv:1005.4390 Sect. 2",
+          "arxiv:1005.4390 Theorem 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.4390",
+        "material_read": "Full article HTML introduction, fixed-degree-count random-graph application and variance formulas; PDF title and application page",
+        "method": "ArXiv text and PDF page inspection",
+        "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+        "trigger": "Closest primary work on degree-count statistics in the same random graph model"
+      },
+      {
+        "assessment": "Gives isolated-vertex marginal mean, variance and concentration, but not odd-degree totals or their covariance",
+        "evidence": [
+          "arxiv:1106.0048 Eq. (2)",
+          "arxiv:1106.0048 Theorem 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1106.0048",
+        "material_read": "Article abstract, introduction, theorem, proof sections, concluding references via HTML and PDF pages 1–4,6–7",
+        "method": "ArXiv HTML and page images of lawful preprint",
+        "title": "Concentration of measure for the number of isolated vertices in the Erdős–Rényi random graph by size bias couplings",
+        "trigger": "Exact same isolation count and conditional-isolation coupling"
+      },
+      {
+        "assessment": "Numerical degrees for marked nodes and multivariate normal tests, not the parity-aggregated isolation covariance",
+        "evidence": [
+          "arxiv:2303.05138 Sect. III"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.05138",
+        "material_read": "Abstract and PDF Sections I–III, especially two-vertex numerical-degree covariance",
+        "method": "ArXiv full-text PDF extraction",
+        "title": "The joint node degree distribution in the Erdős–Rényi network",
+        "trigger": "Plausible broad joint-degree source that could dominate a mixed-degree statistic"
+      },
+      {
+        "assessment": "Related use of parity, principally p=1/2 and even-decomposability; no all-p sign threshold for these two counts",
+        "evidence": [
+          "doi:10.1002/rsa.70034 Lemma 3.5",
+          "doi:10.1002/rsa.70034 Theorem 1.13"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70034",
+        "material_read": "Open-access HTML abstract, introduction, statements and Section 3 degree-parity conditioning",
+        "method": "Publisher open full text",
+        "title": "The Probability That a Random Graph is Even-Decomposable",
+        "trigger": "Parity in random graphs and rare isolation configurations near complete graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b6736add-ce4f-4cee-8ce1-aece65520840",
+  "value": {
+    "rationale": "Isolation and odd-degree counts are canonical local and parity statistics. The theorem isolates an order-parity-dependent dependence reversal, completely classifies finite n and p, and locates a sharp logarithmic dense-graph window. It is not merely a numerical table or an unmotivated slice; the effect size is explicitly qualified.",
+    "status": "PASS"
+  }
+}
