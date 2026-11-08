@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:06:17.452413Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact global polynomial shear (u,v,w)=(x,y+x²,z) transforms the vector field without reparametrizing time to u'=v²−K, v'=w, w'=(v²−K)²−r². Independently differentiated the original-coordinate Jacobian J and verified symbolically J³=0 at all points, not inferring it from shear (nonlinear conjugacy would not suffice). U'(v)=r²−(v²−K)², so planar H=w²/2+U(v) is conserved; no fixed point since g=0 forces z'=-r². For r>0,K>=1.5r, critical v=-sqrt(K+r), -sqrt(K-r), +sqrt(K-r), +sqrt(K+r) alternate minima/maxima with two disjoint compact regular oval annuli on strictly positive left and strictly negative right H-levels (possibly zero saddle at the boundary K=1.5r, still open-energy separation). On shrinking left oval mean g→+r, at its outer separatrix saddle mean→−r; right annulus reverses the signs. The separatrix limit follows by logarithmically divergent saddle residence versus bounded time away, not numerical quadrature. Continuity yields an interior zero of D(E)=∫g(v(t))dt in each annulus. Each lifted R×oval at D=0 is a smooth isochronous periodic cylinder with minimal original physical-time planar period, distinct by energy sign. Independent exact symbolic J³=0,U'+g²−r²=0 and energy ranges checked for (K,r)=(1.5,1),(2,1),(3,1). No uniqueness or total count of cylinders claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castañeda–Rebollo-Perdomo source includes the whole flow family but gives a one-cylinder result for linear P1 and poses multiple-cylinder question after quadratic example.",
+          "The higher even-kinetic theorem explicitly denies nilpotence and has only one projected annulus."
+        ],
+        "reasoning": "General ambient-family inclusion does not imply existence of two distinct zero-drift energy levels in the specified parameter regime.",
+        "searches": [
+          "arxiv:2209.06986 formula 9 proposition 1.3 section 5",
+          "doi:10.1007/s00013-024-02085-8 later 2025 journal",
+          "Resultary periodic cylinders two-end algebraic period laws 39357bc9e312 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Castañeda–Rebollo-Perdomo 2022 primary full arxiv preprint Sec4-5",
+        "Related 2025 journal version abstract only",
+        "Resultary 2026 even-kinetic skew full RESULT.md",
+        "Independent original-coordinate Jacobian symbolic nilpotence, first-integral differentiation and energy separation",
+        "Resultary nilpotent Jacobian literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 paper explicitly remarks that two planar annuli do not settle the number of periodic cylinders in 3D.",
+          "Current proof establishes separate zero drift through center versus separatrix averages g(center)=±r, g(saddle)=∓r."
+        ],
+        "reasoning": "A planar period annulus alone gives a lifted invariant cylinder on which u may drift unboundedly. This additional sign reversal is the decisive missing implication.",
+        "searches": [
+          "arxiv:2209.06986 Sec 5 two planar annuli query",
+          "arxiv:2209.06986 Proposition 1.3",
+          "Resultary 39357bc9e312"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previous planar double well has two annuli but periodic lifts require an additional zero of ∮g(v)dt on each.",
+          "Prior even-kinetic drift theorem studies a different nonnilpotent single-well flow."
+        ],
+        "reasoning": "Compared existence of planar annuli, three-dimensional periodic cylinders and zero-mean axial return maps as potentially equivalent but genuinely distinct statements.",
+        "searches": [
+          "nilpotent Jacobian polynomial vector field two disjoint periodic cylinders simultaneous zero drift quadratic double-well",
+          "Castañeda Rebollo Perdomo arxiv 2209.06986 Section 5",
+          "Resultary even kinetic skew periodic cylinders 39357bc9e312"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No enumerated finite table supplies the continuum family of two cylinders.",
+          "Sample numerical energies are optional corroboration; proof uses saddle limits and IVT in each of two annuli."
+        ],
+        "reasoning": "Not a recomputation of a known example table; all-real-parameter existence theorem requires a global drift-sign mechanism.",
+        "searches": [
+          "nilpotent Jacobian quadratic P1 two periodic cylinders root energies",
+          "Castañeda Rebollo Perdomo 2022 section five",
+          "Resultary nilpotent polynomial vector field periodic cylinder search"
+        ]
+      },
+      "rationale": "Castañeda–Rebollo-Perdomo arxiv2209.06986 has the same ambient general skew form (formula 9) and Section 5 a quadratic P1 with two planar annuli, but it explicitly asks how many 3D periodic surfaces; its Proposition 1.3 proves one isochronous cylinder for a different linear P1 case. A separate published Resultary even-kinetic skew flow has one annulus, nonnilpotent Jacobian and power-law period limits; no logical implication of the present simultaneous two-cylinder existence. The audited new step is to show both axial drifts change sign, using the double-well symmetric potential plus energy separation.",
+      "residual_risks": [
+        "Publisher full text of the later journal version not read; an added two-cylinder result not present in the preprint is a possible priority risk.",
+        "No uniqueness or full enumeration of periodic cylinders asserted; separatrix average proof requires r>0 nondegenerate saddles and given K range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "does not claim two periodic 3D cylinders; explicit motivating question",
+          "evidence": "Section 5 distinguishes two planar period annuli from the unresolved number of periodic surfaces.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.06986",
+          "material_read": "Read primary full preprint model, formula (9), Proposition 1.3 and Section 5 including question after quadratic P1 example (PDF pages 10–13), verified with page rendering",
+          "method": "PDF extraction plus page screenshots",
+          "title": "Discrete and continuous dynamics of real 3-dimensional nilpotent polynomial vector fields",
+          "trigger": "Exact same skew-flow construction and two-planar-annulus example"
+        },
+        {
+          "assessment": "one annulus in different nonnilpotent flow; not covering",
+          "evidence": "Even p>=4 kinetic, degenerate center, explicitly not globally nilpotent; no two-well nilpotent construction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-periodic-cylinders-and-two-end-algebraic-period-laws-in-even-kin--39357bc9e312",
+          "material_read": "Read complete public RESULT.md, hypotheses, proof, comparison and limitations",
+          "method": "GitHub file content through connected repository",
+          "title": "Periodic cylinders and two-end algebraic period laws in even-kinetic skew flows",
+          "trigger": "Semantic result with zero-drift and cylinder terminology"
+        },
+        {
+          "assessment": "residual risk as later full text not read",
+          "evidence": "Best-of-knowledge rests mainly on inspected arxiv full preprint; later changes cannot be excluded.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-024-02085-8",
+          "material_read": "Journal abstract/bibliographic reference; publisher full text not independently inspected",
+          "method": "Metadata and preprint-to-journal identification",
+          "title": "Archiv der Mathematik journal version of Castañeda and Rebollo-Perdomo",
+          "trigger": "Possible later expansion of highly relevant 2022 preprint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction answers an explicit natural question left by the highly relevant original article: two planar period annuli do not automatically give two 3D periodic cylinders. This proves an actual simultaneous axial zero-drift witness in an everywhere-nilpotent Jacobian, equilibrium-free polynomial field for a full nontrivial two-parameter region, a meaningful dynamical structural phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Castañeda–Rebollo-Perdomo 2022 primary full arxiv preprint Sec4-5",
+    "Related 2025 journal version abstract only",
+    "Resultary 2026 even-kinetic skew full RESULT.md",
+    "Independent original-coordinate Jacobian symbolic nilpotence, first-integral differentiation and energy separation",
+    "Resultary nilpotent Jacobian literature search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Publisher full text of the later journal version not read; an added two-cylinder result not present in the preprint is a possible priority risk.",
+    "No uniqueness or full enumeration of periodic cylinders asserted; separatrix average proof requires r>0 nondegenerate saddles and given K range."
+  ],
+  "schema_version": 1
+}
