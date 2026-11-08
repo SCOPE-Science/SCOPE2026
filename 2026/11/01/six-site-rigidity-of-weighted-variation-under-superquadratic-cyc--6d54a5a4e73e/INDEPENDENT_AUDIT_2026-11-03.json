@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:57:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md source Git blob a66b77f93620445646ced4ce5e5a0eef65b56155",
+        "Assigned verification code inspected",
+        "Independent bounded mathematical checks"
+      ],
+      "rationale": "Edge increments x_i=u_{i+1}-u_i are zero-sum and satisfy dot x_i=Phi(x_{i-1})+Phi(x_{i+1})-2Phi(x_i). The monotonicity of the sign and Phi gives contraction for uniform weights. For n>=6 disjoint sparse dipoles at j and j+3 impose d_j+d_{j+3}<=0 for d_j=w_{j-1}+w_{j+1}-2w_j, whose cyclic sum forces paired equality; perturbing the dipole with epsilon, q=p-1>1, yields a positive first-order term if any d_j≠0, hence each d_j=0 and all weights equal. For n<=5, strict negativity of uniform gradient TV on nonzero zero-sum gradients follows graph diameter<=2 and gives openness by compactness. Independent exact sign-chamber rational calculation found maximum -1/4 for p=3 weighted C5, zero for p=2 alternating C6, +1/2 for p=3 alternating C6. The claim does not cover 1<p<2 or arbitrary conductances.",
+      "residual_risks": [
+        "No external formal certification; finite checks do not replace general argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both primary semigroup papers treat general graphs and vertex regularity/contractivity, not an explicit rigidity classification at length six."
+        ],
+        "reasoning": "Broader graph applicability does not imply the narrower assertion with a new weighted functional, especially with p=2 versus p>2 change.",
+        "searches": [
+          "Mugnolo 2012 p-Laplace vertex contraction",
+          "Hua Mugnolo 2014 graph p heat",
+          "weighted dissipativity edge variable cycle"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md and verification/check_cycle_pheat.py at assigned Git tree",
+        "arXiv:1207.1996",
+        "arXiv:1410.1584",
+        "Resultary published weighted cycle query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known vertex contraction persists across p and does not force spatial weighted variation contraction.",
+          "The p=2 counterexample to uniform-weight necessity rules out an argument by simple linear semigroup inheritance."
+        ],
+        "reasoning": "A new sparse-dipole first-order perturbation argument and the short-cycle sign gap are needed for the claimed threshold.",
+        "searches": [
+          "arXiv:1207.1996 Theorem 3.4 and vertex ℓq",
+          "arXiv:1410.1584 regularity",
+          "p=2 weighted six-cycle explicit counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex sequence norm contraction under p-heat is a two-input property; weighted edge-gradient TV decrease is a different one-input spatial regularity condition.",
+          "The edge difference space is constrained by sum x_i=0."
+        ],
+        "reasoning": "The graph p-heat evolution is familiar but the exact dissipativity criterion of independent edge variation weights is not a renaming of vertex norm contractivity.",
+        "searches": [
+          "weighted total variation contraction nonlinear graph p heat cycle nonuniform weights [Resultary]",
+          "arXiv:1207.1996 graph p-Laplace",
+          "arXiv:1410.1584 graph p heat"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published comparison records concern weighted cycle energy, numerical radii, and other objectives; none provided the exact 30-chamber C5 and 62-chamber C6 variation table."
+        ],
+        "reasoning": "The exact rational checks are independently reconstructed, not copied from a known table, but an unindexed edge-dissipativity classification might exist.",
+        "searches": [
+          "weighted total variation contraction nonlinear graph p heat cycle nonuniform weights [Resultary]",
+          "p=3 five-cycle variation sign chamber exact rational bound"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-comparison judgement: claim is not shown to be a restatement or corollary of the actual inspected antecedents. A new sparse-dipole first-order perturbation argument and the short-cycle sign gap are needed for the claimed threshold.",
+      "residual_risks": [
+        "Older weighted dissipativity/porous-medium edge-flow literature may encode equivalent classification.",
+        "Thirty- and sixty-two-sign-chamber checks support explicit special cases; general n theorem rests on analytic dipole argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General vertex norm semigroup contraction does not state edge variation-weight iff criterion",
+          "evidence": [
+            "Theorem 3.4 treats vertex ℓq contractivity/wellposedness rather than weighted TV of spatial increments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.1996",
+          "material_read": "Accessible article introduction, definitions, section 3 semigroup theorem and contractivity passages",
+          "method": "Primary full-text HTML targeted sections",
+          "title": "Parabolic theory of the discrete p-Laplace operator",
+          "trigger": "Same nonlinear heat generator"
+        },
+        {
+          "assessment": "Long-time/regularity theory not an exact finite-cycle anisotropic edge variation classification",
+          "evidence": [
+            "Theorems 1.1–1.3 concern parabolic graph evolution rather than variation rigidity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.1584",
+          "material_read": "Original PDF introductory theorems and graph evolution definitions",
+          "method": "Primary arXiv full-text targeted reading",
+          "title": "Time regularity and long-time behavior of parabolic p-Laplace equations on infinite graphs",
+          "trigger": "Broader graph evolution potentially covering cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md and verification/check_cycle_pheat.py at assigned Git tree",
+        "arXiv:1207.1996",
+        "arXiv:1410.1584"
+      ],
+      "rationale": "The sharp six-site threshold and contrast with linear heat expose a structural change in a basic nonlinear graph diffusion’s anisotropic variation stability; the complete if-and-only-if for all n>=6 and motivating finite exceptional cases are mathematically meaningful.",
+      "residual_risks": [
+        "Older weighted dissipativity/porous-medium edge-flow literature may encode equivalent classification.",
+        "Thirty- and sixty-two-sign-chamber checks support explicit special cases; general n theorem rests on analytic dipole argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older weighted dissipativity/porous-medium edge-flow literature may encode equivalent classification.",
+    "Thirty- and sixty-two-sign-chamber checks support explicit special cases; general n theorem rests on analytic dipole argument."
+  ],
+  "schema_version": 1
+}

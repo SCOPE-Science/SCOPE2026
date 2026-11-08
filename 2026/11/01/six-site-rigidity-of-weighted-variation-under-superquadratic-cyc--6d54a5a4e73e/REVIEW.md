@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The zero-sum edge-gradient reduction is exact. Uniform weights contract by monotone-flux summation by parts. A two-spike increment yields the necessary paired second-difference identities on every cycle with at least six edges; a superquadratic small-mass perturbation forces individual second differences to vanish. The short-cycle existence result follows from strict unweighted variation dissipation plus an upper-semicontinuity/compactness perturbation argument. The five-site contrast has an exhaustive exact sign-chamber certificate, and the standalone checker reproduces it. Real-signal and all-time quantifiers follow from global well-posedness and the Dini-derivative argument.
+## correctness
 
-**Originality — PASS, with residual risk.** The primary nonlinear semigroup literature treats vertex \(\ell^q\) contraction and regularity, which does not imply arbitrary weighted edge-gradient variation contraction. The closest linear six-cycle comparison concerns a different generator, and the nonlinear star classification concerns a different edge-gradient geometry. Searches for nonlinear cycle edge-BV contraction and equivalent zero-sum edge-space formulations did not identify an encompassing result. Older weighted dissipativity results that are hard to locate may contain an implicit equivalent.
+PASS
 
-**Mathematical value — PASS.** This is a sharp structural threshold, valid simultaneously for every \(p>2\), showing that nonlinearity destroys the nonuniform linear-cycle contraction phenomenon at exactly six vertices while smaller cycles retain an open region of anisotropic stability. It distinguishes a one-input BV stability property from routine vertex norm nonexpansivity and supplies both all-time classification and immediate amplification witnesses.
+Edge increments x_i=u_{i+1}-u_i are zero-sum and satisfy dot x_i=Phi(x_{i-1})+Phi(x_{i+1})-2Phi(x_i). The monotonicity of the sign and Phi gives contraction for uniform weights. For n>=6 disjoint sparse dipoles at j and j+3 impose d_j+d_{j+3}<=0 for d_j=w_{j-1}+w_{j+1}-2w_j, whose cyclic sum forces paired equality; perturbing the dipole with epsilon, q=p-1>1, yields a positive first-order term if any d_j≠0, hence each d_j=0 and all weights equal. For n<=5, strict negativity of uniform gradient TV on nonzero zero-sum gradients follows graph diameter<=2 and gives openness by compactness. Independent exact sign-chamber rational calculation found maximum -1/4 for p=3 weighted C5, zero for p=2 alternating C6, +1/2 for p=3 alternating C6. The claim does not cover 1<p<2 or arbitrary conductances.
 
-The mathematical claim does not establish complete short-cycle weight classifications, results for subquadratic exponents, or independent external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge source-comparison judgement: claim is not shown to be a restatement or corollary of the actual inspected antecedents. A new sparse-dipole first-order perturbation argument and the short-cycle sign gap are needed for the claimed threshold.
+
+## value
+
+PASS
+
+The sharp six-site threshold and contrast with linear heat expose a structural change in a basic nonlinear graph diffusion’s anisotropic variation stability; the complete if-and-only-if for all n>=6 and motivating finite exceptional cases are mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
