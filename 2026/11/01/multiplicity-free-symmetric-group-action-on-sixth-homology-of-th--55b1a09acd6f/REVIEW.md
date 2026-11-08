@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the precise \(35\)-vertex pairwise-intersecting-triple complex, Feng's published rational ranks and Feng–Wang's previously proved independent degree-nine cross-polytopal classes are explicit inputs. The sign action of each six-point stabilizer is verified for all \(720\) permutations. The reduced Lefschetz fixed-simplex argument gives \(\widetilde L(g)=-I(D_g;-1)\), and exact evaluation for all \(15\) conjugacy classes, followed by irreducible character orthogonality, yields the asserted sixth-degree Specht constituents. No integral decomposition or sixth-degree cycle basis is asserted. The finite checker was executed successfully.
+## correctness
 
-## Originality — PASS, with residual risk
-Feng, arXiv:2610.17394 (full accessible primary text inspected), establishes the nonequivariant sixth and ninth Betti ranks and asks for more explicit sixth-degree information; it does not state the sixth \(\mathfrak S_7\)-character. Feng and Wang, arXiv:2404.10566 (full accessible primary text inspected), already establish degree-nine cycle independence, so that statement is used as prior work and not claimed new. Comparisons under Kneser-independence, intersecting-triples and symmetric-group representation formulations did not identify the claimed multiplicity-free decomposition. The nearby six-point neighborhood complex and eight-point triple complex do not imply the seven-point module. Equivalent unindexed work remains possible.
+PASS
 
-## Mathematical value — PASS
-The result identifies the full rational \(\mathfrak S_7\)-module, rather than only its dimension, and detects a unique invariant sixth-homology line within a 29-dimensional space. It is a motivated structural refinement of a recently calculated family member, not an arbitrary numerical slice. A concrete basis in degree six remains open and is not implied here.
+For the 35-vertex complex of pairwise-intersecting triples of [7] = Ind(KG(7,3)) conventional or Feng KG(3,1), published Feng Theorem 18 gives rational beta6=29 and beta9=7 with no other positive reduced rational homology; Feng–Wang Theorem10 gives independent six-subset crosspolytopal nine-cycles. Their 7 classes form an H9 basis with signed stabilizer action, inducing Ind_{S6xS1}^{S7}(sgn6 x 1). The reduced Lefschetz trace chi6-chi9 equals -I(D_g;-1), with D_g the conflict graph of triple-orbits under g. Independently reconstructed all 15 S7 orbit graphs and signed six-set trace, checked exact Murnaghan–Nakayama S7 character-table orthogonality and rational class multiplicities: H6 = S^(7) ⊕ S^(4,3) ⊕ S^(2,2,2,1), dimensions1+14+14=29, and H9 two hook Spechts dimensions6+1=7. The packaged verifier also checks all 720 S6 orientation signs; the published homological inputs are not independently reproved. No integral or homotopy claim.
 
-## Verification and limitations
-The packaged checker uses only exact integer operations and the Python standard library and reproduces all conjugacy-class traces and irreducible multiplicities. Its finite calculations do not independently establish the prior published homology concentration or degree-nine generator theorem. Originality searches are not an exhaustive proof that no equivalent statement exists, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact alternate notation KG(3,1) in Feng and conventional KG(7,3), pairwise-intersecting triples and scale-four constant-weight Vietoris–Rips were compared. Feng 2026 determines only beta6=29 and beta9=7; Feng–Wang 2024 gives top crosspolytopal classes but not chi6. The S8 analog is a different natural module and no stability/branching theorem here implies the S7 decomposition. Indexed neighborhood/Čech complex characters concern distinct objects.
+
+## value
+
+PASS
+
+Seven ground points give a canonical first nontrivial member of the triple Kneser family beyond the six-point crosspolytope. The 29-dimensional H6 carries a nontrivial full S7 module with a unique invariant rational line, and exact irreducibles 1+14+14 cannot be read from the 29 Betti count. The exact 15-class classification is a substantive equivariant refinement, not a standalone trivial dimensional observation; explicit sixth-degree cycles remain uncomputed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
