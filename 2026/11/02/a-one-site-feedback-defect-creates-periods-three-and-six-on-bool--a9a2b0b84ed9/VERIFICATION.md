@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-`VERIFY.py` constructs the full binary update matrix from its graph definition, checks the predicted ranks and matrix-power identities in dimensions \(2\) through \(8\), and checks all configurations exhaustively in dimensions \(2\), \(3\), and \(4\). Its separately implemented direct state-transition function agrees with the matrix analysis. The output in `VERIFY_OUTPUT.txt` ends `HYPERCUBE_ONE_SITE_VERIFY_OK`.
+# Independent mathematical audit
 
-The program is finite validation, not an all-dimensions proof. The general theorem follows from the rank and invariant-plane argument in `RESULT.md`. No third-party dependency is required; invoke `python3 VERIFY.py` in a directory containing this file.
+## correctness
+
+PASS
+
+RESULT.md proves over GF(2), for d>=2, A²=(d mod 2)I via commuting involutory coordinate flips. H=A+delta I has H²=0 and rank 2^(d-1); with e at one origin, D=H+ee^T has rank h+1, D² image span(e,He), and restriction [[1,delta],[1,0]]. Even d therefore has one fixed line and nilpotent J3(0) plus h-2 J2(0) blocks; the exact entry shells follow from kernel ranks. Odd d yields one irreducible degree-two 3-cycle factor and h-1 unipotent J2(1) blocks, yielding exact primitive orbit counts for 1,2,3,6. Independently exhaustively reimplemented direct GF2 state updates for d=2,3,4; first-entry d2=(2,2,4,8), d4=(2,254,32512,32768), d3 period-state populations (8,56,24,168) all match. These finite tests are not the infinite proof. No claim beyond one self-feedback defect, even/odd d>=2, or unlabelled orbit quotient.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact defective-distance-one-cube rank-one update classification; previously known additive cellular-automaton algebra and uniform hypercube rules do not supply the explicit one-site-defect Jordan form and period-3/6 census.
+
+## value
+
+PASS
+
+Adding precisely one self-feedback vertex to the canonical Boolean-cube parity automaton is a natural minimal local perturbation. The all-d exact transient shell and primitive orbit census distinguishes two parity regimes and produces new periods 3 and 6, a structural dynamical classification not implied by generic linear algebra alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
