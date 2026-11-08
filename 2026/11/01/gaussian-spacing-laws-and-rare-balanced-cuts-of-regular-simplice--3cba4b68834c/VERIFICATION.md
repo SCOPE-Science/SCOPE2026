@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Analytic and numerical verification
+# Independent mathematical audit
 
-The exact probability identity was checked by independent edge-crossing normalization: Gaussian normal scores are centered and divided by an independent radius, and the width-weighted offset has expected Gaussian span \(2\mu_m\). The inequality \(N\ge r(m-r)\) restricts the offset to the expected order-statistic interval. Each edge crosses for an offset interval of length \(|G_i-G_j|\), which gives the same mean as the distribution’s first moment. The cases \(m=3\) and \(m=4\) give, respectively, two section vertices almost surely and the exact tetrahedron probability \(0.288535543072\ldots\) of a four-vertex section.
+## correctness
 
-The included standard-library verifier `verify.py` computes order-statistic integrals and checks exact edge summation for \(m=3,4,5,6,8,10,12\). It additionally checks Gaussian-range-weighted simulations for \(m=4,8,12\) with 90,000 samples each. Program output ends with `ALL_CHECKS_PASSED`.
+PASS
 
-The expectation asymptotic requires \(\mu_m\sim\sqrt{2\log m}\), a standard Gaussian maximum result. The rare macroscopic law also uses uniform-integrable central order-statistic quantile convergence. The random-exponent law uses \(L^1\) convergence of normalized Gaussian range, exact total variation control of range reweighting, standard Gaussian tail exponents and binomial concentration. None of these infinite steps is inferred from finite numerical enumeration.
+PASS: Haar normal directions on the simplex affine span are centered Gaussian scores G_i centered by their mean and divided by independent R. An invariant affine offset conditional on hitting the body has width-weighted direction measure; R-independence gives exactly the Gaussian-range-weighted threshold representation. Every generic simplex section vertex corresponds to an edge with one endpoint on either side, giving N=k(m-k). Integrating admissible threshold intervals yields P{N>=r(m-r)}=E G_(m-r+1)/E G_(m); summing edge crossing intervals gives mean m(m-1)/(2 sqrt(pi) mu_m). For fixed q<1/4 choose r=ceil(rho_q m); empirical normal quantiles give z_q/mu_m and the claimed 1/sqrt(logm) rate. Range/(2 sqrt(2logm))→1 in L1 makes width-weighted and ordinary Gaussian samples asymptotically total-variation close; uniform threshold fraction V yields s/b_m→2V−1, Gaussian tail counts give log N/logm→2−(2V−1)^2. Independently verified quadrature tail probabilities, exact mean-via-edge identity for m=3,4,5,6,9, and tetrahedral balanced probability 0.288535543072. Finite checks do not establish the distributional limits.
 
-No external independent mathematical review has been performed. The theorem is restricted to invariant affine hyperplanes of regular simplices and fixed \(0<q<1/4\).
+## originality
+
+PASS
+
+PASS: Kabluchko–Litvak–Zaporozhets (2016/2017) give Gaussian range/mean-width and its extreme-value asymptotics, but not Crofton-conditioned section crossing-edge counts; these are acknowledged input. Brandenburg–De Loera–Meroni (2023) optimize section combinatorics but do not give invariant affine section probability. Previous published central-simplex section laws fix the offset at the centroid and have different chi-square rather than broad affine threshold behavior. None of the inspected exact prior statements implies the order-statistic survival law, random exponent and rare balanced coefficient without further new analysis.
+
+## value
+
+PASS
+
+PASS: The Crofton-invariant random affine section is a canonical geometry model; the full distribution and a striking split between order-m^2/sqrt(logm) mean and lower random-log-exponent typical complexity answer a natural geometric-probability problem. The quantified probability of unusually balanced sections is useful and non-mechanical, beyond known mean-width data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

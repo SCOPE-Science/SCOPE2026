@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T00:54:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Haar normal directions on the simplex affine span are centered Gaussian scores G_i centered by their mean and divided by independent R. An invariant affine offset conditional on hitting the body has width-weighted direction measure; R-independence gives exactly the Gaussian-range-weighted threshold representation. Every generic simplex section vertex corresponds to an edge with one endpoint on either side, giving N=k(m-k). Integrating admissible threshold intervals yields P{N>=r(m-r)}=E G_(m-r+1)/E G_(m); summing edge crossing intervals gives mean m(m-1)/(2 sqrt(pi) mu_m). For fixed q<1/4 choose r=ceil(rho_q m); empirical normal quantiles give z_q/mu_m and the claimed 1/sqrt(logm) rate. Range/(2 sqrt(2logm))→1 in L1 makes width-weighted and ordinary Gaussian samples asymptotically total-variation close; uniform threshold fraction V yields s/b_m→2V−1, Gaussian tail counts give log N/logm→2−(2V−1)^2. Independently verified quadrature tail probabilities, exact mean-via-edge identity for m=3,4,5,6,9, and tetrahedral balanced probability 0.288535543072. Finite checks do not establish the distributional limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Best Ways to Slice a Polytope gives geometric slicing chambers and extremal face counts, not a Crofton random measure formula.",
+          "Kabluchko et al. covers all regular-polytope widths and extrema but not affine section vertex distribution or random log exponent."
+        ],
+        "reasoning": "Neither broader geometric theorem supplies all exact probabilities and large-m asymptotics stated here.",
+        "searches": [
+          "Resultary semantic: random invariant affine hyperplane regular simplex section number vertices Gaussian order statistics range weighted distribution",
+          "arxiv:2304.14239 full paper",
+          "arxiv:1511.08479 full paper"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md",
+        "pinned verify.py (read)",
+        "Resultary semantic: random invariant affine hyperplane regular simplex section number vertices Gaussian order statistics range weighted distribution",
+        "arxiv:1511.08479 full PDF",
+        "arxiv:2304.14239 full PDF",
+        "Resultary d3f9b0447a8e and aa90c887fe90 (central sections)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edge-cutting combinatorics and Gaussian score differences must be coupled with conditioned affine hyperplane measure to obtain probabilities.",
+          "Rare balanced-section constant needs central Gaussian quantile and maximum asymptotic; typical exponent needs Gaussian threshold randomization and binomial log count."
+        ],
+        "reasoning": "Prior widths and optimization criteria do not imply the full random-section distribution and the two distinct asymptotic regimes without additional proof.",
+        "searches": [
+          "Resultary semantic: random invariant affine hyperplane regular simplex section number vertices Gaussian order statistics range weighted distribution",
+          "arxiv:2304.14239 slicing chambers",
+          "arxiv:1511.08479 mean width"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian widths are Gmax−Gmin up to independent norm, but Crofton selection weights directions by that width.",
+          "Central Haar sections use deterministic offset zero and N from Gaussian sign imbalance rather than random threshold."
+        ],
+        "reasoning": "An equality of underlying Gaussian extreme variables does not make central and affine invariant section laws equivalent.",
+        "searches": [
+          "Resultary semantic: random invariant affine hyperplane regular simplex section number vertices Gaussian order statistics range weighted distribution",
+          "arxiv:1511.08479 full text",
+          "Resultary central simplex finding d3f9b0447a8e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published central-section exact mean/chi-square tables involve a different experiment; mean m(m-1)/(2 sqrt(pi)mu_m) differs from central mean comb(m,2)arccos(-1/(m-1))/pi.",
+          "Known Gaussian mean-width expressions determine only normalization, not all order-statistic tail probabilities."
+        ],
+        "reasoning": "No exact affine invariant section vertex-count table in checked sources; search alone not a proof of novelty.",
+        "searches": [
+          "Resultary semantic: random invariant affine hyperplane regular simplex section number vertices Gaussian order statistics range weighted distribution",
+          "Resultary findings aa90c887fe90 and d3f9b0447a8e",
+          "arxiv:1511.08479"
+        ]
+      },
+      "rationale": "PASS: Kabluchko–Litvak–Zaporozhets (2016/2017) give Gaussian range/mean-width and its extreme-value asymptotics, but not Crofton-conditioned section crossing-edge counts; these are acknowledged input. Brandenburg–De Loera–Meroni (2023) optimize section combinatorics but do not give invariant affine section probability. Previous published central-simplex section laws fix the offset at the centroid and have different chi-square rather than broad affine threshold behavior. None of the inspected exact prior statements implies the order-statistic survival law, random exponent and rare balanced coefficient without further new analysis.",
+      "residual_risks": [
+        "An earlier stochastic integral-geometric formula for random simplex sections may be unindexed; exact published table absence is not proven.",
+        "Rare-event scaling holds for fixed 0<q<1/4, not endpoint q=1/4 or varying q.",
+        "The probability law relies on correct Crofton width weighting; uniform-angle-with-uniform-normalized-offset sampling differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GAUSSIAN_WIDTH_NOT_SECTION_COUNT",
+          "evidence": [
+            "Section 1 equates mean width to Gaussian maximum; no affine cut number N=k(m-k), no Crofton probability law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08479",
+          "material_read": "Full 19-page preprint; Sections 1–3 on widths/Gaussian maxima, distributional limit and formulas, with page-0 and page-10 screenshots",
+          "method": "Open-access arXiv full PDF",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Same regular simplex Gaussian maxima and width"
+        },
+        {
+          "assessment": "PRIOR_SLICING_CHAMBERS_NOT_CROFTON_LAW",
+          "evidence": [
+            "Optimizes/parametrizes sections, without invariant conditioned random-affine measure tail laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14239",
+          "material_read": "Full 38-page arXiv preprint, introduction, slicing chambers and optimization sections with original PDF page images",
+          "method": "Open-access arXiv full PDF",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Same polytope and hyperplane intersection combinatorics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The Crofton-invariant random affine section is a canonical geometry model; the full distribution and a striking split between order-m^2/sqrt(logm) mean and lower random-log-exponent typical complexity answer a natural geometric-probability problem. The quantified probability of unusually balanced sections is useful and non-mechanical, beyond known mean-width data.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md",
+    "pinned verify.py (read)",
+    "Resultary semantic: random invariant affine hyperplane regular simplex section number vertices Gaussian order statistics range weighted distribution",
+    "arxiv:1511.08479 full PDF",
+    "arxiv:2304.14239 full PDF",
+    "Resultary d3f9b0447a8e and aa90c887fe90 (central sections)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a Crofton-invariant affine hyperplane conditioned to hit a regular (m-1)-simplex, exact Gaussian-order-statistic law for section-vertex count N=k(m-k), sharp mean, random typical log exponent 2-U^2, and rare balanced cut constant.",
+  "limitations": [
+    "Only regular simplices and affine invariant hyperplanes conditioned on intersection.",
+    "Log-exponent convergence is distributional, not deterministic fixed realization convergence.",
+    "Dimension-dependent rare thresholds and endpoint q=1/4 are outside the claim."
+  ],
+  "residual_risks": [
+    "An earlier stochastic integral-geometric formula for random simplex sections may be unindexed; exact published table absence is not proven.",
+    "Rare-event scaling holds for fixed 0<q<1/4, not endpoint q=1/4 or varying q.",
+    "The probability law relies on correct Crofton width weighting; uniform-angle-with-uniform-normalized-offset sampling differs."
+  ],
+  "schema_version": 1
+}
