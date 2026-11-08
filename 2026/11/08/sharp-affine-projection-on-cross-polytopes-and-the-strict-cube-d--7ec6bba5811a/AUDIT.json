@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "On the normalized real volume cross-polytope, the coordinate covariance equals 2/((d+1)(d+2)), giving the exact affine reproducing kernel 1+((d+1)(d+2)/2)x·y. Strict sign disagreement of distinct vertex kernels on positive-measure sets proves vertex-only evaluation normers. A beta marginal evaluates the exact norm and negativity. Differentiating (d+1)log(1-2/((d+1)(d+2))) proves strict dimension growth; Taylor expansion gives the stated asymptotic. For the cube comparison, an exact Irwin–Hall formula establishes equality for d=1,2 and strict gaps for d=3,...,7, while for d>=8 the sharp cross-polytope lower bound 1+d/2 dominates the Cauchy–Schwarz bound sqrt(1+3d) for the cube. The reproduced exact-rational checker covers independent finite cases, not infinity. The proof states real coefficients, ranges, measures, equality, and asymptotic limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1005.2424, Theorem 5.1: an Lp stability criterion for local bases on manifolds with constants dependent on geometry, not a sharp dimension-independent classification of this affine kernel.",
+        "arXiv:2311.18656, §2: polynomial norming mesh computations may handle polytopes through triangulation but supply numerical brackets, not the exact volume-orthogonal affine value.",
+        "Related Hanner-polytope isotropic constant statements determine covariance-scale quantities, not the L1 norm of the signed affine reproducing kernel."
+      ],
+      "reasoning": "General polynomial mesh machinery or general kernel projector boundedness do not imply this sharp norm and complete equality cases without the new beta integration and cross/cube comparison. Covariance alone does not determine the integral absolute kernel or strict duality gap.",
+      "searches": [
+        "L2 least squares projection onto linear polynomials Lebesgue function polytopes",
+        "polynomial approximation on crosspolytopes least squares norms",
+        "Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube simplex and ball arxiv:2311.18656",
+        "Kernel Approximation on Manifolds II arxiv:1005.2424"
+      ]
+    },
+    "checked_sources": [
+      "Hangelbroek–Narcowich–Sun–Ward, arXiv:1005.2424 (relevant introduction, assumptions, projector theorems read).",
+      "Białas-Cież–Kenne–Sommariva–Vianello, arXiv:2311.18656 (introduction, mesh results and selected examples read).",
+      "Related accessible mathematical claims: exact affine simplex projector positivity; exact affine cube norm and asymptotic; Hanner-polytope isotropic constants; cross-polytope nearest-point projection (statement-level comparisons).",
+      "Targeted exact-formula and equivalent-domain record searches under crosspolytope, octahedral ball, ℓ1 ball, Lebesgue constant, affine projector and polar cube aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier exact cube statement is for the uniform cube and yields its Irwin–Hall formula, not the cross-polytope beta marginal.",
+        "The earlier exact simplex statement is for one simplex with uniform measure. Applying it separately to the 2^d simplex orthants would not produce the orthogonal projector for the union, because the global Gram matrix and cross-orthant linear coefficients are different.",
+        "Related isotropic Hanner-polytope and Minkowski-ellipse duality results address different invariants; matching both bodies and parameters does not make their conclusions imply this projection-norm inequality."
+      ],
+      "reasoning": "The affine cube and simplex results have different underlying normalized measures and do not dominate the new cross-polytope norm. In dimension two cross-polytope and cube are affinely equivalent, so equality there is not new; for all d>=3 the new strict inequality cannot be read from the older cube or simplex formulas alone.",
+      "searches": [
+        "sharp L infinity norm L2 affine orthogonal projection uniform crosspolytope l1 ball all dimensions positivity extremizers",
+        "cube crosspolytope duality gap affine least squares projection norm every dimension d>=3",
+        "exact positivity defect and max norm affine least squares projector simplex",
+        "exact cube affine projection norms second-order stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1005.2424, §§1,4,5: local manifold kernel projector estimates, not a normalized-volume linear polynomial projector on a cross-polytope.",
+        "arXiv:2311.18656, §§1–3: polynomial mesh estimates and discrete projector examples on cube, simplex and ball; no exact cross-polytope affine formula in inspected full text."
+      ],
+      "reasoning": "The dual domain B_1^d can also be called the regular cross-polytope, octahedral ball or coordinate ℓ1 unit ball; the relevant projector is the uniform-volume, degree-one orthogonal polynomial projection, not Euclidean metric projection onto a convex set. Targeted searches under these aliases did not reveal an equivalent full theorem. An absence of search matches alone does not prove novelty.",
+      "searches": [
+        "affine least squares L infinity projection cross-polytope Lebesgue constant exact formula",
+        "orthogonal projection onto affine polynomials L infinity norm octahedron ℓ1 ball",
+        "uniform volume crosspolytope affine linear L2 projection L infinity Lebesgue constant exact rational formula d(d+3) / ((d+1)(d+2))",
+        "Lebesgue function first degree orthogonal polynomial projection l1 ball B_1^d extremizers at vertices linear dimension growth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2311.18656 provides computational Lebesgue-constant estimates but no cross-polytope exact value or table covering the claimed all-dimensional expression.",
+        "Exact finite values for d=1,...,8 are independently produced by the accompanying standard-library checker; they are presented as checks, not as a published database."
+      ],
+      "reasoning": "No exact tabulation or published identity for the cross-polytope affine projector was located in accessible indexed source material. The distinction between a formula inferred from known moments and explicit prior publication is left as a residual risk.",
+      "searches": [
+        "Lebesgue constants polynomial projection on ℓ1 unit balls total degree 1",
+        "projection Lebesgue function cross-polytope least squares",
+        "crosspolytope least squares projection Lebesgue exact",
+        "For d-dimensional crosspolytope B1 the real volume-orthogonal affine projector norm equals 1+(d+2)/2*(d*(d+3)/((d+1)*(d+2)))^(d+1), all vertices extremal, d>=3 strict larger than cube"
+      ]
+    },
+    "rationale": "Relevant published work concerns stable localized kernel-space least-squares projections, numerical mesh evaluation on cubes/simplices/balls, and exact affine norms on cubes or simplices. None of these results implies the exact normalized-volume cross-polytope norm, vertex normers and strict cube-duality gap; the cross-polytope is not affinely equivalent to a cube in dimension >=3, and projector norms do not decompose across the simplex orthants. This is a qualified best-evidence priority assessment with unindexed-equivalence risk.",
+    "residual_risks": [
+      "Unindexed or implicitly derived formulas from broader orthogonal-polynomial literature could establish this result despite the negative targeted search.",
+      "Some related record entries were available only as abstracts or summaries; no assertion of full-text noncoverage is made for those.",
+      "Scientific priority and the completeness of literature coverage have not been independently verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: kernel translates over compact manifolds with localized bases, rather than uniform-volume affine projection on coordinate cross-polytopes.",
+        "evidence": "Theorem 5.1 gives parameter-dependent Lp stability under local-basis conditions; §§1,4 describe localized kernel spans and Gramian inverse estimates.",
+        "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+        "material_read": "Introduction, selected Section 3 assumptions, Section 4 Gramian estimates, and Theorem 5.1 in the searchable full-text representation.",
+        "method": "Read arXiv-hosted full-text transcription and inspected assumptions, theorem statement and their scope.",
+        "title": "Kernel Approximation on Manifolds II: The L∞-norm of the L2-projector",
+        "trigger": "Primary classic source concerning the exact type of endpoint norm for orthogonal least-squares projectors."
+      },
+      {
+        "assessment": "NOT_COVERING: numerical mesh method and selected domains, not the claimed exact cross-polytope norm or strict duality comparison.",
+        "evidence": "The introduction and §2 give admissible-mesh approximation bounds; §3 discusses examples on cubes, simplices and balls.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.18656",
+        "material_read": "Introduction, relevant Section 2 mesh bounds and polytope triangulation discussion, and Section 3 examples in the searchable full-text representation.",
+        "method": "Read arXiv-hosted full-text transcription and checked scope, formulas and examples for cross-polytope or exact continuous-volume degree-one projector.",
+        "title": "Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube, simplex and ball",
+        "trigger": "Directly related polynomial-projector Lebesgue constants on convex bodies and potential broad polytope coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ec6bba5-811a-437a-8071-1e92b007a4fb",
+  "value": {
+    "rationale": "Uniform-volume affine least-squares projection stability is a natural approximation-theoretic invariant. This result closes the exact all-dimensional cross-polytope case, identifies every norming site and worst positivity defect, and proves the previously unavailable strict polar cube-duality gap in every dimension >=3. The growth rates d/2 versus sqrt(6d/pi) separate the two dual polytopes dramatically. These assertions add a natural full classification and structural contrast beyond a routine single-dimensional benchmark.",
+    "status": "PASS"
+  }
+}
