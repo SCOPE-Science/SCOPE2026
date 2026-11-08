@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:16:00.297231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solve convex Beckmann potential for shortcut-flow c: Φ_d(c)=(d+c)²/4+d−c, c=clip(2−d,0,d); equal old-route flows (d−c)/2. This yields C1(d)=2d² (0≤d≤1),2d (1≤d≤2),C0(d)=d(1+d/2) (d≥2), hence Δ(d)=3d²/2−d, d−d²/2, 0 respectively. The globally sharp support q(d)=3/4(d−2/3)(2−d) satisfies Δ−q=(1−3d/2)², (1−d/2)², or 3/4(d−2/3)(d−2), all nonnegative on their domains and zero only at d=2/3 or 2. Taking E uses finite second moment to obtain EΔ≥3/4[(m−2/3)(2−m)−v]. Equality with v=v*(m) forces unique {2/3,2} two-atom law; for any v>v* and 2/3<m<2, choose low points 2/3±eps and corresponding high h=m+v/(m−low)>2 to construct identical first moments but opposite signs. Verified 616 independent exact rational support/moment tests; finite tests supplement algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Steinberg–Zangwill analyzes network Braess conditions for fixed demands.",
+          "Nakayama–Watling 2014 uses stochastic flows and nonidentical equilibrium interpretations; inspected full OA manuscript sections do not exhibit this exact robust moment frontier."
+        ],
+        "reasoning": "A broad stochastic-network equilibrium model does not logically supply the sharp two-moment worst-case bound for a specified realized-demand deterministic Wardrop model. A stronger uninspected exact stochastic Braess theorem remains possible.",
+        "searches": [
+          "Steinberg Zangwill 1983 The Prevalence of Braess Paradox",
+          "Nakayama Watling Consistent Formulation Network Equilibrium with Stochastic Flows 2014",
+          "Zhao Fu Wang 2014 Braess paradox logit stochastic equilibrium"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 744d96609ffe430ff56865e2f411f372a15e27fa and checker.py blob ec7f6dd5c41ce81d7bee9093653d62c386a1cde0",
+        "Nakayama & Watling 2014 accepted primary manuscript relevant sections and PDF page images",
+        "Steinberg & Zangwill 1983 fixed-demand classical Braess comparator",
+        "Zhao, Fu & Wang 2014 abstract only",
+        "Resultary semantic search Braess paradox uncertain random travel demand first two moments mean variance distribution free expected total travel time exact threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Δ(d) is piecewise with negative region d∈(0,2/3) and positive region (2/3,2), and its quadratic support touches exactly at d=2/3 and 2.",
+          "Equal-moment opposite-sign two-point laws require the post-realization deterministic Δ, unlike logit or ex-ante equilibria."
+        ],
+        "reasoning": "Prior fixed-demand descriptions can imply the piecewise Δ curve, but not automatically the sharp stochastic moment frontier, unique equality law and all-supercritical variance witnesses. If an older moment-problem paper explicitly optimized this same Δ, it would dominate; none inspected established that.",
+        "searches": [
+          "Steinberg Zangwill 1983 Braess paradox fixed demand",
+          "Nakayama Watling stochastic network equilibrium 2014",
+          "Zhao Fu Wang 2014 stochastic user equilibrium"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nakayama–Watling stochastic-flow framework is not the post-realization deterministic Wardrop with objective E[total physical time].",
+          "The exact moment inequality is an extremal generalized Chebyshev/dual-polynomial support problem for the deterministic Δ(d)."
+        ],
+        "reasoning": "Identical network names alone do not imply same object; the road-cost comparison requires conditional Wardrop at each D and unconditional physical travel cost. Equivalence to a quadratic minorant of Δ is made explicit and tested.",
+        "searches": [
+          "Braess paradox uncertain random travel demand first two moments mean variance distribution free expected total travel time exact threshold",
+          "Nakayama Watling 2014 stochastic flows Wardrop demand",
+          "Braess paradox uncertainty moment problem quadratic support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search hits risk/variance frontiers for other stochastic objects, not the canonical Braess cost function."
+        ],
+        "reasoning": "The theorem concerns all nonnegative demand laws, not finite known enumerations; standard polynomial duality does not itself supply the exact support and unique equality law for the canonical piecewise Δ.",
+        "searches": [
+          "Braess paradox uncertain random travel demand first two moments mean variance distribution free expected total travel time exact threshold",
+          "Braess paradox expected welfare random demand variance two-point exact"
+        ]
+      },
+      "rationale": "Classical Braess paradox and deterministic Wardrop flow are not claimed new. Nakayama–Watling 2014 full accepted manuscript develops stochastic-flow equilibrium frameworks but not the same realized-demand deterministic Wardrop normalized-network exact moment frontier in inspected sections. Steinberg–Zangwill 1983 examines fixed-demand Braess occurrence, not sharp EΔ lower envelope over nonnegative distributions with fixed first two moments. Zhao–Fu–Wang 2014 logit/elastic-demand work accessible only in abstract, explicitly retained as residual risk.",
+      "residual_risks": [
+        "Uninspected full Zhao–Fu–Wang 2014 manuscript may contain an analogous stochastic moment calculation, although its logit model differs.",
+        "Exact frontier only for canonical normalized network and post-realization Wardrop routing; no general-network or ex ante traffic guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspectied sections focus on stochastic-flow equilibrium and do not state specified canonical per-realization Wardrop exact mean-variance frontier; uninspected pages not characterized.",
+          "evidence": [
+            "Nakayama and Watling (2014), model definitions and stochastic-flow formulation."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/84524/",
+          "material_read": "Lawful open accepted manuscript PDF, including abstract, formulation/model sections, results and variance discussion; rendered PDF page images inspected; not every appendix read",
+          "method": "legal university repository PDF and visual page checks",
+          "title": "Consistent formulation of network equilibrium with stochastic flows",
+          "trigger": "primary stochastic network equilibrium framework could subsume demand uncertainty result"
+        },
+        {
+          "assessment": "Different logit stochastic user equilibrium and elastic demand by described model, but cannot make whole-document no-coverage conclusion.",
+          "evidence": [
+            "Zhao, Fu & Wang (2014) article abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tre.2013.11.008",
+          "material_read": "Abstract only; full primary text not obtained",
+          "method": "abstract/title/venue search",
+          "title": "Braess paradox and robustness of traffic networks under stochastic user equilibrium",
+          "trigger": "direct Braess paper with uncertainty"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mean and variance are commonly available demand summaries. Exact sign-identifiability frontier under realized-demand user equilibrium is a natural sharp distributionally robust comparison of road additions; the uniquely extremal law and opposite-sign same-moment construction demonstrate what the two moments can and cannot guarantee. Network and latency functions are fixed canonical choices, not all networks or risk-averse equilibria.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 744d96609ffe430ff56865e2f411f372a15e27fa and checker.py blob ec7f6dd5c41ce81d7bee9093653d62c386a1cde0",
+    "Nakayama & Watling 2014 accepted primary manuscript relevant sections and PDF page images",
+    "Steinberg & Zangwill 1983 fixed-demand classical Braess comparator",
+    "Zhao, Fu & Wang 2014 abstract only",
+    "Resultary semantic search Braess paradox uncertain random travel demand first two moments mean variance distribution free expected total travel time exact threshold"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Uninspected full Zhao–Fu–Wang 2014 manuscript may contain an analogous stochastic moment calculation, although its logit model differs.",
+    "Exact frontier only for canonical normalized network and post-realization Wardrop routing; no general-network or ex ante traffic guarantee."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uninspected full Zhao–Fu–Wang 2014 manuscript may contain an analogous stochastic moment calculation, although its logit model differs.",
+    "Exact frontier only for canonical normalized network and post-realization Wardrop routing; no general-network or ex ante traffic guarantee."
+  ]
+}

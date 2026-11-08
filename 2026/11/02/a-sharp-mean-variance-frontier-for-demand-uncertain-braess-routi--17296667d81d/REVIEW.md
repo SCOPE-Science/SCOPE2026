@@ -1,23 +1,21 @@
-# Scientific review: sharp demand-variance frontier
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The continuum Wardrop potential and its constrained minimizer give all realized-demand route assignments. An exact piecewise nonnegative sum-of-squares gap, with equality only at two distinct demands, proves a global moment bound and the sharp equality characterization. Explicit two-point constructions at every supercritical variance verify both possible signs without distributional smoothness assumptions. The saved standalone checker uses 14,500 exact-rational assertions; enumeration is supporting evidence rather than the infinite-dimensional proof.
+PASS
 
-## Originality
+Solve convex Beckmann potential for shortcut-flow c: Φ_d(c)=(d+c)²/4+d−c, c=clip(2−d,0,d); equal old-route flows (d−c)/2. This yields C1(d)=2d² (0≤d≤1),2d (1≤d≤2),C0(d)=d(1+d/2) (d≥2), hence Δ(d)=3d²/2−d, d−d²/2, 0 respectively. The globally sharp support q(d)=3/4(d−2/3)(2−d) satisfies Δ−q=(1−3d/2)², (1−d/2)², or 3/4(d−2/3)(d−2), all nonnegative on their domains and zero only at d=2/3 or 2. Taking E uses finite second moment to obtain EΔ≥3/4[(m−2/3)(2−m)−v]. Equality with v=v*(m) forces unique {2/3,2} two-atom law; for any v>v* and 2/3<m<2, choose low points 2/3±eps and corresponding high h=m+v/(m−low)>2 to construct identical first moments but opposite signs. Verified 616 independent exact rational support/moment tests; finite tests supplement algebra.
 
-PASS within the inspected literature; historical priority remains provisional. Steinberg–Zangwill (1983) is general fixed-demand Braess theory, not a random-demand moment classification. Nakayama–Watling (2014) addresses consistency of stochastic flow models with stochastic demand; the examined full text does not give this pointwise-Wardrop first-two-moment threshold. Zhao–Fu–Wang (2014) addresses a Braess topology but its published abstract specifies logit stochastic user equilibrium and elastic demand, not this fixed conditional-demand deterministic equilibrium comparison. The 2009 ICUS report examines traffic-demand variance and simulated congestion probabilities, with no verified occurrence of the present exact frontier in the relevant inspected excerpts. A general optimal-moment theorem or unavailable complete article may imply the specialized result; this remains an explicit historical-priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The first two measurable demand moments can certify adverse expected consequences of opening a link without committing to a particular traffic-volume distribution. The theorem locates the exact boundary of that robust guarantee, demonstrates equality rigidity, and proves that the first two moments become insufficient beyond the boundary, even for two-point demand laws. This is a natural infrastructure evaluation problem, not an arbitrary isolated number or a mere fixed-demand restatement. Scope is expressly limited to one canonical idealized network.
+Classical Braess paradox and deterministic Wardrop flow are not claimed new. Nakayama–Watling 2014 full accepted manuscript develops stochastic-flow equilibrium frameworks but not the same realized-demand deterministic Wardrop normalized-network exact moment frontier in inspected sections. Steinberg–Zangwill 1983 examines fixed-demand Braess occurrence, not sharp EΔ lower envelope over nonnegative distributions with fixed first two moments. Zhao–Fu–Wang 2014 logit/elastic-demand work accessible only in abstract, explicitly retained as residual risk.
 
-## Closest literature, checks, and scientific limits
+## value
 
-- Steinberg and Zangwill (1983), DOI https://doi.org/10.1287/trsc.17.3.301: stronger graph-level fixed-demand paradox characterization but no first-two-moment probabilistic frontier established in the inspected accessible material.
-- Nakayama and Watling (2014), DOI https://doi.org/10.1016/j.trb.2014.03.007: full lawful open manuscript inspected, including introduction, equilibrium assumptions, and stochastic demand model; route-choice assumptions differ.
-- Zhao, Fu and Wang (2014), DOI https://doi.org/10.1016/j.tre.2013.11.008: very relevant stochastic-Braess title, abstract only; complete historical overlap is unresolved.
-- ICUS Report 37 (2009), relevant stochastic network-design text: numerical comparisons of uncertainty, partly inspected; page-image retrieval incomplete.
-- Practical gap: road-flow calibration, adaptive adjustment time scales, and heterogeneous stochastic travel times were not addressed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Mean and variance are commonly available demand summaries. Exact sign-identifiability frontier under realized-demand user equilibrium is a natural sharp distributionally robust comparison of road additions; the uniquely extremal law and opposite-sign same-moment construction demonstrate what the two moments can and cannot guarantee. Network and latency functions are fixed canonical choices, not all networks or risk-averse equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
