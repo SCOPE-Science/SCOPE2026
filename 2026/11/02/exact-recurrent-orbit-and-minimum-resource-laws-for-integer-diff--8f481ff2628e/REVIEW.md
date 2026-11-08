@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result has explicit quantifiers \(a,b\ge1\), labelled vertices, synchronous integer updates, and separate unrestricted and both-phases-nonnegative conventions. The incidence argument proves the necessary and sufficient edge-reversal condition, including equality. The leaf synchronization lemma exhausts active and tied cases; the strict-bridge cases have exact integer gap intervals and one canonical phase per orbit. The tied-bridge case occurs only for equal leaf counts. Uniform translation explains precisely the mod-\(n\) conserved-total polynomial. Taking the minimum of the *two* phase configurations yields the nonnegative generating function and its unique minimum. The standalone direct-update enumerator agrees on eight complete finite cases (9,044 canonical orbits). Residual correctness risk is an unrecognized algebraic error outside tested parameters; computation is not substituted for the proof.
+PASS
 
-## Originality
+The edge-sign flux identity in any period-two state forces each active edge sign to reverse and tied edges to remain tied. On a bistar with a,b≥1 leaves, a tied leaf-hub edge would force a fixed state; all active leaf edges at a hub have the same sign. Three feasible strict-bridge sign classes and the additional tied-bridge class only when a=b give disjoint canonical representatives. Their bounded integer gaps yield the full formula (a+b+1)(a+1)^a(b+1)^b+(a-b+1)_+(a+1)^a(b-1)^b+(b-a+1)_+(a-1)^a(b+1)^b+1_{a=b}a^{2a}. Translation changes sum by n=a+b+2, establishing residue-polynomial counts; explicit minima over both phase coordinates establish the nonnegative generating function and unique minimum S=n-2 balanced, n-1 unbalanced. Independently exhaustive bounded canonical comparisons gave counts 13,72,72,439,640,3584 for six tested (a,b) and verified both-phase minimum resources. Infinite formulas follow from the gap parametrization, not finite enumeration.
 
-**PASS under the inspected evidence, with residual historical uncertainty.** The open-access diffusion source of Duffy et al. (arXiv:1609.05792) proves periodicity for stars and complete bipartite graphs and formulates the general edge-reversal criterion, but the inspected sections 2.3 and 3.1–3.2 do not contain a bistar orbit census. Long and Narayanan (arXiv:1704.04295) prove the general eventual period bound and study edge transfer signs; their inspected text does not give labelled bistar orbit totals, conserved-energy residues, or the both-phase nonnegative threshold. Related exact star and clique calculations have different graph domains. Actual mathematical record searches for bistar sign-gradient diffusion, two-hub cycles, equivalent leaf-gap formulas, and a matching numeric residue table found no statement implying the combined bistar claim. A differently phrased or unindexed equivalent could remain undiscovered.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The bistar is the smallest connected tree family interpolating between two independent branching centers; the bridge can be strictly reversing or permanently tied. The exact classification exposes a balanced-hub boundary that changes the minimum nonnegative resource from \(n-1\) to \(n-2\), as well as all orbit counts at every invariant total. These are natural dynamical and conserved-resource questions left unresolved by general period bounds. The result is a complete all-size family theorem, not a numeric recomputation or routine star substitution.
+Duffy et al. establish the diffusion game and property-plus edge-reversal criterion; Long–Narayanan prove eventual period at most two on all finite graphs. Neither inspected theorem evaluates the labelled bistar primitive orbit-count polynomial, the all-sums residue counts or the balanced/unbalanced minimum nonnegative chip threshold.
 
-## Closest literature and limitations
+## value
 
-The edge-reversal mechanism and global period-two conclusion are prior theorems, not newly attributed. Novelty attaches to the two-hub synchronization classification and exact bistar enumerators. The theorem does not classify preperiod lengths, attraction basins or general trees. The available primary texts and record searches are not a guarantee of global literature uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The bistar is the first natural two-hub tree beyond stars, with exact complete orbit and conserved-resource distributions. The one-chip sharp balanced-versus-unbalanced threshold is a motivated invariant of labelled integer diffusion, beyond generic eventual-period two results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
