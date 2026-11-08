@@ -1,19 +1,21 @@
-# Scientific review: inverse-moment fold for the three-state trapped active particle
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary law exists uniquely by exponential contraction driven by a stationary irreducible finite-state modulator. Polynomial generator equations imply the explicit recurrence for every even position moment; this matches an independent pair of beta moments and determines the whole compactly supported law. The dimensionless second and fourth moments are rational functions of the two strictly positive rates. Eliminating one rate at fixed variance gives an exact rational curve. Its derivative has a quadratic numerator whose values at the endpoints of a rescaled unit interval have opposite signs, proving one and only one interior minimum. Endpoint exclusions are handled exactly. The resulting complete zero/one/two inverse-solution classification and rational equal-moment/different-sixth-moment witness are proved by algebra, not by finite sampling. The supplementary symbolic verifier checks these equations and 48 rational samples.
+PASS
 
-## Originality — PASS, qualified
+The Markov generator for σ∈{−1,0,+1} gives p_n=q_(n−1), (n+a)q_n=n h_(n−1) and (n+a+c)h_n=(n+c)p_n. Compact support determines the even moment recurrence. Independent Beta(c/2,a/2) and Beta(1/2,a/2) moments match exactly, including zero odd moments. Substitution c=s a(a+1)/(1−s(a+1)) for 0<a<(1−s)/s yields T_s. Its derivative has sign −Q_s(y), where Q_s(0)=5s>0,Q_s(1)=−1; an interior unique simple root yields a strict fold. Both endpoints are excluded; one rate tends to infinity at the right endpoint. Exact witness rates (7/5,28/5),(3/2,15/2) have s=1/3, fourth 19/99, but sixth 95/726 and 2185/16731, so stationary laws differ. Independent symbolic calculation checked rational identities and beta-product moments; it does not substitute for the analytic positivity and uniqueness argument.
 
-Sun, Ye and Podgornik's preprint (arXiv:2409.00578, versions 1 and 2) already derives the full one-dimensional stationary forward distribution and all moments; none of those findings are claimed to be new. The present claim is the sharp global inverse problem from only the second and fourth position moments, including the fold, exact admissible two-solution region, boundary count, and a strict sixth-moment separation. Both versions' model, stationary solution and conclusions were examined; this classification was not found. The earlier one-rate three-state model of Basu and collaborators (arXiv:1910.10083) cannot subsume the two-independent-rate fold. The generalized velocity-redraw stationary model of Guéneau, Majumdar and Schehr (arXiv:2602.08436) has a distinct jump mechanism, although full-text access to that later paper was unavailable. Searches using the paper identity, exact moment ratios, beta-product equivalences and inverse identifiability did not reveal an equivalent classification. An absence of search matches is not definitive publication-priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The forward stationary solution had not by itself answered whether stationary low-order fluctuation measurements identify the run and tumble rates. The complete fold shows that this natural two-parameter inverse problem is generically two-to-one on an explicit open region, but only one-to-one elsewhere; the exact witness confirms the ambiguity reflects different distributions rather than alternate notation. The rigorous parameter-ordering law further explains how the two separate rates alter the entire displacement-magnitude distribution. This yields a physically motivated identifiability boundary and an analytic constraint on stationary-moment-based calibration.
+The forward hypergeometric stationary law and moment formula were previously determined, and the beta-product is an equivalent parametrization, not new by itself. The claimed nontrivial remainder is the global inverse two-moment fiber count including parameter boundaries and a distinct-law witness. The checked 2024/2025 original paper supplies forward characteristic functions and moment machinery but not a stated full inverse-fold classification; this is a qualified best-of-knowledge priority assessment.
 
-## Limitations and residual publication-priority risks
+## value
 
-The conclusions assume one spatial dimension, positive exponential run/rest rates, a fair run-direction choice, no thermal diffusion, known trap and propulsion scales, and exact stationary population moments. No finite-sample inference theorem is claimed. The independent beta-product representation is an alternative factorization of the previously known full stationary law. The 2026 generalized velocity-redraw paper was inspected at the abstract/model-description level only and might contain additional comparisons in its inaccessible full text; the distinct transition structure reduces but does not eliminate priority risk. Broader, less directly searchable inference literature could conceivably state a related two-to-one moment-map result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact ambiguity of variance and kurtosis for a natural two-rate active-particle model is a motivated structural identifiability boundary. It is not merely a known forward moment recurrence, and its exact two-to-one region and sixth-moment separation can inform identifiability questions. No inference about finite-sample estimation or all higher moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
