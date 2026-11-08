@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge2\\) and \\(1\\le i\\le n\\), exposing the first \\(i\\) images leaves \\(n-i\\) directed paths whose uniformly random reconnection adds an expected \\(H_{n-i}\\) further cycles. Counting prescribed completed cycles and their joint upper-record probabilities yields \\(\\operatorname{Cov}(C_n,I_{n,i})=(i-1)/(i^2\\binom ni)\\). The \\(k=i\\) term and the fixed point at \\(i\\) are treated explicitly. The aggregate and its asymptotics follow from a binomial-denominator tail bound and classical Stirling marginals. The verifier independently checked 2472 exact assertions through nine symbols and all exposed-prefix conditional identities through six; finite tests do not substitute for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gnedin, arXiv:math/0611538v1 §§1–3: two-sided record statistics, initial ranks, Ewens interpolation and conditional uniformity; not a theorem about same-permutation cycles versus upper-record indicator.",
+        "Gnedin–Gorin, arXiv:1202.3680, introduction and principal-measure description: record-dependent coherent measures and their boundaries, not the cross-covariance stated here.",
+        "Published work on a linear inversion-gap profile for cycle counts: cycles with individual inversion comparisons, a different observable and covariance scale."
+      ],
+      "reasoning": "Neither known uniform-record marginal laws nor cycle–inversion covariances dominate the indicator of the maximum of the entire initial prefix. Joint constructions with two record counts also do not include same-permutation disjoint-cycle count as one of their variables.",
+      "searches": [
+        "uniform permutation count cycles versus records covariance asymptotic 1/n despite equidistribution",
+        "conjugacy cycles left to right maxima dependency joint moments",
+        "random permutations joint distribution number of cycles number of records of same permutation covariance",
+        "FindStat joint distribution statistic cycles left to right maxima same permutation generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0611538v1, §§1–3 and full-text queries",
+      "arXiv:1202.3680, introduction and searched PDF",
+      "Mahmoud (2000), §1.10",
+      "arXiv:2402.16251, abstract and Lemma 5.2 excerpt",
+      "Published comparable results: cycle–inversion, fixed-point–descent, bivariate-record-kill law, and local record/fixed-point correlations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mahmoud §1.10: Foata statistic matching acts by bijection and generally maps a permutation to a distinct permutation.",
+        "Published result on boundary localization of fixed-point–descent dependence: local fixed-point/descent dependence and endpoint cancellation; it does not imply the cycle-record covariance.",
+        "Published Stirling-law result on complete bivariate-record kills: bivariate-record-kill conditioning yields a cycle-count marginal in a distinct stochastic process."
+      ],
+      "reasoning": "The present statement has all quantifiers n>=2, position-specific i, a positive rational expression and a precise asymptotic. Neither a marginal Stirling identity, a fixed-point/descent profile, nor a record-kill cycle-count law supplies this pair of random variables on the same uniform permutation. Existing general formulas could permit a derivation after new calculations; implicit novelty remains unverified.",
+      "searches": [
+        "record position indicator I_i and cycle count C_n covariance (i-1)/(i^2 binomial(n,i))",
+        "number of cycles conditional on left-to-right maxima random permutation",
+        "permutations with k cycles correspond to k records Foata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahmoud (2000), §1.10.3, Propositions 1.8–1.9: bijection from a permutation with k cycles to another one with k records; the text explicitly distinguishes the two statistics on the original permutation.",
+        "Gnedin–Gorin arXiv:1202.3680, introduction: fundamental bijection transports record weights to Ewens cycle weights on a different permuted representation."
+      ],
+      "reasoning": "A cycle/record equidistribution statement is a statement about their separate laws and does not determine their same-sample product moments. A Foata transform of the permutation changes the random variable and cannot supply Cov(C(pi), I_i(pi)) without a further joint calculation.",
+      "searches": [
+        "uniform random permutation number of cycles and left to right maxima records joint covariance dependence Foata",
+        "exact covariance same random permutation number of disjoint cycles and left-to-right maximum records equals sum (i-1)/(i^2 binomial(n,i))",
+        "number of cycles number of records covariance random permutation same permutation",
+        "cycles left to right maxima covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "FindStat identifies cycle count and left-to-right maxima as separate permutation statistics; Adams et al., arXiv:2402.16251, report equidistribution in their statistic list, not this local mixed-moment formula.",
+        "Web searches for cycle-count/upper-record joint generating functions found Euler–Stirling generating functions of record and descent-type statistics (Jin, arXiv:2210.08789), without an identified same-permutation local cycle-record table."
+      ],
+      "reasoning": "Separate database entries or a list of equidistributed marginals cannot determine the bivariate joint law. No exact published table of the target local cross-moment was identified; this search is not a uniqueness proof.",
+      "searches": [
+        "FindStat joint distribution statistic cycles left to right maxima same permutation generating function",
+        "cycles left to right maxima covariance",
+        "Symmetric generating functions and Euler-Stirling statistics on permutations 2022"
+      ]
+    },
+    "rationale": "The inspected literature establishes marginal Foata equidistribution and record-dependent families but not an explicit same-permutation cross-covariance between ordinary cycles and record indicators. The marked-cycle/prefix-completion proof is structurally distinct from prior cycle–inversion and fixed-point–descent profiles; historic implicit coverage remains possible.",
+    "residual_risks": [
+      "A historical general bivariate permutation-statistic generating function might imply or contain this local identity without the terms record and cycle in its title.",
+      "Partial article reading, including the FindStat-associated 2024 study, cannot exclude buried appendix statements.",
+      "The asymptotic and covariance assertions pertain only to the uniform measure; nonuniform extensions are unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides upper-record indicator definitions and record-count laws but no local covariance between ordinary cycle count of the original permutation and each record indicator.",
+        "evidence": [
+          "arXiv:math/0611538v1, PDF pp.1–4, §§1–2; record indicators via initial ranks, Stirling marginal counts.",
+          "Find-in-full-document for covariance found no matching expression."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611538",
+        "material_read": "Abstract, introduction, §2 and part of §3; full PDF text queried for cycle counts, joint moments and covariance, with page image inspected",
+        "method": "Primary PDF text and page inspection",
+        "title": "Coherent random permutations with record statistics",
+        "trigger": "Same upper/lower record statistics; 2006 archive-period primary paper relating record statistics to Ewens cycles"
+      },
+      {
+        "assessment": "Records and Ewens cycle weights are related by a bijection to another permutation; its record-dependent measure classification does not give the same-permutation local covariance.",
+        "evidence": [
+          "arXiv:1202.3680, pp.1–3, especially introductory equation (1) and discussion of the fundamental bijection.",
+          "Find-in-document for covariance returned no text match."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.3680",
+        "material_read": "Abstract, introduction, early description of record measures and relevant find-in-document matches; page image of p.2 inspected",
+        "method": "Primary PDF text and page inspection",
+        "title": "Record-dependent measures on the symmetric groups",
+        "trigger": "Same record events and explicit discussion of fundamental record/cycle bijection"
+      },
+      {
+        "assessment": "Explicitly proves equidistribution via changing the permutation and notes original records and cycles need not coincide; does not provide their same-permutation covariance.",
+        "evidence": [
+          "§1.10.3, pp.46–48; Propositions 1.8–1.9 and following explanation."
+        ],
+        "identifier_or_url": "H. M. Mahmoud, Wiley, 2000, ISBN 0-471-32710-7",
+        "material_read": "Chapter 1, §1.10.1–1.10.3, especially Propositions 1.8 and 1.9 and adjacent explanatory text",
+        "method": "Full-text section read on accessible online page",
+        "title": "Sorting: A Distribution Theory",
+        "trigger": "Direct fundamental correspondence of cycles and records on uniform permutations"
+      },
+      {
+        "assessment": "Summarizes individual cycle/record equidistribution, not their joint covariance; full article not exhaustively checked.",
+        "evidence": [
+          "Lemma 5.2 description identifies the number of cycles and left-to-right maxima as equidistributed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.16251",
+        "material_read": "Public abstract and directly retrieved passage summarizing Lemma 5.2",
+        "method": "Search-returned primary passage; full document not claimed read",
+        "title": "Cyclic sieving on permutations—an analysis of maps and statistics in FindStat",
+        "trigger": "Potential database identity between two permutation statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bf7d6907-cc85-45e0-a754-66f9133fa6ca",
+  "value": {
+    "rationale": "The exact positive dependence between cycle count and individual record-position events distinguishes joint behavior from classical Foata equidistribution. The nonuniform position profile concentrates the global covariance at the terminal record, while the full-count correlation is asymptotic to \\(1/(n\\log n)\\). This is a motivated all-size structural identity for two central permutation observables, rather than an arbitrary finite slice or a statement about marginals alone.",
+    "status": "PASS"
+  }
+}
