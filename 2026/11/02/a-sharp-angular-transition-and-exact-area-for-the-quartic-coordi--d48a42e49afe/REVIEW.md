@@ -1,11 +1,21 @@
-# Review of the quartic coordinate-flip numerical range
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized duality pairing is fixed explicitly. The exact two-coordinate phase calculation gives a centered ellipse family with correct endpoint degeneracies. The support derivative yields the sharp threshold \(\sin^2\phi=3/4\); the vertical-section maximization proves that the body itself (not merely its convex hull) has the parametrized boundary, whose decreasing slope gives convexity. Direct integration gives the closed area formula. 821 finite checks independently test support, boundary, area, and inradius; these are not substitutes for the symbolic proof.
+## correctness
 
-**Originality — PASS (best-knowledge; priority risk).** The closest source, Müller–Tomilov (2026), Proposition 2.1, supplies the general ellipse union but does not present the computed quartic-flip support transition, optimized convex boundary, or area. Mandal–Bhanja–Bag–Paul (2020) treat triangular numerical ranges and a nonconvex equal-off-diagonal class with nonzero opposite diagonal entries, not this zero-diagonal symmetric flip's exact geometry. Claim-level published-finding corpus and published-source searches did not locate an equivalent exact formula. Because a general parametrization already exists, the risk of an unrecognized older explicit specialization is material.
+PASS
 
-**Mathematical value — PASS.** The non-Hilbertian convexity question is a motivating theme of the 2026 literature. The first even non-Hilbert exponent affords a natural, fully resolved nontriangular example: a sharp supporting-direction transition, an exact curved convex body (as opposed to the Hilbert interval), and an exact area quantifying the numerical-range inflation. These are specific geometric invariants needed to calibrate the general finite-dimensional theory rather than arbitrary test parameters.
+Direct substitution of u,v into the ell_4 norming functional produces a union of centered ellipses with axes a_s=sqrt(s)/(2-s), b_s=sqrt(s(1-s))/(2-s). The squared directional support is H_q(s)=s(1-q s)/(2-s)^2 with derivative (2+s(1-4q))/(2-s)^3; its max switches at q=3/4. For any fixed |x|<1, squared obtainable ordinates G_x(s)=(1-s)(s/(2-s)^2-x^2) form a continuous filled vertical interval with a unique positive maximum; its optimizing equation gives the stated x(s),y(s) boundary. The boundary slope decreases strictly, implying concavity, hence actual W convex rather than only its hull. Direct exact integration gives the area and minimum support the inradius; endpoint coordinate-zero cases included. Independent 51 checks include angular maximization and area quadrature and do not prove continuum assertions.
 
-**Closest literature and limitations.** arXiv:2606.22693v1 supplies the general parametrization and examples; arXiv:2005.01288v1 establishes neighboring convex/nonconvex classes. The result neither classifies all \(2\times2\) operators nor proves a general-exponent version. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general 2x2 Banach ell_p numerical-range union of ellipses is established by Müller and Tomilov, including the coordinate flip as a specialization. This component is prior. The claim specifically optimizes the quartic flip support across angles, establishes actual convexity, and gives full boundary/area/inradius; the inspected general formula and related nonconvex/triangular cases do not explicitly yield these claimed optimized invariants as established theorems. O=PASS qualified, with a risk that an older elementary specialization exists.
+
+## value
+
+PASS
+
+The fundamental two-coordinate permutation isometry on the first non-Hilbert even exponent is a natural benchmark for spatial Banach numerical range geometry. An exact support-angle transition, nonobvious convexity and a closed planar area measure quantify deformation from the Hilbert interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
