@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The infinite-product reduction is valid because the digit masks approach one with summable errors along any fixed integer frequency. Cyclotomic divisibility at primitive third-power roots forces equal coefficient counts in three congruence blocks; at orders at least nine this implies a mod-three class-count divisibility that is violated for each primitive frequency pair. The primitive-third-root equality is checked exhaustively in a nine-case residue table (only eight cases are primitive). Thus the two measures share the displayed null set, and disjoint valuation-layer counting gives exact density one quarter. The triangular open set verifies the separated-similarity dimension calculation. The attached checker independently exercises exact cyclotomic tests and finite-level counts, but is not substituted for universal reasoning.
+PASS
 
-## Originality
+The actual RESULT.md gives a complete proof for two specific base-three planar IFS digit masks D3={0,e1,e2} and D6={(a,b)>=0:a+b<=2}. Infinite Fourier-product tails are nonzero in the absence of finite mask zeros, since deviations from one are summable. For a primitive 3^s character, cyclotomic divisibility by 1+t^(3^(s-1))+t^(2*3^(s-1)) forces equal coefficient counts in every 3-coset; for s>=2 their modulo-three aggregate counts must be divisible by three. Direct eight-pair residue count rules this out for D6 (counts (3,2,1) permutations or (2,2,2)); D3 has no higher primitive zero. At s=1 both masks vanish iff primitive coordinates are (1,2) or (2,1) mod3. Joint 3-adic valuation therefore gives exactly the stated integer zero set, layer density sum_{v>=0}2/9^(v+1)=1/4 and level-L count (9^L-1)/4. Open-set condition for the six and three disjoint triangle maps gives support dimensions log_3(6) and 1; Fourier characters diagonalize both torus convolutions. Fresh independent exact cyclotomic enumeration across primitive order 3,9,27,81 tested 8,72,648,5832 primitive pairs and found 2,0,0,0 zeros for each mask; level-L totals for L=1..4 were 2,20,182,1640. The computations are corroboration, not an infinite proof.
 
-PASS under bounded prior-work review. The relevant historical root-of-unity theorem of Lam and Leung and the Fourier-product/three-digit-simplex theory of Dutkay and Jorgensen were inspected. The closest public treatment of the identical six-point triangular aperture derives sharp unimodular fourth moments, not the integer-null set of its positive mask or equality with a three-digit measure. The present six-to-three null-set identification, exact layered census, and unequal-dimensional convolution-kernel contrast are not implied by those claims. The finite cyclotomic ideas themselves are classical. Residual risk: an unlocated equivalent six-digit digit-mask calculation, or earlier specialized spectral-fractal classification, may already state this coincidence.
+## originality
 
-## Value
+PASS
 
-PASS. The result supplies a natural inverse-harmonic-analysis counterexample: different planar self-similar measures with distinct support Hausdorff dimensions nevertheless have the same entire lattice of missing Fourier modes and hence identical torus convolution nullspaces. It determines the exact null set and its density and finite-resolution count, not merely an ad hoc numerical coefficient. This illustrates a genuine limitation of recovering fractal geometry from lattice Fourier annihilators; no broader uniqueness theorem is claimed.
+Best-of-knowledge PASS for the paired six-to-three infinite-product integer-null equivalence and exact density/support contrast, after comparing exact cyclotomic, IFS and same-six-aperture theorems. Known ingredients (general root-of-unity vanishing, the three-digit simplex, and fourth-moment optimization) neither state nor logically yield the six-digit constrained primitive-zero obstruction by themselves.
 
-## Closest literature and limitations
+## value
 
-The full texts of Lam–Leung's root-of-unity paper and Dutkay–Jorgensen's IFS Fourier work and the public six-point-aperture fourth-moment result were compared at the level of their statements and relevant proofs. The conclusion is restricted to integer frequencies and two specified uniform base-three digit laws. A broader coincidence theorem or full-real-frequency equality is not established, and historical completeness cannot be guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equality of all integer Fourier zeros (hence torus convolution kernels) for two natural triangular self-similar measures with different Hausdorff support dimensions is a structural inverse-frequency ambiguity. The exact 3-adic layer classification and density 1/4 distinguish it from routine digit counting and can matter when Fourier kernel information is used to infer fractal geometry; the precise integer-frequency scope and different support dimensions are mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
