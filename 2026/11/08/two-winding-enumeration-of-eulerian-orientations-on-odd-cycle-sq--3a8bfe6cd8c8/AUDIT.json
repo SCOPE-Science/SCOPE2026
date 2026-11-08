@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For n>=5, the 2n edges of cyclic distances one and two are distinct. The vertex outdegree equation is equivalent in both directions to a_i+b_i=a_(i-1)+b_(i-2). Cyclic 8-state transitions encode all and only the balanced orientations with multiplicity one. The four closed state classes have weights 1,uv and 3x3 matrices with characteristic polynomials lambda(lambda^2-u lambda-v) and lambda(lambda^2-v lambda-u^2 v). Their n-th power traces give the stated binomial formula. The two families of exponent pairs and two extremes are disjoint for odd n. Program verify_direct.py exhaustively checks all 2^(2n) orientation assignments for n=5..9; verify_transfer.py checks the complete two-variable coefficient dictionaries for n=5..15. Neither finite check replaces the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golin–Leung, WG 2004 conference PDF pp. 296–307: a general finite-recurrence construction for Eulerian orientations of fixed-jump circulants, but no claimed full two-winding enumerator; its longer report was not recovered.",
+        "Zhang–Shen, 2007 bibliographic record: title mentions one class of circulant graphs; no theorem statement or full paper retrieved.",
+        "An earlier exact antiprism orientation/flip classification yields 2+2L_(2m) for C_(2m)^2; the present odd case does not follow from that even-only statement."
+      ],
+      "reasoning": "The generic existence of a scalar recurrence does not give the two-variable coefficient table. The antiprism result does give the even scalar counts and potentially further even structure, so even order is not claimed. Full priority cannot be ruled out for the inaccessible 2007 paper, especially the scalar specialization; the novel target is odd-order refinement.",
+      "searches": [
+        "Mordecai Golin Yiu Cho Leung 2004 technical report unhooking pdf Eulerian orientations",
+        "\"Unhooking Circulant Graphs\" \"Eulerian orientations\" \"Fibonacci\" Lucas",
+        "\"Counting the Eulerian orientations of one class of circulant graphs\" Zhang Shen 2007 formula pdf",
+        "Zhang Shen 2007 \"Eulerian orientations\" \"circulant\" result"
+      ]
+    },
+    "checked_sources": [
+      "Felsner 2004 doi:10.37236/1768, publisher PDF relevant sections",
+      "Golin and Leung 2004 WG proceedings PDF relevant sections",
+      "Isaev arxiv:1110.2598 relevant full-text sections",
+      "Zhang and Shen 2007 bibliographic record only",
+      "Prior antiprism Eulerian orientation classification: C_(2m)^2 isomorphism and its exact even-order count",
+      "Accessible mathematical claim concerning the antiprism orientation graph and its precise even-order implication",
+      "Semantic searches on bivariate Eulerian orientations, circulants, Lucas counts, direct and equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior antiprism classification: for A_m congruent to C_(2m)^2, complete balanced-orientation set is 2+2L_(2m) and its belt-face flip graph is two isolated vertices plus two Lucas cubes; does not state odd-order bivariate enumerator.",
+        "Golin–Leung proves count sequences on circulants satisfy linear recurrences, not a theorem giving this coefficient-level odd winding spectrum.",
+        "Isaev arXiv:1110.2598v6 sections 1–2 requires linear-in-n Laplacian algebraic connectivity; degree-four cycle squares cannot meet that hypothesis as n grows."
+      ],
+      "reasoning": "The odd ground-set cardinality prevents interpretation as an integer-size antiprism. The full odd bivariate support is stronger than a scalar count and is not a corollary of a generic recurrence-existence theorem. The inaccessible 2007 source creates a material residual risk rather than an established implication.",
+      "searches": [
+        "antiprism graph A_n Eulerian orientations count 2+2 Lucas_{2n} and complete face-flip degree distribution via six-vertex transfer matrix",
+        "Eulerian orientations C_n(1,2) exact counting formula transfer matrix",
+        "2004 Golin Leung Unhooking circulant Eulerian orientations fixed jump recurrence scalar exact weighted refinement",
+        "2015 graph theory fractional metric dimension exact graph powers reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Directly derived 8-state transfer graph and two quadratic factors in RESULT.md.",
+        "Felsner 2004 (doi:10.37236/1768), pp. 1–4: general planar alpha-orientation lattice, not the cyclic winding enumerator.",
+        "Prior antiprism classification applies to even order via A_m isomorphic to C_(2m)^2; this is a direct coverage comparison, not a title match."
+      ],
+      "reasoning": "Eulerian orientations, balanced alpha-orientations and six-vertex configurations are equivalent local descriptions for fixed outdegree two. The proposed polynomial distinguishes the two cyclic jump classes, which the scalar counting specialization loses. Explicitly exclude the even-order antiprism case from the asserted novelty.",
+      "searches": [
+        "Eulerian orientations of square of cycle C_n^2 sequence characteristic polynomial",
+        "\"Eulerian orientations\" \"C_n(1,2)\"",
+        "\"Eulerian orientations\" \"cycle square\" \"Lucas numbers\"",
+        "for every n at least five the bivariate refined Eulerian orientation polynomial on the squared cycle circulant C_n(1,2) tracking independently clockwise orientations of short and long edges equals two Lucas polynomials plus two monomials"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact calculated odd totals 24,60,154 and odd winding-support sizes 8,10,12 are reproduced in verify_direct.out.",
+        "Searches of standard indexing and publicly accessible records returned no tabulation of odd-order bivariate coefficients.",
+        "No global uniqueness is inferred from absence of an indexed table."
+      ],
+      "reasoning": "The scalar counts are a strict specialization of the claimed multivariate enumeration and may have existing database entries; no identified table contained the two-direction profile counts. Even scalar values are separately covered by the antiprism formula.",
+      "searches": [
+        "\"24, 38, 60, 96, 154\" \"Eulerian orientations\"",
+        "\"2 Lucas\" \"Eulerian orientations\" circulant",
+        "\"Eulerian orientations\" \"circulant\" \"Fibonacci\" \"Golin\"",
+        "n vertex square cycle Eulerian orientations 24 38 60 96 154 Lucas"
+      ]
+    },
+    "rationale": "The claim is the complete odd-order two-winding distribution, not the scalar count alone. A previous antiprism result concerns C_(2m)^2 and already provides the even-order unweighted count and a Lucas-cube structure; that case is excluded from novelty. Golin–Leung establish scalar recurrence machinery on circulants, while Felsner proves a planar orientation lattice and Isaev establishes high-connectivity asymptotics. None of the inspected full texts asserts the odd-order bivariate support or binomial multiplicities. Zhang–Shen (2007) is plausible prior scalar work but its full text was not available, leaving explicit priority risk; a title-only comparison is not evidence of noncoverage.",
+    "residual_risks": [
+      "Zhang–Shen (2007) full text inaccessible; may cover the scalar odd-order count and, less likely but unverified, the two-winding distribution.",
+      "Golin–Leung 2004 longer technical report cited in their conference paper not recovered; explicit special-case formulas might appear there.",
+      "Unindexed or differently named ice-type orientation partitions may supply an equivalent polynomial; literature searches are not novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General orientation-lattice framework; no coefficient-level labelled cyclic orientation enumerator. Its planar hypothesis also does not cover arbitrary odd squared cycles.",
+        "evidence": [
+          "Publisher dated 2004-02-14; Theorem 1 asserts a distributive lattice on alpha-orientations of plane graphs, PDF pp.1–2."
+        ],
+        "identifier_or_url": "doi:10.37236/1768",
+        "material_read": "Abstract, introduction, section 2 statement and definition of alpha-orientations, directed cycle reversals, proof framework (PDF pp.1–4).",
+        "method": "Read lawful publisher full-text PDF and checked its first-page visual rendering.",
+        "title": "Lattice Structures from Planar Graphs",
+        "trigger": "Eulerian orientations as fixed-outdegree orientations and possible broader classification."
+      },
+      {
+        "assessment": "Explicit recurrence-existence for Eulerian orientations but not weighted two-winding formula in inspected conference paper; longer technical report cited there not obtained.",
+        "evidence": [
+          "Abstract and conclusion identify Eulerian orientations among counts admitting recurrences; pp.305–307 give an explicit recurrence for Hamiltonian cycles, not the winding polynomial."
+        ],
+        "identifier_or_url": "https://cse.hkust.edu.hk/~golin/pubs/golin_WG_04_new.pdf",
+        "material_read": "WG 2004 conference paper, introduction pp.296–298, recurrence machinery, end of section 3 and conclusion pp.305–307.",
+        "method": "Read freely accessible conference PDF text and checked first page visual rendering.",
+        "title": "Unhooking Circulant Graphs: A Combinatorial Method for Counting Spanning Trees and Other Parameters",
+        "trigger": "Exact fixed-jump circulant Eulerian orientation recurrence may subsume a proposed formula."
+      },
+      {
+        "assessment": "Asymptotic theorem for large algebraic connectivity, not an exact fixed-degree cyclic count or weighted enumerator.",
+        "evidence": [
+          "Theorem 2.1 assumes algebraic connectivity at least gamma times number of vertices."
+        ],
+        "identifier_or_url": "arxiv:1110.2598",
+        "material_read": "Introduction and main Theorem 2.1 (PDF pp.1–3).",
+        "method": "Read arXiv full-text PDF sections relevant to main claim; visually checked first page.",
+        "title": "Asymptotic behavior of the number of Eulerian orientations of graphs",
+        "trigger": "Potential general formula for Eulerian orientation counts."
+      },
+      {
+        "assessment": "Unresolved potential scalar priority and possible weighted priority. No whole-document noncoverage conclusion.",
+        "evidence": [
+          "Record lists January 2007 and explicitly shows no full text available."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/266247805_Counting_the_Eulerian_orientations_of_one_class_of_circulant_graphs",
+        "material_read": "Bibliographic title, author names Yuanping Zhang and Xiaoling Shen, 2007 date, and stated absence of full text; no theorem or figures.",
+        "method": "Searched publisher/arXiv/OA web alternatives and examined accessible bibliographic record; complete primary text not retrieved.",
+        "title": "Counting the Eulerian orientations of one class of circulant graphs",
+        "trigger": "Title directly relates Eulerian orientations and a class of circulants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a8bfe6c-d8c8-44dc-8f5c-c3a6b65f903a",
+  "value": {
+    "rationale": "The odd squared-cycle family is a natural 4-regular circulant not represented by an integer-size antiprism. Its refined orientation partition function distinguishes two canonical jump directions; it is not merely an arbitrary finite slice or the previously known scalar Lucas count. The theorem shows the full bivariate support collapses from up to (n+1)^2 possible pairs to exactly n+3 specified pairs and supplies each coefficient, with two separate cyclic monomer-dimer sectors proved by the local-state dynamics. This exact windings law is useful for anisotropic orientation counts and for checking possible dynamics that preserve directed step counts. Neither a general recurrence-existence result nor an even-order orientation count implies the odd-order two-variable spectrum.",
+    "status": "PASS"
+  }
+}
