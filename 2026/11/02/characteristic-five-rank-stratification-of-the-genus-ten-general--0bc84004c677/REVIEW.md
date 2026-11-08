@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Smoothness follows from independent Jacobian rows on the admissible parameter range; adjunction yields genus ten. The Koszul-cohomology Frobenius coefficient formula reconstructs an explicit ten-dimensional Hasse–Witt matrix. Exact polynomial arithmetic confirms six and only six nonzero entries, with three disjoint two-dimensional blocks; every block either vanishes simultaneously or is invertible. This gives stable Frobenius ranks four or six, with the complementary Cartier-kernel dimensions six or four, for every geometric parameter. The branch permutation orbit is checked by explicit fractional-linear transformations.
+## correctness
 
-**Originality — PASS, with residual risk.** The genus-ten family and its quotient-Jacobian decomposition are prior art (Carvacho–Hidalgo–Quispe, 2015). Hidalgo's full available article develops Cartier calculations and explicitly obtains the *characteristic-two* answer for this family; its stated prime-at-least-five direct calculations are not specialized to exponent three at prime five. The characteristic-five three-point rank and a-number jump is not a corollary of the prior stated characteristic-two result, nor is it contained in the inspected portions of the primary articles. Search queries also tested harmonic parameters, equivalent Hasse-matrix descriptions, and broader characteristic-five Jacobian classifications. No equivalent published statement was found, although negative search results do not establish priority.
+PASS
 
-**Value — PASS.** This determines the complete jumping locus of two intrinsic invariants in a natural, nonisotrivial genus-ten cover family. Every smooth fiber is nonordinary; precisely one unordered harmonic branch-configuration class has an additional two-dimensional loss of ordinary rank and a corresponding two-dimensional increase in Cartier kernel. The simultaneous invariant jumps and orbit structure give meaningful special-characteristic moduli information not captured by the generic Jacobian decomposition.
+PASS: For lambda not 0,1 the two cubic Jacobian gradients are independent, and adjunction for smooth (3,3) in P3 gives genus 10. Koszul H1(C,O)=H3(P3,O(-6)) has ten positive inverse-monomial classes summing to 6. Direct independent F5[lambda] polynomial expansion of (F1 F2)^4 and coefficient rule [X^(5a-b)] yields exactly six nonzero Hasse–Witt entries arranged into paired 2x2 Frobenius blocks at (1,8),(3,7),(4,6); each block either invertible or wholly zero, at exactly lambda=-1,2,3 respectively. Semilinear stable rank is 6 generic/4 special, and Cartier kernel dimension a=10-rank=4/6. Direct independent exact polynomial arithmetic and F5 rank tests at lambda 2,3,4 reproduced the entries and exceptional ranks; all algebraically closed parameters follow from factored polynomials, not finite tests.
 
-The result has not been tested against every older thesis or unindexed source; no Newton polygon classification is asserted. The review is limited to the stated result and its packaged exact verifier.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best knowledge: Carvacho–Hidalgo–Quispe identify the genus-ten curve and a characteristic-zero quotient-Jacobian decomposition. Hidalgo computes p=2 Cartier behavior on this model and states a p>=5 special formula requiring exponent k dividing p-1; k=3 does not divide 4 in characteristic 5. These prior statements supply the object and method but not the exceptional lambda=-1,2,3 p=5 rank locus. An unlocated elliptic-factor supersingularity calculation could imply the result and remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Complete 5-rank and a-number stratification for a geometrically natural one-parameter family of genus-ten curves, with precise jump orbit and zero additional loci; intrinsically useful arithmetic geometry even without full Newton polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
