@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact soft-model predictor f_q(y) follows by conditioning on the incoming type. Its Taylor remainder is summable in L2. The squared simple-walk occupation has mean log n+O(1), variance 4 log n+O(1), and an a.s. logarithmic law. A martingale transform yields its normalized Gaussian limit. Edge martingale has bracket q(1-q)n+o(n), and the mixed bracket of its sqrt(n) normalization with the occupation martingale normalized by sqrt(log n) tends to zero. Joint martingale CLT, Slutsky and the independent hard-model Bernoulli construction finish the proof. The standalone finite exact-rational checker passed 15,432 assertions, which do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 of arXiv:2611.06904v1 treats limiting degree distributions.",
+        "arXiv:2304.08565 covers general attribute kernels and degree exponent zero, including homophily-related first-order properties.",
+        "arXiv:2004.02697 develops limiting CWRT degree behavior."
+      ],
+      "reasoning": "These broader models subsume the stochastic construction, and known first-order homophily limits can cover the leading nq term. The inspected statements do not supply the finite-size log n correction or two-scale joint fluctuation theorem; broad scope of models alone is not logical coverage of this specific higher-order statistic.",
+      "searches": [
+        "homophily preferential attachment edge type counts CLT",
+        "two-community preferential attachment central limit cross edges",
+        "Antunes Banerjee Bhamidi Pipiras 2023 attribute network models homophily fraction cross community edges CLT correction",
+        "arXiv:2611.06904v1 §6",
+        "arXiv:2304.08565 §3.3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.06904v1",
+      "https://arxiv.org/abs/2004.02697",
+      "https://arxiv.org/abs/2304.08565",
+      "https://doi.org/10.1007/s41109-023-00558-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of the 2026 primary paper yields limiting degree frequencies, a different observable.",
+        "The 2023 attribute paper obtains local weak limits and homophily-related formulas, not an identified centered cross-edge CLT.",
+        "The 2020 CWRT results include the weight rule but concentrate on degree behavior."
+      ],
+      "reasoning": "A leading cross-edge fraction of q and even a root local weak limit cannot determine the sign-changing coefficient b=2q(1-q)(1-2q) or the next-scale Gaussian fluctuation; separate martingale and quadratic-walk calculations are required. The searched and inspected sources did not exhibit a stronger prior theorem from which the precise result follows.",
+      "searches": [
+        "preferential attachment cross-community logarithmic fluctuations edge counts",
+        "two-community preferential attachment central limit cross edges",
+        "Antunes Banerjee Bhamidi Pipiras 2023 attribute network models homophily fraction cross community edges CLT correction",
+        "arXiv:2611.06904v1 Model 2",
+        "arXiv:2304.08565 homophily measures"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The soft rule coincides with a symmetric two-type attribute kernel at exponent zero in arXiv:2304.08565, eq. (1.2).",
+        "The 2020 CWRT construction likewise includes type-weighted recursive parents.",
+        "For a balanced model, the conditional cross-edge probability depends only on the squared type imbalance."
+      ],
+      "reasoning": "The stochastic model is not asserted to be new; the exact observable is the cross-type edge compensator. Neither equivalence of model definitions nor first-order type/degree laws automatically determines the order-log n bias, order-sqrt(log n) compensator CLT, and its zero asymptotic covariance with edge-choice martingale noise.",
+      "searches": [
+        "multi-type preferential attachment assortativity cross type edge count logarithmic bias fluctuations",
+        "preferential attachment cross-community logarithmic fluctuations edge counts",
+        "arXiv:2004.02697 CWRT",
+        "arXiv:2304.08565 attribute model"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "This result quantifies asymptotics for every integer n and every fixed real q in (0,1), rather than a catalog of finite data.",
+        "The exact-rational checker evaluates only finite small-size states and cannot entail an infinite-population Gaussian statement."
+      ],
+      "reasoning": "No known fixed table or exact enumerative catalog would itself imply the a.s. compensator law and bivariate martingale CLT. Numeric matching is not used as evidence of originality.",
+      "searches": [
+        "multi-type preferential attachment assortativity cross type edge count logarithmic bias fluctuations",
+        "homophily edge counts logarithmic correction random graph preferential attachment",
+        "arXiv:2611.06904v1 degrees and edges"
+      ]
+    },
+    "rationale": "Novelty assessed for the quantitative theorem, not for its already-known random graph model or generic martingale CLTs. Full directly relevant text and equivalent model classes were compared. The second-order logarithmic edge-mixing bias and joint, asymptotically independent fluctuation theorem were not identified in those sources or targeted index searches. Historical priority remains provisional, not certified.",
+    "residual_risks": [
+      "A more general central limit theorem for random recursive trees with types could subsume the statement despite different observable language.",
+      "The 2023 homophily-inference paper was inspected via available open web text but not every derivation was followed at full depth.",
+      "Targeted searching and semantic-index retrieval cannot establish global uniqueness or definitive historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets the soft-attachment transition probabilities used here and proves limiting type-degree distributions, not the logarithmic bias of cross-community edge counts or the separated joint CLT.",
+        "evidence": [
+          "arXiv:2611.06904v1, Definition 1 and Theorem 1; §6; §§1.1–1.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.06904v1",
+        "material_read": "Full HTML: definition and conditional attachment formula, Theorem 1 and its discussion, related work, Model 2 section 6, and later proofs/references.",
+        "method": "Compared precise stochastic observables and quantitative conclusions across definitions, propositions and main theorem.",
+        "title": "Sublinear multi-type preferential attachment",
+        "trigger": "Recent primary source defining hard Model 1, soft Model 2 and zero degree exponent"
+      },
+      {
+        "assessment": "Encompasses the weight-based construction and established first-order degree behavior; cross-edge compensator and its logarithmic fluctuation are not identified in inspected statements.",
+        "evidence": [
+          "arXiv:2004.02697, community-weighted recursive-tree definition and degree-limit results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.02697",
+        "material_read": "Accessible full text including model specification, CWRT §1.3.2, degree-law results, and corresponding analytical sections.",
+        "method": "Compared population-based parent weights and the graph statistics established.",
+        "title": "Community modulated recursive trees and population dependent branching processes",
+        "trigger": "Early zero-exponent community-dependent recursive-tree construction with possibly equivalent weight rule"
+      },
+      {
+        "assessment": "Model and first-order homophily observables overlap; no logarithmic compensator bias or joint independent sqrt(n)/sqrt(log n) fluctuation theorem identified in these sections.",
+        "evidence": [
+          "arXiv:2304.08565, Definition 1.1 and §§3.3,5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.08565",
+        "material_read": "Full available rendered text: model class P and Equation (1.2), §3.3 homophily/degree/PageRank results, §5 exponent-zero discussion, and statements of major theorems.",
+        "method": "Compared quantifiers and implications of local weak convergence and homophily-related first-order observables with second-order cross-edge counts.",
+        "title": "Attribute network models, stochastic approximation, and network sampling and ranking algorithms",
+        "trigger": "Potentially stronger attribute-kernel model covering the two-community case including degree exponent zero"
+      },
+      {
+        "assessment": "Focuses on learning homophily and attribute distributions through walks rather than the exact edge-count compensator or bivariate fluctuation scales; incomplete detailed proof comparison remains a priority risk.",
+        "evidence": [
+          "DOI:10.1007/s41109-023-00558-3, abstract and model description"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41109-023-00558-3",
+        "material_read": "Open-access article abstract, model-class and homophily definitions, article summary/sections.",
+        "method": "Separated the studied random-walk inference and first-order homophily estimation from the new temporal, logarithmic edge-count fluctuation question.",
+        "title": "Learning attribute and homophily measures through random walks",
+        "trigger": "Directly relevant homophily observable and earlier network inference results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e6b064c-3e98-496b-81c8-74e7c66cc3b9",
+  "value": {
+    "rationale": "The cross-community edge count is an intrinsic homophily/mixing observable of a recently studied two-community attachment mechanism. The hard and soft rules agree on the leading fraction and leading central-limit scale but the soft rule has an explicit sign-changing logarithmic finite-size bias and additional independent compensator fluctuations. This structural comparison is not supplied by known limiting degree distributions and matters for interpreting homophily at finite network sizes.",
+    "status": "PASS"
+  }
+}
