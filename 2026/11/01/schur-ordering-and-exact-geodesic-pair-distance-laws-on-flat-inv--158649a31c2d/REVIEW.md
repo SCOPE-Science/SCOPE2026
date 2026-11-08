@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified over every integer dimension \(d\ge2\), every positive orthogonal-lattice length vector, every intrinsic distance threshold, and pairs of independent quotient-volume-uniform points. The metric on the quotient is the minimum over two finite-isometry orbit representatives. Multiplication by two is onto a torus, so the sum–difference map sends product Haar probability to product Haar probability. The full geodesic-pair CDF follows without approximation. For log-length vectors, an exact positive-orthant change of variables makes the centered ball–orthotope intersection the marginal of a jointly log-concave function; Prékopa's theorem establishes Schur concavity. Strict Karamata inequality for \(e^{2t}\) distinguishes nonpermutation shapes by their diameter. The short-distance formula and the sharp terminal tail follow from a ball-inside-cell regime and an elementary simplex scaling at the orthotope corners. Exact circular segments give the complete planar formula. All critical hypotheses are explicit. The included verifier passed 2,241 deterministic threshold checks plus four 150,000-pair stochastic checks, which corroborate rather than prove the continuum statements.
+PASS
 
-## Originality — PASS, with acknowledged residual priority risk
+The metric of T_a/(±1) gives min(delta(x-y),delta(x+y)). The map (x,y)→(x-y,x+y) is onto on the connected torus because multiplication by two is surjective; it sends product Haar to product Haar, so the two origin-distance variables are independent. This proves F=1-(1-H)^2. Substitution |x_i|=exp(u_i), s_i=log(a_i/2), makes H times fixed volume a marginal of the jointly log-concave e^{Σu_i} indicator of convex constraints u_i≤s_i and Σexp(2u_i)≤r²; Prékopa and permutation symmetry yield Schur concavity in log-side lengths. Strict Karamata for Σa_i² implies different circumradii, ensuring strict stochastic dominance somewhere; ball containment and corner simplex scaling give short- and far-tail formulas. Direct independent circular-segment formulas and grid evaluations of four planar shape ratios corroborated the CDF; proofs are all-dimensional analytic, not simulation.
 
-The geometric object is described in Eskin–Okounkov (2005, arXiv:math/0505545). The sum–difference independence mechanism has classical group-theoretic antecedents, including Feldman (2015, arXiv:1510.04798), and the log-concave marginal lemma is Prékopa's 1973 theorem. These results are credited as foundations, not claimed as new. They do not themselves state the exact intrinsic distance distribution on the quotient, its universal terminal-tail doubling, or the fixed-volume log-majorization stochastic optimum. A source-by-source implication check also distinguished the closest published mathematical records about systolic flat-torus profiles, orthotope sections, Gaussian square comparisons, and convex-polygon short distances, which concern different invariants. Searches did not locate a stronger claim covering the present combined theorem. A 1996 fixed cube–ball intersection note could not be read in full, and an unindexed rearrangement theorem could predate the present application; this limits certainty of historical priority. No independent priority audit has been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The two-point intrinsic distance distribution is a natural metric-measure invariant of a canonical nonmanifold flat quotient, and the theorem resolves its entire rectangular aspect-ratio family. The result is not a renaming of the flat-torus distribution: the quotient has a different, squared-survival law, producing a universal negative next-order short-distance term and doubled terminal-tail exponent. More substantively, the Prékopa argument gives stochastic ordering for every radius, every dimension, and all log-majorized shapes—not merely a second moment or a small numerical gain. The cubic shape is a unique simultaneous optimum for all strictly increasing costs, a meaningful geometric extremal principle. The precise class and inability to infer general oblique-lattice comparisons are stated.
+Haar pushforward, Prékopa marginal log-concavity and circular segments are longstanding tools, credited rather than claimed. Eskin–Okounkov studies the pillowcase quotient as an object, not this intrinsic pair-distance law. Feldman studies independent compact-group sums/differences, not the combined quotient metric and geometric stochastic order. Xu 1996 cube-ball intersection might contain related shape inequalities, but no decisive stronger theorem was identified. Best-of-knowledge residual priority uncertainty retained.
 
-## Closest literature and limitations
+## value
 
-The full claim is not established by Eskin–Okounkov's branched-cover enumerations, Feldman's probability characterizations of independent sums and differences, or Prékopa's general log-concavity theorem in isolation. Xu's 1996 cube–ball intersection reference was only available at bibliographic level, not full text; that unresolved source and possible independent precedents remain recorded risks. Geometry is intrinsic and the quotient has cone singularities in dimension two. The proof does not cover general nonorthogonal lattices or embedded paper pillow surfaces. Numerical evidence is secondary; independent mathematical and historical-priority audit is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geodesic pair distance is a canonical metric-measure invariant on rectangular flat inversion quotients; quotienting changes survival to an independent-square law. The theorem simultaneously classifies the entire rectangular aspect-ratio family by log-majorization for every radius and every increasing cost, uniquely optimizes the cubic quotient, and determines unusual doubled 2d terminal exponent. This is more than a planar moment or mechanical renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
