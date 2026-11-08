@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the unit-rate reflecting path generator and the claim covers every integer path size at every nonnegative step. The exact RK4 stability polynomial yields the nonnegative uniformization interval. A four-vertex walk count proves the sharp obstruction for all larger paths, and explicit rational formulas close the small-size cases. Positive definiteness of the scalar RK4 polynomial on the negative real axis rules out diagonal obstructions. The accompanying exact arithmetic verifier passed 40,497 assertions. Root uniqueness is proved analytically, not inferred from a solver.
+PASS
 
-## Originality — PASS, subject to documented risk
+PASS: For symmetric reflecting path generator Q_n and classical RK4 step T_n(z)=sum_{k=0}^4 z^k Q_n^k/k!, setting P=I+Q_n/2 stochastic yields polynomial coefficients nonnegative for z<=1/2; this proves a uniform all-n positive interval. For distance-three vertices the exact unique-route walk count gives (T_n)_{i,i+3}=z³(4-z sum_{4 vertices} degrees)/24, so sharp ceilings are 2/3 for n4, 4/7 for n5, 1/2 for n≥6, with negative entry thereafter. Small n=2,3 reduce to monotonic cubic root obstructions (1.392646781702..., .928431187802...); n4,n5 remaining entry types have explicitly positive polynomials at the endpoints and monotonic cubic factors. The RK4 scalar polynomial is strictly positive on nonpositive spectrum, securing diagonal positivity. Independently reconstructed exact rational matrices for n=2..10 and checked thresholds and beyond endpoint; no finite-size extrapolation is needed for n≥6.
 
-The 2021 source arXiv:2102.08242 treats graph-Laplacian integrators and RK4 without the exact reflecting-path classification; the 2014 SSP literature gives universal convex-combination guarantees rather than these sharp graph-specific limits. Horváth (1998) explicitly establishes zero universal positivity radius for classical RK4 (Example 1), and Horváth (2005) gives universal problem-class restrictions and invariant subcones, including Dirichlet discretizations, without the reflecting-path entrywise threshold. The earlier directed-cycle classification does cover exactly the two-vertex root as a known component. For three or more vertices, that work concerns different nonsymmetric one-way generators, not the degree-one reflecting path endpoints. Novelty attaches to the complete reflecting-path transition, not the already known two-state special case. The specific all-size path theorem and degree-sum mechanism were not covered by the inspected primary material or by claim-level overlap searches. The 2022 heat-scheme paper was fully inspected and does not analyze this classical RK4 path problem; a 2026 heat-scheme preprint remains inaccessible in full and poses residual historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The precise positivity CFL limit is a physically motivated numerical question for diffusion solvers, separate from spectral stability. The complete classification across arbitrary grid size captures finite boundary effects and the first onset of an interior four-site obstruction. The perhaps counterintuitive result that a fourth-order step shares forward Euler's positivity ceiling on every path of at least six sites is a structural design benchmark, not an arbitrary parameter slice. No claim is made about higher-order accuracy requiring nonnegative intermediate stages or about other discretizations.
+PASS qualified: General SSP and positivity theory (Horváth 1998/2005, Gottlieb et al) has universal bounds and knows classical RK4 is not unconditionally positivity preserving, but does not give the complete reflecting symmetric path endpoint classification in inspected material. Blanes–Iserles–Macnamara 2021/2022 analyze Laplacian integrators and RK4 context, not this exact array. Two-state value is already covered by an earlier directed two-cycle result and is included solely for complete all-size statement. The new all-size degree-sum rigidity plus n3–5 exceptions appear absent from examined sources. Specialized 2026 heat-scheme full text inaccessible, residual priority risk.
 
-## Closest literature and limitations
+## value
 
-Blanes–Iserles–Macnamara (2021), Gottlieb–Grant–Higgs (2014), Horváth (1998, 2005), Omle–Askar–Kovács (2022), and Coquerelle (2026) were compared with attention to exact operator, boundary condition, and conclusion. The first five studies were fully inspected; the 2026 preprint was accessible only through bibliographic information and summaries. Detailed source comparisons appear in the structured review. The scientific result is limited to the classical RK4 end-step on exact unit-rate symmetric path generators.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Complete exact positivity-step classification, including several finite-size exceptions and proof that classical RK4 offers no positivity-step gain over forward Euler from six vertices onward, is a motivated numerical-analysis question with a genuinely sharp graph-geometry mechanism. Not a trivial application of universal SSP coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

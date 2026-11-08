@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:54:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md proof and boundary hypotheses",
+        "Actual pinned verification script and VERIFICATION.md (finite evidence only)",
+        "Independent reconstruction and exact/numeric checks in /mnt/data/scope_checks_20261104.py",
+        "Pinned 2026/11/02/exact-positivity-horizons-of-fourth-order-runge-kutta-on-reflect--0ba7dc0d8e87",
+        "Independent Fraction-based exact RK4 matrix positivity at endpoints n=2..10 and negative entries immediately beyond each sharp horizon; universal n≥6 established symbolically."
+      ],
+      "rationale": "PASS: For symmetric reflecting path generator Q_n and classical RK4 step T_n(z)=sum_{k=0}^4 z^k Q_n^k/k!, setting P=I+Q_n/2 stochastic yields polynomial coefficients nonnegative for z<=1/2; this proves a uniform all-n positive interval. For distance-three vertices the exact unique-route walk count gives (T_n)_{i,i+3}=z³(4-z sum_{4 vertices} degrees)/24, so sharp ceilings are 2/3 for n4, 4/7 for n5, 1/2 for n≥6, with negative entry thereafter. Small n=2,3 reduce to monotonic cubic root obstructions (1.392646781702..., .928431187802...); n4,n5 remaining entry types have explicitly positive polynomials at the endpoints and monotonic cubic factors. The RK4 scalar polynomial is strictly positive on nonpositive spectrum, securing diagonal positivity. Independently reconstructed exact rational matrices for n=2..10 and checked thresholds and beyond endpoint; no finite-size extrapolation is needed for n≥6.",
+      "residual_risks": [
+        "Finite unit-rate symmetric reflecting paths and exact RK4 end step only; positivity of stages/long-time floating-point evolution not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph-Laplacian and positivity conditions address arbitrary networks/methods without sharp n-specific reflecting-path RK4 cutoffs.",
+          "The 2022 ESAIM abstract describes new alternative methods rather than RK4 exact boundary classification."
+        ],
+        "reasoning": "Broader method families with sufficient universal bounds do not dominate a sharper result for this path family; further older threshold papers could still contain the same specialization.",
+        "searches": [
+          "Blanes Iserles Macnamara arxiv:2102.08242",
+          "Horváth 1998 positivity Runge Kutta DOI:10.1016/S0168-9274(98)00050-6",
+          "Horváth 2005 threshold DOI:10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6",
+        "Horváth 2005 DOI 10.1016/j.apnum.2004.08.026",
+        "Blanes–Iserles–Macnamara arxiv:2102.08242 and 2022 ESAIM M2AN",
+        "Gottlieb–Grant–Higgs arxiv:1403.6519",
+        "Omle–Askar–Kovács 2022 DOI 10.28919/jmcs/7407 (bibliographic only)",
+        "Coquerelle 2026 DOI 10.13140/RG.2.2.28643.11047 (full text unavailable)",
+        "Resultary RK4 heat positivity semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Horváth establishes general RK4 positivity limitations; n>=6 threshold equals forward Euler 1/2, while n2..5 improve beyond that.",
+          "The distance-three degree-sum obstruction and exceptional finite n polynomials are graph-specific."
+        ],
+        "reasoning": "Neither a universal zero positivity radius across all generators nor a general sufficient interval proves sharp thresholds for the specified reflecting paths; the new proof constructs matching obstructions and lower bounds.",
+        "searches": [
+          "Blanes Iserles Macnamara ESAIM M2AN 2022",
+          "Horváth 1998 Applied Numerical Mathematics",
+          "Gottlieb Grant Higgs arxiv:1403.6519"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known universal RK4 SSP/absolute-monotonicity bounds do not supply exact finite reflecting-path endpoints.",
+          "A previously published directed two-cycle is isomorphic at n=2 but not for symmetric reflecting n>=3."
+        ],
+        "reasoning": "The question is entrywise nonnegativity of RK4(zQ_n), distinct from absolute stability or positivity of intermediate stages. General SSP radius and directed cycle values cannot imply the exceptional symmetric-path classification.",
+        "searches": [
+          "classical Runge Kutta fourth order positivity preserving reflecting path graph Laplacian sharp timestep threshold",
+          "Horváth positivity step size threshold Runge Kutta matrix diffusion Dirichlet Neumann path",
+          "reflecting boundary Neumann heat RK4 nonnegativity n=4 2/3 n=5 4/7 n>=6 1/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary work on Padé Markov 8-state barrier is a different rational method; other retrieved methods are Crank–Nicolson, SSP-SDIRK2, Lanczos, not RK4 on paths.",
+          "Finite exact checking reproduced n2..10 but not used as originality evidence."
+        ],
+        "reasoning": "No exact prior RK4 reflecting-path table was identified; noncoverage is a bounded-search conclusion.",
+        "searches": [
+          "Resultary query classical Runge Kutta fourth order positivity preserving reflecting path graph Laplacian sharp timestep threshold",
+          "classical RK4 reflecting Neumann heat path exact positivity table n2 n3 n4 n5"
+        ]
+      },
+      "rationale": "PASS qualified: General SSP and positivity theory (Horváth 1998/2005, Gottlieb et al) has universal bounds and knows classical RK4 is not unconditionally positivity preserving, but does not give the complete reflecting symmetric path endpoint classification in inspected material. Blanes–Iserles–Macnamara 2021/2022 analyze Laplacian integrators and RK4 context, not this exact array. Two-state value is already covered by an earlier directed two-cycle result and is included solely for complete all-size statement. The new all-size degree-sum rigidity plus n3–5 exceptions appear absent from examined sources. Specialized 2026 heat-scheme full text inaccessible, residual priority risk.",
+      "residual_risks": [
+        "Finite unit-rate symmetric reflecting paths and exact RK4 end step only; positivity of stages/long-time floating-point evolution not asserted.",
+        "Horváth 1998 and 2005 full-text coverage not decisively excluded; 2026 Coquerelle full text not obtained.",
+        "n=2 root overlaps known directed two-cycle, not independently novel; full-family claim is primary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BROAD: methods for positivity in general graph Laplacian models, no claimed exact reflecting-path threshold in the material read.",
+          "evidence": "Blanes–Iserles–Macnamara ESAIM M2AN 56 (2022), 1843–1870.",
+          "identifier_or_url": "https://www.numdam.org/articles/10.1051/m2an/2022042/",
+          "material_read": "Complete journal landing page abstract and bibliography, not a whole-paper proof-level inspection; OA arXiv abstract also checked.",
+          "method": "Read publisher bibliographic/abstract page and compared methodology and claimed results.",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "same graph Laplacian model, classical RK4 comparison"
+        },
+        {
+          "assessment": "LIKELY_PRIOR_UNIVERSAL: no justification for whole-document noncoverage; possible specialized theorem is a residual risk.",
+          "evidence": "Horváth 1998, Applied Numerical Mathematics 28, 309–326.",
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "Publisher abstract and source-review context; full article not obtained.",
+          "method": "Read abstract; same-paper arXiv/OA full text sought without obtaining.",
+          "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+          "trigger": "universal RK4 positivity limits, potential stronger theorem"
+        },
+        {
+          "assessment": "POSSIBLE_OVERLAP: not considered proven noncoverage without full article.",
+          "evidence": "Horváth 2005, Applied Numerical Mathematics 53, 341–356.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Publisher abstract and publicly visible summary, not full technical text.",
+          "method": "Read publisher abstract and context.",
+          "title": "On the positivity step size threshold of Runge-Kutta methods",
+          "trigger": "sharp matrix-specific RK positivity possible"
+        },
+        {
+          "assessment": "GENERAL_CONTEXT; does not assert reflecting path classification in the inspected material.",
+          "evidence": "2021 preprint, 2022 expanded ESAIM article.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "arXiv abstract and 2022 published follow-up landing text.",
+          "method": "Read primary abstract/bibliography.",
+          "title": "Positivity-preserving methods for population models",
+          "trigger": "original Laplacian positivity setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual pinned RESULT.md mathematical motivation",
+        "Horváth 1998 DOI 10.1016/S0168-9274(98)00050-6"
+      ],
+      "rationale": "PASS: Complete exact positivity-step classification, including several finite-size exceptions and proof that classical RK4 offers no positivity-step gain over forward Euler from six vertices onward, is a motivated numerical-analysis question with a genuinely sharp graph-geometry mechanism. Not a trivial application of universal SSP coefficient.",
+      "residual_risks": [
+        "Finite unit-rate symmetric reflecting paths and exact RK4 end step only; positivity of stages/long-time floating-point evolution not asserted.",
+        "Horváth 1998 and 2005 full-text coverage not decisively excluded; 2026 Coquerelle full text not obtained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite unit-rate symmetric reflecting paths and exact RK4 end step only; positivity of stages/long-time floating-point evolution not asserted.",
+    "Horváth 1998 and 2005 full-text coverage not decisively excluded; 2026 Coquerelle full text not obtained.",
+    "n=2 root overlaps known directed two-cycle, not independently novel; full-family claim is primary."
+  ],
+  "schema_version": 1
+}
