@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For any interior threshold, direct integration gives edge variance v and common-endpoint edge covariance c, with all disjoint edges independent; the unsigned incidence calculation yields Cov(Y)=(v-2c)Q+cQ². Exact piecewise integration gives c=r³(4-3r)/12 and a=v-2c=r²(3r²-8r+6)/12, both positive. Strict monotonicity on the positive spectrum gives the principal-square-root inverse and the precise bipartite-kernel statement. The matrix-square-root Sylvester bound and Hoeffding union bound justify the stated conservative sample requirement; no conditional independence between degrees is assumed. Packaged checker passed 11215 finite checks including all labelled hosts through five vertices. Finite tests alone are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McGregor–Sengupta, ICALP 2022 Article 96, §1, explicitly observes vertex-deleted adjacency submatrices, not the present labelled degree-only threshold samples.",
+        "Fox–Luo–Pham, arXiv:2207.13651, Thm. 1.3 and §2, only concentration of counts m(H,k) on regular hosts.",
+        "Alon–Wei arXiv:2108.02685, Thms. 1.3–1.8, establish existence and degree-frequency bounds, not a labelled-graph inverse map."
+      ],
+      "reasoning": "Reconstruction under a different observation channel does not imply a covariance inversion formula for this dependent-edge model. The existing concentration theorems do not recover adjacency from degree-only replicates. The original model is credited rather than rebranded as new.",
+      "searches": [
+        "reconstruct unknown graph from covariance matrix of node degree counts sampled subgraphs",
+        "Graph Reconstruction from Random Subgraphs McGregor Sengupta 2022",
+        "random threshold graph latent variables graph inference degrees covariance signless Laplacian"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.13651 (first posted 2022-07-27)",
+      "arXiv:2108.02685",
+      "doi:10.4230/LIPIcs.ICALP.2022.96",
+      "doi:10.1002/jgt.10056 (abstract only)",
+      "doi:10.1016/j.laa.2007.01.009 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper controls E[I_u I_v] for indicators of equal resulting degrees and bounds their summed variance, not Cov(Y_u,Y_v) of numerical degrees.",
+        "Known single-vertex marginal uniformity does not give cross-vertex covariance or universal exact graph inversion.",
+        "Independent bond percolation yields an elementary linear degree-covariance reconstruction, but its independent-edge channel does not imply the non-linear formula under shared vertex weights."
+      ],
+      "reasoning": "The new exact polynomial and inversion are not corollaries of the cited degree-bin moment bounds, uniform marginals, or adjacency-submatrix reconstruction theorems. Elementary edge-pair covariance and spectral calculus used in the derivation are acknowledged as standard ingredients.",
+      "searches": [
+        "arXiv:2207.13651 Section 2 covariance",
+        "arXiv:2108.02685 Lemma 2.2",
+        "McGregor Sengupta Graph Reconstruction from Random Subgraphs sample degree vector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fox–Luo–Pham arXiv:2207.13651, §§1–3, study degree-count variance and concentration, not inversion of labelled degree covariance.",
+        "Alon–Wei arXiv:2108.02685, Lemma 2.2, proves the one-vertex uniform-degree marginal at threshold one.",
+        "Cvetković–Rowlinson–Simić, LAA 423 (2007), survey signless-Laplacian structure; the matrix itself is standard."
+      ],
+      "reasoning": "Marginal uniformity and degree-bin-count concentration do not determine the labelled pairwise covariance matrix. Standard signless-Laplacian facts alone do not calculate its transform under dependent threshold edge sampling. Search for matrix-polynomial and square-root inverse aliases did not identify an equivalent published statement.",
+      "searches": [
+        "random irregular subgraphs covariance",
+        "degree covariance signless Laplacian random graph",
+        "random threshold subgraph covariance signless Laplacian spectral polynomial",
+        "graph reconstruction covariance matrix observed degrees of percolated graph signless Laplacian",
+        "degree-only recovery of a hidden host graph from vertex weight threshold random subgraphs covariance signless Laplacian polynomial",
+        "covariance matrix of threshold sampled graph degree vector equals a Q plus c Q squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record searches returned related threshold-graph optimization and different tree reconstruction claims, but no matching quadratic degree-covariance table for arbitrary labelled hosts.",
+        "The explicit continuum-threshold family is algebraic, not a recomputation of a finite enumerative table."
+      ],
+      "reasoning": "No exact published table dominating this claim was identified in the searched sources. Lack of a search hit is treated only as limited evidence, never as a proof of novelty.",
+      "searches": [
+        "random irregular subgraph model recover host graph adjacency from degree observations covariance",
+        "uniform random vertex weights edge kept when sum exceeds threshold inverse identification graph",
+        "degree covariance graph reconstruction latent vertex labels threshold graphs spectral square root signless laplacian",
+        "graph identifiable from repeated vertex-sum threshold sampled degree sequences all thresholds"
+      ]
+    },
+    "rationale": "The original irregular-subgraph model and uniform one-vertex degree law are credited; closest accessible papers address regular-host degree-count concentration, an alternative adjacency-submatrix reconstruction channel, or standard signless-Laplacian properties. No statement implying the all-threshold covariance polynomial and labelled-degree-only reconstruction was found in the inspected material or targeted records. This is best-knowledge originality, subject to unresolved older full-text and broader historical priority.",
+    "residual_risks": [
+      "A prior derivation of the covariance polynomial may exist under a general vertex-latent random-graph or matrix-moment formulation not indexed by the targeted searches.",
+      "The 2002 originating article was available only as abstract and in later citations, so priority there cannot be decisively excluded.",
+      "The sufficient sample bound may be improvable; no optimality is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results concern degree-frequency counts and their concentration. No labelled numeric-degree covariance transform or graph inversion appeared in the examined proof and theorem material; historical priority cannot be certified from this alone.",
+        "evidence": "arXiv:2207.13651, Theorem 1.3, Theorem 2.1, Lemma 2.2, §3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2207.13651",
+        "material_read": "Accessible 18-page arXiv PDF: abstract, main statements, §2 moment method, selected §3 concentration passages, references, and exact-term full-text searches for covariance, signless and recovery.",
+        "method": "Accessible arXiv PDF text and rendered page inspection, compared actual observables and claimed implications.",
+        "title": "On random irregular subgraphs",
+        "trigger": "Exact original threshold-one graph-sampling model, closest direct object match."
+      },
+      {
+        "assessment": "Marginal uniformity and constructive degree multiplicity bounds are prior; no implication of the all-threshold degree-covariance inverse from the inspected statements.",
+        "evidence": "arXiv:2108.02685, Theorems 1.3–1.8 and Lemma 2.2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02685",
+        "material_read": "Accessible 22-page paper introduction, main theorems and Lemma 2.2 in §2; checked stated observation model and quantity.",
+        "method": "ArXiv PDF text and rendered page inspection; implication comparison to mixed numerical-degree covariance.",
+        "title": "Irregular subgraphs",
+        "trigger": "Preceding work on same threshold-one random construction and its marginal degree law."
+      },
+      {
+        "assessment": "Randomly sampled induced graphs and adjacency principal submatrices are observed, unlike repeated degree-only vertex-threshold samples. Its bounds do not dominate the displayed formula.",
+        "evidence": "McGregor–Sengupta (2022), §1 and abstract.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2022.96",
+        "material_read": "Accessible 18-page PDF abstract, full §1 model definitions and principal results, plus initial related-work discussion.",
+        "method": "Publisher OA PDF text and rendered first page; compared observations and reduction relations.",
+        "title": "Graph Reconstruction from Random Subgraphs",
+        "trigger": "Plausibly broader theorem on reconstructing arbitrary hosts from random subgraphs."
+      },
+      {
+        "assessment": "Model origin credited; absence of an inversion theorem in this inaccessible full text is not asserted.",
+        "evidence": "Frieze et al. (2002), Journal of Graph Theory 41, 120–137.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.10056",
+        "material_read": "Journal bibliographic record and abstract; full primary article was not accessible in the available material.",
+        "method": "Published journal abstract and secondary citations in two accessible full papers.",
+        "title": "On graph irregularity strength",
+        "trigger": "Original construction and an older historical-priority possibility."
+      },
+      {
+        "assessment": "Signless Laplacian definition and bipartite kernel are classical; not claimed new. Their use does not establish the covariance transform for vertex-sum threshold sampling.",
+        "evidence": "Cvetković, Rowlinson and Simić (2007).",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.01.009",
+        "material_read": "Published abstract and descriptions of standard kernel/spectrum results.",
+        "method": "Bibliographic and theorem-context comparison.",
+        "title": "Signless Laplacians of finite graphs",
+        "trigger": "Possible standard structural/spectral identity dominating part of proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4fe0bc1-05ae-41dd-8510-f61088f380fa",
+  "value": {
+    "rationale": "The natural question of identifying a hidden host from only repeated sampled degree vectors is completely resolved, for all labelled finite simple hosts and every nondegenerate threshold. The quadratic signless-Laplacian covariance law is an exact observable-to-structure bridge in a model with dependent edges; it supplies a constructive inverse, a finite-sample guarantee, and a bipartite-component diagnostic. The known independent-percolation linear analog is acknowledged, while the dependent-edge formula and all-threshold classification are not merely a finite table or a substitution in a previously stated result. The bounds are deliberately not represented as minimax optimal.",
+    "status": "PASS"
+  }
+}
