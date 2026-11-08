@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For every m>=1 a leaf update followed by ordinary-clique updates gives an explicit route to the closed set. Inside it, hub and leaf cannot flip; ordinary transitions form exactly the two consecutive Boolean-lattice ranks. Each of the two resulting components is connected. The per-edge rate is exactly 1/(2m+2), and an up/down incidence commutator gives the entire Laplacian spectrum with smallest nonzero eigenvalue one. Direct full-state transition SCC checks m=1..4 and independent symbolic characteristic polynomial checks m=1..3 replayed successfully; finite tests do not replace proof. Boundaries and normalization are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry, arXiv:1011.5119v1, general energy and potential framework in Section 3, and special-graph classifications in Section 4.",
+        "Theorem 19 of that paper is limited to actual cliques; its proof relies on every closed neighborhood equalling the full vertex set.",
+        "The attached leaf breaks that hypothesis and produces a different recurrent communication structure."
+      ],
+      "reasoning": "A general energy monotonicity lemma is a proof tool, not a theorem about the precise terminal communication structure of this nonregular graph. The source contains detailed classes for cliques and trees, but those do not include an odd clique with one added leaf.",
+      "searches": [
+        "odd clique with one pendant leaf asynchronous stochastic minority local anti-coordination two recurrent classes hub frozen middle levels hypercube gap",
+        "nonreversible voter dynamics threshold automata under vertex updates on graph products",
+        "stochastic minority clique pendant vertex leaf attached complete graph recurrent classes"
+      ]
+    },
+    "checked_sources": [
+      "Rouquier–Regnault–Thierry, arXiv:1011.5119v1 (2010-11-23), Definition 2, Theorem 19 and surrounding sections",
+      "Qiu–Qiu–Jiang–Shen, arXiv:0911.0126v1 (2009-11-01), Section 2, Theorem 1",
+      "Public nearest-topic research summaries on consecutive-layer graph Laplacians, Boolean cubes and published prior graph minority results; no direct pendant-clique dynamical theorem identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published odd-clique theorem: one class of cardinality twice a middle binomial coefficient (Rouquier–Regnault–Thierry, Theorem 19).",
+        "New exact implication: after adding one pendant leaf there are two disjoint irreducible classes, each one middle binomial coefficient in size, with frozen hub and leaf.",
+        "Published middle-cube eigenvalues apply after a graph-to-incidence reduction, but do not imply the reduction or the recurrence classification."
+      ],
+      "reasoning": "Equal total counts do not imply equal communication structures; in fact the unperturbed theorem asserts one class whereas the new theorem asserts two. The spectral part is explicitly treated as a consequence of known incidence algebra and is not used as standalone evidence for originality. The new graph-specific reduction is necessary and is proved from the local update law.",
+      "searches": [
+        "stochastic minority pendant clique graph recurrent class",
+        "odd clique with one pendant leaf asynchronous stochastic minority local anti-coordination two recurrent classes hub frozen middle levels hypercube gap",
+        "middle two adjacent levels inclusion hypercube graph Laplacian spectrum Johnson middle cube"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry, arXiv:1011.5119v1, Definition 2 identifies the same closed-neighborhood tie-retaining asynchronous rule (PDF pp. 4–5).",
+        "The same paper, Theorem 19 (PDF pp. 11–12), establishes a single attractor on unmodified odd cliques, not on cliques with a leaf.",
+        "The nearest equivalent spin-system wording is zero-temperature antiferromagnetic single-site update with a deterministic no-change-on-tie convention; a matching leaf-perturbation theorem was not located."
+      ],
+      "reasoning": "The update dynamics has explicit spin-glass and local-cut interpretations. Neither a source treating the odd clique alone nor a generic zero-temperature description proves the leaf-created separation into two recurrence classes. The new theorem is not a restatement of the unperturbed-clique attractor count.",
+      "searches": [
+        "stochastic minority pendant clique graph recurrent class",
+        "asynchronous minority clique leaf attached graph attractor",
+        "zero temperature antiferromagnetic sequential Glauber odd complete graph plus leaf recurrent communicating classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Qiu–Qiu–Jiang–Shen, arXiv:0911.0126v1, Section 2 and Theorem 1 characterize adjacency spectra of regular middle-cube graphs in odd dimensions.",
+        "That article gives Johnson-graph eigenvalues that underlie the present elementary incidence calculation but does not tabulate the recurrent classes of the changed stochastic process.",
+        "Direct exhaustive graph calculations for sizes 3, 5, 7, 9 of the clique provide independent regression checks, not a literature novelty database."
+      ],
+      "reasoning": "The algebra for Boolean-lattice incidence graphs is established. The claim is not novelty for the Johnson eigenvalues, their general spectrum, or Pascal identity; it is the dynamical leaf-splitting and exact recurrent-state description. No exact table found in the inspected relevant sources states this complete dynamics theorem.",
+      "searches": [
+        "middle two adjacent levels inclusion hypercube graph Laplacian spectrum Johnson middle cube",
+        "middle cube spectrum Johnson 2009 odd hypercube",
+        "asynchronous minority clique leaf attached graph attractor"
+      ]
+    },
+    "rationale": "The published 2010 clique result has one recurrent class with the same total population. The change to a single-leaf odd clique disconnects this recurrent set into two equal-size classes and makes hub/leaf permanently frozen, a property not implied by the unperturbed clique statement. The known Johnson/middle-cube spectral algebra and equal-population binomial identity are excluded from novelty claims. Targeted literature and public result comparisons did not uncover a covering exact statement; historical priority remains qualified.",
+    "residual_risks": [
+      "Specialized unindexed antiferromagnetic sequential dynamics literature may contain an equivalent local-perturbation example.",
+      "Some ancillary article full texts were not inspected; the priority comparison is not an exhaustive literature review.",
+      "Classical algebra of incidence operators is independently prior work; only its integration into the exact stochastic dynamics is new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identical update convention, published unperturbed-clique classification; no directly stated pendant-clique recurrent decomposition in inspected material.",
+        "evidence": [
+          "arXiv:1011.5119v1, Definition 2, Theorem 19, Section 5. The theorem concerns cliques with all-to-all internal neighborhoods."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1011.5119",
+        "material_read": "PDF pp. 1–7, 11–12, 16–19, 19–20 including the model, energy statements, Section 4.1 clique theorem and its proof, and the concluding table.",
+        "method": "Full text navigation and keyword inspection for clique, leaf, pendant, attractor; detailed reading of Definition 2, Theorem 19 and proof; PDF pages visually checked.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Exact source model and the unperturbed odd-clique baseline."
+      },
+      {
+        "assessment": "Covers the classical spectrum of the regular two-middle-level graph for odd ambient dimension, not stochastic minority recurrence on a clique with one leaf; method acknowledged as prior.",
+        "evidence": [
+          "arXiv:0911.0126v1, Theorem 1 and Section 2, Johnson eigenvalues."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0911.0126",
+        "material_read": "PDF pp. 1–4 including abstract, middle-cube definition, Theorem 1, Johnson adjacency spectrum and first proof; examined remaining theorem structure using searchable full text.",
+        "method": "Read mathematical definitions, characteristic-polynomial statement and the Johnson comparison; visually checked PDF first page.",
+        "title": "On the Spectrum of Middle-Cubes",
+        "trigger": "Potential exact spectral overlap through middle-rank inclusion graphs and Johnson operators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f5b8010-8c5f-425d-b18d-6e7db035a8b6",
+  "value": {
+    "rationale": "A single pendant leaf is a canonical local graph defect. In the established odd-clique stochastic-minority model, this perturbation freezes a designated spin and fragments one recurrent class into two without altering the total recurrent-state count. The result quantifies the entire spectrum and exact relaxation gap of the two surviving internally active components. This is a motivated all-size structural and dynamical contrast rather than a routine finite-count extension.",
+    "status": "PASS"
+  }
+}
