@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For each reciprocal edge event the probability is d^-2; overlapping events are impossible and disjoint events independent. The exact matching generating expansion implies F_r=r!M_r/d^(2r). The line graph has m=nd/2 vertices, degree 2(d-1), h=m(d-1) edges, and n*C(d,3)+t triangles, giving M1,M2,M3 by inclusion-exclusion. The claimed cumulants and inversion follow symbolically, the degree-dependent sign cases follow from t<=n*C(d,2)/3. The standalone verify.py independently exhausts outgoing choices on sixteen regular graphs and checks 301 rational identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davies–Jenssen–Perkins arXiv:2004.06695, Theorems 3-4 and Section 5 (matching extremal inequalities and triangle clusters)",
+        "Wang–Resnick arXiv:2103.07424 (reciprocal links under growing preferential attachment)"
+      ],
+      "reasoning": "The matching-polynomial extremal results and graph cluster expansions cover lower-level subgraph counts but do not define the independent-neighbor reciprocal count, its inverse, or its degree-dependent sign boundary. The preferential-attachment work uses a different directed graph mechanism.",
+      "searches": [
+        "matching polynomial third coefficient triangles regular graphs",
+        "random functional digraph bipartite cycles component counts",
+        "one out random orientation reciprocal edges mutual pairs triangles cumulants"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1803.02667v1",
+      "https://arxiv.org/html/2004.06695v2",
+      "https://arxiv.org/html/2103.07424v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Davies–Jenssen–Perkins arXiv:2004.06695: the third-order matching cluster expansion includes triangle terms",
+        "Leckey–Wormald arXiv:1803.02667: random functional graphs with fixed indegree sequence",
+        "Wang–Resnick arXiv:2103.07424: reciprocity in growing preferential attachment"
+      ],
+      "reasoning": "The prior matching-cluster theorem gives an enumerative route to the low-order coefficient but not, by itself, the model-specific probability-generating relationship, inverse recovery, or complete skewness sign classification. The new statement does not claim uniqueness beyond the triple (n,d,t) or novelty of matching-count identities.",
+      "searches": [
+        "matching polynomial third coefficient triangles regular graphs",
+        "third cumulant of mutual directed reciprocal neighbor selection on regular graphs equals triangle count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1803.02667 (full HTML, functional digraph definitions and results)",
+        "arXiv:2004.06695 (full HTML, matching partition polynomial and third-order cluster terms)"
+      ],
+      "reasoning": "Reciprocal two-cycles of an independent one-out mapping on a fixed d-regular graph correspond to compatible matchings. The pgf is the matching generating polynomial evaluated at (z-1)/d^2, so the existing matching-polynomial framework is directly relevant. Neither inspected text states inversion of n,d,t from the first three cumulants of that mapping.",
+      "searches": [
+        "random functional graph reciprocal pairs two cycles matching polynomial real-rooted distribution",
+        "random bipartite mappings mutual pairs 2-cycles Laguerre poisson binomial",
+        "Random one-out functional digraph supported on regular graph reciprocity count equals matching generating function and third cumulant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2004.06695 records generic matching coefficient framework, not a table of the target reciprocal process",
+        "arXiv:1803.02667 treats six-lengths and constrained indegree models, not a target cumulant table"
+      ],
+      "reasoning": "No exact formula/table for these three reciprocity cumulants or their inverse was found in the primary full texts and topical searches. Absence of search hits is not evidence of priority; classical combinatorial identities remain a risk.",
+      "searches": [
+        "For uniform independent neighbor selection on any d-regular graph, the distribution of reciprocal directed edge pairs determines n, d and number of triangles from the first three cumulants",
+        "Exact mean variance third central moment of mutual neighbor selections on fixed regular undirected graph; triangle count recovered from reciprocity skewness"
+      ]
+    },
+    "rationale": "The exact statistical inverse theorem and degree-dependent skewness classification are not stated in inspected primary sources or retrieved mathematical records. Classical matching polynomial/cluster expansion results furnish strong combinatorial ingredients and could yield a short derivation after the model reduction; historical priority of this probabilistic formulation is not guaranteed.",
+    "residual_risks": [
+      "Matching-polynomial theory already contains the low-order enumerative mechanism, making the new probabilistic formula a short but nontrivial translation.",
+      "Historical priority of this exact model or equivalent random-mapping cumulant result has not been conclusively established.",
+      "Independent mathematical review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different conditioned indegree sequence model and orbit-length statistic, no three-cumulant reciprocity inverse",
+        "evidence": [
+          "The model fixes an indegree sequence and studies six-length, arXiv:1803.02667 sections 1-2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.02667v1",
+        "material_read": "Abstract, Introduction, Definitions/Model/Results and source scope",
+        "method": "Primary open-access HTML reading",
+        "title": "A limit theorem for the six-length of random functional graphs with a fixed degree sequence",
+        "trigger": "Random one-out functional digraph overlap"
+      },
+      {
+        "assessment": "Strongest mathematical precursor; low-order matching coefficients and triangle dependence are known, but target probabilistic inverse is not stated",
+        "evidence": [
+          "Matching partition polynomial and extremal inequalities in Introduction; third-order clusters in Section 5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2004.06695v2",
+        "material_read": "Introduction, Theorems 3-4, Related Work, Section 5 cluster expansion for matchings",
+        "method": "Primary open-access HTML reading; examined matching expansion including third-order triangle counts",
+        "title": "A proof of the Upper Matching Conjecture for large graphs",
+        "trigger": "Matching polynomial and third-order triangle terms potentially imply result"
+      },
+      {
+        "assessment": "Preferential-attachment random multigraph setting, not independent local neighbor selection of a fixed regular graph",
+        "evidence": [
+          "The abstract and Section 3 concern asymptotic reciprocal links in a growing PA network."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.07424v1",
+        "material_read": "Abstract, Introduction, Model Setup, Sections 3.1 and 3.2 on pairwise and graph-wide reciprocity",
+        "method": "Primary open-access HTML reading",
+        "title": "Measuring Reciprocity in a Directed Preferential Attachment Network",
+        "trigger": "Closest quantitative directed reciprocity literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f702eed6-f7e8-492d-8f7f-60c5f28ae260",
+  "value": {
+    "rationale": "Reciprocal-edge measurements in a natural one-out random network recover an otherwise hidden host triangle count; the first two moments cannot separate graphs with identical n,d. Explicit K3,3-versus-triangular-prism contrast and the all-degree sign classification establish structural rather than arbitrary numerical value. No statistical estimator or general graph reconstruction is claimed.",
+    "status": "PASS"
+  }
+}
