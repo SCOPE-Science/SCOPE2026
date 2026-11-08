@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3,t>0 the proof explicitly derives all CC, CL and LL inverse traces from a Dirichlet cycle Green kernel, Schur complements and a rank-one inverse update. Strict monotonicity forces maximum cyclic separation. An all-positive coefficient polynomial proves LL is inferior to CL, and the remaining difference is a linear expression of t with a unique positive zero. The full rational identities and 1797 direct grounded-matrix checks replayed successfully; finite results do not substitute for the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin et al. section IV develops general noise-free leader selection by semidefinite relaxation/greedy updates with a C-shaped example, not exact weighted corona-cycle leader sets.",
+        "Fitch and Leonard evaluate path/cycle cases and a joint-centrality expression without treating the heterogeneous core/leaf vertex orbit on sunlets.",
+        "Patterson et al. 2014 treat the path and ring graph classes.",
+        "Patterson et al. 2017 explicitly give path, cycle and tree family solutions, rather than weighted cycle-corona family solutions."
+      ],
+      "reasoning": "The cycle with attached weighted pendants is not a bare path, ring, or tree. General objective and resistance identities are stronger in scope as formulas, but not a prior evaluated complete optimizer classification. None of the inspected source theorems automatically singles out the critical positive pendant conductance or explicitly classifies every optimizer.",
+      "searches": [
+        "https://arxiv.org/pdf/1302.0450",
+        "https://arxiv.org/pdf/1407.1569",
+        "https://arxiv.org/pdf/1412.6595",
+        "https://arxiv.org/pdf/1708.06873"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1302.0450",
+      "https://arxiv.org/pdf/1407.1569",
+      "https://arxiv.org/pdf/1412.6595",
+      "https://arxiv.org/pdf/1708.06873",
+      "https://mathworld.wolfram.com/SunletGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The shared objective trace(L_ff^{-1}) is prior work from Lin et al.; it is not claimed new.",
+        "Fitch and Leonard provide general centrality and explicit path/cycle examples, not the weighted sunlet phase.",
+        "Patterson et al. methods could compute the objective for supplied finite graph parameters, but do not assert the exact family-wide optimal type switch."
+      ],
+      "reasoning": "The final assertion is an optimization theorem across all two-vertex choices, all integer sizes and every pendant weight. Its threshold follows after evaluating and strictly comparing the three sunlet vertex-orbit pair families. No inspected prior statement directly entails this evaluated classification without new nontrivial specialization and comparison.",
+      "searches": [
+        "arxiv:1302.0450 noise-free leader selection objective",
+        "arxiv:1407.1569 joint centrality path cycle leaders",
+        "arxiv:1412.6595 weighted ring path optimal k-leader selection",
+        "arxiv:1708.06873 resistance distance general leader performance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sunlet is also called cycle corona C_n with one private leaf per core (MathWorld sunlet entry).",
+        "Patterson, Yi and Zhang (arxiv:1708.06873) give general resistance expressions and explicit path/cycle/tree evaluations but no evaluated weighted sunlet optimizer classification in their graph-specific sections."
+      ],
+      "reasoning": "A rank-one Schur complement or resistance expression can be converted into the trace objective, but a previously published general computation method is not itself the complete evaluated classification or the exact switch in the leader type. Search aliases include sunlet, sun graph, cycle corona, pendant cycle and net graph for n=3.",
+      "searches": [
+        "\"sunlet\" \"leader selection\" \"coherence\"",
+        "\"sunlet\" \"grounded Laplacian\" \"trace\"",
+        "\"cycle corona\" \"two leaders\" inverse trace",
+        "arxiv:1708.06873 (resistance-based formulation)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public scholarly searches returned no table of exact weighted two-leader grounded-inverse minima for all n>=3 and t>0.",
+        "The independent exact rational matrix calculations in verify.py cover n=3..8 and are not treated as a literature database."
+      ],
+      "reasoning": "No matching published exact table was located. Search failure does not certify absence, and a finite table would not by itself prove the all-positive-real-parameter threshold.",
+      "searches": [
+        "\"sunlet\" \"grounded Laplacian\" \"trace\"",
+        "\"net graph\" \"optimal leaders\" consensus",
+        "\"sunlet\" \"leader selection\" \"coherence\""
+      ]
+    },
+    "rationale": "No directly covering evaluated theorem was found in the fully inspected relevant sections of the four cited primary articles. The prior arbitrary-graph leader formulation, joint-centrality identity, resistance-distance formulas, and path/ring algorithms do not themselves publish the derived weighted-sunlet threshold, exhaustive optimizer sets, or their multiplicities. Relevant indexed searches also found no same-object assertion; this is best-knowledge originality, not proof of priority.",
+    "residual_risks": [
+      "Equivalent earlier specializations under alternate terminology may not be indexed by the searches performed.",
+      "Any broader yet unevaluated general matrix formula permits deriving these results but does not itself establish their publication priority; an independent specialist comparison is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_CLASSIFICATION",
+        "evidence": "Original objective and algorithms; no evaluated C_n corona K1 two-leader threshold located.",
+        "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+        "material_read": "Full 32-page primary PDF accessible, with sections II, IV, the noise-free selection algorithms and C-shaped example, plus title and section searches for sunlet.",
+        "method": "Reviewed parsed PDF sections and page 1 image, including section IV algorithm and example",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "Original noise-free grounded-inverse leader-selection model and potential general coverage"
+      },
+      {
+        "assessment": "GENERAL_FORMULA_AND_BARE_CYCLE_PATH_ONLY",
+        "evidence": "A cycle result uses vertex transitivity, which fails across the core and leaf orbits of a sunlet; no same graph-specific threshold located.",
+        "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+        "material_read": "Full 21-page primary PDF accessible; reviewed joint-centrality and rank-one formulas and graph-specific cycle/path statements and appendices; searched sunlet.",
+        "method": "Inspected original full text with page 1 image and detailed theorem sections",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "General two-leader formula could have implied a specific sunlet graph theorem"
+      },
+      {
+        "assessment": "PATH_AND_RING_GRAPH_CLASS_ONLY",
+        "evidence": "The directed shortest-path reduction assumes the original follower graph is a weighted path or ring, unlike C_n with an attached leaf at every core.",
+        "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+        "material_read": "Full 7-page primary PDF accessible; reviewed problem formulation, weighted path/ring algorithm and graph assumptions, plus title and sunlet search.",
+        "method": "Inspected original PDF text sections with page 1 image",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Weighted ring leader selection algorithm might cover corona of a ring"
+      },
+      {
+        "assessment": "GENERAL_RESISTANCE_TOOL_NOT_EVALUATED_SUNLET",
+        "evidence": "The paper identifies cycles, paths and particular trees as explicitly treated families, not C_n corona K1 with variable leaf weight.",
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+        "material_read": "Full 12-page primary PDF accessible; reviewed introduction, cycle/path theorem and tree classes, and searched for sunlet, with page 1 screenshot.",
+        "method": "Inspected original PDF text and graph-class theorem sections",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "General resistance expressions and graph-specific exact leaders could dominate the new claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "486f277a-9ec1-49b1-899f-cba86d7021df",
+  "value": {
+    "rationale": "Choosing two perfect-reference sensors in a cycle with one private device per backbone node is a natural nontrivial control/sensor-placement problem. The parameter-dependent choice between backbone and pendant endpoints, a sharp closed-form threshold with asymptotic 6/n^2, all optimal placements, counts and objective values are a usable complete classification, not a routine restatement of the general leader-selection objective.",
+    "status": "PASS"
+  }
+}
