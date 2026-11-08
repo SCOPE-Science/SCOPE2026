@@ -1,19 +1,21 @@
-# Scientific review: Fermat norm-curve tangent ramification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof explicitly reconstructs smoothness, all possible degrees in the tangent expansion from the three Frobenius factors, the equivalent field-of-definition criterion from the \(q\)-th polar coefficient, the nonvanishing \(q+1\) term for three nonzero coordinates, and the degree-\(d\) contact along a coordinate tangent. The norm-fibre count applies to all prime powers \(q\). The Hasse–Wronskian local valuation is exact because the relevant binomial coefficients are units in characteristic \(p\); the global degree identity independently checks the weighted count. Exhaustive independent finite-field Taylor-coefficient tests cover \(q=2,3,4,5\), including a field extension containing nonflexes. Residual limitations: computations alone do not certify arbitrary prime powers, and the theorem makes no assertion for other linear series.
+PASS
 
-## Originality
+For q=p^h>=2 and d=q^2+q+1, Fermat C_q over algebraic closure, the Frobenius factorization shows the Taylor coefficient of degree q on the tangent is sum a_i^(q^2+1) e_i^q. On nonzero-coordinate points its vanishing is equivalent to all norm coordinates a_i^d being proportional over F_q, hence the point is defined over F_(q^3), using d(q-1)=q^3-1. Non-rational points have tangent order exactly q. A rational interior tangent has next nonzero coefficient -A0 A1/A2 at degree q+1. Each of three coordinate lines contributes d points of contact d, while the interior norm equation gives (q-2)d^2. Hasse derivative D^(q) of tangent local section has leading coefficient binom(j,q)=1 mod p for j=q,q+1,d, giving Wronskian weights j-q; global degree consistency checked against (q+1)(2g-2)+3d. Independently enumerated GF(8), q=2, d=7 projective curve points via GF(8) multiplication and computed their tangent coefficients: 21 points, all contact order 7. Inspected actual verify_contacts.py for independent finite-field cases q=2,3,4,5; finite checks do not substitute for algebraic proof.
 
-**PASS under checked-literature best knowledge, with historical-priority risk.** Komeda (arXiv:2002.10691, §§1–5, especially Theorems 1–2) determines dual singularities for this Fermat member, but its contact-order/flex count theorem is for general members; it does not determine the exceptional Fermat member's full \(q\)-flex support and divisor multiplicities. Arakelian–Borges (arXiv:1502.05953, introduction, Theorem 1.1, §§2–3) studies a different linear series (plane cubics) and Frobenius-nonclassical criteria, not these hyperplane contact strata. Standard ramification theory supplies a degree identity but not the asserted support and splitting. Published research-record searches and accessible prior results did not show a covering statement. Residual risk is an unindexed computation in the extensive classical literature on Fermat-curve flexes.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The dual of this Fermat curve is unusually singular and its reduced Gauss map is nonclassical. Locating every excess-contact point and giving the *complete scheme-theoretic hyperplane ramification divisor* is a natural geometric invariant omitted by the dual singularity classification. The sharp contrast at \(q=2\), where all \(21\) ramification points have maximal contact, and the \((q-2)d^2\) versus \(3d\) splitting for all prime powers explain the geometry through the cubic-extension norm map. The result is not merely a point-count recomputation: it proves precise local contacts and ramification weights for every geometric point.
+Komeda (2020) treats precisely degree q^2+q+1, and the Fermat special member. Accessible full PDF introductory statements show its Theorem 1 flex count applies to the GENERAL member, whereas the Fermat Theorem 2 identifies dual curve and its singularities; the inspected sections do not give this exact all-point contact trichotomy or ramification multiplicities. Standard Stöhr-Voloch ramification gives a method and degree but not the member-specific support without the Frobenius/norm analysis. Qualified originality attaches to this exact special-member computation.
 
-## Prior work and limitations
+## value
 
-References, detailed hypotheses, finite checks, and the complete argument appear in `RESULT.md`. The closest sources are Komeda's 2020 study, Arakelian–Borges's 2015/2017 Frobenius-nonclassicality paper, and general Stöhr–Voloch ramification theory. Historical exhaustiveness cannot be guaranteed. The calculation does not address arbitrary finite extensions, arbitrary plane embeddings, or other osculating linear systems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural nonclassical smooth Fermat family, explicit complete tangent osculation order and scheme-theoretic ramification divisor with two rational point strata. The q=2 boundary and arbitrary characteristic are included; this informs dual geometry and Stöhr-Voloch local parameters, not an artificial finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

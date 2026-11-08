@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:08:46.538802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=p^h>=2 and d=q^2+q+1, Fermat C_q over algebraic closure, the Frobenius factorization shows the Taylor coefficient of degree q on the tangent is sum a_i^(q^2+1) e_i^q. On nonzero-coordinate points its vanishing is equivalent to all norm coordinates a_i^d being proportional over F_q, hence the point is defined over F_(q^3), using d(q-1)=q^3-1. Non-rational points have tangent order exactly q. A rational interior tangent has next nonzero coefficient -A0 A1/A2 at degree q+1. Each of three coordinate lines contributes d points of contact d, while the interior norm equation gives (q-2)d^2. Hasse derivative D^(q) of tangent local section has leading coefficient binom(j,q)=1 mod p for j=q,q+1,d, giving Wronskian weights j-q; global degree consistency checked against (q+1)(2g-2)+3d. Independently enumerated GF(8), q=2, d=7 projective curve points via GF(8) multiplication and computed their tangent coefficients: 21 points, all contact order 7. Inspected actual verify_contacts.py for independent finite-field cases q=2,3,4,5; finite checks do not substitute for algebraic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General order-sequence theory provides ramification divisor construction and global degree formula.",
+          "Komeda theorem classifies special dual-curve singularities, not all local contact multiplicities in the inspected text."
+        ],
+        "reasoning": "Stöhr-Voloch theory is a framework, not a member-specific closed ramification formula. A stronger Fermat-specific result not indexed would be priority risk.",
+        "searches": [
+          "Stöhr Voloch Weierstrass points and curves over finite fields",
+          "Komeda arxiv:2002.10691 Fermat theorem"
+        ]
+      },
+      "checked_sources": [
+        "Komeda arxiv:2002.10691 primary accessible PDF theorem statements and Fermat discussion",
+        "Resultary semantic search for Fermat q^2+q+1 tangent/contact",
+        "Assigned RESULT.md and verify_contacts.py, exact assigned Git tree",
+        "New independent GF8 tangent-coefficient enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2 supplies dual construction, requiring nontrivial separate Frobenius tangent expansion to extract contact multiplicities.",
+          "General Wronskian weight j-q only applies after the local j values have been proved."
+        ],
+        "reasoning": "Prior facts make this theorem plausible but do not immediately establish its complete local classification and multiplicities.",
+        "searches": [
+          "Komeda Theorem 1 vs Theorem 2",
+          "Stöhr Voloch Hasse Wronskian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Komeda Theorem 1 treats a general curve, Theorem 2 the Fermat dual singular locus.",
+          "Claim gives exact orders q, q+1, d at every point and Wronskian divisor, stronger/different data than dual node counts."
+        ],
+        "reasoning": "A general-member flex count is not the Fermat-special contact distribution; explicit tangent-line norm analysis is required.",
+        "searches": [
+          "Fermat curve degree q^2+q+1 tangent contact q q+1 q^2+q+1 ramification points Frobenius nonclassical dual curve",
+          "Komeda 2002.10691 Fermat dual curve flexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The norm lift count is 3d+(q-2)d^2 and determines support as all F_(q^3) points; independent GF8 case gave 21 maximal-contact points."
+        ],
+        "reasoning": "No exact matching complete table/divisor found in inspected sources; absence of search hits does not prove novelty.",
+        "searches": [
+          "Fermat curve degree q^2+q+1 tangent contact q q+1 q^2+q+1 ramification points Frobenius nonclassical dual curve",
+          "Fermat q^2+q+1 number F_(q^3) points tangent intersection ramification"
+        ]
+      },
+      "rationale": "Komeda (2020) treats precisely degree q^2+q+1, and the Fermat special member. Accessible full PDF introductory statements show its Theorem 1 flex count applies to the GENERAL member, whereas the Fermat Theorem 2 identifies dual curve and its singularities; the inspected sections do not give this exact all-point contact trichotomy or ramification multiplicities. Standard Stöhr-Voloch ramification gives a method and degree but not the member-specific support without the Frobenius/norm analysis. Qualified originality attaches to this exact special-member computation.",
+      "residual_risks": [
+        "A specialized positive-characteristic Fermat/osculating literature computation may already contain the same q^3-flex divisor.",
+        "Stöhr-Voloch primary full text was not freshly inspected in this run; general formalism and explicit local proof were checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_OVERLAPPING_NOT_EXACT_CONTACT_DIVISOR",
+          "evidence": "Theorem 1 explicitly general member flex count; Theorem 2 specifically Fermat dual inverse image and ordinary nodes, not the complete contact-order counts presented.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.10691",
+          "material_read": "Primary PDF introductory construction, Definitions 1.1-1.2, Theorems 1 and 2, and relevant later Fermat-dual discussion",
+          "method": "Web PDF open/find with rendered page screenshot",
+          "title": "Singularities of the dual curve of a certain plane curve in positive characteristic",
+          "trigger": "Same Fermat curve degree and q-nonclassical tangency"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": "Wronskian divisor formalism alone does not give the norm-curve local contact classification.",
+          "identifier_or_url": "https://doi.org/10.1112/plms/s3-52.1.1",
+          "material_read": "Bibliographic/formalism identification; full paper not independently read in this audit",
+          "method": "Publication metadata and research-result citations",
+          "title": "Weierstrass points and curves over finite fields",
+          "trigger": "General Hasse derivative ramification theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural nonclassical smooth Fermat family, explicit complete tangent osculation order and scheme-theoretic ramification divisor with two rational point strata. The q=2 boundary and arbitrary characteristic are included; this informs dual geometry and Stöhr-Voloch local parameters, not an artificial finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Komeda arxiv:2002.10691 primary accessible PDF theorem statements and Fermat discussion",
+    "Resultary semantic search for Fermat q^2+q+1 tangent/contact",
+    "Assigned RESULT.md and verify_contacts.py, exact assigned Git tree",
+    "New independent GF8 tangent-coefficient enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only hyperplane linear series of this specific Fermat curve; no canonical Weierstrass classification or general Fermat exponents."
+  ],
+  "residual_risks": [
+    "A specialized positive-characteristic Fermat/osculating literature computation may already contain the same q^3-flex divisor.",
+    "Stöhr-Voloch primary full text was not freshly inspected in this run; general formalism and explicit local proof were checked."
+  ],
+  "schema_version": 1
+}
