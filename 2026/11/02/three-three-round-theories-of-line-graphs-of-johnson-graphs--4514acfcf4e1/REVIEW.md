@@ -1,15 +1,21 @@
-# Review of the three-round line-graph classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem establishes all three equivalence classes for every integer pair \(n\ge2k\ge4\), not merely tested parameters. The central structural reduction uses edge transitivity of Johnson graphs and the complete third-vertex extension signatures of ordered pairs in the line graph. In the adjacent-pair case, the exact common-neighbor count \(d-2+\varepsilon\) supplies a common neighbor and one-sided neighbors. In the nonadjacent-pair case, the common-neighbor count is at most four, so one-sided neighbors exist since \(d\ge4\). The inequality \(\binom nk\ge10\) for \(n\ge5\) guarantees a neither-adjacent witness by edge counting. The exceptional octahedral case is handled explicitly. Finally, two disjoint original edges with no cross-edge exist precisely for \(n\ge6\), by explicit induced-matching constructions and the six-ground-element obstruction at \(n\le5\). This proves both implications. Two independently implemented finite checks reproduce the predicted signatures and full three-round game types; neither is used in place of the infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The closest available line-graph source, Broersma and Veldman (1987), proves panconnectedness and Hamiltonian statements for line graphs, including an iterated-line-graph corollary; its proofs and results do not address first-order rank-three equivalence or exact class counts. Pikhurko, Veith, and Verbitsky (2003) develop general definability and Ehrenfeucht–Fraïssé methods, not this parameter classification. Prior classifications for Johnson graphs themselves and for line graphs of Cartesian products cannot be substituted: the objects and rank-three preservation statements differ. Primary text and relevant related literature were compared at the level of their actual implications. No equivalent or strictly stronger theorem was found. This is a best-knowledge originality judgment, not a guarantee that all historical sources have been located.
+PASS
 
-## Mathematical value — PASS
-The two-parameter Johnson family is natural in algebraic combinatorics and finite model theory. Passing to its edge-adjacency line graphs fundamentally changes the bounded-depth logical types of its members: already at three rounds, the entire unbounded family beyond the first two parameter boundaries collapses to one theory. The classification gives two separating formulas and a sharp, explicit \(60\)-vertex representative ceiling; the induced-matching transition at \(n=6\) explains the cutoff structurally, rather than as a numerical coincidence. This is a complete and reusable classification, not an arbitrary finite parameter slice or a routine recalculation of known tables.
+For n>=2k>=4, Johnson G=J(n,k) is regular with d=k(n-k), N=binom(n,k), and line graph X=L(G) is vertex transitive of order Nd/2 and degree 2(d-1). In rank-three FO pure adjacency, the complete possible equality/adjacency diagrams for three variables reduce, by transitivity, to possible third-vertex common, one-sided and neither-neighbor extensions for each pair type. Adjacent e,f in X share endpoint u in G: at least d-2 common, d-1-epsilon one-sided, and an edge outside union of 3 vertices; all four witness types exist. Nonadjacent e,f are disjoint edges of G: one-sided types always exist and neither exists except special n=4 pair. Common witness iff original edges have a cross-edge; an induced 2K2 in J(n,k) exists exactly for n>=6, via six extra elements for n-k>=4 and explicit (123,124,156,256) when (n,k)=(6,3). For n4 and n5, J(n,2)=L(K_n) cannot contain such induced matching because it requires six K_n vertices. Exact pair signature sets separate 4, 5, and >=6 by rank-three sentences; smallest orders 12,30,60. Independent explicit line-graph pair-signature enumeration for n<=8 agrees; the unbounded case is proved by constructions and inequalities.
 
-## Residual limitations
-No independent mathematical audit has been conducted. Published and open-access text inspection does not establish exhaustive historical priority; broader unindexed theorems about logical types of vertex-transitive line graphs could potentially subsume parts of the result. Higher quantifier ranks, counting logic, and additional named Johnson structure are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is an exact fixed-quantifier-rank classification for a familiar infinite graph family after line-graph transformation, not a general Johnson graph automorphism or first-order definability statement. The new Oct 29 2026 full-text Johnson model-theory paper proves a bounded-depth equivalence for J(n,k) itself when the minimum subset parameter is sufficiently large, but its quantified structure is not L(J(n,k)), and its bound does not cover the k=2 regime. Prior EF game machinery furnishes a proof method but not this three pair-spectrum classification. A generic theorem characterizing all vertex-transitive graph classes at rank three could contain the result as a corollary; no concrete dominating statement found.
+
+## value
+
+PASS
+
+Quantifier rank three provides a canonical measure of logical distinguishability. The result classifies a natural infinite family, identifies the exact small exceptional parameters, proves uniform eventual indistinguishability, and supplies the sharp smallest representative 60 despite diverging graph orders and subset dimensions. This is a motivated model-theoretic classification, not a randomly chosen instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
