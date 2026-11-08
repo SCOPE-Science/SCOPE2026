@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The valuation identity v_2(b_n)=max(0,v_2(n)-v_2(A_{n-1})) is exact. When K is even, the dyadic-block induction covers all indices including boundary powers, with b_n=2 iff r is divisible by t. When K is odd, odd-index multipliers contribute a binary factor and force all even indices n>=6 to have b_n odd; direct mod-12 computation treats n=4. In each branch all hypotheses, endpoint indices and cases are handled. Reproducible unbounded and modular recurrence tests passed, but the infinite proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cloitre studies general K but the detailed 2-adic proof stated in Proposition 6.5 is for K=2.",
+        "Ruiz-Cabello arxiv:1504.05041 addresses changes of initial term in the earlier unweighted recurrence; its abstract does not claim an all-K binary phase diagram.",
+        "Scientific-record hit Prime-power digit factorization in modular Laplacian dynamics is about Laplacian dynamics, not the LCM recurrence."
+      ],
+      "reasoning": "The known specific-coefficient staircase is strictly narrower than the theorem; studies of different recurrence coefficients or initial conditions cannot entail the claimed odd/even coefficient dichotomy without further arguments. Ruiz-Cabello full text was not inspected, so its coverage is a disclosed risk.",
+      "searches": [
+        "arxiv:2510.18891 Proposition 6.5 and section 7.4 weighted parameter K",
+        "LCM recurrence K a_n=K a_{n-1}+lcm(n,a_{n-1}) exact even quotient increments b_n=n/gcd(n,a_{n-1}), positions powers of two binary rigidity",
+        "arxiv:1504.05041 initial condition LCM recurrence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2510.18891",
+      "OEIS:A135508",
+      "OEIS:A135504",
+      "arxiv:1504.05041",
+      "Scientific-record searches with the three actual queries above; hits about Lucas recurrences and modular Laplacians were compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Specializing the new even-coefficient valuation at K=2 gives t=2 and exactly the source result.",
+        "The source also asks about variation of K but does not assert a formula for every K.",
+        "No published database match was found that dominates all positive coefficients."
+      ],
+      "reasoning": "The known result for K=2 logically follows from the present formula, but not conversely: a statement proved for K=2 cannot imply the all-K identity or the odd-K finite-support criterion without additional hypotheses and proof. The present proof supplies that extension. A straightforward expert generalization remains a value and historical-priority risk.",
+      "searches": [
+        "Cloitre 2025 Proposition 6.5 2-adic staircase for K=2 proof",
+        "LCM recurrence K a_n=K a_{n-1}+lcm(n,a_{n-1}) exact even quotient increments b_n=n/gcd(n,a_{n-1}), positions powers of two binary rigidity",
+        "even increments at powers of two 2-adic valuations K+2 LCM prime-generating recurrence 2^r exponent periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cloitre arXiv:2510.18891 Proposition 6.5: K=2 dyadic staircase corresponds to t=2, but does not state the arbitrary-K classification.",
+        "OEIS A135508 describes the same K=2 special case.",
+        "Nearest scientific-record hit Even-even period equality for Lucas pairs with q=-1 concerns Lucas sequence parity, not weighted LCM quotients."
+      ],
+      "reasoning": "The classification is equivalent to a valuation law for all K even plus a sharp exceptional support for odd K. Explicit known K=2 even-branch equivalent is acknowledged as prior, not claimed as novel; the same family for all K was not identified.",
+      "searches": [
+        "LCM recurrence K a_n=K a_{n-1}+lcm(n,a_{n-1}) exact even quotient increments b_n=n/gcd(n,a_{n-1}), positions powers of two binary rigidity",
+        "even increments at powers of two 2-adic valuations K+2 LCM prime-generating recurrence 2^r exponent periodic",
+        "Cloitre Primes in LCM recurrences K even odd valuations parity b_n",
+        "OEIS A135508 even indices powers of 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A135508 records the K=2 special-case binary support.",
+        "OEIS A135504 records a related unweighted recurrence.",
+        "Closest scientific-record hit Cyclotomic Hensel roots form an exact 2-adic prime-support isometry is about cyclotomic roots; no exact K-wide table."
+      ],
+      "reasoning": "Known sequence tables describe individual coefficients; neither directly supplies the all-positive-K theorem or the odd coefficient mod-12 distinction.",
+      "searches": [
+        "OEIS A135508 2-adic LCM recurrence even positions",
+        "OEIS A135504 LCM sequence k=1",
+        "multiplicative recurrence gcd lcm arithmetic a_n odd even parity support 2-adic digits"
+      ]
+    },
+    "rationale": "The directly relevant source explicitly proves the K=2 binary staircase (Proposition 6.5), which is not new. The uniform t=v_2(K+2) staircase for arbitrary even K and the full finite even-increment classification for all odd K, including its mod-12 boundary, are not stated in the inspected source or in other sources found. Mathematical-record similarity hits are about different dynamics. This is qualified best-knowledge originality, not a proof of universal priority.",
+    "residual_risks": [
+      "Exact equivalent uniform phase diagram may exist in unindexed earlier work.",
+      "Even-coefficient induction follows a known K=2 method and its generalization may be regarded as straightforward; the odd-coefficient dichotomy and sharp exceptional classes supply separate mathematical content.",
+      "The Ruiz-Cabello primary full text was not inspected; its abstract suggests different initial-value scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE for K=2 only; arbitrary-K classification not stated",
+        "evidence": [
+          "Proposition 6.5, K=2: even increments at n=2*4^j and binary valuations.",
+          "Section 7.4 discusses varying K."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.18891",
+        "material_read": "Full accessible primary HTML: recurrence definitions, Proposition 6.5 and surrounding proof in Section 6.3, and Section 7.4 on K variations",
+        "method": "arXiv HTML text read and equation/claim comparison",
+        "title": "Primes in LCM recurrences",
+        "trigger": "Introduces weighted K and states K=2 binary staircase"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE of K=2",
+        "evidence": [
+          "Positions consistent with 2*4^j; no all-K phase diagram."
+        ],
+        "identifier_or_url": "https://oeis.org/A135508",
+        "material_read": "Sequence entry and description",
+        "method": "direct page read and comparison",
+        "title": "OEIS A135508",
+        "trigger": "Known K=2 even increment pattern"
+      },
+      {
+        "assessment": "RELATED_NARROWER_CASE",
+        "evidence": [
+          "One coefficient-specific sequence, not the all-K statement."
+        ],
+        "identifier_or_url": "https://oeis.org/A135504",
+        "material_read": "Sequence entry and notes",
+        "method": "direct page read and comparison",
+        "title": "OEIS A135504",
+        "trigger": "Related original LCM recurrence"
+      },
+      {
+        "assessment": "INCOMPLETE; distinct variation in initial conditions, no abstract-level coverage of weighted all-K theorem",
+        "evidence": [
+          "Paper concerns initial values of the original recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.05041",
+        "material_read": "Abstract and search metadata only; complete paper not inspected",
+        "method": "abstract-level coverage comparison",
+        "title": "On the (a(n)) sequence",
+        "trigger": "Earlier work on original LCM recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a475b8b-c3cb-4bf7-894f-503ba371a5c4",
+  "value": {
+    "rationale": "The source studies the whole parameter K family but has only a K=2 binary staircase. The new sharp parity phase diagram is a natural complete structural classification across every positive coefficient. It establishes a qualitative finite-versus-infinite dichotomy, exact even-coefficient binary supports with adjustable stride and exact valuations, and a genuinely exceptional odd-parameter mod-12 boundary. This answers a meaningful recurrence-structure question without asserting a larger prime-only classification. The K=2 special case is acknowledged, not counted as a new result.",
+    "status": "PASS"
+  }
+}
