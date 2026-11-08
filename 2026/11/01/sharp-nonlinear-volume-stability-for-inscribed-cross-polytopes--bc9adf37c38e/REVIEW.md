@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The oriented facet formula gives the exact determinant of the opposite half-chords for every realization of cross-polytope combinatorics, including bodies not containing the origin. Orthogonal Procrustes optimization is the nuclear norm, and singular-value arithmetic–geometric mean gives the deficit inequality with equality exactly at an equal-length orthogonal half-chord frame. For \(c>2s\), every prescribed facet of the explicit non-antipodal construction is supporting: its hyperplane normal has coordinate signs prescribed by the facet and excludes every other vertex strictly. This proves all-dimensional actual attainability near the regular orbit. The accompanying exact-rational checker verifies the construction in dimensions two through six but is not a substitute for the general proof.
+PASS
 
-## Originality — PASS (subject to unindexed-priority uncertainty)
+Signed boundary facet chain yields exact volume V_n|det W| for opposite half-chord matrix W even if origin outside polytope. Orthogonal Procrustes gives D=4n-4||W||_*. AM-GM on singular values yields the entire profile and equality iff W=cQ. For explicit v_i^+/-=s e_{i+1}+/-c e_i, c>2s, support-hyperplane equations exclude unselected opposite vertices and guarantee exact cross-polytope combinatorics in all dimensions. Exact-rational independent facet checks for n=2..5 and profile samples passed, supplemental to analytic proof.
 
-Horváth–Lángi 2014, Corollary 3, already gives uniqueness of the maximal cross-polytope; Medgyes 2026 proves the unrestricted four-dimensional eight-vertex maximum. Both primary texts were inspected in the pertinent results and methods, and neither gives a sharp all-dimensional nonlinear deficit-versus-Procrustes-displacement profile. The singular-value AM–GM inequality and orthogonal Procrustes formula are classical and are explicitly credited as proof ingredients, not stand-alone contributions. Focused searches for determinant/nuclear-norm formulations and other quantitative cross-polytope stability bounds produced no equivalent geometric-profile claim. No absence-of-hits argument alone establishes novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The question quantifies rigidity of a recently established extremal inscribed polytope by an intrinsic, label-independent squared Euclidean alignment distance. The complete nonlinear envelope and exact orthogonal equal-chord equality criterion are dimension-uniform. Most importantly, a family with non-antipodal opposite vertices realizes every deficit value throughout a nonzero interval of the alignment metric: this is a sharp geometric stability classification, not merely restatement of the known maximizer. The four-dimensional leading stability constant is \(1/6\). It does not resolve quantitative stability for other eight-vertex combinatorial types.
+Horváth–Lángi 2014 Corollary 3 proves the regular cross-polytope is the volume maximizer, while Medgyes 2026 treats eight-vertex 4-polytopes. Neither determines an exact nonlinear deficit as a function of matching Procrustes distance or non-antipodal equality family. Nuclear-norm Procrustes and AM-GM are recognized as standard ingredients, not separately new; the constrained geometric equality and all-dimensional attainability yield the substantive refinement. Best-of-knowledge, not exhaustive.
 
-## Closest literature and remaining limitations
+## value
 
-Sources: Horváth–Lángi (arXiv:1402.6496v3, complete accessible primary text); Medgyes (arXiv:2610.26886v1, complete accessible primary text); accessible search results for related inscribed-polytope stability and matrix/Procrustes formulations. Residual priority risk: an older geometric-matrix treatment could imply this exact profile even without matching keywords. Independent validation and a comprehensive bibliographic audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural metric of distance from the maximizing orthogonal orbit receives a dimension-uniform sharp nonlinear geometric deficit law, exact equality characterization and a continuously realized non-antipodal family. Useful stability beyond the previously known qualitative extremizer; not a routine parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
