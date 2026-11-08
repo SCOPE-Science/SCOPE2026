@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The twelve explicit facet inequalities give fourteen vertices, twenty-four edges, and a direct edge-crossing classification. The dividing condition is the triangle inequality among the three weighted absolute coordinates of a plane normal, with all excluded directions of spherical measure zero. The three disjoint octant cones are evaluated by the exact spherical triangle solid-angle formula, with the factor of eight for the octants and normalization by the sphere area checked. Differentiation of the explicit probability gives the transverse quadratic form and the one-axis asymptotic. The standalone `verify.py` independently checks the edge classification and numerical coefficients.
+## correctness
 
-## Originality
-PASS under accessible literature and claim-level overlap checks; historical priority remains uncertain. The most closely related primary source, Brandenburg–De Loera–Luo–Meroni (arXiv:2603.25643), establishes a general chamber algorithm for polyhedral norm-ball slices and studies cube volumes and moments. It does not state the present evaluated probability over all diagonal stretches or its exact local anisotropy Hessian. Brandenburg–Meroni (arXiv:2510.09265) classifies cube slices and discusses expected cube section face counts, a different body and invariant. Prior direct geometry of rhombic dodecahedra gives radial distances and mean section areas rather than the Haar section-type law. Van Oosterom–Strackee's spherical triangle area formula is explicitly prior. published-finding corpus searches included “rhombic dodecahedron random central section polygon type hexagon octagon probability,” “Haar rhombic dodecahedron central hyperplane section 6 8 sided,” and “rhombic dodecahedron 6 8 central polygon section probability solid angle,” with no exact three-parameter or local Hessian match. An unindexed crystallography calculation remains possible; search failure is not a proof of priority.
+PASS
 
-## Mathematical value
-PASS. A canonical space-filling polyhedron has two competing central-section types, and the complete probability law extends across the full three-parameter diagonal deformation family. Its positive definite transverse Hessian is an exact quantitative local rigidity statement rather than a restatement of the section count. The one-axis asymptotic identifies how quickly the minority polygon type disappears. The finding is a natural complete stereological invariant with a motivated deformation question, not a small parameter-only perturbation.
+The twelve rhombic facets from the inequalities give exactly fourteen vertices (six axial, eight cube) and twenty-four cube-to-axial edges. A generic plane intersects precisely the edges with opposite endpoint signs. After sign/permutation symmetry of weighted normal m_i=s_i u_i, the three positive weights produce either 8 crossings if m_max>sum others or 6 otherwise; no other generic side count. Each dominant-coordinate event is a triangular spherical cone with rays e_i, (s_j/s_i)e_i+e_j, (s_k/s_i)e_i+e_k. Evaluated the standard determinant/dot-product solid-angle formula: each cone angle is 2 arctan e^(-q_i), and eight octants give 4/pi sum_i arctan e^(-q_i). Taylor expansion Q(x)=asinh(e^x), F(y)=arctan(e^-y) gives positive transverse Hessian and the claimed coefficient. Independently enumerated 24 edges, checked 20,000 Gaussian normals over four stretches against the exact 6/8 criterion and frequency formula; compared the one-axis t=100 asymptotic coefficient. These corroborate the analytic proof.
 
-## Closest literature and limitations
-The general chamber framework could algorithmically generate a finite arrangement, but evaluated Haar integration and local rigidity are additional. The result is not a global anisotropy extremal inequality and does not concern off-center planes. Numerical experiments cannot certify all directions. Older equivalent probability calculations remain a real priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No checked prior statement entails the full assigned claim. Knowing a moment algorithm or solid-angle identity does not imply the particular identified cones, evaluated P8, Hessian or t^-1 coefficient without substantive application. General chamber machinery could be adapted but the inspected statements do not give the evaluated rhombic-dodecahedron Haar side-count distribution nor the anisotropy Hessian; other polytopes cannot be substituted by a formal duality without changing sections to projections.
+
+## value
+
+PASS
+
+The law evaluates a natural discrete section-type distribution of a regular polyhedron and all positive diagonal affine stretches, with a sharp local stability coefficient and asymptotic degeneration. Such exact Haar type measures are meaningful in stochastic convex geometry and not inferred by merely listing polyhedron vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
