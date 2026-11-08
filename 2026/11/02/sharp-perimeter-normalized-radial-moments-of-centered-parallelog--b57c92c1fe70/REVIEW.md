@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-edge parametrization and the orientation cosine yield a single exact integral for the radial moment. Convexity of \(q^{p/2}\) in the angle parameter, plus evenness, proves the upper envelope for every \(p>2\). The flattening-limit integral evaluates to \(4(a+b)^{p+1}/(p+1)\); all normalizations are explicit. The second-moment identity and Hölder handle \(0<p<2\); a monotone scalar ratio gives the unique disk-comparison cutoff. A lower second-derivative bound proves the area-sensitive remainder, with exact identity at \(p=4\). The supporting standalone checker passes exact rational identities, nonintegral-exponent quadrature, threshold and sharpness tests. These finite checks are not presented as infinite proofs.
+PASS
 
-## Originality — PASS, provisional historical priority
+For centered parallelogram conv{±u±v}, lengths a,b and angle cosine c, exact boundary parameterization yields F_p(c)=2b∫_-1^1(a²+b²t²+2abct)^(p/2)dt +2a∫_-1^1(b²+a²t²+2abct)^(p/2)dt. Evenness and strict convexity in c for p>2 give sharp degenerate endpoint F_p(1)=4(a+b)^(p+1)/(p+1); p<2 gives orthogonal angular maximum and p=2 angle-independent L³/48. Comparing with disk L^(p+1)/(2π)^p establishes unique cutoff (π/2)^p=p+1 at p≈3.1529558562. Curvature lower bound for 2<p<=4 gives angular stability and exact quartic I4=L^5/1280 - L A²/12. All nondegenerate p>2 cases have strict inequality to the supremum; no general convex-curve p=3 theorem is claimed.
 
-The closest lead paper, Dietze–Kachmar–Lotoreichik, arXiv:2311.18413, proves the disk inequality for \(p\le2\), formulates the general exponent-three conjecture, and uses a degenerate segment as a large-exponent obstruction; it does not supply the sharp \(p>2\) parallelogram envelope. Csató–Giovagnoli–Roy, arXiv:2608.19851, discusses Sachs's classical \(p=2\) parallelogram result and proves an inequality in the opposite direction for \(p\le2\). The two weighted-perimeter monotonicity papers treat inclusion, not fixed-perimeter maximization. Indexed results on parallelogram chord lengths and projection widths concern different observables. No checked statement dominates the new restricted theorem, though older unindexed formulas are a genuine residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies the complete critical exponent for a natural symmetric-quadrilateral family relevant to a recognized open boundary-moment problem. It proves a uniform strict exponent-three margin, gives explicit nondegenerate counterexamples above the sharp family threshold, identifies a reversal in angular extremizers, and records an exact perimeter–area formula for the fourth moment. The fact that the new threshold lies above the general near-circle failure threshold distinguishes geometric families in a way not evident from the known results.
+Second-moment parallelogram identity was known (Sachs, as recalled in Csató-Giovagnoli-Roy). Dietze-Kachmar-Lotoreichik raise the general p=3 conjecture and show high-p failure using limiting segments, but not the complete family-specific p cutoff and sharp angular/area formula.
 
-## Scope and limitations
+## value
 
-The theorem is restricted to centered Euclidean parallelograms and exact boundary arclength moments. At \(p>2\), the sharp envelope is a supremum approached by flattening, not an attained nondegenerate maximum. No unrestricted convex-body moment inequality or historical exclusivity is claimed. Proof and numerical checker were reviewed together; independent mathematical evaluation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact all-exponent disk-comparison threshold within a geometric test family sharpens the open broad p=3 boundary inequality without claiming to settle it. The quartic area deficit and angular extremizer reversal expose natural geometric shape sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

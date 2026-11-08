@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. Run `python check.py` with Python 3 and only its standard library. The program computes the second- and fourth-power boundary integrals as exact rational polynomials, checks the area-correction identity, numerically integrates several nonintegral-exponent boundary moments as independent spot tests, checks the strict upper envelope and angular remainder, and brackets the unique critical exponent.
+## correctness
 
-The actual execution produced:
+PASS
 
-```
-EXACT_QUADRATIC_AND_QUARTIC_IDENTITIES_PASSED
-INDEPENDENT_QUADRATURE_AND_STABILITY_PASSED
-UNIQUE_CRITICAL_EXPONENT_AND_SHARPNESS_PASSED
-ALL_CHECKS_PASSED
-```
+For centered parallelogram conv{±u±v}, lengths a,b and angle cosine c, exact boundary parameterization yields F_p(c)=2b∫_-1^1(a²+b²t²+2abct)^(p/2)dt +2a∫_-1^1(b²+a²t²+2abct)^(p/2)dt. Evenness and strict convexity in c for p>2 give sharp degenerate endpoint F_p(1)=4(a+b)^(p+1)/(p+1); p<2 gives orthogonal angular maximum and p=2 angle-independent L³/48. Comparing with disk L^(p+1)/(2π)^p establishes unique cutoff (π/2)^p=p+1 at p≈3.1529558562. Curvature lower bound for 2<p<=4 gives angular stability and exact quartic I4=L^5/1280 - L A²/12. All nondegenerate p>2 cases have strict inequality to the supremum; no general convex-curve p=3 theorem is claimed.
 
-These checks do not exhaust uncountably many shapes or exponents. The assertions for all real parameters are supported by the integral representation, convexity/concavity arguments, elementary endpoint integrations, the scalar monotonicity calculation, and the exact second-derivative estimate in `RESULT.md`. The checked quartic identity is symbolic and exact for rational test parameters; its universal validity follows from direct polynomial expansion. Independent external validation was not performed.
+## originality
+
+PASS
+
+Second-moment parallelogram identity was known (Sachs, as recalled in Csató-Giovagnoli-Roy). Dietze-Kachmar-Lotoreichik raise the general p=3 conjecture and show high-p failure using limiting segments, but not the complete family-specific p cutoff and sharp angular/area formula.
+
+## value
+
+PASS
+
+Exact all-exponent disk-comparison threshold within a geometric test family sharpens the open broad p=3 boundary inequality without claiming to settle it. The quartic area deficit and angular extremizer reversal expose natural geometric shape sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
