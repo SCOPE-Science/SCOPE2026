@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof is given in RESULT.md. `verify_flat_klein_eccentricity.py` independently intersects all eight source Voronoi halfplanes using `fractions.Fraction` and compares the largest exact squared vertex norm with the theorem in 704 parameter cases. A further 25,000 reproducibly seeded directly evaluated orbit-to-point distances satisfy the claimed radius upper bound.
+## correctness
 
-Observed output on Python 3:
+PASS
 
-```text
-Exact rational covering-radius cases: 704
-Seeded direct orbit-distance tests: 25000
-PASS: all finite checks; the general theorem is proved separately.
-```
+For the quotient with glide g(x,y)=(x+L,-y) and h(x,y)=(x,y+2w), let b=2u,c=2w-b,T=bc. The exact Voronoi inequalities are |x|<=L, |y|<=w, L|x|-by<=(L²+b²)/2 and L|x|+cy<=(L²+c²)/2. For T<=L², all vertices occur at (±(L²-T)/2L, ±w) and (±(L²+T)/2L,w-b), giving e²=w²+((L²-T)/2L)². For T>=L², vertex norms max to (c²+L²)/2c. Both branches match at T=L²; differentiating in u gives decreasing e, diameter sqrt(w²+L²/4), radius (w²+L²)/(2 max(w,L)), central two-sided minimizer circle and the two one-sided maximizer circles. At w>L, T=L² has unique interior u*, corner e left-derivative 0, right -(c-b)/c. Verified separately with 208 exact rational halfplane-intersection radius cases; the proof, not samples, handles all parameters.
 
-Finite tests do not prove the universal theorem or historical priority. No independent audit or external certification was performed.
+## originality
+
+PASS
+
+The classical diameter and unit-square Voronoi instances are already known. The all-aspect source-dependent eccentricity, exact Chebyshev locus and w>L Voronoi topological/corner bifurcation are not implied by the inspected fixed-unit-square theorems or general quotient principles without this further geometric calculation. Best-of-knowledge qualified by possible unindexed arbitrary-aspect calculations.
+
+## value
+
+PASS
+
+A complete exact natural metric invariant of a compact nonhomogeneous flat surface, providing all-source farthest distances, intrinsic optimal centers and a combinatorial Voronoi phase change where e loses differentiability; not simply the known diameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
