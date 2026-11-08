@@ -1,23 +1,21 @@
-# Scientific review: finite BALFI incidence classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has a complete proof valid for every integer \(m\ge1\). The BALFI equations reduce independently at every Boolean input-atom incidence to either three allowed local states (atom inside the argument) or two (atom outside). The \(\mathrm{ciw}\) and classical-negation restrictions leave the stated numbers of states; their intersection is unique. An isomorphism of the expanded algebras is precisely an atom permutation preserving the two operators, so Burnside applies to the induced incidence action. The complement of the argument identifies the inside and outside permutation sets. Each power of a permutation fixes exactly \(f(\tau)2^{c(\tau)-1}\) inside incidences; this establishes the nonstandard orbit formula. The rigidity estimate uses a valid fixed-incidence bound and the union bound. Binomiality is for the explicitly stated uniform labelled product measure. There is no reliance on extrapolating finite computations to general \(m\).
+PASS
 
-The standalone checker directly enumerates and verifies the complete finite tables for \(m\le2\) and independently verifies orbit calculations for \(m\le5\). All checks passed. Boundary conditions \(m=1\), the exceptional empty outside/inside restrictions, and the uniqueness of the \(\mathrm{ciw}\)-classical intersection are treated explicitly.
+The two BALFI identities impose exactly 3 admissible bit pairs at each inside incidence (A,j), j in A, and 2 outside; every incidence independent. Each type has m*2^(m-1) positions, hence 6^L labelled. Imposing ciw fixes outside and restricts inside to 2 choices, and classical negation fixes the first bit: 2^L, 4^L, intersection one. Boolean-reduct automorphisms are S_m; complement of A equivariantly pairs inside/outside cycle counts. Cyclic Burnside fixed incidence count is f(sigma^t)*2^(c(sigma^t)-1), yielding N_m(q)=sum q^o/m!. A nonidentity atom permutation fixes at most m-2 atoms and has at most m-1 cycles; all other inside incidences have orbit length at least 2, giving o <= L-(m+2)2^(m-3), hence asymptotic rigidity. Uniform inside colorings give independent Bernoulli(1/3) contradictions and Binomial(L,1/3). Proof quantifiers m>=1, asymptotic bound m>=2 verified. 
 
-## Originality — PASS within inspected evidence
+## originality
 
-The 2020 BALFI paper establishes the defining algebraic equations and exhibits possible unary operations on a four-element Boolean reduct (Example 2.17); Proposition 3.4 identifies the \(\mathrm{ciw}\) identity. Its relevant full-text sections were read. It does not supply the arbitrary-atom two-color normal form, the three parameterized isomorphism-count formulas, or the asymptotic automorphism bound. The 2026 study establishes finite-model property and various axiomatic subvarieties but does not report such a census. Its relevant definition, finite-model, and extension sections were inspected. General Pólya/Burnside theory supplies a method, not the object-specific reduction and explicit action enumeration. Nearby published finite Boolean-algebra operator counts impose different operator equations.
+PASS
 
-Priority limitation: the 2020 four-element example does imply local special cases of the count, and the incidence normal form is a direct algebraic deduction; these are not represented as independent new semantic axioms. A logically equivalent global enumeration could exist in algebraic-enumeration literature using different terminology. No claim of exhaustive bibliographical uniqueness is made.
+The primary BALFI semantics and ciw identity are known; the claimed contribution is the all-atom colored-incidence normal form plus isomorphism/Burnside specialization, asymptotic rigidity and binomial law. Resultary semantic search found other finite Boolean unary systems but no equivalent count; search absence is not a global priority certificate.
 
-## Value — PASS
+## value
 
-The algebraic semantics of a self-extensional paraconsistent logic is the natural collection of BALFI structures, so the distribution, identification up to isomorphism, and relation to the standard recovery extension are mathematically motivated, rather than arbitrary Boolean table counts. The theorem classifies *all* finite expansions on every finite Boolean reduct; distinguishes recoverable consistency and classical-negation strata; and gives the asymptotic symmetry behavior of each stratum. These formulas permit duplicate-free finite-model enumeration and quantify how rare classical collapse and the recovery axiom are among unconstrained finite models. The almost-sure triviality of automorphisms is a structural consequence beyond the raw labelled count. This is not a complexity improvement or a new decidability theorem, and none is claimed.
+PASS
 
-## Sources and residual risks
+Full finite-model classification of a natural semantics with no monotonicity constraints, exact isomorphism counts in three meaningful subvarieties, almost-sure asymmetry and contradiction distribution; not merely raw labelled tables.
 
-Primary sources were the full-text HTML of Carnielli–Coniglio–Fuenmayor (arXiv:2003.09522; Definition 2.10, Example 2.17, Proposition 3.4), and Coniglio–Mallea (arXiv:2608.28443; Definition 2.5 and finite-model/extension discussions). Their own algebraic axioms were used without modification. The most serious residual risk is prior equivalence in a differently named variety of unary Boolean-algebra expansions. The proof does not address infinite reducts or additional consistency propagation axioms.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

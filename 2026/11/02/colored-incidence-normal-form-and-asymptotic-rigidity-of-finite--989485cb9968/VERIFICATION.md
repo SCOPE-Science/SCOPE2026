@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 checker.py` using standard Python 3 (no third-party packages). It enumerates the unary operation tables of every BALFI on the two-element and four-element Boolean reducts, checks the two defining equations for each input, and separately checks the recovery and classical-negation subfamilies. It reconstructs the group action on each table and independently calculates its fixed-point counts. For Boolean reducts with one through five atoms, it computes the permutation cycles directly and compares these with the closed permutation-power formula; then it evaluates all three Burnside sums. For the two small exhaustive instances, it checks that the entire contradictory-incidence distribution is the claimed binomial law.
+## correctness
 
-Expected ending: `ALL_CHECKS_OK`. The checked labelled counts are \(6\) and \(1296\); the corresponding isomorphism counts are \(6\) and \(666\). The Boolean reduct with four elements has \(666\) expansion isomorphism classes; the five and higher atom figures are computed by exact integer arithmetic without enumerating all labelled expansions.
+PASS
 
-These finite tests do not establish the general theorem. The complete mathematical proof appears in `RESULT.md`. No independent mathematical audit has been carried out.
+The two BALFI identities impose exactly 3 admissible bit pairs at each inside incidence (A,j), j in A, and 2 outside; every incidence independent. Each type has m*2^(m-1) positions, hence 6^L labelled. Imposing ciw fixes outside and restricts inside to 2 choices, and classical negation fixes the first bit: 2^L, 4^L, intersection one. Boolean-reduct automorphisms are S_m; complement of A equivariantly pairs inside/outside cycle counts. Cyclic Burnside fixed incidence count is f(sigma^t)*2^(c(sigma^t)-1), yielding N_m(q)=sum q^o/m!. A nonidentity atom permutation fixes at most m-2 atoms and has at most m-1 cycles; all other inside incidences have orbit length at least 2, giving o <= L-(m+2)2^(m-3), hence asymptotic rigidity. Uniform inside colorings give independent Bernoulli(1/3) contradictions and Binomial(L,1/3). Proof quantifiers m>=1, asymptotic bound m>=2 verified. 
+
+## originality
+
+PASS
+
+The primary BALFI semantics and ciw identity are known; the claimed contribution is the all-atom colored-incidence normal form plus isomorphism/Burnside specialization, asymptotic rigidity and binomial law. Resultary semantic search found other finite Boolean unary systems but no equivalent count; search absence is not a global priority certificate.
+
+## value
+
+PASS
+
+Full finite-model classification of a natural semantics with no monotonicity constraints, exact isomorphism counts in three meaningful subvarieties, almost-sure asymmetry and contradiction distribution; not merely raw labelled tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
