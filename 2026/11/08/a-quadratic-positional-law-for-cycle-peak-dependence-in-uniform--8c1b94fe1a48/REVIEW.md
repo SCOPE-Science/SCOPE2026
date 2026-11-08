@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The partial-injection contraction gives exactly \(H_{n-3}+r\) conditional expected cycles for every prescribed injective triple. The fixed-point, transposition and 3-cycle compatible assignments are exhaustively accounted for, yielding the quadratic numerator after subtracting \(H_n/3\). Boundaries \(n=3\) and arbitrary triples are explicit. The standalone independent enumeration in `verify.py` completed 3237 exact assertions, including the conditional contraction lemma.
+
+**Originality — PASS, subject to historical priority.** Fulman–Kim–Lee (arXiv:1902.00978) and Gessel–Zhuang (arXiv:2001.00654) study global consecutive peaks jointly with cycle structure; the latter full text, Section 7.1, gives global peak, descent and cycle-type generating functions. Their joint results cover the aggregate consecutive-peak setting, so that setting is not offered as original. The reviewed claim treats arbitrary nonadjacent indexed positions, and its quadratic positional law and sign-changing dependence are not a corollary of global peak counts or descent-set distributions. A related publicly recorded inversion-gap cycle covariance concerns a two-position inversion event, not a three-position peak. An undiscovered exact nonconsecutive-pattern formula remains a possibility.
+
+**Value — PASS.** This solves the finite-sample local-global dependence profile for a natural three-point rank comparison and total permutation cycle count over all positions and all orders, rather than a single chosen example. It identifies the sharp minimal order at which the sign changes, the \(n^{-3}\) versus \(n^{-1}\) scale split, and explains why consecutive peak indicators alone conceal positive cycle dependence at separated positions. This is directly relevant to combining cycle statistics with nonconsecutive rank-pattern statistics in permutation models.
+
+**Scientific limits.** The result concerns pairwise covariance, not a higher-dimensional joint law or asymptotic independence theorem. The checks are deterministic but not independent certification. Historical priority requires independent follow-up.
+
+Self-review: passed. Independent audit: not yet performed.
