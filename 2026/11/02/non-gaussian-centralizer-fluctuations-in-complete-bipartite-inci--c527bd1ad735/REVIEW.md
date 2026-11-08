@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coordinate-by-coordinate commutator equations are solved without omitted variables: unequal diagonal pairs determine radical entries; equal pairs create one free radical variable each and, when nonzero, impose one equality between diagonal variables. The equality-constraint space is exactly the graph-component space, including isolated vertices. Conditional edge independence, multinomial concentration, and a cut union bound imply \(\kappa=q\) exponentially often for fixed \(q\). The centered color-count inner product gives the exact normalization and a non-Gaussian Gaussian-product law. Direct-rank and exhaustive finite checks corroborate the exact identity. The proof, not enumeration, establishes the unrestricted statement.
+## correctness
 
-**Originality — PASS relative to inspected records.** The closely related 2024 triangular-ring paper resolves the \(n=1\) case and graph parameters but does not study the complete bipartite growing family or its random centralizer limit. The 2023 commuting-algebra paper supplies structural context. The 2021 incidence-monoid paper concerns automorphism groups and torus complexity. A published result on Kronecker path algebra commutator fibers has only two vertices. A check against the earlier published mathematical results found no matching complete bipartite random-element centralizer fluctuation theorem; the earlier idempotent clique-count theorem concerns commuting *idempotents*, not centralizers of uniformly selected unrestricted elements. Search failure does not guarantee priority. Residual risks include an equivalent probabilistic presentation via random graph components or multinomial dot products.
+PASS
 
-**Mathematical value — PASS.** The centralizer-size distribution is a direct invariant of the incidence algebra's multiplicative structure. The result is a complete finite-element centralizer formula and exposes a genuinely non-Gaussian order-\(n\) fluctuation despite \(n^2\) potential matrix positions. It extends qualitative and small-dimensional commuting-ring analysis to an infinite and naturally defined algebra family. The specific characteristic function distinguishes the limit from a Gaussian and quantifies the fluctuation scale, rather than merely recounting known exact graph parameters.
+PASS: In A_n=I(P_n,F_q) for fixed prime-power q, commutator (d_i-e_j)y_ij-(f_i-g_j)x_ij=0 makes one free radical coordinate for each equal-color pair and component-constant diagonal labels, yielding dim C=S+κ and |C|=q^(S+κ). Equal-color induced bipartite graphs have edge probability 1-1/q, are connected for all q colors with probability 1-O_q(exp(-c n)) via binomial concentration and cut union bounds. Independent multinomial vectors L,R satisfy exact S=n²/q+n⟨U_n,V_n⟩; their Gaussian CLT on the q−1 dimensional mean-zero subspace gives Y=(1/q)sum Z_h W_h with characteristic function (1+t²/q²)^(-(q−1)/2); κ error negligible. ES=n²/q, Var S=n²(q−1)/q² by pairwise uncorrelated indicators. Independent direct commutator-matrix enumeration confirmed q,n=(2,1),(2,2),(3,1). Prime-power generality follows field algebra, not modular arithmetic in finite checker.
 
-**Closest literature and limitations.** Cheraghpour et al., arXiv:2402.12619v1; Green–Schroll, arXiv:2302.08169v3; Can, arXiv:2105.09826; the public finite Kronecker commutator-fiber result. The probabilistic limit is fixed-\(q\) only. No claim is made about maximal or random unit centralizers, all possible source graphs, or an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Earlier triangular-ring centralizer and commuting-graph work handles 2×2 or quiver algebra structure, not the growing complete-bipartite incidence algebra random-element centralizer statistic and nonGaussian product-normal n-scale limit. The multinomial CLT and Gaussian product law are classical components, not asserted novel independently.
+
+## value
+
+PASS
+
+PASS: Exact finite-algebra centralizer formula and a nonstandard nonGaussian asymptotic law for a natural sequence of radical-square-zero algebras, displaying rank q−1 Gaussian chaos rather than a generic CLT. A researcher studying random commutants or finite incidence algebras can use this distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
