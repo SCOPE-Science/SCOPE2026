@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:51:41.040103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strictly concave dual has unique constant optimum c=−ερ/(ε+2ρ) log(κ/n), with block derivatives DT_g=−τWᵀ and DT_f=−τW. The two-block F Jacobian on (f,g) is triangular with upper-left τ²WWᵀ and overwrites g; positive doubly stochastic W has simple constant singular value one and s<1 on 1⊥ by strict Jensen/Perron. Exact scalar translation maximizer δ=(ρ/2)log(mean e^(-f/ρ)/mean e^(-g/ρ)) gives Dδ=0.5(mean dg−mean df); after two raw updates the recovered constant-mode multiplier is −τ(1−τ)/2, while nonuniform eigenvalues remain τ²σ_j(W)². Thus q_G=max of this magnitude and τ²s², proving both thresholds and equality. Independently built nonlinear finite-difference Jacobians for n=2,3,5 and five ε/ρ ratios (15 parameter cases × F/G), including nonsymmetric W, agree; finite differences are corroboration, not all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 Appendix B.6 reports empirical preference approximately ε compared with ρ and marks it heuristic; 2019 and 2016 sources study scaling without this exact 3-block local spectrum."
+        ],
+        "reasoning": "General contractions for F or alternate H solver do not imply sign-reversing G constant eigenvalue or the exact sharp ε=2ρ local crossover under balanced-kernel assumptions.",
+        "searches": [
+          "Séjourné 2022 Faster Unbalanced Optimal Transport Appendix B.6 G-Sinkhorn convergence empirical",
+          "arxiv:1910.12958 unbalanced Sinkhorn divergence convergence",
+          "Chizat Peyré scaling algorithms unbalanced transport"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.mlr.press/v151/sejourne22a/sejourne22a.pdf",
+        "https://arxiv.org/abs/1910.12958",
+        "https://arxiv.org/abs/1607.05816",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/an-exact-regularization-crossover-for-three-block-unbalanced-sin--5389d3e6a2ba",
+        "Resultary semantic published findings (searched as recorded)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating full paper defines G block update and offers numerical tendencies, not negative mode −τ(1−τ)/2.",
+          "Known exact two-block Jacobian τ²WWᵀ does not fix G after additional translation."
+        ],
+        "reasoning": "Differentiating the extra scalar maximizer and splitting mass/nonuniform subspaces yields a new exact condition distinct from the earlier qualitative observation; it does not generalize to nonbalanced kernels.",
+        "searches": [
+          "sejourne22a published Appendix B.6 formula G-Sinkhorn 3 coordinate optimization",
+          "arxiv:1910.12958 generalized UOT Sinkhorn two block analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Séjourné–Vialard–Peyré (2022) Appendix B.6 defines the same three-coordinate G solver via gauge variable λ, but does not display an exact negative constant-mode eigenvalue in inspected appendix."
+        ],
+        "reasoning": "Equivalent gauge-coordinate and recovered-physical-potential maps share nonzero local eigenvalues; the constant mode is physical because KL penalties break exact gauge invariance of the optimum. Existing F two-block formulas do not calculate added G scalar derivative.",
+        "searches": [
+          "translation invariant G Sinkhorn recovered physical potentials Jacobian gauge mode",
+          "G-Sinkhorn three block mass mode eigenvalue minus tau(1−tau)/2",
+          "Séjourné Vialard Peyré Appendix B.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest matches are three-block ADMM/momentum, PDHG and balanced overrelaxed Sinkhorn, none the same KL-penalized G update."
+        ],
+        "reasoning": "No located exact F/G Jacobian comparison table; the empirical source heuristic is not an exact certificate. This remains bounded nonexhaustive literature checking.",
+        "searches": [
+          "Resultary: unbalanced Sinkhorn three block translation invariant balanced kernel spectral radius convergence",
+          "G Sinkhorn epsilon 2 rho exact spectral radius uniform marginals"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority: compared actual claims and implications of identical/nearby primary sources, searched semantic published record corpus and theorem aliases, and explicitly separated existing methodology/qualitative findings from the exact new result. No located prior implication dominates this final scoped theorem; genuine inaccessible and general-coverage risks remain recorded.",
+      "residual_risks": [
+        "Specialized earlier or unindexed analysis of G-Sinkhorn could cover the same exact local Jacobian.",
+        "Local spectral radius does not imply lower runtime, shorter finite-iteration error, global convergence superiority or nonuniform-kernel extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original solver and qualitative experimental crossover prior; no exact balanced-kernel Jacobian/ε=2ρ theorem in inspected text",
+          "evidence": [
+            "Appendix B.6, eq. (22) three-block G with common translation; empirical ε versus ρ rule of thumb"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v151/sejourne22a/sejourne22a.pdf",
+          "material_read": "Accessible full published 27-page PDF, main convergence discussion and Appendix B.6, equation (22), figures and local comparison",
+          "method": "Read full PDF parsed text, inspected relevant rendered pages",
+          "title": "Faster Unbalanced Optimal Transport: Translation invariant Sinkhorn and 1-D Frank-Wolfe",
+          "trigger": "Introduces precisely G-Sinkhorn and compares F/G empirically"
+        },
+        {
+          "assessment": "Two-block generalized/unbalanced Sinkhorn; no added exact G gauge-mode spectral characterization",
+          "evidence": [
+            "Generalized dual Sinkhorn updates and convergence arguments"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.12958",
+          "material_read": "Accessible primary HTML algorithm and convergence sections, dual-update derivations",
+          "method": "Direct primary text reading",
+          "title": "Sinkhorn Divergences for Unbalanced Optimal Transport",
+          "trigger": "Potentially covering generalized UOT scaling convergence"
+        },
+        {
+          "assessment": "Core scaling construction prior but does not supply the exact three-block crossover",
+          "evidence": [
+            "Unbalanced scaling algorithm and contractive block updates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.05816",
+          "material_read": "Accessible primary full-text scaling and convergence sections and model statements",
+          "method": "Direct primary text reading",
+          "title": "Scaling Algorithms for Unbalanced Transport Problems",
+          "trigger": "Foundational KL UOT scaling theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exactly defined extra gauge maximization can worsen local contraction: an explicit, dimension-independent ε=2ρ crossover and oscillating constant mode sharpen the original empirical rule of thumb and distinguish strict kernel-dependent dominant-mode transition. This is a practical local solver comparison on naturally balanced kernels, without claiming global or runtime advantage.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://proceedings.mlr.press/v151/sejourne22a/sejourne22a.pdf",
+    "https://arxiv.org/abs/1910.12958",
+    "https://arxiv.org/abs/1607.05816",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/an-exact-regularization-crossover-for-three-block-unbalanced-sin--5389d3e6a2ba"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Specialized earlier or unindexed analysis of G-Sinkhorn could cover the same exact local Jacobian.",
+    "Local spectral radius does not imply lower runtime, shorter finite-iteration error, global convergence superiority or nonuniform-kernel extension."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform marginals, strictly positive balanced kernel with equal row/column sums κ and equal penalty ρ, exact coordinate operations.",
+    "Asymptotic local Jacobian radius per sweep only; no wall-clock or finite-horizon claim."
+  ]
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The dual is explicitly written with uniform reference measures and positive Gibbs entries; its exponential Hessian is negative definite. At the unique constant optimum, direct differentiation yields \(DT_g=-\tau W^{\mathsf T}\) and \(DT_f=-\tau W\). Maximizing the scalar translation gives the exact log-mean-exponential formula, whose derivative splits the constant mode from the orthogonal modes. The resulting eigenvalues and the strict singular gap of a positive doubly stochastic matrix prove the claimed global parameter classification of **local Jacobian** rates. Independent nonlinear finite differences reproduce the formula for 42 matrix-parameter experiments, but do not serve as an infinite proof. Boundary \(\varepsilon=2\rho\) and nonsymmetric \(W\) are covered.
+## correctness
 
-**Originality — PASS (qualified).** The primary 2022 G-Sinkhorn paper (Appendix B.6) gives its three-coordinate algorithm and an empirical comparison with F-Sinkhorn at approximately \(\varepsilon\) versus \(\rho\); the inspected derivation does not establish the exact \(2\rho\) crossover or oscillatory constant Jacobian mode for the balanced-kernel class. The 2019 and 2016 unbalanced Sinkhorn sources treat generalized two-coordinate scaling and convergence, not this exact three-coordinate local spectrum. Scientific comparison with related published results identified distinct fixed-product PDHG, three-block ADMM and regularized-transport claims. Residual risk: a specialized unpublished or differently named derivation may already imply the result; the study is not an independent publication-priority determination.
+PASS
 
-**Value — PASS.** Three-block normalization has an extra \(O(n)\) computation and is not uniformly an improvement. The theorem gives a dimension-independent, exact and readily testable region for when the extra block reduces or increases local spectral contraction, including a sign-changing mass mode and a separate geometry-controlled transition \(\varepsilon=2\rho s^2\). This directly sharpens a practical numerical-algorithm comparison made empirically in the motivating paper, on a naturally realized family of circulant/translation-invariant kernels. No broader solver optimality or runtime improvement is claimed.
+The strictly concave dual has unique constant optimum c=−ερ/(ε+2ρ) log(κ/n), with block derivatives DT_g=−τWᵀ and DT_f=−τW. The two-block F Jacobian on (f,g) is triangular with upper-left τ²WWᵀ and overwrites g; positive doubly stochastic W has simple constant singular value one and s<1 on 1⊥ by strict Jensen/Perron. Exact scalar translation maximizer δ=(ρ/2)log(mean e^(-f/ρ)/mean e^(-g/ρ)) gives Dδ=0.5(mean dg−mean df); after two raw updates the recovered constant-mode multiplier is −τ(1−τ)/2, while nonuniform eigenvalues remain τ²σ_j(W)². Thus q_G=max of this magnitude and τ²s², proving both thresholds and equality. Independently built nonlinear finite-difference Jacobians for n=2,3,5 and five ε/ρ ratios (15 parameter cases × F/G), including nonsymmetric W, agree; finite differences are corroboration, not all-n proof.
 
-**Scientific limits.** Uniform marginals, common row/column sum, strictly positive kernel, equal KL penalties, fixed regularization and exactly performed updates. The result compares Jacobian spectral radii per complete sweep, not global convergence factors, empirical runtime or arbitrary initialization trajectories. Only self-review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority: compared actual claims and implications of identical/nearby primary sources, searched semantic published record corpus and theorem aliases, and explicitly separated existing methodology/qualitative findings from the exact new result. No located prior implication dominates this final scoped theorem; genuine inaccessible and general-coverage risks remain recorded.
+
+## value
+
+PASS
+
+The exactly defined extra gauge maximization can worsen local contraction: an explicit, dimension-independent ε=2ρ crossover and oscillating constant mode sharpen the original empirical rule of thumb and distinguish strict kernel-dependent dominant-mode transition. This is a practical local solver comparison on naturally balanced kernels, without claiming global or runtime advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
