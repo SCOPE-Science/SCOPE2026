@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:40:06.638000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inducedness requires cyclic selected-edge gaps≥3; maximality forces ≤5. After removing one edge, only insertion within the merged gap can restore maximality, with exact local degree f(a,b)=2−|a+b−8| and transitions of one or two units. Unit adjacent-gap transfers connect bounded compositions to canonical packing; the ordering constraints for moving all edges one step form an acyclic orientation except constant all-3/all-5 gaps, proving connectivity of interior sectors and frozen 3/5 extremes. Transfer-matrix trace enumerates degrees, and a Johnson-graph triangle dichotomy reduces triangles to merged gap length 8; coefficient formulas and Eulerian parity follow. Independent direct maximal-subset exchange-graph enumeration checked all n=7..15; inspected supplied second gap-composition verifier and direct n≤18 code, not confused with infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basavaraju et al. gives general enumeration bounds for maximal induced matchings in triangle-free graphs.",
+          "Bonsma et al. gives reachability algorithms for independent sets in claw-free graphs without requiring every intermediate set maximal."
+        ],
+        "reasoning": "A broader graph input domain with weaker output cannot yield this specific invariant set; unrestricted reconfiguration may connect via disallowed nonmaximal states.",
+        "searches": [
+          "arxiv:1312.5180 Theorem 1",
+          "arxiv:1403.0359 introductory TJ/TS definitions",
+          "Resultary: maximal induced matchings cycles reconfiguration token jumping component degree polynomial gap sequences"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1312.5180",
+        "https://arxiv.org/pdf/1403.0359",
+        "Resultary: maximal induced matchings cycles reconfiguration token jumping component degree polynomial gap sequences",
+        "Resultary: maximal induced matching reconfiguration cycles gaps 3 4 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximality changes the allowed intermediate configurations and hence connected components, so unrestricted TJ reachability does not imply exact sectors.",
+          "The local move table f(a,b) and triangle count require explicit bounded gap analysis."
+        ],
+        "reasoning": "There is no direct implication from general enumeration bounds or independent-set reachability to exact degree, triangle, girth and Eulerian structure of the induced subgraph of maximal matchings.",
+        "searches": [
+          "arxiv:1403.0359 Theorems, token jumping",
+          "arxiv:1312.5180 Theorem 1",
+          "Resultary: maximal induced matchings cycles reconfiguration token jumping component degree polynomial gap sequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An induced matching is an independent set in (L(C_n))²=C_n²; maximality corresponds to maximal independent set.",
+          "Its cyclic gap alphabet is 3,4,5, not 2,3 of ordinary-cycle maximal independent sets."
+        ],
+        "reasoning": "The exact equivalent statement is token-jumping restricted to inclusion-maximal independent sets of the squared cycle; this restriction must be preserved throughout the path, so generic token-jumping results are insufficient.",
+        "searches": [
+          "Resultary: maximal induced matchings cycles reconfiguration token jumping component degree polynomial gap sequences",
+          "Resultary: maximal induced matching reconfiguration cycles gaps 3 4 5",
+          "arxiv:1312.5180"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Neither cited exact theory provides the vertex degree-generating polynomial tr(B(z,u)^k) or sharp triangle counts of maximality-preserving exchange sectors.",
+          "Resultary matching findings concern bounds and matching complexes, not this exchange graph."
+        ],
+        "reasoning": "The vertex count alone would be routine gap enumeration, but the full adjacency, degree and girth census goes beyond the inspected existing tables; missed database equivalents remain possible.",
+        "searches": [
+          "Resultary: maximal induced matchings cycles reconfiguration token jumping component degree polynomial gap sequences",
+          "Resultary: maximal induced matching reconfiguration cycles gaps 3 4 5",
+          "arxiv:1312.5180"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified: equivalence with maximal independent sets of the squared cycle is classical, as are general triangle-free induced-matching enumeration and fixed-k independent-set token jumping algorithms. However those algorithms permit nonmaximal intermediate states and neither inspected primary theorem entails this maximality-preserving exact graph degree, Eulericity, triangle and component census.",
+      "residual_risks": [
+        "Equivalent results might be indexed as maximal independent-set reconfiguration of square-of-cycle graphs or dominating independent-set exchange complexes under different terminology.",
+        "The independent direct finite check ends at n15; universal connectivity relies on the supplied explicit transfer and translation-order proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General enumeration bounds and algorithms do not specify the maximality-preserving one-edge exchange graph on a cycle",
+          "evidence": "Theorem 1 gives triangle-free enumeration bounds; relation to independent sets in square of line graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.5180",
+          "material_read": "Primary PDF introduction, induced-matching-to-squared-line-graph correspondence and Theorem 1, with screenshot",
+          "method": "Read arXiv primary PDF text and screenshot",
+          "title": "Maximal induced matchings in triangle-free graphs",
+          "trigger": "Same inclusion-maximal induced matching objects and general enumeration"
+        },
+        {
+          "assessment": "Allows nonmaximal intermediate sets, hence general connectivity cannot imply connectivity in maximality-preserving sectors, and supplies no full degree/girth/triangle formula",
+          "evidence": "Token jumping/sliding defined on fixed-size independent sets without inclusion-maximality restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+          "material_read": "Primary PDF introductory definitions and reconfiguration theorems, plus screenshot",
+          "method": "Read arXiv primary PDF text and screenshot",
+          "title": "Reconfiguring independent sets in claw-free graphs",
+          "trigger": "Equivalent token-jumping dynamics on cycle-square independent sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete connected-component and local-structure classification of a natural maximal induced matching reconfiguration graph is a motivated combinatorial object, including exact degree/triangle enumerators and a nontrivial boundary-to-Eulerian transition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1312.5180",
+    "https://arxiv.org/pdf/1403.0359",
+    "Resultary: maximal induced matchings cycles reconfiguration token jumping component degree polynomial gap sequences",
+    "Resultary: maximal induced matching reconfiguration cycles gaps 3 4 5"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all n≥7 and feasible k, maximal induced matchings of C_n under single-edge exchanges have exactly the specified 3/5 isolated extremal sectors, cycle boundary sectors and connected Eulerian triangle-containing interior sectors, with full degree, vertex, edge, triangle polynomials and component formula.",
+  "limitations": [
+    "Simple labelled C_n with n≥7 and one-edge exchange preserving maximality; no claim about exact interior diameters or arbitrary graphs."
+  ],
+  "residual_risks": [
+    "Equivalent results might be indexed as maximal independent-set reconfiguration of square-of-cycle graphs or dominating independent-set exchange complexes under different terminology.",
+    "The independent direct finite check ends at n15; universal connectivity relies on the supplied explicit transfer and translation-order proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General enumeration bounds and algorithms do not specify the maximality-preserving one-edge exchange graph on a cycle",
+      "evidence": "Theorem 1 gives triangle-free enumeration bounds; relation to independent sets in square of line graph.",
+      "identifier_or_url": "https://arxiv.org/pdf/1312.5180",
+      "material_read": "Primary PDF introduction, induced-matching-to-squared-line-graph correspondence and Theorem 1, with screenshot",
+      "method": "Read arXiv primary PDF text and screenshot",
+      "title": "Maximal induced matchings in triangle-free graphs",
+      "trigger": "Same inclusion-maximal induced matching objects and general enumeration"
+    },
+    {
+      "assessment": "Allows nonmaximal intermediate sets, hence general connectivity cannot imply connectivity in maximality-preserving sectors, and supplies no full degree/girth/triangle formula",
+      "evidence": "Token jumping/sliding defined on fixed-size independent sets without inclusion-maximality restriction.",
+      "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+      "material_read": "Primary PDF introductory definitions and reconfiguration theorems, plus screenshot",
+      "method": "Read arXiv primary PDF text and screenshot",
+      "title": "Reconfiguring independent sets in claw-free graphs",
+      "trigger": "Equivalent token-jumping dynamics on cycle-square independent sets"
+    }
+  ]
+}

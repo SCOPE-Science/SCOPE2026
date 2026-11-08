@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof characterizes maximal induced matchings by cyclic gaps of lengths three through five, derives a complete local exchange rule, establishes connectivity by bounded unit transports plus an explicit translation ordering, and proves the triangle-count and degree formulas by incidence counting. Direct subset verification through cycle length 18 and a separately implemented cyclic-composition verification through length 27 agree with the all-parameter claims. Finite checks are not presented as infinite proofs.
+## correctness
 
-**Originality — PASS with residual literature risk.** Basavaraju et al. study maximal induced matching counts and enumeration in general triangle-free graphs, not the induced-matching exchange metric; Bonsma et al. allow fixed-cardinality independent sets without preserving maximality at every step. The equivalent independent-set-on-squared-cycle formulation, dominating-induced-matching terminology and relevant prior cycle reconfiguration results were compared. Neither the targeted full texts nor relevant indexed mathematical records supplied a covering degree-spectrum, Eulerian-sector, or sharp triangle theorem. Unindexed and alternative terminology remain genuine residual risks, rather than being treated as disproved possibilities.
+PASS
 
-**Value — PASS.** The theorem gives an infinite-family classification for a natural locally constrained matching problem. Its exact frozen-versus-mobile sectors, the emergence of triangles, even-degree/Eulerian structure, and full local-mobility polynomial distinguish it from a routine count of maximal matchings. The distinction from maximal independent sets of ordinary cycles is structural: the three-state gap process permits three-way local exchanges absent from the two-state process.
+Inducedness requires cyclic selected-edge gaps≥3; maximality forces ≤5. After removing one edge, only insertion within the merged gap can restore maximality, with exact local degree f(a,b)=2−|a+b−8| and transitions of one or two units. Unit adjacent-gap transfers connect bounded compositions to canonical packing; the ordering constraints for moving all edges one step form an acyclic orientation except constant all-3/all-5 gaps, proving connectivity of interior sectors and frozen 3/5 extremes. Transfer-matrix trace enumerates degrees, and a Johnson-graph triangle dichotomy reduces triangles to merged gap length 8; coefficient formulas and Eulerian parity follow. Independent direct maximal-subset exchange-graph enumeration checked all n=7..15; inspected supplied second gap-composition verifier and direct n≤18 code, not confused with infinite proof.
 
-**Scope and limitations.** Only simple cycles with at least seven vertices, inclusion-maximal induced matchings and one-edge exchanges are covered. Diameters of the triangular regimes and reconfiguration on more general graphs remain undetermined. The literature comparison supports a qualified originality judgment, not exhaustive proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified: equivalence with maximal independent sets of the squared cycle is classical, as are general triangle-free induced-matching enumeration and fixed-k independent-set token jumping algorithms. However those algorithms permit nonmaximal intermediate states and neither inspected primary theorem entails this maximality-preserving exact graph degree, Eulericity, triangle and component census.
+
+## value
+
+PASS
+
+A complete connected-component and local-structure classification of a natural maximal induced matching reconfiguration graph is a motivated combinatorial object, including exact degree/triangle enumerators and a nontrivial boundary-to-Eulerian transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
