@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3. The program uses only built-in modules. It enumerates all product-of-simplices cells for \(\operatorname{Hom}(C_5,K_5)\), selects canonical orbits under rotations and reflections, builds the integer quotient cellular boundary matrices with orientation signs, and checks that consecutive boundaries compose to zero. For each matrix it performs a full sequence of unimodular unit-pivot eliminations, then confirms that the remaining block vanishes or has one-dimensional rational rank and an exact nonunit Smith factor. The Smith factors fully determine integral homology; finite-prime experiments alone would not.
+## correctness
 
-The output in `verification_output.txt` was produced by executing the embedded `verify.py`. The quotient chain ranks in dimensions zero through five are \(102,570,1300,1500,875,207\); the boundary ranks are \(101,469,831,668,207\). The nonunit factors are \(2\) in the second boundary, \(5\) in the fourth, and \(2\) in the fifth. A separate four-colour control reconstructs the known order-four first-homology torsion.
+PASS
 
-The code verifies exact finite incidence and integer algebra, not a general formula for every number of colours. No external or independent audit is claimed.
+The product-cell definition enforces adjacent colour-set disjointness; a nonidentity dihedral rotation or reflection cannot stabilize any cell because respectively all five coordinate sets would agree or a reflection fixes an edge setwise with disjoint adjacent sets. Independently enumerated all five-colour valid cells and ten-element dihedral orbits: product counts (1020,5700,13000,15000,8750,2070), quotient count 4,554 and no nonfree orbit. Examined the exact quotient boundary code including simplex-face signs and Koszul signs for permuted factors; it verifies d^2=0 and performs integral unimodular unit-pivot elimination, followed by a complete rank-one residual certificate, not merely finite-field ranks. Its supplied integer Smith factors are 2 in boundary degree 2, 5 in degree 4 and 2 in degree 5, with ranks (101,469,831,668,207). Universal coefficients and free image of each boundary yield exactly the stated torsion and the single free H3. Quotient Euler and group-action freeness independently match.
 
-An independently executed finite-field calculation in `modular_crosscheck.py` obtains boundary ranks over prime 2 of \(101,468,831,668,206\), over prime 5 of \(101,469,831,667,207\), and over prime 7 of \(101,469,831,668,207\). These are consistent with precisely the two- and five-primary Smith factors. The auxiliary script and its captured results in `modular_output.txt` are included; finite-field ranks alone would not establish the complete integral result.
+## originality
+
+PASS
+
+The known nonequivariant Hom(C5,K5) ≅ V4,2 does not identify the D5 action on the Stiefel model; Dover–Özaydın expressly pose complete D5-equivariance as Question 5.6. The explicit integral homology of this geometrically defined quotient is therefore not a corollary of their non-equivariant homeomorphism. Dasgupta addresses C2/projective and S1/circle quotients for specified standard group actions, not the combinatorial cycle-action D5 quotient.
+
+## value
+
+PASS
+
+The pentagon Hom complex is a canonical graph-coloring complex; its full D5 action is precisely a conspicuous equivariance issue in Dover–Özaydın. The exact integer torsion Z/5 and Z/2 in the geometric orbit space provides a natural structural invariant not visible from the unquotiented Stiefel homotopy, and a reusable benchmark for equivariant comparison and quotient spectral sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
