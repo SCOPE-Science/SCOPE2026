@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The four-state labeled de Bruijn Boolean relation R_w has a cycle iff output w repeated bi-infinitely is attainable; R_w^m has a diagonal iff a predecessor of period dividing m|w| exists. A four-vertex directed cycle has a simple cycle of length 1,2,3 or 4, each dividing 12. Rule 90 output 1 forces factor 4; Rule 30 output 1 forces factor 3 and output 011 forces factor 2, making global 12 minimal. Every attainable relation among 256 rules is exhausted by a terminating finite right-multiplication closure of the Boolean 4x4 monoid. Two independent implementations verify exact powers and agree on counts {1:156,2:82,4:6,6:12}, exceptional-rule lists and full table; a separate direct cyclic-input census cross-checks n<=3 for every rule. No inference from finite rings replaces the monoid exhaustion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 result is specialized to linear bipermutive cellular automata.",
+        "Salo 2018 addresses split epicness, regularity and periodic-point obstructions rather than all 256 minimal spatial period multipliers."
+      ],
+      "reasoning": "A theorem providing complete periodic-preimage spectra for each radius-one rule and each period would dominate the claim; no inspected source states this. A universal graph-theoretic cycle-length upper bound alone does not determine the sharp minimal multiplier nor the 256-rule distribution.",
+      "searches": [
+        "periodic preimage lifting exponents for elementary binary cellular automata 256 rules exact multipliers 1 2 4 6",
+        "classification of cellular automata periodic output points requiring preimages of period double triple quadruple",
+        "https://lucamariot.org/files/papers/ml_automata_2015_postprint.pdf",
+        "https://arxiv.org/abs/1804.03913"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1103/RevModPhys.55.601",
+      "https://lucamariot.org/files/papers/ml_automata_2015_postprint.pdf",
+      "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+      "https://arxiv.org/abs/1804.03913"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 closure graph algorithm gives possible preimage periods for a specified periodic output of a surjective cellular automaton.",
+        "Its surjectivity hypothesis and one-output quantification do not cover all nonsurjective elementary rules and all admissible periodic targets simultaneously."
+      ],
+      "reasoning": "The prior closure graph construction supplies an applicable technique and a broader decidability method in one dimension; it does not logically imply the exact numerics or the sharp common multiplier without the exhaustive new rule-by-rule computation. The claimed result is therefore distinguished as a complete invariant classification, not as invention of a cycle-graph method.",
+      "searches": [
+        "classification of cellular automata periodic output points requiring preimages of period double triple quadruple",
+        "Wolfram elementary cellular automata exact least uniform spatial preimage period inflation index all 256 rules; rule 30 periodic output 011 needs period doubling and 1 needs tripling; rule 90 1 needs quadrupling; global exponent 12",
+        "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mariot et al. (2017), introduction and Section 3: closure graph for periodic targets and enumeration of preimage periods, but no all-target least uniform multiplier per each of the 256 elementary rules.",
+        "Mariot and Leporati (2015): individual periodic preimage period bounds for linear bipermutive automata, a strict subfamily."
+      ],
+      "reasoning": "Equivalent versions would enumerate, for each local rule, the intersection over all cyclic output words of the allowed preimage-period multiples. The 2017 graph construction could be used to compute these intersections, but its results presented for fixed output configurations do not state the exact 256-rule classification or its global optimum. The particular numerical distribution and exact optimal bound are not implied by merely having the algorithm.",
+      "searches": [
+        "periodic preimage lifting exponents for elementary binary cellular automata 256 rules exact multipliers 1 2 4 6",
+        "classification of cellular automata periodic output points requiring preimages of period double triple quadruple",
+        "Wolfram elementary cellular automata exact least uniform spatial preimage period inflation index all 256 rules; rule 30 periodic output 011 needs period doubling and 1 needs tripling; rule 90 1 needs quadrupling; global exponent 12",
+        "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2017 author full text gives period multiplicity methods, but not a published table of minimal common multipliers for all elementary cellular automata.",
+        "Published Garden-of-Eden and ECA image-language tabulations concern image reachability or cardinality, not the smallest spatial period of a predecessor uniformly over all admitted periodic outputs."
+      ],
+      "reasoning": "A table of permitted outputs for each finite ring size cannot certify the all-length least multiplier without a closure/semigroup argument. No exact table with the four class counts 156, 82, 6, 12 or the claimed sharp global 12 bound was identified. Unindexed or inaccessible tables remain a priority risk.",
+      "searches": [
+        "Wolfram elementary cellular automata exact least uniform spatial preimage period inflation index all 256 rules; rule 30 periodic output 011 needs period doubling and 1 needs tripling; rule 90 1 needs quadrupling; global exponent 12",
+        "one dimensional elementary cellular automata sofic image SFT minimal forbidden patterns full classification",
+        "elementary cellular automata image shifts of finite type classification 256 rules Garden of Eden forbidden blocks",
+        "\"cellular automata\" \"periodic preimages\" \"period\" \"twelve\" radius one"
+      ]
+    },
+    "rationale": "Relevant primary literature gives periodic-preimage graph algorithms, partial special-family bounds, and related ECA regularity theory; no inspected prior statement covers the quantified least common predecessor period multiplier for all admissible periodic outputs of each of the 256 rules, nor the four exact class sizes and sharp global 12. Searches of the accessible scholarly literature found no dominating result; an unindexed older table remains a live priority risk.",
+    "residual_risks": [
+      "Possible older unindexed or unpublished classification of uniform preimage period multipliers.",
+      "Salo 2018 was consulted in summary form rather than exhaustively read as a full paper; no decisive coverage was evident from consulted descriptions.",
+      "No independent mathematical or historical-priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST PRIOR METHOD; not direct or dominating coverage of least uniform multiplier for all 256 rules.",
+        "evidence": "Closure graph method computes period multiplicities associated to an individual output configuration for a surjective cellular automaton; no all-256 exact minimal-multiplier census or global sharp 12 statement in inspected sections.",
+        "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+        "material_read": "Author-postprint abstract, introduction, Sections 2–3 including closure-graph construction and examples, and concluding discussion.",
+        "method": "Read searchable PDF full-text in relevant sections and inspected rendered PDF page.",
+        "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+        "trigger": "Most direct earlier work on spatial-periodic preimages and de Bruijn closure graphs."
+      },
+      {
+        "assessment": "Related theoretical bounds for bipermutive rules; does not provide the claimed full elementary-rule stratification.",
+        "evidence": "Its general upper bound scales with alphabet and radius for linear bipermutive local functions; no per-ECA optimal common-multiplier table.",
+        "identifier_or_url": "https://lucamariot.org/files/papers/ml_automata_2015_postprint.pdf",
+        "material_read": "Author-postprint abstract, problem definitions, main period-bound statements and proof sections.",
+        "method": "Read full-text relevant sections and inspected rendered PDF page.",
+        "title": "On the Periods of Spatially Periodic Preimages in Linear Bipermutive Cellular Automata",
+        "trigger": "Earlier explicit uniform spatial-period upper bounds in a narrower cellular automaton class."
+      },
+      {
+        "assessment": "Indirect related work; whole-text overlap is a residual priority risk.",
+        "evidence": "The work concerns regularity and splitting of elementary cellular automata rather than tabulating the exact least period enlargement for every periodic output.",
+        "identifier_or_url": "https://arxiv.org/abs/1804.03913",
+        "material_read": "Abstract and publicly accessible introductory/summary descriptions.",
+        "method": "Examined arXiv metadata and summaries; not relied upon for an exhaustive whole-document noncoverage assertion.",
+        "title": "Von Neumann Regularity, Split Epicness and Elementary Cellular Automata",
+        "trigger": "Related elementary-rule classification involving periodic preimage obstructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "17f030b4-5c05-4310-869c-f9070d95f527",
+  "value": {
+    "rationale": "The invariant is the least cyclic volume enlargement ensuring that each attainable periodic output has a cyclic predecessor. An all-period exact classification for every elementary rule resolves the natural 256-rule family, distinguishes no-inflation rules from precisely two-, four-, six-fold ones, and gives a sharp universal factor 12. This permits exact finite-volume representation of any full-shift periodic output and is not a one-off finite sample or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
