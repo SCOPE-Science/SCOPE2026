@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The private-coordinate argument forces every shattered \(k\)-support to be a coordinate-transformed one-hot configuration. The two-point trace forces \(d\ge2k-2\), and explicit free-coordinate constructions realize every trace when the inequality holds. Uniqueness of each background-bit representation gives the exact count. Along an all-positive branch of faces containing a given vertex, each splitting query introduces a new free coordinate, proving the online ceiling. A complete construction for the positive root branch uses uniform subset-containment queries and a two-coordinate splitting gadget; the negative branch uses the saturated VC support inside an opposite facet. The finite verifier additionally checks examples and its explicit certificate.
+## correctness
 
-**Originality — PASS under accessible comparisons.** Filmus et al. (arXiv:2212.14685), especially the introduction and Section 2.8, study the existence and extremality of partitions into coordinate faces, not the full fixed-rank face-incidence shattering system. Chepoi et al. (arXiv:1906.04492) treat the primal VC structure of families embedded as vertices in a cube, not vertex queries against all its fixed-dimensional faces. Guingona et al. (arXiv:2109.04805) treat zero sets of full nontrivial linear-combination families rather than these fixed-rank conjunctions. The accessible published research comparisons and previous accessible claims disclosed no theorem implying both the exact static threshold/count and the adaptive stable-range equality. Equivalently, each face is a conjunction of exactly \(d-k\) signed literals; textbook treatments of varying-width conjunction classes supply no claim implying the fixed-width threshold, exact maximum-support count and online equality. Possible undiscovered results under exact-width conjunction terminology remain a priority risk; this is not an assertion of comprehensive uniqueness.
+PASS
 
-**Value — PASS.** The full-parameter sharp threshold \(d=2k-2\) and complete classification/enumeration of all maximal shattered supports are structural, not a single computed parameter. The online ceiling and its attained range give a natural infinite hierarchy of static/adaptive separations. The critical two-coordinate gadget explains why online saturation occurs at most one ambient dimension after static saturation, which is a substantive distinction between fixed face rank and arbitrary-dimensional convex subsets.
+For fixed d>=k>=3, a shattered support S with m>=3 has a private coordinate for each element, none shared, so m<=k since S lies in a k-face. At m=k all varying coordinates are private, giving unit-vector support up to cube symmetries; trace of two selected unit vectors needs k−2 extra free coordinates, so d>=2k−2. Trace constructions give sufficiency, and unique representation yields exactly 2^d*C(d,k) maximal supports. For Littlestone, after an all-positive path every splitting query introduces a new varying coordinate, giving Ldim<=k+1. When d=2k−1, positive root version space corresponds to k-subsets of 2k−1 coordinate axes and admits depth k by explicit subset queries; negative root version space contains an opposite facet with VCdim k. Hence Ldim=k+1 for d>=2k−1. Independent exhaustive VC support checks returned exactly 64 for (4,3) and 320 for (5,3), and an independently found/replayed depth-four tree for (5,3). Claim explicitly leaves intermediate online range unclassified.
 
-**Limits.** The transition-zone Littlestone dimension is not fully classified, and no claim is made about affine flats outside coordinate cubes. The cited literature was compared by implication within its materially inspected scope; unindexed equivalent results remain possible. Finite computational tests are not proofs of the infinite statements, and an independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact-width signed-conjunction system is distinct from all-width conjunctions, subcube partitions, primal partial-cube VC, and unrestricted linear-combination zero sets. The inspected references did not directly give simultaneous sharp VC threshold d=2k−2, maximal support orbit count, universal online ceiling k+1 and attained d>=2k−1 gap. Historical exact-width term VC/online results remain a priority risk.
+
+## value
+
+PASS
+
+Natural finite incidence concept classes of fixed-dimensional cube faces present an explicit, sharp difference between static and sequential shattering; the maximal support classification and count are informative structure rather than a relabeling of broad conjunction VC bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
