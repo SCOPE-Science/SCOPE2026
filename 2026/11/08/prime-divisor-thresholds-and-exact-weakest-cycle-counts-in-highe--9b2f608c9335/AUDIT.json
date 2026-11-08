@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For all integer \\(M\\ge4\\) and \\(n\\ge1\\), the published symbolic coding identifies nontrivial primitive words with physical primitive orbits. The proof independently derives the signed monomial Jacobian, decomposes it into \\(d=\\gcd(M,k)\\) permutation cycles, proves that each cycle exponent includes \\(k/d\\) right-step factors, and obtains a sharp bound using the smallest prime divisor. A primitive p-right word with consecutive right symbols attains the bound whenever \\(n>p\\). The converse forces exactly p rights and an empty cyclic left gap. The circular independent-set count removes all other p-right words; because p is prime, adjacent-right extremizers cannot be proper powers. Cases \\(n\\le p\\) and \\(n=1\\) are handled separately. The dependency-free checker passed 110 exhaustive small dimension-period comparisons and constructed 1,440 physical periodic points in exact rational arithmetic. Finite checks are supporting, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2202.04304, Theorem B: the infimum of normalized periodic multipliers over periodic points in every nonempty open set equals 1, without prescribing the period or counting extremizers.",
+        "The exact-real-spectrum residue note f1bd1c74fb3b covers spectral types for all M and n but not finite-period optimization.",
+        "arXiv:2409.01261 (title, abstract and introductory system definition) studies the Dyck shift and heterochaos baker maps, whose maps and periodic multipliers differ."
+      ],
+      "reasoning": "Theorem B is a quantifier-weakening assertion over periods tending to infinity, not a sharp fixed-n theorem. Its proof uses long-block examples but does not establish universal optimality, the smallest-prime-divisor dependence, or exact minimizer counts. A general characteristic polynomial without bounds on the individual cycle exponent allocations does not dominate the new optimization result. No inspected broader theorem on this specific map implies all the new conclusions.",
+      "searches": [
+        "published-finding corpus: twisted baker map finite time weakest expansion prime factor dimension",
+        "published-finding corpus: twisted baker map periodic points weak expansion optimal per period minimal spectral radius n M",
+        "Web: Saiki Takahasi Yorke \"twisted baker\" exact multiplier weakest expanding periodic point"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.04304",
+      "arxiv:2409.01261",
+      "published-finding corpus:f1bd1c74fb3b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2202.04304 Section 2.1 gives partial spectral classifications; Section 2.3 gives the binomial residue counts; Sections 3 and Appendix A establish qualitative density and equidistribution, not an exact least-period extremal law.",
+        "Published mathematical note f1bd1c74fb3b explicitly factors the monomial characteristic polynomial but makes no claim identifying attainable minimum cycle exponents at fixed least period."
+      ],
+      "reasoning": "The prior polynomial factorization establishes a representation in terms of unspecified nonnegative exponents. Our proof adds the invariant lower bound \\(E_h\\ge k/\\gcd(M,k)\\), optimizes across admissible primitive words by the least prime divisor of M, characterizes equality by cyclic adjacent R symbols, and counts its primitive cycles using a prime-power obstruction and circular independent-set enumeration. Those added statements do not follow from the prior conclusions without new mathematical comparisons and arguments. The earlier \\(M=3\\) result is expressly not treated as new.",
+      "searches": [
+        "published-finding corpus: twisted baker map sharp minimal Lyapunov exponent at fixed least period n dimension M least prime divisor min multiplier",
+        "published-finding corpus: Saiki Takahasi Yorke twisted baker map periodic orbit spectral type binomial count",
+        "Web: \"twisted baker map\" minimal periodic expansion rate dimension prime composite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The real-spectrum residue note f1bd1c74fb3b, RESULT.md, gives the signed monomial characteristic polynomial and counts, but explicitly states that it does not classify fine Lyapunov-exponent distributions or least-period orbit counts.",
+        "arXiv:2202.04304, Lemma 2.1 and Theorem B, supplies qualitative nonuniform periodic expansion without a sharp fixed-period rate."
+      ],
+      "reasoning": "A signed-cycle characteristic polynomial and a qualitative limit infimum do not determine the minimum over primitive length-n itineraries: the right-step weight distribution among gcd(M,k) coordinate cycles and the zero-gap equality criterion must be proved. The existing \\(M=3\\) special case is included algebraically by the new formula, but the accepted claim is deliberately restricted to all dimensions \\(M\\ge4\\). The new smallest-prime-divisor phase transition, including composite dimensions, and the full exact cycle multiplicities are not stated in those sources.",
+      "searches": [
+        "published-finding corpus: twisted baker map sharp minimal Lyapunov exponent at fixed least period n dimension M least prime divisor min multiplier",
+        "published-finding corpus: twisted baker map count weakest repelling prime period cycles smallest prime factor dimension adjacent branch symbols",
+        "Web: \"twisted baker map\" \"Lyapunov\" \"prime period\" minimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b is the closest public match and lacks extremal counts.",
+        "The analytic minimizer formula reduces for \\(p=3\\) to \\(n-3\\) cycles but for composite higher dimensions gives a new p-dependent family, e.g. one cycle in every even dimension for \\(n>2\\)."
+      ],
+      "reasoning": "No exact table or database entry found giving the all dimensions \\(M\\ge4\\) minimizing primitive-period spectrum or the cyclic-adjacency count. The previously recorded dimension-three case is deliberately excluded, and differences in parameters were evaluated via formula implication rather than title mismatch. This is a best-knowledge database comparison, not proof against every unpublished result.",
+      "searches": [
+        "published-finding corpus: twisted baker map exact real versus complex eigenvalues periodic point twist count mod M primitive orbits",
+        "published-finding corpus: twisted baker prime period n extremal characteristic multiplier number of cycles n choose p adjacent R"
+      ]
+    },
+    "rationale": "The new domain \\(M\\ge4\\) excludes the earlier dimension-three minimum and count. The closest primary paper and indexed mathematical note prove qualitative nonuniform expansion or spectral-type classification, not sharp weakest-normalized multipliers at each prime period with exact numbers of extremizing cycles. The new prime-factor and cyclic-gap mechanism supplies the missing structural optimization. Priority outside inspected indexed and primary sources remains uncertain.",
+    "residual_risks": [
+      "Unindexed signed-permutation dynamics may contain an equivalent all-dimensional sharp multiplier law.",
+      "The higher-dimensional quantitative extension is mathematically related to a previously recorded \\(M=3\\) special case and builds on an existing signed-cycle factorization; priority in generalized form needs external review.",
+      "The primary coding theorem, rather than a new independent reconstruction of symbolic coding, is assumed as published foundational literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_FOUNDATION_NOT_FULL_COVERAGE",
+        "evidence": "Primary text establishes coding, total iterate-fixed count, spectral types on certain residues and nonuniform expansion but no sharp minimum at a prescribed primitive period or complete optimizer enumeration.",
+        "identifier_or_url": "https://arxiv.org/pdf/2202.04304",
+        "material_read": "Pages 2–12: map definition, branch Jacobians, Lemmas 2.1–2.6, Theorems A–D, periodic-point formulas and Appendix A; pages 2 and 6 visually inspected.",
+        "method": "Open-access full PDF text plus rendered page screenshots",
+        "title": "The twisted baker map",
+        "trigger": "Exact same family, symbolic realization, signed Jacobian, nonuniform expansion"
+      },
+      {
+        "assessment": "NEAREST_SPECTRAL_PRECURSOR_NOT_COVERING_OPTIMIZATION",
+        "evidence": "Gives characteristic polynomial product (z^ell-(-1)^(k/g)2^a_h) and real-spectrum residue counts. Its limitations explicitly exclude fine Lyapunov distributions and least-period counts; it does not prove the per-cycle minimum allocation or extremal orbit multiplicity.",
+        "identifier_or_url": "published-finding corpus:f1bd1c74fb3b",
+        "material_read": "Full public RESULT.md including statement, assumptions, signed-cycle proof, count, relationship and limitations.",
+        "method": "Read-only GitHub repository file fetch; compared polynomial statement and implications.",
+        "title": "Exact real-spectrum residue law for the twisted baker map",
+        "trigger": "Highly relevant full signed-cycle characteristic polynomial in all dimensions"
+      },
+      {
+        "assessment": "DIFFERENT_DYNAMICAL_FAMILY",
+        "evidence": "Defines heterochaos square and cube maps and studies unstable dimensions/MME distributions, rather than the dimension-M twisted baker map or its least-period weakest return multiplier.",
+        "identifier_or_url": "https://arxiv.org/pdf/2409.01261",
+        "material_read": "Title, abstract, introduction and definition of the heterochaos baker family on page 1–2.",
+        "method": "Open-access PDF text and visual inspection of first page",
+        "title": "Distributions of periodic points for the Dyck shift and the heterochaos baker maps",
+        "trigger": "Potential stronger periodic-multiplier distribution result from an author of the originating paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b2f608c-9335-4283-9950-40c4c2785994",
+  "value": {
+    "rationale": "The source identifies nonuniform expansion without a least-period rate; a sharp period-by-period minimum is a naturally motivated refinement of a dynamical stability invariant. The exact prime-divisor cutoff distinguishes prime from composite ambient dimension, determines the smallest multiplier achievable at every least period, classifies all minimizing itineraries, and enumerates all their cycles. The even-dimensional uniqueness phenomenon and general polynomial multiplicities are structural dynamical consequences, not arbitrary numerical facts or cosmetic restatements of the known \\(M=3\\) case.",
+    "status": "PASS"
+  }
+}
