@@ -1,0 +1,19 @@
+# Scientific review: central-profile finite Heisenberg spectrograms
+
+## Correctness — PASS
+The claim is about the explicitly normalized, coordinate-modulated, right-translated transform on a finite odd-characteristic Heisenberg group. Group inversion yields the central shift \(z-c-\ell_{a,b}(x,y)\). For a nonzero horizontal translation, \(\ell_{a,b}\) is surjective and its fibers all contain \(q^{2n-1}\) points. Fourier orthogonality makes the horizontal modulation vanish off its one-dimensional annihilator, and direct substitution reduces the remaining coefficient to the product of two one-dimensional profile Fourier coefficients. This is an exact identity valid for arbitrary nonzero complex central profiles, not an approximation. Consequently there are precisely \(r^2\) nonzeros per noncentral translation and \(a\) in the central rows.
+
+For a quadratic chirp, completion of the square gives \(q\) nonvanishing Fourier coefficients of magnitude \(\sqrt q\); first differences yield one nonzero ambiguity value of magnitude \(q\) for each central shift. The counted amplitude classes give the stated support, every positive moment, and normalized Shannon entropy. The moment of order two equals \(N\), furnishing an independent normalization check. Exact cyclotomic-integer finite checks and arbitrary-profile direct numerical summation independently match the formulas. Finite checks corroborate rather than prove the general statement.
+
+## Originality — PASS relative to inspected evidence
+Dabra–Dasgupta–Gulia (arXiv:2608.20952, first posted 2026-08-21) develop uncertainty and entropy inequalities for a continuous Heisenberg-group STFT, rather than the exact finite-field right-translation/coordinate-modulation factorization and two-tier chirp spectrogram here. Führ–Oussa (arXiv:2201.08654, published 2023) use irreducible Schrödinger representations and study phase retrieval rather than this regular-coordinate transform. Earlier lattice STFT uncertainty results also concern different ambient groups. The nearest indexed results concern finite cyclic STFT support, abelian chirp rigidity, and finite Heisenberg representation-degree projectors; none of their reported mathematical statements implies this all-profile factorization. The comparisons distinguish objects and conclusions, not just terminology.
+
+Residual risk: an equivalent factorization may appear in older finite-nilpotent-group or noncommutative time-frequency literature under a different normalization. Some adjacent indexed items were compared through their detailed result descriptions rather than inspected in full; their divergent subject matter and conclusions are recorded, and no absolute historical priority is asserted.
+
+## Value — PASS
+For a natural symmetry class of windows, the theorem reduces a transform with \(N^2\) coefficients to two one-dimensional invariants and gives an exact, not merely bounded, noncommutative spreading law. The full-profile formula is reusable for comparing windows with the same one-dimensional Fourier support but different ambiguity supports. The quadratic specialization shows a concrete, dimension-dependent entropy penalty caused solely by noncommutativity, with exact masses and moments; this is directly motivated by recent Heisenberg STFT entropy questions. It neither rests on arbitrary parameter slicing nor claims a global optimal uncertainty inequality.
+
+## Limits and evidence
+The proof applies to odd prime powers and every positive horizontal dimension; the exact checker verifies specific prime-field examples. The definition involves coordinatewise modulation and right translation; it is not asserted to reproduce all other Heisenberg-group STFT conventions. Publication priority and independent validation remain open for specialist review.
+
+Self-review: passed. Independent audit: not yet performed.
