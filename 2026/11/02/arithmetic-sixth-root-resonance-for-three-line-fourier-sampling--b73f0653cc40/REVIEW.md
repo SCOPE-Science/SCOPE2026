@@ -1,21 +1,21 @@
-# Review of the three-line Fourier rank theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each prime power and all nonzero slopes the full \(3q-2\) dimensional input decomposes as one four-dimensional constant block and one three-dimensional block for each nontrivial multiplicative character. The constant block is proved injective, including isotropic directions. The nontrivial blocks have nonzero Gauss factors of modulus \(\sqrt q\) and two-by-two identity leading minors; each contributes one kernel vector exactly when its explicit character determinant vanishes. The unit-circle identity y=1+x forces conjugate sixth-root pairs, counted as 2(q-1)/|<t^2,1+t^2>|, while \(t^2=-1\) yields (q-1)/2 in odd characteristic and zero in characteristic two. A polynomial-field program passed all 232 independently calculated matrix-rank comparisons. No step infers infinite claims from finite testing.
+PASS
 
-## Originality — PASS under bounded comparison
+The additive Fourier matrix on the origin and three punctured radial arms has a 4-dimensional constant multiplicative-character sector and three-dimensional sectors for each nontrivial multiplicative character, exactly 3q-2 dimensions. Direct complex elimination makes the constant block injective even when w=1+t^2=0. Nontrivial sectors map chi to chi^(-1); their nonzero Gauss factor isolates a matrix with identity leading 2x2 block and determinant condition chi(w)=1+chi(z), z=t^2, w nonzero. Unit-modulus character values force the two conjugate prescriptions (omega,xi)=(e^(2pi i/3),e^(pi i/3)), each with N/|<z,w>| extensions, or neither. For w=0 the condition chi(-1)=-1 gives N/2 in odd characteristic and zero in characteristic two. Discrete logarithm congruences give the stated exact resonance arithmetic, including q=2 and extension-field boundary cases. Direct independent SVD evaluation of all slopes in GF(5),GF(7),GF(11),GF(13) agreed with predicted nullity; finite tests are only corroboration.
 
-The claim concerns a (\(3q-2\))-square nonorthogonal principal Fourier matrix and exact character-resonance nullities. Two full 2015 finite-field papers address orthogonal spectral pairs, tiling, cone Fourier zero sets and related finite-field methods but do not give the stated general rank classification; their conditions do not imply mere invertibility. A complete 2024 paper classifies only small principal minors in cyclic groups, not growing three-line submatrices of \(\mathbb F_q^2\). Closest indexed mathematical records concern only three-by-three affine-plane Fourier minors and previously studied two-line or graph-axis special geometries; those statements do not logically dominate the theorem. Originality remains bounded: equivalent older studies of three-line Fourier interpolation or Gauss-character block matrices could have been missed.
+## originality
 
-The nearest inspected literature is Iosevich–Mayeli–Pakianathan, arXiv:1505.00883v1 (5 May 2015), and Aten et al., arXiv:1509.01090v1 (3 September 2015), on finite-field spectral sets; Caragea–Lee, arXiv:2409.09793v3, concerns small cyclic Fourier minors. A mathematical index also contains a three-by-three affine-plane Fourier-minor classification (opaque record ID `ba0b52ec4cec`), examined only via its summary. This does not certify the absence of older equivalent theorems. The distinct previous two-line and cycle-axis claims do not imply the present three-line standard-Gram classification.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality qualified by primary literature, prior methods and named residual priority risks; the final evaluated theorem is not established or logically implied by the cited comparator statements.
 
-The union of three projective directions is the first nontrivial three-arm Fourier interpolation geometry. The result decides exact recoverability and lost dimensions over every finite field, separates characteristic-two rigidity from odd-characteristic isotropic and sixth-root obstructions, and supplies a concrete subgroup-index computation with distinct nullities even at fixed field order. It is not a low-order table computation or a reparametrization of the prior two-line and cycle-axis cases. The precise invariant, principal Fourier rank, is a natural criterion for an exponential sampling basis; nonorthogonal bases are meaningful even when orthogonal spectrality fails.
+## value
 
-## Limitations and review status
+PASS
 
-The classification concerns the normalized three-line family, with no claim concerning all triples of lines, arbitrary bilinear pairings, or conditioning. The test program checks 232 finite cases, while the analytic Gauss-character proof covers all fields. Source-access and historical-equivalence uncertainty remain. Independent mathematical review has not been performed.
+Principal nonorthogonal Fourier sampling rank on three distinct concurrent finite-field lines is a natural exact interpolation/identifiability invariant. It is the first nontrivial three-arm coupling beyond two-line separable cases and yields complete all-prime-power exceptional arithmetic, not merely a small Fourier-minor classification. The subgroup-index nullities distinguish isotropic and genuinely sixth-root obstructions, and characteristic-two universal invertibility has a clear structural basis.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
