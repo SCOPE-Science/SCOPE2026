@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The car-position recurrence is an exact consequence of synchronous Rule 184. The min-plus identity follows inductively, and nonnegative cyclic increment sum localizes every first global minimum within one cycle. Equality in the sharp bound is equivalent to strict negative suffix sums; the two hypothetical final-minimum roots would partition the increment cycle into two negative-sum arcs, contradicting nonnegative total surplus. The strict-negative-prefix sequences biject with plane rooted tree outdegree sequences, and the closing gap is forced and nonnegative. A particle–vacancy reflection/complement conjugacy handles densities above one half. The fixed-excess asymptotic is a direct binomial-ratio limit. The separate finite checker exhaustively verifies states through length sixteen and tests larger random states.
+PASS
 
-## Originality: PASS (historical priority qualified)
+Index cars on a cyclic synchronous Rule-184 ring. Exact lifted recursion p_i(t+1)=min(p_i(t)+1,p_(i+1)(t)-1) yields by induction p_i(t)-t=p_i(0)+min_{0<=j<=t}Σ_{r<j}(g_(i+r)-1). For k<=n/2, increments δ_i=g_i-1>=-1 sum to h=n-2k>=0, so every running minimum is attained during one k-gap cycle. Last first minimum τ_i<=k-1 gives T=max τ_i<=k-1. T=k-1 iff a designated root has all nonempty backward partial sums strictly negative. Two distinct roots would partition the k increments into two strictly negative arcs, impossible because their total h>=0, so the root is unique. Reversed negative-prefix sequences biject with preorder outdegree sequences of rooted plane ordered trees on k vertices; final gap is uniquely forced and nonnegative. There are n root site choices, hence n Catalan_(k-1) indexed extremizers. Particle-vacancy involution handles k>n/2; the exact binomial ratio gives the fixed-h limit 2^(-h-1). Independent from-recurrence direct Rule-184 finite-state enumeration over every indexed configuration for each 2<=n<=12 matched maximum T=m-1 and exact n Cat_(m-1) counts at every fixed density. This finite enumeration corroborates but is not an all-n proof.
 
-Searches in established cellular-automaton literature and indexed mathematical findings did not disclose the exact finite-ring extremal multiplicity. Fukś (1997) provides convergence, but not the sharp car-number bound with enumeration; Fukś (1999) and Belitsky–Ferrari (1998) analyze related traffic dynamics. Jha et al. (2025, 2026) analyze relaxation observables numerically and by continuum methods but not the exact indexed finite-size extremal event. Biham et al. (2026) concern last stopping of an individual car under random initialization. The known total-delay invariant is a sum and cannot directly determine the maximum stopped-car time. The possibility of an equivalent unindexed cyclic queueing or ballot-path result is a genuine outstanding priority risk, not a claim of absolute uniqueness.
+## originality
 
-## Value: PASS
+PASS
 
-Relaxation time measures clearance of the last transient jam, a central natural observable in deterministic traffic and density classification. The theorem gives both a sharp all-ring maximum and its complete equality count, with a plane-tree explanation and a nontrivial near-critical fixed-density limit. This quantifies how prevalent the worst-case transient actually is, beyond bounds or approximate average-time scaling.
+A tagged-car first-passage distribution, mean global relaxation time and coarse finite-time density-classification bounds are precedents but not the exact joint maximum-and-indexed-extremizer result. The first-passage literature contains Catalan-related combinatorics and might imply the result under a different presentation, retained as a risk.
 
-## Limitations
+## value
 
-The counted states are indexed; the result does not classify rotation classes or the full relaxation-time distribution. It assumes deterministic parallel updates, a periodic ring, and the first no-adjacent-minority time. Finite checker runs and literature search do not constitute independent scientific audit or exhaustive proof of historical novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum global relaxation delay of deterministic fixed-density periodic traffic and the precise multiplicity of achieving configurations are natural global dynamical invariants. The unique bottleneck car/Catalan plane-tree bijection yields a nontrivial exact classification, and the balanced critical probability tends to 1/2. This is not a routine first step of simulation and no claim of broader continuous-time traffic is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
