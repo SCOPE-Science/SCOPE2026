@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute `python3 verify.py` using a standard Python 3 interpreter; no nonstandard packages are needed. The script independently builds divisor sets, computes the gcd-incidence graph and counts perfect matchings by an integer bit-mask dynamic program. For small cases it also enumerates all permutations independently. It then tests the theorem's squarefree-support criterion and the separately derived progression congruences.
+## correctness
 
-The checked domain was \(1\le n\le180\) with \(\tau(n)\le12\), \(1\le a\le14\), and \(1\le b\le5\), plus six separate arbitrary-target-set examples. The observed output was:
+PASS
 
-```text
-VERIFY_OK cases=12320 odd=220 unique=220 zero=3309 six_examples=8 arbitrary_sets=6 independent_brute=yes
-SIX_EXAMPLES_FIRST [(3, 1, 1), (3, 5, 1), (6, 1, 1), (6, 5, 1), (9, 1, 1), (9, 5, 1), (12, 1, 1), (12, 5, 1)]
-```
+The incidence graph depends only on prime supports. Repeated left supports from p,p^2 when n not squarefree, or repeated right supports when S has a collision, give fixed-point-free transpositions of perfect matchings and even multiplicity. Squarefree n has 2^r distinct divisor supports; distinct right supports of that cardinality exhaust the Boolean lattice, and matching right support T to left complement P\T is forced by decreasing-size induction. In an AP of 2^r terms, exactly half must be multiples of each p|n; if p|b this is impossible, and if p>=3, ceil(2^r/p)<2^(r-1) for r>=3. In r=2 the largest prime must be 3 so n=6, and parity and mod-3 residues yield the listed congruences. Includes n=1, primes, b divisible by p, and zero matchings. Independently counted 1890 bounded gcd-DP instances and compared actual parity and uniqueness.
 
-The stand-alone mathematical argument, rather than a finite bound on \(n\), establishes the theorem. The program does not prove exhaustive novelty, nor does it determine all even matching multiplicities. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The Recaman divisor matching problem and exact AP existence criteria are established by McNew-Pomerance and Alekseyev; their accessible statements do not themselves count odd/perfect-match multiplicities. The Boolean neighborhood involution is elementary and may have antecedents, but its sharp arbitrary-S and AP uniqueness classification is not mechanically implied by existing existence criteria. Qualified PASS with full-text coverage risk for Alekseyev later version.
+
+## value
+
+PASS
+
+A complete all-n characterization of unique versus even coprime bijections, including the surprising exceptional n=6 AP family, answers a natural multiplicity refinement of a recently studied existence problem. It is not an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
