@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The Haagerup/Christensen self-adjoint Schur norm formula is applied to an explicitly constructed PSD order majorant and to permutation-averaged arbitrary majorants. A rank-one factorization proves P-M positive. A two-by-two determinant identity proves P+M positive. For the converse, intersection of two forced intervals for the constant-vector compression produces a scalar inequality, whose exact solution is the claimed bound. All positive integer sizes are covered analytically, with diagnostic rational checks in VERIFY.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davidson–Donsig, arXiv:math/0506073 Section 4 treats transitive group patterns and Kneser graphs; González-Pérez et al. arXiv:2610.15881 treats radial Schur multipliers on trees for 1<p<infinity; Beke et al. arXiv:2607.14316 concerns signed decompositions."
+      ],
+      "reasoning": "Transitive balanced-part and one-hub tree special cases have stronger coverage already; neither implies the entire unequal-part formula. The general signed-decomposition theorem does not specify sharp graph-dependent norm.",
+      "searches": [
+        "published-finding corpus: Arrowhead zero-one Schur multiplier norm on B(l2) 9/7 for three vertices, 7/5 for four vertices",
+        "Web: \"Schur multiplier norm\" \"complete bipartite graph\"",
+        "Web: \"Schur multiplier\" \"complete bipartite\" \"diagonal\" norm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.29643",
+      "arxiv:2610.15881",
+      "arxiv:2505.24670",
+      "arxiv:math/0506073",
+      "arxiv:1302.4849",
+      "arxiv:2607.14316",
+      "published-finding corpus semantic searches detailed in named check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Christensen (2025) Theorem 2.2 is the proved SDP equivalence; Davidson–Donsig Theorem 4.4 covers transitive actions only; Levene (2014) handles graphs with small norms and path truncations; Arhancet arXiv:2609.29643 concerns ordinary/CB norm separation in S4, not endpoint exact mask norms."
+      ],
+      "reasoning": "The new assertion is the explicit solution for unequal a,b, proved with a two-orbit SDP analysis. It does not claim the general optimization equivalence or balanced/singleton special cases as discoveries.",
+      "searches": [
+        "published-finding corpus: Exact Schur operator multiplier norm of graph metric radius-one ball on finite star tree with n leaves; ratio (5n-1)/(3n+1)",
+        "published-finding corpus: Schur multiplier on finite star tree distance-one ball idempotent; sharp norm tends to 5/3",
+        "Web: \"Schur multiplier\" \"bipartite\" \"cross\" \"identity\" exact norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Christensen arXiv:2505.24670 Theorem 2.2 equates Schur norm with a positive-order majorant; Davidson–Donsig math/0506073 Theorem 4.4 equates the transitive equal-part case with a normalized absolute-value trace."
+      ],
+      "reasoning": "Equivalent gamma_2/Schur norms and positive-order formulations were compared. Their general optimization framework does not itself state the two-variable closed form. The transitive trace reduction covers equal but not unequal part sizes.",
+      "searches": [
+        "published-finding corpus: Exact Schur operator multiplier norm of graph metric radius-one ball on finite star tree with n leaves; ratio (5n-1)/(3n+1)",
+        "published-finding corpus: Schur multiplier mask star graph adjacency plus diagonal Schatten p exact projection norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Levene arXiv:1302.4849 Section 5 tabulates low-norm examples and Section 6 proves initial norm gaps; the available previous star special case matches the singleton boundary but not general a,b."
+      ],
+      "reasoning": "No exact unequal-part two-parameter table/formula was found in the inspected sources. This is not a claim that every database has been exhaustively checked.",
+      "searches": [
+        "published-finding corpus: Schur multiplier mask star graph adjacency plus diagonal Schatten p exact projection norm",
+        "Web: \"Schur norm\" \"complete bipartite\" \"identity\"",
+        "Web: \"Schur multiplier\" \"5n-1\" \"3n+1\""
+      ]
+    },
+    "rationale": "The full unequal-part K_{a,b} looped graph family has a sharp exact rational Schur projection norm. Unlike the equal-part case, its permutation group is not transitive, so the Davidson–Donsig/Mathias transitive trace formula is not directly applicable. The previously known singleton-part special case is expressly not counted; the new argument solves the full unequal two-parameter optimization. Relevant literature and available research claims were searched and compared by implication, not only titles. Residual classical graph-multiplier priority risk remains.",
+    "residual_risks": [
+      "The graph-operator-system projection literature could contain a less obvious stronger formula implying the unbalanced case.",
+      "An unpublished or unindexed exact matrix-factorization result might cover the two-parameter family.",
+      "No independent audit of originality or publication priority has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers order-interval lemma, does not state the looped complete bipartite two-parameter evaluation",
+        "evidence": [
+          "Theorem 2.2 gives -P<=A<=P with controlled diagonal, general Hermitian A."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.24670v2",
+        "material_read": "Sections 1–2 including Theorem 2.2 and its proof, and abstract",
+        "method": "Public arXiv full text HTML",
+        "title": "The Schur multiplier norm and its dual norm",
+        "trigger": "Exact positive-order formula potentially covers or reduces claim"
+      },
+      {
+        "assessment": "Covers equal-part transitive case only; unequal part sizes form distinct permutation orbits",
+        "evidence": [
+          "Section 4 transitive group theorem and Mathias normalized trace identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+        "material_read": "Full accessible HTML text, particularly Theorem 1.1 and Section 4 Theorems 4.4–4.5, examples",
+        "method": "Public arXiv text",
+        "title": "Norms of Schur Multipliers",
+        "trigger": "Transitive-pattern norm formula might imply claim"
+      },
+      {
+        "assessment": "Low-norm gaps and path examples are relevant; no direct general unequal-part expression located",
+        "evidence": [
+          "Theorem 1.1 defines initial gaps; Proposition 5.1 lists specific small-mask values; Sections 4–6 concern paths and small classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.4849",
+        "material_read": "Abstract, introduction, Section 5 comparison, Section 6 theorem and graph framework; PDF page 3 visually inspected",
+        "method": "Public PDF text, targeted searches and screenshot",
+        "title": "Norms of idempotent Schur multipliers",
+        "trigger": "Exact norm tables for 0–1 graph masks"
+      },
+      {
+        "assessment": "Interior Schatten 1<p<infinity and tree radial setting, not full two-part endpoint Schur norm",
+        "evidence": [
+          "Theorem A 1<p<infinity, finite ball multipliers and failure of endpoint extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.15881",
+        "material_read": "Public full-text introduction, Theorem A and tree and Fourier multiplier comparisons",
+        "method": "Public arXiv full-text text",
+        "title": "Radial Schur multipliers on trees and the failure of Fourier-Schur transference",
+        "trigger": "Recent boundedness of radial tree ball multipliers; endpoint contrast"
+      },
+      {
+        "assessment": "Concerns S4 CB vs ordinary norm separation, a different endpoint and object",
+        "evidence": [
+          "Size 3 is first S4 ordinary/CB separation; endpoint B(M_n) Schur norms are not calculated for looped K_{a,b}."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.29643",
+        "material_read": "Available arXiv preprint material, abstract and detailed size-three comparison",
+        "method": "Public arXiv preprint access",
+        "title": "Optimal square size for separating the operator and completely bounded norms of Schur multipliers on S4",
+        "trigger": "Emerging sharp finite Schur multiplier norm questions"
+      },
+      {
+        "assessment": "Gives signed decomposition into contractive idempotents; not a closed formula for this norm",
+        "evidence": [
+          "Bounded-gamma_2 decomposition into signed rectangular contractive masks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.14316",
+        "material_read": "Updated 2026 abstract and theorem synopsis",
+        "method": "Public arXiv metadata and summaries",
+        "title": "A characterization of idempotent Schur multipliers",
+        "trigger": "General theorem could dominate all 0–1 mask norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3c44b45b-cba2-4a22-89ef-9f2a6e3f1084",
+  "value": {
+    "rationale": "The mask for looped complete bipartite graphs is canonical and its exact operator-space Schur projection norm is a natural invariant. The explicit asymmetric two-variable classification identifies sharp limits from fixed one-side size to two-sided growth, distinguishing stars from genuine cycles. This solves an exact invariant across the full natural graph family rather than adding an arbitrary finite sample or numerical improvement.",
+    "status": "PASS"
+  }
+}
