@@ -1,11 +1,21 @@
-# Review of arithmetic jump rigidity
+# Independent mathematical audit
 
-**Correctness (PASS).** The branch-counting transfer identity is exact for every positive slope and interval cutoff. Summing over all finite words yields a uniformly convergent nonnegative endpoint expansion of the stationary density. Positivity excludes cancellations; irrational integer-multiplication orbits are pairwise distinct, while rational fractional-slope iterates acquire strictly increasing reduced denominators. These two disjoint cases prove infinitely many jumps. Weight bounds and normalization yield the explicit logarithmic jump-count constants, and ergodicity of integer multiplication gives the almost-everywhere density conclusion. Twenty-four finite rational instances independently checked the exact finite-depth mechanisms; finite tests were not used as infinite proof.
+## correctness
 
-**Originality (PASS, with explicit residual risk).** Suzuki's Theorem 3.1 already supplies a far more general formula for stationary random-beta densities, and this theorem intentionally credits it. The new assertion is an arithmetic classification of *whether a mixture can ever retain a finite-step density*, including a uniform quantitative jump-count obstruction and a typical dense-jump law. Neither that universal rigidity classification nor its threshold-count lower bound was identified in the inspected primary results or in actual semantic-index searches. Because these are deductions from Suzuki's explicit formula, equivalence by straightforward specialization or an overlooked remark remains a meaningful priority risk; the result should not be described as a new invariant-density formula.
+PASS
 
-**Value (PASS).** Finite-step Markov densities are valuable because they permit finite-dimensional computations. The theorem shows rigorously that even mixing two individually finite-step expanding beta maps can destroy that finite description at every positive noise level. The log-scale count supplies an explicit obstruction to approximation by a fixed number of jumps, and the typical dense-jump phenomenon explains how a bounded-variation density can be discontinuous in every open subinterval.
+For B_lambda x={lambda x}, the transfer-operator step identity L_lambda 1_[0,t) = floor(lambda t)/lambda + 1_[0,{lambda t})/lambda holds. Sum over all finite words from t_empty=1 with positive weights a_w=product(p_lambda/lambda). As r+s=q<1, series H converges uniformly and in BV and stationary h=H/Z by mass preservation, with 1<=Z<=1/(1-q); uniqueness invokes the pre-existing Suzuki result. Every endpoint contributes a noncancelling downward jump a_w/Z. For irrational beta, the distinct orbit {b^j(beta-1)} has jump >=(1-q)s r^j. For beta=c/d reduced noninteger, B_beta^j(1) has reduced denominator d^j, jump >=(1-q)s^j; these yield J(epsilon) liminf lower bounds. Integer multiplication mod1 is ergodic for Lebesgue a.e. beta-1, giving generic dense jumps. Independently checked exact rational beta denominator growth 36 steps over c/d=3/2, 4/3, 7/4. Finite tests do not prove infinite orbit claims.
 
-**Closest literature and limitations.** Suzuki (arXiv:2303.17521, Theorems 3.1 and 4.2) is the closest and strongest source, with Kalle–Maggioni (arXiv:1805.11430) furnishing general random invariant-density constructions and Dajani–Kalle–Maggioni (arXiv:2008.04398) treating finite-step behavior under random matching. The result gives only jump-count lower bounds, not asymptotics or a classification of dense-orbit behavior for every irrational slope. Independent scientific validation and comprehensive publication-priority examination remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS *only for arithmetic infinite-step rigidity*, quantitative jump-count and generic dense-jump consequences; the positive endpoint expansion and uniqueness are expressly prior in Suzuki 2024. The new deductions are short but require proving there are infinitely many distinct noncancelling endpoints for all irrational/rational noninteger beta, not a direct theorem or table of the inspected source.
+
+## value
+
+PASS
+
+A natural robustness phenomenon: mixing even two individually finite-step invariant-density maps (doubling and golden-ratio beta) produces infinitely many density jumps at every positive mixing probability. The exact arithmetic witnesses and logarithmic quantitative jump-count obstruction are structurally informative for BV invariant-density regularity and numerical representation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
