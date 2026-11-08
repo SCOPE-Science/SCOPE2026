@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob 0b4b6d0623b6f8c0c78a9a9204ffd70a9f3a73ef",
+        "pinned verify.py blob 9a32b8e2b4206380b5e1930e9e19aaacd612d274 inspected integral cycle and all-216-chain equality algorithm",
+        "independent reconstruction of 6528-by-16524 sparse boundary rank 6521 modulo101 and direct count of 216 automorphisms",
+        "An–Drummond-Cole–Knudsen Comparison Theorem 4.5 and reduced complex Proposition 4.9"
+      ],
+      "rationale": "For the 18-vertex, 27-edge LCF Pappus graph, the fully reduced Świątkowski weight-three chain model has C3 rank 6528 and C2 rank 16524, with local two half-edge differences at each cubic vertex. The inspected code constructs the signed d3 using the graded Leibniz rule and graph edge variables; an independent sparse modular elimination rebuilt all 6528 columns and gives rank 6521 over F101 (nullity 7). The pinned verifier constructs seven explicitly checkable integral cycles with identity coefficients on seven free coordinates and verifies zero integral boundaries; these imply rational rank ≤6521, hence exactly 6521 and, because any integral kernel vector has integer values on the seven free coordinates, the seven cycles form an integral H3 basis. Direct independent graph automorphism backtracking gives exactly 216 adjacency-preserving permutations. The inspected chain-action algorithm transforms each local half-edge difference with Koszul signs and tests integral chain equality on the seven cycles for all 216 maps, recovering the class traces, order-three kernel, and central-sum eigenspaces 1,2,4. Its character squared norm is 3 (648/216), and distinct central eigenvalues split three absolutely irreducible rational constituents. Mean character zero gives invariant H3=0 and therefore only H3 of the quotient vanishes. This uses the published reduced-chain comparison theorem, not just a finite-field experiment.",
+      "residual_risks": [
+        "Integral action verified algorithmically using the inspected exact source; a second independently implemented 216-matrix integral action replay was not run.",
+        "No statement about lower integral H1/H2 or full quotient topology follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An et al. Theorem4.5 and Proposition4.9 give a natural chain model and reduced-model homology comparison for general graph configurations; they do not evaluate the Pappus 216-element representation. Maciążek–Sawicki discusses general graph braid families without an indexed Pappus-specific result."
+        ],
+        "reasoning": "The general computational model makes the calculation possible but does not imply the explicit Pappus central characters or the integral kernel order.",
+        "searches": [
+          "Pappus graph unordered three particle configuration space top homology automorphism module",
+          "An Drummond Cole Knudsen Subdivisional Spaces graph braid groups arxiv:1708.02351",
+          "Maciazek Sawicki Non-abelian quantum statistics graphs arxiv:1806.02846"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-top-homology-of-the-three-particle-pappus-configuration-space--94f23a73ed7c",
+        "https://arxiv.org/pdf/1708.02351",
+        "https://arxiv.org/pdf/1806.02846",
+        "Pappus graph unordered three particle configuration space top homology automorphism module"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An abstract rank-7 abelian group admits many nonisomorphic order-216 integral actions; rank and chain model alone give neither the kernel subgroup nor the 1+2+4 decomposition."
+        ],
+        "reasoning": "The full 216-element action is not a corollary of the known nonequivariant rank result. The chain-model theorem supplies correctness tools rather than an already evaluated representation.",
+        "searches": [
+          "Pappus graph unordered three particle configuration space top homology automorphism module",
+          "published Pappus three-particle rank seven complete proof",
+          "arxiv:1708.02351 Theorem4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing published exact result H3(UConf3(Pappus);Z)=Z7 is the same object and invariant rank; it does not specify any nontrivial Aut(P) action or module kernel."
+        ],
+        "reasoning": "The final claim deliberately asserts a richer integral representation with 216 action matrices and irreducible splitting, not a renamed rank-seven assertion.",
+        "searches": [
+          "Pappus graph unordered three particle configuration space top homology automorphism module",
+          "Pappus three particle top homology integral module automorphism action",
+          "Świątkowski graph-braid quotient symmetry representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary three-particle Pappus result proves Z7 using mod-3 rank and seven cycles; the full paper/result only computes nonequivariant rank, not Aut(P). Two-particle Pappus gives different particle number."
+        ],
+        "reasoning": "The exact same-graph rank is known and not claimed novel; the additional integral symmetry matrices, 13 classes and Q-irreducibles are not tabulated in checked primary records.",
+        "searches": [
+          "Pappus graph unordered three particle configuration space top homology automorphism module",
+          "Resultary top homology three particle Pappus exact H3 rank 7",
+          "Resultary two particle Pappus representation"
+        ]
+      },
+      "rationale": "Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.",
+      "residual_risks": [
+        "The known same-object H3 rank calculation might be accompanied by unpublished equivariant follow-up; best-of-knowledge novelty concerns only the integral action, not the rank.",
+        "Published graph-braid character results under an alias could exist; no global priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS integral rank seven but NOT action",
+          "evidence": "Computes H3=Z7; no automorphism module matrices or character are claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-top-homology-of-the-three-particle-pappus-configuration-space--94f23a73ed7c",
+          "material_read": "Entire published RESULT.md with top-cycle proof, scope and limits",
+          "method": "GitHub primary published full-result file reading",
+          "title": "Top homology of the three-particle Pappus configuration space",
+          "trigger": "Identical object/particle number, strongest prior priority risk"
+        },
+        {
+          "assessment": "Provides canonical chain model, not evaluated Pappus representation",
+          "evidence": "Comparison theorem establishes H_*(B(Γ))≈H_*(S(Γ)); reduced vertex modules are homology equivalent.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02351",
+          "material_read": "Full introduction and Section4.2, Theorem4.5, Definition4.7, Proposition4.9 and their stated hypotheses",
+          "method": "Primary arXiv PDF text and page image inspection",
+          "title": "Subdivisional Spaces and Graph Braid Groups",
+          "trigger": "Same chain construction and possible general determining theorem"
+        },
+        {
+          "assessment": "No Pappus-specific 216-element integral top-homology representation located in material read",
+          "evidence": "Paper studies graph configuration homology and families; Pappus keyword search had no match.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.02846",
+          "material_read": "Introduction, main organization of graph-family computations and textual search for Pappus",
+          "method": "Primary arXiv PDF screenshot and searched extracted text",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Related primary full graph-configuration homology calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "complete prior published Pappus rank-only result and the explicit nontrivial character refinement",
+        "independent 216-automorphism enumeration and modular top-chain rank"
+      ],
+      "rationale": "The Pappus graph is a natural symmetric cubic graph whose three-particle top homology rank seven was already known but whose exact integral symmetry module was unspecified. Determining the faithful quotient, complete class traces and integral seven-dimensional action is a nontrivial refinement that matters for equivariant configuration topology; the known rank alone is insufficient to recover it.",
+      "residual_risks": [
+        "No paper-sized downstream theorem is required for an independently motivated exact invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md blob 0b4b6d0623b6f8c0c78a9a9204ffd70a9f3a73ef",
+    "pinned verify.py blob 9a32b8e2b4206380b5e1930e9e19aaacd612d274 inspected integral cycle and all-216-chain equality algorithm",
+    "independent reconstruction of 6528-by-16524 sparse boundary rank 6521 modulo101 and direct count of 216 automorphisms",
+    "An–Drummond-Cole–Knudsen Comparison Theorem 4.5 and reduced complex Proposition 4.9",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-top-homology-of-the-three-particle-pappus-configuration-space--94f23a73ed7c",
+    "https://arxiv.org/pdf/1708.02351",
+    "https://arxiv.org/pdf/1806.02846"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only weight-three H3 integral representation is claimed, not lower homology groups.",
+    "The group-fixed conclusion is H3 rational vanishing, not quotient acyclicity.",
+    "New review is scientific acceptance only; publication plan remains not_ready due unsanitized potentially public operational provenance."
+  ],
+  "residual_risks": [
+    "Integral action verified algorithmically using the inspected exact source; a second independently implemented 216-matrix integral action replay was not run.",
+    "No statement about lower integral H1/H2 or full quotient topology follows.",
+    "The known same-object H3 rank calculation might be accompanied by unpublished equivariant follow-up; best-of-knowledge novelty concerns only the integral action, not the rank.",
+    "Published graph-braid character results under an alias could exist; no global priority certification."
+  ],
+  "schema_version": 1
+}
