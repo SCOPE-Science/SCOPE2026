@@ -1,19 +1,21 @@
-# Scientific review: balanced double-star negative type
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a statement for all integers \(q\ge1\) and all real exponents \(p\ge0\). The power-distance quadratic form is decomposed exactly into two within-leaf residual spaces, a symmetric one-dimensional zero-sum space, and an antisymmetric two-dimensional space. The symmetric threshold is unique because \((3/2)^p-1-2^{-p}\) increases strictly. The antisymmetric determinant stays positive until that threshold: its derivative has a definite sign for \(p\ge1\), and a concavity estimate verifies the endpoint margin. The critical equality space and centered Gram ranks follow from these strict signs. The four-vertex path is checked separately; the asymptotic law follows by Taylor inversion. The standalone verifier checks the powered-distance block identity exactly for finite examples. Numerical checks are not used to justify the universal theorem.
+PASS
 
-## Originality — PASS, qualified
+From the actual balanced double-star vertex-metric RESULT.md, the zero-sum powered-distance quadratic form splits into leaf-residual, symmetric and antisymmetric sectors. The symmetric scalar coefficient f_q(p)=q3^p-(q+1)2^p-q has a unique zero p_q in (1,2] because (3/2)^p-1-2^-p is strictly increasing, with p_1=2. The antisymmetric 2x2 block has determinant qg_q(p) and g_q>0 up to p_q for q>=2 by the stated derivative and strict-concavity comparison t=2^p<2+2/q at the root. Tree-edge cut decomposition gives strict p=1 negative type, and strictness propagates below 1; above p_q an explicit symmetric vector gives positive quadratic form. The endpoint zero-sum null vector is leaves +1 and two hubs -q, yielding Gram rank 2q for q>=2 versus 2q+1 below; q=1 path has rank1 at p2. Taylor inversion gives p_q=1+[2/(3log3-2log2)]/q+O(q^-2), strictly below corresponding one-hub star exponent. Independent BFS distance matrices, sector signatures and critical null ranks confirmed q=1..6, not used to prove all q.
 
-Targeted searches for double-star, bistar, two-hub, powered-distance and equality-vector formulations found no statement equivalent to this evaluated exponent, critical nullspace, and asymptotic law. The closest inspected primary sources are Doust--Weston's 2007 exact **single-star** result (Theorem 38), Li--Weston's 2009 general strictness theorem, Caffarelli--Doust--Weston's 2010 general tree estimates and limit examples, and Sánchez's 2011 generic finite-metric method and complete-bipartite example. The new relation is not implied by the single-star formula: the two-hub exponent is strictly smaller. The other sources do not evaluate this two-hub exponent. These comparisons are based on material read, not titles alone. Remaining risk: an equivalent formula may occur in literature outside the inspected index and sources; no priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Exact supremal negative-type exponents are difficult even for small finite trees, as noted by the foundational papers. The balanced two-hub tree is the first natural next branching pattern after the exactly solved single star. The theorem supplies a complete infinite-family invariant, a unique critical equality direction, an embedding-dimension phase change, and a quantitative \(q^{-1}\) approach to generalized roundness one. More substantively, it proves that joining two one-hub stars creates a strictly stronger obstruction than either induced star; thus the answer detects branching interactions, not just a routine rescaling of a known formula. The result does not claim an arbitrary-tree classification.
+Doust–Weston arxiv:0705.0411 gives exact one-hub star exponent and general tree bounds; Li–Weston arxiv:0901.0695 supplies strict lower-p theorem; Caffarelli–Doust–Weston arxiv:1008.3418 treats general tree generalized roundness, and Sánchez arxiv:1108.0451 supplies a generic finite-metric determinant route. None inspected explicitly states the balanced two-hub all-q equation, nullspace, embedding dimension and asymptotic. Resultary bistar findings concern zero forcing or symmetric edge polytopes, not shortest-path powered negative type. Potential unindexed equivalent evaluation remains.
 
-## Scope and verification limits
+## value
 
-Finite checks cover only selected positive integer parameters and exponent values, while the analytic proof covers all claimed parameters. No statement is made about unequal or weighted double stars. Independently published equivalences not indexed by the inspected searches cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The balanced double star is the simplest natural graph with two genuinely branching hubs after the exactly solved one-hub star. Its exact powered negative-type exponent, unique equality direction, Hilbert embedding rank loss and sharp q^-1 approach to one quantify an interaction between two branching clusters. The strict inequality versus each induced star proves the result is not merely a reparameterization of the star formula. This all-size structural classification is useful for metric embedding and generalized-roundness comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
