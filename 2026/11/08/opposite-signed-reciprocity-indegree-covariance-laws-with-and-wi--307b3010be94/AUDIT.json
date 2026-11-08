@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "Both covariance PGFs are reconstructed by conditioning one unordered reciprocal pair, deriving the changed Bernoulli marginal p’ of its two rows, evaluating endpoint and third-vertex indegree PGFs, and exact cancellation of constant and linear terms. All n>=3, all valid k including deterministic boundaries. Coefficientwise Poisson-binomial limit follows from the established finite polynomial identities. Independent exact enumeration checks all 86 coefficients in 17 finite parameter configurations. Finite experiments are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McKay–Skerman 2013, pages 1–4: asymptotic degree-sequence laws for row-fixed matrices, not R-weighted moments; exact finite n covariance cannot be inferred from degree sequences.",
+        "Durak et al. 2012: constructs models preserving reciprocal degree distributions; different conditioning and no specified covariance law.",
+        "Peterson–Pittel 2013: random k-out choices with replacement, comparison to preferential attachment, not same simple distinct-neighbor model.",
+        "Hansen–Jaworski 2008: single-out random maps with exchangeable indegrees, rather than arbitrary k distinct outgoing choices."
+      ],
+      "reasoning": "Larger graph ensembles and detailed degree-sequence models can cover N_j marginally, but cannot dominate a cross-moment with reciprocal pairs without additional edge-pair information; the cited theorems inspected do not supply that information. The k=1 looped instance is within the classical random mapping law, a residual implicit-coverage risk identified explicitly.",
+      "searches": [
+        "arxiv:1302.2446v1",
+        "arxiv:1210.5288v1",
+        "arxiv:1311.5961v1",
+        "expected indegree counts conditional mutually selected edges k outgoing distinct vertices no self loops"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0902.3542v1",
+      "arxiv:1302.2446v1",
+      "doi:10.1239/aap/1208358892",
+      "arxiv:1210.5288v1",
+      "arxiv:1311.5961v1",
+      "arxiv:1405.2129v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current derivation conditions a reciprocal pair and uses the changed endpoint row probabilities (k-1)/(n-2) versus (k-1)/(n-1), giving opposite q² second differences.",
+        "None of the inspected theorem statements in McKay–Skerman §1 and its degree-sequence focus, Hansen–Jaworski §2–3, or Zlatić–Štefančić reciprocal-growth analysis states that conditional two-row formula."
+      ],
+      "reasoning": "Prior marginal indegree laws or R expectations alone do not entail a covariance, nor does a network model prescribing reciprocal edges. The sign reversal relies on whether a forced arc suppresses a possible self-loop (looped) or only other targets (loopless). Prior random-mapping k=1 work could contain related exact formulas, so full historical priority is not certified.",
+      "searches": [
+        "reciprocal mutual edges and indegree zero vertices in random k-out directed graphs loopless loops covariance sign reversal",
+        "random mapping 2-cycles and indegree-zero vertices covariance, random k-out graph reciprocal arcs",
+        "arxiv:1302.2446v1",
+        "arxiv:0902.3542v1",
+        "doi:10.1239/aap/1208358892"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zlatić–Štefančić 2009 reciprocity paper: inspected directed growing model and reciprocal-degree statistics; not independent fixed-k rows.",
+        "McKay–Skerman 2013 §1–§1.3: exact independent row-fixed-size 0–1 matrix model and degree sequence marginal; reciprocal arcs are a two-row joint pattern not encoded in margins.",
+        "The closest indexed findings on occupancy precision, fixed points/descents and tree root/leaf covariance concern different statistics."
+      ],
+      "reasoning": "Equivalent descriptions as a random 0–1 matrix with prescribed row sums, or reciprocal 2-cycles when k=1, were explicitly considered. The displayed mixed factorial/PGF polynomial is not implied by row-sum or column-sum distributions alone, because pairing directed arcs depends on entries at symmetric off-diagonal positions.",
+      "searches": [
+        "reciprocal mutual edges and indegree zero vertices in random k-out directed graphs loopless loops covariance sign reversal",
+        "random mapping 2-cycles and indegree-zero vertices covariance, random k-out graph reciprocal arcs",
+        "exact covariance of reciprocal pairs and indegree histogram in random k-out digraphs positive loopless negative allowing self loops second binomial difference",
+        "arxiv:0902.3542v1",
+        "arxiv:1302.2446v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located exact published coefficient table or polynomial combining reciprocal arc pairs with N_j; primary papers describe degree marginals, reciprocity constraints, or connectivity.",
+        "The results index closest IDs concerned Poisson-binomial cumulants, occupancy precision, or other cross-statistics, not this k-out covariance."
+      ],
+      "reasoning": "A known formula for the marginal distribution of N_j or expected number of reciprocal pairs is insufficient to determine Cov(R,N_j). A fully enumerative all-edge table would imply it, but none was found in the inspected plausible sources; this negative search is not a uniqueness certificate.",
+      "searches": [
+        "exact covariance of reciprocal pairs and indegree histogram in random k-out digraphs positive loopless negative allowing self loops second binomial difference",
+        "Poisson-binomial second difference mixed moment reciprocal edge count degree distribution",
+        "reciprocal edges indegree degree histogram covariance random directed graph exact joint moment",
+        "arxiv:1302.2446v1"
+      ]
+    },
+    "rationale": "Statement-level searches across relevant primary articles and the mathematical findings index did not locate either all-n, all-k reciprocity/indegree polynomial. McKay–Skerman is the closest exact same-row-subset law but treats degree sequences alone, which cannot determine reciprocal-pair count. The loop convention sign reversal and complete second-difference transform are not direct corollaries of those degree-only results. Historical k=1 priority remains explicitly unresolved rather than certified.",
+    "residual_risks": [
+      "Historical random-mapping enumeration from 1982 and adjacent literature was only available as an abstract; one-out specialization might be implicitly known.",
+      "A generic finite matrix-moment identity may exist in a broader combinatorial reference not detected by title and semantic search.",
+      "Primary sources were inspected for relevant statements and sections, not all older archival papers were accessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST MODEL; does not give R-weighted indegree covariance because R not a function of degree sequence",
+        "evidence": [
+          "PDF §1, pp. 1–4: row-sum-fixed Bernoulli matrix and loopless diagonal option; asymptotic degree sequence approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.2446",
+        "material_read": "PDF pp. 1–4, introduction, model definitions G_t, historical notes and stated theorem scope on degree distributions",
+        "method": "Open arXiv PDF, read model and comparison sections, inspect page image",
+        "title": "Degree sequences of random digraphs and bipartite graphs",
+        "trigger": "Identical independent row-fixed random binary matrix model with optional forbidden diagonal"
+      },
+      {
+        "assessment": "Related motivation but different network sampling and dependent reciprocity mechanism",
+        "evidence": [
+          "arXiv:0902.3542v1, dated 2009-02-20, analyzes reciprocity and degree correlation in static versus evolving network models."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0902.3542",
+        "material_read": "PDF abstract, Sections I–V including reciprocity-driven growing-network construction and discussion",
+        "method": "Open arXiv full PDF and inspect primary sections and first-page dated version",
+        "title": "Influence of reciprocal edges on degree distribution and degree correlations",
+        "trigger": "Reciprocal arcs and degree correlations"
+      },
+      {
+        "assessment": "Classical mapping k=1 framework, not published all-k reciprocal-pair cross-histogram polynomial in inspected material",
+        "evidence": [
+          "2008 Advances in Applied Probability 40, pp. 183–205, conditional mapping model via exchangeable indegrees."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1208358892",
+        "material_read": "Open full PDF, introduction, §2 model definition, §3 conditional local statistic formulas and relevant proof portions",
+        "method": "Read primary Cambridge PDF text and first-page image",
+        "title": "Local properties of random mappings with exchangeable in-degrees",
+        "trigger": "Classical k=1 random mapping and indegree statistics; verified primary MSC 60C05"
+      },
+      {
+        "assessment": "Prescribed reciprocal-degree graph sampler, not the fixed-k independent-row mixed covariance",
+        "evidence": [
+          "arXiv:1210.5288, reciprocal-degree constrained null model."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1210.5288",
+        "material_read": "PDF abstract, model/related-work definitions, algorithm and conclusion",
+        "method": "Open arXiv PDF, inspect first page and substantive sections",
+        "title": "A Scalable Null Model for Directed Graphs Matching All Degree Distributions: In, Out and Reciprocal",
+        "trigger": "Exact reciprocal degree constraints might subsume pair-degree correlations"
+      },
+      {
+        "assessment": "With-replacement target draws and distance/TV comparisons, not R-versus-indegree mixed law",
+        "evidence": [
+          "arXiv:1311.5961v1, first public date 2013-11-23; stated models permit repeated selections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1311.5961",
+        "material_read": "PDF introduction, random-model construction, Theorem 1 and comparison to other k-out laws",
+        "method": "Open arXiv PDF and inspect first-page image and stated model/results",
+        "title": "Distance between two random k-out digraphs with and without preferential attachment",
+        "trigger": "Historical k-out digraph with and without choice constraints"
+      },
+      {
+        "assessment": "Concerns random k-out subgraph connectivity, not reciprocity cross-covariance transform",
+        "evidence": [
+          "arXiv:1405.2129v1 (2014-05-09)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2129",
+        "material_read": "PDF introduction, model and main connectivity/edge results",
+        "method": "Open arXiv PDF and first-page image",
+        "title": "On random k-out subgraphs",
+        "trigger": "k-out random graph structural theory"
+      },
+      {
+        "assessment": "Unresolved historical-priority risk specifically for the k=1 instance",
+        "evidence": [
+          "1982 bibliographic record identifies random mappings with coalescence and origins; full formula inspection was not possible."
+        ],
+        "identifier_or_url": "1982 Arney–Bender mapping paper",
+        "material_read": "Bibliographic record and abstract only; primary full text unavailable",
+        "method": "Publisher/bibliographic search; no whole-document exclusion claimed",
+        "title": "Random mappings with constraints on coalescence and number of origins",
+        "trigger": "Prior k=1 covariance and origin-count formula might be implicit in classical enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "307b3010-be94-4546-8427-dbb25bb4deaf",
+  "value": {
+    "rationale": "Reciprocity measures mutual feedback, while the indegree histogram measures receipt and isolation. Their cross-statistic is important for understanding whether mutual arcs are associated with isolated input vertices. The complete all-k finite covariance transform yields every bin, exact conservation-law double zero, and a robust qualitative sign reversal solely from self-loop convention; this is a structural parameter-free mechanism, not a single arbitrary coefficient or routine marginal recomputation. A fixed-k Poisson second-difference profile explains the full asymptotic dependence pattern.",
+    "status": "PASS"
+  }
+}
