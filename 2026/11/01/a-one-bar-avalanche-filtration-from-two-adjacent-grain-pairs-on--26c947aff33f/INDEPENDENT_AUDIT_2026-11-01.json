@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:49:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At every parallel update, four distinct binary grains shift one position to the right and exit at the sink, giving F_t={t,t+1,t+k+2,t+k+3} truncated to [0,n-1]. Intersect each new full simplex with the earlier union: a simplex for 1<=t<=k, two disjoint nonempty contractible simplices at t=k+1, a connected contractible 1-dimensional tree for k+2<=t<=n-2, and an already present vertex at t=n-1. These exhaustive cases hold even as the rightmost grains fall into the sink (n>=k+4). Cofibration homotopy pushouts give inclusion equivalences except the single 2-component attaching locus which creates S1; integral homology transition isomorphisms follow. Independent reconstruction checked all attachment intersections for 72 (k,n) pairs. Finite tests corroborate, not replace, the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riihimäki–Smith Prop3.9 covers (1,1,0^k,1,...), with terminal wedge rank n-k-2; Prop3.23 is cycle version.",
+          "General avalanche and persistence definitions do not determine the 4-grain intersections."
+        ],
+        "reasoning": "Direct comparison of exact support family and boundary condition shows neither 3-grain path nor cycle theorem implies this 4-grain one-circle filtration. No stronger general 4-grain-path classification was found.",
+        "searches": [
+          "avalanches homology directed path threshold one sandpile pairs of grains interval persistence barcode",
+          "https://arxiv.org/abs/2606.26786"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md",
+        "Pinned verify.py",
+        "Riihimäki and Smith arxiv:2606.26786 full text, Prop3.9, Prop3.23, persistence section",
+        "Resultary query avalanches homology directed path threshold one sandpile pairs of grains interval persistence barcode",
+        "Directed cycle/path model comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Preprint Prop3.9 final H1 rank n-k-2; present final H1 rank 1.",
+          "Present theorem establishes all stage-wise inclusion maps and exact H1 birth, absent from the compared path result."
+        ],
+        "reasoning": "A three-grain homotopy calculation and general persistence definitions cannot force topology of a different four-grain simplex-union filtration; its complete attaching-intersection lemma is necessary and independently reconstructed.",
+        "searches": [
+          "avalanches homology directed path threshold one sandpile pairs of grains interval persistence barcode",
+          "https://arxiv.org/abs/2606.26786"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avalanche complex = downward closure of translated firing-support sets; time-indexed filtration rather than terminal abstract simplicial complex.",
+          "Preprint Proposition 3.9 has 3 grains, not four."
+        ],
+        "reasoning": "Cycle avalanche/shifted supports depend on periodic wraparound; replacing the directed path by a directed cycle is not an equivalence. No exact 2-pair shifted-simplex persistence was located.",
+        "searches": [
+          "avalanches homology directed path threshold one sandpile pairs of grains interval persistence barcode",
+          "https://arxiv.org/abs/2606.26786"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned persistence for stars, permutahedra, graph Cech and unrelated systems; no identical directed-path sandpile entry.",
+          "Full preprint includes table/figure for other grain patterns, not the exact 4-grain persistence table."
+        ],
+        "reasoning": "No matching same-parameter table identified; absence of a match is not a proof of originality.",
+        "searches": [
+          "avalanches homology directed path threshold one sandpile pairs of grains interval persistence barcode",
+          "https://arxiv.org/abs/2606.26786"
+        ]
+      },
+      "rationale": "The exact 4-grain persistent one-bar statement is not the three-grain final-homology theorem of Riihimäki–Smith. The additional adjacent grain destroys a growing family of cycles in the published 3-grain comparator and fixes a single birth time. Full-text comparison of adjacent directed-path and cycle statements found no implication; best-of-knowledge PASS subject to unindexed work.",
+      "residual_risks": [
+        "Priority may overlap an unindexed four-grain directed-path example or unpublished two-block persistence analysis.",
+        "Proof requires precise parallel threshold-one convention, no collision and absorbing terminal sink; does not extend to cyclic or asynchronous dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior three-grain path result is wedge of n-k-2 circles; it does not supply four-grain two-pair attachment intersections nor time-persistence barcode.",
+          "evidence": [
+            "Proposition 3.9 starts (1,1,0^k,1,...), has 3 grains; current claim starts (1,1,0^k,1,1,...) with 4 grains. Cycle Proposition 3.23 addresses different boundary condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.26786",
+          "material_read": "Full accessible preprint text inspected in the directed-path section (Propositions 3.8-3.9), periodic cycle section (3.21, 3.23), and persistence discussion; extracted the exact three-grain firing supports and result.",
+          "method": "ResearchGate publicly accessible full-preprint text reading, verified Proposition 3.9 and proof at lines 1152-1200",
+          "title": "Avalanche homology of digraphs via sandpile dynamics",
+          "trigger": "Same directed path avalanche homology, immediately neighboring three-grain initial configuration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural minimal perturbation of the published two-left-one-right 3-grain directed-path avalanche, producing unexpectedly n-independent first Betti one in place of n-k-2. The full all-parameter persistence barcode and exact birth k+1 are motivated topological dynamics, not a one-off finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md",
+    "Pinned verify.py",
+    "Riihimäki and Smith arxiv:2606.26786 full text, Prop3.9, Prop3.23, persistence section",
+    "Resultary query avalanches homology directed path threshold one sandpile pairs of grains interval persistence barcode",
+    "Directed cycle/path model comparison"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k>=1 and n>=k+4, the four-grain two-pair threshold-one directed-path avalanche filtration A_t has contractible stages t<=k, then precisely one S1 from t=k+1 onward, and only bars H0 [0,infinity) and H1 [k+1,infinity) over every field.",
+  "limitations": [
+    "Priority may overlap an unindexed four-grain directed-path example or unpublished two-block persistence analysis.",
+    "Proof requires precise parallel threshold-one convention, no collision and absorbing terminal sink; does not extend to cyclic or asynchronous dynamics."
+  ],
+  "residual_risks": [
+    "Priority may overlap an unindexed four-grain directed-path example or unpublished two-block persistence analysis.",
+    "Proof requires precise parallel threshold-one convention, no collision and absorbing terminal sink; does not extend to cyclic or asynchronous dynamics."
+  ],
+  "schema_version": 1
+}

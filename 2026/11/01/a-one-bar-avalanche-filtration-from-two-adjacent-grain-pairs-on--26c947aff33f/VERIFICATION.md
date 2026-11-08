@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 installation without additional packages. The checker recomputes parallel firing from the binary initial state (rather than assuming its closed formula), constructs every new simplicial attachment, compares its entire face-set intersection with the stated formula, and computes boundary ranks over \(\mathbb F_2\) for small complete filtrations.
+## correctness
 
-The recorded local execution produced `PASS 192 integer-parameter pairs for exact firing shifts and every attaching intersection; all finite mod-2 Betti checks passed`. The exhaustive parameter pairs are \(1\le k\le12\), \(k+4\le n\le k+19\); the additional homology checks concern \(1\le k\le6\) and admissible \(n<18\).
+PASS
 
-The proof covers all \(k\ge1\), \(n\ge k+4\) through the closed support formula and exhaustive symbolic overlap cases. Finite checking alone would not justify an infinite-family or integral persistence claim. No independent audit or external certification is represented by this file.
+At every parallel update, four distinct binary grains shift one position to the right and exit at the sink, giving F_t={t,t+1,t+k+2,t+k+3} truncated to [0,n-1]. Intersect each new full simplex with the earlier union: a simplex for 1<=t<=k, two disjoint nonempty contractible simplices at t=k+1, a connected contractible 1-dimensional tree for k+2<=t<=n-2, and an already present vertex at t=n-1. These exhaustive cases hold even as the rightmost grains fall into the sink (n>=k+4). Cofibration homotopy pushouts give inclusion equivalences except the single 2-component attaching locus which creates S1; integral homology transition isomorphisms follow. Independent reconstruction checked all attachment intersections for 72 (k,n) pairs. Finite tests corroborate, not replace, the proof.
+
+## originality
+
+PASS
+
+The exact 4-grain persistent one-bar statement is not the three-grain final-homology theorem of Riihimäki–Smith. The additional adjacent grain destroys a growing family of cycles in the published 3-grain comparator and fixes a single birth time. Full-text comparison of adjacent directed-path and cycle statements found no implication; best-of-knowledge PASS subject to unindexed work.
+
+## value
+
+PASS
+
+Natural minimal perturbation of the published two-left-one-right 3-grain directed-path avalanche, producing unexpectedly n-independent first Betti one in place of n-k-2. The full all-parameter persistence barcode and exact birth k+1 are motivated topological dynamics, not a one-off finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
