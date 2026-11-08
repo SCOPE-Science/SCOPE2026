@@ -1,15 +1,21 @@
-# Review of the weighted-wheel endpoint projection result
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns one precisely defined real finite-dimensional projection, with conductance-rescaled coordinates and all positive spoke weights. Grounded Laplacian inversion gives a strictly positive symmetric Green sequence. Monotonicity and its discrete convexity determine, without sign assumptions left unchecked, the absolute row sums of both edge orbits. The central recurrence reduces the rim expression to a closed formula. Strict positivity of the derivative of the spoke diagonal leverage establishes a unique transition and its monotonicity in graph size. The zero-conductance and infinite-size limits follow from an explicit constant-mode/mean-zero decomposition and geometric decay. The independent rational-matrix program establishes all asserted sampled rows and checks projection identities, but does not substitute for the all-parameter proof.
+## correctness
 
-## Originality — PASS (qualified)
-Bapat–Gupta's fully readable original wheel resistance-distance paper has an exact Green kernel; this premise is appropriately credited. Its Theorem 5 and Corollary 6 concern effective resistance and do not state the absolute transfer-current row sums or classify the maximizing edge orbit. Kelner–Maymounkov provides general routing operators, not the exact wheel amplification. A separately examined full wheel Löwner-ellipsoid result is an ellipsoid optimization, not a fixed-conductance endpoint projection. The closest previously recorded projection results concern internally disjoint paths, multipartite graphs, Cartesian products, or a complete graph with one exceptional edge; none includes a general wheel with its correlated cycles and two weighted edge orbits. Equivalent formulas in older circuit-theory literature remain possible, and independently confirming mathematical priority is recommended.
+PASS
 
-## Mathematical value — PASS
-Electrical gradient projections quantify worst-case edge-coordinate amplification under bounded perturbations. A wheel is a basic nontrivial series-parallel-looking planar network with overlapping cycles, and weighting its hub spokes models a natural connectivity parameter. Complete sharp formulas separate two qualitatively distinct edge sensitivities, prove the unique conductance transition and its exact limiting location, and expose the noncommutation of network-size and low-conductance limits. These are structural results about an infinite family rather than recomputation of isolated graphs.
+Grounding the wheel hub gives K_a=aI+D^TD, circulant inverse with g_j=(ρ^j+ρ^(n-j))/[sqrt(a(a+4))(1-ρ^n)], ρ=(a+2-sqrt(a(a+4)))/2. Monotone convex Green profile gives spoke row absolute sum 1+2sqrt(a)(g0-g_floor(n/2)), rim row 2-2a g0+2sqrt(a)(g0-g_floor(n/2)); row sign vector attains maximum. The gap equals 1-2a g0. h=a g0 is strictly increasing in a by derivative K^-1 D^TD K^-1 and strictly decreasing in n via coth-like formula; unique threshold a_n starts 1 at n=3 and tends to 4/3. n→∞ versus a→0 yields limiting norm 3 versus 2; for a=1 the rim branch is 2-2g_m and increases with n.
 
-## Scientific limitations
-All edges in an orbit share conductance, and all signals use symmetric \(\sqrt c\) edge scaling. No assertion is made for arbitrary weights, general routing competitive ratios, or physical-current scaling. The kernel itself is known, and an equivalent historical electrical-flow norm formula might exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact symmetric conductance-scaled edge electrical-gradient projection ℓ∞ norm, maximizing edge orbit, unique spoke/rim crossover and singular-limit order. Known wheel Green inverses/effective resistances are acknowledged and do not directly aggregate absolute transfer-current coefficients.
+
+## value
+
+PASS
+
+The sharp worst-case edge-to-edge electrical amplification is a natural stability invariant. The wheel is a canonical cyclic hub network; exact crossover and noncommuting size/conductance limits reveal genuine structural sensitivity rather than just reevaluating resistance distances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
