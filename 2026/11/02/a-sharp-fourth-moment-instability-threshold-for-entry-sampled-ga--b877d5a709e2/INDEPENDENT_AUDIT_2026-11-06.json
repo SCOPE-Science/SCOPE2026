@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:07:37.874405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A_r=[[1,r],[r,-1]] with 0<r<=1 (condition number exactly one), i.i.d. squared-entry sample probability and relaxation 1/2, the exact sample update matrices yield conditional E||x+||²=(3/4)||x||²; Markov inequality and Borel–Cantelli yield a.s. convergence. Rotation symmetry leaves three-dimensional quartic span P=x1^4+x2^4, Q=x1^3 x2-x1 x2^3, R=x1²x2² invariant under expectation; expansion gives C_r with entries ((r^4+16r²+1)/(32r²), (1-r²)/(16r),1/8), ((r²-1)/(8r),1/8,0), (3/8,0,1/4), and det(I-C_r)=-3(5r^4-94r²+5)/(1024r²). Nonnegative quartic cone, invertible updates and no shared projective eigenlines yield a strictly positive Perron quartic H comparable with ||x||^4, proving Theta(lambda_r^k) for every nonzero initial state, not merely a positive spectral eigenvalue. Continuity, r=1 spectrum and unique determinant zero in 0<r<=1 establish r*=sqrt((47-2sqrt(546))/5), and divergence/constant/decay trichotomy. Independently evaluated C_r spectra: leading eigenvalue ~1.160110226458334 at r=1/5 and ~0.788054341406048 at r=1/3. Finite checks alone cannot prove the all-k threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Block DSGS and unified randomized linear-method frameworks give lower moments/rates, but not fourth-moment stability for the exact orthogonal A_r, alpha=1/2 family."
+        ],
+        "reasoning": "A general fourth-moment transfer matrix theorem could subsume, but compared lower-moment bounds cannot imply fourth-moment decay or a threshold.",
+        "searches": [
+          "Du Sun 1912.13291 doubly stochastic block Gauss Seidel mean square convergence",
+          "Han Xie 2208.05437 randomized linear systems pseudoinverse free methods"
+        ]
+      },
+      "checked_sources": [
+        "A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm for Solving Linear Equations and A Certain Class of Over-Parameterized Optimization Problems (https://arxiv.org/abs/1810.05251)",
+        "A doubly stochastic block Gauss–Seidel algorithm for solving linear equations (https://arxiv.org/abs/1912.13291)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original guarantees expected squared error, whereas a family can satisfy E||x_k||²=(3/4)^k and have growing E||x_k||^4; lower-moment result is logically compatible and does not imply the claim."
+        ],
+        "reasoning": "Published mean-square convergence neither implies nor refutes divergence of the fourth moment, so main claim not covered by earlier lower-order bound.",
+        "searches": [
+          "Razaviyayn Hong Reyhanian Luo A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm Algorithm 1",
+          "Du Sun doubly stochastic block Gauss-Seidel Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original DSGS Algorithm 1 and mean-square theorem, without same fourth-moment transfer; Resultary search found two-coordinate GS transient and delay results for other operators."
+        ],
+        "reasoning": "Equivalent \"doubly stochastic Gauss–Seidel\" means sampling matrix entries; ordinary row Kaczmarz is not equivalent because its update does not divide by an arbitrarily small sampled matrix entry.",
+        "searches": [
+          "entry sampled doubly stochastic Gauss Seidel fourth moment divergence orthogonal 2x2 threshold [Resultary]",
+          "Razaviyayn Hong Reyhanian Luo 1810.05251 Algorithm 1 sampling probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact polynomial table or same r* identified in relevant methodological sources or Resultary search; polynomial is obtained by directly factoring det(I-C_r)."
+        ],
+        "reasoning": "A general characteristic equation could reproduce the threshold, but no matching parameterized fourth-power table found.",
+        "searches": [
+          "DSGS fourth moment transfer operator 5r^4 -94r^2+5 546",
+          "randomized Gauss Seidel heavy tails fourth moments exact orthogonal matrix"
+        ]
+      },
+      "rationale": "DSGS by Razaviyayn–Hong–Reyhanian–Luo (arXiv:1810.05251, Algorithm 1 and main mean-square theorem) uses the same squared-entry selection and proves lower-moment convergence. Du–Sun and Han–Xie extend or compare convergence methods, but the inspected source does not derive this uniform-orthogonality fourth-moment phase transition. General positive-operator facts not novel; exact fixed-relaxation family/threshold assessed as new.",
+      "residual_risks": [
+        "Potential general matrix-product p-moment Lyapunov theory could deduce family threshold; no exhaustive all-literature check.",
+        "Fourth moment theorem restricted to r>0, r<=1, dimension 2, alpha=1/2 and independent entry sampling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes method, lower-order contraction, not claimed fourth-moment phase frontier",
+          "evidence": [
+            "Squared-entry sample probability p(i,j)=a_ij²/||A||_F² and linear mean-square convergence; no fourth moment theorem in inspected algorithm and convergence sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.05251",
+          "material_read": "Accessible arXiv full-text primary version: Algorithm 1, sampling equation and mean-square convergence proof",
+          "method": "Read algorithm and main theorem; compared update probability and controlled moment",
+          "title": "A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm for Solving Linear Equations and A Certain Class of Over-Parameterized Optimization Problems",
+          "trigger": "Exact entry sampling and fixed α update"
+        },
+        {
+          "assessment": "Main available comparison emphasizes expected squared error, not exact quartic spectral threshold",
+          "evidence": [
+            "Block method and mean-square theorem; possible omitted higher moments retained as priority risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.13291",
+          "material_read": "Author arXiv abstract and identified Theorem 8/remarks through source references; not entire paper newly re-read",
+          "method": "Compared theorem type and block method at available material",
+          "title": "A doubly stochastic block Gauss–Seidel algorithm for solving linear equations",
+          "trigger": "Generalized DSGS could dominate high-moment claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp high-moment instability of an almost-surely convergent, mean-square contractive algorithm on perfectly conditioned matrices is a substantive counterexample to interpreting lower-order error bounds as control of tail risk. Algebraic r* makes the boundary precise and distinguishes entry sampling from row Kaczmarz.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm for Solving Linear Equations and A Certain Class of Over-Parameterized Optimization Problems (https://arxiv.org/abs/1810.05251)",
+    "A doubly stochastic block Gauss–Seidel algorithm for solving linear equations (https://arxiv.org/abs/1912.13291)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a general claim of fourth-moment divergence for all Gauss–Seidel variants; no stationary distribution assertion"
+  ],
+  "schema_version": 1
+}
