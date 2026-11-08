@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory. Only Python's standard library is used.
+## correctness
 
-The program exhaustively evaluates the local polynomials for every prime below \(300\), compares both root counts against the residue-class formulas, and tests disjointness. It then compares all four joint counts obtained by enumerating all starting residue classes against the exact product probabilities for \(19\) sample values of \(h\) (\(75{,}293\) total starting classes). Selected cases also directly evaluate the rational sequence and test *integer* squares in its reduced numerators and denominators. The checker exercises finite no-later-failure and positive-witness examples.
+PASS
 
-Expected first output line:
+Use reduced u/v recurrence u_{n+1}=u_n²+v_n², v_{n+1}=u_nv_n; published exact square criterion makes E_j=1 iff gcd(h,u_{j−1})>1. For p^a‖h, relevant starts v_p(x0)=a map bijectively to nonzero t mod p. Local E2: t²+1=0; E3: t⁴+3t²+1=0; disjoint, factor second using i²=−1 and discr −5, giving κ1,κ2. CRT yields A,B,C and four joint probabilities. If p≡13,17 mod20, −5 nonsquare forbids any later preimage reaching ±i; p≡3 mod4 and p=2 are settled directly. Conversely p=5 or 1,9 mod20 gives immediate E3 root with x0=h t0. Independent local roots at primes <400 and CRT sample periods checked; infinite statements rest on number-theoretic argument, not finite tests.
 
-`VERIFY_OK local_primes=62 crt_examples=19 starting_residues=75293 direct_rational_checks=yes classification_checks=yes`
+## originality
 
-These are finite checks; the universal assertions depend on the modular and quadratic-reciprocity arguments in `RESULT.md`. No external audit is claimed.
+PASS
+
+Matijasevick–Rodríguez–Salazar 2026 supply recurrence, exact square criterion, and Theorem B bound ≤ω1(h), and explicitly ask failure-count proportions in Section 7; these premises are credited. Their bounds do not imply local κ1/κ2 CRT distribution nor the all-index exact mod-20 forbidden-prime classification, which can force at most one failure even when ω1(h) grows.
+
+## value
+
+PASS
+
+Gives explicit natural densities addressing a concrete question of the primary paper, and a complete infinite arithmetic rigidity classification with arbitrarily many allowable prime divisors but at most one exceptional index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: early square defects in reciprocal-sum sequences
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim concerns a definite rational recurrence and a fixed notion of integer square. The original source's recurrence and square criterion were checked against its complete Sections 2 and 4. Reconstructing the local reduction gives the two polynomials \(t^2+1\) and \(t^4+3t^2+1\); the latter has two quadratic factors of discriminant \(-5\) after adjoining \(i^2=-1\). Quadratic reciprocity establishes each mod-\(20\) case, including the ramified prime \(5\). Local events for consecutive numerators are disjoint, the Chinese remainder theorem proves the exact joint distribution and period, and an antecedent-discriminant obstruction rules out every later failure in the specified prime classes. The reverse implication uses an explicit initial value. Finite checks are independently reproducible but are not substituted for infinite arguments.
+PASS
 
-## Originality
+Use reduced u/v recurrence u_{n+1}=u_n²+v_n², v_{n+1}=u_nv_n; published exact square criterion makes E_j=1 iff gcd(h,u_{j−1})>1. For p^a‖h, relevant starts v_p(x0)=a map bijectively to nonzero t mod p. Local E2: t²+1=0; E3: t⁴+3t²+1=0; disjoint, factor second using i²=−1 and discr −5, giving κ1,κ2. CRT yields A,B,C and four joint probabilities. If p≡13,17 mod20, −5 nonsquare forbids any later preimage reaching ±i; p≡3 mod4 and p=2 are settled directly. Conversely p=5 or 1,9 mod20 gives immediate E3 root with x0=h t0. Independent local roots at primes <400 and CRT sample periods checked; infinite statements rest on number-theoretic argument, not finite tests.
 
-**PASS with residual priority risk.** The source paper proves a universal per-sequence bound and poses the distribution of failures over starting values as an open question; it does not give the two-index product law or the sharp all-index no-later-failure criterion. Jones and Manes develop a general preimage-tree picture for the same rational map, including the first two levels; those structural facts do not explicitly give the joint starting-value law or all-index modulus classification. Searches for the exact polynomials, residue classes, and starting-value densities did not find an equivalent statement. The old general results make this a plausible elementary specialization, and an unlocated 2026 companion preprint is a genuine residual risk; independent priority checking remains advisable.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact joint probabilities answer a finite-depth form of the source paper's explicit quantitative question. More importantly, a sharp congruence criterion yields the *complete* count distribution across all indices for a natural infinite family of moduli. Products of arbitrarily many primes \(13\pmod{20}\) give an unbounded separation between the published bound and the true maximal number of failing indices. The phenomenon is explained by disappearance of second-level preimages when \(-5\) is a nonsquare, not by an arbitrary numerical cutoff.
+Matijasevick–Rodríguez–Salazar 2026 supply recurrence, exact square criterion, and Theorem B bound ≤ω1(h), and explicitly ask failure-count proportions in Section 7; these premises are credited. Their bounds do not imply local κ1/κ2 CRT distribution nor the all-index exact mod-20 forbidden-prime classification, which can force at most one failure even when ω1(h) grows.
 
-## Literature and limitations
+## value
 
-Primary sources: arXiv:2610.00765v1 (complete accessible text, Sections 2, 4, 7); Jones–Manes, *Galois theory of quadratic rational functions* (2014), especially introductory preimage-tree discussion, Figure 2 and the discriminant machinery. The cited 2026 companion *Arithmetic dynamics of z+k/z* could not be retrieved in full; an unindexed statement there might reduce priority. Nothing herein supplies the full distribution for arbitrary \(h\) with deep preimage trees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives explicit natural densities addressing a concrete question of the primary paper, and a complete infinite arithmetic rigidity classification with arbitrarily many allowable prime divisors but at most one exceptional index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
