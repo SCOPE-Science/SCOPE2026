@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. The script first enumerates the complete projective coefficient space at each of two primes, checks the full exceptional lists, and then enumerates every raw coefficient triple independently, checking that its normalized obstruction classes agree with the projective table. It uses Python integer modular arithmetic only; no external packages, randomization, published tables, or unprovided dependencies.
+## correctness
 
-For prime 19, all 360 admissible projective classes are checked, resulting in exactly 9 exceptions, with 162 exceptional admissible raw triples. For prime 31, all 960 admissible projective classes are checked, resulting in exactly 3 exceptions, with 90 exceptional admissible raw triples. The proof is exhaustive at these two primes and makes no inference about other primes.
+PASS
 
-The archive's dated version 2014-05-29 supplied the earlier primitive-root polynomial context. The explicit excluded-prime conjecture was inspected in a later source revision (2020-02-28), and that distinction is retained in the science account.
+Verified scalar-projective sign obstruction invariance (square scalar preserves and nonsquare scalar swaps + and -). There are p^2+p+1 normalized projective triples; removing p+1 points of the nondegenerate discriminant conic and the excluded (0,1,0) leaves p^2-1 admissible. Computed all primitive roots by the exact multiplicative-order test and all nonzero square residues; fresh independent exhaustive integer enumeration across all p^2-1 normalized classes agreed exactly with every listed tuple for p19 and p31, 9/360 and 3/960; raw multiplicities follow by free scaling with p-1. The supplied verifier additionally enumerates all p^3 raw triples and normalizes at the end, a complete independent algorithm path; all loops are finite bounded, not an infinite-prime inference.
+
+## originality
+
+PASS
+
+PASS at best knowledge for a tightly bounded exact exception census: Sun’s revised Conjecture 4.9 explicitly isolates 19,31 but gives no projective coefficient classifications in inspected text. Booker–Cohen–Sutherland–Trudgian study primitive values of quadratic polynomials and list stringent exceptional cases, but primitive-value existence is a stronger predicate than square/nonsquare sign variation and does not by itself tabulate these two sign-obstructed sets. Existing finite primitive-root tables could conceivably imply exact tuples: priority risk explicit.
+
+## value
+
+PASS
+
+PASS within the natural finite-cutoff standard: this is not an arbitrary small-prime slice but the complete classification of the exact two primes excluded in a named published quadratic-character conjecture; the normalized exceptional coefficient families and sharp fractions resolve the full finite boundary cases. It does not claim a proof or extension of the conjecture elsewhere, and finite self-contained classification is valuable without a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For exactly two primes, a finite exhaustive algorithm is a proof when its loops provably cover every admissible coefficient class. Unique first-nonzero normalization covers all projective points, nonzero scaling preserves the two-sign failure condition, explicit modular-order tests cover exactly the primitive roots, and nonzero squares identify exactly the positive Legendre values. All \(p^2-1\) admissible projective classes are tested; a second complete raw-coefficient enumeration checks the projective comparison. The executable code and displayed tables agree at both primes. The claim does not extrapolate the computation to untested primes.
+## correctness
 
-## Originality — PASS, residual risk
-Sun's preprint fourth version (2014) gives the archived primitive-root polynomial motivation, while its later fifth version states the two-sign existence conjecture with the two specified exceptional primes but gives no complete coefficient tables there. Searches of equivalent wording, projective-class formulations and relevant public research records did not locate the exact classification. A more general theorem or an unlocated table might still imply it, so external novelty assessment is not claimed.
+PASS
 
-## Mathematical value — PASS
-The finite exceptions are selected by a published mathematical question, not arbitrarily chosen moduli. The result explains those exceptions completely up to the natural scaling equivalence, giving a full list and exact exceptional densities instead of a bare example. This finite natural classification does not claim to settle the global conjecture.
+Verified scalar-projective sign obstruction invariance (square scalar preserves and nonsquare scalar swaps + and -). There are p^2+p+1 normalized projective triples; removing p+1 points of the nondegenerate discriminant conic and the excluded (0,1,0) leaves p^2-1 admissible. Computed all primitive roots by the exact multiplicative-order test and all nonzero square residues; fresh independent exhaustive integer enumeration across all p^2-1 normalized classes agreed exactly with every listed tuple for p19 and p31, 9/360 and 3/960; raw multiplicities follow by free scaling with p-1. The supplied verifier additionally enumerates all p^3 raw triples and normalizes at the end, a complete independent algorithm path; all loops are finite bounded, not an infinite-prime inference.
 
-## Closest literature and limits
-Z.-W. Sun, arXiv:1405.0290v4, discusses earlier polynomial evaluations at primitive roots; arXiv:1405.0290v5, p.16, Conjecture 4.9 excludes both primes. Only those two primes are classified, via a reproducible finite exhaustive certificate. Literature outside the inspected texts could still cover the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best knowledge for a tightly bounded exact exception census: Sun’s revised Conjecture 4.9 explicitly isolates 19,31 but gives no projective coefficient classifications in inspected text. Booker–Cohen–Sutherland–Trudgian study primitive values of quadratic polynomials and list stringent exceptional cases, but primitive-value existence is a stronger predicate than square/nonsquare sign variation and does not by itself tabulate these two sign-obstructed sets. Existing finite primitive-root tables could conceivably imply exact tuples: priority risk explicit.
+
+## value
+
+PASS
+
+PASS within the natural finite-cutoff standard: this is not an arbitrary small-prime slice but the complete classification of the exact two primes excluded in a named published quadratic-character conjecture; the normalized exceptional coefficient families and sharp fractions resolve the full finite boundary cases. It does not claim a proof or extension of the conjecture elsewhere, and finite self-contained classification is valuable without a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
