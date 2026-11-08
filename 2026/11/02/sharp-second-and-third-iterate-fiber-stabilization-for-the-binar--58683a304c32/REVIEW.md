@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result identifies precise factor sets and compares the full equality partitions of one, two, and three tortoise passes, not just cardinalities. The four-letter substitution has exactly eight allowed adjacent pairs; the corresponding two-block expansions exhaust all factors at each specified length. At lengths 14 and 18 the complete partition checks establish the finite hypotheses, and every factor contains enough ones for a proved prefix-inheritance argument extending the conclusions to all larger lengths. Explicit length-13 and length-17 pairs establish sharpness. Both independently implemented finite checkers passed. Risk: the finite checkers are not themselves infinite proofs; validity relies on the separately detailed substitution and prefix arguments.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Defant–Kravitz provide the operator, while Campbell–Rampersad apply it to paperfolding and Thue–Morse and consider iterates, but not these two Rudin–Shapiro stabilization thresholds. An existing one-pass Rudin–Shapiro complexity statement, even if available, does not imply equality of two-pass and three-pass *partitions*. Exact-parameter and equivalent-fiber searches found no covering result. Risk: unindexed prior derivations or calculations may exist; the claim has not received independent publication-priority review.
+PASS
 
-**Value — PASS.** Iteration can merge new equivalence classes even when one pass has already merged factors. The theorem identifies two sharp thresholds beyond which this process stops adding merges on a classical automatic word, giving qualitative all-length information that neither one-pass complexity nor short computations provide. The elementary inheritance principle is reusable for future iterated factor-map calculations. It does not purport to settle higher iteration depths or arbitrary automatic sequences.
+The four-letter morphism phi(0,1,2,3)=(01,02,31,32) has precisely the eight asserted adjacent bigrams, all present in phi^4(0), and their two substituted blocks exhaust all length-n binary factors for 2^h>=n. The binary tortoise T deletes the first 1 and appends 1. For any prefix p with at least k ones, T^k(pa)=D_k(p)a1^k; equality of T^k-images at n+1 therefore forces equal last letters and T^k(p)=T^k(q). Induction from a length-N class partition equality gives equality at all greater lengths. Fresh independent factor construction returned (n,k,factors,min_ones,T_classes,Tk_classes)=(13,2,96,3,88,87),(14,2,104,3,96,96),(17,3,128,4,120,119),(18,3,136,5,128,128). Counts coincide only in required base cases, and T^k factors through T, so same counts imply same partitions. Previous-length failures show b2=14,b3=18 sharp. The finite checks do not alone imply all-n; the prefix lemma does.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Campbell–Rampersad study tortoise factor-equivalence and iterates for paperfolding and Thue–Morse, whereas the claim classifies Rudin–Shapiro for k=2,3; one-pass complexity cannot imply equality of full k-pass fibers. No equivalent or stronger theorem was found in actual searches and inspected relevant arXiv text, but obscure automatic sequence identities remain possible.
+
+## value
+
+PASS
+
+A sharp finite-to-infinite stabilization threshold for iterated equivalence relations in a canonical automatic sequence addresses a natural structural question; the reusable inheritance lemma and sharp predecessors give substance beyond tabulating factors. Only k=2,3 and this word are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
