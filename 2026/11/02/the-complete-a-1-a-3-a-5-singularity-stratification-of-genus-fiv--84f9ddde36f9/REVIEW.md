@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The proof establishes geometric integrality and genus five directly from independent squareclasses of the two degree-four covers. Its exhaustive affine Jacobian argument excludes nonzero-\(y\) singularities. The affine local equations reduce exactly to \(v^2-u^{2e}\), and both charts at infinity are handled by explicit unit squares and a formal square completion; this gives the \(A_3\) fixed infinity germ and the degree-dependent second infinity germ. Each root multiplicity is at most three, so the local Jacobian/Tjurina calculations are valid in all specified characteristics. Exact symbolic witness calculations support nonemptiness but do not replace the proof. No classification outside this model/these characteristics is asserted.
+## correctness
 
-**Originality (O): PASS, with residual priority risk.** Kudo's 2024 primary work (arXiv:2401.00760, Section 4, Theorem 2 and Table 1) locates singular points and classifies seven parameter cases by **number of support points** and multiplicity two. Inspection of its original results, proofs, full Section 4, examples, and concluding discussion found no completed-local-ring normal forms, no \(A_1/A_3/A_5\) basket assignment, no contact orders or invariant formula, and no assertion that all branches are smooth. The new invariant-level classification is not implied by mere multiplicity two, which also allows cusps; it requires extra formal local analysis and the second infinity chart. Closest accessible historical result on another genus-five Howe sextic analyzes the branch-sharing two-genus-two cover, not these disjoint elliptic branch sets. Targeted research-record and web searches found no covering result; absence of a hit is not uniqueness proof. The 2024 journal edition and possible unindexed calculations remain a specific residual risk.
+PASS
 
-**Value (V): PASS.** The natural seven-stratum table in the motivating construction leaves open whether its double points are nodes, cusps, tacnodes, or worse. The complete ADE classification reveals two-branch tangency orders, an unavoidable \(A_3\) at infinity, and genuinely higher \(A_5\) degenerations, and shows three stable delta-balanced baskets across seven loci. These contact types control normalization gluing, conductor lengths, and local deformation behavior. A complete local classification across all members, rather than one handpicked specialization, is a motivated structural refinement.
+The biquadratic function field k(x)(sqrt(P),sqrt(Q)) is degree 4 since branch loci disjoint; its eight simple branch values yield genus5 by Riemann–Hurwitz. The affine singularity equations force y=0, P−Q=0, and P=Q nonzero at such points. The local exact square-root change y sqrt(2(P+Q)-y²) reduces equation to v²−(P−Q)²; a multiplicity-e root gives A_{2e−1}. Homogenization with quartic P4,Q4 and cubic D3 gives at (0:1:0) completed v²−u⁴ and at (1:0:0), when d<3, v²−u^{2(3−d)}; no other infinite singularities. Two smooth branches intersect at order e and sum delta=5. Independent exact symbolic quartics P=x^4+x+1, Q=P−D for all seven root partitions have squarefree coprime branch quartics (nonzero Q discriminants), supporting nonemptiness. The local proof covers unrestricted parameters; seven examples alone do not.
 
-**Limits.** Not a classification of other Howe models; characteristic two/three excluded. The symbolic checker samples seven witnesses for nonemptiness only, and independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kudo (2024) constructs precisely this sextic, proves genus/irreducibility, locates singular supports and supplies seven support-count patterns, all credited. The inspected primary Proposition 4.1.3, 4.1.4 and Table 1 do not state exact A_{2e-1} analytic forms, delta and Tjurina invariants or no-cusp classification. An equivalent computation in a journal edition is a material priority risk.
+
+## value
+
+PASS
+
+The completed local analytic classification refines a published singular support table into explicit ADE equisingularity strata, contact orders and genus defects, which determine resolution and deformation behavior of a natural genus-five cover construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
