@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:59:47Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "d odd >=3",
+        "uniform Boolean cube with strict majority halfcube, cutoff exactly degree 2",
+        "d=3 nullity 3, not injective",
+        "for d>=5 unique extreme eigenlines up to scalar"
+      ],
+      "proof_sources": [
+        "RESULT.md sections parity reduction, degree-three Fourier beta, incidence B*B, extremizers and ordering (blob 941100d76313336ae2dac951fe2cb26107668241)",
+        "verify.py all-degree-two exact checker inspected, blob 91cf806dd7fa975a4fce13613202081c8f0f6193",
+        "Independent full Walsh-majority spectral enumeration d=3,5,7"
+      ],
+      "rationale": "For odd d no majority tie, H indicator=(1+sign sum x_i)/2. Separate even (degree0,2) vs odd (degree1) Walsh bands to obtain C=I/2+[0 B; B* 0]. Only degree-one alpha=2^-d C(d-1,(d-1)/2) and degree-three beta=-alpha/(d-2) sign Fourier coefficients matter. Pair-to-vertex incidence R with R*R=(d-2)I+11* yields exactly two singular sectors s=alpha sqrt((3d-1)/2), t=alpha(d-1)/sqrt(d-2), with multiplicities one and d-1; remaining half-eigenspace has C(d-1,2) dimensions. Direct incidence eigenfunctions attain both bounds; d=3 has three zero modes; strict inequalities and limit follow from exact binomial ratios. Independently generated full sample compression Gram matrices at d=3,5,7; predicted eigenvalues agree within 5.56e-16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hogan and Lakey frame general Hamming-ball spectral and invariant-sector decompositions with broader bandwidths.",
+          "Half-energy rigidity covers arbitrary strict homogeneous weighted halfspaces and any cutoff but not exact off-center spectrum."
+        ],
+        "reasoning": "Their broader setup and symmetry do not state an immediately complete numerical two-channel spectrum for the present special case; some general block decompositions may imply it after nontrivial specialization.",
+        "searches": [
+          "Hogan Lakey Walsh hypercube spatio spectral eigenspaces Hamming balls majority bandwidth two",
+          "arxiv:1812.08905",
+          "doi:10.1007/s00041-018-09654-w",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-first-walsh-band-concentration-spectra-on-boolean-hamming--a2f5ddac5a0f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95",
+        "arxiv:1812.08905",
+        "doi:10.1007/s00041-018-09654-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Central multiplicity C(d-1,2) follows immediately from res4 and is explicitly not counted as a new standalone contribution.",
+          "The degree-three Fourier coefficient beta=-alpha/(d-2) and two-sector diagonalization supply noncentral sharp constants absent from cited general theorem."
+        ],
+        "reasoning": "Prior general parity/rank theorem does not alone entail these exact off-center eigenvalues; the claim is the complete sharpened spectrum.",
+        "searches": [
+          "Walsh Slepian concentration majority halfcube low-degree two complete eigenvalues",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-first-walsh-band-concentration-spectra-on-boolean-hamming--a2f5ddac5a0f",
+          "arxiv:1812.08905"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact singular spectrum of parity-offdiagonal B is equivalent to all degree-2 Slepian majority-halfcube concentration eigenvalues.",
+          "Published weighted halfspace rigidity gives central eigenvalue C(d-1,2) and complementary pairing but leaves off-center singular values undetermined."
+        ],
+        "reasoning": "The new s_d/t_d formula is strictly more quantitative than older pairing and mid-energy multiplicity.",
+        "searches": [
+          "Walsh Slepian concentration majority halfcube low-degree two complete eigenvalues",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132",
+          "arxiv:1812.08905"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "First-Walsh-band Hamming-ball record provides degree-one spectrum; Hamming-shell degree-two record localizes to one fixed-weight layer, not union of majority shells.",
+          "The exact central multiplicity and symmetry in res4 are already known."
+        ],
+        "reasoning": "Our specific complete s/t off-center eigenvalue and extremizer table was not present in the retrieved same-domain records.",
+        "searches": [
+          "Walsh Slepian concentration majority halfcube low-degree two complete eigenvalues",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-first-walsh-band-concentration-spectra-on-boolean-hamming--a2f5ddac5a0f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison, not conclusive historical priority. Prior general parity/rank theorem does not alone entail these exact off-center eigenvalues; the claim is the complete sharpened spectrum.",
+      "residual_risks": [
+        "A special case of broader Hogan–Lakey invariant-block methods could yield s_d/t_d after further calculation, although the inspected sources do not give the closed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "It covers central multiplicity and eigenvalue pairing; not two off-center exact sectors",
+          "evidence": [
+            "General eigenvalue gap m/(2M) is not sharp two-channel s_d/t_d"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-half-energy-spectral-rigidity-for-walsh-concentration-on-homogen--6fe897560132",
+          "material_read": "Entire published RESULT.md: parity-offdiagonal proof, central multiplicity, margin gap and boundaries",
+          "method": "GitHub public full-result reading",
+          "title": "Half-energy spectral rigidity for Walsh concentration on homogeneous halfspaces",
+          "trigger": "Exact same majority halfcube and cutoff two in broader theorem"
+        },
+        {
+          "assessment": "Related invariant-block approach; not verified to contain these explicit formulas",
+          "evidence": [
+            "Concerns general Hamming-ball geometry and Walsh-band reductions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08905",
+          "material_read": "Open-access arXiv abstract and available eigenspace-block material; no complete all-theorem inspection in this run",
+          "method": "arXiv text exploration",
+          "title": "Spatio-spectral limiting on hypercubes: eigenspaces",
+          "trigger": "General Slepian Hamming-ball eigenspaces may imply result"
+        },
+        {
+          "assessment": "Degree one, so neither degree-two off-center multiplicities nor extremizers supplied",
+          "evidence": [
+            "summary identifies degree-one bands and half-density sharp condition number"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-first-walsh-band-concentration-spectra-on-boolean-hamming--a2f5ddac5a0f",
+          "material_read": "Resultary published summary, not full text",
+          "method": "semantic search result",
+          "title": "Exact first-Walsh-band concentration spectra on Boolean Hamming balls",
+          "trigger": "Same spatial ball, smaller band"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md sections parity reduction, degree-three Fourier beta, incidence B*B, extremizers and ordering (blob 941100d76313336ae2dac951fe2cb26107668241)",
+        "Central multiplicity C(d-1,2) follows immediately from res4 and is explicitly not counted as a new standalone contribution."
+      ],
+      "rationale": "Sharp complete concentration spectrum and extremizers for a natural majority-threshold Boolean spectral projection, including exact injectivity boundary and asymptotic localization levels; goes beyond already known midpoint multiplicity and qualitative rank.",
+      "residual_risks": [
+        "Only odd d and degree<=2; even tie layer and higher bands remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "d odd >=3",
+    "uniform Boolean cube with strict majority halfcube, cutoff exactly degree 2",
+    "d=3 nullity 3, not injective",
+    "for d>=5 unique extreme eigenlines up to scalar",
+    "A special case of broader Hogan–Lakey invariant-block methods could yield s_d/t_d after further calculation, although the inspected sources do not give the closed formula.",
+    "Only odd d and degree<=2; even tie layer and higher bands remain open."
+  ],
+  "schema_version": 1
+}
