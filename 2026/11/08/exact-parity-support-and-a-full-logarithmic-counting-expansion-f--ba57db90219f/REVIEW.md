@@ -1,0 +1,15 @@
+# Scientific review: 16-regular partition parity and counting expansion
+
+## Correctness
+PASS. The formal-power-series reduction \(f_{16}/f_1\equiv f_1^{15}\) in characteristic two, Jacobi's triangular-series identity, the eight-to-one correspondence with signed ordered representations of \(8n+5\) as two squares, and the classical two-square formula yield the unique prime-square characterization. In the counting step, higher odd exponents \(p^{4a+1}\) with \(a\ge1\) contribute only \(O(\sqrt Y)\). Removing the coprimality condition incurs \(O(\sqrt Y\log Y)\), and uniform fixed-modulus prime-counting plus a summable logarithmic expansion gives every asserted coefficient and error term. Computational checks from the attached standalone code confirm \(5001\) complete parity instances and \(401\) eightfold representation identities. The asymptotic and the prime number theorem are proved/used symbolically rather than extrapolated from the numerical checks.
+
+## Originality
+PASS within available literature, with explicit residual access risk. Closest inspected full text is Keith–Zanello (arXiv:2302.00708), which already gives a similar criterion for \(8\)-regular partitions and uses the \(f_1^{15}\) triangular-number support in a different argument. Cherubini and Mercuri (2023), Theorem 1.1, independently classify \(8\)-regular parity through a distinct form \(24n+7\), but not \(16\)-regular parity. Their statements do not include the \(16\)-regular all-index parity criterion or the full \(X/\log X\) logarithmic expansion. Keith–Zanello's earlier article covers density-zero and congruence information, while Cao–Jin–Yao–Zhou address modulo-four progressions. Cui–Gu (2013) includes \(16\)-regular congruence families; its full text could not be obtained, and its possible overlap remains an explicitly recorded risk. Search results and indexed records are not treated as proof of uniqueness. The quantitative expansion is not implied by density-zero lacunarity or congruence families without further arithmetic analysis.
+
+## Mathematical value
+PASS. The exact sparsity scale, explicit positive leading constant, and full hierarchy of lower-order terms quantify a natural parity-support problem previously treated by density-zero statements and families of vanishing congruences. The classification explains arithmetic cancellation via a unique prime of exponent \(1\pmod4\), as opposed to mere sum-of-two-squares representability. This is a concrete quantitative refinement for an established partition function; no claim to a general theorem for all even-regular partition functions is made.
+
+## Closest literature and limitations
+Keith–Zanello (2023), particularly Sections 3.2 and 3.5, provides the closest analogous exact parity criterion in the \(8\)-regular case, not the present quantitative result. Cui–Gu (2013) full-text access was unavailable. The argument invokes standard Jacobi, two-square, and prime-progression theorems, and the error is for fixed expansion order. The external literature and arithmetic provenance are cited in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.

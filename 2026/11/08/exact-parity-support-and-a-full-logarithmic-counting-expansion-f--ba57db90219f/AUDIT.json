@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Define b_16(n) by f_16/f_1, reduce to f_1^15 over F_2 and use Jacobi cube to count T_i+4T_j mod 2. For M=8n+5 every signed ordered x²+y² solution corresponds eight-to-one to a unique positive triangular pair, giving b_16(n)≡r_2(M)/8 mod2. The classical two-squares formula forces the unique odd exponent ≡1 mod4 of a prime 5 mod8. For the count, terms p^(4a+1) with a≥1 are O(sqrt Y), coprimality correction is O(sqrt Y logY). Split u at Y^.1 and apply the fixed-modulus PNT with an exponential uniform error, then expand Li(Y/u²) using convergent odd-u logarithmic moments. This proves the all-orders coefficients and uniform fixed-J remainders. Saved checker exact partition/triangle/prime parity agrees for n=0..5000; r_2=8 pairs for n=0..400. Finite checks supplement but never substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Keith–Zanello 2020 and 2023 prove/generalize lacunarity (zero natural odd density), and classify analogous b_8 parity.",
+        "The 2025 paper provides modulo-four congruences for b_16 rather than quantified odd-support count."
+      ],
+      "reasoning": "General lacunarity alone yields o(X), not a π²/4 X/log X rate or complete inverse-log hierarchy. Statements about other moduli/other regularities cannot dominate the precise all-index b_16 expansion.",
+      "searches": [
+        "published-finding corpus: Full asymptotic expansion odd b_16(n) number of 16 regular partitions prime square and pi squared constant",
+        "published-finding corpus: number of n up to X for which 16-regular partition b16(n) odd asymptotic pi squared over 4 X/log X",
+        "arXiv:2010.09881 §1",
+        "arXiv:2302.00708 §1–3",
+        "Cherubini–Mercuri 2023, Theorem 1.1",
+        "web: 16-regular partitions asymptotic odd values"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.00708 (primary PDF and arXiv full-text)",
+      "Cherubini–Mercuri 2023 (eight-page primary PDF)",
+      "arXiv:2010.09881 (primary PDF)",
+      "Cao–Jin–Yao–Zhou (2025) 16-regular mod-4 primary PDF",
+      "Cui–Gu (2013) abstract and theorem quoted in Cao et al. (full text inaccessible)",
+      "published-finding corpus published index, six related semantic queries",
+      "Available own ledgers: 2026-09_week4; 2026-10_week1,week2,week3,week4; 2026-11_week1."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cui–Gu report infinite congruences modulo two for 16-regular partitions.",
+        "KZ 2023 mention triangular-support necessity for f_1^15, not cancellation parity or a prime asymptotic.",
+        "Cao et al. 2025 study congruences modulo four."
+      ],
+      "reasoning": "Congruence families, necessary representation support, and zero-density results do not assert or logically furnish the full asymptotic hierarchy without the new exact prime-square derivation and a prime-number-theorem summation. Full Cui–Gu coverage could not be ruled out from an abstract alone; that access risk is separately preserved.",
+      "searches": [
+        "doi:10.1016/j.aam.2013.06.002 abstract and 2025 restatement",
+        "arXiv:2302.00708 §3.2 §3.5",
+        "Cherubini–Mercuri, Theorem 1.1",
+        "Cao-Jin-Yao-Zhou 2025 Theorems 1–4",
+        "published-finding corpus: parity of 16-regular partition function b_16(n) exact odd coefficients prime powers square 8n+5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "f_16/f_1≡f_1^15; f_1^3 mod2 is a triangular theta series.",
+        "The matching analytic condition translates to 8n+5=p^(4a+1)u², p≡5 mod8.",
+        "KZ 2023 treats b_8 with 24n+7 and x²+3y², but not this target. Cherubini–Mercuri Theorem 1.1 independently covers only b_8, not b_16."
+      ],
+      "reasoning": "Checked congruent product, theta-representation, two-square prime-factorization aliases. The known Jacobi identity is an input, not an earlier theorem giving the target all-order coefficient census.",
+      "searches": [
+        "published-finding corpus: Exact 16-regular partition parity coefficients characterized by 8n+5 equals prime congruent five modulo eight times a perfect square",
+        "published-finding corpus: Eta power 15 modulo two coefficients distribution 16 regular partitions two triangular numbers prime distribution",
+        "web: b16(n) prime square 8n+5",
+        "arXiv:2302.00708 §3.2, §3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A023014 describes 16-colored partitions (a different generating function), not 16-regular partitions.",
+        "Target coefficient parities and n=0..5000 were freshly checked against independently computed partitions, but no existing exact table containing this theorem was found."
+      ],
+      "reasoning": "Nearby OEIS matches concern 16-colored partitions and other species. A table of ordinary values or of b_16 coefficients would not on its own provide the all-orders asymptotic.",
+      "searches": [
+        "web: OEIS 16-regular partitions parts not divisible by 16",
+        "OEIS search: 16-regular partitions parts not divisible by 16",
+        "OEIS search: 8n+5 sum of two squares odd partition",
+        "published-finding corpus: eta product Euler pentagonal power 15 odd coefficient characterization sum of two squares 8n+5"
+      ]
+    },
+    "rationale": "A full all-order logarithmic expansion for the count of odd 16-regular partition coefficients, with exact leading constant π²/4, is materially stronger than previous zero-density statements and separate finite congruences, and is not stated in inspected closely related source papers. The nearest explicit prime-exponent formula is for b_8, a distinct eta-quotient/quadratic form. Potential unpublished or inaccessible equivalent statements remain a recorded risk.",
+    "residual_risks": [
+      "Cui–Gu 2013 whole-text not accessible: its indexed abstract and later exact quotations support only known congruence coverage, not definitive noncoverage.",
+      "Unindexed equivalent prime-square characterization or full asymptotic expansion could exist.",
+      "The count is an asymptotic, not a finite exact formula for N(X) without prime enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers b_8(n) iff 24n+7=p^(4a+1)m², by a different modular form; no assertion for b_16(n), nor a count of odd coefficients with a full asymptotic expansion.",
+        "evidence": "Cherubini–Mercuri, Theorem 1.1 and Sections 2–3; PDF text searched for 16-regular and b16, neither occurs.",
+        "identifier_or_url": "doi:10.1007/s11139-023-00784-4; https://iris.uniroma1.it/retrieve/8adf164d-0577-4515-a5a9-389b32cc08e9/Cherubini_Parity_2023.pdf",
+        "material_read": "Complete eight-page primary PDF accessed and its main theorem, modular-form lemmas, proof section and references inspected as parsed text; Theorem 1.1 on page 2 examined visually.",
+        "method": "Compare 8-regular Theorem 1.1, the modular-form reduction, and the implied coefficient assertions with the 16-regular prime-square classification and logarithmic count.",
+        "title": "Parity of the 8-regular partition function",
+        "trigger": "Closest independent theorem with a structurally analogous prime-power square classification for regular partitions"
+      },
+      {
+        "assessment": "Overlapping starting identities and a b_8 characterization, but no b_16 exact prime-square criterion or logarithmic coefficient census; both cannot be inferred from a mere triangular support necessary condition without new cancellation and analytic arguments.",
+        "evidence": "arXiv:2302.00708, §3.2 mentions odd exponents of f_1^15 only as possible triangular sums; §3.5 determines b_8 parity using x^2+3y^2; its theorems otherwise concern progressions/densities.",
+        "identifier_or_url": "arXiv:2302.00708; https://arxiv.org/pdf/2302.00708",
+        "material_read": "Full 16-page PDF parsed and accessed; specifically abstract/intro (pp. 1–4), relevant f_1^15 calculation in Section 3.2 (p. 11), full two-square analogue in Section 3.5 (pp. 13–14), and future directions; visual inspection of pp. 1 and 14.",
+        "method": "Read full-text PDF sections and compare explicit theorem conclusions against target all-index b_16 support and all-order expansion.",
+        "title": "Parity of the coefficients of certain eta-quotients, II: The case of even-regular partitions",
+        "trigger": "Same function family, explicit use of f_1^15 and exact analogous b_8 parity classification"
+      },
+      {
+        "assessment": "Results encompass density zero and congruence families, not quantitative odd-support asymptotics or the target prime-square criterion.",
+        "evidence": "arXiv:2010.09881, pp. 2–3 explicitly attributes even-progression results to Cui and Gu and invokes general lacunarity theorem; no exact counting formula.",
+        "identifier_or_url": "arXiv:2010.09881; https://arxiv.org/pdf/2010.09881",
+        "material_read": "28-page full-text PDF accessed; introduction, lacunarity theorem and b_16 discussion on pages 1–3, main theorem survey and source references.",
+        "method": "Direct parsed PDF and opening visual page 1; inspect precise types of b_16 results.",
+        "title": "Parity of the coefficients of certain eta-quotients",
+        "trigger": "Foundational earlier treatment of b_16 lacunarity and congruences"
+      },
+      {
+        "assessment": "Establishes families of mod-4 congruences and density-one relationships, not a full logarithmic expansion for the number of odd b_16 coefficients.",
+        "evidence": "Cao–Jin–Yao–Zhou 2025, Theorems 1–4 and conclusion explicitly discuss congruences and possible density questions.",
+        "identifier_or_url": "https://ssmr.ro/bulletin/pdf/68-2/articol_9.pdf",
+        "material_read": "Entire 2025 PDF available as parsed text; abstract, named theorems 1–4, proof strategy, conclusion/references examined, with first page visually inspected.",
+        "method": "Direct primary PDF, compare congruence and lacunarity claims to counting the odd coefficients.",
+        "title": "Infinite families of congruences modulo 4 for 16-regular partitions",
+        "trigger": "Same 16-regular function and newer published paper"
+      },
+      {
+        "assessment": "Known to contain infinite mod-2 congruence families, which do not imply an exact density-zero support census with logarithmic coefficients by themselves. Whole-document noncoverage is not certified.",
+        "evidence": "Cui–Gu 2013 abstract; Cao et al. 2025 §1 reproduces its congruence family for primes 3 mod 4.",
+        "identifier_or_url": "doi:10.1016/j.aam.2013.06.002",
+        "material_read": "Abstract on ResearchGate and SciSpace, bibliographic listing and the precise Cui–Gu theorem family as reproduced in the 2025 Cao et al. primary manuscript. Full text not accessible by authorized automated download; institutional download requested human input and not bypassed.",
+        "method": "Search arXiv and lawful OA first; abstract and later full-text citations only; institutional access did not complete.",
+        "title": "Arithmetic properties of ℓ-regular partitions",
+        "trigger": "Original source explicitly includes parity of 16-regular partitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba57db90-219f-4dae-acd5-12f043ac39f3",
+  "value": {
+    "rationale": "Quantifies the precise rarity of odd 16-regular partition values, a natural number-theoretic invariant singled out by existing density and congruence literature. The positive π²/4 leading constant, complete logarithmic coefficient hierarchy, and unique-prime squarefree-kernel criterion jointly reveal cancellation structure unavailable from lacunarity alone. It is meaningful even without an extension to all even regularities: it resolves the sharp growth and lower-order rate of a canonical parity-support census. The result is not claimed to improve a known asymptotic, only to supply this previously absent quantified conclusion within inspected literature.",
+    "status": "PASS"
+  }
+}
