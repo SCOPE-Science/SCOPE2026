@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The reproducible verifier is `verification/check_capture.py`; its recorded output is `verification/output.txt`.
+# Independent mathematical audit
 
-Run with Python 3 and installed NumPy and SciPy:
+## correctness
 
-```bash
-OPENBLAS_NUM_THREADS=1 python verification/check_capture.py
-```
+PASS
 
-The code independently constructs occupation-basis Hamiltonians for both particle statistics, computes spectral projector overlaps for 66 cases covering \(4\le N\le9\), and compares them with the analytic dark dimensions. It then evaluates 48 finite-time no-jump traces at time \(t=600\) for two distinct loss strengths, with maximum residual below \(1.1\times10^{-13}\). Those finite cases are supplementary tests. The full-integer proof is the Boolean-lattice commutator and exterior-power argument in `RESULT.md`.
+For each N>=4 and 1<=k<=N-1, with nonzero uniform hopping J and a single loss site, no-jump contraction projects asymptotically to the maximal H-invariant ker(n0). In the hard-core sector the off-site transfer is the Boolean down-map D_k. The entrywise Boolean-lattice commutator gives its full rank min(C(N-1,k),C(N-1,k-1)); A=U D-kI makes ker(D) invariant, so d_dark=max(C(N-1,k)-C(N-1,k-1),0). In the fermionic exterior-power model H=J(N n_u-k), low-energy intersection with wedge^k|0>^perp has dimension C(N-2,k), while the high-energy block has no such vector. Therefore the first-jump probabilities are min(2k/N,1) and 1-(N-k)(N-k-1)/(N(N-1)), respectively. The k=1 and k=N-1 boundaries follow; positivity of their difference only for 2<=k<=N-2. Independent exact/numeric Hamiltonian spectral intersection tests covered 36 cases; finite tests are not the proof.
 
-A no-jump survival probability is not a mean first-jump time; the statement applies to the eventual occurrence of the first event, not a complete counting-process distribution. Independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Exact multi-particle, all-filling dark-rank comparison on the complete physical-site graph survives best-of-knowledge originality inspection; Boolean lattice and exterior powers are classical and not claimed new.
+
+## value
+
+PASS
+
+The hard-core versus fermion distinction yields a sharp filling threshold and an O(1) gap in capture despite same one-particle hopping: for even N half-filled fermions retain (N-2)/(4(N-1)) dark mass. This is a substantive transport/statistics boundary, not merely an algebraic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
