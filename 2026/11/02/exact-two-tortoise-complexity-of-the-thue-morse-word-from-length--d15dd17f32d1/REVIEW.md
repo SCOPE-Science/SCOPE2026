@@ -1,27 +1,21 @@
-# Scientific review: exact two-tortoise Thue–Morse complexity
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The theorem has quantified scope \(n\ge18\). For every pair of distinct factors with identical two-tortoise images, the length-18 prefix map injects its fibre into one of four **exhaustively certified** size-two fibres. Their two explicit prefix patterns are preserved by all later extensions, because removing the first two ones leaves the same suffix. Every remaining possible new pair has the form \(\{0110y,1001y\}\). The proved lifting lemma uses automatic-word parity synchronization twice: all sufficiently long left-special factors begin at even substitution boundaries and desubstitute to shorter left-special factors; resubstitution produces both required length-four left contexts. Thus the new classes are in bijection with left-special factors two lengths shorter than the first-pass ones. The existing exact first-pass theorem gives \(D_2(n)=D_1(n)+D_1(n-2)\) and the digit formula, without relying on finite extrapolation.
+PASS
 
-The self-contained verifier builds all length-18 factors from four adjacent substituted block pairs; it checks exactly the four enumerated pairs, forbidden alternating length-five factors and sharp failure at length 17. As a separate robustness check it exhaustively checks the statement for every length from 18 through 512. The symbolic proof explicitly handles the infinite range. Residual risk: the parity/desubstitution proof should receive independent mathematical scrutiny, particularly its odd-length alignment and the fibre-prefix injection.
+For the Thue–Morse fixed point mu(0)=01,mu(1)=10, any length-18 factor occurs in some mu^5(ab), a,b in {0,1}, because consecutive substitution blocks cover all four adjacent pairs; complete base enumeration yields 52 factors and exactly four 2-element fibres under twice removing first 1 and appending 1. Every nontrivial longer fibre projects to one of these four prefix pairs, so fibres remain disjoint pairs of forms {01z,10z} or {0110y,1001y}. A length>=5 left-special factor has a doubled letter (forbidden 01010,10101) fixing substitution parity; left specialness forces aligned even starts and lifts both preceding contexts. Desubstituting a left-special y of length>=14 and re-substituting yields both 0110y,1001y; the converse follows from common suffix contexts. Thus extra second-pass fibres biject with left-special factors of length n-4, yielding D2(n)=D1(n)+D1(n-2) for every n>=18. The n=17 counterexample D2(17)=5 versus 4 shows threshold sharp. Independent full-prefix factor enumeration verified n=17 and 103 lengths 18..120; infinite statement follows from parity/desubstitution, not checks.
 
-## Originality (O): PASS under accessible-priority review
+## originality
 
-The directly relevant Campbell–Rampersad primary source was read in full in its accessible HTML preprint version, including all of Sections 3, 4, 6 and the final remarks. Its Theorems 4–6 calculate only the **one-pass** Thue–Morse quotient; the end of Section 6 explicitly invites similar higher-iterate relations without supplying this two-pass formula, complete four-pair classification or length-18 sharpness. The Defant–Kravitz source defines tortoise sorting of general words but does not state this infinite automatic-word factor count in the accessible material. The closest accessible existing mathematical record proves the maximum two-pass fibre multiplicity equals two; that upper bound does not determine the number of such fibres and therefore does not imply the present \(4,6,8\) deficit law. Searches for aliases, second iterates, special factors and the explicit two-term identity found no stronger covering result.
+PASS
 
-Priority limitations: semantic and searchable records are not complete bibliographic exhaustions. The complete 2018 original was not available as machine-readable full text in this check; the 2026 relevant primary preprint was available and inspected materially. A rephrasing in older substitution-dynamical literature is a residual priority risk.
+Campbell–Rampersad 2026 establishes one-pass tortoise complexity on Thue–Morse and asks about higher iterates; one-pass D1(n) and special-factor counts are prior. The claimed D2(n)=D1(n)+D1(n-2) and four-pair structure are not among the full examined theorems. Prior second-iterate fibre upper bound two does not determine the number of nontrivial fibres. Best-of-knowledge PASS, with residual risk of alternate higher-iterate language.
 
-## Value (V): PASS
+## value
 
-The April 2026 primary source isolates fixed-iterate tortoise complexity as a natural new refinement of abelian complexity, proves the first iterate and explicitly encourages higher-iterate analysis. The theorem settles the first nontrivial **second** iterate for an infinite, canonical automatic word; the identity makes its class deficit an exact shifted convolution of the previously known first-pass deficit. The four-pair boundary, the symbolic left-special lifting mechanism, and the sharp failure at length 17 are meaningful structural information rather than arbitrary finite experimentation. The result does not merely re-state a known fibre maximum.
+PASS
 
-## Closest sources and limitations
+An exact second-iterate complexity classification for a canonical automatic word, with four primitive collision types and the sharp stability threshold 18, answers a natural higher-iterate question raised by the known one-iterate theorem. It is a complete infinite-family structural fact, not merely a numerical extension of a factor table.
 
-1. Campbell–Rampersad, *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811v1/v2, Sections 3, 4 and 6, especially Theorems 4–6 and the sentence encouraging higher-iterate study.
-2. Defant–Kravitz, *Stack-sorting for words*, arXiv:1809.09158, operator definition and general-word setting.
-3. de Luca–Varricchio, *Some combinatorial properties of the Thue-Morse sequence and a problem in semigroups* (1989), predecessor left-special enumeration used by the 2026 source.
-
-The theorem is not extended to arbitrary words or three tortoise passes. Independent formal review and definitive priority determination remain outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:04:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the Thue–Morse fixed point mu(0)=01,mu(1)=10, any length-18 factor occurs in some mu^5(ab), a,b in {0,1}, because consecutive substitution blocks cover all four adjacent pairs; complete base enumeration yields 52 factors and exactly four 2-element fibres under twice removing first 1 and appending 1. Every nontrivial longer fibre projects to one of these four prefix pairs, so fibres remain disjoint pairs of forms {01z,10z} or {0110y,1001y}. A length>=5 left-special factor has a doubled letter (forbidden 01010,10101) fixing substitution parity; left specialness forces aligned even starts and lifts both preceding contexts. Desubstituting a left-special y of length>=14 and re-substituting yields both 0110y,1001y; the converse follows from common suffix contexts. Thus extra second-pass fibres biject with left-special factors of length n-4, yielding D2(n)=D1(n)+D1(n-2) for every n>=18. The n=17 counterexample D2(17)=5 versus 4 shows threshold sharp. Independent full-prefix factor enumeration verified n=17 and 103 lengths 18..120; infinite statement follows from parity/desubstitution, not checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full updated Campbell–Rampersad Section 6 discusses one pass and asks about higher passes.",
+          "General stack-sorting of words does not by itself evaluate class intersections with the Thue–Morse factor set."
+        ],
+        "reasoning": "A general fibre bound is too weak to count fibre classes. The proposed left-special lifting and n=18 boundary certificate are needed.",
+        "searches": [
+          "Campbell Rampersad higher tortoise iterates 2026",
+          "Thue Morse two tortoise iterates subword enumeration equivalence length eighteen left special factors",
+          "Defant Kravitz Stack-sorting for words Thue Morse"
+        ]
+      },
+      "checked_sources": [
+        "Campbell–Rampersad, Subword enumeration up to stack-sorting equivalence, arxiv:2604.25811v2 §6 Theorems 4–6",
+        "Defant–Kravitz Stack-sorting for words arxiv:1809.09158",
+        "de Luca–Varricchio 1989 Thue–Morse special factors, as cited in Campbell–Rampersad",
+        "Resultary query: Thue Morse two tortoise iterates subword enumeration equivalence length eighteen left special factors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published D1(n) and its left-special classes are necessary inputs but do not determine the second stratum {0110y,1001y}.",
+          "New all-length relationship D2(n)=D1(n)+D1(n-2), n>=18, exceeds prior one-pass theorem."
+        ],
+        "reasoning": "A first-iterate count and a two-iterate class-size upper bound can hold under different numbers of second-pass merges, so they cannot imply the asserted exact count without an additional structural classification.",
+        "searches": [
+          "arxiv:2604.25811v2 §6 Theorem 6",
+          "two tortoise maximal fibre size Thue Morse",
+          "Thue Morse two tortoise iterates subword enumeration equivalence length eighteen left special factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-pass formula D1(n) equals 2 or 4 by binary leading digits of n-3.",
+          "An earlier bound on two-pass fibre size 2 leaves their count unspecified."
+        ],
+        "reasoning": "D2(n) is equivalent to the number of second-pass fibre merges, not one-pass D1 or maximum class size; the proposed formula resolves a different invariant.",
+        "searches": [
+          "Thue Morse two tortoise iterates subword enumeration equivalence length eighteen left special factors",
+          "arxiv:2604.25811v2 Theorems 4 5 6 two tortoise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary reported Thue–Morse string attractors and unrelated automata, not this exact two-iterate factor complexity table."
+        ],
+        "reasoning": "The theorem is an all-length identity with a sharp threshold; finite tables or a maximum-fibre entry alone do not dominate it.",
+        "searches": [
+          "Thue Morse two tortoise iterates subword enumeration equivalence length eighteen left special factors",
+          "Thue Morse two tortoise deficits 4 6 8 n 18 17"
+        ]
+      },
+      "rationale": "Campbell–Rampersad 2026 establishes one-pass tortoise complexity on Thue–Morse and asks about higher iterates; one-pass D1(n) and special-factor counts are prior. The claimed D2(n)=D1(n)+D1(n-2) and four-pair structure are not among the full examined theorems. Prior second-iterate fibre upper bound two does not determine the number of nontrivial fibres. Best-of-knowledge PASS, with residual risk of alternate higher-iterate language.",
+      "residual_risks": [
+        "Any previously unindexed higher-iterate factor complexity theorem could preempt the stated identity.",
+        "The first-pass D1(n) formula is imported from the published Campbell–Rampersad theorem; its use is explicitly prior, not re-proved independent novelty.",
+        "Finite factor checks do not prove the n>=18 infinite result without the supplied symbolic lifting argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes first-pass D1 and proposes higher-iterate study, but inspected theorem statements do not provide D2 all-n formula or sharp length-18 cutoff",
+          "evidence": [
+            "Theorems 4–6 classify one-pass Thue–Morse pairs and evaluate D1(n).",
+            "End of §6 explicitly motivates exploring higher k rather than stating the k=2 identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+          "material_read": "Accessible full updated primary preprint, especially Sections 2–4 and 6, Theorems 4–6 and closing open questions, plus reference list",
+          "method": "Direct compare one-/two-iterate definitions, first-pass fibre classification and binary-digit deficit to the proposed n>=18 second-pass theorem",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Same tortoise function on same Thue–Morse factor language"
+        },
+        {
+          "assessment": "Defines general tortoise dynamics but abstract does not determine k=2 class count on Thue–Morse factors; broader proof remains a priority risk",
+          "evidence": [
+            "Focus on finite-word stack-sorting/fertility rather than the Thue–Morse factor quotient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+          "material_read": "Public arXiv abstract/bibliographic description; not a complete text read",
+          "method": "Check whether a general theorem on stack-sorting words implies fixed-point factor restrictions",
+          "title": "Stack-sorting for words",
+          "trigger": "Original tortoise map and potential general word-fibre classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact second-iterate complexity classification for a canonical automatic word, with four primitive collision types and the sharp stability threshold 18, answers a natural higher-iterate question raised by the known one-iterate theorem. It is a complete infinite-family structural fact, not merely a numerical extension of a factor table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Campbell–Rampersad, Subword enumeration up to stack-sorting equivalence, arxiv:2604.25811v2 §6 Theorems 4–6",
+    "Defant–Kravitz Stack-sorting for words arxiv:1809.09158",
+    "de Luca–Varricchio 1989 Thue–Morse special factors, as cited in Campbell–Rampersad",
+    "Resultary query: Thue Morse two tortoise iterates subword enumeration equivalence length eighteen left special factors"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Any previously unindexed higher-iterate factor complexity theorem could preempt the stated identity.",
+    "The first-pass D1(n) formula is imported from the published Campbell–Rampersad theorem; its use is explicitly prior, not re-proved independent novelty.",
+    "Finite factor checks do not prove the n>=18 infinite result without the supplied symbolic lifting argument."
+  ],
+  "residual_risks": [
+    "Any previously unindexed higher-iterate factor complexity theorem could preempt the stated identity.",
+    "The first-pass D1(n) formula is imported from the published Campbell–Rampersad theorem; its use is explicitly prior, not re-proved independent novelty.",
+    "Finite factor checks do not prove the n>=18 infinite result without the supplied symbolic lifting argument."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes first-pass D1 and proposes higher-iterate study, but inspected theorem statements do not provide D2 all-n formula or sharp length-18 cutoff",
+      "evidence": [
+        "Theorems 4–6 classify one-pass Thue–Morse pairs and evaluate D1(n).",
+        "End of §6 explicitly motivates exploring higher k rather than stating the k=2 identity."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+      "material_read": "Accessible full updated primary preprint, especially Sections 2–4 and 6, Theorems 4–6 and closing open questions, plus reference list",
+      "method": "Direct compare one-/two-iterate definitions, first-pass fibre classification and binary-digit deficit to the proposed n>=18 second-pass theorem",
+      "title": "Subword enumeration up to stack-sorting equivalence",
+      "trigger": "Same tortoise function on same Thue–Morse factor language"
+    },
+    {
+      "assessment": "Defines general tortoise dynamics but abstract does not determine k=2 class count on Thue–Morse factors; broader proof remains a priority risk",
+      "evidence": [
+        "Focus on finite-word stack-sorting/fertility rather than the Thue–Morse factor quotient."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+      "material_read": "Public arXiv abstract/bibliographic description; not a complete text read",
+      "method": "Check whether a general theorem on stack-sorting words implies fixed-point factor restrictions",
+      "title": "Stack-sorting for words",
+      "trigger": "Original tortoise map and potential general word-fibre classification"
+    }
+  ]
+}
