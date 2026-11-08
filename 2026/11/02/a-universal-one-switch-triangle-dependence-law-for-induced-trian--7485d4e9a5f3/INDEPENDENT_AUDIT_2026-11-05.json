@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:46:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-one-switch-triangle-dependence-law-for-induced-trian--7485d4e9a5f3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-one-switch-triangle-dependence-law-for-induced-trian--7485d4e9a5f3/verify.py",
+        "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC."
+      ],
+      "rationale": "Conditioning on a designated induced H fixes e internal edges and forbids the other internal edges; the remaining x=m-e edges are uniform among B=N-choose(h,2). All unrestricted candidate triangles count A=choose(d,3)+h choose(d,2) and triangles with an internal H edge count ed, yielding E[T|H]=A(x)_3/(B)_3+ed(x)_2/(B)_2. Baseline is choose(n,3)(m)_3/(N)_3. The ratio reduces to K*x(x-1)(x-2+c)/[(x+e)(x+e-1)(x+e-2)], c=ed(B-2)/A in (0,3e]; 3A-d(B-2)=d(d-3)(h-2)/2>=0. The derivative numerator is affine in c; at c=0 it is product of strictly increasing nonnegative factors, while at c=3e it is e(e-1) times a polynomial strictly positive in y=x-2>=0 with positive coefficients. Strict positivity holds for all relevant integer parameters, giving one-switch and motif-shape invariance. Exact checker source was inspected; separately reran rational derivative and triangle enumeration in independent_checks.py.",
+      "residual_risks": [
+        "One sign transition does not assert that every motif triple has a crossing.",
+        "Proof is valid for fixed-edge G(n,m), triangle-free connected H and at least three outside vertices; not G(n,p) or H with triangles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General overlap techniques make the conditional formula derivable but do not establish positivity of the quotient derivative across e+2<=m<=B+e.",
+          "Moderate-deviation estimates and typical bounded differences are concentration results for subgraph counts, not the exact conditional law."
+        ],
+        "reasoning": "No checked broader theorem has hypotheses plus conclusion mathematically implying the candidate one-switch law without new sign analysis.",
+        "searches": [
+          "Ellis Ferry section 2-3 overlay variance",
+          "Goldschmidt Griffiths Scott theorem 1.6",
+          "Warnke arXiv:1212.5796"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: fixed edge G(n,m) conditional expected triangle count induced triangle-free motif covariance sign monotonic",
+        "https://doi.org/10.1016/j.dam.2009.11.012",
+        "https://ora.ox.ac.uk/objects/uuid:82787811-deea-46a4-9595-8a4f42d6cb43",
+        "https://arxiv.org/abs/1212.5796",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-one-switch-triangle-dependence-law-for-induced-trian--7485d4e9a5f3/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact triangle intersection enumeration is an overlap computation one could specialize from standard methods.",
+          "The key inequality c<=3e and positivity of the derivative numerator across the permitted range are specific extra arguments."
+        ],
+        "reasoning": "Prior formulas do not directly imply the strict R(m) increase or absence of repeated covariance sign changes; the implication comparison is mathematical rather than title-based.",
+        "searches": [
+          "Ellis Ferry 2010 main overlap-polynomial definition",
+          "Goldschmidt Griffiths Scott section on martingale subgraph count",
+          "arXiv:1212.5796 concentration bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ellis–Ferry overlap polynomials count (mostly noninduced) H-copy covariances in independent-edge G(n,p).",
+          "Goldschmidt–Griffiths–Scott studies fixed-edge subgraph-count moderate deviations, not a deterministic finite-ratio derivative sign for triangle-free induced H."
+        ],
+        "reasoning": "Changing from G(n,p) to G(n,m) and conditioned induced H is not a notation substitution. The special derivative monotonicity is a further theorem.",
+        "searches": [
+          "Resultary: fixed edge G(n,m) conditional expected triangle count induced triangle-free motif covariance sign monotonic",
+          "Ellis Ferry doi:10.1016/j.dam.2009.11.012",
+          "Goldschmidt Griffiths Scott ORA uuid:82787811-deea-46a4-9595-8a4f42d6cb43"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published result Three-point connectivity exactly controls component–triangle covariance concerns graph component count under independent bond percolation, not induced H count in G(n,m).",
+          "The explicit n=7 h=4 e=3 crossing is a certificate of nontriviality, not a known-table lookup."
+        ],
+        "reasoning": "No matching database entry located, but the result could be implicit in another subgraph moment compilation; search absence alone does not prove novelty.",
+        "searches": [
+          "Resultary: fixed edge G(n,m) conditional expected triangle count induced triangle-free motif covariance sign monotonic",
+          "G(n,m) triangle count induced motif table covariance"
+        ]
+      },
+      "rationale": "Conditional triangle counting is classical and general overlap calculus known, but the inspected original results concern ordinary subgraph variance in G(n,p) or asymptotic deviations, not the finite induced-H conditional ratio monotonicity with a universal derivative sign certificate and all-H same-(h,e) covariance sign.",
+      "residual_risks": [
+        "A specialized exact moment/overlap-polynomial paper may have proved a stronger fixed-edge conditional sign theorem.",
+        "The present result does not classify when crossing exists for all parameter triples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_DIFFERENT_TARGET",
+          "evidence": "Ordinary H count variance G(n,p) rather than finite G(n,m) triangle-versus-induced H sign result.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2009.11.012",
+          "material_read": "Publisher primary full HTML abstract, §§2–3 formulas and overlay polynomial definition",
+          "method": "Read available publisher full HTML, contrasted ensemble and induced/noninduced hypotheses",
+          "title": "Variance of the subgraph count for sparse Erdős–Rényi graphs",
+          "trigger": "Closest graph overlap variance framework"
+        },
+        {
+          "assessment": "ASYMPTOTIC_DIFFERENT_THEOREM",
+          "evidence": "Moderate deviations and subgraph-count expansions do not give candidate finite all-motif conditional sign monotonicity.",
+          "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid:82787811-deea-46a4-9595-8a4f42d6cb43",
+          "material_read": "Author-hosted primary manuscript introduction, Theorems 1.1/1.6, martingale construction and main theorem passages; first PDF page visually inspected",
+          "method": "Read primary lawful OA PDF text and first rendered page",
+          "title": "Moderate deviations of subgraph counts in Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Same fixed-edge ensemble and generic subgraph statistics"
+        },
+        {
+          "assessment": "METHOD_BACKGROUND",
+          "evidence": "Concentration theorem is not an exact induced-motif triangle covariance classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.5796",
+          "material_read": "Primary abstract, bounded-difference theorem statements and graph applications",
+          "method": "Read accessible open text and compare statistic and purpose",
+          "title": "On the method of typical bounded differences",
+          "trigger": "Relevant stochastic combinatorial concentration method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-one-switch-triangle-dependence-law-for-induced-trian--7485d4e9a5f3/RESULT.md",
+        "https://doi.org/10.1016/j.dam.2009.11.012",
+        "https://ora.ox.ac.uk/objects/uuid:82787811-deea-46a4-9595-8a4f42d6cb43",
+        "https://arxiv.org/abs/1212.5796"
+      ],
+      "rationale": "A complete all-connected-triangle-free-motif fixed-edge dependence theorem: the sign depends only on size and edge count, and can switch at most once as the number of ambient edges changes. The path/claw same-(h,e) crossing illustrates a nontrivial exact transition. This is a natural structural relation between motif and triangle statistics rather than arbitrary computed numbers.",
+      "residual_risks": [
+        "Prior specialized mathematics may still dominate this claim despite the best-of-knowledge search.",
+        "A specialized exact moment/overlap-polynomial paper may have proved a stronger fixed-edge conditional sign theorem.",
+        "The present result does not classify when crossing exists for all parameter triples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-one-switch-triangle-dependence-law-for-induced-trian--7485d4e9a5f3/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-one-switch-triangle-dependence-law-for-induced-trian--7485d4e9a5f3/verify.py",
+    "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC.",
+    "https://doi.org/10.1016/j.dam.2009.11.012",
+    "https://ora.ox.ac.uk/objects/uuid:82787811-deea-46a4-9595-8a4f42d6cb43",
+    "https://arxiv.org/abs/1212.5796"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "One sign transition does not assert that every motif triple has a crossing.",
+    "Proof is valid for fixed-edge G(n,m), triangle-free connected H and at least three outside vertices; not G(n,p) or H with triangles.",
+    "A specialized exact moment/overlap-polynomial paper may have proved a stronger fixed-edge conditional sign theorem.",
+    "The present result does not classify when crossing exists for all parameter triples."
+  ],
+  "schema_version": 1
+}
