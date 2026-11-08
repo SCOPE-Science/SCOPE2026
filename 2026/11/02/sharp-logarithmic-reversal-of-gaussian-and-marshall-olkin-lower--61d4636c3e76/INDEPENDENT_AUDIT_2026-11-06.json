@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:44.450773Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent proof reconstruction starts from the correlated Gaussian orthant integral at a=-Phi^{-1}(u),b=-Phi^{-1}(v). With b/a->1, positive derivative coefficients gamma_1,gamma_2 yield a uniform relative error O(a^-2+b^-2) after exponential rescaling. Mills-ratio subtraction for t=log(u/v)=O(log log(1/u)) gives Q(a,b)-Q(a,a)~2t/(1+rho); the ratio is K_rho*L^{-alpha}*exp(alpha*t)*(1+o(1)), uniformly on bounded logarithmic wedges. The conditional Gaussian h_u(t)=Phi((Phi^{-1}(u)-rho Phi^{-1}(t))/sqrt(1-rho^2)) strictly decreases with t; thus G(u,v)/v decreases from 1 to the diagonal comparison and gives a unique crossing, not just two test signs. Independent Gauss-orthant 1D quadrature at rho=.3,.5,.7 and u=10^-10 brackets c_rho by c_rho/4 and 4c_rho. Finite quadrature is corroboration only. Endpoints rho=0,1 and multi-parameter uniformity are excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Furman et al. compare Gaussian tail behavior along fixed-product paths.",
+          "Li and Joe discuss failure of uniform Gaussian expansions away from a diagonal; Siburg gives fixed-direction expansion."
+        ],
+        "reasoning": "Those results are not uniform in the changing direction v/u=L^{-s} and do not imply the crossover coefficient without an additional uniform estimate and monotone-ratio argument.",
+        "searches": [
+          "arxiv:1607.04736 Gaussian maximal tail dependence fixed product",
+          "arxiv:2603.27458 Li and Joe nonuniform copula tails",
+          "arxiv:2610.35325 Siburg intermediate tail order"
+        ]
+      },
+      "checked_sources": [
+        "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree 344235c3239b6bf0ada251b2a0a9e861ad18694d; full RESULT.md blob 8a9d2c33af5d05a8b9049617f75c15b8a51cb5f9 and inspected checker.py blob 11c42c56b091769c8da52541221ca8194436c5e6",
+        "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+        "Actual Resultary semantic search for this claim and related published mathematical records",
+        "https://arxiv.org/html/2603.27458v1",
+        "https://arxiv.org/abs/2610.35325",
+        "https://arxiv.org/abs/2210.06842"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed ratio v/u>0 the Gaussian/MO ratio tends to zero, yet for v=c*u/L with c<c_rho it tends above one.",
+          "The bivariate Gaussian conditioning integral strictly decreases G(u,v)/v with v for positive rho."
+        ],
+        "reasoning": "A fixed-ray statement alone does not imply moving-ray ratio or uniqueness; those are supplied by the quantitative error estimate and section monotonicity.",
+        "searches": [
+          "Li Joe 2026 Section 3 Gaussian nonuniform lower orthant",
+          "Siburg 2026 Proposition 3.7 Appendix A fixed directions",
+          "Siburg Strothmann 2022 local dominance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Siburg–Strothmann use a Clayton/Marshall–Olkin local nonordering example, not this calibrated Gaussian pair.",
+          "The present ratio limit is K_rho*c^{-alpha} on v=c*u/log(1/u), a moving direction."
+        ],
+        "reasoning": "Local tail-order reversal is an equivalent viewpoint, but neither inspected prior statement gives this pair’s unique vertical crossing or exact multiplicative threshold.",
+        "searches": [
+          "Resultary: Gaussian copula versus Marshall Olkin lower-tail logarithmic reversal unique crossing calibrated diagonal exponent",
+          "arxiv:2210.06842 local stochastic dominance comparison",
+          "arxiv:2610.35325 intermediate tail dependence Gaussian fixed-ray"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest Marshall–Olkin item concerns Chatterjee directional predictability, not a crossing table.",
+          "No exact source table of c_rho was actually identified in the inspected listings."
+        ],
+        "reasoning": "The assertion is a continuum asymptotic and a unique implicit crossing, not a finite database lookup; negative searches are not a proof of priority.",
+        "searches": [
+          "Resultary Gaussian Marshall Olkin critical logarithmic moving ray",
+          "Gaussian copula Marshall Olkin copula unique crossover constant 4pi log inverse"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty lies in the uniquely located Gaussian/symmetric Marshall–Olkin moving-ray crossover, not generic Gaussian tail asymptotics or local stochastic order. Read the accessible primary Li–Joe HTML exposition and compared the precise direction regimes to Siburg–Strothmann and Furman; no stronger statement carrying this calibrated moving logarithmic boundary was established. Fixed-ray asymptotics cannot simply be substituted into v/u=1/log(1/u); older moderate-deviation lemmas could give the result implicitly.",
+      "residual_risks": [
+        "Earlier Gaussian moderate-deviation or local-order literature may contain an implicit equivalent crossover; searches cannot certify nonexistence.",
+        "Only fixed rho in (0,1); no uniformity as rho approaches 0 or 1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected explicit Gaussian–Marshall–Olkin logarithmic crossing; does warn fixed-direction estimates are insufficient.",
+          "evidence": "Section 3 and Remark 3.6: Gaussian asymptotic behavior is not generally uniform away from diagonal.",
+          "identifier_or_url": "https://arxiv.org/html/2603.27458v1",
+          "material_read": "Accessible primary HTML including Section 3 tail discussion and caution about nonuniformity",
+          "method": "Read accessible article HTML and searched for Gaussian asymptotics",
+          "title": "Extreme Value Inference for CoVaR and Systemic Risk",
+          "trigger": "Gaussian copula local tail asymptotics / potential stronger theorem"
+        },
+        {
+          "assessment": "Potential implicit overlap, no whole-paper noncoverage assertion",
+          "evidence": "Fixed-direction estimates are not directly valid when v/u shrinks with u.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.35325",
+          "material_read": "Abstract and source-associated fixed-direction lemma description; full primary text not obtained",
+          "method": "Read index/abstract and matched stated fixed-direction hypothesis to moving path",
+          "title": "Comparing and measuring intermediate tail dependence",
+          "trigger": "Closest Gaussian directional asymptotics"
+        },
+        {
+          "assessment": "Different pair, not a direct result on matched Gaussian–Marshall–Olkin boundary",
+          "evidence": "The discussed example compares Clayton/Marshall–Olkin rather than Gaussian/Marshall–Olkin.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.06842",
+          "material_read": "Accessible abstract and reported Clayton–Marshall–Olkin example, not complete paper text",
+          "method": "Compare copula pairs and parametric approach curves",
+          "title": "Multivariate tail dependence and local stochastic dominance",
+          "trigger": "Local order reversal aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a sharp, natural counterexample to neighborhood copula dominance even for matched diagonal tail power and quantifies the boundary by a universal exponent and model-dependent coefficient. Conditional threshold uniqueness and a uniform moving-direction expansion are mathematically motivated beyond a numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree 344235c3239b6bf0ada251b2a0a9e861ad18694d; full RESULT.md blob 8a9d2c33af5d05a8b9049617f75c15b8a51cb5f9 and inspected checker.py blob 11c42c56b091769c8da52541221ca8194436c5e6",
+    "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+    "Actual Resultary semantic search for this claim and related published mathematical records",
+    "https://arxiv.org/html/2603.27458v1",
+    "https://arxiv.org/abs/2610.35325",
+    "https://arxiv.org/abs/2210.06842"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each fixed 0<rho<1, Gaussian and symmetric Marshall–Olkin copulas calibrated to the same diagonal power have a unique vertical crossing v_rho(u)~c_rho*u/log(1/u); a uniform moving-ray Gaussian estimate gives the critical logarithmic exponent s=1 and the explicit crossover constant.",
+  "limitations": [
+    "Proof and cited full result confined to its stated hypotheses; independent finite tests do not establish any unrestricted result.",
+    "Earlier Gaussian moderate-deviation or local-order literature may contain an implicit equivalent crossover; searches cannot certify nonexistence.",
+    "Only fixed rho in (0,1); no uniformity as rho approaches 0 or 1."
+  ],
+  "residual_risks": [
+    "Earlier Gaussian moderate-deviation or local-order literature may contain an implicit equivalent crossover; searches cannot certify nonexistence.",
+    "Only fixed rho in (0,1); no uniformity as rho approaches 0 or 1."
+  ],
+  "schema_version": 1
+}

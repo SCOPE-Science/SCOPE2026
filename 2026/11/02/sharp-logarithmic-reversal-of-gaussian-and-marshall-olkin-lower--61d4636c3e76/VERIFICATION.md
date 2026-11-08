@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the Gaussian–Marshall–Olkin crossover
+# Independent mathematical audit
 
-The infinite theorem is proved in `RESULT.md` by Gaussian orthant analysis, Mills-ratio expansion, and strict conditioning monotonicity. The standalone file `checker.py` separately computes true bivariate Gaussian probabilities through one-dimensional Gauss–Laguerre integration and validates the sharp comparison on three values of \(\rho\). The numerical evaluation deliberately does not invoke the analytic two-dimensional orthant approximation from the proof.
+## correctness
 
-Execute `python checker.py` with Python 3 plus NumPy and SciPy (specified in `requirements.txt`). The recorded execution was:
+PASS
 
-```
-rho=0.20 critical constant c_rho=0.8019575667, ratios at L=1280: 1.255569, 0.792415
-rho=0.50 critical constant c_rho=1.3955512665, ratios at L=1280: 1.571938, 0.627119
-rho=0.80 critical constant c_rho=3.5373342210, ratios at L=1280: 1.803923, 0.533793
-PASS: 63 independent quadrature/asymptotic sign checks
-```
+The independent proof reconstruction starts from the correlated Gaussian orthant integral at a=-Phi^{-1}(u),b=-Phi^{-1}(v). With b/a->1, positive derivative coefficients gamma_1,gamma_2 yield a uniform relative error O(a^-2+b^-2) after exponential rescaling. Mills-ratio subtraction for t=log(u/v)=O(log log(1/u)) gives Q(a,b)-Q(a,a)~2t/(1+rho); the ratio is K_rho*L^{-alpha}*exp(alpha*t)*(1+o(1)), uniformly on bounded logarithmic wedges. The conditional Gaussian h_u(t)=Phi((Phi^{-1}(u)-rho Phi^{-1}(t))/sqrt(1-rho^2)) strictly decreases with t; thus G(u,v)/v decreases from 1 to the diagonal comparison and gives a unique crossing, not just two test signs. Independent Gauss-orthant 1D quadrature at rho=.3,.5,.7 and u=10^-10 brackets c_rho by c_rho/4 and 4c_rho. Finite quadrature is corroboration only. Endpoints rho=0,1 and multi-parameter uniformity are excluded.
 
-These are finite numerical tests of a limiting statement. They are not an exhaustive verification for every correlation or tail level. Historical priority has not been independently certified.
+## originality
+
+PASS
+
+Best-of-knowledge novelty lies in the uniquely located Gaussian/symmetric Marshall–Olkin moving-ray crossover, not generic Gaussian tail asymptotics or local stochastic order. Read the accessible primary Li–Joe HTML exposition and compared the precise direction regimes to Siburg–Strothmann and Furman; no stronger statement carrying this calibrated moving logarithmic boundary was established. Fixed-ray asymptotics cannot simply be substituted into v/u=1/log(1/u); older moderate-deviation lemmas could give the result implicitly.
+
+## value
+
+PASS
+
+The theorem gives a sharp, natural counterexample to neighborhood copula dominance even for matched diagonal tail power and quantifies the boundary by a universal exponent and model-dependent coefficient. Conditional threshold uniqueness and a uniform moving-direction expansion are mathematically motivated beyond a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
