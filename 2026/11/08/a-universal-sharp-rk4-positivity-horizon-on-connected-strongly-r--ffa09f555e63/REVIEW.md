@@ -1,0 +1,15 @@
+# Scientific evaluation
+
+## Correctness — PASS
+The result is a universal algebraic classification, not a numerical extrapolation. The graph-parameter restrictions ensure positive common-neighbor count and the strict bounds needed for the edge derivative. Repeated use of the adjacency-algebra identity provides exact entries for all four powers. The nonedge quadratic has a strictly negative discriminant with positive leading term. The edge cubic has a globally negative derivative because its derivative discriminant is negative under exact parameter inequalities. The positive-definite scalar stability polynomial controls the diagonals. Positive coefficients in the fourth-order expansion at the forward-Euler endpoint supply the strict gain. The standalone checker verifies the algebraic identities and 9,768 matrix entries exactly. Real-root and parameter conclusions follow analytically for every admissible graph; experiments alone are insufficient and are not used as universal proof.
+
+## Originality — PASS on inspected evidence
+The closest general result is Horváth–Song–Terlaky (arXiv:1406.6755, particularly the first-positive-zero algorithm for Taylor maps on polyhedra). That generic algorithm does not contain the graph-specific uniform nonedge positivity, explicit cubic, or proof of no later recovery. Horváth (2005) concerns positivity thresholds and invariant cones but no universal strongly regular parametrization. Brouwer–Haemers provides the classical graph adjacency identity only. Special-case analyses for regular bipartite graphs, triangular graphs (including Chang graph parameters), and complete multipartite graphs cover narrower cases; they cannot yield the universal classification by implication. Semantic searches of external research records for SRG, adjacency algebras, RK4, Paley/Petersen/Shrikhande, and no-reentry conditions returned no direct coverage, but ranked search is not proof of priority.
+
+## Mathematical value — PASS
+The theorem replaces a graph-size-dependent list of polynomial root tests by one cubic in three combinatorial parameters. It completely identifies every potential sign failure (only edge entries), proves the absence of recovery intervals, and gives a strict improvement over forward Euler on every connected noncomplete strongly regular graph. It treats nonvertex-transitive realizations as well as many parameter families at once and separates graph parameter dependence from graph realization. These are meaningful structural statements for positivity-preserving numerical diffusion, not a reparameterization of an arbitrary small example.
+
+## Limits and priority risk
+Scope excludes disconnected, directed, weighted, and non-strongly-regular networks; only completed RK4 endpoint positivity is asserted, not internal stages. An inaccessible or unindexed specialist source might preempt part of the classification; publication priority has not been independently established. Full mathematical correctness is subject to later independent checking.
+
+Self-review: passed. Independent audit: not yet performed.

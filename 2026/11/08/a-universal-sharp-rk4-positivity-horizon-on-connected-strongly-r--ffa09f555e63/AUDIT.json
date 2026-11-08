@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The adjacency recurrence in the polynomial ring of k,lambda,mu proves exact class formulas. The nonedge quadratic has strictly negative discriminant and positive leading coefficient. R4(-x)>e^-x for x>=0 implies positive diagonal. The edge cubic has derivative discriminant strictly negative because 0<=b/a²<1/4 and 0<mu/a<1. Its unique positive root is the complete positivity cutoff. At h=1/k all entries are strictly positive from a nonnegative polynomial in P=A/k, so the bound improves on forward Euler. Standalone stdlib verification.py passes the symbolic identities and 9,768 exact matrix comparisons; finite checks do not substitute for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth 2005 pp. 341–356: general Runge–Kutta positivity radius, strictness and invariant cones; no SRG-specific class sign argument.",
+        "Horváth–Song–Terlaky 2014: valid polyhedral threshold computable from first polynomial roots, with no guarantee that the first zero is the globally last positivity boundary absent extra structure.",
+        "Brouwer–Haemers 2006 Chapter 9: SRG adjacency identity; no Runge–Kutta sign classification."
+      ],
+      "reasoning": "The abstract first-zero algorithm is broader in applicability but weaker in explicit conclusions. It does not by itself prove that the nonedge class never becomes negative or that edge entries cross once and never recover. The new result supplies those absent hypotheses and closed form for every admissible graph parameter triple. Stronger general positivity theorems for other integrators are inapplicable to RK4.",
+      "searches": [
+        "Runge Kutta Taylor exponential approximations graph Laplacian strongly regular graphs nonadjacent matrix coefficients positive all time step",
+        "strongly regular graphs positivity semigroup truncated exponential fourth degree spectral graph diffusion",
+        "Horvath Song Terlaky positivity Taylor truncation on strongly regular graphs adjacency algebra",
+        "web:RK4 positivity step size strongly regular graphs positive matrix polynomial adjacency"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.6755",
+      "https://doi.org/10.1016/j.apnum.2004.08.026",
+      "https://homepages.cwi.nl/~aeb/math/ipm/ipm.pdf",
+      "https://doi.org/10.1137/S003614450036757X",
+      "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "arxiv:1406.6755",
+      "doi:10.1016/j.apnum.2004.08.026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The bipartite-regular RK4 result covers K_{k,k} among connected strongly regular graphs; most regular bipartite graphs are not SRG.",
+        "The triangular/Chang result covers the fixed parameter family (v,k,lambda,mu)=(binomial(n,2),2(n-2),n-2,4), and its parameter-matched realizations, not general SRG parameters.",
+        "The Hamming-family result requires dimension d>=3, q>=3, whereas ordinary strongly regular Hamming graphs with q>=3 have d=2.",
+        "The complete multipartite Taylor result covers complete equal multipartite SRGs, but not primitive SRGs such as Petersen/Paley/Shrikhande.",
+        "The new proof controls every pair class uniformly for arbitrary feasible (k,lambda,mu) and shows no late sign reentry."
+      ],
+      "reasoning": "The previous results describe restricted graph families or parameter loci and cannot logically yield the classification for primitive SRGs with unrelated parameters. Even when their statements are equivalent for common special cases, the all-SRG assertion is strictly broader; no relabeling of a known table accounts for it.",
+      "searches": [
+        "Sharp positivity threshold of classical fourth order Runge-Kutta RK4 on arbitrary connected noncomplete strongly regular graphs (v,k,lambda,mu), all nonadjacent heat transition entries strictly positive, adjacent cubic unique zero",
+        "RK4 Laplacian heat step on any strongly regular graph exact first positive root adjacency polynomial and unconditional positivity at graph distance two",
+        "web:RK4 positivity step size strongly regular graphs positive matrix polynomial adjacency",
+        "Horvath 2005 full text, pages 341-356"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horváth–Song–Terlaky arXiv:1406.6755 Theorem 3.3/3.4: general Taylor polyhedral invariance first-positive-zero computation, without strong-regular structure.",
+        "published-finding corpus closest hit 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac concerns a different rationally filtered method on one-dimensional lattices.",
+        "published-finding corpus hit 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns [2/2] Padé, not RK4 graph heat polynomials."
+      ],
+      "reasoning": "Equivalent characterizations would specify the same all-SRG exact edge/nonedge sign pattern, cubic unique positive zero, and absence of late reentry. General first-root recipes and other integrator positivity theorems cannot imply these uniform signs or global single-crossing without the new graph-parameter inequalities. No equivalent exact statement was found in inspected material.",
+      "searches": [
+        "Sharp positivity threshold of classical fourth order Runge-Kutta RK4 on arbitrary connected noncomplete strongly regular graphs (v,k,lambda,mu), all nonadjacent heat transition entries strictly positive, adjacent cubic unique zero",
+        "RK4 Laplacian heat step on any strongly regular graph exact first positive root adjacency polynomial and unconditional positivity at graph distance two",
+        "strongly regular graph (v k lambda mu) Runge-Kutta fourth-order positivity threshold no reentry nonadjacent entries",
+        "web:strongly regular graph runge kutta four positivity threshold graph heat"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus query for Paley/Petersen/Shrikhande returns closest general RK4/Pade positivity works, no shared parameter cubic table.",
+        "Brouwer–Haemers Chapter 9 describes strongly regular graph parameters/spectra, not RK4 first-positivity roots.",
+        "Twelve benchmark graph matrices are generated by verification.py, not imported from a published threshold table."
+      ],
+      "reasoning": "No inspected parameter database or table gave the exact RK4 positivity limits. General SRG parameter tables are spectral/combinatorial and do not immediately include the sign-inequality formula. Incompleteness of indexing remains an explicit residual risk.",
+      "searches": [
+        "All strongly regular graph three-class Laplacian Taylor RK4 positivity adjacency-algebra exact root transition criterion",
+        "Paley Petersen Shrikhande graph RK4 heat positivity exact threshold polynomial",
+        "published-finding corpus:Paley Petersen Shrikhande graph RK4 heat positivity exact threshold polynomial",
+        "web:strongly regular graphs positivity semigroup truncated exponential fourth degree spectral graph diffusion"
+      ]
+    },
+    "rationale": "The inspected Horváth–Song–Terlaky first-zero procedure covers arbitrary Taylor updates in general but does not give the strongly regular cubic, prove positive nonedge entries at every positive step, or exclude later recovery. Horváth 2005 addresses general RK positivity and invariant cones but not the parameter classification. Brouwer–Haemers gives the adjacency algebra without a time-stepping positivity result. Related special cases on regular bipartite, triangular, and multipartite graphs do not imply the result for all strongly regular graphs. Multiple semantic research searches found no covering statement, subject to unindexed-literature risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible specialized strongly-regular-graph RK4 source could contain an equivalent root formula; source search cannot guarantee world-wide priority.",
+      "General first-root theories may allow an alternate short derivation; the graph-specific discriminant and monotonicity conclusions are nevertheless separately proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General finite first-root positivity framework, no uniform strongly regular graph reduction or global sign/nonrecovery conclusion",
+        "evidence": "arXiv v1 26 June 2014; general Taylor polyhedral invariance first-zero formulation, no SRG graph parameters or global unique-cubic claim",
+        "identifier_or_url": "https://arxiv.org/abs/1406.6755",
+        "material_read": "arXiv full text, especially results for Taylor discretizations, Theorems 3.3–3.4 and limitations surrounding first positive zeros",
+        "method": "Open full OA preprint and compare quantifiers and implications",
+        "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+        "trigger": "Closest general Taylor positivity-root framework"
+      },
+      {
+        "assessment": "General RK positivity conditions and invariant cones, not this exact SRG RK4 classification",
+        "evidence": "Applied Numerical Mathematics 53 (2005), pp.341–356, available online 27 Oct 2004; sections 2–4",
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete 16-page PDF, pages 1–16, including sections on strict threshold, proof, invariant cones, examples, bibliography",
+        "method": "Read the complete legally accessed publisher full text (pages 1–16)",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Foundational Runge–Kutta positivity threshold analysis"
+      },
+      {
+        "assessment": "Supplies A² identity and SRG parameter restrictions but contains no RK4 positivity theorem",
+        "evidence": "Brouwer and Haemers, Chapter 9, SRG adjacency algebra A²=(k-mu)I+(lambda-mu)A+mu J",
+        "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/ipm/ipm.pdf",
+        "material_read": "SRG section of Chapter 9, printed pp.113–115 and associated adjacency identities",
+        "method": "Opened OA PDF and inspected mathematical text and page images",
+        "title": "Spectra of Graphs",
+        "trigger": "Primary algebra for connected strongly regular graphs"
+      },
+      {
+        "assessment": "General SSP methodology, not a graph-parameter-specific RK4 classification",
+        "evidence": "Gottlieb, Shu, Tadmor, SIAM Review 43 (2001), 89–112; method class and positivity stability definitions",
+        "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+        "material_read": "Primary PDF overview and relevant SSP/time-discretization sections",
+        "method": "Read publisher-author open PDF with numerical-method definitions and positivity discussion",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Established SSP positivity and method stability framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ffa09f55-5e63-425c-a058-e4f31166bb3b",
+  "value": {
+    "rationale": "The claim classifies an entire natural family of graph heat systems using only three local SRG parameters, with a proved invariant all-step nonedge sign and no positivity recovery. It supplies a sharp usable timestep for all realizations, including primitive graphs outside existing special families, and proves a universal strict advantage over the Euler positivity bound.",
+    "status": "PASS"
+  }
+}
