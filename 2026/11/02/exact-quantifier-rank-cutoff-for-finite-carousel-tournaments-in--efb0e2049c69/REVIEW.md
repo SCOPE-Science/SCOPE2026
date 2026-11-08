@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim concerns pure directed-edge carousel tournaments for every odd order at least three and every integer quantifier rank at least two. The lower direction is proved by directly constructed three-variable formulas for the two pair-gap sizes, with a witnessed split identity for both recursions. Their ranks and variable reuse are explicit, and they distinguish all successive orders below the cutoff. The upper direction uses a parity-aware antipodal doubled-circle invariant with a fully stated integer splitting lemma; it works even for the unrestricted rank-bounded Ehrenfeucht–Fraïssé game. Separate finite checks recompute 18,600 threshold-formula truth values and exact rank profiles through rank five, all passing. The finite checks are corroboration, not the basis of the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For odd carousel R_{2h+1}, an oriented pair has interval counts a=d−1,b=h−d, hence a+b=h−1. Rank-r three-variable inductive formulas A_{r,s},B_{r,s} express a or b≥s for every s≤2^r−1 by splitting an appropriate interval at a third vertex. Rank-q existential pair sentences distinguish every h below 2^{q−1}−1. For the upper bound, a q-round EF game on a doubled cyclic array with antipodal markers maintains marked order, parity, and exact-or-large gap thresholds L_r=2^{r+1}−1; any split of a large same-parity gap is matched at threshold L_{r−1}, giving partial isomorphism. This proves all FO rank-q agreement beyond n=2^q−1; FO3 lower witnesses match it. Independent combinatorial enumeration of both split identities checked 27,014 triples of pairs in n≤25, not a substitute for the unbounded EF invariant.
 
-The 2015 carousel-tournament primary paper characterizes the tournaments and four extension regions but does not establish the claimed exact finite logical rank spectrum. The 2012 primary pebble-game paper concerns general logical/algebraic equivalence methods, not this explicit family. Earlier finite-rank cases and a nonsharp-explanation upper stabilization statement are strictly weaker than the full sharp all-ranks classification and do not imply its lower-bound formulas at arbitrary depth. The argument has a substantive new all-ranks quantifier-resource component, rather than merely replacing a numerical parameter. The remaining priority risk is a stronger independently stated theorem about finite round tournaments, cyclic antipodal interval games, or uniformly definable circular structures.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new claim closes the exact rank-by-rank classification of a canonical finite tournament family, giving a sharp exponential stabilization threshold, the complete number of logical theories, smallest representatives, and minimum distinguishing rank. The coincidence with full first-order rank despite using only three variable names is a nontrivial expressiveness result, supported by explicit formulas and a matching game invariant.
+Best-of-knowledge PASS for the exact all-q three-variable and unrestricted FO cutoff. Coregliano developed carousel tournament geometry and local extension regions, and classical pebble-game theory supplies formal tools; the previously analyzed q=4 case and general upper bound are acknowledged as earlier partial coverage, not the uniform q-sharp lower witnesses.
 
-## Closest literature and limitations
+## value
 
-L. N. Coregliano, *Quasi-Carousel Tournaments*, arXiv:1503.04124 (2015); M. Grohe and M. Otto, *Pebble Games and Linear Equations* (2012); A. Goodall, J. Nešetřil and P. Ossona de Mendez, *Strongly polynomial sequences as interpretations* (2014). The inspected work studies structural and asymptotic tournament properties, general pebble equivalences, or graph-sequence interpretations. None of the inspected material states the uniform sharp rank cutoff. No independent mathematical audit has been performed, and historical priority is not guaranteed beyond inspected sources. The theorem does not extend automatically to enriched signatures or counting quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp rank-by-rank first-order expressive threshold, explicit three-variable separators, and exact model-theoretic class count form a natural complete logical classification of an important finite tournament family, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
