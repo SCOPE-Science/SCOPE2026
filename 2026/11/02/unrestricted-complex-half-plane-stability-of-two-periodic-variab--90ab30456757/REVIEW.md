@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-step recurrence and period matrix are reconstructed from the stated standard variable-step BDF2 coefficients. Symbolic multiplication proves the monodromy determinant and trace; the Schur–Cohn criterion is reduced to an explicit sum-of-nonnegative-terms certificate \(FG>0\) for all \(\operatorname{Re}z\ge0\), \(z\ne0\) and \(r>0\). The zero-frequency semisimplicity and both asymptotic limits follow by factoring the polynomial. The proof is complete for precisely alternating steps and the scalar constant-coefficient equation, not for arbitrary meshes.
+PASS
 
-## Originality — PASS within inspected evidence
+For standard variable-step BDF2 on exactly alternating steps h,rh, the two-step companion matrix has determinant 1/D and trace N/D, D=z^2+(chi+4)z+2chi+5, N=2chi+6-chi*z and chi=r+1/r. The complex quadratic Schur-Cohn test reduces to |D|>1 and |N conjugate(D)-conjugate(N)|<|D|^2-1. For Re z=x>=0, Q=|z|^2>0 and chi>=2, the explicit identity ((|D|^2-1)^2-|N conjugate(D)-conjugate(N)|^2)=F G with F=Q^2+2(chi+4)xQ+4(2chi+5)x^2+8(chi+2)x>0 and G=F+(chi+2)(chi+6)Q+12(chi+2)^2 x+4(chi+2)^2(chi+3)>0 proves both multipliers strictly inside the disk. At z=0 they are distinct 1 and 1/(2chi+5); fixed-r stiff limit is zero; r->infty roots become 0 and (2-z)/(2+z). Symbolic factor verification and direct complex roots were independently replayed; sampled roots cannot replace the strict all-half-plane positivity.
 
-The source introduces an adaptive SSAV-vBDF2 method and uses the classical ratio restriction in convergence analysis. Li–Liao prove arbitrary-grid stability in a different small-maximum-step perturbation sense; Akrivis and coauthors obtain bounded-ratio parabolic estimates. Neither inspected full text states the unconditional complex-half-plane two-period Floquet law or its singular Crank–Nicolson limit. The earlier Bourgault–Garon deferred-correction article could not be fully inspected and remains a concrete priority risk; the accessible abstract does not decisively imply the present result. No exhaustive uniqueness claim or independent literature certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact product stability theorem reveals a nontrivial and natural structural exception to a familiar general-grid ratio restriction, relevant to the stability assessment of strongly oscillating adaptive step sequences. Its complex Schur factorization supplies an infinite-parameter proof and its Crank–Nicolson singular limit distinguishes strict per-ratio damping from uniform damping, a numerically meaningful boundary. It is not merely a renamed constant-step theorem.
+General-grid BDF2 ratio restrictions and small-step perturbation stability do not imply a two-period scalar A-stability inequality for arbitrary positive ratio and all complex z in a half-plane. The period-two Floquet product and singular CN limit do not follow from constant-step BDF2 A-stability. Li-Liao full primary PDF was examined for its small-max-step Theorem 2.1; Bourgault-Garon deferred-correction full text remains inaccessible, with abstract-only A-stability claims possibly relevant but algorithm and constraints not established as equivalent. This is a qualified best-of-knowledge decision rather than categorical noncoverage.
 
-## Limits and closest sources
+## value
 
-The claim does not apply to arbitrary variable meshes, the nonlinear auxiliary variable coupling, or global adaptive error constants. Closest inspected scientific literature: Shergill–Williams arXiv:2610.30454v1, Li–Liao arXiv:2201.00527v1, Akrivis et al. doi:10.1007/s10543-024-01007-y; Bourgault–Garon doi:10.1007/s10543-022-00931-1 abstract only. Independent audit and exhaustive historical-priority confirmation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact complex half-plane Floquet stability for any fixed alternating ratio is a nontrivial exception to restrictions common in general variable-step BDF2 analyses. The singular Crank-Nicolson limit shows precisely why strict pointwise damping is not a ratio-uniform imaginary-axis damping estimate. This sharp analytic boundary may inform stability of strongly alternating adaptive integrations without claiming nonlinear or arbitrary-grid stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

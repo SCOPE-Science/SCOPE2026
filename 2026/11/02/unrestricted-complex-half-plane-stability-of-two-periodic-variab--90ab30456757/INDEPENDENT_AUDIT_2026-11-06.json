@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:17:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For standard variable-step BDF2 on exactly alternating steps h,rh, the two-step companion matrix has determinant 1/D and trace N/D, D=z^2+(chi+4)z+2chi+5, N=2chi+6-chi*z and chi=r+1/r. The complex quadratic Schur-Cohn test reduces to |D|>1 and |N conjugate(D)-conjugate(N)|<|D|^2-1. For Re z=x>=0, Q=|z|^2>0 and chi>=2, the explicit identity ((|D|^2-1)^2-|N conjugate(D)-conjugate(N)|^2)=F G with F=Q^2+2(chi+4)xQ+4(2chi+5)x^2+8(chi+2)x>0 and G=F+(chi+2)(chi+6)Q+12(chi+2)^2 x+4(chi+2)^2(chi+3)>0 proves both multipliers strictly inside the disk. At z=0 they are distinct 1 and 1/(2chi+5); fixed-r stiff limit is zero; r->infty roots become 0 and (2-z)/(2+z). Symbolic factor verification and direct complex roots were independently replayed; sampled roots cannot replace the strict all-half-plane positivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 imposes maximum-step bound depending on Lipschitz coefficient, unlike all complex z on fixed ratio.",
+          "Abstract discusses A-stability of variable-step deferred corrections; exact uncorrected period-two arbitrary-ratio claim remains unverified."
+        ],
+        "reasoning": "General-grid small-step perturbation and bounded-ratio parabolic bounds leave arbitrary large ratio and arbitrary complex z outside their hypotheses.",
+        "searches": [
+          "two periodic variable step BDF2 A stability arbitrary alternating step ratio Floquet Schur",
+          "arxiv:2201.00527",
+          "arxiv:2610.30454",
+          "doi:10.1007/s10543-022-00931-1",
+          "Resultary:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2201.00527",
+        "https://doi.org/10.1007/s10543-022-00931-1",
+        "arxiv:2201.00527",
+        "arxiv:2610.30454",
+        "doi:10.1007/s10543-022-00931-1",
+        "Resultary:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 imposes maximum-step bound depending on Lipschitz coefficient, unlike all complex z on fixed ratio.",
+          "Abstract discusses A-stability of variable-step deferred corrections; exact uncorrected period-two arbitrary-ratio claim remains unverified."
+        ],
+        "reasoning": "Li-Liao bounds with finite max step and standard BDF2 A-stability do not imply this all-r 2-period result. Deferred-correction article may contain a dominating statement; full text is needed to resolve priority risk.",
+        "searches": [
+          "two periodic variable step BDF2 A stability arbitrary alternating step ratio Floquet Schur",
+          "arxiv:2201.00527",
+          "arxiv:2610.30454",
+          "doi:10.1007/s10543-022-00931-1",
+          "Resultary:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inspected immutable RESULT.md blob 88ed1bdbfd0fb1c30d8a5183c9724d5ea74323aa and matching method/prior references",
+          "Theorem 2.1 imposes maximum-step bound depending on Lipschitz coefficient, unlike all complex z on fixed ratio."
+        ],
+        "reasoning": "The two-period monodromy transfer matrix can be expressed using standard BDF2 coefficients, but the global complex Schur inequality is not the same as fixed-step BDF2 A-stability.",
+        "searches": [
+          "two periodic variable step BDF2 A stability arbitrary alternating step ratio Floquet Schur",
+          "arxiv:2201.00527",
+          "arxiv:2610.30454",
+          "doi:10.1007/s10543-022-00931-1",
+          "Resultary:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary topical search: two periodic variable step BDF2 A stability arbitrary alternating step ratio Floquet Schur",
+          "Concrete checked base/boundary cases in actual RESULT.md; small cases do not imply the general theorem"
+        ],
+        "reasoning": "A few tested Floquet roots or existing tables for r=1 do not give the infinite (r,z) region; no exact matching table was located.",
+        "searches": [
+          "two periodic variable step BDF2 A stability arbitrary alternating step ratio Floquet Schur",
+          "arxiv:2201.00527",
+          "arxiv:2610.30454",
+          "doi:10.1007/s10543-022-00931-1",
+          "Resultary:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+        ]
+      },
+      "rationale": "General-grid BDF2 ratio restrictions and small-step perturbation stability do not imply a two-period scalar A-stability inequality for arbitrary positive ratio and all complex z in a half-plane. The period-two Floquet product and singular CN limit do not follow from constant-step BDF2 A-stability. Li-Liao full primary PDF was examined for its small-max-step Theorem 2.1; Bourgault-Garon deferred-correction full text remains inaccessible, with abstract-only A-stability claims possibly relevant but algorithm and constraints not established as equivalent. This is a qualified best-of-knowledge decision rather than categorical noncoverage.",
+      "residual_risks": [
+        "Bourgault-Garon 2022 deferred-correction full paper was not read, possible overlapping stability statement.",
+        "Strict finite-r damping does not imply uniform-r imaginary-axis decay."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different guarantee and hypotheses; not a direct implication of full half-plane two-period Floquet law",
+          "evidence": "Theorem 2.1 imposes maximum-step bound depending on Lipschitz coefficient, unlike all complex z on fixed ratio.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00527",
+          "material_read": "Primary PDF, full accessible text with screenshot pages 1 and 5, particularly Theorem 2.1",
+          "method": "Compare perturbation stability with step-size restriction to complex A-stability for period-two grids",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Unrestricted variable-step BDF2 stability"
+        },
+        {
+          "assessment": "Material historical-priority risk, not declared noncovering",
+          "evidence": "Abstract discusses A-stability of variable-step deferred corrections; exact uncorrected period-two arbitrary-ratio claim remains unverified.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-022-00931-1",
+          "material_read": "Accessible abstract only; full text unavailable",
+          "method": "Compare corrected algorithms and stated stability senses; reserve question where full proof not read",
+          "title": "Variable-step deferred correction methods based on backward differentiation formulae",
+          "trigger": "Plausibly overlapping A-stability claims for variable-step BDF schemes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact complex half-plane Floquet stability for any fixed alternating ratio is a nontrivial exception to restrictions common in general variable-step BDF2 analyses. The singular Crank-Nicolson limit shows precisely why strict pointwise damping is not a ratio-uniform imaginary-axis damping estimate. This sharp analytic boundary may inform stability of strongly alternating adaptive integrations without claiming nonlinear or arbitrary-grid stability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2201.00527",
+    "https://doi.org/10.1007/s10543-022-00931-1",
+    "arxiv:2201.00527",
+    "arxiv:2610.30454",
+    "doi:10.1007/s10543-022-00931-1",
+    "Resultary:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/unrestricted-complex-half-plane-stability-of-two-periodic-variab--90ab30456757",
+    "Source tree eb88031de9f7a8322ee1b1d60ff735d9503520e1, RESULT blob 88ed1bdbfd0fb1c30d8a5183c9724d5ea74323aa, checker blob a80a4bb5fe2135e5304aec888b9a1e1a4a267483, independent_checks.py finite corroboration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Bourgault-Garon 2022 deferred-correction full paper was not read, possible overlapping stability statement.",
+    "Strict finite-r damping does not imply uniform-r imaginary-axis decay.",
+    "All finite verifier and independent finite computations corroborate analytical statements but are not unrestricted proofs.",
+    "The 2026-11-02 record publication date and inherited earlier literature first_public_date need provenance-safe correction before any public metadata release."
+  ],
+  "schema_version": 1
+}
