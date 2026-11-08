@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python VERIFY.py` with Python 3 and SymPy. The script constructs five first-step equations, checks the exact mean extinction-time rational function, and separately builds the full seven-state transient generator. It compares 60 exact-rational instances against this independently constructed chain. It then checks the normalized quintic derivative identity and its exact endpoint and limiting coefficients; the all-parameter uniqueness argument is the Descartes-sign proof in `RESULT.md`, not a finite numerical experiment.
+## correctness
 
-For the unrestricted-allocation result, the verifier independently solves the symbolic seven-state chain for three distinct curing rates, substitutes rates `(x+h, y, x-h)` and `(x, y, x)`, factors their extinction-time difference, and proves its numerator is `h**2` times a polynomial with 55 positive integer terms in `(b,x,y,z)` where `z=x**2-h**2>0`. The leftover denominator factor has 16 positive integer terms in the same variables; the other factors are explicitly positive in the domain. Thus the symbolic certificate covers an infinite open domain exactly, whereas the exact-rational samples cross-check the model assembly.
+PASS
 
-Expected stdout reports `TOTAL_EXACT_ASSERTIONS_WITH_GLOBAL_SYMMETRY: 103`, as well as the 55/16 coefficient counts. The example optimum is isolated by a rational interval rather than accepted on floating-point root-finding alone. The verifier is finite code with ordinary symbolic algebra; no independent assessment, formal proof assistant, or external certification is asserted.
+The full seven-state SIS CTMC transient generator (all nonzero 3-bit states) was independently reconstructed, inverted symbolically, and matched the displayed five-class rational mean. For unequal endpoints u=x+h,v=x-h, exact factor after z=x^2-h^2 has positive coefficients in 55 numerator monomials and 16 denominator monomials (independently reproduced in exact SymPy), proving strict endpoint symmetrization. For equal endpoints, derivative has quintic with signs (+,+,-,-,-,-) and P_r(1/2)<0<P_r(1), so unique t in (1/2,1) is global minimum over all budget allocations; boundary zero cure gives infinite expected time. Independent exact-rational examples r=1/2,1,9/10 agree. No general-graph or alternate-initial-state extension.
+
+## originality
+
+PASS
+
+McFadden-Daly-Shneer (2025) study same cure-budget objective and numerically analyze three-node star with uniformly randomly sampled initial infection, whereas candidate proves global analytic optimum starting fully infected and strict unrestricted endpoint symmetrization; primary full text not accessible, so potential overlap remains material risk. Resultary semantic queries of published records performed with two tailored queries; no exact dominating result located, and this is not proof of priority. The listed primary sources were compared on mathematical implications; inaccessible relevant text retained as risk.
+
+## value
+
+PASS
+
+Expected extinction time under a fixed budget is a natural exact optimization target in heterogeneous SIS control. The all-intensity, all-allocation three-site optimum and disagreement with degree-threshold allocation give a substantive exact small-graph benchmark, rather than an arbitrary sample enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
