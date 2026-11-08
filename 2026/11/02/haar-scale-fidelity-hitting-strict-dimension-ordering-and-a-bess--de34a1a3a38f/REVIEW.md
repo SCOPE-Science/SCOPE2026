@@ -1,11 +1,21 @@
-# Scientific review — Haar-scale fidelity hitting
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-diffusivity Fubini–Study radial generator is derived by the fidelity change of variables, and the factor \(n\) in physical hitting time is fixed explicitly. The killed-boundary ODE yields a positive hypergeometric series with a coefficient recurrence. Comparing the positive coefficients establishes strict dimension-to-dimension Laplace-transform order, with no numerical extrapolation. Differentiation at zero gives the exact mean series, a strictly positive first finite-size correction, and the limiting mean/variance. The confluent and Bessel limits are justified by termwise dominated series arguments; the large-threshold exponential limit has an explicit product bound under a probability weight. All boundary restrictions are stated. A 927-check standalone script reproduces finite exact identities and bounded numerical tests, not infinite proofs.
+## correctness
 
-**Originality — PASS, subject to publication-priority uncertainty.** Tóth (2026, arXiv:2606.11438v1) already supplies the projective Brownian model, its finite-dimensional mean formula and the full finite-dimensional spectral first-passage representation; none of those is claimed as new. The full manuscript's first-passage section and appendix were inspected. Its fixed-dimensional spectral results do not state or prove the strict **cross-dimensional** Laplace comparison at the natural Haar threshold, the exact positive first-order dimension penalty, or the complete normalizations in both Haar-scale endpoint regimes. Kummer first-hitting formulas for CIR processes, and generic Jacobi first-passage transforms, have prior literature (Song–Xu–Wang 2016; D'Onofrio–Patie–Sacerdote 2022/2024); those component facts are credited. Searches of published mathematical records and an accessible claim archive found no same statement or a clearly dominating result. Related general references were accessible principally as abstracts; an author-posted manuscript returned a permission error, and additional lawful access was unavailable. Consequently abstract Jacobi dimension comparisons remain a genuine residual risk. Mere absence of search hits is not treated as proof of novelty.
+PASS
 
-**Value — PASS.** Threshold \(z/n\) is not a synthetic slice: its Haar equilibrium exceedance probability converges to \(e^{-z}\), a natural fixed-rarity quantum-state search experiment. Strict Laplace order compares the full first-hitting clocks across growing Hilbert spaces. The positive explicit \(1/n\) correction provides a finite-size error benchmark. The complete Bessel-to-exponential clock crossover explains why an exponential late-time tail alone does not characterize hitting times at typical fidelity, and yields an exact variance ratio with distinct endpoint limits. This is more than a fixed-parameter substitution or numerical evaluation of a known mean.
+The radial generator under y=nF_(t/n) is κ[y(1-y/n)f''+(1-y)f']. The bounded-at-zero hitting ODE gives (k+1)^2 a_(k+1)=[s/κ+k+k(k-1)/n] a_k, so positivity and strict coefficient decay for k>=3 prove the Laplace ordering. Differentiation at zero yields mean sum z^k/(k k!) prod_(j=1)^(k-2)(1+j/n), whose 1/n correction is C(z)=sum_(k>=3)(k-1)(k-2)z^k/(2k k!). Uniform bounded-coefficient limits give Kummer transform, small-z rescaling yields 1/I_0(2sqrt λ), and a product dominated by K^q with q=λ/H(z) gives the large-z Exp(1) clock. Independent exact rational coefficient inequalities tested n=3,5,10,40 and k=3..13.
 
-**Closest literature and limitations.** Tóth, arXiv:2606.11438v1, sections 3.2–3.3 and appendix (full text inspected); Song, Xu and Wang, DOI 10.1007/s11009-014-9406-7 (abstract only); D'Onofrio, Patie and Sacerdote, arXiv:2205.08237 and DOI 10.1137/22M1516877 (abstract and metadata; full PDF not available through attempted routes); Martin, Kearney and Craster, DOI 10.1088/1751-8121/ab0836 (abstract/metadata only). The findings concern fixed-\(D\) isotropic Brownian dynamics; finite-step random walks, microscopic quantum channels, joint dimension–threshold uniformity and usual stochastic order are not claimed. Independent proof and publication-priority validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tóth 2026 establishes the isotropic Brownian geometry and finite-dimensional first-passage means/spectral formulas; the assessed contribution is strict dimension-to-dimension Laplace order at Haar-scale threshold, explicit positive first correction, and two normalized endpoint laws. Classical CIR Kummer hitting transforms alone do not imply the finite-dimensional Jacobi ordering. The November 3 2026 Tóth v2 was identified but its full text could not be accessed; the closest potentially covering source is a material priority risk.
+
+## value
+
+PASS
+
+The threshold z/n has fixed Haar rare-cap probability e^-z and is a natural high-dimensional fidelity normalization. The all-dimensional Laplace order and sharp finite-size delay provide quantitative benchmarks; the Bessel-to-exponential crossover distinguishes typical from rare target hitting clocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

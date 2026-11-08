@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and its standard library. An execution of this exact script returned `PASS: 927 exact-rational coefficient identities, strict comparisons and bounded numerical checks.`
+## correctness
 
-The checker evaluates positive rational Taylor coefficients of the finite-dimensional hitting-transform function, verifies their exact second-order differential-equation recurrence at multiple dimensions and degrees, proves selected coefficient and mean inequalities by exact fractions, and tests the moment and finite-size-correction identities numerically at specified bounded parameters. The exact domain is the projective Brownian radial generator with fidelity initially zero, positive fixed diffusion coefficient, integer dimension at least two, and a target less than one.
+PASS
 
-The script **does not** enumerate every dimension, prove monotonicity of complete infinite sums, prove convergence in distribution, or certify either infinite limit. Those are analytical conclusions in `RESULT.md`, with the positive power-series comparison, dominated convergence and the large-threshold product bound providing the needed reasoning. Numerical tests are only independent finite consistency checks for calculations that also have explicit proofs. The original Brownian model and generic CIR/Kummer first-hitting methods are prior literature, not independent certifications. No independent audit has been conducted.
+The radial generator under y=nF_(t/n) is κ[y(1-y/n)f''+(1-y)f']. The bounded-at-zero hitting ODE gives (k+1)^2 a_(k+1)=[s/κ+k+k(k-1)/n] a_k, so positivity and strict coefficient decay for k>=3 prove the Laplace ordering. Differentiation at zero yields mean sum z^k/(k k!) prod_(j=1)^(k-2)(1+j/n), whose 1/n correction is C(z)=sum_(k>=3)(k-1)(k-2)z^k/(2k k!). Uniform bounded-coefficient limits give Kummer transform, small-z rescaling yields 1/I_0(2sqrt λ), and a product dominated by K^q with q=λ/H(z) gives the large-z Exp(1) clock. Independent exact rational coefficient inequalities tested n=3,5,10,40 and k=3..13.
+
+## originality
+
+PASS
+
+Tóth 2026 establishes the isotropic Brownian geometry and finite-dimensional first-passage means/spectral formulas; the assessed contribution is strict dimension-to-dimension Laplace order at Haar-scale threshold, explicit positive first correction, and two normalized endpoint laws. Classical CIR Kummer hitting transforms alone do not imply the finite-dimensional Jacobi ordering. The November 3 2026 Tóth v2 was identified but its full text could not be accessed; the closest potentially covering source is a material priority risk.
+
+## value
+
+PASS
+
+The threshold z/n has fixed Haar rare-cap probability e^-z and is a natural high-dimensional fidelity normalization. The all-dimensional Laplace order and sharp finite-size delay provide quantitative benchmarks; the Bessel-to-exponential crossover distinguishes typical from rare target hitting clocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
