@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the finite mathematical certificate
+# Independent mathematical audit
 
-Run `python3 -m pip install -r requirements.txt` in an isolated environment and then `python3 verify.py`. Python 3.10 or later is required. The verifier uses only Python's standard library and SymPy for integer Smith normal form; there are no external data files or precomputed matrix dependencies.
+## correctness
 
-Expected final messages include `FACES_OK`, `MOD2_OK ranks [19, 161, 523, 532] betti3=11 betti4=30`, `MATCHING_OK 8047 critical {-1: 1, 0: 1, 3: 13, 4: 32}`, `ACYCLIC_OK 16140 87800`, `SMITH_OK [1, 1] matrix_shape (13, 32) nonzero_entries 14`, `HOMOTOPY_OK wedge_11_S3_plus_30_S4`, and `ALL_VERIFY_OK`. Each check is asserted in code rather than represented by a stored log.
+PASS
 
-The original complex has 20 distinct facets, each a ten-vertex closed ball. The first 6814 matched pairs are valid elementary simplicial collapses; the remaining 1233 pairs are coordinate-toggle discrete-Morse pairs. All gradient incidences are checked on the complete original poset. The exact signed 13-by-32 Morse boundary has two unit Smith factors, sufficient with the explicit critical-cell dimensions for the integral homotopy conclusion. Mod-two ranks supply a separate numerical check but cannot by themselves prove the homotopy type or torsion freedom.
+The Johnson J(6,3) graph has twenty 3-subset vertices, and closed radius-one balls N[v] of ten vertices each (1 center and 9 neighbors); the closed-ball nerve comprises subsets of one of the twenty balls, *not* the Rips clique complex. An independent fully written algorithm enumerated all 16141 augmented faces with exact f-vector, performed 6814 valid elementary simplicial collapse pairs, leaving a 2513-face core, then 1233 deterministic seed-220 toggle pairs. Across the original 16140 nonempty face-poset vertices/87800 covering incidences, the complete reversed matching Hasse digraph was acyclic. The Morse model has one 0-cell, thirteen 3-cells, 32 4-cells; the independently recomputed signed integer 13x32 boundary has 14 nonzero entries and Smith [1,1], rank two. Unimodular 3/4 cellular cancellation and Hurewicz give 11 S3 + 30 S4 integrally. Twenty distinct cardinality-ten facets make the complex pure 9-dimensional and its nonzero lower H3/H4 exclude pure shellability.
 
-This verifies one finite graph, not an infinite family; an independent audit is not performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Matsushita's complete primary closed-neighborhood paper defines precisely this construction and relates it to canonical double-cover independence complexes but does not calculate J(6,3) or force these exact multiplicities. The full published Resultary all-parameter J(n,k) radius-one Rips theorem does cover J(6,3) *as a flag clique complex* (19 S2), not the closed-neighborhood nerve. One closed ball contains pairs of Johnson vertices at mutual distance two; hence the Čech complex has nonclique faces and different homotopy. Open-neighborhood J(n,2) results also do not cover the claim.
+
+## value
+
+PASS
+
+The self-complementary J(6,3) is the smallest symmetric middle-layer Johnson case where the metric Čech (common-ball) complex differs substantially from graph-clique Rips at the same radius; the mixed 3/4-sphere integral wedge and non-shellability are precise natural topology beyond generic suspension correspondence. Exact primitive Smith data distinguishes integral homotopy from face counts or mod-two Betti numbers, giving a useful radius-one Čech benchmark, despite no all-Johnson family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

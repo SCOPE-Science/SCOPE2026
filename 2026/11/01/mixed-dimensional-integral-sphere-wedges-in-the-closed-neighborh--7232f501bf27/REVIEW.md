@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the closed graph neighborhoods of the twenty triples of a six-set, not the open Lovász neighborhood or the flag/Rips complex. Each of the twenty facets has ten vertices and the exact union contains 16,141 faces. An executable reconstructs all 8,047 matching pairs, checks 87,800 original Hasse incidences for acyclicity, and obtains exactly one critical vertex, thirteen critical three-cells and thirty-two critical four-cells. Its signed integer Morse boundary has Smith factors 1 and 1; Hurewicz and elementary cellular cancellation identify the actual wedge of eleven three-spheres and thirty four-spheres. Independently, mod-two ranks on the simplicially collapsed core recover Betti numbers eleven and thirty. The result is finite and does not claim to generalize to untested Johnson parameters.
+PASS
 
-## Originality — PASS (with residual uncertainty)
+The Johnson J(6,3) graph has twenty 3-subset vertices, and closed radius-one balls N[v] of ten vertices each (1 center and 9 neighbors); the closed-ball nerve comprises subsets of one of the twenty balls, *not* the Rips clique complex. An independent fully written algorithm enumerated all 16141 augmented faces with exact f-vector, performed 6814 valid elementary simplicial collapse pairs, leaving a 2513-face core, then 1233 deterministic seed-220 toggle pairs. Across the original 16140 nonempty face-poset vertices/87800 covering incidences, the complete reversed matching Hasse digraph was acyclic. The Morse model has one 0-cell, thirteen 3-cells, 32 4-cells; the independently recomputed signed integer 13x32 boundary has 14 nonzero entries and Smith [1,1], rank two. Unimodular 3/4 cellular cancellation and Hurewicz give 11 S3 + 30 S4 integrally. Twenty distinct cardinality-ten facets make the complex pure 9-dimensional and its nonzero lower H3/H4 exclude pure shellability.
 
-Matsushita's *Closed neighborhood complexes of graphs* (arXiv:2511.12608) was read in its definitions and main results, the graph-product example and the comparison with graph Čech nerves. It supplies general correspondences, not a homotopy calculation for the present Johnson graph. The closest indexed theorem, *Sphere-wedge collapse of scale-one Johnson-graph Rips complexes*, was read in full as a mathematical result. For the same graph it classifies the distinct flag/Rips complex as nineteen two-spheres, but a closed Čech simplex need not be a clique. Searches under the aliases Johnson graph, closed neighborhood, intrinsic Čech nerve, self-complementary Johnson graph and radius-one complex did not identify an equivalent numerical or structural statement. Neither lack of a search match nor a slot partition establishes absolute uniqueness. A less-indexed calculation or an implication from another formulation remains a live residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first middle-rank Johnson graph \(J(6,3)\) is a small canonical, highly symmetric graph whose 20 ten-element closed balls generate a pure nine-dimensional complex. An integral homotopy type simultaneously supporting dimensions three and four is a meaningful exact benchmark for the recently developed closed-neighborhood/graph-Čech theory and directly contrasts with the two-sphere-only radius-one flag complex. Mixed lower-degree homology supplies a concrete nonshellability obstruction. The result is not an arbitrary numerical slice, a reparameterization or a standard deduction from the referenced clique theorem.
+Best-of-knowledge PASS. Matsushita's complete primary closed-neighborhood paper defines precisely this construction and relates it to canonical double-cover independence complexes but does not calculate J(6,3) or force these exact multiplicities. The full published Resultary all-parameter J(n,k) radius-one Rips theorem does cover J(6,3) *as a flag clique complex* (19 S2), not the closed-neighborhood nerve. One closed ball contains pairs of Johnson vertices at mutual distance two; hence the Čech complex has nonclique faces and different homotopy. Open-neighborhood J(n,2) results also do not cover the claim.
 
-## Limits
+## value
 
-The computer proof is exhaustively finite, not independent validation; mathematical priority remains subject to less-indexed sources. The result gives no formula for larger Johnson graphs or an equivariant classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The self-complementary J(6,3) is the smallest symmetric middle-layer Johnson case where the metric Čech (common-ball) complex differs substantially from graph-clique Rips at the same radius; the mixed 3/4-sphere integral wedge and non-shellability are precise natural topology beyond generic suspension correspondence. Exact primitive Smith data distinguishes integral homotopy from face counts or mod-two Betti numbers, giving a useful radius-one Čech benchmark, despite no all-Johnson family classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
