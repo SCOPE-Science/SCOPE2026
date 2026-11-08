@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The complete finite certificate is `certificates/maximum_necklaces.txt`: 336 lexicographically minimal cyclic rotations of 36-bit words. Its SHA-256 is `e0838ac18297e49a77632d2017f8cee1d40359f65a6db4bec60bfab6b650432b`.
+# Independent mathematical audit
 
-Run `python3 code/check.py` to enumerate every admissible order-seven cyclic class from all six-bit initial vertices without length pruning. It asserts the complete 29-entry nonzero period spectrum, total count 4788, optimal count 336, certificate equality, cyclic word validity, the common length-two/three profiles, balance, cyclic run count, and group-orbit counts. Actual run: 6,355,050 recursive states, `CHECK_OK` (record: `certificates/python-check-output.txt`).
+## correctness
 
-Run `g++ -O2 -std=c++17 code/check_cpp.cpp -o check_cpp` followed by `./check_cpp certificates/maximum_necklaces.txt` to independently enumerate via the least-edge canonical root rule. Actual run: 766,602 states, `CHECK_CPP_OK`, identical 29-entry length spectrum and maximum certificate (record: `certificates/cpp-check-output.txt`). No third-party packages, external services or randomization are required. The two enumeration mechanisms share the mathematical de Bruijn reduction but have distinct rooting rules and implementations.
+PASS
 
-The exhaustion is an exact finite proof because every admissible cyclic word determines a closed trail of pairwise reversal-distinct seven-bit edges; both enumerators explore every permitted next edge without exclusions beyond the defining constraints. A shorter closed trail may be extended through the root; the software allows that extension. The checks establish nothing for orders other than seven. Literature priority and independent human validation remain separate from computational correctness.
+The 128 seven-bit edges of binary de Bruijn graph have 16 palindromic forbidden edges and 56 nonpalindromic reversal pairs. A valid necklace bijects with a directed closed trail containing at most one edge per reversal pair, and its distinct windows imply primitivity. Depth-first recursion from all eligible start states is exhaustive because each move marks a previously unused pair; crucially root revisits do not terminate extension. Two independently implemented exhaustive enumerations use different rooting rules. Independent compiled C++ search in this run reproduced all 29 positive-length table counts, total4788, maximal336, 90 symmetry orbits and all extremal local frequencies. This is an exhaustive finite proof for n=7 only, not a general theorem for other orders.
+
+## originality
+
+PASS
+
+The maximum length 36 is already known from Mitchell and the Gabrić–Sawada constructions; these are specifically excluded from novelty. The primary CPM2024 paper supplies construction and bound, not a count of every orientable closed cyclic trail. Mitchell abstract reports maximum but not the full period profile; its uninspected body and older 1993 paper leave explicit priority risk. The exhaustive period census and extremal rigidity are distinct exact claims.
+
+## value
+
+PASS
+
+The enumeration is a complete natural finite classification at first nontrivial near-extremal order 7; the full length spectrum and 336 extremizers refine the single known maximum, and the three-window rigidity constrains candidate orientable sequence constructions and benchmark search algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

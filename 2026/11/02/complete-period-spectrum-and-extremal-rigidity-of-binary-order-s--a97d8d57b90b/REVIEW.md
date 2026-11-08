@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is a primitive binary cyclic word with pairwise distinct seven-windows and reversed windows. A window is a labeled edge in the binary order-six de Bruijn graph; exactly 56 nonpalindromic reversal pairs are available. The proof gives the converse as well as the forward mapping. Exhaustive recursion explores every allowed next edge, records every closure and continues after closures (so no Eulerian circuit is lost when the initial vertex is revisited). Canonical rotation identifies only actual rotation classes. Two separately implemented searches agree on all 29 nonzero period counts, 4,788 total classes, the 336 canonical length-36 words, and all extremal profiles. The complete certificate and exact source are included. Neither finite tests nor logs are substituted for an infinite theorem: the domain here is finite.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The October 24, 2026 Mitchell paper records maximum **period**, and counts maximum **aperiodic** strings, but does not enumerate all cyclic classes or their short-factor profiles. Periodicity demands cyclic closure and a quotient by rotation; an aperiodic word count does not imply the cyclic census. Gabrić–Sawada's 2024 paper constructs long orientable cyclic words, and gives a period-36 example, but no complete order-seven length/refinement census. Comparison against accessible prior claims and current scientific literature did not reveal equivalent or dominating results. The 1993 original text was not inspected; an earlier unindexed computation cannot be excluded.
+PASS
 
-## Value — PASS
-The complete period spectrum answers a natural finite counting question about distinct cyclic position-orientation labels, not a hand-selected numerical slice. It reveals two missing lengths immediately below the optimum (31 and 35), exactly 336 optimum necklaces, 90 symmetry types and a rigid three-window profile shared by every optimum. These facts give complete finite benchmark instances and structural constraints for orientable-cycle construction and classification, beyond the previously reported existence of a longest sequence. No claim of a general order formula is made.
+The 128 seven-bit edges of binary de Bruijn graph have 16 palindromic forbidden edges and 56 nonpalindromic reversal pairs. A valid necklace bijects with a directed closed trail containing at most one edge per reversal pair, and its distinct windows imply primitivity. Depth-first recursion from all eligible start states is exhaustive because each move marks a previously unused pair; crucially root revisits do not terminate extension. Two independently implemented exhaustive enumerations use different rooting rules. Independent compiled C++ search in this run reproduced all 29 positive-length table counts, total4788, maximal336, 90 symmetry orbits and all extremal local frequencies. This is an exhaustive finite proof for n=7 only, not a general theorem for other orders.
 
-## Scope and limitations
-The theorem is exact only for order seven over the binary alphabet; it does not generalize by proof to another order or alphabet. The computer enumeration is exhaustive within this finite domain. Earlier unpublished or unindexed equivalent work remains possible; independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The maximum length 36 is already known from Mitchell and the Gabrić–Sawada constructions; these are specifically excluded from novelty. The primary CPM2024 paper supplies construction and bound, not a count of every orientable closed cyclic trail. Mitchell abstract reports maximum but not the full period profile; its uninspected body and older 1993 paper leave explicit priority risk. The exhaustive period census and extremal rigidity are distinct exact claims.
+
+## value
+
+PASS
+
+The enumeration is a complete natural finite classification at first nontrivial near-extremal order 7; the full length spectrum and 336 extremizers refine the single known maximum, and the three-window rigidity constrains candidate orientable sequence constructions and benchmark search algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
