@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reduces super domination to a necessary-and-sufficient cyclic-gap condition and inclusion-minimality to unsplittable gaps. The three-state transfer determinant gives the entire cardinality polynomial; the nonnegative deficit identity proves a sharp \(5/7\) upper bound and singles out its equality case. Deficits one and three are classified to establish the two exceptional residue classes. Explicit extensible gap words prove attainment in all orders. The packaged verifier independently checks the original graph definition, every small coefficient, and the upper formula through order \(154\).
+
+**Originality — PASS, with residual priority risk.** Ghanbari–Jäger–Lehtilä, arXiv:2209.01795 (2022), Section 6, count only minimum-size super dominating sets of cycles, not the inclusion-minimal family of every cardinality or its upper extremal size. Kaidash, DOI 10.1007/978-3-031-73365-9_6 (2024), introduces a polynomial for **all** super dominating sets, not the inclusion-minimal polynomial defined here; only the latter paper's abstract was accessible. Comparisons with related published enumerations and searches for upper super domination did not identify equivalent coverage. A hidden analogous theorem or a stronger uninspected statement remains possible; absence from searches is not proof of publication priority.
+
+**Mathematical value — PASS.** The problem asks for all minimal solutions rather than merely optimal ones, a naturally different invariant in domination theory. The finite five-gap language gives a complete labelled polynomial, a sharp seven-period upper-minimal size formula with exceptional residues, and exact rigidity (seven extremal sets at every multiple of seven). These provide structural and enumerative information not implied by known minimum-set counts or an all-set weight polynomial.
+
+**Scientific limits.** The theorem is restricted to labelled cycles with at least three vertices. Finite verifier tests corroborate but do not prove the infinite statements. The 2024 prior work was accessible only in abstract/metadata form. No independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
