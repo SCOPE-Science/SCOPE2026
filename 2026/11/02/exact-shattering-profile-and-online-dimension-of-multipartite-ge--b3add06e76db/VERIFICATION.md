@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with Python 3 (standard library only). It enumerates **all** vertex subsets of each tested complete multipartite graph, rather than relying on the theorem's structural list to declare convexity. Geodesic intervals are determined by graph distances: a same-part pair has all outside-part vertices as length-two intermediate vertices; a distinct-part pair is adjacent. The independent all-subsets enumeration is compared to a separately generated partial-transversal family.
+## correctness
 
-For every query-support size, the program explicitly calculates the restriction patterns of all concepts, compares shattering with the structural description, and matches the resulting coefficient counts to the closed polynomial. It independently uses the full recursive Littlestone rank of the actual hypotheses; its version-space recursion is exhaustive on each finite tested graph. Printed `rank_states` is the number of memoized states examined, not a separate proof.
+PASS
 
-Verified test profiles: `(2,2)`, `(2,3)`, `(3,3)`, `(2,2,2)`, `(3,2,2)`, `(2,2,2,2)`, `(2,2,2,2,2)`. The largest has ten vertices and 244 convex-set concepts. The expected completion line is `ALL_GEODESIC_CONVEXITY_CENSUS_CHECKS_PASS`.
+Actual RESULT.md proves that two vertices in one part force all other parts through all distance-two geodesics and then all vertices; proper convex sets are exactly partial transversals. A shattered support containing a within-part pair and a third vertex cannot realize the two-vertex positive trace. Ldim upper: r+1 positive queries imply only the full hypothesis survives, so a depth r+2 binary tree is impossible. Lower: first query x splits into a positive projection with F_(r-1) and a negative branch VC-shattered by r selected vertices. Base F1 depth2 checked. Independent convex-set enumeration, all traces and version-space Littlestone recursion agree on five multipartite parameter sets incl (2,2,2,2) and (3,2,2). All n_i>=2 is necessary to the closure argument.
 
-No finite experiment establishes universal correctness or novelty. The universal conclusions follow from the shortest-path proof and the two-branch Littlestone induction in `RESULT.md`. No external independent audit or formal proof certification has been performed.
+## originality
+
+PASS
+
+Direct full-primary-text comparison of Thiessen–Gärtner general graph-convexity learning bounds and the related published multipartite geodetic-cover polynomial did not locate this full support enumerator or exact adversarial online dimension. The general VC hull theorem and K2,3 example are earlier work. Different self-directed learning and geodetic covering objectives do not imply the classical mistake-tree formula. Best-of-knowledge PASS with possible implicit older graph-class specialization.
+
+## value
+
+PASS
+
+Natural geodesic convexity concept class on vertex-transitive complete multipartite graphs; gives exact full shattering profile and an adaptive/static separation r+1 versus r rather than routine scalar counting. The explicit restriction to all n_i>=2 makes the classification mathematically sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

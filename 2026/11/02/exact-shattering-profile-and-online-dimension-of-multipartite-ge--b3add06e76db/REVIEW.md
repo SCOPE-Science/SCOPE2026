@@ -1,11 +1,21 @@
-# Supported scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The shortest-path interval identity implies that every proper convex set meets each part at most once, and conversely every such set is convex. A trace obstruction proves the exact shattered-support classification. The online upper bound uses the impossible continuation after \(r+1\) distinct positive queries; the lower bound is an explicit induction with both child version spaces supporting depth \(r\). Independent direct finite enumeration tests all claimed formulas through ten vertices, not as a substitute for proof.
+## correctness
 
-**Originality — PASS with stated priority risks.** Thiessen and Gärtner (2022) treat this very graph-convexity learning problem and supply general VC/mistake bounds and an example on \(K_{2,3}\), but not the arbitrary-part-size full shattered-support enumerator or sharp classical Littlestone formula. An extant published multipartite geodetic-polynomial classification concerns covering rather than convex closure; the shared shortest-path geometry is acknowledged and does not alone establish the new learning invariants. Sokolov and coauthors (2024) analyze self-directed rather than adversarial online learning. No mathematically dominating previous statement was identified in the accessible comparisons. Unindexed priority remains a risk.
+PASS
 
-**Value — PASS.** The theorem completely resolves the static shattered-support complex and adaptive worst-case mistake dimension on a natural infinite family of highly symmetric connected graphs. It exposes an exact one-step learning separation while all part sizes can grow, with a reusable structural reason independent of brute-force computation. This is an all-parameter statement, not an arbitrary finite instance.
+Actual RESULT.md proves that two vertices in one part force all other parts through all distance-two geodesics and then all vertices; proper convex sets are exactly partial transversals. A shattered support containing a within-part pair and a third vertex cannot realize the two-vertex positive trace. Ldim upper: r+1 positive queries imply only the full hypothesis survives, so a depth r+2 binary tree is impossible. Lower: first query x splits into a positive projection with F_(r-1) and a negative branch VC-shattered by r selected vertices. Base F1 depth2 checked. Independent convex-set enumeration, all traces and version-space Littlestone recursion agree on five multipartite parameter sets incl (2,2,2,2) and (3,2,2). All n_i>=2 is necessary to the closure argument.
 
-**Limits.** The primary graph-convexity reference already contains the elementary \(K_{2,3}\) convex-set example and generic VC bounds; they are expressly excluded from novelty claims. No result is asserted for singleton part sizes, and the learning-dimension gap is never greater than one in the stated class. Comprehensive historical-priority and independent review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct full-primary-text comparison of Thiessen–Gärtner general graph-convexity learning bounds and the related published multipartite geodetic-cover polynomial did not locate this full support enumerator or exact adversarial online dimension. The general VC hull theorem and K2,3 example are earlier work. Different self-directed learning and geodetic covering objectives do not imply the classical mistake-tree formula. Best-of-knowledge PASS with possible implicit older graph-class specialization.
+
+## value
+
+PASS
+
+Natural geodesic convexity concept class on vertex-transitive complete multipartite graphs; gives exact full shattering profile and an adaptive/static separation r+1 versus r rather than routine scalar counting. The explicit restriction to all n_i>=2 makes the classification mathematically sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
