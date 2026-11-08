@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "From the exact transient CTMC generator, the resolvent factorizes with decay roots alpha,beta; differentiation gives increasing hazard h(t), yielding a unique positive survival crossing iff alpha>e. Substituting alpha=e gives c_tail; integrating the same distribution gives c_mean; subtracting yields exact gap e. All parameter boundaries including c=0 and c=c_tail follow. Standalone verifier independently compares matrix exponentials and closed forms over 30 rational grids, 401 passed assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicol and Possingham (2010), DOI 10.1890/08-2216.1: finite/infinite horizon stochastic dynamic programming for restoration policy; abstract only",
+        "Helmstedt et al. (2014), DOI 10.1890/13-1579.1: fenced-reserve economic cost-efficiency; abstract only",
+        "Trouillier et al. (2023), DOI 10.1002/ece3.9752: simulation-based comparison of population viability measures"
+      ],
+      "reasoning": "The closest scenario-design papers optimize restoration policy or fencing costs, whereas this theorem compares complete extinction-time laws of two fixed, initially occupied designs without management interventions. Their inaccessible complete texts are acknowledged, and no assertion about unread results is made.",
+      "searches": [
+        "\"Should metapopulation restoration strategies increase patch area or number of patches?\" 2010 pdf",
+        "\"Cost-efficient fenced reserves for conservation: single large or two small?\" 2014",
+        "\"finite time\" \"mean time to extinction\" \"reserve\" metapopulation fragmentation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1006/jtbi.1999.1060",
+      "doi:10.1890/08-2216.1",
+      "doi:10.1890/13-1579.1",
+      "doi:10.1002/ece3.9752",
+      "doi:10.1890/07-1094.1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Etienne and Heesterbeek (2000) do consider the general fixed-total-area comparison, but use mean extinction and colonization potential",
+        "Trouillier et al. (2023) explicitly emphasize that different viability measures can rank populations differently without giving this sharp two-patch parameter theorem",
+        "Related finite-state Markov calculations imply the mean formula but not the all-horizon single-crossing consequence by mean comparison alone."
+      ],
+      "reasoning": "A larger mean does not imply a uniformly larger survival function. Computing the decay eigenvalues and proving a strictly increasing hazard are necessary for the stated exact single-crossing classification. Existing two-reserve area-allocation results concern mean lifetime among two-reserve designs, whereas the new comparison changes the number of reserves and evaluates every fixed deadline.",
+      "searches": [
+        "\"one large\" \"two small\" \"extinction time\" \"survival probability\" colonization",
+        "\"different rankings\" \"time horizon\" \"mean time to extinction\" metapopulation",
+        "\"mean time to extinction\" \"survival probability\" metapopulation fragmentation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Etienne and Heesterbeek (2000), DOI 10.1006/jtbi.1999.1060: persistence criteria R0 and mean extinction time",
+        "The two-state hazard is a phase-type survival function, but a generic phase-type representation does not itself state the present reserve-configuration comparison."
+      ],
+      "reasoning": "The result can be written as ordering phase-type and exponential survival functions, or as a unique crossing of their cumulative extinction hazards. The searched equivalent words and phase-type formulation did not reveal the same sharp ecological parameter thresholds. This is a qualified priority comparison, not a claim of exhaustive search.",
+      "searches": [
+        "\"SLOSS\" \"survival curves\" \"extinction\" metapopulations two patches",
+        "\"one large\" \"two small\" \"survival probability\" recolonization extinction rates metapopulation",
+        "\"SLOSS\" \"increasing hazard\" metapopulation extinction small large reserves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Etienne and Heesterbeek (2000), main text: numerical/scaling conclusions for R0 and expected extinction time, not a known table of full survival crossings",
+        "Nicol and Possingham (2010), abstract: policies from stochastic dynamic programming rather than an explicit closed formula for the stated two-versus-one CTMC."
+      ],
+      "reasoning": "No directly tabulated cutoffs \\(c_{\\mathrm{tail}}=e(\\delta-1)(2\\delta-1)\\), \\(c_{\\mathrm{mean}}=e(2\\delta^2-3\\delta)\\), or exact difference \\(e\\) were located; uninspected appendices could still contain relevant values. Finite-state resolvents themselves are standard and not claimed as novel.",
+      "searches": [
+        "\"SLOSS\" \"survival curves\" \"extinction\" metapopulations two patches",
+        "\"two patches\" \"mean time to extinction\" \"survival probability\" \"one patch\" recolonization",
+        "\"mean extinction time\" \"long-term survival\" \"two reserves\" colonization fixed area"
+      ]
+    },
+    "rationale": "The fixed-area SLOSS context and mean extinction-time formulas are established. The narrower proposed new statement is a complete one-vs-two all-deadline survival ordering and its exact separation from mean ranking by e, not a general claim that fragmentation matters. The inspected Etienne–Heesterbeek full text compares mean lifetime and colonization potential, while the closer finite-horizon Nicol–Possingham paper concerns stochastic dynamic-programming interventions; its full text was unavailable, and historical priority remains provisional. The original published and mathematical-record searches revealed no explicit dominating full statement.",
+    "residual_risks": [
+      "Complete text and mathematical appendices of Nicol and Possingham (2010) were not accessible, so an earlier special case cannot be excluded.",
+      "Full Helmstedt et al. (2014) material was not inspected; its stated objective is cost-efficiency, but hidden survival calculations cannot be excluded.",
+      "The ecological rate law is assumed; absence of empirical calibrations limits direct field relevance.",
+      "No independent peer or historical-priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses mean metapopulation lifetime and colonization potential, not a complete one-vs-two fixed-deadline survival order in examined sections; much broader patch-lattice model, no priority guarantee",
+        "evidence": [
+          "DOI 10.1006/jtbi.1999.1060",
+          "sections: Methods: Metapopulation Model Assumptions and Measures of Persistence; Discussion"
+        ],
+        "identifier_or_url": "https://dspace.library.uu.nl/bitstream/1874/8099/1/heesterbeek_00_optimal_metapopulation.pdf",
+        "material_read": "Abstract, introduction, methods describing persistence criteria, local extinction scaling, selected discussion and conclusions (web-extracted full document text)",
+        "method": "Direct examination of openly available repository full-text text; visual screenshot unavailable",
+        "title": "On Optimal Size and Number of Reserves for Metapopulation Persistence",
+        "trigger": "same fixed-area SLOSS object; primary motivating source"
+      },
+      {
+        "assessment": "Optimizes restoration interventions in stochastic dynamic programming, rather than the fixed no-action two-chain survival order. Complete appendix may contain more and is not ruled out.",
+        "evidence": [
+          "DOI 10.1890/08-2216.1",
+          "Ecological Applications 20, 566–581 (2010)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/08-2216.1",
+        "material_read": "Published abstract, bibliographic metadata and references only; full text not accessible",
+        "method": "Publisher abstract/indexing; repository and preprint search did not identify full open text; institutional full-text access unavailable",
+        "title": "Should metapopulation restoration strategies increase patch area or number of patches?",
+        "trigger": "direct large-vs-small reserve question and finite-horizon dynamic programming"
+      },
+      {
+        "assessment": "Compares fencing cost-efficiency and management risk; not known to state the occupancy Markov survival threshold; uninspected sections remain a priority risk.",
+        "evidence": [
+          "DOI 10.1890/13-1579.1",
+          "Ecological Applications 24, 1780–1792 (2014)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/13-1579.1",
+        "material_read": "Published abstract and references; full paper not accessible",
+        "method": "Publisher abstract and bibliographic indexing",
+        "title": "Cost-efficient fenced reserves for conservation: single large or two small?",
+        "trigger": "nearly identical reserve-configuration title"
+      },
+      {
+        "assessment": "Simulation comparison over thousands of virtual species; not an analytic unique-crossing theorem for the explicit no-immigration two-patch CTMC.",
+        "evidence": [
+          "DOI 10.1002/ece3.9752",
+          "Ecology and Evolution (2023)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.9752",
+        "material_read": "Publisher abstract and indexed article section excerpts describing the eight metrics and simulation design; complete article browsing was restricted",
+        "method": "Indexed openly available article text and abstract",
+        "title": "A comparison of population viability measures",
+        "trigger": "mean-versus-fixed-time viability measure ranking discrepancy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ee5b9f15-34dc-4c0f-8388-61c5feb98aed",
+  "value": {
+    "rationale": "The fixed-area reserve tradeoff is an important natural model question; the theorem provides an exact, positive-width all-exponent zone where mean lifetime favors two reserves but long-deadline survival favors one. Unlike a single numerical counterexample, the sharp threshold identity exposes a structural distinction between mean and tail objectives and locates the complete boundary of the reversal.",
+    "status": "PASS"
+  }
+}
