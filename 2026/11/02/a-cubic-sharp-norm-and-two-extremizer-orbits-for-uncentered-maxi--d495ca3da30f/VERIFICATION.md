@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The standalone Python standard-library certificate `verify_uncentered_prism.py` was run from its supplied directory. It exhausts every one of the 46,656 uncentered row-ball selections; fraction-free integer elimination proves that 46,638 selection matrices lie strictly below squared norm \(81/50\). The 18 remaining matrices have the same exact factored characteristic polynomial and explicitly permuted positive Perron vectors.
+# Independent mathematical audit
 
-The verifier also uses exact rational interval arithmetic around the isolated cubic root to check all 540 strictly active-versus-competing ball inequalities. An independent 729-selection integer test establishes a strict centered squared-norm upper bound of \(3/2\). The source code regenerates the graph and balls and depends on no external numeric package or precomputed data.
+## correctness
 
-Expected output:
+PASS
 
-```text
-CERTIFICATE_OK selections=46656 strict=46638 exceptional=18
-CERTIFICATE_OK characteristic=[1,-48,675,-2868,4288,-2048,0]
-CERTIFICATE_OK active_competitor_inequalities=540 rays=18 orbit_types=6+12
-CERTIFICATE_OK centered_strict_lt_3/2=729 uncentered_gt_81/50
-```
+For the unweighted prism G=C3□K2 with six vertices, each vertex lies in six distinct graph-distance balls (singleton, four radius-one neighbor-centered balls, and whole graph). Choosing an averaging ball per row gives exactly 6^6=46656 nonnegative averaging matrices A_s. For real l2, positivity of A_s lets top singular vectors be nonnegative, and finite max interchange gives ||Mtilde||²=max_s λ_max(A_s^T A_s). Exact integer positive-definiteness of 11664I−50R_s^T R_s (R_s=12 A_s), with Sylvester/fraction-free elimination, excludes 46638 cases below squared threshold 81/50; the remaining 18 have common determinant z(z−16)(z−1)(z³−31z²+132z−128) for Gram(4A), and top λ* solves 64λ³−124λ²+33λ−2=0 above 81/50. Explicit strictly positive Perron vector proportional to (1,1,a,b,c,c) with a=(λ−1)/λ, b=(3λ−1)/(λ(8λ−1)), c=(3λ−1)/(λ(16λ−1)) is active against all five alternative row balls for every winning matrix. This gives precisely 18 nonnegative rays and graph automorphism orbit sizes 6+12. Separately all 3^6=729 centered matrices have squared spectral norm <3/2<λ*. The finite exhaustive certificate proves the finite domain claim when integer inequalities are actually checked; logs alone do not.
 
-The finite enumeration is exhaustive only because six vertices have exactly six distinct containing balls each. It is not a claim about larger prism graphs or general metric spaces. The root identity, Perron argument and reduction of nonlinear maximization to finite matrix norms are supplied in the proof. Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+Prior graph maximal-operator works give general finite-graph comparisons, centered sharp constants for selected graph families, and uncentered operator definitions, while 2026 variation results use a different seminorm and at most five vertices. None inspected supplies the six-vertex triangular-prism uncentered real l2 norm, its 18 equality rays or two symmetry orbits. The exact finite graph is natural and not an arbitrarily sliced giant enumeration; an unindexed precomputed graph table could still duplicate the result.
+
+## value
+
+PASS
+
+The triangular prism is a natural small vertex-transitive Cartesian product with a nontrivial center-free ball geometry. The sharp uncentered vs centered l2 gap and two inequivalent symmetry orbits sharing an algebraic extremal value are meaningful finite-network maximal-operator facts, offering a benchmark for graph product sharp inequalities. A single finite graph is acceptable here because the graph and invariant are mathematically motivated and the result is an exact complete extremizer classification, not a random tiny gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

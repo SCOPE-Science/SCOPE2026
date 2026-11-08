@@ -1,23 +1,21 @@
-# Scientific review of the exact uncentered triangular-prism maximal norm
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact domain is the unweighted six-vertex triangular prism, counting measure, graph-distance balls, and real \(\ell^2\). A ball containing a fixed vertex is one of six possibilities, which produces exactly 46,656 linear selection matrices. For nonnegative input the maximal operator is the coordinatewise maximum of these positive matrices; their largest singular values give its exact nonlinear norm. This equality is justified by exchanging a finite maximum with a compact unit-sphere maximum and taking absolute values of singular vectors.
+PASS
 
-The shipped verifier uses exact integer Sylvester tests, not approximate eigenvalue comparisons, to exclude 46,638 of 46,656 matrices below squared norm \(81/50\). It derives and checks the characteristic polynomial for the remaining 18; the largest root of the stated cubic is strictly above that threshold. The displayed positive eigenvector is checked analytically, and an exact rational interval test proves strict activity of every chosen averaging ball. The equality classification follows from simplicity of the Perron eigenvalue for each exceptional matrix. A separate 729-matrix test certifies strict comparison with the centered operator. No extrapolation from a finite sample is used.
+For the unweighted prism G=C3□K2 with six vertices, each vertex lies in six distinct graph-distance balls (singleton, four radius-one neighbor-centered balls, and whole graph). Choosing an averaging ball per row gives exactly 6^6=46656 nonnegative averaging matrices A_s. For real l2, positivity of A_s lets top singular vectors be nonnegative, and finite max interchange gives ||Mtilde||²=max_s λ_max(A_s^T A_s). Exact integer positive-definiteness of 11664I−50R_s^T R_s (R_s=12 A_s), with Sylvester/fraction-free elimination, excludes 46638 cases below squared threshold 81/50; the remaining 18 have common determinant z(z−16)(z−1)(z³−31z²+132z−128) for Gram(4A), and top λ* solves 64λ³−124λ²+33λ−2=0 above 81/50. Explicit strictly positive Perron vector proportional to (1,1,a,b,c,c) with a=(λ−1)/λ, b=(3λ−1)/(λ(8λ−1)), c=(3λ−1)/(λ(16λ−1)) is active against all five alternative row balls for every winning matrix. This gives precisely 18 nonnegative rays and graph automorphism orbit sizes 6+12. Separately all 3^6=729 centered matrices have squared spectral norm <3/2<λ*. The finite exhaustive certificate proves the finite domain claim when integer inequalities are actually checked; logs alone do not.
 
-## Originality
+## originality
 
-**PASS, with publication-priority limits.** Full-text inspection of Soria–Tradacete (arXiv:1410.6204) shows finite-graph centered norm results and broad \(0<p\le1\) estimates, not the uncentered six-vertex strong Hilbert problem. González-Riquelme–Madrid (arXiv:2005.03146) explicitly defines uncentered maximal averages but its sharp strong Hilbert norm results apply to complete and star graphs. González-Riquelme–Kovač–Madrid (arXiv:2603.12462) treats centered variation, including a census of graphs up to five vertices, not the present operator or graph. The accessible previous centered triangular-prism result has a different averaging family and does not imply the uncentered cubic or its two equality orbits. Searches of mathematical records and related terminology found no dominating statement. An unindexed calculation or an unpublished equivalent remains possible.
+PASS
 
-## Value
+Prior graph maximal-operator works give general finite-graph comparisons, centered sharp constants for selected graph families, and uncentered operator definitions, while 2026 variation results use a different seminorm and at most five vertices. None inspected supplies the six-vertex triangular-prism uncentered real l2 norm, its 18 equality rays or two symmetry orbits. The exact finite graph is natural and not an arbitrarily sliced giant enumeration; an unindexed precomputed graph table could still duplicate the result.
 
-**PASS.** The triangular prism is the smallest nontrivial Cartesian product of a triangle with an edge and a natural vertex-transitive cubic test graph. A strict centered–uncentered norm gap occurs despite vertex transitivity. Uncentered maximization exhibits two *inequivalent* graph-symmetry orbits, of six and twelve positive extremizer rays, tied at one algebraic cubic norm; this is a substantive structural phenomenon rather than merely another decimal evaluation. The exact finite classification provides a benchmark for prospective estimates on graph products and for understanding changes in extremizer geometry when the ball center is freed.
+## value
 
-## Sources, comparisons and risks
+PASS
 
-Primary full-text sources inspected: arXiv:1410.6204 (definition, general norm estimates, graph examples and theorem scopes), arXiv:2005.03146 (uncentered definition and sharp centered Hilbert result scopes), arXiv:2603.12462 (theorems on graph variation and the five-vertex census). Searches also tested the triangular-prism and Cartesian-product aliases against published mathematical records. No consulted result is known to imply the new theorem. The closest accessible related calculation is the centered triangular-prism operator, which is strictly smaller; that distinction is independently certified inside the new proof.
+The triangular prism is a natural small vertex-transitive Cartesian product with a nontrivial center-free ball geometry. The sharp uncentered vs centered l2 gap and two inequivalent symmetry orbits sharing an algebraic extremal value are meaningful finite-network maximal-operator facts, offering a benchmark for graph product sharp inequalities. A single finite graph is acceptable here because the graph and invariant are mathematically motivated and the result is an exact complete extremizer classification, not a random tiny gain.
 
-The result is restricted to one graph and real \(\ell^2\), and broader publication-priority checking cannot be exhaustive. The exact certificate and mathematical argument have not been reviewed independently.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
