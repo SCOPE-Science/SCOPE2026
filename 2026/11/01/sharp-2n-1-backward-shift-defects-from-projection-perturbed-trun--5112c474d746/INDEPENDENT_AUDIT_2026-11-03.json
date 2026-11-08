@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:52:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For r=2n+2 and K=span{e_0,...,e_{2r-1}}, compressed multiplication by z^r maps lower coordinates x_i to upper y_i. Orthogonal P keeps upper even indices r+2j, giving x_2j=y_2j and all other x_i=0. The kernel has dimension r and lies in zH². Quotient map Lh=(h_2j-h_(r+2j) for 2j indexed, h_i otherwise) is surjective with kernel M. Its composition L S*|M sends free y_2j to output 2j-1, y_2j+1 to -output 2j and y_0 to output r-1, making 2n+1 independent coordinates with only y_1 unused. Hence exact defect all n. Source verifier independently constructs integer matrices; independent rank checks for n=1..8 agree but do not replace symbolic rank count. Upper bound 2n+1 is known from Chattopadhyay–Khan, not an independent new theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing universal bound covers any finite-rank perturbation but has no all-rank equality construction in the inspected main theorem/proof.",
+          "Vector-valued Hardy Toeplitz results do not supply this compressed scalar model extremizer."
+        ],
+        "reasoning": "The new equality family is not implied by the upper bound alone; literature residual risk is another existing example with identical structural constraints.",
+        "searches": [
+          "Resultary semantic: truncated Toeplitz kernel finite rank projection sharp nearly S star invariant defect 2n+1 examples",
+          "arXiv:2610.40295 full PDF Theorem 5.4",
+          "arXiv:2507.05721"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md cb17c606b1ed43192b3968f634432f23bbb82bc5",
+        "pinned checks/check_defect.py 4670bb5195a148e07e2d60c0434b991ee90a63ff",
+        "Resultary semantic: truncated Toeplitz kernel finite rank projection sharp nearly S star invariant defect 2n+1 examples",
+        "arXiv:2610.40295 full PDF Theorem 5.4",
+        "arXiv:2507.05721 full PDF",
+        "arXiv:1911.10072"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inequality ≤2n+1 is known; attainment relies on kernel constraints x_2j=y_2j and an explicit rank 2n+1 quotient matrix.",
+          "Projection self-adjointness/positivity is a stringent requirement absent in the general bound."
+        ],
+        "reasoning": "A general upper bound plus low-rank illustrations does not force the new structural extremizer; the source supplies the missing exact all-n construction.",
+        "searches": [
+          "Resultary semantic: truncated Toeplitz kernel finite rank projection sharp nearly S star invariant defect 2n+1 examples",
+          "arXiv:2610.40295 Theorem 5.4",
+          "arXiv:2507.05721"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For M=ker(A-P) with M⊂zH², minimal shift-defect is rank of quotient map L S*|M; full exact coefficient map has 2n+1 independent outputs.",
+          "The existing theorem is only ≤2n+1 for any rank≤n perturbation."
+        ],
+        "reasoning": "An upper estimate cannot imply equality existence, especially with added constraints P²=P=P*≥0 and analytic symbol monomial z^(2n+2).",
+        "searches": [
+          "Resultary semantic: truncated Toeplitz kernel finite rank projection sharp nearly S star invariant defect 2n+1 examples",
+          "arXiv:2610.40295 Theorem 5.4",
+          "arXiv:2507.05721"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite rank n=1,2 illustrations are not an exact sequence of sharp equality examples for every rank.",
+          "No checked Resultary exact table has 2n+1 defect attained by projection perturbation in compressed model."
+        ],
+        "reasoning": "This invariant is naturally parameterized by n and computed by an explicit coordinate rank, not an arbitrary database. Search absence is not proof of priority.",
+        "searches": [
+          "Resultary semantic: truncated Toeplitz kernel finite rank projection sharp nearly S star invariant defect 2n+1 examples",
+          "Resultary search 12 returned remote Toeplitz, Hankel, shift-related results",
+          "arXiv:2610.40295 n=1,2 discussions"
+        ]
+      },
+      "rationale": "PASS best knowledge: the sharp numeric upper bound is expressly credited to Chattopadhyay–Khan (Theorem 5.4) and is not claimed new. The displayed projection-perturbed compressed monomial shift supplies an explicit uniform equality example for every rank and proves a restriction-specific optimality result not found in the inspected full primary article.",
+      "residual_risks": [
+        "An unpublished or obscure monomial-kernel equality example may exist; no global nonexistence of previous extremizers is claimed.",
+        "No minimality of model-space dimension, classification of all equality cases or extension beyond finite monomial model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_UPPER_BOUND_NOT_ALL_RANK_EXTREMIZER",
+          "evidence": [
+            "Theorem 5.4 states upper bound 2n+1. Inspected illustrations do not construct positive orthogonal rank-n projection with equality for every n."
+          ],
+          "identifier_or_url": "arXiv:2610.40295v1 (Chattopadhyay and Khan, 2026)",
+          "material_read": "Full arXiv PDF; Theorem 5.4, proofs and illustrated n=1,2 case, with PDF page screenshots",
+          "method": "Lawful arXiv full PDF",
+          "title": "Perturbations of Truncated Toeplitz operators",
+          "trigger": "Same scalar truncated Toeplitz perturbation and exact universal 2n+1 upper bound"
+        },
+        {
+          "assessment": "DIFFERENT_UNCOMPRESSED_SETTING",
+          "evidence": [
+            "Treats vector-valued full-Hardy Toeplitz kernels, not scalar compressed monomial truncated Toeplitz with projection equality family."
+          ],
+          "identifier_or_url": "arXiv:2507.05721 (Khan, Lata, Singh)",
+          "material_read": "Open-access arXiv PDF, introductory theorem and operator-class hypotheses with PDF screenshot",
+          "method": "arXiv full PDF",
+          "title": "Perturbations of Toeplitz operators on vector-valued Hardy spaces",
+          "trigger": "Finite-rank perturbation of Toeplitz, possible broader kernel result"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_REPRESENTATION",
+          "evidence": [
+            "Provides representations; no verified explicit positive orthogonal projection equality family in inspected material."
+          ],
+          "identifier_or_url": "arXiv:1911.10072 (Liang and Partington)",
+          "material_read": "Source claim/abstract and formula-level bibliographic comparison; not full text",
+          "method": "Public scholarly abstract",
+          "title": "Representing kernels of perturbations of Toeplitz operators by backward shift-invariant subspaces",
+          "trigger": "Known defect representation tools and structural upper bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Equality examples under positivity/self-adjointness, orthogonal projection and one monomial establish that a prior universal functional-analytic defect bound cannot be improved even in this natural restricted operator class. Exact all-rank sharpness is a motivated structural extremal invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md cb17c606b1ed43192b3968f634432f23bbb82bc5",
+    "pinned checks/check_defect.py 4670bb5195a148e07e2d60c0434b991ee90a63ff",
+    "Resultary semantic: truncated Toeplitz kernel finite rank projection sharp nearly S star invariant defect 2n+1 examples",
+    "arXiv:2610.40295 full PDF Theorem 5.4",
+    "arXiv:2507.05721 full PDF",
+    "arXiv:1911.10072"
+  ],
+  "disposition": "passed",
+  "final_claim": "The universal known upper bound 2n+1 on nearly S*-invariant defect of rank-n perturbation kernels of truncated Toeplitz operators is attained for every n≥1 by an orthogonal rank-n projection perturbation of the single monomial symbol z^(2n+2).",
+  "limitations": [
+    "Example does not minimize model degree, classify all rank-n extremizers, or address every inner function.",
+    "Original path slug mentions 2n-1 but actual theorem/RESULT.md unambiguously states 2n+1; path retained as immutable assignment identity."
+  ],
+  "residual_risks": [
+    "An unpublished or obscure monomial-kernel equality example may exist; no global nonexistence of previous extremizers is claimed.",
+    "No minimality of model-space dimension, classification of all equality cases or extension beyond finite monomial model."
+  ],
+  "schema_version": 1
+}
