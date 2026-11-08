@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:15:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Built the exact 32-vertex 48-edge cubic Dyck graph as adjacency of the 32 Shrikhande triangles. Recursive matching enumeration using the least uncovered vertex proves and independently reproduced all 417 perfect matchings with no duplicates. For each unordered matching pair, exactly one permitted simple alternating length-l flip occurs precisely when the symmetric difference has l edges and its nontrivial degree-2 subgraph is connected. Independently recomputed the 864/96/2736 edges for lengths 6/8/10, components 45+124+124+124 for cutoff 8, 3696 combined edges and connectivity for cutoff 10, and full-source BFS eccentricities 360 at 4 and 57 at 5. Independently constructed checks establish radius 4 and diameter 5 and 8+10-only connectivity. Exhaustion follows from explicit finite recursion and pairwise testing, not from sampling or a timeout; the result is only for this Dyck graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Figueroa et al. give necessary/sufficient connectivity conditions and examples for graph classes, without an exact Dyck cutoff-8/10 theorem.",
+          "Unrestricted alternating-cycle connectivity is strictly weaker than the assertion that cycles of length at most 10 suffice, and does not imply diameter 5."
+        ],
+        "reasoning": "General graph-class conditions do not imply the particular Dyck 417-vertex exchange distance census without verifying their hypotheses and new finite structural calculations.",
+        "searches": [
+          "Dyck graph perfect matching alternating cycle flip reconfiguration connectivity diameter 10",
+          "Figueroa Fresán-Figueroa Rivera-Campo 2015 matching graph cycles connectivity"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s40590-015-0079-1",
+        "MathWorld Dyck Graph",
+        "doi:10.3390/sym17020247",
+        "Resultary semantic Dyck matching flip graph search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2015 theorem text discusses sufficient connectivity based on allowed cycle sets and particular graph classes; no Dyck-specific finite metric.",
+          "Standard Dyck LCF [-13,5,-5,13]^8 identifies the underlying graph but cannot determine flip radius by itself."
+        ],
+        "reasoning": "No inspected prior result logically forces the sharp threshold ten, partition at eight, or diameter five; the reviewed exhaustive finite certificate establishes those new object-specific invariants.",
+        "searches": [
+          "Dyck graph perfect matching alternating cycle flip reconfiguration connectivity diameter 10",
+          "2015 On the perfect matching graph defined by a set of cycles theorem connectivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flip graph may be called a matching graph defined by a set of cycles, resonance graph, or alternating-cycle reconfiguration graph; the cutoff is on ONE connected simple alternating cycle in M△N.",
+          "The inspected 2015 work defines the same exchange operation but not its Dyck-specific exact statistics."
+        ],
+        "reasoning": "Compared legal move (single alternating cycle) rather than conflating it with toggling an arbitrary union or individual-edge exchange; no exact Dyck analogue found.",
+        "searches": [
+          "Dyck graph perfect matching alternating cycle flip reconfiguration connectivity diameter 10",
+          "Dyck graph Foster 32A perfect matching resonance graph alternating-cycle reconfiguration hexagon decagon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "417 perfect matchings may be a known graph invariant; the exact 6/8/10 length-specific edge counts and all 417 eccentricities form a different object.",
+          "Direct complete enumeration gave the 6/8/10 counts and four cutoff-8 components."
+        ],
+        "reasoning": "A database listing Dyck perfect matching number does not supply the adjacency graph between matchings, threshold or diameter. No exact matching flip-table was identified.",
+        "searches": [
+          "Dyck graph perfect matching alternating cycle flip reconfiguration connectivity diameter 10",
+          "Dyck graph 417 perfect matchings enumerated table",
+          "Dyck graph 3696 flip edges 45 124 decagon"
+        ]
+      },
+      "rationale": "The 2015 Figueroa--Fresán-Figueroa--Rivera-Campo primary paper defines cycle-set perfect-matching exchange graphs and proves general connectivity criteria. Neither the inspected theorem statements nor examples enumerate Dyck graph flip lengths, cutoff components, radius or diameter. Standard Dyck graph sources provide the graph geometry (LCF representation), not these precise reconfiguration invariants. Some tables could list the 417 matchings, but this alone does not classify length-bounded exchange adjacency.",
+      "residual_risks": [
+        "Specialized finite graph matching-reconfiguration tables might be unindexed; historical priority of the exact constants is qualified.",
+        "Only graph defined by Shrikhande triangles / equivalent LCF Dyck graph, single simple alternating cycle flips; finite exact result, no theorem for all cubic graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general matching graph formalism; not the exact Dyck threshold/metrics on inspected text",
+          "evidence": "No Dyck named example, no 417-matching cycle length cutoff or eccentricity results in the read manuscript.",
+          "identifier_or_url": "https://doi.org/10.1007/s40590-015-0079-1",
+          "material_read": "Accessible full primary manuscript HTML, introductory definitions, theorems, connectivity examples and a search for Dyck",
+          "method": "Full manuscript HTML search and mathematical theorem comparison",
+          "title": "On the perfect matching graph defined by a set of cycles",
+          "trigger": "Same exchange operation and possible prior global connectivity theorem"
+        },
+        {
+          "assessment": "Covers base graph only",
+          "evidence": "An LCF presentation does not imply perfect-matching exchange connectivity or distances.",
+          "identifier_or_url": "https://mathworld.wolfram.com/DyckGraph.html",
+          "material_read": "LCF representation, 32 vertices, girth and cubic graph description",
+          "method": "Reference entry reading",
+          "title": "Dyck Graph",
+          "trigger": "Canonical graph identity and LCF cross-check"
+        },
+        {
+          "assessment": "Different spectral invariants",
+          "evidence": "A graph spectrum is not an enumerated length-bounded matching flip graph.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17020247",
+          "material_read": "Publication title/abstract and contextual Dyck graph description",
+          "method": "Abstract-level comparison",
+          "title": "Spectral Polynomials and Spectra of Graphs Beyond Cubic and Icosahedral Symmetries",
+          "trigger": "Dyck graph structural discussion potentially containing graph invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A classical 32-vertex cubic graph has a nontrivial, fully canonical perfect-matching configuration space, and the sharp decagon threshold separates disconnected from connected local reconfiguration. The complete component and metric census (including diameter 5) is an independently useful natural finite invariant for studying alternating-cycle flip dynamics, not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1007/s40590-015-0079-1",
+    "MathWorld Dyck Graph",
+    "doi:10.3390/sym17020247",
+    "Resultary semantic Dyck matching flip graph search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specialized finite graph matching-reconfiguration tables might be unindexed; historical priority of the exact constants is qualified.",
+    "Only graph defined by Shrikhande triangles / equivalent LCF Dyck graph, single simple alternating cycle flips; finite exact result, no theorem for all cubic graphs."
+  ],
+  "schema_version": 1
+}

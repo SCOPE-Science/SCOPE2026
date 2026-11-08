@@ -1,11 +1,21 @@
-# Review of the Dyck matching-cycle flip classification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The theorem uses a fixed 32-vertex cubic graph and exact one-cycle symmetric-difference transitions. Recursive partner enumeration covers all perfect matchings without duplicates, yielding 417. The necessary and sufficient condition for one alternating-cycle flip is that the symmetric difference is one connected simple even cycle. A second verifier starts from the independent LCF graph constructor, explicitly enumerates alternating cycles rather than comparing matching pairs, and checks the same exchange counts. Both verify 45,124,124,124 as the four components at cutoff 8, connectivity at cutoff 10, and exact all-source eccentricity counts 360 and 57. Proof scope is finite, not extrapolated.
+## correctness
 
-**Originality (O): PASS under accessible evidence; residual risks remain.** Figueroa, Fresán-Figueroa, and Rivera-Campo's 2015 manuscript introduces the same general cycle-defined matching-graph formalism and its sufficient connectivity criteria. Its inspected theorem sections and examples do not classify length-bounded Dyck flips. Standard Dyck graph sources present its LCF representation and small-cycle geometry, not the present exchange metric. Later spectral discussions are about a distinct invariant. Indexed mathematical records found for the Pappus/Heawood matching complexes and other cubic graph configurations do not imply the Dyck graph's sharp cutoff or distances. An unindexed table, thesis, or source not fully accessible could still cover the numbers; an unsuccessful search does not establish priority.
+PASS
 
-**Value (V): PASS.** The classical highly symmetric Dyck graph is the geometric dual of the Shrikhande torus triangulation. Limiting alternating-cycle flips by circumference is a natural restriction in matching reconfiguration. This result identifies a nontrivial gap between abundant available hexagon/octagon moves and global connectivity: a decagon is required. The sharp cutoff and full exact distance structure supply a concrete benchmark of local mobility and a motivated finite boundary, not a randomly chosen invariant.
+Built the exact 32-vertex 48-edge cubic Dyck graph as adjacency of the 32 Shrikhande triangles. Recursive matching enumeration using the least uncovered vertex proves and independently reproduced all 417 perfect matchings with no duplicates. For each unordered matching pair, exactly one permitted simple alternating length-l flip occurs precisely when the symmetric difference has l edges and its nontrivial degree-2 subgraph is connected. Independently recomputed the 864/96/2736 edges for lengths 6/8/10, components 45+124+124+124 for cutoff 8, 3696 combined edges and connectivity for cutoff 10, and full-source BFS eccentricities 360 at 4 and 57 at 5. Independently constructed checks establish radius 4 and diameter 5 and 8+10-only connectivity. Exhaustion follows from explicit finite recursion and pairwise testing, not from sampling or a timeout; the result is only for this Dyck graph.
 
-**Closest literature and scope.** A. P. Figueroa, J. Fresán-Figueroa, E. Rivera-Campo, *On the perfect matching graph defined by a set of cycles*, DOI 10.1007/s40590-015-0079-1; the MathWorld Dyck Graph reference; and K. Balasubramanian, *Symmetry* 17 (2025), 247, DOI 10.3390/sym17020247. The 417 matching count is used only as an explicitly reproduced baseline. Exact enumeration does not establish uniqueness in all literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2015 Figueroa--Fresán-Figueroa--Rivera-Campo primary paper defines cycle-set perfect-matching exchange graphs and proves general connectivity criteria. Neither the inspected theorem statements nor examples enumerate Dyck graph flip lengths, cutoff components, radius or diameter. Standard Dyck graph sources provide the graph geometry (LCF representation), not these precise reconfiguration invariants. Some tables could list the 417 matchings, but this alone does not classify length-bounded exchange adjacency.
+
+## value
+
+PASS
+
+A classical 32-vertex cubic graph has a nontrivial, fully canonical perfect-matching configuration space, and the sharp decagon threshold separates disconnected from connected local reconfiguration. The complete component and metric census (including diameter 5) is an independently useful natural finite invariant for studying alternating-cycle flip dynamics, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
