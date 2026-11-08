@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Uniform k-tagged cycle sampling gives (n-1)! permutations per k. For i>=2, conjugation by adjacent-label transposition reverses a comparison except on two balanced exceptional events, so its conditional mean is 1/2. Explicit four-case sampling of Pi(1),Pi(2) gives the conditional first-descent law. Summation produces (n^2-3n+4)/(4n(n-1)) and the Eulerian variance gives correlation ~3 n^(-3/2). Boundary n=3 and k=n are included. Exact complete enumeration for n=3,...,9 and rational checks through 300 agree; the proof, not enumeration, supplies all-n validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1989 theorem counts permutations with fixed unmarked cycle partition and descent set; it does not label a cycle.",
+        "For n=4, (1,4,2,3) and (2,3,1,4) have cycle type (3,1) and descent set {2}, but tagged lengths 1 and 3.",
+        "Elizalde–Troyka arXiv:1710.05103, Introduction: describes n-cycle descent-set distributions, covering an endpoint but not all tagged lengths."
+      ],
+      "reasoning": "General unmarked cycle-type/descent formulas do not logically determine the joint tagged-length/descent statistic from their stated counts. The full-cycle case and fixed-point case are already partly covered; the all-length, all-position profile is not a corollary of those endpoint statements.",
+      "searches": [
+        "random permutation cycle containing 1 conditional expectation descent count plateau cycle sizes 3 to n minus 1",
+        "uniform permutation conditioned cycle containing 1 length descents conditional expectation",
+        "Gessel Reutenauer cycle type descent set marked element",
+        "Elizalde Troyka cyclic permutations given descent set"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0508112",
+      "https://www.mat.univie.ac.at/~slc/s/sc21reutenauer.pdf",
+      "https://arxiv.org/pdf/1710.05103",
+      "https://statistics.stanford.edu/technical-reports/cycles-and-descents-random-permutations",
+      "https://doi.org/10.1007/BF01294457"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conger 2005 Theorem 1 gives a refined Eulerian distribution indexed by the value Pi(1), not the orbit length K.",
+        "Reutenauer 1989 Theorem 1 fixes the partition of cycle lengths and descent set, but the counterpair shows the marked orbit length is not determined by these statistics.",
+        "An accessible fixed-point/descent localization result explains the K=1 boundary; a full-cycle descent-set result explains part of K=n. Neither yields the K=2 excess or interior K=3,...,n-1 plateau by its stated conclusion."
+      ],
+      "reasoning": "No checked primary claim directly implies the complete four-case first-position law together with all other local probabilities and the aggregate covariance. The exact marked-cycle proof is new within accessible comparisons, with implicit-specialization risk recorded.",
+      "searches": [
+        "random permutation tagged cycle length covariance with descents first descent boundary localization",
+        "uniform permutation conditioned cycle containing 1 length descents conditional expectation",
+        "arxiv:math/0508112v1",
+        "Reutenauer 1989 B21h",
+        "arxiv:1710.05103"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conger 2005 arXiv:math/0508112v1, pp. 1-4, 9-11, 17-19: first image and total descents, without marking a cycle.",
+        "Reutenauer B21h (1989), Theorem 1, pp. 102 and 106: full unmarked cycle type and descent-set counts."
+      ],
+      "reasoning": "Searched terms for tagged cycle, cycle containing the smallest label, first descent and covariance. Neither direct formula nor a cited equivalent was found. A tagged-cycle event is different from a first-image event or the partition of cycle lengths.",
+      "searches": [
+        "length of permutation cycle containing label 1 conditioned descent at first position localizations exact law fixed size",
+        "random permutation tagged cycle length covariance with descents first descent boundary localization",
+        "\"cycle containing 1\" \"descents\" permutation",
+        "arxiv:math/0508112v1: first-image descent refinement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact rational enumeration included with the finding checks all 409110 permutations for n=3,...,9.",
+        "Searched first-cycle and descent terminology; no published exact table indexed by marked cycle length and position was located."
+      ],
+      "reasoning": "A finite table could confirm small cases, but no dominating all-n local profile or table was identified. A failed database query is not proof of novelty.",
+      "searches": [
+        "length of permutation cycle containing label 1 conditioned descent at first position localizations exact law fixed size",
+        "random permutation cycle containing 1 conditional expectation descent count plateau cycle sizes 3 to n minus 1",
+        "\"cycle containing 1\" \"descents\" permutation"
+      ]
+    },
+    "rationale": "The selected 2005 first-image Eulerian refinement and 1989/1993 unmarked cycle-type/descent-set classification do not state the distinguished-cycle length profile. The existing fixed-point boundary and full-cycle marginal are acknowledged, not claimed as separate new findings. A matched type-and-descent-set counterpair at n=4 demonstrates that the unmarked type/descent statistic does not determine the distinguished length. The assessed new statement is the exact complete four-regime conditional local profile and its nonvanishing covariance, with a clear implicit-priority risk.",
+    "residual_risks": [
+      "The early Diaconis–McGrath–Pitman full report and later journal text were not fully accessible for an exact marked-cycle comparison.",
+      "A larger joint generating function indexed by a distinguished cycle (rather than only the unmarked cycle type) could implicitly subsume the result.",
+      "A historical exact small-table or a theorem not found under the tested aliases could settle priority differently; independent literature review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "First image value versus descents; does not identify the length of the cycle through label one.",
+        "evidence": "arXiv version first made public 2005-08-05; Theorem 1 counts (Des(pi),pi(1)); Theorem 3 gives E[pi(1)|Des=d]=d+1.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0508112",
+        "material_read": "Full public 21-page preprint accessible; examined introduction, Theorems 1 and 3, transposition argument, generating-function section, two-ended refinements, and searched for cycles",
+        "method": "Text extraction and page-image visual inspection",
+        "title": "A Refinement of the Eulerian Numbers, and the Joint Distribution of pi(1) and Des(pi) in S_n",
+        "trigger": "Selected public 2005 motivating study of first-image/descents dependencies"
+      },
+      {
+        "assessment": "Explicitly counts unmarked cycle structure and descent sets; it is not a labelled-first-cycle formula.",
+        "evidence": "1989 B21h paper Theorem 1 (page 102), proof (page 106), indexes only the partition of cycle lengths and the descent set.",
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/sc21reutenauer.pdf",
+        "material_read": "Twelve-page primary scanned text; examined problem statement, Theorem 1, necklace construction, and theorem proof, including page images",
+        "method": "Text extraction with page-image visual confirmation",
+        "title": "Number of Permutations with Given Descent Set and Cycle Structure",
+        "trigger": "Potential stronger full cycle-type and descent-set enumerator"
+      },
+      {
+        "assessment": "Studies permutations consisting of a single n-cycle; the general tagged cycle of intermediate length is outside its stated domain.",
+        "evidence": "Introduction describes distributions of descent sets on n-cycles and their relation to length-(n-1) permutations.",
+        "identifier_or_url": "https://arxiv.org/pdf/1710.05103",
+        "material_read": "Introduction, definitions, named main results, and visually examined relevant page image",
+        "method": "Full-text extraction and page-image inspection",
+        "title": "Exact and asymptotic enumeration of cyclic permutations according to descent set",
+        "trigger": "Plausible full-cycle boundary covering the case K=n"
+      },
+      {
+        "assessment": "A plausible historical source, not enough full-text material to exclude every implicit marked specialization.",
+        "evidence": "Stanford EFS NSF 387, October 1991, authors Diaconis–McGrath–Pitman; subsequent paper describes cycle type and descents.",
+        "identifier_or_url": "https://statistics.stanford.edu/technical-reports/cycles-and-descents-random-permutations",
+        "material_read": "Official 1991 report metadata and summary; underlying repository full text was inaccessible",
+        "method": "Institutional report landing page",
+        "title": "Cycles and Descents of Random Permutations",
+        "trigger": "Early random-permutation cycles/descents connection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c92b6e6-05ff-4bb3-928c-cc8bbe5e0595",
+  "value": {
+    "rationale": "The marked-cycle length is a global orbit statistic while ordinary descents are order comparisons. Showing that conditioning on every possible cycle length leaves all positions after the first at their unconditioned expectation, with exactly four first-position regimes, is a structural classification of their dependence. It explains a positive limiting covariance 1/4 alongside correlation decaying at order n^(-3/2), and sharply separates first-image enumeration from first-orbit dependence. The all-dimensional finite law is mathematically motivated and not just a small-parameter computation.",
+    "status": "PASS"
+  }
+}

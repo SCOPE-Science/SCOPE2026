@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness (PASS).** The full statement is for uniform permutations of size \(n\ge3\). A tagged-cycle decomposition proves uniformity of its length; a conjugation by adjacent labels establishes neutral suffix descent means, with the exceptional fixed-pair and transposition-pair probabilities calculated exactly. Four disjoint conditional cases give the first descent mean and elementary summation gives covariance and asymptotics. The standalone verifier exactly checks all permutations through size nine plus 300 formula instances. Enumeration is corroboration, not proof of the infinite identity.
+
+**Originality (PASS, qualified).** Conger's public 2005 arXiv text refines the Eulerian distribution by first image, not first-label cycle length. Reutenauer's 1989 primary text and the Gessel–Reutenauer 1993 cycle-type/descent-set theorem track unmarked cycle types; marked length is not determined by those two statistics jointly, as witnessed by a four-element pair in RESULT.md. The 1991/1995 Diaconis–McGrath–Pitman report focuses on unmarked cycle types. A related published fixed-point/descent-localization result covers the one-cycle boundary but not the full four-regime marked-cycle profile. No exact match or stronger dominating marked-cycle result was found in the searches performed; less accessible distinguished-cycle literature is a residual priority risk.
+
+**Value (PASS).** The question isolates how a genuinely global cyclic orbit observable can predict *local* order comparisons in the one-line notation. Its complete finite-size answer is structurally unusual: every location but the first is neutral under all cycle-length conditioning, and the first responds to just four length regimes, yielding a positive nonvanishing covariance but vanishing standardized dependence. This is more than a single computational moment and identifies exactly where the dependence resides.
+
+**Limitations.** The conditional claim concerns individual indicator means, not joint conditional independence; the source-date cutoff is attached to the first public version of the selected 2005 motivating paper. Priority against additional distinguished-cycle generating functions has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
