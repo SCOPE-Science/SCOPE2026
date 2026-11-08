@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The independent insertion ranks \(R_k\) are exactly uniform over \(\{1,\ldots,k\}\). The proof in `RESULT.md` checks all probability normalizations: an interior leaf event has probability \(1/3\), endpoint events have probability \(1/2\); conditional three-rank tail probabilities are listed explicitly, with strict stochastic order obtained after convolution with unaffected independent ranks. The covariance signs and aggregate formula are exact for every \(n\ge3\).
+## correctness
 
-Run `python checker.py` using Python 3's standard library. It enumerates all \(n!\) insertion-priority permutations for each \(3\le n\le8\), checks every local leaf indicator's rank characterization, exact rational covariance and all integer upper tails; it separately performs exact triple counts through index eighty and exact global covariance sums for sizes below two hundred. These finite tests are reproducibility checks, not a substitute for the general analytic proof.
+PASS
 
-No independent audit has been performed. Historic priority has not been certified beyond the cited and inspected primary sources, especially for position-refined record/peak enumerations.
+Uniform random continuous insertion priorities yield independent relative ranks R_k and record-low indicators A_k=1{R_k=1}, so D_n=Σ_{k≥2}A_k. A key is a leaf iff its priority is a local maximum among immediate inorder neighbors; translating to consecutive ranks gives explicit local B_i. For 3≤i<n, a uniformly distributed admissible rank triple has conditioned positive tails 3/(i+1),3/[i(i+1)],0, dominated by the independent record triple. Endpoint and i=2 conditions are checked separately. All upper-tail orders follow by independent convolution; the covariance formulas telescope to (n−2)(n+1)/(12n(n−1)). Independent enumeration over all 5,910 permutations (6+24+120+720+5040) for n=3..7 confirmed every conditional upper tail and covariance. Local-peak 2-dependence gives Var L=2n/45+O(1), hence stated correlation. The proof, rather than enumeration, handles arbitrary n.
+
+## originality
+
+PASS
+
+Classical BST leaf/shape patterns and Ji (2023) Eulerian–Stirling generating functions treat aggregate permutation record/peak statistics. The inspected positions in the primary texts do not state the separate leaf-by-position conditional stochastic order with opposite sign only at key 1. Published Resultary near matches concern random recursive trees, not BSTs; those do not imply the position-conditioned claim. The summed covariance might be derivable from known aggregate polynomials and is not treated as standalone novelty.
+
+## value
+
+PASS
+
+A complete key-position stochastic comparison is stronger than covariance and applies to all monotone functions of the minimum-key depth. It exposes how a single positive endpoint association outweighs all negative prescribed-other-key associations, giving a sharp structural dependence theorem for a canonical search tree model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

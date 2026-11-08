@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Independent sequential insertion ranks model a uniform random BST and give the exact minimum-key-depth representation. The local rank inequalities express each leaf event. The conditional tail counts for three consecutive ranks and the two endpoint arguments prove finite-size stochastic domination for all sizes and keys. The individual covariance cases and telescoped sum follow exactly. The correlation asymptotic follows from the 2-dependent local-peak leaf indicators. The standalone checker exhaustively verifies all trees produced by permutations through size eight and independently checks exact local triple enumerations; this is supplementary evidence, not the infinite proof.
+PASS
 
-## Originality — PASS (best knowledge, qualified)
+Uniform random continuous insertion priorities yield independent relative ranks R_k and record-low indicators A_k=1{R_k=1}, so D_n=Σ_{k≥2}A_k. A key is a leaf iff its priority is a local maximum among immediate inorder neighbors; translating to consecutive ranks gives explicit local B_i. For 3≤i<n, a uniformly distributed admissible rank triple has conditioned positive tails 3/(i+1),3/[i(i+1)],0, dominated by the independent record triple. Endpoint and i=2 conditions are checked separately. All upper-tail orders follow by independent convolution; the covariance formulas telescope to (n−2)(n+1)/(12n(n−1)). Independent enumeration over all 5,910 permutations (6+24+120+720+5040) for n=3..7 confirmed every conditional upper tail and covariance. Local-peak 2-dependence gives Var L=2n/45+O(1), hence stated correlation. The proof, rather than enumeration, handles arbitrary n.
 
-The specific position-conditioned stochastic ordering and exceptional sign profile were compared against historical global BST pattern laws (Flajolet–Gourdon–Martínez 1996), the Bóna–Pittel 2014 random-BST fringe-rank study, and Ji's 2023 full-text Eulerian–Stirling polynomial framework. Ji's multivariate polynomial covers *aggregate* joint record/valley statistics, and therefore potentially implies the total covariance; aggregate covariance is not presented as independently novel. The position-specific conditional stochastic order uses the exact rank triple conditioned at a specified inorder key, a distinct statement not found in the inspected material. No exhaustive literature search or independent priority verification is claimed; overlooked positional refinements remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural extreme-node search statistic exhibits a rigorous, complete rank-by-rank dependence dichotomy under conditioning on tree leaves. The result is stronger than a covariance sign: it compares every increasing function of extreme-key depth and holds uniformly for all sizes, with a nontrivial boundary exception that explains the unexpected positive covariance with total leaf count. This is a structural probabilistic fact about key-ordered dependence, not a single small numerical case.
+Classical BST leaf/shape patterns and Ji (2023) Eulerian–Stirling generating functions treat aggregate permutation record/peak statistics. The inspected positions in the primary texts do not state the separate leaf-by-position conditional stochastic order with opposite sign only at key 1. Published Resultary near matches concern random recursive trees, not BSTs; those do not imply the position-conditioned claim. The summed covariance might be derivable from known aggregate polynomials and is not treated as standalone novelty.
 
-## Evidence and limits
+## value
 
-The claim is limited to a uniform random-insertion BST, individual prescribed-key leaf events, and the minimum-key depth. The original 1996 seminar account was read in full as accessible HTML; the full Bóna–Pittel and Ji arXiv texts were inspected. The 1996 separate research-report PDF/PostScript was not needed as proof evidence and was not asserted fully read. Independently assessed novelty remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete key-position stochastic comparison is stronger than covariance and applies to all monotone functions of the minimum-key depth. It exposes how a single positive endpoint association outweighs all negative prescribed-other-key associations, giving a sharp structural dependence theorem for a canonical search tree model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

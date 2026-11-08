@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:50:23.827845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform random continuous insertion priorities yield independent relative ranks R_k and record-low indicators A_k=1{R_k=1}, so D_n=Σ_{k≥2}A_k. A key is a leaf iff its priority is a local maximum among immediate inorder neighbors; translating to consecutive ranks gives explicit local B_i. For 3≤i<n, a uniformly distributed admissible rank triple has conditioned positive tails 3/(i+1),3/[i(i+1)],0, dominated by the independent record triple. Endpoint and i=2 conditions are checked separately. All upper-tail orders follow by independent convolution; the covariance formulas telescope to (n−2)(n+1)/(12n(n−1)). Independent enumeration over all 5,910 permutations (6+24+120+720+5040) for n=3..7 confirmed every conditional upper tail and covariance. Local-peak 2-dependence gives Var L=2n/45+O(1), hence stated correlation. The proof, rather than enumeration, handles arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji arXiv:2310.01053 gives multivariate aggregate distributions; this might imply total covariance.",
+          "Flajolet et al count aggregate BST local patterns but do not condition minimum-key depth on one specified inorder leaf."
+        ],
+        "reasoning": "Broad generating functions do not immediately imply first-order stochastic domination for every fixed position; the rank-triple conditioning is a needed nontrivial refinement.",
+        "searches": [
+          "Ji 2023 alpha beta Eulerian descent Stirling multivariate records valleys theorem",
+          "Flajolet Gourdon Martinez 1996 patterns random BST leaves"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2310.01053",
+        "https://arxiv.org/abs/1412.2796",
+        "https://algo.inria.fr/seminars/sem96-97/flajolet.html",
+        "Resultary semantic search: random binary search tree smallest key depth conditioned leaf at any position stochastic order covariance record minima peaks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General record/peak generating polynomials describe aggregate counts but fixed-i leaf event depends on adjacent ranks R_{i−1},R_i,R_{i+1}.",
+          "Conditional tails at k=2 and k=3 provide strictly stronger distributional information than covariances."
+        ],
+        "reasoning": "Without an individual-position conditional triple enumeration, aggregate generating functions do not imply the full distributional inequality. The aggregate formula alone could be prior.",
+        "searches": [
+          "https://arxiv.org/abs/2310.01053",
+          "https://arxiv.org/abs/1412.2796"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BST key-one depth is count of decreasing-priority records; key-i leaf is local peak of priorities, giving a permutation formulation.",
+          "Ji multivariate Eulerian-Stirling statistics package aggregate peaks/records, not the stated individual i upper-tail inequalities."
+        ],
+        "reasoning": "Position-conditioned permutation record vs peak stochastic order is the closest equivalent formulation. No inspected exact fixed-i order found, but unindexed refinements remain possible.",
+        "searches": [
+          "random binary search tree smallest key depth conditioned leaf at any position stochastic order covariance record minima peaks",
+          "random permutation right to left records local peaks valleys conditional stochastic dominance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete all-n positional formulas and n=3..7 full permutation checks, not a lookup-table identity.",
+          "Resultary closest indexed random-recursive-tree covariance uses a distinct tree model."
+        ],
+        "reasoning": "No exact published table of this five-case positional covariance profile surfaced; no claim that all combinatorics databases were searched.",
+        "searches": [
+          "binary search tree smallest key depth leaf covariance 1/4 -1/9",
+          "BST extreme depth leaf at rank i stochastic ordering table"
+        ]
+      },
+      "rationale": "Classical BST leaf/shape patterns and Ji (2023) Eulerian–Stirling generating functions treat aggregate permutation record/peak statistics. The inspected positions in the primary texts do not state the separate leaf-by-position conditional stochastic order with opposite sign only at key 1. Published Resultary near matches concern random recursive trees, not BSTs; those do not imply the position-conditioned claim. The summed covariance might be derivable from known aggregate polynomials and is not treated as standalone novelty.",
+      "residual_risks": [
+        "An exact position-refined permutation pattern theorem may already imply the full stochastic order.",
+        "The known aggregate joint-statistic framework might yield the summed covariance and is not assigned independent priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected theorems are aggregated over positions; no direct fixed-inorder-key stochastic order appears in examined passages.",
+          "evidence": [
+            "https://arxiv.org/abs/2310.01053"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.01053",
+          "material_read": "Original arXiv PDF, introduction, early theorem sections and selected pages containing multivariate Eulerian–Stirling statements examined, including page screenshots; entire 31-page mathematical text not sequentially read.",
+          "method": "Read primary PDF parts and compared the parameterized combinatorial statistics to fixed position conditioning.",
+          "title": "The (α,β)-Eulerian Polynomials and Descent-Stirling Statistics on Permutations",
+          "trigger": "Closest aggregate joint descent/peak-record distribution"
+        },
+        {
+          "assessment": "This studies vertex distance from leaves, a different statistic from minimum key depth conditioned on specified leaf.",
+          "evidence": [
+            "https://arxiv.org/abs/1412.2796"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.2796",
+          "material_read": "Abstract and title/scope accessible; full body not independently read.",
+          "method": "Statement-level comparison, no whole-document noncoverage conclusion.",
+          "title": "On a random search tree: asymptotic enumeration of vertices by distance from leaves",
+          "trigger": "Tree depth and leaves might have general dependence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete key-position stochastic comparison is stronger than covariance and applies to all monotone functions of the minimum-key depth. It exposes how a single positive endpoint association outweighs all negative prescribed-other-key associations, giving a sharp structural dependence theorem for a canonical search tree model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2310.01053",
+    "https://arxiv.org/abs/1412.2796",
+    "https://algo.inria.fr/seminars/sem96-97/flajolet.html",
+    "Resultary semantic search: random binary search tree smallest key depth conditioned leaf at any position stochastic order covariance record minima peaks"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n≥3 in a uniform insertion-order BST, conditioning on key 1 being a leaf strictly increases minimum-key depth in stochastic order, while conditioning on any other individual key being a leaf decreases it; all positional covariances and the positive aggregate covariance are exact.",
+  "limitations": [
+    "Uniform random insertion-order BST, not uniformly random unlabelled shapes; minimum-key depth only.",
+    "Conditional order is for a single leaf indicator, not simultaneous conditioning on several leaves.",
+    "This is a best-of-knowledge scientific judgment, not a full priority certification.",
+    "The finite independent checks corroborate source mathematics; unrestricted quantifiers rest on proof reconstruction."
+  ],
+  "residual_risks": [
+    "An exact position-refined permutation pattern theorem may already imply the full stochastic order.",
+    "The known aggregate joint-statistic framework might yield the summed covariance and is not assigned independent priority."
+  ],
+  "schema_version": 1
+}
