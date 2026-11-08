@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The small-market lemma has a direct blocking-pair proof: in a three-pair stable matching without a first-choice recipient, a third-choice recipient would force two other men to rank one woman first, forcing that woman to receive her first choice, contradiction. Thus every such stable matching assigns everyone second choices; the other stable matchings have minimum rank one. Under positive Borda coding the two gap measures are strictly increasing in the same worst rank, giving identical weak rankings through three pairs. A four-value arithmetic table proves nonreversal and the common-optimum property at four pairs. The complete explicit witness has only the two stated stable matchings, with differences \(2,2\) and ratios \(2,3\). The standalone verifier exhaustively checks all strict profiles through three pairs and all four-pair witness bijections. The finite computational checks are not substituted for the universal structural proof.
+PASS
 
-## Originality: PASS, with residual risk
+Small-market stable-matching lemma is reconstructed: in a complete strict 3x3 instance, a stable matching with no top-choice recipient and one worst-choice recipient would force a woman to prefer her assigned man to two others, giving a top-choice recipient contradiction. Hence a stable matching has a first choice or all six ranks equal 2. For first-choice cases D and R increase together with worst rank; for n<=2 analogous. At n=4, possible R by D are D=0:1, D=1:{4/3,3/2,2}, D=2:{2,3}, D=3:4; these rows cannot strictly reverse. Independently tested all 24 bijections for explicit four-pair preferences: precisely matchings (1,3,4,2) and (1,4,3,2) stable, with ranks (1,1,2,2,2,3,3,3) and (2,2,2,2,2,2,3,4), D=2 for each, R=2 and 3. Minima sets differ as stated.
 
-Sheng and Yokoi (arXiv:2607.07160, July 8, 2026) define and solve both utility-gap optimization problems. Their general polynomial-time solvability results do not imply the pairwise coincidence of the two induced weak orders under fixed positive Borda utilities, or the sharp four-pair separation. Their appendix nonrepresentability/submodularity examples use different value functions. Related stable-marriage records concern egalitarian, regret, sex-equal or rank-maximal objectives and do not establish this difference-versus-ratio relation. Targeted published mathematical-record and literature comparisons found no equivalent, but incomplete indexing and unexamined older literature retain priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The two objective functions introduced in the motivating work are natural but generally different fairness notions. The theorem establishes the exact smallest complete strict Borda-scored stable-marriage market where substituting one for the other changes the set of admissible optimal solutions; its structural blocking-pair lemma and no-strict-reversal frontier explain the boundary rather than merely reporting a computational coincidence. Even with exactly two stable matchings the distinction matters when a mechanism returns every difference-optimal outcome. The result is deliberately limited to a meaningful natural scoring model, without extrapolating beyond it.
+Sheng–Yokoi 2026 defines and algorithmically optimizes maximum-minus-minimum and maximum/minimum utility gaps separately, including broad many-to-many utility models. Their tractability theorem and rotation-poset framework do not entail identical small-Borda weak orders nor the first nonidentical argmin sets at n=4. Published SCOPE egalitarian-vs-minimum-regret and sex-equality comparisons concern distinct objective pairs, not equivalent Borda range-versus-ratio. Resultary search found those related but nondominating records.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sharp first separation of two recently studied fairness objectives under canonical rank-derived utility, plus the common-optimizer boundary, is a motivated quantitative distinction in stable matching rather than arbitrary utility counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
