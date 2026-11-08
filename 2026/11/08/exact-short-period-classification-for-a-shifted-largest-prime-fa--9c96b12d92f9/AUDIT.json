@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For primitive cycle length at most four, a composite maps directly to a prime and consecutive prime states increase by positive k. Therefore every cycle contains a composite and no adjacent composites; the only possibilities are 1 prime/1 composite, 2 primes/1 composite, 2 primes/2 composites alternating, or 3 primes/1 composite. The return prime p must divide 2k in the 3-cycle case, forcing p=2 and an exact 2-power final composite; the 3-prime 4-cycle forces p|3k, thus p=3 and k+1 a power of three. The alternating 4-cycle has q|(p+k), p|(q+k), and CRT yields k=tpq-p-q; the exact largest-prime-factor conditions are sufficient and necessary. All converse transitions and primitive periods are explicit. verify.py checks the predictions against observed actual dynamics for k<=160, but the infinite classification is the symbolic argument, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Das proves eventual periodicity and finiteness at fixed k but does not give the short-cycle shift-by-shift classification.",
+        "Dubickas derives generic bounds and prime progression facts; these imply eventual boundedness, not necessary/sufficient Fermat and smoothness conditions."
+      ],
+      "reasoning": "The searched stronger general statements concern orbit boundedness, not complete symbolic period spectra. Their conclusions allow the new two 4-cycle mechanisms and hence do not dominate the claim.",
+      "searches": [
+        "arxiv:2312.06629v1",
+        "doi:10.3390/axioms13020107",
+        "phi_k prime plus k largest prime divisor cycles bound fixed parameter"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2312.06629v1 (full original preprint)",
+      "doi:10.3390/axioms13020107 (full lawful open text)",
+      "2026/10/4/SCOPE-even-parameter-cycle-bound-from-the-least-missing-prime-rho-k--644ecc618762 (full RESULT.md)",
+      "2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b (full RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The even-parameter result locates a small prime in every cycle and bounds the number of cycles, but does not classify which four-cycles occur.",
+        "The 36-loop computation concerns one odd k and a finite range; it does not cover every integer k, nor imply the Fermat or 3-adic criteria.",
+        "The new proof tests specific return congruences p|2k, p|3k or p|q+k, q|p+k, which are not consequences of generic eventual periodicity alone."
+      ],
+      "reasoning": "Neither cited public published-finding corpus statement implies all assertions of the new theorem. In reverse, the new claim does not imply their global count or boundedness results for longer periods; these are mathematically distinct.",
+      "searches": [
+        "Frobenius parameter k=pq-p-q prime cyclic four steps prime largest factor",
+        "2026/10/4/SCOPE-even-parameter-cycle-bound-from-the-least-missing-prime-rho-k--644ecc618762",
+        "2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Das arXiv:2312.06629v1 gives the map and poses a period-spectrum question.",
+        "The primitive uncompressed period-three condition is k+1 a power of two with k+2 prime; the equivalent Fermat-prime condition is therefore searched.",
+        "The primitive alternating period-four criterion is the CRT equality k+p+q divisible by pq plus smooth multiplier constraints."
+      ],
+      "reasoning": "Prime-to-prime compressed dynamics changes the lengths; comparing primitive period in the original state map is essential. No indexed result located matching either complete formulation, though non-detection alone cannot establish originality.",
+      "searches": [
+        "Das largest-prime-divisor shifted prime map exact period three cycles Fermat prime 2^a+1 k=2^a-1",
+        "prime plus k largest prime factor periodic orbits odd period only two prime Fermat primes period 3",
+        "Das phi_k arithmetic dynamics least period three characterization",
+        "Das phi_k largest prime divisor map complete classification period four cycles alternating prime smooth p q k=tpq-p-q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Das Figure 2 tabulates earliest shifts with each period in a finite search, rather than all shifts with periods 3 and 4.",
+        "The 36-loop public record proves a finite k<=20735 scan for odd shifts, not the all-k classification."
+      ],
+      "reasoning": "Finite tables can contain individual instances but cannot imply the asserted universal necessary-and-sufficient descriptions without an additional proof. The exact claim is not a recomputation of an existing table.",
+      "searches": [
+        "A Family of Iterated Maps on Natural Numbers phi_k period loops open questions Angsuman Das prime factor cycles",
+        "S(x,k) Angsuman Das length 3 length 4 cycles Fermat primes",
+        "2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b"
+      ]
+    },
+    "rationale": "Full primary source inspection of Das (2023) finds a period-spectrum question and finite first-occurrence data, but not universal arithmetic conditions for all 3/4-period cycles. Dubickas (2024) proves boundedness for broader maps and studies the prime-compressed map, which does not determine uncompressed lengths. Two directly relevant public research results bound prime-cycle locations or enumerate loops at specific parameters, neither determines all shifts yielding short periods. Searches for the Fermat-prime and CRT smoothness criteria found no covering statement. Residual risk is an unindexed elementary observation.",
+    "residual_risks": [
+      "Unindexed notes or elementary observations could separately give some or all length-three/four conditions.",
+      "Some finite computational surveys of period spectra may list the specific cases without stating an all-k theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves eventual periodicity, reports sample period spectra, not exact iff criteria for all 3/4-cycles",
+        "evidence": "arXiv:2312.06629v1; first public 2023-12-11; Figure 2 least-parameter examples and open period-spectrum question.",
+        "identifier_or_url": "https://arxiv.org/html/2312.06629",
+        "material_read": "Full open preprint, including main theorems, Figure 2, examples, and concluding questions",
+        "method": "ArXiv full-text reading and targeted period searches",
+        "title": "A Family of Iterated Maps on Natural Numbers",
+        "trigger": "Original definition, all-k dynamics and open period questions"
+      },
+      {
+        "assessment": "NOT_COVERING: general eventual boundedness and prime-compressed cycles do not classify uncompressed 3/4-cycles",
+        "evidence": "Artūras Dubickas, Axioms 13 (2024), 107, DOI 10.3390/axioms13020107.",
+        "identifier_or_url": "https://www.researchgate.net/publication/377990485_A_Class_of_Bounded_Iterative_Sequences_of_Integers",
+        "material_read": "Available full-text manuscript, especially the statement of boundedness and prime-compressed dynamics",
+        "method": "Open full text and targeted inspection of original theorems",
+        "title": "A Class of Bounded Iterative Sequences of Integers",
+        "trigger": "Subsequent broad theorem on shifted prime-factor iterative sequences"
+      },
+      {
+        "assessment": "NOT_COVERING: exact finite 36-loop census, not all-parameter period-three/four classification",
+        "evidence": "Restricted to odd k<=20735 and 36 cycles at one parameter.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b",
+        "material_read": "Entire public RESULT.md, including full claim, proof and scope",
+        "method": "Read public research result full text through GitHub",
+        "title": "Thirty-six distinct loops for Das's map at k=20735",
+        "trigger": "Closest finite census of same deterministic map"
+      },
+      {
+        "assessment": "NOT_COVERING: upper bound on prime location and L(k) for even k; no if-and-only-if short-period arithmetic criteria",
+        "evidence": "General locator B(k)=max{rho(k),k(rho(k)-1)/2} for even k.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-even-parameter-cycle-bound-from-the-least-missing-prime-rho-k--644ecc618762",
+        "material_read": "Entire public RESULT.md including proof and limits",
+        "method": "Read public research result full text through GitHub",
+        "title": "Even-parameter cycle bound from the least missing prime",
+        "trigger": "Closest general symbolic statement on the same map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9c96b12d-92f9-43fc-a4ca-a14f56d91ce1",
+  "value": {
+    "rationale": "Das explicitly asks about attainable periods of a natural arithmetic map. This complete iff classification at all positive shift parameters handles both primitive periods three and four, splits four-cycles into structurally different prime/composite patterns, and explains unexpected ties to Fermat primes, two-prime Frobenius-number shifts and smooth predecessor values. This is more than a finite list or arbitrary slice, while no claim about long periods or infinitude is made.",
+    "status": "PASS"
+  }
+}
