@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with its standard library. The script builds each proposed coloring on the original labelled graph; tests proper vertex and edge color compatibility at every incident pair; confirms color counts for blocks of lengths three, four, seven and eight; and checks direct concatenation for all lengths six through ninety.
+## correctness
 
-It separately enumerates all 96 locally admissible five-coordinate states and all 168 legal transitions and maximizes the difference between two specified color-class counts on closed walks of every length from three through twenty-four. Permutation symmetry of color names makes this equal to global discrepancy. The exact enumerator finds no four-total coloring for five rungs and matches the proved formula at every other tested length.
+PASS
 
-The finite search verifies only the listed finite lengths. The proof of the bound for all lengths uses independence, perfect matching of the complement, cyclic exclusion of three occupied rungs, and parity of vertex color-class cardinalities. The infinite constructions concatenate explicitly verified junction-compatible blocks. None of these claims requires external packages or an external machine proof.
+Read entire RESULT.md at frozen blob d9b862170acee9c263c785c67dd4751af09b205f. Each color satisfies s_j+2e_j=2m, so s_j even and its incident color edges pair the complement G-S_j. Three consecutive rungs occupied by S_j isolate the uncolored middle-row complement vertex and preclude a perfect matching. A cyclic triple-window count gives s_j<=2floor(m/3), while the four s_j sum to 2m, yielding min s_j>=2(m mod3) and discrepancy <=floor(m/3)-(m mod3). This is impossible (negative upper bound) at m=5. Independently checked the four explicit P3,P4,P7,P8 state blocks and all their concatenations for 3<=m<=92 excluding 5, with every vertex/edge incident and adjacent color constraint and exact extremal class counts. Their cyclic junctions and residue decompositions give all-m sharpness, not finite extrapolation.
 
-Independent mathematical validation and comprehensive historical priority verification are not performed.
+## originality
+
+PASS
+
+Adauto (2022) thesis contains the cyclic-prism colorability and pasting constructions and known inequitable examples, and the 2026 Adauto–de Figueiredo–Sasaki–Schneider abstract discusses small-order equitability failure. Those claims do not directly determine the sharp maximum discrepancy for every m. Original 1988 pasting article and full 2026 preprint unavailable; comparison qualified.
+
+## value
+
+PASS
+
+The all-length exact extremal class-size discrepancy sharply refines prior qualitative non-equitability and determines a natural imbalance invariant for a canonical cubic graph family, with a matching local obstruction and residue-wise constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
