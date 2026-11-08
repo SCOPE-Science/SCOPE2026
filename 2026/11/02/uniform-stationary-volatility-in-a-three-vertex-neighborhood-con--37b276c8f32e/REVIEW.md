@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** In the explicit mixed-confidence rule, a leaf's donor is the center, whose mean neighbor opinion is exactly the average of the two leaves. The leaf confidence test therefore always fails under the upper parameter inequality; the center's donor is a degree-one leaf, so its neighborhood distance vanishes and its test always succeeds under the lower inequality. This proves the reduced affine recursion for all center values in the interval. Infinite iid runs give both exact almost-sure extrema. A two-sided stationary coupling proves uniqueness, Wasserstein contraction and almost-sure empirical convergence. Binary expansions and quantile integration give the exact uniform and finite-grid conclusions. The standalone checker independently verifies the directional rule and several exact identities, but is not used as an infinite proof.
+PASS
 
-## Originality
+The directed confidence rule uses sigma|xi-xj|+(1-sigma)|xi-mean(N(j))|<epsilon. For 3-path endpoints a<b and center z, donor leaf has neighbor mean z, hence center test is sigma|z-donor|<=sigma d<epsilon; leaf donor center has mean (a+b)/2, giving leaf test >=(1-sigma)d/2>=epsilon. All states remain in [a,b] and the center satisfies an iid affine Bernoulli recursion. Arbitrarily long iid endpoint runs establish a.s. liminf=a,limsup=b; two-sided coupling gives unique stationary Bernoulli convolution, Wasserstein contraction, and ergodic occupation. Mean (a+b)/2 and variance rho*d^2/[4(2-rho)] are exact. For rho=1/2 the dyadic stationary series is Lebesgue uniform, the finite law has 2^t equimass atoms, quantile integration yields W1=[(y-a)^2+(b-y)^2]/(2d 2^t), while TV is always one. Exact rational checks independently confirmed moments/W1 and direct directional confidence at 101 rational center positions. Converse wedge and two-agent convergence follow from extremal center values and symmetric two-vertex confidence.
 
-**PASS under documented literature comparisons, with residual priority risk.** The originating neighborhood-confidence paper states the asymmetric update rule and reports numerical fluctuations, without the analytic three-vertex path threshold or the stated stationary and dyadic finite-time laws. The broad heterogeneous-DW convergence theorem is not applicable because its reception tests depend only on the pair's direct distance, whereas the present tests depend on the donor's neighborhood. Classical Bernoulli convolutions and the distinct 2026 mean-field opinion model cover the random affine distribution *after reduction*, not its realization as an endogenous fixed-leaf regime in the cited neighborhood-confidence process. Own recorded claims and indexed mathematical results were compared by substance and aliases; no implication equivalent to the model-specific theorem was located. Unindexed specialist discussions may exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result provides the minimum connected graph size for permanent stochastic nonconvergence in a published neighborhood-confidence mechanism, with no externally fixed or stubborn agent: all agents have identical confidence and compromise parameters. The strict parameter wedge survives perturbations and identifies precisely when directional two-way responsiveness is separated from endpoint susceptibility. Almost-sure full-range oscillation coexists with a uniform stationary occupation law and exponentially shrinking distributional error; the distinction is consequential for interpreting numerical convergence in opinion models. These are substantive structural and quantitative boundaries rather than arbitrary parameter substitutions.
+Krishnagopal–Porter introduce the neighborhood-aware directed opinion model, and their accessible published abstract reports simulations and nonstandard states rather than this exact 3-node invariant wedge and stationary distribution. Classical Bernoulli convolutions, the half-contraction uniform law, and coupling arguments are prior probability tools, not the originality claim. The new mathematical content is exact emergence under directional neighborhood tests, sharp all-state receptivity wedge, and pathwise nonconvergence in this named model. The original full paper was not accessible at present; there remains a priority risk that a worked minimal-path example is present in its uninspected body.
 
-## Scope and risks
+## value
 
-The proof concerns only the non-adaptive three-node path and one independently uniformly sampled edge per update. The exact universal wedge is an all-state receptivity condition, not a complete classification outside that regime. Distinct stochastic affine opinion models have pre-existing Bernoulli-convolution results, and an uncatalogued direct treatment of the same small graph could affect priority. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a natural minimal network mechanism for persistent stochastic opinion motion despite entirely fixed graph and parameters, with exact rather than simulated stationary fluctuations. The all-state wedge and sharp W1/TV distinction are quantitative and meaningful benchmarks for neighborhood-confidence systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
