@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every 13 successive odd integers lie in at most two consecutive blocks modulo 27. A fully specified 27-row triple table gives in one block each lower-digit-sum residue modulo 3, hence forces a zero total digit-sum residue for arbitrary upper digits. In any 39 odd numbers at difference 2 exactly 13 are multiples of 3, and dividing them by 3 yields 13 consecutive odd integers. One has ternary digit sum divisible by 3, so its original triple is not anti-Niven. Even integers cannot be ternary anti-Niven because base 3 is odd. The 38-term witness 86699+2j, 0<=j<38, has 38 explicitly recorded digit sums and gcd 1 each; the local script independently checks the 27 triples, all 243 arbitrary upper residue pairs, and the witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.05228v1, Theorem 2.5 requires a prime divisor of b-1 not dividing the progression difference; with b=3 and d=2 such a prime does not exist.",
+        "Its Theorem 3.3 requires an odd prime divisor of b-1, absent for b=3; Theorem 3.5 concerns even bases. Its Theorem 4.1 establishes a lower bound 3 for this case but no upper."
+      ],
+      "reasoning": "Potential stronger general theorems were compared by hypotheses, not titles: the upper bounds in the inspected paper do not cover the pair (3,2), and the direct statement no known upper bound appears in its concluding remarks.",
+      "searches": [
+        "arXiv:2308.05228v1 Theorems 2.5, 3.2, 3.3, 3.4, 3.5, 4.1 and concluding remarks",
+        "anti-Niven Conjecture 4.3 2024 2025 2026",
+        "b-anti-Niven arithmetic progressions even d conjecture"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.05228v1 (full text)",
+      "arXiv:2303.06534v1 (full text)",
+      "OEIS:A064150 (sequence entry)",
+      "Targeted general web and mathematical-record index searches, including equivalence wording and exact 38",
+      "Accessible own current-week and selected previous-week mathematical claims for duplicate implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2308.05228v1 Theorem 4.1 yields at least 3 terms in b=3,d=2, but says it has not established an upper bound for b=2^r+1.",
+        "A previously available construction provides 7 anti-Niven terms with b=3,d=2, but no bound on longer ones.",
+        "arXiv:2303.06534v1 concerns divisibility s_b(n)|n, whereas anti-Niven asks gcd(n,s_b(n))=1."
+      ],
+      "reasoning": "A lower bound of either 3 or 7 cannot imply a maximum of 38. The b-Niven existence result is logically inapplicable to the anti-Niven maximum. This exact upper bound and matching witness therefore supply a distinct assertion.",
+      "searches": [
+        "arXiv:2308.05228v1 Theorem 4.1 b=2^r+1 bound",
+        "arXiv:2303.06534v1 arithmetic progression contains infinitely many b-Niven numbers",
+        "previous digit-sum antiprogession construction base b odd d=b-1 lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A base-three anti-Niven number satisfies gcd(n,s_3(n))=1. The equivalent obstruction is: among 39 odd integers at spacing two, some multiple of three has ternary digit sum divisible by three; this follows from the universal 13-odd-digit-sum lemma.",
+        "Theorem 4.1 of arXiv:2308.05228v1 discusses precisely the base-three difference-two special case but gives only a lower bound."
+      ],
+      "reasoning": "Checked the same digit-sum predicate under Niven/anti-Niven, Harshad/anti-Harshad, and digit-sum-modulo-three descriptions. The lemma is an implication to the bound, but the source lower-bound theorem does not imply the sharp upper bound.",
+      "searches": [
+        "maximum length of arithmetic progression step 2 of base 3 anti-Niven numbers gcd(n,s_3(n))=1, bounded by digit sum multiples of three; sharp 38 terms",
+        "Anti-Niven numbers base 3 arithmetic progression difference 2 longest run exact maximum",
+        "ternary digit sum divisible by three odd integers maximal gap 12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A064150 is explicitly the list of numbers divisible by their ternary digit sums. It is not a theorem about longest coprime-digit-sum progressions.",
+        "No exact length-38 base-three difference-two anti-Niven classification was returned by the targeted mathematical record and web searches; the closest returned mathematical records addressed unrelated problems."
+      ],
+      "reasoning": "An exact sequence of ternary Niven integers is a different predicate and does not subsume the maximum anti-Niven run. Missing index matches are treated only as supporting evidence, not as proof of novelty.",
+      "searches": [
+        "3-anti-Niven 38 arithmetic progression",
+        "anti-Niven base 3 2-AP 38",
+        "site:oeis.org ternary digit sum divisible by 3 odd numbers gaps",
+        "OEIS A064150 ternary Niven numbers"
+      ]
+    },
+    "rationale": "The motivating primary study (arXiv:2308.05228v1) explicitly leaves upper bounds for bases of the form 2^r+1 unsettled while only proving lower bound b (Theorem 4.1); for b=3,d=2 its other stated upper bounds do not apply. A previous lower bound 7 for this exact pair also does not determine the maximum. Searches for 3-anti-Niven 2-AP sharp maxima, ternary coprime digit sums and 13-odd-number digit sums found no published equivalent or stronger covering result. Another primary article treats Niven (divisibility) rather than anti-Niven (coprimality). This is best-knowledge originality, not a uniqueness proof.",
+    "residual_risks": [
+      "Some unindexed or inaccessible work after the 2023 primary preprint could contain the same exact sharp bound.",
+      "The computer certificate verifies the small finite table, but the infinite result depends on the written block reduction; no independent scientific review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover claimed sharp length; explicitly leaves upper bounds for b=2^r+1 open",
+        "evidence": [
+          "p.7 Theorem 4.1: lower bound b for b=2^r+1 and d=2",
+          "p.7 concluding remarks: upper bound not established in this case",
+          "p.4 Theorem 3.3: requires odd prime p|b-1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.05228 (v1, 2023-08-09)",
+        "material_read": "Complete nine-page arXiv preprint text, with title, proofs, Theorems 2.2-4.2, concluding remarks, reference list, and page-image spot check",
+        "method": "Read primary full text and checked hypothesis-level implications for b=3, d=2",
+        "title": "Arithmetic Progressions of Integers that are Relatively Prime to their Digital Sums",
+        "trigger": "Exact objects: anti-Niven numbers and maximum d-AP lengths"
+      },
+      {
+        "assessment": "Concerns Niven integers for which digit sum divides the integer, not the coprime anti-Niven property",
+        "evidence": [
+          "p.1 definition of b-Niven",
+          "pp.4-5 Theorem 2.7: infinitely many b-Niven in an AP"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.06534 (v1, 2023-03-12)",
+        "material_read": "Complete five-page arXiv preprint including Theorem 2.7 and proof, with title-page image checked",
+        "method": "Reviewed exact definitions and global AP theorem",
+        "title": "Every Arithmetic Progression Contains Infinitely Many b-Niven Numbers",
+        "trigger": "Niven terminology and possible stronger AP coverage"
+      },
+      {
+        "assessment": "Different divisibility condition; no sharp maximum for anti-Niven difference-two progression",
+        "evidence": [
+          "OEIS heading and displayed terms, divisibility-by-digit-sum definition"
+        ],
+        "identifier_or_url": "https://oeis.org/A064150",
+        "material_read": "Sequence description, terms, notes, linked method, and references",
+        "method": "Compared the OEIS predicate with the claimed anti-Niven predicate",
+        "title": "OEIS A064150: Numbers divisible by the sum of their ternary digits",
+        "trigger": "Exact sequence / known-table equivalence check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d529a70-2409-48a6-b4f3-4f24fbfb3d77",
+  "value": {
+    "rationale": "The 2023 primary paper explicitly left upper bounds in the b=2^r+1, d=2 regime open and gave only a lower bound. The exact maximum 38 at the smallest odd base b=3 closes the first natural case and identifies a structural obstruction using the base-27 digit-sum recurrence. The cutoff is mathematically motivated by the paper and is sharp with a concrete witness; it is not an arbitrary finite sample. It makes no claim about other bases or differences.",
+    "status": "PASS"
+  }
+}

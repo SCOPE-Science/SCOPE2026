@@ -1,0 +1,11 @@
+# Mathematical review: sharp ternary anti-Niven progression length
+
+**Correctness — PASS.** The key lemma is exact: every \(13\) consecutive odd positive integers contain one with base-three digit sum divisible by \(3\). The base-\(27\) reduction handles arbitrary preceding digits, including a block transition; the \(27\)-case explicit triple table gives three distinct digit-sum residues in one unchanged upper block. Any \(39\) odd integers of step \(2\) include exactly \(13\) multiples of \(3\); division by \(3\) and the lemma produce an inadmissible term. Even terms are inadmissible automatically because ternary digit sum preserves parity. Integer gcd calculations verify all \(38\) terms from \(86699\) through \(86773\). The checker exhausts the finite cases; it is not being treated as an unbounded proof.
+
+**Originality — PASS within inspected evidence.** The closest original paper is Blau, Harrington, Lohrey, Sosis and Wong, arXiv:2308.05228v1 (2023), particularly Theorem 4.1 and its concluding remarks. It establishes a lower bound for bases \(2^r+1\) but specifically does not establish an upper bound; its general odd-prime-divisor hypothesis fails for \(b=3,d=2\). An available lower-bound construction in this exact case gives \(7\), again not an upper bound. The other inspected paper, Harrington–Litman–Wong arXiv:2303.06534v1, deals with Niven divisibility rather than anti-Niven coprimality; OEIS A064150 likewise cannot imply this maximum. Targeted exact, alias, and stronger-coverage queries did not reveal the classification. An unindexed equivalent remains possible.
+
+**Mathematical value — PASS.** The result decides a concrete missing sharp upper bound in the most basic member of a published exceptional base family. The \(38\) threshold is exact, obtained from a structural arithmetic obstruction and a reproducible witness, and is substantially stronger than the known lower bounds. Its narrow domain is explicit and scientifically natural.
+
+The complete claims, 27-case certificate, executable integer checker, and limitations are supplied with this package. No independent validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
