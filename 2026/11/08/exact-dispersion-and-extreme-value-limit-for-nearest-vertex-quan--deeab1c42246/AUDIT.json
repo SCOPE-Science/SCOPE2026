@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The exact barycentric identity Q=m/(m-1)(1+S-2M) is proved from regular-simplex Gram entries. All required Dirichlet moments are integrated with explicit finite integrals; the nonstandard E[MS] is derived via translated-simplex inclusion-exclusion and independently checked using exact ordered-simplex monomial integration. Limits follow from the exponential representation, law of large numbers and Gumbel maximum law; variance limit follows from exact finite formula. Exact rational program passed 15 dimensions plus two endpoint cases; finite computations alone are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conway and Sloane, IEEE Transactions on Information Theory 28 (1982), Sections I-II and III, treats centroidal moments of polytopes and closest lattice points, not uniformly sampled points quantized to vertices of their containing regular simplex.",
+        "Kabluchko, Litvak and Zaporozhets, arXiv:1511.08479, considers one-dimensional projection widths governed by Gaussian coordinate maxima; distinct random experiment.",
+        "Pyke, Spacings Revisited (1972), Section 3, reviews uniform-spacing constructions and limit theorems, but does not formulate regular-simplex vertex-error dispersion."
+      ],
+      "reasoning": "The natural reduction to Dirichlet spacings is classical, and the maximum-spacing asymptotics are not novel. Neither these sources nor their stated broader theorems provide the mixed cubic barycentric moment or the geometric finite-dimensional variance formula; different Gumbel appearances are not implication equivalents.",
+      "searches": [
+        "uniform point regular simplex distance to nearest vertex Voronoi quantization harmonic numbers expectation variance",
+        "quantization error of regular simplex vertex set moment distribution",
+        "\"regular simplex\" \"nearest vertex\" \"mean squared\" \"uniform\" quantization",
+        "arxiv:1511.08479",
+        "doi:10.1007/s10479-009-0567-7",
+        "\"Dependence Structure of Uniform Spacings\" Restle 1999 EPFL"
+      ]
+    },
+    "checked_sources": [
+      "Onn–Weissman 2009 online DOI 10.1007/s10479-009-0567-7, author-uploaded full text Sections 2 and 5",
+      "Conway–Sloane 1982 https://neilsloane.com/doc/Me82.pdf Sections I, II and III",
+      "Pyke 1972 Spacings Revisited https://digicoll.lib.berkeley.edu/record/113194/files/math_s6_v1_article-22.pdf Section 3",
+      "Kabluchko–Litvak–Zaporozhets 2015 arXiv:1511.08479 Introduction and regular-polytope width statements",
+      "Restle 1999 https://infoscience.epfl.ch/entities/publication/b8408e10-d898-4693-a3e7-d50dfe9ded98 official record, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Onn–Weissman full author-uploaded work, pages 331–342: Remark 3 expressly computes only the square of the maximum coordinate; main theorem is first maximum moment.",
+        "Conway–Sloane full scanned primary paper: Section II-E regular-simplex second moment is about centroid, not vertex-coded distortion variance.",
+        "The present equation E[M S] has a nonzero cross term that cannot be derived by merely substituting the known isolated formulas E[M], E[M^2], E[S], E[S^2]."
+      ],
+      "reasoning": "The exact joint covariance is necessary, correctly computed, and non-implied by the quoted marginal identities. The limiting Gumbel variable itself is classical, but the shift 2G-3 for the regular-simplex vertex distortion and its exact finite variance are separate conclusions; the strongest potential priority risk is an unlocated earlier mixed-moment computation.",
+      "searches": [
+        "\"Generating uniform random vectors over a simplex with implications\" arxiv published online date",
+        "Onn Weissman Section 5 Remark 3 E V(k)^2",
+        "Conway Sloane \"nearest vertex\" full text",
+        "\"Dirichlet\" \"maximum\" \"Simpson\" \"covariance\" formula harmonic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Onn and Weissman (2009 online), Section 2 and Remark 3, gives E[max lambda] and E[(max lambda)^2] but not E[(max lambda)(sum lambda_i^2)].",
+        "Cross Validated Q548966 (2021) asks about correlation of Dirichlet maximum and square sum but has no exact general covariance formula."
+      ],
+      "reasoning": "The geometric error is equivalent to a particular linear combination of the Dirichlet maximum and quadratic mass, so its variance depends on their joint moment. Marginal moment tables alone do not supply that mixed moment. An independent ordered-simplex integration validates the new closed form.",
+      "searches": [
+        "nearest vertex squared distance random simplex point higher moments Dirichlet max spacing distribution",
+        "covariance of longest Dirichlet spacing and sum of squared spacings quadratic mass concentration",
+        "\"Dirichlet\" \"maximum\" \"Simpson\" \"covariance\" formula harmonic",
+        "\"nearest vertex\" \"regular simplex\" \"variance\" \"distance\" uniform distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical comparison statements concern regular-simplex tangent cones, deep-hole spectra of Minkowski vertex averages, central simplex sections and convex-body difference gauges; each uses a different geometric statistic or random experiment.",
+        "No exact closed table for the joint uniform-simplex maximum and quadratic-mass moment was identified in the actual literature and mathematical-record searches. An unsuccessful search is not uniqueness evidence."
+      ],
+      "reasoning": "The compared published statements neither define the fixed simplex-vertex nearest-neighbor squared distortion nor imply its mixed barycentric moment or exact variance. Search incompleteness and unexamined older papers remain priority risks.",
+      "searches": [
+        "uniform regular simplex vertex code quantization nearest vertex mean squared error variance Dirichlet maximum Simpson index harmonic numbers",
+        "covariance of longest Dirichlet spacing and sum of squared spacings quadratic mass concentration",
+        "Gumbel law nearest vertex distance high dimensional regular simplex uniform random point"
+      ]
+    },
+    "rationale": "The derived positive mixed covariance of maximum Dirichlet(1) coordinate and sum of squared coordinates is not contained in the inspected marginal-spacing formulas. It produces an exact all-dimensional variance for regular-simplex nearest-vertex squared distortion and its scaled Gumbel limit. Prior exact maximum moments, simplex centroidal moments and unrelated projection-width Gumbel limits are explicitly credited. No historically exhaustive claim is made.",
+    "residual_risks": [
+      "An obscure pre-2016 spacing, concentration, or finite-code quantization article could state an equivalent mixed moment or variance; available searches do not establish worldwide novelty.",
+      "Pyke 1972 PDF screenshot was blocked, although extracted text was accessible; it was used for background, not a whole-document negative originality assertion.",
+      "Restle (1999), Dependence Structure of Uniform Spacings, has only accessible abstract: it studies product covariances and may provide relevant general methods, but its full text was not inspected; no full-text negative coverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers E[M] and E[M^2] and spacing CDF; does not give E[M sum_i lambda_i^2], nearest-vertex code error variance, or joint asymptotic.",
+        "evidence": "https://www.researchgate.net/publication/220461324_Generating_uniform_random_vectors_over_a_simplex_with_implications_to_the_volume_of_a_certain_polytope_and_to_multivariate_extremes",
+        "identifier_or_url": "https://doi.org/10.1007/s10479-009-0567-7",
+        "material_read": "Author-uploaded full text, Section 1 introduction, Section 2 sampling, Sections 4–5 proof, Remark 3 second maximum moment and references, pp. 331–342.",
+        "method": "public full-text HTML at ResearchGate (author uploaded)",
+        "title": "Generating uniform random vectors over a simplex with implications to the volume of a certain polytope and to multivariate extremes",
+        "trigger": "Same uniform-simplex Dirichlet maximum-coordinate law"
+      },
+      {
+        "assessment": "Different codebook and moment: centroidal polytope squared radius or lattice-Voronoi quantization; does not contain the present finite vertex-code distortion variance.",
+        "evidence": "IEEE Transactions on Information Theory 28 (1982), 211–226; Section II-E and Abstract.",
+        "identifier_or_url": "https://neilsloane.com/doc/Me82.pdf",
+        "material_read": "PDF front page and Sections I-II, including Theorem 2 and Section II-E regular-simplex moments; sections on nearest lattice codepoints examined in parsed text.",
+        "method": "lawful full-text primary PDF with page screenshot of first page and searchable extracted text",
+        "title": "Voronoi Regions of Lattices, Second Moments of Polytopes, and Quantization",
+        "trigger": "Geometric quantization nearest-codeword and simplex-moment literature"
+      },
+      {
+        "assessment": "Supports classical normalized-exponential spacing representation; no asserted priority claim from its inaccessible images.",
+        "evidence": "Ronald Pyke, Berkeley Symposium proceedings (1972), Section 3.",
+        "identifier_or_url": "https://digicoll.lib.berkeley.edu/record/113194/files/math_s6_v1_article-22.pdf",
+        "material_read": "Extracted text pp. 417–419, Sections 1–3 on uniform spacings, and relevant discussion; screenshot endpoint returned a 403.",
+        "method": "public institutional PDF extracted text; visual PDF screenshot attempted but blocked",
+        "title": "Spacings Revisited",
+        "trigger": "Classical uniform-spacing general theory and the exponential representation"
+      },
+      {
+        "assessment": "Gumbel geometry is for Gaussian-support random projection widths, not volume-uniform nearest-vertex squared error.",
+        "evidence": "arXiv:1511.08479, first version November 26, 2015.",
+        "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+        "material_read": "arXiv HTML full-text abstract, Section 1 statement/geometry, and random-projection width distinction.",
+        "method": "lawful open arXiv full-text HTML",
+        "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+        "trigger": "Gumbel limit in regular-simplex geometric probability"
+      },
+      {
+        "assessment": "Abstract concerns covariance of products of specified spacings. The maximum spacing is an order statistic, not a fixed product of coordinates; covering E[(maximum spacing)(sum of squared spacings)] is neither asserted nor ruled out by an abstract alone.",
+        "evidence": "Eva Maria Restle (1999), EPFL Infoscience official record, publicly available by April 4, 2006.",
+        "identifier_or_url": "https://infoscience.epfl.ch/entities/publication/b8408e10-d898-4693-a3e7-d50dfe9ded98",
+        "material_read": "Official repository abstract and bibliographic record only; full report not located.",
+        "method": "Public institutional repository abstract",
+        "title": "Dependence Structure of Uniform Spacings",
+        "trigger": "Exact covariance of products of uniform spacings may superficially resemble the maximum-spacing/quadratic-mass mixed moment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "deeab1c4-2246-44f8-b72d-952221f7c657",
+  "value": {
+    "rationale": "This is a naturally motivated second-order performance invariant of an explicit finite vertex quantizer on a regular simplex. The variance, positive-but-vanishing structural covariance, and sharp m^{-1} non-Gaussian fluctuation law reveal uncertainty not encoded by the previously tabulated mean nearest-vertex error or maximum-spacing moments. The exact cross moment is necessary and not a mere parameter substitution; no downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
