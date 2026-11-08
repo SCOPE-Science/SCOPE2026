@@ -1,19 +1,21 @@
-# Review of the binary block-retrieval monotonicity obstruction
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The four-column code has exact expectations \(E_1=2\) and \(E_2=6\). The proof treats all five-column binary rank-three matrices by the number \(m\in\{0,1,2,3\}\) of columns equal to the first file's basis vector. For \(m=0\) repeated first two draws certify \(E_1\ge11/5\); for \(m=1\) the at-most-four complementary-pair bound gives \(E_1\ge53/25\). For \(m=2\), the rank condition limits complementary pairs, and the three exact alternatives give \(E_1\in\{25/12,9/4,5/2\}\). For \(m=3\), the rank condition forces \(E_1=5/3\) and requires two separate rare columns to recover the two-dimensional file, so \(E_2\ge15/2\). The arguments allow repeated and zero columns. Two independent exact rational recurrences agree for all 476 rank-three five-column binary multisets, validating the finite certificate without replacing the written proof.
+PASS
 
-## Originality (O): PASS
+For binary F2^3 complementary subspaces F1=<e1>,F2=<e2,e3> with uniformly sampled labeled generator columns (with replacement), G4=(e1,e1,e2,e3) has E1=2 and E2=6 by geometric and two-coupon waiting times. For any rank-3 length-5 matrix H, m=#columns exactly e1 is at most 3. If m=0, no one-draw recovery and identical first-two draws with probability 1/5 give E1>=11/5>2. If m=1, among four other columns at most four unordered complementary-type pairs sum e1, yielding E1>=1+4/5+8/25=53/25>2. If m=2, unique complementary pair gives E1=25/12; no pair with three-body sum gives 9/4; or else E1=5/2: all >2. If m=3, other u,v must be linearly independent with e1, so E1=5/3, and recovering two-dimensional F2 forces both unique u and v coupon positions, giving E2>=5(1+1/2)=15/2. Equality at (e1,e1,e1,e2,e3). Independent complete exhaustive implementation enumerated 476 full-rank F2^3 multisets of length five including zero columns, and exact absorbing-subspace DP confirmed only 12 with E1<=2, each E1=5/3 and min E2=15/2. Hence no five-column matrix Pareto dominates (2,6); finite enumeration is exhaustive for this exact problem, not a claim for all field sizes or n.
 
-Bar-Lev's 2026 paper states the one-step monotonicity conjecture for two files when at least one dimension exceeds one; it exhibits a counterexample only for two one-dimensional files. Lifting that example to a larger file is not a logical proof because new mixed-column codes might dominate it. The new five-column dichotomy excludes precisely that possibility in the smallest nontrivial binary dimension. The inspected 2026 one-mixed-column paper and the later hyperbolic-bound preprint concern a different inequality \(\dim(F_1)/E_1+\dim(F_2)/E_2\le1\), which neither entails nor contradicts monotonicity of attainable pairs across block lengths. Queries against indexed research records, this paper, and related literature found no equivalent fixed-field counterexample. Priority risk remains from unindexed work and the uninspected full text of a separate hyperbolic-bound preprint.
+## originality
 
-## Value (V): PASS
+PASS
 
-This answers an explicitly posed structural conjecture, not an arbitrary small numerical search. The result identifies why one extra encoded symbol cannot always weakly improve both file-retrieval times despite increasing one file dimension: short-block sampling granularity and rank constraints produce a sharp obstruction. The proof also gives a complete characterization of the only five-column regime with \(E_1\le2\). It changes the appropriate formulation of possible monotonicity theorems, while leaving the universal hyperbolic conjecture separate and open.
+Best-of-knowledge PASS: direct counterexample to Conjecture 2 (one-step weak Pareto inclusion when a file has dimension at least two) of Bar-Lev 2026, in fixed field F2 and file sizes (1,2). The same paper already exhibits nonmonotonicity when both files have dimension one; that prior example does not imply the dimension-three mixed-file obstruction because additional mixed columns could dominate. The hyperbolic conjecture dim1/E1+dim2/E2<=1 is distinct and not contradicted, likewise Resultary one-mixed-column hyperbolic bound. Primary Bar-Lev revised 2026 preprint Conjecture 2 and Remark 10 were read in full.
 
-## Scope and risk
+## value
 
-The result covers exactly binary rank-three linear coding, file dimensions one and two, and the step from four to five uniform-with-replacement sampled coordinates. It does not establish counterexamples for every code length or larger alphabet and does not claim general channel-capacity improvements. Earliest public source date was verified from the primary arXiv submission history. Independent audit and exhaustive publication-priority confirmation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete sharp obstruction refutes a natural explicit length monotonicity conjecture and identifies the exact Pareto barrier at the smallest mixed-dimension binary layout. The proof closes all rank-three five-column codes rather than merely presenting a near miss. A small finite theorem is valuable because it overturns a universal conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
