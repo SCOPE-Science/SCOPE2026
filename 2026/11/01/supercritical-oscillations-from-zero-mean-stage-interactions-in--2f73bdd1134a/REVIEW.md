@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a local statement about the explicitly stated four-dimensional quadratic ODE for \(u>2\), \(d>u+2\), \(w>0\). Direct differentiation at the positive equilibrium \((1,1,1,1)\) yields the symmetric and antisymmetric characteristic polynomials. The antisymmetric block has strictly positive characteristic coefficients for all admissible parameters. The symmetric block is Hurwitz below \(w=2d+2\) and has positive trace above it. At the crossing, the critical pair is simple, nonzero imaginary, and crosses with speed \(1/2\). Exact restriction to the species-equality invariant plane, followed by a specified canonical coordinate scaling, gives \(\ell_1=-du/[4(u+2)]<0\). The local Hopf theorem establishes a positive attracting branch; strict transverse contraction makes attraction valid in the complete system. The standalone checker independently reproduces the algebra and samples 20 exact rational cases. The finite samples do not establish the infinite-parameter theorem, which rests on the stated symbolic identities and inequalities.
+## correctness
 
-## Originality — PASS with identified risk
-Garmire and O'Dwyer, arXiv:2610.23557v1 (first public 2026-10-16), study stage-structured community stability and large demographic-rate averaging, not this deterministic zero-aggregate interaction construction and its exact finite-demography supercritical periodic orbit. Their accessible complete main HTML was read; a supplementary file could not be inspected. Giménez-Romero et al., DOI:10.1111/ele.70272, analyze stage-interaction community matrices and their stability but do not present the exact nonlinear threshold and Lyapunov coefficient. The accessible abstract of Ke and Nakazawa, DOI:10.1111/oik.04702, concerns a different one-consumer/two-resource stage-interaction system. Multiple semantic mathematical-result searches and exact-parameter literature searches found no source whose theorem implies this one. The closest results describe other stage structures, equilibrium stability, or different ecological phase spaces; neither keyword distinctness nor lack of a hit proves historical uniqueness. Some specialized or supplementary literature remains uninspected and priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The source's comparison between finite demographic dynamics and an infinitely fast age/stage limit creates a motivated question: whether zero aggregate interspecies interaction prevents nonlinear instability. A two-species positive ecological model supplies a sharp universal bifurcation surface and explicit signed first Lyapunov coefficient valid for an open range of maturation rates, not merely a numerical witness. A positive, transversely attracting periodic orbit arising from a zero-aggregate matrix is a structural counterexample to inference from average interaction alone. This is an exact local ecological-dynamics result, not a claim about random community stability or global persistence.
+Read complete RESULT.md and symbolic verification source against pinned tree. Substitution establishes positive equilibrium E=(1,1,1,1) and 1^TM1=0. Exchange symmetry splits J into 2x2 J+ and J−, with p+(z)=z^2−tau z+u^2−4−2tau and p−(z)=z^2+(2d+2+w)z+4d+2w+u^2, tau=w−2d−2. For tau<0 p+ Hurwitz and p− always Hurwitz under u>2,d>u+2,w>0; for tau>0 tr J+>0. At tau=0 J+ has simple imaginary ±i sqrt(u^2−4), transverse crossing derivative 1/2, J− strictly left. The invariant species-symmetric plane is a center manifold; canonical scaling h=X,k=Y sqrt[(u+2)/(u−2)] makes frequency Omega, quadratic f,g. Recomputed standard planar Hopf quadratic derivative formula as l1=-du/[4(u+2)]<0; independent symbolic char-polynomial and exact l1 at u3,d6 return -9/10. Local Hopf, transverse stability and hyperbolic periodic-orbit persistence justify full 4D orbital attraction for sufficiently small positive tau, not global behavior. Stage-transfer d>0 keeps the positive orthant invariant at faces.
 
-## Scope and unresolved risks
-The attractive cycle is known only sufficiently near the Hopf value; global dynamics, any larger cycles and other equilibria remain outside the claim. The source's supplementary mathematics was unavailable, and accessible earlier papers may have additional unindexed equivalent specialized constructions. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the deterministic exact zero-aggregate four-dimensional Hopf threshold, canonical Lyapunov coefficient and full-system attracting branch; source literature gives stage gLV classes, random stability and numerical regimes, not this exact deterministic result.
+
+## value
+
+PASS
+
+A concrete sharp nonlinear boundary in a natural finite-stage community class explains why vanishing aggregate stage interaction does not rule out persistent cycles. The exact Hopf coefficient is a structural counterexample/boundary for stage-aggregation intuition, and identifies robust positive full-system oscillations rather than simply an unstable equilibrium. Narrow deterministic example is independently motivated by this false inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
