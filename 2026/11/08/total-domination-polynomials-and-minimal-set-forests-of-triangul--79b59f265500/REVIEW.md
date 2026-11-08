@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The total-domination predicate was reduced exactly to at most one isolated base vertex and no isolated selected edge. Deleting a cycle edge proves minimal edge graphs are forests. In the spanning case, only disjoint three-vertex paths survive minimality; in the one-isolate case, all nonpendant edges must have a degree-two endpoint adjacent to a leaf, characterizing subdivisions of stars with arms of lengths one or two. The four-vertex path double-center correction is made explicitly. The labeled exponential formulas follow from the component decompositions. Independent direct graph-level enumeration on the supplied verifier agrees for the stated finite ranges; the unlimited result is proved combinatorially.
+
+**Originality — PASS, provisional.** Velammal–Arumugam (2012) report the known scalar minimum total edge domination number of complete graphs, and a preceding special-order triangular-graph result supplies one minimum-size coefficient. Neither entails the all-cardinality minimal-set census, tree-component species, or generating function. Pan–Yang–Li–Xu (2019) study algorithmic complexity and tree optimization; Henning–Pandey–Sharma–Tripathi (2024) study algorithms on selected graph classes; Kanté–Limouzy–Mary–Nourine (2014) give general enumeration-complexity reductions. No equivalent closed labeled census was located in the inspected and queried sources. The full text of certain algorithmic articles was not accessible; independent priority confirmation remains outstanding.
+
+**Mathematical value — PASS.** In a canonical vertex-transitive graph family, an entire minimal-total-domination generating function is determined from a nontrivial necessary-and-sufficient forest characterization. The exact spectrum, upper minimal cardinality, and upper-coefficient enumeration refine a previously known scalar optimum. This resolves a natural enumeration question rather than a selected small instance or routine restatement.
+
+The source-to-claim comparisons distinguish known scalar minima, known isolated minimum-size cases, general enumeration algorithms, and the new complete coefficients. Finite verification is supporting evidence only. Publication-priority uncertainty persists.
+
+Self-review: passed. Independent audit: not yet performed.

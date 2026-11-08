@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The full proof derives an iff total-domination feasibility criterion (at most one base isolate, no selected K2 component), forbids cycles in inclusion-minimal solutions, proves all-covered components are P3, and classifies one-isolate components by every internal edge having a degree-two bud supporting a leaf. The rooted arm species has a single P4 double-count correction. Formal labeled component decompositions prove both all-set and minimal-set generating functions; spectrum and upper-coefficient formulas follow by component counts. A pure standard-library graph-level verifier tested 2,630,165 subsets through order eight, comparing full all-set polynomials through order seven and all possible minimal sets through order eight; integer recurrences checked spectra/upper terms to order 30. No finite computation substitutes for the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kanté–Limouzy–Mary–Nourine (2014) studies enumeration-complexity reductions for minimal total dominating sets, without a triangular-graph exact coefficient formula in the accessible abstract.",
+        "Pan–Yang–Li–Xu (2019) proves complexity on bounded-degree bipartite graphs and gives tree optimization algorithms; K_n family-specific minimal-set counting is not addressed in the searched full text.",
+        "Henning–Pandey–Sharma–Tripathi (2024) abstract lists algorithms for chain, split and proper-interval graph classes and hardness/approximation.",
+        "Favaron–Henning (2003) gives bounds for the scalar upper total domination number of claw-free graphs."
+      ],
+      "reasoning": "Algorithmic enumeration results might generate the requested sets but do not explicitly imply the closed coefficients without the new structural classification; scalar bounds do not determine distributions. The accessible material of the algorithmic sources was compared only to its documented scope; uninspected complete texts remain an explicit residual risk.",
+      "searches": [
+        "query: \"On the Enumeration of Minimal Dominating Sets and Related Notions\" total dominating",
+        "query: \"Algorithms and hardness results for edge total domination problem in graphs\"",
+        "query: \"Upper total domination in claw-free graphs\"",
+        "arXiv:1910.02431, Sections 1–4",
+        "DOI:10.1137/120862612",
+        "DOI:10.1016/j.tcs.2023.114270"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.02431, parsed primary article",
+      "Velammal–Arumugam (2012), primary PDF pages 1–2",
+      "Henning et al. (2024), institutional abstract",
+      "Kanté et al. (2014), publisher abstract",
+      "Favaron–Henning (2003), publisher abstract",
+      "OEIS sequence and web text searches (no identified exact coefficient match)",
+      "Three mathematical research-index semantic query results, closest records on unrelated total-domination families",
+      "Accessible previous triangular-graph minimum-total-domination and dissociation claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior item bb6c3a63... gives, for n=3q+1, the minimum-set count n!/(2^q q!) and reconfiguration of those minima; that special coefficient follows from the new one-isolate P3-forest case and is explicitly not claimed new.",
+        "Prior item 86b89d24... counts maximal dissociation sets of T_n, a different family of selected-edge subgraphs (component sizes at most three); it does not impose total domination and cannot determine the present subdivided-star classes.",
+        "Closest indexed search records concern total domination of other graph families, tree algorithms or other domination variants; none reports this structural characterization or series."
+      ],
+      "reasoning": "The new theorem strictly refines known scalar and special-order statements: previous minimum-set coefficient and scalar optimum are recovered, but neither implies all minimal-set counts, the one-isolate subdivided-star classification, the upper-size coefficient, or all total dominating sets. Similarity in graph names and matching components is not statement-level coverage.",
+      "searches": [
+        "previous mathematical claim bb6c3a63-4e6c-45de-ad92-adfe3e5f0eb7",
+        "previous mathematical claim 86b89d24-b06d-4898-b057-d766ef90fed9",
+        "mathematical research index query: Complete cardinality generating function of inclusion-minimal total edge dominating edge sets of complete graphs K_n and total dominating sets of triangular line graphs J(n,2)",
+        "mathematical research index query: Minimal edge total domination in complete graph labeled forests of subdivided stars isolated vertex exponential generating function",
+        "mathematical research index query: Upper total edge domination number and count of upper minimal total dominating sets of triangular graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Total domination of T_n=L(K_n) is exactly total edge domination of K_n (Velammal–Arumugam, Remark 2.5).",
+        "Earlier exact minimum gamma_t^prime(K_n)=floor(2n/3) is a scalar, not a coefficientwise minimal-set polynomial.",
+        "Full component classification here requires selected base graphs to be spanning P3-forests or one-isolate forests of length-1/2-arm trees."
+      ],
+      "reasoning": "The line-graph, total-edge-domination, open-neighborhood-hypergraph transversal and edge-adjacency formulations were compared as the same problem. The scalar minimum is an implication of the proposed polynomial, but cannot recover its complete coefficients or all-set series. No searched exact equivalent formulation was located.",
+      "searches": [
+        "query: \"minimal total edge dominating sets\" \"complete graph\" \"number\" enumeration",
+        "query: \"minimal total edge dominating\" \"complete graph\" polynomial",
+        "query: total edge domination line graph complete graph minimal total edge dominating edge sets",
+        "arXiv:1910.02431",
+        "Velammal–Arumugam (2012), Theorem 2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned OEIS records for different graph families, including the barbell minimal-total-domination sequence A302650, rather than this labeled triangular-graph sequence.",
+        "The cited complete-graph table/source gives a minimum parameter, not an all-coefficient cardinality table."
+      ],
+      "reasoning": "No exact matching coefficient table or sequence was found for the displayed values 3, 12, 80, 840, 4032, 31976, 371016. This search failure is not a proof of nonexistence; unindexed sequences or alternative offsets are possible.",
+      "searches": [
+        "query: OEIS \"3, 12, 80, 840, 4032\" total domination line graph",
+        "query: OEIS 3 12 80 840 4032 31976 371016",
+        "query: \"total edge domination polynomial\" \"complete graph\"",
+        "OEIS:A302650",
+        "2012 Velammal–Arumugam, full PDF Theorem 2.3"
+      ]
+    },
+    "rationale": "The claim is a complete labeled all-size census of total dominating vertex sets and inclusion-minimal total dominating vertex sets in the triangular graphs, plus a necessary-and-sufficient component classification and upper coefficient. The 2012 complete-graph paper gives the already-known scalar minimum only, the 2019 and 2024 papers address optimization algorithms and complexity, and the 2014 work gives general enumeration-complexity reductions. A preceding special-order minimum coefficient, n=3q+1, is explicitly recognized. Actual semantic mathematical-database and literature searches found no equivalent complete census. Publication priority remains provisional.",
+    "residual_risks": [
+      "No exhaustive world-literature/sequence-index proof of priority.",
+      "Full articles of Henning et al. (2024), Kanté et al. (2014), and Favaron–Henning (2003) not obtained; only accessible abstracts were compared.",
+      "The scalar minimum and the n=3q+1 minimum-set count are known/previously recorded and are not claimed independently new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the scalar minimum and the standard line-graph equivalence; the inspected sections have no complete cardinality enumeration or structural description of all minimal sets.",
+        "evidence": [
+          "Theorem 2.3 states gamma_t^prime(K_p)=floor(2p/3).",
+          "Remark 2.5 identifies gamma_t^prime(G)=gamma_t(L(G))."
+        ],
+        "identifier_or_url": "https://www.elixirpublishers.com/articles/1681456907_201203027.pdf",
+        "material_read": "Pages 1–2, including Definition 2.1, Theorem 2.3, its proof, and Remark 2.5; page images and parsed text.",
+        "method": "Full-text PDF inspection with page images and targeted theorem comparison.",
+        "title": "Total edge domination in graphs",
+        "trigger": "Direct statement of minimum total edge domination of complete graphs and total domination of line graphs."
+      },
+      {
+        "assessment": "Complexity and tree optimization/inequality characterization, not complete-graph minimal-set distributions.",
+        "evidence": [
+          "2019-10-06 first arXiv submission timestamp.",
+          "Theorem 2.1 gives NP-completeness for a bounded-degree bipartite class; Sections 3–4 address trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02431",
+        "material_read": "Accessible parsed article, abstract, Introduction, principal section headings and results in Sections 2–4, plus full-text searches for complete graphs and minimal total sets.",
+        "method": "Primary full-text HTML reading and search of its theorem topics and family descriptions.",
+        "title": "The complexity of total edge domination and some related results on trees",
+        "trigger": "2019 public source central to total edge domination and possible stronger structural statements."
+      },
+      {
+        "assessment": "Described algorithms cover chain, split, proper interval and maximum-degree complexity; no explicit complete-graph all-minimal census in accessible material. Whole-text noncoverage is not asserted.",
+        "evidence": [
+          "Theoretical Computer Science 982 (2024), article 114270, DOI:10.1016/j.tcs.2023.114270."
+        ],
+        "identifier_or_url": "https://pure.uj.ac.za/en/publications/algorithms-and-hardness-results-for-edge-total-domination-problem/",
+        "material_read": "University repository bibliographic description and complete abstract; publisher full text not obtained.",
+        "method": "Primary institutional abstract and metadata inspection.",
+        "title": "Algorithms and hardness results for edge total domination problem in graphs",
+        "trigger": "Later broader complexity and exact algorithmic treatment."
+      },
+      {
+        "assessment": "Algorithmic reduction and output-polynomial equivalence do not supply the specific complete triangular-graph cardinality generating functions in the accessible material.",
+        "evidence": [
+          "Publication 2014, DOI:10.1137/120862612."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/120862612",
+        "material_read": "Publisher abstract, MSC and stated enumeration-complexity consequences; full article not obtained.",
+        "method": "Publisher abstract and theorem-scope comparison.",
+        "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+        "trigger": "General enumeration algorithms that could potentially subsume the claim."
+      },
+      {
+        "assessment": "Provides upper-parameter bounds and extremal graphs in claw-free families, not an accessible complete coefficient census. A stronger unpublished or full-text consequence cannot be excluded.",
+        "evidence": [
+          "Favaron–Henning (2003), Journal of Graph Theory 44, 148–158."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.10134",
+        "material_read": "Publisher abstract and bibliographic record; full text not obtained.",
+        "method": "Abstract-level scalar result comparison.",
+        "title": "Upper total domination in claw-free graphs",
+        "trigger": "Potential stronger upper total domination coverage, since triangular graphs are claw-free."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "79b59f26-5500-4717-9ca3-144fd063842a",
+  "value": {
+    "rationale": "The object is the established total-edge-domination problem on complete graphs, equivalently total domination on the canonical triangular graph family. A known scalar optimum does not describe inclusion-minimal solution distributions. A new full structural forest classification yields exact all-set and minimal-set exponential generating functions, all attainable minimal cardinalities, and explicit upper-size counts. Such distributions are intrinsic to enumerating minimal total edge dominators, not an arbitrarily sliced small instance. The proof gives reusable component/species decompositions. Publication priority remains provisional.",
+    "status": "PASS"
+  }
+}
