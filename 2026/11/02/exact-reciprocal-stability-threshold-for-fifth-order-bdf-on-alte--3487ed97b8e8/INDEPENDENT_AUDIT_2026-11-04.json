@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:08:31.970694Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual Lagrange-interpolation derivative coefficients yield the 4-dimensional difference companion update and the two-step Floquet characteristic quartic. Independently reconstructed this quartic with exact SymPy arithmetic from interpolation nodes; its Cayley transformed quartic has q4=-32 P(r), P(r)=r^3(4u^3-8u^2-95u-127), u=r+1/r. All 13 and 19 coefficients of the two required Hurwitz-determinant polynomials were recomputed exactly and are positive. The cubic has a unique root above 2 and yields R*=6.2884027455921725. Positive q4 gives four interior Floquet roots; q4=0 leaves a simple -1 root with three strictly interior, while negative q4 gives exactly one real multiplier below -1. The constant solution remains a simple extra Floquet multiplier 1. This proves strict damping only for 1/R*<r<R*, and endpoint zero-stability for a fixed two-periodic grid, not arbitrary variable meshes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1990 sufficient grid-ratio criteria apply broadly to variable step/order BDF; 2018 smooth-grid theorem requires ratios tending to one as resolution increases."
+        ],
+        "reasoning": "A sufficient bound on broad grids does not determine the sharp iff alternating-grid threshold; fixed r away from 1 falls outside smooth-grid hypotheses. Unread older complete article remains a risk, not an automatic failure.",
+        "searches": [
+          "Calvo–Grande–Grigorieff 1990 doi:10.1007/BF01386395 abstract",
+          "Söderlind–Fekete–Faragó 2018 full article doi:10.1007/s10543-018-0716-y"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/BF01386395",
+        "https://doi.org/10.1007/BF01389580",
+        "https://doi.org/10.1007/s10543-018-0716-y",
+        "https://doi.org/10.1090/S0025-5718-1986-0856699-X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Skeel describes variable-stepsize multistep constructions; the 2018 theorem proves zero-stability under smooth nonuniform-grid hypotheses."
+        ],
+        "reasoning": "Those frameworks supply methods/criteria but the exact BDF5 alternating monodromy quartic, Hurwitz signs and unique exterior real root require the calculation made in this work.",
+        "searches": [
+          "Skeel 1986 doi:10.1090/S0025-5718-1986-0856699-X",
+          "Söderlind–Fekete–Faragó 2018 doi:10.1007/s10543-018-0716-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grigorieff studies general variable-grid multistep zero-stability; inspected abstract did not disclose the exact alternating BDF5 iff root. The known r=10 counterexample precedes the claimed threshold."
+        ],
+        "reasoning": "An alternative Floquet/spectral-radius or characteristic-cubic formulation would count as coverage, but no such evaluated identity was established from accessible material.",
+        "searches": [
+          "Resultary semantic query: variable step BDF5 alternating grid two-periodic root condition zero stability reciprocal threshold Floquet",
+          "Search: exact alternating step BDF5 zero stability polynomial 6.2884",
+          "Grigorieff Numerische Mathematik 42 (1983)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known numerical instability at r=10 has no full critical table; no exact database of four Floquet multipliers for all positive alternating ratios was located."
+        ],
+        "reasoning": "No known exact table matches the complete reciprocal sharp transition; search absence does not establish novelty.",
+        "searches": [
+          "Search: variable step BDF5 alternating steps 6.288402745592 stability threshold two periodic Grigorieff Calvo 1990",
+          "Resultary BDF5 query"
+        ]
+      },
+      "rationale": "Earlier general variable-step stability frameworks, a known BDF5 unstable witness at ratio 10, and smooth-grid sufficient conditions are expressly excluded from the novelty claim. The evaluated exact reciprocal iff threshold, all exterior root counts and simple boundary multiplier survive the inspected comparisons; historical specialist original full texts remain an explicit priority risk.",
+      "residual_risks": [
+        "Original complete Grigorieff 1983 and Calvo-Grande-Grigorieff 1990 specialist full texts not accessible; equivalent alternating-grid specialization could occur there. Authorized institutional full-text request returned vpn_disconnected; no access bypass performed.",
+        "Classification applies to the homogeneous equation and a fixed alternating grid; it does not establish A-stability, nonperiodic-grid zero-stability or uniform bounds at moving ratio endpoints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cannot exclude equivalent sharp threshold in inaccessible text; risk explicitly retained",
+          "evidence": [
+            "Calvo, Grande and Grigorieff (1990), journal summary of sufficient ratios"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+          "material_read": "Journal abstract and author-upload listing; full original article inaccessible",
+          "method": "Abstract/metadata review; authorized institutional request returned vpn_disconnected",
+          "title": "On the zero stability of the variable order variable stepsize BDF-Formulas",
+          "trigger": "Most plausible prior specialized BDF5 criterion"
+        },
+        {
+          "assessment": "Smooth-grid adjacent-step ratios approach 1 rather than fixed r far from 1; not the same sharp threshold",
+          "evidence": [
+            "Söderlind, Fekete and Faragó 2018, smooth nonuniform grid stability assumptions"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+          "material_read": "Full open article stability framework and grid smoothness assumptions",
+          "method": "Accessible full-text reading",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Broader smooth-grid BDF stability result"
+        },
+        {
+          "assessment": "No proof of absence from full text; high-priority residual risk",
+          "evidence": [
+            "Grigorieff 1983, numerical multistep on variable grids"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01389580",
+          "material_read": "Abstract and publication metadata only; full text inaccessible",
+          "method": "Abstract review",
+          "title": "Stability of multistep-methods on variable grids",
+          "trigger": "Plausible older exact BDF5 result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp critical adjacent-step contrast gives a necessary-and-sufficient stability boundary for a standard high-order integrator in a natural fixed non-smooth periodic test family. It provides a useful counterbalance to conservative sufficient-ratio estimates, not just a restatement of an unstable sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1007/BF01386395",
+    "https://doi.org/10.1007/BF01389580",
+    "https://doi.org/10.1007/s10543-018-0716-y",
+    "https://doi.org/10.1090/S0025-5718-1986-0856699-X"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original complete Grigorieff 1983 and Calvo-Grande-Grigorieff 1990 specialist full texts not accessible; equivalent alternating-grid specialization could occur there. Authorized institutional full-text request returned vpn_disconnected; no access bypass performed.",
+    "Classification applies to the homogeneous equation and a fixed alternating grid; it does not establish A-stability, nonperiodic-grid zero-stability or uniform bounds at moving ratio endpoints.",
+    "All r>0 with genuine five-step interpolation coefficients, y-prime=0, two-periodic fixed step sequence; endpoints simple -1 power-bounded; no general grid claim."
+  ],
+  "schema_version": 1
+}
