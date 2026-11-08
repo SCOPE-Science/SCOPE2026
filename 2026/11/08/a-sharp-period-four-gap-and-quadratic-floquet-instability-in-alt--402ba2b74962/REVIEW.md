@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The two-step return equations force equal population coordinates and yield precisely the boundary family and one interior orbit. Exact two-step Jacobians give the multipliers and the \(a^{-2}\) local e-fold law; periodic recovery of the feedback variable rules out odd nonconstant population periods. The concrete period-four witness is supported by an exact-rational Brouwer/Banach box contraction and strict disjointness/physical bounds, reproduced from the standalone verifier; only the analytic arguments establish the universal quantifiers.
+
+**Originality — PASS within inspected evidence.** The motivating primary full text, including its periodic-window analysis and Appendix 5.2, studies approximate quasi-cycles and drifting feedback. It does not imply the claimed strict-period classification, exact Floquet multipliers, or the certified four-cycle. Searches of the research index for alternating-feedback logistics, period-two spectra, and period-four dynamics returned findings on different maps and mechanisms; the comparable published static alternating-sign logistic family has no self-evolving feedback coordinate. A generic Floquet framework cannot supply the object-specific orbit census or interval witness without additional analysis. Prior full-state analyses not surfaced by these searches remain a residual historical-priority risk.
+
+**Mathematical value — PASS.** The mathematically natural distinction between a transient quasi-periodic window and an exact periodic feedback orbit makes a full-state period classification useful for understanding the underlying model. The result shows a *sharp* first possible population period, constructs an actual interior orbit at that period, and gives the exact weak-coupling local instability rate of the unique shorter interior orbit, without conflating this rate with global lifetime.
+
+**Scope of conclusions.** The four-cycle is proved for one non-small coupling, not for all couplings; weak-coupling escape statistics and global attractors remain open. Historical priority cannot be declared exhaustive from literature searches. The exact-arithmetic checker is not an external scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
