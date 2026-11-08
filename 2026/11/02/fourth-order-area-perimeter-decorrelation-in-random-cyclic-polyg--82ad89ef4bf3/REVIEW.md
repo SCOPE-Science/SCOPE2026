@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from exact \(\operatorname{Dirichlet}(1,\ldots,1)\) power-sum moments, a bivariate exponential central limit theorem, and controlled sine remainder terms. The critical constants \(360,28800,3254400\) yield the orthogonal variance \(9504\pi^{10}\); the least-squares identity gives \(297\pi^4/10\). The embedded `VERIFIER.py` completed 76 checks, including independent numerical simplex integration. Finite checks are corroborative and do not certify asymptotics.
+PASS
 
-## Originality — PASS, with priority uncertainty
+Ordered uniform circle gaps have Dirichlet(1,...,1) law and exact moments E P_r=nr!/(n)^overline r, E(P_rP_s)=n[(r+s)!+(n−1)r!s!]/(n)^overline(r+s). Exponential representation and delta method for (E,E³,E⁵) give centered P3/P5 joint Gaussian at n^(5/2), n^(9/2), with κ33=360, κ35=28800, κ55=3254400. Taylor expansion of sin with L² P7=O(n^-6) yields centered S=−(π³/6)P3~+(π⁵/120)P5~, A=−4(π³/6)P3~+16(π⁵/120)P5~. Exact least squares projection gives β_n=4−48π²n^-2+o(n^-2), projected n^(9/2) residual=(π⁵/10)(P5~−80n^-2 P3~)+o_L², covariance constant [3254400−160·28800+6400·360]/100=9504 times π^10. Since Var(A)~160π^6n^-5, regression identity gives 1−ρ~(297π⁴/10)n^-4; fixed slope4 variance 32544π^10, relative 33/113. Independently recalculated every κ and these constants exactly.
 
-Bélisle (2011) concerns marginal area/perimeter laws. Xu–Meng–Li (2019) and Wang–Xu–Liu (2021) study fixed linear extrapolation and its variance; 2021 Lemma 2.2 gives variance \(3616\pi^{10}\) for centered \((4S_n-A_n)/3\), whereas the present optimal centered area residual has variance \(9504\pi^{10}\). Koroleva–Nikitin (2013) treats subset maxima. Dedicated published-finding corpus searches also found no equivalent statement. The uninspected portions of relevant 2011 and 2019 sources are an explicit priority risk; these comparisons are not historical uniqueness certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The optimal area-on-semiperimeter coefficient carries a genuinely second-order correction \(-48\pi^2/n^2\). Its residual variance is just \(33/113\) of the classical fixed-slope residual, quantifying additional joint information that separate marginal limit laws miss. The sharp decorrelation constant gives a natural quantitative measure of asymptotic redundancy in circular-polygon statistics.
+Qualified PASS for exact n-dependent optimal linear regression slope, fourth-order deficit and orthogonalized Gaussian residual. Earlier Wang–Xu–Liu 2021 established fixed-slope Gaussian extrapolation, not the checked least-squares residual distribution. Xu–Meng–Li 2019 also concerns extrapolation means; Koroleva–Nikitin subsets use a different sampling statistic. A full older Bélisle 2011 paper remained inaccessible and might have an implicit joint-covariance result; original limit theorems do not automatically state the exact projected coefficients but could imply them by moment expansions.
 
-## Boundaries
+## value
 
-The result is for iid arclength-uniform samples on the unit circle, and for linear least-squares prediction only. The proof does not establish results for arbitrary sampling laws, noncircular boundaries, conditional expectations, or historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp correlation deficit and optimal prediction variance are natural quantitative joint statistics of full-sample random cyclic polygons. The optimally adapted correction reduces residual variance to 33/113 of a conventional fixed-slope estimator, identifying a meaningful fourth-order effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

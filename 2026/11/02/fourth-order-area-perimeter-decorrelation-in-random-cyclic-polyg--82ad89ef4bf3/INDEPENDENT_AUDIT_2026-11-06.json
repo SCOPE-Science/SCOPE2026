@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:02:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ordered uniform circle gaps have Dirichlet(1,...,1) law and exact moments E P_r=nr!/(n)^overline r, E(P_rP_s)=n[(r+s)!+(n−1)r!s!]/(n)^overline(r+s). Exponential representation and delta method for (E,E³,E⁵) give centered P3/P5 joint Gaussian at n^(5/2), n^(9/2), with κ33=360, κ35=28800, κ55=3254400. Taylor expansion of sin with L² P7=O(n^-6) yields centered S=−(π³/6)P3~+(π⁵/120)P5~, A=−4(π³/6)P3~+16(π⁵/120)P5~. Exact least squares projection gives β_n=4−48π²n^-2+o(n^-2), projected n^(9/2) residual=(π⁵/10)(P5~−80n^-2 P3~)+o_L², covariance constant [3254400−160·28800+6400·360]/100=9504 times π^10. Since Var(A)~160π^6n^-5, regression identity gives 1−ρ~(297π⁴/10)n^-4; fixed slope4 variance 32544π^10, relative 33/113. Independently recalculated every κ and these constants exactly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exponential delta-method for P3/P5 and exact Dirichlet moments are standard, and in principle imply the new constants after a nontrivial projection/Taylor cancellation",
+          "General CLT and marginal asymptotics supply proof ingredients, not the explicit orthogonal asymptotics unless joint covariances are evaluated."
+        ],
+        "reasoning": "The sharp constants could be an unrecorded corollary in more general joint cumulant literature; search not novelty proof.",
+        "searches": [
+          "Resultary semantic searches: random cyclic polygon uniform circle semiperimeter area correlation fourth order optimal regression Dirichlet spacings",
+          "Resultary semantic searches: Dirichlet spacings random circle polygon covariance area semiperimeter regression correlation n^-4",
+          "Dirichlet gap power sum central limit theorem bivariate covariance random inscribed polygons perimeter area"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 288f1d1a5254fa35ff58929e68a658162401eca5",
+        "Wang Xu Liu 2021 DOI 10.19139/soic-2310-5070-1193, full PDF",
+        "Xu Meng Li 2019 doi:10.1515/math-2019-0049",
+        "Bélisle 2011 doi:10.1016/j.spl.2010.11.012, abstract only",
+        "Koroleva Nikitin arxiv:1301.1360",
+        "Resultary queries ['random cyclic polygon uniform circle semiperimeter area correlation fourth order optimal regression Dirichlet spacings', 'Dirichlet spacings random circle polygon covariance area semiperimeter regression correlation n^-4']"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Xu–Liu fixed 4S−A Gaussian fluctuation leaves covariance of P3 with P5 implicit; additional joint calculation is required for optimal β and fourth-order ρ"
+        ],
+        "reasoning": "The optimal residual is a different linear statistic (P5−80P3/n²), so fixed-slope theorem alone does not determine its variance; this is the new mathematical content.",
+        "searches": [
+          "Resultary semantic searches: random cyclic polygon uniform circle semiperimeter area correlation fourth order optimal regression Dirichlet spacings",
+          "Resultary semantic searches: Dirichlet spacings random circle polygon covariance area semiperimeter regression correlation n^-4",
+          "fixed slope area perimeter extrapolation CLT implies optimal exact regression correlation deficit?"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Xu–Liu 2021 Lemma 2.2 and CLT sections treat the fixed 4S−A extrapolation and univariate power-sum CLTs",
+          "This claim estimates β_n=Cov(A,S)/Var(S) and its n^-2 correction, plus orthogonal residual CLT"
+        ],
+        "reasoning": "Full primary paper sections inspected do not explicitly calculate this finite-sample optimal projection or n^-4 correlation deficit.",
+        "searches": [
+          "Resultary semantic searches: random cyclic polygon uniform circle semiperimeter area correlation fourth order optimal regression Dirichlet spacings",
+          "Resultary semantic searches: Dirichlet spacings random circle polygon covariance area semiperimeter regression correlation n^-4",
+          "Wang Xu Liu Random Polygons and Optimal Extrapolation Estimates of Pi semiperimeter area joint regression Dirichlet covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing inspected 2021 theorem gives fixed-slope residual variance 32544π^10, not 9504π^10 for optimized linear predictor",
+          "Resultary related ellipse sampling law concerns a different optimization on noncircular curves"
+        ],
+        "reasoning": "No same coefficient triple was located in inspected sources; older numerical tables and unpublished notes cannot be excluded.",
+        "searches": [
+          "Resultary semantic searches: random cyclic polygon uniform circle semiperimeter area correlation fourth order optimal regression Dirichlet spacings",
+          "Resultary semantic searches: Dirichlet spacings random circle polygon covariance area semiperimeter regression correlation n^-4",
+          "rho(area,semiperimeter) 1-297pi4/(10n4) beta_n 4-48pi2/n2 variance 9504pi10 table"
+        ]
+      },
+      "rationale": "Qualified PASS for exact n-dependent optimal linear regression slope, fourth-order deficit and orthogonalized Gaussian residual. Earlier Wang–Xu–Liu 2021 established fixed-slope Gaussian extrapolation, not the checked least-squares residual distribution. Xu–Meng–Li 2019 also concerns extrapolation means; Koroleva–Nikitin subsets use a different sampling statistic. A full older Bélisle 2011 paper remained inaccessible and might have an implicit joint-covariance result; original limit theorems do not automatically state the exact projected coefficients but could imply them by moment expansions.",
+      "residual_risks": [
+        "Bélisle (2011) full text inaccessible; joint moment asymptotics there may imply all or part of the regression coefficients.",
+        "Uniform sampling on unit circle and full polygon; result concerns optimal linear projection, not conditional expectation or general convex curves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes fixed-slope asymptotic normality and variance, but no observed n-dependent finite least-squares coefficient or sharp correlation deficit",
+          "evidence": "Fixed-slope limit variance corresponds to 32544π^10, distinct from corrected 9504π^10",
+          "identifier_or_url": "doi:10.19139/soic-2310-5070-1193 (2021)",
+          "material_read": "Full nine-page official PDF; inspected introduction, Lemma 2.2, sections on moment expansions, CLTs and fixed-slope residual (including PDF page screenshots 0,3,6)",
+          "method": "full-text PDF and page screenshots",
+          "title": "Random Polygons and Optimal Extrapolation Estimates of Pi",
+          "trigger": "Same uniform-circle full polygon, semiperimeter S, area A and fixed-slope 4S−A"
+        },
+        {
+          "assessment": "Different nonlinear extrapolation objective; does not directly state least-squares area-from-semiperimeter coefficient",
+          "evidence": "Studies nonlinear π estimators and combinations of S and A",
+          "identifier_or_url": "2023 follow-up to Wang–Xu–Liu",
+          "material_read": "Accessible full HTML abstract, introduction and optimality condition α+4β−2γ=0",
+          "method": "lawful HTML inspection",
+          "title": "Nonlinear Random Extrapolation Estimates of Pi",
+          "trigger": "Possible stronger estimator of pi with area and perimeter"
+        },
+        {
+          "assessment": "Significant priority risk for equivalent asymptotic joint moments; NO entire-paper noncoverage claim",
+          "evidence": "Earlier random circular polygon area/perimeter asymptotics",
+          "identifier_or_url": "doi:10.1016/j.spl.2010.11.012 (Bélisle 2011)",
+          "material_read": "Publisher bibliographic record and abstract; technical full text inaccessible",
+          "method": "published abstract",
+          "title": "On the polygon generated by n random points on a circle",
+          "trigger": "Directly same probabilistic objects"
+        },
+        {
+          "assessment": "Optimizes over vertex subsets rather than full-sample convex hull with Dirichlet n-spacings",
+          "evidence": "Different U-max-statistic than whole sample",
+          "identifier_or_url": "arxiv:1301.1360",
+          "material_read": "ArXiv abstract/problem description",
+          "method": "arXiv source summary",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Area/perimeter polygon limit literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp correlation deficit and optimal prediction variance are natural quantitative joint statistics of full-sample random cyclic polygons. The optimally adapted correction reduces residual variance to 33/113 of a conventional fixed-slope estimator, identifying a meaningful fourth-order effect.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 288f1d1a5254fa35ff58929e68a658162401eca5",
+    "Wang Xu Liu 2021 DOI 10.19139/soic-2310-5070-1193, full PDF",
+    "Xu Meng Li 2019 doi:10.1515/math-2019-0049",
+    "Bélisle 2011 doi:10.1016/j.spl.2010.11.012, abstract only",
+    "Koroleva Nikitin arxiv:1301.1360",
+    "Resultary queries ['random cyclic polygon uniform circle semiperimeter area correlation fourth order optimal regression Dirichlet spacings', 'Dirichlet spacings random circle polygon covariance area semiperimeter regression correlation n^-4']"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic n→∞ for iid uniform circular points, n≥3; full-perimeter β differs by factor two."
+  ],
+  "residual_risks": [
+    "Bélisle (2011) full text inaccessible; joint moment asymptotics there may imply all or part of the regression coefficients.",
+    "Uniform sampling on unit circle and full polygon; result concerns optimal linear projection, not conditional expectation or general convex curves."
+  ],
+  "schema_version": 1
+}
