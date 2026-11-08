@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The discovery process is a sum of independent Bernoulli variables at every scaled time. The finite harmonic root is unique, its first two terms follow from a super-algebraically accurate infinite-kernel Euler--Maclaurin formula and an explicit finite truncation tail. The normalized mass variance tends to 1/2 and Lyapunov ratio tends to zero at rate O(a_n^{-1/2}). A local mean derivative of 1/a_n and monotone threshold inversion give the Gaussian hitting-time law. The offset B_n^{3/2}/n determines the sharp exponent boundary. The executable finite checker passes; these experiments are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chebunin--Zuyev establishes FCLTs for a fixed infinite probability vector with regularly varying occupancy counts and missing mass.",
+        "Garza--Wang addresses fixed infinite-urn sampling and weighted occupancy *counts* under tail exponent alpha in (0,1)."
+      ],
+      "reasoning": "The current model is a triangular finite harmonic Zipf array at a boundary exponent, with weights indexed by types and a strictly weighted first-passage threshold. Existing published theorems inspected do not directly include its normalization and second-order deterministic centering; generic Gaussian-array tools are acknowledged as proof ingredients.",
+      "searches": [
+        "critical aligned Zipf nonuniform Poisson first discovery mass central limit inverse process",
+        "site:arxiv.org \"threshold coupon collection\" \"normal\"",
+        "doi:10.1007/s10959-020-01053-6 Theorem 1",
+        "arxiv:2412.02160 main result"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.08551",
+      "https://doi.org/10.1007/s10959-020-01053-6",
+      "https://arxiv.org/abs/2412.02160",
+      "Published mathematical record searches using the query strings documented above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.3 yields A_n/n^theta -> exp((theta-2)gamma), which permits numerous fluctuation laws and does not determine an order sqrt(a_n) law.",
+        "Chebunin--Zuyev FCLT is for fixed infinite weights and different regular variation assumptions, not the triangular finite harmonic first-passage regime."
+      ],
+      "reasoning": "The new theorem strengthens an existing first-order quorum asymptotic; it is not a corollary of that first-order statement alone. Proving the coefficient and 2/3 boundary requires an additional high-order expansion of the deterministic root, even if a general empirical-process CLT were applicable.",
+      "searches": [
+        "arxiv:2607.08551 Theorem 6.3 Lemma 6.1 Lemma 6.2",
+        "aligned Zipf harmonic quorum time root centered central limit theorem Gaussian variance one half",
+        "quorum weighted discovery first-passage Gaussian 2/3 correction Euler Mascheroni"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the same Poisson first-discovery process and proves a first-order critical scale in Theorem 6.3; its stated Lemmas 6.1--6.2 are only mean asymptotics and variance bounds.",
+        "No central limit theorem for the critical crossing was located in the inspected source full text."
+      ],
+      "reasoning": "The present exact-root Gaussian law translates to a first-passage quantile CLT for the harmonic-weighted Bernoulli discovery process. The source LLN and concentration bounds do not imply its variance constant or centered weak law.",
+      "searches": [
+        "\"Weighted-threshold Coupon Collection\" \"Müller\" \"Šebek\" 2607.08551 Gaussian critical Zipf harmonic s=1",
+        "aligned Zipf harmonic quorum time root centered central limit theorem Gaussian variance one half",
+        "arxiv:2607.08551 Sections 2-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of publicly published mathematical records returned unrelated Zipf expanding-map, reset-coupon, and Gaussian fluctuation problems, but no exact quorum constant or table."
+      ],
+      "reasoning": "The constant variance 1/2, exact deterministic root and centering shift are asymptotic stochastic invariants, not an entry from a finite table. A search absence is weak evidence and is not treated as uniqueness proof.",
+      "searches": [
+        "critical harmonic Zipf quorum time Gaussian central limit second order finite n centering n^(2/3) threshold",
+        "harmonic coupon quorum first passage deterministic centering two thirds threshold second order n power",
+        "\"Weighted-threshold Coupon Collection\" \"Müller\" \"Šebek\" 2607.08551 Gaussian critical Zipf harmonic s=1"
+      ]
+    },
+    "rationale": "Model-specific Gaussian crossing limit, variance 1/2 and sharp 2/3 centering transition are not stated in the inspected source theorem, which provides only first-order convergence. Older infinite-urn FCLTs use different fixed profiles and statistics. Mathematical record and literature searches did not identify a stronger covering theorem; historical priority remains provisional.",
+    "residual_risks": [
+      "Potential stronger generic inverse-empirical-process theorem in literature not inspected in full; any priority implication requires checking all triangular-array assumptions and the second-order bias.",
+      "Published mathematical-record semantic searches do not prove historical uniqueness.",
+      "Finite computations do not establish the infinite theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model, first-order LLN only; no covered Gaussian variance, root correction, or 2/3 centering transition identified",
+        "evidence": [
+          "Section 6 Lemma 6.1 derives the leading logarithmic mean constant.",
+          "Section 6 Lemma 6.2 bounds variance.",
+          "Section 6 Theorem 6.3 proves only the first-order scaling in probability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.08551",
+        "material_read": "Introduction, exact model representation, deterministic-root comparison, full Section 6 including Lemmas 6.1-6.2 and Theorem 6.3, related-work references",
+        "method": "Read accessible full HTML and compare assumptions, limiting statements and proof steps",
+        "title": "Weighted-threshold Coupon Collection",
+        "trigger": "Identical quorum model and critical exponent one"
+      },
+      {
+        "assessment": "Not a direct coverage of the claim under its stated hypotheses",
+        "evidence": [
+          "Fixed infinite probability vector with regular variation assumption.",
+          "Theorem 1 gives process limits for occupancies and scaled missing mass, not finite-array harmonic quorum first-passage centering."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10959-020-01053-6",
+        "material_read": "Full accessible HTML introduction, model, regular variation assumptions and Theorem 1, plus contextual discussion",
+        "method": "Compared fixed infinite urn model and occupancy/missing-mass statistics against finite triangular harmonic quorum crossing",
+        "title": "Functional Central Limit Theorems for Occupancies and Missing Mass Process in Infinite Urn Models",
+        "trigger": "Potential broader central limit theorem for weighted missing mass"
+      },
+      {
+        "assessment": "Different weight indexing and regular-variation assumptions; not a directly dominating theorem",
+        "evidence": [
+          "The article defines weighted occupancy processes as sums of a_j D_(n,j), with weights indexing the number of balls per urn.",
+          "Its stated regular-variation tail exponent alpha is in (0,1), not the critical finite harmonic normalization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.02160",
+        "material_read": "Full HTML introduction, main-results setup and assumptions; comparison of the weighted occupancy-count statistic",
+        "method": "Checked whether weights index coupon types and whether threshold passage in triangular harmonic arrays is covered",
+        "title": "A functional central limit theorem for weighted occupancy processes of the Karlin model",
+        "trigger": "Possible general weighted-urn central limit coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1abbcf10-204c-4d61-9e01-db2ef76c4789",
+  "value": {
+    "rationale": "The variance constant and Gaussian limit quantify second-order critical Zipf quorum uncertainty beyond an existing law of large numbers. The sharp 2/3 threshold specifies exactly when the natural explicit leading deterministic center ceases to give a properly centered Gaussian, with a nonzero endpoint shift. This is mathematically motivated by the sharpness of the source first-order limit, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
