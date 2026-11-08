@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof explicitly fixes the inner-product convention, compactness, symmetry, and the complex parameter range. Takagi factorization, the orthonormal-frame change of variables, weighted Ky Fan inequalities, and matching two-mode extremizers prove the exact radius. The disk interior is established using an explicit zero witness and path-connectedness. Equality in the Ky Fan bound yields the two-mode support result under the stated gap. The finite numerical checker supplements, but is not used in place of, the analytic proof.
+## correctness
 
-## Originality (PASS; best-knowledge assessment)
-The closest primary source, Majumdar and Müller (arXiv:2610.16823v1, Section 6), determines qualitative disk/annulus geometry but not this exact affine two-Takagi-singular-value formula or the maximizing-frame rigidity. The older Kołaczek–Müller 2024 paper concerns the ordinary numerical range, and results on complex-linear \(q\)-numerical ranges do not themselves cover symmetric antilinear forms. A separate earlier antiunitary dimension-two formula is confined to isometric cases, while the present theorem treats nonisometric compact symmetric antilinear operators in all dimensions. Hidden equivalent statements in constrained bilinear-form literature cannot be ruled out.
+PASS
 
-## Mathematical value (PASS)
-The constraint \(\langle x,y\rangle=q\) is the central parameter of a newly developed theory, while the compact symmetric antilinear class is intrinsic and broad. The exact radius depends only on the first two Takagi singular values, remains affine in \(|q|\) across all dimensions, and characterizes maximizing subspaces under a natural spectral gap. This resolves a quantitative question left by the qualitative disk theorem and supplies a dimension-free two-mode reduction rather than an arbitrary numerical example.
+For a compact antilinearly self-adjoint A, Takagi diagonalization yields nonnegative singular sigma_j. With rho=|q|<1, express each unit constrained pair as x=sqrt(b+)u+sqrt(b-)v and y=sqrt(b+)u-sqrt(b-)v with orthonormal u,v and b±=(1±rho)/2; antilinear symmetry cancels mixed bilinear terms. Weighted Ky Fan yields upper b+sigma1+b-sigma2, and explicit vectors sqrt(b+)e1+i sqrt(b-)e2 and sqrt(b+)e1-i sqrt(b-)e2 attain it; the rho=1 endpoint follows by continuity. A two-dimensional isotropic-vector path yields value zero, connectedness of constrained two-frames fills all radial moduli, and phase invariance fills every angle. The strict sigma2>sigma3 gap forces equality frames into top-two Takagi subspace. Independently checked the extremizer and inner-product conjugations symbolically; finite randomized verifier is supplemental.
 
-## Limitations
-The operator must be compact and antilinearly self-adjoint. General real-linear and nonsymmetric antilinear cases are not covered. The spectral gap is needed only for rigidity; uniqueness of individual maximizing vectors is not claimed. Publication priority remains uncertain until independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Majumdar–Müller 2026 discusses qualitative disk/annulus shapes for antilinear q-numerical ranges; its accessible abstract/secondary descriptions do not provide a sharp two-singular-value radius, but full Section 6 was inaccessible and might hide the same quantitative formula. Kołaczek–Müller 2024 treats ordinary antilinear numerical range, corresponding only to q=1; complex-linear q-radius results concern different pairing. Classic Takagi+Ky Fan tools make the proof short, yet they are not themselves a previously stated constrained formula. Best-of-knowledge PASS retains a meaningful priority risk, not a whole-document noncoverage assertion.
+
+## value
+
+PASS
+
+The inner-product constraint is intrinsic to current q-numerical range theory, and the exact affine dependence on q with only two singular values supplies a dimension-free quantitative law and gap rigidity beyond qualitative disk geometry. An exact natural operator invariant, not a cosmetic specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
