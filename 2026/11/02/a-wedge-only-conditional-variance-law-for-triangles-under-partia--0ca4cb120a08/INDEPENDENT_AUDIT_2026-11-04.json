@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:12:04.099163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on all present and absent edges of H and partition triangles by number of internal vertices: outside-only and one-internal each have three random edges, two-internal possible triangles indexed by e(H) each have two random cross edges, fully internal triangles are deterministic. Distinct nonzero indicators covary only when sharing one RANDOM edge; if each has r and s required random edges, covariance=p^(r+s-1)(1-p). Enumerate all six unordered dependent class pairs: A0/A0, A0/A1, A1/A1 same internal vertex, A1/A1 different internal vertices, A1/A2, A2/A2; last count N*w(H). All pair counts reproduce the exact RESULT.md polynomial: (C(N,3)+h C(N,2))(p³-p⁶)+eN(p²-p⁴)+2C(N,2)[C(N-2,2)+2h(N-2)+C(h,2)]p⁵(1-p)+4eN(N-1)p⁴(1-p)+2Nw p³(1-p). Deterministic triangle count t(H) appears in conditional mean only. For equal e subtract to get 2N delta_w p³(1-p); claw w=3 vs path w=2 at h4 gives strict witness for N>=1, 0<p<1. At N=0 deterministic; p endpoints allowed only for positive-probability H, formula algebraic otherwise. Independent exact enumeration over all relevant free-edge configurations in selected small n,h,p cases agreed; complete overlap census is all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broad unconditional motif variance formulations average over revealed edges and are not directly a theorem for a fixed induced H."
+        ],
+        "reasoning": "A generic conditional two-copy overlap theorem might imply the polynomial after specialization and counting; no theorem stating the specific wedge-only collapse or pair strict ordering was identified in inspected source.",
+        "searches": [
+          "Ellis Ferry 2010 general subgraph-copy variances",
+          "Kunegis Polcovar 2014 motif covariance",
+          "Erdos Renyi conditional triangle count variance after induced subgraph fully revealed wedge count and edge count conditional variance"
+        ]
+      },
+      "checked_sources": [
+        "Ellis Ferry 2010 full scientific body",
+        "Kunegis 2014 Polcovar unconditional Var(T)",
+        "Ginoza Mugler 2009 abstract/model",
+        "Resultary semantic q: Erdos Renyi conditional triangle count variance after induced subgraph fully revealed wedge count and edge count conditional variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior unconditional Var(T) and conditional E(T|H) cannot determine Var(T|H). Dependence on the observed H wedge statistic requires explicit count of A2/A2 dependent pairs sharing a random cross-edge."
+        ],
+        "reasoning": "Independent graph shape contrast remains nontrivial; general overlap tools could algorithmically derive this after new conditioning bookkeeping, but compared prior statements do not imply its exact form without that work.",
+        "searches": [
+          "Ellis Ferry 2010 sections 1-3",
+          "arxiv:1402.5835 Section 3.3",
+          "Erdos Renyi conditional triangle count variance after induced subgraph fully revealed wedge count and edge count conditional variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General overlay variance methods classify overlapping triangle pairs unconditionally; conditional edge exposure changes which overlapping edges remain random."
+        ],
+        "reasoning": "The graph-conditioned variance as a function of e,w is not the same as unconditional G(n,p) triangle variance; methods adapt, but the exact sharp conditional fingerprint is a separate statement.",
+        "searches": [
+          "Erdos Renyi conditional triangle count variance after induced subgraph fully revealed wedge count and edge count conditional variance",
+          "Ellis Ferry 2010 DOI 10.1016/j.dam.2009.11.012",
+          "Kunegis arxiv:1402.5835 Section 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Polcovar tabulates unconditional triangle variance, not a parameterized table indexed by an observed H. Resultary component-triangle covariance concerns a different global observable."
+        ],
+        "reasoning": "No direct exact conditional variance table/specified claw-path gap found; negative search is not novelty certification.",
+        "searches": [
+          "Erdos Renyi conditional triangle count variance after induced subgraph fully revealed wedge count and edge count conditional variance",
+          "arxiv:1402.5835 Polcovar unconditional triangle variance",
+          "Resultary 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174"
+        ]
+      },
+      "rationale": "Unconditional general triangle count covariance and subgraph overlap formulas already exist (Ellis–Ferry 2010, Kunegis 2014); they furnish counting tools but do not state this graph-conditioned polynomial after full induced revelation. Ginoza–Mugler different edge-swap randomization. Existing generic copy-overlap machinery might imply a specialized formula when one computes this conditional exposure, and that is a real residual risk; no direct covering wedge-only conditional theorem found by Resultary and primary comparisons. Exact triangle-count first conditional moment is elementary prior work, not novelty.",
+      "residual_risks": [
+        "General conditional exposure covariance identities may imply the formula implicitly; not a guarantee of absolute priority.",
+        "The conditional event has positive probability only for feasible H at p=0,1; endpoint formula interpreted algebraically.",
+        "No claim for conditioning only on edge count or for G(n,m)/fixed-degree graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING fixed-induced-H variance",
+          "evidence": [
+            "Theorem analyzes unconditional subgraph-copy variance rather than conditioning every inside edge/nonedge of a prescribed H."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2009.11.012",
+          "material_read": "Accessible full scientific HTML body, especially definitions, main overlap polynomial and variance claims Sections 1–3",
+          "method": "Read relevant theorem and compare conditioning sigma-fields",
+          "title": "Variance of the subgraph count for sparse Erdős–Rényi graphs",
+          "trigger": "Most relevant general subgraph copy variance formula"
+        },
+        {
+          "assessment": "UNCONDITIONAL only; not identified as exact H-dependent formula",
+          "evidence": [
+            "Section 3.3 gives Var(T) for unconditioned G(n,p), no wedge-ordering of observed graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.5835",
+          "material_read": "Accessible abstract and Section 3.3 unconditional triangle-count polynomial, with full-text comparison noted in underlying source package",
+          "method": "Compare exact output and conditional model",
+          "title": "Polcovar: Software for Computing the Mean and Variance of Subgraph Counts in Random Graphs",
+          "trigger": "Possible exact variance database"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOMIZATION",
+          "evidence": [
+            "Correlations in degree-constrained edge swaps, not remaining independent Bernoulli edges after revealing H."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.4680",
+          "material_read": "Abstract and mathematical model summary (edge-swap randomization); no full reread on this execution",
+          "method": "Probability ensemble comparison",
+          "title": "Network motifs come in sets: correlations in the randomization process",
+          "trigger": "Other motif covariance overlap theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural edge-exposure conditional fluctuation quantity admits a non-obvious collapse from full H topology to only e and w, and gives an exact equal-mean unequal-variance witness. This complete all-n two-statistic law is mathematically motivated for random graph revelation and not merely an arbitrary tiny-instance computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General conditional exposure covariance identities may imply the formula implicitly; not a guarantee of absolute priority.",
+    "The conditional event has positive probability only for feasible H at p=0,1; endpoint formula interpreted algebraically.",
+    "No claim for conditioning only on edge count or for G(n,m)/fixed-degree graphs."
+  ],
+  "schema_version": 1
+}

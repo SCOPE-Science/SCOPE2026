@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction of the finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with no external dependencies. The script calculates the conditional triangle-count mean and variance in two independent ways: the candidate polynomial and an exhaustive weighted enumeration of *every* free-edge state for each selected observation. Its exact `fractions.Fraction` comparisons cover 612 cases, including the path-versus-claw identity and the regular-graph equal-variance identity. The observed output was:
+## correctness
 
-```
-PASS: 612 exact independent checks; no external files or packages required.
-```
+PASS
 
-For the theorem itself, inspect the complete six-row dependent-triangle-pair table and the Bernoulli shared-edge covariance computation in `RESULT.md`. In particular the only pair class depending on the detailed degrees of the observed induced graph consists of two triangles each using an internal observed edge and one common outside vertex; it contributes `2*N*w*p**3*(1-p)`. All remaining variance terms depend on the number of observed vertices and edges, not the observed triangles. The proof works for all finite parameter values. Exhaustive small graphs do not establish a general all-size theorem by themselves.
+Condition on all present and absent edges of H and partition triangles by number of internal vertices: outside-only and one-internal each have three random edges, two-internal possible triangles indexed by e(H) each have two random cross edges, fully internal triangles are deterministic. Distinct nonzero indicators covary only when sharing one RANDOM edge; if each has r and s required random edges, covariance=p^(r+s-1)(1-p). Enumerate all six unordered dependent class pairs: A0/A0, A0/A1, A1/A1 same internal vertex, A1/A1 different internal vertices, A1/A2, A2/A2; last count N*w(H). All pair counts reproduce the exact RESULT.md polynomial: (C(N,3)+h C(N,2))(p³-p⁶)+eN(p²-p⁴)+2C(N,2)[C(N-2,2)+2h(N-2)+C(h,2)]p⁵(1-p)+4eN(N-1)p⁴(1-p)+2Nw p³(1-p). Deterministic triangle count t(H) appears in conditional mean only. For equal e subtract to get 2N delta_w p³(1-p); claw w=3 vs path w=2 at h4 gives strict witness for N>=1, 0<p<1. At N=0 deterministic; p endpoints allowed only for positive-probability H, formula algebraic otherwise. Independent exact enumeration over all relevant free-edge configurations in selected small n,h,p cases agreed; complete overlap census is all-n proof.
 
-No independent audit or external validation has been performed.
+## originality
+
+PASS
+
+Unconditional general triangle count covariance and subgraph overlap formulas already exist (Ellis–Ferry 2010, Kunegis 2014); they furnish counting tools but do not state this graph-conditioned polynomial after full induced revelation. Ginoza–Mugler different edge-swap randomization. Existing generic copy-overlap machinery might imply a specialized formula when one computes this conditional exposure, and that is a real residual risk; no direct covering wedge-only conditional theorem found by Resultary and primary comparisons. Exact triangle-count first conditional moment is elementary prior work, not novelty.
+
+## value
+
+PASS
+
+The natural edge-exposure conditional fluctuation quantity admits a non-obvious collapse from full H topology to only e and w, and gives an exact equal-mean unequal-variance witness. This complete all-n two-statistic law is mathematically motivated for random graph revelation and not merely an arbitrary tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
