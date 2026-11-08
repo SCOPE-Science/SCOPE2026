@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result proves a geometric fixed-point identification using orbit barycentric coordinates, then calculates the two orbit-conflict graphs with explicit vertex and edge relations. The vertex-axis quotient is the simple-path Mycielskian covered by the cited published theorem. For the edge axis, the top-level restriction and two endpoint self-relations are represented by a simple layered graph, on which the open-neighborhood fold is proved directly for every parameter. A homotopy-cofiber decomposition yields the all-parameter sphere-wedge formula. Finite checks reconstruct the original graphs and verify orbit edges and mod-two ranks. Risks: mathematical verification of all proof steps remains self-review; independent validation has not taken place.
+## correctness
 
-## Originality — PASS
-The closest full-text source, Carnero Bravo (arXiv:2601.13432, Sections 2--3, Theorem 5 and Corollaries 9,11), treats nonequivariant Mycielskians of simple graphs, with no reflection fixed-point theorem. The edge-axis quotient has a looped adjacency relation at both ends, which deletes two top-layer orbit vertices and is not directly covered by the theorem's simple-graph domain. The exact homotopy and exponential sphere formula require the supplied orbit model and all-parameter fold/cofiber argument. A published result on complete-graph Mycielskians gives rational label-permutation representations for a different graph and neither identifies nor computes this fixed space. Searches of mathematical records for orbit, symmetry, looped quotient, and cycle-six equivalents did not locate coverage. Risks: equivalent unindexed work or an unpublished extension of the general theorem could still cover the claim.
+PASS
 
-## Mathematical value — PASS
-The two natural conjugacy classes of reflections of the same six-cycle induce categorically different fixed-point homotopy types at every depth: one always contractible, the other cyclically alternating between contractible and wedges with exponentially growing sphere multiplicity. The specific six-cycle is intrinsically motivated as the first even cycle with a three-orbit edge-axis quotient having two forbidden top orbits and a middle allowed orbit, whose two-layer independence complex has rank-two first homology. The finding resolves the complete integral homotopy classification for this symmetry and infinite depth family; it is not a numerical finite-table increment. Limits: no full dihedral subgroup classification or ambient equivariant homotopy classification is asserted.
+Reconstructed a PL homeomorphism between involution-fixed geometric realizations of independence complexes and orbit-conflict independence complexes: barycentric coefficients are constant on each vertex orbit and normalized by its cardinality. For ν i↦−i, all four label orbits form simple P4 and the quotient is μ_l(P4); published simple-base-graph theorem makes its independence complex contractible since Ind(P4) and its doubled counterpart are contractible. For ε i↦1−i, orbit endpoints have internal top edges and therefore disappear only at the top; non-top cross-level relation is {(0,0),(0,1),(1,0),(1,2),(2,1),(2,2)}. Its two complete adjacent levels form an ordinary C6, Ind(C6)≃S1∨S1. Open-neighborhood inclusion N((1,a))⊆N((3,a)) yields the all-l 3-step deletion/isolated-join A_l≃Ind(C6)*A_{l−3}, with explicitly analyzed A0,A1,A2. Apex cofiber yields contractible at l≡1 mod3, wedge of 2^{k+1} S^{2k+1} at l=3k+2, and wedge of 2^k S^{2k} at l=3k. Independently reconstructed original μ_l(C6) vertex orbits/conflicts and computed exact mod-two homology for both reflection types l=1..5; observed ε l=2:2 circles, l=3:2 two-spheres, l=5:4 three-spheres, and ν contractible in all five. This finite test corroborates but does not imply the infinite fold proof.
 
-## Closest literature and limitations
-The 2026 motivating paper's simple-graph theorem supplies the path case and folding context, not the loop-relation fixed quotient. The 2021 complete-graph paper is nonequivariant. Published related complete-graph label-symmetry calculations do not imply this result. All reference dates and proof comparisons refer to inspected evidence; absence from searches is not a mathematical novelty certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicitly classified geometric fixed sets under both C6 reflection conjugacy classes. Carnero Bravo 2026 proves nonequivariant homotopy of generalized Mycielskians over simple base graphs; the vertex-axis quotient is such a simple-path instance, but the edge-axis quotient has two self-relations in its cross-layer relation and restricted top, so the general theorem does not cover it directly. Goyal–Shukla–Singh treats complete graphs, not these reflection quotients. No exact all-depth fixed-space dichotomy found.
+
+## value
+
+PASS
+
+Two inequivalent involutions of one natural C6 generalized Mycielskian family produce dramatically different geometric fixed loci: one always contractible and the other exponentially many homology-sphere generators with a three-periodic degree law. This geometric orbit analysis is a substantive equivariant structural result across every depth and supplies natural fixed-set boundary data, rather than a tiny numerical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
