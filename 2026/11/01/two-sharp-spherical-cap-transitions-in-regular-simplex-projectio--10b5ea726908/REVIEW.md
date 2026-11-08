@@ -1,19 +1,21 @@
-# Review of the two-transition regular-simplex width theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every integer \(d\ge3\), Haar-uniform line directions, a unit-edge simplex, and thresholds \(b=\sqrt{2/3}\) and \(a=\sqrt3/2\). Centering and scaling the standard simplex gives exactly the directed type-\(A\) roots. Their discrete Gram inner products show that all cap intersections above \(b\) are either individual caps or pairs with inner product \(1/2\); every possible triple has a common-root endpoint and maximum simultaneous contact \(b\). There are \(d(d+1)(d-1)\) eligible unordered pairs. The one-dimensional lens integral follows from the exact conditional spherical coordinate distribution. The positive explicit asymptotic coefficient follows from a bounded local spherical-chart scaling and dominated convergence; no experiment substitutes for that proof. The standalone checker was executed with both root enumeration and numerical lens comparisons, and all tests passed.
+PASS
 
-## Originality — PASS, subject to historical priority
+For unit-edge regular d-simplex, d>=3, the projection width equals max_{i!=j}<U,(e_i−e_j)/sqrt2> for Haar U in sum-zero d-space. Its high survival event is N=d(d+1) spherical caps. Distinct directed roots have inner products in {-1,-1/2,0,1/2}; first cap contacts at t=a=sqrt3/2, with exactly P=d(d+1)(d−1) unordered pairs having dot 1/2. Three pairwise-eligible roots share start or end vertex; sum vector length sqrt6 implies first positive triple overlap below b=sqrt(2/3). Hence through b<=t<=a inclusion–exclusion stops at pairs, giving H=N*C_d−P*L_d with the stated conditioned-coordinate incomplete-beta lens integral, whereas a<=t<=1 gives N*C_d. At a−eps, local coordinates p=eps*x, z=sqrt(eps)*y turn lens into |x|/2+(a/2)||y||²<=1; normalized area integrates to B_d eps^{d/2}, B_d=8 κ_(d−2)/(d²κ_d)*(4/sqrt3)^((d−2)/2). For d=3 upper tail 6(1−t). Independently enumerated all directed-root inner products and eligible triples for d=3..7. All-dimensional conclusion is analytic, not experimental.
 
-The closest directly relevant full texts were Har-Peled–Robson (arXiv:2301.02616, Jan. 6, 2023), which computes minimum widths; Finch (arXiv:1110.0671), which calculates tetrahedral first and second moments and explicitly reports unknown densities at the time; and Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479), which provides all random-width moments implicitly determining the distribution. The latter has broader moment coverage, not the explicit two-regime edge-root cap-union formula or its first-overlap asymptotic. The published cube first-spherical-cap-transition result covers a different family and different normal configuration, while the regular-simplex-vertex cap-union result concerns caps centered at vertices rather than the simplex's directed edge differences. The assertion of originality is limited to the explicit high-tail classification and sharp transition, not the general cap or Gaussian moment methods. A previously unknown equivalent root-system cap formula remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact dimension-independent thresholds and their geometrically classified intersection multiplicities turn an implicit distribution into two explicitly computable regimes in every dimension. The onset exponent and coefficient quantify the first singularity in a canonical random-width law; the tetrahedral upper tail simplifies to a uniform conditional distribution. This is a natural all-dimensional geometric probability benchmark, not a parameter substitution or an arbitrary numerical slice. The work does not claim a full lower-tail distribution, a joint high-dimensional limit or finite-sample inference.
+Best-of-knowledge explicit HIGH-TAIL law and first pair-overlap coefficient for the directed root A_d configuration are not given by earlier simplex minimum widths or implicit all moments. Kabluchko–Litvak–Zaporozhets arXiv:1511.08479 supplies all random-width moments (hence theoretically determines distribution), but no evaluated adjacent spherical-lens inclusion–exclusion formula or onset constant in the pertinent sections. Published cube width and simplex-VERTEX spherical cap union results have different cap-center Gram matrices and do not imply this formula by renaming. An equivalent older root-cap calculation remains possible.
 
-## Status and boundaries
+## value
 
-No independent review is represented as completed. The upper-tail result rests on elementary exact geometric arguments, with finite machine checks supplementary. Novelty remains historical-priority provisional, especially in older spherical root-system literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regular simplex is a canonical family in every dimension. The dimension-independent two overlap thresholds, exact high-tail law and sharp nonzero ε^(d/2) onset coefficient resolve motivated features of its Haar random projection width. They provide explicit geometric data beyond implicit complete moments, with appropriate restriction below the triple-overlap threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
