@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:51:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md angular integral proof",
+        "independent_checks.py C2; 100000-angle direct full-matrix comparisons"
+      ],
+      "rationale": "The claim covers every planar SPD Q, deterministic start, and two *sequential exact* line minimizations. Whitening Q reduces one step to a Euclidean rank-one projection; integrating over angle gives independent-pair D and orthogonal-pair C, with C=((κ−1)/(κ+1))²D as full matrices (not isotropically averaged starts). An independent midpoint quadrature with 100,000 angles at κ=1,1.2,2,4,9,49 reproduced the entire matrix identity to <3e−8. Partial-fraction/angular formulas in RESULT.md establish it for continuum κ; κ=1 handled separately.",
+      "residual_risks": [
+        "Finite independent experiments corroborate selected identities only; universal assertions depend on reconstructed proof, not experiments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          [
+            "Gürbüzbalaban et al arXiv:1803.08200 fixed-coordinate permutations"
+          ]
+        ],
+        "reasoning": "Independent of start-orientation exact matrix identity not a simple fixed-coordinate corollary; laws use continuous random orientations.",
+        "searches": [
+          "randomized line search planar quadratic two sequential independent directions versus Haar orthogonal pair exact expected objective",
+          "Resultary semantic search, 2026-11-07",
+          "https://arxiv.org/pdf/2107.03941",
+          "randomized coordinate descent without replacement vs Haar directions"
+        ]
+      },
+      "checked_sources": [
+        "Kozak et al arXiv:2107.03941, Sections 2, 4, 7, 9.1 PDF",
+        "Berglund et al arXiv:2202.04612 abstract",
+        "Gower–Richtárik arXiv:1506.03296 background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          [
+            "Kozak PDF p28 explicitly says line-search analysis outside scope, p9 quadratic tailored analysis left for future"
+          ]
+        ],
+        "reasoning": "Consequently its general rate theorem does not entail the particular sequential line-search expectation.",
+        "searches": [
+          "randomized line search planar quadratic two sequential independent directions versus Haar orthogonal pair exact expected objective",
+          "Resultary semantic search, 2026-11-07",
+          "https://arxiv.org/pdf/2107.03941",
+          "Kozak orthogonal random directions general convergence covers two sequential exact minimizations?"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          [
+            "Kozak et al arXiv:2107.03941 Sec 2 Algorithm 1 finite-difference gradient, not exact line minimizer"
+          ]
+        ],
+        "reasoning": "The closest exact optimization objects differ by update rule; Haar rotation alone does not imply two-query identity.",
+        "searches": [
+          "randomized line search planar quadratic two sequential independent directions versus Haar orthogonal pair exact expected objective",
+          "Resultary semantic search, 2026-11-07",
+          "https://arxiv.org/pdf/2107.03941",
+          "random orthogonal directions versus independent exact quadratic line minimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          [
+            "No known exact same-Q constant in Resultary or searched primary title/abstracts"
+          ]
+        ],
+        "reasoning": "No complete prior exact table found; search failure cannot certify novelty.",
+        "searches": [
+          "randomized line search planar quadratic two sequential independent directions versus Haar orthogonal pair exact expected objective",
+          "Resultary semantic search, 2026-11-07",
+          "https://arxiv.org/pdf/2107.03941",
+          "planar quadratic random line search expected progress two steps condition number"
+        ]
+      },
+      "rationale": "Convergence bounds for finite-difference Haar subspace gradient steps are not two *sequential exact line minimizations*. A PDF-level inspection of Kozak et al. says the backtracking line-search analysis was not covered and its quadratic specialization merits tailored study. Thus its claimed generality does not imply the orientation-uniform two-query matrix coefficient. General projection formulas remain a priority risk.",
+      "residual_risks": [
+        "Best-of-knowledge originality only, not exhaustive historical priority.",
+        "Earlier indexed or unindexed equivalent results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm 1 is finite-difference subspace gradient with prescribed steps; its page 28 says backtracking line-search analysis is not covered; page 9 leaves tailored quadratic convergence to future work. Does not imply two sequential exact minimizations coefficient.",
+          "evidence": [
+            "https://arxiv.org/pdf/2107.03941"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.03941",
+          "material_read": "Full 43-page PDF text searched and Sections 2, 4, 7 and 9.1 read around update rule, algorithm assumptions, the quadratic caveat, and line-search discussion; PDF page 3 visually inspected.",
+          "method": "Accessible arXiv PDF, text search, page screenshot.",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Precisely uses Haar orthogonal random directions in optimization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "finite-query objective decrease"
+      ],
+      "rationale": "The exact relative benefit of paired orthogonal versus independent direction queries at fixed condition number is a natural design quantity for randomized direction optimization; the universal-in-start gain and κ→1/∞ regimes are meaningful, although restricted to dimension two and exact line searches.",
+      "residual_risks": [
+        "Significance is restricted to the precise theorem scope, with no claimed broader unproved generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical and originality assessment, not a formal proof certificate or independent historical-priority guarantee.",
+    "Publication not_ready because public metadata contains operational provenance and inherited first-publication dates, with complete safe replacements not staged."
+  ],
+  "schema_version": 1
+}
