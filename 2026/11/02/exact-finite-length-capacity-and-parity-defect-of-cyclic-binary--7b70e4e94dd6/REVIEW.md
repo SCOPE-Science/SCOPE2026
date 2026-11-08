@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source-to-label equivalence is proved using the binary hidden-state transition matrices. The full subset-automaton transition table and the synchronization property of labels \(0\) and \(3\) show that every attainable anchored read vector has a unique labeled closed subset-state path. All read vectors with only labels \(1,2\) are realizable by explicit cyclic binary states, and the only multiple labeled cycles are the two alternating vectors when the read period is even. The determinant \(t(t^2-4t+2)\) then proves the all-period closed formula. Reconstructed hypotheses include ordinary integer sums, cyclic wraparound, counted overlapping positions, indexed output alignment, and the small case \(m=1\). The standalone `verify.py` independently enumerated all \(4^m\) binary sources at periods \(1\le m\le10\) and verified all output and multiplicity counts; a separate recurrence check runs through period 200. The infinite conclusion rests on the proof, not the finite checks.
+## correctness
 
-**Originality — PASS (qualified).** Chee–Vardy–Vu–Yaakobi, *Coding for Transverse-Reads in Domain Wall Memories* (2021), and the expanded 2023 journal paper both analyze noncyclic transverse-read words. The 2023 paper's Fig. 3 already contains an isomorphic determinized graph, so neither the graph nor its Perron eigenvalue or the asymptotic rate is claimed to be new. The papers explicitly state that a cyclic model is possible but not treated. Yerushalmi–Etzion–Yaakobi (2024) gives the noncyclic weighted-read asymptotic capacity. In the relevant full-text sections, none determines the finite-period output-image size or corrects multiple closed automaton paths. Nearby work on noncyclic worst-case inverse-fiber size and on cyclic ordered-pair spectra addresses different observation equivalences. A general sofic-shift zeta-function method can in principle count periodic outputs from a deterministic presentation (Manada–Kashyap, 2013, citing classical Manning–Bowen machinery), but does not supply this numerical specialization; priority could still be affected by an unindexed periodic-sofic-shift or cyclic weighted-read enumeration.
+PASS
 
-**Value — PASS.** The finite-block zero-error capacity of cyclic transverse reads is an intrinsic engineering and information-theoretic quantity, distinct from an asymptotic spectral rate. The answer is exact for every period, including the parity-sensitive exceptions, and the proof identifies a concrete mechanism by which blindly taking a trace of the published presentation gives incorrect capacities. This is a complete natural family rather than an arbitrary finite table. The numerical parity discrepancy is bounded, so the theorem does not improve the previously known asymptotic rate; its value is exact finite-length reconstruction and the classification of periodic image multiplicity.
+Define a_i=x_{2i}, b_i=x_{2i+1}; y_i=a_i+a_{i+1}+b_i with cyclic indices and counted multiplicity at m=1. Determinized subset-state transition matrix T has eigenvalues 0,2±sqrt2. A 0 or 3 label synchronizes closed paths; without them only the two even-length alternating 1/2 words have an extra singleton-state closed path. Therefore N_m=tr(T^m)−1−(−1)^m, not uncorrected trace. Independent enumeration of all 4^m binary sources for 1≤m≤9 recovered exact outputs and parity correction.
 
-**Closest literature and risks.** Chee et al. 2021 (DOI 10.1109/ISIT45174.2021.9518271), Chee et al. 2023 (DOI 10.1109/JSAIT.2023.3334303), and Yerushalmi et al. 2024 (arXiv:2401.15368). Existing automaton and exponential rate are inherited; independent scientific audit has not been performed. A hidden equivalent result in the symbolic dynamics periodic-points literature remains the principal priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chee et al. already provide the binary (3,2) automaton and the asymptotic rate; the asserted new fact is the exact marked cyclic-output image cardinality and its exceptional two alternating vectors for even period.
+
+## value
+
+PASS
+
+Cyclic read capacity is an intrinsic finite-block coding invariant. The explicit count separates a closed-path presentation from distinct read vectors and isolates a genuine parity defect, relevant when designing exact short cyclic read codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

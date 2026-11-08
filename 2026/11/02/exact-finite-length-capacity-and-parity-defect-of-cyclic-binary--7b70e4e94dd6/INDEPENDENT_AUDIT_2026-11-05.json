@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:09:18.417176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define a_i=x_{2i}, b_i=x_{2i+1}; y_i=a_i+a_{i+1}+b_i with cyclic indices and counted multiplicity at m=1. Determinized subset-state transition matrix T has eigenvalues 0,2±sqrt2. A 0 or 3 label synchronizes closed paths; without them only the two even-length alternating 1/2 words have an extra singleton-state closed path. Therefore N_m=tr(T^m)−1−(−1)^m, not uncorrected trace. Independent enumeration of all 4^m binary sources for 1≤m≤9 recovered exact outputs and parity correction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al. explicitly prefer noncyclic reads even though cyclic reads could be defined; their rates derive from a transfer graph."
+        ],
+        "reasoning": "A general periodic-sofic inclusion–exclusion technique is a method, not a prior evaluated count for this channel; spectral radius agrees but cannot determine the two alternating overcounts.",
+        "searches": [
+          "Chee Vardy Vu Yaakobi Transverse Read Codes Domain Wall Memories cyclic",
+          "Yerushalmi Etzion Yaakobi weighted read capacity"
+        ]
+      },
+      "checked_sources": [
+        "Chee–Vardy–Vu–Yaakobi IEEE JSAIT 2023 full PDF relevant definitions, theorem and noncyclic/cyclic remark, visual p.4 inspected",
+        "arxiv:2401.15368 weighted read channel abstract/metadata",
+        "Resultary Fibonacci worst-case ambiguity record for noncyclic (3,2) reads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chee gives known asymptotic transfer eigenvalue, and zeta methods allow periodic enumeration generically."
+        ],
+        "reasoning": "The N_m formula is not implied by the limiting capacity alone. Given the concrete automaton, the full count is obtainable only after correcting the trace by precise multiplicity analysis.",
+        "searches": [
+          "Chee et al 2023 PDF cyclic version remark",
+          "periodic finite type shift zeta exact presentation multiplicities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic read outputs are period-m words of a sofic shift, while graph trace counts periodic presentations with multiplicity."
+        ],
+        "reasoning": "The shift-language reduction is standard; the exact parity correction requires identifying ambiguous closed subset paths.",
+        "searches": [
+          "cyclic transverse-read channel length 3 stride 2 binary weighted read finite block image cardinality periodic points parity",
+          "sofic shift periodic point count labeled graph overcount"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related published record concerns worst-case fiber size in a noncyclic odd-length read channel, not image cardinality of the cyclic even-length map."
+        ],
+        "reasoning": "No exact cyclic N_m table encountered; distinctions in boundary, output equivalence and counted invariant are mathematically material.",
+        "searches": [
+          "cyclic transverse-read length three stride two output count 4 10 40 134 464",
+          "Resultary:2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e"
+        ]
+      },
+      "rationale": "Chee et al. already provide the binary (3,2) automaton and the asymptotic rate; the asserted new fact is the exact marked cyclic-output image cardinality and its exceptional two alternating vectors for even period.",
+      "residual_risks": [
+        "An exact periodic-point/zeta calculation of the same small sofic presentation may have been published under symbolic dynamics terminology.",
+        "The asymptotic rate and graph spectral radius are established prior facts, not the originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS noncyclic map and asymptotic rate; explicitly elects not to analyze cyclic variant",
+          "evidence": [
+            "Definition 1 uses n-ell=k delta noncyclic outputs.",
+            "PDF text says cyclic version is possible but noncyclic is adopted.",
+            "Transfer-state capacity methods and Perron eigenvalue are prior work."
+          ],
+          "identifier_or_url": "https://ymchee66.github.io/home/PDF/transverse-readj.pdf",
+          "material_read": "PDF first pages, exact model definitions and cyclic-version remark, capacity and automaton discussion; page 4 visually inspected",
+          "method": "Author-accessible PDF parsed text and web page screenshot",
+          "title": "Transverse-Read-Codes for Domain Wall Memories",
+          "trigger": "Same (3,2) transverse read channel and deterministic subset graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cyclic read capacity is an intrinsic finite-block coding invariant. The explicit count separates a closed-path presentation from distinct read vectors and isolates a genuine parity defect, relevant when designing exact short cyclic read codes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary indexed cyclic (3,2) reads with exact overlapping integer weights, no rotations/reversals identified.",
+    "The transfer-matrix trace counts labeled closed presentations and needs parity correction; finite checks not infinite proof.",
+    "An exact periodic-point/zeta calculation of the same small sofic presentation may have been published under symbolic dynamics terminology.",
+    "The asymptotic rate and graph spectral radius are established prior facts, not the originality claim."
+  ],
+  "schema_version": 1
+}

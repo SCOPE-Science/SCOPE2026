@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`. Run `python3 verify.py` from the directory containing the delivered files. A successful verification prints `VERIFY_OK` after computing all \(4^m\) input words for each \(1\le m\le10\), checking the distinct image size, verifying each output's deterministic-cycle multiplicity, confirming the entire source count via its inverse fibers, and comparing the independent matrix-power and recurrence calculations for every \(1\le m\le200\). For example, periods \(1,2,3,4,5\) yield image sizes \(4,10,40,134,464\), and the associated closed-path traces are \(4,12,40,136,464\).
+## correctness
 
-The all-length proof uses the hidden binary states, the three-state subset automaton, and the exhaustive classification of extra singleton-state cycles. Finite checks are not a proof of arbitrary-period completeness. Neither third-party audit nor external formal certification has occurred. The published noncyclic automaton and its Perron eigenvalue are not represented as new.
+PASS
+
+Define a_i=x_{2i}, b_i=x_{2i+1}; y_i=a_i+a_{i+1}+b_i with cyclic indices and counted multiplicity at m=1. Determinized subset-state transition matrix T has eigenvalues 0,2±sqrt2. A 0 or 3 label synchronizes closed paths; without them only the two even-length alternating 1/2 words have an extra singleton-state closed path. Therefore N_m=tr(T^m)−1−(−1)^m, not uncorrected trace. Independent enumeration of all 4^m binary sources for 1≤m≤9 recovered exact outputs and parity correction.
+
+## originality
+
+PASS
+
+Chee et al. already provide the binary (3,2) automaton and the asymptotic rate; the asserted new fact is the exact marked cyclic-output image cardinality and its exceptional two alternating vectors for even period.
+
+## value
+
+PASS
+
+Cyclic read capacity is an intrinsic finite-block coding invariant. The explicit count separates a closed-path presentation from distinct read vectors and isolates a genuine parity defect, relevant when designing exact short cyclic read codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
