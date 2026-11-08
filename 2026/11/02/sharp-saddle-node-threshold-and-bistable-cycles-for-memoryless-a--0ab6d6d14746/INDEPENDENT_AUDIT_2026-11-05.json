@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:00:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The update is the exact beta1=beta2=0 denominator-smoothed scalar Adam specialization T(x)=x(1-eta/h(|x|)), h(r)=r+eps r^{-(p-2)} for p>2. h is strictly convex and coercive with unique minimum at r*=((p-2)eps)^(1/(p-1)), yielding eta_c=2(p-1)r*/(p-2). Eta below eta_c means radial multiplier in (0,2) for all nonzero radii, strictly decreasing radii and convergence to zero. Equality gives nonzero symmetric 2-cycle; above threshold exactly two symmetric radii r_-<r*<r_+, with two-step derivative (1-2(p-1)eps/(r^(p-1)+eps))² >1 for inner and <1 for outer; 0 locally attracts since eta/h(r)->0 as r->0. h Taylor at r* gives sqrt splitting and eventual radial recurrence gives exact k|x_k|^(p-2) limit eps/((p-2)eta) along nonterminating zero-convergent paths. Independent rational p=3 eps=1 eta=5 gives cycle radii 1/2,2 and squared multipliers 121/25,1/25.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Motivating arXiv abstract/detailed summaries study more general Adam parameters but do not visibly state an all-initial-state sharp scalar memoryless cutoff.",
+          "Padam max-memory and quadratic AdamW have structurally different recurrences."
+        ],
+        "reasoning": "A model with extra parameters is not automatically a stronger theorem at the specialized degenerate boundary. Exact implication from prior statements was not found; inaccessible full manuscript remains a priority risk.",
+        "searches": [
+          "Resultary query: AdamW smoothed gradient p>2 beta1=beta2=0 normalized gradient bifurcation two symmetric cycles",
+          "Tang--Chen--Liu, Beyond Quadratic Loss: The Stability Phase Diagram of Adam, arXiv:2609.18314v1 (2026)",
+          "Resultary: Decoupled weight decay lowers the exact chattering threshold in AdamW; Sharp partial-adaptivity phase transition in scalar Padam; A sharp flip frontier for the Polar-Express surrogate on scalar quadratics"
+        ]
+      },
+      "checked_sources": [
+        "Tang--Chen--Liu, Beyond Quadratic Loss: The Stability Phase Diagram of Adam, arXiv:2609.18314v1 (2026)",
+        "Resultary: Decoupled weight decay lowers the exact chattering threshold in AdamW; Sharp partial-adaptivity phase transition in scalar Padam; A sharp flip frontier for the Polar-Express surrogate on scalar quadratics",
+        "Resultary query: AdamW smoothed gradient p>2 beta1=beta2=0 normalized gradient bifurcation two symmetric cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known quadratic normalized-gradient flip thresholds lose zero stability, whereas for p>2 this zero has derivative one and remains nonlinearly attracting.",
+          "Two-memory Adam has different dynamical state dimension."
+        ],
+        "reasoning": "The sharp coexistence of stable origin and stable nonzero 2-cycle does not follow from quadratic flip results or generic instability statements without the exact h(r) analysis.",
+        "searches": [
+          "Tang--Chen--Liu, Beyond Quadratic Loss: The Stability Phase Diagram of Adam, arXiv:2609.18314v1 (2026)",
+          "Resultary: Decoupled weight decay lowers the exact chattering threshold in AdamW; Sharp partial-adaptivity phase transition in scalar Padam; A sharp flip frontier for the Polar-Express surrogate on scalar quadratics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact map is scalar normalized gradient with smooth positive denominator, equivalently odd radial map r->r|1-eta/h(r)|."
+        ],
+        "reasoning": "Compared maps and momentum coefficients, not the word Adam. The beta1=beta2=0 setting differs from the published analyses with persistent moments, but the special case may occur as a section of the inaccessible full manuscript.",
+        "searches": [
+          "Resultary query: AdamW smoothed gradient p>2 beta1=beta2=0 normalized gradient bifurcation two symmetric cycles",
+          "Tang--Chen--Liu, Beyond Quadratic Loss: The Stability Phase Diagram of Adam, arXiv:2609.18314v1 (2026)",
+          "Resultary precise normalized-gradient beta1=beta2=0 queries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Continuous p,eps,eta phase threshold and universal iteration convergence, no natural finite database table governs the claim."
+        ],
+        "reasoning": "No exact-database/table counterpart is applicable; checked similar numerical optimizer phase diagrams for a matching explicit formula.",
+        "searches": [
+          "Resultary query: AdamW smoothed gradient p>2 beta1=beta2=0 normalized gradient bifurcation two symmetric cycles",
+          "memoryless scalar Adam threshold numerical table search"
+        ]
+      },
+      "rationale": "The special memoryless p>2 nonlinear map has a saddle-node pair away from locally stable zero, unlike quadratic flip thresholds or the two-memory Adam model. Generic one-dimensional bifurcation methods are prior.",
+      "residual_risks": [
+        "Full text of arXiv:2609.18314 unavailable; it may contain an explicit beta1=beta2=0 corollary.",
+        "Only symmetric 2-cycles are classified above threshold; no assertion for nonsymmetric periodic orbits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Priority unresolved at bibliographic level; NOT a whole-paper noncoverage conclusion.",
+          "evidence": "The accessible summaries discuss two momentum coefficients and phase diagrams; cannot rule out the zero-momentum slice.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.18314",
+          "material_read": "Abstract and extended accessible third-party summary; direct arXiv full PDF unavailable.",
+          "method": "Arxiv/accessible public summary search; full-text access attempt",
+          "title": "Tang--Chen--Liu, Beyond Quadratic Loss: The Stability Phase Diagram of Adam, arXiv:2609.18314v1 (2026)",
+          "trigger": "Same optimizer superquadratic-loss primary paper"
+        },
+        {
+          "assessment": "Different hypothesis; no dominating implication",
+          "evidence": "For p=2 the small-radius gain stays nonzero, unlike p>2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-decoupled-weight-decay-lowers-the-exact-chattering-threshold-in--1457b4d13f59",
+          "material_read": "Resultary mathematical summary, stated scalar quadratic and decoupled weight decay assumptions.",
+          "method": "Semantic search and summary comparison",
+          "title": "Decoupled weight decay lowers the exact chattering threshold in AdamW",
+          "trigger": "Closest published related phase transition"
+        },
+        {
+          "assessment": "Different recurrence, not a proven cover",
+          "evidence": "Memory state and adaptive exponent differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c",
+          "material_read": "Resultary mathematical summary, historical maximum second-moment model.",
+          "method": "Semantic search and summary comparison",
+          "title": "Sharp partial-adaptivity phase transition in scalar Padam",
+          "trigger": "Similar exact optimizer threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact global stability frontier, distant saddle-node pair of symmetric cycles, nonlinear coexistence with an attracting minimizer and algebraic convergence rate describe a genuine sharp obstruction in a natural normalized-gradient optimization update. It is a bounded but meaningful dynamical classification, not merely exhibiting one counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Zero-momentum deterministic scalar map only, p>2, eta/eps positive; not general Adam or stochastic/finite precision.",
+    "Only symmetric cycles and zero-convergent rate, not all basins; direct full motivating article inaccessible."
+  ],
+  "schema_version": 1
+}

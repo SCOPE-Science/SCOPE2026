@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the scalar normalization theorem
+# Independent mathematical audit
 
-The public `artifacts/verify.py` uses Python 3.9+ standard library only. Execute with `python3 artifacts/verify.py` from the extracted package root. It prints `PASS: 3970 finite exact-rational and numerical assertions` on successful completion.
+## correctness
 
-The verifier uses exact rational arithmetic to check that the cubic example has precisely the proposed two radii and two-step multipliers. It evaluates the original normalized-gradient formula, compares its parameter threshold with the unique critical point of the scalar denominator on randomly selected real exponents, numerically solves both sides of the two-cycle level equation, checks each orbit and local stability, and probes the predicted square-root coalescence. It also checks strict contraction at sampled subcritical points and the algebraic relaxation constant on selected nonterminating trajectories.
+PASS
 
-The proof of universal convergence is not by sampling. It follows from the exact minimization of a strictly convex radial denominator. The uniqueness of each cycle branch follows from strict derivative signs on each side of its critical point, the stability classification from exact Jacobian substitution, and the asymptotic from a limiting reciprocal-power increment. Finite tests do not prove absence of other periodic orbits, finite-precision robustness, global basin geometry, or historical priority. External independent validation remains unperformed.
+The update is the exact beta1=beta2=0 denominator-smoothed scalar Adam specialization T(x)=x(1-eta/h(|x|)), h(r)=r+eps r^{-(p-2)} for p>2. h is strictly convex and coercive with unique minimum at r*=((p-2)eps)^(1/(p-1)), yielding eta_c=2(p-1)r*/(p-2). Eta below eta_c means radial multiplier in (0,2) for all nonzero radii, strictly decreasing radii and convergence to zero. Equality gives nonzero symmetric 2-cycle; above threshold exactly two symmetric radii r_-<r*<r_+, with two-step derivative (1-2(p-1)eps/(r^(p-1)+eps))² >1 for inner and <1 for outer; 0 locally attracts since eta/h(r)->0 as r->0. h Taylor at r* gives sqrt splitting and eventual radial recurrence gives exact k|x_k|^(p-2) limit eps/((p-2)eta) along nonterminating zero-convergent paths. Independent rational p=3 eps=1 eta=5 gives cycle radii 1/2,2 and squared multipliers 121/25,1/25.
+
+## originality
+
+PASS
+
+The special memoryless p>2 nonlinear map has a saddle-node pair away from locally stable zero, unlike quadratic flip thresholds or the two-memory Adam model. Generic one-dimensional bifurcation methods are prior.
+
+## value
+
+PASS
+
+The exact global stability frontier, distant saddle-node pair of symmetric cycles, nonlinear coexistence with an attracting minimizer and algebraic convergence rate describe a genuine sharp obstruction in a natural normalized-gradient optimization update. It is a bounded but meaningful dynamical classification, not merely exhibiting one counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
