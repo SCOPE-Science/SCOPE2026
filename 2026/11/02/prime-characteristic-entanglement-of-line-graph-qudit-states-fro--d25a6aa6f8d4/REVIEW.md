@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every finite simple loopless undirected graph, every partition of its edges (including empty parts), and each prime local dimension. Its graph-state convention and normalization are explicit. The cut adjacency is the unsigned-incidence product because distinct edges of a *simple* base graph have at most one shared endpoint. The character orthogonality calculation fixes the entire reduced-density-matrix spectrum, including zeros and multiplicities, with no infinite-limit assumption. The key nonstandard step identifies the left kernel of unsigned incidence: every component survives in characteristic two, while only bipartite components survive for odd primes. The signed component-overlap rank formula follows from a nondegenerate bilinear pairing and dimension counts. The complete-graph Hamilton-path corollary is verified by connectivity and an explicit odd cycle in the complement. The proof does not rely on experiments.
+PASS
 
-Exact testing directly compared independently constructed line-graph cut ranks against the component formula in 179,427 exhaustive instances through five base vertices and 20,000 randomized instances on six to fifteen vertices. It also checked 112 complete-graph path cuts and ten explicitly formed quantum reduced-state spectra, with largest reported eigenvalue error 2.22e-16. The executable checker and its actual output are included. These finite checks are not represented as proving the infinite family.
+For every finite simple undirected base graph, arbitrary partition of base edges E=A disjoint B (empty allowed), and prime p, the graph-state cut matrix equals unsigned-incidence product C=U_A^T U_B exactly because two distinct base edges share at most one endpoint. Removing local internal phases, additive-character orthogonality makes reduced density rho_A equal p^{-|A|} on pairs differing by ker(C^T), yielding p^r equal nonzero eigenvalues p^{-r} (r=rank_Fp C). Left kernel U_A^T has one all-one vector for each component in characteristic 2, while in odd characteristic exactly bipartite components contribute alternating indicator vectors; isolated vertices are included. Rank pairing gives r=n-q_A-q_B+rank(T_A^T T_B) even for empty matrices and odd cycles. For K_n, n>=5, Hamilton A and odd-cycle connected complementary B give q_A=1, q_B=0 odd p, and q_A=q_B=1 with overlap [n mod2] at p2, yielding stated parity split and maximal odd-prime subsystem. Independently checked 2,280 n<=4 colored graph partitions and 27 Hamilton examples, distinct from unrestricted proof.
 
-## Originality — PASS on examined evidence, with residual priority risk
+## originality
 
-The general graph-state cut-rank statement is already established by Hein, Eisert and Briegel (2003), and its prime-dimensional analogues belong to the established qudit stabilizer framework. It is not the claimed novelty. In particular, computing a cut rank by Gaussian elimination on the entire line-graph adjacency submatrix is prior coverage. The comparison sought the stronger, closed all-base-graph component-overlap evaluation across characteristics. Severini (2005) discusses line graphs in relation to a different multipartite Schmidt measure and full adjacency rank. Oum's line-graph manuscript discusses full binary adjacency rank and proves the cut-rank boundary-size *upper bound*, not this equality. Helwig and Chen–Zhou discuss high-dimensional maximal-entanglement criteria without the signed-component specialization. The already known rook-graph rectangular-cut calculation, a specialization to a complete-bipartite base graph, is expressly excluded from novelty. The contribution is the uniform signed-component formula and its prime-characteristic Hamilton-cut maximality dichotomy; it does not claim invention of graph-state cut rank, graph incidence kernels, or related existing special cases.
+PASS
 
-The primary literature is not exhaustively searchable. Earlier algebraic or signed-graphic-matroid work might imply an equivalent formula, so independent historical verification remains appropriate. No decisive published statement observed in the inspected material covers the exact claim.
+Qualified PASS for an exact evaluated all-edge-cut signed-component overlap formula for prime-characteristic line-graph graph states and sharp Hamilton-path parity split; graph-state cut-rank and incidence-kernel lemmas are established precursors.
 
-## Mathematical value — PASS
+## value
 
-A dense line graph may contain a quadratic number of quantum sites relative to the base graph, so replacing a potentially quadratic-size cut matrix by components and an at-most-\(n\)-dimensional signed overlap matrix is an exact structural simplification. The result gives the full Schmidt spectrum, including all Rényi entropies and an exact maximal-mixing criterion for any cut. The arbitrary-graph classification contains a natural prime-characteristic phase distinction on Hamilton-path cuts of complete graphs: even-order qubit subsystems miss maximal entanglement by exactly one unit but the same graph at any odd prime has no deficit. This is an intrinsically motivated question in structured graph-state entanglement, not an arbitrary finite numerical slice. The special rook-graph computation is explicitly not repackaged as the new contribution.
+PASS
 
-## Boundaries and closest literature
+PASS: A single exact, small-component linear-algebra formula for the entire Schmidt spectrum of all line-graph qudit bipartitions, with a concrete sharp prime-dependent maximally mixed transition. Meaningful simplification beyond generic cut-rank computation.
 
-The proof requires simple graphs, unweighted generalized controlled-phase couplings and prime local dimension. Arbitrary weighted graph states, multigraphs, composite dimension and noisy states are outside scope. Closest inspected sources: Hein–Eisert–Briegel (arXiv:quant-ph/0307130, Sec. III.2), Severini (arXiv:quant-ph/0511147, Sec. IV.2), Oum (author manuscript 2006, Secs. 3 and 6), Looi et al. (arXiv:0712.1979), Helwig (arXiv:1306.2879), and Chen–Zhou (arXiv:1507.05386). The general entanglement–cut-rank correspondence and existing rook-graph special case are known; no universal originality is claimed outside the examined comparisons.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

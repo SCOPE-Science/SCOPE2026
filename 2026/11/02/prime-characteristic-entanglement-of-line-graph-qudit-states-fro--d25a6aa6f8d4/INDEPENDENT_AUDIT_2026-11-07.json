@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:46:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every finite simple undirected base graph, arbitrary partition of base edges E=A disjoint B (empty allowed), and prime p, the graph-state cut matrix equals unsigned-incidence product C=U_A^T U_B exactly because two distinct base edges share at most one endpoint. Removing local internal phases, additive-character orthogonality makes reduced density rho_A equal p^{-|A|} on pairs differing by ker(C^T), yielding p^r equal nonzero eigenvalues p^{-r} (r=rank_Fp C). Left kernel U_A^T has one all-one vector for each component in characteristic 2, while in odd characteristic exactly bipartite components contribute alternating indicator vectors; isolated vertices are included. Rank pairing gives r=n-q_A-q_B+rank(T_A^T T_B) even for empty matrices and odd cycles. For K_n, n>=5, Hamilton A and odd-cycle connected complementary B give q_A=1, q_B=0 odd p, and q_A=q_B=1 with overlap [n mod2] at p2, yielding stated parity split and maximal odd-prime subsystem. Independently checked 2,280 n<=4 colored graph partitions and 27 Hamilton examples, distinct from unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-graph (qubit) Schmidt cut rank is known, with higher-prime analogues standard.",
+          "Oum bound via graph boundary in binary case does not itself give the exact arbitrary signed overlap in all prime fields."
+        ],
+        "reasoning": "The specialization to L(G) and its unsigned-incidence left-kernel plus characteristic-sensitive component cancellation is not stated by the checked broader graph-state and rank-width results.",
+        "searches": [
+          "Hein Eisert Briegel 2003 section III.2 Proposition 3",
+          "Oum 2006 Excluding a Bipartite Circle Graph from Line Graphs Lemma 14 Corollary 16",
+          "Looi Yu Gheorghiu Griffiths arxiv:0712.1979 qudit graph states",
+          "Helwig arxiv:1306.2879"
+        ]
+      },
+      "checked_sources": [
+        "Hein Eisert Briegel 2003 arxiv:quant-ph/0307130 full text",
+        "Oum 2006 line-graph rank-width manuscript full text",
+        "Severini 2005 arxiv:quant-ph/0511147",
+        "Looi et al. arxiv:0712.1979",
+        "Helwig arxiv:1306.2879",
+        "Chen Zhou arxiv:1507.05386",
+        "Resultary q5 and Alltop-spectrum result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Flat reduced spectrum as a function of cut rank is known, explicitly not new.",
+          "The component-overlap rank formula and its complete-graph Hamilton-cut p-dependent maximality are consequences of newly combined incidence-kernel reduction, not directly displayed in inspected prior results."
+        ],
+        "reasoning": "The primary originality is the uniform evaluated rank formula and exact prime-characteristic family; an abstract quantum-cut-rank correspondence alone does not imply the explicit q_A,q_B,P_p formula without solving the incidence problem.",
+        "searches": [
+          "Hein Eisert Briegel 2003 Proposition 3",
+          "Oum 2006 Lemma 14 and Corollary 16",
+          "Severini 2005 two-colorable graph states and line graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hein et al. prove the qubit Schmidt-cut-rank correspondence generally.",
+          "Oum gives binary line-graph cut-rank boundary estimates and a theorem about full adjacency rank, rather than this arbitrary cut evaluated signed-overlap expression."
+        ],
+        "reasoning": "General graph-state cut-rank formulas require evaluating a potentially large cut matrix. The claimed closed structural evaluation via component signatures is a further reduction; merely knowing it is computable by linear algebra is not a written all-graph classification.",
+        "searches": [
+          "qudit graph state line graph Schmidt cut rank incidence matrix component overlap odd prime characteristic entanglement",
+          "Hein Eisert Briegel quantum graph state bipartite Schmidt rank cut adjacency arxiv:quant-ph/0307130",
+          "Oum line graphs rank width vertex boundary 2006",
+          "Severini two-colorable graph states line graphs 2005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously calculated rectangular cuts for line graphs of complete bipartite base graphs are included special cases, explicitly credited.",
+          "Resultary nearest returned Alltop two-qudit Schmidt spectrum 2026/10/4/SCOPE-exact-schmidt-spectrum-of-cubic-alltop-two-qudit-states--0d24ade98197 concerns unrelated states."
+        ],
+        "reasoning": "Known special numerical rank cases and general rank-width bounds do not amount to a complete table for all simple base graphs, prime characteristics, and edge partitions.",
+        "searches": [
+          "Resultary semantic query: qudit graph state line graph Schmidt cut rank incidence matrix component overlap odd prime characteristic entanglement",
+          "rook graph state rectangular cut rank L(K_m,n)",
+          "Oum binary line graph cut rank 2006"
+        ]
+      },
+      "rationale": "Qualified PASS for an exact evaluated all-edge-cut signed-component overlap formula for prime-characteristic line-graph graph states and sharp Hamilton-path parity split; graph-state cut-rank and incidence-kernel lemmas are established precursors.",
+      "residual_risks": [
+        "The exact signed-component matrix identity could be known in matroid/coding theory under another name; checked results do not prove absolute priority.",
+        "General graph-state cut rank is established prior work and must not be represented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CUT_RANK_PRIOR",
+          "evidence": "General binary cut-rank/Schmidt relationship is prior; does not evaluate arbitrary edge cuts of all line graphs via signed component signatures.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+          "material_read": "Section III.2, Proposition 3 and cut rank correspondence in full primary article",
+          "method": "Read full-text theorem and PDF pages including a screenshot",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "General binary graph-state Schmidt rank and spectrum"
+        },
+        {
+          "assessment": "UPPER_BOUND_NOT_EXACT_FORMULA",
+          "evidence": "Binary cut-rank bounded by boundary-vertex statistic; no arbitrary-prime exact signed-overlap expression in these results.",
+          "identifier_or_url": "https://sangil.dimag.kr/pdf/2006line.pdf",
+          "material_read": "Full author manuscript relevant Sections 3 and 6, Lemma 14, Corollary 16",
+          "method": "Read PDF mathematical statements and inspected screenshot of relevant page",
+          "title": "Excluding a Bipartite Circle Graph from Line Graphs",
+          "trigger": "Same line-graph cut rank and possible stronger combinatorial theorem"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_ENTANGLEMENT",
+          "evidence": "Global multipartite Schmidt measure of two-colorable graph states is not the arbitrary bipartition pure-state entropy formula.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0511147",
+          "material_read": "Full accessible primary preprint Sections III and IV.2",
+          "method": "Read relevant statements about line graphs of trees and global Schmidt measure",
+          "title": "Two-colorable graph states with maximal Schmidt measure",
+          "trigger": "Line-graph graph states and entanglement"
+        },
+        {
+          "assessment": "FRAMEWORK_PRIOR",
+          "evidence": "Supports existing prime/qudit graph-state formalism but not evaluated line-graph signed-overlap classification.",
+          "identifier_or_url": "https://arxiv.org/abs/0712.1979",
+          "material_read": "Preprint construction and dimension assumptions",
+          "method": "Inspected abstract and relevant generalized stabilizer statement",
+          "title": "Quantum-error-correcting codes using qudit graph states",
+          "trigger": "Higher-dimensional graph-state formalism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A single exact, small-component linear-algebra formula for the entire Schmidt spectrum of all line-graph qudit bipartitions, with a concrete sharp prime-dependent maximally mixed transition. Meaningful simplification beyond generic cut-rank computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prime local dimension, pure unweighted line-graph graph states and simple base graphs; composite dimensions, weights and noisy states excluded.",
+    "Independently checked finite graphs do not substitute for finite-field kernel proof."
+  ],
+  "schema_version": 1
+}

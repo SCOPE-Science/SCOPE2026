@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is given in `RESULT.md`; the computation is corroborative, not an infinite proof. Run `python3 check.py` from this directory. Python 3.8+ is sufficient for finite-field checks; NumPy is needed only for the optional direct density-matrix eigenspectrum comparisons. The exact recorded output of the complete test environment is in `CHECK_OUTPUT.txt`.
+## correctness
 
-The checker independently forms (a) the direct cross-adjacency matrix of the line graph for each edge partition and prime, and (b) connected components with the characteristic-dependent alternating vectors and their overlap matrix. Gaussian elimination over the specified prime field is performed on both. It checks all three-way edge assignments (absent, first part, second part) through five base vertices (179,427 graph/partition/prime tests), plus 20,000 seeded random six-to-fifteen-vertex comparisons over four primes. It also checks the complete-graph Hamilton path formula for n=4,...,31 over four primes (112 comparisons); n=4 is only a numerical check and is not included in the theorem's n>=5 corollary.
+PASS
 
-For ten small graph-state cases, the checker also directly constructs the amplitudes with generalized controlled-phase phases, traces out the complementary subsystem, and computes eigenvalues using NumPy. Its largest recorded absolute difference from the stated flat spectrum was 2.22e-16. This is floating-point corroboration for those examples and does not verify all dimensions.
+For every finite simple undirected base graph, arbitrary partition of base edges E=A disjoint B (empty allowed), and prime p, the graph-state cut matrix equals unsigned-incidence product C=U_A^T U_B exactly because two distinct base edges share at most one endpoint. Removing local internal phases, additive-character orthogonality makes reduced density rho_A equal p^{-|A|} on pairs differing by ker(C^T), yielding p^r equal nonzero eigenvalues p^{-r} (r=rank_Fp C). Left kernel U_A^T has one all-one vector for each component in characteristic 2, while in odd characteristic exactly bipartite components contribute alternating indicator vectors; isolated vertices are included. Rank pairing gives r=n-q_A-q_B+rank(T_A^T T_B) even for empty matrices and odd cycles. For K_n, n>=5, Hamilton A and odd-cycle connected complementary B give q_A=1, q_B=0 odd p, and q_A=q_B=1 with overlap [n mod2] at p2, yielding stated parity split and maximal odd-prime subsystem. Independently checked 2,280 n<=4 colored graph partitions and 27 Hamilton examples, distinct from unrestricted proof.
 
-The nonstandard critical proof checks are the exact unsigned-incidence product for *simple* base graphs, the component-kernel classification in prime characteristic including isolated vertices and odd cycles, and the dimension formula for pairing two incidence images. The boundary cases are zero-edge parts and disconnected graphs. These steps are proved algebraically in `RESULT.md`, not inferred from finite tests. The work has not undergone independent scientific audit.
+## originality
+
+PASS
+
+Qualified PASS for an exact evaluated all-edge-cut signed-component overlap formula for prime-characteristic line-graph graph states and sharp Hamilton-path parity split; graph-state cut-rank and incidence-kernel lemmas are established precursors.
+
+## value
+
+PASS
+
+PASS: A single exact, small-component linear-algebra formula for the entire Schmidt spectrum of all line-graph qudit bipartitions, with a concrete sharp prime-dependent maximally mixed transition. Meaningful simplification beyond generic cut-rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
