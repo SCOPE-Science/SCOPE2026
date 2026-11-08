@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the ordinary, possibly chorded, \(P_4\) as a forbidden *subgraph*. The precise two sixteen-vertex graph definitions, sixteen-bit enumerations, and independent direct tests of every four-subset make the quantified domain exhaustive. The complete acyclic matching and exact Morse boundary computation establish the integral homology, with all nonzero Smith factors equal to one; the independent simplicial mod-two computation corroborates Betti ranks. Replaying the standalone checker from the embedded source produces `VERIFY_OK`. The proof does not claim an integral homotopy wedge or an infinite-family conclusion.
+PASS
 
-## Originality — PASS (qualified)
+For each of the explicitly defined 16-vertex graphs, an ordinary P4 as a possibly chorded subgraph is forbidden; independently enumerated 636 Shrikhande and 620 rook distinct four-vertex obstructions. Independently enumerated all retained faces and reconstructed 3,193 versus 3,305 total counts and reduced Euler 7 versus 55. Examined the exact checker: independent four-vertex order tests, complete face-poset directed-acyclic matching (13,536 versus 14,064 incidences), orientation-correct integral Morse differentials, unimodular Smith reductions with only unit nonzero invariants, plus separate original-simplicial mod-two boundary ranks. Critical counts and boundary ranks imply respectively H3 Z32, H4 Z45, H5 Z6 and H4 Z73, H5 Z18 without torsion. This is a finite complete graph-pair result, not an all-SRG theorem.
 
-Taylan's publicly posted 2015 paper defines the exact devoid construction and proves classifications for different input graph families. The closest identified statements on Shrikhande and rook concern ordinary independence complexes, three-cut complexes, neighborhood or Čech nerves; their simplex predicates do not imply these \(P_4\)-devoid homology groups. Searches covered path-devoid aliases and the exact integral ranks. Unindexed equivalent prior coverage is possible, and some adjacent indexed mathematical records were compared only at claim-synopsis level.
+## originality
 
-## Value — PASS
+PASS
 
-The two canonical, cospectral, strongly regular graphs have identical \((16,6,2,2)\) parameters. Their path-devoid complexes have distinct torsion-free integral homology: in particular, third homology occurs for only one. This is a complete calculation of a historically motivated non-flag graph complex, revealing topological information not forced by classical graph parameters; it is not an arbitrary slice or a new label for independence homology.
+Taylan introduced P4-devoid graph complexes, but the inspected path/cycle/forest matching-tree results do not evaluate either strongly regular graph. The Resultary same-graph independence and intrinsic Čech classifications have different face predicates, and the previous ability of independence to distinguish these cospectral graphs is explicitly acknowledged.
 
-## Scientific limitations
+## value
 
-This finite classification does not establish a universal strongly regular graph theorem, a full homotopy type, or independent external validation. Closest literature was compared as specified in the structured audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Forbidden ordinary P4 subgraphs form a natural (Taylan) path-devoid simplicial functor. Exact integral groups on the canonical Shrikhande/rook strongly regular pair demonstrate that this non-flag topology detects features invisible to their identical strongly regular parameters; the different invariant is not forced by their known independence wedges. It provides exact finite benchmark data for future techniques and is not an arbitrary graph labeling trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 checks/verify.py` (Python 3.10+ recommended). `checks/verification_output.txt` is the deterministic expected output generated from this exact included source. Every one of the \(2^{16}\) vertex subsets is examined for each graph. Forbidden four-path supports are independently tested over all four-element subsets; the complete directed Hasse diagram is topologically sorted for matching acyclicity; integer chain differentials are formed from orientation-respecting gradient paths; no nonunit Smith factors remain after unimodular reduction. The unreduced simplicial chain complexes give independently computed mod-two ranks agreeing with the integral claim.
+# Independent mathematical audit
 
-The calculated face counts including the empty simplex are 3,193 (Shrikhande) and 3,305 (rook). The matching leaves critical dimensions \((0,3,4,5)\) of counts \((1,38,51,6)\) and \((0,2,3,4,5)\) of counts \((1,1,17,89,18)\). The only nonzero differential ranks are respectively \(\operatorname{rank}(\partial_4)=6\), and \(\operatorname{rank}(\partial_3)=1\), \(\operatorname{rank}(\partial_4)=16\); the other differentials vanish.
+## correctness
 
-Finite exhaustive certification of this pair is mathematically distinct from a theorem for all graphs. It proves integral homology, not an asserted homotopy wedge decomposition. No independent external mathematical audit has been conducted.
+PASS
+
+For each of the explicitly defined 16-vertex graphs, an ordinary P4 as a possibly chorded subgraph is forbidden; independently enumerated 636 Shrikhande and 620 rook distinct four-vertex obstructions. Independently enumerated all retained faces and reconstructed 3,193 versus 3,305 total counts and reduced Euler 7 versus 55. Examined the exact checker: independent four-vertex order tests, complete face-poset directed-acyclic matching (13,536 versus 14,064 incidences), orientation-correct integral Morse differentials, unimodular Smith reductions with only unit nonzero invariants, plus separate original-simplicial mod-two boundary ranks. Critical counts and boundary ranks imply respectively H3 Z32, H4 Z45, H5 Z6 and H4 Z73, H5 Z18 without torsion. This is a finite complete graph-pair result, not an all-SRG theorem.
+
+## originality
+
+PASS
+
+Taylan introduced P4-devoid graph complexes, but the inspected path/cycle/forest matching-tree results do not evaluate either strongly regular graph. The Resultary same-graph independence and intrinsic Čech classifications have different face predicates, and the previous ability of independence to distinguish these cospectral graphs is explicitly acknowledged.
+
+## value
+
+PASS
+
+Forbidden ordinary P4 subgraphs form a natural (Taylan) path-devoid simplicial functor. Exact integral groups on the canonical Shrikhande/rook strongly regular pair demonstrate that this non-flag topology detects features invisible to their identical strongly regular parameters; the different invariant is not forced by their known independence wedges. It provides exact finite benchmark data for future techniques and is not an arbitrary graph labeling trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
