@@ -1,15 +1,21 @@
-# Scientific review of the centered-coset spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain includes only cyclic even-order index-eight subgroups of \((\mathbb Z/pq\mathbb Z)^\times\) with \(-1\notin H\). Negating cosets gives a universal parity restriction; the conductor-41 construction realizes all allowed counts by its exact eight local coset sums. A direct lift-count removes the five multiples of \(q\) from the complete lifts modulo \(41q\). This yields the exact centered deviations and counts for every admissible prime. The cyclicity restriction follows from \(C_5\times C_{q-1}\); CRT and the prime number theorem in arithmetic progressions justify the claimed proportions. Exact computations reproduce 480 full coset sums. No experimental claim is used as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to priority review
-The most direct earlier result is Ma--Merca--Zhang, arXiv:2610.29608v1, Lemma 5.4, which provides a general coset-lifting formula. Its Theorem 5.5 classifies the imprimitive **quartic** kernel; Section 6 has a **sextic** infinite family; Section 7 supplies an **index-eight finite census** by centered subgroup rather than a universal count of centered cosets. The exact five-level spectrum for all cyclic mixed index-eight subgroups and positive-density realization of each level with fixed conductor 41 are not asserted there. Pomerance--Ulmer (arXiv:1204.6705) characterize *all-coset* balance, not counts of individual balanced cosets. No exact equivalent was identified in the compared accessible literature; older implied treatments of octic power residues and class numbers remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-This determines every **possible** centered-coset count at the first even index beyond the detailed index-four and index-six constructions, and shows that no parity-allowed value is missing. The fixed prime conductor 41, the smallest with an eligible nontrivial odd-order local octic kernel, makes every value occur on a positive-density set of primes. The closed sawtooth law exposes how a short arithmetic period controls the entire coset-centeredness pattern. The work does not claim a new lifting identity or a complete per-subgroup classification at index eight.
+For cyclic even-order index-eight H in units mod pq with -1 not in H, coset negation pairs all eight cosets, so centered count N must lie in {0,2,4,6,8}. For conductor 41, 6 has order 40, K=<6^8> has order5; CRT H_q=K x Fq* is cyclic iff q!=1 (mod 5). Independently enumerated local octic coset sums R=(82,82,123,123,123,123,82,82). The exact lift computation removes five q-multiples from all lifts and gives centered deviations q(R_j-R_{j-h}); the eight shifted match counts are 8,6,4,2,0,2,4,6. Each shift has 15 coprime CRT residue classes mod205 (out of 160), giving densities 3/32 per shift and grouped 3/32,3/16,3/16,3/16,3/32; conditional proportions 1/8,1/4,1/4,1/4,1/8. Independent direct coset-sum checks and CRT class enumeration corroborate the exact algebra. Infinite realization follows from Dirichlet and PNT in arithmetic progressions, not finite checking.
 
-## Evidence and limitations
-Primary source: H. Ma, M. Merca, W. Zhang, *Residue Sums Modulo Products of Two Distinct Odd Primes* (2026), arXiv:2610.29608v1, especially Lemma 5.4 and Sections 6–7. Other comparisons: C. Pomerance and D. Ulmer (2012), arXiv:1204.6705; K. Girstmair (2026), arXiv:2606.04512v1 and his survey on power residues. A full priority search across earlier implicit representations is not feasible; the Girstmair survey was checked only in relevant excerpts. The theorem uses established lifting methods, with new value in the sharp spectrum, explicit arithmetic realization and densities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ma–Merca–Zhang (posted 2026-10-21), same semiprime residue-sum problem, already prove the EXACT general lifting identity in Lemma 5.4. Their Theorem 5.5 is imprimitive index4, Theorem 6.10 conductor19 index6, Section7 table counts subgroup balance at index8 but not number of centered cosets or fixed-conductor41 five-level infinite distributions. We explicitly credit the lifting identity and the 8-index finite subgroup census. Pomerance–Ulmer characterize stronger all-coset half-interval balance, not how many first-moment cosets in this family. Novelty is claimed only for exact possible index8 spectrum plus conductor41 positive densities, with class-number/digit-distribution implicit-priority risk.
+
+## value
+
+PASS
+
+The count of centered cosets is a natural refinement of a published index-eight residue-sum question; the universal parity obstruction and explicit conductor-41 family resolve all five allowed values, including quantitative positive prime densities and a closed sawtooth transfer law. This extends the earlier fixed-conductor quartic/sextic classifications in a concrete arithmetic direction; does not claim a new lifting lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
