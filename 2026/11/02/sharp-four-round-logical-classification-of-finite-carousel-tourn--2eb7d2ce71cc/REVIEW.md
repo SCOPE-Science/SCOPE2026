@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem's language, domain, odd-order restriction, and ranks are fixed. The doubled-circle embedding makes all directed edges recoverable from the order of labeled point/antipode marks. The gap-halving lemma includes both short-side cases, the long-long case, parity preservation, and simultaneous antipodal splitting. Its closed recurrence yields the infinite cutoff. The finite lower boundary is proved by the exact recursive EF-type characterization and complete comparison of all 21 small-order pairs; the packaged verifier reproduces these outcomes. Rank-three exceptions and representative sharpness follow by the same method. No results from finite sampling are used to infer an infinite theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** Coregliano's 2015 original carousel paper analyzes balanced local transitivity, tournament limits, and densities; its inspected sections do not give the present quantifier-rank classification. Goodall, Nešetřil, and Ossona de Mendez's 2015 interpretation article supplies homomorphism-count polynomiality, not these finite logical equivalence classes, their sharp threshold, or an antipodal-gap EF bound. Targeted checks against published logical-cutoff results for cyclic groups, directed paths, and finite tournaments did not identify a theorem with a stronger matching implication. An unindexed or uninspected historical classification remains possible; searched absence is not a priority certificate.
+PASS
 
-**Value — PASS.** The result gives a full finite-depth expressive-power classification for the canonical balanced locally transitive tournament family, sharp small exceptions, and a structural explanation. The general exponential depth-dependent upper bound supplies a reusable back-and-forth technique for antipodally patterned cyclic relations. The exact rank-four representatives are useful as finite test templates; the theorem is not a mere restatement of homomorphism-density convergence or an arbitrary finite census.
+Checked exact tournament direction from doubled-circle even point and odd antipode; selected pairs partition opposite equal-parity gaps. In the gap-halving lemma T_r=2^(r+1)-2, matching short sides use their exact distance while two long sides admit an even/parity-compatible offset because target gap exceeds 2*T_(r-1)+2. Induction after first move gives all odd n>=2^q-1 Duplicator equivalence. Independently implemented recursive atomic back-and-forth types, proving pairwise distinct rank-four empty types for n=3,5,...,15 and rank-three partition; reviewed packaged exact verifier (not just VERIFY_OK). The finite recursion is exhaustive for boundary representatives and separate analytic EF proof gives infinite tail.
 
-**Scientific limits:** The signature contains only equality and directed adjacency; no rank-five exact classification is claimed. The small-order certificate is exhaustive, while the infinite result is established by a separate proof. Literature coverage is targeted rather than exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Coregliano studies locally transitive balanced carousel limit densities; Goodall–Nešetřil–Ossona de Mendez gives strong polynomial homomorphism counts. Neither inspected theorem is a FO bounded quantifier-rank equivalence/cutoff. Resultary found adjacent exact directed-path rank cutoffs and cyclic tournament invariants but no claim-level carousel rank-four class theorem. Unindexed old EF analysis remains a priority risk.
+
+## value
+
+PASS
+
+Exact finite quantifier-rank expressive-power classification for a canonical tournament family, including all exceptional small orders and a reusable antipodal parity-aware game strategy, not just a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
