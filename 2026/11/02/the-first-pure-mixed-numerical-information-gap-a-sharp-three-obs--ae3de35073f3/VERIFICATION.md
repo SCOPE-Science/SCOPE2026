@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The constructive proof in RESULT.md is the mathematical verification of the stated finite-dimensional universal bounds and equalities. In particular, the two-measurement support-rank proof is independent of numerical search; the qubit Bloch-difference construction works for every state pair; the qutrit norm identity and its sharp spinor witness cover all nonnegative error triples and zero budgets.
+# Independent mathematical audit
 
-The bundled `verify_three_obs.py` script is self-contained and uses only Python's standard library. Run `python verify_three_obs.py`. On inspection and execution, it reported **PASS 40012 finite assertions**. These tests include random normalized complex vectors, randomly sampled error budgets, direct threshold witnesses, the qubit Bloch-sphere chord replacement, and deterministic endpoint samples. Sampling alone neither proves the universal result nor excludes equivalent prior work.
+## correctness
 
-Scientific scope: finite-dimensional complex Hilbert spaces and self-adjoint observable expectation differences; all maxima are over nonempty compact sets. The counterexample extends to higher dimensions and larger numbers of measurements by adjoining inactive coordinates and zero measurement operators. No claim is made about experimental statistical uncertainty, general three-observable triples, independent mathematical auditing, or externally certified novelty.
+PASS
+
+For any finite-dimensional complex Hilbert space, maximizing a linear functional over feasible pairs of density matrices with at most m active expectation-difference constraints yields at an extreme pair r²+s²≤m+2; if m≤2, ranks must each equal 1. For qubits arbitrary measurement count, every Bloch-vector difference of two mixed states is the difference of unit Bloch vectors, preserving all operator expectation differences. For the qutrit A_j=σ_j⊕0, B=I₂⊕(-1), pure-state measurement vector v has ||v||=r=|a|²+|b|² and target 2r−1; reverse triangle inequality gives pure Δ≤2min(1,||ε||₂) and the explicitly normalized spinor plus third coordinate attains equality for every nonnegative budget including zero. The mixed pair I₂/2⊕0 versus 0₂⊕1 has identical observed triples and target difference 2. The stated minimality and all-error profile therefore follow for exactly the claimed pair-state componentwise budgets. Independent 6000 complex qutrit identities and explicit saturation checks agreed.
+
+## originality
+
+PASS
+
+Johnson 2026 proves affineness for one complex-valued numerical range map (two Hermitian real coordinates), not a three-coordinate qutrit radial connector nor robust mixed-state ambiguity. Szymański–Weis–Życzkowski 2018 classify shapes and exposed faces of joint three-Hermitian ranges; convexity of the image does not imply that an extra fourth observable has the same fiber oscillation in pure and mixed states. The new sharp minimality and exact anisotropic tolerance profile are not corollaries of these sources. Full primary arxiv HTML of both papers was read; earlier Oxford access issue does not remain an originality block.
+
+## value
+
+PASS
+
+Deterministic numerical information is a natural inverse problem: observations of a small operator tuple may or may not determine a target on pure versus mixed states. The exact minimal measurement count and dimension, nonlinear radial connector, and sharp robust error profile clarify that boundary. This goes beyond a textbook Bloch identity because it couples a universal no-gap theorem with a saturating qutrit counterexample and all-budget formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
