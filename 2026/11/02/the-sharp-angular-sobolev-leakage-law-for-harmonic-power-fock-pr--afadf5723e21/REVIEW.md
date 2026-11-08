@@ -1,15 +1,21 @@
-# Scientific review: harmonic power-Fock angular leakage
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact radial gamma quotient follows by integration against the specified normalized power-exponential measure and orthonormality of the two-sided harmonic angular basis. Pythagoras converts leakage into an absolutely convergent nonnegative Fourier sum. The midpoint second-difference of \(\log\Gamma\) yields the coefficient \(m^2/(2\alpha|j|)\) in each angular tail. A trigamma estimate uniform in the Fourier frequency supplies the summable \(m^2\) majorant, allowing dominated convergence for \(H^1\) and Fatou's lemma outside \(H^1\). The separate Toeplitz-trace assertion requires, and explicitly assumes, an essentially bounded unimodular symbol. Numerical checking covered 1907 finite assertions; no finite computation is treated as a proof of the limiting result.
+## correctness
 
-## Originality — PASS (qualified by priority risk)
-Relevant earlier work gives single-frequency matrix formulas for Gaussian pluriharmonic Fock Toeplitz operators (Agbor, 2017), quantization and essential spectra (Fulsche, 2019), a radial harmonic Fock decomposition (Sun–Du–Qi, 2024), and global Schatten criteria for analytic Fock Hankel operators (Zeng–Wang–Hu, 2023). These statements do not supply the present all-angular-\(L^2\), two-sided harmonic, power-exponential cutoff law or its exact extended-valued \(H^1\) criterion. The single-frequency gamma matrix is an acknowledged antecedent, not asserted to be new. The principal remaining risk is an equivalent logarithmic trace theorem in broader Toeplitz/Hankel or semiclassical literature under different terminology; literature searches cannot rule this out exhaustively.
+PASS
 
-## Mathematical value — PASS
-The normalized defect measures how far multiplication by angular data carries every low-frequency harmonic power-Fock mode out of the harmonic subspace. Its sharp coefficient is an intrinsic classical circle Dirichlet energy, with a necessary-and-sufficient regularity threshold valid for all \(L^2\) angular inputs, not merely smooth or unimodular ones. The result connects an operator-theoretic aggregate with a precise Sobolev norm, supplies a sharp normalization and a universal dependence on the radial power, and treats divergent defect coefficients rigorously.
+PASS. Reconstructed the full orthonormal angular basis with Gamma((2|j|+2)/α) radial normalization, exact matrix entry a_m W_α(j,m), and Parseval/Tonelli nonnegative leakage decomposition Σ|a_m|²S_N(m). Midpoint log-Gamma trigamma expansion gives each ±j tail m²/(2α|j|), total m²/α logN. Uniform all-m majorant via ≤4|m|+1 central indices plus trigamma tails permits dominated convergence for H1; Fatou yields +∞ for all non-H1, not just subsequential divergence. Independent α=2, m=2 vortex Gaussian Gamma test at N=2,3,5,30,200 matched exact H_N+H_{N+2}-2, corroborating coefficient 2. Toeplitz defect identity restricted to bounded unimodular symbols; arbitrary L² supports only finite-cutoff leakage.
 
-## Limits and nearest antecedents
-The result covers fixed \(\alpha>0\), one complex dimension, and the symmetric angular spectral cutoff. It makes no assertion for general radial measures or for globally defined Toeplitz operators with unbounded angular symbols. A stand-alone finite checker supports normalization and examples but cannot settle infinite statements or historic priority. This scientific assessment is not an independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Agbor treats quasihomogeneous Toeplitz matrix actions on Gaussian pluriharmonic Fock; Sun--Du--Qi treats radial harmonic Fock symbols; Zeng et al Schatten Hankel on holomorphic Fock. These fixed-mode and different-symbol/domain analyses do not state the arbitrary L² angular symbol sharp logN law and iff H1 infinite cutoff. Could follow from unlocated general critical Hankel trace asymptotics; still qualified.
+
+## value
+
+PASS
+
+PASS. The exact critical H1 characterization and universal 1/α Dirichlet energy coefficient quantify asymptotic spectral leakage and Toeplitz singular-value defect, a natural sharp functional-analytic invariant. Its all-symbol extended-value limit is stronger than isolated gamma-ratio examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
