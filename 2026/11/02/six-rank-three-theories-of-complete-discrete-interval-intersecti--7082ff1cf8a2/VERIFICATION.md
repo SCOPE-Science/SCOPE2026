@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical checks
+# Independent mathematical audit
 
-Run `sh reproduce.sh` from the directory containing the companion files. The script uses only a C++17 compiler, Python 3 standard library, and `diff`. Each recorded output is checked byte-for-byte against the newly executed program's standard output.
+## correctness
 
-`interval_types.cpp` enumerates every interval and every ordered triple of its interval-graph vertices for \(1\le n\le26\). The six-bit triple atomic code consists of the three equality predicates and the three unordered adjacency predicates. Set-valued recursion computes the complete graph rank-three type; repeated selections are included.
+PASS
 
-`independent_types.py` implements the nested-set recursive definition of logical types without the C++ bitmask optimization, on \(1\le n\le12\). Its canonical digests and class labels are in `independent_types_output.txt`.
+The rank-three recursively generated Hintikka signatures retain all repeated-vertex equality and adjacency data. Independently implemented nested-set signatures reproduce six classes through n=9. An independent optimized C++ implementation exhausts every n=1..26, with G6..G26 identical and G1..G5 distinct, including exactly nine singleton rank-two profiles from n=6 onward. The explicit G5/G6 rank-two singleton witness distinguishes their rank-three theories; at two rounds n=1 differs from n>=2. The two-endpoint-per-move EF gap invariant t_r=3t_(r-1)+2, t_3=26, preserves all endpoint orders and interval intersection relations in games of three moves for all m,n>=26. Transitivity with the verified n=6..26 bridge proves the infinite statement; finite agreement alone would not.
 
-`witness.py` independently checks that \(G_5\) has eight rank-two singleton profiles and \(G_6\) nine; the new one is represented by \([3,4]\). Its output is in `witness_output.txt`.
+## originality
 
-The finite recursion does **not** prove the conclusion for \(n>26\); the separate mathematical two-endpoint order game, with gap thresholds \(t_r=3^r-1\), proves that all indices at least \(26\) are equivalent at rank three. Combining this with the fully covered interval \(1\le n\le26\) completes the classification.
+PASS
 
-The programs are finite exhaustive checkers, not proofs of unbounded enumeration, and no external mathematical validation is asserted.
+The evaluated all-interval family and exact six-type boundary were not supplied by the general interval-graph FO model-checking theorems inspected. The established bounded-rank EF construction and finite-length algorithm are properly credited. Residual possibility of an earlier exact calculation under finite-model-theory or interval-order terminology remains.
+
+## value
+
+PASS
+
+A sharp complete logical classification of a natural graph family, with exact smallest representative at 21 vertices, provides a nontrivial finite-rank structural threshold, not merely a renamed algorithm or isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

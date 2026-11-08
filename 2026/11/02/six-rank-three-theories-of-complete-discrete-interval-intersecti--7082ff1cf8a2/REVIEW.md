@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is an exact equivalence in the pure adjacency/equality language. The triple atomic code records all three equalities and three pair adjacencies, including repetitions, and the recursive nested-set construction is equivalent to the full quantifier-rank-three first-order type. The C++ exhaustive check covers all chain sizes 1–26; a separate Python representation of recursive types independently matches the first twelve cases. An explicit gap-splitting argument with threshold \(3^q-1\) proves the infinite tail from chain size 26 at rank three. The computed six profiles close the range from 1 through 25 and establish sharpness. Every claim follows without treating a finite experiment as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified by historical access
-Searches for all-subinterval intersection graphs, universal path-subpath graphs, and first-order rank-three interval-graph classification did not identify the same theorem. The closest relevant primary full text is Ganian et al., arXiv:1302.6043, whose theorem is algorithmic model checking for length-restricted interval graphs, not a classification of the full discrete-interval family. The general EF-tree lemma in that paper underlies the method but does not give six classes or the sharp cutoff six. McKee–McMorris discusses interval/path representations but not depth-three logic. A finite-interval containment poset and an all-interval intersection graph use different predicates; an equivalence in one at rank three does not by itself transfer to the other at that rank. The lack of a located covering theorem is not an exhaustive priority guarantee. See the structured scientific comparison in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-This is a natural complete classification of an infinite interval-graph family; unlike a randomly chosen small graph calculation, the family contains every contiguous subpath of a path. The graph order grows quadratically, but rank-three logic sees precisely six parameter classes. The sharp threshold improves the elementary endpoint-game bound 26 to 6 and yields the optimal 21-vertex representative within the family. It isolates a concrete boundary for first-order graph expressibility in a standard intersection-graph setting, without claiming a downstream theorem.
+The rank-three recursively generated Hintikka signatures retain all repeated-vertex equality and adjacency data. Independently implemented nested-set signatures reproduce six classes through n=9. An independent optimized C++ implementation exhausts every n=1..26, with G6..G26 identical and G1..G5 distinct, including exactly nine singleton rank-two profiles from n=6 onward. The explicit G5/G6 rank-two singleton witness distinguishes their rank-three theories; at two rounds n=1 differs from n>=2. The two-endpoint-per-move EF gap invariant t_r=3t_(r-1)+2, t_3=26, preserves all endpoint orders and interval intersection relations in games of three moves for all m,n>=26. Transitivity with the verified n=6..26 bridge proves the infinite statement; finite agreement alone would not.
 
-## Limits
-The result is restricted to pure adjacency at quantifier rank three. Its finite boundary depends on the two included exact programs, and its infinite conclusion on the proved endpoint-game invariant. Primary literature comparison is substantive but cannot eliminate every possible obscure earlier result. No independent expert review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The evaluated all-interval family and exact six-type boundary were not supplied by the general interval-graph FO model-checking theorems inspected. The established bounded-rank EF construction and finite-length algorithm are properly credited. Residual possibility of an earlier exact calculation under finite-model-theory or interval-order terminology remains.
+
+## value
+
+PASS
+
+A sharp complete logical classification of a natural graph family, with exact smallest representative at 21 vertices, provides a nontrivial finite-rank structural threshold, not merely a renamed algorithm or isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
