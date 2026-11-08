@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every iid iteration pair of real equal-marginal coefficients, the stochastic extragradient matrix is (1-eta^2 AB)I-eta B J. Since J is skew orthogonal, the conditional squared norm is [(1-eta^2 AB)^2+eta^2 B^2] times the initial squared norm. Averaging and iterating proves the exact nth-moment identity; the sign of its quadratic coefficient and positivity of E[A^2 B^2] give the sharp open stability interval. For Bernoulli shared-versus-independent coupling, a_rho=mu^2+(2rho-1)(m2-mu^2), proving sufficiency at rho>=1/2. For every rho<1/2, a rare positive two-point law makes a_rho strictly negative; continuity from a Bernoulli-at-zero model certifies strict positivity of the oracle values. The verification script ran 86 exact-rational checks, which are supporting finite consistency checks only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorbunov et al. give a broad unified theory for same-sample and independent-sample SEG, including importance sampling, with assumptions and bounds rather than this exact distribution-free within-step reuse boundary.",
+        "Li et al. analyze same-sample bilinear SEG and restarted averaging, not mixture sampling at arbitrary reuse fractions.",
+        "Yoon and Loizou study endpoint choices and counterexamples; searched sections did not state an exact partial-reuse moment law."
+      ],
+      "reasoning": "None of the inspected stronger frameworks was shown to imply, at fixed equal step sizes and without distributional bounds beyond a finite fourth moment, a universal rho>=1/2 if-and-only-if condition. This is a direct implication comparison, not a claim of exhaustive literature search.",
+      "searches": [
+        "arxiv:2111.08611 Sections 1–4",
+        "arxiv:2107.00464 Sections 1–3 and Appendix A",
+        "arxiv:2608.06182 Sections 1–4",
+        "\"arbitrary sampling\" stochastic extragradient joint oracle coupling"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1904.08598",
+      "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+      "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+      "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+      "https://arxiv.org/pdf/2608.06182",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65-00"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 independent-sample divergence example already establishes the possibility of noisy bilinear SEG instability.",
+        "The positive result for fully shared samples cannot by itself imply stability after adding independent probes with positive probability.",
+        "The prior uniform two-point coupling classification has no regime m2>2mu^2."
+      ],
+      "reasoning": "Independent-sample failure and full-reuse convergence are strict endpoint facts. They do not locate a uniform interpolation cutoff, prove 1/2 works across every real finite-fourth-moment law, or certify failure of every smaller rho even for strictly positive, finitely supported coefficients.",
+      "searches": [
+        "arxiv:1904.08598 Theorem 1 and Appendix C.1",
+        "arxiv:1905.11373 Theorem 4",
+        "arxiv:2111.08611 framework for S-SEG and I-SEG"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chavdarova et al. prove independent-sample bilinear nonconvergence in Theorem 1; their batch-overlap parameter controls sampled-coordinate intersections, not a reusable-probe probability for arbitrary scalar marginals.",
+        "Mishchenko et al. motivate same-sample extragradient but state a different convergence theory."
+      ],
+      "reasoning": "The claimed threshold can also be written as an oracle covariance condition 2 E[AB]>E[S^2] or, for mixture coupling, as a lower bound on the fraction of common random numbers. The inspected materials compare endpoint sampling conventions, not this sharp universal interpolation and converse.",
+      "searches": [
+        "\"stochastic extragradient\" \"partial reuse\" \"bilinear\"",
+        "\"same sample\" \"with probability\" \"extragradient\"",
+        "\"extragradient\" \"coupled samples\" convergence stochastic",
+        "arxiv:1904.08598 Section 2.2",
+        "arxiv:1905.11373 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest recovered mathematical records concerned distinct stability fronts for stochastic optimization procedures; no retrieved abstract was the asserted one-half reuse threshold.",
+        "A known exact uniform positive two-point coupling finding gives an exact two-sample classification but assumes equiprobable strictly positive coefficients, which precludes high moment-to-mean ratios."
+      ],
+      "reasoning": "The known uniform two-point object has E[S^2]/(E S)^2<2, so it cannot exhibit an all-step independent-sample instability that is crucial to the present distribution-free sharpness. A search miss is not proof of novelty.",
+      "searches": [
+        "\"stochastic extragradient bilinear scalar two-sample oracle partial reuse probability 1/2 universal mean square stability for arbitrary random coefficient distribution\"",
+        "\"sharp distribution-free one-half sample reuse threshold extragradient bilinear multiplicative oracle rare outlier\"",
+        "\"exact covariance budget E[A B] > E[A^2]/2 mean square stability stochastic extragradient\""
+      ]
+    },
+    "rationale": "The inspected 2019–2026 primary papers analyze independent and fully shared stochastic extragradient and related failures/rates, but not the exact covariance budget for arbitrary equal-marginal within-step oracle couplings together with the sharp distribution-free 1/2 partial-reuse threshold. A prior exact uniformly weighted positive two-point coupling result does not imply this claim: those laws obey m2<2mu^2 and hence independently sampled updates are small-step stable, whereas the universal obstruction here requires arbitrarily large m2/mu^2. General random-matrix moment theory and unindexed correlated-oracle literature present nonzero residual precedence risk.",
+    "residual_risks": [
+      "General random-matrix-product or coupled stochastic-oracle results under alternative terminology might imply the scalar conditional-moment identity and half-reuse consequence.",
+      "The reviewed primary sections are not an exhaustive search of all papers, theses and appendices.",
+      "The result cannot be transferred without new analysis to matrix-valued, state-dependent, nonlinear or time-correlated oracle models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_INDEPENDENT_FAILURE_NOT_HALF_REUSE_UNIVERSALITY",
+        "evidence": [
+          "arxiv:1904.08598, Section 2.2, Theorem 1; Appendix C.1, recurrence and sampled coordinate intersections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.08598",
+        "material_read": "Introduction, Section 2.2 Theorem 1, example and Appendix C.1 update formulas",
+        "method": "Primary open-access paper text and page image",
+        "title": "Reducing Noise in GAN Training with Variance Reduced Extragradient",
+        "trigger": "Independent-sample divergence in stochastic bilinear games"
+      },
+      {
+        "assessment": "FULL_REUSE_ENDPOINT_AND_GENERAL_METHOD_NOT_MIXTURE_THRESHOLD",
+        "evidence": [
+          "arxiv:1905.11373, Algorithms 1–2, Theorem 4 and sampling discussion"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+        "material_read": "Algorithm 1, Section 2 including Section 2.2 and bilinear theorem",
+        "method": "Primary conference PDF text and page views",
+        "title": "Revisiting Stochastic Extragradient",
+        "trigger": "Same-sample stabilization and possible stronger implication"
+      },
+      {
+        "assessment": "SAME_SAMPLE_WITH_AVERAGING_NOT_SHARP_PARTIAL_REUSE",
+        "evidence": [
+          "arxiv:2107.00464 / PMLR 151, Eq. (2), Appendix A Theorem A.1"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "material_read": "Section 1; Equation (2), Section 2, Appendix A Theorem A.1",
+        "method": "Primary PMLR PDF text with relevant page image",
+        "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+        "trigger": "Bilinear stochastic coupling with shared minibatches"
+      },
+      {
+        "assessment": "ARBITRARY_COMPONENT_SAMPLING_NOT_EXACT_WITHIN_STEP_COVARIANCE_CUTOFF",
+        "evidence": [
+          "arxiv:2111.08611 / PMLR 151, sampling variants and rates Table 1"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "material_read": "Sections 1–4, definitions of S-SEG and I-SEG, theorem summary table",
+        "method": "Primary PMLR PDF text and relevant page image",
+        "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+        "trigger": "Arbitrary sampling framework might dominate coupling theorem"
+      },
+      {
+        "assessment": "ENDPOINT_COUNTEREXAMPLES_NO_IDENTIFIED_BERNOULLI_REUSE_CUTOFF",
+        "evidence": [
+          "arxiv:2608.06182, Section 1.1 and described Section 4 claims"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.06182",
+        "material_read": "Introduction, algorithms and figure on page 3, table of contents and Section 4 overview; searched terms coupling and mixture",
+        "method": "Open-access arXiv PDF text and page image",
+        "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+        "trigger": "Recent high-relevance endpoint comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e624dad-a25f-4c99-ae1e-89694521048a",
+  "value": {
+    "rationale": "The two standard SEG sampling choices are endpoints of a practical independent-versus-reused sampling continuum. The exact covariance budget produces an iff stable-step criterion for each coupled oracle law, and a sharp universal 1/2 reuse threshold without bounded moment ratios. This is nontrivial in that every smaller reuse level fails for some strictly positive two-point oracle while every higher level succeeds for every real nonzero-mean finite-fourth-moment law; an independent-sample example also has convergent expected iterates and exploding second moments. The cutoff resolves a natural sampling-coordination reliability question, not a small numerical improvement.",
+    "status": "PASS"
+  }
+}
