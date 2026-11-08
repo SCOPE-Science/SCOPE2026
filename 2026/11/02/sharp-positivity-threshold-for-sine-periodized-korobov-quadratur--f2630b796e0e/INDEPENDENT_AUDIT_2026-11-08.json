@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T00:07:49.309247Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the first-order periodic Korobov RKHS and all N>=2 equally spaced grid nodes, the minimum-norm interpolant is the piecewise-linear hat interpolant minus a common mean-dependent cell bubble, obtained by the Euler–Lagrange equation and mean normalization. Integrating against mu(y)=(pi/2)|sin(2pi y)| yields w_j=P_N,j-T_N,gamma, with T_N,gamma=2pi^2 gamma H_N/[N(1+pi^2 gamma/(3N^2))]. Symmetric-decreasing convolution on a circle proves the smallest hat moment P_N at density zero, P_N=1/2-N sin(2pi/N)/(4pi). An exact Fourier product gives H_N=(2pi^2)^-1-(2pi N)^-1 cot(pi/N) for even N and H_N=(8N^2)^-1+(2pi^2)^-1-(4pi N)^-1 cot(pi/(2N)) for odd N. H_N>1/(6N^2), P_N<=1/N ensure a unique crossing gamma_N=3N^2 P_N/[pi^2(6NH_N-P_N)] with strict/weak sign boundaries. Taylor expansions give gamma_N=N+pi^2/3+O(1/N). Independent numerical integration of kernel means and direct Gram solves at N=2,3,4,5,8 matched the analytic weights and crossing; the all-N proof comes from spline/Fourier algebra, not from finite grids.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartel et al. Sections 3 and 7 give multivariate error bounds and explicitly note unresolved asymptotic positivity in related settings.",
+          "Sloan and Smith (1982) discuss polynomial product-integration rules rather than this periodic first-order Korobov RKHS."
+        ],
+        "reasoning": "Convergence or existence of RKHS weights does not impose positivity, and a different polynomial grid theorem cannot dominate this exact periodic parameter threshold. A broad spline quadrature theorem could, but was not found in the searched material.",
+        "searches": [
+          "arXiv:2610.01113 Sections 3 and 7.2",
+          "Resultary: sine periodization Korobov kernel optimal quadrature weights positivity threshold uniform grid",
+          "Sloan Smith 1982 interpolatory product integration positivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/verify.py exact blobs and tree identity",
+        "Bartel et al. arXiv:2610.01113v1 full HTML Sections 3 and 7.2",
+        "Oettershagen 2017 dissertation citation/general method (no full inspection this run)",
+        "Resultary published Fourier-frame positive-sampling summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bartel et al. give kernel, density, optimal weights as K^-1 kappa, without computing their sign as functions of N and gamma.",
+          "General spline/RKHS minimization gives a variational characterization, not the folded convolution extremal hat integral P_N or exact H_N formulas."
+        ],
+        "reasoning": "Deriving the sign inequality requires explicitly solving and integrating the cardinal functions. The final theorem is not automatically a corollary of general convergence rates or an RKHS representer theorem.",
+        "searches": [
+          "arXiv:2610.01113v1 Sections 3,7.2",
+          "Oettershagen 2017 Sections 3.3–3.4 cited for general RKHS representers",
+          "Resultary: sine periodization Korobov kernel optimal quadrature weights positivity threshold uniform grid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bartel et al. define w=K^{-1}kappa for identical sine density and Korobov kernel.",
+          "The reviewed proof uses the equivalent cardinal-integral representation and constructs an explicit minimum-norm spline with a common bubble correction."
+        ],
+        "reasoning": "An abstract RKHS representer identity is equivalent to the definition of weights, but not to a universal positive-sign classification. The concrete sine-integrated hat minimum and parity Fourier series give additional nontrivial information.",
+        "searches": [
+          "Resultary: sine periodization Korobov kernel optimal quadrature weights positivity threshold uniform grid",
+          "arXiv:2610.01113 Section 3.2 3.3 full lattice K^-1 kappa",
+          "periodic H1 minimum norm interpolant quadratic bubble sine integration optimal weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected full method source supplies numerical and theoretical quadrature constructions, not a table/formula of w_min for every integer N>=2 and gamma>0."
+        ],
+        "reasoning": "No database table gives an all-N gamma threshold in inspected materials; a hidden symbolic source remains a priority uncertainty and absence from search is not proof.",
+        "searches": [
+          "Resultary: sine periodization Korobov kernel optimal quadrature weights positivity threshold uniform grid",
+          "sine periodized Korobov exact weights gamma_n positivity cotangent table"
+        ]
+      },
+      "rationale": "Bartel et al. arXiv:2610.01113v1 provide the exact sine periodization, first-order kernel, weight construction, and convergence framework; their full-text Sections 3 and 7.2 do not provide this all-parameter minimum weight/gamma frontier and explicitly discuss unsettled multivariate positivity. General RKHS optimal cubature and classical product-integration positivity are antecedents, but their accessible statements do not imply the concrete cotangent sign law. Resultary nearby Fourier positivity and spline records use different optimization problems. Older spline/product-integration literature remains a priority risk.",
+      "residual_risks": [
+        "An older RKHS spline or product-integration treatment may provide the exact univariate cotangent specialization under different nomenclature.",
+        "The result does not establish analogous finite-grid positivity for multivariate higher-order or shifted/subsampled Korobov lattices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies model and motivation but not the explicit sharp univariate all-parameter sign frontier",
+          "evidence": [
+            "Weight construction K^-1 kappa appears; Section 7.2 notes multivariate asymptotic positivity not known."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01113v1",
+          "material_read": "Full accessible HTML with method and weights in Sections 3.2–3.3 and positivity discussion Section 7.2",
+          "method": "Read relevant complete primary sections through browser",
+          "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+          "trigger": "The exact originating sine-periodization and Korobov kernel"
+        },
+        {
+          "assessment": "General representer relation is antecedent; possible exact specialization not excluded",
+          "evidence": [
+            "Residual risk of an older spline formula evaluated for exactly this density."
+          ],
+          "identifier_or_url": "https://ins.uni-bonn.de/media/public/publication-media/diss_oettershagen.pdf?pk=460",
+          "material_read": "Thesis identified in source bibliography; not fully read in this run",
+          "method": "Bibliographic and method-level comparison; no full inspection claimed",
+          "title": "Construction of Optimal Cubature Algorithms with Applications to Econometrics and Uncertainty Quantification",
+          "trigger": "General optimal spline/kernel cubature might imply cardinal formulas"
+        },
+        {
+          "assessment": "Optimizes support count for positive tight frames, not quadrature weights minimizing RKHS worst-case error",
+          "evidence": [
+            "Different feasible set and Fourier-object geometry."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-positive-fourier-sampling-on-three-consecutive-cyclic-site--29fa16b8c55a",
+          "material_read": "Published semantic-search summary only",
+          "method": "Resultary semantic search",
+          "title": "Sharp positive Fourier sampling on three consecutive cyclic sites",
+          "trigger": "Related Resultary positive-weight title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a widely used periodized lattice integration method, positive integration density does not force positivity of the unconstrained optimal cubature weights. The explicit full-uniform-grid all-parameter sign threshold, parity-sensitive cotangent values and asymptotic gamma_N~N are natural and useful for positivity-preserving implementation and counterexamples to overly broad convergence-to-positivity interpretations. The result exactly solves a motivated univariate case without claiming the multivariate open problem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md/verify.py exact blobs and tree identity",
+    "Bartel et al. arXiv:2610.01113v1 full HTML Sections 3 and 7.2",
+    "Oettershagen 2017 dissertation citation/general method (no full inspection this run)",
+    "Resultary published Fourier-frame positive-sampling summary"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional complete uniform grid, density (pi/2)|sin(2pi y)| and first-order periodic Korobov RKHS, gamma>0.",
+    "The optimal unconstrained rule need not exactly integrate constants for finite gamma."
+  ],
+  "residual_risks": [
+    "An older RKHS spline or product-integration treatment may provide the exact univariate cotangent specialization under different nomenclature.",
+    "The result does not establish analogous finite-grid positivity for multivariate higher-order or shifted/subsampled Korobov lattices."
+  ],
+  "schema_version": 1
+}

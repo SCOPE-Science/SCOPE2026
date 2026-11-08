@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analytic proof fixes the exact periodic RKHS normalization, derives the unique minimal-norm spline on each cell, and recovers the original kernel cubature weights from its integral. The common correction has a strict monotone parameter dependence. The folded circle-convolution comparison identifies the minimum hat integral for all grid sizes, while Fourier expansions evaluate the bubble integral in both parity cases. This yields necessity, sufficiency, attained threshold and two-term asymptotics; finite independent-formula Gram checks supplement but do not prove the general result.
+PASS
 
-## Originality — PASS (subject to historical-priority uncertainty)
+For the first-order periodic Korobov RKHS and all N>=2 equally spaced grid nodes, the minimum-norm interpolant is the piecewise-linear hat interpolant minus a common mean-dependent cell bubble, obtained by the Euler–Lagrange equation and mean normalization. Integrating against mu(y)=(pi/2)|sin(2pi y)| yields w_j=P_N,j-T_N,gamma, with T_N,gamma=2pi^2 gamma H_N/[N(1+pi^2 gamma/(3N^2))]. Symmetric-decreasing convolution on a circle proves the smallest hat moment P_N at density zero, P_N=1/2-N sin(2pi/N)/(4pi). An exact Fourier product gives H_N=(2pi^2)^-1-(2pi N)^-1 cot(pi/N) for even N and H_N=(8N^2)^-1+(2pi^2)^-1-(4pi N)^-1 cot(pi/(2N)) for odd N. H_N>1/(6N^2), P_N<=1/N ensure a unique crossing gamma_N=3N^2 P_N/[pi^2(6NH_N-P_N)] with strict/weak sign boundaries. Taylor expansions give gamma_N=N+pi^2/3+O(1/N). Independent numerical integration of kernel means and direct Gram solves at N=2,3,4,5,8 matched the analytic weights and crossing; the all-N proof comes from spline/Fourier algebra, not from finite grids.
 
-The 2026 Bartel–Gilbert–Griebel–Kuo–Sloan source establishes the method, kernel, density and optimal weight formula but does not give the necessary-and-sufficient univariate parameter interval. Oettershagen (2017) supplies the general minimal-spline/optimal-cubature framework, and its Section 6.1 considers periodic Sobolev spaces under uniform Lebesgue integration, not this sine-weighted gamma threshold. Sloan–Smith (1982) concerns polynomial product-integration asymptotic positivity rather than this periodic RKHS kernel. Searches for direct sine-density, periodic Sobolev, spline and gamma-threshold aliases found no equivalent formulation; absence from search is not a proof of novelty. The full text of Sloan–Smith was not available for direct inspection, and historical sources could conceivably dominate the claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work settles a natural sign-stability design question for a recent unequal-weight quadrature method: exact positive weights for nonnegative inputs cannot be presumed from the positive density. The result is an all-size, all-parameter classification, not a numerical tabulation. The \(\gamma_N=N+\pi^2/3+O(N^{-1})\) law distinguishes fixed-parameter asymptotic positivity from growing-parameter sign failure. It does not transfer to multivariate or subsampled lattices and is not a floating-point backward-stability theorem.
+Bartel et al. arXiv:2610.01113v1 provide the exact sine periodization, first-order kernel, weight construction, and convergence framework; their full-text Sections 3 and 7.2 do not provide this all-parameter minimum weight/gamma frontier and explicitly discuss unsettled multivariate positivity. General RKHS optimal cubature and classical product-integration positivity are antecedents, but their accessible statements do not imply the concrete cotangent sign law. Resultary nearby Fourier positivity and spline records use different optimization problems. Older spline/product-integration literature remains a priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a widely used periodized lattice integration method, positive integration density does not force positivity of the unconstrained optimal cubature weights. The explicit full-uniform-grid all-parameter sign threshold, parity-sensitive cotangent values and asymptotic gamma_N~N are natural and useful for positivity-preserving implementation and counterexamples to overly broad convergence-to-positivity interpretations. The result exactly solves a motivated univariate case without claiming the multivariate open problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
