@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The x-first and y-first matrices were explicitly derived. Both preserve strictly positive definite quadratic forms for 0<t<2. Their fair average squared-norm pullback equals (1+t^4/2)I, proving the exact all-n recursion. The full bias covariance transfer determinant at eigenvalue 1 equals -8p(1-p)t^6, so a real root exceeds one. A positive Perron eigenmatrix for the adjoint map is PD because the elliptic x-first matrix has no real invariant line, yielding an exponential lower bound for every nonzero initial state. Native symbolic/rational checker passed 136 assertions; infinite conclusions are analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General random matrix-product theory can provide qualitative growth under irreducibility/noncompactness; Zhang--Yu analyze fixed linear dynamical updates; Sebbouh--Cuturi--Peyré assume strong concavity and randomize one player update rather than both-order sweep"
+      ],
+      "reasoning": "Classical positive Lyapunov exponent results do not supply the fair exact expected squared-norm factor, the explicit covariance transfer determinant, or the proof from these actual algorithm updates without a nontrivial specialization. The strongest inspected optimization results concern different updates/metrics and do not imply this theorem.",
+      "searches": [
+        "randomly switching symplectic Euler adjoint methods harmonic oscillator stochastic instability energy growth",
+        "random products of elliptic symplectic matrices Furstenberg Lyapunov",
+        "arxiv:1908.05699 Sections 2--3 and appendices",
+        "arxiv:2111.13162 Section 3 Algorithm 2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1908.05699",
+      "https://arxiv.org/abs/2102.09468",
+      "https://arxiv.org/abs/2111.13162",
+      "https://arxiv.org/abs/2510.03855"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2102.09468 explicitly contrasts divergent simultaneous versus bounded fixed alternating GDA",
+        "arxiv:2111.13162 uses one coin toss to choose one descent or ascent update, and assumes strongly concave maximization",
+        "arxiv:2510.03855 proves ergodic convergence on different constrained deterministic settings"
+      ],
+      "reasoning": "Boundedness of each constant matrix product does not imply boundedness of random products, so fixed-order statements cannot dominate this result. The random single-player method and strongly-concave convergence theorems do not include the unregularized full-sweep orientation-switching process.",
+      "searches": [
+        "\"randomized Gauss Seidel\" \"bilinear game\" \"mean-square\" growth",
+        "arxiv:2102.09468 Section 1 and Alt-GDA discussion",
+        "arxiv:2111.13162 Sections 2--3",
+        "arxiv:2510.03855 published abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1908.05699 deterministic Gauss--Seidel update of bilinear game; arxiv:2102.09468 fixed Alt-GDA; arxiv:2111.13162 Algorithm 2 randomizes single-player update; arxiv:2510.03855 fixed alternation and ergodic guarantees"
+      ],
+      "reasoning": "Equivalent descriptions are random compositions of two adjoint symplectic-Euler shears, switching primal-first and dual-first full sweeps, or a symmetric Bernoulli product of two elliptic SL(2,R) matrices. The inspected full texts distinguish fixed ordering and randomized one-player updates from the present i.i.d complete-sweep orientation switching. No exact equivalent claim was located.",
+      "searches": [
+        "\"randomized order\" \"alternating\" \"gradient descent ascent\" bilinear divergence",
+        "\"random\" \"order\" \"alternating GDA\" bilinear games instability",
+        "\"symplectic Euler\" \"random order\" \"mean-square\" harmonic oscillator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhang--Yu Table 1 marks unregularized Gauss--Seidel GD as a limit cycle rather than a random-switching covariance calculation",
+        "Direct symbolic transfer has determinant −8p(1-p)t^6 and balanced growth 1+t^4/2, neither tabulated in inspected sources"
+      ],
+      "reasoning": "The cited deterministic stability table does not enumerate the stochastic 3x3 second-moment operator or per-sweep random orientations. No established table of the requested exact all-bias instability comparison was found; this is a coverage-risk assessment rather than a uniqueness proof.",
+      "searches": [
+        "randomized symplectic Euler harmonic oscillator mean square instability covariance",
+        "random order alternating gradient bilinear exact mean squared norm growth",
+        "arxiv:1908.05699 Tables 1--2 (Jacobi versus Gauss--Seidel)"
+      ]
+    },
+    "rationale": "Published deterministic alternating-sweep theorems and randomized single-coordinate methods do not give the all-bias quadratic moment instability of independently randomized complete sweep orientations; the exact balanced factor and strong all-initial conclusion are additional explicit results. Remaining risk is unpublished/unindexed work on random symplectic Euler products, and classical Furstenberg-type qualitative growth.",
+    "residual_risks": [
+      "Earlier specialist work on stochastic switching of adjoint symplectic-Euler maps may have derived this exact energy identity.",
+      "General random SL(2,R) product results imply some qualitative nonbounded behavior, but not the explicit complete-sweep minimax identity without specialization.",
+      "The full 2026 ICLR paper was too large for available primary PDF extraction; only its published and arXiv abstracts were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The materially inspected definitions/results and full-text term search provide no random full-sweep orientation result; the deterministic Gauss--Seidel setting is not equivalent.",
+        "evidence": [
+          "Section 2 GS vs Jacobi distinction; Table 1 says GD GS has limit cycle; no distributional second moment calculation of independently switched x-first/y-first full sweeps"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.05699",
+        "material_read": "Full primary PDF accessible; inspected the introduction, exact stability tables, Section 2 update definitions and selected appendix material (including Section C); searched complete extracted text for randomized-order terminology; visually inspected relevant PDF pages.",
+        "method": "Opened readable arXiv full PDF and inspected mathematical formulation, tables and update definitions",
+        "title": "Convergence of Gradient Methods on Bilinear Zero-Sum Games",
+        "trigger": "Same bilinear game and alternating Gauss--Seidel update, most relevant original paper"
+      },
+      {
+        "assessment": "NOT_COVERING; deterministic update, strongly convex--concave convergence and bilinear fixed-order boundedness",
+        "evidence": [
+          "Intro states simultaneous GDA diverges in bilinear game while alternating GDA remains bounded; does not randomize complete sweep orientation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.09468",
+        "material_read": "Accessible full arXiv HTML/text including introduction and main alternating-update analysis",
+        "method": "Examined source definitions and claimed convergence settings",
+        "title": "Near-optimal Local Convergence of Alternating Gradient Descent-Ascent for Minimax Optimization",
+        "trigger": "Same deterministic alternating GDA and explicit scalar bilinear baseline"
+      },
+      {
+        "assessment": "NOT_COVERING; random *single-player* updates and nonconvex--strongly-concave assumptions",
+        "evidence": [
+          "Section 3 lines 108--122: coin chooses one of descent/ascent with the other coordinate fixed, not two full sequential updates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.13162",
+        "material_read": "Full accessible arXiv textual content, in particular Section 3, Algorithm 2 and assumptions",
+        "method": "Compared actual random update semantics and hypotheses",
+        "title": "Randomized Stochastic Gradient Descent Ascent",
+        "trigger": "Randomized player update on minimax problems, most plausible name alias"
+      },
+      {
+        "assessment": "No exact covariance claim in accessible text; full-paper coverage not certified",
+        "evidence": [
+          "Published abstract establishes ergodic O(1/T) fixed alternation for constrained bilinear games; not a random full-sweep-order theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.03855",
+        "material_read": "Verified arXiv abstract and published ICLR 2026 abstract; full paper PDF request exceeded accessible retrieval limit",
+        "method": "Compared abstracts and stated deterministic ergodic versus mean-square random-order objectives",
+        "title": "On the O(1/T) Convergence of Alternating Gradient Descent--Ascent in Bilinear Games",
+        "trigger": "Recent bilinear Alt-GDA convergence, potential stronger result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "149fcb8a-5c56-42dd-89bb-9291b1ce19a2",
+  "value": {
+    "rationale": "The question whether randomizing an order of two individually elliptic, power-bounded bilinear optimization sweeps preserves the important stability property is natural, distinct from simultaneous gradient descent, and algorithmically consequential. The theorem identifies a sharp zero/random-switching frontier for every normalized step in (0,2) and gives the exact mean-square growth factor for unbiased choice. Its finite-dimensional certificate and explicitly delimited assumptions make it a reproducible benchmark.",
+    "status": "PASS"
+  }
+}
