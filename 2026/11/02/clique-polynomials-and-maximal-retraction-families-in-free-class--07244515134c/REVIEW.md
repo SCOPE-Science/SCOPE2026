@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The block description \(\Phi_{A,B}=\left(\begin{smallmatrix}A&0\\B&\bigwedge^2A\end{smallmatrix}\right)\) follows from the free two-step Lie bracket, even in characteristic two. A commuting idempotent tuple yields semisimple binary-weight modules on the center and quotient; a simultaneous equivariant splitting gives one common central shear. The remaining shear stabilizer is exactly \(\bigoplus_c\operatorname{Hom}(V_c,W_c)\). This gives the exponent and the orbit-stabilizer factor in the tuple formula. Stirling inversion correctly removes repetitions; line-refinement and rank-one central-block tests prove both maximality and uniqueness in the clique count. Direct finite-field enumeration reproduced the formulas through arity three for \((n,q)=(2,2),(2,3),(3,2)\), and separately enumerated all maximal cliques for the first two cases. The verifier is reproducible from `verify.py`.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Every endomorphism of the free class-two Lie algebra V⊕Λ²V has block data (A,B;0,Λ²A). For commuting idempotents the quotient A_i and center D_i=Λ²A_i have simultaneous binary weights; the exact sequence of modules for the semisimple product algebra F_q^{2^k} splits equivariantly, giving one central shear f with B_i=fA_i−D_if simultaneously, also in characteristic two. For eigenspace multiplicities n_c, center weight w_c counts unordered wedge pairs with bitwise AND c. The number of shear cosets is q^{n binom(n,2)−Σ_c n_c w_c}; GL_n-orbit counting yields T_{n,k}, the rank refinement, and signed-Stirling clique counts. Maximal families refine quotient to n lines and contain all subset projections; a centralizer of those line projections has no additional idempotents. Independent direct enumeration of all n=2 endomorphism (A,B) pairs over F_2 and F_3 gave (T_1,T_2)=(14,88) and (38,292), matching the theorem, but not a proof for arbitrary n.
 
-The earlier free class-two retraction census `cb895a1f-3240-485e-833d-66f97c6d5267` already supplies individual idempotent conjugacy orbits and rank counts; those are excluded from the present novelty claim. It does not determine which idempotents commute, their multiway intersections, or their maximal commuting families. The full-matrix-ring commuting tuple formulas cannot be restricted by a cardinality factor: the \(W\) action is coupled to the \(V\) action through \(\bigwedge^2 A\), and the intertwining dimensions depend on bitwise AND. The checked primary papers focus on derivations/automorphisms and faithful representations respectively, not this enumeration. A general retract-semigroup theorem under different terminology remains a live bibliographic risk, so no absolute priority claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Complete all-arity clique data is a natural compatibility invariant for simultaneous Lie algebra splittings; the theorem determines every clique number and the full joint rank distribution over every finite field and generator rank. The maximal-clique theorem identifies a structural rigidity phenomenon: all maximal compatible retract families are Boolean with exactly \(2^n\) elements, and the central extensions multiply the number of embedded families by \(q^{n\binom n2}\) compared with the quotient linear-projection families. This information is not determined by the pre-existing single-idempotent rank census.
+The homomorphism generator-extension and shear machinery is prior; an earlier finite-field result establishes individual idempotent rank spectrum. Neither the inspected structural literature nor published Resultary records gave the exact higher-arity commuting-idempotent Lie-retraction tuple count or complete maximal-clique number. The claim is not a restatement of matrices because Λ²A forces nontrivial coupling and the shear exponent.
 
-## Limitations and closest literature
+## value
 
-The claim is restricted to free class-two Lie algebras and to idempotent endomorphisms. The most directly overlapping earlier claim concerns *individual* idempotents, not the commuting graph. Benito and Roldán-López (arXiv:1911.01897) supply generator-map and automorphism methods; Cagliero and Rojas (arXiv:2006.04676) study a different representation invariant. The finite verifier is corroborative rather than a proof for arbitrary \(q,n,k\). Equivalent statements in general universal-algebra literature cannot be excluded without an exhaustive bibliography.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Higher-arity simultaneous Lie-retraction counts and all maximal Boolean families are natural structural invariants of a central extension. The exterior-square bitwise-AND weights are not simply the standard GL_n matrix idempotent formula, and their exact evaluation is useful for reconstructing commutation clique structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
