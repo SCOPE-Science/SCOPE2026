@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:09:56.895538Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite matroid M including loops/coloops and empty ground, a support S is VC-shattered by basis-incidence concepts iff S is independent in both M and dual M*: all-ones label requires inclusion in a basis, all-zeros a disjoint basis, and for any T subset S the spanning complement E\\S and basis-extension axiom realize exactly T. Edmonds intersection yields nu=min_A(2r(A)+|E\\A|-r(E)). For every e neither loop nor coloop, split the rank-minimum indexing family by e in A: nu(M\\e)=min_{A not containing e}F_M(A)-1 and nu(M/e)=min_{A containing e}F_M(A)-1, so nu(M)=1+min{nu(M\\e),nu(M/e)} for each legal root. The standard binary-tree Littlestone recurrence and induction prove Ldim=VCdim=nu and any nonconstant element optimal at root. I independently enumerated 340 binary-matrix matroid instances up to four columns, computed all basis concepts, exact dynamic Littlestone and VC, and checked eligible roots. Original verify.py (including seeded larger cases) was inspected; these checks are not exhaustive for nonrepresentable matroids.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their two-basis optimization with cardinality constraints reduces to weighted matroid intersection; no VC or adaptive shattering objective is formulated in inspected sections.",
+          "Concepts are zero sets of linear combinations, not arbitrary basis incidence vectors for nonrepresentable matroids; equality here does not follow as a corollary without an unspecified realization theorem.",
+          "Resultary semantic search: Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root; no directly equivalent indexed top hit observed among first 12, not a novelty proof"
+        ],
+        "reasoning": "General results about Littlestone dimensions of zero-set families, or hard arbitrary concept classes, cover different objects. The matroid-intersection min-max theorem exactly computes common independence but does not alone imply the universal optimal-root adaptive recursion.",
+        "searches": [
+          "Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root",
+          "arXiv:1907.04741v2",
+          "arXiv:2109.04805",
+          "arXiv:1705.09517"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md at cee6a8611931dc24cf27d27764642f895841c83e",
+        "Original package verifier source and independent finite check",
+        "Resultary semantic search: Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root",
+        "arXiv:1907.04741v2",
+        "arXiv:2109.04805",
+        "arXiv:1705.09517",
+        "arXiv:2310.04812",
+        "Edmonds matroid intersection min-max theorem",
+        "Resultary/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their two-basis optimization with cardinality constraints reduces to weighted matroid intersection; no VC or adaptive shattering objective is formulated in inspected sections.",
+          "Concepts are zero sets of linear combinations, not arbitrary basis incidence vectors for nonrepresentable matroids; equality here does not follow as a corollary without an unspecified realization theorem.",
+          "Resultary semantic search: Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root; no directly equivalent indexed top hit observed among first 12, not a novelty proof"
+        ],
+        "reasoning": "Edmonds gives the last equality as a classical algebraic optimization identity after VC characterization; the fresh substantive step is splitting min over sets containing e/not containing e and the Littlestone tree recursion, showing equality and every eligible root optimal. Existing base-intersection studies do not state this implication in the inspected material.",
+        "searches": [
+          "Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root",
+          "arXiv:1907.04741v2",
+          "arXiv:2109.04805",
+          "arXiv:1705.09517"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their two-basis optimization with cardinality constraints reduces to weighted matroid intersection; no VC or adaptive shattering objective is formulated in inspected sections.",
+          "Concepts are zero sets of linear combinations, not arbitrary basis incidence vectors for nonrepresentable matroids; equality here does not follow as a corollary without an unspecified realization theorem.",
+          "Resultary semantic search: Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root; no directly equivalent indexed top hit observed among first 12, not a novelty proof"
+        ],
+        "reasoning": "The concept family consists only of maximal independent subsets/bases, represented by element-membership bits; it is not the concept family of all independent sets, flat indicator sets or general matroid polytopes. VC shattering has common independence M∩M*, and online/Littlestone trees add adaptive queries; their equality is not tautological.",
+        "searches": [
+          "Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root",
+          "arXiv:1907.04741v2",
+          "arXiv:2109.04805",
+          "arXiv:1705.09517"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Their two-basis optimization with cardinality constraints reduces to weighted matroid intersection; no VC or adaptive shattering objective is formulated in inspected sections.",
+          "Concepts are zero sets of linear combinations, not arbitrary basis incidence vectors for nonrepresentable matroids; equality here does not follow as a corollary without an unspecified realization theorem.",
+          "Resultary semantic search: Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root; no directly equivalent indexed top hit observed among first 12, not a novelty proof"
+        ],
+        "reasoning": "Finite tables of binary-represented matroids, or graphic/uniform special cases, cannot by themselves establish all finite matroids, including nonrepresentable ones. The formula is all-rank/all-oracle and not a catalog of small examples.",
+        "searches": [
+          "Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root",
+          "arXiv:1907.04741v2",
+          "arXiv:2109.04805",
+          "arXiv:1705.09517"
+        ]
+      },
+      "rationale": "The substantive claimed result was compared at the level of mathematical objects, exact implications and limitations against same-family primary results, general theorems and Resultary; accepted as best-of-knowledge, with identified prior components and explicit residual risks, not an assertion of exhaustive historical priority.",
+      "residual_risks": [
+        "A general theorem on online dimension of matroid basis systems under another terminology could dominate; priority search is best-of-knowledge.",
+        "Only one-element membership queries are covered; no arbitrary independence-oracle query theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INTERSECTION_OPTIMIZATION_DIFFERENT_DIMENSION",
+          "evidence": "Their two-basis optimization with cardinality constraints reduces to weighted matroid intersection; no VC or adaptive shattering objective is formulated in inspected sections.",
+          "identifier_or_url": "arXiv:1907.04741v2",
+          "material_read": "Full arXiv 19-page PDF obtained; introduction, Section 2 and its Theorem 1 inspected in rendered pages; search for Littlestone returned no hit, not exhaustive full-document clearance",
+          "method": "lawful primary-source PDF or journal HTML inspection as stated",
+          "title": "Matroid Bases with Cardinality Constraints on the Intersection",
+          "trigger": "Same matroid base families and intersection min-max methods"
+        },
+        {
+          "assessment": "DIFFERENT_CONCEPT_FAMILY",
+          "evidence": "Concepts are zero sets of linear combinations, not arbitrary basis incidence vectors for nonrepresentable matroids; equality here does not follow as a corollary without an unspecified realization theorem.",
+          "identifier_or_url": "arXiv:2109.04805",
+          "material_read": "Search abstract and theorem description, full text not read in this execution",
+          "method": "lawful primary-source PDF or journal HTML inspection as stated",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Broad theorem with equality of the two dimensions could imply matroid basis family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adaptive shattering can generally exceed static VC dimension, so proving equality for *every* finite matroid basis family, an explicit matroid-intersection min formula and universal optimal-root freedom is a meaningful structural result with algorithmic consequences. The statement is not a mere renaming of Edmonds: it derives an online learning dimension invariant and a strong recursion for any nonconstant basis coordinate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md at cee6a8611931dc24cf27d27764642f895841c83e",
+    "Original package verifier source and independent finite check",
+    "Resultary semantic search: Littlestone dimension matroid bases concept class VC dimension common independent set dual universal optimal query root",
+    "arXiv:1907.04741v2",
+    "arXiv:2109.04805",
+    "arXiv:1705.09517",
+    "arXiv:2310.04812",
+    "Edmonds matroid intersection min-max theorem",
+    "Resultary/2026/10/11/SCOPE-sharp-minimum-sphere-bounds-for-matroid-independence-polytopes-d--8fea8c7015da"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite independently checked examples corroborate, not replace the all-parameter written mathematical proof. Originality is best-of-knowledge, and no independent formal/Lean or expert attestation has been invented. Publication withheld because original public metadata embeds confidential provenance.",
+  "residual_risks": [
+    "A general theorem on online dimension of matroid basis systems under another terminology could dominate; priority search is best-of-knowledge.",
+    "Only one-element membership queries are covered; no arbitrary independence-oracle query theorem."
+  ],
+  "schema_version": 1
+}

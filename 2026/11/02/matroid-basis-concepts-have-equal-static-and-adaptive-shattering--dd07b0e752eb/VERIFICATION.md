@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The unrestricted proof uses basis extension, dual-rank identity, Edmonds' matroid-intersection min-max theorem, and a deletion-contraction identity that agrees with the standard recursive definition of Littlestone dimension.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9+ and no third-party dependencies. The program checks 1,347 distinct binary represented matroids across small ground-set sizes, including loops and coloops, and a rank-five direct sum on ten elements. It calculates each dimension by a different finite definition and also tests optimality of every nonconstant first query. The observed output is embedded as `check_output.txt`; test observations were generated from the exact embedded source before acceptance.
+## correctness
 
-The program does not prove the theorem beyond its finite test domain. Generality is supplied by the written argument, especially the matroid-intersection identity. The uniqueness or publication priority of the theorem was not independently certified.
+PASS
+
+For any finite matroid M including loops/coloops and empty ground, a support S is VC-shattered by basis-incidence concepts iff S is independent in both M and dual M*: all-ones label requires inclusion in a basis, all-zeros a disjoint basis, and for any T subset S the spanning complement E\S and basis-extension axiom realize exactly T. Edmonds intersection yields nu=min_A(2r(A)+|E\A|-r(E)). For every e neither loop nor coloop, split the rank-minimum indexing family by e in A: nu(M\e)=min_{A not containing e}F_M(A)-1 and nu(M/e)=min_{A containing e}F_M(A)-1, so nu(M)=1+min{nu(M\e),nu(M/e)} for each legal root. The standard binary-tree Littlestone recurrence and induction prove Ldim=VCdim=nu and any nonconstant element optimal at root. I independently enumerated 340 binary-matrix matroid instances up to four columns, computed all basis concepts, exact dynamic Littlestone and VC, and checked eligible roots. Original verify.py (including seeded larger cases) was inspected; these checks are not exhaustive for nonrepresentable matroids.
+
+## originality
+
+PASS
+
+The substantive claimed result was compared at the level of mathematical objects, exact implications and limitations against same-family primary results, general theorems and Resultary; accepted as best-of-knowledge, with identified prior components and explicit residual risks, not an assertion of exhaustive historical priority.
+
+## value
+
+PASS
+
+Adaptive shattering can generally exceed static VC dimension, so proving equality for *every* finite matroid basis family, an explicit matroid-intersection min formula and universal optimal-root freedom is a meaningful structural result with algorithmic consequences. The statement is not a mere renaming of Edmonds: it derives an online learning dimension invariant and a strong recursion for any nonconstant basis coordinate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: matroid basis shattering
+# Independent mathematical audit
 
-**Correctness — PASS.** Shattered supports are exactly sets independent in both the matroid and its dual: basis extension proves sufficiency for every labeling. Edmonds' intersection min-max formula supplies the exact invariant. Direct computation of the two minors' rank formulas yields the deletion-contraction identity, making every nonconstant query an optimal root by induction. The code independently verifies the dimensions and root identity for 1,347 distinct small binary matroids plus a ten-element imbalanced example. Finite enumeration corroborates, but does not replace, the all-matroid proof.
+## correctness
 
-**Originality — PASS within the material compared.** Dedicated published-finding corpus and literature searches for matroid base shattering, common dual independence, Edmonds' formula, VC dimension and Littlestone dimension found no equal or dominating theorem. The principal matroid-bases primary source addresses cardinality constraints on intersections of two bases rather than shattering of a single basis family; the inspected general Littlestone paper lacks a matroid-basis theorem. Historical priority remains incompletely verified, especially in older matroidal set-system literature.
+PASS
 
-**Value — PASS.** A natural broad class has exactly equal static and adaptive shattering dimensions, characterized by a classical, polynomial-time-computable matroid intersection invariant. The every-eligible-root optimality property and precise contrast with rank/corank are structural features, not a routine recomputation of an isolated numerical example.
+For any finite matroid M including loops/coloops and empty ground, a support S is VC-shattered by basis-incidence concepts iff S is independent in both M and dual M*: all-ones label requires inclusion in a basis, all-zeros a disjoint basis, and for any T subset S the spanning complement E\S and basis-extension axiom realize exactly T. Edmonds intersection yields nu=min_A(2r(A)+|E\A|-r(E)). For every e neither loop nor coloop, split the rank-minimum indexing family by e in A: nu(M\e)=min_{A not containing e}F_M(A)-1 and nu(M/e)=min_{A containing e}F_M(A)-1, so nu(M)=1+min{nu(M\e),nu(M/e)} for each legal root. The standard binary-tree Littlestone recurrence and induction prove Ldim=VCdim=nu and any nonconstant element optimal at root. I independently enumerated 340 binary-matrix matroid instances up to four columns, computed all basis concepts, exact dynamic Littlestone and VC, and checked eligible roots. Original verify.py (including seeded larger cases) was inspected; these checks are not exhaustive for nonrepresentable matroids.
 
-**Closest literature and limitations.** Lendl–Peis–Timmermans (arXiv:1907.04741) studies constrained intersection of two matroid bases; Chase–Freitag–Reyzin (arXiv:2310.04812) develops general query-learning theory; Guingona et al. (arXiv:2109.04805) concerns zero sets; Manurangsi–Rubinstein (arXiv:1705.09517) treats computational hardness on general classes. No independent scientific audit or exhaustive older-literature comparison has been performed. The result is restricted to membership queries on matroid bases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The substantive claimed result was compared at the level of mathematical objects, exact implications and limitations against same-family primary results, general theorems and Resultary; accepted as best-of-knowledge, with identified prior components and explicit residual risks, not an assertion of exhaustive historical priority.
+
+## value
+
+PASS
+
+Adaptive shattering can generally exceed static VC dimension, so proving equality for *every* finite matroid basis family, an explicit matroid-intersection min formula and universal optimal-root freedom is a meaningful structural result with algorithmic consequences. The statement is not a mere renaming of Edmonds: it derives an online learning dimension invariant and a strong recursion for any nonconstant basis coordinate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
