@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:08:58.132486Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Standard interpolation-based variable-step BDF2 scalar decay transfer factors with s=lambda(h1+h2), r=h2/h1 and q=r+1/r>=2 give monodromy trace ((2-s)q+6)/B, determinant 1/B, B=(s+2)q+(s+2)^2+1. Direct symbolic multiplication independently reproduced both invariants. Strict quadratic Schur inequalities establish all fixed positive ratios are stable. Discriminant is (q+2)((s-2)^2 q-2(s^2+4s-4)); for s<=1 roots are real and positive spectral radius grows with q; for s>1, s!=2, conjugate-root modulus B^{-1/2} decreases to q*=2(s^2+4s-4)/(s-2)^2 then real larger modulus increases, giving exact global optimizer and reciprocal ratios. At s=2 all finite q have conjugate multipliers and rho=1/sqrt(4q+17) approaching zero only at unbounded q; sqrt(r)/2 rate for r->0. Independently verified symbolic traces/det, discriminant and Schur identities and multiple numerical optimum values; a tiny floating discriminant at an exact double root required a numerical tolerance, not evidence of mathematical error. Boundary s=1 optimal r=1; no claim about accuracy, transient norm or nonperiodic grids.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Liao 2022 proves arbitrary-mesh BDF2 stability using discrete orthogonal convolution kernels, without optimizing two-period spectral decay.",
+          "Other works concern error/stability for PDEs and zero stability on smooth grids, not fixed budget double-root Floquet rate."
+        ],
+        "reasoning": "Broader grid classes and stability bounds are weaker on the exact minimizer and do not logically furnish its phase transition.",
+        "searches": [
+          "arxiv:2201.00527 primary introductory theorem on arbitrary-grid stability",
+          "arxiv:2003.03534 abstract and PDE stability",
+          "Söderlind–Fekete–Faragó 2018 BIT smooth-grid zero stability abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md exact transfer and proof",
+        "Independent SymPy transfer-matrix identities and numerical sample minima",
+        "arxiv:2201.00527 original paper via readable mirror",
+        "arxiv:2003.03534 abstract",
+        "doi:10.1007/s10543-018-0716-y abstract",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical interpolation-based variable-step BDF2 recurrence is the inherited starting formula.",
+          "Two-period optimal spectral radius yields a repeated Floquet root at q*(s), but general stability does not select q or predict singular limit s=2."
+        ],
+        "reasoning": "The result adds a global scalar optimization with stability preserved even where no ratio-uniform finite-time accuracy is guaranteed.",
+        "searches": [
+          "arxiv:2201.00527 BDF2 formula (1.4) and main stability theorem",
+          "arxiv:2003.03534 abstract and scheme"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monodromy eigenvalues depend only on q=r+r^{-1} and s, permitting exact 1d spectral minimization.",
+          "Closest indexed two-periodic recurrence paper optimizes a different energy-norm residual-error operator over arbitrary complex coefficients."
+        ],
+        "reasoning": "Two-period Floquet terminology and companion products were compared; nearest indexed claims do not imply the exact same BDF2 fixed-budget optimization.",
+        "searches": [
+          "Resultary: two periodic variable step BDF2 scalar test equation Floquet spectral radius optimize alternating step ratio at fixed time",
+          "Li–Liao arxiv:2201.00527 BDF2 companion recurrence",
+          "Resultary 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned a repeated-root optimization for a different forward-reflected-backward scheme and a generic two-periodic ℓ2 energy norm, no BDF2 fixed-budget table.",
+          "No exact BDF2 q*(s) table was found in the inspected mathematical index."
+        ],
+        "reasoning": "Nonidentical mathematical objects and objectives; absent index hit cannot certify priority.",
+        "searches": [
+          "Resultary: two periodic variable step BDF2 scalar test equation Floquet spectral radius optimize alternating step ratio at fixed time",
+          "Resultary 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+          "Resultary 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe"
+        ]
+      },
+      "rationale": "The fixed-two-period, fixed-total-time spectral-radius optimum (including equal-step transition s=1 and unattained s=2 resonance) is not a direct corollary of general variable-step BDF2 stability theory. Related published exact two-periodic recurrences concern different operators or objectives.",
+      "residual_risks": [
+        "Unindexed classical Floquet/multistep literature may have identical two-period rational optimization.",
+        "Other two BDF2 sources compared principally by scope/abstract, not all full-text sections.",
+        "Spectral decay optimizer may have large transient and truncation errors; not a practical-step-size optimality theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_STABILITY; no exact q*(s) spectral-minimization theorem observed",
+          "evidence": "Proves BDF2 stability on arbitrary grids with DOC kernels and perturbation bounds.",
+          "identifier_or_url": "https://www.researchgate.net/publication/357553223_Stability_of_variable-step_BDF2_and_BDF3_methods",
+          "material_read": "OA mirrored full primary text introduction, discrete kernel setup, BDF2 formula and Theorem 2.1; searched for periodic Floquet optimization",
+          "method": "Read full-text web HTML text on accessible mirror, focused on introduction and theorem equations",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Primary variable-grid BDF2 stability could subsume special fixed-two-period result"
+        },
+        {
+          "assessment": "NOT_ESTABLISHED_COVERAGE; incomplete reading preserved",
+          "evidence": "Studies ratio-sensitive PDE stability and error estimates, not explicitly fixed-budget Floquet minimizer in accessible abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.03534",
+          "material_read": "Primary abstract and introductory scope only, not entire PDF",
+          "method": "Abstract lookup and bibliographic comparison",
+          "title": "Stability and error estimates for the variable step-size BDF2 method for linear and semilinear parabolic equations",
+          "trigger": "Potential step-ratio stability statement for BDF2"
+        },
+        {
+          "assessment": "INCOMPLETE_PRIMARY; likely different smooth-grid zero-stability parameter domain",
+          "evidence": "Analyzes smooth grid deformation rather than sharp scalar-decay two-period Floquet rate.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+          "material_read": "Bibliographic abstract and accessible description, no complete full text read",
+          "method": "Abstract-level scope comparison",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Stability of alternating nonuniform multistep grids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Fixed-total-period asymptotic damping is a motivated performance invariant for scalar BDF2 test-equation dynamics. A complete sharp ratio classification, coalescing Floquet critical point, and unattained zero-radius resonance exhibit a nontrivial qualitative transition between numerical stability and rate optimization. The result does not purport to optimize physical accuracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Negative-real scalar test equation only; strictly positive two-periodic steps of fixed total dimensionless sum.",
+    "Only asymptotic monodromy spectral radius, not transient operator norm or global accuracy.",
+    "At s=2 the optimizer is a singular limit, not a finite BDF2 schedule; at other optimal critical roots monodromy often defective."
+  ],
+  "schema_version": 1
+}

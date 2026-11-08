@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The variable BDF2 companion factors yield the stated rational trace and determinant exactly. Strict scalar Schur inequalities prove stability for each positive finite pair. The discriminant factorization and the root derivative prove the claimed complete optimizer for all positive budgets; symbolic identities, exact examples and independent spectral evaluations were replayed using `verify.py`. Numerical grids are supporting checks, not an exhaustive proof.
+## correctness
 
-## Originality — PASS (qualified)
-Compared equivalent two-step Floquet formulations against Li–Liao (2022) variable-grid stability, Wang–Mao–Wang (2020) PDE BDF2 estimates, Söderlind–Fekete–Faragó (2018) smooth-grid zero-stability, the accessible prior mathematical claims and actual mathematical index searches recorded in `AUDIT.json`. Their theorems do not state or imply the fixed-total-period sharp BDF2 spectral optimizer. Residual risk is an unindexed specialized Floquet calculation; no publication-priority guarantee is made.
+PASS
 
-## Value — PASS
-The exact fixed-time-budget optimization displays an equal-step-to-imbalanced-step transition, identifies a repeated-root best ratio, and proves a singular nonattained damping resonance. It makes a concrete distinction between stability, spectral rate, and finite-time accuracy in a widely used multistep method.
+PASS: Standard interpolation-based variable-step BDF2 scalar decay transfer factors with s=lambda(h1+h2), r=h2/h1 and q=r+1/r>=2 give monodromy trace ((2-s)q+6)/B, determinant 1/B, B=(s+2)q+(s+2)^2+1. Direct symbolic multiplication independently reproduced both invariants. Strict quadratic Schur inequalities establish all fixed positive ratios are stable. Discriminant is (q+2)((s-2)^2 q-2(s^2+4s-4)); for s<=1 roots are real and positive spectral radius grows with q; for s>1, s!=2, conjugate-root modulus B^{-1/2} decreases to q*=2(s^2+4s-4)/(s-2)^2 then real larger modulus increases, giving exact global optimizer and reciprocal ratios. At s=2 all finite q have conjugate multipliers and rho=1/sqrt(4q+17) approaching zero only at unbounded q; sqrt(r)/2 rate for r->0. Independently verified symbolic traces/det, discriminant and Schur identities and multiple numerical optimum values; a tiny floating discriminant at an exact double root required a numerical tolerance, not evidence of mathematical error. Boundary s=1 optimal r=1; no claim about accuracy, transient norm or nonperiodic grids.
 
-## Limits
-Only scalar decay, exact arithmetic, two-periodic strictly positive steps, and asymptotic two-period spectral radius are covered. Defective double roots and imbalanced grids can have unfavorable transient or truncation error; general PDE/stiff systems and nonperiodic grids are not optimized.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-two-period, fixed-total-time spectral-radius optimum (including equal-step transition s=1 and unattained s=2 resonance) is not a direct corollary of general variable-step BDF2 stability theory. Related published exact two-periodic recurrences concern different operators or objectives.
+
+## value
+
+PASS
+
+PASS: Fixed-total-period asymptotic damping is a motivated performance invariant for scalar BDF2 test-equation dynamics. A complete sharp ratio classification, coalescing Floquet critical point, and unattained zero-radius resonance exhibit a nontrivial qualitative transition between numerical stability and rate optimization. The result does not purport to optimize physical accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
