@@ -1,19 +1,21 @@
-# Scientific review: biased random majority on complete bipartite networks
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The state reduction is exact because all vertices in a part see the same other part. The even-time parts depend on disjoint sets of random coins, so their limiting colors are independent conditional on the fixed initial coloring. The first two-step update of a tied part gives the renewal equation \(u_*=C+D(A+Bu_*)\), and its companion for \(v_*\). Central binomial tie masses satisfy \(B,D\le1/2\), giving contraction \(BD\le1/4\), eventual absorption and the explicit uniform geometric tail. Product probabilities follow from the two independent limiting side colors. The central limit theorem yields the claimed critical scaling with opposite-side orientation. Eighty independent exact-rational absorbing-chain calculations (980 states) support, but do not substitute for, this infinite-family proof. Risks: the tail bound may be non-optimal; extension to other graph families is not established.
+PASS
 
-## Originality (PASS with residual priority uncertainty)
+The synchronous count transition on K_{a,b} is exactly a pair of independent conditional binomial kernels, with strict opposite-side majority giving all 0/all 1 and tie giving a binomial draw. At even times, each side depends on its own initial fixed state and disjoint alternating sets of tie coins; their eventual monochrome colors are independent. A tied U side restarts after two rounds with probability BD and has blue limit u*=(C+DA)/(1−BD); similarly v*=(A+BC)/(1−BD), where A,B use Bin(a,p_U) and C,D Bin(b,p_V). Since B,D<=1/2, BD<=1/4, extinction of both tie substates is a.s.; eventual class probabilities are uv,(1−u)(1−v),u(1−v)+(1−u)v. Union-geometric bound yields E[T]<=22/3; binomial CLT at p=1/2+lambda/sqrt(N) proves the claimed critical normal profile, provided both side sizes are even, initially tied, and a/N has interior limit. Independently solved an 11-transient-state small exact absorbing chain; no extrapolation from its finite size.
 
-The most relevant full-text source, A. N. Zehmakan's 2023 preprint and 2024 open journal version, contains fair-tie even-cycle outcome probabilities and the even-time independence argument. Those are expressly credited and not claimed as new. The source does not present a deterministic-initial-state exact formula for every biclique with two different tie probabilities, its uniform hitting bound or its Gaussian two-bias transition. The 2022 Lesfari–Giroire–Pérennes model selects one update at a time and favors an opinion even outside ties, so does not imply the statement. Search of available published research findings yielded static multipartite majority coloring and parity-automaton classifications, but no covering stochastic-majority result. Implication was checked by update rule, graph family, initial-condition type, parameter coverage and conclusion, not by title. Residual priority risk: an unindexed biclique-specific or interacting-particle result might already contain the formulas; this review does not establish unique historical priority.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The three-class hitting distribution is a complete exact classification for an infinite, natural two-community graph family, with two independently variable behavioral biases and arbitrary deterministic initial colors. It pinpoints a discontinuous macroscopic consensus-versus-polarization change when biases cross one-half, a nontrivial Gaussian finite-size scaling window and a universal expected transient bound. In contrast, general networks can exhibit exponentially long transients in the motivating work. These statements describe structural social-dynamics behavior rather than a routine finite special case.
+PASS with qualification. Zehmakan already studies random majority with fair tie coins, even cycles and blinking 2-cycles, including special product probabilities under random initial coloring. That special model is credited; it does not state the deterministic-initial unequal-community-bias biclique hitting law or its finite uniform time and critical window. Distinct asynchronous globally biased majority process also fails to dominate this transition law.
 
-## Verification boundaries
+## value
 
-Independent external proof audit and specialist-priority review have not been carried out. Mathematical generalizations beyond complete bipartite networks are unproved. All finite exact computations were reproduced from the standalone code and form corroboration only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact classification of recurrent polarization versus consensus and a size-independent absorption-time bound for synchronous social dynamics on biclique communities, plus an asymptotic critical-bias window, is a natural and nontrivial dynamical question rather than a routine single-step Markov matrix calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

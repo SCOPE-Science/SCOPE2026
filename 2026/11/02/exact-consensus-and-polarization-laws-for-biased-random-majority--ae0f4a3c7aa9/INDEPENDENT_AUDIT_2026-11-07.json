@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:46:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-consensus-and-polarization-laws-for-biased-random-majority--ae0f4a3c7aa9/RESULT.md",
+        "2026/11/02/exact-consensus-and-polarization-laws-for-biased-random-majority--ae0f4a3c7aa9/biclique_biased_verifier.py"
+      ],
+      "rationale": "The synchronous count transition on K_{a,b} is exactly a pair of independent conditional binomial kernels, with strict opposite-side majority giving all 0/all 1 and tie giving a binomial draw. At even times, each side depends on its own initial fixed state and disjoint alternating sets of tie coins; their eventual monochrome colors are independent. A tied U side restarts after two rounds with probability BD and has blue limit u*=(C+DA)/(1−BD); similarly v*=(A+BC)/(1−BD), where A,B use Bin(a,p_U) and C,D Bin(b,p_V). Since B,D<=1/2, BD<=1/4, extinction of both tie substates is a.s.; eventual class probabilities are uv,(1−u)(1−v),u(1−v)+(1−u)v. Union-geometric bound yields E[T]<=22/3; binomial CLT at p=1/2+lambda/sqrt(N) proves the claimed critical normal profile, provided both side sizes are even, initially tied, and a/N has interior limit. Independently solved an 11-transient-state small exact absorbing chain; no extrapolation from its finite size.",
+      "residual_risks": [
+        "Uniform 22/3 is an upper bound, not an equality or best constant.",
+        "Sidewise fixed biases and independent tie randomness are essential; updates are synchronous, neighbors only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General-graph stabilization examples can require exponential time rather than universal biclique O(1) bound.",
+          "Lesfari et al. update one node asynchronously and favor one global opinion outside exact ties."
+        ],
+        "reasoning": "Neither model provides the specific synchronous double-binomial absorption kernel; no accessible stronger general result identified.",
+        "searches": [
+          "Zehmakan 2024 full HTML Sec.2.1 and Sec.4.3",
+          "Lesfari–Giroire–Pérennes IJCAI 2022 asynchronous biased majority"
+        ]
+      },
+      "checked_sources": [
+        "published Resultary semantic query: synchronous biased tie majority opinion diffusion complete bipartite graphs consensus polarization exact absorption probability (12 inspected hits)",
+        "https://doi.org/10.1007/s10458-024-09651-y",
+        "https://arxiv.org/abs/2302.06760",
+        "https://doi.org/10.24963/ijcai.2022/54"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known two-sublattice independence explains product structure.",
+          "Unrestricted initial biclique states, side biases, geometric hitting bound and CLT require the extra two-step binomial recursion."
+        ],
+        "reasoning": "The new theorem specializes known independence while extending the objective to a different precise model; general fair-cycle results do not logically imply the claimed parameters.",
+        "searches": [
+          "Zehmakan 2024 Sec.4.3",
+          "Synchronous biclique binomial transitions in pinned RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biclique reduces to a 2-dimensional count Markov chain and independent even-time side colors.",
+          "Zehmakan even-cycle Corollary 4.3 has p²,(1−p)²,2p(1−p) with fair random tie choice under a random initial p-color model."
+        ],
+        "reasoning": "Identical algebraic product pattern does not make a cycle/rand-initial law imply arbitrary-size biclique/fixed-initial unequal-bias law, because the transition kernels differ.",
+        "searches": [
+          "published Resultary semantic query: synchronous biased tie majority opinion diffusion complete bipartite graphs consensus polarization exact absorption probability (12 inspected hits)",
+          "Zehmakan 2023 arXiv:2302.06760; 2024 majority tie-breaking paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published fair-tie even-cycle p² formula is acknowledged but depends on its different initial law.",
+          "No same side-size/bias binomial exact class table among 12 semantic hits."
+        ],
+        "reasoning": "The relevant table is an all-size rational function in both tie probabilities and initial majority categories, not a cycle expression copied with renamed parameters.",
+        "searches": [
+          "published Resultary semantic query: synchronous biased tie majority opinion diffusion complete bipartite graphs consensus polarization exact absorption probability (12 inspected hits)",
+          "Zehmakan 2024 Corollary 4.3 class probabilities"
+        ]
+      },
+      "rationale": "PASS with qualification. Zehmakan already studies random majority with fair tie coins, even cycles and blinking 2-cycles, including special product probabilities under random initial coloring. That special model is credited; it does not state the deterministic-initial unequal-community-bias biclique hitting law or its finite uniform time and critical window. Distinct asynchronous globally biased majority process also fails to dominate this transition law.",
+      "residual_risks": [
+        "Other biclique-specialized random majority analysis may be unindexed; no claim of definitive priority.",
+        "Full article details beyond inspected sections of secondary different-model work not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MECHANISM_PARTIAL_PRIOR",
+          "evidence": [
+            "Fair tie model on cycles yields class products for random initial opinions; distinct biclique parameters and unequal tie coins absent."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+          "material_read": "Full OA HTML, model definition and Section 4.3, Corollary 4.3",
+          "method": "Publisher OA HTML",
+          "title": "Majority opinion diffusion: when tie-breaking rule matters",
+          "trigger": "Nearest synchronous majority and three recurrent classes"
+        },
+        {
+          "assessment": "BASE_MODEL_PRIOR",
+          "evidence": [
+            "Introduces random majority diffusion and possible slow general graph stabilization; no direct all-size biclique exact law established from inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.06760",
+          "material_read": "Preprint metadata and referenced fair-tie model description",
+          "method": "Preprint abstract and compared 2024 full paper",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Source random majority dynamics"
+        },
+        {
+          "assessment": "DIFFERENT_ASYNCHRONOUS_MODEL",
+          "evidence": [
+            "Asynchronous selected update, not synchronous independently biased tie coins."
+          ],
+          "identifier_or_url": "https://doi.org/10.24963/ijcai.2022/54",
+          "material_read": "Proceedings abstract and method description only",
+          "method": "IJCAI official abstract",
+          "title": "Biased Majority Opinion Dynamics: Exploiting Graph k-domination",
+          "trigger": "Plausible biased majority alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-consensus-and-polarization-laws-for-biased-random-majority--ae0f4a3c7aa9/RESULT.md",
+        "2026/11/02/exact-consensus-and-polarization-laws-for-biased-random-majority--ae0f4a3c7aa9/biclique_biased_verifier.py",
+        "published Resultary semantic query: synchronous biased tie majority opinion diffusion complete bipartite graphs consensus polarization exact absorption probability (12 inspected hits)",
+        "https://doi.org/10.1007/s10458-024-09651-y"
+      ],
+      "rationale": "Exact classification of recurrent polarization versus consensus and a size-independent absorption-time bound for synchronous social dynamics on biclique communities, plus an asymptotic critical-bias window, is a natural and nontrivial dynamical question rather than a routine single-step Markov matrix calculation.",
+      "residual_risks": [
+        "Model-specific to complete bipartite topology; broad graph network behavior not implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform 22/3 is an upper bound, not an equality or best constant.",
+    "Sidewise fixed biases and independent tie randomness are essential; updates are synchronous, neighbors only.",
+    "Other biclique-specialized random majority analysis may be unindexed; no claim of definitive priority.",
+    "Full article details beyond inspected sections of secondary different-model work not determined.",
+    "Model-specific to complete bipartite topology; broad graph network behavior not implied."
+  ],
+  "schema_version": 1
+}
