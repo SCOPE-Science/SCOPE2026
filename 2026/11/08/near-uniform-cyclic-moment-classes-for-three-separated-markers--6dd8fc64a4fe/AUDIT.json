@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For h>=2 and n>=3h every indexed three-one word has exactly three marked initial markers; each marked representation consists of a position i and an ordered positive gap triple (a,b,c)>=h with sum n. The checksum is 3i+2a+b mod n, with exactly Q=binom(n-3h+2,2) gap triples. When 3 is invertible mod n each residue gets Q marked descriptions, hence Q/3 words. When 3 divides n there are three solutions for i exactly when 2a+b matches the residue mod 3, canceling the three markings. A primitive cubic root-of-unity evaluates the weighted composition generating function to 1/(1-z^3), yielding counts (Q+2)/3 and (Q-1)/3 in the respective mod-three classes. The boundary n=3h is included. The extracted standalone verifier independently enumerated 247 (n,h) pairs for n<=42 and passed; finitary tests are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng, Ferreira, Broere, ISIT 2010, doi:10.1109/ISIT.2010.5513415, public full author text https://www.researchgate.net/publication/221136979_Moment_Balancing_Templates_for_d_k_Constrained_Codes: §II defines (d,k) reduced run lengths, §II.B gives moment-syndrome distributions abstractly, §III develops moment-balancing templates; no exact every-residue cyclic weight-three formula.",
+        "Kulkarni and Kiyavash, arXiv:1211.3128v1, https://arxiv.org/abs/1211.3128: Abstract and constrained-source/run-length-limited discussion concern deletion-correcting code-size upper bounds, not fixed moment-bucket populations."
+      ],
+      "reasoning": "The 2010 paper has arbitrary (d,k) constraints and a moment generating polynomial as formal input; this is not an evaluation of that polynomial in the circular uniform-gap case. The 2012 paper gives bounds for deletion codes, which cannot imply the exact distribution without additional counting arguments. The present statement neither follows as a special case nor claims a stronger coding-theoretic result.",
+      "searches": [
+        "cyclic binary words with exactly three isolated ones no adjacent ones, position sum checksum modulo n distribution exact residue counts",
+        "moment-balance syndrome distribution fixed weight 3 binary circular run length limited words min spacing 2 n divisible 3 binomial coefficient",
+        "\"run-length limited\" \"syndrome\" \"cyclic\" \"three\"",
+        "doi:10.1109/ISIT.2010.5513415",
+        "arxiv:1211.3128"
+      ]
+    },
+    "checked_sources": [
+      "Cheng, Ferreira, Broere, ISIT 2010, doi:10.1109/ISIT.2010.5513415, public full author text https://www.researchgate.net/publication/221136979_Moment_Balancing_Templates_for_d_k_Constrained_Codes",
+      "Kulkarni and Kiyavash, arXiv:1211.3128v1, https://arxiv.org/abs/1211.3128",
+      "Chan, arXiv:1802.03507v1, https://arxiv.org/abs/1802.03507",
+      "Publisher metadata for ISIT 2010, June 13–18 2010, https://dblp.org/db/conf/isit/isit2010.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2010 source constructs moment-balancing templates rather than a checksum distribution for all feasible n,h.",
+        "The 2012 source bounds deletion-correcting code sizes; the exact n indexed syndrome counts are not implied by those inequalities.",
+        "The 2018 unrestricted necklace/subset-sum bijection has no circular minimum-distance constraint; it can at most speak directly to the excluded h=1 boundary.",
+        "A previous three-marker circular-palindrome result computes distinct palindromic factors as a function of zero gaps, not position-sum residue frequencies."
+      ],
+      "reasoning": "The claimed formula is an exact new statistic, not a routine restatement of a code bound, necklace total, or palindromic-complexity formula. None of the compared results fixes the distribution after imposing all three cyclic gaps >=h. The proof derives new weighted composition coefficients for that restriction.",
+      "searches": [
+        "cyclic binary words with exactly three isolated ones no adjacent ones, position sum checksum modulo n distribution exact residue counts",
+        "fixed-weight-3 independent sets in cycle graph vertex index sum modulo ring length near-uniform residue, 3-divisibility",
+        "moment-balance syndrome distribution fixed weight 3 binary circular run length limited words min spacing 2 n divisible 3 binomial coefficient",
+        "\"position sum\" \"minimum gap\" cyclic subsets modulo n",
+        "doi:10.1109/ISIT.2010.5513415",
+        "arxiv:1211.3128",
+        "arxiv:1802.03507"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A configuration of three markers at all circular gaps at least h is equivalently a size-three independent set of the (h-1)st power of an n-cycle; the checksum is the vertex-index sum modulo n.",
+        "The inspected run-length-limited and necklace sources do not provide a residue-by-residue formula for this weighted independent-set equivalence."
+      ],
+      "reasoning": "Rephrasing to cycle-power independent sets or three-pulse circular words changes no invariant. The searches compared that equivalent object and its modulo-n index-sum distribution, not just matching paper titles. No identical or stronger theorem was found.",
+      "searches": [
+        "fixed-weight-3 independent sets in cycle graph vertex index sum modulo ring length near-uniform residue, 3-divisibility",
+        "three marked sites cyclic minimum distance h position-index sum mod n nearly uniform by residue",
+        "cyclic independent sets size 3 of power of a cycle graph weighted vertex sum distribution n mod 3",
+        "\"sum\" \"independent triples\" \"cycle\" \"modulo\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chan, arXiv:1802.03507v1, https://arxiv.org/abs/1802.03507: The theorem relates unrestricted necklaces and bounded-multiplicity subset sums. It does not count three selected positions subject to pairwise cyclic spacing h>=2 in each residue.",
+        "No inspected published table enumerates the vector of n residue bucket counts for all n>=3h and h>=2."
+      ],
+      "reasoning": "Classical unrestricted fixed-weight subset-sum counts may subsume the h=1 boundary; that boundary is explicitly not claimed as new. Neither those unrestricted counts nor checked cyclic-word tables evaluate the h>=2 minimum-spacing restriction. A search result, even absent, cannot certify worldwide uniqueness.",
+      "searches": [
+        "Fibonacci necklaces circular no consecutive ones subset sum residue classes modulo cycle length",
+        "three pulses cyclic no adjacent one bits checksum residue distribution mod N",
+        "\"cyclic\" \"subset sum\" \"no adjacent\" residues",
+        "arxiv:1802.03507"
+      ]
+    },
+    "rationale": "The exact indexed cyclic weight-three constrained checksum distribution is not implied by the inspected 2010 moment-balancing template construction, 2012 constrained deletion-code bounds, or 2018 unrestricted necklace/subset-sum bijection. Existing related circular three-marker palindromic-factor counts concern a different invariant. The novelty claim is restricted to h>=2; historically published coverage may be incomplete, notably treatments of weighted independent sets on cycle powers.",
+    "residual_risks": [
+      "Specialized historical formulae for weighted independence polynomials of cycle powers may be poorly indexed under the moment/necklace terminology.",
+      "The public full-text source inspection does not amount to an exhaustive search across all regional or older combinatorics literature.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING_NOT_COVERING: develops templates for manipulating moments, not the exact cyclic indexed weight-three residue frequencies",
+        "evidence": [
+          "https://www.researchgate.net/publication/221136979_Moment_Balancing_Templates_for_d_k_Constrained_Codes",
+          "§II.B defines the general moment-distribution polynomial; §III concerns encoding templates rather than evaluating it for circular three-run constraints"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2010.5513415",
+        "material_read": "Public author-uploaded full text, abstract and §§I–IV with detailed §II (reduced run lengths and moments) and §III (template construction), accessible in full-page text",
+        "method": "Read the publicly accessible author text and checked claims, definitions, summations and applications for modulo-n circular weight-three enumeration",
+        "title": "Moment Balancing Templates for (d, k) Constrained Codes",
+        "trigger": "Direct match to run-length-constrained first-position moments"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_INSPECTED_MATERIAL: no moment-bucket vector or constraint-specific modulo-n root-of-unity evaluation",
+        "evidence": [
+          "https://arxiv.org/abs/1211.3128",
+          "arXiv first version dated 2012-11-13; description explicitly identifies LP bounds and RLL constraints"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+        "material_read": "Author abstract, introductory construction and constrained-source / run-length-limited application section, including definitions and bounds",
+        "method": "Compared the nature of the output (code-size inequalities) against the requested exact n-component moment distribution",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Run-length-limited code bounds potentially dominating a constrained checksum count"
+      },
+      {
+        "assessment": "RELATED_UNRESTRICTED_NOT_COVERING_H_GE_2: can cover the explicitly unclaimed unrestricted boundary, but not the constrained distribution as stated",
+        "evidence": [
+          "https://arxiv.org/abs/1802.03507",
+          "First version 2018-02-10; theorem states necklace/multiset correspondence, not a cycle-distance-restricted fixed-weight moment spectrum"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.03507",
+        "material_read": "Abstract, the defining multiset/necklace theorem and the stated combinatorial hypotheses and proof overview in the accessible full text",
+        "method": "Compared the absence of circular minimum-gap restrictions and the difference between a total necklace count and each indexed fixed-weight checksum count",
+        "title": "A bijection between necklaces and multisets with divisible subset sum",
+        "trigger": "Plausible stronger unrestricted modular subset-sum and necklace equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6dd8fc64-a4fe-44be-a851-17eaf4d22150",
+  "value": {
+    "rationale": "Constrained moment balance is a motivated quantity in synchronization-error coding research, already emphasized by Cheng et al. (2010). For the smallest three-marker circular sparse family and every nontrivial minimum cyclic spacing, the complete checksum class distribution has a sharp arithmetic two-regime law and integer-optimal discrepancy zero or one. This is a complete exact infinite-family count with actionable balanced-bucket sizes, rather than an arbitrary numerical example or an implication of a general code-size bound. It makes no unsupported claim of error-correction power.",
+    "status": "PASS"
+  }
+}
