@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-Run `python3 checker.py` in the directory containing `convex_certificate.json`. The checker is self-contained and uses only Python's standard library. It constructs the ten vertices of \(KG(5,2)\) as all two-subsets of a five-set and exactly reproduces the 15 edges from disjointness, checking degree three at each vertex.
+## correctness
 
-Two structurally distinct complete enumerations of all \(59049\) three-valued spin configurations produce identical counts for all 318 nonempty \((b,k,m)\) classes. The checker verifies the exact minimum bond energy in every one of the 36 nonnegative-magnetization occupancy sectors and all 36 rational convex-mixture witnesses. Each witness certifies a continuum lower bound in the anisotropy and field variables, not just a sampled point. The seven displayed branches have individually checked strict-exposure parameter witnesses and exact interior counts of 5, 20, 10, 5, 5, 1, and 1 configurations.
+PASS
 
-At the saturation junction the independently counted Petersen independence polynomial is \(1+10z+30z^2+30z^3+5z^4\). Insertion of \(z=1\) and \(z=2\) returns 76 and 461, as derived algebraically. Seven additional exact-rational critical-point degeneracies are reproduced. The text in `checker_output.txt` is the output of a successful replay.
+The 10 KG(5,2) vertices and 15 edges were reconstructed, and all 3^10=59,049 spin vectors were independently enumerated into 318 nonempty (b,k,m) triples. For all 36 nonnegative-magnetization (k,m) sectors, independently found nonnegative convex weights on the seven reference triples were rationalized and verified EXACTLY for equal occupied count, no larger bond cost, no smaller magnetization. This is a global all-real-r, nonnegative-u dual certificate, not sampling of parameter space. The independence polynomial 1+10z+30z²+30z³+5z⁴ was independently enumerated; I_P(2)=461 and I_P(1)=76. The on-site expansion in x=1-s and the nonnegative edge product establish precise saturation degeneracies, with r=0 boundary covered.
 
-The proof is restricted to a finite homogeneous classical Hamiltonian. No computer search proves priority over unseen publications, physical realization, thermodynamic-limit behavior, or external scientific certification. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. Petersen all-parameter envelope, not seven-branch count in itself.
+
+## value
+
+PASS
+
+The finite Petersen spin-one model is a canonical frustrated, homogeneous, graph-constrained system. Its exact all-parameter lower envelope, seven actual phases and the sharp 461-state triple junction resolve a motivated complete benchmark; the hard-core reduction alone is standard and is not the contribution. No thermodynamic-limit significance is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

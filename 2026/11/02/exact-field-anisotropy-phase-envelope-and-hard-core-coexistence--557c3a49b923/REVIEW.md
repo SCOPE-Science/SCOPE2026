@@ -1,19 +1,21 @@
-# Scientific review: Petersen spin-one field–anisotropy classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns precisely the finite ten-vertex Kneser graph \(KG(5,2)\), the three-valued spin Hamiltonian stated in `RESULT.md`, every real anisotropy \(r\), and every nonnegative field \(u\). The exact calculation was independently reconstructed from the graph's 15 disjoint-pair edges. Two enumerations of all \(3^{10}=59049\) configurations agree on each of 318 distinct \((b,k,m)\) triples. The 36-sector rational convex certificate provides an exact inequality valid for a continuum of \((r,u)\), not a finite sample of parameter points. Every displayed energy branch is witnessed by configurations and is strictly exposed on a nonempty open region. Its stated interior degeneracy is exact. The hard-core reduction is obtained algebraically by writing \(x_v=1-s_v\); at the junction, its independence-polynomial value is independently checked to be 461. Critical nodes are counted separately, rather than inferred incorrectly by adding generic multiplicities.
+## correctness
 
-Remaining correctness limitation: the phase diagram applies only to this homogeneous classical finite graph. No extrapolation to thermodynamic or quantum regimes is part of the proof.
+PASS
 
-## Originality — PASS on inspected evidence, provisional
-The closest older directly relevant Hamiltonian is Žukovič–Bobák (2013), arXiv:1309.3593. Its full four-page text treats a spin-one triangular-lattice antiferromagnet and explicitly reports seven ground-state families; neither the concept of a multi-plateau diagram nor the number seven is claimed as novel. The present model is instead the triangle-free Petersen cage \(KG(5,2)\), with a different exact seven-affine-function envelope and exact labeled multiplicities. Mohylna–Žukovič (2020), arXiv:2010.16287 / *Magnetochemistry* 6, 56, applies exact finite-cluster enumeration to a three-spin triangle and a seven-spin two-tetrahedron cluster; its accessible model section specifies those graphs and does not cover this ten-spin Hamiltonian. Ekiz–Yaraneri (2007) studies antiferromagnetic Blume–Capel magnetization on a Bethe lattice, not this finite graph; its full text was not inspected. Brouwer's Petersen graph reference supplies the canonical graph definition and independent-set structure, which are acknowledged as existing graph facts.
+The 10 KG(5,2) vertices and 15 edges were reconstructed, and all 3^10=59,049 spin vectors were independently enumerated into 318 nonempty (b,k,m) triples. For all 36 nonnegative-magnetization (k,m) sectors, independently found nonnegative convex weights on the seven reference triples were rationalized and verified EXACTLY for equal occupied count, no larger bond cost, no smaller magnetization. This is a global all-real-r, nonnegative-u dual certificate, not sampling of parameter space. The independence polynomial 1+10z+30z²+30z³+5z⁴ was independently enumerated; I_P(2)=461 and I_P(1)=76. The on-site expansion in x=1-s and the nonnegative edge product establish precise saturation degeneracies, with r=0 boundary covered.
 
-The assessed novelty is restricted to the **exact Petersen-specific complete phase envelope, its labeled phase counts, and its critical degeneracy in the coupled vacancy/down-spin realization**. Search results and their absence do not prove uniqueness. Full historical priority is a residual risk, especially for unindexed specialized finite-graph calculations. This was not independently audited.
+## originality
 
-## Mathematical value — PASS
-The Petersen graph is the unique ten-vertex cubic graph of girth five and a standard maximally symmetric, triangle-free frustrated network. Its exact field–anisotropy classification is a natural complete finite problem rather than an arbitrary spin subset or parameter slice. It sharply distinguishes same-magnetization phases with different occupied-site counts, provides five allowed generic normalized magnetic plateaus, and identifies the physically meaningful field-induced saturation/coexistence geometry. At the zero-anisotropy junction a 461-fold exact manifold is explained by a hard-core independence-polynomial identity, rather than just enumerated. These closed-form results give controlled finite-geometry benchmarks for frustrated spin-one calculations, without claiming material realization or bulk criticality.
+PASS
 
-## Evidence and limitations
-Exact source code, its 36 rational inequalities, and recorded replay output accompany the finding. Comparison sources are linked in `RESULT.md`. The most significant uncertainty is broader historical priority; correctness is finite and constructive, but no independent audit or experiment has been performed.
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. Petersen all-parameter envelope, not seven-branch count in itself.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The finite Petersen spin-one model is a canonical frustrated, homogeneous, graph-constrained system. Its exact all-parameter lower envelope, seven actual phases and the sharp 461-state triple junction resolve a motivated complete benchmark; the hard-core reduction alone is standard and is not the contribution. No thermodynamic-limit significance is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
