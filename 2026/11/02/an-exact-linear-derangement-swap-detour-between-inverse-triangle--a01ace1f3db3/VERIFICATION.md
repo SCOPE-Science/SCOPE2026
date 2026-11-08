@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and finite checks
+# Independent mathematical audit
 
-Run `python verify_crown_geodesic.py` and `python verify_crown_exhaustive.py` with Python 3 and no nonstandard dependencies. The first checks the displayed six- and ten-step local witnesses, all intermediate fixed-point restrictions and the relative cycle split/merge counts for \(k=2,\ldots,30\). The second directly enumerates perfect matchings and four-cycle flips for crown graphs with \(n\in\{3,4,5,6,9\}\), and performs exhaustive BFS from the distinguished source to target when \(n=3,6,9\). It confirms \(2\) isolated states for \(n=3\), \(265\) states at \(n=6\) and \(133496\) states at \(n=9\), with distances \(6\) and \(10\) at the latter two sizes.
+## correctness
 
-The full infinite-range result is established by the cycle-merger lower bound and composition of fixed small legal templates; no finite experiment is treated as an infinite proof. No independent external audit or expert review is asserted.
+PASS
+
+For n=3k (k>=2), perfect matchings in a crown graph are derangements; legal alternating four-cycle switches swap two positions without creating fixed points. With target tau=sigma^{-1}, relative permutation pi^{-1}tau changes by a transposition; its cycle count must increase from k to 3k, so length =2k+2m where m is number of cycle mergers. First use of an untouched forward 3-cycle must swap with a different block (every internal swap makes a fixed point), hence first interaction merges two distinct relative cycles; each merger can first touch at most two untouched blocks, proving m>=ceil(k/2). The explicit 6-move template on two 3-blocks and 10-move template on three blocks, then disjoint-block assembly, attain equality: distance 3k (even k), 3k+1 (odd k); k=1 is disconnected. Independently applied the given templates to all k=2..20 and checked no fixed points at any step, endpoints and move count, while the universal lower bound is structural and not merely computational.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.
+
+## value
+
+PASS
+
+Natural exact metric obstruction for local four-cycle reconfiguration of crown perfect matchings: the distance between explicit inverse products differs from the ambient transposition distance 2k by a linear, unbounded penalty. Gives a sharp witness family beyond previously known connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

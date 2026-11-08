@@ -1,11 +1,21 @@
-# Review of inverse-three-cycle derangement-swap geodesics
+# Independent mathematical audit
 
-**Correctness (PASS).** For a path from \(\sigma_k\) to \(\sigma_k^{-1}\), the relative permutation \(R=\pi^{-1}\tau\) starts with \(k\) cycles and ends with \(3k\). Each row transposition splits or merges one relative cycle, giving length \(2k+2m\) if there are \(m\) mergers. Each untouched original triple has its own relative three-cycle and cannot first be touched by an internal swap without creating a fixed point; its first cross-block touch must therefore be a merger. Since one merger first touches at most two triples, \(m\ge\lceil k/2\rceil\). Explicit, individually checked six-move and ten-move templates reverse two and three triples, achieving equality for even and odd \(k\). Independent exhaustive breadth-first computations at \(n=6,9\) corroborate the exact distances. No computational extrapolation is used as the general proof.
+## correctness
 
-**Originality (PASS, qualified).** This is the established derangement-transposition graph of Diaconis–Graham–Holmes and Jain, so the state graph, degree and connectivity facts are not new. Jain's 2021 full text addresses degrees, connectivity and spanning walks, not this exact inverse-three-cycle pair metric. The available Dyer–Jerrum–Müller paper addresses broad switching-chain classes, and Sun–Wang addresses excedance-polynomial actions. The claimed result is a new explicit infinite family whose added shortest-path cost is unbounded, not the observation that some short paths incur a detour. No equivalent formula was identified in the inspected sources; alternative-indexing and uninspected literature remain risks.
+PASS
 
-**Value (PASS).** Four-cycle flips are the basic local operation for changing perfect matchings. These natural inverse cycle-product endpoints demonstrate a sharp, scalable obstruction to geodesic routing under forbidden diagonal edges. The lower-bound argument identifies a nontrivial first-touch merging invariant and yields exact costs for infinitely many dimensions rather than a finite census or slight numerical improvement.
+For n=3k (k>=2), perfect matchings in a crown graph are derangements; legal alternating four-cycle switches swap two positions without creating fixed points. With target tau=sigma^{-1}, relative permutation pi^{-1}tau changes by a transposition; its cycle count must increase from k to 3k, so length =2k+2m where m is number of cycle mergers. First use of an untouched forward 3-cycle must swap with a different block (every internal swap makes a fixed point), hence first interaction merges two distinct relative cycles; each merger can first touch at most two untouched blocks, proving m>=ceil(k/2). The explicit 6-move template on two 3-blocks and 10-move template on three blocks, then disjoint-block assembly, attain equality: distance 3k (even k), 3k+1 (odd k); k=1 is disconnected. Independently applied the given templates to all k=2..20 and checked no fixed points at any step, endpoints and move count, while the universal lower bound is structural and not merely computational.
 
-**Limitations and closest literature.** This is a selected-pair theorem, not a diameter theorem. The graph was studied previously; this result isolates an exact linear discrepancy not covered by the inspected work. No claim of a comprehensive historical uniqueness proof or external verification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.
+
+## value
+
+PASS
+
+Natural exact metric obstruction for local four-cycle reconfiguration of crown perfect matchings: the distance between explicit inverse products differs from the ambient transposition distance 2k by a linear, unbounded penalty. Gives a sharp witness family beyond previously known connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

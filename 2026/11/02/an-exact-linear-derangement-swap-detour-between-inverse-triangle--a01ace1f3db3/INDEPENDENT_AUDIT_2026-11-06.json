@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:10:05.170161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=3k (k>=2), perfect matchings in a crown graph are derangements; legal alternating four-cycle switches swap two positions without creating fixed points. With target tau=sigma^{-1}, relative permutation pi^{-1}tau changes by a transposition; its cycle count must increase from k to 3k, so length =2k+2m where m is number of cycle mergers. First use of an untouched forward 3-cycle must swap with a different block (every internal swap makes a fixed point), hence first interaction merges two distinct relative cycles; each merger can first touch at most two untouched blocks, proving m>=ceil(k/2). The explicit 6-move template on two 3-blocks and 10-move template on three blocks, then disjoint-block assembly, attain equality: distance 3k (even k), 3k+1 (odd k); k=1 is disconnected. Independently applied the given templates to all k=2..20 and checked no fixed points at any step, endpoints and move count, while the universal lower bound is structural and not merely computational.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis et al. establish derangement graph connectivity for n>=4 and n=3 exception; a connectivity theorem does not fix selected-pair shortest paths.",
+          "Generic perfect-matching switch-chain bounds give graph-wide estimates, not the sharp inverse-three-cycle distance."
+        ],
+        "reasoning": "Connectivity, short spanning walks visiting every state, and degree/connectivity bounds are different graph invariants from the exact two-vertex geodesic formula. Jain full public paper Theorems 1–7 was examined, and its stated results concern connectivity, traversal and degree rather than this inverse-three-cycle source-target distance; residual unindexed alternative priority remains.",
+        "searches": [
+          "Diaconis–Graham–Holmes 2001 primary manuscript, p.17",
+          "Jain 2021 Transpositions in Derangements",
+          "Dyer–Jerrum–Müller arXiv:1501.07725"
+        ]
+      },
+      "checked_sources": [
+        "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf (Full PDF accessible; derangement transposition discussion on printed p.17 and surrounding context examined)",
+        "https://arxiv.org/abs/1501.07725 (Primary arXiv abstract and cited graph-family scope; no full theorem-by-theorem audit)",
+        "https://doi.org/10.13140/RG.2.2.35817.42088 (full public primary text inspected: Theorems 1–7)",
+        "Resultary semantic: derangement transposition graph crown graph inverse product three cycles geodesic exact distance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results determine when switches can connect derangements and discuss graph-class mixing/diameters; they do not count unavoidable first cross-block merges."
+        ],
+        "reasoning": "The new implication is the exact source-target distance, with lower bound tied to disjoint cycle blocks plus constructive optimal paths. It does not claim that graph connectivity is new.",
+        "searches": [
+          "Diaconis–Graham–Holmes (connectivity theorem)",
+          "Dyer–Jerrum–Müller arXiv:1501.07725"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The derangement-transposition graph is isomorphic to the alternating-four-cycle perfect-matching switch graph of the crown graph; this equivalence is prior knowledge."
+        ],
+        "reasoning": "The theorem treats a specified source-target metric, unlike general transposition Cayley-graph distances; forbidden positions cause the extra linear detour.",
+        "searches": [
+          "Resultary semantic: derangement transposition graph crown graph inverse product three cycles geodesic exact distance",
+          "Diaconis–Graham–Holmes, Statistical Problems Involving Permutations with Restricted Positions (p.17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No known all-k distance table for the inverse-three-cycle pair in retrieved published record hits.",
+          "The source computes n=6 and n=9 finite BFS; finite values alone cannot establish all-k novelty or the lower bound."
+        ],
+        "reasoning": "Small BFS graph tables, if previously compiled, would not automatically imply the all-k formula, but an earlier exact geodesic table would affect priority.",
+        "searches": [
+          "Resultary semantic: derangement transposition graph crown graph inverse product three cycles geodesic exact distance",
+          "Web: derangement transposition graph crown graph inverse product three cycles geodesic exact distance"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.",
+      "residual_risks": [
+        "Despite full reading of Jain Theorems 1–7, a differently indexed exact geodesic result elsewhere in derangement/reconfiguration literature may exist.",
+        "Claim only for inverse products of disjoint three-cycles, not graph diameter or arbitrary derangement pairs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Connectivity for n>=4 is prior; no selected inverse-three-cycle geodesic theorem identified in material inspected",
+          "evidence": "Derangement graph discussion and n=3 disconnected boundary",
+          "identifier_or_url": "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf",
+          "material_read": "Full PDF accessible; derangement transposition discussion on printed p.17 and surrounding context examined",
+          "method": "Read graph connectivity statement and move definitions",
+          "title": "Statistical Problems Involving Permutations with Restricted Positions",
+          "trigger": "Exact same forbidden diagonal/permutation switch state graph"
+        },
+        {
+          "assessment": "Generic switch-chain results do not establish exact named-pair distance from inspected abstract; further full-text reading remains a priority risk",
+          "evidence": "Abstract describes perfect-matching chain and graph-class analysis",
+          "identifier_or_url": "https://arxiv.org/abs/1501.07725",
+          "material_read": "Primary arXiv abstract and cited graph-family scope; no full theorem-by-theorem audit",
+          "method": "Compared admissible moves and general structural hypotheses",
+          "title": "On the Switch Markov Chain for Perfect Matchings",
+          "trigger": "Possible broader diameter theorem for matching switches"
+        },
+        {
+          "assessment": "Establishes connectivity, degrees, longest traversal/spanning walks, but not an exact inverse-three-cycle pair geodesic in its inspected theorems",
+          "evidence": "Theorem 1 connectivity; Theorems 3–4 shortest spanning walk; Theorems 5–7 min/max degree, vertex connectivity",
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.2.35817.42088",
+          "material_read": "Full text publicly rendered (21 pp), with definitions, Theorems 1–7, spanning-walk and connectivity sections inspected",
+          "method": "Compared same derangement graph, spanning-walk length, degree formulas, n>3 connectivity and special-pair geodesic question",
+          "title": "Transpositions in Derangements",
+          "trigger": "Exact same derangement-transposition graph under alpha(n) notation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural exact metric obstruction for local four-cycle reconfiguration of crown perfect matchings: the distance between explicit inverse products differs from the ambient transposition distance 2k by a linear, unbounded penalty. Gives a sharp witness family beyond previously known connectivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://fanchung.ucsd.edu/ron/papers/01_07_permutations.pdf (Full PDF accessible; derangement transposition discussion on printed p.17 and surrounding context examined)",
+    "https://arxiv.org/abs/1501.07725 (Primary arXiv abstract and cited graph-family scope; no full theorem-by-theorem audit)",
+    "https://doi.org/10.13140/RG.2.2.35817.42088 (full public primary text inspected: Theorems 1–7)",
+    "Resultary semantic: derangement transposition graph crown graph inverse product three cycles geodesic exact distance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Despite full reading of Jain Theorems 1–7, a differently indexed exact geodesic result elsewhere in derangement/reconfiguration literature may exist.",
+    "Claim only for inverse products of disjoint three-cycles, not graph diameter or arbitrary derangement pairs.",
+    "All source-tree and RESULT/verifier Git identities checked; finite checks do not substitute for all-size mathematical proof.",
+    "Publication withheld: original public-bound METADATA.json and AUDIT.json contain private scope_run_id; no sanitized replacement bytes staged."
+  ],
+  "schema_version": 1
+}
