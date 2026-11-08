@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:53:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Four-cycle Markov generator eigenvalues 0,-2a,-a±ia give Cov(1_{Z_t=0},1_{Z_0=0})=(1/8)e^{-a|t|}cos(a t)+(1/16)e^{-2a|t|}; its exact transform is S_H=a(w^4+3a^2w^2+6a^4)/(2(w^2+4a^2)(w^4+4a^4)). Conditional Poisson immigration/death gives S_Y=(beta/2+beta^2 S_H)/(gamma^2+w^2), retaining intrinsic shot noise. In x=(w/a)^2 the derivative is -b Q(x)/(2(g^2+x)^2(x+4)^2(x^2+4)^2); I symbolically and exactly recovered Q and Q(0)=256+96b-24b g^2. Every nonconstant Q coefficient is positive, hence the unique positive zero occurs iff gamma^2>4a^2+32a^3/(3beta). The explicit n=2,3 promoter spectra decrease; reversible generators have nonnegative Lorentzian sums. All boundary rates strictly positive; equality lies in the zero-peak branch. Finite rational derivative checks supplement exact proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Warren–Tănase-Nicola–ten Wolde Sections II–III compute general linear reaction-network power spectra and gene-expression examples.",
+          "Rieckh–Tkačik page 9 (Figure 7) studies three-state promoter cycling and information transmission, not homogeneous four-cycle stationary mRNA spectral shape.",
+          "Jia–Qian–Zhang abstract/Section 1 explicitly assumes a feedback loop and protein dynamics."
+        ],
+        "reasoning": "General resolvent methods can calculate examples but are not themselves a published full phase diagram for the specified generator. In particular, feedback/hybrid and information-theoretic objectives do not dominate this exact iff classification.",
+        "searches": [
+          "arxiv:q-bio/0512041 linear reaction spectra",
+          "arxiv:1307.8075 promoter multiple internal states",
+          "arxiv:1909.09769 hybrid oscillations feedback"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1307.8075 PDF p9 Fig7",
+        "arxiv:q-bio/0512041 Sec II-III",
+        "arxiv:1909.09769 abstract/intro",
+        "four state directed cyclic promoter stationary mRNA power spectrum positive frequency resonance feedback free"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 paper analyzes a three-state promoter cycling information-advantage architecture, whereas the reviewed model is a four-state cyclic Markov chain with one transcribing state and no feedback.",
+          "2005 exact linear-reaction spectral algebra and 2019 feedback model do not state the Q(0)<0 threshold."
+        ],
+        "reasoning": "Existing filtering/transforms provide methods but not the monoticity-of-Q spectral classification, requiring this direct four-state calculation.",
+        "searches": [
+          "Rieckh Tkačik promoter cycling 2013 Figure 7",
+          "Warren 2005 Eq 13 Eq 15 PSD",
+          "Jia Qian Zhang 2019 feedback gene oscillations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent condition is negativity of Q(0)=256+96b-24bg²; a cubic promoter switching spectrum can be represented as poles at -2a,-a±ia.",
+          "Resultary search returned unrelated Goodwin/repressilator oscillator findings with explicit feedback, not a one-active-state four-cycle spectrum."
+        ],
+        "reasoning": "A resonance threshold might be called spectral peaking, stochastic quasicycles or transfer-function shape. No found result gives identical rate inequality and uniqueness.",
+        "searches": [
+          "four state directed cyclic promoter stationary mRNA power spectrum positive frequency resonance feedback free",
+          "cyclic four state Markov-modulated immigration death positive frequency peak spectral derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-rate four-state peak boundary among published Resultary retrieved rows; closest involve oscillator variances with feedback or four-point Fourier operators."
+        ],
+        "reasoning": "A tabulated four-state spectrum could subsume the formula after a simple derivative, but no verified table was identified; absence of hits is not proof of priority.",
+        "searches": [
+          "four state directed cyclic promoter stationary mRNA power spectrum positive frequency resonance feedback free",
+          "four state promoter spectrum peak gamma beta transition spectral shape"
+        ]
+      },
+      "rationale": "Known general biochemical resolvent/spectrum methods and multistate-promoter mRNA filtering are credited. Full-text inspection of Rieckh–Tkačik identifies a three-state cycling information-transmission model, not this four-state mRNA peak phase boundary. Jia–Qian–Zhang treats feedback hybrid oscillations; Warren et al exact linear reaction networks. No retrieved result implies the stated iff four-state threshold and minimality, subject to older general-resolvent subsumption risk.",
+      "residual_risks": [
+        "A general Markov-modulated Poisson resolvent formula may already have been specialized to this four-cycle under an alternative promoter parameterization.",
+        "One 2021 cell-lineage spectral-method paper was not inspected in full; generic spectral formulas are not proof of novelty.",
+        "Claim covers only equal-rate unidirectional cycles, one active state, single-molecule production and first-order degradation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in inspected substantive model and aims; not a complete historical theorem survey",
+          "evidence": "Figure 7 shows three-state cycling with active states and measures information advantage, not four-state no-feedback mRNA PSD maximum or threshold.",
+          "identifier_or_url": "arxiv:1307.8075",
+          "material_read": "full primary PDF pages 1, 4 and 9, including cycling subsection and Figure 7; searched other article sections for spectrum",
+          "method": "arxiv PDF text and page screenshots",
+          "title": "Noise and information transmission in promoters with multiple internal states",
+          "trigger": "promoter cycling nearest biological parameter family"
+        },
+        {
+          "assessment": "general method prior, no identified specific four-cycle shape theorem",
+          "evidence": "Spectra follow frequency-dependent covariance resolvent; no inspected four-state directed promoter peak criterion.",
+          "identifier_or_url": "arxiv:q-bio/0512041",
+          "material_read": "full primary PDF Sections II and III and general Eqs (13),(15), with gene-expression examples",
+          "method": "arxiv PDF text and page screenshot",
+          "title": "Exact results for noise power spectra in linear biochemical reaction networks",
+          "trigger": "potential general exact spectra"
+        },
+        {
+          "assessment": "different physical generator and feedback condition",
+          "evidence": "Hybrid feedback oscillations do not entail sharp criterion in the feedback-free cyclic promoter.",
+          "identifier_or_url": "arxiv:1909.09769",
+          "material_read": "primary PDF abstract and introduction, including explicit feedback-loop assumption",
+          "method": "arxiv PDF text and page screenshot",
+          "title": "Exact power spectrum in a minimal hybrid model of stochastic gene expression oscillations",
+          "trigger": "nonmonotone spectra with an alternate biological mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact phase boundary for a measured stationary noise peak in a non-feedback four-state promoter is a motivated structural distinction from feedback-driven oscillations and from all reversible promoters. Unique peak and minimal equal-rate cycle size are more informative than a routine spectral rescaling; not a deterministic oscillation assertion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1307.8075 PDF p9 Fig7",
+    "arxiv:q-bio/0512041 Sec II-III",
+    "arxiv:1909.09769 abstract/intro",
+    "four state directed cyclic promoter stationary mRNA power spectrum positive frequency resonance feedback free"
+  ],
+  "disposition": "passed",
+  "final_claim": "Stationary mRNA power spectrum of a homogeneous directed four-state promoter with one active state has exactly one off-center positive peak iff gamma^2>4a^2+32a^3/(3beta); two/three-state directed cycles and finite reversible promoters have none.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Stationary two-sided covariance spectrum, not deterministic oscillatory dynamics.",
+    "No heterogeneous promoter or bursty transcription extension."
+  ]
+}
