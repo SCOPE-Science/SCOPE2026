@@ -1,15 +1,21 @@
-# Review of the characteristic-seven generalized Fermat Hasse stratum
+# Independent mathematical audit
 
-## Correctness
-PASS. Tame ramification gives genus \(10\). Local valuations at each finite branch and infinity give exactly ten regular eigendifferentials. Because \(7\equiv1\pmod3\), Cartier preserves their one-dimensional characters; exact coefficient extraction gives four units and pairs of the polynomials \(A,B,D\). The complete rank statement follows symbolically from pairwise coprimality and discriminant \(5\). The polynomial identity for the branch cross-ratio establishes one moduli point with a doubled Hasse divisor. Both independent coefficient-computation routes and all central polynomial identities were executed from the accompanying saved verifier.
+## correctness
 
-## Originality
-PASS under best-knowledge comparison, with residual historical priority uncertainty. Carvacho–Hidalgo–Quispe (arXiv:1507.02903, section 6.3) establish the genus-ten family and a quotient-Jacobian decomposition. Hidalgo (arXiv:1710.01349, section 5.4) provides general characteristic-positive Cartier formulas and differential bases; Martínez-Núñez (arXiv:2303.18056) provides a general quotient decomposition. Those are genuine precursors, and the new finding does not claim them. Their inspected results do not give the exact exceptional characteristic-seven parameter set, the single cross-ratio moduli class, or order-two Hasse vanishing. Targeted searches in accessible literature, published findings and historical research claims did not reveal an equivalent complete classification. The general operator method could in principle be specialized, and an unexamined older computation remains a priority risk.
+PASS
 
-## Value
-PASS. The natural one-dimensional moduli of these tame genus-ten covers has an exactly identified nonordinary locus. Its geometric uniqueness and double determinant multiplicity distinguish infinitesimal arithmetic degeneration from a mere isolated example. Rank eight is sharp and rank nine never occurs in the whole family, not simply among rational parameter samples.
+The tame (Z/3)^3 cover of P1 with four order-3 inertia branches has 2g-2=27(-2)+4*9*2=18 and g=10. Character-eigen differential local valuations show precisely ten one-dimensional holomorphic eigenspaces. As p=7≡1 mod3, Cartier preserves them; the seventh powers of Cartier scalars arise from the coefficient x^(6+7 deg h) in h f_a^(2j). Independent polynomial coefficient calculation modulo 7 reproduced all ten entries: four nowhere vanishing on λ∉{0,1}, and each quadratic A=λ²−λ−1, B=λ²+λ−1, D=λ²−3λ+1 appearing twice. A,B,D are separable, pairwise coprime, irreducible over F7, yielding Cartier rank/p-rank 10 off six F49 points, 8 on them, and a-number 0 or 2. Determinant equals λ^6(λ−1)^6 A²B²D². Independent exact polynomial arithmetic verified 256(λ²−λ+1)^3−4λ²(λ−1)²=4ABD mod 7; thus precisely one j_br=4 geometric unordered moduli point, with unramified anharmonic covering and order-two divisor. p-rank8 in genus10 leaves four nonordinary slopes; symmetry/integrality forces four 1/2 slopes. Full char7 algebraic statements use exact symbolic identities, not finite F7 sampling.
 
-## Limits
-Characteristic seven, type \((3,3)\), and the specified four-point covers only. Exact computer algebra independently checks finite polynomial identities, but there has been no independent external scientific audit or global publication-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized Fermat family, character basis, Cartier methods, and Jacobian decomposition are established. The inspected 2015 and 2023/2025 decomposition articles do not compute the precise characteristic-seven nonordinary Hasse determinant, one moduli j=4 locus, multiplicity two, or Newton stratum. The 2017/2020 character-basis paper supplies methods but not the ten target coefficients in its reviewed examples. Novelty qualified: a general Cartier theory may imply them through a nontrivial special calculation, and earlier small-characteristic tables could cover this specific locus.
+
+## value
+
+PASS
+
+The explicit genus-ten arithmetic family is classical, and complete classification of its ordinary/nonordinary parameters, a-number, Newton polygon and scheme-theoretic order-two Hasse divisor is a natural, independently useful invariant of the moduli family. Its exact six-point/one-unordered-configuration result is more than a textbook normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
