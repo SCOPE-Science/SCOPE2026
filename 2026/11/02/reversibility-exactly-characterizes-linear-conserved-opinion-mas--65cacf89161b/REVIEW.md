@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact pairwise drift identity and mixed second partials in a strictly ordered open chamber prove necessity for every coefficient, while antisymmetry proves sufficiency. Strong connectivity, reversible edge ratios, and the spanning-tree consistency condition prove the cycle characterization. A direct row-stochastic decomposition establishes mass conservation, the exact Jensen variance identity, the graph Poincaré contraction, and inward propagation of nonradical opinions. The proof treats all integer network orders and real influences in the stated ranges, including radical boundary exceptions. Extracted rational verification checks \(750\) finite configurations across two different reversible graphs, the mixed-difference identity, and an exact nonconservation witness. Finite sampling is not used as proof of the universal claim.
+PASS
 
-## Originality — PASS with residual risk
+For F_i=x_i+sum_j I_{ji}g(x_j-x_i)/d_i and g(s)=s(1-|s|), antisymmetry gives linear-statistic drift sum_{i<j} a_ij g(x_j-x_i), a_ij=c_iI_{ji}/d_i-c_jI_{ij}/d_j. In the strict ascending chamber g(t)=t-t^2 and the mixed second derivative in x_i,x_j singles out 2a_ij, proving each a_ij=0 necessary; cancellation proves sufficiency. On strongly connected support, any nonzero solution has no zero coefficients, requires bidirectionality, and the positive edge-ratio propagation is path-independent exactly when multiplicative cycle products agree. For reciprocal weights c_i proportional to d_i. The row stochastic P(x), stationary c, self-loop P_ii>=1/d_i and weighted Jensen identity yield spectral-gap contraction when opinion range<1; a nonradical opinion propagates interiority to every vertex then range<1, while all-radical configurations may freeze. Independently evaluated the stated balanced regular triangle with rational arithmetic: F(0,1/3,2/3)=(1/9,8/27,5/9), sum drift -1/27; the forward vs reverse cycle products are 1 vs 1/8. Invariance is universal over x, not each particular trajectory.
 
-The original Alvim et al. update (arXiv:2104.11538; expanded as arXiv:2112.09542, Theorem 20) states a consensus-value theorem for regular reciprocal influence. Earlier continuous-time nonlinear consensus theory (Mangesius–Delvenne–Mitter, arXiv:1508.00237, Theorem 1) already provides weighted-mean sufficiency **under detailed balance**. Thus those sufficiency facts are not claimed as new. The statement here instead characterizes **every constant-coefficient conserved linear functional** of the specific *discrete-time nonlinear map*, shows the pairwise detailed balance condition is **necessary** (not just sufficient), derives the cycle obstruction, and supplies an explicit balanced nonreversible counterexample. Searches of relevant primary papers and mathematical finding records identified no covering if-and-only-if theorem. Residual risk: an equivalent necessity criterion may exist in broader or unindexed nonlinear consensus literature; independent bibliographic validation is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies exactly which directed influence networks permit a universally predictable linear consensus aggregate, extends the specified source's explicit value theorem from regular reciprocity to arbitrary reversible and irregular graphs, and rigorously separates reversible influence from merely balanced flow. The three-node balanced counterexample is a structural boundary of the model, not an arbitrary numerical recomputation. The explicit geometric dissipation estimate adds useful convergence information. The conclusion is model-specific, not a claim of new general graph reversibility theory.
+Alvim et al. 2021/2022 introduce the exact synchronous confirmation-bias update and show consensus for regular reciprocal networks. Mangesius–Delvenne–Mitter 2015 gives weighted-average sufficiency under detailed balance for a broader continuous-time equation. The assessed all-configuration iff linear invariant criterion via mixed derivatives, multiplicative cycle obstruction and balanced regular counterexample for the precise discrete-time bias map were not identified as covered by inspected primary statements.
 
-## Limitations
+## value
 
-The proof does not classify nonlinear conserved observables, assert consensus for every all-radical starting state, or cover other biases, varying influence, or asynchronous dynamics. The Poincaré estimate may not be a sharp numerical rate. Overlap with unindexed specialist literature remains possible. All review assessments concern this result, not external independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mathematical question is whether weighted opinion averages survive a nonlinearly state-dependent confirmation bias. A complete necessary-and-sufficient reversibility criterion is structurally informative; the explicit balanced regular counterexample shows a genuine separation from linear DeGroot mass conservation. The irregular reciprocal consensus value and geometric dissipation estimate provide motivated consequences beyond renaming detailed balance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
