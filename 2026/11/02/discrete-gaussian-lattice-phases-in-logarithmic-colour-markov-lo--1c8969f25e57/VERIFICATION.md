@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundaries
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3.8 or newer (standard library only). Its exhaustive raw-structure test enumerates every unary assignment and every directed binary-edge assignment on domains of sizes 1 through 3 under one fixed, realizable, nonnegative-weight network. The resulting exact integer weights are compared to the closed binomial-quadratic factor for each colour count.
+## correctness
 
-The numerical tests evaluate the exact normalized mass function via log-gamma arithmetic for sizes 100, 1000, 10000 and 100000, at three positive interaction parameters. They independently compute the saddle from a bracketed numerical root solve, the theta approximation from a truncated rapidly convergent series and the saddle normalization factor. They output observed total variation and log-partition errors and finish with `ALL_CHECKS_OK` if their finite consistency checks hold.
+PASS
 
-These tests establish consistency only at their enumerated and numeric parameters. They cannot certify a total-variation limit, the uniformity in lattice phase, an exact identity for arbitrary domain size, any earlier-publication priority, or independent peer validation. The infinite theorem follows from the self-contained exact factorization, Stirling expansion and two-sided summable adjacent-ratio bounds in `RESULT.md`. Potential floating-point drift does not affect the mathematical argument.
+Summing each directed edge variable including loops in eight-weight two-predicate Markov logic network yields exact P(M_n=m) proportional to binom(n,m)c11^(m^2)c00^((n-m)^2)(c10*c01)^(m(n-m)). On boundary c10*c01=c00^2 and c11<c00 this becomes binom(n,m)exp(-a m^2), a>0. The Lambert saddle x=W(2an)/(2a) solves log(n/x)=2ax; Stirling local expansion at floor(x)+j yields exp(-a(j-theta)^2) with uniformly summable Gaussian tails from decreasing adjacent exact ratios, proving total-variation phase approximations and theta prefactor. Full phase subsequences follow x_{n+1}-x_n->0. Independently directly computed binomial distributions for n=200,1000,10000,100000 at a=.4,log2,1.5, checking decreasing TV and partition relative error, plus very large n x~95 asymptotic convergence; finite checks corroborate not prove limits. Colour reversal gives the dual boundary; claims do not extend off the exact critical surfaces.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the exact published model/theorem comparisons below do not establish an earlier dominating theorem for the narrow stated new remainder. Related prior methods and components explicitly credited; uninspected specialized literature risks remain.
+
+## value
+
+PASS
+
+Natural stochastic fluctuation refinement of a newly identified logarithmic minority regime: gives the order-one discrete-Gaussian law, all lattice phases, explicit theta oscillation and no single centered limit. These facts matter for inference about rare colours and exact partition asymptotics; coarse logarithmic concentration and standard Gaussian CLT cannot substitute for them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
