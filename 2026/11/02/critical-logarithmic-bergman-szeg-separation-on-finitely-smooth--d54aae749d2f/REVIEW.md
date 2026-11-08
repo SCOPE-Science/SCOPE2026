@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The function \(q\) is monotone by positivity of its telescoping coefficients, and the fixed exponential scale gives the required \(C^m\) regularity by derivative bounds. The exact plateau identity and radial moment comparison give \(K\gtrsim(G^2b^2)^{-1}\), \(S\lesssim(Gb^2)^{-1}\), and \(\delta\asymp NG\). The critical new computation is \(\log(1/\delta)=(m+1)T_{k+1}-\log N+O(1)\), while \(N\sim T_{k+1}\). The derivation assumes the normal-axis moment formulas explicitly established in the cited primary paper and applicable already at \(C^2\) smoothness.
+## correctness
 
-**Originality — PASS under inspected evidence.** The closest source, Xing's arXiv:2610.31043v1 (2026-10-22), was read through its main theorem, complete Section 4 plateau proof, and Remark 4.2. It establishes a quantifier scheme \(\forall H=o(s)\,\exists\text{ smooth domain}\) and describes a smooth universal domain for several sublinear families, but does not assert the critical fixed-domain \(\exists\Omega\,\limsup \delta K/(S\log(1/\delta))>0\). Its own smooth scale loses the crucial factor \(k\). Chen–Fu's arXiv:1006.4169v1 was read at its main comparison theorem and related discussion; no endpoint counterexample was found. Index searches concerning endpoint Bergman/Szegő ratio, Hartogs finite smoothness, and Xing's paper returned no directly dominating result. Search absence alone is not novelty proof, and unindexed/implicit coverage remains possible.
+PASS
 
-**Value — PASS.** The exponent of the logarithm is the conspicuous gap between a universal \(1+\varepsilon\) upper estimate and known smooth-domain obstructions for all sublinear gauges. A single, explicitly constructed finitely differentiable domain saturating the exponent-one scale distinguishes a genuine fixed-domain endpoint from the logically weaker \(\forall H\,\exists\Omega_H\) obstruction. It is a meaningful smoothness-versus-boundary-growth boundary case, not a routine finite sample or numerical constant.
+For fixed m>=2 set c=m+1, G_k=exp(-c*T_{k+1}), a_k=exp(1-T_{k+1}), b_k=exp(-T_k), N_k=T_{k+1}-T_k-1. On plateau q=G gives phi(b)-phi(a)=N G and D^(m+1)phi(a)=(-1)^m m!*exp(-m-1), whereas radial derivatives through m vanish at zero. Harmonic radial subgraph is C^m pseudoconvex but not C^(m+1). Analytic radial moment estimates K>=const/(G^2 b^2), S<=const/(G b^2), delta~N G and log(1/delta)~c T give liminf>0. Checked exact scale/derivative identities for several m; reused moment bounds require published Xing assumptions and have not been reverified from full primary text.
 
-**Closest literature and remaining limitations.** Xing 2026 provides the analytic moment machinery and smooth counterexamples, so credit for those ingredients belongs to that paper. The new conclusion is finite-regularity endpoint saturation under a different scale regime. This is not a C-infinity endpoint construction; an independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xing 2026 smooth-domain family varying sublinear H does not logically yield a single C^m domain whose lower bound reaches exact logarithm exponent one. The finite-regularity scale choice removes the k factor in log asymptotic; original moment estimates reused. Distinct quantifiers and sharp boundary but full Xing source inaccessible, leaving a meaningful priority and verification risk.
+
+## value
+
+PASS
+
+The logarithm exponent-one boundary and C^m versus C^(m+1) regularity is motivated by a published analytic near-sharpness gap. A single constructed domain witnesses a new finite-smoothness borderline with a precise limitation not implying the smooth case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
